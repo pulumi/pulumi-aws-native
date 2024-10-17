@@ -29,6 +29,14 @@ type ContainerGroupDefinition struct {
 	OperatingSystem ContainerGroupDefinitionOperatingSystemOutput `pulumi:"operatingSystem"`
 	// Specifies whether the container group includes replica or daemon containers.
 	SchedulingStrategy ContainerGroupDefinitionSchedulingStrategyPtrOutput `pulumi:"schedulingStrategy"`
+	// A specific ContainerGroupDefinition version to be updated
+	SourceVersionNumber pulumi.IntPtrOutput `pulumi:"sourceVersionNumber"`
+	// A string indicating ContainerGroupDefinition status.
+	Status ContainerGroupDefinitionStatusOutput `pulumi:"status"`
+	// A string indicating the reason for ContainerGroupDefinition status.
+	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+	// A collection of support container definitions that define the containers in this group.
+	SupportContainerDefinitions pulumi.ArrayOutput `pulumi:"supportContainerDefinitions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
@@ -106,6 +114,10 @@ type containerGroupDefinitionArgs struct {
 	OperatingSystem ContainerGroupDefinitionOperatingSystem `pulumi:"operatingSystem"`
 	// Specifies whether the container group includes replica or daemon containers.
 	SchedulingStrategy *ContainerGroupDefinitionSchedulingStrategy `pulumi:"schedulingStrategy"`
+	// A specific ContainerGroupDefinition version to be updated
+	SourceVersionNumber *int `pulumi:"sourceVersionNumber"`
+	// A collection of support container definitions that define the containers in this group.
+	SupportContainerDefinitions []interface{} `pulumi:"supportContainerDefinitions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
@@ -124,6 +136,10 @@ type ContainerGroupDefinitionArgs struct {
 	OperatingSystem ContainerGroupDefinitionOperatingSystemInput
 	// Specifies whether the container group includes replica or daemon containers.
 	SchedulingStrategy ContainerGroupDefinitionSchedulingStrategyPtrInput
+	// A specific ContainerGroupDefinition version to be updated
+	SourceVersionNumber pulumi.IntPtrInput
+	// A collection of support container definitions that define the containers in this group.
+	SupportContainerDefinitions pulumi.ArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
@@ -203,6 +219,26 @@ func (o ContainerGroupDefinitionOutput) SchedulingStrategy() ContainerGroupDefin
 	return o.ApplyT(func(v *ContainerGroupDefinition) ContainerGroupDefinitionSchedulingStrategyPtrOutput {
 		return v.SchedulingStrategy
 	}).(ContainerGroupDefinitionSchedulingStrategyPtrOutput)
+}
+
+// A specific ContainerGroupDefinition version to be updated
+func (o ContainerGroupDefinitionOutput) SourceVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinition) pulumi.IntPtrOutput { return v.SourceVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+// A string indicating ContainerGroupDefinition status.
+func (o ContainerGroupDefinitionOutput) Status() ContainerGroupDefinitionStatusOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinition) ContainerGroupDefinitionStatusOutput { return v.Status }).(ContainerGroupDefinitionStatusOutput)
+}
+
+// A string indicating the reason for ContainerGroupDefinition status.
+func (o ContainerGroupDefinitionOutput) StatusReason() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinition) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+// A collection of support container definitions that define the containers in this group.
+func (o ContainerGroupDefinitionOutput) SupportContainerDefinitions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinition) pulumi.ArrayOutput { return v.SupportContainerDefinitions }).(pulumi.ArrayOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

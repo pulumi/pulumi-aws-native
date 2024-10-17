@@ -114,6 +114,79 @@ export const ProfileType = {
  */
 export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
 
+export const ServerAs2Transport = {
+    Http: "HTTP",
+} as const;
+
+export type ServerAs2Transport = (typeof ServerAs2Transport)[keyof typeof ServerAs2Transport];
+
+export const ServerDirectoryListingOptimization = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether optimization to directory listing on S3 servers is used. Disabled by default for compatibility.
+ */
+export type ServerDirectoryListingOptimization = (typeof ServerDirectoryListingOptimization)[keyof typeof ServerDirectoryListingOptimization];
+
+export const ServerDomain = {
+    S3: "S3",
+    Efs: "EFS",
+} as const;
+
+export type ServerDomain = (typeof ServerDomain)[keyof typeof ServerDomain];
+
+export const ServerEndpointType = {
+    Public: "PUBLIC",
+    Vpc: "VPC",
+    VpcEndpoint: "VPC_ENDPOINT",
+} as const;
+
+export type ServerEndpointType = (typeof ServerEndpointType)[keyof typeof ServerEndpointType];
+
+export const ServerIdentityProviderType = {
+    ServiceManaged: "SERVICE_MANAGED",
+    ApiGateway: "API_GATEWAY",
+    AwsDirectoryService: "AWS_DIRECTORY_SERVICE",
+    AwsLambda: "AWS_LAMBDA",
+} as const;
+
+export type ServerIdentityProviderType = (typeof ServerIdentityProviderType)[keyof typeof ServerIdentityProviderType];
+
+export const ServerProtocol = {
+    Sftp: "SFTP",
+    Ftp: "FTP",
+    Ftps: "FTPS",
+    As2: "AS2",
+} as const;
+
+export type ServerProtocol = (typeof ServerProtocol)[keyof typeof ServerProtocol];
+
+export const ServerSetStatOption = {
+    Default: "DEFAULT",
+    EnableNoOp: "ENABLE_NO_OP",
+} as const;
+
+export type ServerSetStatOption = (typeof ServerSetStatOption)[keyof typeof ServerSetStatOption];
+
+export const ServerSftpAuthenticationMethods = {
+    Password: "PASSWORD",
+    PublicKey: "PUBLIC_KEY",
+    PublicKeyOrPassword: "PUBLIC_KEY_OR_PASSWORD",
+    PublicKeyAndPassword: "PUBLIC_KEY_AND_PASSWORD",
+} as const;
+
+export type ServerSftpAuthenticationMethods = (typeof ServerSftpAuthenticationMethods)[keyof typeof ServerSftpAuthenticationMethods];
+
+export const ServerTlsSessionResumptionMode = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+    Enforced: "ENFORCED",
+} as const;
+
+export type ServerTlsSessionResumptionMode = (typeof ServerTlsSessionResumptionMode)[keyof typeof ServerTlsSessionResumptionMode];
+
 export const WorkflowStepCopyStepDetailsPropertiesOverwriteExisting = {
     True: "TRUE",
     False: "FALSE",

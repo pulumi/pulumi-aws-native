@@ -2,6 +2,27 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AiPromptAiPromptApiFormat = {
+    AnthropicClaudeMessages: "ANTHROPIC_CLAUDE_MESSAGES",
+    AnthropicClaudeTextCompletions: "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",
+} as const;
+
+export type AiPromptAiPromptApiFormat = (typeof AiPromptAiPromptApiFormat)[keyof typeof AiPromptAiPromptApiFormat];
+
+export const AiPromptAiPromptTemplateType = {
+    Text: "TEXT",
+} as const;
+
+export type AiPromptAiPromptTemplateType = (typeof AiPromptAiPromptTemplateType)[keyof typeof AiPromptAiPromptTemplateType];
+
+export const AiPromptAiPromptType = {
+    AnswerGeneration: "ANSWER_GENERATION",
+    IntentLabelingGeneration: "INTENT_LABELING_GENERATION",
+    QueryReformulation: "QUERY_REFORMULATION",
+} as const;
+
+export type AiPromptAiPromptType = (typeof AiPromptAiPromptType)[keyof typeof AiPromptAiPromptType];
+
 export const AssistantAssociationAssociationType = {
     KnowledgeBase: "KNOWLEDGE_BASE",
 } as const;

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class VpnConnectionPhase1dhGroupNumbersRequestListValue
     {
+        /// <summary>
+        /// The Diffie-Hellmann group number.
+        /// </summary>
         public readonly int? Value;
 
         [OutputConstructor]

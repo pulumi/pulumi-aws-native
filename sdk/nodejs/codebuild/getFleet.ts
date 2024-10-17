@@ -34,8 +34,6 @@ export interface GetFleetResult {
      */
     readonly baseCapacity?: number;
     /**
-     * > Updating this field is not allowed for `MAC_ARM` . 
-     *
      * Information about the compute resources the compute fleet uses. Available values include:
      *
      * - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
@@ -60,8 +58,6 @@ export interface GetFleetResult {
      */
     readonly computeType?: enums.codebuild.FleetComputeType;
     /**
-     * > Updating this field is not allowed for `MAC_ARM` . 
-     *
      * The environment type of the compute fleet.
      *
      * - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -78,14 +74,10 @@ export interface GetFleetResult {
      */
     readonly fleetServiceRole?: string;
     /**
-     * > Updating this field is not allowed for `MAC_ARM` . 
-     *
      * Information about the VPC configuration that AWS CodeBuild accesses.
      */
     readonly fleetVpcConfig?: outputs.codebuild.FleetVpcConfig;
     /**
-     * > Updating this field is not allowed for `MAC_ARM` . 
-     *
      * The Amazon Machine Image (AMI) of the compute fleet.
      */
     readonly imageId?: string;

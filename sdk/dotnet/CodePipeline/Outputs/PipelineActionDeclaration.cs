@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// </summary>
         public readonly Outputs.PipelineActionTypeId ActionTypeId;
         /// <summary>
+        /// The shell commands to run with your compute action in CodePipeline.
+        /// </summary>
+        public readonly ImmutableArray<string> Commands;
+        /// <summary>
         /// The action's configuration. These are key-value pairs that specify input values for an action.
         /// </summary>
         public readonly object? Configuration;
@@ -43,6 +47,10 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipelineOutputArtifact> OutputArtifacts;
         /// <summary>
+        /// The list of variables that are to be exported from the compute action.
+        /// </summary>
+        public readonly ImmutableArray<string> OutputVariables;
+        /// <summary>
         /// The action declaration's AWS Region, such as us-east-1.
         /// </summary>
         public readonly string? Region;
@@ -63,6 +71,8 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         private PipelineActionDeclaration(
             Outputs.PipelineActionTypeId actionTypeId,
 
+            ImmutableArray<string> commands,
+
             object? configuration,
 
             ImmutableArray<Outputs.PipelineInputArtifact> inputArtifacts,
@@ -73,6 +83,8 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
 
             ImmutableArray<Outputs.PipelineOutputArtifact> outputArtifacts,
 
+            ImmutableArray<string> outputVariables,
+
             string? region,
 
             string? roleArn,
@@ -82,11 +94,13 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
             int? timeoutInMinutes)
         {
             ActionTypeId = actionTypeId;
+            Commands = commands;
             Configuration = configuration;
             InputArtifacts = inputArtifacts;
             Name = name;
             Namespace = @namespace;
             OutputArtifacts = outputArtifacts;
+            OutputVariables = outputVariables;
             Region = region;
             RoleArn = roleArn;
             RunOrder = runOrder;

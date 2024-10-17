@@ -817,6 +817,11 @@ export const VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat = {
     Text: "text",
 } as const;
 
+/**
+ * Set log format. Default format is `json` .
+ *
+ * Valid values: `json` | `text`
+ */
 export type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat = (typeof VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat)[keyof typeof VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat];
 
 export const VpnConnectionIkeVersionsRequestListValueValue = {
@@ -824,6 +829,9 @@ export const VpnConnectionIkeVersionsRequestListValueValue = {
     Ikev2: "ikev2",
 } as const;
 
+/**
+ * The IKE version.
+ */
 export type VpnConnectionIkeVersionsRequestListValueValue = (typeof VpnConnectionIkeVersionsRequestListValueValue)[keyof typeof VpnConnectionIkeVersionsRequestListValueValue];
 
 export const VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue = {
@@ -833,6 +841,9 @@ export const VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue = {
     Aes256Gcm16: "AES256-GCM-16",
 } as const;
 
+/**
+ * The value for the encryption algorithm.
+ */
 export type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue];
 
 export const VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue = {
@@ -842,6 +853,9 @@ export const VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue = {
     Sha2512: "SHA2-512",
 } as const;
 
+/**
+ * The value for the integrity algorithm.
+ */
 export type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue];
 
 export const VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue = {
@@ -851,6 +865,9 @@ export const VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue = {
     Aes256Gcm16: "AES256-GCM-16",
 } as const;
 
+/**
+ * The encryption algorithm.
+ */
 export type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue];
 
 export const VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue = {
@@ -860,6 +877,9 @@ export const VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue = {
     Sha2512: "SHA2-512",
 } as const;
 
+/**
+ * The integrity algorithm.
+ */
 export type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue = (typeof VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue)[keyof typeof VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue];
 
 export const VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = {
@@ -868,6 +888,13 @@ export const VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = {
     Restart: "restart",
 } as const;
 
+/**
+ * The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
+ *
+ * Valid Values: `clear` | `none` | `restart`
+ *
+ * Default: `clear`
+ */
 export type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction = (typeof VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction)[keyof typeof VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction];
 
 export const VpnConnectionVpnTunnelOptionsSpecificationStartupAction = {
@@ -875,4 +902,11 @@ export const VpnConnectionVpnTunnelOptionsSpecificationStartupAction = {
     Start: "start",
 } as const;
 
+/**
+ * The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
+ *
+ * Valid Values: `add` | `start`
+ *
+ * Default: `add`
+ */
 export type VpnConnectionVpnTunnelOptionsSpecificationStartupAction = (typeof VpnConnectionVpnTunnelOptionsSpecificationStartupAction)[keyof typeof VpnConnectionVpnTunnelOptionsSpecificationStartupAction];

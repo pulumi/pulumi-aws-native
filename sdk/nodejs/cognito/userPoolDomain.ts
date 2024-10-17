@@ -50,13 +50,13 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public readonly customDomainConfig!: pulumi.Output<outputs.cognito.UserPoolDomainCustomDomainConfigType | undefined>;
     /**
-     * The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+     * The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
      *
      * This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
      */
     public readonly domain!: pulumi.Output<string>;
     /**
-     * The user pool ID for the user pool where you want to associate a user pool domain.
+     * The ID of the user pool that is associated with the custom domain whose certificate you're updating.
      */
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -105,13 +105,13 @@ export interface UserPoolDomainArgs {
      */
     customDomainConfig?: pulumi.Input<inputs.cognito.UserPoolDomainCustomDomainConfigTypeArgs>;
     /**
-     * The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
+     * The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
      *
      * This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
      */
     domain: pulumi.Input<string>;
     /**
-     * The user pool ID for the user pool where you want to associate a user pool domain.
+     * The ID of the user pool that is associated with the custom domain whose certificate you're updating.
      */
     userPoolId: pulumi.Input<string>;
 }

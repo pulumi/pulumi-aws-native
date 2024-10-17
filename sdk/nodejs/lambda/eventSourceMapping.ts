@@ -172,8 +172,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
     public readonly startingPositionTimestamp!: pulumi.Output<number | undefined>;
     /**
      * A list of tags to add to the event source mapping.
-     *
-     * > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+     *   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -385,8 +384,7 @@ export interface EventSourceMappingArgs {
     startingPositionTimestamp?: pulumi.Input<number>;
     /**
      * A list of tags to add to the event source mapping.
-     *
-     * > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+     *   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

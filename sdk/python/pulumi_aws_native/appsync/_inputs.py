@@ -16,6 +16,28 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DataSourceAuthorizationConfigArgs',
+    'DataSourceAuthorizationConfigArgsDict',
+    'DataSourceAwsIamConfigArgs',
+    'DataSourceAwsIamConfigArgsDict',
+    'DataSourceDeltaSyncConfigArgs',
+    'DataSourceDeltaSyncConfigArgsDict',
+    'DataSourceDynamoDbConfigArgs',
+    'DataSourceDynamoDbConfigArgsDict',
+    'DataSourceElasticsearchConfigArgs',
+    'DataSourceElasticsearchConfigArgsDict',
+    'DataSourceEventBridgeConfigArgs',
+    'DataSourceEventBridgeConfigArgsDict',
+    'DataSourceHttpConfigArgs',
+    'DataSourceHttpConfigArgsDict',
+    'DataSourceLambdaConfigArgs',
+    'DataSourceLambdaConfigArgsDict',
+    'DataSourceOpenSearchServiceConfigArgs',
+    'DataSourceOpenSearchServiceConfigArgsDict',
+    'DataSourceRdsHttpEndpointConfigArgs',
+    'DataSourceRdsHttpEndpointConfigArgsDict',
+    'DataSourceRelationalDatabaseConfigArgs',
+    'DataSourceRelationalDatabaseConfigArgsDict',
     'FunctionConfigurationAppSyncRuntimeArgs',
     'FunctionConfigurationAppSyncRuntimeArgsDict',
     'FunctionConfigurationLambdaConflictHandlerConfigArgs',
@@ -37,6 +59,661 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class DataSourceAuthorizationConfigArgsDict(TypedDict):
+        authorization_type: pulumi.Input[str]
+        """
+        The authorization type that the HTTP endpoint requires.
+        """
+        aws_iam_config: NotRequired[pulumi.Input['DataSourceAwsIamConfigArgsDict']]
+        """
+        The AWS Identity and Access Management settings.
+        """
+elif False:
+    DataSourceAuthorizationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 authorization_type: pulumi.Input[str],
+                 aws_iam_config: Optional[pulumi.Input['DataSourceAwsIamConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] authorization_type: The authorization type that the HTTP endpoint requires.
+        :param pulumi.Input['DataSourceAwsIamConfigArgs'] aws_iam_config: The AWS Identity and Access Management settings.
+        """
+        pulumi.set(__self__, "authorization_type", authorization_type)
+        if aws_iam_config is not None:
+            pulumi.set(__self__, "aws_iam_config", aws_iam_config)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> pulumi.Input[str]:
+        """
+        The authorization type that the HTTP endpoint requires.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @authorization_type.setter
+    def authorization_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorization_type", value)
+
+    @property
+    @pulumi.getter(name="awsIamConfig")
+    def aws_iam_config(self) -> Optional[pulumi.Input['DataSourceAwsIamConfigArgs']]:
+        """
+        The AWS Identity and Access Management settings.
+        """
+        return pulumi.get(self, "aws_iam_config")
+
+    @aws_iam_config.setter
+    def aws_iam_config(self, value: Optional[pulumi.Input['DataSourceAwsIamConfigArgs']]):
+        pulumi.set(self, "aws_iam_config", value)
+
+
+if not MYPY:
+    class DataSourceAwsIamConfigArgsDict(TypedDict):
+        signing_region: NotRequired[pulumi.Input[str]]
+        """
+        The signing Region for AWS Identity and Access Management authorization.
+        """
+        signing_service_name: NotRequired[pulumi.Input[str]]
+        """
+        The signing service name for AWS Identity and Access Management authorization.
+        """
+elif False:
+    DataSourceAwsIamConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceAwsIamConfigArgs:
+    def __init__(__self__, *,
+                 signing_region: Optional[pulumi.Input[str]] = None,
+                 signing_service_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] signing_region: The signing Region for AWS Identity and Access Management authorization.
+        :param pulumi.Input[str] signing_service_name: The signing service name for AWS Identity and Access Management authorization.
+        """
+        if signing_region is not None:
+            pulumi.set(__self__, "signing_region", signing_region)
+        if signing_service_name is not None:
+            pulumi.set(__self__, "signing_service_name", signing_service_name)
+
+    @property
+    @pulumi.getter(name="signingRegion")
+    def signing_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The signing Region for AWS Identity and Access Management authorization.
+        """
+        return pulumi.get(self, "signing_region")
+
+    @signing_region.setter
+    def signing_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_region", value)
+
+    @property
+    @pulumi.getter(name="signingServiceName")
+    def signing_service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The signing service name for AWS Identity and Access Management authorization.
+        """
+        return pulumi.get(self, "signing_service_name")
+
+    @signing_service_name.setter
+    def signing_service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "signing_service_name", value)
+
+
+if not MYPY:
+    class DataSourceDeltaSyncConfigArgsDict(TypedDict):
+        base_table_ttl: pulumi.Input[str]
+        """
+        The number of minutes that an Item is stored in the data source.
+        """
+        delta_sync_table_name: pulumi.Input[str]
+        """
+        The Delta Sync table name.
+        """
+        delta_sync_table_ttl: pulumi.Input[str]
+        """
+        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
+elif False:
+    DataSourceDeltaSyncConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceDeltaSyncConfigArgs:
+    def __init__(__self__, *,
+                 base_table_ttl: pulumi.Input[str],
+                 delta_sync_table_name: pulumi.Input[str],
+                 delta_sync_table_ttl: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] base_table_ttl: The number of minutes that an Item is stored in the data source.
+        :param pulumi.Input[str] delta_sync_table_name: The Delta Sync table name.
+        :param pulumi.Input[str] delta_sync_table_ttl: The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
+        pulumi.set(__self__, "base_table_ttl", base_table_ttl)
+        pulumi.set(__self__, "delta_sync_table_name", delta_sync_table_name)
+        pulumi.set(__self__, "delta_sync_table_ttl", delta_sync_table_ttl)
+
+    @property
+    @pulumi.getter(name="baseTableTtl")
+    def base_table_ttl(self) -> pulumi.Input[str]:
+        """
+        The number of minutes that an Item is stored in the data source.
+        """
+        return pulumi.get(self, "base_table_ttl")
+
+    @base_table_ttl.setter
+    def base_table_ttl(self, value: pulumi.Input[str]):
+        pulumi.set(self, "base_table_ttl", value)
+
+    @property
+    @pulumi.getter(name="deltaSyncTableName")
+    def delta_sync_table_name(self) -> pulumi.Input[str]:
+        """
+        The Delta Sync table name.
+        """
+        return pulumi.get(self, "delta_sync_table_name")
+
+    @delta_sync_table_name.setter
+    def delta_sync_table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "delta_sync_table_name", value)
+
+    @property
+    @pulumi.getter(name="deltaSyncTableTtl")
+    def delta_sync_table_ttl(self) -> pulumi.Input[str]:
+        """
+        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
+        return pulumi.get(self, "delta_sync_table_ttl")
+
+    @delta_sync_table_ttl.setter
+    def delta_sync_table_ttl(self, value: pulumi.Input[str]):
+        pulumi.set(self, "delta_sync_table_ttl", value)
+
+
+if not MYPY:
+    class DataSourceDynamoDbConfigArgsDict(TypedDict):
+        aws_region: pulumi.Input[str]
+        """
+        The AWS Region.
+        """
+        table_name: pulumi.Input[str]
+        """
+        The table name.
+        """
+        delta_sync_config: NotRequired[pulumi.Input['DataSourceDeltaSyncConfigArgsDict']]
+        """
+        The DeltaSyncConfig for a versioned datasource.
+        """
+        use_caller_credentials: NotRequired[pulumi.Input[bool]]
+        """
+        Set to TRUE to use AWS Identity and Access Management with this data source.
+        """
+        versioned: NotRequired[pulumi.Input[bool]]
+        """
+        Set to TRUE to use Conflict Detection and Resolution with this data source.
+        """
+elif False:
+    DataSourceDynamoDbConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceDynamoDbConfigArgs:
+    def __init__(__self__, *,
+                 aws_region: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 delta_sync_config: Optional[pulumi.Input['DataSourceDeltaSyncConfigArgs']] = None,
+                 use_caller_credentials: Optional[pulumi.Input[bool]] = None,
+                 versioned: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] aws_region: The AWS Region.
+        :param pulumi.Input[str] table_name: The table name.
+        :param pulumi.Input['DataSourceDeltaSyncConfigArgs'] delta_sync_config: The DeltaSyncConfig for a versioned datasource.
+        :param pulumi.Input[bool] use_caller_credentials: Set to TRUE to use AWS Identity and Access Management with this data source.
+        :param pulumi.Input[bool] versioned: Set to TRUE to use Conflict Detection and Resolution with this data source.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "table_name", table_name)
+        if delta_sync_config is not None:
+            pulumi.set(__self__, "delta_sync_config", delta_sync_config)
+        if use_caller_credentials is not None:
+            pulumi.set(__self__, "use_caller_credentials", use_caller_credentials)
+        if versioned is not None:
+            pulumi.set(__self__, "versioned", versioned)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Input[str]:
+        """
+        The AWS Region.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        The table name.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="deltaSyncConfig")
+    def delta_sync_config(self) -> Optional[pulumi.Input['DataSourceDeltaSyncConfigArgs']]:
+        """
+        The DeltaSyncConfig for a versioned datasource.
+        """
+        return pulumi.get(self, "delta_sync_config")
+
+    @delta_sync_config.setter
+    def delta_sync_config(self, value: Optional[pulumi.Input['DataSourceDeltaSyncConfigArgs']]):
+        pulumi.set(self, "delta_sync_config", value)
+
+    @property
+    @pulumi.getter(name="useCallerCredentials")
+    def use_caller_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to TRUE to use AWS Identity and Access Management with this data source.
+        """
+        return pulumi.get(self, "use_caller_credentials")
+
+    @use_caller_credentials.setter
+    def use_caller_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_caller_credentials", value)
+
+    @property
+    @pulumi.getter
+    def versioned(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to TRUE to use Conflict Detection and Resolution with this data source.
+        """
+        return pulumi.get(self, "versioned")
+
+    @versioned.setter
+    def versioned(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "versioned", value)
+
+
+if not MYPY:
+    class DataSourceElasticsearchConfigArgsDict(TypedDict):
+        aws_region: pulumi.Input[str]
+        """
+        The AWS Region.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        The endpoint.
+        """
+elif False:
+    DataSourceElasticsearchConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceElasticsearchConfigArgs:
+    def __init__(__self__, *,
+                 aws_region: pulumi.Input[str],
+                 endpoint: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] aws_region: The AWS Region.
+        :param pulumi.Input[str] endpoint: The endpoint.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Input[str]:
+        """
+        The AWS Region.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        The endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+
+if not MYPY:
+    class DataSourceEventBridgeConfigArgsDict(TypedDict):
+        event_bus_arn: pulumi.Input[str]
+        """
+        ARN for the EventBridge bus.
+        """
+elif False:
+    DataSourceEventBridgeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceEventBridgeConfigArgs:
+    def __init__(__self__, *,
+                 event_bus_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] event_bus_arn: ARN for the EventBridge bus.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> pulumi.Input[str]:
+        """
+        ARN for the EventBridge bus.
+        """
+        return pulumi.get(self, "event_bus_arn")
+
+    @event_bus_arn.setter
+    def event_bus_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_bus_arn", value)
+
+
+if not MYPY:
+    class DataSourceHttpConfigArgsDict(TypedDict):
+        endpoint: pulumi.Input[str]
+        """
+        The endpoint.
+        """
+        authorization_config: NotRequired[pulumi.Input['DataSourceAuthorizationConfigArgsDict']]
+        """
+        The authorization configuration.
+        """
+elif False:
+    DataSourceHttpConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceHttpConfigArgs:
+    def __init__(__self__, *,
+                 endpoint: pulumi.Input[str],
+                 authorization_config: Optional[pulumi.Input['DataSourceAuthorizationConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] endpoint: The endpoint.
+        :param pulumi.Input['DataSourceAuthorizationConfigArgs'] authorization_config: The authorization configuration.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        if authorization_config is not None:
+            pulumi.set(__self__, "authorization_config", authorization_config)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        The endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> Optional[pulumi.Input['DataSourceAuthorizationConfigArgs']]:
+        """
+        The authorization configuration.
+        """
+        return pulumi.get(self, "authorization_config")
+
+    @authorization_config.setter
+    def authorization_config(self, value: Optional[pulumi.Input['DataSourceAuthorizationConfigArgs']]):
+        pulumi.set(self, "authorization_config", value)
+
+
+if not MYPY:
+    class DataSourceLambdaConfigArgsDict(TypedDict):
+        lambda_function_arn: pulumi.Input[str]
+        """
+        The ARN for the Lambda function.
+        """
+elif False:
+    DataSourceLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceLambdaConfigArgs:
+    def __init__(__self__, *,
+                 lambda_function_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] lambda_function_arn: The ARN for the Lambda function.
+        """
+        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN for the Lambda function.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+    @lambda_function_arn.setter
+    def lambda_function_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "lambda_function_arn", value)
+
+
+if not MYPY:
+    class DataSourceOpenSearchServiceConfigArgsDict(TypedDict):
+        aws_region: pulumi.Input[str]
+        """
+        The AWS Region.
+        """
+        endpoint: pulumi.Input[str]
+        """
+        The endpoint.
+        """
+elif False:
+    DataSourceOpenSearchServiceConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceOpenSearchServiceConfigArgs:
+    def __init__(__self__, *,
+                 aws_region: pulumi.Input[str],
+                 endpoint: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] aws_region: The AWS Region.
+        :param pulumi.Input[str] endpoint: The endpoint.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Input[str]:
+        """
+        The AWS Region.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        """
+        The endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+
+if not MYPY:
+    class DataSourceRdsHttpEndpointConfigArgsDict(TypedDict):
+        aws_region: pulumi.Input[str]
+        """
+        AWS Region for RDS HTTP endpoint.
+        """
+        aws_secret_store_arn: pulumi.Input[str]
+        """
+        The ARN for database credentials stored in AWS Secrets Manager.
+        """
+        db_cluster_identifier: pulumi.Input[str]
+        """
+        Amazon RDS cluster Amazon Resource Name (ARN).
+        """
+        database_name: NotRequired[pulumi.Input[str]]
+        """
+        Logical database name.
+        """
+        schema: NotRequired[pulumi.Input[str]]
+        """
+        Logical schema name.
+        """
+elif False:
+    DataSourceRdsHttpEndpointConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceRdsHttpEndpointConfigArgs:
+    def __init__(__self__, *,
+                 aws_region: pulumi.Input[str],
+                 aws_secret_store_arn: pulumi.Input[str],
+                 db_cluster_identifier: pulumi.Input[str],
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 schema: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] aws_region: AWS Region for RDS HTTP endpoint.
+        :param pulumi.Input[str] aws_secret_store_arn: The ARN for database credentials stored in AWS Secrets Manager.
+        :param pulumi.Input[str] db_cluster_identifier: Amazon RDS cluster Amazon Resource Name (ARN).
+        :param pulumi.Input[str] database_name: Logical database name.
+        :param pulumi.Input[str] schema: Logical schema name.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "aws_secret_store_arn", aws_secret_store_arn)
+        pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Input[str]:
+        """
+        AWS Region for RDS HTTP endpoint.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter(name="awsSecretStoreArn")
+    def aws_secret_store_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN for database credentials stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "aws_secret_store_arn")
+
+    @aws_secret_store_arn.setter
+    def aws_secret_store_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_secret_store_arn", value)
+
+    @property
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        Amazon RDS cluster Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "db_cluster_identifier")
+
+    @db_cluster_identifier.setter
+    def db_cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_cluster_identifier", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logical database name.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[str]]:
+        """
+        Logical schema name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class DataSourceRelationalDatabaseConfigArgsDict(TypedDict):
+        relational_database_source_type: pulumi.Input[str]
+        """
+        The type of relational data source.
+        """
+        rds_http_endpoint_config: NotRequired[pulumi.Input['DataSourceRdsHttpEndpointConfigArgsDict']]
+        """
+        Information about the Amazon RDS resource.
+        """
+elif False:
+    DataSourceRelationalDatabaseConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceRelationalDatabaseConfigArgs:
+    def __init__(__self__, *,
+                 relational_database_source_type: pulumi.Input[str],
+                 rds_http_endpoint_config: Optional[pulumi.Input['DataSourceRdsHttpEndpointConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] relational_database_source_type: The type of relational data source.
+        :param pulumi.Input['DataSourceRdsHttpEndpointConfigArgs'] rds_http_endpoint_config: Information about the Amazon RDS resource.
+        """
+        pulumi.set(__self__, "relational_database_source_type", relational_database_source_type)
+        if rds_http_endpoint_config is not None:
+            pulumi.set(__self__, "rds_http_endpoint_config", rds_http_endpoint_config)
+
+    @property
+    @pulumi.getter(name="relationalDatabaseSourceType")
+    def relational_database_source_type(self) -> pulumi.Input[str]:
+        """
+        The type of relational data source.
+        """
+        return pulumi.get(self, "relational_database_source_type")
+
+    @relational_database_source_type.setter
+    def relational_database_source_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "relational_database_source_type", value)
+
+    @property
+    @pulumi.getter(name="rdsHttpEndpointConfig")
+    def rds_http_endpoint_config(self) -> Optional[pulumi.Input['DataSourceRdsHttpEndpointConfigArgs']]:
+        """
+        Information about the Amazon RDS resource.
+        """
+        return pulumi.get(self, "rds_http_endpoint_config")
+
+    @rds_http_endpoint_config.setter
+    def rds_http_endpoint_config(self, value: Optional[pulumi.Input['DataSourceRdsHttpEndpointConfigArgs']]):
+        pulumi.set(self, "rds_http_endpoint_config", value)
+
 
 if not MYPY:
     class FunctionConfigurationAppSyncRuntimeArgsDict(TypedDict):

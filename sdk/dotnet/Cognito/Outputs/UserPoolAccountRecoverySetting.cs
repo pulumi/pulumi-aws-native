@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolAccountRecoverySetting
     {
         /// <summary>
-        /// The list of `RecoveryOptionTypes` .
+        /// The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPoolRecoveryOption> RecoveryMechanisms;
 

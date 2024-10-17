@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? DbSubnetGroupDescription;
         /// <summary>
+        /// The EC2 Subnet IDs for the DB subnet group.
+        /// </summary>
+        public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
         /// Tags to assign to the DB subnet group.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -84,9 +88,12 @@ namespace Pulumi.AwsNative.Rds
         private GetDbSubnetGroupResult(
             string? dbSubnetGroupDescription,
 
+            ImmutableArray<string> subnetIds,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DbSubnetGroupDescription = dbSubnetGroupDescription;
+            SubnetIds = subnetIds;
             Tags = tags;
         }
     }

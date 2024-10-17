@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     [OutputType]
     public sealed class FlowSapoDataParallelismConfig
     {
+        /// <summary>
+        /// The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
+        /// </summary>
         public readonly int MaxParallelism;
 
         [OutputConstructor]

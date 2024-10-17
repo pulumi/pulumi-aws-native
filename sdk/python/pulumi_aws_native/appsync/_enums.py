@@ -5,10 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'DataSourceMetricsConfig',
     'ResolverMetricsConfig',
     'SourceApiAssociationConfigMergeType',
     'SourceApiAssociationStatus',
 ]
+
+
+class DataSourceMetricsConfig(str, Enum):
+    """
+    Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
+
+    `MetricsConfig` can be `ENABLED` or `DISABLED` .
+    """
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
 
 
 class ResolverMetricsConfig(str, Enum):

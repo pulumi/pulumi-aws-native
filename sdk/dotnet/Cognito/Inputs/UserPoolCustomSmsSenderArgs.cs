@@ -13,13 +13,15 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolCustomSmsSenderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        /// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
         /// </summary>
         [Input("lambdaArn")]
         public Input<string>? LambdaArn { get; set; }
 
         /// <summary>
-        /// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function. The only supported value is `V1_0` .
+        /// The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+        /// 
+        /// You must use a `LambdaVersion` of `V1_0` with a custom sender function.
         /// </summary>
         [Input("lambdaVersion")]
         public Input<string>? LambdaVersion { get; set; }

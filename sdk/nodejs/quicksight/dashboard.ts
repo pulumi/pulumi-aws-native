@@ -62,6 +62,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     public readonly dashboardPublishOptions!: pulumi.Output<outputs.quicksight.DashboardPublishOptions | undefined>;
     public readonly definition!: pulumi.Output<outputs.quicksight.DashboardVersionDefinition | undefined>;
+    public readonly folderArns!: pulumi.Output<string[] | undefined>;
     /**
      * <p>The last time that this dashboard was published.</p>
      */
@@ -137,6 +138,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["dashboardId"] = args ? args.dashboardId : undefined;
             resourceInputs["dashboardPublishOptions"] = args ? args.dashboardPublishOptions : undefined;
             resourceInputs["definition"] = args ? args.definition : undefined;
+            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
             resourceInputs["linkEntities"] = args ? args.linkEntities : undefined;
             resourceInputs["linkSharingConfiguration"] = args ? args.linkSharingConfiguration : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -159,6 +161,7 @@ export class Dashboard extends pulumi.CustomResource {
             resourceInputs["dashboardId"] = undefined /*out*/;
             resourceInputs["dashboardPublishOptions"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
+            resourceInputs["folderArns"] = undefined /*out*/;
             resourceInputs["lastPublishedTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["linkEntities"] = undefined /*out*/;
@@ -201,6 +204,7 @@ export interface DashboardArgs {
      */
     dashboardPublishOptions?: pulumi.Input<inputs.quicksight.DashboardPublishOptionsArgs>;
     definition?: pulumi.Input<inputs.quicksight.DashboardVersionDefinitionArgs>;
+    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
      */

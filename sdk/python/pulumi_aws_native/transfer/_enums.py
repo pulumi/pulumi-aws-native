@@ -15,6 +15,15 @@ __all__ = [
     'ConnectorAs2ConfigPropertiesMdnSigningAlgorithm',
     'ConnectorAs2ConfigPropertiesSigningAlgorithm',
     'ProfileType',
+    'ServerAs2Transport',
+    'ServerDirectoryListingOptimization',
+    'ServerDomain',
+    'ServerEndpointType',
+    'ServerIdentityProviderType',
+    'ServerProtocol',
+    'ServerSetStatOption',
+    'ServerSftpAuthenticationMethods',
+    'ServerTlsSessionResumptionMode',
     'WorkflowStepCopyStepDetailsPropertiesOverwriteExisting',
     'WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting',
     'WorkflowStepDecryptStepDetailsPropertiesType',
@@ -112,6 +121,61 @@ class ProfileType(str, Enum):
     """
     LOCAL = "LOCAL"
     PARTNER = "PARTNER"
+
+
+class ServerAs2Transport(str, Enum):
+    HTTP = "HTTP"
+
+
+class ServerDirectoryListingOptimization(str, Enum):
+    """
+    Indicates whether optimization to directory listing on S3 servers is used. Disabled by default for compatibility.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class ServerDomain(str, Enum):
+    S3 = "S3"
+    EFS = "EFS"
+
+
+class ServerEndpointType(str, Enum):
+    PUBLIC = "PUBLIC"
+    VPC = "VPC"
+    VPC_ENDPOINT = "VPC_ENDPOINT"
+
+
+class ServerIdentityProviderType(str, Enum):
+    SERVICE_MANAGED = "SERVICE_MANAGED"
+    API_GATEWAY = "API_GATEWAY"
+    AWS_DIRECTORY_SERVICE = "AWS_DIRECTORY_SERVICE"
+    AWS_LAMBDA = "AWS_LAMBDA"
+
+
+class ServerProtocol(str, Enum):
+    SFTP = "SFTP"
+    FTP = "FTP"
+    FTPS = "FTPS"
+    AS2 = "AS2"
+
+
+class ServerSetStatOption(str, Enum):
+    DEFAULT = "DEFAULT"
+    ENABLE_NO_OP = "ENABLE_NO_OP"
+
+
+class ServerSftpAuthenticationMethods(str, Enum):
+    PASSWORD = "PASSWORD"
+    PUBLIC_KEY = "PUBLIC_KEY"
+    PUBLIC_KEY_OR_PASSWORD = "PUBLIC_KEY_OR_PASSWORD"
+    PUBLIC_KEY_AND_PASSWORD = "PUBLIC_KEY_AND_PASSWORD"
+
+
+class ServerTlsSessionResumptionMode(str, Enum):
+    DISABLED = "DISABLED"
+    ENABLED = "ENABLED"
+    ENFORCED = "ENFORCED"
 
 
 class WorkflowStepCopyStepDetailsPropertiesOverwriteExisting(str, Enum):

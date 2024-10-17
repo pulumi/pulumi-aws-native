@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The capacity provider strategy that are associated with the task set.
+        /// </summary>
         [Output("capacityProviderStrategy")]
         public Output<ImmutableArray<Outputs.TaskSetCapacityProviderStrategyItem>> CapacityProviderStrategy { get; private set; } = null!;
 
@@ -160,6 +163,10 @@ namespace Pulumi.AwsNative.Ecs
     {
         [Input("capacityProviderStrategy")]
         private InputList<Inputs.TaskSetCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
+
+        /// <summary>
+        /// The capacity provider strategy that are associated with the task set.
+        /// </summary>
         public InputList<Inputs.TaskSetCapacityProviderStrategyItemArgs> CapacityProviderStrategy
         {
             get => _capacityProviderStrategy ?? (_capacityProviderStrategy = new InputList<Inputs.TaskSetCapacityProviderStrategyItemArgs>());

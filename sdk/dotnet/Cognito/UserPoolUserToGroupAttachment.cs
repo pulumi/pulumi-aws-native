@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
+        /// <summary>
+        /// The user's username.
+        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -93,6 +96,9 @@ namespace Pulumi.AwsNative.Cognito
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
+        /// <summary>
+        /// The user's username.
+        /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;
 

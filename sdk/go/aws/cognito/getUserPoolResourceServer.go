@@ -23,7 +23,9 @@ func LookupUserPoolResourceServer(ctx *pulumi.Context, args *LookupUserPoolResou
 }
 
 type LookupUserPoolResourceServerArgs struct {
-	// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+	// A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
+	//
+	// Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
 	Identifier string `pulumi:"identifier"`
 	// The user pool ID for the user pool.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -56,7 +58,9 @@ func LookupUserPoolResourceServerOutput(ctx *pulumi.Context, args LookupUserPool
 }
 
 type LookupUserPoolResourceServerOutputArgs struct {
-	// A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+	// A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
+	//
+	// Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`

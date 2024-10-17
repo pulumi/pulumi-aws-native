@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetContainerGroupDefinitionResult',
@@ -24,13 +25,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetContainerGroupDefinitionResult:
-    def __init__(__self__, container_group_definition_arn=None, creation_time=None, tags=None):
+    def __init__(__self__, container_group_definition_arn=None, creation_time=None, source_version_number=None, status=None, status_reason=None, support_container_definitions=None, tags=None):
         if container_group_definition_arn and not isinstance(container_group_definition_arn, str):
             raise TypeError("Expected argument 'container_group_definition_arn' to be a str")
         pulumi.set(__self__, "container_group_definition_arn", container_group_definition_arn)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if source_version_number and not isinstance(source_version_number, int):
+            raise TypeError("Expected argument 'source_version_number' to be a int")
+        pulumi.set(__self__, "source_version_number", source_version_number)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if status_reason and not isinstance(status_reason, str):
+            raise TypeError("Expected argument 'status_reason' to be a str")
+        pulumi.set(__self__, "status_reason", status_reason)
+        if support_container_definitions and not isinstance(support_container_definitions, list):
+            raise TypeError("Expected argument 'support_container_definitions' to be a list")
+        pulumi.set(__self__, "support_container_definitions", support_container_definitions)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -52,6 +65,38 @@ class GetContainerGroupDefinitionResult:
         return pulumi.get(self, "creation_time")
 
     @property
+    @pulumi.getter(name="sourceVersionNumber")
+    def source_version_number(self) -> Optional[int]:
+        """
+        A specific ContainerGroupDefinition version to be updated
+        """
+        return pulumi.get(self, "source_version_number")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['ContainerGroupDefinitionStatus']:
+        """
+        A string indicating ContainerGroupDefinition status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusReason")
+    def status_reason(self) -> Optional[str]:
+        """
+        A string indicating the reason for ContainerGroupDefinition status.
+        """
+        return pulumi.get(self, "status_reason")
+
+    @property
+    @pulumi.getter(name="supportContainerDefinitions")
+    def support_container_definitions(self) -> Optional[Sequence[Any]]:
+        """
+        A collection of support container definitions that define the containers in this group.
+        """
+        return pulumi.get(self, "support_container_definitions")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -68,6 +113,10 @@ class AwaitableGetContainerGroupDefinitionResult(GetContainerGroupDefinitionResu
         return GetContainerGroupDefinitionResult(
             container_group_definition_arn=self.container_group_definition_arn,
             creation_time=self.creation_time,
+            source_version_number=self.source_version_number,
+            status=self.status,
+            status_reason=self.status_reason,
+            support_container_definitions=self.support_container_definitions,
             tags=self.tags)
 
 
@@ -87,6 +136,10 @@ def get_container_group_definition(name: Optional[str] = None,
     return AwaitableGetContainerGroupDefinitionResult(
         container_group_definition_arn=pulumi.get(__ret__, 'container_group_definition_arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
+        source_version_number=pulumi.get(__ret__, 'source_version_number'),
+        status=pulumi.get(__ret__, 'status'),
+        status_reason=pulumi.get(__ret__, 'status_reason'),
+        support_container_definitions=pulumi.get(__ret__, 'support_container_definitions'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_container_group_definition_output(name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerGroupDefinitionResult]:
@@ -103,4 +156,8 @@ def get_container_group_definition_output(name: Optional[pulumi.Input[str]] = No
     return __ret__.apply(lambda __response__: GetContainerGroupDefinitionResult(
         container_group_definition_arn=pulumi.get(__response__, 'container_group_definition_arn'),
         creation_time=pulumi.get(__response__, 'creation_time'),
+        source_version_number=pulumi.get(__response__, 'source_version_number'),
+        status=pulumi.get(__response__, 'status'),
+        status_reason=pulumi.get(__response__, 'status_reason'),
+        support_container_definitions=pulumi.get(__response__, 'support_container_definitions'),
         tags=pulumi.get(__response__, 'tags')))

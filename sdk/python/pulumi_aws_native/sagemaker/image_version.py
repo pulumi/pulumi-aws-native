@@ -403,7 +403,7 @@ class ImageVersion(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[int]:
         """
-        The version number.
+        The version of the image.
         """
         return pulumi.get(self, "version")
 

@@ -53,6 +53,7 @@ export class WebExperience extends pulumi.CustomResource {
      * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
      */
     public readonly identityProviderConfiguration!: pulumi.Output<outputs.qbusiness.WebExperienceIdentityProviderConfiguration0Properties | outputs.qbusiness.WebExperienceIdentityProviderConfiguration1Properties | undefined>;
+    public readonly origins!: pulumi.Output<string[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the service role attached to your web experience.
      *
@@ -112,6 +113,7 @@ export class WebExperience extends pulumi.CustomResource {
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
             resourceInputs["identityProviderConfiguration"] = args ? args.identityProviderConfiguration : undefined;
+            resourceInputs["origins"] = args ? args.origins : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["samplePromptsControlMode"] = args ? args.samplePromptsControlMode : undefined;
             resourceInputs["subtitle"] = args ? args.subtitle : undefined;
@@ -129,6 +131,7 @@ export class WebExperience extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["defaultEndpoint"] = undefined /*out*/;
             resourceInputs["identityProviderConfiguration"] = undefined /*out*/;
+            resourceInputs["origins"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["samplePromptsControlMode"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -159,6 +162,7 @@ export interface WebExperienceArgs {
      * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
      */
     identityProviderConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceIdentityProviderConfiguration0PropertiesArgs | inputs.qbusiness.WebExperienceIdentityProviderConfiguration1PropertiesArgs>;
+    origins?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Amazon Resource Name (ARN) of the service role attached to your web experience.
      *

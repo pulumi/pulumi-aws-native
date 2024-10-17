@@ -21,6 +21,18 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         [Input("actionTypeId", required: true)]
         public Input<Inputs.PipelineActionTypeIdArgs> ActionTypeId { get; set; } = null!;
 
+        [Input("commands")]
+        private InputList<string>? _commands;
+
+        /// <summary>
+        /// The shell commands to run with your compute action in CodePipeline.
+        /// </summary>
+        public InputList<string> Commands
+        {
+            get => _commands ?? (_commands = new InputList<string>());
+            set => _commands = value;
+        }
+
         /// <summary>
         /// The action's configuration. These are key-value pairs that specify input values for an action.
         /// </summary>
@@ -63,6 +75,18 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         {
             get => _outputArtifacts ?? (_outputArtifacts = new InputList<Inputs.PipelineOutputArtifactArgs>());
             set => _outputArtifacts = value;
+        }
+
+        [Input("outputVariables")]
+        private InputList<string>? _outputVariables;
+
+        /// <summary>
+        /// The list of variables that are to be exported from the compute action.
+        /// </summary>
+        public InputList<string> OutputVariables
+        {
+            get => _outputVariables ?? (_outputVariables = new InputList<string>());
+            set => _outputVariables = value;
         }
 
         /// <summary>

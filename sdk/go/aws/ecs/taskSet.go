@@ -18,7 +18,8 @@ type TaskSet struct {
 	pulumi.CustomResourceState
 
 	// The ID of the task set.
-	AwsId                    pulumi.StringOutput                            `pulumi:"awsId"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The capacity provider strategy that are associated with the task set.
 	CapacityProviderStrategy TaskSetCapacityProviderStrategyItemArrayOutput `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
@@ -116,6 +117,7 @@ func (TaskSetState) ElementType() reflect.Type {
 }
 
 type taskSetArgs struct {
+	// The capacity provider strategy that are associated with the task set.
 	CapacityProviderStrategy []TaskSetCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster string `pulumi:"cluster"`
@@ -153,6 +155,7 @@ type taskSetArgs struct {
 
 // The set of arguments for constructing a TaskSet resource.
 type TaskSetArgs struct {
+	// The capacity provider strategy that are associated with the task set.
 	CapacityProviderStrategy TaskSetCapacityProviderStrategyItemArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
 	Cluster pulumi.StringInput
@@ -230,6 +233,7 @@ func (o TaskSetOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TaskSet) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The capacity provider strategy that are associated with the task set.
 func (o TaskSetOutput) CapacityProviderStrategy() TaskSetCapacityProviderStrategyItemArrayOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetCapacityProviderStrategyItemArrayOutput { return v.CapacityProviderStrategy }).(TaskSetCapacityProviderStrategyItemArrayOutput)
 }

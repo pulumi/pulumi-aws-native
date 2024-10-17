@@ -80,6 +80,11 @@ class GetFolderResult:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.FolderResourcePermission']]:
+        """
+        A structure that describes the principals and the resource-level permissions of a folder.
+
+        To specify no permissions, omit `Permissions` .
+        """
         return pulumi.get(self, "permissions")
 
     @property
@@ -112,6 +117,7 @@ def get_folder(aws_account_id: Optional[str] = None,
     Definition of the AWS::QuickSight::Folder Resource Type.
 
 
+    :param str aws_account_id: The ID for the AWS account where you want to create the folder.
     :param str folder_id: The ID of the folder.
     """
     __args__ = dict()
@@ -134,6 +140,7 @@ def get_folder_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     Definition of the AWS::QuickSight::Folder Resource Type.
 
 
+    :param str aws_account_id: The ID for the AWS account where you want to create the folder.
     :param str folder_id: The ID of the folder.
     """
     __args__ = dict()

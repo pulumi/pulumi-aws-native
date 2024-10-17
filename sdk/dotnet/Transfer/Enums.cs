@@ -329,6 +329,268 @@ namespace Pulumi.AwsNative.Transfer
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ServerAs2Transport : IEquatable<ServerAs2Transport>
+    {
+        private readonly string _value;
+
+        private ServerAs2Transport(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerAs2Transport Http { get; } = new ServerAs2Transport("HTTP");
+
+        public static bool operator ==(ServerAs2Transport left, ServerAs2Transport right) => left.Equals(right);
+        public static bool operator !=(ServerAs2Transport left, ServerAs2Transport right) => !left.Equals(right);
+
+        public static explicit operator string(ServerAs2Transport value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerAs2Transport other && Equals(other);
+        public bool Equals(ServerAs2Transport other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether optimization to directory listing on S3 servers is used. Disabled by default for compatibility.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerDirectoryListingOptimization : IEquatable<ServerDirectoryListingOptimization>
+    {
+        private readonly string _value;
+
+        private ServerDirectoryListingOptimization(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerDirectoryListingOptimization Enabled { get; } = new ServerDirectoryListingOptimization("ENABLED");
+        public static ServerDirectoryListingOptimization Disabled { get; } = new ServerDirectoryListingOptimization("DISABLED");
+
+        public static bool operator ==(ServerDirectoryListingOptimization left, ServerDirectoryListingOptimization right) => left.Equals(right);
+        public static bool operator !=(ServerDirectoryListingOptimization left, ServerDirectoryListingOptimization right) => !left.Equals(right);
+
+        public static explicit operator string(ServerDirectoryListingOptimization value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerDirectoryListingOptimization other && Equals(other);
+        public bool Equals(ServerDirectoryListingOptimization other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServerDomain : IEquatable<ServerDomain>
+    {
+        private readonly string _value;
+
+        private ServerDomain(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerDomain S3 { get; } = new ServerDomain("S3");
+        public static ServerDomain Efs { get; } = new ServerDomain("EFS");
+
+        public static bool operator ==(ServerDomain left, ServerDomain right) => left.Equals(right);
+        public static bool operator !=(ServerDomain left, ServerDomain right) => !left.Equals(right);
+
+        public static explicit operator string(ServerDomain value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerDomain other && Equals(other);
+        public bool Equals(ServerDomain other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServerEndpointType : IEquatable<ServerEndpointType>
+    {
+        private readonly string _value;
+
+        private ServerEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerEndpointType Public { get; } = new ServerEndpointType("PUBLIC");
+        public static ServerEndpointType Vpc { get; } = new ServerEndpointType("VPC");
+        public static ServerEndpointType VpcEndpoint { get; } = new ServerEndpointType("VPC_ENDPOINT");
+
+        public static bool operator ==(ServerEndpointType left, ServerEndpointType right) => left.Equals(right);
+        public static bool operator !=(ServerEndpointType left, ServerEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(ServerEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerEndpointType other && Equals(other);
+        public bool Equals(ServerEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServerIdentityProviderType : IEquatable<ServerIdentityProviderType>
+    {
+        private readonly string _value;
+
+        private ServerIdentityProviderType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerIdentityProviderType ServiceManaged { get; } = new ServerIdentityProviderType("SERVICE_MANAGED");
+        public static ServerIdentityProviderType ApiGateway { get; } = new ServerIdentityProviderType("API_GATEWAY");
+        public static ServerIdentityProviderType AwsDirectoryService { get; } = new ServerIdentityProviderType("AWS_DIRECTORY_SERVICE");
+        public static ServerIdentityProviderType AwsLambda { get; } = new ServerIdentityProviderType("AWS_LAMBDA");
+
+        public static bool operator ==(ServerIdentityProviderType left, ServerIdentityProviderType right) => left.Equals(right);
+        public static bool operator !=(ServerIdentityProviderType left, ServerIdentityProviderType right) => !left.Equals(right);
+
+        public static explicit operator string(ServerIdentityProviderType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerIdentityProviderType other && Equals(other);
+        public bool Equals(ServerIdentityProviderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServerProtocol : IEquatable<ServerProtocol>
+    {
+        private readonly string _value;
+
+        private ServerProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerProtocol Sftp { get; } = new ServerProtocol("SFTP");
+        public static ServerProtocol Ftp { get; } = new ServerProtocol("FTP");
+        public static ServerProtocol Ftps { get; } = new ServerProtocol("FTPS");
+        public static ServerProtocol As2 { get; } = new ServerProtocol("AS2");
+
+        public static bool operator ==(ServerProtocol left, ServerProtocol right) => left.Equals(right);
+        public static bool operator !=(ServerProtocol left, ServerProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ServerProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerProtocol other && Equals(other);
+        public bool Equals(ServerProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServerSetStatOption : IEquatable<ServerSetStatOption>
+    {
+        private readonly string _value;
+
+        private ServerSetStatOption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerSetStatOption Default { get; } = new ServerSetStatOption("DEFAULT");
+        public static ServerSetStatOption EnableNoOp { get; } = new ServerSetStatOption("ENABLE_NO_OP");
+
+        public static bool operator ==(ServerSetStatOption left, ServerSetStatOption right) => left.Equals(right);
+        public static bool operator !=(ServerSetStatOption left, ServerSetStatOption right) => !left.Equals(right);
+
+        public static explicit operator string(ServerSetStatOption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerSetStatOption other && Equals(other);
+        public bool Equals(ServerSetStatOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServerSftpAuthenticationMethods : IEquatable<ServerSftpAuthenticationMethods>
+    {
+        private readonly string _value;
+
+        private ServerSftpAuthenticationMethods(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerSftpAuthenticationMethods Password { get; } = new ServerSftpAuthenticationMethods("PASSWORD");
+        public static ServerSftpAuthenticationMethods PublicKey { get; } = new ServerSftpAuthenticationMethods("PUBLIC_KEY");
+        public static ServerSftpAuthenticationMethods PublicKeyOrPassword { get; } = new ServerSftpAuthenticationMethods("PUBLIC_KEY_OR_PASSWORD");
+        public static ServerSftpAuthenticationMethods PublicKeyAndPassword { get; } = new ServerSftpAuthenticationMethods("PUBLIC_KEY_AND_PASSWORD");
+
+        public static bool operator ==(ServerSftpAuthenticationMethods left, ServerSftpAuthenticationMethods right) => left.Equals(right);
+        public static bool operator !=(ServerSftpAuthenticationMethods left, ServerSftpAuthenticationMethods right) => !left.Equals(right);
+
+        public static explicit operator string(ServerSftpAuthenticationMethods value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerSftpAuthenticationMethods other && Equals(other);
+        public bool Equals(ServerSftpAuthenticationMethods other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ServerTlsSessionResumptionMode : IEquatable<ServerTlsSessionResumptionMode>
+    {
+        private readonly string _value;
+
+        private ServerTlsSessionResumptionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerTlsSessionResumptionMode Disabled { get; } = new ServerTlsSessionResumptionMode("DISABLED");
+        public static ServerTlsSessionResumptionMode Enabled { get; } = new ServerTlsSessionResumptionMode("ENABLED");
+        public static ServerTlsSessionResumptionMode Enforced { get; } = new ServerTlsSessionResumptionMode("ENFORCED");
+
+        public static bool operator ==(ServerTlsSessionResumptionMode left, ServerTlsSessionResumptionMode right) => left.Equals(right);
+        public static bool operator !=(ServerTlsSessionResumptionMode left, ServerTlsSessionResumptionMode right) => !left.Equals(right);
+
+        public static explicit operator string(ServerTlsSessionResumptionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerTlsSessionResumptionMode other && Equals(other);
+        public bool Equals(ServerTlsSessionResumptionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
     /// </summary>

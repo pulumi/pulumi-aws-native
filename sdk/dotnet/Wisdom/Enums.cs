@@ -8,6 +8,90 @@ using Pulumi;
 namespace Pulumi.AwsNative.Wisdom
 {
     [EnumType]
+    public readonly struct AiPromptAiPromptApiFormat : IEquatable<AiPromptAiPromptApiFormat>
+    {
+        private readonly string _value;
+
+        private AiPromptAiPromptApiFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiPromptAiPromptApiFormat AnthropicClaudeMessages { get; } = new AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES");
+        public static AiPromptAiPromptApiFormat AnthropicClaudeTextCompletions { get; } = new AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_TEXT_COMPLETIONS");
+
+        public static bool operator ==(AiPromptAiPromptApiFormat left, AiPromptAiPromptApiFormat right) => left.Equals(right);
+        public static bool operator !=(AiPromptAiPromptApiFormat left, AiPromptAiPromptApiFormat right) => !left.Equals(right);
+
+        public static explicit operator string(AiPromptAiPromptApiFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiPromptAiPromptApiFormat other && Equals(other);
+        public bool Equals(AiPromptAiPromptApiFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AiPromptAiPromptTemplateType : IEquatable<AiPromptAiPromptTemplateType>
+    {
+        private readonly string _value;
+
+        private AiPromptAiPromptTemplateType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiPromptAiPromptTemplateType Text { get; } = new AiPromptAiPromptTemplateType("TEXT");
+
+        public static bool operator ==(AiPromptAiPromptTemplateType left, AiPromptAiPromptTemplateType right) => left.Equals(right);
+        public static bool operator !=(AiPromptAiPromptTemplateType left, AiPromptAiPromptTemplateType right) => !left.Equals(right);
+
+        public static explicit operator string(AiPromptAiPromptTemplateType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiPromptAiPromptTemplateType other && Equals(other);
+        public bool Equals(AiPromptAiPromptTemplateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AiPromptAiPromptType : IEquatable<AiPromptAiPromptType>
+    {
+        private readonly string _value;
+
+        private AiPromptAiPromptType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiPromptAiPromptType AnswerGeneration { get; } = new AiPromptAiPromptType("ANSWER_GENERATION");
+        public static AiPromptAiPromptType IntentLabelingGeneration { get; } = new AiPromptAiPromptType("INTENT_LABELING_GENERATION");
+        public static AiPromptAiPromptType QueryReformulation { get; } = new AiPromptAiPromptType("QUERY_REFORMULATION");
+
+        public static bool operator ==(AiPromptAiPromptType left, AiPromptAiPromptType right) => left.Equals(right);
+        public static bool operator !=(AiPromptAiPromptType left, AiPromptAiPromptType right) => !left.Equals(right);
+
+        public static explicit operator string(AiPromptAiPromptType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiPromptAiPromptType other && Equals(other);
+        public bool Equals(AiPromptAiPromptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AssistantAssociationAssociationType : IEquatable<AssistantAssociationAssociationType>
     {
         private readonly string _value;

@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
     /// </summary>
     public sealed class PipelineOutputArtifactArgs : global::Pulumi.ResourceArgs
     {
+        [Input("files")]
+        private InputList<string>? _files;
+
+        /// <summary>
+        /// The files that you want to associate with the output artifact that will be exported from the compute action.
+        /// </summary>
+        public InputList<string> Files
+        {
+            get => _files ?? (_files = new InputList<string>());
+            set => _files = value;
+        }
+
         /// <summary>
         /// The name of the output of an artifact, such as "My App".
         /// </summary>

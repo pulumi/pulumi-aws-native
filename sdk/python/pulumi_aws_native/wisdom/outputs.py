@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AiPromptAiPromptTemplateConfiguration',
     'AssistantAssociationAssociationData',
     'AssistantServerSideEncryptionConfiguration',
     'KnowledgeBaseAppIntegrationsConfiguration',
@@ -24,6 +25,12 @@ __all__ = [
     'KnowledgeBaseServerSideEncryptionConfiguration',
     'KnowledgeBaseSourceConfiguration',
 ]
+
+@pulumi.output_type
+class AiPromptAiPromptTemplateConfiguration(dict):
+    def __init__(__self__):
+        pass
+
 
 @pulumi.output_type
 class AssistantAssociationAssociationData(dict):

@@ -26,26 +26,25 @@ class SchemaArgs:
     def __init__(__self__, *,
                  compatibility: pulumi.Input['SchemaCompatibility'],
                  data_format: pulumi.Input['SchemaDataFormat'],
-                 schema_definition: pulumi.Input[str],
                  checkpoint_version: Optional[pulumi.Input['SchemaVersionArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  registry: Optional[pulumi.Input['SchemaRegistryArgs']] = None,
+                 schema_definition: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
         :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
-        :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
         :param pulumi.Input['SchemaVersionArgs'] checkpoint_version: Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
         :param pulumi.Input[str] description: A description of the schema. If description is not provided, there will not be any default value for this.
         :param pulumi.Input[str] name: Name of the schema.
         :param pulumi.Input['SchemaRegistryArgs'] registry: The registry where a schema is stored.
+        :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: List of tags to tag the schema
         """
         pulumi.set(__self__, "compatibility", compatibility)
         pulumi.set(__self__, "data_format", data_format)
-        pulumi.set(__self__, "schema_definition", schema_definition)
         if checkpoint_version is not None:
             pulumi.set(__self__, "checkpoint_version", checkpoint_version)
         if description is not None:
@@ -54,6 +53,8 @@ class SchemaArgs:
             pulumi.set(__self__, "name", name)
         if registry is not None:
             pulumi.set(__self__, "registry", registry)
+        if schema_definition is not None:
+            pulumi.set(__self__, "schema_definition", schema_definition)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -80,18 +81,6 @@ class SchemaArgs:
     @data_format.setter
     def data_format(self, value: pulumi.Input['SchemaDataFormat']):
         pulumi.set(self, "data_format", value)
-
-    @property
-    @pulumi.getter(name="schemaDefinition")
-    def schema_definition(self) -> pulumi.Input[str]:
-        """
-        Definition for the initial schema version in plain-text.
-        """
-        return pulumi.get(self, "schema_definition")
-
-    @schema_definition.setter
-    def schema_definition(self, value: pulumi.Input[str]):
-        pulumi.set(self, "schema_definition", value)
 
     @property
     @pulumi.getter(name="checkpointVersion")
@@ -140,6 +129,18 @@ class SchemaArgs:
     @registry.setter
     def registry(self, value: Optional[pulumi.Input['SchemaRegistryArgs']]):
         pulumi.set(self, "registry", value)
+
+    @property
+    @pulumi.getter(name="schemaDefinition")
+    def schema_definition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Definition for the initial schema version in plain-text.
+        """
+        return pulumi.get(self, "schema_definition")
+
+    @schema_definition.setter
+    def schema_definition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schema_definition", value)
 
     @property
     @pulumi.getter
@@ -233,8 +234,6 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             __props__.__dict__["registry"] = registry
-            if schema_definition is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_definition'")
             __props__.__dict__["schema_definition"] = schema_definition
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -341,7 +340,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="schemaDefinition")
-    def schema_definition(self) -> pulumi.Output[str]:
+    def schema_definition(self) -> pulumi.Output[Optional[str]]:
         """
         Definition for the initial schema version in plain-text.
         """

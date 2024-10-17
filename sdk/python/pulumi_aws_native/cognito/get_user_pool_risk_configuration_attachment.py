@@ -78,7 +78,7 @@ def get_user_pool_risk_configuration_attachment(client_id: Optional[str] = None,
     Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
 
 
-    :param str client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+    :param str client_id: The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
     :param str user_pool_id: The ID of the user pool that has the risk configuration applied.
     """
     __args__ = dict()
@@ -98,7 +98,7 @@ def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulum
     Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
 
 
-    :param str client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+    :param str client_id: The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
     :param str user_pool_id: The ID of the user pool that has the risk configuration applied.
     """
     __args__ = dict()

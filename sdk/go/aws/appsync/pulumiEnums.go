@@ -10,6 +10,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
+//
+// `MetricsConfig` can be `ENABLED` or `DISABLED` .
+type DataSourceMetricsConfig string
+
+const (
+	DataSourceMetricsConfigDisabled = DataSourceMetricsConfig("DISABLED")
+	DataSourceMetricsConfigEnabled  = DataSourceMetricsConfig("ENABLED")
+)
+
+func (DataSourceMetricsConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceMetricsConfig)(nil)).Elem()
+}
+
+func (e DataSourceMetricsConfig) ToDataSourceMetricsConfigOutput() DataSourceMetricsConfigOutput {
+	return pulumi.ToOutput(e).(DataSourceMetricsConfigOutput)
+}
+
+func (e DataSourceMetricsConfig) ToDataSourceMetricsConfigOutputWithContext(ctx context.Context) DataSourceMetricsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceMetricsConfigOutput)
+}
+
+func (e DataSourceMetricsConfig) ToDataSourceMetricsConfigPtrOutput() DataSourceMetricsConfigPtrOutput {
+	return e.ToDataSourceMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceMetricsConfig) ToDataSourceMetricsConfigPtrOutputWithContext(ctx context.Context) DataSourceMetricsConfigPtrOutput {
+	return DataSourceMetricsConfig(e).ToDataSourceMetricsConfigOutputWithContext(ctx).ToDataSourceMetricsConfigPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceMetricsConfig) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceMetricsConfig) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceMetricsConfig) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceMetricsConfig) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceMetricsConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMetricsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceMetricsConfig)(nil)).Elem()
+}
+
+func (o DataSourceMetricsConfigOutput) ToDataSourceMetricsConfigOutput() DataSourceMetricsConfigOutput {
+	return o
+}
+
+func (o DataSourceMetricsConfigOutput) ToDataSourceMetricsConfigOutputWithContext(ctx context.Context) DataSourceMetricsConfigOutput {
+	return o
+}
+
+func (o DataSourceMetricsConfigOutput) ToDataSourceMetricsConfigPtrOutput() DataSourceMetricsConfigPtrOutput {
+	return o.ToDataSourceMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceMetricsConfigOutput) ToDataSourceMetricsConfigPtrOutputWithContext(ctx context.Context) DataSourceMetricsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceMetricsConfig) *DataSourceMetricsConfig {
+		return &v
+	}).(DataSourceMetricsConfigPtrOutput)
+}
+
+func (o DataSourceMetricsConfigOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceMetricsConfigOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceMetricsConfig) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceMetricsConfigOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceMetricsConfigOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceMetricsConfig) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceMetricsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMetricsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceMetricsConfig)(nil)).Elem()
+}
+
+func (o DataSourceMetricsConfigPtrOutput) ToDataSourceMetricsConfigPtrOutput() DataSourceMetricsConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceMetricsConfigPtrOutput) ToDataSourceMetricsConfigPtrOutputWithContext(ctx context.Context) DataSourceMetricsConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceMetricsConfigPtrOutput) Elem() DataSourceMetricsConfigOutput {
+	return o.ApplyT(func(v *DataSourceMetricsConfig) DataSourceMetricsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceMetricsConfig
+		return ret
+	}).(DataSourceMetricsConfigOutput)
+}
+
+func (o DataSourceMetricsConfigPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceMetricsConfigPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceMetricsConfig) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceMetricsConfigInput is an input type that accepts values of the DataSourceMetricsConfig enum
+// A concrete instance of `DataSourceMetricsConfigInput` can be one of the following:
+//
+//	DataSourceMetricsConfigDisabled
+//	DataSourceMetricsConfigEnabled
+type DataSourceMetricsConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceMetricsConfigOutput() DataSourceMetricsConfigOutput
+	ToDataSourceMetricsConfigOutputWithContext(context.Context) DataSourceMetricsConfigOutput
+}
+
+var dataSourceMetricsConfigPtrType = reflect.TypeOf((**DataSourceMetricsConfig)(nil)).Elem()
+
+type DataSourceMetricsConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceMetricsConfigPtrOutput() DataSourceMetricsConfigPtrOutput
+	ToDataSourceMetricsConfigPtrOutputWithContext(context.Context) DataSourceMetricsConfigPtrOutput
+}
+
+type dataSourceMetricsConfigPtr string
+
+func DataSourceMetricsConfigPtr(v string) DataSourceMetricsConfigPtrInput {
+	return (*dataSourceMetricsConfigPtr)(&v)
+}
+
+func (*dataSourceMetricsConfigPtr) ElementType() reflect.Type {
+	return dataSourceMetricsConfigPtrType
+}
+
+func (in *dataSourceMetricsConfigPtr) ToDataSourceMetricsConfigPtrOutput() DataSourceMetricsConfigPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceMetricsConfigPtrOutput)
+}
+
+func (in *dataSourceMetricsConfigPtr) ToDataSourceMetricsConfigPtrOutputWithContext(ctx context.Context) DataSourceMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceMetricsConfigPtrOutput)
+}
+
 // Enables or disables enhanced resolver metrics for specified resolvers. Note that “MetricsConfig“ won't be used unless the “resolverLevelMetricsBehavior“ value is set to “PER_RESOLVER_METRICS“. If the “resolverLevelMetricsBehavior“ is set to “FULL_REQUEST_RESOLVER_METRICS“ instead, “MetricsConfig“ will be ignored. However, you can still set its value.
 type ResolverMetricsConfig string
 
@@ -440,10 +608,14 @@ func (o SourceApiAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMetricsConfigInput)(nil)).Elem(), DataSourceMetricsConfig("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMetricsConfigPtrInput)(nil)).Elem(), DataSourceMetricsConfig("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigPtrInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigMergeTypeInput)(nil)).Elem(), SourceApiAssociationConfigMergeType("AUTO_MERGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigMergeTypePtrInput)(nil)).Elem(), SourceApiAssociationConfigMergeType("AUTO_MERGE"))
+	pulumi.RegisterOutputType(DataSourceMetricsConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverMetricsConfigOutput{})
 	pulumi.RegisterOutputType(ResolverMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(SourceApiAssociationConfigMergeTypeOutput{})

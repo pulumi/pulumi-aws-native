@@ -26,6 +26,7 @@ namespace Pulumi.AwsNative.CodePipeline
         public static PipelineActionTypeIdCategory Deploy { get; } = new PipelineActionTypeIdCategory("Deploy");
         public static PipelineActionTypeIdCategory Invoke { get; } = new PipelineActionTypeIdCategory("Invoke");
         public static PipelineActionTypeIdCategory Approval { get; } = new PipelineActionTypeIdCategory("Approval");
+        public static PipelineActionTypeIdCategory Compute { get; } = new PipelineActionTypeIdCategory("Compute");
 
         public static bool operator ==(PipelineActionTypeIdCategory left, PipelineActionTypeIdCategory right) => left.Equals(right);
         public static bool operator !=(PipelineActionTypeIdCategory left, PipelineActionTypeIdCategory right) => !left.Equals(right);

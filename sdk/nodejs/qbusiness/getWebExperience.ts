@@ -42,6 +42,7 @@ export interface GetWebExperienceResult {
      * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
      */
     readonly identityProviderConfiguration?: outputs.qbusiness.WebExperienceIdentityProviderConfiguration0Properties | outputs.qbusiness.WebExperienceIdentityProviderConfiguration1Properties;
+    readonly origins?: string[];
     /**
      * The Amazon Resource Name (ARN) of the service role attached to your web experience.
      *

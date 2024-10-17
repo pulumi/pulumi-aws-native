@@ -40,7 +40,8 @@ type DataSource struct {
 	// The parameters that Amazon QuickSight uses to connect to your underlying source.
 	DataSourceParameters DataSourceParametersPtrOutput `pulumi:"dataSourceParameters"`
 	// Error information from the last update or the creation of the data source.
-	ErrorInfo DataSourceErrorInfoPtrOutput `pulumi:"errorInfo"`
+	ErrorInfo  DataSourceErrorInfoPtrOutput `pulumi:"errorInfo"`
+	FolderArns pulumi.StringArrayOutput     `pulumi:"folderArns"`
 	// <p>The last time that this data source was updated.</p>
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// A display name for the data source.
@@ -129,7 +130,8 @@ type dataSourceArgs struct {
 	// The parameters that Amazon QuickSight uses to connect to your underlying source.
 	DataSourceParameters *DataSourceParameters `pulumi:"dataSourceParameters"`
 	// Error information from the last update or the creation of the data source.
-	ErrorInfo *DataSourceErrorInfo `pulumi:"errorInfo"`
+	ErrorInfo  *DataSourceErrorInfo `pulumi:"errorInfo"`
+	FolderArns []string             `pulumi:"folderArns"`
 	// A display name for the data source.
 	Name *string `pulumi:"name"`
 	// A list of resource permissions on the data source.
@@ -167,7 +169,8 @@ type DataSourceArgs struct {
 	// The parameters that Amazon QuickSight uses to connect to your underlying source.
 	DataSourceParameters DataSourceParametersPtrInput
 	// Error information from the last update or the creation of the data source.
-	ErrorInfo DataSourceErrorInfoPtrInput
+	ErrorInfo  DataSourceErrorInfoPtrInput
+	FolderArns pulumi.StringArrayInput
 	// A display name for the data source.
 	Name pulumi.StringPtrInput
 	// A list of resource permissions on the data source.
@@ -268,6 +271,10 @@ func (o DataSourceOutput) DataSourceParameters() DataSourceParametersPtrOutput {
 // Error information from the last update or the creation of the data source.
 func (o DataSourceOutput) ErrorInfo() DataSourceErrorInfoPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceErrorInfoPtrOutput { return v.ErrorInfo }).(DataSourceErrorInfoPtrOutput)
+}
+
+func (o DataSourceOutput) FolderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringArrayOutput { return v.FolderArns }).(pulumi.StringArrayOutput)
 }
 
 // <p>The last time that this data source was updated.</p>

@@ -2048,6 +2048,7 @@ class DataSourceType(str, Enum):
     PRESTO = "PRESTO"
     REDSHIFT = "REDSHIFT"
     S3 = "S3"
+    S3_TABLES = "S3_TABLES"
     SALESFORCE = "SALESFORCE"
     SERVICENOW = "SERVICENOW"
     SNOWFLAKE = "SNOWFLAKE"

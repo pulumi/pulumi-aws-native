@@ -29,7 +29,8 @@ type Analysis struct {
 	DataSetArns pulumi.StringArrayOutput    `pulumi:"dataSetArns"`
 	Definition  AnalysisDefinitionPtrOutput `pulumi:"definition"`
 	// <p>Errors associated with the analysis.</p>
-	Errors AnalysisErrorArrayOutput `pulumi:"errors"`
+	Errors     AnalysisErrorArrayOutput `pulumi:"errors"`
+	FolderArns pulumi.StringArrayOutput `pulumi:"folderArns"`
 	// <p>The time that the analysis was last updated.</p>
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// <p>The descriptive name of the analysis.</p>
@@ -113,7 +114,8 @@ type analysisArgs struct {
 	AwsAccountId string              `pulumi:"awsAccountId"`
 	Definition   *AnalysisDefinition `pulumi:"definition"`
 	// <p>Errors associated with the analysis.</p>
-	Errors []AnalysisError `pulumi:"errors"`
+	Errors     []AnalysisError `pulumi:"errors"`
+	FolderArns []string        `pulumi:"folderArns"`
 	// <p>The descriptive name of the analysis.</p>
 	Name *string `pulumi:"name"`
 	// The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
@@ -146,7 +148,8 @@ type AnalysisArgs struct {
 	AwsAccountId pulumi.StringInput
 	Definition   AnalysisDefinitionPtrInput
 	// <p>Errors associated with the analysis.</p>
-	Errors AnalysisErrorArrayInput
+	Errors     AnalysisErrorArrayInput
+	FolderArns pulumi.StringArrayInput
 	// <p>The descriptive name of the analysis.</p>
 	Name pulumi.StringPtrInput
 	// The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
@@ -240,6 +243,10 @@ func (o AnalysisOutput) Definition() AnalysisDefinitionPtrOutput {
 // <p>Errors associated with the analysis.</p>
 func (o AnalysisOutput) Errors() AnalysisErrorArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisErrorArrayOutput { return v.Errors }).(AnalysisErrorArrayOutput)
+}
+
+func (o AnalysisOutput) FolderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Analysis) pulumi.StringArrayOutput { return v.FolderArns }).(pulumi.StringArrayOutput)
 }
 
 // <p>The time that the analysis was last updated.</p>

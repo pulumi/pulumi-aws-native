@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AiPromptAiPromptTemplateConfigurationArgs',
+    'AiPromptAiPromptTemplateConfigurationArgsDict',
     'AssistantAssociationAssociationDataArgs',
     'AssistantAssociationAssociationDataArgsDict',
     'AssistantServerSideEncryptionConfigurationArgs',
@@ -31,6 +33,18 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AiPromptAiPromptTemplateConfigurationArgsDict(TypedDict):
+        pass
+elif False:
+    AiPromptAiPromptTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiPromptAiPromptTemplateConfigurationArgs:
+    def __init__(__self__):
+        pass
+
 
 if not MYPY:
     class AssistantAssociationAssociationDataArgsDict(TypedDict):

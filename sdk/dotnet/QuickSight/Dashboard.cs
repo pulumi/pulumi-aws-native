@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("definition")]
         public Output<Outputs.DashboardVersionDefinition?> Definition { get; private set; } = null!;
 
+        [Output("folderArns")]
+        public Output<ImmutableArray<string>> FolderArns { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;The last time that this dashboard was published.&lt;/p&gt;
         /// </summary>
@@ -205,6 +208,14 @@ namespace Pulumi.AwsNative.QuickSight
 
         [Input("definition")]
         public Input<Inputs.DashboardVersionDefinitionArgs>? Definition { get; set; }
+
+        [Input("folderArns")]
+        private InputList<string>? _folderArns;
+        public InputList<string> FolderArns
+        {
+            get => _folderArns ?? (_folderArns = new InputList<string>());
+            set => _folderArns = value;
+        }
 
         [Input("linkEntities")]
         private InputList<string>? _linkEntities;

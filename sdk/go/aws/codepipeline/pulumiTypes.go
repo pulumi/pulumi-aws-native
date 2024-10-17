@@ -439,6 +439,8 @@ type CustomActionTypeTag struct {
 type PipelineActionDeclaration struct {
 	// Specifies the action type and the provider of the action.
 	ActionTypeId PipelineActionTypeId `pulumi:"actionTypeId"`
+	// The shell commands to run with your compute action in CodePipeline.
+	Commands []string `pulumi:"commands"`
 	// The action's configuration. These are key-value pairs that specify input values for an action.
 	Configuration interface{} `pulumi:"configuration"`
 	// The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
@@ -451,6 +453,8 @@ type PipelineActionDeclaration struct {
 	Namespace *string `pulumi:"namespace"`
 	// The name or ID of the result of the action declaration, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
 	OutputArtifacts []PipelineOutputArtifact `pulumi:"outputArtifacts"`
+	// The list of variables that are to be exported from the compute action.
+	OutputVariables []string `pulumi:"outputVariables"`
 	// The action declaration's AWS Region, such as us-east-1.
 	Region *string `pulumi:"region"`
 	// The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
@@ -476,6 +480,8 @@ type PipelineActionDeclarationInput interface {
 type PipelineActionDeclarationArgs struct {
 	// Specifies the action type and the provider of the action.
 	ActionTypeId PipelineActionTypeIdInput `pulumi:"actionTypeId"`
+	// The shell commands to run with your compute action in CodePipeline.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The action's configuration. These are key-value pairs that specify input values for an action.
 	Configuration pulumi.Input `pulumi:"configuration"`
 	// The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
@@ -488,6 +494,8 @@ type PipelineActionDeclarationArgs struct {
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// The name or ID of the result of the action declaration, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
 	OutputArtifacts PipelineOutputArtifactArrayInput `pulumi:"outputArtifacts"`
+	// The list of variables that are to be exported from the compute action.
+	OutputVariables pulumi.StringArrayInput `pulumi:"outputVariables"`
 	// The action declaration's AWS Region, such as us-east-1.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
@@ -555,6 +563,11 @@ func (o PipelineActionDeclarationOutput) ActionTypeId() PipelineActionTypeIdOutp
 	return o.ApplyT(func(v PipelineActionDeclaration) PipelineActionTypeId { return v.ActionTypeId }).(PipelineActionTypeIdOutput)
 }
 
+// The shell commands to run with your compute action in CodePipeline.
+func (o PipelineActionDeclarationOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineActionDeclaration) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
 // The action's configuration. These are key-value pairs that specify input values for an action.
 func (o PipelineActionDeclarationOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v PipelineActionDeclaration) interface{} { return v.Configuration }).(pulumi.AnyOutput)
@@ -580,6 +593,11 @@ func (o PipelineActionDeclarationOutput) Namespace() pulumi.StringPtrOutput {
 // The name or ID of the result of the action declaration, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
 func (o PipelineActionDeclarationOutput) OutputArtifacts() PipelineOutputArtifactArrayOutput {
 	return o.ApplyT(func(v PipelineActionDeclaration) []PipelineOutputArtifact { return v.OutputArtifacts }).(PipelineOutputArtifactArrayOutput)
+}
+
+// The list of variables that are to be exported from the compute action.
+func (o PipelineActionDeclarationOutput) OutputVariables() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineActionDeclaration) []string { return v.OutputVariables }).(pulumi.StringArrayOutput)
 }
 
 // The action declaration's AWS Region, such as us-east-1.
@@ -2666,6 +2684,8 @@ func (o PipelineInputArtifactArrayOutput) Index(i pulumi.IntInput) PipelineInput
 
 // Represents information about the output of an action.
 type PipelineOutputArtifact struct {
+	// The files that you want to associate with the output artifact that will be exported from the compute action.
+	Files []string `pulumi:"files"`
 	// The name of the output of an artifact, such as "My App".
 	Name string `pulumi:"name"`
 }
@@ -2683,6 +2703,8 @@ type PipelineOutputArtifactInput interface {
 
 // Represents information about the output of an action.
 type PipelineOutputArtifactArgs struct {
+	// The files that you want to associate with the output artifact that will be exported from the compute action.
+	Files pulumi.StringArrayInput `pulumi:"files"`
 	// The name of the output of an artifact, such as "My App".
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -2737,6 +2759,11 @@ func (o PipelineOutputArtifactOutput) ToPipelineOutputArtifactOutput() PipelineO
 
 func (o PipelineOutputArtifactOutput) ToPipelineOutputArtifactOutputWithContext(ctx context.Context) PipelineOutputArtifactOutput {
 	return o
+}
+
+// The files that you want to associate with the output artifact that will be exported from the compute action.
+func (o PipelineOutputArtifactOutput) Files() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineOutputArtifact) []string { return v.Files }).(pulumi.StringArrayOutput)
 }
 
 // The name of the output of an artifact, such as "My App".

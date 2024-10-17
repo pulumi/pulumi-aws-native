@@ -287,16 +287,13 @@ class DbInstanceArgs:
                  +   ``CharacterSetName`` 
                  +   ``DBClusterIdentifier`` 
                  +   ``DBName`` 
-                 +   ``DeleteAutomatedBackups`` 
                  +   ``KmsKeyId`` 
                  +   ``MasterUsername`` 
                  +   ``MasterUserPassword`` 
-                 +   ``PerformanceInsightsKMSKeyId`` 
-                 +   ``PerformanceInsightsRetentionPeriod`` 
                  +   ``PromotionTier`` 
                  +   ``SourceDBInstanceIdentifier`` 
                  +   ``SourceRegion`` 
-                 +   ``StorageEncrypted`` (for an encrypted snapshot)
+                 +   ``StorageEncrypted`` (for an unencrypted snapshot)
                  +   ``Timezone`` 
                  
                  *Amazon Aurora* 
@@ -1206,16 +1203,13 @@ class DbInstanceArgs:
           +   ``CharacterSetName`` 
           +   ``DBClusterIdentifier`` 
           +   ``DBName`` 
-          +   ``DeleteAutomatedBackups`` 
           +   ``KmsKeyId`` 
           +   ``MasterUsername`` 
           +   ``MasterUserPassword`` 
-          +   ``PerformanceInsightsKMSKeyId`` 
-          +   ``PerformanceInsightsRetentionPeriod`` 
           +   ``PromotionTier`` 
           +   ``SourceDBInstanceIdentifier`` 
           +   ``SourceRegion`` 
-          +   ``StorageEncrypted`` (for an encrypted snapshot)
+          +   ``StorageEncrypted`` (for an unencrypted snapshot)
           +   ``Timezone`` 
           
           *Amazon Aurora* 
@@ -2461,16 +2455,13 @@ class DbInstance(pulumi.CustomResource):
                  +   ``CharacterSetName`` 
                  +   ``DBClusterIdentifier`` 
                  +   ``DBName`` 
-                 +   ``DeleteAutomatedBackups`` 
                  +   ``KmsKeyId`` 
                  +   ``MasterUsername`` 
                  +   ``MasterUserPassword`` 
-                 +   ``PerformanceInsightsKMSKeyId`` 
-                 +   ``PerformanceInsightsRetentionPeriod`` 
                  +   ``PromotionTier`` 
                  +   ``SourceDBInstanceIdentifier`` 
                  +   ``SourceRegion`` 
-                 +   ``StorageEncrypted`` (for an encrypted snapshot)
+                 +   ``StorageEncrypted`` (for an unencrypted snapshot)
                  +   ``Timezone`` 
                  
                  *Amazon Aurora* 
@@ -3466,16 +3457,13 @@ class DbInstance(pulumi.CustomResource):
           +   ``CharacterSetName`` 
           +   ``DBClusterIdentifier`` 
           +   ``DBName`` 
-          +   ``DeleteAutomatedBackups`` 
           +   ``KmsKeyId`` 
           +   ``MasterUsername`` 
           +   ``MasterUserPassword`` 
-          +   ``PerformanceInsightsKMSKeyId`` 
-          +   ``PerformanceInsightsRetentionPeriod`` 
           +   ``PromotionTier`` 
           +   ``SourceDBInstanceIdentifier`` 
           +   ``SourceRegion`` 
-          +   ``StorageEncrypted`` (for an encrypted snapshot)
+          +   ``StorageEncrypted`` (for an unencrypted snapshot)
           +   ``Timezone`` 
           
           *Amazon Aurora* 

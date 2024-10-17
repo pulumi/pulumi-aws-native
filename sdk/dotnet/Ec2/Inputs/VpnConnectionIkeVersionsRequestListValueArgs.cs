@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class VpnConnectionIkeVersionsRequestListValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IKE version.
+        /// </summary>
         [Input("value")]
         public Input<Pulumi.AwsNative.Ec2.VpnConnectionIkeVersionsRequestListValueValue>? Value { get; set; }
 

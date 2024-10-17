@@ -39,9 +39,10 @@ class OrganizationFeatureSet(str, Enum):
 
 class PolicyType(str, Enum):
     """
-    The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
+    The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY
     """
     SERVICE_CONTROL_POLICY = "SERVICE_CONTROL_POLICY"
     AISERVICES_OPT_OUT_POLICY = "AISERVICES_OPT_OUT_POLICY"
     BACKUP_POLICY = "BACKUP_POLICY"
     TAG_POLICY = "TAG_POLICY"
+    CHATBOT_POLICY = "CHATBOT_POLICY"

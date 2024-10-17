@@ -17,6 +17,17 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DataSourceAuthorizationConfig',
+    'DataSourceAwsIamConfig',
+    'DataSourceDeltaSyncConfig',
+    'DataSourceDynamoDbConfig',
+    'DataSourceElasticsearchConfig',
+    'DataSourceEventBridgeConfig',
+    'DataSourceHttpConfig',
+    'DataSourceLambdaConfig',
+    'DataSourceOpenSearchServiceConfig',
+    'DataSourceRdsHttpEndpointConfig',
+    'DataSourceRelationalDatabaseConfig',
     'FunctionConfigurationAppSyncRuntime',
     'FunctionConfigurationLambdaConflictHandlerConfig',
     'FunctionConfigurationSyncConfig',
@@ -27,6 +38,599 @@ __all__ = [
     'ResolverSyncConfig',
     'SourceApiAssociationConfig',
 ]
+
+@pulumi.output_type
+class DataSourceAuthorizationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationType":
+            suggest = "authorization_type"
+        elif key == "awsIamConfig":
+            suggest = "aws_iam_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceAuthorizationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceAuthorizationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceAuthorizationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_type: str,
+                 aws_iam_config: Optional['outputs.DataSourceAwsIamConfig'] = None):
+        """
+        :param str authorization_type: The authorization type that the HTTP endpoint requires.
+        :param 'DataSourceAwsIamConfig' aws_iam_config: The AWS Identity and Access Management settings.
+        """
+        pulumi.set(__self__, "authorization_type", authorization_type)
+        if aws_iam_config is not None:
+            pulumi.set(__self__, "aws_iam_config", aws_iam_config)
+
+    @property
+    @pulumi.getter(name="authorizationType")
+    def authorization_type(self) -> str:
+        """
+        The authorization type that the HTTP endpoint requires.
+        """
+        return pulumi.get(self, "authorization_type")
+
+    @property
+    @pulumi.getter(name="awsIamConfig")
+    def aws_iam_config(self) -> Optional['outputs.DataSourceAwsIamConfig']:
+        """
+        The AWS Identity and Access Management settings.
+        """
+        return pulumi.get(self, "aws_iam_config")
+
+
+@pulumi.output_type
+class DataSourceAwsIamConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signingRegion":
+            suggest = "signing_region"
+        elif key == "signingServiceName":
+            suggest = "signing_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceAwsIamConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceAwsIamConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceAwsIamConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 signing_region: Optional[str] = None,
+                 signing_service_name: Optional[str] = None):
+        """
+        :param str signing_region: The signing Region for AWS Identity and Access Management authorization.
+        :param str signing_service_name: The signing service name for AWS Identity and Access Management authorization.
+        """
+        if signing_region is not None:
+            pulumi.set(__self__, "signing_region", signing_region)
+        if signing_service_name is not None:
+            pulumi.set(__self__, "signing_service_name", signing_service_name)
+
+    @property
+    @pulumi.getter(name="signingRegion")
+    def signing_region(self) -> Optional[str]:
+        """
+        The signing Region for AWS Identity and Access Management authorization.
+        """
+        return pulumi.get(self, "signing_region")
+
+    @property
+    @pulumi.getter(name="signingServiceName")
+    def signing_service_name(self) -> Optional[str]:
+        """
+        The signing service name for AWS Identity and Access Management authorization.
+        """
+        return pulumi.get(self, "signing_service_name")
+
+
+@pulumi.output_type
+class DataSourceDeltaSyncConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseTableTtl":
+            suggest = "base_table_ttl"
+        elif key == "deltaSyncTableName":
+            suggest = "delta_sync_table_name"
+        elif key == "deltaSyncTableTtl":
+            suggest = "delta_sync_table_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDeltaSyncConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDeltaSyncConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDeltaSyncConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 base_table_ttl: str,
+                 delta_sync_table_name: str,
+                 delta_sync_table_ttl: str):
+        """
+        :param str base_table_ttl: The number of minutes that an Item is stored in the data source.
+        :param str delta_sync_table_name: The Delta Sync table name.
+        :param str delta_sync_table_ttl: The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
+        pulumi.set(__self__, "base_table_ttl", base_table_ttl)
+        pulumi.set(__self__, "delta_sync_table_name", delta_sync_table_name)
+        pulumi.set(__self__, "delta_sync_table_ttl", delta_sync_table_ttl)
+
+    @property
+    @pulumi.getter(name="baseTableTtl")
+    def base_table_ttl(self) -> str:
+        """
+        The number of minutes that an Item is stored in the data source.
+        """
+        return pulumi.get(self, "base_table_ttl")
+
+    @property
+    @pulumi.getter(name="deltaSyncTableName")
+    def delta_sync_table_name(self) -> str:
+        """
+        The Delta Sync table name.
+        """
+        return pulumi.get(self, "delta_sync_table_name")
+
+    @property
+    @pulumi.getter(name="deltaSyncTableTtl")
+    def delta_sync_table_ttl(self) -> str:
+        """
+        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+        """
+        return pulumi.get(self, "delta_sync_table_ttl")
+
+
+@pulumi.output_type
+class DataSourceDynamoDbConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "deltaSyncConfig":
+            suggest = "delta_sync_config"
+        elif key == "useCallerCredentials":
+            suggest = "use_caller_credentials"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceDynamoDbConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceDynamoDbConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceDynamoDbConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: str,
+                 table_name: str,
+                 delta_sync_config: Optional['outputs.DataSourceDeltaSyncConfig'] = None,
+                 use_caller_credentials: Optional[bool] = None,
+                 versioned: Optional[bool] = None):
+        """
+        :param str aws_region: The AWS Region.
+        :param str table_name: The table name.
+        :param 'DataSourceDeltaSyncConfig' delta_sync_config: The DeltaSyncConfig for a versioned datasource.
+        :param bool use_caller_credentials: Set to TRUE to use AWS Identity and Access Management with this data source.
+        :param bool versioned: Set to TRUE to use Conflict Detection and Resolution with this data source.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "table_name", table_name)
+        if delta_sync_config is not None:
+            pulumi.set(__self__, "delta_sync_config", delta_sync_config)
+        if use_caller_credentials is not None:
+            pulumi.set(__self__, "use_caller_credentials", use_caller_credentials)
+        if versioned is not None:
+            pulumi.set(__self__, "versioned", versioned)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> str:
+        """
+        The AWS Region.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The table name.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="deltaSyncConfig")
+    def delta_sync_config(self) -> Optional['outputs.DataSourceDeltaSyncConfig']:
+        """
+        The DeltaSyncConfig for a versioned datasource.
+        """
+        return pulumi.get(self, "delta_sync_config")
+
+    @property
+    @pulumi.getter(name="useCallerCredentials")
+    def use_caller_credentials(self) -> Optional[bool]:
+        """
+        Set to TRUE to use AWS Identity and Access Management with this data source.
+        """
+        return pulumi.get(self, "use_caller_credentials")
+
+    @property
+    @pulumi.getter
+    def versioned(self) -> Optional[bool]:
+        """
+        Set to TRUE to use Conflict Detection and Resolution with this data source.
+        """
+        return pulumi.get(self, "versioned")
+
+
+@pulumi.output_type
+class DataSourceElasticsearchConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceElasticsearchConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceElasticsearchConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceElasticsearchConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: str,
+                 endpoint: str):
+        """
+        :param str aws_region: The AWS Region.
+        :param str endpoint: The endpoint.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> str:
+        """
+        The AWS Region.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class DataSourceEventBridgeConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventBusArn":
+            suggest = "event_bus_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceEventBridgeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceEventBridgeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceEventBridgeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_bus_arn: str):
+        """
+        :param str event_bus_arn: ARN for the EventBridge bus.
+        """
+        pulumi.set(__self__, "event_bus_arn", event_bus_arn)
+
+    @property
+    @pulumi.getter(name="eventBusArn")
+    def event_bus_arn(self) -> str:
+        """
+        ARN for the EventBridge bus.
+        """
+        return pulumi.get(self, "event_bus_arn")
+
+
+@pulumi.output_type
+class DataSourceHttpConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationConfig":
+            suggest = "authorization_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceHttpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceHttpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceHttpConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: str,
+                 authorization_config: Optional['outputs.DataSourceAuthorizationConfig'] = None):
+        """
+        :param str endpoint: The endpoint.
+        :param 'DataSourceAuthorizationConfig' authorization_config: The authorization configuration.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        if authorization_config is not None:
+            pulumi.set(__self__, "authorization_config", authorization_config)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter(name="authorizationConfig")
+    def authorization_config(self) -> Optional['outputs.DataSourceAuthorizationConfig']:
+        """
+        The authorization configuration.
+        """
+        return pulumi.get(self, "authorization_config")
+
+
+@pulumi.output_type
+class DataSourceLambdaConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lambdaFunctionArn":
+            suggest = "lambda_function_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceLambdaConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceLambdaConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceLambdaConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lambda_function_arn: str):
+        """
+        :param str lambda_function_arn: The ARN for the Lambda function.
+        """
+        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> str:
+        """
+        The ARN for the Lambda function.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+
+@pulumi.output_type
+class DataSourceOpenSearchServiceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceOpenSearchServiceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceOpenSearchServiceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceOpenSearchServiceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: str,
+                 endpoint: str):
+        """
+        :param str aws_region: The AWS Region.
+        :param str endpoint: The endpoint.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "endpoint", endpoint)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> str:
+        """
+        The AWS Region.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        """
+        The endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+
+@pulumi.output_type
+class DataSourceRdsHttpEndpointConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "awsSecretStoreArn":
+            suggest = "aws_secret_store_arn"
+        elif key == "dbClusterIdentifier":
+            suggest = "db_cluster_identifier"
+        elif key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceRdsHttpEndpointConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceRdsHttpEndpointConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceRdsHttpEndpointConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: str,
+                 aws_secret_store_arn: str,
+                 db_cluster_identifier: str,
+                 database_name: Optional[str] = None,
+                 schema: Optional[str] = None):
+        """
+        :param str aws_region: AWS Region for RDS HTTP endpoint.
+        :param str aws_secret_store_arn: The ARN for database credentials stored in AWS Secrets Manager.
+        :param str db_cluster_identifier: Amazon RDS cluster Amazon Resource Name (ARN).
+        :param str database_name: Logical database name.
+        :param str schema: Logical schema name.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "aws_secret_store_arn", aws_secret_store_arn)
+        pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> str:
+        """
+        AWS Region for RDS HTTP endpoint.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter(name="awsSecretStoreArn")
+    def aws_secret_store_arn(self) -> str:
+        """
+        The ARN for database credentials stored in AWS Secrets Manager.
+        """
+        return pulumi.get(self, "aws_secret_store_arn")
+
+    @property
+    @pulumi.getter(name="dbClusterIdentifier")
+    def db_cluster_identifier(self) -> str:
+        """
+        Amazon RDS cluster Amazon Resource Name (ARN).
+        """
+        return pulumi.get(self, "db_cluster_identifier")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[str]:
+        """
+        Logical database name.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[str]:
+        """
+        Logical schema name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class DataSourceRelationalDatabaseConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "relationalDatabaseSourceType":
+            suggest = "relational_database_source_type"
+        elif key == "rdsHttpEndpointConfig":
+            suggest = "rds_http_endpoint_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceRelationalDatabaseConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceRelationalDatabaseConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceRelationalDatabaseConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 relational_database_source_type: str,
+                 rds_http_endpoint_config: Optional['outputs.DataSourceRdsHttpEndpointConfig'] = None):
+        """
+        :param str relational_database_source_type: The type of relational data source.
+        :param 'DataSourceRdsHttpEndpointConfig' rds_http_endpoint_config: Information about the Amazon RDS resource.
+        """
+        pulumi.set(__self__, "relational_database_source_type", relational_database_source_type)
+        if rds_http_endpoint_config is not None:
+            pulumi.set(__self__, "rds_http_endpoint_config", rds_http_endpoint_config)
+
+    @property
+    @pulumi.getter(name="relationalDatabaseSourceType")
+    def relational_database_source_type(self) -> str:
+        """
+        The type of relational data source.
+        """
+        return pulumi.get(self, "relational_database_source_type")
+
+    @property
+    @pulumi.getter(name="rdsHttpEndpointConfig")
+    def rds_http_endpoint_config(self) -> Optional['outputs.DataSourceRdsHttpEndpointConfig']:
+        """
+        Information about the Amazon RDS resource.
+        """
+        return pulumi.get(self, "rds_http_endpoint_config")
+
 
 @pulumi.output_type
 class FunctionConfigurationAppSyncRuntime(dict):

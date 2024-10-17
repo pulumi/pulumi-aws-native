@@ -23,7 +23,7 @@ func LookupUserPoolRiskConfigurationAttachment(ctx *pulumi.Context, args *Lookup
 }
 
 type LookupUserPoolRiskConfigurationAttachmentArgs struct {
-	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+	// The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
 	ClientId string `pulumi:"clientId"`
 	// The ID of the user pool that has the risk configuration applied.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -58,7 +58,7 @@ func LookupUserPoolRiskConfigurationAttachmentOutput(ctx *pulumi.Context, args L
 }
 
 type LookupUserPoolRiskConfigurationAttachmentOutputArgs struct {
-	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+	// The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The ID of the user pool that has the risk configuration applied.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`

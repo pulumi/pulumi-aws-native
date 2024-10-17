@@ -18,9 +18,15 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("objectPath", required: true)]
         public Input<string> ObjectPath { get; set; } = null!;
 
+        /// <summary>
+        /// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+        /// </summary>
         [Input("paginationConfig")]
         public Input<Inputs.FlowSapoDataPaginationConfigArgs>? PaginationConfig { get; set; }
 
+        /// <summary>
+        /// Sets the number of concurrent processes that transfers OData records from your SAP instance.
+        /// </summary>
         [Input("parallelismConfig")]
         public Input<Inputs.FlowSapoDataParallelismConfigArgs>? ParallelismConfig { get; set; }
 

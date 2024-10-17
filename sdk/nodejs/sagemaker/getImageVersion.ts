@@ -57,7 +57,7 @@ export interface GetImageVersionResult {
     readonly releaseNotes?: string;
     readonly vendorGuidance?: enums.sagemaker.ImageVersionVendorGuidance;
     /**
-     * The version number.
+     * The version of the image.
      */
     readonly version?: number;
 }

@@ -18,7 +18,7 @@ type UserPoolRiskConfigurationAttachment struct {
 
 	// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
 	AccountTakeoverRiskConfiguration UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput `pulumi:"accountTakeoverRiskConfiguration"`
-	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+	// The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
 	CompromisedCredentialsRiskConfiguration UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput `pulumi:"compromisedCredentialsRiskConfiguration"`
@@ -81,7 +81,7 @@ func (UserPoolRiskConfigurationAttachmentState) ElementType() reflect.Type {
 type userPoolRiskConfigurationAttachmentArgs struct {
 	// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
 	AccountTakeoverRiskConfiguration *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType `pulumi:"accountTakeoverRiskConfiguration"`
-	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+	// The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
 	ClientId string `pulumi:"clientId"`
 	// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
 	CompromisedCredentialsRiskConfiguration *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType `pulumi:"compromisedCredentialsRiskConfiguration"`
@@ -95,7 +95,7 @@ type userPoolRiskConfigurationAttachmentArgs struct {
 type UserPoolRiskConfigurationAttachmentArgs struct {
 	// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
 	AccountTakeoverRiskConfiguration UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrInput
-	// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+	// The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
 	ClientId pulumi.StringInput
 	// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
 	CompromisedCredentialsRiskConfiguration UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrInput
@@ -149,7 +149,7 @@ func (o UserPoolRiskConfigurationAttachmentOutput) AccountTakeoverRiskConfigurat
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
 }
 
-// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+// The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
 func (o UserPoolRiskConfigurationAttachmentOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachment) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }

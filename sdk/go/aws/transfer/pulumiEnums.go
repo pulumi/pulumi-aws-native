@@ -1543,6 +1543,1596 @@ func (in *profileTypePtr) ToProfileTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ProfileTypePtrOutput)
 }
 
+type ServerAs2Transport string
+
+const (
+	ServerAs2TransportHttp = ServerAs2Transport("HTTP")
+)
+
+func (ServerAs2Transport) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAs2Transport)(nil)).Elem()
+}
+
+func (e ServerAs2Transport) ToServerAs2TransportOutput() ServerAs2TransportOutput {
+	return pulumi.ToOutput(e).(ServerAs2TransportOutput)
+}
+
+func (e ServerAs2Transport) ToServerAs2TransportOutputWithContext(ctx context.Context) ServerAs2TransportOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerAs2TransportOutput)
+}
+
+func (e ServerAs2Transport) ToServerAs2TransportPtrOutput() ServerAs2TransportPtrOutput {
+	return e.ToServerAs2TransportPtrOutputWithContext(context.Background())
+}
+
+func (e ServerAs2Transport) ToServerAs2TransportPtrOutputWithContext(ctx context.Context) ServerAs2TransportPtrOutput {
+	return ServerAs2Transport(e).ToServerAs2TransportOutputWithContext(ctx).ToServerAs2TransportPtrOutputWithContext(ctx)
+}
+
+func (e ServerAs2Transport) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerAs2Transport) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerAs2Transport) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerAs2Transport) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerAs2TransportOutput struct{ *pulumi.OutputState }
+
+func (ServerAs2TransportOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerAs2Transport)(nil)).Elem()
+}
+
+func (o ServerAs2TransportOutput) ToServerAs2TransportOutput() ServerAs2TransportOutput {
+	return o
+}
+
+func (o ServerAs2TransportOutput) ToServerAs2TransportOutputWithContext(ctx context.Context) ServerAs2TransportOutput {
+	return o
+}
+
+func (o ServerAs2TransportOutput) ToServerAs2TransportPtrOutput() ServerAs2TransportPtrOutput {
+	return o.ToServerAs2TransportPtrOutputWithContext(context.Background())
+}
+
+func (o ServerAs2TransportOutput) ToServerAs2TransportPtrOutputWithContext(ctx context.Context) ServerAs2TransportPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerAs2Transport) *ServerAs2Transport {
+		return &v
+	}).(ServerAs2TransportPtrOutput)
+}
+
+func (o ServerAs2TransportOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerAs2TransportOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerAs2Transport) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerAs2TransportOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerAs2TransportOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerAs2Transport) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerAs2TransportPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerAs2TransportPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerAs2Transport)(nil)).Elem()
+}
+
+func (o ServerAs2TransportPtrOutput) ToServerAs2TransportPtrOutput() ServerAs2TransportPtrOutput {
+	return o
+}
+
+func (o ServerAs2TransportPtrOutput) ToServerAs2TransportPtrOutputWithContext(ctx context.Context) ServerAs2TransportPtrOutput {
+	return o
+}
+
+func (o ServerAs2TransportPtrOutput) Elem() ServerAs2TransportOutput {
+	return o.ApplyT(func(v *ServerAs2Transport) ServerAs2Transport {
+		if v != nil {
+			return *v
+		}
+		var ret ServerAs2Transport
+		return ret
+	}).(ServerAs2TransportOutput)
+}
+
+func (o ServerAs2TransportPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerAs2TransportPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerAs2Transport) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerAs2TransportInput is an input type that accepts values of the ServerAs2Transport enum
+// A concrete instance of `ServerAs2TransportInput` can be one of the following:
+//
+//	ServerAs2TransportHttp
+type ServerAs2TransportInput interface {
+	pulumi.Input
+
+	ToServerAs2TransportOutput() ServerAs2TransportOutput
+	ToServerAs2TransportOutputWithContext(context.Context) ServerAs2TransportOutput
+}
+
+var serverAs2TransportPtrType = reflect.TypeOf((**ServerAs2Transport)(nil)).Elem()
+
+type ServerAs2TransportPtrInput interface {
+	pulumi.Input
+
+	ToServerAs2TransportPtrOutput() ServerAs2TransportPtrOutput
+	ToServerAs2TransportPtrOutputWithContext(context.Context) ServerAs2TransportPtrOutput
+}
+
+type serverAs2TransportPtr string
+
+func ServerAs2TransportPtr(v string) ServerAs2TransportPtrInput {
+	return (*serverAs2TransportPtr)(&v)
+}
+
+func (*serverAs2TransportPtr) ElementType() reflect.Type {
+	return serverAs2TransportPtrType
+}
+
+func (in *serverAs2TransportPtr) ToServerAs2TransportPtrOutput() ServerAs2TransportPtrOutput {
+	return pulumi.ToOutput(in).(ServerAs2TransportPtrOutput)
+}
+
+func (in *serverAs2TransportPtr) ToServerAs2TransportPtrOutputWithContext(ctx context.Context) ServerAs2TransportPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerAs2TransportPtrOutput)
+}
+
+// ServerAs2TransportArrayInput is an input type that accepts ServerAs2TransportArray and ServerAs2TransportArrayOutput values.
+// You can construct a concrete instance of `ServerAs2TransportArrayInput` via:
+//
+//	ServerAs2TransportArray{ ServerAs2TransportArgs{...} }
+type ServerAs2TransportArrayInput interface {
+	pulumi.Input
+
+	ToServerAs2TransportArrayOutput() ServerAs2TransportArrayOutput
+	ToServerAs2TransportArrayOutputWithContext(context.Context) ServerAs2TransportArrayOutput
+}
+
+type ServerAs2TransportArray []ServerAs2Transport
+
+func (ServerAs2TransportArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerAs2Transport)(nil)).Elem()
+}
+
+func (i ServerAs2TransportArray) ToServerAs2TransportArrayOutput() ServerAs2TransportArrayOutput {
+	return i.ToServerAs2TransportArrayOutputWithContext(context.Background())
+}
+
+func (i ServerAs2TransportArray) ToServerAs2TransportArrayOutputWithContext(ctx context.Context) ServerAs2TransportArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerAs2TransportArrayOutput)
+}
+
+type ServerAs2TransportArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerAs2TransportArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerAs2Transport)(nil)).Elem()
+}
+
+func (o ServerAs2TransportArrayOutput) ToServerAs2TransportArrayOutput() ServerAs2TransportArrayOutput {
+	return o
+}
+
+func (o ServerAs2TransportArrayOutput) ToServerAs2TransportArrayOutputWithContext(ctx context.Context) ServerAs2TransportArrayOutput {
+	return o
+}
+
+func (o ServerAs2TransportArrayOutput) Index(i pulumi.IntInput) ServerAs2TransportOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerAs2Transport {
+		return vs[0].([]ServerAs2Transport)[vs[1].(int)]
+	}).(ServerAs2TransportOutput)
+}
+
+// Indicates whether optimization to directory listing on S3 servers is used. Disabled by default for compatibility.
+type ServerDirectoryListingOptimization string
+
+const (
+	ServerDirectoryListingOptimizationEnabled  = ServerDirectoryListingOptimization("ENABLED")
+	ServerDirectoryListingOptimizationDisabled = ServerDirectoryListingOptimization("DISABLED")
+)
+
+func (ServerDirectoryListingOptimization) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDirectoryListingOptimization)(nil)).Elem()
+}
+
+func (e ServerDirectoryListingOptimization) ToServerDirectoryListingOptimizationOutput() ServerDirectoryListingOptimizationOutput {
+	return pulumi.ToOutput(e).(ServerDirectoryListingOptimizationOutput)
+}
+
+func (e ServerDirectoryListingOptimization) ToServerDirectoryListingOptimizationOutputWithContext(ctx context.Context) ServerDirectoryListingOptimizationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerDirectoryListingOptimizationOutput)
+}
+
+func (e ServerDirectoryListingOptimization) ToServerDirectoryListingOptimizationPtrOutput() ServerDirectoryListingOptimizationPtrOutput {
+	return e.ToServerDirectoryListingOptimizationPtrOutputWithContext(context.Background())
+}
+
+func (e ServerDirectoryListingOptimization) ToServerDirectoryListingOptimizationPtrOutputWithContext(ctx context.Context) ServerDirectoryListingOptimizationPtrOutput {
+	return ServerDirectoryListingOptimization(e).ToServerDirectoryListingOptimizationOutputWithContext(ctx).ToServerDirectoryListingOptimizationPtrOutputWithContext(ctx)
+}
+
+func (e ServerDirectoryListingOptimization) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerDirectoryListingOptimization) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerDirectoryListingOptimization) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerDirectoryListingOptimization) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerDirectoryListingOptimizationOutput struct{ *pulumi.OutputState }
+
+func (ServerDirectoryListingOptimizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDirectoryListingOptimization)(nil)).Elem()
+}
+
+func (o ServerDirectoryListingOptimizationOutput) ToServerDirectoryListingOptimizationOutput() ServerDirectoryListingOptimizationOutput {
+	return o
+}
+
+func (o ServerDirectoryListingOptimizationOutput) ToServerDirectoryListingOptimizationOutputWithContext(ctx context.Context) ServerDirectoryListingOptimizationOutput {
+	return o
+}
+
+func (o ServerDirectoryListingOptimizationOutput) ToServerDirectoryListingOptimizationPtrOutput() ServerDirectoryListingOptimizationPtrOutput {
+	return o.ToServerDirectoryListingOptimizationPtrOutputWithContext(context.Background())
+}
+
+func (o ServerDirectoryListingOptimizationOutput) ToServerDirectoryListingOptimizationPtrOutputWithContext(ctx context.Context) ServerDirectoryListingOptimizationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerDirectoryListingOptimization) *ServerDirectoryListingOptimization {
+		return &v
+	}).(ServerDirectoryListingOptimizationPtrOutput)
+}
+
+func (o ServerDirectoryListingOptimizationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerDirectoryListingOptimizationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerDirectoryListingOptimization) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerDirectoryListingOptimizationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerDirectoryListingOptimizationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerDirectoryListingOptimization) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerDirectoryListingOptimizationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerDirectoryListingOptimizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerDirectoryListingOptimization)(nil)).Elem()
+}
+
+func (o ServerDirectoryListingOptimizationPtrOutput) ToServerDirectoryListingOptimizationPtrOutput() ServerDirectoryListingOptimizationPtrOutput {
+	return o
+}
+
+func (o ServerDirectoryListingOptimizationPtrOutput) ToServerDirectoryListingOptimizationPtrOutputWithContext(ctx context.Context) ServerDirectoryListingOptimizationPtrOutput {
+	return o
+}
+
+func (o ServerDirectoryListingOptimizationPtrOutput) Elem() ServerDirectoryListingOptimizationOutput {
+	return o.ApplyT(func(v *ServerDirectoryListingOptimization) ServerDirectoryListingOptimization {
+		if v != nil {
+			return *v
+		}
+		var ret ServerDirectoryListingOptimization
+		return ret
+	}).(ServerDirectoryListingOptimizationOutput)
+}
+
+func (o ServerDirectoryListingOptimizationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerDirectoryListingOptimizationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerDirectoryListingOptimization) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerDirectoryListingOptimizationInput is an input type that accepts values of the ServerDirectoryListingOptimization enum
+// A concrete instance of `ServerDirectoryListingOptimizationInput` can be one of the following:
+//
+//	ServerDirectoryListingOptimizationEnabled
+//	ServerDirectoryListingOptimizationDisabled
+type ServerDirectoryListingOptimizationInput interface {
+	pulumi.Input
+
+	ToServerDirectoryListingOptimizationOutput() ServerDirectoryListingOptimizationOutput
+	ToServerDirectoryListingOptimizationOutputWithContext(context.Context) ServerDirectoryListingOptimizationOutput
+}
+
+var serverDirectoryListingOptimizationPtrType = reflect.TypeOf((**ServerDirectoryListingOptimization)(nil)).Elem()
+
+type ServerDirectoryListingOptimizationPtrInput interface {
+	pulumi.Input
+
+	ToServerDirectoryListingOptimizationPtrOutput() ServerDirectoryListingOptimizationPtrOutput
+	ToServerDirectoryListingOptimizationPtrOutputWithContext(context.Context) ServerDirectoryListingOptimizationPtrOutput
+}
+
+type serverDirectoryListingOptimizationPtr string
+
+func ServerDirectoryListingOptimizationPtr(v string) ServerDirectoryListingOptimizationPtrInput {
+	return (*serverDirectoryListingOptimizationPtr)(&v)
+}
+
+func (*serverDirectoryListingOptimizationPtr) ElementType() reflect.Type {
+	return serverDirectoryListingOptimizationPtrType
+}
+
+func (in *serverDirectoryListingOptimizationPtr) ToServerDirectoryListingOptimizationPtrOutput() ServerDirectoryListingOptimizationPtrOutput {
+	return pulumi.ToOutput(in).(ServerDirectoryListingOptimizationPtrOutput)
+}
+
+func (in *serverDirectoryListingOptimizationPtr) ToServerDirectoryListingOptimizationPtrOutputWithContext(ctx context.Context) ServerDirectoryListingOptimizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerDirectoryListingOptimizationPtrOutput)
+}
+
+type ServerDomain string
+
+const (
+	ServerDomainS3  = ServerDomain("S3")
+	ServerDomainEfs = ServerDomain("EFS")
+)
+
+func (ServerDomain) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDomain)(nil)).Elem()
+}
+
+func (e ServerDomain) ToServerDomainOutput() ServerDomainOutput {
+	return pulumi.ToOutput(e).(ServerDomainOutput)
+}
+
+func (e ServerDomain) ToServerDomainOutputWithContext(ctx context.Context) ServerDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerDomainOutput)
+}
+
+func (e ServerDomain) ToServerDomainPtrOutput() ServerDomainPtrOutput {
+	return e.ToServerDomainPtrOutputWithContext(context.Background())
+}
+
+func (e ServerDomain) ToServerDomainPtrOutputWithContext(ctx context.Context) ServerDomainPtrOutput {
+	return ServerDomain(e).ToServerDomainOutputWithContext(ctx).ToServerDomainPtrOutputWithContext(ctx)
+}
+
+func (e ServerDomain) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerDomain) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerDomain) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerDomain) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerDomainOutput struct{ *pulumi.OutputState }
+
+func (ServerDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerDomain)(nil)).Elem()
+}
+
+func (o ServerDomainOutput) ToServerDomainOutput() ServerDomainOutput {
+	return o
+}
+
+func (o ServerDomainOutput) ToServerDomainOutputWithContext(ctx context.Context) ServerDomainOutput {
+	return o
+}
+
+func (o ServerDomainOutput) ToServerDomainPtrOutput() ServerDomainPtrOutput {
+	return o.ToServerDomainPtrOutputWithContext(context.Background())
+}
+
+func (o ServerDomainOutput) ToServerDomainPtrOutputWithContext(ctx context.Context) ServerDomainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerDomain) *ServerDomain {
+		return &v
+	}).(ServerDomainPtrOutput)
+}
+
+func (o ServerDomainOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerDomainOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerDomain) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerDomainOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerDomainOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerDomain) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerDomainPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerDomainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerDomain)(nil)).Elem()
+}
+
+func (o ServerDomainPtrOutput) ToServerDomainPtrOutput() ServerDomainPtrOutput {
+	return o
+}
+
+func (o ServerDomainPtrOutput) ToServerDomainPtrOutputWithContext(ctx context.Context) ServerDomainPtrOutput {
+	return o
+}
+
+func (o ServerDomainPtrOutput) Elem() ServerDomainOutput {
+	return o.ApplyT(func(v *ServerDomain) ServerDomain {
+		if v != nil {
+			return *v
+		}
+		var ret ServerDomain
+		return ret
+	}).(ServerDomainOutput)
+}
+
+func (o ServerDomainPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerDomainPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerDomain) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerDomainInput is an input type that accepts values of the ServerDomain enum
+// A concrete instance of `ServerDomainInput` can be one of the following:
+//
+//	ServerDomainS3
+//	ServerDomainEfs
+type ServerDomainInput interface {
+	pulumi.Input
+
+	ToServerDomainOutput() ServerDomainOutput
+	ToServerDomainOutputWithContext(context.Context) ServerDomainOutput
+}
+
+var serverDomainPtrType = reflect.TypeOf((**ServerDomain)(nil)).Elem()
+
+type ServerDomainPtrInput interface {
+	pulumi.Input
+
+	ToServerDomainPtrOutput() ServerDomainPtrOutput
+	ToServerDomainPtrOutputWithContext(context.Context) ServerDomainPtrOutput
+}
+
+type serverDomainPtr string
+
+func ServerDomainPtr(v string) ServerDomainPtrInput {
+	return (*serverDomainPtr)(&v)
+}
+
+func (*serverDomainPtr) ElementType() reflect.Type {
+	return serverDomainPtrType
+}
+
+func (in *serverDomainPtr) ToServerDomainPtrOutput() ServerDomainPtrOutput {
+	return pulumi.ToOutput(in).(ServerDomainPtrOutput)
+}
+
+func (in *serverDomainPtr) ToServerDomainPtrOutputWithContext(ctx context.Context) ServerDomainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerDomainPtrOutput)
+}
+
+type ServerEndpointType string
+
+const (
+	ServerEndpointTypePublic      = ServerEndpointType("PUBLIC")
+	ServerEndpointTypeVpc         = ServerEndpointType("VPC")
+	ServerEndpointTypeVpcEndpoint = ServerEndpointType("VPC_ENDPOINT")
+)
+
+func (ServerEndpointType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointType)(nil)).Elem()
+}
+
+func (e ServerEndpointType) ToServerEndpointTypeOutput() ServerEndpointTypeOutput {
+	return pulumi.ToOutput(e).(ServerEndpointTypeOutput)
+}
+
+func (e ServerEndpointType) ToServerEndpointTypeOutputWithContext(ctx context.Context) ServerEndpointTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerEndpointTypeOutput)
+}
+
+func (e ServerEndpointType) ToServerEndpointTypePtrOutput() ServerEndpointTypePtrOutput {
+	return e.ToServerEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServerEndpointType) ToServerEndpointTypePtrOutputWithContext(ctx context.Context) ServerEndpointTypePtrOutput {
+	return ServerEndpointType(e).ToServerEndpointTypeOutputWithContext(ctx).ToServerEndpointTypePtrOutputWithContext(ctx)
+}
+
+func (e ServerEndpointType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerEndpointType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerEndpointType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerEndpointType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerEndpointTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointType)(nil)).Elem()
+}
+
+func (o ServerEndpointTypeOutput) ToServerEndpointTypeOutput() ServerEndpointTypeOutput {
+	return o
+}
+
+func (o ServerEndpointTypeOutput) ToServerEndpointTypeOutputWithContext(ctx context.Context) ServerEndpointTypeOutput {
+	return o
+}
+
+func (o ServerEndpointTypeOutput) ToServerEndpointTypePtrOutput() ServerEndpointTypePtrOutput {
+	return o.ToServerEndpointTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServerEndpointTypeOutput) ToServerEndpointTypePtrOutputWithContext(ctx context.Context) ServerEndpointTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointType) *ServerEndpointType {
+		return &v
+	}).(ServerEndpointTypePtrOutput)
+}
+
+func (o ServerEndpointTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerEndpointTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerEndpointType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerEndpointTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerEndpointTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerEndpointType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerEndpointTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerEndpointType)(nil)).Elem()
+}
+
+func (o ServerEndpointTypePtrOutput) ToServerEndpointTypePtrOutput() ServerEndpointTypePtrOutput {
+	return o
+}
+
+func (o ServerEndpointTypePtrOutput) ToServerEndpointTypePtrOutputWithContext(ctx context.Context) ServerEndpointTypePtrOutput {
+	return o
+}
+
+func (o ServerEndpointTypePtrOutput) Elem() ServerEndpointTypeOutput {
+	return o.ApplyT(func(v *ServerEndpointType) ServerEndpointType {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointType
+		return ret
+	}).(ServerEndpointTypeOutput)
+}
+
+func (o ServerEndpointTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerEndpointType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerEndpointTypeInput is an input type that accepts values of the ServerEndpointType enum
+// A concrete instance of `ServerEndpointTypeInput` can be one of the following:
+//
+//	ServerEndpointTypePublic
+//	ServerEndpointTypeVpc
+//	ServerEndpointTypeVpcEndpoint
+type ServerEndpointTypeInput interface {
+	pulumi.Input
+
+	ToServerEndpointTypeOutput() ServerEndpointTypeOutput
+	ToServerEndpointTypeOutputWithContext(context.Context) ServerEndpointTypeOutput
+}
+
+var serverEndpointTypePtrType = reflect.TypeOf((**ServerEndpointType)(nil)).Elem()
+
+type ServerEndpointTypePtrInput interface {
+	pulumi.Input
+
+	ToServerEndpointTypePtrOutput() ServerEndpointTypePtrOutput
+	ToServerEndpointTypePtrOutputWithContext(context.Context) ServerEndpointTypePtrOutput
+}
+
+type serverEndpointTypePtr string
+
+func ServerEndpointTypePtr(v string) ServerEndpointTypePtrInput {
+	return (*serverEndpointTypePtr)(&v)
+}
+
+func (*serverEndpointTypePtr) ElementType() reflect.Type {
+	return serverEndpointTypePtrType
+}
+
+func (in *serverEndpointTypePtr) ToServerEndpointTypePtrOutput() ServerEndpointTypePtrOutput {
+	return pulumi.ToOutput(in).(ServerEndpointTypePtrOutput)
+}
+
+func (in *serverEndpointTypePtr) ToServerEndpointTypePtrOutputWithContext(ctx context.Context) ServerEndpointTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerEndpointTypePtrOutput)
+}
+
+type ServerIdentityProviderType string
+
+const (
+	ServerIdentityProviderTypeServiceManaged      = ServerIdentityProviderType("SERVICE_MANAGED")
+	ServerIdentityProviderTypeApiGateway          = ServerIdentityProviderType("API_GATEWAY")
+	ServerIdentityProviderTypeAwsDirectoryService = ServerIdentityProviderType("AWS_DIRECTORY_SERVICE")
+	ServerIdentityProviderTypeAwsLambda           = ServerIdentityProviderType("AWS_LAMBDA")
+)
+
+func (ServerIdentityProviderType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerIdentityProviderType)(nil)).Elem()
+}
+
+func (e ServerIdentityProviderType) ToServerIdentityProviderTypeOutput() ServerIdentityProviderTypeOutput {
+	return pulumi.ToOutput(e).(ServerIdentityProviderTypeOutput)
+}
+
+func (e ServerIdentityProviderType) ToServerIdentityProviderTypeOutputWithContext(ctx context.Context) ServerIdentityProviderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerIdentityProviderTypeOutput)
+}
+
+func (e ServerIdentityProviderType) ToServerIdentityProviderTypePtrOutput() ServerIdentityProviderTypePtrOutput {
+	return e.ToServerIdentityProviderTypePtrOutputWithContext(context.Background())
+}
+
+func (e ServerIdentityProviderType) ToServerIdentityProviderTypePtrOutputWithContext(ctx context.Context) ServerIdentityProviderTypePtrOutput {
+	return ServerIdentityProviderType(e).ToServerIdentityProviderTypeOutputWithContext(ctx).ToServerIdentityProviderTypePtrOutputWithContext(ctx)
+}
+
+func (e ServerIdentityProviderType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerIdentityProviderType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerIdentityProviderType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerIdentityProviderType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerIdentityProviderTypeOutput struct{ *pulumi.OutputState }
+
+func (ServerIdentityProviderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerIdentityProviderType)(nil)).Elem()
+}
+
+func (o ServerIdentityProviderTypeOutput) ToServerIdentityProviderTypeOutput() ServerIdentityProviderTypeOutput {
+	return o
+}
+
+func (o ServerIdentityProviderTypeOutput) ToServerIdentityProviderTypeOutputWithContext(ctx context.Context) ServerIdentityProviderTypeOutput {
+	return o
+}
+
+func (o ServerIdentityProviderTypeOutput) ToServerIdentityProviderTypePtrOutput() ServerIdentityProviderTypePtrOutput {
+	return o.ToServerIdentityProviderTypePtrOutputWithContext(context.Background())
+}
+
+func (o ServerIdentityProviderTypeOutput) ToServerIdentityProviderTypePtrOutputWithContext(ctx context.Context) ServerIdentityProviderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIdentityProviderType) *ServerIdentityProviderType {
+		return &v
+	}).(ServerIdentityProviderTypePtrOutput)
+}
+
+func (o ServerIdentityProviderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerIdentityProviderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerIdentityProviderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerIdentityProviderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerIdentityProviderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerIdentityProviderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerIdentityProviderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerIdentityProviderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerIdentityProviderType)(nil)).Elem()
+}
+
+func (o ServerIdentityProviderTypePtrOutput) ToServerIdentityProviderTypePtrOutput() ServerIdentityProviderTypePtrOutput {
+	return o
+}
+
+func (o ServerIdentityProviderTypePtrOutput) ToServerIdentityProviderTypePtrOutputWithContext(ctx context.Context) ServerIdentityProviderTypePtrOutput {
+	return o
+}
+
+func (o ServerIdentityProviderTypePtrOutput) Elem() ServerIdentityProviderTypeOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderType) ServerIdentityProviderType {
+		if v != nil {
+			return *v
+		}
+		var ret ServerIdentityProviderType
+		return ret
+	}).(ServerIdentityProviderTypeOutput)
+}
+
+func (o ServerIdentityProviderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerIdentityProviderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerIdentityProviderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerIdentityProviderTypeInput is an input type that accepts values of the ServerIdentityProviderType enum
+// A concrete instance of `ServerIdentityProviderTypeInput` can be one of the following:
+//
+//	ServerIdentityProviderTypeServiceManaged
+//	ServerIdentityProviderTypeApiGateway
+//	ServerIdentityProviderTypeAwsDirectoryService
+//	ServerIdentityProviderTypeAwsLambda
+type ServerIdentityProviderTypeInput interface {
+	pulumi.Input
+
+	ToServerIdentityProviderTypeOutput() ServerIdentityProviderTypeOutput
+	ToServerIdentityProviderTypeOutputWithContext(context.Context) ServerIdentityProviderTypeOutput
+}
+
+var serverIdentityProviderTypePtrType = reflect.TypeOf((**ServerIdentityProviderType)(nil)).Elem()
+
+type ServerIdentityProviderTypePtrInput interface {
+	pulumi.Input
+
+	ToServerIdentityProviderTypePtrOutput() ServerIdentityProviderTypePtrOutput
+	ToServerIdentityProviderTypePtrOutputWithContext(context.Context) ServerIdentityProviderTypePtrOutput
+}
+
+type serverIdentityProviderTypePtr string
+
+func ServerIdentityProviderTypePtr(v string) ServerIdentityProviderTypePtrInput {
+	return (*serverIdentityProviderTypePtr)(&v)
+}
+
+func (*serverIdentityProviderTypePtr) ElementType() reflect.Type {
+	return serverIdentityProviderTypePtrType
+}
+
+func (in *serverIdentityProviderTypePtr) ToServerIdentityProviderTypePtrOutput() ServerIdentityProviderTypePtrOutput {
+	return pulumi.ToOutput(in).(ServerIdentityProviderTypePtrOutput)
+}
+
+func (in *serverIdentityProviderTypePtr) ToServerIdentityProviderTypePtrOutputWithContext(ctx context.Context) ServerIdentityProviderTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerIdentityProviderTypePtrOutput)
+}
+
+type ServerProtocol string
+
+const (
+	ServerProtocolSftp = ServerProtocol("SFTP")
+	ServerProtocolFtp  = ServerProtocol("FTP")
+	ServerProtocolFtps = ServerProtocol("FTPS")
+	ServerProtocolAs2  = ServerProtocol("AS2")
+)
+
+func (ServerProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProtocol)(nil)).Elem()
+}
+
+func (e ServerProtocol) ToServerProtocolOutput() ServerProtocolOutput {
+	return pulumi.ToOutput(e).(ServerProtocolOutput)
+}
+
+func (e ServerProtocol) ToServerProtocolOutputWithContext(ctx context.Context) ServerProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerProtocolOutput)
+}
+
+func (e ServerProtocol) ToServerProtocolPtrOutput() ServerProtocolPtrOutput {
+	return e.ToServerProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ServerProtocol) ToServerProtocolPtrOutputWithContext(ctx context.Context) ServerProtocolPtrOutput {
+	return ServerProtocol(e).ToServerProtocolOutputWithContext(ctx).ToServerProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ServerProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerProtocolOutput struct{ *pulumi.OutputState }
+
+func (ServerProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProtocol)(nil)).Elem()
+}
+
+func (o ServerProtocolOutput) ToServerProtocolOutput() ServerProtocolOutput {
+	return o
+}
+
+func (o ServerProtocolOutput) ToServerProtocolOutputWithContext(ctx context.Context) ServerProtocolOutput {
+	return o
+}
+
+func (o ServerProtocolOutput) ToServerProtocolPtrOutput() ServerProtocolPtrOutput {
+	return o.ToServerProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ServerProtocolOutput) ToServerProtocolPtrOutputWithContext(ctx context.Context) ServerProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerProtocol) *ServerProtocol {
+		return &v
+	}).(ServerProtocolPtrOutput)
+}
+
+func (o ServerProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerProtocol)(nil)).Elem()
+}
+
+func (o ServerProtocolPtrOutput) ToServerProtocolPtrOutput() ServerProtocolPtrOutput {
+	return o
+}
+
+func (o ServerProtocolPtrOutput) ToServerProtocolPtrOutputWithContext(ctx context.Context) ServerProtocolPtrOutput {
+	return o
+}
+
+func (o ServerProtocolPtrOutput) Elem() ServerProtocolOutput {
+	return o.ApplyT(func(v *ServerProtocol) ServerProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ServerProtocol
+		return ret
+	}).(ServerProtocolOutput)
+}
+
+func (o ServerProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerProtocolInput is an input type that accepts values of the ServerProtocol enum
+// A concrete instance of `ServerProtocolInput` can be one of the following:
+//
+//	ServerProtocolSftp
+//	ServerProtocolFtp
+//	ServerProtocolFtps
+//	ServerProtocolAs2
+type ServerProtocolInput interface {
+	pulumi.Input
+
+	ToServerProtocolOutput() ServerProtocolOutput
+	ToServerProtocolOutputWithContext(context.Context) ServerProtocolOutput
+}
+
+var serverProtocolPtrType = reflect.TypeOf((**ServerProtocol)(nil)).Elem()
+
+type ServerProtocolPtrInput interface {
+	pulumi.Input
+
+	ToServerProtocolPtrOutput() ServerProtocolPtrOutput
+	ToServerProtocolPtrOutputWithContext(context.Context) ServerProtocolPtrOutput
+}
+
+type serverProtocolPtr string
+
+func ServerProtocolPtr(v string) ServerProtocolPtrInput {
+	return (*serverProtocolPtr)(&v)
+}
+
+func (*serverProtocolPtr) ElementType() reflect.Type {
+	return serverProtocolPtrType
+}
+
+func (in *serverProtocolPtr) ToServerProtocolPtrOutput() ServerProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ServerProtocolPtrOutput)
+}
+
+func (in *serverProtocolPtr) ToServerProtocolPtrOutputWithContext(ctx context.Context) ServerProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerProtocolPtrOutput)
+}
+
+// ServerProtocolArrayInput is an input type that accepts ServerProtocolArray and ServerProtocolArrayOutput values.
+// You can construct a concrete instance of `ServerProtocolArrayInput` via:
+//
+//	ServerProtocolArray{ ServerProtocolArgs{...} }
+type ServerProtocolArrayInput interface {
+	pulumi.Input
+
+	ToServerProtocolArrayOutput() ServerProtocolArrayOutput
+	ToServerProtocolArrayOutputWithContext(context.Context) ServerProtocolArrayOutput
+}
+
+type ServerProtocolArray []ServerProtocol
+
+func (ServerProtocolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerProtocol)(nil)).Elem()
+}
+
+func (i ServerProtocolArray) ToServerProtocolArrayOutput() ServerProtocolArrayOutput {
+	return i.ToServerProtocolArrayOutputWithContext(context.Background())
+}
+
+func (i ServerProtocolArray) ToServerProtocolArrayOutputWithContext(ctx context.Context) ServerProtocolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolArrayOutput)
+}
+
+type ServerProtocolArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerProtocolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerProtocol)(nil)).Elem()
+}
+
+func (o ServerProtocolArrayOutput) ToServerProtocolArrayOutput() ServerProtocolArrayOutput {
+	return o
+}
+
+func (o ServerProtocolArrayOutput) ToServerProtocolArrayOutputWithContext(ctx context.Context) ServerProtocolArrayOutput {
+	return o
+}
+
+func (o ServerProtocolArrayOutput) Index(i pulumi.IntInput) ServerProtocolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerProtocol {
+		return vs[0].([]ServerProtocol)[vs[1].(int)]
+	}).(ServerProtocolOutput)
+}
+
+type ServerSetStatOption string
+
+const (
+	ServerSetStatOptionDefault    = ServerSetStatOption("DEFAULT")
+	ServerSetStatOptionEnableNoOp = ServerSetStatOption("ENABLE_NO_OP")
+)
+
+func (ServerSetStatOption) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerSetStatOption)(nil)).Elem()
+}
+
+func (e ServerSetStatOption) ToServerSetStatOptionOutput() ServerSetStatOptionOutput {
+	return pulumi.ToOutput(e).(ServerSetStatOptionOutput)
+}
+
+func (e ServerSetStatOption) ToServerSetStatOptionOutputWithContext(ctx context.Context) ServerSetStatOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerSetStatOptionOutput)
+}
+
+func (e ServerSetStatOption) ToServerSetStatOptionPtrOutput() ServerSetStatOptionPtrOutput {
+	return e.ToServerSetStatOptionPtrOutputWithContext(context.Background())
+}
+
+func (e ServerSetStatOption) ToServerSetStatOptionPtrOutputWithContext(ctx context.Context) ServerSetStatOptionPtrOutput {
+	return ServerSetStatOption(e).ToServerSetStatOptionOutputWithContext(ctx).ToServerSetStatOptionPtrOutputWithContext(ctx)
+}
+
+func (e ServerSetStatOption) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerSetStatOption) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerSetStatOption) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerSetStatOption) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerSetStatOptionOutput struct{ *pulumi.OutputState }
+
+func (ServerSetStatOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerSetStatOption)(nil)).Elem()
+}
+
+func (o ServerSetStatOptionOutput) ToServerSetStatOptionOutput() ServerSetStatOptionOutput {
+	return o
+}
+
+func (o ServerSetStatOptionOutput) ToServerSetStatOptionOutputWithContext(ctx context.Context) ServerSetStatOptionOutput {
+	return o
+}
+
+func (o ServerSetStatOptionOutput) ToServerSetStatOptionPtrOutput() ServerSetStatOptionPtrOutput {
+	return o.ToServerSetStatOptionPtrOutputWithContext(context.Background())
+}
+
+func (o ServerSetStatOptionOutput) ToServerSetStatOptionPtrOutputWithContext(ctx context.Context) ServerSetStatOptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerSetStatOption) *ServerSetStatOption {
+		return &v
+	}).(ServerSetStatOptionPtrOutput)
+}
+
+func (o ServerSetStatOptionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerSetStatOptionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerSetStatOption) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerSetStatOptionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerSetStatOptionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerSetStatOption) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerSetStatOptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerSetStatOptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerSetStatOption)(nil)).Elem()
+}
+
+func (o ServerSetStatOptionPtrOutput) ToServerSetStatOptionPtrOutput() ServerSetStatOptionPtrOutput {
+	return o
+}
+
+func (o ServerSetStatOptionPtrOutput) ToServerSetStatOptionPtrOutputWithContext(ctx context.Context) ServerSetStatOptionPtrOutput {
+	return o
+}
+
+func (o ServerSetStatOptionPtrOutput) Elem() ServerSetStatOptionOutput {
+	return o.ApplyT(func(v *ServerSetStatOption) ServerSetStatOption {
+		if v != nil {
+			return *v
+		}
+		var ret ServerSetStatOption
+		return ret
+	}).(ServerSetStatOptionOutput)
+}
+
+func (o ServerSetStatOptionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerSetStatOptionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerSetStatOption) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerSetStatOptionInput is an input type that accepts values of the ServerSetStatOption enum
+// A concrete instance of `ServerSetStatOptionInput` can be one of the following:
+//
+//	ServerSetStatOptionDefault
+//	ServerSetStatOptionEnableNoOp
+type ServerSetStatOptionInput interface {
+	pulumi.Input
+
+	ToServerSetStatOptionOutput() ServerSetStatOptionOutput
+	ToServerSetStatOptionOutputWithContext(context.Context) ServerSetStatOptionOutput
+}
+
+var serverSetStatOptionPtrType = reflect.TypeOf((**ServerSetStatOption)(nil)).Elem()
+
+type ServerSetStatOptionPtrInput interface {
+	pulumi.Input
+
+	ToServerSetStatOptionPtrOutput() ServerSetStatOptionPtrOutput
+	ToServerSetStatOptionPtrOutputWithContext(context.Context) ServerSetStatOptionPtrOutput
+}
+
+type serverSetStatOptionPtr string
+
+func ServerSetStatOptionPtr(v string) ServerSetStatOptionPtrInput {
+	return (*serverSetStatOptionPtr)(&v)
+}
+
+func (*serverSetStatOptionPtr) ElementType() reflect.Type {
+	return serverSetStatOptionPtrType
+}
+
+func (in *serverSetStatOptionPtr) ToServerSetStatOptionPtrOutput() ServerSetStatOptionPtrOutput {
+	return pulumi.ToOutput(in).(ServerSetStatOptionPtrOutput)
+}
+
+func (in *serverSetStatOptionPtr) ToServerSetStatOptionPtrOutputWithContext(ctx context.Context) ServerSetStatOptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerSetStatOptionPtrOutput)
+}
+
+type ServerSftpAuthenticationMethods string
+
+const (
+	ServerSftpAuthenticationMethodsPassword             = ServerSftpAuthenticationMethods("PASSWORD")
+	ServerSftpAuthenticationMethodsPublicKey            = ServerSftpAuthenticationMethods("PUBLIC_KEY")
+	ServerSftpAuthenticationMethodsPublicKeyOrPassword  = ServerSftpAuthenticationMethods("PUBLIC_KEY_OR_PASSWORD")
+	ServerSftpAuthenticationMethodsPublicKeyAndPassword = ServerSftpAuthenticationMethods("PUBLIC_KEY_AND_PASSWORD")
+)
+
+func (ServerSftpAuthenticationMethods) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerSftpAuthenticationMethods)(nil)).Elem()
+}
+
+func (e ServerSftpAuthenticationMethods) ToServerSftpAuthenticationMethodsOutput() ServerSftpAuthenticationMethodsOutput {
+	return pulumi.ToOutput(e).(ServerSftpAuthenticationMethodsOutput)
+}
+
+func (e ServerSftpAuthenticationMethods) ToServerSftpAuthenticationMethodsOutputWithContext(ctx context.Context) ServerSftpAuthenticationMethodsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerSftpAuthenticationMethodsOutput)
+}
+
+func (e ServerSftpAuthenticationMethods) ToServerSftpAuthenticationMethodsPtrOutput() ServerSftpAuthenticationMethodsPtrOutput {
+	return e.ToServerSftpAuthenticationMethodsPtrOutputWithContext(context.Background())
+}
+
+func (e ServerSftpAuthenticationMethods) ToServerSftpAuthenticationMethodsPtrOutputWithContext(ctx context.Context) ServerSftpAuthenticationMethodsPtrOutput {
+	return ServerSftpAuthenticationMethods(e).ToServerSftpAuthenticationMethodsOutputWithContext(ctx).ToServerSftpAuthenticationMethodsPtrOutputWithContext(ctx)
+}
+
+func (e ServerSftpAuthenticationMethods) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerSftpAuthenticationMethods) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerSftpAuthenticationMethods) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerSftpAuthenticationMethods) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerSftpAuthenticationMethodsOutput struct{ *pulumi.OutputState }
+
+func (ServerSftpAuthenticationMethodsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerSftpAuthenticationMethods)(nil)).Elem()
+}
+
+func (o ServerSftpAuthenticationMethodsOutput) ToServerSftpAuthenticationMethodsOutput() ServerSftpAuthenticationMethodsOutput {
+	return o
+}
+
+func (o ServerSftpAuthenticationMethodsOutput) ToServerSftpAuthenticationMethodsOutputWithContext(ctx context.Context) ServerSftpAuthenticationMethodsOutput {
+	return o
+}
+
+func (o ServerSftpAuthenticationMethodsOutput) ToServerSftpAuthenticationMethodsPtrOutput() ServerSftpAuthenticationMethodsPtrOutput {
+	return o.ToServerSftpAuthenticationMethodsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerSftpAuthenticationMethodsOutput) ToServerSftpAuthenticationMethodsPtrOutputWithContext(ctx context.Context) ServerSftpAuthenticationMethodsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerSftpAuthenticationMethods) *ServerSftpAuthenticationMethods {
+		return &v
+	}).(ServerSftpAuthenticationMethodsPtrOutput)
+}
+
+func (o ServerSftpAuthenticationMethodsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerSftpAuthenticationMethodsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerSftpAuthenticationMethods) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerSftpAuthenticationMethodsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerSftpAuthenticationMethodsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerSftpAuthenticationMethods) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerSftpAuthenticationMethodsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerSftpAuthenticationMethodsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerSftpAuthenticationMethods)(nil)).Elem()
+}
+
+func (o ServerSftpAuthenticationMethodsPtrOutput) ToServerSftpAuthenticationMethodsPtrOutput() ServerSftpAuthenticationMethodsPtrOutput {
+	return o
+}
+
+func (o ServerSftpAuthenticationMethodsPtrOutput) ToServerSftpAuthenticationMethodsPtrOutputWithContext(ctx context.Context) ServerSftpAuthenticationMethodsPtrOutput {
+	return o
+}
+
+func (o ServerSftpAuthenticationMethodsPtrOutput) Elem() ServerSftpAuthenticationMethodsOutput {
+	return o.ApplyT(func(v *ServerSftpAuthenticationMethods) ServerSftpAuthenticationMethods {
+		if v != nil {
+			return *v
+		}
+		var ret ServerSftpAuthenticationMethods
+		return ret
+	}).(ServerSftpAuthenticationMethodsOutput)
+}
+
+func (o ServerSftpAuthenticationMethodsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerSftpAuthenticationMethodsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerSftpAuthenticationMethods) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerSftpAuthenticationMethodsInput is an input type that accepts values of the ServerSftpAuthenticationMethods enum
+// A concrete instance of `ServerSftpAuthenticationMethodsInput` can be one of the following:
+//
+//	ServerSftpAuthenticationMethodsPassword
+//	ServerSftpAuthenticationMethodsPublicKey
+//	ServerSftpAuthenticationMethodsPublicKeyOrPassword
+//	ServerSftpAuthenticationMethodsPublicKeyAndPassword
+type ServerSftpAuthenticationMethodsInput interface {
+	pulumi.Input
+
+	ToServerSftpAuthenticationMethodsOutput() ServerSftpAuthenticationMethodsOutput
+	ToServerSftpAuthenticationMethodsOutputWithContext(context.Context) ServerSftpAuthenticationMethodsOutput
+}
+
+var serverSftpAuthenticationMethodsPtrType = reflect.TypeOf((**ServerSftpAuthenticationMethods)(nil)).Elem()
+
+type ServerSftpAuthenticationMethodsPtrInput interface {
+	pulumi.Input
+
+	ToServerSftpAuthenticationMethodsPtrOutput() ServerSftpAuthenticationMethodsPtrOutput
+	ToServerSftpAuthenticationMethodsPtrOutputWithContext(context.Context) ServerSftpAuthenticationMethodsPtrOutput
+}
+
+type serverSftpAuthenticationMethodsPtr string
+
+func ServerSftpAuthenticationMethodsPtr(v string) ServerSftpAuthenticationMethodsPtrInput {
+	return (*serverSftpAuthenticationMethodsPtr)(&v)
+}
+
+func (*serverSftpAuthenticationMethodsPtr) ElementType() reflect.Type {
+	return serverSftpAuthenticationMethodsPtrType
+}
+
+func (in *serverSftpAuthenticationMethodsPtr) ToServerSftpAuthenticationMethodsPtrOutput() ServerSftpAuthenticationMethodsPtrOutput {
+	return pulumi.ToOutput(in).(ServerSftpAuthenticationMethodsPtrOutput)
+}
+
+func (in *serverSftpAuthenticationMethodsPtr) ToServerSftpAuthenticationMethodsPtrOutputWithContext(ctx context.Context) ServerSftpAuthenticationMethodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerSftpAuthenticationMethodsPtrOutput)
+}
+
+type ServerTlsSessionResumptionMode string
+
+const (
+	ServerTlsSessionResumptionModeDisabled = ServerTlsSessionResumptionMode("DISABLED")
+	ServerTlsSessionResumptionModeEnabled  = ServerTlsSessionResumptionMode("ENABLED")
+	ServerTlsSessionResumptionModeEnforced = ServerTlsSessionResumptionMode("ENFORCED")
+)
+
+func (ServerTlsSessionResumptionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerTlsSessionResumptionMode)(nil)).Elem()
+}
+
+func (e ServerTlsSessionResumptionMode) ToServerTlsSessionResumptionModeOutput() ServerTlsSessionResumptionModeOutput {
+	return pulumi.ToOutput(e).(ServerTlsSessionResumptionModeOutput)
+}
+
+func (e ServerTlsSessionResumptionMode) ToServerTlsSessionResumptionModeOutputWithContext(ctx context.Context) ServerTlsSessionResumptionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServerTlsSessionResumptionModeOutput)
+}
+
+func (e ServerTlsSessionResumptionMode) ToServerTlsSessionResumptionModePtrOutput() ServerTlsSessionResumptionModePtrOutput {
+	return e.ToServerTlsSessionResumptionModePtrOutputWithContext(context.Background())
+}
+
+func (e ServerTlsSessionResumptionMode) ToServerTlsSessionResumptionModePtrOutputWithContext(ctx context.Context) ServerTlsSessionResumptionModePtrOutput {
+	return ServerTlsSessionResumptionMode(e).ToServerTlsSessionResumptionModeOutputWithContext(ctx).ToServerTlsSessionResumptionModePtrOutputWithContext(ctx)
+}
+
+func (e ServerTlsSessionResumptionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerTlsSessionResumptionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServerTlsSessionResumptionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServerTlsSessionResumptionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServerTlsSessionResumptionModeOutput struct{ *pulumi.OutputState }
+
+func (ServerTlsSessionResumptionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerTlsSessionResumptionMode)(nil)).Elem()
+}
+
+func (o ServerTlsSessionResumptionModeOutput) ToServerTlsSessionResumptionModeOutput() ServerTlsSessionResumptionModeOutput {
+	return o
+}
+
+func (o ServerTlsSessionResumptionModeOutput) ToServerTlsSessionResumptionModeOutputWithContext(ctx context.Context) ServerTlsSessionResumptionModeOutput {
+	return o
+}
+
+func (o ServerTlsSessionResumptionModeOutput) ToServerTlsSessionResumptionModePtrOutput() ServerTlsSessionResumptionModePtrOutput {
+	return o.ToServerTlsSessionResumptionModePtrOutputWithContext(context.Background())
+}
+
+func (o ServerTlsSessionResumptionModeOutput) ToServerTlsSessionResumptionModePtrOutputWithContext(ctx context.Context) ServerTlsSessionResumptionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerTlsSessionResumptionMode) *ServerTlsSessionResumptionMode {
+		return &v
+	}).(ServerTlsSessionResumptionModePtrOutput)
+}
+
+func (o ServerTlsSessionResumptionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerTlsSessionResumptionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerTlsSessionResumptionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerTlsSessionResumptionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerTlsSessionResumptionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerTlsSessionResumptionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerTlsSessionResumptionModePtrOutput struct{ *pulumi.OutputState }
+
+func (ServerTlsSessionResumptionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerTlsSessionResumptionMode)(nil)).Elem()
+}
+
+func (o ServerTlsSessionResumptionModePtrOutput) ToServerTlsSessionResumptionModePtrOutput() ServerTlsSessionResumptionModePtrOutput {
+	return o
+}
+
+func (o ServerTlsSessionResumptionModePtrOutput) ToServerTlsSessionResumptionModePtrOutputWithContext(ctx context.Context) ServerTlsSessionResumptionModePtrOutput {
+	return o
+}
+
+func (o ServerTlsSessionResumptionModePtrOutput) Elem() ServerTlsSessionResumptionModeOutput {
+	return o.ApplyT(func(v *ServerTlsSessionResumptionMode) ServerTlsSessionResumptionMode {
+		if v != nil {
+			return *v
+		}
+		var ret ServerTlsSessionResumptionMode
+		return ret
+	}).(ServerTlsSessionResumptionModeOutput)
+}
+
+func (o ServerTlsSessionResumptionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerTlsSessionResumptionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerTlsSessionResumptionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServerTlsSessionResumptionModeInput is an input type that accepts values of the ServerTlsSessionResumptionMode enum
+// A concrete instance of `ServerTlsSessionResumptionModeInput` can be one of the following:
+//
+//	ServerTlsSessionResumptionModeDisabled
+//	ServerTlsSessionResumptionModeEnabled
+//	ServerTlsSessionResumptionModeEnforced
+type ServerTlsSessionResumptionModeInput interface {
+	pulumi.Input
+
+	ToServerTlsSessionResumptionModeOutput() ServerTlsSessionResumptionModeOutput
+	ToServerTlsSessionResumptionModeOutputWithContext(context.Context) ServerTlsSessionResumptionModeOutput
+}
+
+var serverTlsSessionResumptionModePtrType = reflect.TypeOf((**ServerTlsSessionResumptionMode)(nil)).Elem()
+
+type ServerTlsSessionResumptionModePtrInput interface {
+	pulumi.Input
+
+	ToServerTlsSessionResumptionModePtrOutput() ServerTlsSessionResumptionModePtrOutput
+	ToServerTlsSessionResumptionModePtrOutputWithContext(context.Context) ServerTlsSessionResumptionModePtrOutput
+}
+
+type serverTlsSessionResumptionModePtr string
+
+func ServerTlsSessionResumptionModePtr(v string) ServerTlsSessionResumptionModePtrInput {
+	return (*serverTlsSessionResumptionModePtr)(&v)
+}
+
+func (*serverTlsSessionResumptionModePtr) ElementType() reflect.Type {
+	return serverTlsSessionResumptionModePtrType
+}
+
+func (in *serverTlsSessionResumptionModePtr) ToServerTlsSessionResumptionModePtrOutput() ServerTlsSessionResumptionModePtrOutput {
+	return pulumi.ToOutput(in).(ServerTlsSessionResumptionModePtrOutput)
+}
+
+func (in *serverTlsSessionResumptionModePtr) ToServerTlsSessionResumptionModePtrOutputWithContext(ctx context.Context) ServerTlsSessionResumptionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServerTlsSessionResumptionModePtrOutput)
+}
+
 // A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
 type WorkflowStepCopyStepDetailsPropertiesOverwriteExisting string
 
@@ -2227,6 +3817,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorAs2ConfigPropertiesSigningAlgorithmPtrInput)(nil)).Elem(), ConnectorAs2ConfigPropertiesSigningAlgorithm("SHA256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypeInput)(nil)).Elem(), ProfileType("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTypePtrInput)(nil)).Elem(), ProfileType("LOCAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportInput)(nil)).Elem(), ServerAs2Transport("HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportPtrInput)(nil)).Elem(), ServerAs2Transport("HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerAs2TransportArrayInput)(nil)).Elem(), ServerAs2TransportArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerDirectoryListingOptimizationInput)(nil)).Elem(), ServerDirectoryListingOptimization("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerDirectoryListingOptimizationPtrInput)(nil)).Elem(), ServerDirectoryListingOptimization("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerDomainInput)(nil)).Elem(), ServerDomain("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerDomainPtrInput)(nil)).Elem(), ServerDomain("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointTypeInput)(nil)).Elem(), ServerEndpointType("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointTypePtrInput)(nil)).Elem(), ServerEndpointType("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderTypeInput)(nil)).Elem(), ServerIdentityProviderType("SERVICE_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderTypePtrInput)(nil)).Elem(), ServerIdentityProviderType("SERVICE_MANAGED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolInput)(nil)).Elem(), ServerProtocol("SFTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolPtrInput)(nil)).Elem(), ServerProtocol("SFTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolArrayInput)(nil)).Elem(), ServerProtocolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSetStatOptionInput)(nil)).Elem(), ServerSetStatOption("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSetStatOptionPtrInput)(nil)).Elem(), ServerSetStatOption("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSftpAuthenticationMethodsInput)(nil)).Elem(), ServerSftpAuthenticationMethods("PASSWORD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerSftpAuthenticationMethodsPtrInput)(nil)).Elem(), ServerSftpAuthenticationMethods("PASSWORD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerTlsSessionResumptionModeInput)(nil)).Elem(), ServerTlsSessionResumptionMode("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerTlsSessionResumptionModePtrInput)(nil)).Elem(), ServerTlsSessionResumptionMode("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesOverwriteExisting("TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesOverwriteExisting("TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("TRUE"))
@@ -2255,6 +3865,26 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorAs2ConfigPropertiesSigningAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(ProfileTypeOutput{})
 	pulumi.RegisterOutputType(ProfileTypePtrOutput{})
+	pulumi.RegisterOutputType(ServerAs2TransportOutput{})
+	pulumi.RegisterOutputType(ServerAs2TransportPtrOutput{})
+	pulumi.RegisterOutputType(ServerAs2TransportArrayOutput{})
+	pulumi.RegisterOutputType(ServerDirectoryListingOptimizationOutput{})
+	pulumi.RegisterOutputType(ServerDirectoryListingOptimizationPtrOutput{})
+	pulumi.RegisterOutputType(ServerDomainOutput{})
+	pulumi.RegisterOutputType(ServerDomainPtrOutput{})
+	pulumi.RegisterOutputType(ServerEndpointTypeOutput{})
+	pulumi.RegisterOutputType(ServerEndpointTypePtrOutput{})
+	pulumi.RegisterOutputType(ServerIdentityProviderTypeOutput{})
+	pulumi.RegisterOutputType(ServerIdentityProviderTypePtrOutput{})
+	pulumi.RegisterOutputType(ServerProtocolOutput{})
+	pulumi.RegisterOutputType(ServerProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ServerProtocolArrayOutput{})
+	pulumi.RegisterOutputType(ServerSetStatOptionOutput{})
+	pulumi.RegisterOutputType(ServerSetStatOptionPtrOutput{})
+	pulumi.RegisterOutputType(ServerSftpAuthenticationMethodsOutput{})
+	pulumi.RegisterOutputType(ServerSftpAuthenticationMethodsPtrOutput{})
+	pulumi.RegisterOutputType(ServerTlsSessionResumptionModeOutput{})
+	pulumi.RegisterOutputType(ServerTlsSessionResumptionModePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput{})

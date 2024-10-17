@@ -54,6 +54,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("errors")]
         public Output<ImmutableArray<Outputs.AnalysisError>> Errors { get; private set; } = null!;
 
+        [Output("folderArns")]
+        public Output<ImmutableArray<string>> FolderArns { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;The time that the analysis was last updated.&lt;/p&gt;
         /// </summary>
@@ -193,6 +196,14 @@ namespace Pulumi.AwsNative.QuickSight
         {
             get => _errors ?? (_errors = new InputList<Inputs.AnalysisErrorArgs>());
             set => _errors = value;
+        }
+
+        [Input("folderArns")]
+        private InputList<string>? _folderArns;
+        public InputList<string> FolderArns
+        {
+            get => _folderArns ?? (_folderArns = new InputList<string>());
+            set => _folderArns = value;
         }
 
         /// <summary>

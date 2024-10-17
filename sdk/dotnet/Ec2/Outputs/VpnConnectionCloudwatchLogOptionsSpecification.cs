@@ -13,8 +13,21 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class VpnConnectionCloudwatchLogOptionsSpecification
     {
+        /// <summary>
+        /// Enable or disable VPN tunnel logging feature. Default value is `False` .
+        /// 
+        /// Valid values: `True` | `False`
+        /// </summary>
         public readonly bool? LogEnabled;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        /// </summary>
         public readonly string? LogGroupArn;
+        /// <summary>
+        /// Set log format. Default format is `json` .
+        /// 
+        /// Valid values: `json` | `text`
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat? LogOutputFormat;
 
         [OutputConstructor]

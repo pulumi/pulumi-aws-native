@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbSubnetGroupResult:
-    def __init__(__self__, db_subnet_group_description=None, tags=None):
+    def __init__(__self__, db_subnet_group_description=None, subnet_ids=None, tags=None):
         if db_subnet_group_description and not isinstance(db_subnet_group_description, str):
             raise TypeError("Expected argument 'db_subnet_group_description' to be a str")
         pulumi.set(__self__, "db_subnet_group_description", db_subnet_group_description)
+        if subnet_ids and not isinstance(subnet_ids, list):
+            raise TypeError("Expected argument 'subnet_ids' to be a list")
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -39,6 +42,14 @@ class GetDbSubnetGroupResult:
         The description for the DB subnet group.
         """
         return pulumi.get(self, "db_subnet_group_description")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence[str]]:
+        """
+        The EC2 Subnet IDs for the DB subnet group.
+        """
+        return pulumi.get(self, "subnet_ids")
 
     @property
     @pulumi.getter
@@ -56,6 +67,7 @@ class AwaitableGetDbSubnetGroupResult(GetDbSubnetGroupResult):
             yield self
         return GetDbSubnetGroupResult(
             db_subnet_group_description=self.db_subnet_group_description,
+            subnet_ids=self.subnet_ids,
             tags=self.tags)
 
 
@@ -81,6 +93,7 @@ def get_db_subnet_group(db_subnet_group_name: Optional[str] = None,
 
     return AwaitableGetDbSubnetGroupResult(
         db_subnet_group_description=pulumi.get(__ret__, 'db_subnet_group_description'),
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_db_subnet_group_output(db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbSubnetGroupResult]:
@@ -103,4 +116,5 @@ def get_db_subnet_group_output(db_subnet_group_name: Optional[pulumi.Input[str]]
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbSubnetGroup', __args__, opts=opts, typ=GetDbSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetDbSubnetGroupResult(
         db_subnet_group_description=pulumi.get(__response__, 'db_subnet_group_description'),
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags')))

@@ -34,6 +34,22 @@ export interface GetContainerGroupDefinitionResult {
      */
     readonly creationTime?: string;
     /**
+     * A specific ContainerGroupDefinition version to be updated
+     */
+    readonly sourceVersionNumber?: number;
+    /**
+     * A string indicating ContainerGroupDefinition status.
+     */
+    readonly status?: enums.gamelift.ContainerGroupDefinitionStatus;
+    /**
+     * A string indicating the reason for ContainerGroupDefinition status.
+     */
+    readonly statusReason?: string;
+    /**
+     * A collection of support container definitions that define the containers in this group.
+     */
+    readonly supportContainerDefinitions?: any[];
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];

@@ -41,6 +41,9 @@ export class TaskSet extends pulumi.CustomResource {
      * The ID of the task set.
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The capacity provider strategy that are associated with the task set.
+     */
     public readonly capacityProviderStrategy!: pulumi.Output<outputs.ecs.TaskSetCapacityProviderStrategyItem[] | undefined>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
@@ -156,6 +159,9 @@ export class TaskSet extends pulumi.CustomResource {
  * The set of arguments for constructing a TaskSet resource.
  */
 export interface TaskSetArgs {
+    /**
+     * The capacity provider strategy that are associated with the task set.
+     */
     capacityProviderStrategy?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetCapacityProviderStrategyItemArgs>[]>;
     /**
      * The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.

@@ -49,13 +49,11 @@ class UserPoolArgs:
                  verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None):
         """
         The set of arguments for constructing a UserPool resource.
-        :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
                
                This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
-               
-               > This user pool property cannot be updated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes to be auto-verified. Possible values: *email* , *phone_number* .
         :param pulumi.Input[str] deletion_protection: When active, `DeletionProtection` prevents accidental deletion of your user
                pool. Before you can delete a user pool that you have protected against deletion, you
@@ -66,14 +64,15 @@ class UserPoolArgs:
                
                > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
         :param pulumi.Input['UserPoolEmailConfigurationArgs'] email_configuration: The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
-        :param pulumi.Input[str] email_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
-        :param pulumi.Input[str] email_verification_subject: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_mfas: Enables MFA on a specified user pool. To disable all MFAs after it has been enabled, set MfaConfiguration to "OFF" and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to "OFF". Can be one of the following values:
+        :param pulumi.Input[str] email_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
+        :param pulumi.Input[str] email_verification_subject: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_mfas: Set enabled MFA options on a specified user pool. To disable all MFAs after it has been enabled, set `MfaConfiguration` to `OFF` and remove EnabledMfas. MFAs can only be all disabled if `MfaConfiguration` is `OFF` . After you enable `SMS_MFA` , you can only disable it by setting `MfaConfiguration` to `OFF` . Can be one of the following values:
                
-               - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
+               - `SMS_MFA` - Enables MFA with SMS for the user pool. To select this option, you must also provide values for `SmsConfiguration` .
                - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
+               - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
                
-               Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
+               Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         :param pulumi.Input[str] mfa_configuration: The multi-factor authentication (MFA) configuration. Valid values include:
                
@@ -83,12 +82,10 @@ class UserPoolArgs:
         :param pulumi.Input['UserPoolPoliciesArgs'] policies: A list of user pool policies. Contains the policy that sets password-complexity requirements.
                
                This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
-        :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]] schema: The schema attributes for the new user pool. These attributes can be standard or custom attributes.
-               
-               > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
-        :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]] schema: An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+        :param pulumi.Input[str] sms_authentication_message: The contents of the SMS authentication message.
         :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
-        :param pulumi.Input[str] sms_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        :param pulumi.Input[str] sms_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         :param pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs'] user_attribute_update_settings: The settings for updates to user attributes. These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
                a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
                more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
@@ -97,10 +94,10 @@ class UserPoolArgs:
                For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
         :param pulumi.Input[str] user_pool_name: A string used to name the user pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_pool_tags: The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Specifies whether a user can use an email address or phone number as a username when they sign up.
+        :param pulumi.Input['UserPoolUsernameConfigurationArgs'] username_configuration: Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
                
-               This user pool property cannot be updated.
-        :param pulumi.Input['UserPoolUsernameConfigurationArgs'] username_configuration: You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
+               This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
         :param pulumi.Input['UserPoolVerificationMessageTemplateArgs'] verification_message_template: The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
                
                Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
@@ -162,7 +159,7 @@ class UserPoolArgs:
     @pulumi.getter(name="accountRecoverySetting")
     def account_recovery_setting(self) -> Optional[pulumi.Input['UserPoolAccountRecoverySettingArgs']]:
         """
-        Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         """
         return pulumi.get(self, "account_recovery_setting")
 
@@ -189,8 +186,6 @@ class UserPoolArgs:
     def alias_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
-
-        > This user pool property cannot be updated.
         """
         return pulumi.get(self, "alias_attributes")
 
@@ -274,7 +269,7 @@ class UserPoolArgs:
     @pulumi.getter(name="emailVerificationMessage")
     def email_verification_message(self) -> Optional[pulumi.Input[str]]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_message")
 
@@ -286,7 +281,7 @@ class UserPoolArgs:
     @pulumi.getter(name="emailVerificationSubject")
     def email_verification_subject(self) -> Optional[pulumi.Input[str]]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_subject")
 
@@ -298,12 +293,13 @@ class UserPoolArgs:
     @pulumi.getter(name="enabledMfas")
     def enabled_mfas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Enables MFA on a specified user pool. To disable all MFAs after it has been enabled, set MfaConfiguration to "OFF" and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to "OFF". Can be one of the following values:
+        Set enabled MFA options on a specified user pool. To disable all MFAs after it has been enabled, set `MfaConfiguration` to `OFF` and remove EnabledMfas. MFAs can only be all disabled if `MfaConfiguration` is `OFF` . After you enable `SMS_MFA` , you can only disable it by setting `MfaConfiguration` to `OFF` . Can be one of the following values:
 
-        - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
+        - `SMS_MFA` - Enables MFA with SMS for the user pool. To select this option, you must also provide values for `SmsConfiguration` .
         - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
+        - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
 
-        Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
+        Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         """
         return pulumi.get(self, "enabled_mfas")
 
@@ -357,9 +353,7 @@ class UserPoolArgs:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]]]:
         """
-        The schema attributes for the new user pool. These attributes can be standard or custom attributes.
-
-        > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
+        An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
         """
         return pulumi.get(self, "schema")
 
@@ -371,7 +365,7 @@ class UserPoolArgs:
     @pulumi.getter(name="smsAuthenticationMessage")
     def sms_authentication_message(self) -> Optional[pulumi.Input[str]]:
         """
-        A string representing the SMS authentication message.
+        The contents of the SMS authentication message.
         """
         return pulumi.get(self, "sms_authentication_message")
 
@@ -395,7 +389,7 @@ class UserPoolArgs:
     @pulumi.getter(name="smsVerificationMessage")
     def sms_verification_message(self) -> Optional[pulumi.Input[str]]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "sms_verification_message")
 
@@ -459,9 +453,7 @@ class UserPoolArgs:
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
-
-        This user pool property cannot be updated.
+        Specifies whether a user can use an email address or phone number as a username when they sign up.
         """
         return pulumi.get(self, "username_attributes")
 
@@ -473,7 +465,9 @@ class UserPoolArgs:
     @pulumi.getter(name="usernameConfiguration")
     def username_configuration(self) -> Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']]:
         """
-        You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
+        Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+
+        This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
         """
         return pulumi.get(self, "username_configuration")
 
@@ -533,13 +527,11 @@ class UserPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         :param pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
                
                This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
-               
-               > This user pool property cannot be updated.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes to be auto-verified. Possible values: *email* , *phone_number* .
         :param pulumi.Input[str] deletion_protection: When active, `DeletionProtection` prevents accidental deletion of your user
                pool. Before you can delete a user pool that you have protected against deletion, you
@@ -550,14 +542,15 @@ class UserPool(pulumi.CustomResource):
                
                > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
         :param pulumi.Input[Union['UserPoolEmailConfigurationArgs', 'UserPoolEmailConfigurationArgsDict']] email_configuration: The email configuration of your user pool. The email configuration type sets your preferred sending method, AWS Region, and sender for messages from your user pool.
-        :param pulumi.Input[str] email_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
-        :param pulumi.Input[str] email_verification_subject: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_mfas: Enables MFA on a specified user pool. To disable all MFAs after it has been enabled, set MfaConfiguration to "OFF" and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to "OFF". Can be one of the following values:
+        :param pulumi.Input[str] email_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
+        :param pulumi.Input[str] email_verification_subject: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_mfas: Set enabled MFA options on a specified user pool. To disable all MFAs after it has been enabled, set `MfaConfiguration` to `OFF` and remove EnabledMfas. MFAs can only be all disabled if `MfaConfiguration` is `OFF` . After you enable `SMS_MFA` , you can only disable it by setting `MfaConfiguration` to `OFF` . Can be one of the following values:
                
-               - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
+               - `SMS_MFA` - Enables MFA with SMS for the user pool. To select this option, you must also provide values for `SmsConfiguration` .
                - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
+               - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
                
-               Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
+               Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         :param pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']] lambda_config: A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
         :param pulumi.Input[str] mfa_configuration: The multi-factor authentication (MFA) configuration. Valid values include:
                
@@ -567,12 +560,10 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']] policies: A list of user pool policies. Contains the policy that sets password-complexity requirements.
                
                This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]] schema: The schema attributes for the new user pool. These attributes can be standard or custom attributes.
-               
-               > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
-        :param pulumi.Input[str] sms_authentication_message: A string representing the SMS authentication message.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]] schema: An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+        :param pulumi.Input[str] sms_authentication_message: The contents of the SMS authentication message.
         :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
-        :param pulumi.Input[str] sms_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        :param pulumi.Input[str] sms_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         :param pulumi.Input[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']] user_attribute_update_settings: The settings for updates to user attributes. These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
                a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
                more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
@@ -581,10 +572,10 @@ class UserPool(pulumi.CustomResource):
                For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
         :param pulumi.Input[str] user_pool_name: A string used to name the user pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_pool_tags: The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Specifies whether a user can use an email address or phone number as a username when they sign up.
+        :param pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']] username_configuration: Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
                
-               This user pool property cannot be updated.
-        :param pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']] username_configuration: You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
+               This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
         :param pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']] verification_message_template: The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
                
                Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
@@ -736,7 +727,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="accountRecoverySetting")
     def account_recovery_setting(self) -> pulumi.Output[Optional['outputs.UserPoolAccountRecoverySetting']]:
         """
-        Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         """
         return pulumi.get(self, "account_recovery_setting")
 
@@ -755,8 +746,6 @@ class UserPool(pulumi.CustomResource):
     def alias_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
-
-        > This user pool property cannot be updated.
         """
         return pulumi.get(self, "alias_attributes")
 
@@ -820,7 +809,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="emailVerificationMessage")
     def email_verification_message(self) -> pulumi.Output[Optional[str]]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_message")
 
@@ -828,7 +817,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="emailVerificationSubject")
     def email_verification_subject(self) -> pulumi.Output[Optional[str]]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_subject")
 
@@ -836,12 +825,13 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="enabledMfas")
     def enabled_mfas(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Enables MFA on a specified user pool. To disable all MFAs after it has been enabled, set MfaConfiguration to "OFF" and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to "OFF". Can be one of the following values:
+        Set enabled MFA options on a specified user pool. To disable all MFAs after it has been enabled, set `MfaConfiguration` to `OFF` and remove EnabledMfas. MFAs can only be all disabled if `MfaConfiguration` is `OFF` . After you enable `SMS_MFA` , you can only disable it by setting `MfaConfiguration` to `OFF` . Can be one of the following values:
 
-        - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
+        - `SMS_MFA` - Enables MFA with SMS for the user pool. To select this option, you must also provide values for `SmsConfiguration` .
         - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
+        - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
 
-        Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
+        Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         """
         return pulumi.get(self, "enabled_mfas")
 
@@ -879,7 +869,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="providerName")
     def provider_name(self) -> pulumi.Output[str]:
         """
-        The provider name of the Amazon Cognito user pool, specified as a `String` .
+        A friendly name for the IdP.
         """
         return pulumi.get(self, "provider_name")
 
@@ -895,9 +885,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[Optional[Sequence['outputs.UserPoolSchemaAttribute']]]:
         """
-        The schema attributes for the new user pool. These attributes can be standard or custom attributes.
-
-        > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
+        An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
         """
         return pulumi.get(self, "schema")
 
@@ -905,7 +893,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="smsAuthenticationMessage")
     def sms_authentication_message(self) -> pulumi.Output[Optional[str]]:
         """
-        A string representing the SMS authentication message.
+        The contents of the SMS authentication message.
         """
         return pulumi.get(self, "sms_authentication_message")
 
@@ -921,7 +909,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="smsVerificationMessage")
     def sms_verification_message(self) -> pulumi.Output[Optional[str]]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "sms_verification_message")
 
@@ -973,9 +961,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
-
-        This user pool property cannot be updated.
+        Specifies whether a user can use an email address or phone number as a username when they sign up.
         """
         return pulumi.get(self, "username_attributes")
 
@@ -983,7 +969,9 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="usernameConfiguration")
     def username_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolUsernameConfiguration']]:
         """
-        You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
+        Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+
+        This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
         """
         return pulumi.get(self, "username_configuration")
 

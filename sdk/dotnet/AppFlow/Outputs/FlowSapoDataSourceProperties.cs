@@ -17,7 +17,13 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// The object path specified in the SAPOData flow source.
         /// </summary>
         public readonly string ObjectPath;
+        /// <summary>
+        /// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+        /// </summary>
         public readonly Outputs.FlowSapoDataPaginationConfig? PaginationConfig;
+        /// <summary>
+        /// Sets the number of concurrent processes that transfers OData records from your SAP instance.
+        /// </summary>
         public readonly Outputs.FlowSapoDataParallelismConfig? ParallelismConfig;
 
         [OutputConstructor]

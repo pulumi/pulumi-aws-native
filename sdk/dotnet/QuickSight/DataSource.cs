@@ -71,6 +71,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("errorInfo")]
         public Output<Outputs.DataSourceErrorInfo?> ErrorInfo { get; private set; } = null!;
 
+        [Output("folderArns")]
+        public Output<ImmutableArray<string>> FolderArns { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;The last time that this data source was updated.&lt;/p&gt;
         /// </summary>
@@ -221,6 +224,14 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         [Input("errorInfo")]
         public Input<Inputs.DataSourceErrorInfoArgs>? ErrorInfo { get; set; }
+
+        [Input("folderArns")]
+        private InputList<string>? _folderArns;
+        public InputList<string> FolderArns
+        {
+            get => _folderArns ?? (_folderArns = new InputList<string>());
+            set => _folderArns = value;
+        }
 
         /// <summary>
         /// A display name for the data source.

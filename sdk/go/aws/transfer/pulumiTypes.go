@@ -341,6 +341,1280 @@ type ProfileTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ServerEndpointDetails struct {
+	// A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
+	//
+	// An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+	//
+	// This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+	//
+	// > This property can only be set as follows:
+	// > - `EndpointType` must be set to `VPC`
+	// > - The Transfer Family server must be offline.
+	// > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+	// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+	// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+	// > - Call the `UpdateServer` API to set or change this parameter.
+	AddressAllocationIds []string `pulumi:"addressAllocationIds"`
+	// A list of security groups IDs that are available to attach to your server's endpoint.
+	//
+	// > This property can only be set when `EndpointType` is set to `VPC` .
+	// >
+	// > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// A list of subnet IDs that are required to host your server endpoint in your VPC.
+	//
+	// > This property can only be set when `EndpointType` is set to `VPC` .
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The ID of the VPC endpoint.
+	//
+	// > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
+	//
+	// > This property can only be set when `EndpointType` is set to `VPC` .
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// ServerEndpointDetailsInput is an input type that accepts ServerEndpointDetailsArgs and ServerEndpointDetailsOutput values.
+// You can construct a concrete instance of `ServerEndpointDetailsInput` via:
+//
+//	ServerEndpointDetailsArgs{...}
+type ServerEndpointDetailsInput interface {
+	pulumi.Input
+
+	ToServerEndpointDetailsOutput() ServerEndpointDetailsOutput
+	ToServerEndpointDetailsOutputWithContext(context.Context) ServerEndpointDetailsOutput
+}
+
+type ServerEndpointDetailsArgs struct {
+	// A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
+	//
+	// An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+	//
+	// This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+	//
+	// > This property can only be set as follows:
+	// > - `EndpointType` must be set to `VPC`
+	// > - The Transfer Family server must be offline.
+	// > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+	// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+	// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+	// > - Call the `UpdateServer` API to set or change this parameter.
+	AddressAllocationIds pulumi.StringArrayInput `pulumi:"addressAllocationIds"`
+	// A list of security groups IDs that are available to attach to your server's endpoint.
+	//
+	// > This property can only be set when `EndpointType` is set to `VPC` .
+	// >
+	// > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// A list of subnet IDs that are required to host your server endpoint in your VPC.
+	//
+	// > This property can only be set when `EndpointType` is set to `VPC` .
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The ID of the VPC endpoint.
+	//
+	// > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
+	//
+	// > This property can only be set when `EndpointType` is set to `VPC` .
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (ServerEndpointDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointDetails)(nil)).Elem()
+}
+
+func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsOutput() ServerEndpointDetailsOutput {
+	return i.ToServerEndpointDetailsOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsOutputWithContext(ctx context.Context) ServerEndpointDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsOutput)
+}
+
+func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsPtrOutput() ServerEndpointDetailsPtrOutput {
+	return i.ToServerEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerEndpointDetailsArgs) ToServerEndpointDetailsPtrOutputWithContext(ctx context.Context) ServerEndpointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsOutput).ToServerEndpointDetailsPtrOutputWithContext(ctx)
+}
+
+// ServerEndpointDetailsPtrInput is an input type that accepts ServerEndpointDetailsArgs, ServerEndpointDetailsPtr and ServerEndpointDetailsPtrOutput values.
+// You can construct a concrete instance of `ServerEndpointDetailsPtrInput` via:
+//
+//	        ServerEndpointDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerEndpointDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServerEndpointDetailsPtrOutput() ServerEndpointDetailsPtrOutput
+	ToServerEndpointDetailsPtrOutputWithContext(context.Context) ServerEndpointDetailsPtrOutput
+}
+
+type serverEndpointDetailsPtrType ServerEndpointDetailsArgs
+
+func ServerEndpointDetailsPtr(v *ServerEndpointDetailsArgs) ServerEndpointDetailsPtrInput {
+	return (*serverEndpointDetailsPtrType)(v)
+}
+
+func (*serverEndpointDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerEndpointDetails)(nil)).Elem()
+}
+
+func (i *serverEndpointDetailsPtrType) ToServerEndpointDetailsPtrOutput() ServerEndpointDetailsPtrOutput {
+	return i.ToServerEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverEndpointDetailsPtrType) ToServerEndpointDetailsPtrOutputWithContext(ctx context.Context) ServerEndpointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointDetailsPtrOutput)
+}
+
+type ServerEndpointDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerEndpointDetails)(nil)).Elem()
+}
+
+func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsOutput() ServerEndpointDetailsOutput {
+	return o
+}
+
+func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsOutputWithContext(ctx context.Context) ServerEndpointDetailsOutput {
+	return o
+}
+
+func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutput() ServerEndpointDetailsPtrOutput {
+	return o.ToServerEndpointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerEndpointDetailsOutput) ToServerEndpointDetailsPtrOutputWithContext(ctx context.Context) ServerEndpointDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerEndpointDetails) *ServerEndpointDetails {
+		return &v
+	}).(ServerEndpointDetailsPtrOutput)
+}
+
+// A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
+//
+// An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+//
+// This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+//
+// > This property can only be set as follows:
+// > - `EndpointType` must be set to `VPC`
+// > - The Transfer Family server must be offline.
+// > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+// > - Call the `UpdateServer` API to set or change this parameter.
+func (o ServerEndpointDetailsOutput) AddressAllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.AddressAllocationIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of security groups IDs that are available to attach to your server's endpoint.
+//
+// > This property can only be set when `EndpointType` is set to `VPC` .
+// >
+// > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
+func (o ServerEndpointDetailsOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs that are required to host your server endpoint in your VPC.
+//
+// > This property can only be set when `EndpointType` is set to `VPC` .
+func (o ServerEndpointDetailsOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the VPC endpoint.
+//
+// > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
+func (o ServerEndpointDetailsOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
+//
+// > This property can only be set when `EndpointType` is set to `VPC` .
+func (o ServerEndpointDetailsOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerEndpointDetails) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type ServerEndpointDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerEndpointDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerEndpointDetails)(nil)).Elem()
+}
+
+func (o ServerEndpointDetailsPtrOutput) ToServerEndpointDetailsPtrOutput() ServerEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o ServerEndpointDetailsPtrOutput) ToServerEndpointDetailsPtrOutputWithContext(ctx context.Context) ServerEndpointDetailsPtrOutput {
+	return o
+}
+
+func (o ServerEndpointDetailsPtrOutput) Elem() ServerEndpointDetailsOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) ServerEndpointDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServerEndpointDetails
+		return ret
+	}).(ServerEndpointDetailsOutput)
+}
+
+// A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
+//
+// An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+//
+// This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+//
+// > This property can only be set as follows:
+// > - `EndpointType` must be set to `VPC`
+// > - The Transfer Family server must be offline.
+// > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+// > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+// > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+// > - Call the `UpdateServer` API to set or change this parameter.
+func (o ServerEndpointDetailsPtrOutput) AddressAllocationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressAllocationIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of security groups IDs that are available to attach to your server's endpoint.
+//
+// > This property can only be set when `EndpointType` is set to `VPC` .
+// >
+// > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
+func (o ServerEndpointDetailsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of subnet IDs that are required to host your server endpoint in your VPC.
+//
+// > This property can only be set when `EndpointType` is set to `VPC` .
+func (o ServerEndpointDetailsPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the VPC endpoint.
+//
+// > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
+func (o ServerEndpointDetailsPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcEndpointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
+//
+// > This property can only be set when `EndpointType` is set to `VPC` .
+func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerEndpointDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerIdentityProviderDetails struct {
+	// The identifier of the AWS Directory Service directory that you want to use as your identity provider.
+	DirectoryId *string `pulumi:"directoryId"`
+	// The ARN for a Lambda function to use for the Identity provider.
+	Function *string `pulumi:"function"`
+	// This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
+	InvocationRole *string `pulumi:"invocationRole"`
+	// For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
+	//
+	// - `PASSWORD` - users must provide their password to connect.
+	// - `PUBLIC_KEY` - users must provide their private key to connect.
+	// - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
+	// - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
+	SftpAuthenticationMethods *ServerSftpAuthenticationMethods `pulumi:"sftpAuthenticationMethods"`
+	// Provides the location of the service endpoint used to authenticate users.
+	Url *string `pulumi:"url"`
+}
+
+// ServerIdentityProviderDetailsInput is an input type that accepts ServerIdentityProviderDetailsArgs and ServerIdentityProviderDetailsOutput values.
+// You can construct a concrete instance of `ServerIdentityProviderDetailsInput` via:
+//
+//	ServerIdentityProviderDetailsArgs{...}
+type ServerIdentityProviderDetailsInput interface {
+	pulumi.Input
+
+	ToServerIdentityProviderDetailsOutput() ServerIdentityProviderDetailsOutput
+	ToServerIdentityProviderDetailsOutputWithContext(context.Context) ServerIdentityProviderDetailsOutput
+}
+
+type ServerIdentityProviderDetailsArgs struct {
+	// The identifier of the AWS Directory Service directory that you want to use as your identity provider.
+	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
+	// The ARN for a Lambda function to use for the Identity provider.
+	Function pulumi.StringPtrInput `pulumi:"function"`
+	// This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
+	InvocationRole pulumi.StringPtrInput `pulumi:"invocationRole"`
+	// For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
+	//
+	// - `PASSWORD` - users must provide their password to connect.
+	// - `PUBLIC_KEY` - users must provide their private key to connect.
+	// - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
+	// - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
+	SftpAuthenticationMethods ServerSftpAuthenticationMethodsPtrInput `pulumi:"sftpAuthenticationMethods"`
+	// Provides the location of the service endpoint used to authenticate users.
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (ServerIdentityProviderDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerIdentityProviderDetails)(nil)).Elem()
+}
+
+func (i ServerIdentityProviderDetailsArgs) ToServerIdentityProviderDetailsOutput() ServerIdentityProviderDetailsOutput {
+	return i.ToServerIdentityProviderDetailsOutputWithContext(context.Background())
+}
+
+func (i ServerIdentityProviderDetailsArgs) ToServerIdentityProviderDetailsOutputWithContext(ctx context.Context) ServerIdentityProviderDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityProviderDetailsOutput)
+}
+
+func (i ServerIdentityProviderDetailsArgs) ToServerIdentityProviderDetailsPtrOutput() ServerIdentityProviderDetailsPtrOutput {
+	return i.ToServerIdentityProviderDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerIdentityProviderDetailsArgs) ToServerIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) ServerIdentityProviderDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityProviderDetailsOutput).ToServerIdentityProviderDetailsPtrOutputWithContext(ctx)
+}
+
+// ServerIdentityProviderDetailsPtrInput is an input type that accepts ServerIdentityProviderDetailsArgs, ServerIdentityProviderDetailsPtr and ServerIdentityProviderDetailsPtrOutput values.
+// You can construct a concrete instance of `ServerIdentityProviderDetailsPtrInput` via:
+//
+//	        ServerIdentityProviderDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerIdentityProviderDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServerIdentityProviderDetailsPtrOutput() ServerIdentityProviderDetailsPtrOutput
+	ToServerIdentityProviderDetailsPtrOutputWithContext(context.Context) ServerIdentityProviderDetailsPtrOutput
+}
+
+type serverIdentityProviderDetailsPtrType ServerIdentityProviderDetailsArgs
+
+func ServerIdentityProviderDetailsPtr(v *ServerIdentityProviderDetailsArgs) ServerIdentityProviderDetailsPtrInput {
+	return (*serverIdentityProviderDetailsPtrType)(v)
+}
+
+func (*serverIdentityProviderDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerIdentityProviderDetails)(nil)).Elem()
+}
+
+func (i *serverIdentityProviderDetailsPtrType) ToServerIdentityProviderDetailsPtrOutput() ServerIdentityProviderDetailsPtrOutput {
+	return i.ToServerIdentityProviderDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverIdentityProviderDetailsPtrType) ToServerIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) ServerIdentityProviderDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerIdentityProviderDetailsPtrOutput)
+}
+
+type ServerIdentityProviderDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServerIdentityProviderDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerIdentityProviderDetails)(nil)).Elem()
+}
+
+func (o ServerIdentityProviderDetailsOutput) ToServerIdentityProviderDetailsOutput() ServerIdentityProviderDetailsOutput {
+	return o
+}
+
+func (o ServerIdentityProviderDetailsOutput) ToServerIdentityProviderDetailsOutputWithContext(ctx context.Context) ServerIdentityProviderDetailsOutput {
+	return o
+}
+
+func (o ServerIdentityProviderDetailsOutput) ToServerIdentityProviderDetailsPtrOutput() ServerIdentityProviderDetailsPtrOutput {
+	return o.ToServerIdentityProviderDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerIdentityProviderDetailsOutput) ToServerIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) ServerIdentityProviderDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerIdentityProviderDetails) *ServerIdentityProviderDetails {
+		return &v
+	}).(ServerIdentityProviderDetailsPtrOutput)
+}
+
+// The identifier of the AWS Directory Service directory that you want to use as your identity provider.
+func (o ServerIdentityProviderDetailsOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
+}
+
+// The ARN for a Lambda function to use for the Identity provider.
+func (o ServerIdentityProviderDetailsOutput) Function() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.Function }).(pulumi.StringPtrOutput)
+}
+
+// This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
+func (o ServerIdentityProviderDetailsOutput) InvocationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.InvocationRole }).(pulumi.StringPtrOutput)
+}
+
+// For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
+//
+// - `PASSWORD` - users must provide their password to connect.
+// - `PUBLIC_KEY` - users must provide their private key to connect.
+// - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
+// - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
+func (o ServerIdentityProviderDetailsOutput) SftpAuthenticationMethods() ServerSftpAuthenticationMethodsPtrOutput {
+	return o.ApplyT(func(v ServerIdentityProviderDetails) *ServerSftpAuthenticationMethods {
+		return v.SftpAuthenticationMethods
+	}).(ServerSftpAuthenticationMethodsPtrOutput)
+}
+
+// Provides the location of the service endpoint used to authenticate users.
+func (o ServerIdentityProviderDetailsOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerIdentityProviderDetails) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type ServerIdentityProviderDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerIdentityProviderDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerIdentityProviderDetails)(nil)).Elem()
+}
+
+func (o ServerIdentityProviderDetailsPtrOutput) ToServerIdentityProviderDetailsPtrOutput() ServerIdentityProviderDetailsPtrOutput {
+	return o
+}
+
+func (o ServerIdentityProviderDetailsPtrOutput) ToServerIdentityProviderDetailsPtrOutputWithContext(ctx context.Context) ServerIdentityProviderDetailsPtrOutput {
+	return o
+}
+
+func (o ServerIdentityProviderDetailsPtrOutput) Elem() ServerIdentityProviderDetailsOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderDetails) ServerIdentityProviderDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServerIdentityProviderDetails
+		return ret
+	}).(ServerIdentityProviderDetailsOutput)
+}
+
+// The identifier of the AWS Directory Service directory that you want to use as your identity provider.
+func (o ServerIdentityProviderDetailsPtrOutput) DirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN for a Lambda function to use for the Identity provider.
+func (o ServerIdentityProviderDetailsPtrOutput) Function() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Function
+	}).(pulumi.StringPtrOutput)
+}
+
+// This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
+func (o ServerIdentityProviderDetailsPtrOutput) InvocationRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
+//
+// - `PASSWORD` - users must provide their password to connect.
+// - `PUBLIC_KEY` - users must provide their private key to connect.
+// - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
+// - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
+func (o ServerIdentityProviderDetailsPtrOutput) SftpAuthenticationMethods() ServerSftpAuthenticationMethodsPtrOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderDetails) *ServerSftpAuthenticationMethods {
+		if v == nil {
+			return nil
+		}
+		return v.SftpAuthenticationMethods
+	}).(ServerSftpAuthenticationMethodsPtrOutput)
+}
+
+// Provides the location of the service endpoint used to authenticate users.
+func (o ServerIdentityProviderDetailsPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerIdentityProviderDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerProtocolDetails struct {
+	// List of `As2Transport` objects.
+	As2Transports []ServerAs2Transport `pulumi:"as2Transports"`
+	// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
+	//
+	// `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
+	//
+	// Replace `0.0.0.0` in the example above with the actual IP address you want to use.
+	//
+	// > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) .
+	//
+	// *Special values*
+	//
+	// The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
+	PassiveIp *string `pulumi:"passiveIp"`
+	// Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
+	//
+	// Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
+	//
+	// Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
+	//
+	// > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
+	SetStatOption *ServerSetStatOption `pulumi:"setStatOption"`
+	// A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
+	//
+	// - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
+	// - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
+	// - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
+	//
+	// > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
+	TlsSessionResumptionMode *ServerTlsSessionResumptionMode `pulumi:"tlsSessionResumptionMode"`
+}
+
+// ServerProtocolDetailsInput is an input type that accepts ServerProtocolDetailsArgs and ServerProtocolDetailsOutput values.
+// You can construct a concrete instance of `ServerProtocolDetailsInput` via:
+//
+//	ServerProtocolDetailsArgs{...}
+type ServerProtocolDetailsInput interface {
+	pulumi.Input
+
+	ToServerProtocolDetailsOutput() ServerProtocolDetailsOutput
+	ToServerProtocolDetailsOutputWithContext(context.Context) ServerProtocolDetailsOutput
+}
+
+type ServerProtocolDetailsArgs struct {
+	// List of `As2Transport` objects.
+	As2Transports ServerAs2TransportArrayInput `pulumi:"as2Transports"`
+	// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
+	//
+	// `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
+	//
+	// Replace `0.0.0.0` in the example above with the actual IP address you want to use.
+	//
+	// > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) .
+	//
+	// *Special values*
+	//
+	// The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
+	PassiveIp pulumi.StringPtrInput `pulumi:"passiveIp"`
+	// Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
+	//
+	// Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
+	//
+	// Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
+	//
+	// > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
+	SetStatOption ServerSetStatOptionPtrInput `pulumi:"setStatOption"`
+	// A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
+	//
+	// - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
+	// - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
+	// - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
+	//
+	// > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
+	TlsSessionResumptionMode ServerTlsSessionResumptionModePtrInput `pulumi:"tlsSessionResumptionMode"`
+}
+
+func (ServerProtocolDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProtocolDetails)(nil)).Elem()
+}
+
+func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsOutput() ServerProtocolDetailsOutput {
+	return i.ToServerProtocolDetailsOutputWithContext(context.Background())
+}
+
+func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsOutputWithContext(ctx context.Context) ServerProtocolDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsOutput)
+}
+
+func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
+	return i.ToServerProtocolDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerProtocolDetailsArgs) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsOutput).ToServerProtocolDetailsPtrOutputWithContext(ctx)
+}
+
+// ServerProtocolDetailsPtrInput is an input type that accepts ServerProtocolDetailsArgs, ServerProtocolDetailsPtr and ServerProtocolDetailsPtrOutput values.
+// You can construct a concrete instance of `ServerProtocolDetailsPtrInput` via:
+//
+//	        ServerProtocolDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerProtocolDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput
+	ToServerProtocolDetailsPtrOutputWithContext(context.Context) ServerProtocolDetailsPtrOutput
+}
+
+type serverProtocolDetailsPtrType ServerProtocolDetailsArgs
+
+func ServerProtocolDetailsPtr(v *ServerProtocolDetailsArgs) ServerProtocolDetailsPtrInput {
+	return (*serverProtocolDetailsPtrType)(v)
+}
+
+func (*serverProtocolDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerProtocolDetails)(nil)).Elem()
+}
+
+func (i *serverProtocolDetailsPtrType) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
+	return i.ToServerProtocolDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverProtocolDetailsPtrType) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerProtocolDetailsPtrOutput)
+}
+
+type ServerProtocolDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServerProtocolDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerProtocolDetails)(nil)).Elem()
+}
+
+func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsOutput() ServerProtocolDetailsOutput {
+	return o
+}
+
+func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsOutputWithContext(ctx context.Context) ServerProtocolDetailsOutput {
+	return o
+}
+
+func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
+	return o.ToServerProtocolDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerProtocolDetailsOutput) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerProtocolDetails) *ServerProtocolDetails {
+		return &v
+	}).(ServerProtocolDetailsPtrOutput)
+}
+
+// List of `As2Transport` objects.
+func (o ServerProtocolDetailsOutput) As2Transports() ServerAs2TransportArrayOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) []ServerAs2Transport { return v.As2Transports }).(ServerAs2TransportArrayOutput)
+}
+
+// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
+//
+// `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
+//
+// Replace `0.0.0.0` in the example above with the actual IP address you want to use.
+//
+// > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) .
+//
+// *Special values*
+//
+// The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
+func (o ServerProtocolDetailsOutput) PassiveIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *string { return v.PassiveIp }).(pulumi.StringPtrOutput)
+}
+
+// Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
+//
+// Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
+//
+// Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
+//
+// > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
+func (o ServerProtocolDetailsOutput) SetStatOption() ServerSetStatOptionPtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *ServerSetStatOption { return v.SetStatOption }).(ServerSetStatOptionPtrOutput)
+}
+
+// A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
+//
+// - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
+// - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
+// - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
+//
+// > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
+func (o ServerProtocolDetailsOutput) TlsSessionResumptionMode() ServerTlsSessionResumptionModePtrOutput {
+	return o.ApplyT(func(v ServerProtocolDetails) *ServerTlsSessionResumptionMode { return v.TlsSessionResumptionMode }).(ServerTlsSessionResumptionModePtrOutput)
+}
+
+type ServerProtocolDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerProtocolDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerProtocolDetails)(nil)).Elem()
+}
+
+func (o ServerProtocolDetailsPtrOutput) ToServerProtocolDetailsPtrOutput() ServerProtocolDetailsPtrOutput {
+	return o
+}
+
+func (o ServerProtocolDetailsPtrOutput) ToServerProtocolDetailsPtrOutputWithContext(ctx context.Context) ServerProtocolDetailsPtrOutput {
+	return o
+}
+
+func (o ServerProtocolDetailsPtrOutput) Elem() ServerProtocolDetailsOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) ServerProtocolDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServerProtocolDetails
+		return ret
+	}).(ServerProtocolDetailsOutput)
+}
+
+// List of `As2Transport` objects.
+func (o ServerProtocolDetailsPtrOutput) As2Transports() ServerAs2TransportArrayOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) []ServerAs2Transport {
+		if v == nil {
+			return nil
+		}
+		return v.As2Transports
+	}).(ServerAs2TransportArrayOutput)
+}
+
+// Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
+//
+// `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
+//
+// Replace `0.0.0.0` in the example above with the actual IP address you want to use.
+//
+// > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) .
+//
+// *Special values*
+//
+// The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
+func (o ServerProtocolDetailsPtrOutput) PassiveIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PassiveIp
+	}).(pulumi.StringPtrOutput)
+}
+
+// Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
+//
+// Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
+//
+// Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
+//
+// > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
+func (o ServerProtocolDetailsPtrOutput) SetStatOption() ServerSetStatOptionPtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *ServerSetStatOption {
+		if v == nil {
+			return nil
+		}
+		return v.SetStatOption
+	}).(ServerSetStatOptionPtrOutput)
+}
+
+// A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
+//
+// - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
+// - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
+// - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
+//
+// > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
+func (o ServerProtocolDetailsPtrOutput) TlsSessionResumptionMode() ServerTlsSessionResumptionModePtrOutput {
+	return o.ApplyT(func(v *ServerProtocolDetails) *ServerTlsSessionResumptionMode {
+		if v == nil {
+			return nil
+		}
+		return v.TlsSessionResumptionMode
+	}).(ServerTlsSessionResumptionModePtrOutput)
+}
+
+type ServerS3StorageOptions struct {
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+	//
+	// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
+	DirectoryListingOptimization *ServerDirectoryListingOptimization `pulumi:"directoryListingOptimization"`
+}
+
+// ServerS3StorageOptionsInput is an input type that accepts ServerS3StorageOptionsArgs and ServerS3StorageOptionsOutput values.
+// You can construct a concrete instance of `ServerS3StorageOptionsInput` via:
+//
+//	ServerS3StorageOptionsArgs{...}
+type ServerS3StorageOptionsInput interface {
+	pulumi.Input
+
+	ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput
+	ToServerS3StorageOptionsOutputWithContext(context.Context) ServerS3StorageOptionsOutput
+}
+
+type ServerS3StorageOptionsArgs struct {
+	// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+	//
+	// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
+	DirectoryListingOptimization ServerDirectoryListingOptimizationPtrInput `pulumi:"directoryListingOptimization"`
+}
+
+func (ServerS3StorageOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput {
+	return i.ToServerS3StorageOptionsOutputWithContext(context.Background())
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsOutputWithContext(ctx context.Context) ServerS3StorageOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsOutput)
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return i.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerS3StorageOptionsArgs) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsOutput).ToServerS3StorageOptionsPtrOutputWithContext(ctx)
+}
+
+// ServerS3StorageOptionsPtrInput is an input type that accepts ServerS3StorageOptionsArgs, ServerS3StorageOptionsPtr and ServerS3StorageOptionsPtrOutput values.
+// You can construct a concrete instance of `ServerS3StorageOptionsPtrInput` via:
+//
+//	        ServerS3StorageOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerS3StorageOptionsPtrInput interface {
+	pulumi.Input
+
+	ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput
+	ToServerS3StorageOptionsPtrOutputWithContext(context.Context) ServerS3StorageOptionsPtrOutput
+}
+
+type serverS3StorageOptionsPtrType ServerS3StorageOptionsArgs
+
+func ServerS3StorageOptionsPtr(v *ServerS3StorageOptionsArgs) ServerS3StorageOptionsPtrInput {
+	return (*serverS3StorageOptionsPtrType)(v)
+}
+
+func (*serverS3StorageOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (i *serverS3StorageOptionsPtrType) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return i.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverS3StorageOptionsPtrType) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerS3StorageOptionsPtrOutput)
+}
+
+type ServerS3StorageOptionsOutput struct{ *pulumi.OutputState }
+
+func (ServerS3StorageOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsOutput() ServerS3StorageOptionsOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsOutputWithContext(ctx context.Context) ServerS3StorageOptionsOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return o.ToServerS3StorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerS3StorageOptionsOutput) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerS3StorageOptions) *ServerS3StorageOptions {
+		return &v
+	}).(ServerS3StorageOptionsPtrOutput)
+}
+
+// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+//
+// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
+func (o ServerS3StorageOptionsOutput) DirectoryListingOptimization() ServerDirectoryListingOptimizationPtrOutput {
+	return o.ApplyT(func(v ServerS3StorageOptions) *ServerDirectoryListingOptimization {
+		return v.DirectoryListingOptimization
+	}).(ServerDirectoryListingOptimizationPtrOutput)
+}
+
+type ServerS3StorageOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerS3StorageOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerS3StorageOptions)(nil)).Elem()
+}
+
+func (o ServerS3StorageOptionsPtrOutput) ToServerS3StorageOptionsPtrOutput() ServerS3StorageOptionsPtrOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsPtrOutput) ToServerS3StorageOptionsPtrOutputWithContext(ctx context.Context) ServerS3StorageOptionsPtrOutput {
+	return o
+}
+
+func (o ServerS3StorageOptionsPtrOutput) Elem() ServerS3StorageOptionsOutput {
+	return o.ApplyT(func(v *ServerS3StorageOptions) ServerS3StorageOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ServerS3StorageOptions
+		return ret
+	}).(ServerS3StorageOptionsOutput)
+}
+
+// Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+//
+// By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
+func (o ServerS3StorageOptionsPtrOutput) DirectoryListingOptimization() ServerDirectoryListingOptimizationPtrOutput {
+	return o.ApplyT(func(v *ServerS3StorageOptions) *ServerDirectoryListingOptimization {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryListingOptimization
+	}).(ServerDirectoryListingOptimizationPtrOutput)
+}
+
+type ServerTag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value string `pulumi:"value"`
+}
+
+type ServerWorkflowDetail struct {
+	// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
+	ExecutionRole string `pulumi:"executionRole"`
+	// A unique identifier for the workflow.
+	WorkflowId string `pulumi:"workflowId"`
+}
+
+// ServerWorkflowDetailInput is an input type that accepts ServerWorkflowDetailArgs and ServerWorkflowDetailOutput values.
+// You can construct a concrete instance of `ServerWorkflowDetailInput` via:
+//
+//	ServerWorkflowDetailArgs{...}
+type ServerWorkflowDetailInput interface {
+	pulumi.Input
+
+	ToServerWorkflowDetailOutput() ServerWorkflowDetailOutput
+	ToServerWorkflowDetailOutputWithContext(context.Context) ServerWorkflowDetailOutput
+}
+
+type ServerWorkflowDetailArgs struct {
+	// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// A unique identifier for the workflow.
+	WorkflowId pulumi.StringInput `pulumi:"workflowId"`
+}
+
+func (ServerWorkflowDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerWorkflowDetail)(nil)).Elem()
+}
+
+func (i ServerWorkflowDetailArgs) ToServerWorkflowDetailOutput() ServerWorkflowDetailOutput {
+	return i.ToServerWorkflowDetailOutputWithContext(context.Background())
+}
+
+func (i ServerWorkflowDetailArgs) ToServerWorkflowDetailOutputWithContext(ctx context.Context) ServerWorkflowDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailOutput)
+}
+
+// ServerWorkflowDetailArrayInput is an input type that accepts ServerWorkflowDetailArray and ServerWorkflowDetailArrayOutput values.
+// You can construct a concrete instance of `ServerWorkflowDetailArrayInput` via:
+//
+//	ServerWorkflowDetailArray{ ServerWorkflowDetailArgs{...} }
+type ServerWorkflowDetailArrayInput interface {
+	pulumi.Input
+
+	ToServerWorkflowDetailArrayOutput() ServerWorkflowDetailArrayOutput
+	ToServerWorkflowDetailArrayOutputWithContext(context.Context) ServerWorkflowDetailArrayOutput
+}
+
+type ServerWorkflowDetailArray []ServerWorkflowDetailInput
+
+func (ServerWorkflowDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerWorkflowDetail)(nil)).Elem()
+}
+
+func (i ServerWorkflowDetailArray) ToServerWorkflowDetailArrayOutput() ServerWorkflowDetailArrayOutput {
+	return i.ToServerWorkflowDetailArrayOutputWithContext(context.Background())
+}
+
+func (i ServerWorkflowDetailArray) ToServerWorkflowDetailArrayOutputWithContext(ctx context.Context) ServerWorkflowDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailArrayOutput)
+}
+
+type ServerWorkflowDetailOutput struct{ *pulumi.OutputState }
+
+func (ServerWorkflowDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerWorkflowDetail)(nil)).Elem()
+}
+
+func (o ServerWorkflowDetailOutput) ToServerWorkflowDetailOutput() ServerWorkflowDetailOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailOutput) ToServerWorkflowDetailOutputWithContext(ctx context.Context) ServerWorkflowDetailOutput {
+	return o
+}
+
+// Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
+func (o ServerWorkflowDetailOutput) ExecutionRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerWorkflowDetail) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// A unique identifier for the workflow.
+func (o ServerWorkflowDetailOutput) WorkflowId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerWorkflowDetail) string { return v.WorkflowId }).(pulumi.StringOutput)
+}
+
+type ServerWorkflowDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerWorkflowDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerWorkflowDetail)(nil)).Elem()
+}
+
+func (o ServerWorkflowDetailArrayOutput) ToServerWorkflowDetailArrayOutput() ServerWorkflowDetailArrayOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailArrayOutput) ToServerWorkflowDetailArrayOutputWithContext(ctx context.Context) ServerWorkflowDetailArrayOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailArrayOutput) Index(i pulumi.IntInput) ServerWorkflowDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerWorkflowDetail {
+		return vs[0].([]ServerWorkflowDetail)[vs[1].(int)]
+	}).(ServerWorkflowDetailOutput)
+}
+
+type ServerWorkflowDetails struct {
+	// A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
+	//
+	// A *partial upload* occurs when a file is open when the session disconnects.
+	//
+	// > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
+	OnPartialUpload []ServerWorkflowDetail `pulumi:"onPartialUpload"`
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
+	//
+	// To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
+	//
+	// `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
+	//
+	// > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
+	OnUpload []ServerWorkflowDetail `pulumi:"onUpload"`
+}
+
+// ServerWorkflowDetailsInput is an input type that accepts ServerWorkflowDetailsArgs and ServerWorkflowDetailsOutput values.
+// You can construct a concrete instance of `ServerWorkflowDetailsInput` via:
+//
+//	ServerWorkflowDetailsArgs{...}
+type ServerWorkflowDetailsInput interface {
+	pulumi.Input
+
+	ToServerWorkflowDetailsOutput() ServerWorkflowDetailsOutput
+	ToServerWorkflowDetailsOutputWithContext(context.Context) ServerWorkflowDetailsOutput
+}
+
+type ServerWorkflowDetailsArgs struct {
+	// A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
+	//
+	// A *partial upload* occurs when a file is open when the session disconnects.
+	//
+	// > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
+	OnPartialUpload ServerWorkflowDetailArrayInput `pulumi:"onPartialUpload"`
+	// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
+	//
+	// To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
+	//
+	// `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
+	//
+	// > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
+	OnUpload ServerWorkflowDetailArrayInput `pulumi:"onUpload"`
+}
+
+func (ServerWorkflowDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerWorkflowDetails)(nil)).Elem()
+}
+
+func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsOutput() ServerWorkflowDetailsOutput {
+	return i.ToServerWorkflowDetailsOutputWithContext(context.Background())
+}
+
+func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsOutputWithContext(ctx context.Context) ServerWorkflowDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOutput)
+}
+
+func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsPtrOutput() ServerWorkflowDetailsPtrOutput {
+	return i.ToServerWorkflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i ServerWorkflowDetailsArgs) ToServerWorkflowDetailsPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsOutput).ToServerWorkflowDetailsPtrOutputWithContext(ctx)
+}
+
+// ServerWorkflowDetailsPtrInput is an input type that accepts ServerWorkflowDetailsArgs, ServerWorkflowDetailsPtr and ServerWorkflowDetailsPtrOutput values.
+// You can construct a concrete instance of `ServerWorkflowDetailsPtrInput` via:
+//
+//	        ServerWorkflowDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServerWorkflowDetailsPtrInput interface {
+	pulumi.Input
+
+	ToServerWorkflowDetailsPtrOutput() ServerWorkflowDetailsPtrOutput
+	ToServerWorkflowDetailsPtrOutputWithContext(context.Context) ServerWorkflowDetailsPtrOutput
+}
+
+type serverWorkflowDetailsPtrType ServerWorkflowDetailsArgs
+
+func ServerWorkflowDetailsPtr(v *ServerWorkflowDetailsArgs) ServerWorkflowDetailsPtrInput {
+	return (*serverWorkflowDetailsPtrType)(v)
+}
+
+func (*serverWorkflowDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerWorkflowDetails)(nil)).Elem()
+}
+
+func (i *serverWorkflowDetailsPtrType) ToServerWorkflowDetailsPtrOutput() ServerWorkflowDetailsPtrOutput {
+	return i.ToServerWorkflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *serverWorkflowDetailsPtrType) ToServerWorkflowDetailsPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerWorkflowDetailsPtrOutput)
+}
+
+type ServerWorkflowDetailsOutput struct{ *pulumi.OutputState }
+
+func (ServerWorkflowDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerWorkflowDetails)(nil)).Elem()
+}
+
+func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsOutput() ServerWorkflowDetailsOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsOutputWithContext(ctx context.Context) ServerWorkflowDetailsOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutput() ServerWorkflowDetailsPtrOutput {
+	return o.ToServerWorkflowDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o ServerWorkflowDetailsOutput) ToServerWorkflowDetailsPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerWorkflowDetails) *ServerWorkflowDetails {
+		return &v
+	}).(ServerWorkflowDetailsPtrOutput)
+}
+
+// A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
+//
+// A *partial upload* occurs when a file is open when the session disconnects.
+//
+// > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
+func (o ServerWorkflowDetailsOutput) OnPartialUpload() ServerWorkflowDetailArrayOutput {
+	return o.ApplyT(func(v ServerWorkflowDetails) []ServerWorkflowDetail { return v.OnPartialUpload }).(ServerWorkflowDetailArrayOutput)
+}
+
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
+//
+// To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
+//
+// `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
+//
+// > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
+func (o ServerWorkflowDetailsOutput) OnUpload() ServerWorkflowDetailArrayOutput {
+	return o.ApplyT(func(v ServerWorkflowDetails) []ServerWorkflowDetail { return v.OnUpload }).(ServerWorkflowDetailArrayOutput)
+}
+
+type ServerWorkflowDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerWorkflowDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerWorkflowDetails)(nil)).Elem()
+}
+
+func (o ServerWorkflowDetailsPtrOutput) ToServerWorkflowDetailsPtrOutput() ServerWorkflowDetailsPtrOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailsPtrOutput) ToServerWorkflowDetailsPtrOutputWithContext(ctx context.Context) ServerWorkflowDetailsPtrOutput {
+	return o
+}
+
+func (o ServerWorkflowDetailsPtrOutput) Elem() ServerWorkflowDetailsOutput {
+	return o.ApplyT(func(v *ServerWorkflowDetails) ServerWorkflowDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ServerWorkflowDetails
+		return ret
+	}).(ServerWorkflowDetailsOutput)
+}
+
+// A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
+//
+// A *partial upload* occurs when a file is open when the session disconnects.
+//
+// > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
+func (o ServerWorkflowDetailsPtrOutput) OnPartialUpload() ServerWorkflowDetailArrayOutput {
+	return o.ApplyT(func(v *ServerWorkflowDetails) []ServerWorkflowDetail {
+		if v == nil {
+			return nil
+		}
+		return v.OnPartialUpload
+	}).(ServerWorkflowDetailArrayOutput)
+}
+
+// A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
+//
+// To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
+//
+// `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
+//
+// > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
+func (o ServerWorkflowDetailsPtrOutput) OnUpload() ServerWorkflowDetailArrayOutput {
+	return o.ApplyT(func(v *ServerWorkflowDetails) []ServerWorkflowDetail {
+		if v == nil {
+			return nil
+		}
+		return v.OnUpload
+	}).(ServerWorkflowDetailArrayOutput)
+}
+
 // Configuration for an SFTP connector.
 type SftpConfigProperties struct {
 	// List of public host keys, for the external server to which you are connecting.
@@ -2320,6 +3594,18 @@ type WorkflowTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*As2ConfigPropertiesPtrInput)(nil)).Elem(), As2ConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderDetailsInput)(nil)).Elem(), ServerIdentityProviderDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerIdentityProviderDetailsPtrInput)(nil)).Elem(), ServerIdentityProviderDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerProtocolDetailsPtrInput)(nil)).Elem(), ServerProtocolDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerS3StorageOptionsPtrInput)(nil)).Elem(), ServerS3StorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailInput)(nil)).Elem(), ServerWorkflowDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailArrayInput)(nil)).Elem(), ServerWorkflowDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsPtrInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SftpConfigPropertiesInput)(nil)).Elem(), SftpConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SftpConfigPropertiesPtrInput)(nil)).Elem(), SftpConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
@@ -2346,6 +3632,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepTagStepDetailsPropertiesPtrInput)(nil)).Elem(), WorkflowStepTagStepDetailsPropertiesArgs{})
 	pulumi.RegisterOutputType(As2ConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(As2ConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ServerEndpointDetailsOutput{})
+	pulumi.RegisterOutputType(ServerEndpointDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerIdentityProviderDetailsOutput{})
+	pulumi.RegisterOutputType(ServerIdentityProviderDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerProtocolDetailsOutput{})
+	pulumi.RegisterOutputType(ServerProtocolDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ServerS3StorageOptionsOutput{})
+	pulumi.RegisterOutputType(ServerS3StorageOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ServerWorkflowDetailOutput{})
+	pulumi.RegisterOutputType(ServerWorkflowDetailArrayOutput{})
+	pulumi.RegisterOutputType(ServerWorkflowDetailsOutput{})
+	pulumi.RegisterOutputType(ServerWorkflowDetailsPtrOutput{})
 	pulumi.RegisterOutputType(SftpConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(SftpConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationOutput{})

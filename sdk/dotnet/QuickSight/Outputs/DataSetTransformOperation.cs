@@ -29,6 +29,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// An operation that filters rows based on some condition.
         /// </summary>
         public readonly Outputs.DataSetFilterOperation? FilterOperation;
+        /// <summary>
+        /// A transform operation that overrides the dataset parameter values that are defined in another dataset.
+        /// </summary>
         public readonly Outputs.DataSetOverrideDatasetParameterOperation? OverrideDatasetParameterOperation;
         /// <summary>
         /// An operation that projects columns. Operations that come after a projection can only refer to projected columns.

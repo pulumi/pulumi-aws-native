@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// </summary>
     public sealed class FlowSapoDataPaginationConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application. For transfers of OData records, the maximum page size is 3,000. For transfers of data that comes from an ODP provider, the maximum page size is 10,000.
+        /// </summary>
         [Input("maxPageSize", required: true)]
         public Input<int> MaxPageSize { get; set; } = null!;
 

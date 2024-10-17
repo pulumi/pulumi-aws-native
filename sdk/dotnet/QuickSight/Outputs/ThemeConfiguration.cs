@@ -25,6 +25,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// Display options related to sheets.
         /// </summary>
         public readonly Outputs.ThemeSheetStyle? Sheet;
+        /// <summary>
+        /// Determines the typography options.
+        /// </summary>
         public readonly Outputs.ThemeTypography? Typography;
         /// <summary>
         /// Color properties that apply to the UI and to charts, excluding the colors that apply to data.

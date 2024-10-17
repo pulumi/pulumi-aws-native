@@ -13568,6 +13568,7 @@ func (o FlowSapoDataDestinationPropertiesPtrOutput) WriteOperationType() FlowWri
 
 // SAP Source connector page size
 type FlowSapoDataPaginationConfig struct {
+	// The maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application. For transfers of OData records, the maximum page size is 3,000. For transfers of data that comes from an ODP provider, the maximum page size is 10,000.
 	MaxPageSize int `pulumi:"maxPageSize"`
 }
 
@@ -13584,6 +13585,7 @@ type FlowSapoDataPaginationConfigInput interface {
 
 // SAP Source connector page size
 type FlowSapoDataPaginationConfigArgs struct {
+	// The maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application. For transfers of OData records, the maximum page size is 3,000. For transfers of data that comes from an ODP provider, the maximum page size is 10,000.
 	MaxPageSize pulumi.IntInput `pulumi:"maxPageSize"`
 }
 
@@ -13665,6 +13667,7 @@ func (o FlowSapoDataPaginationConfigOutput) ToFlowSapoDataPaginationConfigPtrOut
 	}).(FlowSapoDataPaginationConfigPtrOutput)
 }
 
+// The maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application. For transfers of OData records, the maximum page size is 3,000. For transfers of data that comes from an ODP provider, the maximum page size is 10,000.
 func (o FlowSapoDataPaginationConfigOutput) MaxPageSize() pulumi.IntOutput {
 	return o.ApplyT(func(v FlowSapoDataPaginationConfig) int { return v.MaxPageSize }).(pulumi.IntOutput)
 }
@@ -13693,6 +13696,7 @@ func (o FlowSapoDataPaginationConfigPtrOutput) Elem() FlowSapoDataPaginationConf
 	}).(FlowSapoDataPaginationConfigOutput)
 }
 
+// The maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application. For transfers of OData records, the maximum page size is 3,000. For transfers of data that comes from an ODP provider, the maximum page size is 10,000.
 func (o FlowSapoDataPaginationConfigPtrOutput) MaxPageSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowSapoDataPaginationConfig) *int {
 		if v == nil {
@@ -13704,6 +13708,7 @@ func (o FlowSapoDataPaginationConfigPtrOutput) MaxPageSize() pulumi.IntPtrOutput
 
 // SAP Source connector parallelism factor
 type FlowSapoDataParallelismConfig struct {
+	// The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
 	MaxParallelism int `pulumi:"maxParallelism"`
 }
 
@@ -13720,6 +13725,7 @@ type FlowSapoDataParallelismConfigInput interface {
 
 // SAP Source connector parallelism factor
 type FlowSapoDataParallelismConfigArgs struct {
+	// The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
 	MaxParallelism pulumi.IntInput `pulumi:"maxParallelism"`
 }
 
@@ -13801,6 +13807,7 @@ func (o FlowSapoDataParallelismConfigOutput) ToFlowSapoDataParallelismConfigPtrO
 	}).(FlowSapoDataParallelismConfigPtrOutput)
 }
 
+// The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
 func (o FlowSapoDataParallelismConfigOutput) MaxParallelism() pulumi.IntOutput {
 	return o.ApplyT(func(v FlowSapoDataParallelismConfig) int { return v.MaxParallelism }).(pulumi.IntOutput)
 }
@@ -13829,6 +13836,7 @@ func (o FlowSapoDataParallelismConfigPtrOutput) Elem() FlowSapoDataParallelismCo
 	}).(FlowSapoDataParallelismConfigOutput)
 }
 
+// The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
 func (o FlowSapoDataParallelismConfigPtrOutput) MaxParallelism() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FlowSapoDataParallelismConfig) *int {
 		if v == nil {
@@ -13840,8 +13848,10 @@ func (o FlowSapoDataParallelismConfigPtrOutput) MaxParallelism() pulumi.IntPtrOu
 
 type FlowSapoDataSourceProperties struct {
 	// The object path specified in the SAPOData flow source.
-	ObjectPath        string                         `pulumi:"objectPath"`
-	PaginationConfig  *FlowSapoDataPaginationConfig  `pulumi:"paginationConfig"`
+	ObjectPath string `pulumi:"objectPath"`
+	// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+	PaginationConfig *FlowSapoDataPaginationConfig `pulumi:"paginationConfig"`
+	// Sets the number of concurrent processes that transfers OData records from your SAP instance.
 	ParallelismConfig *FlowSapoDataParallelismConfig `pulumi:"parallelismConfig"`
 }
 
@@ -13858,8 +13868,10 @@ type FlowSapoDataSourcePropertiesInput interface {
 
 type FlowSapoDataSourcePropertiesArgs struct {
 	// The object path specified in the SAPOData flow source.
-	ObjectPath        pulumi.StringInput                    `pulumi:"objectPath"`
-	PaginationConfig  FlowSapoDataPaginationConfigPtrInput  `pulumi:"paginationConfig"`
+	ObjectPath pulumi.StringInput `pulumi:"objectPath"`
+	// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+	PaginationConfig FlowSapoDataPaginationConfigPtrInput `pulumi:"paginationConfig"`
+	// Sets the number of concurrent processes that transfers OData records from your SAP instance.
 	ParallelismConfig FlowSapoDataParallelismConfigPtrInput `pulumi:"parallelismConfig"`
 }
 
@@ -13945,10 +13957,12 @@ func (o FlowSapoDataSourcePropertiesOutput) ObjectPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowSapoDataSourceProperties) string { return v.ObjectPath }).(pulumi.StringOutput)
 }
 
+// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
 func (o FlowSapoDataSourcePropertiesOutput) PaginationConfig() FlowSapoDataPaginationConfigPtrOutput {
 	return o.ApplyT(func(v FlowSapoDataSourceProperties) *FlowSapoDataPaginationConfig { return v.PaginationConfig }).(FlowSapoDataPaginationConfigPtrOutput)
 }
 
+// Sets the number of concurrent processes that transfers OData records from your SAP instance.
 func (o FlowSapoDataSourcePropertiesOutput) ParallelismConfig() FlowSapoDataParallelismConfigPtrOutput {
 	return o.ApplyT(func(v FlowSapoDataSourceProperties) *FlowSapoDataParallelismConfig { return v.ParallelismConfig }).(FlowSapoDataParallelismConfigPtrOutput)
 }
@@ -13987,6 +14001,7 @@ func (o FlowSapoDataSourcePropertiesPtrOutput) ObjectPath() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Sets the page size for each concurrent process that transfers OData records from your SAP instance.
 func (o FlowSapoDataSourcePropertiesPtrOutput) PaginationConfig() FlowSapoDataPaginationConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSapoDataSourceProperties) *FlowSapoDataPaginationConfig {
 		if v == nil {
@@ -13996,6 +14011,7 @@ func (o FlowSapoDataSourcePropertiesPtrOutput) PaginationConfig() FlowSapoDataPa
 	}).(FlowSapoDataPaginationConfigPtrOutput)
 }
 
+// Sets the number of concurrent processes that transfers OData records from your SAP instance.
 func (o FlowSapoDataSourcePropertiesPtrOutput) ParallelismConfig() FlowSapoDataParallelismConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSapoDataSourceProperties) *FlowSapoDataParallelismConfig {
 		if v == nil {

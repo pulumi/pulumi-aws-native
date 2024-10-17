@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID for the AWS account where you want to create the folder.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
@@ -55,11 +58,16 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+        /// The Amazon Resource Name (ARN) for the folder.
         /// </summary>
         [Output("parentFolderArn")]
         public Output<string?> ParentFolderArn { get; private set; } = null!;
 
+        /// <summary>
+        /// A structure that describes the principals and the resource-level permissions of a folder.
+        /// 
+        /// To specify no permissions, omit `Permissions` .
+        /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.FolderResourcePermission>> Permissions { get; private set; } = null!;
 
@@ -128,6 +136,9 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class FolderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID for the AWS account where you want to create the folder.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -150,13 +161,19 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+        /// The Amazon Resource Name (ARN) for the folder.
         /// </summary>
         [Input("parentFolderArn")]
         public Input<string>? ParentFolderArn { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.FolderResourcePermissionArgs>? _permissions;
+
+        /// <summary>
+        /// A structure that describes the principals and the resource-level permissions of a folder.
+        /// 
+        /// To specify no permissions, omit `Permissions` .
+        /// </summary>
         public InputList<Inputs.FolderResourcePermissionArgs> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<Inputs.FolderResourcePermissionArgs>());

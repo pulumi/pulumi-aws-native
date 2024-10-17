@@ -77,6 +77,7 @@ export class DataSource extends pulumi.CustomResource {
      * Error information from the last update or the creation of the data source.
      */
     public readonly errorInfo!: pulumi.Output<outputs.quicksight.DataSourceErrorInfo | undefined>;
+    public readonly folderArns!: pulumi.Output<string[] | undefined>;
     /**
      * <p>The last time that this data source was updated.</p>
      */
@@ -132,6 +133,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
             resourceInputs["dataSourceParameters"] = args ? args.dataSourceParameters : undefined;
             resourceInputs["errorInfo"] = args ? args.errorInfo : undefined;
+            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["sslProperties"] = args ? args.sslProperties : undefined;
@@ -151,6 +153,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["dataSourceId"] = undefined /*out*/;
             resourceInputs["dataSourceParameters"] = undefined /*out*/;
             resourceInputs["errorInfo"] = undefined /*out*/;
+            resourceInputs["folderArns"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["permissions"] = undefined /*out*/;
@@ -203,6 +206,7 @@ export interface DataSourceArgs {
      * Error information from the last update or the creation of the data source.
      */
     errorInfo?: pulumi.Input<inputs.quicksight.DataSourceErrorInfoArgs>;
+    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A display name for the data source.
      */

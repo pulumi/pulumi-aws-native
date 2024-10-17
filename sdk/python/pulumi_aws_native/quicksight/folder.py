@@ -34,10 +34,14 @@ class FolderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Folder resource.
+        :param pulumi.Input[str] aws_account_id: The ID for the AWS account where you want to create the folder.
         :param pulumi.Input[str] folder_id: The ID of the folder.
         :param pulumi.Input['FolderType'] folder_type: The type of folder it is.
         :param pulumi.Input[str] name: A display name for the folder.
-        :param pulumi.Input[str] parent_folder_arn: A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+        :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the folder.
+        :param pulumi.Input[Sequence[pulumi.Input['FolderResourcePermissionArgs']]] permissions: A structure that describes the principals and the resource-level permissions of a folder.
+               
+               To specify no permissions, omit `Permissions` .
         :param pulumi.Input['FolderSharingModel'] sharing_model: The sharing scope of the folder.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags for the folders that you want to apply overrides to.
         """
@@ -61,6 +65,9 @@ class FolderArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID for the AWS account where you want to create the folder.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -107,7 +114,7 @@ class FolderArgs:
     @pulumi.getter(name="parentFolderArn")
     def parent_folder_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+        The Amazon Resource Name (ARN) for the folder.
         """
         return pulumi.get(self, "parent_folder_arn")
 
@@ -118,6 +125,11 @@ class FolderArgs:
     @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FolderResourcePermissionArgs']]]]:
+        """
+        A structure that describes the principals and the resource-level permissions of a folder.
+
+        To specify no permissions, omit `Permissions` .
+        """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
@@ -168,10 +180,14 @@ class Folder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_account_id: The ID for the AWS account where you want to create the folder.
         :param pulumi.Input[str] folder_id: The ID of the folder.
         :param pulumi.Input['FolderType'] folder_type: The type of folder it is.
         :param pulumi.Input[str] name: A display name for the folder.
-        :param pulumi.Input[str] parent_folder_arn: A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+        :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the folder.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FolderResourcePermissionArgs', 'FolderResourcePermissionArgsDict']]]] permissions: A structure that describes the principals and the resource-level permissions of a folder.
+               
+               To specify no permissions, omit `Permissions` .
         :param pulumi.Input['FolderSharingModel'] sharing_model: The sharing scope of the folder.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags for the folders that you want to apply overrides to.
         """
@@ -275,6 +291,9 @@ class Folder(pulumi.CustomResource):
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID for the AWS account where you want to create the folder.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
@@ -321,13 +340,18 @@ class Folder(pulumi.CustomResource):
     @pulumi.getter(name="parentFolderArn")
     def parent_folder_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+        The Amazon Resource Name (ARN) for the folder.
         """
         return pulumi.get(self, "parent_folder_arn")
 
     @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.FolderResourcePermission']]]:
+        """
+        A structure that describes the principals and the resource-level permissions of a folder.
+
+        To specify no permissions, omit `Permissions` .
+        """
         return pulumi.get(self, "permissions")
 
     @property

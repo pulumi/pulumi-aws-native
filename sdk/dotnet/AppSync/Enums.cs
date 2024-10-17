@@ -8,6 +8,39 @@ using Pulumi;
 namespace Pulumi.AwsNative.AppSync
 {
     /// <summary>
+    /// Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
+    /// 
+    /// `MetricsConfig` can be `ENABLED` or `DISABLED` .
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceMetricsConfig : IEquatable<DataSourceMetricsConfig>
+    {
+        private readonly string _value;
+
+        private DataSourceMetricsConfig(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceMetricsConfig Disabled { get; } = new DataSourceMetricsConfig("DISABLED");
+        public static DataSourceMetricsConfig Enabled { get; } = new DataSourceMetricsConfig("ENABLED");
+
+        public static bool operator ==(DataSourceMetricsConfig left, DataSourceMetricsConfig right) => left.Equals(right);
+        public static bool operator !=(DataSourceMetricsConfig left, DataSourceMetricsConfig right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceMetricsConfig value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceMetricsConfig other && Equals(other);
+        public bool Equals(DataSourceMetricsConfig other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enables or disables enhanced resolver metrics for specified resolvers. Note that ``MetricsConfig`` won't be used unless the ``resolverLevelMetricsBehavior`` value is set to ``PER_RESOLVER_METRICS``. If the ``resolverLevelMetricsBehavior`` is set to ``FULL_REQUEST_RESOLVER_METRICS`` instead, ``MetricsConfig`` will be ignored. However, you can still set its value.
     /// </summary>
     [EnumType]

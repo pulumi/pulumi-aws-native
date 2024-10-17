@@ -285,6 +285,8 @@ class PipelineActionDeclaration(dict):
             suggest = "input_artifacts"
         elif key == "outputArtifacts":
             suggest = "output_artifacts"
+        elif key == "outputVariables":
+            suggest = "output_variables"
         elif key == "roleArn":
             suggest = "role_arn"
         elif key == "runOrder":
@@ -306,10 +308,12 @@ class PipelineActionDeclaration(dict):
     def __init__(__self__, *,
                  action_type_id: 'outputs.PipelineActionTypeId',
                  name: str,
+                 commands: Optional[Sequence[str]] = None,
                  configuration: Optional[Any] = None,
                  input_artifacts: Optional[Sequence['outputs.PipelineInputArtifact']] = None,
                  namespace: Optional[str] = None,
                  output_artifacts: Optional[Sequence['outputs.PipelineOutputArtifact']] = None,
+                 output_variables: Optional[Sequence[str]] = None,
                  region: Optional[str] = None,
                  role_arn: Optional[str] = None,
                  run_order: Optional[int] = None,
@@ -318,12 +322,14 @@ class PipelineActionDeclaration(dict):
         Represents information about an action declaration.
         :param 'PipelineActionTypeId' action_type_id: Specifies the action type and the provider of the action.
         :param str name: The action declaration's name.
+        :param Sequence[str] commands: The shell commands to run with your compute action in CodePipeline.
         :param Any configuration: The action's configuration. These are key-value pairs that specify input values for an action.
         :param Sequence['PipelineInputArtifact'] input_artifacts: The name or ID of the artifact consumed by the action, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of input artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
                
                > For a CodeBuild action with multiple input artifacts, one of your input sources must be designated the PrimarySource. For more information, see the [CodeBuild action reference page](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeBuild.html) in the *AWS CodePipeline User Guide* .
         :param str namespace: The variable namespace associated with the action. All variables produced as output by this action fall under this namespace.
         :param Sequence['PipelineOutputArtifact'] output_artifacts: The name or ID of the result of the action declaration, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
+        :param Sequence[str] output_variables: The list of variables that are to be exported from the compute action.
         :param str region: The action declaration's AWS Region, such as us-east-1.
         :param str role_arn: The ARN of the IAM service role that performs the declared action. This is assumed through the roleArn for the pipeline.
         :param int run_order: The order in which actions are run.
@@ -331,6 +337,8 @@ class PipelineActionDeclaration(dict):
         """
         pulumi.set(__self__, "action_type_id", action_type_id)
         pulumi.set(__self__, "name", name)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if input_artifacts is not None:
@@ -339,6 +347,8 @@ class PipelineActionDeclaration(dict):
             pulumi.set(__self__, "namespace", namespace)
         if output_artifacts is not None:
             pulumi.set(__self__, "output_artifacts", output_artifacts)
+        if output_variables is not None:
+            pulumi.set(__self__, "output_variables", output_variables)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if role_arn is not None:
@@ -363,6 +373,14 @@ class PipelineActionDeclaration(dict):
         The action declaration's name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[str]]:
+        """
+        The shell commands to run with your compute action in CodePipeline.
+        """
+        return pulumi.get(self, "commands")
 
     @property
     @pulumi.getter
@@ -397,6 +415,14 @@ class PipelineActionDeclaration(dict):
         The name or ID of the result of the action declaration, such as a test or build artifact. While the field is not a required parameter, most actions have an action configuration that requires a specified quantity of output artifacts. To refer to the action configuration specification by action provider, see the [Action structure reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference.html) in the *AWS CodePipeline User Guide* .
         """
         return pulumi.get(self, "output_artifacts")
+
+    @property
+    @pulumi.getter(name="outputVariables")
+    def output_variables(self) -> Optional[Sequence[str]]:
+        """
+        The list of variables that are to be exported from the compute action.
+        """
+        return pulumi.get(self, "output_variables")
 
     @property
     @pulumi.getter
@@ -1087,12 +1113,16 @@ class PipelineOutputArtifact(dict):
     Represents information about the output of an action.
     """
     def __init__(__self__, *,
-                 name: str):
+                 name: str,
+                 files: Optional[Sequence[str]] = None):
         """
         Represents information about the output of an action.
         :param str name: The name of the output of an artifact, such as "My App".
+        :param Sequence[str] files: The files that you want to associate with the output artifact that will be exported from the compute action.
         """
         pulumi.set(__self__, "name", name)
+        if files is not None:
+            pulumi.set(__self__, "files", files)
 
     @property
     @pulumi.getter
@@ -1101,6 +1131,14 @@ class PipelineOutputArtifact(dict):
         The name of the output of an artifact, such as "My App".
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def files(self) -> Optional[Sequence[str]]:
+        """
+        The files that you want to associate with the output artifact that will be exported from the compute action.
+        """
+        return pulumi.get(self, "files")
 
 
 @pulumi.output_type

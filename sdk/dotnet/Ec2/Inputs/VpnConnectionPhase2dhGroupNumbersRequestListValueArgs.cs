@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class VpnConnectionPhase2dhGroupNumbersRequestListValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Diffie-Hellmann group number.
+        /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }
 

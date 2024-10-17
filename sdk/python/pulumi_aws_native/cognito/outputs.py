@@ -549,7 +549,7 @@ class UserPoolAccountRecoverySetting(dict):
     def __init__(__self__, *,
                  recovery_mechanisms: Optional[Sequence['outputs.UserPoolRecoveryOption']] = None):
         """
-        :param Sequence['UserPoolRecoveryOption'] recovery_mechanisms: The list of `RecoveryOptionTypes` .
+        :param Sequence['UserPoolRecoveryOption'] recovery_mechanisms: The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.
         """
         if recovery_mechanisms is not None:
             pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
@@ -558,7 +558,7 @@ class UserPoolAccountRecoverySetting(dict):
     @pulumi.getter(name="recoveryMechanisms")
     def recovery_mechanisms(self) -> Optional[Sequence['outputs.UserPoolRecoveryOption']]:
         """
-        The list of `RecoveryOptionTypes` .
+        The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.
         """
         return pulumi.get(self, "recovery_mechanisms")
 
@@ -638,7 +638,7 @@ class UserPoolAdminCreateUserConfig(dict):
                  unused_account_validity_days: Optional[int] = None):
         """
         :param bool allow_admin_create_user_only: The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
-        :param 'UserPoolInviteMessageTemplate' invite_message_template: The message template to be used for the welcome message to new users.
+        :param 'UserPoolInviteMessageTemplate' invite_message_template: The template for the welcome message to new users.
                
                See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
         :param int unused_account_validity_days: This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
@@ -666,7 +666,7 @@ class UserPoolAdminCreateUserConfig(dict):
     @pulumi.getter(name="inviteMessageTemplate")
     def invite_message_template(self) -> Optional['outputs.UserPoolInviteMessageTemplate']:
         """
-        The message template to be used for the welcome message to new users.
+        The template for the welcome message to new users.
 
         See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
         """
@@ -749,7 +749,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
                  role_arn: Optional[str] = None,
                  user_data_shared: Optional[bool] = None):
         """
-        :param str application_arn: The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
+        :param str application_arn: The Amazon Resource Name (ARN) of an Amazon Pinpoint project that you want to connect to your user pool app client. Amazon Cognito publishes events to the Amazon Pinpoint project that `ApplicationArn` declares. You can also configure your application to pass an endpoint ID in the `AnalyticsMetadata` parameter of sign-in operations. The endpoint ID is information about the destination for push notifications
         :param str application_id: Your Amazon Pinpoint project ID.
         :param str external_id: The [external ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) of the role that Amazon Cognito assumes to send analytics data to Amazon Pinpoint.
         :param str role_arn: The ARN of an AWS Identity and Access Management role that has the permissions required for Amazon Cognito to publish events to Amazon Pinpoint analytics.
@@ -770,7 +770,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for integration with the chosen user pool client. Amazon Cognito publishes events to the Amazon Pinpoint project that the app ARN declares.
+        The Amazon Resource Name (ARN) of an Amazon Pinpoint project that you want to connect to your user pool app client. Amazon Cognito publishes events to the Amazon Pinpoint project that `ApplicationArn` declares. You can also configure your application to pass an endpoint ID in the `AnalyticsMetadata` parameter of sign-in operations. The endpoint ID is information about the destination for push notifications
         """
         return pulumi.get(self, "application_arn")
 
@@ -896,8 +896,10 @@ class UserPoolCustomEmailSender(dict):
                  lambda_arn: Optional[str] = None,
                  lambda_version: Optional[str] = None):
         """
-        :param str lambda_arn: The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
-        :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function. The only supported value is `V1_0` .
+        :param str lambda_arn: The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+        :param str lambda_version: The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+               
+               You must use a `LambdaVersion` of `V1_0` with a custom sender function.
         """
         if lambda_arn is not None:
             pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -908,7 +910,7 @@ class UserPoolCustomEmailSender(dict):
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
+        The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -916,7 +918,9 @@ class UserPoolCustomEmailSender(dict):
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> Optional[str]:
         """
-        The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function. The only supported value is `V1_0` .
+        The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+
+        You must use a `LambdaVersion` of `V1_0` with a custom sender function.
         """
         return pulumi.get(self, "lambda_version")
 
@@ -946,8 +950,10 @@ class UserPoolCustomSmsSender(dict):
                  lambda_arn: Optional[str] = None,
                  lambda_version: Optional[str] = None):
         """
-        :param str lambda_arn: The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
-        :param str lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function. The only supported value is `V1_0` .
+        :param str lambda_arn: The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
+        :param str lambda_version: The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+               
+               You must use a `LambdaVersion` of `V1_0` with a custom sender function.
         """
         if lambda_arn is not None:
             pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -958,7 +964,7 @@ class UserPoolCustomSmsSender(dict):
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -966,7 +972,9 @@ class UserPoolCustomSmsSender(dict):
     @pulumi.getter(name="lambdaVersion")
     def lambda_version(self) -> Optional[str]:
         """
-        The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS sender Lambda function. The only supported value is `V1_0` .
+        The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+
+        You must use a `LambdaVersion` of `V1_0` with a custom sender function.
         """
         return pulumi.get(self, "lambda_version")
 
@@ -1099,10 +1107,10 @@ class UserPoolEmailConfiguration(dict):
                  reply_to_email_address: Optional[str] = None,
                  source_arn: Optional[str] = None):
         """
-        :param str configuration_set: The set of configuration rules that can be applied to emails sent using Amazon SES. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
+        :param str configuration_set: The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
                
-               - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
-               - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
+               - **Event publishing** - Amazon Simple Email Service can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as and Amazon CloudWatch
+               - **IP pool management** - When leasing dedicated IP addresses with Amazon Simple Email Service, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
         :param str email_sending_account: Specifies whether Amazon Cognito uses its built-in functionality to send your users email messages, or uses your Amazon Simple Email Service email configuration. Specify one of the following values:
                
                - **COGNITO_DEFAULT** - When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is less than the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.
@@ -1115,7 +1123,7 @@ class UserPoolEmailConfiguration(dict):
                If you use this option, provide the ARN of an Amazon SES verified email address for the `SourceArn` parameter.
                
                Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a *service-linked role* , which is a type of role in your AWS account . This role contains the permissions that allow you to access Amazon SES and send email messages from your email address. For more information about the service-linked role that Amazon Cognito creates, see [Using Service-Linked Roles for Amazon Cognito](https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html) in the *Amazon Cognito Developer Guide* .
-        :param str from_: Identifies either the sender's email address or the sender's name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
+        :param str from_: Either the sender’s email address or the sender’s name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
         :param str reply_to_email_address: The destination to which the receiver of the email should reply.
         :param str source_arn: The ARN of a verified email address or an address from a verified domain in Amazon SES. You can set a `SourceArn` email from a verified domain only with an API request. You can set a verified email address, but not an address in a verified domain, in the Amazon Cognito console. Amazon Cognito uses the email address that you provide in one of the following ways, depending on the value that you specify for the `EmailSendingAccount` parameter:
                
@@ -1139,10 +1147,10 @@ class UserPoolEmailConfiguration(dict):
     @pulumi.getter(name="configurationSet")
     def configuration_set(self) -> Optional[str]:
         """
-        The set of configuration rules that can be applied to emails sent using Amazon SES. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
+        The set of configuration rules that can be applied to emails sent using Amazon Simple Email Service. A configuration set is applied to an email by including a reference to the configuration set in the headers of the email. Once applied, all of the rules in that configuration set are applied to the email. Configuration sets can be used to apply the following types of rules to emails:
 
-        - Event publishing – Amazon SES can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as SNS and CloudWatch.
-        - IP pool management – When leasing dedicated IP addresses with Amazon SES, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
+        - **Event publishing** - Amazon Simple Email Service can track the number of send, delivery, open, click, bounce, and complaint events for each email sent. Use event publishing to send information about these events to other AWS services such as and Amazon CloudWatch
+        - **IP pool management** - When leasing dedicated IP addresses with Amazon Simple Email Service, you can create groups of IP addresses, called dedicated IP pools. You can then associate the dedicated IP pools with configuration sets.
         """
         return pulumi.get(self, "configuration_set")
 
@@ -1169,7 +1177,7 @@ class UserPoolEmailConfiguration(dict):
     @pulumi.getter(name="from")
     def from_(self) -> Optional[str]:
         """
-        Identifies either the sender's email address or the sender's name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
+        Either the sender’s email address or the sender’s name with their email address. For example, `testuser@example.com` or `Test User <testuser@example.com>` . This address appears before the body of the email.
         """
         return pulumi.get(self, "from_")
 
@@ -1321,11 +1329,11 @@ class UserPoolLambdaConfig(dict):
                  verify_auth_challenge_response: Optional[str] = None):
         """
         :param str create_auth_challenge: The configuration of a create auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
-        :param 'UserPoolCustomEmailSender' custom_email_sender: A custom email sender AWS Lambda trigger.
+        :param 'UserPoolCustomEmailSender' custom_email_sender: The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.
         :param str custom_message: A custom message Lambda trigger. This trigger is an opportunity to customize all SMS and email messages from your user pool. When a custom message trigger is active, your user pool routes all messages to a Lambda function that returns a runtime-customized message subject and body for your user pool to deliver to a user.
-        :param 'UserPoolCustomSmsSender' custom_sms_sender: A custom SMS sender AWS Lambda trigger.
+        :param 'UserPoolCustomSmsSender' custom_sms_sender: The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
         :param str define_auth_challenge: The configuration of a define auth challenge Lambda trigger, one of three triggers in the sequence of the [custom authentication challenge triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
-        :param str kms_key_id: The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
+        :param str kms_key_id: The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
         :param str post_authentication: The configuration of a [post authentication Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-authentication.html) in a user pool. This trigger can take custom actions after a user signs in.
         :param str post_confirmation: The configuration of a [post confirmation Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-post-confirmation.html) in a user pool. This trigger can take custom actions after a user confirms their user account and their email address or phone number.
         :param str pre_authentication: The configuration of a [pre authentication trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-authentication.html) in a user pool. This trigger can evaluate and modify user sign-in events.
@@ -1378,7 +1386,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="customEmailSender")
     def custom_email_sender(self) -> Optional['outputs.UserPoolCustomEmailSender']:
         """
-        A custom email sender AWS Lambda trigger.
+        The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.
         """
         return pulumi.get(self, "custom_email_sender")
 
@@ -1394,7 +1402,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="customSmsSender")
     def custom_sms_sender(self) -> Optional['outputs.UserPoolCustomSmsSender']:
         """
-        A custom SMS sender AWS Lambda trigger.
+        The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
         """
         return pulumi.get(self, "custom_sms_sender")
 
@@ -1410,7 +1418,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[str]:
         """
-        The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
+        The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -1755,8 +1763,8 @@ class UserPoolRecoveryOption(dict):
                  name: Optional[str] = None,
                  priority: Optional[int] = None):
         """
-        :param str name: Specifies the recovery method for a user.
-        :param int priority: A positive integer specifying priority of a method with 1 being the highest priority.
+        :param str name: The recovery method that this object sets a recovery option for.
+        :param int priority: Your priority preference for using the specified attribute in account recovery. The highest priority is `1` .
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1767,7 +1775,7 @@ class UserPoolRecoveryOption(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Specifies the recovery method for a user.
+        The recovery method that this object sets a recovery option for.
         """
         return pulumi.get(self, "name")
 
@@ -1775,7 +1783,7 @@ class UserPoolRecoveryOption(dict):
     @pulumi.getter
     def priority(self) -> Optional[int]:
         """
-        A positive integer specifying priority of a method with 1 being the highest priority.
+        Your priority preference for using the specified attribute in account recovery. The highest priority is `1` .
         """
         return pulumi.get(self, "priority")
 
@@ -2328,9 +2336,9 @@ class UserPoolSchemaAttribute(dict):
                  string_attribute_constraints: Optional['outputs.UserPoolStringAttributeConstraints'] = None):
         """
         :param str attribute_data_type: The data format of the values for your attribute. When you choose an `AttributeDataType` , Amazon Cognito validates the input against the data type. A custom attribute value in your user's ID token is always a string, for example `"custom:isMember" : "true"` or `"custom:YearsAsMember" : "12"` .
-        :param bool developer_only_attribute: > We recommend that you use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` . 
+        :param bool developer_only_attribute: > You should use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` . 
                
-               Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token.
+               Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users won't be able to modify this attribute using their access token. For example, `DeveloperOnlyAttribute` can be modified using AdminUpdateUserAttributes but can't be updated using UpdateUserAttributes.
         :param bool mutable: Specifies whether the value of the attribute can be changed.
                
                Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
@@ -2366,9 +2374,9 @@ class UserPoolSchemaAttribute(dict):
     @pulumi.getter(name="developerOnlyAttribute")
     def developer_only_attribute(self) -> Optional[bool]:
         """
-        > We recommend that you use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` . 
+        > You should use [WriteAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes) in the user pool client to control how attributes can be mutated for new use cases instead of using `DeveloperOnlyAttribute` . 
 
-        Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token.
+        Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users won't be able to modify this attribute using their access token. For example, `DeveloperOnlyAttribute` can be modified using AdminUpdateUserAttributes but can't be updated using UpdateUserAttributes.
         """
         return pulumi.get(self, "developer_only_attribute")
 
@@ -2443,7 +2451,9 @@ class UserPoolSmsConfiguration(dict):
                  sns_caller_arn: Optional[str] = None,
                  sns_region: Optional[str] = None):
         """
-        :param str external_id: The external ID is a value. We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
+        :param str external_id: The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
+               
+               For more information about the `ExternalId` of a role, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) .
         :param str sns_caller_arn: The Amazon Resource Name (ARN) of the Amazon SNS caller. This is the ARN of the IAM role in your AWS account that Amazon Cognito will use to send SMS messages. SMS messages are subject to a [spending limit](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html) .
         :param str sns_region: The AWS Region to use with Amazon SNS integration. You can choose the same Region as your user pool, or a supported *Legacy Amazon SNS alternate Region* .
                
@@ -2460,7 +2470,9 @@ class UserPoolSmsConfiguration(dict):
     @pulumi.getter(name="externalId")
     def external_id(self) -> Optional[str]:
         """
-        The external ID is a value. We recommend you use `ExternalId` to add security to your IAM role, which is used to call Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , the Cognito User Pool uses it when attempting to assume your IAM role. You can also set your roles trust policy to require the `ExternalID` . If you use the Cognito Management Console to create a role for SMS MFA, Cognito creates a role with the required permissions and a trust policy that uses `ExternalId` .
+        The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
+
+        For more information about the `ExternalId` of a role, see [How to use an external ID when granting access to your AWS resources to a third party](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) .
         """
         return pulumi.get(self, "external_id")
 

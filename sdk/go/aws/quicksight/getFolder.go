@@ -24,6 +24,7 @@ func LookupFolder(ctx *pulumi.Context, args *LookupFolderArgs, opts ...pulumi.In
 }
 
 type LookupFolderArgs struct {
+	// The ID for the AWS account where you want to create the folder.
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// The ID of the folder.
 	FolderId string `pulumi:"folderId"`
@@ -37,7 +38,10 @@ type LookupFolderResult struct {
 	// <p>The time that the folder was last updated.</p>
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// A display name for the folder.
-	Name        *string                    `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A structure that describes the principals and the resource-level permissions of a folder.
+	//
+	// To specify no permissions, omit `Permissions` .
 	Permissions []FolderResourcePermission `pulumi:"permissions"`
 	// A list of tags for the folders that you want to apply overrides to.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -63,6 +67,7 @@ func LookupFolderOutput(ctx *pulumi.Context, args LookupFolderOutputArgs, opts .
 }
 
 type LookupFolderOutputArgs struct {
+	// The ID for the AWS account where you want to create the folder.
 	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
 	// The ID of the folder.
 	FolderId pulumi.StringInput `pulumi:"folderId"`
@@ -106,6 +111,9 @@ func (o LookupFolderResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFolderResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// A structure that describes the principals and the resource-level permissions of a folder.
+//
+// To specify no permissions, omit `Permissions` .
 func (o LookupFolderResultOutput) Permissions() FolderResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupFolderResult) []FolderResourcePermission { return v.Permissions }).(FolderResourcePermissionArrayOutput)
 }

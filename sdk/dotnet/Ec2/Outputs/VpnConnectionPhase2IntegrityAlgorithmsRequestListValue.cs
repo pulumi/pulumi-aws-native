@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class VpnConnectionPhase2IntegrityAlgorithmsRequestListValue
     {
+        /// <summary>
+        /// The integrity algorithm.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue? Value;
 
         [OutputConstructor]

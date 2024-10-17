@@ -28,7 +28,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
                  risk_exception_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']] = None):
         """
         The set of arguments for constructing a UserPoolRiskConfigurationAttachment resource.
-        :param pulumi.Input[str] client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        :param pulumi.Input[str] client_id: The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
         :param pulumi.Input[str] user_pool_id: The ID of the user pool that has the risk configuration applied.
         :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs'] account_takeover_risk_configuration: The settings for automated responses and notification templates for adaptive authentication with advanced security features.
         :param pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs'] compromised_credentials_risk_configuration: Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
@@ -47,7 +47,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Input[str]:
         """
-        The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
         """
         return pulumi.get(self, "client_id")
 
@@ -121,7 +121,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict']] account_takeover_risk_configuration: The settings for automated responses and notification templates for adaptive authentication with advanced security features.
-        :param pulumi.Input[str] client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        :param pulumi.Input[str] client_id: The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
         :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgsDict']] compromised_credentials_risk_configuration: Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
         :param pulumi.Input[Union['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs', 'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict']] risk_exception_configuration: Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
         :param pulumi.Input[str] user_pool_id: The ID of the user pool that has the risk configuration applied.
@@ -216,7 +216,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[str]:
         """
-        The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
         """
         return pulumi.get(self, "client_id")
 

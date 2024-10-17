@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolRiskConfigurationAttachmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        /// The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
         /// </summary>
         [Input("clientId", required: true)]
         public string ClientId { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolRiskConfigurationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
+        /// The app client where this configuration is applied. When this parameter isn't present, the risk configuration applies to all user pool app clients that don't have client-level settings.
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;

@@ -36,9 +36,7 @@ class FleetArgs:
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
-        :param pulumi.Input['FleetComputeType'] compute_type: > Updating this field is not allowed for `MAC_ARM` . 
-               
-               Information about the compute resources the compute fleet uses. Available values include:
+        :param pulumi.Input['FleetComputeType'] compute_type: Information about the compute resources the compute fleet uses. Available values include:
                
                - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
                - `BUILD_GENERAL1_MEDIUM` : Use up to 7 GB memory and 4 vCPUs for builds.
@@ -59,9 +57,7 @@ class FleetArgs:
                - For environment type `ARM_CONTAINER` , you can use up to 16 GB memory and 8 vCPUs on ARM-based processors for builds.
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide.*
-        :param pulumi.Input['FleetEnvironmentType'] environment_type: > Updating this field is not allowed for `MAC_ARM` . 
-               
-               The environment type of the compute fleet.
+        :param pulumi.Input['FleetEnvironmentType'] environment_type: The environment type of the compute fleet.
                
                - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
                - The environment type `LINUX_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia Pacific (Mumbai).
@@ -71,12 +67,8 @@ class FleetArgs:
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
-        :param pulumi.Input['FleetVpcConfigArgs'] fleet_vpc_config: > Updating this field is not allowed for `MAC_ARM` . 
-               
-               Information about the VPC configuration that AWS CodeBuild accesses.
-        :param pulumi.Input[str] image_id: > Updating this field is not allowed for `MAC_ARM` . 
-               
-               The Amazon Machine Image (AMI) of the compute fleet.
+        :param pulumi.Input['FleetVpcConfigArgs'] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
+        :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[str] name: The name of the compute fleet.
         :param pulumi.Input['FleetOverflowBehavior'] overflow_behavior: The compute fleet overflow behavior.
                
@@ -123,8 +115,6 @@ class FleetArgs:
     @pulumi.getter(name="computeType")
     def compute_type(self) -> Optional[pulumi.Input['FleetComputeType']]:
         """
-        > Updating this field is not allowed for `MAC_ARM` . 
-
         Information about the compute resources the compute fleet uses. Available values include:
 
         - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
@@ -157,8 +147,6 @@ class FleetArgs:
     @pulumi.getter(name="environmentType")
     def environment_type(self) -> Optional[pulumi.Input['FleetEnvironmentType']]:
         """
-        > Updating this field is not allowed for `MAC_ARM` . 
-
         The environment type of the compute fleet.
 
         - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -191,8 +179,6 @@ class FleetArgs:
     @pulumi.getter(name="fleetVpcConfig")
     def fleet_vpc_config(self) -> Optional[pulumi.Input['FleetVpcConfigArgs']]:
         """
-        > Updating this field is not allowed for `MAC_ARM` . 
-
         Information about the VPC configuration that AWS CodeBuild accesses.
         """
         return pulumi.get(self, "fleet_vpc_config")
@@ -205,8 +191,6 @@ class FleetArgs:
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[str]]:
         """
-        > Updating this field is not allowed for `MAC_ARM` . 
-
         The Amazon Machine Image (AMI) of the compute fleet.
         """
         return pulumi.get(self, "image_id")
@@ -280,9 +264,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
-        :param pulumi.Input['FleetComputeType'] compute_type: > Updating this field is not allowed for `MAC_ARM` . 
-               
-               Information about the compute resources the compute fleet uses. Available values include:
+        :param pulumi.Input['FleetComputeType'] compute_type: Information about the compute resources the compute fleet uses. Available values include:
                
                - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
                - `BUILD_GENERAL1_MEDIUM` : Use up to 7 GB memory and 4 vCPUs for builds.
@@ -303,9 +285,7 @@ class Fleet(pulumi.CustomResource):
                - For environment type `ARM_CONTAINER` , you can use up to 16 GB memory and 8 vCPUs on ARM-based processors for builds.
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild User Guide.*
-        :param pulumi.Input['FleetEnvironmentType'] environment_type: > Updating this field is not allowed for `MAC_ARM` . 
-               
-               The environment type of the compute fleet.
+        :param pulumi.Input['FleetEnvironmentType'] environment_type: The environment type of the compute fleet.
                
                - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
                - The environment type `LINUX_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), South America (São Paulo), and Asia Pacific (Mumbai).
@@ -315,12 +295,8 @@ class Fleet(pulumi.CustomResource):
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
-        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] fleet_vpc_config: > Updating this field is not allowed for `MAC_ARM` . 
-               
-               Information about the VPC configuration that AWS CodeBuild accesses.
-        :param pulumi.Input[str] image_id: > Updating this field is not allowed for `MAC_ARM` . 
-               
-               The Amazon Machine Image (AMI) of the compute fleet.
+        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
+        :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[str] name: The name of the compute fleet.
         :param pulumi.Input['FleetOverflowBehavior'] overflow_behavior: The compute fleet overflow behavior.
                
@@ -438,8 +414,6 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="computeType")
     def compute_type(self) -> pulumi.Output[Optional['FleetComputeType']]:
         """
-        > Updating this field is not allowed for `MAC_ARM` . 
-
         Information about the compute resources the compute fleet uses. Available values include:
 
         - `BUILD_GENERAL1_SMALL` : Use up to 3 GB memory and 2 vCPUs for builds.
@@ -468,8 +442,6 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="environmentType")
     def environment_type(self) -> pulumi.Output[Optional['FleetEnvironmentType']]:
         """
-        > Updating this field is not allowed for `MAC_ARM` . 
-
         The environment type of the compute fleet.
 
         - The environment type `ARM_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), Asia Pacific (Mumbai), Asia Pacific (Tokyo), Asia Pacific (Singapore), Asia Pacific (Sydney), EU (Frankfurt), and South America (São Paulo).
@@ -494,8 +466,6 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="fleetVpcConfig")
     def fleet_vpc_config(self) -> pulumi.Output[Optional['outputs.FleetVpcConfig']]:
         """
-        > Updating this field is not allowed for `MAC_ARM` . 
-
         Information about the VPC configuration that AWS CodeBuild accesses.
         """
         return pulumi.get(self, "fleet_vpc_config")
@@ -504,8 +474,6 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[Optional[str]]:
         """
-        > Updating this field is not allowed for `MAC_ARM` . 
-
         The Amazon Machine Image (AMI) of the compute fleet.
         """
         return pulumi.get(self, "image_id")

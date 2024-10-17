@@ -34,7 +34,7 @@ type Schema struct {
 	// The registry where a schema is stored.
 	Registry SchemaRegistryPtrOutput `pulumi:"registry"`
 	// Definition for the initial schema version in plain-text.
-	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
+	SchemaDefinition pulumi.StringPtrOutput `pulumi:"schemaDefinition"`
 	// List of tags to tag the schema
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -51,9 +51,6 @@ func NewSchema(ctx *pulumi.Context,
 	}
 	if args.DataFormat == nil {
 		return nil, errors.New("invalid value for required argument 'DataFormat'")
-	}
-	if args.SchemaDefinition == nil {
-		return nil, errors.New("invalid value for required argument 'SchemaDefinition'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"dataFormat",
@@ -108,7 +105,7 @@ type schemaArgs struct {
 	// The registry where a schema is stored.
 	Registry *SchemaRegistry `pulumi:"registry"`
 	// Definition for the initial schema version in plain-text.
-	SchemaDefinition string `pulumi:"schemaDefinition"`
+	SchemaDefinition *string `pulumi:"schemaDefinition"`
 	// List of tags to tag the schema
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -128,7 +125,7 @@ type SchemaArgs struct {
 	// The registry where a schema is stored.
 	Registry SchemaRegistryPtrInput
 	// Definition for the initial schema version in plain-text.
-	SchemaDefinition pulumi.StringInput
+	SchemaDefinition pulumi.StringPtrInput
 	// List of tags to tag the schema
 	Tags aws.TagArrayInput
 }
@@ -211,8 +208,8 @@ func (o SchemaOutput) Registry() SchemaRegistryPtrOutput {
 }
 
 // Definition for the initial schema version in plain-text.
-func (o SchemaOutput) SchemaDefinition() pulumi.StringOutput {
-	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaDefinition }).(pulumi.StringOutput)
+func (o SchemaOutput) SchemaDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringPtrOutput { return v.SchemaDefinition }).(pulumi.StringPtrOutput)
 }
 
 // List of tags to tag the schema

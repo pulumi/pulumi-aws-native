@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetFolderArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the AWS account where you want to create the folder.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetFolderInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID for the AWS account where you want to create the folder.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
@@ -79,6 +85,11 @@ namespace Pulumi.AwsNative.QuickSight
         /// A display name for the folder.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// A structure that describes the principals and the resource-level permissions of a folder.
+        /// 
+        /// To specify no permissions, omit `Permissions` .
+        /// </summary>
         public readonly ImmutableArray<Outputs.FolderResourcePermission> Permissions;
         /// <summary>
         /// A list of tags for the folders that you want to apply overrides to.

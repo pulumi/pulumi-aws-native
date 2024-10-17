@@ -13,6 +13,1819 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DataSourceAuthorizationConfig struct {
+	// The authorization type that the HTTP endpoint requires.
+	AuthorizationType string `pulumi:"authorizationType"`
+	// The AWS Identity and Access Management settings.
+	AwsIamConfig *DataSourceAwsIamConfig `pulumi:"awsIamConfig"`
+}
+
+// DataSourceAuthorizationConfigInput is an input type that accepts DataSourceAuthorizationConfigArgs and DataSourceAuthorizationConfigOutput values.
+// You can construct a concrete instance of `DataSourceAuthorizationConfigInput` via:
+//
+//	DataSourceAuthorizationConfigArgs{...}
+type DataSourceAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceAuthorizationConfigOutput() DataSourceAuthorizationConfigOutput
+	ToDataSourceAuthorizationConfigOutputWithContext(context.Context) DataSourceAuthorizationConfigOutput
+}
+
+type DataSourceAuthorizationConfigArgs struct {
+	// The authorization type that the HTTP endpoint requires.
+	AuthorizationType pulumi.StringInput `pulumi:"authorizationType"`
+	// The AWS Identity and Access Management settings.
+	AwsIamConfig DataSourceAwsIamConfigPtrInput `pulumi:"awsIamConfig"`
+}
+
+func (DataSourceAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAuthorizationConfig)(nil)).Elem()
+}
+
+func (i DataSourceAuthorizationConfigArgs) ToDataSourceAuthorizationConfigOutput() DataSourceAuthorizationConfigOutput {
+	return i.ToDataSourceAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceAuthorizationConfigArgs) ToDataSourceAuthorizationConfigOutputWithContext(ctx context.Context) DataSourceAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAuthorizationConfigOutput)
+}
+
+func (i DataSourceAuthorizationConfigArgs) ToDataSourceAuthorizationConfigPtrOutput() DataSourceAuthorizationConfigPtrOutput {
+	return i.ToDataSourceAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceAuthorizationConfigArgs) ToDataSourceAuthorizationConfigPtrOutputWithContext(ctx context.Context) DataSourceAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAuthorizationConfigOutput).ToDataSourceAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceAuthorizationConfigPtrInput is an input type that accepts DataSourceAuthorizationConfigArgs, DataSourceAuthorizationConfigPtr and DataSourceAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceAuthorizationConfigPtrInput` via:
+//
+//	        DataSourceAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceAuthorizationConfigPtrOutput() DataSourceAuthorizationConfigPtrOutput
+	ToDataSourceAuthorizationConfigPtrOutputWithContext(context.Context) DataSourceAuthorizationConfigPtrOutput
+}
+
+type dataSourceAuthorizationConfigPtrType DataSourceAuthorizationConfigArgs
+
+func DataSourceAuthorizationConfigPtr(v *DataSourceAuthorizationConfigArgs) DataSourceAuthorizationConfigPtrInput {
+	return (*dataSourceAuthorizationConfigPtrType)(v)
+}
+
+func (*dataSourceAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *dataSourceAuthorizationConfigPtrType) ToDataSourceAuthorizationConfigPtrOutput() DataSourceAuthorizationConfigPtrOutput {
+	return i.ToDataSourceAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceAuthorizationConfigPtrType) ToDataSourceAuthorizationConfigPtrOutputWithContext(ctx context.Context) DataSourceAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAuthorizationConfigPtrOutput)
+}
+
+type DataSourceAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAuthorizationConfig)(nil)).Elem()
+}
+
+func (o DataSourceAuthorizationConfigOutput) ToDataSourceAuthorizationConfigOutput() DataSourceAuthorizationConfigOutput {
+	return o
+}
+
+func (o DataSourceAuthorizationConfigOutput) ToDataSourceAuthorizationConfigOutputWithContext(ctx context.Context) DataSourceAuthorizationConfigOutput {
+	return o
+}
+
+func (o DataSourceAuthorizationConfigOutput) ToDataSourceAuthorizationConfigPtrOutput() DataSourceAuthorizationConfigPtrOutput {
+	return o.ToDataSourceAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAuthorizationConfigOutput) ToDataSourceAuthorizationConfigPtrOutputWithContext(ctx context.Context) DataSourceAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceAuthorizationConfig) *DataSourceAuthorizationConfig {
+		return &v
+	}).(DataSourceAuthorizationConfigPtrOutput)
+}
+
+// The authorization type that the HTTP endpoint requires.
+func (o DataSourceAuthorizationConfigOutput) AuthorizationType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceAuthorizationConfig) string { return v.AuthorizationType }).(pulumi.StringOutput)
+}
+
+// The AWS Identity and Access Management settings.
+func (o DataSourceAuthorizationConfigOutput) AwsIamConfig() DataSourceAwsIamConfigPtrOutput {
+	return o.ApplyT(func(v DataSourceAuthorizationConfig) *DataSourceAwsIamConfig { return v.AwsIamConfig }).(DataSourceAwsIamConfigPtrOutput)
+}
+
+type DataSourceAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAuthorizationConfig)(nil)).Elem()
+}
+
+func (o DataSourceAuthorizationConfigPtrOutput) ToDataSourceAuthorizationConfigPtrOutput() DataSourceAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceAuthorizationConfigPtrOutput) ToDataSourceAuthorizationConfigPtrOutputWithContext(ctx context.Context) DataSourceAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceAuthorizationConfigPtrOutput) Elem() DataSourceAuthorizationConfigOutput {
+	return o.ApplyT(func(v *DataSourceAuthorizationConfig) DataSourceAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceAuthorizationConfig
+		return ret
+	}).(DataSourceAuthorizationConfigOutput)
+}
+
+// The authorization type that the HTTP endpoint requires.
+func (o DataSourceAuthorizationConfigPtrOutput) AuthorizationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Identity and Access Management settings.
+func (o DataSourceAuthorizationConfigPtrOutput) AwsIamConfig() DataSourceAwsIamConfigPtrOutput {
+	return o.ApplyT(func(v *DataSourceAuthorizationConfig) *DataSourceAwsIamConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AwsIamConfig
+	}).(DataSourceAwsIamConfigPtrOutput)
+}
+
+type DataSourceAwsIamConfig struct {
+	// The signing Region for AWS Identity and Access Management authorization.
+	SigningRegion *string `pulumi:"signingRegion"`
+	// The signing service name for AWS Identity and Access Management authorization.
+	SigningServiceName *string `pulumi:"signingServiceName"`
+}
+
+// DataSourceAwsIamConfigInput is an input type that accepts DataSourceAwsIamConfigArgs and DataSourceAwsIamConfigOutput values.
+// You can construct a concrete instance of `DataSourceAwsIamConfigInput` via:
+//
+//	DataSourceAwsIamConfigArgs{...}
+type DataSourceAwsIamConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceAwsIamConfigOutput() DataSourceAwsIamConfigOutput
+	ToDataSourceAwsIamConfigOutputWithContext(context.Context) DataSourceAwsIamConfigOutput
+}
+
+type DataSourceAwsIamConfigArgs struct {
+	// The signing Region for AWS Identity and Access Management authorization.
+	SigningRegion pulumi.StringPtrInput `pulumi:"signingRegion"`
+	// The signing service name for AWS Identity and Access Management authorization.
+	SigningServiceName pulumi.StringPtrInput `pulumi:"signingServiceName"`
+}
+
+func (DataSourceAwsIamConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAwsIamConfig)(nil)).Elem()
+}
+
+func (i DataSourceAwsIamConfigArgs) ToDataSourceAwsIamConfigOutput() DataSourceAwsIamConfigOutput {
+	return i.ToDataSourceAwsIamConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceAwsIamConfigArgs) ToDataSourceAwsIamConfigOutputWithContext(ctx context.Context) DataSourceAwsIamConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAwsIamConfigOutput)
+}
+
+func (i DataSourceAwsIamConfigArgs) ToDataSourceAwsIamConfigPtrOutput() DataSourceAwsIamConfigPtrOutput {
+	return i.ToDataSourceAwsIamConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceAwsIamConfigArgs) ToDataSourceAwsIamConfigPtrOutputWithContext(ctx context.Context) DataSourceAwsIamConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAwsIamConfigOutput).ToDataSourceAwsIamConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceAwsIamConfigPtrInput is an input type that accepts DataSourceAwsIamConfigArgs, DataSourceAwsIamConfigPtr and DataSourceAwsIamConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceAwsIamConfigPtrInput` via:
+//
+//	        DataSourceAwsIamConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceAwsIamConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceAwsIamConfigPtrOutput() DataSourceAwsIamConfigPtrOutput
+	ToDataSourceAwsIamConfigPtrOutputWithContext(context.Context) DataSourceAwsIamConfigPtrOutput
+}
+
+type dataSourceAwsIamConfigPtrType DataSourceAwsIamConfigArgs
+
+func DataSourceAwsIamConfigPtr(v *DataSourceAwsIamConfigArgs) DataSourceAwsIamConfigPtrInput {
+	return (*dataSourceAwsIamConfigPtrType)(v)
+}
+
+func (*dataSourceAwsIamConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAwsIamConfig)(nil)).Elem()
+}
+
+func (i *dataSourceAwsIamConfigPtrType) ToDataSourceAwsIamConfigPtrOutput() DataSourceAwsIamConfigPtrOutput {
+	return i.ToDataSourceAwsIamConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceAwsIamConfigPtrType) ToDataSourceAwsIamConfigPtrOutputWithContext(ctx context.Context) DataSourceAwsIamConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceAwsIamConfigPtrOutput)
+}
+
+type DataSourceAwsIamConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAwsIamConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAwsIamConfig)(nil)).Elem()
+}
+
+func (o DataSourceAwsIamConfigOutput) ToDataSourceAwsIamConfigOutput() DataSourceAwsIamConfigOutput {
+	return o
+}
+
+func (o DataSourceAwsIamConfigOutput) ToDataSourceAwsIamConfigOutputWithContext(ctx context.Context) DataSourceAwsIamConfigOutput {
+	return o
+}
+
+func (o DataSourceAwsIamConfigOutput) ToDataSourceAwsIamConfigPtrOutput() DataSourceAwsIamConfigPtrOutput {
+	return o.ToDataSourceAwsIamConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAwsIamConfigOutput) ToDataSourceAwsIamConfigPtrOutputWithContext(ctx context.Context) DataSourceAwsIamConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceAwsIamConfig) *DataSourceAwsIamConfig {
+		return &v
+	}).(DataSourceAwsIamConfigPtrOutput)
+}
+
+// The signing Region for AWS Identity and Access Management authorization.
+func (o DataSourceAwsIamConfigOutput) SigningRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceAwsIamConfig) *string { return v.SigningRegion }).(pulumi.StringPtrOutput)
+}
+
+// The signing service name for AWS Identity and Access Management authorization.
+func (o DataSourceAwsIamConfigOutput) SigningServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceAwsIamConfig) *string { return v.SigningServiceName }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceAwsIamConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAwsIamConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAwsIamConfig)(nil)).Elem()
+}
+
+func (o DataSourceAwsIamConfigPtrOutput) ToDataSourceAwsIamConfigPtrOutput() DataSourceAwsIamConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceAwsIamConfigPtrOutput) ToDataSourceAwsIamConfigPtrOutputWithContext(ctx context.Context) DataSourceAwsIamConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceAwsIamConfigPtrOutput) Elem() DataSourceAwsIamConfigOutput {
+	return o.ApplyT(func(v *DataSourceAwsIamConfig) DataSourceAwsIamConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceAwsIamConfig
+		return ret
+	}).(DataSourceAwsIamConfigOutput)
+}
+
+// The signing Region for AWS Identity and Access Management authorization.
+func (o DataSourceAwsIamConfigPtrOutput) SigningRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceAwsIamConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The signing service name for AWS Identity and Access Management authorization.
+func (o DataSourceAwsIamConfigPtrOutput) SigningServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceAwsIamConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SigningServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceDeltaSyncConfig struct {
+	// The number of minutes that an Item is stored in the data source.
+	BaseTableTtl string `pulumi:"baseTableTtl"`
+	// The Delta Sync table name.
+	DeltaSyncTableName string `pulumi:"deltaSyncTableName"`
+	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+	DeltaSyncTableTtl string `pulumi:"deltaSyncTableTtl"`
+}
+
+// DataSourceDeltaSyncConfigInput is an input type that accepts DataSourceDeltaSyncConfigArgs and DataSourceDeltaSyncConfigOutput values.
+// You can construct a concrete instance of `DataSourceDeltaSyncConfigInput` via:
+//
+//	DataSourceDeltaSyncConfigArgs{...}
+type DataSourceDeltaSyncConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceDeltaSyncConfigOutput() DataSourceDeltaSyncConfigOutput
+	ToDataSourceDeltaSyncConfigOutputWithContext(context.Context) DataSourceDeltaSyncConfigOutput
+}
+
+type DataSourceDeltaSyncConfigArgs struct {
+	// The number of minutes that an Item is stored in the data source.
+	BaseTableTtl pulumi.StringInput `pulumi:"baseTableTtl"`
+	// The Delta Sync table name.
+	DeltaSyncTableName pulumi.StringInput `pulumi:"deltaSyncTableName"`
+	// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+	DeltaSyncTableTtl pulumi.StringInput `pulumi:"deltaSyncTableTtl"`
+}
+
+func (DataSourceDeltaSyncConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDeltaSyncConfig)(nil)).Elem()
+}
+
+func (i DataSourceDeltaSyncConfigArgs) ToDataSourceDeltaSyncConfigOutput() DataSourceDeltaSyncConfigOutput {
+	return i.ToDataSourceDeltaSyncConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceDeltaSyncConfigArgs) ToDataSourceDeltaSyncConfigOutputWithContext(ctx context.Context) DataSourceDeltaSyncConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDeltaSyncConfigOutput)
+}
+
+func (i DataSourceDeltaSyncConfigArgs) ToDataSourceDeltaSyncConfigPtrOutput() DataSourceDeltaSyncConfigPtrOutput {
+	return i.ToDataSourceDeltaSyncConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDeltaSyncConfigArgs) ToDataSourceDeltaSyncConfigPtrOutputWithContext(ctx context.Context) DataSourceDeltaSyncConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDeltaSyncConfigOutput).ToDataSourceDeltaSyncConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceDeltaSyncConfigPtrInput is an input type that accepts DataSourceDeltaSyncConfigArgs, DataSourceDeltaSyncConfigPtr and DataSourceDeltaSyncConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceDeltaSyncConfigPtrInput` via:
+//
+//	        DataSourceDeltaSyncConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceDeltaSyncConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDeltaSyncConfigPtrOutput() DataSourceDeltaSyncConfigPtrOutput
+	ToDataSourceDeltaSyncConfigPtrOutputWithContext(context.Context) DataSourceDeltaSyncConfigPtrOutput
+}
+
+type dataSourceDeltaSyncConfigPtrType DataSourceDeltaSyncConfigArgs
+
+func DataSourceDeltaSyncConfigPtr(v *DataSourceDeltaSyncConfigArgs) DataSourceDeltaSyncConfigPtrInput {
+	return (*dataSourceDeltaSyncConfigPtrType)(v)
+}
+
+func (*dataSourceDeltaSyncConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDeltaSyncConfig)(nil)).Elem()
+}
+
+func (i *dataSourceDeltaSyncConfigPtrType) ToDataSourceDeltaSyncConfigPtrOutput() DataSourceDeltaSyncConfigPtrOutput {
+	return i.ToDataSourceDeltaSyncConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDeltaSyncConfigPtrType) ToDataSourceDeltaSyncConfigPtrOutputWithContext(ctx context.Context) DataSourceDeltaSyncConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDeltaSyncConfigPtrOutput)
+}
+
+type DataSourceDeltaSyncConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDeltaSyncConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDeltaSyncConfig)(nil)).Elem()
+}
+
+func (o DataSourceDeltaSyncConfigOutput) ToDataSourceDeltaSyncConfigOutput() DataSourceDeltaSyncConfigOutput {
+	return o
+}
+
+func (o DataSourceDeltaSyncConfigOutput) ToDataSourceDeltaSyncConfigOutputWithContext(ctx context.Context) DataSourceDeltaSyncConfigOutput {
+	return o
+}
+
+func (o DataSourceDeltaSyncConfigOutput) ToDataSourceDeltaSyncConfigPtrOutput() DataSourceDeltaSyncConfigPtrOutput {
+	return o.ToDataSourceDeltaSyncConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDeltaSyncConfigOutput) ToDataSourceDeltaSyncConfigPtrOutputWithContext(ctx context.Context) DataSourceDeltaSyncConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDeltaSyncConfig) *DataSourceDeltaSyncConfig {
+		return &v
+	}).(DataSourceDeltaSyncConfigPtrOutput)
+}
+
+// The number of minutes that an Item is stored in the data source.
+func (o DataSourceDeltaSyncConfigOutput) BaseTableTtl() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDeltaSyncConfig) string { return v.BaseTableTtl }).(pulumi.StringOutput)
+}
+
+// The Delta Sync table name.
+func (o DataSourceDeltaSyncConfigOutput) DeltaSyncTableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDeltaSyncConfig) string { return v.DeltaSyncTableName }).(pulumi.StringOutput)
+}
+
+// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+func (o DataSourceDeltaSyncConfigOutput) DeltaSyncTableTtl() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDeltaSyncConfig) string { return v.DeltaSyncTableTtl }).(pulumi.StringOutput)
+}
+
+type DataSourceDeltaSyncConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDeltaSyncConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDeltaSyncConfig)(nil)).Elem()
+}
+
+func (o DataSourceDeltaSyncConfigPtrOutput) ToDataSourceDeltaSyncConfigPtrOutput() DataSourceDeltaSyncConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceDeltaSyncConfigPtrOutput) ToDataSourceDeltaSyncConfigPtrOutputWithContext(ctx context.Context) DataSourceDeltaSyncConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceDeltaSyncConfigPtrOutput) Elem() DataSourceDeltaSyncConfigOutput {
+	return o.ApplyT(func(v *DataSourceDeltaSyncConfig) DataSourceDeltaSyncConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDeltaSyncConfig
+		return ret
+	}).(DataSourceDeltaSyncConfigOutput)
+}
+
+// The number of minutes that an Item is stored in the data source.
+func (o DataSourceDeltaSyncConfigPtrOutput) BaseTableTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDeltaSyncConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BaseTableTtl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Delta Sync table name.
+func (o DataSourceDeltaSyncConfigPtrOutput) DeltaSyncTableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDeltaSyncConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeltaSyncTableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+func (o DataSourceDeltaSyncConfigPtrOutput) DeltaSyncTableTtl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDeltaSyncConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeltaSyncTableTtl
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceDynamoDbConfig struct {
+	// The AWS Region.
+	AwsRegion string `pulumi:"awsRegion"`
+	// The DeltaSyncConfig for a versioned datasource.
+	DeltaSyncConfig *DataSourceDeltaSyncConfig `pulumi:"deltaSyncConfig"`
+	// The table name.
+	TableName string `pulumi:"tableName"`
+	// Set to TRUE to use AWS Identity and Access Management with this data source.
+	UseCallerCredentials *bool `pulumi:"useCallerCredentials"`
+	// Set to TRUE to use Conflict Detection and Resolution with this data source.
+	Versioned *bool `pulumi:"versioned"`
+}
+
+// DataSourceDynamoDbConfigInput is an input type that accepts DataSourceDynamoDbConfigArgs and DataSourceDynamoDbConfigOutput values.
+// You can construct a concrete instance of `DataSourceDynamoDbConfigInput` via:
+//
+//	DataSourceDynamoDbConfigArgs{...}
+type DataSourceDynamoDbConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceDynamoDbConfigOutput() DataSourceDynamoDbConfigOutput
+	ToDataSourceDynamoDbConfigOutputWithContext(context.Context) DataSourceDynamoDbConfigOutput
+}
+
+type DataSourceDynamoDbConfigArgs struct {
+	// The AWS Region.
+	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
+	// The DeltaSyncConfig for a versioned datasource.
+	DeltaSyncConfig DataSourceDeltaSyncConfigPtrInput `pulumi:"deltaSyncConfig"`
+	// The table name.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Set to TRUE to use AWS Identity and Access Management with this data source.
+	UseCallerCredentials pulumi.BoolPtrInput `pulumi:"useCallerCredentials"`
+	// Set to TRUE to use Conflict Detection and Resolution with this data source.
+	Versioned pulumi.BoolPtrInput `pulumi:"versioned"`
+}
+
+func (DataSourceDynamoDbConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDynamoDbConfig)(nil)).Elem()
+}
+
+func (i DataSourceDynamoDbConfigArgs) ToDataSourceDynamoDbConfigOutput() DataSourceDynamoDbConfigOutput {
+	return i.ToDataSourceDynamoDbConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceDynamoDbConfigArgs) ToDataSourceDynamoDbConfigOutputWithContext(ctx context.Context) DataSourceDynamoDbConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDynamoDbConfigOutput)
+}
+
+func (i DataSourceDynamoDbConfigArgs) ToDataSourceDynamoDbConfigPtrOutput() DataSourceDynamoDbConfigPtrOutput {
+	return i.ToDataSourceDynamoDbConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceDynamoDbConfigArgs) ToDataSourceDynamoDbConfigPtrOutputWithContext(ctx context.Context) DataSourceDynamoDbConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDynamoDbConfigOutput).ToDataSourceDynamoDbConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceDynamoDbConfigPtrInput is an input type that accepts DataSourceDynamoDbConfigArgs, DataSourceDynamoDbConfigPtr and DataSourceDynamoDbConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceDynamoDbConfigPtrInput` via:
+//
+//	        DataSourceDynamoDbConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceDynamoDbConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceDynamoDbConfigPtrOutput() DataSourceDynamoDbConfigPtrOutput
+	ToDataSourceDynamoDbConfigPtrOutputWithContext(context.Context) DataSourceDynamoDbConfigPtrOutput
+}
+
+type dataSourceDynamoDbConfigPtrType DataSourceDynamoDbConfigArgs
+
+func DataSourceDynamoDbConfigPtr(v *DataSourceDynamoDbConfigArgs) DataSourceDynamoDbConfigPtrInput {
+	return (*dataSourceDynamoDbConfigPtrType)(v)
+}
+
+func (*dataSourceDynamoDbConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDynamoDbConfig)(nil)).Elem()
+}
+
+func (i *dataSourceDynamoDbConfigPtrType) ToDataSourceDynamoDbConfigPtrOutput() DataSourceDynamoDbConfigPtrOutput {
+	return i.ToDataSourceDynamoDbConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceDynamoDbConfigPtrType) ToDataSourceDynamoDbConfigPtrOutputWithContext(ctx context.Context) DataSourceDynamoDbConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceDynamoDbConfigPtrOutput)
+}
+
+type DataSourceDynamoDbConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDynamoDbConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceDynamoDbConfig)(nil)).Elem()
+}
+
+func (o DataSourceDynamoDbConfigOutput) ToDataSourceDynamoDbConfigOutput() DataSourceDynamoDbConfigOutput {
+	return o
+}
+
+func (o DataSourceDynamoDbConfigOutput) ToDataSourceDynamoDbConfigOutputWithContext(ctx context.Context) DataSourceDynamoDbConfigOutput {
+	return o
+}
+
+func (o DataSourceDynamoDbConfigOutput) ToDataSourceDynamoDbConfigPtrOutput() DataSourceDynamoDbConfigPtrOutput {
+	return o.ToDataSourceDynamoDbConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceDynamoDbConfigOutput) ToDataSourceDynamoDbConfigPtrOutputWithContext(ctx context.Context) DataSourceDynamoDbConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceDynamoDbConfig) *DataSourceDynamoDbConfig {
+		return &v
+	}).(DataSourceDynamoDbConfigPtrOutput)
+}
+
+// The AWS Region.
+func (o DataSourceDynamoDbConfigOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDynamoDbConfig) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+// The DeltaSyncConfig for a versioned datasource.
+func (o DataSourceDynamoDbConfigOutput) DeltaSyncConfig() DataSourceDeltaSyncConfigPtrOutput {
+	return o.ApplyT(func(v DataSourceDynamoDbConfig) *DataSourceDeltaSyncConfig { return v.DeltaSyncConfig }).(DataSourceDeltaSyncConfigPtrOutput)
+}
+
+// The table name.
+func (o DataSourceDynamoDbConfigOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceDynamoDbConfig) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// Set to TRUE to use AWS Identity and Access Management with this data source.
+func (o DataSourceDynamoDbConfigOutput) UseCallerCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceDynamoDbConfig) *bool { return v.UseCallerCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// Set to TRUE to use Conflict Detection and Resolution with this data source.
+func (o DataSourceDynamoDbConfigOutput) Versioned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataSourceDynamoDbConfig) *bool { return v.Versioned }).(pulumi.BoolPtrOutput)
+}
+
+type DataSourceDynamoDbConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceDynamoDbConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceDynamoDbConfig)(nil)).Elem()
+}
+
+func (o DataSourceDynamoDbConfigPtrOutput) ToDataSourceDynamoDbConfigPtrOutput() DataSourceDynamoDbConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceDynamoDbConfigPtrOutput) ToDataSourceDynamoDbConfigPtrOutputWithContext(ctx context.Context) DataSourceDynamoDbConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceDynamoDbConfigPtrOutput) Elem() DataSourceDynamoDbConfigOutput {
+	return o.ApplyT(func(v *DataSourceDynamoDbConfig) DataSourceDynamoDbConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceDynamoDbConfig
+		return ret
+	}).(DataSourceDynamoDbConfigOutput)
+}
+
+// The AWS Region.
+func (o DataSourceDynamoDbConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDynamoDbConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The DeltaSyncConfig for a versioned datasource.
+func (o DataSourceDynamoDbConfigPtrOutput) DeltaSyncConfig() DataSourceDeltaSyncConfigPtrOutput {
+	return o.ApplyT(func(v *DataSourceDynamoDbConfig) *DataSourceDeltaSyncConfig {
+		if v == nil {
+			return nil
+		}
+		return v.DeltaSyncConfig
+	}).(DataSourceDeltaSyncConfigPtrOutput)
+}
+
+// The table name.
+func (o DataSourceDynamoDbConfigPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceDynamoDbConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set to TRUE to use AWS Identity and Access Management with this data source.
+func (o DataSourceDynamoDbConfigPtrOutput) UseCallerCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSourceDynamoDbConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseCallerCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set to TRUE to use Conflict Detection and Resolution with this data source.
+func (o DataSourceDynamoDbConfigPtrOutput) Versioned() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataSourceDynamoDbConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Versioned
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DataSourceElasticsearchConfig struct {
+	// The AWS Region.
+	AwsRegion string `pulumi:"awsRegion"`
+	// The endpoint.
+	Endpoint string `pulumi:"endpoint"`
+}
+
+// DataSourceElasticsearchConfigInput is an input type that accepts DataSourceElasticsearchConfigArgs and DataSourceElasticsearchConfigOutput values.
+// You can construct a concrete instance of `DataSourceElasticsearchConfigInput` via:
+//
+//	DataSourceElasticsearchConfigArgs{...}
+type DataSourceElasticsearchConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceElasticsearchConfigOutput() DataSourceElasticsearchConfigOutput
+	ToDataSourceElasticsearchConfigOutputWithContext(context.Context) DataSourceElasticsearchConfigOutput
+}
+
+type DataSourceElasticsearchConfigArgs struct {
+	// The AWS Region.
+	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
+	// The endpoint.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (DataSourceElasticsearchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceElasticsearchConfig)(nil)).Elem()
+}
+
+func (i DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigOutput() DataSourceElasticsearchConfigOutput {
+	return i.ToDataSourceElasticsearchConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceElasticsearchConfigOutput)
+}
+
+func (i DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigPtrOutput() DataSourceElasticsearchConfigPtrOutput {
+	return i.ToDataSourceElasticsearchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceElasticsearchConfigArgs) ToDataSourceElasticsearchConfigPtrOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceElasticsearchConfigOutput).ToDataSourceElasticsearchConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceElasticsearchConfigPtrInput is an input type that accepts DataSourceElasticsearchConfigArgs, DataSourceElasticsearchConfigPtr and DataSourceElasticsearchConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceElasticsearchConfigPtrInput` via:
+//
+//	        DataSourceElasticsearchConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceElasticsearchConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceElasticsearchConfigPtrOutput() DataSourceElasticsearchConfigPtrOutput
+	ToDataSourceElasticsearchConfigPtrOutputWithContext(context.Context) DataSourceElasticsearchConfigPtrOutput
+}
+
+type dataSourceElasticsearchConfigPtrType DataSourceElasticsearchConfigArgs
+
+func DataSourceElasticsearchConfigPtr(v *DataSourceElasticsearchConfigArgs) DataSourceElasticsearchConfigPtrInput {
+	return (*dataSourceElasticsearchConfigPtrType)(v)
+}
+
+func (*dataSourceElasticsearchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceElasticsearchConfig)(nil)).Elem()
+}
+
+func (i *dataSourceElasticsearchConfigPtrType) ToDataSourceElasticsearchConfigPtrOutput() DataSourceElasticsearchConfigPtrOutput {
+	return i.ToDataSourceElasticsearchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceElasticsearchConfigPtrType) ToDataSourceElasticsearchConfigPtrOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceElasticsearchConfigPtrOutput)
+}
+
+type DataSourceElasticsearchConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceElasticsearchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceElasticsearchConfig)(nil)).Elem()
+}
+
+func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigOutput() DataSourceElasticsearchConfigOutput {
+	return o
+}
+
+func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigOutput {
+	return o
+}
+
+func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigPtrOutput() DataSourceElasticsearchConfigPtrOutput {
+	return o.ToDataSourceElasticsearchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceElasticsearchConfigOutput) ToDataSourceElasticsearchConfigPtrOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceElasticsearchConfig) *DataSourceElasticsearchConfig {
+		return &v
+	}).(DataSourceElasticsearchConfigPtrOutput)
+}
+
+// The AWS Region.
+func (o DataSourceElasticsearchConfigOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceElasticsearchConfig) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+// The endpoint.
+func (o DataSourceElasticsearchConfigOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceElasticsearchConfig) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type DataSourceElasticsearchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceElasticsearchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceElasticsearchConfig)(nil)).Elem()
+}
+
+func (o DataSourceElasticsearchConfigPtrOutput) ToDataSourceElasticsearchConfigPtrOutput() DataSourceElasticsearchConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceElasticsearchConfigPtrOutput) ToDataSourceElasticsearchConfigPtrOutputWithContext(ctx context.Context) DataSourceElasticsearchConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceElasticsearchConfigPtrOutput) Elem() DataSourceElasticsearchConfigOutput {
+	return o.ApplyT(func(v *DataSourceElasticsearchConfig) DataSourceElasticsearchConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceElasticsearchConfig
+		return ret
+	}).(DataSourceElasticsearchConfigOutput)
+}
+
+// The AWS Region.
+func (o DataSourceElasticsearchConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceElasticsearchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint.
+func (o DataSourceElasticsearchConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceElasticsearchConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceEventBridgeConfig struct {
+	// ARN for the EventBridge bus.
+	EventBusArn string `pulumi:"eventBusArn"`
+}
+
+// DataSourceEventBridgeConfigInput is an input type that accepts DataSourceEventBridgeConfigArgs and DataSourceEventBridgeConfigOutput values.
+// You can construct a concrete instance of `DataSourceEventBridgeConfigInput` via:
+//
+//	DataSourceEventBridgeConfigArgs{...}
+type DataSourceEventBridgeConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceEventBridgeConfigOutput() DataSourceEventBridgeConfigOutput
+	ToDataSourceEventBridgeConfigOutputWithContext(context.Context) DataSourceEventBridgeConfigOutput
+}
+
+type DataSourceEventBridgeConfigArgs struct {
+	// ARN for the EventBridge bus.
+	EventBusArn pulumi.StringInput `pulumi:"eventBusArn"`
+}
+
+func (DataSourceEventBridgeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEventBridgeConfig)(nil)).Elem()
+}
+
+func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigOutput() DataSourceEventBridgeConfigOutput {
+	return i.ToDataSourceEventBridgeConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEventBridgeConfigOutput)
+}
+
+func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
+	return i.ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceEventBridgeConfigArgs) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEventBridgeConfigOutput).ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceEventBridgeConfigPtrInput is an input type that accepts DataSourceEventBridgeConfigArgs, DataSourceEventBridgeConfigPtr and DataSourceEventBridgeConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceEventBridgeConfigPtrInput` via:
+//
+//	        DataSourceEventBridgeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceEventBridgeConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput
+	ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Context) DataSourceEventBridgeConfigPtrOutput
+}
+
+type dataSourceEventBridgeConfigPtrType DataSourceEventBridgeConfigArgs
+
+func DataSourceEventBridgeConfigPtr(v *DataSourceEventBridgeConfigArgs) DataSourceEventBridgeConfigPtrInput {
+	return (*dataSourceEventBridgeConfigPtrType)(v)
+}
+
+func (*dataSourceEventBridgeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceEventBridgeConfig)(nil)).Elem()
+}
+
+func (i *dataSourceEventBridgeConfigPtrType) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
+	return i.ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceEventBridgeConfigPtrType) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceEventBridgeConfigPtrOutput)
+}
+
+type DataSourceEventBridgeConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEventBridgeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceEventBridgeConfig)(nil)).Elem()
+}
+
+func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigOutput() DataSourceEventBridgeConfigOutput {
+	return o
+}
+
+func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigOutput {
+	return o
+}
+
+func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
+	return o.ToDataSourceEventBridgeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceEventBridgeConfigOutput) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceEventBridgeConfig) *DataSourceEventBridgeConfig {
+		return &v
+	}).(DataSourceEventBridgeConfigPtrOutput)
+}
+
+// ARN for the EventBridge bus.
+func (o DataSourceEventBridgeConfigOutput) EventBusArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceEventBridgeConfig) string { return v.EventBusArn }).(pulumi.StringOutput)
+}
+
+type DataSourceEventBridgeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceEventBridgeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceEventBridgeConfig)(nil)).Elem()
+}
+
+func (o DataSourceEventBridgeConfigPtrOutput) ToDataSourceEventBridgeConfigPtrOutput() DataSourceEventBridgeConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceEventBridgeConfigPtrOutput) ToDataSourceEventBridgeConfigPtrOutputWithContext(ctx context.Context) DataSourceEventBridgeConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceEventBridgeConfigPtrOutput) Elem() DataSourceEventBridgeConfigOutput {
+	return o.ApplyT(func(v *DataSourceEventBridgeConfig) DataSourceEventBridgeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceEventBridgeConfig
+		return ret
+	}).(DataSourceEventBridgeConfigOutput)
+}
+
+// ARN for the EventBridge bus.
+func (o DataSourceEventBridgeConfigPtrOutput) EventBusArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceEventBridgeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventBusArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceHttpConfig struct {
+	// The authorization configuration.
+	AuthorizationConfig *DataSourceAuthorizationConfig `pulumi:"authorizationConfig"`
+	// The endpoint.
+	Endpoint string `pulumi:"endpoint"`
+}
+
+// DataSourceHttpConfigInput is an input type that accepts DataSourceHttpConfigArgs and DataSourceHttpConfigOutput values.
+// You can construct a concrete instance of `DataSourceHttpConfigInput` via:
+//
+//	DataSourceHttpConfigArgs{...}
+type DataSourceHttpConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceHttpConfigOutput() DataSourceHttpConfigOutput
+	ToDataSourceHttpConfigOutputWithContext(context.Context) DataSourceHttpConfigOutput
+}
+
+type DataSourceHttpConfigArgs struct {
+	// The authorization configuration.
+	AuthorizationConfig DataSourceAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
+	// The endpoint.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (DataSourceHttpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceHttpConfig)(nil)).Elem()
+}
+
+func (i DataSourceHttpConfigArgs) ToDataSourceHttpConfigOutput() DataSourceHttpConfigOutput {
+	return i.ToDataSourceHttpConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceHttpConfigArgs) ToDataSourceHttpConfigOutputWithContext(ctx context.Context) DataSourceHttpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigOutput)
+}
+
+func (i DataSourceHttpConfigArgs) ToDataSourceHttpConfigPtrOutput() DataSourceHttpConfigPtrOutput {
+	return i.ToDataSourceHttpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceHttpConfigArgs) ToDataSourceHttpConfigPtrOutputWithContext(ctx context.Context) DataSourceHttpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigOutput).ToDataSourceHttpConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceHttpConfigPtrInput is an input type that accepts DataSourceHttpConfigArgs, DataSourceHttpConfigPtr and DataSourceHttpConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceHttpConfigPtrInput` via:
+//
+//	        DataSourceHttpConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceHttpConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceHttpConfigPtrOutput() DataSourceHttpConfigPtrOutput
+	ToDataSourceHttpConfigPtrOutputWithContext(context.Context) DataSourceHttpConfigPtrOutput
+}
+
+type dataSourceHttpConfigPtrType DataSourceHttpConfigArgs
+
+func DataSourceHttpConfigPtr(v *DataSourceHttpConfigArgs) DataSourceHttpConfigPtrInput {
+	return (*dataSourceHttpConfigPtrType)(v)
+}
+
+func (*dataSourceHttpConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceHttpConfig)(nil)).Elem()
+}
+
+func (i *dataSourceHttpConfigPtrType) ToDataSourceHttpConfigPtrOutput() DataSourceHttpConfigPtrOutput {
+	return i.ToDataSourceHttpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceHttpConfigPtrType) ToDataSourceHttpConfigPtrOutputWithContext(ctx context.Context) DataSourceHttpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceHttpConfigPtrOutput)
+}
+
+type DataSourceHttpConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceHttpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceHttpConfig)(nil)).Elem()
+}
+
+func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigOutput() DataSourceHttpConfigOutput {
+	return o
+}
+
+func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigOutputWithContext(ctx context.Context) DataSourceHttpConfigOutput {
+	return o
+}
+
+func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigPtrOutput() DataSourceHttpConfigPtrOutput {
+	return o.ToDataSourceHttpConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceHttpConfigOutput) ToDataSourceHttpConfigPtrOutputWithContext(ctx context.Context) DataSourceHttpConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceHttpConfig) *DataSourceHttpConfig {
+		return &v
+	}).(DataSourceHttpConfigPtrOutput)
+}
+
+// The authorization configuration.
+func (o DataSourceHttpConfigOutput) AuthorizationConfig() DataSourceAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v DataSourceHttpConfig) *DataSourceAuthorizationConfig { return v.AuthorizationConfig }).(DataSourceAuthorizationConfigPtrOutput)
+}
+
+// The endpoint.
+func (o DataSourceHttpConfigOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceHttpConfig) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type DataSourceHttpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceHttpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceHttpConfig)(nil)).Elem()
+}
+
+func (o DataSourceHttpConfigPtrOutput) ToDataSourceHttpConfigPtrOutput() DataSourceHttpConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceHttpConfigPtrOutput) ToDataSourceHttpConfigPtrOutputWithContext(ctx context.Context) DataSourceHttpConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceHttpConfigPtrOutput) Elem() DataSourceHttpConfigOutput {
+	return o.ApplyT(func(v *DataSourceHttpConfig) DataSourceHttpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceHttpConfig
+		return ret
+	}).(DataSourceHttpConfigOutput)
+}
+
+// The authorization configuration.
+func (o DataSourceHttpConfigPtrOutput) AuthorizationConfig() DataSourceAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *DataSourceHttpConfig) *DataSourceAuthorizationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationConfig
+	}).(DataSourceAuthorizationConfigPtrOutput)
+}
+
+// The endpoint.
+func (o DataSourceHttpConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceHttpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceLambdaConfig struct {
+	// The ARN for the Lambda function.
+	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
+}
+
+// DataSourceLambdaConfigInput is an input type that accepts DataSourceLambdaConfigArgs and DataSourceLambdaConfigOutput values.
+// You can construct a concrete instance of `DataSourceLambdaConfigInput` via:
+//
+//	DataSourceLambdaConfigArgs{...}
+type DataSourceLambdaConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceLambdaConfigOutput() DataSourceLambdaConfigOutput
+	ToDataSourceLambdaConfigOutputWithContext(context.Context) DataSourceLambdaConfigOutput
+}
+
+type DataSourceLambdaConfigArgs struct {
+	// The ARN for the Lambda function.
+	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (DataSourceLambdaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceLambdaConfig)(nil)).Elem()
+}
+
+func (i DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigOutput() DataSourceLambdaConfigOutput {
+	return i.ToDataSourceLambdaConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigOutputWithContext(ctx context.Context) DataSourceLambdaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceLambdaConfigOutput)
+}
+
+func (i DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigPtrOutput() DataSourceLambdaConfigPtrOutput {
+	return i.ToDataSourceLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceLambdaConfigArgs) ToDataSourceLambdaConfigPtrOutputWithContext(ctx context.Context) DataSourceLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceLambdaConfigOutput).ToDataSourceLambdaConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceLambdaConfigPtrInput is an input type that accepts DataSourceLambdaConfigArgs, DataSourceLambdaConfigPtr and DataSourceLambdaConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceLambdaConfigPtrInput` via:
+//
+//	        DataSourceLambdaConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceLambdaConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceLambdaConfigPtrOutput() DataSourceLambdaConfigPtrOutput
+	ToDataSourceLambdaConfigPtrOutputWithContext(context.Context) DataSourceLambdaConfigPtrOutput
+}
+
+type dataSourceLambdaConfigPtrType DataSourceLambdaConfigArgs
+
+func DataSourceLambdaConfigPtr(v *DataSourceLambdaConfigArgs) DataSourceLambdaConfigPtrInput {
+	return (*dataSourceLambdaConfigPtrType)(v)
+}
+
+func (*dataSourceLambdaConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceLambdaConfig)(nil)).Elem()
+}
+
+func (i *dataSourceLambdaConfigPtrType) ToDataSourceLambdaConfigPtrOutput() DataSourceLambdaConfigPtrOutput {
+	return i.ToDataSourceLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceLambdaConfigPtrType) ToDataSourceLambdaConfigPtrOutputWithContext(ctx context.Context) DataSourceLambdaConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceLambdaConfigPtrOutput)
+}
+
+type DataSourceLambdaConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceLambdaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceLambdaConfig)(nil)).Elem()
+}
+
+func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigOutput() DataSourceLambdaConfigOutput {
+	return o
+}
+
+func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigOutputWithContext(ctx context.Context) DataSourceLambdaConfigOutput {
+	return o
+}
+
+func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigPtrOutput() DataSourceLambdaConfigPtrOutput {
+	return o.ToDataSourceLambdaConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceLambdaConfigOutput) ToDataSourceLambdaConfigPtrOutputWithContext(ctx context.Context) DataSourceLambdaConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceLambdaConfig) *DataSourceLambdaConfig {
+		return &v
+	}).(DataSourceLambdaConfigPtrOutput)
+}
+
+// The ARN for the Lambda function.
+func (o DataSourceLambdaConfigOutput) LambdaFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceLambdaConfig) string { return v.LambdaFunctionArn }).(pulumi.StringOutput)
+}
+
+type DataSourceLambdaConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceLambdaConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceLambdaConfig)(nil)).Elem()
+}
+
+func (o DataSourceLambdaConfigPtrOutput) ToDataSourceLambdaConfigPtrOutput() DataSourceLambdaConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceLambdaConfigPtrOutput) ToDataSourceLambdaConfigPtrOutputWithContext(ctx context.Context) DataSourceLambdaConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceLambdaConfigPtrOutput) Elem() DataSourceLambdaConfigOutput {
+	return o.ApplyT(func(v *DataSourceLambdaConfig) DataSourceLambdaConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceLambdaConfig
+		return ret
+	}).(DataSourceLambdaConfigOutput)
+}
+
+// The ARN for the Lambda function.
+func (o DataSourceLambdaConfigPtrOutput) LambdaFunctionArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceLambdaConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaFunctionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceOpenSearchServiceConfig struct {
+	// The AWS Region.
+	AwsRegion string `pulumi:"awsRegion"`
+	// The endpoint.
+	Endpoint string `pulumi:"endpoint"`
+}
+
+// DataSourceOpenSearchServiceConfigInput is an input type that accepts DataSourceOpenSearchServiceConfigArgs and DataSourceOpenSearchServiceConfigOutput values.
+// You can construct a concrete instance of `DataSourceOpenSearchServiceConfigInput` via:
+//
+//	DataSourceOpenSearchServiceConfigArgs{...}
+type DataSourceOpenSearchServiceConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceOpenSearchServiceConfigOutput() DataSourceOpenSearchServiceConfigOutput
+	ToDataSourceOpenSearchServiceConfigOutputWithContext(context.Context) DataSourceOpenSearchServiceConfigOutput
+}
+
+type DataSourceOpenSearchServiceConfigArgs struct {
+	// The AWS Region.
+	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
+	// The endpoint.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+}
+
+func (DataSourceOpenSearchServiceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOpenSearchServiceConfig)(nil)).Elem()
+}
+
+func (i DataSourceOpenSearchServiceConfigArgs) ToDataSourceOpenSearchServiceConfigOutput() DataSourceOpenSearchServiceConfigOutput {
+	return i.ToDataSourceOpenSearchServiceConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceOpenSearchServiceConfigArgs) ToDataSourceOpenSearchServiceConfigOutputWithContext(ctx context.Context) DataSourceOpenSearchServiceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOpenSearchServiceConfigOutput)
+}
+
+func (i DataSourceOpenSearchServiceConfigArgs) ToDataSourceOpenSearchServiceConfigPtrOutput() DataSourceOpenSearchServiceConfigPtrOutput {
+	return i.ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceOpenSearchServiceConfigArgs) ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(ctx context.Context) DataSourceOpenSearchServiceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOpenSearchServiceConfigOutput).ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceOpenSearchServiceConfigPtrInput is an input type that accepts DataSourceOpenSearchServiceConfigArgs, DataSourceOpenSearchServiceConfigPtr and DataSourceOpenSearchServiceConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceOpenSearchServiceConfigPtrInput` via:
+//
+//	        DataSourceOpenSearchServiceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceOpenSearchServiceConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceOpenSearchServiceConfigPtrOutput() DataSourceOpenSearchServiceConfigPtrOutput
+	ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(context.Context) DataSourceOpenSearchServiceConfigPtrOutput
+}
+
+type dataSourceOpenSearchServiceConfigPtrType DataSourceOpenSearchServiceConfigArgs
+
+func DataSourceOpenSearchServiceConfigPtr(v *DataSourceOpenSearchServiceConfigArgs) DataSourceOpenSearchServiceConfigPtrInput {
+	return (*dataSourceOpenSearchServiceConfigPtrType)(v)
+}
+
+func (*dataSourceOpenSearchServiceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceOpenSearchServiceConfig)(nil)).Elem()
+}
+
+func (i *dataSourceOpenSearchServiceConfigPtrType) ToDataSourceOpenSearchServiceConfigPtrOutput() DataSourceOpenSearchServiceConfigPtrOutput {
+	return i.ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceOpenSearchServiceConfigPtrType) ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(ctx context.Context) DataSourceOpenSearchServiceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOpenSearchServiceConfigPtrOutput)
+}
+
+type DataSourceOpenSearchServiceConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceOpenSearchServiceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOpenSearchServiceConfig)(nil)).Elem()
+}
+
+func (o DataSourceOpenSearchServiceConfigOutput) ToDataSourceOpenSearchServiceConfigOutput() DataSourceOpenSearchServiceConfigOutput {
+	return o
+}
+
+func (o DataSourceOpenSearchServiceConfigOutput) ToDataSourceOpenSearchServiceConfigOutputWithContext(ctx context.Context) DataSourceOpenSearchServiceConfigOutput {
+	return o
+}
+
+func (o DataSourceOpenSearchServiceConfigOutput) ToDataSourceOpenSearchServiceConfigPtrOutput() DataSourceOpenSearchServiceConfigPtrOutput {
+	return o.ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceOpenSearchServiceConfigOutput) ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(ctx context.Context) DataSourceOpenSearchServiceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceOpenSearchServiceConfig) *DataSourceOpenSearchServiceConfig {
+		return &v
+	}).(DataSourceOpenSearchServiceConfigPtrOutput)
+}
+
+// The AWS Region.
+func (o DataSourceOpenSearchServiceConfigOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceOpenSearchServiceConfig) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+// The endpoint.
+func (o DataSourceOpenSearchServiceConfigOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceOpenSearchServiceConfig) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+type DataSourceOpenSearchServiceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceOpenSearchServiceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceOpenSearchServiceConfig)(nil)).Elem()
+}
+
+func (o DataSourceOpenSearchServiceConfigPtrOutput) ToDataSourceOpenSearchServiceConfigPtrOutput() DataSourceOpenSearchServiceConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceOpenSearchServiceConfigPtrOutput) ToDataSourceOpenSearchServiceConfigPtrOutputWithContext(ctx context.Context) DataSourceOpenSearchServiceConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceOpenSearchServiceConfigPtrOutput) Elem() DataSourceOpenSearchServiceConfigOutput {
+	return o.ApplyT(func(v *DataSourceOpenSearchServiceConfig) DataSourceOpenSearchServiceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceOpenSearchServiceConfig
+		return ret
+	}).(DataSourceOpenSearchServiceConfigOutput)
+}
+
+// The AWS Region.
+func (o DataSourceOpenSearchServiceConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOpenSearchServiceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint.
+func (o DataSourceOpenSearchServiceConfigPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOpenSearchServiceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceRdsHttpEndpointConfig struct {
+	// AWS Region for RDS HTTP endpoint.
+	AwsRegion string `pulumi:"awsRegion"`
+	// The ARN for database credentials stored in AWS Secrets Manager.
+	AwsSecretStoreArn string `pulumi:"awsSecretStoreArn"`
+	// Logical database name.
+	DatabaseName *string `pulumi:"databaseName"`
+	// Amazon RDS cluster Amazon Resource Name (ARN).
+	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
+	// Logical schema name.
+	Schema *string `pulumi:"schema"`
+}
+
+// DataSourceRdsHttpEndpointConfigInput is an input type that accepts DataSourceRdsHttpEndpointConfigArgs and DataSourceRdsHttpEndpointConfigOutput values.
+// You can construct a concrete instance of `DataSourceRdsHttpEndpointConfigInput` via:
+//
+//	DataSourceRdsHttpEndpointConfigArgs{...}
+type DataSourceRdsHttpEndpointConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceRdsHttpEndpointConfigOutput() DataSourceRdsHttpEndpointConfigOutput
+	ToDataSourceRdsHttpEndpointConfigOutputWithContext(context.Context) DataSourceRdsHttpEndpointConfigOutput
+}
+
+type DataSourceRdsHttpEndpointConfigArgs struct {
+	// AWS Region for RDS HTTP endpoint.
+	AwsRegion pulumi.StringInput `pulumi:"awsRegion"`
+	// The ARN for database credentials stored in AWS Secrets Manager.
+	AwsSecretStoreArn pulumi.StringInput `pulumi:"awsSecretStoreArn"`
+	// Logical database name.
+	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
+	// Amazon RDS cluster Amazon Resource Name (ARN).
+	DbClusterIdentifier pulumi.StringInput `pulumi:"dbClusterIdentifier"`
+	// Logical schema name.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (DataSourceRdsHttpEndpointConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRdsHttpEndpointConfig)(nil)).Elem()
+}
+
+func (i DataSourceRdsHttpEndpointConfigArgs) ToDataSourceRdsHttpEndpointConfigOutput() DataSourceRdsHttpEndpointConfigOutput {
+	return i.ToDataSourceRdsHttpEndpointConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceRdsHttpEndpointConfigArgs) ToDataSourceRdsHttpEndpointConfigOutputWithContext(ctx context.Context) DataSourceRdsHttpEndpointConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRdsHttpEndpointConfigOutput)
+}
+
+func (i DataSourceRdsHttpEndpointConfigArgs) ToDataSourceRdsHttpEndpointConfigPtrOutput() DataSourceRdsHttpEndpointConfigPtrOutput {
+	return i.ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRdsHttpEndpointConfigArgs) ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(ctx context.Context) DataSourceRdsHttpEndpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRdsHttpEndpointConfigOutput).ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceRdsHttpEndpointConfigPtrInput is an input type that accepts DataSourceRdsHttpEndpointConfigArgs, DataSourceRdsHttpEndpointConfigPtr and DataSourceRdsHttpEndpointConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceRdsHttpEndpointConfigPtrInput` via:
+//
+//	        DataSourceRdsHttpEndpointConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRdsHttpEndpointConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRdsHttpEndpointConfigPtrOutput() DataSourceRdsHttpEndpointConfigPtrOutput
+	ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(context.Context) DataSourceRdsHttpEndpointConfigPtrOutput
+}
+
+type dataSourceRdsHttpEndpointConfigPtrType DataSourceRdsHttpEndpointConfigArgs
+
+func DataSourceRdsHttpEndpointConfigPtr(v *DataSourceRdsHttpEndpointConfigArgs) DataSourceRdsHttpEndpointConfigPtrInput {
+	return (*dataSourceRdsHttpEndpointConfigPtrType)(v)
+}
+
+func (*dataSourceRdsHttpEndpointConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRdsHttpEndpointConfig)(nil)).Elem()
+}
+
+func (i *dataSourceRdsHttpEndpointConfigPtrType) ToDataSourceRdsHttpEndpointConfigPtrOutput() DataSourceRdsHttpEndpointConfigPtrOutput {
+	return i.ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRdsHttpEndpointConfigPtrType) ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(ctx context.Context) DataSourceRdsHttpEndpointConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRdsHttpEndpointConfigPtrOutput)
+}
+
+type DataSourceRdsHttpEndpointConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRdsHttpEndpointConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRdsHttpEndpointConfig)(nil)).Elem()
+}
+
+func (o DataSourceRdsHttpEndpointConfigOutput) ToDataSourceRdsHttpEndpointConfigOutput() DataSourceRdsHttpEndpointConfigOutput {
+	return o
+}
+
+func (o DataSourceRdsHttpEndpointConfigOutput) ToDataSourceRdsHttpEndpointConfigOutputWithContext(ctx context.Context) DataSourceRdsHttpEndpointConfigOutput {
+	return o
+}
+
+func (o DataSourceRdsHttpEndpointConfigOutput) ToDataSourceRdsHttpEndpointConfigPtrOutput() DataSourceRdsHttpEndpointConfigPtrOutput {
+	return o.ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRdsHttpEndpointConfigOutput) ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(ctx context.Context) DataSourceRdsHttpEndpointConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRdsHttpEndpointConfig) *DataSourceRdsHttpEndpointConfig {
+		return &v
+	}).(DataSourceRdsHttpEndpointConfigPtrOutput)
+}
+
+// AWS Region for RDS HTTP endpoint.
+func (o DataSourceRdsHttpEndpointConfigOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRdsHttpEndpointConfig) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+// The ARN for database credentials stored in AWS Secrets Manager.
+func (o DataSourceRdsHttpEndpointConfigOutput) AwsSecretStoreArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRdsHttpEndpointConfig) string { return v.AwsSecretStoreArn }).(pulumi.StringOutput)
+}
+
+// Logical database name.
+func (o DataSourceRdsHttpEndpointConfigOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceRdsHttpEndpointConfig) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+// Amazon RDS cluster Amazon Resource Name (ARN).
+func (o DataSourceRdsHttpEndpointConfigOutput) DbClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRdsHttpEndpointConfig) string { return v.DbClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// Logical schema name.
+func (o DataSourceRdsHttpEndpointConfigOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceRdsHttpEndpointConfig) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type DataSourceRdsHttpEndpointConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRdsHttpEndpointConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRdsHttpEndpointConfig)(nil)).Elem()
+}
+
+func (o DataSourceRdsHttpEndpointConfigPtrOutput) ToDataSourceRdsHttpEndpointConfigPtrOutput() DataSourceRdsHttpEndpointConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceRdsHttpEndpointConfigPtrOutput) ToDataSourceRdsHttpEndpointConfigPtrOutputWithContext(ctx context.Context) DataSourceRdsHttpEndpointConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceRdsHttpEndpointConfigPtrOutput) Elem() DataSourceRdsHttpEndpointConfigOutput {
+	return o.ApplyT(func(v *DataSourceRdsHttpEndpointConfig) DataSourceRdsHttpEndpointConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRdsHttpEndpointConfig
+		return ret
+	}).(DataSourceRdsHttpEndpointConfigOutput)
+}
+
+// AWS Region for RDS HTTP endpoint.
+func (o DataSourceRdsHttpEndpointConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRdsHttpEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN for database credentials stored in AWS Secrets Manager.
+func (o DataSourceRdsHttpEndpointConfigPtrOutput) AwsSecretStoreArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRdsHttpEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsSecretStoreArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Logical database name.
+func (o DataSourceRdsHttpEndpointConfigPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRdsHttpEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Amazon RDS cluster Amazon Resource Name (ARN).
+func (o DataSourceRdsHttpEndpointConfigPtrOutput) DbClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRdsHttpEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DbClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Logical schema name.
+func (o DataSourceRdsHttpEndpointConfigPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRdsHttpEndpointConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceRelationalDatabaseConfig struct {
+	// Information about the Amazon RDS resource.
+	RdsHttpEndpointConfig *DataSourceRdsHttpEndpointConfig `pulumi:"rdsHttpEndpointConfig"`
+	// The type of relational data source.
+	RelationalDatabaseSourceType string `pulumi:"relationalDatabaseSourceType"`
+}
+
+// DataSourceRelationalDatabaseConfigInput is an input type that accepts DataSourceRelationalDatabaseConfigArgs and DataSourceRelationalDatabaseConfigOutput values.
+// You can construct a concrete instance of `DataSourceRelationalDatabaseConfigInput` via:
+//
+//	DataSourceRelationalDatabaseConfigArgs{...}
+type DataSourceRelationalDatabaseConfigInput interface {
+	pulumi.Input
+
+	ToDataSourceRelationalDatabaseConfigOutput() DataSourceRelationalDatabaseConfigOutput
+	ToDataSourceRelationalDatabaseConfigOutputWithContext(context.Context) DataSourceRelationalDatabaseConfigOutput
+}
+
+type DataSourceRelationalDatabaseConfigArgs struct {
+	// Information about the Amazon RDS resource.
+	RdsHttpEndpointConfig DataSourceRdsHttpEndpointConfigPtrInput `pulumi:"rdsHttpEndpointConfig"`
+	// The type of relational data source.
+	RelationalDatabaseSourceType pulumi.StringInput `pulumi:"relationalDatabaseSourceType"`
+}
+
+func (DataSourceRelationalDatabaseConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRelationalDatabaseConfig)(nil)).Elem()
+}
+
+func (i DataSourceRelationalDatabaseConfigArgs) ToDataSourceRelationalDatabaseConfigOutput() DataSourceRelationalDatabaseConfigOutput {
+	return i.ToDataSourceRelationalDatabaseConfigOutputWithContext(context.Background())
+}
+
+func (i DataSourceRelationalDatabaseConfigArgs) ToDataSourceRelationalDatabaseConfigOutputWithContext(ctx context.Context) DataSourceRelationalDatabaseConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalDatabaseConfigOutput)
+}
+
+func (i DataSourceRelationalDatabaseConfigArgs) ToDataSourceRelationalDatabaseConfigPtrOutput() DataSourceRelationalDatabaseConfigPtrOutput {
+	return i.ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceRelationalDatabaseConfigArgs) ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(ctx context.Context) DataSourceRelationalDatabaseConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalDatabaseConfigOutput).ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(ctx)
+}
+
+// DataSourceRelationalDatabaseConfigPtrInput is an input type that accepts DataSourceRelationalDatabaseConfigArgs, DataSourceRelationalDatabaseConfigPtr and DataSourceRelationalDatabaseConfigPtrOutput values.
+// You can construct a concrete instance of `DataSourceRelationalDatabaseConfigPtrInput` via:
+//
+//	        DataSourceRelationalDatabaseConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceRelationalDatabaseConfigPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceRelationalDatabaseConfigPtrOutput() DataSourceRelationalDatabaseConfigPtrOutput
+	ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(context.Context) DataSourceRelationalDatabaseConfigPtrOutput
+}
+
+type dataSourceRelationalDatabaseConfigPtrType DataSourceRelationalDatabaseConfigArgs
+
+func DataSourceRelationalDatabaseConfigPtr(v *DataSourceRelationalDatabaseConfigArgs) DataSourceRelationalDatabaseConfigPtrInput {
+	return (*dataSourceRelationalDatabaseConfigPtrType)(v)
+}
+
+func (*dataSourceRelationalDatabaseConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRelationalDatabaseConfig)(nil)).Elem()
+}
+
+func (i *dataSourceRelationalDatabaseConfigPtrType) ToDataSourceRelationalDatabaseConfigPtrOutput() DataSourceRelationalDatabaseConfigPtrOutput {
+	return i.ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceRelationalDatabaseConfigPtrType) ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(ctx context.Context) DataSourceRelationalDatabaseConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceRelationalDatabaseConfigPtrOutput)
+}
+
+type DataSourceRelationalDatabaseConfigOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRelationalDatabaseConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceRelationalDatabaseConfig)(nil)).Elem()
+}
+
+func (o DataSourceRelationalDatabaseConfigOutput) ToDataSourceRelationalDatabaseConfigOutput() DataSourceRelationalDatabaseConfigOutput {
+	return o
+}
+
+func (o DataSourceRelationalDatabaseConfigOutput) ToDataSourceRelationalDatabaseConfigOutputWithContext(ctx context.Context) DataSourceRelationalDatabaseConfigOutput {
+	return o
+}
+
+func (o DataSourceRelationalDatabaseConfigOutput) ToDataSourceRelationalDatabaseConfigPtrOutput() DataSourceRelationalDatabaseConfigPtrOutput {
+	return o.ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceRelationalDatabaseConfigOutput) ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(ctx context.Context) DataSourceRelationalDatabaseConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceRelationalDatabaseConfig) *DataSourceRelationalDatabaseConfig {
+		return &v
+	}).(DataSourceRelationalDatabaseConfigPtrOutput)
+}
+
+// Information about the Amazon RDS resource.
+func (o DataSourceRelationalDatabaseConfigOutput) RdsHttpEndpointConfig() DataSourceRdsHttpEndpointConfigPtrOutput {
+	return o.ApplyT(func(v DataSourceRelationalDatabaseConfig) *DataSourceRdsHttpEndpointConfig {
+		return v.RdsHttpEndpointConfig
+	}).(DataSourceRdsHttpEndpointConfigPtrOutput)
+}
+
+// The type of relational data source.
+func (o DataSourceRelationalDatabaseConfigOutput) RelationalDatabaseSourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceRelationalDatabaseConfig) string { return v.RelationalDatabaseSourceType }).(pulumi.StringOutput)
+}
+
+type DataSourceRelationalDatabaseConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceRelationalDatabaseConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceRelationalDatabaseConfig)(nil)).Elem()
+}
+
+func (o DataSourceRelationalDatabaseConfigPtrOutput) ToDataSourceRelationalDatabaseConfigPtrOutput() DataSourceRelationalDatabaseConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceRelationalDatabaseConfigPtrOutput) ToDataSourceRelationalDatabaseConfigPtrOutputWithContext(ctx context.Context) DataSourceRelationalDatabaseConfigPtrOutput {
+	return o
+}
+
+func (o DataSourceRelationalDatabaseConfigPtrOutput) Elem() DataSourceRelationalDatabaseConfigOutput {
+	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfig) DataSourceRelationalDatabaseConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceRelationalDatabaseConfig
+		return ret
+	}).(DataSourceRelationalDatabaseConfigOutput)
+}
+
+// Information about the Amazon RDS resource.
+func (o DataSourceRelationalDatabaseConfigPtrOutput) RdsHttpEndpointConfig() DataSourceRdsHttpEndpointConfigPtrOutput {
+	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfig) *DataSourceRdsHttpEndpointConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RdsHttpEndpointConfig
+	}).(DataSourceRdsHttpEndpointConfigPtrOutput)
+}
+
+// The type of relational data source.
+func (o DataSourceRelationalDatabaseConfigPtrOutput) RelationalDatabaseSourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceRelationalDatabaseConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RelationalDatabaseSourceType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
 type FunctionConfigurationAppSyncRuntime struct {
 	// The name of the runtime to use. Currently, the only allowed value is APPSYNC_JS.
@@ -1450,6 +3263,28 @@ func (o SourceApiAssociationConfigPtrOutput) MergeType() SourceApiAssociationCon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigPtrInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAwsIamConfigInput)(nil)).Elem(), DataSourceAwsIamConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAwsIamConfigPtrInput)(nil)).Elem(), DataSourceAwsIamConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDeltaSyncConfigInput)(nil)).Elem(), DataSourceDeltaSyncConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDeltaSyncConfigPtrInput)(nil)).Elem(), DataSourceDeltaSyncConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDynamoDbConfigInput)(nil)).Elem(), DataSourceDynamoDbConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDynamoDbConfigPtrInput)(nil)).Elem(), DataSourceDynamoDbConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceElasticsearchConfigInput)(nil)).Elem(), DataSourceElasticsearchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceElasticsearchConfigPtrInput)(nil)).Elem(), DataSourceElasticsearchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEventBridgeConfigInput)(nil)).Elem(), DataSourceEventBridgeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceEventBridgeConfigPtrInput)(nil)).Elem(), DataSourceEventBridgeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHttpConfigInput)(nil)).Elem(), DataSourceHttpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHttpConfigPtrInput)(nil)).Elem(), DataSourceHttpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceLambdaConfigInput)(nil)).Elem(), DataSourceLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceLambdaConfigPtrInput)(nil)).Elem(), DataSourceLambdaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOpenSearchServiceConfigInput)(nil)).Elem(), DataSourceOpenSearchServiceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOpenSearchServiceConfigPtrInput)(nil)).Elem(), DataSourceOpenSearchServiceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRdsHttpEndpointConfigInput)(nil)).Elem(), DataSourceRdsHttpEndpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRdsHttpEndpointConfigPtrInput)(nil)).Elem(), DataSourceRdsHttpEndpointConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalDatabaseConfigPtrInput)(nil)).Elem(), DataSourceRelationalDatabaseConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationAppSyncRuntimeInput)(nil)).Elem(), FunctionConfigurationAppSyncRuntimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationAppSyncRuntimePtrInput)(nil)).Elem(), FunctionConfigurationAppSyncRuntimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConfigurationLambdaConflictHandlerConfigInput)(nil)).Elem(), FunctionConfigurationLambdaConflictHandlerConfigArgs{})
@@ -1468,6 +3303,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigPtrInput)(nil)).Elem(), ResolverSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigInput)(nil)).Elem(), SourceApiAssociationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigPtrInput)(nil)).Elem(), SourceApiAssociationConfigArgs{})
+	pulumi.RegisterOutputType(DataSourceAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceAwsIamConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceAwsIamConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDeltaSyncConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceDeltaSyncConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceDynamoDbConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceDynamoDbConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceElasticsearchConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceElasticsearchConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceEventBridgeConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceEventBridgeConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceHttpConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceHttpConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceLambdaConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceLambdaConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceOpenSearchServiceConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceOpenSearchServiceConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRdsHttpEndpointConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceRdsHttpEndpointConfigPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigOutput{})
+	pulumi.RegisterOutputType(DataSourceRelationalDatabaseConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationAppSyncRuntimeOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationAppSyncRuntimePtrOutput{})
 	pulumi.RegisterOutputType(FunctionConfigurationLambdaConflictHandlerConfigOutput{})

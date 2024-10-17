@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class VpnConnectionPhase1EncryptionAlgorithmsRequestListValue
     {
+        /// <summary>
+        /// The value for the encryption algorithm.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue? Value;
 
         [OutputConstructor]

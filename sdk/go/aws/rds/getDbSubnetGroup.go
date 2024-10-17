@@ -39,6 +39,8 @@ type LookupDbSubnetGroupArgs struct {
 type LookupDbSubnetGroupResult struct {
 	// The description for the DB subnet group.
 	DbSubnetGroupDescription *string `pulumi:"dbSubnetGroupDescription"`
+	// The EC2 Subnet IDs for the DB subnet group.
+	SubnetIds []string `pulumi:"subnetIds"`
 	// Tags to assign to the DB subnet group.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -94,6 +96,11 @@ func (o LookupDbSubnetGroupResultOutput) ToLookupDbSubnetGroupResultOutputWithCo
 // The description for the DB subnet group.
 func (o LookupDbSubnetGroupResultOutput) DbSubnetGroupDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDbSubnetGroupResult) *string { return v.DbSubnetGroupDescription }).(pulumi.StringPtrOutput)
+}
+
+// The EC2 Subnet IDs for the DB subnet group.
+func (o LookupDbSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDbSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
 // Tags to assign to the DB subnet group.

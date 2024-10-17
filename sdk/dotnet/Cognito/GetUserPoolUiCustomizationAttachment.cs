@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolUiCustomizationAttachmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+        /// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
         /// </summary>
         [Input("clientId", required: true)]
         public string ClientId { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolUiCustomizationAttachmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+        /// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
         /// </summary>
         [Input("clientId", required: true)]
         public Input<string> ClientId { get; set; } = null!;

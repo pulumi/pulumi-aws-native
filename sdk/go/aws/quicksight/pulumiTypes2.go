@@ -6556,7 +6556,8 @@ type DataSetTransformOperation struct {
 	// An operation that creates calculated columns. Columns created in one such operation form a lexical closure.
 	CreateColumnsOperation *DataSetCreateColumnsOperation `pulumi:"createColumnsOperation"`
 	// An operation that filters rows based on some condition.
-	FilterOperation                   *DataSetFilterOperation                   `pulumi:"filterOperation"`
+	FilterOperation *DataSetFilterOperation `pulumi:"filterOperation"`
+	// A transform operation that overrides the dataset parameter values that are defined in another dataset.
 	OverrideDatasetParameterOperation *DataSetOverrideDatasetParameterOperation `pulumi:"overrideDatasetParameterOperation"`
 	// An operation that projects columns. Operations that come after a projection can only refer to projected columns.
 	ProjectOperation *DataSetProjectOperation `pulumi:"projectOperation"`
@@ -6587,7 +6588,8 @@ type DataSetTransformOperationArgs struct {
 	// An operation that creates calculated columns. Columns created in one such operation form a lexical closure.
 	CreateColumnsOperation DataSetCreateColumnsOperationPtrInput `pulumi:"createColumnsOperation"`
 	// An operation that filters rows based on some condition.
-	FilterOperation                   DataSetFilterOperationPtrInput                   `pulumi:"filterOperation"`
+	FilterOperation DataSetFilterOperationPtrInput `pulumi:"filterOperation"`
+	// A transform operation that overrides the dataset parameter values that are defined in another dataset.
 	OverrideDatasetParameterOperation DataSetOverrideDatasetParameterOperationPtrInput `pulumi:"overrideDatasetParameterOperation"`
 	// An operation that projects columns. Operations that come after a projection can only refer to projected columns.
 	ProjectOperation DataSetProjectOperationPtrInput `pulumi:"projectOperation"`
@@ -6667,6 +6669,7 @@ func (o DataSetTransformOperationOutput) FilterOperation() DataSetFilterOperatio
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetFilterOperation { return v.FilterOperation }).(DataSetFilterOperationPtrOutput)
 }
 
+// A transform operation that overrides the dataset parameter values that are defined in another dataset.
 func (o DataSetTransformOperationOutput) OverrideDatasetParameterOperation() DataSetOverrideDatasetParameterOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetOverrideDatasetParameterOperation {
 		return v.OverrideDatasetParameterOperation
@@ -36083,7 +36086,8 @@ type TemplateDestinationParameterValueConfiguration struct {
 	CustomValuesConfiguration *TemplateCustomValuesConfiguration `pulumi:"customValuesConfiguration"`
 	// The configuration that selects all options.
 	SelectAllValueOptions *TemplateSelectAllValueOptions `pulumi:"selectAllValueOptions"`
-	SourceColumn          *TemplateColumnIdentifier      `pulumi:"sourceColumn"`
+	// A column of a data set.
+	SourceColumn *TemplateColumnIdentifier `pulumi:"sourceColumn"`
 	// The source field ID of the destination parameter.
 	SourceField *string `pulumi:"sourceField"`
 	// The source parameter name of the destination parameter.
@@ -36106,7 +36110,8 @@ type TemplateDestinationParameterValueConfigurationArgs struct {
 	CustomValuesConfiguration TemplateCustomValuesConfigurationPtrInput `pulumi:"customValuesConfiguration"`
 	// The configuration that selects all options.
 	SelectAllValueOptions TemplateSelectAllValueOptionsPtrInput `pulumi:"selectAllValueOptions"`
-	SourceColumn          TemplateColumnIdentifierPtrInput      `pulumi:"sourceColumn"`
+	// A column of a data set.
+	SourceColumn TemplateColumnIdentifierPtrInput `pulumi:"sourceColumn"`
 	// The source field ID of the destination parameter.
 	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
 	// The source parameter name of the destination parameter.
@@ -36153,6 +36158,7 @@ func (o TemplateDestinationParameterValueConfigurationOutput) SelectAllValueOpti
 	}).(TemplateSelectAllValueOptionsPtrOutput)
 }
 
+// A column of a data set.
 func (o TemplateDestinationParameterValueConfigurationOutput) SourceColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v TemplateDestinationParameterValueConfiguration) *TemplateColumnIdentifier {
 		return v.SourceColumn

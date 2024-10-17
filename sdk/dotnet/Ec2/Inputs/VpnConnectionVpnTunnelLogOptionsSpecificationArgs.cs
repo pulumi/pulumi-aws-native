@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class VpnConnectionVpnTunnelLogOptionsSpecificationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Options for sending VPN tunnel logs to CloudWatch.
+        /// </summary>
         [Input("cloudwatchLogOptions")]
         public Input<Inputs.VpnConnectionCloudwatchLogOptionsSpecificationArgs>? CloudwatchLogOptions { get; set; }
 

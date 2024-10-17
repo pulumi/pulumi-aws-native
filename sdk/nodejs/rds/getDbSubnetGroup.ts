@@ -37,6 +37,10 @@ export interface GetDbSubnetGroupResult {
      */
     readonly dbSubnetGroupDescription?: string;
     /**
+     * The EC2 Subnet IDs for the DB subnet group.
+     */
+    readonly subnetIds?: string[];
+    /**
      * Tags to assign to the DB subnet group.
      */
     readonly tags?: outputs.Tag[];

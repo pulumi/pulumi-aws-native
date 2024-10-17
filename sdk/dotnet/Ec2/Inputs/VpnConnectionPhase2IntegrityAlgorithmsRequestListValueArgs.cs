@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The integrity algorithm.
+        /// </summary>
         [Input("value")]
         public Input<Pulumi.AwsNative.Ec2.VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue>? Value { get; set; }
 

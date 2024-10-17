@@ -104,8 +104,7 @@ type EventSourceMapping struct {
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp pulumi.Float64PtrOutput `pulumi:"startingPositionTimestamp"`
 	// A list of tags to add to the event source mapping.
-	//
-	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	//   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the Kafka topic.
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
@@ -239,8 +238,7 @@ type eventSourceMappingArgs struct {
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp *float64 `pulumi:"startingPositionTimestamp"`
 	// A list of tags to add to the event source mapping.
-	//
-	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	//   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the Kafka topic.
 	Topics []string `pulumi:"topics"`
@@ -324,8 +322,7 @@ type EventSourceMappingArgs struct {
 	// With ``StartingPosition`` set to ``AT_TIMESTAMP``, the time from which to start reading, in Unix time seconds. ``StartingPositionTimestamp`` cannot be in the future.
 	StartingPositionTimestamp pulumi.Float64PtrInput
 	// A list of tags to add to the event source mapping.
-	//
-	// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+	//   You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 	Tags aws.TagArrayInput
 	// The name of the Kafka topic.
 	Topics pulumi.StringArrayInput
@@ -538,7 +535,7 @@ func (o EventSourceMappingOutput) StartingPositionTimestamp() pulumi.Float64PtrO
 
 // A list of tags to add to the event source mapping.
 //
-// > You must have the `lambda:TagResource` , `lambda:UntagResource` , and `lambda:ListTags` permissions for your [IAM principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the AWS CloudFormation stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
+//	You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
 func (o EventSourceMappingOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EventSourceMapping) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

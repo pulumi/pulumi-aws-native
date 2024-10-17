@@ -18,9 +18,13 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
         /// 
-        /// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with their access token for 10 hours.
+        /// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with
+        /// their access token for 10 hours.
         /// 
-        /// The default time unit for `AccessTokenValidity` in an API request is hours.
+        /// The default time unit for `AccessTokenValidity` in an API request is hours. *Valid range* is displayed below in seconds.
+        /// 
+        /// If you don't specify otherwise in the configuration of your app client, your access
+        /// tokens are valid for one hour.
         /// </summary>
         [Output("accessTokenValidity")]
         public Output<int?> AccessTokenValidity { get; private set; } = null!;
@@ -165,7 +169,10 @@ namespace Pulumi.AwsNative.Cognito
         /// 
         /// For example, when you set `IdTokenValidity` as `10` and `TokenValidityUnits` as `hours` , your user can authenticate their session with their ID token for 10 hours.
         /// 
-        /// The default time unit for `IdTokenValidity` in an API request is hours.
+        /// The default time unit for `IdTokenValidity` in an API request is hours. *Valid range* is displayed below in seconds.
+        /// 
+        /// If you don't specify otherwise in the configuration of your app client, your ID
+        /// tokens are valid for one hour.
         /// </summary>
         [Output("idTokenValidity")]
         public Output<int?> IdTokenValidity { get; private set; } = null!;
@@ -180,7 +187,14 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        /// Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to `ENABLED` and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs return a `UserNotFoundException` exception if the user doesn't exist in the user pool.
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `ENABLED` - This prevents user existence-related errors.
+        /// - `LEGACY` - This represents the early behavior of Amazon Cognito where user existence related errors aren't prevented.
+        /// 
+        /// Defaults to `LEGACY` when you don't provide a value.
         /// </summary>
         [Output("preventUserExistenceErrors")]
         public Output<string?> PreventUserExistenceErrors { get; private set; } = null!;
@@ -196,9 +210,13 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
         /// 
-        /// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session and retrieve new access and ID tokens for 10 days.
+        /// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
+        /// and retrieve new access and ID tokens for 10 days.
         /// 
-        /// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days.
+        /// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. *Valid range* is displayed below in seconds.
+        /// 
+        /// If you don't specify otherwise in the configuration of your app client, your refresh
+        /// tokens are valid for 30 days.
         /// </summary>
         [Output("refreshTokenValidity")]
         public Output<int?> RefreshTokenValidity { get; private set; } = null!;
@@ -284,9 +302,13 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
         /// 
-        /// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with their access token for 10 hours.
+        /// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with
+        /// their access token for 10 hours.
         /// 
-        /// The default time unit for `AccessTokenValidity` in an API request is hours.
+        /// The default time unit for `AccessTokenValidity` in an API request is hours. *Valid range* is displayed below in seconds.
+        /// 
+        /// If you don't specify otherwise in the configuration of your app client, your access
+        /// tokens are valid for one hour.
         /// </summary>
         [Input("accessTokenValidity")]
         public Input<int>? AccessTokenValidity { get; set; }
@@ -446,7 +468,10 @@ namespace Pulumi.AwsNative.Cognito
         /// 
         /// For example, when you set `IdTokenValidity` as `10` and `TokenValidityUnits` as `hours` , your user can authenticate their session with their ID token for 10 hours.
         /// 
-        /// The default time unit for `IdTokenValidity` in an API request is hours.
+        /// The default time unit for `IdTokenValidity` in an API request is hours. *Valid range* is displayed below in seconds.
+        /// 
+        /// If you don't specify otherwise in the configuration of your app client, your ID
+        /// tokens are valid for one hour.
         /// </summary>
         [Input("idTokenValidity")]
         public Input<int>? IdTokenValidity { get; set; }
@@ -464,7 +489,14 @@ namespace Pulumi.AwsNative.Cognito
         }
 
         /// <summary>
-        /// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+        /// Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to `ENABLED` and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs return a `UserNotFoundException` exception if the user doesn't exist in the user pool.
+        /// 
+        /// Valid values include:
+        /// 
+        /// - `ENABLED` - This prevents user existence-related errors.
+        /// - `LEGACY` - This represents the early behavior of Amazon Cognito where user existence related errors aren't prevented.
+        /// 
+        /// Defaults to `LEGACY` when you don't provide a value.
         /// </summary>
         [Input("preventUserExistenceErrors")]
         public Input<string>? PreventUserExistenceErrors { get; set; }
@@ -486,9 +518,13 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
         /// 
-        /// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session and retrieve new access and ID tokens for 10 days.
+        /// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
+        /// and retrieve new access and ID tokens for 10 days.
         /// 
-        /// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days.
+        /// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. *Valid range* is displayed below in seconds.
+        /// 
+        /// If you don't specify otherwise in the configuration of your app client, your refresh
+        /// tokens are valid for 30 days.
         /// </summary>
         [Input("refreshTokenValidity")]
         public Input<int>? RefreshTokenValidity { get; set; }

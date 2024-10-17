@@ -17,7 +17,8 @@ type Folder struct {
 	pulumi.CustomResourceState
 
 	// <p>The Amazon Resource Name (ARN) for the folder.</p>
-	Arn          pulumi.StringOutput    `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID for the AWS account where you want to create the folder.
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// <p>The time that the folder was created.</p>
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -29,9 +30,12 @@ type Folder struct {
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// A display name for the folder.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
-	ParentFolderArn pulumi.StringPtrOutput              `pulumi:"parentFolderArn"`
-	Permissions     FolderResourcePermissionArrayOutput `pulumi:"permissions"`
+	// The Amazon Resource Name (ARN) for the folder.
+	ParentFolderArn pulumi.StringPtrOutput `pulumi:"parentFolderArn"`
+	// A structure that describes the principals and the resource-level permissions of a folder.
+	//
+	// To specify no permissions, omit `Permissions` .
+	Permissions FolderResourcePermissionArrayOutput `pulumi:"permissions"`
 	// The sharing scope of the folder.
 	SharingModel FolderSharingModelPtrOutput `pulumi:"sharingModel"`
 	// A list of tags for the folders that you want to apply overrides to.
@@ -86,6 +90,7 @@ func (FolderState) ElementType() reflect.Type {
 }
 
 type folderArgs struct {
+	// The ID for the AWS account where you want to create the folder.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the folder.
 	FolderId *string `pulumi:"folderId"`
@@ -93,9 +98,12 @@ type folderArgs struct {
 	FolderType *FolderType `pulumi:"folderType"`
 	// A display name for the folder.
 	Name *string `pulumi:"name"`
-	// A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
-	ParentFolderArn *string                    `pulumi:"parentFolderArn"`
-	Permissions     []FolderResourcePermission `pulumi:"permissions"`
+	// The Amazon Resource Name (ARN) for the folder.
+	ParentFolderArn *string `pulumi:"parentFolderArn"`
+	// A structure that describes the principals and the resource-level permissions of a folder.
+	//
+	// To specify no permissions, omit `Permissions` .
+	Permissions []FolderResourcePermission `pulumi:"permissions"`
 	// The sharing scope of the folder.
 	SharingModel *FolderSharingModel `pulumi:"sharingModel"`
 	// A list of tags for the folders that you want to apply overrides to.
@@ -104,6 +112,7 @@ type folderArgs struct {
 
 // The set of arguments for constructing a Folder resource.
 type FolderArgs struct {
+	// The ID for the AWS account where you want to create the folder.
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the folder.
 	FolderId pulumi.StringPtrInput
@@ -111,9 +120,12 @@ type FolderArgs struct {
 	FolderType FolderTypePtrInput
 	// A display name for the folder.
 	Name pulumi.StringPtrInput
-	// A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+	// The Amazon Resource Name (ARN) for the folder.
 	ParentFolderArn pulumi.StringPtrInput
-	Permissions     FolderResourcePermissionArrayInput
+	// A structure that describes the principals and the resource-level permissions of a folder.
+	//
+	// To specify no permissions, omit `Permissions` .
+	Permissions FolderResourcePermissionArrayInput
 	// The sharing scope of the folder.
 	SharingModel FolderSharingModelPtrInput
 	// A list of tags for the folders that you want to apply overrides to.
@@ -162,6 +174,7 @@ func (o FolderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID for the AWS account where you want to create the folder.
 func (o FolderOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
@@ -191,11 +204,14 @@ func (o FolderOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+// The Amazon Resource Name (ARN) for the folder.
 func (o FolderOutput) ParentFolderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringPtrOutput { return v.ParentFolderArn }).(pulumi.StringPtrOutput)
 }
 
+// A structure that describes the principals and the resource-level permissions of a folder.
+//
+// To specify no permissions, omit `Permissions` .
 func (o FolderOutput) Permissions() FolderResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Folder) FolderResourcePermissionArrayOutput { return v.Permissions }).(FolderResourcePermissionArrayOutput)
 }

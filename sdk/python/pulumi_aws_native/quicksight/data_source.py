@@ -31,6 +31,7 @@ class DataSourceArgs:
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  data_source_parameters: Optional[pulumi.Input['DataSourceParametersArgs']] = None,
                  error_info: Optional[pulumi.Input['DataSourceErrorInfoArgs']] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceResourcePermissionArgs']]]] = None,
                  ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
@@ -74,6 +75,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "data_source_parameters", data_source_parameters)
         if error_info is not None:
             pulumi.set(__self__, "error_info", error_info)
+        if folder_arns is not None:
+            pulumi.set(__self__, "folder_arns", folder_arns)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if permissions is not None:
@@ -180,6 +183,15 @@ class DataSourceArgs:
         pulumi.set(self, "error_info", value)
 
     @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "folder_arns")
+
+    @folder_arns.setter
+    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "folder_arns", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -251,6 +263,7 @@ class DataSource(pulumi.CustomResource):
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  data_source_parameters: Optional[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
                  error_info: Optional[pulumi.Input[Union['DataSourceErrorInfoArgs', 'DataSourceErrorInfoArgsDict']]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceResourcePermissionArgs', 'DataSourceResourcePermissionArgsDict']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
@@ -316,6 +329,7 @@ class DataSource(pulumi.CustomResource):
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  data_source_parameters: Optional[pulumi.Input[Union['DataSourceParametersArgs', 'DataSourceParametersArgsDict']]] = None,
                  error_info: Optional[pulumi.Input[Union['DataSourceErrorInfoArgs', 'DataSourceErrorInfoArgsDict']]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceResourcePermissionArgs', 'DataSourceResourcePermissionArgsDict']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[Union['DataSourceSslPropertiesArgs', 'DataSourceSslPropertiesArgsDict']]] = None,
@@ -337,6 +351,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["data_source_id"] = data_source_id
             __props__.__dict__["data_source_parameters"] = data_source_parameters
             __props__.__dict__["error_info"] = error_info
+            __props__.__dict__["folder_arns"] = folder_arns
             __props__.__dict__["name"] = name
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["ssl_properties"] = ssl_properties
@@ -381,6 +396,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["data_source_id"] = None
         __props__.__dict__["data_source_parameters"] = None
         __props__.__dict__["error_info"] = None
+        __props__.__dict__["folder_arns"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["permissions"] = None
@@ -462,6 +478,11 @@ class DataSource(pulumi.CustomResource):
         Error information from the last update or the creation of the data source.
         """
         return pulumi.get(self, "error_info")
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "folder_arns")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")

@@ -33,6 +33,14 @@ type LookupContainerGroupDefinitionResult struct {
 	ContainerGroupDefinitionArn *string `pulumi:"containerGroupDefinitionArn"`
 	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 	CreationTime *string `pulumi:"creationTime"`
+	// A specific ContainerGroupDefinition version to be updated
+	SourceVersionNumber *int `pulumi:"sourceVersionNumber"`
+	// A string indicating ContainerGroupDefinition status.
+	Status *ContainerGroupDefinitionStatus `pulumi:"status"`
+	// A string indicating the reason for ContainerGroupDefinition status.
+	StatusReason *string `pulumi:"statusReason"`
+	// A collection of support container definitions that define the containers in this group.
+	SupportContainerDefinitions []interface{} `pulumi:"supportContainerDefinitions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -87,6 +95,26 @@ func (o LookupContainerGroupDefinitionResultOutput) ContainerGroupDefinitionArn(
 // A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 func (o LookupContainerGroupDefinitionResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// A specific ContainerGroupDefinition version to be updated
+func (o LookupContainerGroupDefinitionResultOutput) SourceVersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *int { return v.SourceVersionNumber }).(pulumi.IntPtrOutput)
+}
+
+// A string indicating ContainerGroupDefinition status.
+func (o LookupContainerGroupDefinitionResultOutput) Status() ContainerGroupDefinitionStatusPtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *ContainerGroupDefinitionStatus { return v.Status }).(ContainerGroupDefinitionStatusPtrOutput)
+}
+
+// A string indicating the reason for ContainerGroupDefinition status.
+func (o LookupContainerGroupDefinitionResultOutput) StatusReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
+}
+
+// A collection of support container definitions that define the containers in this group.
+func (o LookupContainerGroupDefinitionResultOutput) SupportContainerDefinitions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) []interface{} { return v.SupportContainerDefinitions }).(pulumi.ArrayOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

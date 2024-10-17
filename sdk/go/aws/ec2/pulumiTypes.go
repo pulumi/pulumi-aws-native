@@ -30722,8 +30722,15 @@ type VpcTag struct {
 }
 
 type VpnConnectionCloudwatchLogOptionsSpecification struct {
-	LogEnabled      *bool                                                          `pulumi:"logEnabled"`
-	LogGroupArn     *string                                                        `pulumi:"logGroupArn"`
+	// Enable or disable VPN tunnel logging feature. Default value is `False` .
+	//
+	// Valid values: `True` | `False`
+	LogEnabled *bool `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn *string `pulumi:"logGroupArn"`
+	// Set log format. Default format is `json` .
+	//
+	// Valid values: `json` | `text`
 	LogOutputFormat *VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat `pulumi:"logOutputFormat"`
 }
 
@@ -30739,8 +30746,15 @@ type VpnConnectionCloudwatchLogOptionsSpecificationInput interface {
 }
 
 type VpnConnectionCloudwatchLogOptionsSpecificationArgs struct {
-	LogEnabled      pulumi.BoolPtrInput                                                   `pulumi:"logEnabled"`
-	LogGroupArn     pulumi.StringPtrInput                                                 `pulumi:"logGroupArn"`
+	// Enable or disable VPN tunnel logging feature. Default value is `False` .
+	//
+	// Valid values: `True` | `False`
+	LogEnabled pulumi.BoolPtrInput `pulumi:"logEnabled"`
+	// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+	LogGroupArn pulumi.StringPtrInput `pulumi:"logGroupArn"`
+	// Set log format. Default format is `json` .
+	//
+	// Valid values: `json` | `text`
 	LogOutputFormat VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrInput `pulumi:"logOutputFormat"`
 }
 
@@ -30821,14 +30835,21 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) ToVpnConnectionClo
 	}).(VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput)
 }
 
+// Enable or disable VPN tunnel logging feature. Default value is `False` .
+//
+// Valid values: `True` | `False`
 func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) LogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *bool { return v.LogEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
 func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *string { return v.LogGroupArn }).(pulumi.StringPtrOutput)
 }
 
+// Set log format. Default format is `json` .
+//
+// Valid values: `json` | `text`
 func (o VpnConnectionCloudwatchLogOptionsSpecificationOutput) LogOutputFormat() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
 	return o.ApplyT(func(v VpnConnectionCloudwatchLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat {
 		return v.LogOutputFormat
@@ -30859,6 +30880,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) Elem() VpnConne
 	}).(VpnConnectionCloudwatchLogOptionsSpecificationOutput)
 }
 
+// Enable or disable VPN tunnel logging feature. Default value is `False` .
+//
+// Valid values: `True` | `False`
 func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) LogEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *bool {
 		if v == nil {
@@ -30868,6 +30892,7 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) LogEnabled() pu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
 func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *string {
 		if v == nil {
@@ -30877,6 +30902,9 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) LogGroupArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set log format. Default format is `json` .
+//
+// Valid values: `json` | `text`
 func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) LogOutputFormat() VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionCloudwatchLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat {
 		if v == nil {
@@ -30887,6 +30915,7 @@ func (o VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput) LogOutputFormat
 }
 
 type VpnConnectionIkeVersionsRequestListValue struct {
+	// The IKE version.
 	Value *VpnConnectionIkeVersionsRequestListValueValue `pulumi:"value"`
 }
 
@@ -30902,6 +30931,7 @@ type VpnConnectionIkeVersionsRequestListValueInput interface {
 }
 
 type VpnConnectionIkeVersionsRequestListValueArgs struct {
+	// The IKE version.
 	Value VpnConnectionIkeVersionsRequestListValueValuePtrInput `pulumi:"value"`
 }
 
@@ -30956,6 +30986,7 @@ func (o VpnConnectionIkeVersionsRequestListValueOutput) ToVpnConnectionIkeVersio
 	return o
 }
 
+// The IKE version.
 func (o VpnConnectionIkeVersionsRequestListValueOutput) Value() VpnConnectionIkeVersionsRequestListValueValuePtrOutput {
 	return o.ApplyT(func(v VpnConnectionIkeVersionsRequestListValue) *VpnConnectionIkeVersionsRequestListValueValue {
 		return v.Value
@@ -30983,6 +31014,7 @@ func (o VpnConnectionIkeVersionsRequestListValueArrayOutput) Index(i pulumi.IntI
 }
 
 type VpnConnectionPhase1EncryptionAlgorithmsRequestListValue struct {
+	// The value for the encryption algorithm.
 	Value *VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue `pulumi:"value"`
 }
 
@@ -30998,6 +31030,7 @@ type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueInput interface {
 }
 
 type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs struct {
+	// The value for the encryption algorithm.
 	Value VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrInput `pulumi:"value"`
 }
 
@@ -31052,6 +31085,7 @@ func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueOutput) ToVpnConn
 	return o
 }
 
+// The value for the encryption algorithm.
 func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueOutput) Value() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput {
 	return o.ApplyT(func(v VpnConnectionPhase1EncryptionAlgorithmsRequestListValue) *VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue {
 		return v.Value
@@ -31079,6 +31113,7 @@ func (o VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArrayOutput) Inde
 }
 
 type VpnConnectionPhase1IntegrityAlgorithmsRequestListValue struct {
+	// The value for the integrity algorithm.
 	Value *VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue `pulumi:"value"`
 }
 
@@ -31094,6 +31129,7 @@ type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueInput interface {
 }
 
 type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs struct {
+	// The value for the integrity algorithm.
 	Value VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrInput `pulumi:"value"`
 }
 
@@ -31148,6 +31184,7 @@ func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueOutput) ToVpnConne
 	return o
 }
 
+// The value for the integrity algorithm.
 func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueOutput) Value() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput {
 	return o.ApplyT(func(v VpnConnectionPhase1IntegrityAlgorithmsRequestListValue) *VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue {
 		return v.Value
@@ -31175,6 +31212,7 @@ func (o VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArrayOutput) Index
 }
 
 type VpnConnectionPhase1dhGroupNumbersRequestListValue struct {
+	// The Diffie-Hellmann group number.
 	Value *int `pulumi:"value"`
 }
 
@@ -31190,6 +31228,7 @@ type VpnConnectionPhase1dhGroupNumbersRequestListValueInput interface {
 }
 
 type VpnConnectionPhase1dhGroupNumbersRequestListValueArgs struct {
+	// The Diffie-Hellmann group number.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -31244,6 +31283,7 @@ func (o VpnConnectionPhase1dhGroupNumbersRequestListValueOutput) ToVpnConnection
 	return o
 }
 
+// The Diffie-Hellmann group number.
 func (o VpnConnectionPhase1dhGroupNumbersRequestListValueOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionPhase1dhGroupNumbersRequestListValue) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -31269,6 +31309,7 @@ func (o VpnConnectionPhase1dhGroupNumbersRequestListValueArrayOutput) Index(i pu
 }
 
 type VpnConnectionPhase2EncryptionAlgorithmsRequestListValue struct {
+	// The encryption algorithm.
 	Value *VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue `pulumi:"value"`
 }
 
@@ -31284,6 +31325,7 @@ type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueInput interface {
 }
 
 type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs struct {
+	// The encryption algorithm.
 	Value VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrInput `pulumi:"value"`
 }
 
@@ -31338,6 +31380,7 @@ func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueOutput) ToVpnConn
 	return o
 }
 
+// The encryption algorithm.
 func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueOutput) Value() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput {
 	return o.ApplyT(func(v VpnConnectionPhase2EncryptionAlgorithmsRequestListValue) *VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue {
 		return v.Value
@@ -31365,6 +31408,7 @@ func (o VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArrayOutput) Inde
 }
 
 type VpnConnectionPhase2IntegrityAlgorithmsRequestListValue struct {
+	// The integrity algorithm.
 	Value *VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue `pulumi:"value"`
 }
 
@@ -31380,6 +31424,7 @@ type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueInput interface {
 }
 
 type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs struct {
+	// The integrity algorithm.
 	Value VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrInput `pulumi:"value"`
 }
 
@@ -31434,6 +31479,7 @@ func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueOutput) ToVpnConne
 	return o
 }
 
+// The integrity algorithm.
 func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueOutput) Value() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput {
 	return o.ApplyT(func(v VpnConnectionPhase2IntegrityAlgorithmsRequestListValue) *VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue {
 		return v.Value
@@ -31461,6 +31507,7 @@ func (o VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArrayOutput) Index
 }
 
 type VpnConnectionPhase2dhGroupNumbersRequestListValue struct {
+	// The Diffie-Hellmann group number.
 	Value *int `pulumi:"value"`
 }
 
@@ -31476,6 +31523,7 @@ type VpnConnectionPhase2dhGroupNumbersRequestListValueInput interface {
 }
 
 type VpnConnectionPhase2dhGroupNumbersRequestListValueArgs struct {
+	// The Diffie-Hellmann group number.
 	Value pulumi.IntPtrInput `pulumi:"value"`
 }
 
@@ -31530,6 +31578,7 @@ func (o VpnConnectionPhase2dhGroupNumbersRequestListValueOutput) ToVpnConnection
 	return o
 }
 
+// The Diffie-Hellmann group number.
 func (o VpnConnectionPhase2dhGroupNumbersRequestListValueOutput) Value() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionPhase2dhGroupNumbersRequestListValue) *int { return v.Value }).(pulumi.IntPtrOutput)
 }
@@ -31563,6 +31612,7 @@ type VpnConnectionTag struct {
 }
 
 type VpnConnectionVpnTunnelLogOptionsSpecification struct {
+	// Options for sending VPN tunnel logs to CloudWatch.
 	CloudwatchLogOptions *VpnConnectionCloudwatchLogOptionsSpecification `pulumi:"cloudwatchLogOptions"`
 }
 
@@ -31578,6 +31628,7 @@ type VpnConnectionVpnTunnelLogOptionsSpecificationInput interface {
 }
 
 type VpnConnectionVpnTunnelLogOptionsSpecificationArgs struct {
+	// Options for sending VPN tunnel logs to CloudWatch.
 	CloudwatchLogOptions VpnConnectionCloudwatchLogOptionsSpecificationPtrInput `pulumi:"cloudwatchLogOptions"`
 }
 
@@ -31658,6 +31709,7 @@ func (o VpnConnectionVpnTunnelLogOptionsSpecificationOutput) ToVpnConnectionVpnT
 	}).(VpnConnectionVpnTunnelLogOptionsSpecificationPtrOutput)
 }
 
+// Options for sending VPN tunnel logs to CloudWatch.
 func (o VpnConnectionVpnTunnelLogOptionsSpecificationOutput) CloudwatchLogOptions() VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecification {
 		return v.CloudwatchLogOptions
@@ -31688,6 +31740,7 @@ func (o VpnConnectionVpnTunnelLogOptionsSpecificationPtrOutput) Elem() VpnConnec
 	}).(VpnConnectionVpnTunnelLogOptionsSpecificationOutput)
 }
 
+// Options for sending VPN tunnel logs to CloudWatch.
 func (o VpnConnectionVpnTunnelLogOptionsSpecificationPtrOutput) CloudwatchLogOptions() VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput {
 	return o.ApplyT(func(v *VpnConnectionVpnTunnelLogOptionsSpecification) *VpnConnectionCloudwatchLogOptionsSpecification {
 		if v == nil {
@@ -31699,26 +31752,89 @@ func (o VpnConnectionVpnTunnelLogOptionsSpecificationPtrOutput) CloudwatchLogOpt
 
 // The tunnel options for a single VPN tunnel.
 type VpnConnectionVpnTunnelOptionsSpecification struct {
-	DpdTimeoutAction             *VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction `pulumi:"dpdTimeoutAction"`
-	DpdTimeoutSeconds            *int                                                        `pulumi:"dpdTimeoutSeconds"`
-	EnableTunnelLifecycleControl *bool                                                       `pulumi:"enableTunnelLifecycleControl"`
-	IkeVersions                  []VpnConnectionIkeVersionsRequestListValue                  `pulumi:"ikeVersions"`
-	LogOptions                   *VpnConnectionVpnTunnelLogOptionsSpecification              `pulumi:"logOptions"`
-	Phase1EncryptionAlgorithms   []VpnConnectionPhase1EncryptionAlgorithmsRequestListValue   `pulumi:"phase1EncryptionAlgorithms"`
-	Phase1IntegrityAlgorithms    []VpnConnectionPhase1IntegrityAlgorithmsRequestListValue    `pulumi:"phase1IntegrityAlgorithms"`
-	Phase1LifetimeSeconds        *int                                                        `pulumi:"phase1LifetimeSeconds"`
-	Phase1dhGroupNumbers         []VpnConnectionPhase1dhGroupNumbersRequestListValue         `pulumi:"phase1dhGroupNumbers"`
-	Phase2EncryptionAlgorithms   []VpnConnectionPhase2EncryptionAlgorithmsRequestListValue   `pulumi:"phase2EncryptionAlgorithms"`
-	Phase2IntegrityAlgorithms    []VpnConnectionPhase2IntegrityAlgorithmsRequestListValue    `pulumi:"phase2IntegrityAlgorithms"`
-	Phase2LifetimeSeconds        *int                                                        `pulumi:"phase2LifetimeSeconds"`
-	Phase2dhGroupNumbers         []VpnConnectionPhase2dhGroupNumbersRequestListValue         `pulumi:"phase2dhGroupNumbers"`
+	// The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
+	//
+	// Valid Values: `clear` | `none` | `restart`
+	//
+	// Default: `clear`
+	DpdTimeoutAction *VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction `pulumi:"dpdTimeoutAction"`
+	// The number of seconds after which a DPD timeout occurs.
+	//
+	// Constraints: A value greater than or equal to 30.
+	//
+	// Default: `30`
+	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
+	// Turn on or off tunnel endpoint lifecycle control feature.
+	EnableTunnelLifecycleControl *bool `pulumi:"enableTunnelLifecycleControl"`
+	// The IKE versions that are permitted for the VPN tunnel.
+	//
+	// Valid values: `ikev1` | `ikev2`
+	IkeVersions []VpnConnectionIkeVersionsRequestListValue `pulumi:"ikeVersions"`
+	// Options for logging VPN tunnel activity.
+	LogOptions *VpnConnectionVpnTunnelLogOptionsSpecification `pulumi:"logOptions"`
+	// One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+	//
+	// Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+	Phase1EncryptionAlgorithms []VpnConnectionPhase1EncryptionAlgorithmsRequestListValue `pulumi:"phase1EncryptionAlgorithms"`
+	// One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+	//
+	// Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+	Phase1IntegrityAlgorithms []VpnConnectionPhase1IntegrityAlgorithmsRequestListValue `pulumi:"phase1IntegrityAlgorithms"`
+	// The lifetime for phase 1 of the IKE negotiation, in seconds.
+	//
+	// Constraints: A value between 900 and 28,800.
+	//
+	// Default: `28800`
+	Phase1LifetimeSeconds *int `pulumi:"phase1LifetimeSeconds"`
+	// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+	//
+	// Valid values: `2` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+	Phase1dhGroupNumbers []VpnConnectionPhase1dhGroupNumbersRequestListValue `pulumi:"phase1dhGroupNumbers"`
+	// One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+	//
+	// Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+	Phase2EncryptionAlgorithms []VpnConnectionPhase2EncryptionAlgorithmsRequestListValue `pulumi:"phase2EncryptionAlgorithms"`
+	// One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+	//
+	// Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+	Phase2IntegrityAlgorithms []VpnConnectionPhase2IntegrityAlgorithmsRequestListValue `pulumi:"phase2IntegrityAlgorithms"`
+	// The lifetime for phase 2 of the IKE negotiation, in seconds.
+	//
+	// Constraints: A value between 900 and 3,600. The value must be less than the value for `Phase1LifetimeSeconds` .
+	//
+	// Default: `3600`
+	Phase2LifetimeSeconds *int `pulumi:"phase2LifetimeSeconds"`
+	// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+	//
+	// Valid values: `2` | `5` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+	Phase2dhGroupNumbers []VpnConnectionPhase2dhGroupNumbersRequestListValue `pulumi:"phase2dhGroupNumbers"`
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
 	//  Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
-	PreSharedKey           *string                                                  `pulumi:"preSharedKey"`
-	RekeyFuzzPercentage    *int                                                     `pulumi:"rekeyFuzzPercentage"`
-	RekeyMarginTimeSeconds *int                                                     `pulumi:"rekeyMarginTimeSeconds"`
-	ReplayWindowSize       *int                                                     `pulumi:"replayWindowSize"`
-	StartupAction          *VpnConnectionVpnTunnelOptionsSpecificationStartupAction `pulumi:"startupAction"`
+	PreSharedKey *string `pulumi:"preSharedKey"`
+	// The percentage of the rekey window (determined by `RekeyMarginTimeSeconds` ) during which the rekey time is randomly selected.
+	//
+	// Constraints: A value between 0 and 100.
+	//
+	// Default: `100`
+	RekeyFuzzPercentage *int `pulumi:"rekeyFuzzPercentage"`
+	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `RekeyFuzzPercentage` .
+	//
+	// Constraints: A value between 60 and half of `Phase2LifetimeSeconds` .
+	//
+	// Default: `270`
+	RekeyMarginTimeSeconds *int `pulumi:"rekeyMarginTimeSeconds"`
+	// The number of packets in an IKE replay window.
+	//
+	// Constraints: A value between 64 and 2048.
+	//
+	// Default: `1024`
+	ReplayWindowSize *int `pulumi:"replayWindowSize"`
+	// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
+	//
+	// Valid Values: `add` | `start`
+	//
+	// Default: `add`
+	StartupAction *VpnConnectionVpnTunnelOptionsSpecificationStartupAction `pulumi:"startupAction"`
 	// The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
 	//  Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
 	//   +   ``169.254.0.0/30``
@@ -31728,7 +31844,10 @@ type VpnConnectionVpnTunnelOptionsSpecification struct {
 	//   +   ``169.254.4.0/30``
 	//   +   ``169.254.5.0/30``
 	//   +   ``169.254.169.252/30``
-	TunnelInsideCidr     *string `pulumi:"tunnelInsideCidr"`
+	TunnelInsideCidr *string `pulumi:"tunnelInsideCidr"`
+	// The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
+	//
+	// Constraints: A size /126 CIDR block from the local `fd00::/8` range.
 	TunnelInsideIpv6Cidr *string `pulumi:"tunnelInsideIpv6Cidr"`
 }
 
@@ -31745,26 +31864,89 @@ type VpnConnectionVpnTunnelOptionsSpecificationInput interface {
 
 // The tunnel options for a single VPN tunnel.
 type VpnConnectionVpnTunnelOptionsSpecificationArgs struct {
-	DpdTimeoutAction             VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput `pulumi:"dpdTimeoutAction"`
-	DpdTimeoutSeconds            pulumi.IntPtrInput                                                 `pulumi:"dpdTimeoutSeconds"`
-	EnableTunnelLifecycleControl pulumi.BoolPtrInput                                                `pulumi:"enableTunnelLifecycleControl"`
-	IkeVersions                  VpnConnectionIkeVersionsRequestListValueArrayInput                 `pulumi:"ikeVersions"`
-	LogOptions                   VpnConnectionVpnTunnelLogOptionsSpecificationPtrInput              `pulumi:"logOptions"`
-	Phase1EncryptionAlgorithms   VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArrayInput  `pulumi:"phase1EncryptionAlgorithms"`
-	Phase1IntegrityAlgorithms    VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArrayInput   `pulumi:"phase1IntegrityAlgorithms"`
-	Phase1LifetimeSeconds        pulumi.IntPtrInput                                                 `pulumi:"phase1LifetimeSeconds"`
-	Phase1dhGroupNumbers         VpnConnectionPhase1dhGroupNumbersRequestListValueArrayInput        `pulumi:"phase1dhGroupNumbers"`
-	Phase2EncryptionAlgorithms   VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArrayInput  `pulumi:"phase2EncryptionAlgorithms"`
-	Phase2IntegrityAlgorithms    VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArrayInput   `pulumi:"phase2IntegrityAlgorithms"`
-	Phase2LifetimeSeconds        pulumi.IntPtrInput                                                 `pulumi:"phase2LifetimeSeconds"`
-	Phase2dhGroupNumbers         VpnConnectionPhase2dhGroupNumbersRequestListValueArrayInput        `pulumi:"phase2dhGroupNumbers"`
+	// The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
+	//
+	// Valid Values: `clear` | `none` | `restart`
+	//
+	// Default: `clear`
+	DpdTimeoutAction VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput `pulumi:"dpdTimeoutAction"`
+	// The number of seconds after which a DPD timeout occurs.
+	//
+	// Constraints: A value greater than or equal to 30.
+	//
+	// Default: `30`
+	DpdTimeoutSeconds pulumi.IntPtrInput `pulumi:"dpdTimeoutSeconds"`
+	// Turn on or off tunnel endpoint lifecycle control feature.
+	EnableTunnelLifecycleControl pulumi.BoolPtrInput `pulumi:"enableTunnelLifecycleControl"`
+	// The IKE versions that are permitted for the VPN tunnel.
+	//
+	// Valid values: `ikev1` | `ikev2`
+	IkeVersions VpnConnectionIkeVersionsRequestListValueArrayInput `pulumi:"ikeVersions"`
+	// Options for logging VPN tunnel activity.
+	LogOptions VpnConnectionVpnTunnelLogOptionsSpecificationPtrInput `pulumi:"logOptions"`
+	// One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+	//
+	// Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+	Phase1EncryptionAlgorithms VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArrayInput `pulumi:"phase1EncryptionAlgorithms"`
+	// One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+	//
+	// Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+	Phase1IntegrityAlgorithms VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArrayInput `pulumi:"phase1IntegrityAlgorithms"`
+	// The lifetime for phase 1 of the IKE negotiation, in seconds.
+	//
+	// Constraints: A value between 900 and 28,800.
+	//
+	// Default: `28800`
+	Phase1LifetimeSeconds pulumi.IntPtrInput `pulumi:"phase1LifetimeSeconds"`
+	// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+	//
+	// Valid values: `2` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+	Phase1dhGroupNumbers VpnConnectionPhase1dhGroupNumbersRequestListValueArrayInput `pulumi:"phase1dhGroupNumbers"`
+	// One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+	//
+	// Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+	Phase2EncryptionAlgorithms VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArrayInput `pulumi:"phase2EncryptionAlgorithms"`
+	// One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+	//
+	// Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+	Phase2IntegrityAlgorithms VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArrayInput `pulumi:"phase2IntegrityAlgorithms"`
+	// The lifetime for phase 2 of the IKE negotiation, in seconds.
+	//
+	// Constraints: A value between 900 and 3,600. The value must be less than the value for `Phase1LifetimeSeconds` .
+	//
+	// Default: `3600`
+	Phase2LifetimeSeconds pulumi.IntPtrInput `pulumi:"phase2LifetimeSeconds"`
+	// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+	//
+	// Valid values: `2` | `5` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+	Phase2dhGroupNumbers VpnConnectionPhase2dhGroupNumbersRequestListValueArrayInput `pulumi:"phase2dhGroupNumbers"`
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
 	//  Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
-	PreSharedKey           pulumi.StringPtrInput                                           `pulumi:"preSharedKey"`
-	RekeyFuzzPercentage    pulumi.IntPtrInput                                              `pulumi:"rekeyFuzzPercentage"`
-	RekeyMarginTimeSeconds pulumi.IntPtrInput                                              `pulumi:"rekeyMarginTimeSeconds"`
-	ReplayWindowSize       pulumi.IntPtrInput                                              `pulumi:"replayWindowSize"`
-	StartupAction          VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrInput `pulumi:"startupAction"`
+	PreSharedKey pulumi.StringPtrInput `pulumi:"preSharedKey"`
+	// The percentage of the rekey window (determined by `RekeyMarginTimeSeconds` ) during which the rekey time is randomly selected.
+	//
+	// Constraints: A value between 0 and 100.
+	//
+	// Default: `100`
+	RekeyFuzzPercentage pulumi.IntPtrInput `pulumi:"rekeyFuzzPercentage"`
+	// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `RekeyFuzzPercentage` .
+	//
+	// Constraints: A value between 60 and half of `Phase2LifetimeSeconds` .
+	//
+	// Default: `270`
+	RekeyMarginTimeSeconds pulumi.IntPtrInput `pulumi:"rekeyMarginTimeSeconds"`
+	// The number of packets in an IKE replay window.
+	//
+	// Constraints: A value between 64 and 2048.
+	//
+	// Default: `1024`
+	ReplayWindowSize pulumi.IntPtrInput `pulumi:"replayWindowSize"`
+	// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
+	//
+	// Valid Values: `add` | `start`
+	//
+	// Default: `add`
+	StartupAction VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrInput `pulumi:"startupAction"`
 	// The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway.
 	//  Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
 	//   +   ``169.254.0.0/30``
@@ -31774,7 +31956,10 @@ type VpnConnectionVpnTunnelOptionsSpecificationArgs struct {
 	//   +   ``169.254.4.0/30``
 	//   +   ``169.254.5.0/30``
 	//   +   ``169.254.169.252/30``
-	TunnelInsideCidr     pulumi.StringPtrInput `pulumi:"tunnelInsideCidr"`
+	TunnelInsideCidr pulumi.StringPtrInput `pulumi:"tunnelInsideCidr"`
+	// The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
+	//
+	// Constraints: A size /126 CIDR block from the local `fd00::/8` range.
 	TunnelInsideIpv6Cidr pulumi.StringPtrInput `pulumi:"tunnelInsideIpv6Cidr"`
 }
 
@@ -31830,70 +32015,113 @@ func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) ToVpnConnectionVpnTunn
 	return o
 }
 
+// The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
+//
+// Valid Values: `clear` | `none` | `restart`
+//
+// Default: `clear`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) DpdTimeoutAction() VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction {
 		return v.DpdTimeoutAction
 	}).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput)
 }
 
+// The number of seconds after which a DPD timeout occurs.
+//
+// Constraints: A value greater than or equal to 30.
+//
+// Default: `30`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) DpdTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *int { return v.DpdTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Turn on or off tunnel endpoint lifecycle control feature.
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) EnableTunnelLifecycleControl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *bool { return v.EnableTunnelLifecycleControl }).(pulumi.BoolPtrOutput)
 }
 
+// The IKE versions that are permitted for the VPN tunnel.
+//
+// Valid values: `ikev1` | `ikev2`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) IkeVersions() VpnConnectionIkeVersionsRequestListValueArrayOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []VpnConnectionIkeVersionsRequestListValue {
 		return v.IkeVersions
 	}).(VpnConnectionIkeVersionsRequestListValueArrayOutput)
 }
 
+// Options for logging VPN tunnel activity.
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) LogOptions() VpnConnectionVpnTunnelLogOptionsSpecificationPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *VpnConnectionVpnTunnelLogOptionsSpecification {
 		return v.LogOptions
 	}).(VpnConnectionVpnTunnelLogOptionsSpecificationPtrOutput)
 }
 
+// One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+//
+// Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase1EncryptionAlgorithms() VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArrayOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []VpnConnectionPhase1EncryptionAlgorithmsRequestListValue {
 		return v.Phase1EncryptionAlgorithms
 	}).(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArrayOutput)
 }
 
+// One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+//
+// Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase1IntegrityAlgorithms() VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArrayOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []VpnConnectionPhase1IntegrityAlgorithmsRequestListValue {
 		return v.Phase1IntegrityAlgorithms
 	}).(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArrayOutput)
 }
 
+// The lifetime for phase 1 of the IKE negotiation, in seconds.
+//
+// Constraints: A value between 900 and 28,800.
+//
+// Default: `28800`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase1LifetimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *int { return v.Phase1LifetimeSeconds }).(pulumi.IntPtrOutput)
 }
 
+// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
+//
+// Valid values: `2` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase1dhGroupNumbers() VpnConnectionPhase1dhGroupNumbersRequestListValueArrayOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []VpnConnectionPhase1dhGroupNumbersRequestListValue {
 		return v.Phase1dhGroupNumbers
 	}).(VpnConnectionPhase1dhGroupNumbersRequestListValueArrayOutput)
 }
 
+// One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+//
+// Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase2EncryptionAlgorithms() VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArrayOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []VpnConnectionPhase2EncryptionAlgorithmsRequestListValue {
 		return v.Phase2EncryptionAlgorithms
 	}).(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArrayOutput)
 }
 
+// One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+//
+// Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase2IntegrityAlgorithms() VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArrayOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []VpnConnectionPhase2IntegrityAlgorithmsRequestListValue {
 		return v.Phase2IntegrityAlgorithms
 	}).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArrayOutput)
 }
 
+// The lifetime for phase 2 of the IKE negotiation, in seconds.
+//
+// Constraints: A value between 900 and 3,600. The value must be less than the value for `Phase1LifetimeSeconds` .
+//
+// Default: `3600`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase2LifetimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *int { return v.Phase2LifetimeSeconds }).(pulumi.IntPtrOutput)
 }
 
+// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
+//
+// Valid values: `2` | `5` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) Phase2dhGroupNumbers() VpnConnectionPhase2dhGroupNumbersRequestListValueArrayOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) []VpnConnectionPhase2dhGroupNumbersRequestListValue {
 		return v.Phase2dhGroupNumbers
@@ -31907,18 +32135,38 @@ func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) PreSharedKey() pulumi.
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.PreSharedKey }).(pulumi.StringPtrOutput)
 }
 
+// The percentage of the rekey window (determined by `RekeyMarginTimeSeconds` ) during which the rekey time is randomly selected.
+//
+// Constraints: A value between 0 and 100.
+//
+// Default: `100`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) RekeyFuzzPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *int { return v.RekeyFuzzPercentage }).(pulumi.IntPtrOutput)
 }
 
+// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `RekeyFuzzPercentage` .
+//
+// Constraints: A value between 60 and half of `Phase2LifetimeSeconds` .
+//
+// Default: `270`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) RekeyMarginTimeSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *int { return v.RekeyMarginTimeSeconds }).(pulumi.IntPtrOutput)
 }
 
+// The number of packets in an IKE replay window.
+//
+// Constraints: A value between 64 and 2048.
+//
+// Default: `1024`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) ReplayWindowSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *int { return v.ReplayWindowSize }).(pulumi.IntPtrOutput)
 }
 
+// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
+//
+// Valid Values: `add` | `start`
+//
+// Default: `add`
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) StartupAction() VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *VpnConnectionVpnTunnelOptionsSpecificationStartupAction {
 		return v.StartupAction
@@ -31939,6 +32187,9 @@ func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) TunnelInsideCidr() pul
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.TunnelInsideCidr }).(pulumi.StringPtrOutput)
 }
 
+// The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
+//
+// Constraints: A size /126 CIDR block from the local `fd00::/8` range.
 func (o VpnConnectionVpnTunnelOptionsSpecificationOutput) TunnelInsideIpv6Cidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VpnConnectionVpnTunnelOptionsSpecification) *string { return v.TunnelInsideIpv6Cidr }).(pulumi.StringPtrOutput)
 }

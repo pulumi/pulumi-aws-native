@@ -17,13 +17,21 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     public sealed class PipelineOutputArtifact
     {
         /// <summary>
+        /// The files that you want to associate with the output artifact that will be exported from the compute action.
+        /// </summary>
+        public readonly ImmutableArray<string> Files;
+        /// <summary>
         /// The name of the output of an artifact, such as "My App".
         /// </summary>
         public readonly string Name;
 
         [OutputConstructor]
-        private PipelineOutputArtifact(string name)
+        private PipelineOutputArtifact(
+            ImmutableArray<string> files,
+
+            string name)
         {
+            Files = files;
             Name = name;
         }
     }

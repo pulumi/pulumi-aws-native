@@ -117,7 +117,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="accountRecoverySetting")
     def account_recovery_setting(self) -> Optional['outputs.UserPoolAccountRecoverySetting']:
         """
-        Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         """
         return pulumi.get(self, "account_recovery_setting")
 
@@ -136,8 +136,6 @@ class GetUserPoolResult:
     def alias_attributes(self) -> Optional[Sequence[str]]:
         """
         Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
-
-        > This user pool property cannot be updated.
         """
         return pulumi.get(self, "alias_attributes")
 
@@ -201,7 +199,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="emailVerificationMessage")
     def email_verification_message(self) -> Optional[str]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_message")
 
@@ -209,7 +207,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="emailVerificationSubject")
     def email_verification_subject(self) -> Optional[str]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "email_verification_subject")
 
@@ -247,7 +245,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="providerName")
     def provider_name(self) -> Optional[str]:
         """
-        The provider name of the Amazon Cognito user pool, specified as a `String` .
+        A friendly name for the IdP.
         """
         return pulumi.get(self, "provider_name")
 
@@ -263,9 +261,7 @@ class GetUserPoolResult:
     @pulumi.getter
     def schema(self) -> Optional[Sequence['outputs.UserPoolSchemaAttribute']]:
         """
-        The schema attributes for the new user pool. These attributes can be standard or custom attributes.
-
-        > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
+        An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
         """
         return pulumi.get(self, "schema")
 
@@ -273,7 +269,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="smsAuthenticationMessage")
     def sms_authentication_message(self) -> Optional[str]:
         """
-        A string representing the SMS authentication message.
+        The contents of the SMS authentication message.
         """
         return pulumi.get(self, "sms_authentication_message")
 
@@ -289,7 +285,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="smsVerificationMessage")
     def sms_verification_message(self) -> Optional[str]:
         """
-        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         """
         return pulumi.get(self, "sms_verification_message")
 
@@ -341,9 +337,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> Optional[Sequence[str]]:
         """
-        Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
-
-        This user pool property cannot be updated.
+        Specifies whether a user can use an email address or phone number as a username when they sign up.
         """
         return pulumi.get(self, "username_attributes")
 
@@ -351,7 +345,9 @@ class GetUserPoolResult:
     @pulumi.getter(name="usernameConfiguration")
     def username_configuration(self) -> Optional['outputs.UserPoolUsernameConfiguration']:
         """
-        You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
+        Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+
+        This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
         """
         return pulumi.get(self, "username_configuration")
 

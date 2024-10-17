@@ -26,6 +26,7 @@ class UserPoolUserToGroupAttachmentArgs:
         The set of arguments for constructing a UserPoolUserToGroupAttachment resource.
         :param pulumi.Input[str] group_name: The name of the group that you want to add your user to.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] username: The user's username.
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -58,6 +59,9 @@ class UserPoolUserToGroupAttachmentArgs:
     @property
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
+        """
+        The user's username.
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -81,6 +85,7 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_name: The name of the group that you want to add your user to.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] username: The user's username.
         """
         ...
     @overload
@@ -175,5 +180,8 @@ class UserPoolUserToGroupAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        The user's username.
+        """
         return pulumi.get(self, "username")
 

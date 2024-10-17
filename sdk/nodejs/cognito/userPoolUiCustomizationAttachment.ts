@@ -35,7 +35,7 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+     * The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
@@ -84,7 +84,7 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
  */
 export interface UserPoolUiCustomizationAttachmentArgs {
     /**
-     * The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+     * The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
      */
     clientId: pulumi.Input<string>;
     /**

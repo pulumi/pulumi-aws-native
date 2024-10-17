@@ -14,11 +14,13 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolCustomEmailSender
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Cognito triggers to send email notifications to users.
+        /// The Amazon Resource Name (ARN) of the function that you want to assign to your Lambda trigger.
         /// </summary>
         public readonly string? LambdaArn;
         /// <summary>
-        /// The Lambda version represents the signature of the "request" attribute in the "event" information that Amazon Cognito passes to your custom email sender AWS Lambda function. The only supported value is `V1_0` .
+        /// The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.
+        /// 
+        /// You must use a `LambdaVersion` of `V1_0` with a custom sender function.
         /// </summary>
         public readonly string? LambdaVersion;
 

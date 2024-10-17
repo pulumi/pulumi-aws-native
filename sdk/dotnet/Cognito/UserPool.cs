@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPool : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        /// The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         /// </summary>
         [Output("accountRecoverySetting")]
         public Output<Outputs.UserPoolAccountRecoverySetting?> AccountRecoverySetting { get; private set; } = null!;
@@ -31,8 +31,6 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
-        /// 
-        /// &gt; This user pool property cannot be updated.
         /// </summary>
         [Output("aliasAttributes")]
         public Output<ImmutableArray<string>> AliasAttributes { get; private set; } = null!;
@@ -80,24 +78,25 @@ namespace Pulumi.AwsNative.Cognito
         public Output<Outputs.UserPoolEmailConfiguration?> EmailConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         /// </summary>
         [Output("emailVerificationMessage")]
         public Output<string?> EmailVerificationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         /// </summary>
         [Output("emailVerificationSubject")]
         public Output<string?> EmailVerificationSubject { get; private set; } = null!;
 
         /// <summary>
-        /// Enables MFA on a specified user pool. To disable all MFAs after it has been enabled, set MfaConfiguration to "OFF" and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to "OFF". Can be one of the following values:
+        /// Set enabled MFA options on a specified user pool. To disable all MFAs after it has been enabled, set `MfaConfiguration` to `OFF` and remove EnabledMfas. MFAs can only be all disabled if `MfaConfiguration` is `OFF` . After you enable `SMS_MFA` , you can only disable it by setting `MfaConfiguration` to `OFF` . Can be one of the following values:
         /// 
-        /// - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
+        /// - `SMS_MFA` - Enables MFA with SMS for the user pool. To select this option, you must also provide values for `SmsConfiguration` .
         /// - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
+        /// - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
         /// 
-        /// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
+        /// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         /// </summary>
         [Output("enabledMfas")]
         public Output<ImmutableArray<string>> EnabledMfas { get; private set; } = null!;
@@ -127,7 +126,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<Outputs.UserPoolPolicies?> Policies { get; private set; } = null!;
 
         /// <summary>
-        /// The provider name of the Amazon Cognito user pool, specified as a `String` .
+        /// A friendly name for the IdP.
         /// </summary>
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
@@ -139,15 +138,13 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> ProviderUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The schema attributes for the new user pool. These attributes can be standard or custom attributes.
-        /// 
-        /// &gt; During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
+        /// An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
         /// </summary>
         [Output("schema")]
         public Output<ImmutableArray<Outputs.UserPoolSchemaAttribute>> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// A string representing the SMS authentication message.
+        /// The contents of the SMS authentication message.
         /// </summary>
         [Output("smsAuthenticationMessage")]
         public Output<string?> SmsAuthenticationMessage { get; private set; } = null!;
@@ -159,7 +156,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<Outputs.UserPoolSmsConfiguration?> SmsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         /// </summary>
         [Output("smsVerificationMessage")]
         public Output<string?> SmsVerificationMessage { get; private set; } = null!;
@@ -199,15 +196,15 @@ namespace Pulumi.AwsNative.Cognito
         public Output<ImmutableDictionary<string, string>?> UserPoolTags { get; private set; } = null!;
 
         /// <summary>
-        /// Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
-        /// 
-        /// This user pool property cannot be updated.
+        /// Specifies whether a user can use an email address or phone number as a username when they sign up.
         /// </summary>
         [Output("usernameAttributes")]
         public Output<ImmutableArray<string>> UsernameAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
+        /// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+        /// 
+        /// This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
         /// </summary>
         [Output("usernameConfiguration")]
         public Output<Outputs.UserPoolUsernameConfiguration?> UsernameConfiguration { get; private set; } = null!;
@@ -266,7 +263,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class UserPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Use this setting to define which verified available method a user can use to recover their password when they call `ForgotPassword` . It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.
+        /// The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         /// </summary>
         [Input("accountRecoverySetting")]
         public Input<Inputs.UserPoolAccountRecoverySettingArgs>? AccountRecoverySetting { get; set; }
@@ -284,8 +281,6 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
-        /// 
-        /// &gt; This user pool property cannot be updated.
         /// </summary>
         public InputList<string> AliasAttributes
         {
@@ -336,13 +331,13 @@ namespace Pulumi.AwsNative.Cognito
         public Input<Inputs.UserPoolEmailConfigurationArgs>? EmailConfiguration { get; set; }
 
         /// <summary>
-        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         /// </summary>
         [Input("emailVerificationMessage")]
         public Input<string>? EmailVerificationMessage { get; set; }
 
         /// <summary>
-        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         /// </summary>
         [Input("emailVerificationSubject")]
         public Input<string>? EmailVerificationSubject { get; set; }
@@ -351,12 +346,13 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<string>? _enabledMfas;
 
         /// <summary>
-        /// Enables MFA on a specified user pool. To disable all MFAs after it has been enabled, set MfaConfiguration to "OFF" and remove EnabledMfas. MFAs can only be all disabled if MfaConfiguration is OFF. Once SMS_MFA is enabled, SMS_MFA can only be disabled by setting MfaConfiguration to "OFF". Can be one of the following values:
+        /// Set enabled MFA options on a specified user pool. To disable all MFAs after it has been enabled, set `MfaConfiguration` to `OFF` and remove EnabledMfas. MFAs can only be all disabled if `MfaConfiguration` is `OFF` . After you enable `SMS_MFA` , you can only disable it by setting `MfaConfiguration` to `OFF` . Can be one of the following values:
         /// 
-        /// - `SMS_MFA` - Enables SMS MFA for the user pool. SMS_MFA can only be enabled if SMS configuration is provided.
+        /// - `SMS_MFA` - Enables MFA with SMS for the user pool. To select this option, you must also provide values for `SmsConfiguration` .
         /// - `SOFTWARE_TOKEN_MFA` - Enables software token MFA for the user pool.
+        /// - `EMAIL_OTP` - Enables MFA with email for the user pool. To select this option, you must provide values for `EmailConfiguration` and within those, set `EmailSendingAccount` to `DEVELOPER` .
         /// 
-        /// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA`
+        /// Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         /// </summary>
         public InputList<string> EnabledMfas
         {
@@ -392,9 +388,7 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<Inputs.UserPoolSchemaAttributeArgs>? _schema;
 
         /// <summary>
-        /// The schema attributes for the new user pool. These attributes can be standard or custom attributes.
-        /// 
-        /// &gt; During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
+        /// An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
         /// </summary>
         public InputList<Inputs.UserPoolSchemaAttributeArgs> Schema
         {
@@ -403,7 +397,7 @@ namespace Pulumi.AwsNative.Cognito
         }
 
         /// <summary>
-        /// A string representing the SMS authentication message.
+        /// The contents of the SMS authentication message.
         /// </summary>
         [Input("smsAuthenticationMessage")]
         public Input<string>? SmsAuthenticationMessage { get; set; }
@@ -415,7 +409,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<Inputs.UserPoolSmsConfigurationArgs>? SmsConfiguration { get; set; }
 
         /// <summary>
-        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerificationMessageTemplateType.html) .
+        /// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         /// </summary>
         [Input("smsVerificationMessage")]
         public Input<string>? SmsVerificationMessage { get; set; }
@@ -458,9 +452,7 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<string>? _usernameAttributes;
 
         /// <summary>
-        /// Determines whether email addresses or phone numbers can be specified as user names when a user signs up. Possible values: `phone_number` or `email` .
-        /// 
-        /// This user pool property cannot be updated.
+        /// Specifies whether a user can use an email address or phone number as a username when they sign up.
         /// </summary>
         public InputList<string> UsernameAttributes
         {
@@ -469,7 +461,9 @@ namespace Pulumi.AwsNative.Cognito
         }
 
         /// <summary>
-        /// You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
+        /// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+        /// 
+        /// This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
         /// </summary>
         [Input("usernameConfiguration")]
         public Input<Inputs.UserPoolUsernameConfigurationArgs>? UsernameConfiguration { get; set; }

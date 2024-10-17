@@ -37,7 +37,16 @@ type UserPoolUser struct {
 	ForceAliasCreation pulumi.BoolPtrOutput `pulumi:"forceAliasCreation"`
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
 	MessageAction pulumi.StringPtrOutput `pulumi:"messageAction"`
-	// An array of name-value pairs that contain user attributes and attribute values.
+	// An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
+	//
+	// For custom attributes, you must prepend the `custom:` prefix to the attribute name.
+	//
+	// To send a message inviting the user to sign up, you must specify the user's email address or phone number. You can do this in your call to AdminCreateUser or in the *Users* tab of the Amazon Cognito console for managing your user pools.
+	//
+	// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` . You can also do this by calling [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) .
+	//
+	// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
+	// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
 	UserAttributes UserPoolUserAttributeTypeArrayOutput `pulumi:"userAttributes"`
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
@@ -130,7 +139,16 @@ type userPoolUserArgs struct {
 	ForceAliasCreation *bool `pulumi:"forceAliasCreation"`
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
 	MessageAction *string `pulumi:"messageAction"`
-	// An array of name-value pairs that contain user attributes and attribute values.
+	// An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
+	//
+	// For custom attributes, you must prepend the `custom:` prefix to the attribute name.
+	//
+	// To send a message inviting the user to sign up, you must specify the user's email address or phone number. You can do this in your call to AdminCreateUser or in the *Users* tab of the Amazon Cognito console for managing your user pools.
+	//
+	// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` . You can also do this by calling [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) .
+	//
+	// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
+	// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
 	UserAttributes []UserPoolUserAttributeType `pulumi:"userAttributes"`
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -171,7 +189,16 @@ type UserPoolUserArgs struct {
 	ForceAliasCreation pulumi.BoolPtrInput
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
 	MessageAction pulumi.StringPtrInput
-	// An array of name-value pairs that contain user attributes and attribute values.
+	// An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
+	//
+	// For custom attributes, you must prepend the `custom:` prefix to the attribute name.
+	//
+	// To send a message inviting the user to sign up, you must specify the user's email address or phone number. You can do this in your call to AdminCreateUser or in the *Users* tab of the Amazon Cognito console for managing your user pools.
+	//
+	// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` . You can also do this by calling [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) .
+	//
+	// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
+	// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
 	UserAttributes UserPoolUserAttributeTypeArrayInput
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId pulumi.StringInput
@@ -259,7 +286,16 @@ func (o UserPoolUserOutput) MessageAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUser) pulumi.StringPtrOutput { return v.MessageAction }).(pulumi.StringPtrOutput)
 }
 
-// An array of name-value pairs that contain user attributes and attribute values.
+// An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
+//
+// For custom attributes, you must prepend the `custom:` prefix to the attribute name.
+//
+// To send a message inviting the user to sign up, you must specify the user's email address or phone number. You can do this in your call to AdminCreateUser or in the *Users* tab of the Amazon Cognito console for managing your user pools.
+//
+// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` . You can also do this by calling [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) .
+//
+// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
+// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
 func (o UserPoolUserOutput) UserAttributes() UserPoolUserAttributeTypeArrayOutput {
 	return o.ApplyT(func(v *UserPoolUser) UserPoolUserAttributeTypeArrayOutput { return v.UserAttributes }).(UserPoolUserAttributeTypeArrayOutput)
 }

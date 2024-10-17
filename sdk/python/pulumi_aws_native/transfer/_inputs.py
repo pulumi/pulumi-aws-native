@@ -18,6 +18,18 @@ from ._enums import *
 __all__ = [
     'As2ConfigPropertiesArgs',
     'As2ConfigPropertiesArgsDict',
+    'ServerEndpointDetailsArgs',
+    'ServerEndpointDetailsArgsDict',
+    'ServerIdentityProviderDetailsArgs',
+    'ServerIdentityProviderDetailsArgsDict',
+    'ServerProtocolDetailsArgs',
+    'ServerProtocolDetailsArgsDict',
+    'ServerS3StorageOptionsArgs',
+    'ServerS3StorageOptionsArgsDict',
+    'ServerWorkflowDetailsArgs',
+    'ServerWorkflowDetailsArgsDict',
+    'ServerWorkflowDetailArgs',
+    'ServerWorkflowDetailArgsDict',
     'SftpConfigPropertiesArgs',
     'SftpConfigPropertiesArgsDict',
     'WorkflowEfsInputFileLocationArgs',
@@ -240,6 +252,642 @@ class As2ConfigPropertiesArgs:
     @signing_algorithm.setter
     def signing_algorithm(self, value: Optional[pulumi.Input['ConnectorAs2ConfigPropertiesSigningAlgorithm']]):
         pulumi.set(self, "signing_algorithm", value)
+
+
+if not MYPY:
+    class ServerEndpointDetailsArgsDict(TypedDict):
+        address_allocation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
+
+        An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+
+        This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+
+        > This property can only be set as follows:
+        > 
+        > - `EndpointType` must be set to `VPC`
+        > - The Transfer Family server must be offline.
+        > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+        > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+        > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+        > - Call the `UpdateServer` API to set or change this parameter.
+        """
+        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of security groups IDs that are available to attach to your server's endpoint.
+
+        > This property can only be set when `EndpointType` is set to `VPC` .
+        > 
+        > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of subnet IDs that are required to host your server endpoint in your VPC.
+
+        > This property can only be set when `EndpointType` is set to `VPC` .
+        """
+        vpc_endpoint_id: NotRequired[pulumi.Input[str]]
+        """
+        The ID of the VPC endpoint.
+
+        > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
+        """
+        vpc_id: NotRequired[pulumi.Input[str]]
+        """
+        The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
+
+        > This property can only be set when `EndpointType` is set to `VPC` .
+        """
+elif False:
+    ServerEndpointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerEndpointDetailsArgs:
+    def __init__(__self__, *,
+                 address_allocation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
+                 vpc_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_allocation_ids: A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
+               
+               An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+               
+               This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+               
+               > This property can only be set as follows:
+               > 
+               > - `EndpointType` must be set to `VPC`
+               > - The Transfer Family server must be offline.
+               > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+               > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+               > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+               > - Call the `UpdateServer` API to set or change this parameter.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security groups IDs that are available to attach to your server's endpoint.
+               
+               > This property can only be set when `EndpointType` is set to `VPC` .
+               > 
+               > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs that are required to host your server endpoint in your VPC.
+               
+               > This property can only be set when `EndpointType` is set to `VPC` .
+        :param pulumi.Input[str] vpc_endpoint_id: The ID of the VPC endpoint.
+               
+               > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
+        :param pulumi.Input[str] vpc_id: The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
+               
+               > This property can only be set when `EndpointType` is set to `VPC` .
+        """
+        if address_allocation_ids is not None:
+            pulumi.set(__self__, "address_allocation_ids", address_allocation_ids)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="addressAllocationIds")
+    def address_allocation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of address allocation IDs that are required to attach an Elastic IP address to your server's endpoint.
+
+        An address allocation ID corresponds to the allocation ID of an Elastic IP address. This value can be retrieved from the `allocationId` field from the Amazon EC2 [Address](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html) data type. One way to retrieve this value is by calling the EC2 [DescribeAddresses](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html) API.
+
+        This parameter is optional. Set this parameter if you want to make your VPC endpoint public-facing. For details, see [Create an internet-facing endpoint for your server](https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint) .
+
+        > This property can only be set as follows:
+        > 
+        > - `EndpointType` must be set to `VPC`
+        > - The Transfer Family server must be offline.
+        > - You cannot set this parameter for Transfer Family servers that use the FTP protocol.
+        > - The server must already have `SubnetIds` populated ( `SubnetIds` and `AddressAllocationIds` cannot be updated simultaneously).
+        > - `AddressAllocationIds` can't contain duplicates, and must be equal in length to `SubnetIds` . For example, if you have three subnet IDs, you must also specify three address allocation IDs.
+        > - Call the `UpdateServer` API to set or change this parameter.
+        """
+        return pulumi.get(self, "address_allocation_ids")
+
+    @address_allocation_ids.setter
+    def address_allocation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "address_allocation_ids", value)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of security groups IDs that are available to attach to your server's endpoint.
+
+        > This property can only be set when `EndpointType` is set to `VPC` .
+        > 
+        > You can edit the `SecurityGroupIds` property in the [UpdateServer](https://docs.aws.amazon.com/transfer/latest/userguide/API_UpdateServer.html) API only if you are changing the `EndpointType` from `PUBLIC` or `VPC_ENDPOINT` to `VPC` . To change security groups associated with your server's VPC endpoint after creation, use the Amazon EC2 [ModifyVpcEndpoint](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyVpcEndpoint.html) API.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of subnet IDs that are required to host your server endpoint in your VPC.
+
+        > This property can only be set when `EndpointType` is set to `VPC` .
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC endpoint.
+
+        > This property can only be set when `EndpointType` is set to `VPC_ENDPOINT` .
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The VPC ID of the virtual private cloud in which the server's endpoint will be hosted.
+
+        > This property can only be set when `EndpointType` is set to `VPC` .
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_id", value)
+
+
+if not MYPY:
+    class ServerIdentityProviderDetailsArgsDict(TypedDict):
+        directory_id: NotRequired[pulumi.Input[str]]
+        """
+        The identifier of the AWS Directory Service directory that you want to use as your identity provider.
+        """
+        function: NotRequired[pulumi.Input[str]]
+        """
+        The ARN for a Lambda function to use for the Identity provider.
+        """
+        invocation_role: NotRequired[pulumi.Input[str]]
+        """
+        This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
+        """
+        sftp_authentication_methods: NotRequired[pulumi.Input['ServerSftpAuthenticationMethods']]
+        """
+        For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
+
+        - `PASSWORD` - users must provide their password to connect.
+        - `PUBLIC_KEY` - users must provide their private key to connect.
+        - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
+        - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
+        """
+        url: NotRequired[pulumi.Input[str]]
+        """
+        Provides the location of the service endpoint used to authenticate users.
+        """
+elif False:
+    ServerIdentityProviderDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerIdentityProviderDetailsArgs:
+    def __init__(__self__, *,
+                 directory_id: Optional[pulumi.Input[str]] = None,
+                 function: Optional[pulumi.Input[str]] = None,
+                 invocation_role: Optional[pulumi.Input[str]] = None,
+                 sftp_authentication_methods: Optional[pulumi.Input['ServerSftpAuthenticationMethods']] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] directory_id: The identifier of the AWS Directory Service directory that you want to use as your identity provider.
+        :param pulumi.Input[str] function: The ARN for a Lambda function to use for the Identity provider.
+        :param pulumi.Input[str] invocation_role: This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
+        :param pulumi.Input['ServerSftpAuthenticationMethods'] sftp_authentication_methods: For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
+               
+               - `PASSWORD` - users must provide their password to connect.
+               - `PUBLIC_KEY` - users must provide their private key to connect.
+               - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
+               - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
+        :param pulumi.Input[str] url: Provides the location of the service endpoint used to authenticate users.
+        """
+        if directory_id is not None:
+            pulumi.set(__self__, "directory_id", directory_id)
+        if function is not None:
+            pulumi.set(__self__, "function", function)
+        if invocation_role is not None:
+            pulumi.set(__self__, "invocation_role", invocation_role)
+        if sftp_authentication_methods is not None:
+            pulumi.set(__self__, "sftp_authentication_methods", sftp_authentication_methods)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="directoryId")
+    def directory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the AWS Directory Service directory that you want to use as your identity provider.
+        """
+        return pulumi.get(self, "directory_id")
+
+    @directory_id.setter
+    def directory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory_id", value)
+
+    @property
+    @pulumi.getter
+    def function(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN for a Lambda function to use for the Identity provider.
+        """
+        return pulumi.get(self, "function")
+
+    @function.setter
+    def function(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function", value)
+
+    @property
+    @pulumi.getter(name="invocationRole")
+    def invocation_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        This parameter is only applicable if your `IdentityProviderType` is `API_GATEWAY` . Provides the type of `InvocationRole` used to authenticate the user account.
+        """
+        return pulumi.get(self, "invocation_role")
+
+    @invocation_role.setter
+    def invocation_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "invocation_role", value)
+
+    @property
+    @pulumi.getter(name="sftpAuthenticationMethods")
+    def sftp_authentication_methods(self) -> Optional[pulumi.Input['ServerSftpAuthenticationMethods']]:
+        """
+        For SFTP-enabled servers, and for custom identity providers *only* , you can specify whether to authenticate using a password, SSH key pair, or both.
+
+        - `PASSWORD` - users must provide their password to connect.
+        - `PUBLIC_KEY` - users must provide their private key to connect.
+        - `PUBLIC_KEY_OR_PASSWORD` - users can authenticate with either their password or their key. This is the default value.
+        - `PUBLIC_KEY_AND_PASSWORD` - users must provide both their private key and their password to connect. The server checks the key first, and then if the key is valid, the system prompts for a password. If the private key provided does not match the public key that is stored, authentication fails.
+        """
+        return pulumi.get(self, "sftp_authentication_methods")
+
+    @sftp_authentication_methods.setter
+    def sftp_authentication_methods(self, value: Optional[pulumi.Input['ServerSftpAuthenticationMethods']]):
+        pulumi.set(self, "sftp_authentication_methods", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Provides the location of the service endpoint used to authenticate users.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
+
+
+if not MYPY:
+    class ServerProtocolDetailsArgsDict(TypedDict):
+        as2_transports: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]]
+        """
+        List of `As2Transport` objects.
+        """
+        passive_ip: NotRequired[pulumi.Input[str]]
+        """
+        Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
+
+        `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
+
+        Replace `0.0.0.0` in the example above with the actual IP address you want to use.
+
+        > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) . 
+
+        *Special values*
+
+        The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
+        """
+        set_stat_option: NotRequired[pulumi.Input['ServerSetStatOption']]
+        """
+        Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
+
+        Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
+
+        Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
+
+        > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
+        """
+        tls_session_resumption_mode: NotRequired[pulumi.Input['ServerTlsSessionResumptionMode']]
+        """
+        A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
+
+        - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
+        - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
+        - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
+
+        > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
+        """
+elif False:
+    ServerProtocolDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerProtocolDetailsArgs:
+    def __init__(__self__, *,
+                 as2_transports: Optional[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]] = None,
+                 passive_ip: Optional[pulumi.Input[str]] = None,
+                 set_stat_option: Optional[pulumi.Input['ServerSetStatOption']] = None,
+                 tls_session_resumption_mode: Optional[pulumi.Input['ServerTlsSessionResumptionMode']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]] as2_transports: List of `As2Transport` objects.
+        :param pulumi.Input[str] passive_ip: Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
+               
+               `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
+               
+               Replace `0.0.0.0` in the example above with the actual IP address you want to use.
+               
+               > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) . 
+               
+               *Special values*
+               
+               The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
+        :param pulumi.Input['ServerSetStatOption'] set_stat_option: Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
+               
+               Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
+               
+               Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
+               
+               > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
+        :param pulumi.Input['ServerTlsSessionResumptionMode'] tls_session_resumption_mode: A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
+               
+               - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
+               - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
+               - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
+               
+               > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
+        """
+        if as2_transports is not None:
+            pulumi.set(__self__, "as2_transports", as2_transports)
+        if passive_ip is not None:
+            pulumi.set(__self__, "passive_ip", passive_ip)
+        if set_stat_option is not None:
+            pulumi.set(__self__, "set_stat_option", set_stat_option)
+        if tls_session_resumption_mode is not None:
+            pulumi.set(__self__, "tls_session_resumption_mode", tls_session_resumption_mode)
+
+    @property
+    @pulumi.getter(name="as2Transports")
+    def as2_transports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]]:
+        """
+        List of `As2Transport` objects.
+        """
+        return pulumi.get(self, "as2_transports")
+
+    @as2_transports.setter
+    def as2_transports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerAs2Transport']]]]):
+        pulumi.set(self, "as2_transports", value)
+
+    @property
+    @pulumi.getter(name="passiveIp")
+    def passive_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates passive mode, for FTP and FTPS protocols. Enter a single IPv4 address, such as the public IP address of a firewall, router, or load balancer. For example:
+
+        `aws transfer update-server --protocol-details PassiveIp=0.0.0.0`
+
+        Replace `0.0.0.0` in the example above with the actual IP address you want to use.
+
+        > If you change the `PassiveIp` value, you must stop and then restart your Transfer Family server for the change to take effect. For details on using passive mode (PASV) in a NAT environment, see [Configuring your FTPS server behind a firewall or NAT with AWS Transfer Family](https://docs.aws.amazon.com/storage/configuring-your-ftps-server-behind-a-firewall-or-nat-with-aws-transfer-family/) . 
+
+        *Special values*
+
+        The `AUTO` and `0.0.0.0` are special values for the `PassiveIp` parameter. The value `PassiveIp=AUTO` is assigned by default to FTP and FTPS type servers. In this case, the server automatically responds with one of the endpoint IPs within the PASV response. `PassiveIp=0.0.0.0` has a more unique application for its usage. For example, if you have a High Availability (HA) Network Load Balancer (NLB) environment, where you have 3 subnets, you can only specify a single IP address using the `PassiveIp` parameter. This reduces the effectiveness of having High Availability. In this case, you can specify `PassiveIp=0.0.0.0` . This tells the client to use the same IP address as the Control connection and utilize all AZs for their connections. Note, however, that not all FTP clients support the `PassiveIp=0.0.0.0` response. FileZilla and WinSCP do support it. If you are using other clients, check to see if your client supports the `PassiveIp=0.0.0.0` response.
+        """
+        return pulumi.get(self, "passive_ip")
+
+    @passive_ip.setter
+    def passive_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "passive_ip", value)
+
+    @property
+    @pulumi.getter(name="setStatOption")
+    def set_stat_option(self) -> Optional[pulumi.Input['ServerSetStatOption']]:
+        """
+        Use the `SetStatOption` to ignore the error that is generated when the client attempts to use `SETSTAT` on a file you are uploading to an S3 bucket.
+
+        Some SFTP file transfer clients can attempt to change the attributes of remote files, including timestamp and permissions, using commands, such as `SETSTAT` when uploading the file. However, these commands are not compatible with object storage systems, such as Amazon S3. Due to this incompatibility, file uploads from these clients can result in errors even when the file is otherwise successfully uploaded.
+
+        Set the value to `ENABLE_NO_OP` to have the Transfer Family server ignore the `SETSTAT` command, and upload files without needing to make any changes to your SFTP client. While the `SetStatOption` `ENABLE_NO_OP` setting ignores the error, it does generate a log entry in Amazon CloudWatch Logs, so you can determine when the client is making a `SETSTAT` call.
+
+        > If you want to preserve the original timestamp for your file, and modify other file attributes using `SETSTAT` , you can use Amazon EFS as backend storage with Transfer Family.
+        """
+        return pulumi.get(self, "set_stat_option")
+
+    @set_stat_option.setter
+    def set_stat_option(self, value: Optional[pulumi.Input['ServerSetStatOption']]):
+        pulumi.set(self, "set_stat_option", value)
+
+    @property
+    @pulumi.getter(name="tlsSessionResumptionMode")
+    def tls_session_resumption_mode(self) -> Optional[pulumi.Input['ServerTlsSessionResumptionMode']]:
+        """
+        A property used with Transfer Family servers that use the FTPS protocol. TLS Session Resumption provides a mechanism to resume or share a negotiated secret key between the control and data connection for an FTPS session. `TlsSessionResumptionMode` determines whether or not the server resumes recent, negotiated sessions through a unique session ID. This property is available during `CreateServer` and `UpdateServer` calls. If a `TlsSessionResumptionMode` value is not specified during `CreateServer` , it is set to `ENFORCED` by default.
+
+        - `DISABLED` : the server does not process TLS session resumption client requests and creates a new TLS session for each request.
+        - `ENABLED` : the server processes and accepts clients that are performing TLS session resumption. The server doesn't reject client data connections that do not perform the TLS session resumption client processing.
+        - `ENFORCED` : the server processes and accepts clients that are performing TLS session resumption. The server rejects client data connections that do not perform the TLS session resumption client processing. Before you set the value to `ENFORCED` , test your clients.
+
+        > Not all FTPS clients perform TLS session resumption. So, if you choose to enforce TLS session resumption, you prevent any connections from FTPS clients that don't perform the protocol negotiation. To determine whether or not you can use the `ENFORCED` value, you need to test your clients.
+        """
+        return pulumi.get(self, "tls_session_resumption_mode")
+
+    @tls_session_resumption_mode.setter
+    def tls_session_resumption_mode(self, value: Optional[pulumi.Input['ServerTlsSessionResumptionMode']]):
+        pulumi.set(self, "tls_session_resumption_mode", value)
+
+
+if not MYPY:
+    class ServerS3StorageOptionsArgsDict(TypedDict):
+        directory_listing_optimization: NotRequired[pulumi.Input['ServerDirectoryListingOptimization']]
+        """
+        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+
+        By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
+        """
+elif False:
+    ServerS3StorageOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerS3StorageOptionsArgs:
+    def __init__(__self__, *,
+                 directory_listing_optimization: Optional[pulumi.Input['ServerDirectoryListingOptimization']] = None):
+        """
+        :param pulumi.Input['ServerDirectoryListingOptimization'] directory_listing_optimization: Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+               
+               By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
+        """
+        if directory_listing_optimization is not None:
+            pulumi.set(__self__, "directory_listing_optimization", directory_listing_optimization)
+
+    @property
+    @pulumi.getter(name="directoryListingOptimization")
+    def directory_listing_optimization(self) -> Optional[pulumi.Input['ServerDirectoryListingOptimization']]:
+        """
+        Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.
+
+        By default, home directory mappings have a `TYPE` of `DIRECTORY` . If you enable this option, you would then need to explicitly set the `HomeDirectoryMapEntry` `Type` to `FILE` if you want a mapping to have a file target.
+        """
+        return pulumi.get(self, "directory_listing_optimization")
+
+    @directory_listing_optimization.setter
+    def directory_listing_optimization(self, value: Optional[pulumi.Input['ServerDirectoryListingOptimization']]):
+        pulumi.set(self, "directory_listing_optimization", value)
+
+
+if not MYPY:
+    class ServerWorkflowDetailsArgsDict(TypedDict):
+        on_partial_upload: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]
+        """
+        A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
+
+        A *partial upload* occurs when a file is open when the session disconnects.
+
+        > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
+        """
+        on_upload: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgsDict']]]]
+        """
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
+
+        To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
+
+        `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
+
+        > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
+        """
+elif False:
+    ServerWorkflowDetailsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerWorkflowDetailsArgs:
+    def __init__(__self__, *,
+                 on_partial_upload: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None,
+                 on_upload: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]] on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
+               
+               A *partial upload* occurs when a file is open when the session disconnects.
+               
+               > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]] on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
+               
+               To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
+               
+               `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
+               
+               > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
+        """
+        if on_partial_upload is not None:
+            pulumi.set(__self__, "on_partial_upload", on_partial_upload)
+        if on_upload is not None:
+            pulumi.set(__self__, "on_upload", on_upload)
+
+    @property
+    @pulumi.getter(name="onPartialUpload")
+    def on_partial_upload(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]:
+        """
+        A trigger that starts a workflow if a file is only partially uploaded. You can attach a workflow to a server that executes whenever there is a partial upload.
+
+        A *partial upload* occurs when a file is open when the session disconnects.
+
+        > `OnPartialUpload` can contain a maximum of one `WorkflowDetail` object.
+        """
+        return pulumi.get(self, "on_partial_upload")
+
+    @on_partial_upload.setter
+    def on_partial_upload(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]):
+        pulumi.set(self, "on_partial_upload", value)
+
+    @property
+    @pulumi.getter(name="onUpload")
+    def on_upload(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]:
+        """
+        A trigger that starts a workflow: the workflow begins to execute after a file is uploaded.
+
+        To remove an associated workflow from a server, you can provide an empty `OnUpload` object, as in the following example.
+
+        `aws transfer update-server --server-id s-01234567890abcdef --workflow-details '{"OnUpload":[]}'`
+
+        > `OnUpload` can contain a maximum of one `WorkflowDetail` object.
+        """
+        return pulumi.get(self, "on_upload")
+
+    @on_upload.setter
+    def on_upload(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServerWorkflowDetailArgs']]]]):
+        pulumi.set(self, "on_upload", value)
+
+
+if not MYPY:
+    class ServerWorkflowDetailArgsDict(TypedDict):
+        execution_role: pulumi.Input[str]
+        """
+        Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
+        """
+        workflow_id: pulumi.Input[str]
+        """
+        A unique identifier for the workflow.
+        """
+elif False:
+    ServerWorkflowDetailArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServerWorkflowDetailArgs:
+    def __init__(__self__, *,
+                 execution_role: pulumi.Input[str],
+                 workflow_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] execution_role: Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
+        :param pulumi.Input[str] workflow_id: A unique identifier for the workflow.
+        """
+        pulumi.set(__self__, "execution_role", execution_role)
+        pulumi.set(__self__, "workflow_id", workflow_id)
+
+    @property
+    @pulumi.getter(name="executionRole")
+    def execution_role(self) -> pulumi.Input[str]:
+        """
+        Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources
+        """
+        return pulumi.get(self, "execution_role")
+
+    @execution_role.setter
+    def execution_role(self, value: pulumi.Input[str]):
+        pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="workflowId")
+    def workflow_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the workflow.
+        """
+        return pulumi.get(self, "workflow_id")
+
+    @workflow_id.setter
+    def workflow_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workflow_id", value)
 
 
 if not MYPY:

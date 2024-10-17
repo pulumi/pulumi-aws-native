@@ -13589,7 +13589,8 @@ type ThemeConfiguration struct {
 	// Color properties that apply to chart data colors.
 	DataColorPalette *ThemeDataColorPalette `pulumi:"dataColorPalette"`
 	// Display options related to sheets.
-	Sheet      *ThemeSheetStyle `pulumi:"sheet"`
+	Sheet *ThemeSheetStyle `pulumi:"sheet"`
+	// Determines the typography options.
 	Typography *ThemeTypography `pulumi:"typography"`
 	// Color properties that apply to the UI and to charts, excluding the colors that apply to data.
 	UiColorPalette *ThemeUiColorPalette `pulumi:"uiColorPalette"`
@@ -13613,7 +13614,8 @@ type ThemeConfigurationArgs struct {
 	// Color properties that apply to chart data colors.
 	DataColorPalette ThemeDataColorPalettePtrInput `pulumi:"dataColorPalette"`
 	// Display options related to sheets.
-	Sheet      ThemeSheetStylePtrInput `pulumi:"sheet"`
+	Sheet ThemeSheetStylePtrInput `pulumi:"sheet"`
+	// Determines the typography options.
 	Typography ThemeTypographyPtrInput `pulumi:"typography"`
 	// Color properties that apply to the UI and to charts, excluding the colors that apply to data.
 	UiColorPalette ThemeUiColorPalettePtrInput `pulumi:"uiColorPalette"`
@@ -13658,6 +13660,7 @@ func (o ThemeConfigurationOutput) Sheet() ThemeSheetStylePtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeSheetStyle { return v.Sheet }).(ThemeSheetStylePtrOutput)
 }
 
+// Determines the typography options.
 func (o ThemeConfigurationOutput) Typography() ThemeTypographyPtrOutput {
 	return o.ApplyT(func(v ThemeConfiguration) *ThemeTypography { return v.Typography }).(ThemeTypographyPtrOutput)
 }
@@ -13711,6 +13714,7 @@ func (o ThemeConfigurationPtrOutput) Sheet() ThemeSheetStylePtrOutput {
 	}).(ThemeSheetStylePtrOutput)
 }
 
+// Determines the typography options.
 func (o ThemeConfigurationPtrOutput) Typography() ThemeTypographyPtrOutput {
 	return o.ApplyT(func(v *ThemeConfiguration) *ThemeTypography {
 		if v == nil {

@@ -10647,6 +10647,9 @@ func (in *vpcEndpointTypePtr) ToVpcEndpointTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointTypePtrOutput)
 }
 
+// Set log format. Default format is `json` .
+//
+// Valid values: `json` | `text`
 type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat string
 
 const (
@@ -10812,6 +10815,7 @@ func (in *vpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtr) ToVp
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatPtrOutput)
 }
 
+// The IKE version.
 type VpnConnectionIkeVersionsRequestListValueValue string
 
 const (
@@ -10977,6 +10981,7 @@ func (in *vpnConnectionIkeVersionsRequestListValueValuePtr) ToVpnConnectionIkeVe
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionIkeVersionsRequestListValueValuePtrOutput)
 }
 
+// The value for the encryption algorithm.
 type VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue string
 
 const (
@@ -11146,6 +11151,7 @@ func (in *vpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtr) ToVpn
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValuePtrOutput)
 }
 
+// The value for the integrity algorithm.
 type VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue string
 
 const (
@@ -11315,6 +11321,7 @@ func (in *vpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtr) ToVpnC
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValuePtrOutput)
 }
 
+// The encryption algorithm.
 type VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue string
 
 const (
@@ -11484,6 +11491,7 @@ func (in *vpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtr) ToVpn
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValuePtrOutput)
 }
 
+// The integrity algorithm.
 type VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue string
 
 const (
@@ -11653,6 +11661,11 @@ func (in *vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr) ToVpnC
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput)
 }
 
+// The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
+//
+// Valid Values: `clear` | `none` | `restart`
+//
+// Default: `clear`
 type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction string
 
 const (
@@ -11820,6 +11833,11 @@ func (in *vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtr) ToVpnCo
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput)
 }
 
+// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
+//
+// Valid Values: `add` | `start`
+//
+// Default: `add`
 type VpnConnectionVpnTunnelOptionsSpecificationStartupAction string
 
 const (

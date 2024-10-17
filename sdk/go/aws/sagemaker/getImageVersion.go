@@ -53,7 +53,7 @@ type LookupImageVersionResult struct {
 	ProgrammingLang *string                     `pulumi:"programmingLang"`
 	ReleaseNotes    *string                     `pulumi:"releaseNotes"`
 	VendorGuidance  *ImageVersionVendorGuidance `pulumi:"vendorGuidance"`
-	// The version number.
+	// The version of the image.
 	Version *int `pulumi:"version"`
 }
 
@@ -154,7 +154,7 @@ func (o LookupImageVersionResultOutput) VendorGuidance() ImageVersionVendorGuida
 	return o.ApplyT(func(v LookupImageVersionResult) *ImageVersionVendorGuidance { return v.VendorGuidance }).(ImageVersionVendorGuidancePtrOutput)
 }
 
-// The version number.
+// The version of the image.
 func (o LookupImageVersionResultOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupImageVersionResult) *int { return v.Version }).(pulumi.IntPtrOutput)
 }

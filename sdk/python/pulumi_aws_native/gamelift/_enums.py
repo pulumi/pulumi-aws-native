@@ -11,6 +11,7 @@ __all__ = [
     'ContainerGroupDefinitionContainerPortRangeProtocol',
     'ContainerGroupDefinitionOperatingSystem',
     'ContainerGroupDefinitionSchedulingStrategy',
+    'ContainerGroupDefinitionStatus',
     'FleetApplyCapacity',
     'FleetCertificateConfigurationCertificateType',
     'FleetComputeType',
@@ -83,6 +84,15 @@ class ContainerGroupDefinitionSchedulingStrategy(str, Enum):
     """
     REPLICA = "REPLICA"
     DAEMON = "DAEMON"
+
+
+class ContainerGroupDefinitionStatus(str, Enum):
+    """
+    A string indicating ContainerGroupDefinition status.
+    """
+    READY = "READY"
+    COPYING = "COPYING"
+    FAILED = "FAILED"
 
 
 class FleetApplyCapacity(str, Enum):

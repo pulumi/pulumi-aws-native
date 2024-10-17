@@ -40,6 +40,11 @@ export const getProfile: typeof import("./getProfile").getProfile = null as any;
 export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
 
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+
 export { GetWorkflowArgs, GetWorkflowResult, GetWorkflowOutputArgs } from "./getWorkflow";
 export const getWorkflow: typeof import("./getWorkflow").getWorkflow = null as any;
 export const getWorkflowOutput: typeof import("./getWorkflow").getWorkflowOutput = null as any;
@@ -49,6 +54,11 @@ export { ProfileArgs } from "./profile";
 export type Profile = import("./profile").Profile;
 export const Profile: typeof import("./profile").Profile = null as any;
 utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
+
+export { ServerArgs } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
 
 export { WorkflowArgs } from "./workflow";
 export type Workflow = import("./workflow").Workflow;
@@ -71,6 +81,8 @@ const _module = {
                 return new Connector(name, <any>undefined, { urn })
             case "aws-native:transfer:Profile":
                 return new Profile(name, <any>undefined, { urn })
+            case "aws-native:transfer:Server":
+                return new Server(name, <any>undefined, { urn })
             case "aws-native:transfer:Workflow":
                 return new Workflow(name, <any>undefined, { urn })
             default:

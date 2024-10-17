@@ -308,16 +308,13 @@ export class DbInstance extends pulumi.CustomResource {
      *   +   ``CharacterSetName`` 
      *   +   ``DBClusterIdentifier`` 
      *   +   ``DBName`` 
-     *   +   ``DeleteAutomatedBackups`` 
      *   +   ``KmsKeyId`` 
      *   +   ``MasterUsername`` 
      *   +   ``MasterUserPassword`` 
-     *   +   ``PerformanceInsightsKMSKeyId`` 
-     *   +   ``PerformanceInsightsRetentionPeriod`` 
      *   +   ``PromotionTier`` 
      *   +   ``SourceDBInstanceIdentifier`` 
      *   +   ``SourceRegion`` 
-     *   +   ``StorageEncrypted`` (for an encrypted snapshot)
+     *   +   ``StorageEncrypted`` (for an unencrypted snapshot)
      *   +   ``Timezone`` 
      *   
      *   *Amazon Aurora* 
@@ -1259,16 +1256,13 @@ export interface DbInstanceArgs {
      *   +   ``CharacterSetName`` 
      *   +   ``DBClusterIdentifier`` 
      *   +   ``DBName`` 
-     *   +   ``DeleteAutomatedBackups`` 
      *   +   ``KmsKeyId`` 
      *   +   ``MasterUsername`` 
      *   +   ``MasterUserPassword`` 
-     *   +   ``PerformanceInsightsKMSKeyId`` 
-     *   +   ``PerformanceInsightsRetentionPeriod`` 
      *   +   ``PromotionTier`` 
      *   +   ``SourceDBInstanceIdentifier`` 
      *   +   ``SourceRegion`` 
-     *   +   ``StorageEncrypted`` (for an encrypted snapshot)
+     *   +   ``StorageEncrypted`` (for an unencrypted snapshot)
      *   +   ``Timezone`` 
      *   
      *   *Amazon Aurora* 

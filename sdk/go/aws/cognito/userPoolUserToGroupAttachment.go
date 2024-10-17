@@ -20,7 +20,8 @@ type UserPoolUserToGroupAttachment struct {
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
-	Username   pulumi.StringOutput `pulumi:"username"`
+	// The user's username.
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewUserPoolUserToGroupAttachment registers a new resource with the given unique name, arguments, and options.
@@ -82,7 +83,8 @@ type userPoolUserToGroupAttachmentArgs struct {
 	GroupName string `pulumi:"groupName"`
 	// The user pool ID for the user pool.
 	UserPoolId string `pulumi:"userPoolId"`
-	Username   string `pulumi:"username"`
+	// The user's username.
+	Username string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a UserPoolUserToGroupAttachment resource.
@@ -91,7 +93,8 @@ type UserPoolUserToGroupAttachmentArgs struct {
 	GroupName pulumi.StringInput
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringInput
-	Username   pulumi.StringInput
+	// The user's username.
+	Username pulumi.StringInput
 }
 
 func (UserPoolUserToGroupAttachmentArgs) ElementType() reflect.Type {
@@ -141,6 +144,7 @@ func (o UserPoolUserToGroupAttachmentOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUserToGroupAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
+// The user's username.
 func (o UserPoolUserToGroupAttachmentOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUserToGroupAttachment) pulumi.StringOutput { return v.Username }).(pulumi.StringOutput)
 }

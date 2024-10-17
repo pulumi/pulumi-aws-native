@@ -30,6 +30,8 @@ class ContainerGroupDefinitionArgs:
                  total_memory_limit: pulumi.Input[int],
                  name: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input['ContainerGroupDefinitionSchedulingStrategy']] = None,
+                 source_version_number: Optional[pulumi.Input[int]] = None,
+                 support_container_definitions: Optional[pulumi.Input[Sequence[Any]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ContainerGroupDefinition resource.
@@ -39,6 +41,8 @@ class ContainerGroupDefinitionArgs:
         :param pulumi.Input[int] total_memory_limit: The maximum amount of memory (in MiB) to allocate for this container group.
         :param pulumi.Input[str] name: A descriptive label for the container group definition.
         :param pulumi.Input['ContainerGroupDefinitionSchedulingStrategy'] scheduling_strategy: Specifies whether the container group includes replica or daemon containers.
+        :param pulumi.Input[int] source_version_number: A specific ContainerGroupDefinition version to be updated
+        :param pulumi.Input[Sequence[Any]] support_container_definitions: A collection of support container definitions that define the containers in this group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "container_definitions", container_definitions)
@@ -49,6 +53,10 @@ class ContainerGroupDefinitionArgs:
             pulumi.set(__self__, "name", name)
         if scheduling_strategy is not None:
             pulumi.set(__self__, "scheduling_strategy", scheduling_strategy)
+        if source_version_number is not None:
+            pulumi.set(__self__, "source_version_number", source_version_number)
+        if support_container_definitions is not None:
+            pulumi.set(__self__, "support_container_definitions", support_container_definitions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -125,6 +133,30 @@ class ContainerGroupDefinitionArgs:
         pulumi.set(self, "scheduling_strategy", value)
 
     @property
+    @pulumi.getter(name="sourceVersionNumber")
+    def source_version_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        A specific ContainerGroupDefinition version to be updated
+        """
+        return pulumi.get(self, "source_version_number")
+
+    @source_version_number.setter
+    def source_version_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "source_version_number", value)
+
+    @property
+    @pulumi.getter(name="supportContainerDefinitions")
+    def support_container_definitions(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        A collection of support container definitions that define the containers in this group.
+        """
+        return pulumi.get(self, "support_container_definitions")
+
+    @support_container_definitions.setter
+    def support_container_definitions(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "support_container_definitions", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -146,6 +178,8 @@ class ContainerGroupDefinition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['ContainerGroupDefinitionOperatingSystem']] = None,
                  scheduling_strategy: Optional[pulumi.Input['ContainerGroupDefinitionSchedulingStrategy']] = None,
+                 source_version_number: Optional[pulumi.Input[int]] = None,
+                 support_container_definitions: Optional[pulumi.Input[Sequence[Any]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  total_cpu_limit: Optional[pulumi.Input[int]] = None,
                  total_memory_limit: Optional[pulumi.Input[int]] = None,
@@ -159,6 +193,8 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] name: A descriptive label for the container group definition.
         :param pulumi.Input['ContainerGroupDefinitionOperatingSystem'] operating_system: The operating system of the container group
         :param pulumi.Input['ContainerGroupDefinitionSchedulingStrategy'] scheduling_strategy: Specifies whether the container group includes replica or daemon containers.
+        :param pulumi.Input[int] source_version_number: A specific ContainerGroupDefinition version to be updated
+        :param pulumi.Input[Sequence[Any]] support_container_definitions: A collection of support container definitions that define the containers in this group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[int] total_cpu_limit: The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
         :param pulumi.Input[int] total_memory_limit: The maximum amount of memory (in MiB) to allocate for this container group.
@@ -191,6 +227,8 @@ class ContainerGroupDefinition(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['ContainerGroupDefinitionOperatingSystem']] = None,
                  scheduling_strategy: Optional[pulumi.Input['ContainerGroupDefinitionSchedulingStrategy']] = None,
+                 source_version_number: Optional[pulumi.Input[int]] = None,
+                 support_container_definitions: Optional[pulumi.Input[Sequence[Any]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  total_cpu_limit: Optional[pulumi.Input[int]] = None,
                  total_memory_limit: Optional[pulumi.Input[int]] = None,
@@ -211,6 +249,8 @@ class ContainerGroupDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'operating_system'")
             __props__.__dict__["operating_system"] = operating_system
             __props__.__dict__["scheduling_strategy"] = scheduling_strategy
+            __props__.__dict__["source_version_number"] = source_version_number
+            __props__.__dict__["support_container_definitions"] = support_container_definitions
             __props__.__dict__["tags"] = tags
             if total_cpu_limit is None and not opts.urn:
                 raise TypeError("Missing required property 'total_cpu_limit'")
@@ -220,6 +260,8 @@ class ContainerGroupDefinition(pulumi.CustomResource):
             __props__.__dict__["total_memory_limit"] = total_memory_limit
             __props__.__dict__["container_group_definition_arn"] = None
             __props__.__dict__["creation_time"] = None
+            __props__.__dict__["status"] = None
+            __props__.__dict__["status_reason"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerDefinitions[*]", "name", "operatingSystem", "schedulingStrategy", "totalCpuLimit", "totalMemoryLimit"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContainerGroupDefinition, __self__).__init__(
@@ -250,6 +292,10 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["operating_system"] = None
         __props__.__dict__["scheduling_strategy"] = None
+        __props__.__dict__["source_version_number"] = None
+        __props__.__dict__["status"] = None
+        __props__.__dict__["status_reason"] = None
+        __props__.__dict__["support_container_definitions"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["total_cpu_limit"] = None
         __props__.__dict__["total_memory_limit"] = None
@@ -302,6 +348,38 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         Specifies whether the container group includes replica or daemon containers.
         """
         return pulumi.get(self, "scheduling_strategy")
+
+    @property
+    @pulumi.getter(name="sourceVersionNumber")
+    def source_version_number(self) -> pulumi.Output[Optional[int]]:
+        """
+        A specific ContainerGroupDefinition version to be updated
+        """
+        return pulumi.get(self, "source_version_number")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output['ContainerGroupDefinitionStatus']:
+        """
+        A string indicating ContainerGroupDefinition status.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusReason")
+    def status_reason(self) -> pulumi.Output[str]:
+        """
+        A string indicating the reason for ContainerGroupDefinition status.
+        """
+        return pulumi.get(self, "status_reason")
+
+    @property
+    @pulumi.getter(name="supportContainerDefinitions")
+    def support_container_definitions(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+        """
+        A collection of support container definitions that define the containers in this group.
+        """
+        return pulumi.get(self, "support_container_definitions")
 
     @property
     @pulumi.getter

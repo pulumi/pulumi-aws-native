@@ -28,6 +28,7 @@ class DashboardArgs:
                  dashboard_id: pulumi.Input[str],
                  dashboard_publish_options: Optional[pulumi.Input['DashboardPublishOptionsArgs']] = None,
                  definition: Optional[pulumi.Input['DashboardVersionDefinitionArgs']] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_sharing_configuration: Optional[pulumi.Input['DashboardLinkSharingConfigurationArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -68,6 +69,8 @@ class DashboardArgs:
             pulumi.set(__self__, "dashboard_publish_options", dashboard_publish_options)
         if definition is not None:
             pulumi.set(__self__, "definition", definition)
+        if folder_arns is not None:
+            pulumi.set(__self__, "folder_arns", folder_arns)
         if link_entities is not None:
             pulumi.set(__self__, "link_entities", link_entities)
         if link_sharing_configuration is not None:
@@ -137,6 +140,15 @@ class DashboardArgs:
     @definition.setter
     def definition(self, value: Optional[pulumi.Input['DashboardVersionDefinitionArgs']]):
         pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "folder_arns")
+
+    @folder_arns.setter
+    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "folder_arns", value)
 
     @property
     @pulumi.getter(name="linkEntities")
@@ -272,6 +284,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']]] = None,
                  definition: Optional[pulumi.Input[Union['DashboardVersionDefinitionArgs', 'DashboardVersionDefinitionArgsDict']]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_sharing_configuration: Optional[pulumi.Input[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -338,6 +351,7 @@ class Dashboard(pulumi.CustomResource):
                  dashboard_id: Optional[pulumi.Input[str]] = None,
                  dashboard_publish_options: Optional[pulumi.Input[Union['DashboardPublishOptionsArgs', 'DashboardPublishOptionsArgsDict']]] = None,
                  definition: Optional[pulumi.Input[Union['DashboardVersionDefinitionArgs', 'DashboardVersionDefinitionArgsDict']]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  link_sharing_configuration: Optional[pulumi.Input[Union['DashboardLinkSharingConfigurationArgs', 'DashboardLinkSharingConfigurationArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -365,6 +379,7 @@ class Dashboard(pulumi.CustomResource):
             __props__.__dict__["dashboard_id"] = dashboard_id
             __props__.__dict__["dashboard_publish_options"] = dashboard_publish_options
             __props__.__dict__["definition"] = definition
+            __props__.__dict__["folder_arns"] = folder_arns
             __props__.__dict__["link_entities"] = link_entities
             __props__.__dict__["link_sharing_configuration"] = link_sharing_configuration
             __props__.__dict__["name"] = name
@@ -410,6 +425,7 @@ class Dashboard(pulumi.CustomResource):
         __props__.__dict__["dashboard_id"] = None
         __props__.__dict__["dashboard_publish_options"] = None
         __props__.__dict__["definition"] = None
+        __props__.__dict__["folder_arns"] = None
         __props__.__dict__["last_published_time"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["link_entities"] = None
@@ -473,6 +489,11 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter
     def definition(self) -> pulumi.Output[Optional['outputs.DashboardVersionDefinition']]:
         return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "folder_arns")
 
     @property
     @pulumi.getter(name="lastPublishedTime")

@@ -81,6 +81,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         /// </summary>
         public readonly Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>? IdentityProviderConfiguration;
+        public readonly ImmutableArray<string> Origins;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service role attached to your web experience.
         /// 
@@ -132,6 +133,8 @@ namespace Pulumi.AwsNative.QBusiness
 
             Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>? identityProviderConfiguration,
 
+            ImmutableArray<string> origins,
+
             string? roleArn,
 
             Pulumi.AwsNative.QBusiness.WebExperienceSamplePromptsControlMode? samplePromptsControlMode,
@@ -155,6 +158,7 @@ namespace Pulumi.AwsNative.QBusiness
             CreatedAt = createdAt;
             DefaultEndpoint = defaultEndpoint;
             IdentityProviderConfiguration = identityProviderConfiguration;
+            Origins = origins;
             RoleArn = roleArn;
             SamplePromptsControlMode = samplePromptsControlMode;
             Status = status;

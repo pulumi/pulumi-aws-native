@@ -26,6 +26,7 @@ class WebExperienceArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  identity_provider_configuration: Optional[pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sample_prompts_control_mode: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']] = None,
                  subtitle: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,8 @@ class WebExperienceArgs:
         pulumi.set(__self__, "application_id", application_id)
         if identity_provider_configuration is not None:
             pulumi.set(__self__, "identity_provider_configuration", identity_provider_configuration)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if sample_prompts_control_mode is not None:
@@ -84,6 +87,15 @@ class WebExperienceArgs:
     @identity_provider_configuration.setter
     def identity_provider_configuration(self, value: Optional[pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]]):
         pulumi.set(self, "identity_provider_configuration", value)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "origins", value)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -167,6 +179,7 @@ class WebExperience(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  identity_provider_configuration: Optional[pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sample_prompts_control_mode: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']] = None,
                  subtitle: Optional[pulumi.Input[str]] = None,
@@ -216,6 +229,7 @@ class WebExperience(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  identity_provider_configuration: Optional[pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sample_prompts_control_mode: Optional[pulumi.Input['WebExperienceSamplePromptsControlMode']] = None,
                  subtitle: Optional[pulumi.Input[str]] = None,
@@ -235,6 +249,7 @@ class WebExperience(pulumi.CustomResource):
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             __props__.__dict__["identity_provider_configuration"] = identity_provider_configuration
+            __props__.__dict__["origins"] = origins
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["sample_prompts_control_mode"] = sample_prompts_control_mode
             __props__.__dict__["subtitle"] = subtitle
@@ -275,6 +290,7 @@ class WebExperience(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["default_endpoint"] = None
         __props__.__dict__["identity_provider_configuration"] = None
+        __props__.__dict__["origins"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["sample_prompts_control_mode"] = None
         __props__.__dict__["status"] = None
@@ -318,6 +334,11 @@ class WebExperience(pulumi.CustomResource):
         Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         """
         return pulumi.get(self, "identity_provider_configuration")
+
+    @property
+    @pulumi.getter
+    def origins(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "origins")
 
     @property
     @pulumi.getter(name="roleArn")

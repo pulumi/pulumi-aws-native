@@ -9,6 +9,7 @@ export const PipelineActionTypeIdCategory = {
     Deploy: "Deploy",
     Invoke: "Invoke",
     Approval: "Approval",
+    Compute: "Compute",
 } as const;
 
 /**

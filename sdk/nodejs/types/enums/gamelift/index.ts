@@ -66,6 +66,17 @@ export const ContainerGroupDefinitionSchedulingStrategy = {
  */
 export type ContainerGroupDefinitionSchedulingStrategy = (typeof ContainerGroupDefinitionSchedulingStrategy)[keyof typeof ContainerGroupDefinitionSchedulingStrategy];
 
+export const ContainerGroupDefinitionStatus = {
+    Ready: "READY",
+    Copying: "COPYING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * A string indicating ContainerGroupDefinition status.
+ */
+export type ContainerGroupDefinitionStatus = (typeof ContainerGroupDefinitionStatus)[keyof typeof ContainerGroupDefinitionStatus];
+
 export const FleetApplyCapacity = {
     OnUpdate: "ON_UPDATE",
     OnCreateAndUpdate: "ON_CREATE_AND_UPDATE",

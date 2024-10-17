@@ -52,6 +52,30 @@ namespace Pulumi.AwsNative.GameLift
         public Output<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionSchedulingStrategy?> SchedulingStrategy { get; private set; } = null!;
 
         /// <summary>
+        /// A specific ContainerGroupDefinition version to be updated
+        /// </summary>
+        [Output("sourceVersionNumber")]
+        public Output<int?> SourceVersionNumber { get; private set; } = null!;
+
+        /// <summary>
+        /// A string indicating ContainerGroupDefinition status.
+        /// </summary>
+        [Output("status")]
+        public Output<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionStatus> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// A string indicating the reason for ContainerGroupDefinition status.
+        /// </summary>
+        [Output("statusReason")]
+        public Output<string> StatusReason { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of support container definitions that define the containers in this group.
+        /// </summary>
+        [Output("supportContainerDefinitions")]
+        public Output<ImmutableArray<object>> SupportContainerDefinitions { get; private set; } = null!;
+
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
@@ -152,6 +176,24 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("schedulingStrategy")]
         public Input<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionSchedulingStrategy>? SchedulingStrategy { get; set; }
+
+        /// <summary>
+        /// A specific ContainerGroupDefinition version to be updated
+        /// </summary>
+        [Input("sourceVersionNumber")]
+        public Input<int>? SourceVersionNumber { get; set; }
+
+        [Input("supportContainerDefinitions")]
+        private InputList<object>? _supportContainerDefinitions;
+
+        /// <summary>
+        /// A collection of support container definitions that define the containers in this group.
+        /// </summary>
+        public InputList<object> SupportContainerDefinitions
+        {
+            get => _supportContainerDefinitions ?? (_supportContainerDefinitions = new InputList<object>());
+            set => _supportContainerDefinitions = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

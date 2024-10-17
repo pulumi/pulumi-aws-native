@@ -282,7 +282,7 @@ if not MYPY:
         - Description: (Optional) A boolean value that determines whether instances should scan for available patches at the next cron interval. The default value is " `false` ".
         - `RebootOption`
 
-        - Description: (Optional) A boolean value that determines whether instances are rebooted after patches are installed. The default value is " `false` ".
+        - Description: (Optional) Determines whether instances are rebooted after patches are installed. Valid values are `RebootIfNeeded` and `NoReboot` .
         - `IsPolicyAttachAllowed`
 
         - Description: (Optional) A boolean value that determines whether Quick Setup attaches policies to instances profiles already associated with the target instances. The default value is " `false` ".
@@ -616,7 +616,7 @@ class ConfigurationManagerConfigurationDefinitionArgs:
                - Description: (Optional) A boolean value that determines whether instances should scan for available patches at the next cron interval. The default value is " `false` ".
                - `RebootOption`
                
-               - Description: (Optional) A boolean value that determines whether instances are rebooted after patches are installed. The default value is " `false` ".
+               - Description: (Optional) Determines whether instances are rebooted after patches are installed. Valid values are `RebootIfNeeded` and `NoReboot` .
                - `IsPolicyAttachAllowed`
                
                - Description: (Optional) A boolean value that determines whether Quick Setup attaches policies to instances profiles already associated with the target instances. The default value is " `false` ".
@@ -937,7 +937,7 @@ class ConfigurationManagerConfigurationDefinitionArgs:
         - Description: (Optional) A boolean value that determines whether instances should scan for available patches at the next cron interval. The default value is " `false` ".
         - `RebootOption`
 
-        - Description: (Optional) A boolean value that determines whether instances are rebooted after patches are installed. The default value is " `false` ".
+        - Description: (Optional) Determines whether instances are rebooted after patches are installed. Valid values are `RebootIfNeeded` and `NoReboot` .
         - `IsPolicyAttachAllowed`
 
         - Description: (Optional) A boolean value that determines whether Quick Setup attaches policies to instances profiles already associated with the target instances. The default value is " `false` ".

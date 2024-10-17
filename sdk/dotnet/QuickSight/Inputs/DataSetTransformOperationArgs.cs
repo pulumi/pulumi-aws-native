@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("filterOperation")]
         public Input<Inputs.DataSetFilterOperationArgs>? FilterOperation { get; set; }
 
+        /// <summary>
+        /// A transform operation that overrides the dataset parameter values that are defined in another dataset.
+        /// </summary>
         [Input("overrideDatasetParameterOperation")]
         public Input<Inputs.DataSetOverrideDatasetParameterOperationArgs>? OverrideDatasetParameterOperation { get; set; }
 

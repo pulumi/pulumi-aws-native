@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Glue
         /// Definition for the initial schema version in plain-text.
         /// </summary>
         [Output("schemaDefinition")]
-        public Output<string> SchemaDefinition { get; private set; } = null!;
+        public Output<string?> SchemaDefinition { get; private set; } = null!;
 
         /// <summary>
         /// List of tags to tag the schema
@@ -166,8 +166,8 @@ namespace Pulumi.AwsNative.Glue
         /// <summary>
         /// Definition for the initial schema version in plain-text.
         /// </summary>
-        [Input("schemaDefinition", required: true)]
-        public Input<string> SchemaDefinition { get; set; } = null!;
+        [Input("schemaDefinition")]
+        public Input<string>? SchemaDefinition { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

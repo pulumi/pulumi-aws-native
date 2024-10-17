@@ -38,9 +38,10 @@ export const PolicyType = {
     AiservicesOptOutPolicy: "AISERVICES_OPT_OUT_POLICY",
     BackupPolicy: "BACKUP_POLICY",
     TagPolicy: "TAG_POLICY",
+    ChatbotPolicy: "CHATBOT_POLICY",
 } as const;
 
 /**
- * The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY
+ * The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];

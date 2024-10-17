@@ -32,9 +32,13 @@ type LookupUserPoolClientArgs struct {
 type LookupUserPoolClientResult struct {
 	// The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 	//
-	// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with their access token for 10 hours.
+	// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with
+	// their access token for 10 hours.
 	//
-	// The default time unit for `AccessTokenValidity` in an API request is hours.
+	// The default time unit for `AccessTokenValidity` in an API request is hours. *Valid range* is displayed below in seconds.
+	//
+	// If you don't specify otherwise in the configuration of your app client, your access
+	// tokens are valid for one hour.
 	AccessTokenValidity *int `pulumi:"accessTokenValidity"`
 	// The OAuth grant types that you want your app client to generate. To create an app client that generates client credentials grants, you must add `client_credentials` as the only allowed OAuth flow.
 	//
@@ -119,12 +123,22 @@ type LookupUserPoolClientResult struct {
 	//
 	// For example, when you set `IdTokenValidity` as `10` and `TokenValidityUnits` as `hours` , your user can authenticate their session with their ID token for 10 hours.
 	//
-	// The default time unit for `IdTokenValidity` in an API request is hours.
+	// The default time unit for `IdTokenValidity` in an API request is hours. *Valid range* is displayed below in seconds.
+	//
+	// If you don't specify otherwise in the configuration of your app client, your ID
+	// tokens are valid for one hour.
 	IdTokenValidity *int `pulumi:"idTokenValidity"`
 	// A list of allowed logout URLs for the IdPs.
 	LogoutUrls []string `pulumi:"logoutUrls"`
 	Name       *string  `pulumi:"name"`
-	// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+	// Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to `ENABLED` and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs return a `UserNotFoundException` exception if the user doesn't exist in the user pool.
+	//
+	// Valid values include:
+	//
+	// - `ENABLED` - This prevents user existence-related errors.
+	// - `LEGACY` - This represents the early behavior of Amazon Cognito where user existence related errors aren't prevented.
+	//
+	// Defaults to `LEGACY` when you don't provide a value.
 	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
 	// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html) API request to retrieve and display your user's profile data.
 	//
@@ -132,9 +146,13 @@ type LookupUserPoolClientResult struct {
 	ReadAttributes []string `pulumi:"readAttributes"`
 	// The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 	//
-	// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session and retrieve new access and ID tokens for 10 days.
+	// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
+	// and retrieve new access and ID tokens for 10 days.
 	//
-	// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days.
+	// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. *Valid range* is displayed below in seconds.
+	//
+	// If you don't specify otherwise in the configuration of your app client, your refresh
+	// tokens are valid for 30 days.
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
@@ -194,9 +212,13 @@ func (o LookupUserPoolClientResultOutput) ToLookupUserPoolClientResultOutputWith
 
 // The access token time limit. After this limit expires, your user can't use their access token. To specify the time unit for `AccessTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 //
-// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with their access token for 10 hours.
+// For example, when you set `AccessTokenValidity` to `10` and `TokenValidityUnits` to `hours` , your user can authorize access with
+// their access token for 10 hours.
 //
-// The default time unit for `AccessTokenValidity` in an API request is hours.
+// The default time unit for `AccessTokenValidity` in an API request is hours. *Valid range* is displayed below in seconds.
+//
+// If you don't specify otherwise in the configuration of your app client, your access
+// tokens are valid for one hour.
 func (o LookupUserPoolClientResultOutput) AccessTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.AccessTokenValidity }).(pulumi.IntPtrOutput)
 }
@@ -325,7 +347,10 @@ func (o LookupUserPoolClientResultOutput) ExplicitAuthFlows() pulumi.StringArray
 //
 // For example, when you set `IdTokenValidity` as `10` and `TokenValidityUnits` as `hours` , your user can authenticate their session with their ID token for 10 hours.
 //
-// The default time unit for `IdTokenValidity` in an API request is hours.
+// The default time unit for `IdTokenValidity` in an API request is hours. *Valid range* is displayed below in seconds.
+//
+// If you don't specify otherwise in the configuration of your app client, your ID
+// tokens are valid for one hour.
 func (o LookupUserPoolClientResultOutput) IdTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
 }
@@ -339,7 +364,14 @@ func (o LookupUserPoolClientResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to `ENABLED` and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs will return a `UserNotFoundException` exception if the user does not exist in the user pool.
+// Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to `ENABLED` and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs return a `UserNotFoundException` exception if the user doesn't exist in the user pool.
+//
+// Valid values include:
+//
+// - `ENABLED` - This prevents user existence-related errors.
+// - `LEGACY` - This represents the early behavior of Amazon Cognito where user existence related errors aren't prevented.
+//
+// Defaults to `LEGACY` when you don't provide a value.
 func (o LookupUserPoolClientResultOutput) PreventUserExistenceErrors() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.PreventUserExistenceErrors }).(pulumi.StringPtrOutput)
 }
@@ -353,9 +385,13 @@ func (o LookupUserPoolClientResultOutput) ReadAttributes() pulumi.StringArrayOut
 
 // The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 //
-// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session and retrieve new access and ID tokens for 10 days.
+// For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
+// and retrieve new access and ID tokens for 10 days.
 //
-// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days.
+// The default time unit for `RefreshTokenValidity` in an API request is days. You can't set `RefreshTokenValidity` to 0. If you do, Amazon Cognito overrides the value with the default value of 30 days. *Valid range* is displayed below in seconds.
+//
+// If you don't specify otherwise in the configuration of your app client, your refresh
+// tokens are valid for 30 days.
 func (o LookupUserPoolClientResultOutput) RefreshTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.RefreshTokenValidity }).(pulumi.IntPtrOutput)
 }

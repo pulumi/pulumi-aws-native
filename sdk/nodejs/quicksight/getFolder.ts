@@ -19,6 +19,9 @@ export function getFolder(args: GetFolderArgs, opts?: pulumi.InvokeOptions): Pro
 }
 
 export interface GetFolderArgs {
+    /**
+     * The ID for the AWS account where you want to create the folder.
+     */
     awsAccountId: string;
     /**
      * The ID of the folder.
@@ -43,6 +46,11 @@ export interface GetFolderResult {
      * A display name for the folder.
      */
     readonly name?: string;
+    /**
+     * A structure that describes the principals and the resource-level permissions of a folder.
+     *
+     * To specify no permissions, omit `Permissions` .
+     */
     readonly permissions?: outputs.quicksight.FolderResourcePermission[];
     /**
      * A list of tags for the folders that you want to apply overrides to.
@@ -61,6 +69,9 @@ export function getFolderOutput(args: GetFolderOutputArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetFolderOutputArgs {
+    /**
+     * The ID for the AWS account where you want to create the folder.
+     */
     awsAccountId: pulumi.Input<string>;
     /**
      * The ID of the folder.

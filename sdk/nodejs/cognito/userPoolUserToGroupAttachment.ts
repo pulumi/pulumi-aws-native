@@ -42,6 +42,9 @@ export class UserPoolUserToGroupAttachment extends pulumi.CustomResource {
      * The user pool ID for the user pool.
      */
     public readonly userPoolId!: pulumi.Output<string>;
+    /**
+     * The user's username.
+     */
     public readonly username!: pulumi.Output<string>;
 
     /**
@@ -91,5 +94,8 @@ export interface UserPoolUserToGroupAttachmentArgs {
      * The user pool ID for the user pool.
      */
     userPoolId: pulumi.Input<string>;
+    /**
+     * The user's username.
+     */
     username: pulumi.Input<string>;
 }

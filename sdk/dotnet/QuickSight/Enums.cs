@@ -7581,6 +7581,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DataSourceType Presto { get; } = new DataSourceType("PRESTO");
         public static DataSourceType Redshift { get; } = new DataSourceType("REDSHIFT");
         public static DataSourceType S3 { get; } = new DataSourceType("S3");
+        public static DataSourceType S3Tables { get; } = new DataSourceType("S3_TABLES");
         public static DataSourceType Salesforce { get; } = new DataSourceType("SALESFORCE");
         public static DataSourceType Servicenow { get; } = new DataSourceType("SERVICENOW");
         public static DataSourceType Snowflake { get; } = new DataSourceType("SNOWFLAKE");

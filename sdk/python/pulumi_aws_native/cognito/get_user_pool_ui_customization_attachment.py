@@ -53,7 +53,7 @@ def get_user_pool_ui_customization_attachment(client_id: Optional[str] = None,
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
 
 
-    :param str client_id: The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+    :param str client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
     :param str user_pool_id: The user pool ID for the user pool.
     """
     __args__ = dict()
@@ -71,7 +71,7 @@ def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
 
 
-    :param str client_id: The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+    :param str client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
     :param str user_pool_id: The user pool ID for the user pool.
     """
     __args__ = dict()

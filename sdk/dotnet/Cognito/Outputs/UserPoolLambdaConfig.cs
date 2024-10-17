@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// </summary>
         public readonly string? CreateAuthChallenge;
         /// <summary>
-        /// A custom email sender AWS Lambda trigger.
+        /// The configuration of a custom email sender Lambda trigger. This trigger routes all email notifications from a user pool to a Lambda function that delivers the message using custom logic.
         /// </summary>
         public readonly Outputs.UserPoolCustomEmailSender? CustomEmailSender;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// </summary>
         public readonly string? CustomMessage;
         /// <summary>
-        /// A custom SMS sender AWS Lambda trigger.
+        /// The configuration of a custom SMS sender Lambda trigger. This trigger routes all SMS notifications from a user pool to a Lambda function that delivers the message using custom logic.
         /// </summary>
         public readonly Outputs.UserPoolCustomSmsSender? CustomSmsSender;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// </summary>
         public readonly string? DefineAuthChallenge;
         /// <summary>
-        /// The Amazon Resource Name of a AWS Key Management Service ( AWS KMS ) key. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to `CustomEmailSender` and `CustomSMSSender` .
+        /// The ARN of an [KMS key](https://docs.aws.amazon.com//kms/latest/developerguide/concepts.html#master_keys) . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to custom sender Lambda triggers.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

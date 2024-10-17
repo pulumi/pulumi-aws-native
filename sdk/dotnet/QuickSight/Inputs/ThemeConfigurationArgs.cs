@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("sheet")]
         public Input<Inputs.ThemeSheetStyleArgs>? Sheet { get; set; }
 
+        /// <summary>
+        /// Determines the typography options.
+        /// </summary>
         [Input("typography")]
         public Input<Inputs.ThemeTypographyArgs>? Typography { get; set; }
 

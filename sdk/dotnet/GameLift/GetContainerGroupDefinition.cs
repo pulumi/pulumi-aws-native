@@ -66,6 +66,22 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public readonly string? CreationTime;
         /// <summary>
+        /// A specific ContainerGroupDefinition version to be updated
+        /// </summary>
+        public readonly int? SourceVersionNumber;
+        /// <summary>
+        /// A string indicating ContainerGroupDefinition status.
+        /// </summary>
+        public readonly Pulumi.AwsNative.GameLift.ContainerGroupDefinitionStatus? Status;
+        /// <summary>
+        /// A string indicating the reason for ContainerGroupDefinition status.
+        /// </summary>
+        public readonly string? StatusReason;
+        /// <summary>
+        /// A collection of support container definitions that define the containers in this group.
+        /// </summary>
+        public readonly ImmutableArray<object> SupportContainerDefinitions;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -76,10 +92,22 @@ namespace Pulumi.AwsNative.GameLift
 
             string? creationTime,
 
+            int? sourceVersionNumber,
+
+            Pulumi.AwsNative.GameLift.ContainerGroupDefinitionStatus? status,
+
+            string? statusReason,
+
+            ImmutableArray<object> supportContainerDefinitions,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             ContainerGroupDefinitionArn = containerGroupDefinitionArn;
             CreationTime = creationTime;
+            SourceVersionNumber = sourceVersionNumber;
+            Status = status;
+            StatusReason = statusReason;
+            SupportContainerDefinitions = supportContainerDefinitions;
             Tags = tags;
         }
     }

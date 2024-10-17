@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolRecoveryOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the recovery method for a user.
+        /// The recovery method that this object sets a recovery option for.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A positive integer specifying priority of a method with 1 being the highest priority.
+        /// Your priority preference for using the specified attribute in account recovery. The highest priority is `1` .
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }

@@ -2149,6 +2149,7 @@ export const DataSourceType = {
     Presto: "PRESTO",
     Redshift: "REDSHIFT",
     S3: "S3",
+    S3Tables: "S3_TABLES",
     Salesforce: "SALESFORCE",
     Servicenow: "SERVICENOW",
     Snowflake: "SNOWFLAKE",

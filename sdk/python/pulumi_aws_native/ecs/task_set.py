@@ -41,6 +41,7 @@ class TaskSetArgs:
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] service: The short name or full Amazon Resource Name (ARN) of the service to create the task set in.
         :param pulumi.Input[str] task_definition: The short name or full Amazon Resource Name (ARN) of the task definition for the tasks in the task set to use.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: The capacity provider strategy that are associated with the task set.
         :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         :param pulumi.Input['TaskSetLaunchType'] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
         :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
@@ -121,6 +122,9 @@ class TaskSetArgs:
     @property
     @pulumi.getter(name="capacityProviderStrategy")
     def capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyItemArgs']]]]:
+        """
+        The capacity provider strategy that are associated with the task set.
+        """
         return pulumi.get(self, "capacity_provider_strategy")
 
     @capacity_provider_strategy.setter
@@ -257,6 +261,7 @@ class TaskSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskSetCapacityProviderStrategyItemArgs', 'TaskSetCapacityProviderStrategyItemArgsDict']]]] capacity_provider_strategy: The capacity provider strategy that are associated with the task set.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: An optional non-unique tag that identifies this task set in external systems. If the task set is associated with a service discovery registry, the tasks in this task set will have the ECS_TASK_SET_EXTERNAL_ID AWS Cloud Map attribute set to the provided value. 
         :param pulumi.Input['TaskSetLaunchType'] launch_type: The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide. 
@@ -393,6 +398,9 @@ class TaskSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="capacityProviderStrategy")
     def capacity_provider_strategy(self) -> pulumi.Output[Optional[Sequence['outputs.TaskSetCapacityProviderStrategyItem']]]:
+        """
+        The capacity provider strategy that are associated with the task set.
+        """
         return pulumi.get(self, "capacity_provider_strategy")
 
     @property

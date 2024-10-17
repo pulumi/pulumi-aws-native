@@ -32,6 +32,7 @@ type Dashboard struct {
 	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
 	DashboardPublishOptions DashboardPublishOptionsPtrOutput    `pulumi:"dashboardPublishOptions"`
 	Definition              DashboardVersionDefinitionPtrOutput `pulumi:"definition"`
+	FolderArns              pulumi.StringArrayOutput            `pulumi:"folderArns"`
 	// <p>The last time that this dashboard was published.</p>
 	LastPublishedTime pulumi.StringOutput `pulumi:"lastPublishedTime"`
 	// <p>The last time that this dashboard was updated.</p>
@@ -125,6 +126,7 @@ type dashboardArgs struct {
 	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
 	DashboardPublishOptions *DashboardPublishOptions    `pulumi:"dashboardPublishOptions"`
 	Definition              *DashboardVersionDefinition `pulumi:"definition"`
+	FolderArns              []string                    `pulumi:"folderArns"`
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 	LinkEntities []string `pulumi:"linkEntities"`
 	// A structure that contains the link sharing configurations that you want to apply overrides to.
@@ -164,6 +166,7 @@ type DashboardArgs struct {
 	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
 	DashboardPublishOptions DashboardPublishOptionsPtrInput
 	Definition              DashboardVersionDefinitionPtrInput
+	FolderArns              pulumi.StringArrayInput
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 	LinkEntities pulumi.StringArrayInput
 	// A structure that contains the link sharing configurations that you want to apply overrides to.
@@ -258,6 +261,10 @@ func (o DashboardOutput) DashboardPublishOptions() DashboardPublishOptionsPtrOut
 
 func (o DashboardOutput) Definition() DashboardVersionDefinitionPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardVersionDefinitionPtrOutput { return v.Definition }).(DashboardVersionDefinitionPtrOutput)
+}
+
+func (o DashboardOutput) FolderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.FolderArns }).(pulumi.StringArrayOutput)
 }
 
 // <p>The last time that this dashboard was published.</p>

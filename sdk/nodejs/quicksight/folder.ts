@@ -41,6 +41,9 @@ export class Folder extends pulumi.CustomResource {
      * <p>The Amazon Resource Name (ARN) for the folder.</p>
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID for the AWS account where you want to create the folder.
+     */
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
      * <p>The time that the folder was created.</p>
@@ -63,9 +66,14 @@ export class Folder extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+     * The Amazon Resource Name (ARN) for the folder.
      */
     public readonly parentFolderArn!: pulumi.Output<string | undefined>;
+    /**
+     * A structure that describes the principals and the resource-level permissions of a folder.
+     *
+     * To specify no permissions, omit `Permissions` .
+     */
     public readonly permissions!: pulumi.Output<outputs.quicksight.FolderResourcePermission[] | undefined>;
     /**
      * The sharing scope of the folder.
@@ -122,6 +130,9 @@ export class Folder extends pulumi.CustomResource {
  * The set of arguments for constructing a Folder resource.
  */
 export interface FolderArgs {
+    /**
+     * The ID for the AWS account where you want to create the folder.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the folder.
@@ -136,9 +147,14 @@ export interface FolderArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A new parent folder arn. This change can only be applied if the import creates a brand new folder. Existing folders cannot be moved.
+     * The Amazon Resource Name (ARN) for the folder.
      */
     parentFolderArn?: pulumi.Input<string>;
+    /**
+     * A structure that describes the principals and the resource-level permissions of a folder.
+     *
+     * To specify no permissions, omit `Permissions` .
+     */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.FolderResourcePermissionArgs>[]>;
     /**
      * The sharing scope of the folder.

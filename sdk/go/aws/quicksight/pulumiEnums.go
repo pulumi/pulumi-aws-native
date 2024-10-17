@@ -43041,6 +43041,7 @@ const (
 	DataSourceTypePresto              = DataSourceType("PRESTO")
 	DataSourceTypeRedshift            = DataSourceType("REDSHIFT")
 	DataSourceTypeS3                  = DataSourceType("S3")
+	DataSourceTypeS3Tables            = DataSourceType("S3_TABLES")
 	DataSourceTypeSalesforce          = DataSourceType("SALESFORCE")
 	DataSourceTypeServicenow          = DataSourceType("SERVICENOW")
 	DataSourceTypeSnowflake           = DataSourceType("SNOWFLAKE")
@@ -43207,6 +43208,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypePresto
 //	DataSourceTypeRedshift
 //	DataSourceTypeS3
+//	DataSourceTypeS3Tables
 //	DataSourceTypeSalesforce
 //	DataSourceTypeServicenow
 //	DataSourceTypeSnowflake

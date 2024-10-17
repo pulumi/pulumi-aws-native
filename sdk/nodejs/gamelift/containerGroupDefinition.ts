@@ -62,6 +62,22 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
      */
     public readonly schedulingStrategy!: pulumi.Output<enums.gamelift.ContainerGroupDefinitionSchedulingStrategy | undefined>;
     /**
+     * A specific ContainerGroupDefinition version to be updated
+     */
+    public readonly sourceVersionNumber!: pulumi.Output<number | undefined>;
+    /**
+     * A string indicating ContainerGroupDefinition status.
+     */
+    public /*out*/ readonly status!: pulumi.Output<enums.gamelift.ContainerGroupDefinitionStatus>;
+    /**
+     * A string indicating the reason for ContainerGroupDefinition status.
+     */
+    public /*out*/ readonly statusReason!: pulumi.Output<string>;
+    /**
+     * A collection of support container definitions that define the containers in this group.
+     */
+    public readonly supportContainerDefinitions!: pulumi.Output<any[] | undefined>;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -101,11 +117,15 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
             resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
+            resourceInputs["sourceVersionNumber"] = args ? args.sourceVersionNumber : undefined;
+            resourceInputs["supportContainerDefinitions"] = args ? args.supportContainerDefinitions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["totalCpuLimit"] = args ? args.totalCpuLimit : undefined;
             resourceInputs["totalMemoryLimit"] = args ? args.totalMemoryLimit : undefined;
             resourceInputs["containerGroupDefinitionArn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
         } else {
             resourceInputs["containerDefinitions"] = undefined /*out*/;
             resourceInputs["containerGroupDefinitionArn"] = undefined /*out*/;
@@ -113,6 +133,10 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatingSystem"] = undefined /*out*/;
             resourceInputs["schedulingStrategy"] = undefined /*out*/;
+            resourceInputs["sourceVersionNumber"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["statusReason"] = undefined /*out*/;
+            resourceInputs["supportContainerDefinitions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["totalCpuLimit"] = undefined /*out*/;
             resourceInputs["totalMemoryLimit"] = undefined /*out*/;
@@ -144,6 +168,14 @@ export interface ContainerGroupDefinitionArgs {
      * Specifies whether the container group includes replica or daemon containers.
      */
     schedulingStrategy?: pulumi.Input<enums.gamelift.ContainerGroupDefinitionSchedulingStrategy>;
+    /**
+     * A specific ContainerGroupDefinition version to be updated
+     */
+    sourceVersionNumber?: pulumi.Input<number>;
+    /**
+     * A collection of support container definitions that define the containers in this group.
+     */
+    supportContainerDefinitions?: pulumi.Input<any[]>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

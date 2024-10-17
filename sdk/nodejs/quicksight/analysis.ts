@@ -62,6 +62,7 @@ export class Analysis extends pulumi.CustomResource {
      * <p>Errors associated with the analysis.</p>
      */
     public readonly errors!: pulumi.Output<outputs.quicksight.AnalysisError[] | undefined>;
+    public readonly folderArns!: pulumi.Output<string[] | undefined>;
     /**
      * <p>The time that the analysis was last updated.</p>
      */
@@ -128,6 +129,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
             resourceInputs["definition"] = args ? args.definition : undefined;
             resourceInputs["errors"] = args ? args.errors : undefined;
+            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
@@ -149,6 +151,7 @@ export class Analysis extends pulumi.CustomResource {
             resourceInputs["dataSetArns"] = undefined /*out*/;
             resourceInputs["definition"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
+            resourceInputs["folderArns"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
@@ -184,6 +187,7 @@ export interface AnalysisArgs {
      * <p>Errors associated with the analysis.</p>
      */
     errors?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisErrorArgs>[]>;
+    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * <p>The descriptive name of the analysis.</p>
      */

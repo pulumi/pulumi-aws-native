@@ -859,6 +859,7 @@ _utilities.register(
   "mod": "appsync",
   "fqn": "pulumi_aws_native.appsync",
   "classes": {
+   "aws-native:appsync:DataSource": "DataSource",
    "aws-native:appsync:DomainName": "DomainName",
    "aws-native:appsync:DomainNameApiAssociation": "DomainNameApiAssociation",
    "aws-native:appsync:FunctionConfiguration": "FunctionConfiguration",
@@ -3149,6 +3150,7 @@ _utilities.register(
    "aws-native:transfer:Certificate": "Certificate",
    "aws-native:transfer:Connector": "Connector",
    "aws-native:transfer:Profile": "Profile",
+   "aws-native:transfer:Server": "Server",
    "aws-native:transfer:Workflow": "Workflow"
   }
  },
@@ -3206,6 +3208,7 @@ _utilities.register(
   "mod": "wisdom",
   "fqn": "pulumi_aws_native.wisdom",
   "classes": {
+   "aws-native:wisdom:AiPrompt": "AiPrompt",
    "aws-native:wisdom:Assistant": "Assistant",
    "aws-native:wisdom:AssistantAssociation": "AssistantAssociation",
    "aws-native:wisdom:KnowledgeBase": "KnowledgeBase"

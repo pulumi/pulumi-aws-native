@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<bool>? AllowAdminCreateUserOnly { get; set; }
 
         /// <summary>
-        /// The message template to be used for the welcome message to new users.
+        /// The template for the welcome message to new users.
         /// 
         /// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
         /// </summary>

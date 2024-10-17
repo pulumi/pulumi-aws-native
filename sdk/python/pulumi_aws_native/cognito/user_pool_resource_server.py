@@ -27,7 +27,9 @@ class UserPoolResourceServerArgs:
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]]] = None):
         """
         The set of arguments for constructing a UserPoolResourceServer resource.
-        :param pulumi.Input[str] identifier: A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        :param pulumi.Input[str] identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
+               
+               Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
         :param pulumi.Input[str] name: A friendly name for the resource server.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]] scopes: A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
@@ -43,7 +45,9 @@ class UserPoolResourceServerArgs:
     @pulumi.getter
     def identifier(self) -> pulumi.Input[str]:
         """
-        A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
+
+        Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
         """
         return pulumi.get(self, "identifier")
 
@@ -103,7 +107,9 @@ class UserPoolResourceServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] identifier: A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        :param pulumi.Input[str] identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
+               
+               Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
         :param pulumi.Input[str] name: A friendly name for the resource server.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]] scopes: A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
@@ -187,7 +193,9 @@ class UserPoolResourceServer(pulumi.CustomResource):
     @pulumi.getter
     def identifier(self) -> pulumi.Output[str]:
         """
-        A unique resource server identifier for the resource server. This could be an HTTPS endpoint where the resource server is located. For example: `https://my-weather-api.example.com` .
+        A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
+
+        Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
         """
         return pulumi.get(self, "identifier")
 

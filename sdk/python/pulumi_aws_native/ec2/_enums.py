@@ -766,16 +766,27 @@ class VpcEndpointType(str, Enum):
 
 
 class VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat(str, Enum):
+    """
+    Set log format. Default format is `json` .
+
+    Valid values: `json` | `text`
+    """
     JSON = "json"
     TEXT = "text"
 
 
 class VpnConnectionIkeVersionsRequestListValueValue(str, Enum):
+    """
+    The IKE version.
+    """
     IKEV1 = "ikev1"
     IKEV2 = "ikev2"
 
 
 class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue(str, Enum):
+    """
+    The value for the encryption algorithm.
+    """
     AES128 = "AES128"
     AES256 = "AES256"
     AES128_GCM16 = "AES128-GCM-16"
@@ -783,6 +794,9 @@ class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue(str, Enum):
 
 
 class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue(str, Enum):
+    """
+    The value for the integrity algorithm.
+    """
     SHA1 = "SHA1"
     SHA2256 = "SHA2-256"
     SHA2384 = "SHA2-384"
@@ -790,6 +804,9 @@ class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue(str, Enum):
 
 
 class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue(str, Enum):
+    """
+    The encryption algorithm.
+    """
     AES128 = "AES128"
     AES256 = "AES256"
     AES128_GCM16 = "AES128-GCM-16"
@@ -797,6 +814,9 @@ class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue(str, Enum):
 
 
 class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(str, Enum):
+    """
+    The integrity algorithm.
+    """
     SHA1 = "SHA1"
     SHA2256 = "SHA2-256"
     SHA2384 = "SHA2-384"
@@ -804,11 +824,25 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(str, Enum):
 
 
 class VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction(str, Enum):
+    """
+    The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
+
+    Valid Values: `clear` | `none` | `restart`
+
+    Default: `clear`
+    """
     CLEAR = "clear"
     NONE = "none"
     RESTART = "restart"
 
 
 class VpnConnectionVpnTunnelOptionsSpecificationStartupAction(str, Enum):
+    """
+    The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
+
+    Valid Values: `add` | `start`
+
+    Default: `add`
+    """
     ADD = "add"
     START = "start"

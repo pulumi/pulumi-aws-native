@@ -27,12 +27,6 @@ export interface GetVersionResult {
      */
     readonly functionArn?: string;
     /**
-     * The resource policy of your function
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::Version` for more information about the expected schema for this property.
-     */
-    readonly policy?: any;
-    /**
      * The version number.
      */
     readonly version?: string;

@@ -95,7 +95,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? ReleaseNotes;
         public readonly Pulumi.AwsNative.SageMaker.ImageVersionVendorGuidance? VendorGuidance;
         /// <summary>
-        /// The version number.
+        /// The version of the image.
         /// </summary>
         public readonly int? Version;
 

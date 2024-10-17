@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The encryption algorithm.
+        /// </summary>
         [Input("value")]
         public Input<Pulumi.AwsNative.Ec2.VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue>? Value { get; set; }
 

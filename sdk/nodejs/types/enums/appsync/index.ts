@@ -2,6 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DataSourceMetricsConfig = {
+    Disabled: "DISABLED",
+    Enabled: "ENABLED",
+} as const;
+
+/**
+ * Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
+ *
+ * `MetricsConfig` can be `ENABLED` or `DISABLED` .
+ */
+export type DataSourceMetricsConfig = (typeof DataSourceMetricsConfig)[keyof typeof DataSourceMetricsConfig];
+
 export const ResolverMetricsConfig = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

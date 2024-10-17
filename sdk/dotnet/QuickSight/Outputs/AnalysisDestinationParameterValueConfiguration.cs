@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The configuration that selects all options.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSelectAllValueOptions? SelectAllValueOptions;
+        /// <summary>
+        /// A column of a data set.
+        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier? SourceColumn;
         /// <summary>
         /// The source field ID of the destination parameter.

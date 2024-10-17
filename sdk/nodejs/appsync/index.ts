@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DataSourceArgs } from "./dataSource";
+export type DataSource = import("./dataSource").DataSource;
+export const DataSource: typeof import("./dataSource").DataSource = null as any;
+utilities.lazyLoad(exports, ["DataSource"], () => require("./dataSource"));
+
 export { DomainNameArgs } from "./domainName";
 export type DomainName = import("./domainName").DomainName;
 export const DomainName: typeof import("./domainName").DomainName = null as any;
@@ -19,6 +24,11 @@ export { FunctionConfigurationArgs } from "./functionConfiguration";
 export type FunctionConfiguration = import("./functionConfiguration").FunctionConfiguration;
 export const FunctionConfiguration: typeof import("./functionConfiguration").FunctionConfiguration = null as any;
 utilities.lazyLoad(exports, ["FunctionConfiguration"], () => require("./functionConfiguration"));
+
+export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
+export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
+export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
 
 export { GetDomainNameArgs, GetDomainNameResult, GetDomainNameOutputArgs } from "./getDomainName";
 export const getDomainName: typeof import("./getDomainName").getDomainName = null as any;
@@ -63,6 +73,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:appsync:DataSource":
+                return new DataSource(name, <any>undefined, { urn })
             case "aws-native:appsync:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
             case "aws-native:appsync:DomainNameApiAssociation":

@@ -1014,6 +1014,98 @@ func (in *containerGroupDefinitionSchedulingStrategyPtr) ToContainerGroupDefinit
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupDefinitionSchedulingStrategyPtrOutput)
 }
 
+// A string indicating ContainerGroupDefinition status.
+type ContainerGroupDefinitionStatus string
+
+const (
+	ContainerGroupDefinitionStatusReady   = ContainerGroupDefinitionStatus("READY")
+	ContainerGroupDefinitionStatusCopying = ContainerGroupDefinitionStatus("COPYING")
+	ContainerGroupDefinitionStatusFailed  = ContainerGroupDefinitionStatus("FAILED")
+)
+
+type ContainerGroupDefinitionStatusOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionStatus)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionStatusOutput) ToContainerGroupDefinitionStatusOutput() ContainerGroupDefinitionStatusOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionStatusOutput) ToContainerGroupDefinitionStatusOutputWithContext(ctx context.Context) ContainerGroupDefinitionStatusOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionStatusOutput) ToContainerGroupDefinitionStatusPtrOutput() ContainerGroupDefinitionStatusPtrOutput {
+	return o.ToContainerGroupDefinitionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionStatusOutput) ToContainerGroupDefinitionStatusPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionStatus) *ContainerGroupDefinitionStatus {
+		return &v
+	}).(ContainerGroupDefinitionStatusPtrOutput)
+}
+
+func (o ContainerGroupDefinitionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupDefinitionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupDefinitionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionStatus)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionStatusPtrOutput) ToContainerGroupDefinitionStatusPtrOutput() ContainerGroupDefinitionStatusPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionStatusPtrOutput) ToContainerGroupDefinitionStatusPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionStatusPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionStatusPtrOutput) Elem() ContainerGroupDefinitionStatusOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionStatus) ContainerGroupDefinitionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionStatus
+		return ret
+	}).(ContainerGroupDefinitionStatusOutput)
+}
+
+func (o ContainerGroupDefinitionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupDefinitionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Determines whether to apply fleet or location capacities on fleet creation.
 type FleetApplyCapacity string
 
@@ -4323,6 +4415,8 @@ func init() {
 	pulumi.RegisterOutputType(ContainerGroupDefinitionOperatingSystemPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionSchedulingStrategyOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionSchedulingStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionStatusOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionStatusPtrOutput{})
 	pulumi.RegisterOutputType(FleetApplyCapacityOutput{})
 	pulumi.RegisterOutputType(FleetApplyCapacityPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationCertificateTypeOutput{})

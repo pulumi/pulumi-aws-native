@@ -128,7 +128,7 @@ class GetImageVersionResult:
     @pulumi.getter
     def version(self) -> Optional[int]:
         """
-        The version number.
+        The version of the image.
         """
         return pulumi.get(self, "version")
 

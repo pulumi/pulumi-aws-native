@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     /// </summary>
     public sealed class FlowSapoDataParallelismConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of processes that Amazon AppFlow runs at the same time when it retrieves your data from your SAP application.
+        /// </summary>
         [Input("maxParallelism", required: true)]
         public Input<int> MaxParallelism { get; set; } = null!;
 

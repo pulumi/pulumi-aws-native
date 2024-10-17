@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebExperienceResult:
-    def __init__(__self__, created_at=None, default_endpoint=None, identity_provider_configuration=None, role_arn=None, sample_prompts_control_mode=None, status=None, subtitle=None, tags=None, title=None, updated_at=None, web_experience_arn=None, web_experience_id=None, welcome_message=None):
+    def __init__(__self__, created_at=None, default_endpoint=None, identity_provider_configuration=None, origins=None, role_arn=None, sample_prompts_control_mode=None, status=None, subtitle=None, tags=None, title=None, updated_at=None, web_experience_arn=None, web_experience_id=None, welcome_message=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -36,6 +36,9 @@ class GetWebExperienceResult:
         if identity_provider_configuration and not isinstance(identity_provider_configuration, dict):
             raise TypeError("Expected argument 'identity_provider_configuration' to be a dict")
         pulumi.set(__self__, "identity_provider_configuration", identity_provider_configuration)
+        if origins and not isinstance(origins, list):
+            raise TypeError("Expected argument 'origins' to be a list")
+        pulumi.set(__self__, "origins", origins)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -90,6 +93,11 @@ class GetWebExperienceResult:
         Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         """
         return pulumi.get(self, "identity_provider_configuration")
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "origins")
 
     @property
     @pulumi.getter(name="roleArn")
@@ -183,6 +191,7 @@ class AwaitableGetWebExperienceResult(GetWebExperienceResult):
             created_at=self.created_at,
             default_endpoint=self.default_endpoint,
             identity_provider_configuration=self.identity_provider_configuration,
+            origins=self.origins,
             role_arn=self.role_arn,
             sample_prompts_control_mode=self.sample_prompts_control_mode,
             status=self.status,
@@ -215,6 +224,7 @@ def get_web_experience(application_id: Optional[str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         default_endpoint=pulumi.get(__ret__, 'default_endpoint'),
         identity_provider_configuration=pulumi.get(__ret__, 'identity_provider_configuration'),
+        origins=pulumi.get(__ret__, 'origins'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         sample_prompts_control_mode=pulumi.get(__ret__, 'sample_prompts_control_mode'),
         status=pulumi.get(__ret__, 'status'),
@@ -244,6 +254,7 @@ def get_web_experience_output(application_id: Optional[pulumi.Input[str]] = None
         created_at=pulumi.get(__response__, 'created_at'),
         default_endpoint=pulumi.get(__response__, 'default_endpoint'),
         identity_provider_configuration=pulumi.get(__response__, 'identity_provider_configuration'),
+        origins=pulumi.get(__response__, 'origins'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         sample_prompts_control_mode=pulumi.get(__response__, 'sample_prompts_control_mode'),
         status=pulumi.get(__response__, 'status'),

@@ -16,7 +16,7 @@ import (
 type UserPoolUiCustomizationAttachment struct {
 	pulumi.CustomResourceState
 
-	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// The CSS values in the UI customization.
 	Css pulumi.StringPtrOutput `pulumi:"css"`
@@ -75,7 +75,7 @@ func (UserPoolUiCustomizationAttachmentState) ElementType() reflect.Type {
 }
 
 type userPoolUiCustomizationAttachmentArgs struct {
-	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId string `pulumi:"clientId"`
 	// The CSS values in the UI customization.
 	Css *string `pulumi:"css"`
@@ -85,7 +85,7 @@ type userPoolUiCustomizationAttachmentArgs struct {
 
 // The set of arguments for constructing a UserPoolUiCustomizationAttachment resource.
 type UserPoolUiCustomizationAttachmentArgs struct {
-	// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId pulumi.StringInput
 	// The CSS values in the UI customization.
 	Css pulumi.StringPtrInput
@@ -130,7 +130,7 @@ func (o UserPoolUiCustomizationAttachmentOutput) ToUserPoolUiCustomizationAttach
 	return o
 }
 
-// The client ID for the client app. You can specify the UI customization settings for a single client (with a specific clientId) or for all clients (by setting the clientId to `ALL` ).
+// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 func (o UserPoolUiCustomizationAttachmentOutput) ClientId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }

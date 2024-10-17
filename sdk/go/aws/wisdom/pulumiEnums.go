@@ -10,6 +10,501 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AiPromptAiPromptApiFormat string
+
+const (
+	AiPromptAiPromptApiFormatAnthropicClaudeMessages        = AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES")
+	AiPromptAiPromptApiFormatAnthropicClaudeTextCompletions = AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_TEXT_COMPLETIONS")
+)
+
+func (AiPromptAiPromptApiFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptApiFormat)(nil)).Elem()
+}
+
+func (e AiPromptAiPromptApiFormat) ToAiPromptAiPromptApiFormatOutput() AiPromptAiPromptApiFormatOutput {
+	return pulumi.ToOutput(e).(AiPromptAiPromptApiFormatOutput)
+}
+
+func (e AiPromptAiPromptApiFormat) ToAiPromptAiPromptApiFormatOutputWithContext(ctx context.Context) AiPromptAiPromptApiFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiPromptAiPromptApiFormatOutput)
+}
+
+func (e AiPromptAiPromptApiFormat) ToAiPromptAiPromptApiFormatPtrOutput() AiPromptAiPromptApiFormatPtrOutput {
+	return e.ToAiPromptAiPromptApiFormatPtrOutputWithContext(context.Background())
+}
+
+func (e AiPromptAiPromptApiFormat) ToAiPromptAiPromptApiFormatPtrOutputWithContext(ctx context.Context) AiPromptAiPromptApiFormatPtrOutput {
+	return AiPromptAiPromptApiFormat(e).ToAiPromptAiPromptApiFormatOutputWithContext(ctx).ToAiPromptAiPromptApiFormatPtrOutputWithContext(ctx)
+}
+
+func (e AiPromptAiPromptApiFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiPromptAiPromptApiFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiPromptAiPromptApiFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiPromptAiPromptApiFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiPromptAiPromptApiFormatOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptApiFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptApiFormat)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptApiFormatOutput) ToAiPromptAiPromptApiFormatOutput() AiPromptAiPromptApiFormatOutput {
+	return o
+}
+
+func (o AiPromptAiPromptApiFormatOutput) ToAiPromptAiPromptApiFormatOutputWithContext(ctx context.Context) AiPromptAiPromptApiFormatOutput {
+	return o
+}
+
+func (o AiPromptAiPromptApiFormatOutput) ToAiPromptAiPromptApiFormatPtrOutput() AiPromptAiPromptApiFormatPtrOutput {
+	return o.ToAiPromptAiPromptApiFormatPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptApiFormatOutput) ToAiPromptAiPromptApiFormatPtrOutputWithContext(ctx context.Context) AiPromptAiPromptApiFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiPromptAiPromptApiFormat) *AiPromptAiPromptApiFormat {
+		return &v
+	}).(AiPromptAiPromptApiFormatPtrOutput)
+}
+
+func (o AiPromptAiPromptApiFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptApiFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiPromptAiPromptApiFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiPromptAiPromptApiFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptApiFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiPromptAiPromptApiFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiPromptAiPromptApiFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptApiFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiPromptAiPromptApiFormat)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptApiFormatPtrOutput) ToAiPromptAiPromptApiFormatPtrOutput() AiPromptAiPromptApiFormatPtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptApiFormatPtrOutput) ToAiPromptAiPromptApiFormatPtrOutputWithContext(ctx context.Context) AiPromptAiPromptApiFormatPtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptApiFormatPtrOutput) Elem() AiPromptAiPromptApiFormatOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptApiFormat) AiPromptAiPromptApiFormat {
+		if v != nil {
+			return *v
+		}
+		var ret AiPromptAiPromptApiFormat
+		return ret
+	}).(AiPromptAiPromptApiFormatOutput)
+}
+
+func (o AiPromptAiPromptApiFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptApiFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiPromptAiPromptApiFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiPromptAiPromptApiFormatInput is an input type that accepts values of the AiPromptAiPromptApiFormat enum
+// A concrete instance of `AiPromptAiPromptApiFormatInput` can be one of the following:
+//
+//	AiPromptAiPromptApiFormatAnthropicClaudeMessages
+//	AiPromptAiPromptApiFormatAnthropicClaudeTextCompletions
+type AiPromptAiPromptApiFormatInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptApiFormatOutput() AiPromptAiPromptApiFormatOutput
+	ToAiPromptAiPromptApiFormatOutputWithContext(context.Context) AiPromptAiPromptApiFormatOutput
+}
+
+var aiPromptAiPromptApiFormatPtrType = reflect.TypeOf((**AiPromptAiPromptApiFormat)(nil)).Elem()
+
+type AiPromptAiPromptApiFormatPtrInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptApiFormatPtrOutput() AiPromptAiPromptApiFormatPtrOutput
+	ToAiPromptAiPromptApiFormatPtrOutputWithContext(context.Context) AiPromptAiPromptApiFormatPtrOutput
+}
+
+type aiPromptAiPromptApiFormatPtr string
+
+func AiPromptAiPromptApiFormatPtr(v string) AiPromptAiPromptApiFormatPtrInput {
+	return (*aiPromptAiPromptApiFormatPtr)(&v)
+}
+
+func (*aiPromptAiPromptApiFormatPtr) ElementType() reflect.Type {
+	return aiPromptAiPromptApiFormatPtrType
+}
+
+func (in *aiPromptAiPromptApiFormatPtr) ToAiPromptAiPromptApiFormatPtrOutput() AiPromptAiPromptApiFormatPtrOutput {
+	return pulumi.ToOutput(in).(AiPromptAiPromptApiFormatPtrOutput)
+}
+
+func (in *aiPromptAiPromptApiFormatPtr) ToAiPromptAiPromptApiFormatPtrOutputWithContext(ctx context.Context) AiPromptAiPromptApiFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiPromptAiPromptApiFormatPtrOutput)
+}
+
+type AiPromptAiPromptTemplateType string
+
+const (
+	AiPromptAiPromptTemplateTypeText = AiPromptAiPromptTemplateType("TEXT")
+)
+
+func (AiPromptAiPromptTemplateType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptTemplateType)(nil)).Elem()
+}
+
+func (e AiPromptAiPromptTemplateType) ToAiPromptAiPromptTemplateTypeOutput() AiPromptAiPromptTemplateTypeOutput {
+	return pulumi.ToOutput(e).(AiPromptAiPromptTemplateTypeOutput)
+}
+
+func (e AiPromptAiPromptTemplateType) ToAiPromptAiPromptTemplateTypeOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiPromptAiPromptTemplateTypeOutput)
+}
+
+func (e AiPromptAiPromptTemplateType) ToAiPromptAiPromptTemplateTypePtrOutput() AiPromptAiPromptTemplateTypePtrOutput {
+	return e.ToAiPromptAiPromptTemplateTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiPromptAiPromptTemplateType) ToAiPromptAiPromptTemplateTypePtrOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateTypePtrOutput {
+	return AiPromptAiPromptTemplateType(e).ToAiPromptAiPromptTemplateTypeOutputWithContext(ctx).ToAiPromptAiPromptTemplateTypePtrOutputWithContext(ctx)
+}
+
+func (e AiPromptAiPromptTemplateType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiPromptAiPromptTemplateType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiPromptAiPromptTemplateType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiPromptAiPromptTemplateType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiPromptAiPromptTemplateTypeOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptTemplateTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptTemplateType)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptTemplateTypeOutput) ToAiPromptAiPromptTemplateTypeOutput() AiPromptAiPromptTemplateTypeOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTemplateTypeOutput) ToAiPromptAiPromptTemplateTypeOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateTypeOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTemplateTypeOutput) ToAiPromptAiPromptTemplateTypePtrOutput() AiPromptAiPromptTemplateTypePtrOutput {
+	return o.ToAiPromptAiPromptTemplateTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptTemplateTypeOutput) ToAiPromptAiPromptTemplateTypePtrOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiPromptAiPromptTemplateType) *AiPromptAiPromptTemplateType {
+		return &v
+	}).(AiPromptAiPromptTemplateTypePtrOutput)
+}
+
+func (o AiPromptAiPromptTemplateTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptTemplateTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiPromptAiPromptTemplateType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiPromptAiPromptTemplateTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptTemplateTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiPromptAiPromptTemplateType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiPromptAiPromptTemplateTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptTemplateTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiPromptAiPromptTemplateType)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptTemplateTypePtrOutput) ToAiPromptAiPromptTemplateTypePtrOutput() AiPromptAiPromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTemplateTypePtrOutput) ToAiPromptAiPromptTemplateTypePtrOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateTypePtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTemplateTypePtrOutput) Elem() AiPromptAiPromptTemplateTypeOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptTemplateType) AiPromptAiPromptTemplateType {
+		if v != nil {
+			return *v
+		}
+		var ret AiPromptAiPromptTemplateType
+		return ret
+	}).(AiPromptAiPromptTemplateTypeOutput)
+}
+
+func (o AiPromptAiPromptTemplateTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiPromptAiPromptTemplateType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiPromptAiPromptTemplateTypeInput is an input type that accepts values of the AiPromptAiPromptTemplateType enum
+// A concrete instance of `AiPromptAiPromptTemplateTypeInput` can be one of the following:
+//
+//	AiPromptAiPromptTemplateTypeText
+type AiPromptAiPromptTemplateTypeInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptTemplateTypeOutput() AiPromptAiPromptTemplateTypeOutput
+	ToAiPromptAiPromptTemplateTypeOutputWithContext(context.Context) AiPromptAiPromptTemplateTypeOutput
+}
+
+var aiPromptAiPromptTemplateTypePtrType = reflect.TypeOf((**AiPromptAiPromptTemplateType)(nil)).Elem()
+
+type AiPromptAiPromptTemplateTypePtrInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptTemplateTypePtrOutput() AiPromptAiPromptTemplateTypePtrOutput
+	ToAiPromptAiPromptTemplateTypePtrOutputWithContext(context.Context) AiPromptAiPromptTemplateTypePtrOutput
+}
+
+type aiPromptAiPromptTemplateTypePtr string
+
+func AiPromptAiPromptTemplateTypePtr(v string) AiPromptAiPromptTemplateTypePtrInput {
+	return (*aiPromptAiPromptTemplateTypePtr)(&v)
+}
+
+func (*aiPromptAiPromptTemplateTypePtr) ElementType() reflect.Type {
+	return aiPromptAiPromptTemplateTypePtrType
+}
+
+func (in *aiPromptAiPromptTemplateTypePtr) ToAiPromptAiPromptTemplateTypePtrOutput() AiPromptAiPromptTemplateTypePtrOutput {
+	return pulumi.ToOutput(in).(AiPromptAiPromptTemplateTypePtrOutput)
+}
+
+func (in *aiPromptAiPromptTemplateTypePtr) ToAiPromptAiPromptTemplateTypePtrOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiPromptAiPromptTemplateTypePtrOutput)
+}
+
+type AiPromptAiPromptType string
+
+const (
+	AiPromptAiPromptTypeAnswerGeneration         = AiPromptAiPromptType("ANSWER_GENERATION")
+	AiPromptAiPromptTypeIntentLabelingGeneration = AiPromptAiPromptType("INTENT_LABELING_GENERATION")
+	AiPromptAiPromptTypeQueryReformulation       = AiPromptAiPromptType("QUERY_REFORMULATION")
+)
+
+func (AiPromptAiPromptType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptType)(nil)).Elem()
+}
+
+func (e AiPromptAiPromptType) ToAiPromptAiPromptTypeOutput() AiPromptAiPromptTypeOutput {
+	return pulumi.ToOutput(e).(AiPromptAiPromptTypeOutput)
+}
+
+func (e AiPromptAiPromptType) ToAiPromptAiPromptTypeOutputWithContext(ctx context.Context) AiPromptAiPromptTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiPromptAiPromptTypeOutput)
+}
+
+func (e AiPromptAiPromptType) ToAiPromptAiPromptTypePtrOutput() AiPromptAiPromptTypePtrOutput {
+	return e.ToAiPromptAiPromptTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiPromptAiPromptType) ToAiPromptAiPromptTypePtrOutputWithContext(ctx context.Context) AiPromptAiPromptTypePtrOutput {
+	return AiPromptAiPromptType(e).ToAiPromptAiPromptTypeOutputWithContext(ctx).ToAiPromptAiPromptTypePtrOutputWithContext(ctx)
+}
+
+func (e AiPromptAiPromptType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiPromptAiPromptType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiPromptAiPromptType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiPromptAiPromptType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiPromptAiPromptTypeOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptType)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptTypeOutput) ToAiPromptAiPromptTypeOutput() AiPromptAiPromptTypeOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTypeOutput) ToAiPromptAiPromptTypeOutputWithContext(ctx context.Context) AiPromptAiPromptTypeOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTypeOutput) ToAiPromptAiPromptTypePtrOutput() AiPromptAiPromptTypePtrOutput {
+	return o.ToAiPromptAiPromptTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptTypeOutput) ToAiPromptAiPromptTypePtrOutputWithContext(ctx context.Context) AiPromptAiPromptTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiPromptAiPromptType) *AiPromptAiPromptType {
+		return &v
+	}).(AiPromptAiPromptTypePtrOutput)
+}
+
+func (o AiPromptAiPromptTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiPromptAiPromptType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiPromptAiPromptTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiPromptAiPromptType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiPromptAiPromptTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiPromptAiPromptType)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptTypePtrOutput) ToAiPromptAiPromptTypePtrOutput() AiPromptAiPromptTypePtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTypePtrOutput) ToAiPromptAiPromptTypePtrOutputWithContext(ctx context.Context) AiPromptAiPromptTypePtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTypePtrOutput) Elem() AiPromptAiPromptTypeOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptType) AiPromptAiPromptType {
+		if v != nil {
+			return *v
+		}
+		var ret AiPromptAiPromptType
+		return ret
+	}).(AiPromptAiPromptTypeOutput)
+}
+
+func (o AiPromptAiPromptTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiPromptAiPromptTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiPromptAiPromptType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiPromptAiPromptTypeInput is an input type that accepts values of the AiPromptAiPromptType enum
+// A concrete instance of `AiPromptAiPromptTypeInput` can be one of the following:
+//
+//	AiPromptAiPromptTypeAnswerGeneration
+//	AiPromptAiPromptTypeIntentLabelingGeneration
+//	AiPromptAiPromptTypeQueryReformulation
+type AiPromptAiPromptTypeInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptTypeOutput() AiPromptAiPromptTypeOutput
+	ToAiPromptAiPromptTypeOutputWithContext(context.Context) AiPromptAiPromptTypeOutput
+}
+
+var aiPromptAiPromptTypePtrType = reflect.TypeOf((**AiPromptAiPromptType)(nil)).Elem()
+
+type AiPromptAiPromptTypePtrInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptTypePtrOutput() AiPromptAiPromptTypePtrOutput
+	ToAiPromptAiPromptTypePtrOutputWithContext(context.Context) AiPromptAiPromptTypePtrOutput
+}
+
+type aiPromptAiPromptTypePtr string
+
+func AiPromptAiPromptTypePtr(v string) AiPromptAiPromptTypePtrInput {
+	return (*aiPromptAiPromptTypePtr)(&v)
+}
+
+func (*aiPromptAiPromptTypePtr) ElementType() reflect.Type {
+	return aiPromptAiPromptTypePtrType
+}
+
+func (in *aiPromptAiPromptTypePtr) ToAiPromptAiPromptTypePtrOutput() AiPromptAiPromptTypePtrOutput {
+	return pulumi.ToOutput(in).(AiPromptAiPromptTypePtrOutput)
+}
+
+func (in *aiPromptAiPromptTypePtr) ToAiPromptAiPromptTypePtrOutputWithContext(ctx context.Context) AiPromptAiPromptTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiPromptAiPromptTypePtrOutput)
+}
+
 type AssistantAssociationAssociationType string
 
 const (
@@ -504,12 +999,24 @@ func (in *knowledgeBaseTypePtr) ToKnowledgeBaseTypePtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptApiFormatInput)(nil)).Elem(), AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptApiFormatPtrInput)(nil)).Elem(), AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateTypeInput)(nil)).Elem(), AiPromptAiPromptTemplateType("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateTypePtrInput)(nil)).Elem(), AiPromptAiPromptTemplateType("TEXT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTypeInput)(nil)).Elem(), AiPromptAiPromptType("ANSWER_GENERATION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTypePtrInput)(nil)).Elem(), AiPromptAiPromptType("ANSWER_GENERATION"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationTypeInput)(nil)).Elem(), AssistantAssociationAssociationType("KNOWLEDGE_BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationTypePtrInput)(nil)).Elem(), AssistantAssociationAssociationType("KNOWLEDGE_BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTypeInput)(nil)).Elem(), AssistantType("AGENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTypePtrInput)(nil)).Elem(), AssistantType("AGENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
+	pulumi.RegisterOutputType(AiPromptAiPromptApiFormatOutput{})
+	pulumi.RegisterOutputType(AiPromptAiPromptApiFormatPtrOutput{})
+	pulumi.RegisterOutputType(AiPromptAiPromptTemplateTypeOutput{})
+	pulumi.RegisterOutputType(AiPromptAiPromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(AiPromptAiPromptTypeOutput{})
+	pulumi.RegisterOutputType(AiPromptAiPromptTypePtrOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationTypeOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationTypePtrOutput{})
 	pulumi.RegisterOutputType(AssistantTypeOutput{})

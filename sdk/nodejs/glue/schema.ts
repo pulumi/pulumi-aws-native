@@ -72,7 +72,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * Definition for the initial schema version in plain-text.
      */
-    public readonly schemaDefinition!: pulumi.Output<string>;
+    public readonly schemaDefinition!: pulumi.Output<string | undefined>;
     /**
      * List of tags to tag the schema
      */
@@ -94,9 +94,6 @@ export class Schema extends pulumi.CustomResource {
             }
             if ((!args || args.dataFormat === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dataFormat'");
-            }
-            if ((!args || args.schemaDefinition === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'schemaDefinition'");
             }
             resourceInputs["checkpointVersion"] = args ? args.checkpointVersion : undefined;
             resourceInputs["compatibility"] = args ? args.compatibility : undefined;
@@ -158,7 +155,7 @@ export interface SchemaArgs {
     /**
      * Definition for the initial schema version in plain-text.
      */
-    schemaDefinition: pulumi.Input<string>;
+    schemaDefinition?: pulumi.Input<string>;
     /**
      * List of tags to tag the schema
      */

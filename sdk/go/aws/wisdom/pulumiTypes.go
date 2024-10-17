@@ -13,6 +13,73 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AiPromptAiPromptTemplateConfiguration struct {
+}
+
+// AiPromptAiPromptTemplateConfigurationInput is an input type that accepts AiPromptAiPromptTemplateConfigurationArgs and AiPromptAiPromptTemplateConfigurationOutput values.
+// You can construct a concrete instance of `AiPromptAiPromptTemplateConfigurationInput` via:
+//
+//	AiPromptAiPromptTemplateConfigurationArgs{...}
+type AiPromptAiPromptTemplateConfigurationInput interface {
+	pulumi.Input
+
+	ToAiPromptAiPromptTemplateConfigurationOutput() AiPromptAiPromptTemplateConfigurationOutput
+	ToAiPromptAiPromptTemplateConfigurationOutputWithContext(context.Context) AiPromptAiPromptTemplateConfigurationOutput
+}
+
+type AiPromptAiPromptTemplateConfigurationArgs struct {
+}
+
+func (AiPromptAiPromptTemplateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptTemplateConfiguration)(nil)).Elem()
+}
+
+func (i AiPromptAiPromptTemplateConfigurationArgs) ToAiPromptAiPromptTemplateConfigurationOutput() AiPromptAiPromptTemplateConfigurationOutput {
+	return i.ToAiPromptAiPromptTemplateConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiPromptAiPromptTemplateConfigurationArgs) ToAiPromptAiPromptTemplateConfigurationOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiPromptAiPromptTemplateConfigurationOutput)
+}
+
+type AiPromptAiPromptTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiPromptAiPromptTemplateConfiguration)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptTemplateConfigurationOutput) ToAiPromptAiPromptTemplateConfigurationOutput() AiPromptAiPromptTemplateConfigurationOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTemplateConfigurationOutput) ToAiPromptAiPromptTemplateConfigurationOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateConfigurationOutput {
+	return o
+}
+
+type AiPromptAiPromptTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AiPromptAiPromptTemplateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiPromptAiPromptTemplateConfiguration)(nil)).Elem()
+}
+
+func (o AiPromptAiPromptTemplateConfigurationPtrOutput) ToAiPromptAiPromptTemplateConfigurationPtrOutput() AiPromptAiPromptTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTemplateConfigurationPtrOutput) ToAiPromptAiPromptTemplateConfigurationPtrOutputWithContext(ctx context.Context) AiPromptAiPromptTemplateConfigurationPtrOutput {
+	return o
+}
+
+func (o AiPromptAiPromptTemplateConfigurationPtrOutput) Elem() AiPromptAiPromptTemplateConfigurationOutput {
+	return o.ApplyT(func(v *AiPromptAiPromptTemplateConfiguration) AiPromptAiPromptTemplateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AiPromptAiPromptTemplateConfiguration
+		return ret
+	}).(AiPromptAiPromptTemplateConfigurationOutput)
+}
+
 type AssistantAssociationAssociationData struct {
 	// The identifier of the knowledge base.
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
@@ -889,6 +956,7 @@ type KnowledgeBaseTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateConfigurationInput)(nil)).Elem(), AiPromptAiPromptTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationDataInput)(nil)).Elem(), AssistantAssociationAssociationDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
@@ -900,6 +968,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfigurationInput)(nil)).Elem(), KnowledgeBaseSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseSourceConfigurationArgs{})
+	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationDataOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationPtrOutput{})

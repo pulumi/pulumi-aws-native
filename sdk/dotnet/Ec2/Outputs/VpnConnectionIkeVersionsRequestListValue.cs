@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class VpnConnectionIkeVersionsRequestListValue
     {
+        /// <summary>
+        /// The IKE version.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpnConnectionIkeVersionsRequestListValueValue? Value;
 
         [OutputConstructor]

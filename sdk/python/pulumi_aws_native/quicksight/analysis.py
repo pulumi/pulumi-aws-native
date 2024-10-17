@@ -28,6 +28,7 @@ class AnalysisArgs:
                  aws_account_id: pulumi.Input[str],
                  definition: Optional[pulumi.Input['AnalysisDefinitionArgs']] = None,
                  errors: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input['AnalysisParametersArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]] = None,
@@ -62,6 +63,8 @@ class AnalysisArgs:
             pulumi.set(__self__, "definition", definition)
         if errors is not None:
             pulumi.set(__self__, "errors", errors)
+        if folder_arns is not None:
+            pulumi.set(__self__, "folder_arns", folder_arns)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -125,6 +128,15 @@ class AnalysisArgs:
     @errors.setter
     def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]]]):
         pulumi.set(self, "errors", value)
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "folder_arns")
+
+    @folder_arns.setter
+    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "folder_arns", value)
 
     @property
     @pulumi.getter
@@ -248,6 +260,7 @@ class Analysis(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
                  errors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisErrorArgs', 'AnalysisErrorArgsDict']]]]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisResourcePermissionArgs', 'AnalysisResourcePermissionArgsDict']]]]] = None,
@@ -308,6 +321,7 @@ class Analysis(pulumi.CustomResource):
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[Union['AnalysisDefinitionArgs', 'AnalysisDefinitionArgsDict']]] = None,
                  errors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisErrorArgs', 'AnalysisErrorArgsDict']]]]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Union['AnalysisParametersArgs', 'AnalysisParametersArgsDict']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AnalysisResourcePermissionArgs', 'AnalysisResourcePermissionArgsDict']]]]] = None,
@@ -334,6 +348,7 @@ class Analysis(pulumi.CustomResource):
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["definition"] = definition
             __props__.__dict__["errors"] = errors
+            __props__.__dict__["folder_arns"] = folder_arns
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permissions"] = permissions
@@ -378,6 +393,7 @@ class Analysis(pulumi.CustomResource):
         __props__.__dict__["data_set_arns"] = None
         __props__.__dict__["definition"] = None
         __props__.__dict__["errors"] = None
+        __props__.__dict__["folder_arns"] = None
         __props__.__dict__["last_updated_time"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["parameters"] = None
@@ -442,6 +458,11 @@ class Analysis(pulumi.CustomResource):
         <p>Errors associated with the analysis.</p>
         """
         return pulumi.get(self, "errors")
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "folder_arns")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")

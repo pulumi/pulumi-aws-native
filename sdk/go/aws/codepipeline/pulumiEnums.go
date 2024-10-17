@@ -20,6 +20,7 @@ const (
 	PipelineActionTypeIdCategoryDeploy   = PipelineActionTypeIdCategory("Deploy")
 	PipelineActionTypeIdCategoryInvoke   = PipelineActionTypeIdCategory("Invoke")
 	PipelineActionTypeIdCategoryApproval = PipelineActionTypeIdCategory("Approval")
+	PipelineActionTypeIdCategoryCompute  = PipelineActionTypeIdCategory("Compute")
 )
 
 func (PipelineActionTypeIdCategory) ElementType() reflect.Type {
@@ -150,6 +151,7 @@ func (o PipelineActionTypeIdCategoryPtrOutput) ToStringPtrOutputWithContext(ctx 
 //	PipelineActionTypeIdCategoryDeploy
 //	PipelineActionTypeIdCategoryInvoke
 //	PipelineActionTypeIdCategoryApproval
+//	PipelineActionTypeIdCategoryCompute
 type PipelineActionTypeIdCategoryInput interface {
 	pulumi.Input
 

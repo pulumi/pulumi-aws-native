@@ -25,6 +25,7 @@ class PipelineActionTypeIdCategory(str, Enum):
     DEPLOY = "Deploy"
     INVOKE = "Invoke"
     APPROVAL = "Approval"
+    COMPUTE = "Compute"
 
 
 class PipelineArtifactStoreType(str, Enum):

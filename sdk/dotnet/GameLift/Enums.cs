@@ -198,6 +198,38 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
+    /// A string indicating ContainerGroupDefinition status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerGroupDefinitionStatus : IEquatable<ContainerGroupDefinitionStatus>
+    {
+        private readonly string _value;
+
+        private ContainerGroupDefinitionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerGroupDefinitionStatus Ready { get; } = new ContainerGroupDefinitionStatus("READY");
+        public static ContainerGroupDefinitionStatus Copying { get; } = new ContainerGroupDefinitionStatus("COPYING");
+        public static ContainerGroupDefinitionStatus Failed { get; } = new ContainerGroupDefinitionStatus("FAILED");
+
+        public static bool operator ==(ContainerGroupDefinitionStatus left, ContainerGroupDefinitionStatus right) => left.Equals(right);
+        public static bool operator !=(ContainerGroupDefinitionStatus left, ContainerGroupDefinitionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerGroupDefinitionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionStatus other && Equals(other);
+        public bool Equals(ContainerGroupDefinitionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Determines whether to apply fleet or location capacities on fleet creation.
     /// </summary>
     [EnumType]

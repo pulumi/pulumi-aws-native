@@ -70,13 +70,6 @@
   "createOnlyProperties" : [ "/properties/ExtensionIdentifier", "/properties/ResourceIdentifier", "/properties/ExtensionVersionNumber", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "writeOnlyProperties" : [ "/properties/ExtensionIdentifier", "/properties/ResourceIdentifier", "/properties/Tags", "/properties/Tags/*/Key", "/properties/Tags/*/Value" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "tagging" : {
-    "taggable" : true,
-    "tagOnCreate" : true,
-    "tagUpdatable" : true,
-    "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
-  },
   "handlers" : {
     "create" : {
       "permissions" : [ "appconfig:CreateExtensionAssociation", "appconfig:TagResource" ]
@@ -93,5 +86,13 @@
     "list" : {
       "permissions" : [ "appconfig:ListExtensionAssociations" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "appconfig:TagResource", "appconfig:UntagResource", "appconfig:ListTagsForResource" ]
   }
 }
