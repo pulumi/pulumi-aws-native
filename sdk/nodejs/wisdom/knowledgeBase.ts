@@ -66,7 +66,7 @@ export class KnowledgeBase extends pulumi.CustomResource {
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseServerSideEncryptionConfiguration | undefined>;
     /**
-     * The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+     * The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
      */
     public readonly sourceConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseSourceConfiguration | undefined>;
     /**
@@ -140,7 +140,7 @@ export interface KnowledgeBaseArgs {
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseServerSideEncryptionConfigurationArgs>;
     /**
-     * The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+     * The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
      */
     sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfigurationArgs>;
     /**

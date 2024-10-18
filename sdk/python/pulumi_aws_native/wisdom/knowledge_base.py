@@ -38,7 +38,7 @@ class KnowledgeBaseArgs:
         :param pulumi.Input[str] name: The name of the knowledge base.
         :param pulumi.Input['KnowledgeBaseRenderingConfigurationArgs'] rendering_configuration: Information about how to render the content.
         :param pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
-        :param pulumi.Input['KnowledgeBaseSourceConfigurationArgs'] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        :param pulumi.Input['KnowledgeBaseSourceConfigurationArgs'] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "knowledge_base_type", knowledge_base_type)
@@ -119,7 +119,7 @@ class KnowledgeBaseArgs:
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseSourceConfigurationArgs']]:
         """
-        The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         """
         return pulumi.get(self, "source_configuration")
 
@@ -163,7 +163,7 @@ class KnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the knowledge base.
         :param pulumi.Input[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']] rendering_configuration: Information about how to render the content.
         :param pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
-        :param pulumi.Input[Union['KnowledgeBaseSourceConfigurationArgs', 'KnowledgeBaseSourceConfigurationArgsDict']] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        :param pulumi.Input[Union['KnowledgeBaseSourceConfigurationArgs', 'KnowledgeBaseSourceConfigurationArgsDict']] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
@@ -312,7 +312,7 @@ class KnowledgeBase(pulumi.CustomResource):
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Output[Optional['outputs.KnowledgeBaseSourceConfiguration']]:
         """
-        The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         """
         return pulumi.get(self, "source_configuration")
 

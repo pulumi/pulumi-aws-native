@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<Outputs.KnowledgeBaseServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        /// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         /// </summary>
         [Output("sourceConfiguration")]
         public Output<Outputs.KnowledgeBaseSourceConfiguration?> SourceConfiguration { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Input<Inputs.KnowledgeBaseServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        /// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.KnowledgeBaseSourceConfigurationArgs>? SourceConfiguration { get; set; }
