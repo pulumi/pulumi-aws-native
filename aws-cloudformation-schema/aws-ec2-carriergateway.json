@@ -56,15 +56,23 @@
   "createOnlyProperties" : [ "/properties/VpcId" ],
   "readOnlyProperties" : [ "/properties/CarrierGatewayId", "/properties/OwnerId", "/properties/State" ],
   "primaryIdentifier" : [ "/properties/CarrierGatewayId" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags", "ec2:DescribeTags" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateCarrierGateway", "ec2:DescribeCarrierGateways", "ec2:CreateTags" ]
     },
     "read" : {
-      "permissions" : [ "ec2:DescribeCarrierGateways" ]
+      "permissions" : [ "ec2:DescribeCarrierGateways", "ec2:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "ec2:DescribeCarrierGateways", "ec2:CreateTags", "ec2:DeleteTags" ]
+      "permissions" : [ "ec2:DescribeCarrierGateways", "ec2:CreateTags", "ec2:DeleteTags", "ec2:DescribeTags" ]
     },
     "delete" : {
       "permissions" : [ "ec2:DeleteCarrierGateway", "ec2:DescribeCarrierGateways" ]

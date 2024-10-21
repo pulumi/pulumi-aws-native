@@ -58,20 +58,22 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "tagProperty" : "/properties/Tags"
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "s3:UntagResource", "s3:TagResource", "s3:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {
       "permissions" : [ "s3:CreateAccessGrantsInstance", "s3:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "s3:GetAccessGrantsInstance" ]
+      "permissions" : [ "s3:GetAccessGrantsInstance", "s3:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "s3:DeleteAccessGrantsInstance" ]
     },
     "update" : {
-      "permissions" : [ "s3:TagResource" ]
+      "permissions" : [ "s3:TagResource", "s3:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "s3:ListAccessGrantsInstances" ]

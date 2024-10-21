@@ -146,13 +146,13 @@
   "primaryIdentifier" : [ "/properties/KeyName" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "geo:CreateKey", "geo:DescribeKey", "geo:TagResource", "geo:UntagResource", "geo:GetMapTile", "geo:GetMapStyleDescriptor", "geo:GetMapSprites", "geo:GetMapGlyphs", "geo:SearchPlaceIndexForText", "geo:SearchPlaceIndexForPosition", "geo:SearchPlaceIndexForSuggestions", "geo:GetPlace", "geo:CalculateRoute", "geo:CalculateRouteMatrix" ]
+      "permissions" : [ "geo:CreateKey", "geo:DescribeKey", "geo:TagResource", "geo:UntagResource", "geo:GetMapTile", "geo:GetMapStyleDescriptor", "geo:GetMapSprites", "geo:GetMapGlyphs", "geo:SearchPlaceIndexForText", "geo:SearchPlaceIndexForPosition", "geo:SearchPlaceIndexForSuggestions", "geo:GetPlace", "geo:CalculateRoute", "geo:CalculateRouteMatrix", "geo-maps:GetTile", "geo-maps:GetStaticMap", "geo-places:Autocomplete", "geo-places:Geocode", "geo-places:GetPlace", "geo-places:ReverseGeocode", "geo-places:SearchNearby", "geo-places:SearchText", "geo-places:Suggest", "geo-routes:CalculateIsolines", "geo-routes:CalculateRouteMatrix", "geo-routes:CalculateRoutes", "geo-routes:OptimizeWaypoints", "geo-routes:SnapToRoads" ]
     },
     "read" : {
       "permissions" : [ "geo:DescribeKey" ]
     },
     "update" : {
-      "permissions" : [ "geo:CreateKey", "geo:DescribeKey", "geo:TagResource", "geo:UntagResource", "geo:GetMapTile", "geo:GetMapStyleDescriptor", "geo:GetMapSprites", "geo:GetMapGlyphs", "geo:SearchPlaceIndexForText", "geo:SearchPlaceIndexForPosition", "geo:SearchPlaceIndexForSuggestions", "geo:GetPlace", "geo:CalculateRoute", "geo:CalculateRouteMatrix", "geo:UpdateKey" ]
+      "permissions" : [ "geo:CreateKey", "geo:DescribeKey", "geo:TagResource", "geo:UntagResource", "geo:GetMapTile", "geo:GetMapStyleDescriptor", "geo:GetMapSprites", "geo:GetMapGlyphs", "geo:SearchPlaceIndexForText", "geo:SearchPlaceIndexForPosition", "geo:SearchPlaceIndexForSuggestions", "geo:GetPlace", "geo:CalculateRoute", "geo:CalculateRouteMatrix", "geo-maps:GetTile", "geo-maps:GetStaticMap", "geo-places:Autocomplete", "geo-places:Geocode", "geo-places:GetPlace", "geo-places:ReverseGeocode", "geo-places:SearchNearby", "geo-places:SearchText", "geo-places:Suggest", "geo-routes:CalculateIsolines", "geo-routes:CalculateRouteMatrix", "geo-routes:CalculateRoutes", "geo-routes:OptimizeWaypoints", "geo-routes:SnapToRoads", "geo:UpdateKey" ]
     },
     "delete" : {
       "permissions" : [ "geo:DeleteKey", "geo:DescribeKey" ]

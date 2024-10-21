@@ -460,7 +460,7 @@
     "properties": {
       "domainName": {
         "type": "string",
-        "description": "The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.",
+        "description": "The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.",
         "language": {
           "csharp": {
             "name": "DomainNameValue"
@@ -3414,6 +3414,9 @@
       "tenancy": {
         "type": "string",
         "description": "Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:\n\n- `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .\n- `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account ."
+      },
+      "unusedReservationBillingOwnerId": {
+        "type": "string"
       }
     }
   },

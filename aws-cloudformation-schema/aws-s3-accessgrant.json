@@ -1,7 +1,7 @@
 {
   "typeName" : "AWS::S3::AccessGrant",
   "description" : "The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.",
-  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-s3",
+  "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
   "definitions" : {
     "Grantee" : {
       "type" : "object",
@@ -101,21 +101,23 @@
   },
   "required" : [ "Grantee", "Permission", "AccessGrantsLocationId" ],
   "createOnlyProperties" : [ "/properties/S3PrefixType", "/properties/Tags" ],
-  "writeOnlyProperties" : [ "/properties/Tags", "/properties/S3PrefixType" ],
+  "writeOnlyProperties" : [ "/properties/S3PrefixType" ],
   "readOnlyProperties" : [ "/properties/AccessGrantId", "/properties/AccessGrantArn", "/properties/GrantScope" ],
   "primaryIdentifier" : [ "/properties/AccessGrantId" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "tagProperty" : "/properties/Tags"
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "s3:UntagResource", "s3:TagResource", "s3:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {
       "permissions" : [ "s3:CreateAccessGrant", "s3:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "s3:GetAccessGrant" ]
+      "permissions" : [ "s3:GetAccessGrant", "s3:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "s3:DeleteAccessGrant" ]
@@ -124,7 +126,7 @@
       "permissions" : [ "s3:ListAccessGrants" ]
     },
     "update" : {
-      "permissions" : [ "s3:TagResource" ]
+      "permissions" : [ "s3:TagResource", "s3:UntagResource" ]
     }
   },
   "additionalProperties" : false
