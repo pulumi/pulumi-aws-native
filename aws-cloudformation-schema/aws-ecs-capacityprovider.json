@@ -3,7 +3,12 @@
     "/properties/AutoScalingGroupProvider/AutoScalingGroupArn" : "$split(AutoScalingGroupProvider.AutoScalingGroupArn, \"autoScalingGroupName/\")[-1] $OR $split(AutoScalingGroupArn, \"autoScalingGroupName/\")[-1]"
   },
   "tagging" : {
-    "taggable" : true
+    "permissions" : [ "ecs:TagResource", "ecs:UntagResource", "ecs:ListTagsForResource" ],
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
+    "cloudFormationSystemTags" : true
   },
   "handlers" : {
     "read" : {
@@ -28,6 +33,27 @@
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/Name" ],
   "definitions" : {
+    "AutoScalingGroupProvider" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "ManagedScaling" : {
+          "$ref" : "#/definitions/ManagedScaling"
+        },
+        "AutoScalingGroupArn" : {
+          "type" : "string"
+        },
+        "ManagedTerminationProtection" : {
+          "type" : "string",
+          "enum" : [ "DISABLED", "ENABLED" ]
+        },
+        "ManagedDraining" : {
+          "type" : "string",
+          "enum" : [ "DISABLED", "ENABLED" ]
+        }
+      },
+      "required" : [ "AutoScalingGroupArn" ]
+    },
     "ManagedScaling" : {
       "description" : "The managed scaling settings for the Auto Scaling group capacity provider.",
       "additionalProperties" : false,
@@ -50,27 +76,6 @@
           "type" : "integer"
         }
       }
-    },
-    "AutoScalingGroupProvider" : {
-      "additionalProperties" : false,
-      "type" : "object",
-      "properties" : {
-        "ManagedScaling" : {
-          "$ref" : "#/definitions/ManagedScaling"
-        },
-        "AutoScalingGroupArn" : {
-          "type" : "string"
-        },
-        "ManagedTerminationProtection" : {
-          "type" : "string",
-          "enum" : [ "DISABLED", "ENABLED" ]
-        },
-        "ManagedDraining" : {
-          "type" : "string",
-          "enum" : [ "DISABLED", "ENABLED" ]
-        }
-      },
-      "required" : [ "AutoScalingGroupArn" ]
     },
     "Tag" : {
       "additionalProperties" : false,
@@ -100,6 +105,5 @@
     "Name" : {
       "type" : "string"
     }
-  },
-  "required" : [ "AutoScalingGroupProvider" ]
+  }
 }

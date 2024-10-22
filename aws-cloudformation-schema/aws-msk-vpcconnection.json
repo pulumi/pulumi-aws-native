@@ -77,7 +77,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "kafka:TagResource", "kafka:UntagResource", "kafka:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {

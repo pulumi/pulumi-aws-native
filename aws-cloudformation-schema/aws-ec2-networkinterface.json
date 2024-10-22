@@ -206,7 +206,14 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/SecondaryPrivateIpAddresses", "/properties/PrimaryPrivateIpAddress", "/properties/PrimaryIpv6Address", "/properties/VpcId" ],
   "conditionalCreateOnlyProperties" : [ "/properties/PrivateIpAddresses", "/properties/EnablePrimaryIpv6", "/properties/ConnectionTrackingSpecification" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateNetworkInterface", "ec2:DescribeNetworkInterfaces", "ec2:CreateTags", "ec2:ModifyNetworkInterfaceAttribute" ]

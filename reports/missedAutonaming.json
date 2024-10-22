@@ -460,7 +460,7 @@
     "properties": {
       "domainName": {
         "type": "string",
-        "description": "The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.",
+        "description": "The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.",
         "language": {
           "csharp": {
             "name": "DomainNameValue"
@@ -3414,6 +3414,9 @@
       "tenancy": {
         "type": "string",
         "description": "Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:\n\n- `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .\n- `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account ."
+      },
+      "unusedReservationBillingOwnerId": {
+        "type": "string"
       }
     }
   },
@@ -5680,7 +5683,7 @@
     "properties": {
       "policyDocument": {
         "$ref": "pulumi.json#/Any",
-        "description": "An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.\n For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. CFNlong converts YAML policies to JSON format before calling the API to create or modify the VPC endpoint.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EC2::VPCEndpoint` for more information about the expected schema for this property."
+        "description": "An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.\n For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:\n ``Properties: VpcEndpointType: 'Interface' ServiceName: !Sub 'com.amazonaws.${AWS::Region}.logs' PolicyDocument: '{ \"Version\":\"2012-10-17\", \"Statement\": [{ \"Effect\":\"Allow\", \"Principal\":\"*\", \"Action\":[\"logs:Describe*\",\"logs:Get*\",\"logs:List*\",\"logs:FilterLogEvents\"], \"Resource\":\"*\" }] }'``\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::EC2::VPCEndpoint` for more information about the expected schema for this property."
       },
       "privateDnsEnabled": {
         "type": "boolean",
@@ -9953,7 +9956,8 @@
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).\n\n\u003e You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` ."
       },
       "roleArn": {
         "type": "string",
