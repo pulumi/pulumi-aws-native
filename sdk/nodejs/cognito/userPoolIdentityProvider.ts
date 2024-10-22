@@ -36,14 +36,8 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
 
     /**
      * A mapping of IdP attributes to standard and custom user pool attributes.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
      */
-    public readonly attributeMapping!: pulumi.Output<any | undefined>;
-    /**
-     * The resource ID.
-     */
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
+    public readonly attributeMapping!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of IdP identifiers.
      */
@@ -78,10 +72,8 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
      * - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
      *
      * Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
      */
-    public readonly providerDetails!: pulumi.Output<any | undefined>;
+    public readonly providerDetails!: pulumi.Output<{[key: string]: string}>;
     /**
      * The IdP name.
      */
@@ -106,6 +98,9 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.providerDetails === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'providerDetails'");
+            }
             if ((!args || args.providerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
@@ -118,10 +113,8 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["providerType"] = args ? args.providerType : undefined;
             resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
-            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["attributeMapping"] = undefined /*out*/;
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["idpIdentifiers"] = undefined /*out*/;
             resourceInputs["providerDetails"] = undefined /*out*/;
             resourceInputs["providerName"] = undefined /*out*/;
@@ -141,10 +134,8 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
 export interface UserPoolIdentityProviderArgs {
     /**
      * A mapping of IdP attributes to standard and custom user pool attributes.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
      */
-    attributeMapping?: any;
+    attributeMapping?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of IdP identifiers.
      */
@@ -179,10 +170,8 @@ export interface UserPoolIdentityProviderArgs {
      * - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
      *
      * Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
      */
-    providerDetails?: any;
+    providerDetails: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The IdP name.
      */

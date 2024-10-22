@@ -26,6 +26,10 @@ export interface GetConnectorResult {
      * The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
      */
     readonly connectorArn?: string;
+    /**
+     * Metadata assigned to a connector consisting of a key-value pair.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Definition of AWS::PCAConnectorAD::Connector Resource Type

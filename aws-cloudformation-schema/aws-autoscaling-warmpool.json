@@ -34,6 +34,9 @@
   "createOnlyProperties" : [ "/properties/AutoScalingGroupName" ],
   "primaryIdentifier" : [ "/properties/AutoScalingGroupName" ],
   "required" : [ "AutoScalingGroupName" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "autoscaling:PutWarmPool", "autoscaling:DescribeWarmPool", "autoscaling:DescribeAutoScalingGroups" ]

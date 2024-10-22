@@ -18,7 +18,7 @@ import (
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+	// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The domain name configurations.
 	DomainNameConfigurations DomainNameConfigurationArrayOutput `pulumi:"domainNameConfigurations"`
@@ -79,7 +79,7 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+	// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
 	DomainName string `pulumi:"domainName"`
 	// The domain name configurations.
 	DomainNameConfigurations []DomainNameConfiguration `pulumi:"domainNameConfigurations"`
@@ -91,7 +91,7 @@ type domainNameArgs struct {
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+	// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
 	DomainName pulumi.StringInput
 	// The domain name configurations.
 	DomainNameConfigurations DomainNameConfigurationArrayInput
@@ -138,7 +138,7 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
-// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (“_“) character are not supported.
 func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }

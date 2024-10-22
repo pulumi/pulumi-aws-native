@@ -50,6 +50,7 @@ class AutoScalingGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]] = None,
                  vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AutoScalingGroup resource.
@@ -78,7 +79,7 @@ class AutoScalingGroupArgs:
         :param pulumi.Input[int] health_check_grace_period: The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the ``InService`` state. For more information, see [Set the health check grace period for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Default: ``0`` seconds
         :param pulumi.Input[str] health_check_type: A comma-separated value string of one or more health check types.
-                The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+                The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Only specify ``EC2`` if you must clear a value that was previously set.
         :param pulumi.Input[str] instance_id: The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
@@ -164,6 +165,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "target_group_arns", target_group_arns)
         if termination_policies is not None:
             pulumi.set(__self__, "termination_policies", termination_policies)
+        if traffic_sources is not None:
+            pulumi.set(__self__, "traffic_sources", traffic_sources)
         if vpc_zone_identifier is not None:
             pulumi.set(__self__, "vpc_zone_identifier", vpc_zone_identifier)
 
@@ -317,7 +320,7 @@ class AutoScalingGroupArgs:
     def health_check_type(self) -> Optional[pulumi.Input[str]]:
         """
         A comma-separated value string of one or more health check types.
-         The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+         The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
          Only specify ``EC2`` if you must clear a value that was previously set.
         """
         return pulumi.get(self, "health_check_type")
@@ -535,6 +538,15 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "termination_policies", value)
 
     @property
+    @pulumi.getter(name="trafficSources")
+    def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]]:
+        return pulumi.get(self, "traffic_sources")
+
+    @traffic_sources.setter
+    def traffic_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]]):
+        pulumi.set(self, "traffic_sources", value)
+
+    @property
     @pulumi.getter(name="vpcZoneIdentifier")
     def vpc_zone_identifier(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -584,6 +596,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTrafficSourceIdentifierArgs', 'AutoScalingGroupTrafficSourceIdentifierArgsDict']]]]] = None,
                  vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -616,7 +629,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         :param pulumi.Input[int] health_check_grace_period: The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service and marking it unhealthy due to a failed health check. This is useful if your instances do not immediately pass their health checks after they enter the ``InService`` state. For more information, see [Set the health check grace period for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/health-check-grace-period.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Default: ``0`` seconds
         :param pulumi.Input[str] health_check_type: A comma-separated value string of one or more health check types.
-                The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+                The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Only specify ``EC2`` if you must clear a value that was previously set.
         :param pulumi.Input[str] instance_id: The ID of the instance used to base the launch configuration on. For more information, see [Create an Auto Scaling group using an EC2 instance](https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 If you specify ``LaunchTemplate``, ``MixedInstancesPolicy``, or ``LaunchConfigurationName``, don't specify ``InstanceId``.
@@ -705,6 +718,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTrafficSourceIdentifierArgs', 'AutoScalingGroupTrafficSourceIdentifierArgsDict']]]]] = None,
                  vpc_zone_identifier: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -748,6 +762,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_group_arns"] = target_group_arns
             __props__.__dict__["termination_policies"] = termination_policies
+            __props__.__dict__["traffic_sources"] = traffic_sources
             __props__.__dict__["vpc_zone_identifier"] = vpc_zone_identifier
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupName", "instanceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -802,6 +817,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_group_arns"] = None
         __props__.__dict__["termination_policies"] = None
+        __props__.__dict__["traffic_sources"] = None
         __props__.__dict__["vpc_zone_identifier"] = None
         return AutoScalingGroup(resource_name, opts=opts, __props__=__props__)
 
@@ -894,7 +910,7 @@ class AutoScalingGroup(pulumi.CustomResource):
     def health_check_type(self) -> pulumi.Output[Optional[str]]:
         """
         A comma-separated value string of one or more health check types.
-         The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+         The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
          Only specify ``EC2`` if you must clear a value that was previously set.
         """
         return pulumi.get(self, "health_check_type")
@@ -1055,6 +1071,11 @@ class AutoScalingGroup(pulumi.CustomResource):
          Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
         """
         return pulumi.get(self, "termination_policies")
+
+    @property
+    @pulumi.getter(name="trafficSources")
+    def traffic_sources(self) -> pulumi.Output[Optional[Sequence['outputs.AutoScalingGroupTrafficSourceIdentifier']]]:
+        return pulumi.get(self, "traffic_sources")
 
     @property
     @pulumi.getter(name="vpcZoneIdentifier")

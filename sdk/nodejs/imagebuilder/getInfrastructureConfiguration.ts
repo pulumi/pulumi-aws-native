@@ -54,6 +54,10 @@ export interface GetInfrastructureConfigurationResult {
      */
     readonly logging?: outputs.imagebuilder.InfrastructureConfigurationLogging;
     /**
+     * The placement option settings for the infrastructure configuration.
+     */
+    readonly placement?: outputs.imagebuilder.InfrastructureConfigurationPlacement;
+    /**
      * The tags attached to the resource created by Image Builder.
      */
     readonly resourceTags?: {[key: string]: string};

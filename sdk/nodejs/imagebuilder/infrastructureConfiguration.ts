@@ -70,6 +70,10 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The placement option settings for the infrastructure configuration.
+     */
+    public readonly placement!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationPlacement | undefined>;
+    /**
      * The tags attached to the resource created by Image Builder.
      */
     public readonly resourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -115,6 +119,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["keyPair"] = args ? args.keyPair : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["placement"] = args ? args.placement : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
@@ -131,6 +136,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["keyPair"] = undefined /*out*/;
             resourceInputs["logging"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["placement"] = undefined /*out*/;
             resourceInputs["resourceTags"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["snsTopicArn"] = undefined /*out*/;
@@ -177,6 +183,10 @@ export interface InfrastructureConfigurationArgs {
      * The name of the infrastructure configuration.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The placement option settings for the infrastructure configuration.
+     */
+    placement?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationPlacementArgs>;
     /**
      * The tags attached to the resource created by Image Builder.
      */

@@ -1,5 +1,6 @@
 {
   "tagging" : {
+    "permissions" : [ "dynamodb:TagResource", "dynamodb:UntagResource", "dynamodb:ListTagsOfResource" ],
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,

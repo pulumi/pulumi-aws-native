@@ -23,17 +23,15 @@ func LookupUserPoolIdentityProvider(ctx *pulumi.Context, args *LookupUserPoolIde
 }
 
 type LookupUserPoolIdentityProviderArgs struct {
-	// The resource ID.
-	Id string `pulumi:"id"`
+	// The IdP name.
+	ProviderName string `pulumi:"providerName"`
+	// The user pool ID.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolIdentityProviderResult struct {
 	// A mapping of IdP attributes to standard and custom user pool attributes.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
-	AttributeMapping interface{} `pulumi:"attributeMapping"`
-	// The resource ID.
-	Id *string `pulumi:"id"`
+	AttributeMapping map[string]string `pulumi:"attributeMapping"`
 	// A list of IdP identifiers.
 	IdpIdentifiers []string `pulumi:"idpIdentifiers"`
 	// The scopes, URLs, and identifiers for your external identity provider. The following
@@ -65,9 +63,7 @@ type LookupUserPoolIdentityProviderResult struct {
 	// - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
 	//
 	// Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
-	ProviderDetails interface{} `pulumi:"providerDetails"`
+	ProviderDetails map[string]string `pulumi:"providerDetails"`
 }
 
 func LookupUserPoolIdentityProviderOutput(ctx *pulumi.Context, args LookupUserPoolIdentityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolIdentityProviderResultOutput {
@@ -90,8 +86,10 @@ func LookupUserPoolIdentityProviderOutput(ctx *pulumi.Context, args LookupUserPo
 }
 
 type LookupUserPoolIdentityProviderOutputArgs struct {
-	// The resource ID.
-	Id pulumi.StringInput `pulumi:"id"`
+	// The IdP name.
+	ProviderName pulumi.StringInput `pulumi:"providerName"`
+	// The user pool ID.
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupUserPoolIdentityProviderOutputArgs) ElementType() reflect.Type {
@@ -113,15 +111,8 @@ func (o LookupUserPoolIdentityProviderResultOutput) ToLookupUserPoolIdentityProv
 }
 
 // A mapping of IdP attributes to standard and custom user pool attributes.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
-func (o LookupUserPoolIdentityProviderResultOutput) AttributeMapping() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) interface{} { return v.AttributeMapping }).(pulumi.AnyOutput)
-}
-
-// The resource ID.
-func (o LookupUserPoolIdentityProviderResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+func (o LookupUserPoolIdentityProviderResultOutput) AttributeMapping() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) map[string]string { return v.AttributeMapping }).(pulumi.StringMapOutput)
 }
 
 // A list of IdP identifiers.
@@ -158,10 +149,8 @@ func (o LookupUserPoolIdentityProviderResultOutput) IdpIdentifiers() pulumi.Stri
 // - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
 //
 // Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
-func (o LookupUserPoolIdentityProviderResultOutput) ProviderDetails() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) interface{} { return v.ProviderDetails }).(pulumi.AnyOutput)
+func (o LookupUserPoolIdentityProviderResultOutput) ProviderDetails() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) map[string]string { return v.ProviderDetails }).(pulumi.StringMapOutput)
 }
 
 func init() {

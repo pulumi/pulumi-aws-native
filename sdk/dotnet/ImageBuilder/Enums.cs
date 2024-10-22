@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.ImageBuilder
 
         public static ComponentPlatform Windows { get; } = new ComponentPlatform("Windows");
         public static ComponentPlatform Linux { get; } = new ComponentPlatform("Linux");
+        public static ComponentPlatform MacOs { get; } = new ComponentPlatform("macOS");
 
         public static bool operator ==(ComponentPlatform left, ComponentPlatform right) => left.Equals(right);
         public static bool operator !=(ComponentPlatform left, ComponentPlatform right) => !left.Equals(right);
@@ -410,6 +411,38 @@ namespace Pulumi.AwsNative.ImageBuilder
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InfrastructureConfigurationInstanceMetadataOptionsHttpTokens other && Equals(other);
         public bool Equals(InfrastructureConfigurationInstanceMetadataOptionsHttpTokens other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tenancy
+    /// </summary>
+    [EnumType]
+    public readonly struct InfrastructureConfigurationPlacementTenancy : IEquatable<InfrastructureConfigurationPlacementTenancy>
+    {
+        private readonly string _value;
+
+        private InfrastructureConfigurationPlacementTenancy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InfrastructureConfigurationPlacementTenancy Default { get; } = new InfrastructureConfigurationPlacementTenancy("default");
+        public static InfrastructureConfigurationPlacementTenancy Dedicated { get; } = new InfrastructureConfigurationPlacementTenancy("dedicated");
+        public static InfrastructureConfigurationPlacementTenancy Host { get; } = new InfrastructureConfigurationPlacementTenancy("host");
+
+        public static bool operator ==(InfrastructureConfigurationPlacementTenancy left, InfrastructureConfigurationPlacementTenancy right) => left.Equals(right);
+        public static bool operator !=(InfrastructureConfigurationPlacementTenancy left, InfrastructureConfigurationPlacementTenancy right) => !left.Equals(right);
+
+        public static explicit operator string(InfrastructureConfigurationPlacementTenancy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InfrastructureConfigurationPlacementTenancy other && Equals(other);
+        public bool Equals(InfrastructureConfigurationPlacementTenancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

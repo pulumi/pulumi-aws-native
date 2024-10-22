@@ -97,6 +97,11 @@ class GetWebExperienceResult:
     @property
     @pulumi.getter
     def origins(self) -> Optional[Sequence[str]]:
+        """
+        Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+
+        > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
+        """
         return pulumi.get(self, "origins")
 
     @property

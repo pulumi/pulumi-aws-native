@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerlessCacheResult:
-    def __init__(__self__, arn=None, cache_usage_limits=None, create_time=None, daily_snapshot_time=None, description=None, endpoint=None, full_engine_version=None, reader_endpoint=None, security_group_ids=None, snapshot_retention_limit=None, status=None, tags=None, user_group_id=None):
+    def __init__(__self__, arn=None, cache_usage_limits=None, create_time=None, daily_snapshot_time=None, description=None, endpoint=None, engine=None, full_engine_version=None, major_engine_version=None, reader_endpoint=None, security_group_ids=None, snapshot_retention_limit=None, status=None, tags=None, user_group_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -45,9 +45,15 @@ class GetServerlessCacheResult:
         if endpoint and not isinstance(endpoint, dict):
             raise TypeError("Expected argument 'endpoint' to be a dict")
         pulumi.set(__self__, "endpoint", endpoint)
+        if engine and not isinstance(engine, str):
+            raise TypeError("Expected argument 'engine' to be a str")
+        pulumi.set(__self__, "engine", engine)
         if full_engine_version and not isinstance(full_engine_version, str):
             raise TypeError("Expected argument 'full_engine_version' to be a str")
         pulumi.set(__self__, "full_engine_version", full_engine_version)
+        if major_engine_version and not isinstance(major_engine_version, str):
+            raise TypeError("Expected argument 'major_engine_version' to be a str")
+        pulumi.set(__self__, "major_engine_version", major_engine_version)
         if reader_endpoint and not isinstance(reader_endpoint, dict):
             raise TypeError("Expected argument 'reader_endpoint' to be a dict")
         pulumi.set(__self__, "reader_endpoint", reader_endpoint)
@@ -116,12 +122,28 @@ class GetServerlessCacheResult:
         return pulumi.get(self, "endpoint")
 
     @property
+    @pulumi.getter
+    def engine(self) -> Optional[str]:
+        """
+        The engine name of the Serverless Cache.
+        """
+        return pulumi.get(self, "engine")
+
+    @property
     @pulumi.getter(name="fullEngineVersion")
     def full_engine_version(self) -> Optional[str]:
         """
         The full engine version of the Serverless Cache.
         """
         return pulumi.get(self, "full_engine_version")
+
+    @property
+    @pulumi.getter(name="majorEngineVersion")
+    def major_engine_version(self) -> Optional[str]:
+        """
+        The major engine version of the Serverless Cache.
+        """
+        return pulumi.get(self, "major_engine_version")
 
     @property
     @pulumi.getter(name="readerEndpoint")
@@ -184,7 +206,9 @@ class AwaitableGetServerlessCacheResult(GetServerlessCacheResult):
             daily_snapshot_time=self.daily_snapshot_time,
             description=self.description,
             endpoint=self.endpoint,
+            engine=self.engine,
             full_engine_version=self.full_engine_version,
+            major_engine_version=self.major_engine_version,
             reader_endpoint=self.reader_endpoint,
             security_group_ids=self.security_group_ids,
             snapshot_retention_limit=self.snapshot_retention_limit,
@@ -213,7 +237,9 @@ def get_serverless_cache(serverless_cache_name: Optional[str] = None,
         daily_snapshot_time=pulumi.get(__ret__, 'daily_snapshot_time'),
         description=pulumi.get(__ret__, 'description'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
+        engine=pulumi.get(__ret__, 'engine'),
         full_engine_version=pulumi.get(__ret__, 'full_engine_version'),
+        major_engine_version=pulumi.get(__ret__, 'major_engine_version'),
         reader_endpoint=pulumi.get(__ret__, 'reader_endpoint'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         snapshot_retention_limit=pulumi.get(__ret__, 'snapshot_retention_limit'),
@@ -239,7 +265,9 @@ def get_serverless_cache_output(serverless_cache_name: Optional[pulumi.Input[str
         daily_snapshot_time=pulumi.get(__response__, 'daily_snapshot_time'),
         description=pulumi.get(__response__, 'description'),
         endpoint=pulumi.get(__response__, 'endpoint'),
+        engine=pulumi.get(__response__, 'engine'),
         full_engine_version=pulumi.get(__response__, 'full_engine_version'),
+        major_engine_version=pulumi.get(__response__, 'major_engine_version'),
         reader_endpoint=pulumi.get(__response__, 'reader_endpoint'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         snapshot_retention_limit=pulumi.get(__response__, 'snapshot_retention_limit'),

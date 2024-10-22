@@ -276,6 +276,7 @@ class BucketRuleStatus(str, Enum):
 class BucketServerSideEncryptionByDefaultSseAlgorithm(str, Enum):
     """
     Server-side encryption algorithm to use for the default encryption.
+      For directory buckets, there are only two supported values for server-side encryption: ``AES256`` and ``aws:kms``.
     """
     AWSKMS = "aws:kms"
     AES256 = "AES256"

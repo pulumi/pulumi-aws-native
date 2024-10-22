@@ -27,7 +27,7 @@ class VpcLinkArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcLink resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
         :param pulumi.Input[str] description: The description of the VPC link.
         :param pulumi.Input[str] name: The name used to label and identify the VPC link.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of arbitrary tags (key-value pairs) to associate with the VPC link.
@@ -44,7 +44,7 @@ class VpcLinkArgs:
     @pulumi.getter(name="targetArns")
     def target_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+        The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
         """
         return pulumi.get(self, "target_arns")
 
@@ -107,7 +107,7 @@ class VpcLink(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the VPC link.
         :param pulumi.Input[str] name: The name used to label and identify the VPC link.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of arbitrary tags (key-value pairs) to associate with the VPC link.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_arns: The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
         """
         ...
     @overload
@@ -212,7 +212,7 @@ class VpcLink(pulumi.CustomResource):
     @pulumi.getter(name="targetArns")
     def target_arns(self) -> pulumi.Output[Sequence[str]]:
         """
-        The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+        The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
         """
         return pulumi.get(self, "target_arns")
 

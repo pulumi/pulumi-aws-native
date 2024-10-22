@@ -16,6 +16,7 @@ type ComponentPlatform string
 const (
 	ComponentPlatformWindows = ComponentPlatform("Windows")
 	ComponentPlatformLinux   = ComponentPlatform("Linux")
+	ComponentPlatformMacOs   = ComponentPlatform("macOS")
 )
 
 func (ComponentPlatform) ElementType() reflect.Type {
@@ -142,6 +143,7 @@ func (o ComponentPlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 //
 //	ComponentPlatformWindows
 //	ComponentPlatformLinux
+//	ComponentPlatformMacOs
 type ComponentPlatformInput interface {
 	pulumi.Input
 
@@ -2107,6 +2109,174 @@ func (in *infrastructureConfigurationInstanceMetadataOptionsHttpTokensPtr) ToInf
 	return pulumi.ToOutputWithContext(ctx, in).(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput)
 }
 
+// Tenancy
+type InfrastructureConfigurationPlacementTenancy string
+
+const (
+	InfrastructureConfigurationPlacementTenancyDefault   = InfrastructureConfigurationPlacementTenancy("default")
+	InfrastructureConfigurationPlacementTenancyDedicated = InfrastructureConfigurationPlacementTenancy("dedicated")
+	InfrastructureConfigurationPlacementTenancyHost      = InfrastructureConfigurationPlacementTenancy("host")
+)
+
+func (InfrastructureConfigurationPlacementTenancy) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationPlacementTenancy)(nil)).Elem()
+}
+
+func (e InfrastructureConfigurationPlacementTenancy) ToInfrastructureConfigurationPlacementTenancyOutput() InfrastructureConfigurationPlacementTenancyOutput {
+	return pulumi.ToOutput(e).(InfrastructureConfigurationPlacementTenancyOutput)
+}
+
+func (e InfrastructureConfigurationPlacementTenancy) ToInfrastructureConfigurationPlacementTenancyOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementTenancyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InfrastructureConfigurationPlacementTenancyOutput)
+}
+
+func (e InfrastructureConfigurationPlacementTenancy) ToInfrastructureConfigurationPlacementTenancyPtrOutput() InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return e.ToInfrastructureConfigurationPlacementTenancyPtrOutputWithContext(context.Background())
+}
+
+func (e InfrastructureConfigurationPlacementTenancy) ToInfrastructureConfigurationPlacementTenancyPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return InfrastructureConfigurationPlacementTenancy(e).ToInfrastructureConfigurationPlacementTenancyOutputWithContext(ctx).ToInfrastructureConfigurationPlacementTenancyPtrOutputWithContext(ctx)
+}
+
+func (e InfrastructureConfigurationPlacementTenancy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfrastructureConfigurationPlacementTenancy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InfrastructureConfigurationPlacementTenancy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InfrastructureConfigurationPlacementTenancy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InfrastructureConfigurationPlacementTenancyOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationPlacementTenancyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationPlacementTenancy)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationPlacementTenancyOutput) ToInfrastructureConfigurationPlacementTenancyOutput() InfrastructureConfigurationPlacementTenancyOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPlacementTenancyOutput) ToInfrastructureConfigurationPlacementTenancyOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementTenancyOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPlacementTenancyOutput) ToInfrastructureConfigurationPlacementTenancyPtrOutput() InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return o.ToInfrastructureConfigurationPlacementTenancyPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationPlacementTenancyOutput) ToInfrastructureConfigurationPlacementTenancyPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationPlacementTenancy) *InfrastructureConfigurationPlacementTenancy {
+		return &v
+	}).(InfrastructureConfigurationPlacementTenancyPtrOutput)
+}
+
+func (o InfrastructureConfigurationPlacementTenancyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationPlacementTenancyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfrastructureConfigurationPlacementTenancy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InfrastructureConfigurationPlacementTenancyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationPlacementTenancyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InfrastructureConfigurationPlacementTenancy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InfrastructureConfigurationPlacementTenancyPtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationPlacementTenancyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationPlacementTenancy)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationPlacementTenancyPtrOutput) ToInfrastructureConfigurationPlacementTenancyPtrOutput() InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPlacementTenancyPtrOutput) ToInfrastructureConfigurationPlacementTenancyPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPlacementTenancyPtrOutput) Elem() InfrastructureConfigurationPlacementTenancyOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationPlacementTenancy) InfrastructureConfigurationPlacementTenancy {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationPlacementTenancy
+		return ret
+	}).(InfrastructureConfigurationPlacementTenancyOutput)
+}
+
+func (o InfrastructureConfigurationPlacementTenancyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationPlacementTenancyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InfrastructureConfigurationPlacementTenancy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InfrastructureConfigurationPlacementTenancyInput is an input type that accepts values of the InfrastructureConfigurationPlacementTenancy enum
+// A concrete instance of `InfrastructureConfigurationPlacementTenancyInput` can be one of the following:
+//
+//	InfrastructureConfigurationPlacementTenancyDefault
+//	InfrastructureConfigurationPlacementTenancyDedicated
+//	InfrastructureConfigurationPlacementTenancyHost
+type InfrastructureConfigurationPlacementTenancyInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationPlacementTenancyOutput() InfrastructureConfigurationPlacementTenancyOutput
+	ToInfrastructureConfigurationPlacementTenancyOutputWithContext(context.Context) InfrastructureConfigurationPlacementTenancyOutput
+}
+
+var infrastructureConfigurationPlacementTenancyPtrType = reflect.TypeOf((**InfrastructureConfigurationPlacementTenancy)(nil)).Elem()
+
+type InfrastructureConfigurationPlacementTenancyPtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationPlacementTenancyPtrOutput() InfrastructureConfigurationPlacementTenancyPtrOutput
+	ToInfrastructureConfigurationPlacementTenancyPtrOutputWithContext(context.Context) InfrastructureConfigurationPlacementTenancyPtrOutput
+}
+
+type infrastructureConfigurationPlacementTenancyPtr string
+
+func InfrastructureConfigurationPlacementTenancyPtr(v string) InfrastructureConfigurationPlacementTenancyPtrInput {
+	return (*infrastructureConfigurationPlacementTenancyPtr)(&v)
+}
+
+func (*infrastructureConfigurationPlacementTenancyPtr) ElementType() reflect.Type {
+	return infrastructureConfigurationPlacementTenancyPtrType
+}
+
+func (in *infrastructureConfigurationPlacementTenancyPtr) ToInfrastructureConfigurationPlacementTenancyPtrOutput() InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return pulumi.ToOutput(in).(InfrastructureConfigurationPlacementTenancyPtrOutput)
+}
+
+func (in *infrastructureConfigurationPlacementTenancyPtr) ToInfrastructureConfigurationPlacementTenancyPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InfrastructureConfigurationPlacementTenancyPtrOutput)
+}
+
 // The action type of the policy detail.
 type LifecyclePolicyActionType string
 
@@ -3136,6 +3306,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageWorkflowConfigurationOnFailurePtrInput)(nil)).Elem(), ImageWorkflowConfigurationOnFailure("CONTINUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsHttpTokensInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("required"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsHttpTokens("required"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationPlacementTenancyInput)(nil)).Elem(), InfrastructureConfigurationPlacementTenancy("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationPlacementTenancyPtrInput)(nil)).Elem(), InfrastructureConfigurationPlacementTenancy("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyActionTypeInput)(nil)).Elem(), LifecyclePolicyActionType("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyActionTypePtrInput)(nil)).Elem(), LifecyclePolicyActionType("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyFilterTypeInput)(nil)).Elem(), LifecyclePolicyFilterType("AGE"))
@@ -3174,6 +3346,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageWorkflowConfigurationOnFailurePtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsHttpTokensPtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationPlacementTenancyOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationPlacementTenancyPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyActionTypeOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyActionTypePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyFilterTypeOutput{})

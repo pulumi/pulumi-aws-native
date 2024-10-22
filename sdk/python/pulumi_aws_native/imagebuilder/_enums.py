@@ -18,6 +18,7 @@ __all__ = [
     'ImageRecipeEbsInstanceBlockDeviceSpecificationVolumeType',
     'ImageWorkflowConfigurationOnFailure',
     'InfrastructureConfigurationInstanceMetadataOptionsHttpTokens',
+    'InfrastructureConfigurationPlacementTenancy',
     'LifecyclePolicyActionType',
     'LifecyclePolicyFilterType',
     'LifecyclePolicyResourceType',
@@ -33,6 +34,7 @@ class ComponentPlatform(str, Enum):
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
+    MAC_OS = "macOS"
 
 
 class ComponentType(str, Enum):
@@ -136,6 +138,15 @@ class InfrastructureConfigurationInstanceMetadataOptionsHttpTokens(str, Enum):
     """
     REQUIRED = "required"
     OPTIONAL = "optional"
+
+
+class InfrastructureConfigurationPlacementTenancy(str, Enum):
+    """
+    Tenancy
+    """
+    DEFAULT = "default"
+    DEDICATED = "dedicated"
+    HOST = "host"
 
 
 class LifecyclePolicyActionType(str, Enum):

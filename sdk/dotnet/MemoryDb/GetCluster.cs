@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The engine type used by the cluster.
+        /// </summary>
+        public readonly string? Engine;
+        /// <summary>
         /// The Redis engine version used by the cluster.
         /// </summary>
         public readonly string? EngineVersion;
@@ -148,6 +152,8 @@ namespace Pulumi.AwsNative.MemoryDb
 
             string? description,
 
+            string? engine,
+
             string? engineVersion,
 
             string? maintenanceWindow,
@@ -181,6 +187,7 @@ namespace Pulumi.AwsNative.MemoryDb
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
             ClusterEndpoint = clusterEndpoint;
             Description = description;
+            Engine = engine;
             EngineVersion = engineVersion;
             MaintenanceWindow = maintenanceWindow;
             NodeType = nodeType;

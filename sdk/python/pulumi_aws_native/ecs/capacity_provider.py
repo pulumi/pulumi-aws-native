@@ -24,7 +24,7 @@ __all__ = ['CapacityProviderArgs', 'CapacityProvider']
 @pulumi.input_type
 class CapacityProviderArgs:
     def __init__(__self__, *,
-                 auto_scaling_group_provider: pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'],
+                 auto_scaling_group_provider: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -43,7 +43,8 @@ class CapacityProviderArgs:
                - Tag keys and values are case-sensitive.
                - Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit.
         """
-        pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
+        if auto_scaling_group_provider is not None:
+            pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -51,14 +52,14 @@ class CapacityProviderArgs:
 
     @property
     @pulumi.getter(name="autoScalingGroupProvider")
-    def auto_scaling_group_provider(self) -> pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']:
+    def auto_scaling_group_provider(self) -> Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']]:
         """
         The Auto Scaling group settings for the capacity provider.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
 
     @auto_scaling_group_provider.setter
-    def auto_scaling_group_provider(self, value: pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']):
+    def auto_scaling_group_provider(self, value: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']]):
         pulumi.set(self, "auto_scaling_group_provider", value)
 
     @property
@@ -264,7 +265,7 @@ class CapacityProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CapacityProviderArgs,
+                 args: Optional[CapacityProviderArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::ECS::CapacityProvider.
@@ -432,8 +433,6 @@ class CapacityProvider(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapacityProviderArgs.__new__(CapacityProviderArgs)
 
-            if auto_scaling_group_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'auto_scaling_group_provider'")
             __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
@@ -468,7 +467,7 @@ class CapacityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoScalingGroupProvider")
-    def auto_scaling_group_provider(self) -> pulumi.Output['outputs.CapacityProviderAutoScalingGroupProvider']:
+    def auto_scaling_group_provider(self) -> pulumi.Output[Optional['outputs.CapacityProviderAutoScalingGroupProvider']]:
         """
         The Auto Scaling group settings for the capacity provider.
         """

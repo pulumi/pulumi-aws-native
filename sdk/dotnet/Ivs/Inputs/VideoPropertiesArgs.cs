@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.Ivs.Inputs
         public Input<double>? Framerate { get; set; }
 
         /// <summary>
-        /// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        /// Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
         /// </summary>
         [Input("height")]
         public Input<int>? Height { get; set; }
 
         /// <summary>
-        /// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        /// Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
         /// </summary>
         [Input("width")]
         public Input<int>? Width { get; set; }

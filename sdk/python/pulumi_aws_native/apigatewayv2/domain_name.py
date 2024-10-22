@@ -27,7 +27,7 @@ class DomainNameArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
-        :param pulumi.Input[str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        :param pulumi.Input[str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         :param pulumi.Input[Sequence[pulumi.Input['DomainNameConfigurationArgs']]] domain_name_configurations: The domain name configurations.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The collection of tags associated with a domain name.
@@ -44,7 +44,7 @@ class DomainNameArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
         """
-        The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         """
         return pulumi.get(self, "domain_name")
 
@@ -105,7 +105,7 @@ class DomainName(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        :param pulumi.Input[str] domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DomainNameConfigurationArgs', 'DomainNameConfigurationArgsDict']]]] domain_name_configurations: The domain name configurations.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The collection of tags associated with a domain name.
@@ -192,7 +192,7 @@ class DomainName(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         """
         return pulumi.get(self, "domain_name")
 

@@ -31,7 +31,7 @@ type KnowledgeBase struct {
 	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrOutput `pulumi:"renderingConfiguration"`
 	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration KnowledgeBaseSourceConfigurationPtrOutput `pulumi:"sourceConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
@@ -99,7 +99,7 @@ type knowledgeBaseArgs struct {
 	RenderingConfiguration *KnowledgeBaseRenderingConfiguration `pulumi:"renderingConfiguration"`
 	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration *KnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration *KnowledgeBaseSourceConfiguration `pulumi:"sourceConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -117,7 +117,7 @@ type KnowledgeBaseArgs struct {
 	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrInput
 	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrInput
-	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration KnowledgeBaseSourceConfigurationPtrInput
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayInput
@@ -197,7 +197,7 @@ func (o KnowledgeBaseOutput) ServerSideEncryptionConfiguration() KnowledgeBaseSe
 	}).(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
 }
 
-// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 func (o KnowledgeBaseOutput) SourceConfiguration() KnowledgeBaseSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseSourceConfigurationPtrOutput { return v.SourceConfiguration }).(KnowledgeBaseSourceConfigurationPtrOutput)
 }

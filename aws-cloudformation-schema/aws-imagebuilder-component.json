@@ -31,7 +31,7 @@
     "Platform" : {
       "description" : "The platform of the component.",
       "type" : "string",
-      "enum" : [ "Windows", "Linux" ]
+      "enum" : [ "Windows", "Linux", "macOS" ]
     },
     "Data" : {
       "description" : "The data of the component.",

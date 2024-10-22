@@ -37,6 +37,9 @@ class WebExperienceArgs:
         The set of arguments for constructing a WebExperience resource.
         :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business web experience.
         :param pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']] identity_provider_configuration: Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+               
+               > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the service role attached to your web experience.
                
                > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
@@ -91,6 +94,11 @@ class WebExperienceArgs:
     @property
     @pulumi.getter
     def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+
+        > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
+        """
         return pulumi.get(self, "origins")
 
     @origins.setter
@@ -194,6 +202,9 @@ class WebExperience(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business web experience.
         :param pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]] identity_provider_configuration: Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+               
+               > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the service role attached to your web experience.
                
                > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
@@ -338,6 +349,11 @@ class WebExperience(pulumi.CustomResource):
     @property
     @pulumi.getter
     def origins(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+
+        > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
+        """
         return pulumi.get(self, "origins")
 
     @property

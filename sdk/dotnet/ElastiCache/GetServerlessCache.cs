@@ -82,9 +82,17 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public readonly Outputs.ServerlessCacheEndpoint? Endpoint;
         /// <summary>
+        /// The engine name of the Serverless Cache.
+        /// </summary>
+        public readonly string? Engine;
+        /// <summary>
         /// The full engine version of the Serverless Cache.
         /// </summary>
         public readonly string? FullEngineVersion;
+        /// <summary>
+        /// The major engine version of the Serverless Cache.
+        /// </summary>
+        public readonly string? MajorEngineVersion;
         /// <summary>
         /// Represents the information required for client programs to connect to a cache node. This value is read-only.
         /// </summary>
@@ -124,7 +132,11 @@ namespace Pulumi.AwsNative.ElastiCache
 
             Outputs.ServerlessCacheEndpoint? endpoint,
 
+            string? engine,
+
             string? fullEngineVersion,
+
+            string? majorEngineVersion,
 
             Outputs.ServerlessCacheEndpoint? readerEndpoint,
 
@@ -144,7 +156,9 @@ namespace Pulumi.AwsNative.ElastiCache
             DailySnapshotTime = dailySnapshotTime;
             Description = description;
             Endpoint = endpoint;
+            Engine = engine;
             FullEngineVersion = fullEngineVersion;
+            MajorEngineVersion = majorEngineVersion;
             ReaderEndpoint = readerEndpoint;
             SecurityGroupIds = securityGroupIds;
             SnapshotRetentionLimit = snapshotRetentionLimit;

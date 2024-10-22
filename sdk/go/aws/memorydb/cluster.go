@@ -33,6 +33,8 @@ type Cluster struct {
 	DataTiering ClusterDataTieringStatusPtrOutput `pulumi:"dataTiering"`
 	// An optional description of the cluster.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The engine type used by the cluster.
+	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The Redis engine version used by the cluster.
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
@@ -150,6 +152,8 @@ type clusterArgs struct {
 	DataTiering *ClusterDataTieringStatus `pulumi:"dataTiering"`
 	// An optional description of the cluster.
 	Description *string `pulumi:"description"`
+	// The engine type used by the cluster.
+	Engine *string `pulumi:"engine"`
 	// The Redis engine version used by the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
@@ -208,6 +212,8 @@ type ClusterArgs struct {
 	DataTiering ClusterDataTieringStatusPtrInput
 	// An optional description of the cluster.
 	Description pulumi.StringPtrInput
+	// The engine type used by the cluster.
+	Engine pulumi.StringPtrInput
 	// The Redis engine version used by the cluster.
 	EngineVersion pulumi.StringPtrInput
 	// The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
@@ -322,6 +328,11 @@ func (o ClusterOutput) DataTiering() ClusterDataTieringStatusPtrOutput {
 // An optional description of the cluster.
 func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The engine type used by the cluster.
+func (o ClusterOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // The Redis engine version used by the cluster.

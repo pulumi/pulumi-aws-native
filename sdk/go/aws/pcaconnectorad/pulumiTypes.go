@@ -366,6 +366,48 @@ func (o TemplateCertificateValidityOutput) ValidityPeriod() TemplateValidityPeri
 	return o.ApplyT(func(v TemplateCertificateValidity) TemplateValidityPeriod { return v.ValidityPeriod }).(TemplateValidityPeriodOutput)
 }
 
+type TemplateCertificateValidityPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateCertificateValidityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateCertificateValidity)(nil)).Elem()
+}
+
+func (o TemplateCertificateValidityPtrOutput) ToTemplateCertificateValidityPtrOutput() TemplateCertificateValidityPtrOutput {
+	return o
+}
+
+func (o TemplateCertificateValidityPtrOutput) ToTemplateCertificateValidityPtrOutputWithContext(ctx context.Context) TemplateCertificateValidityPtrOutput {
+	return o
+}
+
+func (o TemplateCertificateValidityPtrOutput) Elem() TemplateCertificateValidityOutput {
+	return o.ApplyT(func(v *TemplateCertificateValidity) TemplateCertificateValidity {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateCertificateValidity
+		return ret
+	}).(TemplateCertificateValidityOutput)
+}
+
+func (o TemplateCertificateValidityPtrOutput) RenewalPeriod() TemplateValidityPeriodPtrOutput {
+	return o.ApplyT(func(v *TemplateCertificateValidity) *TemplateValidityPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.RenewalPeriod
+	}).(TemplateValidityPeriodPtrOutput)
+}
+
+func (o TemplateCertificateValidityPtrOutput) ValidityPeriod() TemplateValidityPeriodPtrOutput {
+	return o.ApplyT(func(v *TemplateCertificateValidity) *TemplateValidityPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.ValidityPeriod
+	}).(TemplateValidityPeriodPtrOutput)
+}
+
 type TemplateDefinition0Properties struct {
 	TemplateV2 TemplateV2 `pulumi:"templateV2"`
 }
@@ -413,6 +455,39 @@ func (o TemplateDefinition0PropertiesOutput) ToTemplateDefinition0PropertiesOutp
 
 func (o TemplateDefinition0PropertiesOutput) TemplateV2() TemplateV2Output {
 	return o.ApplyT(func(v TemplateDefinition0Properties) TemplateV2 { return v.TemplateV2 }).(TemplateV2Output)
+}
+
+type TemplateDefinition0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDefinition0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDefinition0Properties)(nil)).Elem()
+}
+
+func (o TemplateDefinition0PropertiesPtrOutput) ToTemplateDefinition0PropertiesPtrOutput() TemplateDefinition0PropertiesPtrOutput {
+	return o
+}
+
+func (o TemplateDefinition0PropertiesPtrOutput) ToTemplateDefinition0PropertiesPtrOutputWithContext(ctx context.Context) TemplateDefinition0PropertiesPtrOutput {
+	return o
+}
+
+func (o TemplateDefinition0PropertiesPtrOutput) Elem() TemplateDefinition0PropertiesOutput {
+	return o.ApplyT(func(v *TemplateDefinition0Properties) TemplateDefinition0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDefinition0Properties
+		return ret
+	}).(TemplateDefinition0PropertiesOutput)
+}
+
+func (o TemplateDefinition0PropertiesPtrOutput) TemplateV2() TemplateV2PtrOutput {
+	return o.ApplyT(func(v *TemplateDefinition0Properties) *TemplateV2 {
+		if v == nil {
+			return nil
+		}
+		return &v.TemplateV2
+	}).(TemplateV2PtrOutput)
 }
 
 type TemplateDefinition1Properties struct {
@@ -464,6 +539,39 @@ func (o TemplateDefinition1PropertiesOutput) TemplateV3() TemplateV3Output {
 	return o.ApplyT(func(v TemplateDefinition1Properties) TemplateV3 { return v.TemplateV3 }).(TemplateV3Output)
 }
 
+type TemplateDefinition1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDefinition1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDefinition1Properties)(nil)).Elem()
+}
+
+func (o TemplateDefinition1PropertiesPtrOutput) ToTemplateDefinition1PropertiesPtrOutput() TemplateDefinition1PropertiesPtrOutput {
+	return o
+}
+
+func (o TemplateDefinition1PropertiesPtrOutput) ToTemplateDefinition1PropertiesPtrOutputWithContext(ctx context.Context) TemplateDefinition1PropertiesPtrOutput {
+	return o
+}
+
+func (o TemplateDefinition1PropertiesPtrOutput) Elem() TemplateDefinition1PropertiesOutput {
+	return o.ApplyT(func(v *TemplateDefinition1Properties) TemplateDefinition1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDefinition1Properties
+		return ret
+	}).(TemplateDefinition1PropertiesOutput)
+}
+
+func (o TemplateDefinition1PropertiesPtrOutput) TemplateV3() TemplateV3PtrOutput {
+	return o.ApplyT(func(v *TemplateDefinition1Properties) *TemplateV3 {
+		if v == nil {
+			return nil
+		}
+		return &v.TemplateV3
+	}).(TemplateV3PtrOutput)
+}
+
 type TemplateDefinition2Properties struct {
 	TemplateV4 TemplateV4 `pulumi:"templateV4"`
 }
@@ -511,6 +619,39 @@ func (o TemplateDefinition2PropertiesOutput) ToTemplateDefinition2PropertiesOutp
 
 func (o TemplateDefinition2PropertiesOutput) TemplateV4() TemplateV4Output {
 	return o.ApplyT(func(v TemplateDefinition2Properties) TemplateV4 { return v.TemplateV4 }).(TemplateV4Output)
+}
+
+type TemplateDefinition2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateDefinition2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateDefinition2Properties)(nil)).Elem()
+}
+
+func (o TemplateDefinition2PropertiesPtrOutput) ToTemplateDefinition2PropertiesPtrOutput() TemplateDefinition2PropertiesPtrOutput {
+	return o
+}
+
+func (o TemplateDefinition2PropertiesPtrOutput) ToTemplateDefinition2PropertiesPtrOutputWithContext(ctx context.Context) TemplateDefinition2PropertiesPtrOutput {
+	return o
+}
+
+func (o TemplateDefinition2PropertiesPtrOutput) Elem() TemplateDefinition2PropertiesOutput {
+	return o.ApplyT(func(v *TemplateDefinition2Properties) TemplateDefinition2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateDefinition2Properties
+		return ret
+	}).(TemplateDefinition2PropertiesOutput)
+}
+
+func (o TemplateDefinition2PropertiesPtrOutput) TemplateV4() TemplateV4PtrOutput {
+	return o.ApplyT(func(v *TemplateDefinition2Properties) *TemplateV4 {
+		if v == nil {
+			return nil
+		}
+		return &v.TemplateV4
+	}).(TemplateV4PtrOutput)
 }
 
 type TemplateEnrollmentFlagsV2 struct {
@@ -586,6 +727,75 @@ func (o TemplateEnrollmentFlagsV2Output) UserInteractionRequired() pulumi.BoolPt
 	return o.ApplyT(func(v TemplateEnrollmentFlagsV2) *bool { return v.UserInteractionRequired }).(pulumi.BoolPtrOutput)
 }
 
+type TemplateEnrollmentFlagsV2PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateEnrollmentFlagsV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateEnrollmentFlagsV2)(nil)).Elem()
+}
+
+func (o TemplateEnrollmentFlagsV2PtrOutput) ToTemplateEnrollmentFlagsV2PtrOutput() TemplateEnrollmentFlagsV2PtrOutput {
+	return o
+}
+
+func (o TemplateEnrollmentFlagsV2PtrOutput) ToTemplateEnrollmentFlagsV2PtrOutputWithContext(ctx context.Context) TemplateEnrollmentFlagsV2PtrOutput {
+	return o
+}
+
+func (o TemplateEnrollmentFlagsV2PtrOutput) Elem() TemplateEnrollmentFlagsV2Output {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV2) TemplateEnrollmentFlagsV2 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateEnrollmentFlagsV2
+		return ret
+	}).(TemplateEnrollmentFlagsV2Output)
+}
+
+func (o TemplateEnrollmentFlagsV2PtrOutput) EnableKeyReuseOnNtTokenKeysetStorageFull() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableKeyReuseOnNtTokenKeysetStorageFull
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV2PtrOutput) IncludeSymmetricAlgorithms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSymmetricAlgorithms
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV2PtrOutput) NoSecurityExtension() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoSecurityExtension
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV2PtrOutput) RemoveInvalidCertificateFromPersonalStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoveInvalidCertificateFromPersonalStore
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV2PtrOutput) UserInteractionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserInteractionRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TemplateEnrollmentFlagsV3 struct {
 	EnableKeyReuseOnNtTokenKeysetStorageFull  *bool `pulumi:"enableKeyReuseOnNtTokenKeysetStorageFull"`
 	IncludeSymmetricAlgorithms                *bool `pulumi:"includeSymmetricAlgorithms"`
@@ -657,6 +867,75 @@ func (o TemplateEnrollmentFlagsV3Output) RemoveInvalidCertificateFromPersonalSto
 
 func (o TemplateEnrollmentFlagsV3Output) UserInteractionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateEnrollmentFlagsV3) *bool { return v.UserInteractionRequired }).(pulumi.BoolPtrOutput)
+}
+
+type TemplateEnrollmentFlagsV3PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateEnrollmentFlagsV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateEnrollmentFlagsV3)(nil)).Elem()
+}
+
+func (o TemplateEnrollmentFlagsV3PtrOutput) ToTemplateEnrollmentFlagsV3PtrOutput() TemplateEnrollmentFlagsV3PtrOutput {
+	return o
+}
+
+func (o TemplateEnrollmentFlagsV3PtrOutput) ToTemplateEnrollmentFlagsV3PtrOutputWithContext(ctx context.Context) TemplateEnrollmentFlagsV3PtrOutput {
+	return o
+}
+
+func (o TemplateEnrollmentFlagsV3PtrOutput) Elem() TemplateEnrollmentFlagsV3Output {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV3) TemplateEnrollmentFlagsV3 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateEnrollmentFlagsV3
+		return ret
+	}).(TemplateEnrollmentFlagsV3Output)
+}
+
+func (o TemplateEnrollmentFlagsV3PtrOutput) EnableKeyReuseOnNtTokenKeysetStorageFull() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableKeyReuseOnNtTokenKeysetStorageFull
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV3PtrOutput) IncludeSymmetricAlgorithms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSymmetricAlgorithms
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV3PtrOutput) NoSecurityExtension() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoSecurityExtension
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV3PtrOutput) RemoveInvalidCertificateFromPersonalStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoveInvalidCertificateFromPersonalStore
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV3PtrOutput) UserInteractionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserInteractionRequired
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TemplateEnrollmentFlagsV4 struct {
@@ -732,6 +1011,75 @@ func (o TemplateEnrollmentFlagsV4Output) UserInteractionRequired() pulumi.BoolPt
 	return o.ApplyT(func(v TemplateEnrollmentFlagsV4) *bool { return v.UserInteractionRequired }).(pulumi.BoolPtrOutput)
 }
 
+type TemplateEnrollmentFlagsV4PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateEnrollmentFlagsV4PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateEnrollmentFlagsV4)(nil)).Elem()
+}
+
+func (o TemplateEnrollmentFlagsV4PtrOutput) ToTemplateEnrollmentFlagsV4PtrOutput() TemplateEnrollmentFlagsV4PtrOutput {
+	return o
+}
+
+func (o TemplateEnrollmentFlagsV4PtrOutput) ToTemplateEnrollmentFlagsV4PtrOutputWithContext(ctx context.Context) TemplateEnrollmentFlagsV4PtrOutput {
+	return o
+}
+
+func (o TemplateEnrollmentFlagsV4PtrOutput) Elem() TemplateEnrollmentFlagsV4Output {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV4) TemplateEnrollmentFlagsV4 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateEnrollmentFlagsV4
+		return ret
+	}).(TemplateEnrollmentFlagsV4Output)
+}
+
+func (o TemplateEnrollmentFlagsV4PtrOutput) EnableKeyReuseOnNtTokenKeysetStorageFull() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableKeyReuseOnNtTokenKeysetStorageFull
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV4PtrOutput) IncludeSymmetricAlgorithms() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeSymmetricAlgorithms
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV4PtrOutput) NoSecurityExtension() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoSecurityExtension
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV4PtrOutput) RemoveInvalidCertificateFromPersonalStore() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoveInvalidCertificateFromPersonalStore
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateEnrollmentFlagsV4PtrOutput) UserInteractionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateEnrollmentFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UserInteractionRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TemplateExtensionsV2 struct {
 	ApplicationPolicies *TemplateApplicationPolicies `pulumi:"applicationPolicies"`
 	KeyUsage            TemplateKeyUsage             `pulumi:"keyUsage"`
@@ -785,6 +1133,48 @@ func (o TemplateExtensionsV2Output) ApplicationPolicies() TemplateApplicationPol
 
 func (o TemplateExtensionsV2Output) KeyUsage() TemplateKeyUsageOutput {
 	return o.ApplyT(func(v TemplateExtensionsV2) TemplateKeyUsage { return v.KeyUsage }).(TemplateKeyUsageOutput)
+}
+
+type TemplateExtensionsV2PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateExtensionsV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateExtensionsV2)(nil)).Elem()
+}
+
+func (o TemplateExtensionsV2PtrOutput) ToTemplateExtensionsV2PtrOutput() TemplateExtensionsV2PtrOutput {
+	return o
+}
+
+func (o TemplateExtensionsV2PtrOutput) ToTemplateExtensionsV2PtrOutputWithContext(ctx context.Context) TemplateExtensionsV2PtrOutput {
+	return o
+}
+
+func (o TemplateExtensionsV2PtrOutput) Elem() TemplateExtensionsV2Output {
+	return o.ApplyT(func(v *TemplateExtensionsV2) TemplateExtensionsV2 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateExtensionsV2
+		return ret
+	}).(TemplateExtensionsV2Output)
+}
+
+func (o TemplateExtensionsV2PtrOutput) ApplicationPolicies() TemplateApplicationPoliciesPtrOutput {
+	return o.ApplyT(func(v *TemplateExtensionsV2) *TemplateApplicationPolicies {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationPolicies
+	}).(TemplateApplicationPoliciesPtrOutput)
+}
+
+func (o TemplateExtensionsV2PtrOutput) KeyUsage() TemplateKeyUsagePtrOutput {
+	return o.ApplyT(func(v *TemplateExtensionsV2) *TemplateKeyUsage {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUsage
+	}).(TemplateKeyUsagePtrOutput)
 }
 
 type TemplateExtensionsV3 struct {
@@ -842,6 +1232,48 @@ func (o TemplateExtensionsV3Output) KeyUsage() TemplateKeyUsageOutput {
 	return o.ApplyT(func(v TemplateExtensionsV3) TemplateKeyUsage { return v.KeyUsage }).(TemplateKeyUsageOutput)
 }
 
+type TemplateExtensionsV3PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateExtensionsV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateExtensionsV3)(nil)).Elem()
+}
+
+func (o TemplateExtensionsV3PtrOutput) ToTemplateExtensionsV3PtrOutput() TemplateExtensionsV3PtrOutput {
+	return o
+}
+
+func (o TemplateExtensionsV3PtrOutput) ToTemplateExtensionsV3PtrOutputWithContext(ctx context.Context) TemplateExtensionsV3PtrOutput {
+	return o
+}
+
+func (o TemplateExtensionsV3PtrOutput) Elem() TemplateExtensionsV3Output {
+	return o.ApplyT(func(v *TemplateExtensionsV3) TemplateExtensionsV3 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateExtensionsV3
+		return ret
+	}).(TemplateExtensionsV3Output)
+}
+
+func (o TemplateExtensionsV3PtrOutput) ApplicationPolicies() TemplateApplicationPoliciesPtrOutput {
+	return o.ApplyT(func(v *TemplateExtensionsV3) *TemplateApplicationPolicies {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationPolicies
+	}).(TemplateApplicationPoliciesPtrOutput)
+}
+
+func (o TemplateExtensionsV3PtrOutput) KeyUsage() TemplateKeyUsagePtrOutput {
+	return o.ApplyT(func(v *TemplateExtensionsV3) *TemplateKeyUsage {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUsage
+	}).(TemplateKeyUsagePtrOutput)
+}
+
 type TemplateExtensionsV4 struct {
 	ApplicationPolicies *TemplateApplicationPolicies `pulumi:"applicationPolicies"`
 	KeyUsage            TemplateKeyUsage             `pulumi:"keyUsage"`
@@ -895,6 +1327,48 @@ func (o TemplateExtensionsV4Output) ApplicationPolicies() TemplateApplicationPol
 
 func (o TemplateExtensionsV4Output) KeyUsage() TemplateKeyUsageOutput {
 	return o.ApplyT(func(v TemplateExtensionsV4) TemplateKeyUsage { return v.KeyUsage }).(TemplateKeyUsageOutput)
+}
+
+type TemplateExtensionsV4PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateExtensionsV4PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateExtensionsV4)(nil)).Elem()
+}
+
+func (o TemplateExtensionsV4PtrOutput) ToTemplateExtensionsV4PtrOutput() TemplateExtensionsV4PtrOutput {
+	return o
+}
+
+func (o TemplateExtensionsV4PtrOutput) ToTemplateExtensionsV4PtrOutputWithContext(ctx context.Context) TemplateExtensionsV4PtrOutput {
+	return o
+}
+
+func (o TemplateExtensionsV4PtrOutput) Elem() TemplateExtensionsV4Output {
+	return o.ApplyT(func(v *TemplateExtensionsV4) TemplateExtensionsV4 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateExtensionsV4
+		return ret
+	}).(TemplateExtensionsV4Output)
+}
+
+func (o TemplateExtensionsV4PtrOutput) ApplicationPolicies() TemplateApplicationPoliciesPtrOutput {
+	return o.ApplyT(func(v *TemplateExtensionsV4) *TemplateApplicationPolicies {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationPolicies
+	}).(TemplateApplicationPoliciesPtrOutput)
+}
+
+func (o TemplateExtensionsV4PtrOutput) KeyUsage() TemplateKeyUsagePtrOutput {
+	return o.ApplyT(func(v *TemplateExtensionsV4) *TemplateKeyUsage {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUsage
+	}).(TemplateKeyUsagePtrOutput)
 }
 
 type TemplateGeneralFlagsV2 struct {
@@ -952,6 +1426,48 @@ func (o TemplateGeneralFlagsV2Output) MachineType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateGeneralFlagsV2) *bool { return v.MachineType }).(pulumi.BoolPtrOutput)
 }
 
+type TemplateGeneralFlagsV2PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeneralFlagsV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeneralFlagsV2)(nil)).Elem()
+}
+
+func (o TemplateGeneralFlagsV2PtrOutput) ToTemplateGeneralFlagsV2PtrOutput() TemplateGeneralFlagsV2PtrOutput {
+	return o
+}
+
+func (o TemplateGeneralFlagsV2PtrOutput) ToTemplateGeneralFlagsV2PtrOutputWithContext(ctx context.Context) TemplateGeneralFlagsV2PtrOutput {
+	return o
+}
+
+func (o TemplateGeneralFlagsV2PtrOutput) Elem() TemplateGeneralFlagsV2Output {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV2) TemplateGeneralFlagsV2 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeneralFlagsV2
+		return ret
+	}).(TemplateGeneralFlagsV2Output)
+}
+
+func (o TemplateGeneralFlagsV2PtrOutput) AutoEnrollment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoEnrollment
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateGeneralFlagsV2PtrOutput) MachineType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MachineType
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TemplateGeneralFlagsV3 struct {
 	AutoEnrollment *bool `pulumi:"autoEnrollment"`
 	MachineType    *bool `pulumi:"machineType"`
@@ -1007,6 +1523,48 @@ func (o TemplateGeneralFlagsV3Output) MachineType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateGeneralFlagsV3) *bool { return v.MachineType }).(pulumi.BoolPtrOutput)
 }
 
+type TemplateGeneralFlagsV3PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeneralFlagsV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeneralFlagsV3)(nil)).Elem()
+}
+
+func (o TemplateGeneralFlagsV3PtrOutput) ToTemplateGeneralFlagsV3PtrOutput() TemplateGeneralFlagsV3PtrOutput {
+	return o
+}
+
+func (o TemplateGeneralFlagsV3PtrOutput) ToTemplateGeneralFlagsV3PtrOutputWithContext(ctx context.Context) TemplateGeneralFlagsV3PtrOutput {
+	return o
+}
+
+func (o TemplateGeneralFlagsV3PtrOutput) Elem() TemplateGeneralFlagsV3Output {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV3) TemplateGeneralFlagsV3 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeneralFlagsV3
+		return ret
+	}).(TemplateGeneralFlagsV3Output)
+}
+
+func (o TemplateGeneralFlagsV3PtrOutput) AutoEnrollment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoEnrollment
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateGeneralFlagsV3PtrOutput) MachineType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MachineType
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TemplateGeneralFlagsV4 struct {
 	AutoEnrollment *bool `pulumi:"autoEnrollment"`
 	MachineType    *bool `pulumi:"machineType"`
@@ -1060,6 +1618,48 @@ func (o TemplateGeneralFlagsV4Output) AutoEnrollment() pulumi.BoolPtrOutput {
 
 func (o TemplateGeneralFlagsV4Output) MachineType() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateGeneralFlagsV4) *bool { return v.MachineType }).(pulumi.BoolPtrOutput)
+}
+
+type TemplateGeneralFlagsV4PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateGeneralFlagsV4PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateGeneralFlagsV4)(nil)).Elem()
+}
+
+func (o TemplateGeneralFlagsV4PtrOutput) ToTemplateGeneralFlagsV4PtrOutput() TemplateGeneralFlagsV4PtrOutput {
+	return o
+}
+
+func (o TemplateGeneralFlagsV4PtrOutput) ToTemplateGeneralFlagsV4PtrOutputWithContext(ctx context.Context) TemplateGeneralFlagsV4PtrOutput {
+	return o
+}
+
+func (o TemplateGeneralFlagsV4PtrOutput) Elem() TemplateGeneralFlagsV4Output {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV4) TemplateGeneralFlagsV4 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateGeneralFlagsV4
+		return ret
+	}).(TemplateGeneralFlagsV4Output)
+}
+
+func (o TemplateGeneralFlagsV4PtrOutput) AutoEnrollment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoEnrollment
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateGeneralFlagsV4PtrOutput) MachineType() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateGeneralFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.MachineType
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TemplateGroupAccessControlEntryAccessRights struct {
@@ -1182,6 +1782,48 @@ func (o TemplateKeyUsageOutput) UsageFlags() TemplateKeyUsageFlagsOutput {
 	return o.ApplyT(func(v TemplateKeyUsage) TemplateKeyUsageFlags { return v.UsageFlags }).(TemplateKeyUsageFlagsOutput)
 }
 
+type TemplateKeyUsagePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateKeyUsagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateKeyUsage)(nil)).Elem()
+}
+
+func (o TemplateKeyUsagePtrOutput) ToTemplateKeyUsagePtrOutput() TemplateKeyUsagePtrOutput {
+	return o
+}
+
+func (o TemplateKeyUsagePtrOutput) ToTemplateKeyUsagePtrOutputWithContext(ctx context.Context) TemplateKeyUsagePtrOutput {
+	return o
+}
+
+func (o TemplateKeyUsagePtrOutput) Elem() TemplateKeyUsageOutput {
+	return o.ApplyT(func(v *TemplateKeyUsage) TemplateKeyUsage {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateKeyUsage
+		return ret
+	}).(TemplateKeyUsageOutput)
+}
+
+func (o TemplateKeyUsagePtrOutput) Critical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateKeyUsage) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Critical
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateKeyUsagePtrOutput) UsageFlags() TemplateKeyUsageFlagsPtrOutput {
+	return o.ApplyT(func(v *TemplateKeyUsage) *TemplateKeyUsageFlags {
+		if v == nil {
+			return nil
+		}
+		return &v.UsageFlags
+	}).(TemplateKeyUsageFlagsPtrOutput)
+}
+
 type TemplateKeyUsageFlags struct {
 	DataEncipherment *bool `pulumi:"dataEncipherment"`
 	DigitalSignature *bool `pulumi:"digitalSignature"`
@@ -1253,6 +1895,75 @@ func (o TemplateKeyUsageFlagsOutput) KeyEncipherment() pulumi.BoolPtrOutput {
 
 func (o TemplateKeyUsageFlagsOutput) NonRepudiation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateKeyUsageFlags) *bool { return v.NonRepudiation }).(pulumi.BoolPtrOutput)
+}
+
+type TemplateKeyUsageFlagsPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateKeyUsageFlagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateKeyUsageFlags)(nil)).Elem()
+}
+
+func (o TemplateKeyUsageFlagsPtrOutput) ToTemplateKeyUsageFlagsPtrOutput() TemplateKeyUsageFlagsPtrOutput {
+	return o
+}
+
+func (o TemplateKeyUsageFlagsPtrOutput) ToTemplateKeyUsageFlagsPtrOutputWithContext(ctx context.Context) TemplateKeyUsageFlagsPtrOutput {
+	return o
+}
+
+func (o TemplateKeyUsageFlagsPtrOutput) Elem() TemplateKeyUsageFlagsOutput {
+	return o.ApplyT(func(v *TemplateKeyUsageFlags) TemplateKeyUsageFlags {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateKeyUsageFlags
+		return ret
+	}).(TemplateKeyUsageFlagsOutput)
+}
+
+func (o TemplateKeyUsageFlagsPtrOutput) DataEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateKeyUsageFlags) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DataEncipherment
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateKeyUsageFlagsPtrOutput) DigitalSignature() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateKeyUsageFlags) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DigitalSignature
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateKeyUsageFlagsPtrOutput) KeyAgreement() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateKeyUsageFlags) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyAgreement
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateKeyUsageFlagsPtrOutput) KeyEncipherment() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateKeyUsageFlags) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KeyEncipherment
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateKeyUsageFlagsPtrOutput) NonRepudiation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateKeyUsageFlags) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NonRepudiation
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TemplateKeyUsageProperty0Properties struct {
@@ -1745,6 +2456,57 @@ func (o TemplatePrivateKeyAttributesV2Output) MinimalKeyLength() pulumi.Float64O
 	return o.ApplyT(func(v TemplatePrivateKeyAttributesV2) float64 { return v.MinimalKeyLength }).(pulumi.Float64Output)
 }
 
+type TemplatePrivateKeyAttributesV2PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePrivateKeyAttributesV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePrivateKeyAttributesV2)(nil)).Elem()
+}
+
+func (o TemplatePrivateKeyAttributesV2PtrOutput) ToTemplatePrivateKeyAttributesV2PtrOutput() TemplatePrivateKeyAttributesV2PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyAttributesV2PtrOutput) ToTemplatePrivateKeyAttributesV2PtrOutputWithContext(ctx context.Context) TemplatePrivateKeyAttributesV2PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyAttributesV2PtrOutput) Elem() TemplatePrivateKeyAttributesV2Output {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV2) TemplatePrivateKeyAttributesV2 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePrivateKeyAttributesV2
+		return ret
+	}).(TemplatePrivateKeyAttributesV2Output)
+}
+
+func (o TemplatePrivateKeyAttributesV2PtrOutput) CryptoProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV2) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CryptoProviders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV2PtrOutput) KeySpec() TemplateKeySpecPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV2) *TemplateKeySpec {
+		if v == nil {
+			return nil
+		}
+		return &v.KeySpec
+	}).(TemplateKeySpecPtrOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV2PtrOutput) MinimalKeyLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV2) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimalKeyLength
+	}).(pulumi.Float64PtrOutput)
+}
+
 type TemplatePrivateKeyAttributesV3 struct {
 	Algorithm        TemplatePrivateKeyAlgorithm `pulumi:"algorithm"`
 	CryptoProviders  []string                    `pulumi:"cryptoProviders"`
@@ -1816,6 +2578,75 @@ func (o TemplatePrivateKeyAttributesV3Output) KeyUsageProperty() pulumi.AnyOutpu
 
 func (o TemplatePrivateKeyAttributesV3Output) MinimalKeyLength() pulumi.Float64Output {
 	return o.ApplyT(func(v TemplatePrivateKeyAttributesV3) float64 { return v.MinimalKeyLength }).(pulumi.Float64Output)
+}
+
+type TemplatePrivateKeyAttributesV3PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePrivateKeyAttributesV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePrivateKeyAttributesV3)(nil)).Elem()
+}
+
+func (o TemplatePrivateKeyAttributesV3PtrOutput) ToTemplatePrivateKeyAttributesV3PtrOutput() TemplatePrivateKeyAttributesV3PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyAttributesV3PtrOutput) ToTemplatePrivateKeyAttributesV3PtrOutputWithContext(ctx context.Context) TemplatePrivateKeyAttributesV3PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyAttributesV3PtrOutput) Elem() TemplatePrivateKeyAttributesV3Output {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV3) TemplatePrivateKeyAttributesV3 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePrivateKeyAttributesV3
+		return ret
+	}).(TemplatePrivateKeyAttributesV3Output)
+}
+
+func (o TemplatePrivateKeyAttributesV3PtrOutput) Algorithm() TemplatePrivateKeyAlgorithmPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV3) *TemplatePrivateKeyAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return &v.Algorithm
+	}).(TemplatePrivateKeyAlgorithmPtrOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV3PtrOutput) CryptoProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV3) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CryptoProviders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV3PtrOutput) KeySpec() TemplateKeySpecPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV3) *TemplateKeySpec {
+		if v == nil {
+			return nil
+		}
+		return &v.KeySpec
+	}).(TemplateKeySpecPtrOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV3PtrOutput) KeyUsageProperty() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV3) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUsageProperty
+	}).(pulumi.AnyOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV3PtrOutput) MinimalKeyLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV3) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimalKeyLength
+	}).(pulumi.Float64PtrOutput)
 }
 
 type TemplatePrivateKeyAttributesV4 struct {
@@ -1891,6 +2722,75 @@ func (o TemplatePrivateKeyAttributesV4Output) MinimalKeyLength() pulumi.Float64O
 	return o.ApplyT(func(v TemplatePrivateKeyAttributesV4) float64 { return v.MinimalKeyLength }).(pulumi.Float64Output)
 }
 
+type TemplatePrivateKeyAttributesV4PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePrivateKeyAttributesV4PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePrivateKeyAttributesV4)(nil)).Elem()
+}
+
+func (o TemplatePrivateKeyAttributesV4PtrOutput) ToTemplatePrivateKeyAttributesV4PtrOutput() TemplatePrivateKeyAttributesV4PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyAttributesV4PtrOutput) ToTemplatePrivateKeyAttributesV4PtrOutputWithContext(ctx context.Context) TemplatePrivateKeyAttributesV4PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyAttributesV4PtrOutput) Elem() TemplatePrivateKeyAttributesV4Output {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV4) TemplatePrivateKeyAttributesV4 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePrivateKeyAttributesV4
+		return ret
+	}).(TemplatePrivateKeyAttributesV4Output)
+}
+
+func (o TemplatePrivateKeyAttributesV4PtrOutput) Algorithm() TemplatePrivateKeyAlgorithmPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV4) *TemplatePrivateKeyAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.Algorithm
+	}).(TemplatePrivateKeyAlgorithmPtrOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV4PtrOutput) CryptoProviders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV4) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CryptoProviders
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV4PtrOutput) KeySpec() TemplateKeySpecPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV4) *TemplateKeySpec {
+		if v == nil {
+			return nil
+		}
+		return &v.KeySpec
+	}).(TemplateKeySpecPtrOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV4PtrOutput) KeyUsageProperty() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV4) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.KeyUsageProperty
+	}).(pulumi.AnyOutput)
+}
+
+func (o TemplatePrivateKeyAttributesV4PtrOutput) MinimalKeyLength() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyAttributesV4) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimalKeyLength
+	}).(pulumi.Float64PtrOutput)
+}
+
 type TemplatePrivateKeyFlagsV2 struct {
 	ClientVersion               TemplateClientCompatibilityV2 `pulumi:"clientVersion"`
 	ExportableKey               *bool                         `pulumi:"exportableKey"`
@@ -1950,6 +2850,57 @@ func (o TemplatePrivateKeyFlagsV2Output) ExportableKey() pulumi.BoolPtrOutput {
 
 func (o TemplatePrivateKeyFlagsV2Output) StrongKeyProtectionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplatePrivateKeyFlagsV2) *bool { return v.StrongKeyProtectionRequired }).(pulumi.BoolPtrOutput)
+}
+
+type TemplatePrivateKeyFlagsV2PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePrivateKeyFlagsV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePrivateKeyFlagsV2)(nil)).Elem()
+}
+
+func (o TemplatePrivateKeyFlagsV2PtrOutput) ToTemplatePrivateKeyFlagsV2PtrOutput() TemplatePrivateKeyFlagsV2PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyFlagsV2PtrOutput) ToTemplatePrivateKeyFlagsV2PtrOutputWithContext(ctx context.Context) TemplatePrivateKeyFlagsV2PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyFlagsV2PtrOutput) Elem() TemplatePrivateKeyFlagsV2Output {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV2) TemplatePrivateKeyFlagsV2 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePrivateKeyFlagsV2
+		return ret
+	}).(TemplatePrivateKeyFlagsV2Output)
+}
+
+func (o TemplatePrivateKeyFlagsV2PtrOutput) ClientVersion() TemplateClientCompatibilityV2PtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV2) *TemplateClientCompatibilityV2 {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientVersion
+	}).(TemplateClientCompatibilityV2PtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV2PtrOutput) ExportableKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExportableKey
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV2PtrOutput) StrongKeyProtectionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StrongKeyProtectionRequired
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TemplatePrivateKeyFlagsV3 struct {
@@ -2017,6 +2968,66 @@ func (o TemplatePrivateKeyFlagsV3Output) RequireAlternateSignatureAlgorithm() pu
 
 func (o TemplatePrivateKeyFlagsV3Output) StrongKeyProtectionRequired() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplatePrivateKeyFlagsV3) *bool { return v.StrongKeyProtectionRequired }).(pulumi.BoolPtrOutput)
+}
+
+type TemplatePrivateKeyFlagsV3PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePrivateKeyFlagsV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePrivateKeyFlagsV3)(nil)).Elem()
+}
+
+func (o TemplatePrivateKeyFlagsV3PtrOutput) ToTemplatePrivateKeyFlagsV3PtrOutput() TemplatePrivateKeyFlagsV3PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyFlagsV3PtrOutput) ToTemplatePrivateKeyFlagsV3PtrOutputWithContext(ctx context.Context) TemplatePrivateKeyFlagsV3PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyFlagsV3PtrOutput) Elem() TemplatePrivateKeyFlagsV3Output {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV3) TemplatePrivateKeyFlagsV3 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePrivateKeyFlagsV3
+		return ret
+	}).(TemplatePrivateKeyFlagsV3Output)
+}
+
+func (o TemplatePrivateKeyFlagsV3PtrOutput) ClientVersion() TemplateClientCompatibilityV3PtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV3) *TemplateClientCompatibilityV3 {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientVersion
+	}).(TemplateClientCompatibilityV3PtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV3PtrOutput) ExportableKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExportableKey
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV3PtrOutput) RequireAlternateSignatureAlgorithm() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireAlternateSignatureAlgorithm
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV3PtrOutput) StrongKeyProtectionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StrongKeyProtectionRequired
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TemplatePrivateKeyFlagsV4 struct {
@@ -2096,6 +3107,84 @@ func (o TemplatePrivateKeyFlagsV4Output) StrongKeyProtectionRequired() pulumi.Bo
 
 func (o TemplatePrivateKeyFlagsV4Output) UseLegacyProvider() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplatePrivateKeyFlagsV4) *bool { return v.UseLegacyProvider }).(pulumi.BoolPtrOutput)
+}
+
+type TemplatePrivateKeyFlagsV4PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePrivateKeyFlagsV4PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePrivateKeyFlagsV4)(nil)).Elem()
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) ToTemplatePrivateKeyFlagsV4PtrOutput() TemplatePrivateKeyFlagsV4PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) ToTemplatePrivateKeyFlagsV4PtrOutputWithContext(ctx context.Context) TemplatePrivateKeyFlagsV4PtrOutput {
+	return o
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) Elem() TemplatePrivateKeyFlagsV4Output {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV4) TemplatePrivateKeyFlagsV4 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePrivateKeyFlagsV4
+		return ret
+	}).(TemplatePrivateKeyFlagsV4Output)
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) ClientVersion() TemplateClientCompatibilityV4PtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV4) *TemplateClientCompatibilityV4 {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientVersion
+	}).(TemplateClientCompatibilityV4PtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) ExportableKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExportableKey
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) RequireAlternateSignatureAlgorithm() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireAlternateSignatureAlgorithm
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) RequireSameKeyRenewal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireSameKeyRenewal
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) StrongKeyProtectionRequired() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StrongKeyProtectionRequired
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplatePrivateKeyFlagsV4PtrOutput) UseLegacyProvider() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplatePrivateKeyFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLegacyProvider
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TemplateSubjectNameFlagsV2 struct {
@@ -2201,6 +3290,120 @@ func (o TemplateSubjectNameFlagsV2Output) SanRequireUpn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateSubjectNameFlagsV2) *bool { return v.SanRequireUpn }).(pulumi.BoolPtrOutput)
 }
 
+type TemplateSubjectNameFlagsV2PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSubjectNameFlagsV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSubjectNameFlagsV2)(nil)).Elem()
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) ToTemplateSubjectNameFlagsV2PtrOutput() TemplateSubjectNameFlagsV2PtrOutput {
+	return o
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) ToTemplateSubjectNameFlagsV2PtrOutputWithContext(ctx context.Context) TemplateSubjectNameFlagsV2PtrOutput {
+	return o
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) Elem() TemplateSubjectNameFlagsV2Output {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) TemplateSubjectNameFlagsV2 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSubjectNameFlagsV2
+		return ret
+	}).(TemplateSubjectNameFlagsV2Output)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) RequireCommonName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireCommonName
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) RequireDirectoryPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireDirectoryPath
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) RequireDnsAsCn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireDnsAsCn
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) RequireEmail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireEmail
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) SanRequireDirectoryGuid() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDirectoryGuid
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) SanRequireDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDns
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) SanRequireDomainDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDomainDns
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) SanRequireEmail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireEmail
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) SanRequireSpn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireSpn
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV2PtrOutput) SanRequireUpn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV2) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireUpn
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TemplateSubjectNameFlagsV3 struct {
 	RequireCommonName       *bool `pulumi:"requireCommonName"`
 	RequireDirectoryPath    *bool `pulumi:"requireDirectoryPath"`
@@ -2302,6 +3505,120 @@ func (o TemplateSubjectNameFlagsV3Output) SanRequireSpn() pulumi.BoolPtrOutput {
 
 func (o TemplateSubjectNameFlagsV3Output) SanRequireUpn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateSubjectNameFlagsV3) *bool { return v.SanRequireUpn }).(pulumi.BoolPtrOutput)
+}
+
+type TemplateSubjectNameFlagsV3PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSubjectNameFlagsV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSubjectNameFlagsV3)(nil)).Elem()
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) ToTemplateSubjectNameFlagsV3PtrOutput() TemplateSubjectNameFlagsV3PtrOutput {
+	return o
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) ToTemplateSubjectNameFlagsV3PtrOutputWithContext(ctx context.Context) TemplateSubjectNameFlagsV3PtrOutput {
+	return o
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) Elem() TemplateSubjectNameFlagsV3Output {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) TemplateSubjectNameFlagsV3 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSubjectNameFlagsV3
+		return ret
+	}).(TemplateSubjectNameFlagsV3Output)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) RequireCommonName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireCommonName
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) RequireDirectoryPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireDirectoryPath
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) RequireDnsAsCn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireDnsAsCn
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) RequireEmail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireEmail
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) SanRequireDirectoryGuid() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDirectoryGuid
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) SanRequireDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDns
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) SanRequireDomainDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDomainDns
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) SanRequireEmail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireEmail
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) SanRequireSpn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireSpn
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV3PtrOutput) SanRequireUpn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV3) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireUpn
+	}).(pulumi.BoolPtrOutput)
 }
 
 type TemplateSubjectNameFlagsV4 struct {
@@ -2407,6 +3724,120 @@ func (o TemplateSubjectNameFlagsV4Output) SanRequireUpn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TemplateSubjectNameFlagsV4) *bool { return v.SanRequireUpn }).(pulumi.BoolPtrOutput)
 }
 
+type TemplateSubjectNameFlagsV4PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSubjectNameFlagsV4PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSubjectNameFlagsV4)(nil)).Elem()
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) ToTemplateSubjectNameFlagsV4PtrOutput() TemplateSubjectNameFlagsV4PtrOutput {
+	return o
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) ToTemplateSubjectNameFlagsV4PtrOutputWithContext(ctx context.Context) TemplateSubjectNameFlagsV4PtrOutput {
+	return o
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) Elem() TemplateSubjectNameFlagsV4Output {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) TemplateSubjectNameFlagsV4 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSubjectNameFlagsV4
+		return ret
+	}).(TemplateSubjectNameFlagsV4Output)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) RequireCommonName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireCommonName
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) RequireDirectoryPath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireDirectoryPath
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) RequireDnsAsCn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireDnsAsCn
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) RequireEmail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireEmail
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) SanRequireDirectoryGuid() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDirectoryGuid
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) SanRequireDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDns
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) SanRequireDomainDns() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireDomainDns
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) SanRequireEmail() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireEmail
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) SanRequireSpn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireSpn
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TemplateSubjectNameFlagsV4PtrOutput) SanRequireUpn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TemplateSubjectNameFlagsV4) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SanRequireUpn
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TemplateV2 struct {
 	CertificateValidity  TemplateCertificateValidity    `pulumi:"certificateValidity"`
 	EnrollmentFlags      TemplateEnrollmentFlagsV2      `pulumi:"enrollmentFlags"`
@@ -2496,6 +3927,102 @@ func (o TemplateV2Output) SubjectNameFlags() TemplateSubjectNameFlagsV2Output {
 
 func (o TemplateV2Output) SupersededTemplates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TemplateV2) []string { return v.SupersededTemplates }).(pulumi.StringArrayOutput)
+}
+
+type TemplateV2PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateV2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateV2)(nil)).Elem()
+}
+
+func (o TemplateV2PtrOutput) ToTemplateV2PtrOutput() TemplateV2PtrOutput {
+	return o
+}
+
+func (o TemplateV2PtrOutput) ToTemplateV2PtrOutputWithContext(ctx context.Context) TemplateV2PtrOutput {
+	return o
+}
+
+func (o TemplateV2PtrOutput) Elem() TemplateV2Output {
+	return o.ApplyT(func(v *TemplateV2) TemplateV2 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateV2
+		return ret
+	}).(TemplateV2Output)
+}
+
+func (o TemplateV2PtrOutput) CertificateValidity() TemplateCertificateValidityPtrOutput {
+	return o.ApplyT(func(v *TemplateV2) *TemplateCertificateValidity {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateValidity
+	}).(TemplateCertificateValidityPtrOutput)
+}
+
+func (o TemplateV2PtrOutput) EnrollmentFlags() TemplateEnrollmentFlagsV2PtrOutput {
+	return o.ApplyT(func(v *TemplateV2) *TemplateEnrollmentFlagsV2 {
+		if v == nil {
+			return nil
+		}
+		return &v.EnrollmentFlags
+	}).(TemplateEnrollmentFlagsV2PtrOutput)
+}
+
+func (o TemplateV2PtrOutput) Extensions() TemplateExtensionsV2PtrOutput {
+	return o.ApplyT(func(v *TemplateV2) *TemplateExtensionsV2 {
+		if v == nil {
+			return nil
+		}
+		return &v.Extensions
+	}).(TemplateExtensionsV2PtrOutput)
+}
+
+func (o TemplateV2PtrOutput) GeneralFlags() TemplateGeneralFlagsV2PtrOutput {
+	return o.ApplyT(func(v *TemplateV2) *TemplateGeneralFlagsV2 {
+		if v == nil {
+			return nil
+		}
+		return &v.GeneralFlags
+	}).(TemplateGeneralFlagsV2PtrOutput)
+}
+
+func (o TemplateV2PtrOutput) PrivateKeyAttributes() TemplatePrivateKeyAttributesV2PtrOutput {
+	return o.ApplyT(func(v *TemplateV2) *TemplatePrivateKeyAttributesV2 {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKeyAttributes
+	}).(TemplatePrivateKeyAttributesV2PtrOutput)
+}
+
+func (o TemplateV2PtrOutput) PrivateKeyFlags() TemplatePrivateKeyFlagsV2PtrOutput {
+	return o.ApplyT(func(v *TemplateV2) *TemplatePrivateKeyFlagsV2 {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKeyFlags
+	}).(TemplatePrivateKeyFlagsV2PtrOutput)
+}
+
+func (o TemplateV2PtrOutput) SubjectNameFlags() TemplateSubjectNameFlagsV2PtrOutput {
+	return o.ApplyT(func(v *TemplateV2) *TemplateSubjectNameFlagsV2 {
+		if v == nil {
+			return nil
+		}
+		return &v.SubjectNameFlags
+	}).(TemplateSubjectNameFlagsV2PtrOutput)
+}
+
+func (o TemplateV2PtrOutput) SupersededTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplateV2) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupersededTemplates
+	}).(pulumi.StringArrayOutput)
 }
 
 type TemplateV3 struct {
@@ -2595,6 +4122,111 @@ func (o TemplateV3Output) SupersededTemplates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TemplateV3) []string { return v.SupersededTemplates }).(pulumi.StringArrayOutput)
 }
 
+type TemplateV3PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateV3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateV3)(nil)).Elem()
+}
+
+func (o TemplateV3PtrOutput) ToTemplateV3PtrOutput() TemplateV3PtrOutput {
+	return o
+}
+
+func (o TemplateV3PtrOutput) ToTemplateV3PtrOutputWithContext(ctx context.Context) TemplateV3PtrOutput {
+	return o
+}
+
+func (o TemplateV3PtrOutput) Elem() TemplateV3Output {
+	return o.ApplyT(func(v *TemplateV3) TemplateV3 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateV3
+		return ret
+	}).(TemplateV3Output)
+}
+
+func (o TemplateV3PtrOutput) CertificateValidity() TemplateCertificateValidityPtrOutput {
+	return o.ApplyT(func(v *TemplateV3) *TemplateCertificateValidity {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateValidity
+	}).(TemplateCertificateValidityPtrOutput)
+}
+
+func (o TemplateV3PtrOutput) EnrollmentFlags() TemplateEnrollmentFlagsV3PtrOutput {
+	return o.ApplyT(func(v *TemplateV3) *TemplateEnrollmentFlagsV3 {
+		if v == nil {
+			return nil
+		}
+		return &v.EnrollmentFlags
+	}).(TemplateEnrollmentFlagsV3PtrOutput)
+}
+
+func (o TemplateV3PtrOutput) Extensions() TemplateExtensionsV3PtrOutput {
+	return o.ApplyT(func(v *TemplateV3) *TemplateExtensionsV3 {
+		if v == nil {
+			return nil
+		}
+		return &v.Extensions
+	}).(TemplateExtensionsV3PtrOutput)
+}
+
+func (o TemplateV3PtrOutput) GeneralFlags() TemplateGeneralFlagsV3PtrOutput {
+	return o.ApplyT(func(v *TemplateV3) *TemplateGeneralFlagsV3 {
+		if v == nil {
+			return nil
+		}
+		return &v.GeneralFlags
+	}).(TemplateGeneralFlagsV3PtrOutput)
+}
+
+func (o TemplateV3PtrOutput) HashAlgorithm() TemplateHashAlgorithmPtrOutput {
+	return o.ApplyT(func(v *TemplateV3) *TemplateHashAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return &v.HashAlgorithm
+	}).(TemplateHashAlgorithmPtrOutput)
+}
+
+func (o TemplateV3PtrOutput) PrivateKeyAttributes() TemplatePrivateKeyAttributesV3PtrOutput {
+	return o.ApplyT(func(v *TemplateV3) *TemplatePrivateKeyAttributesV3 {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKeyAttributes
+	}).(TemplatePrivateKeyAttributesV3PtrOutput)
+}
+
+func (o TemplateV3PtrOutput) PrivateKeyFlags() TemplatePrivateKeyFlagsV3PtrOutput {
+	return o.ApplyT(func(v *TemplateV3) *TemplatePrivateKeyFlagsV3 {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKeyFlags
+	}).(TemplatePrivateKeyFlagsV3PtrOutput)
+}
+
+func (o TemplateV3PtrOutput) SubjectNameFlags() TemplateSubjectNameFlagsV3PtrOutput {
+	return o.ApplyT(func(v *TemplateV3) *TemplateSubjectNameFlagsV3 {
+		if v == nil {
+			return nil
+		}
+		return &v.SubjectNameFlags
+	}).(TemplateSubjectNameFlagsV3PtrOutput)
+}
+
+func (o TemplateV3PtrOutput) SupersededTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplateV3) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupersededTemplates
+	}).(pulumi.StringArrayOutput)
+}
+
 type TemplateV4 struct {
 	CertificateValidity  TemplateCertificateValidity    `pulumi:"certificateValidity"`
 	EnrollmentFlags      TemplateEnrollmentFlagsV4      `pulumi:"enrollmentFlags"`
@@ -2692,6 +4324,111 @@ func (o TemplateV4Output) SupersededTemplates() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TemplateV4) []string { return v.SupersededTemplates }).(pulumi.StringArrayOutput)
 }
 
+type TemplateV4PtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateV4PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateV4)(nil)).Elem()
+}
+
+func (o TemplateV4PtrOutput) ToTemplateV4PtrOutput() TemplateV4PtrOutput {
+	return o
+}
+
+func (o TemplateV4PtrOutput) ToTemplateV4PtrOutputWithContext(ctx context.Context) TemplateV4PtrOutput {
+	return o
+}
+
+func (o TemplateV4PtrOutput) Elem() TemplateV4Output {
+	return o.ApplyT(func(v *TemplateV4) TemplateV4 {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateV4
+		return ret
+	}).(TemplateV4Output)
+}
+
+func (o TemplateV4PtrOutput) CertificateValidity() TemplateCertificateValidityPtrOutput {
+	return o.ApplyT(func(v *TemplateV4) *TemplateCertificateValidity {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateValidity
+	}).(TemplateCertificateValidityPtrOutput)
+}
+
+func (o TemplateV4PtrOutput) EnrollmentFlags() TemplateEnrollmentFlagsV4PtrOutput {
+	return o.ApplyT(func(v *TemplateV4) *TemplateEnrollmentFlagsV4 {
+		if v == nil {
+			return nil
+		}
+		return &v.EnrollmentFlags
+	}).(TemplateEnrollmentFlagsV4PtrOutput)
+}
+
+func (o TemplateV4PtrOutput) Extensions() TemplateExtensionsV4PtrOutput {
+	return o.ApplyT(func(v *TemplateV4) *TemplateExtensionsV4 {
+		if v == nil {
+			return nil
+		}
+		return &v.Extensions
+	}).(TemplateExtensionsV4PtrOutput)
+}
+
+func (o TemplateV4PtrOutput) GeneralFlags() TemplateGeneralFlagsV4PtrOutput {
+	return o.ApplyT(func(v *TemplateV4) *TemplateGeneralFlagsV4 {
+		if v == nil {
+			return nil
+		}
+		return &v.GeneralFlags
+	}).(TemplateGeneralFlagsV4PtrOutput)
+}
+
+func (o TemplateV4PtrOutput) HashAlgorithm() TemplateHashAlgorithmPtrOutput {
+	return o.ApplyT(func(v *TemplateV4) *TemplateHashAlgorithm {
+		if v == nil {
+			return nil
+		}
+		return v.HashAlgorithm
+	}).(TemplateHashAlgorithmPtrOutput)
+}
+
+func (o TemplateV4PtrOutput) PrivateKeyAttributes() TemplatePrivateKeyAttributesV4PtrOutput {
+	return o.ApplyT(func(v *TemplateV4) *TemplatePrivateKeyAttributesV4 {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKeyAttributes
+	}).(TemplatePrivateKeyAttributesV4PtrOutput)
+}
+
+func (o TemplateV4PtrOutput) PrivateKeyFlags() TemplatePrivateKeyFlagsV4PtrOutput {
+	return o.ApplyT(func(v *TemplateV4) *TemplatePrivateKeyFlagsV4 {
+		if v == nil {
+			return nil
+		}
+		return &v.PrivateKeyFlags
+	}).(TemplatePrivateKeyFlagsV4PtrOutput)
+}
+
+func (o TemplateV4PtrOutput) SubjectNameFlags() TemplateSubjectNameFlagsV4PtrOutput {
+	return o.ApplyT(func(v *TemplateV4) *TemplateSubjectNameFlagsV4 {
+		if v == nil {
+			return nil
+		}
+		return &v.SubjectNameFlags
+	}).(TemplateSubjectNameFlagsV4PtrOutput)
+}
+
+func (o TemplateV4PtrOutput) SupersededTemplates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TemplateV4) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupersededTemplates
+	}).(pulumi.StringArrayOutput)
+}
+
 type TemplateValidityPeriod struct {
 	Period     float64                    `pulumi:"period"`
 	PeriodType TemplateValidityPeriodType `pulumi:"periodType"`
@@ -2747,6 +4484,48 @@ func (o TemplateValidityPeriodOutput) PeriodType() TemplateValidityPeriodTypeOut
 	return o.ApplyT(func(v TemplateValidityPeriod) TemplateValidityPeriodType { return v.PeriodType }).(TemplateValidityPeriodTypeOutput)
 }
 
+type TemplateValidityPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateValidityPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateValidityPeriod)(nil)).Elem()
+}
+
+func (o TemplateValidityPeriodPtrOutput) ToTemplateValidityPeriodPtrOutput() TemplateValidityPeriodPtrOutput {
+	return o
+}
+
+func (o TemplateValidityPeriodPtrOutput) ToTemplateValidityPeriodPtrOutputWithContext(ctx context.Context) TemplateValidityPeriodPtrOutput {
+	return o
+}
+
+func (o TemplateValidityPeriodPtrOutput) Elem() TemplateValidityPeriodOutput {
+	return o.ApplyT(func(v *TemplateValidityPeriod) TemplateValidityPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateValidityPeriod
+		return ret
+	}).(TemplateValidityPeriodOutput)
+}
+
+func (o TemplateValidityPeriodPtrOutput) Period() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TemplateValidityPeriod) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Period
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o TemplateValidityPeriodPtrOutput) PeriodType() TemplateValidityPeriodTypePtrOutput {
+	return o.ApplyT(func(v *TemplateValidityPeriod) *TemplateValidityPeriodType {
+		if v == nil {
+			return nil
+		}
+		return &v.PeriodType
+	}).(TemplateValidityPeriodTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorVpcInformationInput)(nil)).Elem(), ConnectorVpcInformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateApplicationPoliciesInput)(nil)).Elem(), TemplateApplicationPoliciesArgs{})
@@ -2794,21 +4573,36 @@ func init() {
 	pulumi.RegisterOutputType(TemplateApplicationPolicy0PropertiesOutput{})
 	pulumi.RegisterOutputType(TemplateApplicationPolicy1PropertiesOutput{})
 	pulumi.RegisterOutputType(TemplateCertificateValidityOutput{})
+	pulumi.RegisterOutputType(TemplateCertificateValidityPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDefinition0PropertiesOutput{})
+	pulumi.RegisterOutputType(TemplateDefinition0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDefinition1PropertiesOutput{})
+	pulumi.RegisterOutputType(TemplateDefinition1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TemplateDefinition2PropertiesOutput{})
+	pulumi.RegisterOutputType(TemplateDefinition2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TemplateEnrollmentFlagsV2Output{})
+	pulumi.RegisterOutputType(TemplateEnrollmentFlagsV2PtrOutput{})
 	pulumi.RegisterOutputType(TemplateEnrollmentFlagsV3Output{})
+	pulumi.RegisterOutputType(TemplateEnrollmentFlagsV3PtrOutput{})
 	pulumi.RegisterOutputType(TemplateEnrollmentFlagsV4Output{})
+	pulumi.RegisterOutputType(TemplateEnrollmentFlagsV4PtrOutput{})
 	pulumi.RegisterOutputType(TemplateExtensionsV2Output{})
+	pulumi.RegisterOutputType(TemplateExtensionsV2PtrOutput{})
 	pulumi.RegisterOutputType(TemplateExtensionsV3Output{})
+	pulumi.RegisterOutputType(TemplateExtensionsV3PtrOutput{})
 	pulumi.RegisterOutputType(TemplateExtensionsV4Output{})
+	pulumi.RegisterOutputType(TemplateExtensionsV4PtrOutput{})
 	pulumi.RegisterOutputType(TemplateGeneralFlagsV2Output{})
+	pulumi.RegisterOutputType(TemplateGeneralFlagsV2PtrOutput{})
 	pulumi.RegisterOutputType(TemplateGeneralFlagsV3Output{})
+	pulumi.RegisterOutputType(TemplateGeneralFlagsV3PtrOutput{})
 	pulumi.RegisterOutputType(TemplateGeneralFlagsV4Output{})
+	pulumi.RegisterOutputType(TemplateGeneralFlagsV4PtrOutput{})
 	pulumi.RegisterOutputType(TemplateGroupAccessControlEntryAccessRightsOutput{})
 	pulumi.RegisterOutputType(TemplateKeyUsageOutput{})
+	pulumi.RegisterOutputType(TemplateKeyUsagePtrOutput{})
 	pulumi.RegisterOutputType(TemplateKeyUsageFlagsOutput{})
+	pulumi.RegisterOutputType(TemplateKeyUsageFlagsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateKeyUsageProperty0PropertiesOutput{})
 	pulumi.RegisterOutputType(TemplateKeyUsageProperty0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TemplateKeyUsageProperty1PropertiesOutput{})
@@ -2816,16 +4610,29 @@ func init() {
 	pulumi.RegisterOutputType(TemplateKeyUsagePropertyFlagsOutput{})
 	pulumi.RegisterOutputType(TemplateKeyUsagePropertyFlagsPtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrivateKeyAttributesV2Output{})
+	pulumi.RegisterOutputType(TemplatePrivateKeyAttributesV2PtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrivateKeyAttributesV3Output{})
+	pulumi.RegisterOutputType(TemplatePrivateKeyAttributesV3PtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrivateKeyAttributesV4Output{})
+	pulumi.RegisterOutputType(TemplatePrivateKeyAttributesV4PtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrivateKeyFlagsV2Output{})
+	pulumi.RegisterOutputType(TemplatePrivateKeyFlagsV2PtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrivateKeyFlagsV3Output{})
+	pulumi.RegisterOutputType(TemplatePrivateKeyFlagsV3PtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrivateKeyFlagsV4Output{})
+	pulumi.RegisterOutputType(TemplatePrivateKeyFlagsV4PtrOutput{})
 	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV2Output{})
+	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV2PtrOutput{})
 	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV3Output{})
+	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV3PtrOutput{})
 	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV4Output{})
+	pulumi.RegisterOutputType(TemplateSubjectNameFlagsV4PtrOutput{})
 	pulumi.RegisterOutputType(TemplateV2Output{})
+	pulumi.RegisterOutputType(TemplateV2PtrOutput{})
 	pulumi.RegisterOutputType(TemplateV3Output{})
+	pulumi.RegisterOutputType(TemplateV3PtrOutput{})
 	pulumi.RegisterOutputType(TemplateV4Output{})
+	pulumi.RegisterOutputType(TemplateV4PtrOutput{})
 	pulumi.RegisterOutputType(TemplateValidityPeriodOutput{})
+	pulumi.RegisterOutputType(TemplateValidityPeriodPtrOutput{})
 }

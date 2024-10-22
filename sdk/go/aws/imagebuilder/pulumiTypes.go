@@ -5284,6 +5284,205 @@ func (o InfrastructureConfigurationLoggingPtrOutput) S3Logs() InfrastructureConf
 	}).(InfrastructureConfigurationS3LogsPtrOutput)
 }
 
+// The placement options
+type InfrastructureConfigurationPlacement struct {
+	// AvailabilityZone
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// HostId
+	HostId *string `pulumi:"hostId"`
+	// HostResourceGroupArn
+	HostResourceGroupArn *string `pulumi:"hostResourceGroupArn"`
+	// Tenancy
+	Tenancy *InfrastructureConfigurationPlacementTenancy `pulumi:"tenancy"`
+}
+
+// InfrastructureConfigurationPlacementInput is an input type that accepts InfrastructureConfigurationPlacementArgs and InfrastructureConfigurationPlacementOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationPlacementInput` via:
+//
+//	InfrastructureConfigurationPlacementArgs{...}
+type InfrastructureConfigurationPlacementInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationPlacementOutput() InfrastructureConfigurationPlacementOutput
+	ToInfrastructureConfigurationPlacementOutputWithContext(context.Context) InfrastructureConfigurationPlacementOutput
+}
+
+// The placement options
+type InfrastructureConfigurationPlacementArgs struct {
+	// AvailabilityZone
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// HostId
+	HostId pulumi.StringPtrInput `pulumi:"hostId"`
+	// HostResourceGroupArn
+	HostResourceGroupArn pulumi.StringPtrInput `pulumi:"hostResourceGroupArn"`
+	// Tenancy
+	Tenancy InfrastructureConfigurationPlacementTenancyPtrInput `pulumi:"tenancy"`
+}
+
+func (InfrastructureConfigurationPlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationPlacement)(nil)).Elem()
+}
+
+func (i InfrastructureConfigurationPlacementArgs) ToInfrastructureConfigurationPlacementOutput() InfrastructureConfigurationPlacementOutput {
+	return i.ToInfrastructureConfigurationPlacementOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationPlacementArgs) ToInfrastructureConfigurationPlacementOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationPlacementOutput)
+}
+
+func (i InfrastructureConfigurationPlacementArgs) ToInfrastructureConfigurationPlacementPtrOutput() InfrastructureConfigurationPlacementPtrOutput {
+	return i.ToInfrastructureConfigurationPlacementPtrOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationPlacementArgs) ToInfrastructureConfigurationPlacementPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationPlacementOutput).ToInfrastructureConfigurationPlacementPtrOutputWithContext(ctx)
+}
+
+// InfrastructureConfigurationPlacementPtrInput is an input type that accepts InfrastructureConfigurationPlacementArgs, InfrastructureConfigurationPlacementPtr and InfrastructureConfigurationPlacementPtrOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationPlacementPtrInput` via:
+//
+//	        InfrastructureConfigurationPlacementArgs{...}
+//
+//	or:
+//
+//	        nil
+type InfrastructureConfigurationPlacementPtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationPlacementPtrOutput() InfrastructureConfigurationPlacementPtrOutput
+	ToInfrastructureConfigurationPlacementPtrOutputWithContext(context.Context) InfrastructureConfigurationPlacementPtrOutput
+}
+
+type infrastructureConfigurationPlacementPtrType InfrastructureConfigurationPlacementArgs
+
+func InfrastructureConfigurationPlacementPtr(v *InfrastructureConfigurationPlacementArgs) InfrastructureConfigurationPlacementPtrInput {
+	return (*infrastructureConfigurationPlacementPtrType)(v)
+}
+
+func (*infrastructureConfigurationPlacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationPlacement)(nil)).Elem()
+}
+
+func (i *infrastructureConfigurationPlacementPtrType) ToInfrastructureConfigurationPlacementPtrOutput() InfrastructureConfigurationPlacementPtrOutput {
+	return i.ToInfrastructureConfigurationPlacementPtrOutputWithContext(context.Background())
+}
+
+func (i *infrastructureConfigurationPlacementPtrType) ToInfrastructureConfigurationPlacementPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationPlacementPtrOutput)
+}
+
+// The placement options
+type InfrastructureConfigurationPlacementOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationPlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationPlacement)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationPlacementOutput) ToInfrastructureConfigurationPlacementOutput() InfrastructureConfigurationPlacementOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPlacementOutput) ToInfrastructureConfigurationPlacementOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPlacementOutput) ToInfrastructureConfigurationPlacementPtrOutput() InfrastructureConfigurationPlacementPtrOutput {
+	return o.ToInfrastructureConfigurationPlacementPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationPlacementOutput) ToInfrastructureConfigurationPlacementPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationPlacement) *InfrastructureConfigurationPlacement {
+		return &v
+	}).(InfrastructureConfigurationPlacementPtrOutput)
+}
+
+// AvailabilityZone
+func (o InfrastructureConfigurationPlacementOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationPlacement) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// HostId
+func (o InfrastructureConfigurationPlacementOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationPlacement) *string { return v.HostId }).(pulumi.StringPtrOutput)
+}
+
+// HostResourceGroupArn
+func (o InfrastructureConfigurationPlacementOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationPlacement) *string { return v.HostResourceGroupArn }).(pulumi.StringPtrOutput)
+}
+
+// Tenancy
+func (o InfrastructureConfigurationPlacementOutput) Tenancy() InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationPlacement) *InfrastructureConfigurationPlacementTenancy {
+		return v.Tenancy
+	}).(InfrastructureConfigurationPlacementTenancyPtrOutput)
+}
+
+type InfrastructureConfigurationPlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationPlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationPlacement)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationPlacementPtrOutput) ToInfrastructureConfigurationPlacementPtrOutput() InfrastructureConfigurationPlacementPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPlacementPtrOutput) ToInfrastructureConfigurationPlacementPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationPlacementPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationPlacementPtrOutput) Elem() InfrastructureConfigurationPlacementOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationPlacement) InfrastructureConfigurationPlacement {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationPlacement
+		return ret
+	}).(InfrastructureConfigurationPlacementOutput)
+}
+
+// AvailabilityZone
+func (o InfrastructureConfigurationPlacementPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationPlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostId
+func (o InfrastructureConfigurationPlacementPtrOutput) HostId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationPlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostId
+	}).(pulumi.StringPtrOutput)
+}
+
+// HostResourceGroupArn
+func (o InfrastructureConfigurationPlacementPtrOutput) HostResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationPlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Tenancy
+func (o InfrastructureConfigurationPlacementPtrOutput) Tenancy() InfrastructureConfigurationPlacementTenancyPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationPlacement) *InfrastructureConfigurationPlacementTenancy {
+		if v == nil {
+			return nil
+		}
+		return v.Tenancy
+	}).(InfrastructureConfigurationPlacementTenancyPtrOutput)
+}
+
 // The S3 path in which to store the logs.
 type InfrastructureConfigurationS3Logs struct {
 	// S3BucketName
@@ -6705,6 +6904,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsPtrInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationPlacementInput)(nil)).Elem(), InfrastructureConfigurationPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationPlacementPtrInput)(nil)).Elem(), InfrastructureConfigurationPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationS3LogsInput)(nil)).Elem(), InfrastructureConfigurationS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationS3LogsPtrInput)(nil)).Elem(), InfrastructureConfigurationS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyActionInput)(nil)).Elem(), LifecyclePolicyActionArgs{})
@@ -6790,6 +6991,8 @@ func init() {
 	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationPlacementOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationPlacementPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationS3LogsPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyActionOutput{})

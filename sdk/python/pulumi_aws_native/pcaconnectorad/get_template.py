@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetTemplateResult',
@@ -23,10 +25,32 @@ __all__ = [
 
 @pulumi.output_type
 class GetTemplateResult:
-    def __init__(__self__, template_arn=None):
+    def __init__(__self__, definition=None, tags=None, template_arn=None):
+        if definition and not isinstance(definition, dict):
+            raise TypeError("Expected argument 'definition' to be a dict")
+        pulumi.set(__self__, "definition", definition)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if template_arn and not isinstance(template_arn, str):
             raise TypeError("Expected argument 'template_arn' to be a str")
         pulumi.set(__self__, "template_arn", template_arn)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[Any]:
+        """
+        Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata assigned to a template consisting of a key-value pair.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="templateArn")
@@ -43,6 +67,8 @@ class AwaitableGetTemplateResult(GetTemplateResult):
         if False:
             yield self
         return GetTemplateResult(
+            definition=self.definition,
+            tags=self.tags,
             template_arn=self.template_arn)
 
 
@@ -60,6 +86,8 @@ def get_template(template_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pcaconnectorad:getTemplate', __args__, opts=opts, typ=GetTemplateResult).value
 
     return AwaitableGetTemplateResult(
+        definition=pulumi.get(__ret__, 'definition'),
+        tags=pulumi.get(__ret__, 'tags'),
         template_arn=pulumi.get(__ret__, 'template_arn'))
 def get_template_output(template_arn: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
@@ -74,4 +102,6 @@ def get_template_output(template_arn: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:pcaconnectorad:getTemplate', __args__, opts=opts, typ=GetTemplateResult)
     return __ret__.apply(lambda __response__: GetTemplateResult(
+        definition=pulumi.get(__response__, 'definition'),
+        tags=pulumi.get(__response__, 'tags'),
         template_arn=pulumi.get(__response__, 'template_arn')))

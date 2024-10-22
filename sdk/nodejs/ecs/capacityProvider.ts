@@ -180,7 +180,7 @@ export class CapacityProvider extends pulumi.CustomResource {
     /**
      * The Auto Scaling group settings for the capacity provider.
      */
-    public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider>;
+    public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider | undefined>;
     /**
      * The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
      */
@@ -207,13 +207,10 @@ export class CapacityProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoScalingGroupProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'autoScalingGroupProvider'");
-            }
             resourceInputs["autoScalingGroupProvider"] = args ? args.autoScalingGroupProvider : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -236,7 +233,7 @@ export interface CapacityProviderArgs {
     /**
      * The Auto Scaling group settings for the capacity provider.
      */
-    autoScalingGroupProvider: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs>;
+    autoScalingGroupProvider?: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs>;
     /**
      * The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
      */

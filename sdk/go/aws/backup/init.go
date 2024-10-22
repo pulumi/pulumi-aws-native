@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupVault{}
 	case "aws-native:backup:Framework":
 		r = &Framework{}
+	case "aws-native:backup:LogicallyAirGappedBackupVault":
+		r = &LogicallyAirGappedBackupVault{}
 	case "aws-native:backup:ReportPlan":
 		r = &ReportPlan{}
 	case "aws-native:backup:RestoreTestingPlan":

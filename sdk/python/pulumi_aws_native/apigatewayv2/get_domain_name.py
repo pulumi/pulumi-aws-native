@@ -102,7 +102,7 @@ def get_domain_name(domain_name: Optional[str] = None,
      You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
 
-    :param str domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+    :param str domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -122,7 +122,7 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
      You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
 
 
-    :param str domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+    :param str domain_name: The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name

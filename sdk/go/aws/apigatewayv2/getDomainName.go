@@ -25,7 +25,7 @@ func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...p
 }
 
 type LookupDomainNameArgs struct {
-	// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+	// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
 	DomainName string `pulumi:"domainName"`
 }
 
@@ -62,7 +62,7 @@ func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs
 }
 
 type LookupDomainNameOutputArgs struct {
-	// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+	// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
 }
 

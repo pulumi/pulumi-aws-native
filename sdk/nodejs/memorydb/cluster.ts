@@ -68,6 +68,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The engine type used by the cluster.
+     */
+    public readonly engine!: pulumi.Output<string | undefined>;
+    /**
      * The Redis engine version used by the cluster.
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
@@ -177,6 +181,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["dataTiering"] = args ? args.dataTiering : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["finalSnapshotName"] = args ? args.finalSnapshotName : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
@@ -207,6 +212,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterName"] = undefined /*out*/;
             resourceInputs["dataTiering"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["finalSnapshotName"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
@@ -266,6 +272,10 @@ export interface ClusterArgs {
      * An optional description of the cluster.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The engine type used by the cluster.
+     */
+    engine?: pulumi.Input<string>;
     /**
      * The Redis engine version used by the cluster.
      */

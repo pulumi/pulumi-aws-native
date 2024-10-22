@@ -30,6 +30,8 @@ type LookupDirectoryRegistrationArgs struct {
 type LookupDirectoryRegistrationResult struct {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 	DirectoryRegistrationArn *string `pulumi:"directoryRegistrationArn"`
+	// Metadata assigned to a directory registration consisting of a key-value pair.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupDirectoryRegistrationOutput(ctx *pulumi.Context, args LookupDirectoryRegistrationOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryRegistrationResultOutput {
@@ -77,6 +79,11 @@ func (o LookupDirectoryRegistrationResultOutput) ToLookupDirectoryRegistrationRe
 // The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
 func (o LookupDirectoryRegistrationResultOutput) DirectoryRegistrationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryRegistrationResult) *string { return v.DirectoryRegistrationArn }).(pulumi.StringPtrOutput)
+}
+
+// Metadata assigned to a directory registration consisting of a key-value pair.
+func (o LookupDirectoryRegistrationResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupDirectoryRegistrationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

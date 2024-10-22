@@ -23,13 +23,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolIdentityProviderResult:
-    def __init__(__self__, attribute_mapping=None, id=None, idp_identifiers=None, provider_details=None):
+    def __init__(__self__, attribute_mapping=None, idp_identifiers=None, provider_details=None):
         if attribute_mapping and not isinstance(attribute_mapping, dict):
             raise TypeError("Expected argument 'attribute_mapping' to be a dict")
         pulumi.set(__self__, "attribute_mapping", attribute_mapping)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if idp_identifiers and not isinstance(idp_identifiers, list):
             raise TypeError("Expected argument 'idp_identifiers' to be a list")
         pulumi.set(__self__, "idp_identifiers", idp_identifiers)
@@ -39,21 +36,11 @@ class GetUserPoolIdentityProviderResult:
 
     @property
     @pulumi.getter(name="attributeMapping")
-    def attribute_mapping(self) -> Optional[Any]:
+    def attribute_mapping(self) -> Optional[Mapping[str, str]]:
         """
         A mapping of IdP attributes to standard and custom user pool attributes.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "attribute_mapping")
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        The resource ID.
-        """
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="idpIdentifiers")
@@ -65,7 +52,7 @@ class GetUserPoolIdentityProviderResult:
 
     @property
     @pulumi.getter(name="providerDetails")
-    def provider_details(self) -> Optional[Any]:
+    def provider_details(self) -> Optional[Mapping[str, str]]:
         """
         The scopes, URLs, and identifiers for your external identity provider. The following
         examples describe the provider detail keys for each IdP type. These values and their
@@ -96,8 +83,6 @@ class GetUserPoolIdentityProviderResult:
         - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
 
         Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "provider_details")
 
@@ -109,43 +94,46 @@ class AwaitableGetUserPoolIdentityProviderResult(GetUserPoolIdentityProviderResu
             yield self
         return GetUserPoolIdentityProviderResult(
             attribute_mapping=self.attribute_mapping,
-            id=self.id,
             idp_identifiers=self.idp_identifiers,
             provider_details=self.provider_details)
 
 
-def get_user_pool_identity_provider(id: Optional[str] = None,
+def get_user_pool_identity_provider(provider_name: Optional[str] = None,
+                                    user_pool_id: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserPoolIdentityProviderResult:
     """
     Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
 
 
-    :param str id: The resource ID.
+    :param str provider_name: The IdP name.
+    :param str user_pool_id: The user pool ID.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['providerName'] = provider_name
+    __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:cognito:getUserPoolIdentityProvider', __args__, opts=opts, typ=GetUserPoolIdentityProviderResult).value
 
     return AwaitableGetUserPoolIdentityProviderResult(
         attribute_mapping=pulumi.get(__ret__, 'attribute_mapping'),
-        id=pulumi.get(__ret__, 'id'),
         idp_identifiers=pulumi.get(__ret__, 'idp_identifiers'),
         provider_details=pulumi.get(__ret__, 'provider_details'))
-def get_user_pool_identity_provider_output(id: Optional[pulumi.Input[str]] = None,
+def get_user_pool_identity_provider_output(provider_name: Optional[pulumi.Input[str]] = None,
+                                           user_pool_id: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolIdentityProviderResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
 
 
-    :param str id: The resource ID.
+    :param str provider_name: The IdP name.
+    :param str user_pool_id: The user pool ID.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['providerName'] = provider_name
+    __args__['userPoolId'] = user_pool_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolIdentityProvider', __args__, opts=opts, typ=GetUserPoolIdentityProviderResult)
     return __ret__.apply(lambda __response__: GetUserPoolIdentityProviderResult(
         attribute_mapping=pulumi.get(__response__, 'attribute_mapping'),
-        id=pulumi.get(__response__, 'id'),
         idp_identifiers=pulumi.get(__response__, 'idp_identifiers'),
         provider_details=pulumi.get(__response__, 'provider_details')))

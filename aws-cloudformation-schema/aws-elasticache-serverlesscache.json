@@ -194,12 +194,13 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "elasticache:AddTagsToResource", "elasticache:RemoveTagsFromResource" ]
   },
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/FullEngineVersion", "/properties/CreateTime", "/properties/Status", "/properties/Endpoint/Address", "/properties/Endpoint/Port", "/properties/ReaderEndpoint/Address", "/properties/ReaderEndpoint/Port", "/properties/ARN" ],
   "writeOnlyProperties" : [ "/properties/SnapshotArnsToRestore", "/properties/FinalSnapshotName" ],
-  "createOnlyProperties" : [ "/properties/ServerlessCacheName", "/properties/Engine", "/properties/MajorEngineVersion", "/properties/KmsKeyId", "/properties/SnapshotArnsToRestore", "/properties/SubnetIds" ],
+  "createOnlyProperties" : [ "/properties/ServerlessCacheName", "/properties/KmsKeyId", "/properties/SnapshotArnsToRestore", "/properties/SubnetIds" ],
   "required" : [ "ServerlessCacheName", "Engine" ],
   "primaryIdentifier" : [ "/properties/ServerlessCacheName" ],
   "handlers" : {

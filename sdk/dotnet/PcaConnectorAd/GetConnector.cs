@@ -61,11 +61,19 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
         /// </summary>
         public readonly string? ConnectorArn;
+        /// <summary>
+        /// Metadata assigned to a connector consisting of a key-value pair.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
-        private GetConnectorResult(string? connectorArn)
+        private GetConnectorResult(
+            string? connectorArn,
+
+            ImmutableDictionary<string, string>? tags)
         {
             ConnectorArn = connectorArn;
+            Tags = tags;
         }
     }
 }

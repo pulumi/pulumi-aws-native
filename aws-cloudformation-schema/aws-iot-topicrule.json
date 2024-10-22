@@ -826,7 +826,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iot:UntagResource", "iot:TagResource", "iot:ListTagsForResource" ]
   },
   "required" : [ "TopicRulePayload" ],
   "createOnlyProperties" : [ "/properties/RuleName" ],

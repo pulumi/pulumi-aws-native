@@ -100,6 +100,7 @@ AWS::Backup::BackupPlan
 AWS::Backup::BackupSelection
 AWS::Backup::BackupVault
 AWS::Backup::Framework
+AWS::Backup::LogicallyAirGappedBackupVault
 AWS::Backup::ReportPlan
 AWS::Backup::RestoreTestingPlan
 AWS::Backup::RestoreTestingSelection
@@ -832,6 +833,7 @@ AWS::Redshift::ClusterSubnetGroup
 AWS::Redshift::EndpointAccess
 AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription
+AWS::Redshift::Integration
 AWS::Redshift::ScheduledAction
 AWS::RedshiftServerless::Namespace
 AWS::RedshiftServerless::Workgroup

@@ -33,7 +33,8 @@ class CapacityReservationArgs:
                  out_post_arn: Optional[pulumi.Input[str]] = None,
                  placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]] = None,
-                 tenancy: Optional[pulumi.Input[str]] = None):
+                 tenancy: Optional[pulumi.Input[str]] = None,
+                 unused_reservation_billing_owner_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CapacityReservation resource.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create the Capacity Reservation.
@@ -89,6 +90,8 @@ class CapacityReservationArgs:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if tenancy is not None:
             pulumi.set(__self__, "tenancy", tenancy)
+        if unused_reservation_billing_owner_id is not None:
+            pulumi.set(__self__, "unused_reservation_billing_owner_id", unused_reservation_billing_owner_id)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -263,6 +266,15 @@ class CapacityReservationArgs:
     def tenancy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenancy", value)
 
+    @property
+    @pulumi.getter(name="unusedReservationBillingOwnerId")
+    def unused_reservation_billing_owner_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unused_reservation_billing_owner_id")
+
+    @unused_reservation_billing_owner_id.setter
+    def unused_reservation_billing_owner_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unused_reservation_billing_owner_id", value)
+
 
 class CapacityReservation(pulumi.CustomResource):
     @overload
@@ -282,6 +294,7 @@ class CapacityReservation(pulumi.CustomResource):
                  placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
+                 unused_reservation_billing_owner_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::CapacityReservation
@@ -356,6 +369,7 @@ class CapacityReservation(pulumi.CustomResource):
                  placement_group_arn: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationTagSpecificationArgs', 'CapacityReservationTagSpecificationArgsDict']]]]] = None,
                  tenancy: Optional[pulumi.Input[str]] = None,
+                 unused_reservation_billing_owner_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -386,6 +400,7 @@ class CapacityReservation(pulumi.CustomResource):
             __props__.__dict__["placement_group_arn"] = placement_group_arn
             __props__.__dict__["tag_specifications"] = tag_specifications
             __props__.__dict__["tenancy"] = tenancy
+            __props__.__dict__["unused_reservation_billing_owner_id"] = unused_reservation_billing_owner_id
             __props__.__dict__["available_instance_count"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["total_instance_count"] = None
@@ -429,6 +444,7 @@ class CapacityReservation(pulumi.CustomResource):
         __props__.__dict__["tag_specifications"] = None
         __props__.__dict__["tenancy"] = None
         __props__.__dict__["total_instance_count"] = None
+        __props__.__dict__["unused_reservation_billing_owner_id"] = None
         return CapacityReservation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -575,4 +591,9 @@ class CapacityReservation(pulumi.CustomResource):
         Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
         """
         return pulumi.get(self, "total_instance_count")
+
+    @property
+    @pulumi.getter(name="unusedReservationBillingOwnerId")
+    def unused_reservation_billing_owner_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "unused_reservation_billing_owner_id")
 

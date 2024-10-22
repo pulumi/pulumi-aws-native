@@ -816,6 +816,7 @@ namespace Pulumi.AwsNative.S3
 
     /// <summary>
     /// Server-side encryption algorithm to use for the default encryption.
+    ///   For directory buckets, there are only two supported values for server-side encryption: ``AES256`` and ``aws:kms``.
     /// </summary>
     [EnumType]
     public readonly struct BucketServerSideEncryptionByDefaultSseAlgorithm : IEquatable<BucketServerSideEncryptionByDefaultSseAlgorithm>

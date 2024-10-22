@@ -128,6 +128,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("totalInstanceCount")]
         public Output<int> TotalInstanceCount { get; private set; } = null!;
 
+        [Output("unusedReservationBillingOwnerId")]
+        public Output<string?> UnusedReservationBillingOwnerId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -285,6 +288,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
+
+        [Input("unusedReservationBillingOwnerId")]
+        public Input<string>? UnusedReservationBillingOwnerId { get; set; }
 
         public CapacityReservationArgs()
         {

@@ -48,6 +48,10 @@ export interface GetClusterResult {
      */
     readonly description?: string;
     /**
+     * The engine type used by the cluster.
+     */
+    readonly engine?: string;
+    /**
      * The Redis engine version used by the cluster.
      */
     readonly engineVersion?: string;

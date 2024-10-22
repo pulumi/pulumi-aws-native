@@ -160,9 +160,7 @@ namespace Pulumi.AwsNative.ElastiCache
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "engine",
                     "kmsKeyId",
-                    "majorEngineVersion",
                     "serverlessCacheName",
                     "snapshotArnsToRestore[*]",
                     "subnetIds[*]",

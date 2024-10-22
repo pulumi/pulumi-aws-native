@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+        /// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
         /// </summary>
         [Output("targetArns")]
         public Output<ImmutableArray<string>> TargetArns { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<string>? _targetArns;
 
         /// <summary>
-        /// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+        /// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
         /// </summary>
         public InputList<string> TargetArns
         {

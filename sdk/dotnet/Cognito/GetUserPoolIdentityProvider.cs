@@ -28,10 +28,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolIdentityProviderArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource ID.
+        /// The IdP name.
         /// </summary>
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        [Input("providerName", required: true)]
+        public string ProviderName { get; set; } = null!;
+
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
+        [Input("userPoolId", required: true)]
+        public string UserPoolId { get; set; } = null!;
 
         public GetUserPoolIdentityProviderArgs()
         {
@@ -42,10 +48,16 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolIdentityProviderInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The resource ID.
+        /// The IdP name.
         /// </summary>
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        [Input("providerName", required: true)]
+        public Input<string> ProviderName { get; set; } = null!;
+
+        /// <summary>
+        /// The user pool ID.
+        /// </summary>
+        [Input("userPoolId", required: true)]
+        public Input<string> UserPoolId { get; set; } = null!;
 
         public GetUserPoolIdentityProviderInvokeArgs()
         {
@@ -59,14 +71,8 @@ namespace Pulumi.AwsNative.Cognito
     {
         /// <summary>
         /// A mapping of IdP attributes to standard and custom user pool attributes.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         /// </summary>
-        public readonly object? AttributeMapping;
-        /// <summary>
-        /// The resource ID.
-        /// </summary>
-        public readonly string? Id;
+        public readonly ImmutableDictionary<string, string>? AttributeMapping;
         /// <summary>
         /// A list of IdP identifiers.
         /// </summary>
@@ -101,23 +107,18 @@ namespace Pulumi.AwsNative.Cognito
         /// - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
         /// 
         /// Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         /// </summary>
-        public readonly object? ProviderDetails;
+        public readonly ImmutableDictionary<string, string>? ProviderDetails;
 
         [OutputConstructor]
         private GetUserPoolIdentityProviderResult(
-            object? attributeMapping,
-
-            string? id,
+            ImmutableDictionary<string, string>? attributeMapping,
 
             ImmutableArray<string> idpIdentifiers,
 
-            object? providerDetails)
+            ImmutableDictionary<string, string>? providerDetails)
         {
             AttributeMapping = attributeMapping;
-            Id = id;
             IdpIdentifiers = idpIdentifiers;
             ProviderDetails = providerDetails;
         }

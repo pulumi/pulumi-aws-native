@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -22,6 +25,14 @@ export interface GetTemplateArgs {
 }
 
 export interface GetTemplateResult {
+    /**
+     * Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+     */
+    readonly definition?: outputs.pcaconnectorad.TemplateDefinition0Properties | outputs.pcaconnectorad.TemplateDefinition1Properties | outputs.pcaconnectorad.TemplateDefinition2Properties;
+    /**
+     * Metadata assigned to a template consisting of a key-value pair.
+     */
+    readonly tags?: {[key: string]: string};
     /**
      * The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
      */

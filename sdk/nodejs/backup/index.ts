@@ -45,6 +45,11 @@ export const getFramework: typeof import("./getFramework").getFramework = null a
 export const getFrameworkOutput: typeof import("./getFramework").getFrameworkOutput = null as any;
 utilities.lazyLoad(exports, ["getFramework","getFrameworkOutput"], () => require("./getFramework"));
 
+export { GetLogicallyAirGappedBackupVaultArgs, GetLogicallyAirGappedBackupVaultResult, GetLogicallyAirGappedBackupVaultOutputArgs } from "./getLogicallyAirGappedBackupVault";
+export const getLogicallyAirGappedBackupVault: typeof import("./getLogicallyAirGappedBackupVault").getLogicallyAirGappedBackupVault = null as any;
+export const getLogicallyAirGappedBackupVaultOutput: typeof import("./getLogicallyAirGappedBackupVault").getLogicallyAirGappedBackupVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getLogicallyAirGappedBackupVault","getLogicallyAirGappedBackupVaultOutput"], () => require("./getLogicallyAirGappedBackupVault"));
+
 export { GetReportPlanArgs, GetReportPlanResult, GetReportPlanOutputArgs } from "./getReportPlan";
 export const getReportPlan: typeof import("./getReportPlan").getReportPlan = null as any;
 export const getReportPlanOutput: typeof import("./getReportPlan").getReportPlanOutput = null as any;
@@ -59,6 +64,11 @@ export { GetRestoreTestingSelectionArgs, GetRestoreTestingSelectionResult, GetRe
 export const getRestoreTestingSelection: typeof import("./getRestoreTestingSelection").getRestoreTestingSelection = null as any;
 export const getRestoreTestingSelectionOutput: typeof import("./getRestoreTestingSelection").getRestoreTestingSelectionOutput = null as any;
 utilities.lazyLoad(exports, ["getRestoreTestingSelection","getRestoreTestingSelectionOutput"], () => require("./getRestoreTestingSelection"));
+
+export { LogicallyAirGappedBackupVaultArgs } from "./logicallyAirGappedBackupVault";
+export type LogicallyAirGappedBackupVault = import("./logicallyAirGappedBackupVault").LogicallyAirGappedBackupVault;
+export const LogicallyAirGappedBackupVault: typeof import("./logicallyAirGappedBackupVault").LogicallyAirGappedBackupVault = null as any;
+utilities.lazyLoad(exports, ["LogicallyAirGappedBackupVault"], () => require("./logicallyAirGappedBackupVault"));
 
 export { ReportPlanArgs } from "./reportPlan";
 export type ReportPlan = import("./reportPlan").ReportPlan;
@@ -91,6 +101,8 @@ const _module = {
                 return new BackupVault(name, <any>undefined, { urn })
             case "aws-native:backup:Framework":
                 return new Framework(name, <any>undefined, { urn })
+            case "aws-native:backup:LogicallyAirGappedBackupVault":
+                return new LogicallyAirGappedBackupVault(name, <any>undefined, { urn })
             case "aws-native:backup:ReportPlan":
                 return new ReportPlan(name, <any>undefined, { urn })
             case "aws-native:backup:RestoreTestingPlan":

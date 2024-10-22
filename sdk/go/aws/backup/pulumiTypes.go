@@ -2201,6 +2201,154 @@ func (o FrameworkTagArrayOutput) Index(i pulumi.IntInput) FrameworkTagOutput {
 	}).(FrameworkTagOutput)
 }
 
+type LogicallyAirGappedBackupVaultNotificationObjectType struct {
+	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
+	SnsTopicArn       string   `pulumi:"snsTopicArn"`
+}
+
+// LogicallyAirGappedBackupVaultNotificationObjectTypeInput is an input type that accepts LogicallyAirGappedBackupVaultNotificationObjectTypeArgs and LogicallyAirGappedBackupVaultNotificationObjectTypeOutput values.
+// You can construct a concrete instance of `LogicallyAirGappedBackupVaultNotificationObjectTypeInput` via:
+//
+//	LogicallyAirGappedBackupVaultNotificationObjectTypeArgs{...}
+type LogicallyAirGappedBackupVaultNotificationObjectTypeInput interface {
+	pulumi.Input
+
+	ToLogicallyAirGappedBackupVaultNotificationObjectTypeOutput() LogicallyAirGappedBackupVaultNotificationObjectTypeOutput
+	ToLogicallyAirGappedBackupVaultNotificationObjectTypeOutputWithContext(context.Context) LogicallyAirGappedBackupVaultNotificationObjectTypeOutput
+}
+
+type LogicallyAirGappedBackupVaultNotificationObjectTypeArgs struct {
+	BackupVaultEvents pulumi.StringArrayInput `pulumi:"backupVaultEvents"`
+	SnsTopicArn       pulumi.StringInput      `pulumi:"snsTopicArn"`
+}
+
+func (LogicallyAirGappedBackupVaultNotificationObjectTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogicallyAirGappedBackupVaultNotificationObjectType)(nil)).Elem()
+}
+
+func (i LogicallyAirGappedBackupVaultNotificationObjectTypeArgs) ToLogicallyAirGappedBackupVaultNotificationObjectTypeOutput() LogicallyAirGappedBackupVaultNotificationObjectTypeOutput {
+	return i.ToLogicallyAirGappedBackupVaultNotificationObjectTypeOutputWithContext(context.Background())
+}
+
+func (i LogicallyAirGappedBackupVaultNotificationObjectTypeArgs) ToLogicallyAirGappedBackupVaultNotificationObjectTypeOutputWithContext(ctx context.Context) LogicallyAirGappedBackupVaultNotificationObjectTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogicallyAirGappedBackupVaultNotificationObjectTypeOutput)
+}
+
+func (i LogicallyAirGappedBackupVaultNotificationObjectTypeArgs) ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput() LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
+	return i.ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(context.Background())
+}
+
+func (i LogicallyAirGappedBackupVaultNotificationObjectTypeArgs) ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(ctx context.Context) LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogicallyAirGappedBackupVaultNotificationObjectTypeOutput).ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(ctx)
+}
+
+// LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput is an input type that accepts LogicallyAirGappedBackupVaultNotificationObjectTypeArgs, LogicallyAirGappedBackupVaultNotificationObjectTypePtr and LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput values.
+// You can construct a concrete instance of `LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput` via:
+//
+//	        LogicallyAirGappedBackupVaultNotificationObjectTypeArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput interface {
+	pulumi.Input
+
+	ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput() LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput
+	ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(context.Context) LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput
+}
+
+type logicallyAirGappedBackupVaultNotificationObjectTypePtrType LogicallyAirGappedBackupVaultNotificationObjectTypeArgs
+
+func LogicallyAirGappedBackupVaultNotificationObjectTypePtr(v *LogicallyAirGappedBackupVaultNotificationObjectTypeArgs) LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput {
+	return (*logicallyAirGappedBackupVaultNotificationObjectTypePtrType)(v)
+}
+
+func (*logicallyAirGappedBackupVaultNotificationObjectTypePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogicallyAirGappedBackupVaultNotificationObjectType)(nil)).Elem()
+}
+
+func (i *logicallyAirGappedBackupVaultNotificationObjectTypePtrType) ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput() LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
+	return i.ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(context.Background())
+}
+
+func (i *logicallyAirGappedBackupVaultNotificationObjectTypePtrType) ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(ctx context.Context) LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput)
+}
+
+type LogicallyAirGappedBackupVaultNotificationObjectTypeOutput struct{ *pulumi.OutputState }
+
+func (LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogicallyAirGappedBackupVaultNotificationObjectType)(nil)).Elem()
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) ToLogicallyAirGappedBackupVaultNotificationObjectTypeOutput() LogicallyAirGappedBackupVaultNotificationObjectTypeOutput {
+	return o
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) ToLogicallyAirGappedBackupVaultNotificationObjectTypeOutputWithContext(ctx context.Context) LogicallyAirGappedBackupVaultNotificationObjectTypeOutput {
+	return o
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput() LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
+	return o.ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(context.Background())
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(ctx context.Context) LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogicallyAirGappedBackupVaultNotificationObjectType) *LogicallyAirGappedBackupVaultNotificationObjectType {
+		return &v
+	}).(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput)
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) BackupVaultEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LogicallyAirGappedBackupVaultNotificationObjectType) []string { return v.BackupVaultEvents }).(pulumi.StringArrayOutput)
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) SnsTopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LogicallyAirGappedBackupVaultNotificationObjectType) string { return v.SnsTopicArn }).(pulumi.StringOutput)
+}
+
+type LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput struct{ *pulumi.OutputState }
+
+func (LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogicallyAirGappedBackupVaultNotificationObjectType)(nil)).Elem()
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput() LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
+	return o
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) ToLogicallyAirGappedBackupVaultNotificationObjectTypePtrOutputWithContext(ctx context.Context) LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
+	return o
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) Elem() LogicallyAirGappedBackupVaultNotificationObjectTypeOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedBackupVaultNotificationObjectType) LogicallyAirGappedBackupVaultNotificationObjectType {
+		if v != nil {
+			return *v
+		}
+		var ret LogicallyAirGappedBackupVaultNotificationObjectType
+		return ret
+	}).(LogicallyAirGappedBackupVaultNotificationObjectTypeOutput)
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) BackupVaultEvents() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedBackupVaultNotificationObjectType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BackupVaultEvents
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogicallyAirGappedBackupVaultNotificationObjectType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnsTopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // A structure that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.
 type ReportDeliveryChannelProperties struct {
 	// A list of the format of your reports: CSV, JSON, or both. If not specified, the default format is CSV.
@@ -2977,6 +3125,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkControlInputParameterArrayInput)(nil)).Elem(), FrameworkControlInputParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkTagInput)(nil)).Elem(), FrameworkTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrameworkTagArrayInput)(nil)).Elem(), FrameworkTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogicallyAirGappedBackupVaultNotificationObjectTypeInput)(nil)).Elem(), LogicallyAirGappedBackupVaultNotificationObjectTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput)(nil)).Elem(), LogicallyAirGappedBackupVaultNotificationObjectTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportDeliveryChannelPropertiesInput)(nil)).Elem(), ReportDeliveryChannelPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportSettingPropertiesInput)(nil)).Elem(), ReportSettingPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestoreTestingPlanRestoreTestingRecoveryPointSelectionInput)(nil)).Elem(), RestoreTestingPlanRestoreTestingRecoveryPointSelectionArgs{})
@@ -3013,6 +3163,8 @@ func init() {
 	pulumi.RegisterOutputType(FrameworkControlInputParameterArrayOutput{})
 	pulumi.RegisterOutputType(FrameworkTagOutput{})
 	pulumi.RegisterOutputType(FrameworkTagArrayOutput{})
+	pulumi.RegisterOutputType(LogicallyAirGappedBackupVaultNotificationObjectTypeOutput{})
+	pulumi.RegisterOutputType(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesOutput{})
 	pulumi.RegisterOutputType(ReportDeliveryChannelPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ReportSettingPropertiesOutput{})

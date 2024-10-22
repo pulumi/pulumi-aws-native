@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.AutoScaling
 
         /// <summary>
         /// A comma-separated value string of one or more health check types.
-        ///  The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        ///  The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
         ///  Only specify ``EC2`` if you must clear a value that was previously set.
         /// </summary>
         [Output("healthCheckType")]
@@ -210,6 +210,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         [Output("terminationPolicies")]
         public Output<ImmutableArray<string>> TerminationPolicies { get; private set; } = null!;
+
+        [Output("trafficSources")]
+        public Output<ImmutableArray<Outputs.AutoScalingGroupTrafficSourceIdentifier>> TrafficSources { get; private set; } = null!;
 
         /// <summary>
         /// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
@@ -344,7 +347,7 @@ namespace Pulumi.AwsNative.AutoScaling
 
         /// <summary>
         /// A comma-separated value string of one or more health check types.
-        ///  The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        ///  The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
         ///  Only specify ``EC2`` if you must clear a value that was previously set.
         /// </summary>
         [Input("healthCheckType")]
@@ -509,6 +512,14 @@ namespace Pulumi.AwsNative.AutoScaling
         {
             get => _terminationPolicies ?? (_terminationPolicies = new InputList<string>());
             set => _terminationPolicies = value;
+        }
+
+        [Input("trafficSources")]
+        private InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs>? _trafficSources;
+        public InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs> TrafficSources
+        {
+            get => _trafficSources ?? (_trafficSources = new InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs>());
+            set => _trafficSources = value;
         }
 
         [Input("vpcZoneIdentifier")]

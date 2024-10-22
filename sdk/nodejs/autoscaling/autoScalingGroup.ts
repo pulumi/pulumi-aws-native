@@ -90,7 +90,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
     public readonly healthCheckGracePeriod!: pulumi.Output<number | undefined>;
     /**
      * A comma-separated value string of one or more health check types.
-     *  The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     *  The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  Only specify ``EC2`` if you must clear a value that was previously set.
      */
     public readonly healthCheckType!: pulumi.Output<string | undefined>;
@@ -175,6 +175,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
     public readonly terminationPolicies!: pulumi.Output<string[] | undefined>;
+    public readonly trafficSources!: pulumi.Output<outputs.autoscaling.AutoScalingGroupTrafficSourceIdentifier[] | undefined>;
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
      *  If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
@@ -229,6 +230,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
             resourceInputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
+            resourceInputs["trafficSources"] = args ? args.trafficSources : undefined;
             resourceInputs["vpcZoneIdentifier"] = args ? args.vpcZoneIdentifier : undefined;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
@@ -260,6 +262,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetGroupArns"] = undefined /*out*/;
             resourceInputs["terminationPolicies"] = undefined /*out*/;
+            resourceInputs["trafficSources"] = undefined /*out*/;
             resourceInputs["vpcZoneIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -323,7 +326,7 @@ export interface AutoScalingGroupArgs {
     healthCheckGracePeriod?: pulumi.Input<number>;
     /**
      * A comma-separated value string of one or more health check types.
-     *  The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+     *  The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
      *  Only specify ``EC2`` if you must clear a value that was previously set.
      */
     healthCheckType?: pulumi.Input<string>;
@@ -408,6 +411,7 @@ export interface AutoScalingGroupArgs {
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
     terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    trafficSources?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupTrafficSourceIdentifierArgs>[]>;
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
      *  If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).

@@ -29,6 +29,7 @@ class InfrastructureConfigurationArgs:
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 placement: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
         :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: The logging configuration of the infrastructure configuration.
         :param pulumi.Input[str] name: The name of the infrastructure configuration.
+        :param pulumi.Input['InfrastructureConfigurationPlacementArgs'] placement: The placement option settings for the infrastructure configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the infrastructure configuration.
         :param pulumi.Input[str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -64,6 +66,8 @@ class InfrastructureConfigurationArgs:
             pulumi.set(__self__, "logging", logging)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if placement is not None:
+            pulumi.set(__self__, "placement", placement)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if security_group_ids is not None:
@@ -162,6 +166,18 @@ class InfrastructureConfigurationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def placement(self) -> Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]:
+        """
+        The placement option settings for the infrastructure configuration.
+        """
+        return pulumi.get(self, "placement")
+
+    @placement.setter
+    def placement(self, value: Optional[pulumi.Input['InfrastructureConfigurationPlacementArgs']]):
+        pulumi.set(self, "placement", value)
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -246,6 +262,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 placement: Optional[pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -265,6 +282,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] key_pair: The EC2 key pair of the infrastructure configuration..
         :param pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']] logging: The logging configuration of the infrastructure configuration.
         :param pulumi.Input[str] name: The name of the infrastructure configuration.
+        :param pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']] placement: The placement option settings for the infrastructure configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] resource_tags: The tags attached to the resource created by Image Builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security group IDs of the infrastructure configuration.
         :param pulumi.Input[str] sns_topic_arn: The SNS Topic Amazon Resource Name (ARN) of the infrastructure configuration.
@@ -303,6 +321,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[Union['InfrastructureConfigurationLoggingArgs', 'InfrastructureConfigurationLoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 placement: Optional[pulumi.Input[Union['InfrastructureConfigurationPlacementArgs', 'InfrastructureConfigurationPlacementArgsDict']]] = None,
                  resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sns_topic_arn: Optional[pulumi.Input[str]] = None,
@@ -327,6 +346,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__.__dict__["key_pair"] = key_pair
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
+            __props__.__dict__["placement"] = placement
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
@@ -366,6 +386,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         __props__.__dict__["key_pair"] = None
         __props__.__dict__["logging"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["placement"] = None
         __props__.__dict__["resource_tags"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["sns_topic_arn"] = None
@@ -437,6 +458,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         The name of the infrastructure configuration.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def placement(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationPlacement']]:
+        """
+        The placement option settings for the infrastructure configuration.
+        """
+        return pulumi.get(self, "placement")
 
     @property
     @pulumi.getter(name="resourceTags")

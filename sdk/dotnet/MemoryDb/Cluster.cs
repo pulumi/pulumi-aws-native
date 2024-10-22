@@ -60,6 +60,12 @@ namespace Pulumi.AwsNative.MemoryDb
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The engine type used by the cluster.
+        /// </summary>
+        [Output("engine")]
+        public Output<string?> Engine { get; private set; } = null!;
+
+        /// <summary>
         /// The Redis engine version used by the cluster.
         /// </summary>
         [Output("engineVersion")]
@@ -280,6 +286,12 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The engine type used by the cluster.
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
 
         /// <summary>
         /// The Redis engine version used by the cluster.

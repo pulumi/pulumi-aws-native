@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInfrastructureConfigurationResult:
-    def __init__(__self__, arn=None, description=None, instance_metadata_options=None, instance_profile_name=None, instance_types=None, key_pair=None, logging=None, resource_tags=None, security_group_ids=None, sns_topic_arn=None, subnet_id=None, tags=None, terminate_instance_on_failure=None):
+    def __init__(__self__, arn=None, description=None, instance_metadata_options=None, instance_profile_name=None, instance_types=None, key_pair=None, logging=None, placement=None, resource_tags=None, security_group_ids=None, sns_topic_arn=None, subnet_id=None, tags=None, terminate_instance_on_failure=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -47,6 +47,9 @@ class GetInfrastructureConfigurationResult:
         if logging and not isinstance(logging, dict):
             raise TypeError("Expected argument 'logging' to be a dict")
         pulumi.set(__self__, "logging", logging)
+        if placement and not isinstance(placement, dict):
+            raise TypeError("Expected argument 'placement' to be a dict")
+        pulumi.set(__self__, "placement", placement)
         if resource_tags and not isinstance(resource_tags, dict):
             raise TypeError("Expected argument 'resource_tags' to be a dict")
         pulumi.set(__self__, "resource_tags", resource_tags)
@@ -123,6 +126,14 @@ class GetInfrastructureConfigurationResult:
         return pulumi.get(self, "logging")
 
     @property
+    @pulumi.getter
+    def placement(self) -> Optional['outputs.InfrastructureConfigurationPlacement']:
+        """
+        The placement option settings for the infrastructure configuration.
+        """
+        return pulumi.get(self, "placement")
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -184,6 +195,7 @@ class AwaitableGetInfrastructureConfigurationResult(GetInfrastructureConfigurati
             instance_types=self.instance_types,
             key_pair=self.key_pair,
             logging=self.logging,
+            placement=self.placement,
             resource_tags=self.resource_tags,
             security_group_ids=self.security_group_ids,
             sns_topic_arn=self.sns_topic_arn,
@@ -213,6 +225,7 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
         instance_types=pulumi.get(__ret__, 'instance_types'),
         key_pair=pulumi.get(__ret__, 'key_pair'),
         logging=pulumi.get(__ret__, 'logging'),
+        placement=pulumi.get(__ret__, 'placement'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'),
@@ -239,6 +252,7 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
         instance_types=pulumi.get(__response__, 'instance_types'),
         key_pair=pulumi.get(__response__, 'key_pair'),
         logging=pulumi.get(__response__, 'logging'),
+        placement=pulumi.get(__response__, 'placement'),
         resource_tags=pulumi.get(__response__, 'resource_tags'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         sns_topic_arn=pulumi.get(__response__, 'sns_topic_arn'),

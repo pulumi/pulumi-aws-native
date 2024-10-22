@@ -362,11 +362,11 @@ if not MYPY:
         """
         height: NotRequired[pulumi.Input[int]]
         """
-        Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
         """
         width: NotRequired[pulumi.Input[int]]
         """
-        Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
         """
 elif False:
     VideoPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -382,8 +382,8 @@ class VideoPropertiesArgs:
         Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
         :param pulumi.Input[int] bitrate: Bitrate for generated output, in bps. Default: 2500000.
         :param pulumi.Input[float] framerate: Video frame rate, in fps. Default: 30.
-        :param pulumi.Input[int] height: Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
-        :param pulumi.Input[int] width: Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        :param pulumi.Input[int] height: Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        :param pulumi.Input[int] width: Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
         """
         if bitrate is not None:
             pulumi.set(__self__, "bitrate", bitrate)
@@ -422,7 +422,7 @@ class VideoPropertiesArgs:
     @pulumi.getter
     def height(self) -> Optional[pulumi.Input[int]]:
         """
-        Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
         """
         return pulumi.get(self, "height")
 
@@ -434,7 +434,7 @@ class VideoPropertiesArgs:
     @pulumi.getter
     def width(self) -> Optional[pulumi.Input[int]]:
         """
-        Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
         """
         return pulumi.get(self, "width")
 

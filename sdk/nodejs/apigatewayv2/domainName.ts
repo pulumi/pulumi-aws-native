@@ -39,7 +39,7 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /**
-     * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+     * The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameArgs {
     /**
-     * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+     * The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
      */
     domainName: pulumi.Input<string>;
     /**

@@ -35,6 +35,7 @@ __all__ = [
     'AutoScalingGroupNotificationConfiguration',
     'AutoScalingGroupTagProperty',
     'AutoScalingGroupTotalLocalStorageGbRequest',
+    'AutoScalingGroupTrafficSourceIdentifier',
     'AutoScalingGroupVCpuCountRequest',
     'LaunchConfigurationBlockDevice',
     'LaunchConfigurationBlockDeviceMapping',
@@ -1711,6 +1712,25 @@ class AutoScalingGroupTotalLocalStorageGbRequest(dict):
         The storage minimum in GB.
         """
         return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupTrafficSourceIdentifier(dict):
+    def __init__(__self__, *,
+                 identifier: str,
+                 type: str):
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> str:
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The placement option settings for the infrastructure configuration.
+        /// </summary>
+        [Output("placement")]
+        public Output<Outputs.InfrastructureConfigurationPlacement?> Placement { get; private set; } = null!;
+
+        /// <summary>
         /// The tags attached to the resource created by Image Builder.
         /// </summary>
         [Output("resourceTags")]
@@ -195,6 +201,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The placement option settings for the infrastructure configuration.
+        /// </summary>
+        [Input("placement")]
+        public Input<Inputs.InfrastructureConfigurationPlacementArgs>? Placement { get; set; }
 
         [Input("resourceTags")]
         private InputMap<string>? _resourceTags;

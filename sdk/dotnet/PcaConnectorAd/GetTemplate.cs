@@ -58,13 +58,28 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     public sealed class GetTemplateResult
     {
         /// <summary>
+        /// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+        /// </summary>
+        public readonly object? Definition;
+        /// <summary>
+        /// Metadata assigned to a template consisting of a key-value pair.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
         /// </summary>
         public readonly string? TemplateArn;
 
         [OutputConstructor]
-        private GetTemplateResult(string? templateArn)
+        private GetTemplateResult(
+            object? definition,
+
+            ImmutableDictionary<string, string>? tags,
+
+            string? templateArn)
         {
+            Definition = definition;
+            Tags = tags;
             TemplateArn = templateArn;
         }
     }

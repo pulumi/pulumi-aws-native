@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoint=None, description=None, engine_version=None, maintenance_window=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, parameter_group_status=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, sns_topic_status=None, status=None, tags=None):
+    def __init__(__self__, acl_name=None, arn=None, auto_minor_version_upgrade=None, cluster_endpoint=None, description=None, engine=None, engine_version=None, maintenance_window=None, node_type=None, num_replicas_per_shard=None, num_shards=None, parameter_group_name=None, parameter_group_status=None, security_group_ids=None, snapshot_retention_limit=None, snapshot_window=None, sns_topic_arn=None, sns_topic_status=None, status=None, tags=None):
         if acl_name and not isinstance(acl_name, str):
             raise TypeError("Expected argument 'acl_name' to be a str")
         pulumi.set(__self__, "acl_name", acl_name)
@@ -41,6 +41,9 @@ class GetClusterResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if engine and not isinstance(engine, str):
+            raise TypeError("Expected argument 'engine' to be a str")
+        pulumi.set(__self__, "engine", engine)
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
@@ -125,6 +128,14 @@ class GetClusterResult:
         An optional description of the cluster.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[str]:
+        """
+        The engine type used by the cluster.
+        """
+        return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -250,6 +261,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
             cluster_endpoint=self.cluster_endpoint,
             description=self.description,
+            engine=self.engine,
             engine_version=self.engine_version,
             maintenance_window=self.maintenance_window,
             node_type=self.node_type,
@@ -285,6 +297,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
         cluster_endpoint=pulumi.get(__ret__, 'cluster_endpoint'),
         description=pulumi.get(__ret__, 'description'),
+        engine=pulumi.get(__ret__, 'engine'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
         node_type=pulumi.get(__ret__, 'node_type'),
@@ -317,6 +330,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
         auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
         cluster_endpoint=pulumi.get(__response__, 'cluster_endpoint'),
         description=pulumi.get(__response__, 'description'),
+        engine=pulumi.get(__response__, 'engine'),
         engine_version=pulumi.get(__response__, 'engine_version'),
         maintenance_window=pulumi.get(__response__, 'maintenance_window'),
         node_type=pulumi.get(__response__, 'node_type'),

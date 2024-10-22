@@ -23,10 +23,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorResult:
-    def __init__(__self__, connector_arn=None):
+    def __init__(__self__, connector_arn=None, tags=None):
         if connector_arn and not isinstance(connector_arn, str):
             raise TypeError("Expected argument 'connector_arn' to be a str")
         pulumi.set(__self__, "connector_arn", connector_arn)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="connectorArn")
@@ -36,6 +39,14 @@ class GetConnectorResult:
         """
         return pulumi.get(self, "connector_arn")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata assigned to a connector consisting of a key-value pair.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetConnectorResult(GetConnectorResult):
     # pylint: disable=using-constant-test
@@ -43,7 +54,8 @@ class AwaitableGetConnectorResult(GetConnectorResult):
         if False:
             yield self
         return GetConnectorResult(
-            connector_arn=self.connector_arn)
+            connector_arn=self.connector_arn,
+            tags=self.tags)
 
 
 def get_connector(connector_arn: Optional[str] = None,
@@ -60,7 +72,8 @@ def get_connector(connector_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:pcaconnectorad:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        connector_arn=pulumi.get(__ret__, 'connector_arn'))
+        connector_arn=pulumi.get(__ret__, 'connector_arn'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
     """
@@ -74,4 +87,5 @@ def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:pcaconnectorad:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
-        connector_arn=pulumi.get(__response__, 'connector_arn')))
+        connector_arn=pulumi.get(__response__, 'connector_arn'),
+        tags=pulumi.get(__response__, 'tags')))

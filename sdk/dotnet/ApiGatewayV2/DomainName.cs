@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public partial class DomainName : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        /// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainNameValue { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.ApiGatewayV2
     public sealed class DomainNameArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+        /// The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainNameValue { get; set; } = null!;

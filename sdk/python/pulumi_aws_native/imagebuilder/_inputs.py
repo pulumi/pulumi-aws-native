@@ -84,6 +84,8 @@ __all__ = [
     'InfrastructureConfigurationInstanceMetadataOptionsArgsDict',
     'InfrastructureConfigurationLoggingArgs',
     'InfrastructureConfigurationLoggingArgsDict',
+    'InfrastructureConfigurationPlacementArgs',
+    'InfrastructureConfigurationPlacementArgsDict',
     'InfrastructureConfigurationS3LogsArgs',
     'InfrastructureConfigurationS3LogsArgsDict',
     'LifecyclePolicyActionArgs',
@@ -2665,6 +2667,102 @@ class InfrastructureConfigurationLoggingArgs:
     @s3_logs.setter
     def s3_logs(self, value: Optional[pulumi.Input['InfrastructureConfigurationS3LogsArgs']]):
         pulumi.set(self, "s3_logs", value)
+
+
+if not MYPY:
+    class InfrastructureConfigurationPlacementArgsDict(TypedDict):
+        """
+        The placement options
+        """
+        availability_zone: NotRequired[pulumi.Input[str]]
+        """
+        AvailabilityZone
+        """
+        host_id: NotRequired[pulumi.Input[str]]
+        """
+        HostId
+        """
+        host_resource_group_arn: NotRequired[pulumi.Input[str]]
+        """
+        HostResourceGroupArn
+        """
+        tenancy: NotRequired[pulumi.Input['InfrastructureConfigurationPlacementTenancy']]
+        """
+        Tenancy
+        """
+elif False:
+    InfrastructureConfigurationPlacementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InfrastructureConfigurationPlacementArgs:
+    def __init__(__self__, *,
+                 availability_zone: Optional[pulumi.Input[str]] = None,
+                 host_id: Optional[pulumi.Input[str]] = None,
+                 host_resource_group_arn: Optional[pulumi.Input[str]] = None,
+                 tenancy: Optional[pulumi.Input['InfrastructureConfigurationPlacementTenancy']] = None):
+        """
+        The placement options
+        :param pulumi.Input[str] availability_zone: AvailabilityZone
+        :param pulumi.Input[str] host_id: HostId
+        :param pulumi.Input[str] host_resource_group_arn: HostResourceGroupArn
+        :param pulumi.Input['InfrastructureConfigurationPlacementTenancy'] tenancy: Tenancy
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if host_id is not None:
+            pulumi.set(__self__, "host_id", host_id)
+        if host_resource_group_arn is not None:
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        AvailabilityZone
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="hostId")
+    def host_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        HostId
+        """
+        return pulumi.get(self, "host_id")
+
+    @host_id.setter
+    def host_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_id", value)
+
+    @property
+    @pulumi.getter(name="hostResourceGroupArn")
+    def host_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        HostResourceGroupArn
+        """
+        return pulumi.get(self, "host_resource_group_arn")
+
+    @host_resource_group_arn.setter
+    def host_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "host_resource_group_arn", value)
+
+    @property
+    @pulumi.getter
+    def tenancy(self) -> Optional[pulumi.Input['InfrastructureConfigurationPlacementTenancy']]:
+        """
+        Tenancy
+        """
+        return pulumi.get(self, "tenancy")
+
+    @tenancy.setter
+    def tenancy(self, value: Optional[pulumi.Input['InfrastructureConfigurationPlacementTenancy']]):
+        pulumi.set(self, "tenancy", value)
 
 
 if not MYPY:

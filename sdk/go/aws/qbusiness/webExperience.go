@@ -24,8 +24,11 @@ type WebExperience struct {
 	// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
 	DefaultEndpoint pulumi.StringOutput `pulumi:"defaultEndpoint"`
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
-	IdentityProviderConfiguration pulumi.AnyOutput         `pulumi:"identityProviderConfiguration"`
-	Origins                       pulumi.StringArrayOutput `pulumi:"origins"`
+	IdentityProviderConfiguration pulumi.AnyOutput `pulumi:"identityProviderConfiguration"`
+	// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+	//
+	// > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
+	Origins pulumi.StringArrayOutput `pulumi:"origins"`
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	//
 	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
@@ -101,7 +104,10 @@ type webExperienceArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration interface{} `pulumi:"identityProviderConfiguration"`
-	Origins                       []string    `pulumi:"origins"`
+	// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+	//
+	// > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
+	Origins []string `pulumi:"origins"`
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	//
 	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
@@ -124,7 +130,10 @@ type WebExperienceArgs struct {
 	ApplicationId pulumi.StringInput
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration pulumi.Input
-	Origins                       pulumi.StringArrayInput
+	// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+	//
+	// > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
+	Origins pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	//
 	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
@@ -198,6 +207,9 @@ func (o WebExperienceOutput) IdentityProviderConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.AnyOutput { return v.IdentityProviderConfiguration }).(pulumi.AnyOutput)
 }
 
+// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+//
+// > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
 func (o WebExperienceOutput) Origins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringArrayOutput { return v.Origins }).(pulumi.StringArrayOutput)
 }

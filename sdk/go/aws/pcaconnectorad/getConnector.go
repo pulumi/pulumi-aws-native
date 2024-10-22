@@ -30,6 +30,8 @@ type LookupConnectorArgs struct {
 type LookupConnectorResult struct {
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 	ConnectorArn *string `pulumi:"connectorArn"`
+	// Metadata assigned to a connector consisting of a key-value pair.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupConnectorOutput(ctx *pulumi.Context, args LookupConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorResultOutput {
@@ -77,6 +79,11 @@ func (o LookupConnectorResultOutput) ToLookupConnectorResultOutputWithContext(ct
 // The Amazon Resource Name (ARN) that was returned when you called [CreateConnector](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateConnector.html) .
 func (o LookupConnectorResultOutput) ConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorArn }).(pulumi.StringPtrOutput)
+}
+
+// Metadata assigned to a connector consisting of a key-value pair.
+func (o LookupConnectorResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectorResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

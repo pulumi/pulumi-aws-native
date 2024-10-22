@@ -324,8 +324,8 @@ class VideoProperties(dict):
         Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
         :param int bitrate: Bitrate for generated output, in bps. Default: 2500000.
         :param float framerate: Video frame rate, in fps. Default: 30.
-        :param int height: Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
-        :param int width: Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        :param int height: Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        :param int width: Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
         """
         if bitrate is not None:
             pulumi.set(__self__, "bitrate", bitrate)
@@ -356,7 +356,7 @@ class VideoProperties(dict):
     @pulumi.getter
     def height(self) -> Optional[int]:
         """
-        Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+        Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
         """
         return pulumi.get(self, "height")
 
@@ -364,7 +364,7 @@ class VideoProperties(dict):
     @pulumi.getter
     def width(self) -> Optional[int]:
         """
-        Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+        Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
         """
         return pulumi.get(self, "width")
 

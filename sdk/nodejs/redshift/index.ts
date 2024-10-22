@@ -65,10 +65,20 @@ export const getEventSubscription: typeof import("./getEventSubscription").getEv
 export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
 
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+
 export { GetScheduledActionArgs, GetScheduledActionResult, GetScheduledActionOutputArgs } from "./getScheduledAction";
 export const getScheduledAction: typeof import("./getScheduledAction").getScheduledAction = null as any;
 export const getScheduledActionOutput: typeof import("./getScheduledAction").getScheduledActionOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
+
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { ScheduledActionArgs } from "./scheduledAction";
 export type ScheduledAction = import("./scheduledAction").ScheduledAction;
@@ -95,6 +105,8 @@ const _module = {
                 return new EndpointAuthorization(name, <any>undefined, { urn })
             case "aws-native:redshift:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws-native:redshift:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:redshift:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
             default:

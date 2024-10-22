@@ -292,6 +292,7 @@ export const BucketServerSideEncryptionByDefaultSseAlgorithm = {
 
 /**
  * Server-side encryption algorithm to use for the default encryption.
+ *   For directory buckets, there are only two supported values for server-side encryption: ``AES256`` and ``aws:kms``.
  */
 export type BucketServerSideEncryptionByDefaultSseAlgorithm = (typeof BucketServerSideEncryptionByDefaultSseAlgorithm)[keyof typeof BucketServerSideEncryptionByDefaultSseAlgorithm];
 

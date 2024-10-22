@@ -331,7 +331,7 @@ if not MYPY:
     class DomainNameConfigurationArgsDict(TypedDict):
         """
         The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
-         ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+          ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
         """
         certificate_arn: NotRequired[pulumi.Input[str]]
         """
@@ -366,7 +366,7 @@ class DomainNameConfigurationArgs:
                  security_policy: Optional[pulumi.Input[str]] = None):
         """
         The ``DomainNameConfiguration`` property type specifies the configuration for an API's domain name.
-         ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
+          ``DomainNameConfiguration`` is a property of the [AWS::ApiGatewayV2::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html) resource.
         :param pulumi.Input[str] certificate_arn: An AWS-managed certificate that will be used by the edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param pulumi.Input[str] certificate_name: The user-friendly name of the certificate that will be used by the edge-optimized endpoint for this domain name.
         :param pulumi.Input[str] endpoint_type: The endpoint type.

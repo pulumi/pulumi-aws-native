@@ -17,17 +17,9 @@ namespace Pulumi.AwsNative.Cognito
     {
         /// <summary>
         /// A mapping of IdP attributes to standard and custom user pool attributes.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         /// </summary>
         [Output("attributeMapping")]
-        public Output<object?> AttributeMapping { get; private set; } = null!;
-
-        /// <summary>
-        /// The resource ID.
-        /// </summary>
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> AttributeMapping { get; private set; } = null!;
 
         /// <summary>
         /// A list of IdP identifiers.
@@ -65,11 +57,9 @@ namespace Pulumi.AwsNative.Cognito
         /// - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
         /// 
         /// Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         /// </summary>
         [Output("providerDetails")]
-        public Output<object?> ProviderDetails { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> ProviderDetails { get; private set; } = null!;
 
         /// <summary>
         /// The IdP name.
@@ -140,13 +130,17 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class UserPoolIdentityProviderArgs : global::Pulumi.ResourceArgs
     {
+        [Input("attributeMapping")]
+        private InputMap<string>? _attributeMapping;
+
         /// <summary>
         /// A mapping of IdP attributes to standard and custom user pool attributes.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         /// </summary>
-        [Input("attributeMapping")]
-        public Input<object>? AttributeMapping { get; set; }
+        public InputMap<string> AttributeMapping
+        {
+            get => _attributeMapping ?? (_attributeMapping = new InputMap<string>());
+            set => _attributeMapping = value;
+        }
 
         [Input("idpIdentifiers")]
         private InputList<string>? _idpIdentifiers;
@@ -159,6 +153,9 @@ namespace Pulumi.AwsNative.Cognito
             get => _idpIdentifiers ?? (_idpIdentifiers = new InputList<string>());
             set => _idpIdentifiers = value;
         }
+
+        [Input("providerDetails", required: true)]
+        private InputMap<string>? _providerDetails;
 
         /// <summary>
         /// The scopes, URLs, and identifiers for your external identity provider. The following
@@ -190,11 +187,12 @@ namespace Pulumi.AwsNative.Cognito
         /// - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
         /// 
         /// Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         /// </summary>
-        [Input("providerDetails")]
-        public Input<object>? ProviderDetails { get; set; }
+        public InputMap<string> ProviderDetails
+        {
+            get => _providerDetails ?? (_providerDetails = new InputMap<string>());
+            set => _providerDetails = value;
+        }
 
         /// <summary>
         /// The IdP name.

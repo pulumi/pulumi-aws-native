@@ -233,7 +233,7 @@ namespace Pulumi.AwsNative.Ecs
         /// The Auto Scaling group settings for the capacity provider.
         /// </summary>
         [Output("autoScalingGroupProvider")]
-        public Output<Outputs.CapacityProviderAutoScalingGroupProvider> AutoScalingGroupProvider { get; private set; } = null!;
+        public Output<Outputs.CapacityProviderAutoScalingGroupProvider?> AutoScalingGroupProvider { get; private set; } = null!;
 
         /// <summary>
         /// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
@@ -265,7 +265,7 @@ namespace Pulumi.AwsNative.Ecs
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CapacityProvider(string name, CapacityProviderArgs args, CustomResourceOptions? options = null)
+        public CapacityProvider(string name, CapacityProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:ecs:CapacityProvider", name, args ?? new CapacityProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -310,8 +310,8 @@ namespace Pulumi.AwsNative.Ecs
         /// <summary>
         /// The Auto Scaling group settings for the capacity provider.
         /// </summary>
-        [Input("autoScalingGroupProvider", required: true)]
-        public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs> AutoScalingGroupProvider { get; set; } = null!;
+        [Input("autoScalingGroupProvider")]
+        public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs>? AutoScalingGroupProvider { get; set; }
 
         /// <summary>
         /// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.

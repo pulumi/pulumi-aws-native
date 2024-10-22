@@ -53,6 +53,8 @@ __all__ = [
     'AutoScalingGroupTagPropertyArgsDict',
     'AutoScalingGroupTotalLocalStorageGbRequestArgs',
     'AutoScalingGroupTotalLocalStorageGbRequestArgsDict',
+    'AutoScalingGroupTrafficSourceIdentifierArgs',
+    'AutoScalingGroupTrafficSourceIdentifierArgsDict',
     'AutoScalingGroupVCpuCountRequestArgs',
     'AutoScalingGroupVCpuCountRequestArgsDict',
     'LaunchConfigurationBlockDeviceMappingArgs',
@@ -2301,6 +2303,40 @@ class AutoScalingGroupTotalLocalStorageGbRequestArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class AutoScalingGroupTrafficSourceIdentifierArgsDict(TypedDict):
+        identifier: pulumi.Input[str]
+        type: pulumi.Input[str]
+elif False:
+    AutoScalingGroupTrafficSourceIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupTrafficSourceIdentifierArgs:
+    def __init__(__self__, *,
+                 identifier: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        pulumi.set(__self__, "identifier", identifier)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "identifier")
+
+    @identifier.setter
+    def identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identifier", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

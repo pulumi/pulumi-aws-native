@@ -26,6 +26,10 @@ export interface GetDirectoryRegistrationResult {
      * The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
      */
     readonly directoryRegistrationArn?: string;
+    /**
+     * Metadata assigned to a directory registration consisting of a key-value pair.
+     */
+    readonly tags?: {[key: string]: string};
 }
 /**
  * Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type

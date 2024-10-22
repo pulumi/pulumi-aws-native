@@ -20,7 +20,7 @@ export function getDomainName(args: GetDomainNameArgs, opts?: pulumi.InvokeOptio
 
 export interface GetDomainNameArgs {
     /**
-     * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+     * The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
      */
     domainName: string;
 }
@@ -60,7 +60,7 @@ export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi
 
 export interface GetDomainNameOutputArgs {
     /**
-     * The custom domain name for your API in Amazon API Gateway. Uppercase letters are not supported.
+     * The custom domain name for your API in Amazon API Gateway. Uppercase letters and the underscore (``_``) character are not supported.
      */
     domainName: pulumi.Input<string>;
 }

@@ -51,6 +51,7 @@ __all__ = [
     'ImageWorkflowParameter',
     'InfrastructureConfigurationInstanceMetadataOptions',
     'InfrastructureConfigurationLogging',
+    'InfrastructureConfigurationPlacement',
     'InfrastructureConfigurationS3Logs',
     'LifecyclePolicyAction',
     'LifecyclePolicyAmiExclusionRules',
@@ -2238,6 +2239,86 @@ class InfrastructureConfigurationLogging(dict):
         The Amazon S3 logging configuration.
         """
         return pulumi.get(self, "s3_logs")
+
+
+@pulumi.output_type
+class InfrastructureConfigurationPlacement(dict):
+    """
+    The placement options
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "hostId":
+            suggest = "host_id"
+        elif key == "hostResourceGroupArn":
+            suggest = "host_resource_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationPlacement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationPlacement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationPlacement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: Optional[str] = None,
+                 host_id: Optional[str] = None,
+                 host_resource_group_arn: Optional[str] = None,
+                 tenancy: Optional['InfrastructureConfigurationPlacementTenancy'] = None):
+        """
+        The placement options
+        :param str availability_zone: AvailabilityZone
+        :param str host_id: HostId
+        :param str host_resource_group_arn: HostResourceGroupArn
+        :param 'InfrastructureConfigurationPlacementTenancy' tenancy: Tenancy
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if host_id is not None:
+            pulumi.set(__self__, "host_id", host_id)
+        if host_resource_group_arn is not None:
+            pulumi.set(__self__, "host_resource_group_arn", host_resource_group_arn)
+        if tenancy is not None:
+            pulumi.set(__self__, "tenancy", tenancy)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        AvailabilityZone
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="hostId")
+    def host_id(self) -> Optional[str]:
+        """
+        HostId
+        """
+        return pulumi.get(self, "host_id")
+
+    @property
+    @pulumi.getter(name="hostResourceGroupArn")
+    def host_resource_group_arn(self) -> Optional[str]:
+        """
+        HostResourceGroupArn
+        """
+        return pulumi.get(self, "host_resource_group_arn")
+
+    @property
+    @pulumi.getter
+    def tenancy(self) -> Optional['InfrastructureConfigurationPlacementTenancy']:
+        """
+        Tenancy
+        """
+        return pulumi.get(self, "tenancy")
 
 
 @pulumi.output_type

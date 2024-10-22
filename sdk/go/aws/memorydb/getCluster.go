@@ -41,6 +41,8 @@ type LookupClusterResult struct {
 	ClusterEndpoint *ClusterEndpoint `pulumi:"clusterEndpoint"`
 	// An optional description of the cluster.
 	Description *string `pulumi:"description"`
+	// The engine type used by the cluster.
+	Engine *string `pulumi:"engine"`
 	// The Redis engine version used by the cluster.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a 60 minute period.
@@ -138,6 +140,11 @@ func (o LookupClusterResultOutput) ClusterEndpoint() ClusterEndpointPtrOutput {
 // An optional description of the cluster.
 func (o LookupClusterResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The engine type used by the cluster.
+func (o LookupClusterResultOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // The Redis engine version used by the cluster.

@@ -863,9 +863,9 @@ type VideoProperties struct {
 	Bitrate *int `pulumi:"bitrate"`
 	// Video frame rate, in fps. Default: 30.
 	Framerate *float64 `pulumi:"framerate"`
-	// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+	// Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
 	Height *int `pulumi:"height"`
-	// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+	// Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
 	Width *int `pulumi:"width"`
 }
 
@@ -886,9 +886,9 @@ type VideoPropertiesArgs struct {
 	Bitrate pulumi.IntPtrInput `pulumi:"bitrate"`
 	// Video frame rate, in fps. Default: 30.
 	Framerate pulumi.Float64PtrInput `pulumi:"framerate"`
-	// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+	// Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
 	Height pulumi.IntPtrInput `pulumi:"height"`
-	// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+	// Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
 	Width pulumi.IntPtrInput `pulumi:"width"`
 }
 
@@ -980,12 +980,12 @@ func (o VideoPropertiesOutput) Framerate() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v VideoProperties) *float64 { return v.Framerate }).(pulumi.Float64PtrOutput)
 }
 
-// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+// Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
 func (o VideoPropertiesOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VideoProperties) *int { return v.Height }).(pulumi.IntPtrOutput)
 }
 
-// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+// Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
 func (o VideoPropertiesOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v VideoProperties) *int { return v.Width }).(pulumi.IntPtrOutput)
 }
@@ -1034,7 +1034,7 @@ func (o VideoPropertiesPtrOutput) Framerate() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Video-resolution height. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
+// Video-resolution height. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 720.
 func (o VideoPropertiesPtrOutput) Height() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VideoProperties) *int {
 		if v == nil {
@@ -1044,7 +1044,7 @@ func (o VideoPropertiesPtrOutput) Height() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Video-resolution width. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
+// Video-resolution width. This must be an even number. Note that the maximum value is determined by width times height, such that the maximum total pixels is 2073600 (1920x1080 or 1080x1920). Default: 1280.
 func (o VideoPropertiesPtrOutput) Width() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *VideoProperties) *int {
 		if v == nil {

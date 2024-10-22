@@ -31,6 +31,7 @@ class ClusterArgs:
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -60,6 +61,7 @@ class ClusterArgs:
         :param pulumi.Input[str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         :param pulumi.Input['ClusterDataTieringStatus'] data_tiering: Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
         :param pulumi.Input[str] description: An optional description of the cluster.
+        :param pulumi.Input[str] engine: The engine type used by the cluster.
         :param pulumi.Input[str] engine_version: The Redis engine version used by the cluster.
         :param pulumi.Input[str] final_snapshot_name: The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
         :param pulumi.Input[str] kms_key_id: The ID of the KMS key used to encrypt the cluster.
@@ -93,6 +95,8 @@ class ClusterArgs:
             pulumi.set(__self__, "data_tiering", data_tiering)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if final_snapshot_name is not None:
@@ -215,6 +219,18 @@ class ClusterArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The engine type used by the cluster.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -446,6 +462,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -479,6 +496,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the cluster. This value must be unique as it also serves as the cluster identifier.
         :param pulumi.Input['ClusterDataTieringStatus'] data_tiering: Enables data tiering. Data tiering is only supported for clusters using the r6gd node type. This parameter must be set when using r6gd nodes.
         :param pulumi.Input[str] description: An optional description of the cluster.
+        :param pulumi.Input[str] engine: The engine type used by the cluster.
         :param pulumi.Input[str] engine_version: The Redis engine version used by the cluster.
         :param pulumi.Input[str] final_snapshot_name: The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. MemoryDB creates the snapshot, and then deletes the cluster immediately afterward.
         :param pulumi.Input[str] kms_key_id: The ID of the KMS key used to encrypt the cluster.
@@ -531,6 +549,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  data_tiering: Optional[pulumi.Input['ClusterDataTieringStatus']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_name: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -567,6 +586,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["data_tiering"] = data_tiering
             __props__.__dict__["description"] = description
+            __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_name"] = final_snapshot_name
             __props__.__dict__["kms_key_id"] = kms_key_id
@@ -622,6 +642,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_name"] = None
         __props__.__dict__["data_tiering"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["final_snapshot_name"] = None
         __props__.__dict__["kms_key_id"] = None
@@ -702,6 +723,14 @@ class Cluster(pulumi.CustomResource):
         An optional description of the cluster.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> pulumi.Output[Optional[str]]:
+        """
+        The engine type used by the cluster.
+        """
+        return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")

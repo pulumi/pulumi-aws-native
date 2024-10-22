@@ -23,7 +23,7 @@ type VpcLink struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of arbitrary tags (key-value pairs) to associate with the VPC link.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+	// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
 	TargetArns pulumi.StringArrayOutput `pulumi:"targetArns"`
 	// The ID for the VPC link. For example: `abc123` .
 	VpcLinkId pulumi.StringOutput `pulumi:"vpcLinkId"`
@@ -82,7 +82,7 @@ type vpcLinkArgs struct {
 	Name *string `pulumi:"name"`
 	// An array of arbitrary tags (key-value pairs) to associate with the VPC link.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+	// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
 	TargetArns []string `pulumi:"targetArns"`
 }
 
@@ -94,7 +94,7 @@ type VpcLinkArgs struct {
 	Name pulumi.StringPtrInput
 	// An array of arbitrary tags (key-value pairs) to associate with the VPC link.
 	Tags aws.TagArrayInput
-	// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+	// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
 	TargetArns pulumi.StringArrayInput
 }
 
@@ -150,7 +150,7 @@ func (o VpcLinkOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *VpcLink) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS-account of the API owner.
+// The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same AWS account of the API owner.
 func (o VpcLinkOutput) TargetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcLink) pulumi.StringArrayOutput { return v.TargetArns }).(pulumi.StringArrayOutput)
 }

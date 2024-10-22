@@ -399,7 +399,7 @@ class ServerlessCache(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["full_engine_version"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine", "kmsKeyId", "majorEngineVersion", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["kmsKeyId", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServerlessCache, __self__).__init__(
             'aws-native:elasticache:ServerlessCache',

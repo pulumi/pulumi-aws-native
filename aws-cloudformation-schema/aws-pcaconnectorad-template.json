@@ -781,15 +781,16 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "pca-connector-ad:ListTagsForResource", "pca-connector-ad:TagResource", "pca-connector-ad:UntagResource" ]
   },
   "readOnlyProperties" : [ "/properties/TemplateArn" ],
-  "writeOnlyProperties" : [ "/properties/ConnectorArn", "/properties/Definition", "/properties/Name", "/properties/ReenrollAllCertificateHolders", "/properties/Tags" ],
+  "writeOnlyProperties" : [ "/properties/ReenrollAllCertificateHolders" ],
   "createOnlyProperties" : [ "/properties/ConnectorArn", "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/TemplateArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "pca-connector-ad:CreateTemplate" ]
+      "permissions" : [ "pca-connector-ad:CreateTemplate", "pca-connector-ad:TagResource" ]
     },
     "read" : {
       "permissions" : [ "pca-connector-ad:GetTemplate", "pca-connector-ad:ListTagsForResource" ]
@@ -798,7 +799,7 @@
       "permissions" : [ "pca-connector-ad:ListTagsForResource", "pca-connector-ad:TagResource", "pca-connector-ad:UntagResource", "pca-connector-ad:UpdateTemplate" ]
     },
     "delete" : {
-      "permissions" : [ "pca-connector-ad:GetTemplate", "pca-connector-ad:DeleteTemplate" ]
+      "permissions" : [ "pca-connector-ad:GetTemplate", "pca-connector-ad:DeleteTemplate", "pca-connector-ad:UntagResource" ]
     },
     "list" : {
       "handlerSchema" : {

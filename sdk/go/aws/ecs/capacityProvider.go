@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -248,7 +247,7 @@ type CapacityProvider struct {
 	pulumi.CustomResourceState
 
 	// The Auto Scaling group settings for the capacity provider.
-	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
+	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrOutput `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
@@ -269,12 +268,9 @@ type CapacityProvider struct {
 func NewCapacityProvider(ctx *pulumi.Context,
 	name string, args *CapacityProviderArgs, opts ...pulumi.ResourceOption) (*CapacityProvider, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &CapacityProviderArgs{}
 	}
 
-	if args.AutoScalingGroupProvider == nil {
-		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"autoScalingGroupProvider.autoScalingGroupArn",
 		"name",
@@ -314,7 +310,7 @@ func (CapacityProviderState) ElementType() reflect.Type {
 
 type capacityProviderArgs struct {
 	// The Auto Scaling group settings for the capacity provider.
-	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
+	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name *string `pulumi:"name"`
 	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
@@ -334,7 +330,7 @@ type capacityProviderArgs struct {
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
 	// The Auto Scaling group settings for the capacity provider.
-	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
+	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name pulumi.StringPtrInput
 	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
@@ -389,10 +385,10 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 }
 
 // The Auto Scaling group settings for the capacity provider.
-func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderOutput {
-	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderOutput {
+func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderPtrOutput {
+	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderPtrOutput {
 		return v.AutoScalingGroupProvider
-	}).(CapacityProviderAutoScalingGroupProviderOutput)
+	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
 
 // The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.

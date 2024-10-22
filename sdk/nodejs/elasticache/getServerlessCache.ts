@@ -50,9 +50,17 @@ export interface GetServerlessCacheResult {
      */
     readonly endpoint?: outputs.elasticache.ServerlessCacheEndpoint;
     /**
+     * The engine name of the Serverless Cache.
+     */
+    readonly engine?: string;
+    /**
      * The full engine version of the Serverless Cache.
      */
     readonly fullEngineVersion?: string;
+    /**
+     * The major engine version of the Serverless Cache.
+     */
+    readonly majorEngineVersion?: string;
     /**
      * Represents the information required for client programs to connect to a cache node. This value is read-only.
      */

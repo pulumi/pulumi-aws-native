@@ -41,8 +41,12 @@ type LookupServerlessCacheResult struct {
 	Description *string `pulumi:"description"`
 	// Represents the information required for client programs to connect to a cache node. This value is read-only.
 	Endpoint *ServerlessCacheEndpoint `pulumi:"endpoint"`
+	// The engine name of the Serverless Cache.
+	Engine *string `pulumi:"engine"`
 	// The full engine version of the Serverless Cache.
 	FullEngineVersion *string `pulumi:"fullEngineVersion"`
+	// The major engine version of the Serverless Cache.
+	MajorEngineVersion *string `pulumi:"majorEngineVersion"`
 	// Represents the information required for client programs to connect to a cache node. This value is read-only.
 	ReaderEndpoint *ServerlessCacheEndpoint `pulumi:"readerEndpoint"`
 	// One or more Amazon VPC security groups associated with this Serverless Cache.
@@ -129,9 +133,19 @@ func (o LookupServerlessCacheResultOutput) Endpoint() ServerlessCacheEndpointPtr
 	return o.ApplyT(func(v LookupServerlessCacheResult) *ServerlessCacheEndpoint { return v.Endpoint }).(ServerlessCacheEndpointPtrOutput)
 }
 
+// The engine name of the Serverless Cache.
+func (o LookupServerlessCacheResultOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCacheResult) *string { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
 // The full engine version of the Serverless Cache.
 func (o LookupServerlessCacheResultOutput) FullEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) *string { return v.FullEngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// The major engine version of the Serverless Cache.
+func (o LookupServerlessCacheResultOutput) MajorEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupServerlessCacheResult) *string { return v.MajorEngineVersion }).(pulumi.StringPtrOutput)
 }
 
 // Represents the information required for client programs to connect to a cache node. This value is read-only.

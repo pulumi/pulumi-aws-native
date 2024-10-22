@@ -32,6 +32,8 @@ type InfrastructureConfiguration struct {
 	Logging InfrastructureConfigurationLoggingPtrOutput `pulumi:"logging"`
 	// The name of the infrastructure configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The placement option settings for the infrastructure configuration.
+	Placement InfrastructureConfigurationPlacementPtrOutput `pulumi:"placement"`
 	// The tags attached to the resource created by Image Builder.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
 	// The security group IDs of the infrastructure configuration.
@@ -107,6 +109,8 @@ type infrastructureConfigurationArgs struct {
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
 	// The name of the infrastructure configuration.
 	Name *string `pulumi:"name"`
+	// The placement option settings for the infrastructure configuration.
+	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
 	// The tags attached to the resource created by Image Builder.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// The security group IDs of the infrastructure configuration.
@@ -137,6 +141,8 @@ type InfrastructureConfigurationArgs struct {
 	Logging InfrastructureConfigurationLoggingPtrInput
 	// The name of the infrastructure configuration.
 	Name pulumi.StringPtrInput
+	// The placement option settings for the infrastructure configuration.
+	Placement InfrastructureConfigurationPlacementPtrInput
 	// The tags attached to the resource created by Image Builder.
 	ResourceTags pulumi.StringMapInput
 	// The security group IDs of the infrastructure configuration.
@@ -228,6 +234,11 @@ func (o InfrastructureConfigurationOutput) Logging() InfrastructureConfiguration
 // The name of the infrastructure configuration.
 func (o InfrastructureConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InfrastructureConfiguration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The placement option settings for the infrastructure configuration.
+func (o InfrastructureConfigurationOutput) Placement() InfrastructureConfigurationPlacementPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfiguration) InfrastructureConfigurationPlacementPtrOutput { return v.Placement }).(InfrastructureConfigurationPlacementPtrOutput)
 }
 
 // The tags attached to the resource created by Image Builder.

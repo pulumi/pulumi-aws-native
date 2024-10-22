@@ -18,7 +18,9 @@ from .get_cluster_subnet_group import *
 from .get_endpoint_access import *
 from .get_endpoint_authorization import *
 from .get_event_subscription import *
+from .get_integration import *
 from .get_scheduled_action import *
+from .integration import *
 from .scheduled_action import *
 from ._inputs import *
 from . import outputs

@@ -32,6 +32,7 @@ __all__ = [
     'FrameworkControlControlScopeProperties',
     'FrameworkControlInputParameter',
     'FrameworkTag',
+    'LogicallyAirGappedBackupVaultNotificationObjectType',
     'ReportDeliveryChannelProperties',
     'ReportSettingProperties',
     'RestoreTestingPlanRestoreTestingRecoveryPointSelection',
@@ -1106,6 +1107,44 @@ class FrameworkTag(dict):
         The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LogicallyAirGappedBackupVaultNotificationObjectType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupVaultEvents":
+            suggest = "backup_vault_events"
+        elif key == "snsTopicArn":
+            suggest = "sns_topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogicallyAirGappedBackupVaultNotificationObjectType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogicallyAirGappedBackupVaultNotificationObjectType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogicallyAirGappedBackupVaultNotificationObjectType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_vault_events: Sequence[str],
+                 sns_topic_arn: str):
+        pulumi.set(__self__, "backup_vault_events", backup_vault_events)
+        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+
+    @property
+    @pulumi.getter(name="backupVaultEvents")
+    def backup_vault_events(self) -> Sequence[str]:
+        return pulumi.get(self, "backup_vault_events")
+
+    @property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> str:
+        return pulumi.get(self, "sns_topic_arn")
 
 
 @pulumi.output_type

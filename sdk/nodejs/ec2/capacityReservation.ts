@@ -118,6 +118,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      * Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
      */
     public /*out*/ readonly totalInstanceCount!: pulumi.Output<number>;
+    public readonly unusedReservationBillingOwnerId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -155,6 +156,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["placementGroupArn"] = args ? args.placementGroupArn : undefined;
             resourceInputs["tagSpecifications"] = args ? args.tagSpecifications : undefined;
             resourceInputs["tenancy"] = args ? args.tenancy : undefined;
+            resourceInputs["unusedReservationBillingOwnerId"] = args ? args.unusedReservationBillingOwnerId : undefined;
             resourceInputs["availableInstanceCount"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["totalInstanceCount"] = undefined /*out*/;
@@ -175,6 +177,7 @@ export class CapacityReservation extends pulumi.CustomResource {
             resourceInputs["tagSpecifications"] = undefined /*out*/;
             resourceInputs["tenancy"] = undefined /*out*/;
             resourceInputs["totalInstanceCount"] = undefined /*out*/;
+            resourceInputs["unusedReservationBillingOwnerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["availabilityZone", "ebsOptimized", "ephemeralStorage", "instancePlatform", "instanceType", "outPostArn", "placementGroupArn", "tagSpecifications[*]", "tenancy"] };
@@ -256,4 +259,5 @@ export interface CapacityReservationArgs {
      * - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
      */
     tenancy?: pulumi.Input<string>;
+    unusedReservationBillingOwnerId?: pulumi.Input<string>;
 }

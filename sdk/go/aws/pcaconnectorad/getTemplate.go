@@ -28,6 +28,10 @@ type LookupTemplateArgs struct {
 }
 
 type LookupTemplateResult struct {
+	// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+	Definition interface{} `pulumi:"definition"`
+	// Metadata assigned to a template consisting of a key-value pair.
+	Tags map[string]string `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
 	TemplateArn *string `pulumi:"templateArn"`
 }
@@ -72,6 +76,16 @@ func (o LookupTemplateResultOutput) ToLookupTemplateResultOutput() LookupTemplat
 
 func (o LookupTemplateResultOutput) ToLookupTemplateResultOutputWithContext(ctx context.Context) LookupTemplateResultOutput {
 	return o
+}
+
+// Template configuration to define the information included in certificates. Define certificate validity and renewal periods, certificate request handling and enrollment options, key usage extensions, application policies, and cryptography settings.
+func (o LookupTemplateResultOutput) Definition() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupTemplateResult) interface{} { return v.Definition }).(pulumi.AnyOutput)
+}
+
+// Metadata assigned to a template consisting of a key-value pair.
+func (o LookupTemplateResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupTemplateResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .

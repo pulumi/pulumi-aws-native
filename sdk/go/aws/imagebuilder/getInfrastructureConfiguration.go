@@ -42,6 +42,8 @@ type LookupInfrastructureConfigurationResult struct {
 	KeyPair *string `pulumi:"keyPair"`
 	// The logging configuration of the infrastructure configuration.
 	Logging *InfrastructureConfigurationLogging `pulumi:"logging"`
+	// The placement option settings for the infrastructure configuration.
+	Placement *InfrastructureConfigurationPlacement `pulumi:"placement"`
 	// The tags attached to the resource created by Image Builder.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
 	// The security group IDs of the infrastructure configuration.
@@ -133,6 +135,13 @@ func (o LookupInfrastructureConfigurationResultOutput) KeyPair() pulumi.StringPt
 // The logging configuration of the infrastructure configuration.
 func (o LookupInfrastructureConfigurationResultOutput) Logging() InfrastructureConfigurationLoggingPtrOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) *InfrastructureConfigurationLogging { return v.Logging }).(InfrastructureConfigurationLoggingPtrOutput)
+}
+
+// The placement option settings for the infrastructure configuration.
+func (o LookupInfrastructureConfigurationResultOutput) Placement() InfrastructureConfigurationPlacementPtrOutput {
+	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) *InfrastructureConfigurationPlacement {
+		return v.Placement
+	}).(InfrastructureConfigurationPlacementPtrOutput)
 }
 
 // The tags attached to the resource created by Image Builder.

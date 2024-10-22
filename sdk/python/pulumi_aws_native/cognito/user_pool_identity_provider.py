@@ -19,21 +19,15 @@ __all__ = ['UserPoolIdentityProviderArgs', 'UserPoolIdentityProvider']
 @pulumi.input_type
 class UserPoolIdentityProviderArgs:
     def __init__(__self__, *,
+                 provider_details: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  provider_type: pulumi.Input[str],
                  user_pool_id: pulumi.Input[str],
-                 attribute_mapping: Optional[Any] = None,
+                 attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 provider_details: Optional[Any] = None,
                  provider_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolIdentityProvider resource.
-        :param pulumi.Input[str] provider_type: The IdP type.
-        :param pulumi.Input[str] user_pool_id: The user pool ID.
-        :param Any attribute_mapping: A mapping of IdP attributes to standard and custom user pool attributes.
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: A list of IdP identifiers.
-        :param Any provider_details: The scopes, URLs, and identifiers for your external identity provider. The following
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] provider_details: The scopes, URLs, and identifiers for your external identity provider. The following
                examples describe the provider detail keys for each IdP type. These values and their
                schema are subject to change. Social IdP `authorize_scopes` values must match
                the values listed here.
@@ -62,74 +56,25 @@ class UserPoolIdentityProviderArgs:
                - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
                
                Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param pulumi.Input[str] provider_type: The IdP type.
+        :param pulumi.Input[str] user_pool_id: The user pool ID.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attribute_mapping: A mapping of IdP attributes to standard and custom user pool attributes.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: A list of IdP identifiers.
         :param pulumi.Input[str] provider_name: The IdP name.
         """
+        pulumi.set(__self__, "provider_details", provider_details)
         pulumi.set(__self__, "provider_type", provider_type)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if attribute_mapping is not None:
             pulumi.set(__self__, "attribute_mapping", attribute_mapping)
         if idp_identifiers is not None:
             pulumi.set(__self__, "idp_identifiers", idp_identifiers)
-        if provider_details is not None:
-            pulumi.set(__self__, "provider_details", provider_details)
         if provider_name is not None:
             pulumi.set(__self__, "provider_name", provider_name)
 
     @property
-    @pulumi.getter(name="providerType")
-    def provider_type(self) -> pulumi.Input[str]:
-        """
-        The IdP type.
-        """
-        return pulumi.get(self, "provider_type")
-
-    @provider_type.setter
-    def provider_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "provider_type", value)
-
-    @property
-    @pulumi.getter(name="userPoolId")
-    def user_pool_id(self) -> pulumi.Input[str]:
-        """
-        The user pool ID.
-        """
-        return pulumi.get(self, "user_pool_id")
-
-    @user_pool_id.setter
-    def user_pool_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "user_pool_id", value)
-
-    @property
-    @pulumi.getter(name="attributeMapping")
-    def attribute_mapping(self) -> Optional[Any]:
-        """
-        A mapping of IdP attributes to standard and custom user pool attributes.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
-        """
-        return pulumi.get(self, "attribute_mapping")
-
-    @attribute_mapping.setter
-    def attribute_mapping(self, value: Optional[Any]):
-        pulumi.set(self, "attribute_mapping", value)
-
-    @property
-    @pulumi.getter(name="idpIdentifiers")
-    def idp_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        A list of IdP identifiers.
-        """
-        return pulumi.get(self, "idp_identifiers")
-
-    @idp_identifiers.setter
-    def idp_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "idp_identifiers", value)
-
-    @property
     @pulumi.getter(name="providerDetails")
-    def provider_details(self) -> Optional[Any]:
+    def provider_details(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         The scopes, URLs, and identifiers for your external identity provider. The following
         examples describe the provider detail keys for each IdP type. These values and their
@@ -160,14 +105,60 @@ class UserPoolIdentityProviderArgs:
         - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
 
         Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "provider_details")
 
     @provider_details.setter
-    def provider_details(self, value: Optional[Any]):
+    def provider_details(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         pulumi.set(self, "provider_details", value)
+
+    @property
+    @pulumi.getter(name="providerType")
+    def provider_type(self) -> pulumi.Input[str]:
+        """
+        The IdP type.
+        """
+        return pulumi.get(self, "provider_type")
+
+    @provider_type.setter
+    def provider_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "provider_type", value)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool ID.
+        """
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_pool_id", value)
+
+    @property
+    @pulumi.getter(name="attributeMapping")
+    def attribute_mapping(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of IdP attributes to standard and custom user pool attributes.
+        """
+        return pulumi.get(self, "attribute_mapping")
+
+    @attribute_mapping.setter
+    def attribute_mapping(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "attribute_mapping", value)
+
+    @property
+    @pulumi.getter(name="idpIdentifiers")
+    def idp_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of IdP identifiers.
+        """
+        return pulumi.get(self, "idp_identifiers")
+
+    @idp_identifiers.setter
+    def idp_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "idp_identifiers", value)
 
     @property
     @pulumi.getter(name="providerName")
@@ -187,9 +178,9 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_mapping: Optional[Any] = None,
+                 attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 provider_details: Optional[Any] = None,
+                 provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
@@ -199,11 +190,9 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any attribute_mapping: A mapping of IdP attributes to standard and custom user pool attributes.
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attribute_mapping: A mapping of IdP attributes to standard and custom user pool attributes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] idp_identifiers: A list of IdP identifiers.
-        :param Any provider_details: The scopes, URLs, and identifiers for your external identity provider. The following
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] provider_details: The scopes, URLs, and identifiers for your external identity provider. The following
                examples describe the provider detail keys for each IdP type. These values and their
                schema are subject to change. Social IdP `authorize_scopes` values must match
                the values listed here.
@@ -232,8 +221,6 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
                - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
                
                Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-               
-               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         :param pulumi.Input[str] provider_name: The IdP name.
         :param pulumi.Input[str] provider_type: The IdP type.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
@@ -262,9 +249,9 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attribute_mapping: Optional[Any] = None,
+                 attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 provider_details: Optional[Any] = None,
+                 provider_details: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
@@ -279,6 +266,8 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
 
             __props__.__dict__["attribute_mapping"] = attribute_mapping
             __props__.__dict__["idp_identifiers"] = idp_identifiers
+            if provider_details is None and not opts.urn:
+                raise TypeError("Missing required property 'provider_details'")
             __props__.__dict__["provider_details"] = provider_details
             __props__.__dict__["provider_name"] = provider_name
             if provider_type is None and not opts.urn:
@@ -287,7 +276,6 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
-            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["providerName", "providerType", "userPoolId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserPoolIdentityProvider, __self__).__init__(
@@ -313,7 +301,6 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
         __props__ = UserPoolIdentityProviderArgs.__new__(UserPoolIdentityProviderArgs)
 
         __props__.__dict__["attribute_mapping"] = None
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["idp_identifiers"] = None
         __props__.__dict__["provider_details"] = None
         __props__.__dict__["provider_name"] = None
@@ -323,21 +310,11 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="attributeMapping")
-    def attribute_mapping(self) -> pulumi.Output[Optional[Any]]:
+    def attribute_mapping(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A mapping of IdP attributes to standard and custom user pool attributes.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "attribute_mapping")
-
-    @property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[str]:
-        """
-        The resource ID.
-        """
-        return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="idpIdentifiers")
@@ -349,7 +326,7 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerDetails")
-    def provider_details(self) -> pulumi.Output[Optional[Any]]:
+    def provider_details(self) -> pulumi.Output[Mapping[str, str]]:
         """
         The scopes, URLs, and identifiers for your external identity provider. The following
         examples describe the provider detail keys for each IdP type. These values and their
@@ -380,8 +357,6 @@ class UserPoolIdentityProvider(pulumi.CustomResource):
         - **Facebook** - Create or update request: `"ProviderDetails": { "api_version": "v17.0", "authorize_scopes": "public_profile, email", "client_id": "1example23456789", "client_secret": "provider-app-client-secret" }`
 
         Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::UserPoolIdentityProvider` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "provider_details")
 

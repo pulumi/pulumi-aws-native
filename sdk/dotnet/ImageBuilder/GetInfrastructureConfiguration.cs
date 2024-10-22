@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public readonly Outputs.InfrastructureConfigurationLogging? Logging;
         /// <summary>
+        /// The placement option settings for the infrastructure configuration.
+        /// </summary>
+        public readonly Outputs.InfrastructureConfigurationPlacement? Placement;
+        /// <summary>
         /// The tags attached to the resource created by Image Builder.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? ResourceTags;
@@ -126,6 +130,8 @@ namespace Pulumi.AwsNative.ImageBuilder
 
             Outputs.InfrastructureConfigurationLogging? logging,
 
+            Outputs.InfrastructureConfigurationPlacement? placement,
+
             ImmutableDictionary<string, string>? resourceTags,
 
             ImmutableArray<string> securityGroupIds,
@@ -145,6 +151,7 @@ namespace Pulumi.AwsNative.ImageBuilder
             InstanceTypes = instanceTypes;
             KeyPair = keyPair;
             Logging = logging;
+            Placement = placement;
             ResourceTags = resourceTags;
             SecurityGroupIds = securityGroupIds;
             SnsTopicArn = snsTopicArn;

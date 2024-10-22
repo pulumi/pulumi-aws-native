@@ -50,19 +50,20 @@
   "readOnlyProperties" : [ "/properties/AccessGrantsLocationArn", "/properties/AccessGrantsLocationId" ],
   "primaryIdentifier" : [ "/properties/AccessGrantsLocationId" ],
   "createOnlyProperties" : [ "/properties/Tags" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "tagProperty" : "/properties/Tags"
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "s3:UntagResource", "s3:TagResource", "s3:ListTagsForResource" ]
   },
   "handlers" : {
     "create" : {
       "permissions" : [ "s3:CreateAccessGrantsLocation", "iam:PassRole", "s3:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "s3:GetAccessGrantsLocation" ]
+      "permissions" : [ "s3:GetAccessGrantsLocation", "s3:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "s3:DeleteAccessGrantsLocation" ]
@@ -71,7 +72,7 @@
       "permissions" : [ "s3:ListAccessGrantsLocations" ]
     },
     "update" : {
-      "permissions" : [ "s3:UpdateAccessGrantsLocation", "s3:TagResource", "iam:PassRole" ]
+      "permissions" : [ "s3:UpdateAccessGrantsLocation", "s3:TagResource", "s3:UntagResource", "iam:PassRole" ]
     }
   },
   "additionalProperties" : false

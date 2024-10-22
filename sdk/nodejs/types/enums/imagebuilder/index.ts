@@ -5,6 +5,7 @@
 export const ComponentPlatform = {
     Windows: "Windows",
     Linux: "Linux",
+    MacOs: "macOS",
 } as const;
 
 /**
@@ -138,6 +139,17 @@ export const InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = {
  * Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows: 
  */
 export type InfrastructureConfigurationInstanceMetadataOptionsHttpTokens = (typeof InfrastructureConfigurationInstanceMetadataOptionsHttpTokens)[keyof typeof InfrastructureConfigurationInstanceMetadataOptionsHttpTokens];
+
+export const InfrastructureConfigurationPlacementTenancy = {
+    Default: "default",
+    Dedicated: "dedicated",
+    Host: "host",
+} as const;
+
+/**
+ * Tenancy
+ */
+export type InfrastructureConfigurationPlacementTenancy = (typeof InfrastructureConfigurationPlacementTenancy)[keyof typeof InfrastructureConfigurationPlacementTenancy];
 
 export const LifecyclePolicyActionType = {
     Delete: "DELETE",

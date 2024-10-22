@@ -4208,6 +4208,106 @@ func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
+type AutoScalingGroupTrafficSourceIdentifier struct {
+	Identifier string `pulumi:"identifier"`
+	Type       string `pulumi:"type"`
+}
+
+// AutoScalingGroupTrafficSourceIdentifierInput is an input type that accepts AutoScalingGroupTrafficSourceIdentifierArgs and AutoScalingGroupTrafficSourceIdentifierOutput values.
+// You can construct a concrete instance of `AutoScalingGroupTrafficSourceIdentifierInput` via:
+//
+//	AutoScalingGroupTrafficSourceIdentifierArgs{...}
+type AutoScalingGroupTrafficSourceIdentifierInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupTrafficSourceIdentifierOutput() AutoScalingGroupTrafficSourceIdentifierOutput
+	ToAutoScalingGroupTrafficSourceIdentifierOutputWithContext(context.Context) AutoScalingGroupTrafficSourceIdentifierOutput
+}
+
+type AutoScalingGroupTrafficSourceIdentifierArgs struct {
+	Identifier pulumi.StringInput `pulumi:"identifier"`
+	Type       pulumi.StringInput `pulumi:"type"`
+}
+
+func (AutoScalingGroupTrafficSourceIdentifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupTrafficSourceIdentifier)(nil)).Elem()
+}
+
+func (i AutoScalingGroupTrafficSourceIdentifierArgs) ToAutoScalingGroupTrafficSourceIdentifierOutput() AutoScalingGroupTrafficSourceIdentifierOutput {
+	return i.ToAutoScalingGroupTrafficSourceIdentifierOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupTrafficSourceIdentifierArgs) ToAutoScalingGroupTrafficSourceIdentifierOutputWithContext(ctx context.Context) AutoScalingGroupTrafficSourceIdentifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTrafficSourceIdentifierOutput)
+}
+
+// AutoScalingGroupTrafficSourceIdentifierArrayInput is an input type that accepts AutoScalingGroupTrafficSourceIdentifierArray and AutoScalingGroupTrafficSourceIdentifierArrayOutput values.
+// You can construct a concrete instance of `AutoScalingGroupTrafficSourceIdentifierArrayInput` via:
+//
+//	AutoScalingGroupTrafficSourceIdentifierArray{ AutoScalingGroupTrafficSourceIdentifierArgs{...} }
+type AutoScalingGroupTrafficSourceIdentifierArrayInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupTrafficSourceIdentifierArrayOutput() AutoScalingGroupTrafficSourceIdentifierArrayOutput
+	ToAutoScalingGroupTrafficSourceIdentifierArrayOutputWithContext(context.Context) AutoScalingGroupTrafficSourceIdentifierArrayOutput
+}
+
+type AutoScalingGroupTrafficSourceIdentifierArray []AutoScalingGroupTrafficSourceIdentifierInput
+
+func (AutoScalingGroupTrafficSourceIdentifierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingGroupTrafficSourceIdentifier)(nil)).Elem()
+}
+
+func (i AutoScalingGroupTrafficSourceIdentifierArray) ToAutoScalingGroupTrafficSourceIdentifierArrayOutput() AutoScalingGroupTrafficSourceIdentifierArrayOutput {
+	return i.ToAutoScalingGroupTrafficSourceIdentifierArrayOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupTrafficSourceIdentifierArray) ToAutoScalingGroupTrafficSourceIdentifierArrayOutputWithContext(ctx context.Context) AutoScalingGroupTrafficSourceIdentifierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupTrafficSourceIdentifierArrayOutput)
+}
+
+type AutoScalingGroupTrafficSourceIdentifierOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupTrafficSourceIdentifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupTrafficSourceIdentifier)(nil)).Elem()
+}
+
+func (o AutoScalingGroupTrafficSourceIdentifierOutput) ToAutoScalingGroupTrafficSourceIdentifierOutput() AutoScalingGroupTrafficSourceIdentifierOutput {
+	return o
+}
+
+func (o AutoScalingGroupTrafficSourceIdentifierOutput) ToAutoScalingGroupTrafficSourceIdentifierOutputWithContext(ctx context.Context) AutoScalingGroupTrafficSourceIdentifierOutput {
+	return o
+}
+
+func (o AutoScalingGroupTrafficSourceIdentifierOutput) Identifier() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupTrafficSourceIdentifier) string { return v.Identifier }).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupTrafficSourceIdentifierOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupTrafficSourceIdentifier) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AutoScalingGroupTrafficSourceIdentifierArrayOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupTrafficSourceIdentifierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingGroupTrafficSourceIdentifier)(nil)).Elem()
+}
+
+func (o AutoScalingGroupTrafficSourceIdentifierArrayOutput) ToAutoScalingGroupTrafficSourceIdentifierArrayOutput() AutoScalingGroupTrafficSourceIdentifierArrayOutput {
+	return o
+}
+
+func (o AutoScalingGroupTrafficSourceIdentifierArrayOutput) ToAutoScalingGroupTrafficSourceIdentifierArrayOutputWithContext(ctx context.Context) AutoScalingGroupTrafficSourceIdentifierArrayOutput {
+	return o
+}
+
+func (o AutoScalingGroupTrafficSourceIdentifierArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupTrafficSourceIdentifierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingGroupTrafficSourceIdentifier {
+		return vs[0].([]AutoScalingGroupTrafficSourceIdentifier)[vs[1].(int)]
+	}).(AutoScalingGroupTrafficSourceIdentifierOutput)
+}
+
 // “VCpuCountRequest“ is a property of the “InstanceRequirements“ property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum number of vCPUs for an instance type.
 type AutoScalingGroupVCpuCountRequest struct {
 	// The maximum number of vCPUs.
@@ -8324,6 +8424,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyArrayInput)(nil)).Elem(), AutoScalingGroupTagPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGbRequestInput)(nil)).Elem(), AutoScalingGroupTotalLocalStorageGbRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGbRequestPtrInput)(nil)).Elem(), AutoScalingGroupTotalLocalStorageGbRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTrafficSourceIdentifierInput)(nil)).Elem(), AutoScalingGroupTrafficSourceIdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTrafficSourceIdentifierArrayInput)(nil)).Elem(), AutoScalingGroupTrafficSourceIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupVCpuCountRequestInput)(nil)).Elem(), AutoScalingGroupVCpuCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupVCpuCountRequestPtrInput)(nil)).Elem(), AutoScalingGroupVCpuCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationBlockDeviceInput)(nil)).Elem(), LaunchConfigurationBlockDeviceArgs{})
@@ -8409,6 +8511,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTotalLocalStorageGbRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTotalLocalStorageGbRequestPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupTrafficSourceIdentifierOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupTrafficSourceIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupVCpuCountRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupVCpuCountRequestPtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationBlockDeviceOutput{})

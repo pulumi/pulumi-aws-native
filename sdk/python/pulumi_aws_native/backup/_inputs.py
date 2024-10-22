@@ -46,6 +46,8 @@ __all__ = [
     'FrameworkControlArgsDict',
     'FrameworkTagArgs',
     'FrameworkTagArgsDict',
+    'LogicallyAirGappedBackupVaultNotificationObjectTypeArgs',
+    'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict',
     'ReportDeliveryChannelPropertiesArgs',
     'ReportDeliveryChannelPropertiesArgsDict',
     'ReportSettingPropertiesArgs',
@@ -1334,6 +1336,40 @@ class FrameworkTagArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict(TypedDict):
+        backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]]
+        sns_topic_arn: pulumi.Input[str]
+elif False:
+    LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LogicallyAirGappedBackupVaultNotificationObjectTypeArgs:
+    def __init__(__self__, *,
+                 backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 sns_topic_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "backup_vault_events", backup_vault_events)
+        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+
+    @property
+    @pulumi.getter(name="backupVaultEvents")
+    def backup_vault_events(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "backup_vault_events")
+
+    @backup_vault_events.setter
+    def backup_vault_events(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "backup_vault_events", value)
+
+    @property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "sns_topic_arn")
+
+    @sns_topic_arn.setter
+    def sns_topic_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sns_topic_arn", value)
 
 
 if not MYPY:

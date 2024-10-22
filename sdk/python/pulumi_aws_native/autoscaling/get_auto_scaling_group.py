@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
+    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -106,6 +106,9 @@ class GetAutoScalingGroupResult:
         if termination_policies and not isinstance(termination_policies, list):
             raise TypeError("Expected argument 'termination_policies' to be a list")
         pulumi.set(__self__, "termination_policies", termination_policies)
+        if traffic_sources and not isinstance(traffic_sources, list):
+            raise TypeError("Expected argument 'traffic_sources' to be a list")
+        pulumi.set(__self__, "traffic_sources", traffic_sources)
         if vpc_zone_identifier and not isinstance(vpc_zone_identifier, list):
             raise TypeError("Expected argument 'vpc_zone_identifier' to be a list")
         pulumi.set(__self__, "vpc_zone_identifier", vpc_zone_identifier)
@@ -189,7 +192,7 @@ class GetAutoScalingGroupResult:
     def health_check_type(self) -> Optional[str]:
         """
         A comma-separated value string of one or more health check types.
-         The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+         The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
          Only specify ``EC2`` if you must clear a value that was previously set.
         """
         return pulumi.get(self, "health_check_type")
@@ -343,6 +346,11 @@ class GetAutoScalingGroupResult:
         return pulumi.get(self, "termination_policies")
 
     @property
+    @pulumi.getter(name="trafficSources")
+    def traffic_sources(self) -> Optional[Sequence['outputs.AutoScalingGroupTrafficSourceIdentifier']]:
+        return pulumi.get(self, "traffic_sources")
+
+    @property
     @pulumi.getter(name="vpcZoneIdentifier")
     def vpc_zone_identifier(self) -> Optional[Sequence[str]]:
         """
@@ -387,6 +395,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             tags=self.tags,
             target_group_arns=self.target_group_arns,
             termination_policies=self.termination_policies,
+            traffic_sources=self.traffic_sources,
             vpc_zone_identifier=self.vpc_zone_identifier)
 
 
@@ -436,6 +445,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_group_arns=pulumi.get(__ret__, 'target_group_arns'),
         termination_policies=pulumi.get(__ret__, 'termination_policies'),
+        traffic_sources=pulumi.get(__ret__, 'traffic_sources'),
         vpc_zone_identifier=pulumi.get(__ret__, 'vpc_zone_identifier'))
 def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScalingGroupResult]:
@@ -482,4 +492,5 @@ def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input
         tags=pulumi.get(__response__, 'tags'),
         target_group_arns=pulumi.get(__response__, 'target_group_arns'),
         termination_policies=pulumi.get(__response__, 'termination_policies'),
+        traffic_sources=pulumi.get(__response__, 'traffic_sources'),
         vpc_zone_identifier=pulumi.get(__response__, 'vpc_zone_identifier')))

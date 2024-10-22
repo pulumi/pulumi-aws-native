@@ -70,9 +70,7 @@ func NewServerlessCache(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Engine'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"engine",
 		"kmsKeyId",
-		"majorEngineVersion",
 		"serverlessCacheName",
 		"snapshotArnsToRestore[*]",
 		"subnetIds[*]",

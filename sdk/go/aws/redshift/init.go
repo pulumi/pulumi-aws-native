@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EndpointAuthorization{}
 	case "aws-native:redshift:EventSubscription":
 		r = &EventSubscription{}
+	case "aws-native:redshift:Integration":
+		r = &Integration{}
 	case "aws-native:redshift:ScheduledAction":
 		r = &ScheduledAction{}
 	default:

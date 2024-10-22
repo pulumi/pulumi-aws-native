@@ -175,7 +175,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["userGroupId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["engine", "kmsKeyId", "majorEngineVersion", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["kmsKeyId", "serverlessCacheName", "snapshotArnsToRestore[*]", "subnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServerlessCache.__pulumiType, name, resourceInputs, opts);
     }

@@ -61,11 +61,19 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// The Amazon Resource Name (ARN) that was returned when you called [CreateDirectoryRegistration](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateDirectoryRegistration.html) .
         /// </summary>
         public readonly string? DirectoryRegistrationArn;
+        /// <summary>
+        /// Metadata assigned to a directory registration consisting of a key-value pair.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
-        private GetDirectoryRegistrationResult(string? directoryRegistrationArn)
+        private GetDirectoryRegistrationResult(
+            string? directoryRegistrationArn,
+
+            ImmutableDictionary<string, string>? tags)
         {
             DirectoryRegistrationArn = directoryRegistrationArn;
+            Tags = tags;
         }
     }
 }

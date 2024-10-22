@@ -939,6 +939,7 @@ _utilities.register(
    "aws-native:backup:BackupSelection": "BackupSelection",
    "aws-native:backup:BackupVault": "BackupVault",
    "aws-native:backup:Framework": "Framework",
+   "aws-native:backup:LogicallyAirGappedBackupVault": "LogicallyAirGappedBackupVault",
    "aws-native:backup:ReportPlan": "ReportPlan",
    "aws-native:backup:RestoreTestingPlan": "RestoreTestingPlan",
    "aws-native:backup:RestoreTestingSelection": "RestoreTestingSelection"
@@ -2670,6 +2671,7 @@ _utilities.register(
    "aws-native:redshift:EndpointAccess": "EndpointAccess",
    "aws-native:redshift:EndpointAuthorization": "EndpointAuthorization",
    "aws-native:redshift:EventSubscription": "EventSubscription",
+   "aws-native:redshift:Integration": "Integration",
    "aws-native:redshift:ScheduledAction": "ScheduledAction"
   }
  },

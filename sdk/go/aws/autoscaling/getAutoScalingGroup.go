@@ -61,7 +61,7 @@ type LookupAutoScalingGroupResult struct {
 	//  Default: ``0`` seconds
 	HealthCheckGracePeriod *int `pulumi:"healthCheckGracePeriod"`
 	// A comma-separated value string of one or more health check types.
-	//  The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+	//  The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  Only specify ``EC2`` if you must clear a value that was previously set.
 	HealthCheckType *string `pulumi:"healthCheckType"`
 	// An instance maintenance policy. For more information, see [Set instance maintenance policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -105,7 +105,8 @@ type LookupAutoScalingGroupResult struct {
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
-	TerminationPolicies []string `pulumi:"terminationPolicies"`
+	TerminationPolicies []string                                  `pulumi:"terminationPolicies"`
+	TrafficSources      []AutoScalingGroupTrafficSourceIdentifier `pulumi:"trafficSources"`
 	// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
 	//  If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
 	//   When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
@@ -214,7 +215,7 @@ func (o LookupAutoScalingGroupResultOutput) HealthCheckGracePeriod() pulumi.IntP
 
 // A comma-separated value string of one or more health check types.
 //
-//	The valid values are ``EC2``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
+//	The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.
 //	Only specify ``EC2`` if you must clear a value that was previously set.
 func (o LookupAutoScalingGroupResultOutput) HealthCheckType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *string { return v.HealthCheckType }).(pulumi.StringPtrOutput)
@@ -332,6 +333,12 @@ func (o LookupAutoScalingGroupResultOutput) TargetGroupArns() pulumi.StringArray
 //	Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
 func (o LookupAutoScalingGroupResultOutput) TerminationPolicies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) []string { return v.TerminationPolicies }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupAutoScalingGroupResultOutput) TrafficSources() AutoScalingGroupTrafficSourceIdentifierArrayOutput {
+	return o.ApplyT(func(v LookupAutoScalingGroupResult) []AutoScalingGroupTrafficSourceIdentifier {
+		return v.TrafficSources
+	}).(AutoScalingGroupTrafficSourceIdentifierArrayOutput)
 }
 
 // A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
