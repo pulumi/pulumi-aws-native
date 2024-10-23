@@ -44,6 +44,20 @@ __all__ = [
     'FunctionConfigurationLambdaConflictHandlerConfigArgsDict',
     'FunctionConfigurationSyncConfigArgs',
     'FunctionConfigurationSyncConfigArgsDict',
+    'GraphQlApiAdditionalAuthenticationProviderArgs',
+    'GraphQlApiAdditionalAuthenticationProviderArgsDict',
+    'GraphQlApiCognitoUserPoolConfigArgs',
+    'GraphQlApiCognitoUserPoolConfigArgsDict',
+    'GraphQlApiEnhancedMetricsConfigArgs',
+    'GraphQlApiEnhancedMetricsConfigArgsDict',
+    'GraphQlApiLambdaAuthorizerConfigArgs',
+    'GraphQlApiLambdaAuthorizerConfigArgsDict',
+    'GraphQlApiLogConfigArgs',
+    'GraphQlApiLogConfigArgsDict',
+    'GraphQlApiOpenIdConnectConfigArgs',
+    'GraphQlApiOpenIdConnectConfigArgsDict',
+    'GraphQlApiUserPoolConfigArgs',
+    'GraphQlApiUserPoolConfigArgsDict',
     'ResolverAppSyncRuntimeArgs',
     'ResolverAppSyncRuntimeArgsDict',
     'ResolverCachingConfigArgs',
@@ -878,6 +892,566 @@ class FunctionConfigurationSyncConfigArgs:
     @lambda_conflict_handler_config.setter
     def lambda_conflict_handler_config(self, value: Optional[pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgs']]):
         pulumi.set(self, "lambda_conflict_handler_config", value)
+
+
+if not MYPY:
+    class GraphQlApiAdditionalAuthenticationProviderArgsDict(TypedDict):
+        authentication_type: pulumi.Input[str]
+        """
+        The authentication type for API key, AWS Identity and Access Management, OIDC, Amazon Cognito user pools, or AWS Lambda.
+        """
+        lambda_authorizer_config: NotRequired[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgsDict']]
+        """
+        Configuration for AWS Lambda function authorization.
+        """
+        open_id_connect_config: NotRequired[pulumi.Input['GraphQlApiOpenIdConnectConfigArgsDict']]
+        """
+        The OIDC configuration.
+        """
+        user_pool_config: NotRequired[pulumi.Input['GraphQlApiCognitoUserPoolConfigArgsDict']]
+        """
+        The Amazon Cognito user pool configuration.
+        """
+elif False:
+    GraphQlApiAdditionalAuthenticationProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GraphQlApiAdditionalAuthenticationProviderArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[str],
+                 lambda_authorizer_config: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']] = None,
+                 open_id_connect_config: Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']] = None,
+                 user_pool_config: Optional[pulumi.Input['GraphQlApiCognitoUserPoolConfigArgs']] = None):
+        """
+        :param pulumi.Input[str] authentication_type: The authentication type for API key, AWS Identity and Access Management, OIDC, Amazon Cognito user pools, or AWS Lambda.
+        :param pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Configuration for AWS Lambda function authorization.
+        :param pulumi.Input['GraphQlApiOpenIdConnectConfigArgs'] open_id_connect_config: The OIDC configuration.
+        :param pulumi.Input['GraphQlApiCognitoUserPoolConfigArgs'] user_pool_config: The Amazon Cognito user pool configuration.
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+        if open_id_connect_config is not None:
+            pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+        if user_pool_config is not None:
+            pulumi.set(__self__, "user_pool_config", user_pool_config)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[str]:
+        """
+        The authentication type for API key, AWS Identity and Access Management, OIDC, Amazon Cognito user pools, or AWS Lambda.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']]:
+        """
+        Configuration for AWS Lambda function authorization.
+        """
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @lambda_authorizer_config.setter
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQlApiLambdaAuthorizerConfigArgs']]):
+        pulumi.set(self, "lambda_authorizer_config", value)
+
+    @property
+    @pulumi.getter(name="openIdConnectConfig")
+    def open_id_connect_config(self) -> Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']]:
+        """
+        The OIDC configuration.
+        """
+        return pulumi.get(self, "open_id_connect_config")
+
+    @open_id_connect_config.setter
+    def open_id_connect_config(self, value: Optional[pulumi.Input['GraphQlApiOpenIdConnectConfigArgs']]):
+        pulumi.set(self, "open_id_connect_config", value)
+
+    @property
+    @pulumi.getter(name="userPoolConfig")
+    def user_pool_config(self) -> Optional[pulumi.Input['GraphQlApiCognitoUserPoolConfigArgs']]:
+        """
+        The Amazon Cognito user pool configuration.
+        """
+        return pulumi.get(self, "user_pool_config")
+
+    @user_pool_config.setter
+    def user_pool_config(self, value: Optional[pulumi.Input['GraphQlApiCognitoUserPoolConfigArgs']]):
+        pulumi.set(self, "user_pool_config", value)
+
+
+if not MYPY:
+    class GraphQlApiCognitoUserPoolConfigArgsDict(TypedDict):
+        app_id_client_regex: NotRequired[pulumi.Input[str]]
+        """
+        A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        """
+        aws_region: NotRequired[pulumi.Input[str]]
+        """
+        The AWS Region in which the user pool was created.
+        """
+        user_pool_id: NotRequired[pulumi.Input[str]]
+        """
+        The user pool ID
+        """
+elif False:
+    GraphQlApiCognitoUserPoolConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GraphQlApiCognitoUserPoolConfigArgs:
+    def __init__(__self__, *,
+                 app_id_client_regex: Optional[pulumi.Input[str]] = None,
+                 aws_region: Optional[pulumi.Input[str]] = None,
+                 user_pool_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] app_id_client_regex: A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        :param pulumi.Input[str] aws_region: The AWS Region in which the user pool was created.
+        :param pulumi.Input[str] user_pool_id: The user pool ID
+        """
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+
+    @property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        """
+        return pulumi.get(self, "app_id_client_regex")
+
+    @app_id_client_regex.setter
+    def app_id_client_regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id_client_regex", value)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region in which the user pool was created.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user pool ID
+        """
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_pool_id", value)
+
+
+if not MYPY:
+    class GraphQlApiEnhancedMetricsConfigArgsDict(TypedDict):
+        data_source_level_metrics_behavior: pulumi.Input[str]
+        """
+        Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:
+        """
+        operation_level_metrics_config: pulumi.Input[str]
+        """
+        Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:
+        """
+        resolver_level_metrics_behavior: pulumi.Input[str]
+        """
+        Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:
+        """
+elif False:
+    GraphQlApiEnhancedMetricsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GraphQlApiEnhancedMetricsConfigArgs:
+    def __init__(__self__, *,
+                 data_source_level_metrics_behavior: pulumi.Input[str],
+                 operation_level_metrics_config: pulumi.Input[str],
+                 resolver_level_metrics_behavior: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] data_source_level_metrics_behavior: Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:
+        :param pulumi.Input[str] operation_level_metrics_config: Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:
+        :param pulumi.Input[str] resolver_level_metrics_behavior: Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:
+        """
+        pulumi.set(__self__, "data_source_level_metrics_behavior", data_source_level_metrics_behavior)
+        pulumi.set(__self__, "operation_level_metrics_config", operation_level_metrics_config)
+        pulumi.set(__self__, "resolver_level_metrics_behavior", resolver_level_metrics_behavior)
+
+    @property
+    @pulumi.getter(name="dataSourceLevelMetricsBehavior")
+    def data_source_level_metrics_behavior(self) -> pulumi.Input[str]:
+        """
+        Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:
+        """
+        return pulumi.get(self, "data_source_level_metrics_behavior")
+
+    @data_source_level_metrics_behavior.setter
+    def data_source_level_metrics_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source_level_metrics_behavior", value)
+
+    @property
+    @pulumi.getter(name="operationLevelMetricsConfig")
+    def operation_level_metrics_config(self) -> pulumi.Input[str]:
+        """
+        Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:
+        """
+        return pulumi.get(self, "operation_level_metrics_config")
+
+    @operation_level_metrics_config.setter
+    def operation_level_metrics_config(self, value: pulumi.Input[str]):
+        pulumi.set(self, "operation_level_metrics_config", value)
+
+    @property
+    @pulumi.getter(name="resolverLevelMetricsBehavior")
+    def resolver_level_metrics_behavior(self) -> pulumi.Input[str]:
+        """
+        Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:
+        """
+        return pulumi.get(self, "resolver_level_metrics_behavior")
+
+    @resolver_level_metrics_behavior.setter
+    def resolver_level_metrics_behavior(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resolver_level_metrics_behavior", value)
+
+
+if not MYPY:
+    class GraphQlApiLambdaAuthorizerConfigArgsDict(TypedDict):
+        authorizer_result_ttl_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The number of seconds a response should be cached for.
+        """
+        authorizer_uri: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Lambda function to be called for authorization.
+        """
+        identity_validation_expression: NotRequired[pulumi.Input[str]]
+        """
+        A regular expression for validation of tokens before the Lambda function is called.
+        """
+elif False:
+    GraphQlApiLambdaAuthorizerConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GraphQlApiLambdaAuthorizerConfigArgs:
+    def __init__(__self__, *,
+                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 authorizer_uri: Optional[pulumi.Input[str]] = None,
+                 identity_validation_expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The number of seconds a response should be cached for.
+        :param pulumi.Input[str] authorizer_uri: The ARN of the Lambda function to be called for authorization.
+        :param pulumi.Input[str] identity_validation_expression: A regular expression for validation of tokens before the Lambda function is called.
+        """
+        if authorizer_result_ttl_in_seconds is not None:
+            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+        if authorizer_uri is not None:
+            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+        if identity_validation_expression is not None:
+            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+
+    @property
+    @pulumi.getter(name="authorizerResultTtlInSeconds")
+    def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds a response should be cached for.
+        """
+        return pulumi.get(self, "authorizer_result_ttl_in_seconds")
+
+    @authorizer_result_ttl_in_seconds.setter
+    def authorizer_result_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "authorizer_result_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="authorizerUri")
+    def authorizer_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Lambda function to be called for authorization.
+        """
+        return pulumi.get(self, "authorizer_uri")
+
+    @authorizer_uri.setter
+    def authorizer_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorizer_uri", value)
+
+    @property
+    @pulumi.getter(name="identityValidationExpression")
+    def identity_validation_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        A regular expression for validation of tokens before the Lambda function is called.
+        """
+        return pulumi.get(self, "identity_validation_expression")
+
+    @identity_validation_expression.setter
+    def identity_validation_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_validation_expression", value)
+
+
+if not MYPY:
+    class GraphQlApiLogConfigArgsDict(TypedDict):
+        cloud_watch_logs_role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
+        """
+        exclude_verbose_content: NotRequired[pulumi.Input[bool]]
+        """
+        Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+        """
+        field_log_level: NotRequired[pulumi.Input[str]]
+        """
+        The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        """
+elif False:
+    GraphQlApiLogConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GraphQlApiLogConfigArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_role_arn: Optional[pulumi.Input[str]] = None,
+                 exclude_verbose_content: Optional[pulumi.Input[bool]] = None,
+                 field_log_level: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cloud_watch_logs_role_arn: The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
+        :param pulumi.Input[bool] exclude_verbose_content: Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+        :param pulumi.Input[str] field_log_level: The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        """
+        if cloud_watch_logs_role_arn is not None:
+            pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+        if exclude_verbose_content is not None:
+            pulumi.set(__self__, "exclude_verbose_content", exclude_verbose_content)
+        if field_log_level is not None:
+            pulumi.set(__self__, "field_log_level", field_log_level)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsRoleArn")
+    def cloud_watch_logs_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
+        """
+        return pulumi.get(self, "cloud_watch_logs_role_arn")
+
+    @cloud_watch_logs_role_arn.setter
+    def cloud_watch_logs_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloud_watch_logs_role_arn", value)
+
+    @property
+    @pulumi.getter(name="excludeVerboseContent")
+    def exclude_verbose_content(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+        """
+        return pulumi.get(self, "exclude_verbose_content")
+
+    @exclude_verbose_content.setter
+    def exclude_verbose_content(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_verbose_content", value)
+
+    @property
+    @pulumi.getter(name="fieldLogLevel")
+    def field_log_level(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        """
+        return pulumi.get(self, "field_log_level")
+
+    @field_log_level.setter
+    def field_log_level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_log_level", value)
+
+
+if not MYPY:
+    class GraphQlApiOpenIdConnectConfigArgsDict(TypedDict):
+        auth_ttl: NotRequired[pulumi.Input[float]]
+        """
+        The number of milliseconds that a token is valid after being authenticated.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client identifier of the Relying party at the OpenID identity provider.
+        """
+        iat_ttl: NotRequired[pulumi.Input[float]]
+        """
+        The number of milliseconds that a token is valid after it's issued to a user.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The issuer for the OIDC configuration. 
+        """
+elif False:
+    GraphQlApiOpenIdConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GraphQlApiOpenIdConnectConfigArgs:
+    def __init__(__self__, *,
+                 auth_ttl: Optional[pulumi.Input[float]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 iat_ttl: Optional[pulumi.Input[float]] = None,
+                 issuer: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[float] auth_ttl: The number of milliseconds that a token is valid after being authenticated.
+        :param pulumi.Input[str] client_id: The client identifier of the Relying party at the OpenID identity provider.
+        :param pulumi.Input[float] iat_ttl: The number of milliseconds that a token is valid after it's issued to a user.
+        :param pulumi.Input[str] issuer: The issuer for the OIDC configuration. 
+        """
+        if auth_ttl is not None:
+            pulumi.set(__self__, "auth_ttl", auth_ttl)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if iat_ttl is not None:
+            pulumi.set(__self__, "iat_ttl", iat_ttl)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+
+    @property
+    @pulumi.getter(name="authTtl")
+    def auth_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of milliseconds that a token is valid after being authenticated.
+        """
+        return pulumi.get(self, "auth_ttl")
+
+    @auth_ttl.setter
+    def auth_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "auth_ttl", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client identifier of the Relying party at the OpenID identity provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="iatTtl")
+    def iat_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        The number of milliseconds that a token is valid after it's issued to a user.
+        """
+        return pulumi.get(self, "iat_ttl")
+
+    @iat_ttl.setter
+    def iat_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "iat_ttl", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The issuer for the OIDC configuration. 
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+
+if not MYPY:
+    class GraphQlApiUserPoolConfigArgsDict(TypedDict):
+        app_id_client_regex: NotRequired[pulumi.Input[str]]
+        """
+        A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+        """
+        aws_region: NotRequired[pulumi.Input[str]]
+        """
+        The AWS Region in which the user pool was created.
+        """
+        default_action: NotRequired[pulumi.Input[str]]
+        """
+        The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
+        """
+        user_pool_id: NotRequired[pulumi.Input[str]]
+        """
+        The user pool ID.
+        """
+elif False:
+    GraphQlApiUserPoolConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GraphQlApiUserPoolConfigArgs:
+    def __init__(__self__, *,
+                 app_id_client_regex: Optional[pulumi.Input[str]] = None,
+                 aws_region: Optional[pulumi.Input[str]] = None,
+                 default_action: Optional[pulumi.Input[str]] = None,
+                 user_pool_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] app_id_client_regex: A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+        :param pulumi.Input[str] aws_region: The AWS Region in which the user pool was created.
+        :param pulumi.Input[str] default_action: The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
+        :param pulumi.Input[str] user_pool_id: The user pool ID.
+        """
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+
+    @property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+        """
+        return pulumi.get(self, "app_id_client_regex")
+
+    @app_id_client_regex.setter
+    def app_id_client_regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id_client_regex", value)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS Region in which the user pool was created.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user pool ID.
+        """
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_pool_id", value)
 
 
 if not MYPY:

@@ -74,6 +74,7 @@ AWS::AppSync::DataSource
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
 AWS::AppSync::FunctionConfiguration
+AWS::AppSync::GraphQLApi
 AWS::AppSync::Resolver
 AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
@@ -864,6 +865,7 @@ AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
 AWS::Route53::HostedZone
 AWS::Route53::KeySigningKey
+AWS::Route53::RecordSet
 AWS::Route53Profiles::Profile
 AWS::Route53Profiles::ProfileAssociation
 AWS::Route53Profiles::ProfileResourceAssociation

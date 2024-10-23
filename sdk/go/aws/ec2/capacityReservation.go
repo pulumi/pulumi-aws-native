@@ -64,7 +64,8 @@ type CapacityReservation struct {
 	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
 	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
 	// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
-	TotalInstanceCount              pulumi.IntOutput       `pulumi:"totalInstanceCount"`
+	TotalInstanceCount pulumi.IntOutput `pulumi:"totalInstanceCount"`
+	// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
 	UnusedReservationBillingOwnerId pulumi.StringPtrOutput `pulumi:"unusedReservationBillingOwnerId"`
 }
 
@@ -174,7 +175,8 @@ type capacityReservationArgs struct {
 	//
 	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
 	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
-	Tenancy                         *string `pulumi:"tenancy"`
+	Tenancy *string `pulumi:"tenancy"`
+	// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
 	UnusedReservationBillingOwnerId *string `pulumi:"unusedReservationBillingOwnerId"`
 }
 
@@ -222,7 +224,8 @@ type CapacityReservationArgs struct {
 	//
 	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
 	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
-	Tenancy                         pulumi.StringPtrInput
+	Tenancy pulumi.StringPtrInput
+	// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
 	UnusedReservationBillingOwnerId pulumi.StringPtrInput
 }
 
@@ -362,6 +365,7 @@ func (o CapacityReservationOutput) TotalInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.TotalInstanceCount }).(pulumi.IntOutput)
 }
 
+// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
 func (o CapacityReservationOutput) UnusedReservationBillingOwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.UnusedReservationBillingOwnerId }).(pulumi.StringPtrOutput)
 }

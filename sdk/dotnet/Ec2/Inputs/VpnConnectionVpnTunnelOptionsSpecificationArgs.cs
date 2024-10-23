@@ -16,21 +16,17 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class VpnConnectionVpnTunnelOptionsSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
-        /// 
-        /// Valid Values: `clear` | `none` | `restart`
-        /// 
-        /// Default: `clear`
+        /// The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
+        ///  Valid Values: ``clear`` | ``none`` | ``restart`` 
+        ///  Default: ``clear``
         /// </summary>
         [Input("dpdTimeoutAction")]
         public Input<Pulumi.AwsNative.Ec2.VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction>? DpdTimeoutAction { get; set; }
 
         /// <summary>
         /// The number of seconds after which a DPD timeout occurs.
-        /// 
-        /// Constraints: A value greater than or equal to 30.
-        /// 
-        /// Default: `30`
+        ///  Constraints: A value greater than or equal to 30.
+        ///  Default: ``30``
         /// </summary>
         [Input("dpdTimeoutSeconds")]
         public Input<int>? DpdTimeoutSeconds { get; set; }
@@ -46,8 +42,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// The IKE versions that are permitted for the VPN tunnel.
-        /// 
-        /// Valid values: `ikev1` | `ikev2`
+        ///  Valid values: ``ikev1`` | ``ikev2``
         /// </summary>
         public InputList<Inputs.VpnConnectionIkeVersionsRequestListValueArgs> IkeVersions
         {
@@ -66,8 +61,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-        /// 
-        /// Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+        ///  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
         /// </summary>
         public InputList<Inputs.VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs> Phase1EncryptionAlgorithms
         {
@@ -80,8 +74,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-        /// 
-        /// Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+        ///  Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
         /// </summary>
         public InputList<Inputs.VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs> Phase1IntegrityAlgorithms
         {
@@ -91,10 +84,8 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// The lifetime for phase 1 of the IKE negotiation, in seconds.
-        /// 
-        /// Constraints: A value between 900 and 28,800.
-        /// 
-        /// Default: `28800`
+        ///  Constraints: A value between 900 and 28,800.
+        ///  Default: ``28800``
         /// </summary>
         [Input("phase1LifetimeSeconds")]
         public Input<int>? Phase1LifetimeSeconds { get; set; }
@@ -104,8 +95,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-        /// 
-        /// Valid values: `2` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+        ///  Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         /// </summary>
         public InputList<Inputs.VpnConnectionPhase1dhGroupNumbersRequestListValueArgs> Phase1dhGroupNumbers
         {
@@ -118,8 +108,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-        /// 
-        /// Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+        ///  Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
         /// </summary>
         public InputList<Inputs.VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs> Phase2EncryptionAlgorithms
         {
@@ -132,8 +121,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-        /// 
-        /// Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+        ///  Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
         /// </summary>
         public InputList<Inputs.VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs> Phase2IntegrityAlgorithms
         {
@@ -143,10 +131,8 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// The lifetime for phase 2 of the IKE negotiation, in seconds.
-        /// 
-        /// Constraints: A value between 900 and 3,600. The value must be less than the value for `Phase1LifetimeSeconds` .
-        /// 
-        /// Default: `3600`
+        ///  Constraints: A value between 900 and 3,600. The value must be less than the value for ``Phase1LifetimeSeconds``.
+        ///  Default: ``3600``
         /// </summary>
         [Input("phase2LifetimeSeconds")]
         public Input<int>? Phase2LifetimeSeconds { get; set; }
@@ -156,8 +142,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-        /// 
-        /// Valid values: `2` | `5` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+        ///  Valid values: ``2`` | ``5`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         /// </summary>
         public InputList<Inputs.VpnConnectionPhase2dhGroupNumbersRequestListValueArgs> Phase2dhGroupNumbers
         {
@@ -173,41 +158,33 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? PreSharedKey { get; set; }
 
         /// <summary>
-        /// The percentage of the rekey window (determined by `RekeyMarginTimeSeconds` ) during which the rekey time is randomly selected.
-        /// 
-        /// Constraints: A value between 0 and 100.
-        /// 
-        /// Default: `100`
+        /// The percentage of the rekey window (determined by ``RekeyMarginTimeSeconds``) during which the rekey time is randomly selected.
+        ///  Constraints: A value between 0 and 100.
+        ///  Default: ``100``
         /// </summary>
         [Input("rekeyFuzzPercentage")]
         public Input<int>? RekeyFuzzPercentage { get; set; }
 
         /// <summary>
-        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `RekeyFuzzPercentage` .
-        /// 
-        /// Constraints: A value between 60 and half of `Phase2LifetimeSeconds` .
-        /// 
-        /// Default: `270`
+        /// The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for ``RekeyFuzzPercentage``.
+        ///  Constraints: A value between 60 and half of ``Phase2LifetimeSeconds``.
+        ///  Default: ``270``
         /// </summary>
         [Input("rekeyMarginTimeSeconds")]
         public Input<int>? RekeyMarginTimeSeconds { get; set; }
 
         /// <summary>
         /// The number of packets in an IKE replay window.
-        /// 
-        /// Constraints: A value between 64 and 2048.
-        /// 
-        /// Default: `1024`
+        ///  Constraints: A value between 64 and 2048.
+        ///  Default: ``1024``
         /// </summary>
         [Input("replayWindowSize")]
         public Input<int>? ReplayWindowSize { get; set; }
 
         /// <summary>
-        /// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
-        /// 
-        /// Valid Values: `add` | `start`
-        /// 
-        /// Default: `add`
+        /// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
+        ///  Valid Values: ``add`` | ``start`` 
+        ///  Default: ``add``
         /// </summary>
         [Input("startupAction")]
         public Input<Pulumi.AwsNative.Ec2.VpnConnectionVpnTunnelOptionsSpecificationStartupAction>? StartupAction { get; set; }
@@ -228,8 +205,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
         /// <summary>
         /// The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
-        /// 
-        /// Constraints: A size /126 CIDR block from the local `fd00::/8` range.
+        ///  Constraints: A size /126 CIDR block from the local ``fd00::/8`` range.
         /// </summary>
         [Input("tunnelInsideIpv6Cidr")]
         public Input<string>? TunnelInsideIpv6Cidr { get; set; }

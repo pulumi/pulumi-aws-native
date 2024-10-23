@@ -8,6 +8,7 @@ __all__ = [
     'HealthCheckConfigPropertiesInsufficientDataHealthStatus',
     'HealthCheckConfigPropertiesType',
     'KeySigningKeyStatus',
+    'RecordSetFailover',
 ]
 
 
@@ -66,3 +67,8 @@ class KeySigningKeyStatus(str, Enum):
     """
     ACTIVE = "ACTIVE"
     INACTIVE = "INACTIVE"
+
+
+class RecordSetFailover(str, Enum):
+    PRIMARY = "PRIMARY"
+    SECONDARY = "SECONDARY"

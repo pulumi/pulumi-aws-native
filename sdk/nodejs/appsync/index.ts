@@ -45,6 +45,11 @@ export const getFunctionConfiguration: typeof import("./getFunctionConfiguration
 export const getFunctionConfigurationOutput: typeof import("./getFunctionConfiguration").getFunctionConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getFunctionConfiguration","getFunctionConfigurationOutput"], () => require("./getFunctionConfiguration"));
 
+export { GetGraphQlApiArgs, GetGraphQlApiResult, GetGraphQlApiOutputArgs } from "./getGraphQlApi";
+export const getGraphQlApi: typeof import("./getGraphQlApi").getGraphQlApi = null as any;
+export const getGraphQlApiOutput: typeof import("./getGraphQlApi").getGraphQlApiOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQlApi","getGraphQlApiOutput"], () => require("./getGraphQlApi"));
+
 export { GetResolverArgs, GetResolverResult, GetResolverOutputArgs } from "./getResolver";
 export const getResolver: typeof import("./getResolver").getResolver = null as any;
 export const getResolverOutput: typeof import("./getResolver").getResolverOutput = null as any;
@@ -54,6 +59,11 @@ export { GetSourceApiAssociationArgs, GetSourceApiAssociationResult, GetSourceAp
 export const getSourceApiAssociation: typeof import("./getSourceApiAssociation").getSourceApiAssociation = null as any;
 export const getSourceApiAssociationOutput: typeof import("./getSourceApiAssociation").getSourceApiAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getSourceApiAssociation","getSourceApiAssociationOutput"], () => require("./getSourceApiAssociation"));
+
+export { GraphQlApiArgs } from "./graphQlApi";
+export type GraphQlApi = import("./graphQlApi").GraphQlApi;
+export const GraphQlApi: typeof import("./graphQlApi").GraphQlApi = null as any;
+utilities.lazyLoad(exports, ["GraphQlApi"], () => require("./graphQlApi"));
 
 export { ResolverArgs } from "./resolver";
 export type Resolver = import("./resolver").Resolver;
@@ -81,6 +91,8 @@ const _module = {
                 return new DomainNameApiAssociation(name, <any>undefined, { urn })
             case "aws-native:appsync:FunctionConfiguration":
                 return new FunctionConfiguration(name, <any>undefined, { urn })
+            case "aws-native:appsync:GraphQlApi":
+                return new GraphQlApi(name, <any>undefined, { urn })
             case "aws-native:appsync:Resolver":
                 return new Resolver(name, <any>undefined, { urn })
             case "aws-native:appsync:SourceApiAssociation":

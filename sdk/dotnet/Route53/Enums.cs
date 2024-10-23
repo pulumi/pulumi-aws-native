@@ -132,4 +132,32 @@ namespace Pulumi.AwsNative.Route53
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct RecordSetFailover : IEquatable<RecordSetFailover>
+    {
+        private readonly string _value;
+
+        private RecordSetFailover(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RecordSetFailover Primary { get; } = new RecordSetFailover("PRIMARY");
+        public static RecordSetFailover Secondary { get; } = new RecordSetFailover("SECONDARY");
+
+        public static bool operator ==(RecordSetFailover left, RecordSetFailover right) => left.Equals(right);
+        public static bool operator !=(RecordSetFailover left, RecordSetFailover right) => !left.Equals(right);
+
+        public static explicit operator string(RecordSetFailover value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RecordSetFailover other && Equals(other);
+        public bool Equals(RecordSetFailover other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

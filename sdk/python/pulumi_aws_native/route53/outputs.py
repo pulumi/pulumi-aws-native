@@ -24,6 +24,9 @@ __all__ = [
     'HostedZoneConfig',
     'HostedZoneQueryLoggingConfig',
     'HostedZoneVpc',
+    'RecordSetAliasTarget',
+    'RecordSetCidrRoutingConfig',
+    'RecordSetGeoLocation',
 ]
 
 @pulumi.output_type
@@ -701,5 +704,179 @@ class HostedZoneVpc(dict):
           For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
         """
         return pulumi.get(self, "vpc_region")
+
+
+@pulumi.output_type
+class RecordSetAliasTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "hostedZoneId":
+            suggest = "hosted_zone_id"
+        elif key == "evaluateTargetHealth":
+            suggest = "evaluate_target_health"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetAliasTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetAliasTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetAliasTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: str,
+                 hosted_zone_id: str,
+                 evaluate_target_health: Optional[bool] = None):
+        """
+        :param str dns_name: The value that you specify depends on where you want to route queries.
+        :param str hosted_zone_id: The value used depends on where you want to route traffic.
+        :param bool evaluate_target_health: When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+        """
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "hosted_zone_id", hosted_zone_id)
+        if evaluate_target_health is not None:
+            pulumi.set(__self__, "evaluate_target_health", evaluate_target_health)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> str:
+        """
+        The value that you specify depends on where you want to route queries.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="hostedZoneId")
+    def hosted_zone_id(self) -> str:
+        """
+        The value used depends on where you want to route traffic.
+        """
+        return pulumi.get(self, "hosted_zone_id")
+
+    @property
+    @pulumi.getter(name="evaluateTargetHealth")
+    def evaluate_target_health(self) -> Optional[bool]:
+        """
+        When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+        """
+        return pulumi.get(self, "evaluate_target_health")
+
+
+@pulumi.output_type
+class RecordSetCidrRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "collectionId":
+            suggest = "collection_id"
+        elif key == "locationName":
+            suggest = "location_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetCidrRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetCidrRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetCidrRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 collection_id: str,
+                 location_name: str):
+        """
+        :param str collection_id: The CIDR collection ID.
+        :param str location_name: The CIDR collection location name.
+        """
+        pulumi.set(__self__, "collection_id", collection_id)
+        pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="collectionId")
+    def collection_id(self) -> str:
+        """
+        The CIDR collection ID.
+        """
+        return pulumi.get(self, "collection_id")
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> str:
+        """
+        The CIDR collection location name.
+        """
+        return pulumi.get(self, "location_name")
+
+
+@pulumi.output_type
+class RecordSetGeoLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "continentCode":
+            suggest = "continent_code"
+        elif key == "countryCode":
+            suggest = "country_code"
+        elif key == "subdivisionCode":
+            suggest = "subdivision_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetGeoLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetGeoLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetGeoLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 continent_code: Optional[str] = None,
+                 country_code: Optional[str] = None,
+                 subdivision_code: Optional[str] = None):
+        """
+        :param str continent_code: For geolocation resource record sets, a two-letter abbreviation that identifies a continent.
+        :param str country_code: For geolocation resource record sets, the two-letter code for a country.
+        :param str subdivision_code: For geolocation resource record sets, the two-letter code for a state of the United States.
+        """
+        if continent_code is not None:
+            pulumi.set(__self__, "continent_code", continent_code)
+        if country_code is not None:
+            pulumi.set(__self__, "country_code", country_code)
+        if subdivision_code is not None:
+            pulumi.set(__self__, "subdivision_code", subdivision_code)
+
+    @property
+    @pulumi.getter(name="continentCode")
+    def continent_code(self) -> Optional[str]:
+        """
+        For geolocation resource record sets, a two-letter abbreviation that identifies a continent.
+        """
+        return pulumi.get(self, "continent_code")
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> Optional[str]:
+        """
+        For geolocation resource record sets, the two-letter code for a country.
+        """
+        return pulumi.get(self, "country_code")
+
+    @property
+    @pulumi.getter(name="subdivisionCode")
+    def subdivision_code(self) -> Optional[str]:
+        """
+        For geolocation resource record sets, the two-letter code for a state of the United States.
+        """
+        return pulumi.get(self, "subdivision_code")
 
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.
+    /// </summary>
     [OutputType]
     public sealed class VpnConnectionPhase1IntegrityAlgorithmsRequestListValue
     {

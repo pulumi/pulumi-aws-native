@@ -22,36 +22,25 @@ __all__ = ['EnvironmentArgs', 'Environment']
 @pulumi.input_type
 class EnvironmentArgs:
     def __init__(__self__, *,
-                 network_fabric_type: pulumi.Input['EnvironmentNetworkFabricType'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_fabric_type: Optional[pulumi.Input['EnvironmentNetworkFabricType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Environment resource.
-        :param pulumi.Input['EnvironmentNetworkFabricType'] network_fabric_type: The network fabric type of the environment.
         :param pulumi.Input[str] description: A description of the environment.
         :param pulumi.Input[str] name: The name of the environment.
+        :param pulumi.Input['EnvironmentNetworkFabricType'] network_fabric_type: The network fabric type of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
-        pulumi.set(__self__, "network_fabric_type", network_fabric_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_fabric_type is not None:
+            pulumi.set(__self__, "network_fabric_type", network_fabric_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="networkFabricType")
-    def network_fabric_type(self) -> pulumi.Input['EnvironmentNetworkFabricType']:
-        """
-        The network fabric type of the environment.
-        """
-        return pulumi.get(self, "network_fabric_type")
-
-    @network_fabric_type.setter
-    def network_fabric_type(self, value: pulumi.Input['EnvironmentNetworkFabricType']):
-        pulumi.set(self, "network_fabric_type", value)
 
     @property
     @pulumi.getter
@@ -76,6 +65,18 @@ class EnvironmentArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="networkFabricType")
+    def network_fabric_type(self) -> Optional[pulumi.Input['EnvironmentNetworkFabricType']]:
+        """
+        The network fabric type of the environment.
+        """
+        return pulumi.get(self, "network_fabric_type")
+
+    @network_fabric_type.setter
+    def network_fabric_type(self, value: Optional[pulumi.Input['EnvironmentNetworkFabricType']]):
+        pulumi.set(self, "network_fabric_type", value)
 
     @property
     @pulumi.getter
@@ -114,7 +115,7 @@ class Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentArgs,
+                 args: Optional[EnvironmentArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of AWS::RefactorSpaces::Environment Resource Type
@@ -149,8 +150,6 @@ class Environment(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
-            if network_fabric_type is None and not opts.urn:
-                raise TypeError("Missing required property 'network_fabric_type'")
             __props__.__dict__["network_fabric_type"] = network_fabric_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -215,7 +214,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the environment.
         """
@@ -223,7 +222,7 @@ class Environment(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkFabricType")
-    def network_fabric_type(self) -> pulumi.Output['EnvironmentNetworkFabricType']:
+    def network_fabric_type(self) -> pulumi.Output[Optional['EnvironmentNetworkFabricType']]:
         """
         The network fabric type of the environment.
         """

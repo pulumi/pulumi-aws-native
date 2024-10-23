@@ -12,8 +12,10 @@ from .get_cidr_collection import *
 from .get_health_check import *
 from .get_hosted_zone import *
 from .get_key_signing_key import *
+from .get_record_set import *
 from .health_check import *
 from .hosted_zone import *
 from .key_signing_key import *
+from .record_set import *
 from ._inputs import *
 from . import outputs

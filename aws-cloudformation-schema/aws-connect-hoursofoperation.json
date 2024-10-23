@@ -16,7 +16,7 @@
       "permissions" : [ "connect:CreateHoursOfOperation", "connect:TagResource", "connect:CreateHoursOfOperationOverride" ]
     },
     "update" : {
-      "permissions" : [ "connect:UpdateHoursOfOperation", "connect:CreateHoursOfOperationOverride", "connect:UpdateHoursOfOperationOverride", "connect:DeleteHoursOfOperationOverride", "connect:TagResource", "connect:UntagResource" ]
+      "permissions" : [ "connect:UpdateHoursOfOperation", "connect:CreateHoursOfOperationOverride", "connect:UpdateHoursOfOperationOverride", "connect:DeleteHoursOfOperationOverride", "connect:ListHoursOfOperationOverrides", "connect:TagResource", "connect:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "connect:ListHoursOfOperations" ],

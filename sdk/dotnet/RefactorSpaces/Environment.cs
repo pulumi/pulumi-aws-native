@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// The name of the environment.
         /// </summary>
         [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
+        public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
         /// The network fabric type of the environment.
         /// </summary>
         [Output("networkFabricType")]
-        public Output<Pulumi.AwsNative.RefactorSpaces.EnvironmentNetworkFabricType> NetworkFabricType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.RefactorSpaces.EnvironmentNetworkFabricType?> NetworkFabricType { get; private set; } = null!;
 
         /// <summary>
         /// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Environment(string name, EnvironmentArgs args, CustomResourceOptions? options = null)
+        public Environment(string name, EnvironmentArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:refactorspaces:Environment", name, args ?? new EnvironmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -123,8 +123,8 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// <summary>
         /// The network fabric type of the environment.
         /// </summary>
-        [Input("networkFabricType", required: true)]
-        public Input<Pulumi.AwsNative.RefactorSpaces.EnvironmentNetworkFabricType> NetworkFabricType { get; set; } = null!;
+        [Input("networkFabricType")]
+        public Input<Pulumi.AwsNative.RefactorSpaces.EnvironmentNetworkFabricType>? NetworkFabricType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

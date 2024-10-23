@@ -59,6 +59,7 @@ class AgentActionGroupSignature(str, Enum):
     Action Group Signature for a BuiltIn Action
     """
     AMAZON_USER_INPUT = "AMAZON.UserInput"
+    AMAZON_CODE_INTERPRETER = "AMAZON.CodeInterpreter"
 
 
 class AgentActionGroupState(str, Enum):

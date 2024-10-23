@@ -67,6 +67,7 @@ class CapacityReservationArgs:
                
                - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
                - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+        :param pulumi.Input[str] unused_reservation_billing_owner_id: The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "instance_count", instance_count)
@@ -269,6 +270,9 @@ class CapacityReservationArgs:
     @property
     @pulumi.getter(name="unusedReservationBillingOwnerId")
     def unused_reservation_billing_owner_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+        """
         return pulumi.get(self, "unused_reservation_billing_owner_id")
 
     @unused_reservation_billing_owner_id.setter
@@ -331,6 +335,7 @@ class CapacityReservation(pulumi.CustomResource):
                
                - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
                - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
+        :param pulumi.Input[str] unused_reservation_billing_owner_id: The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
         """
         ...
     @overload
@@ -595,5 +600,8 @@ class CapacityReservation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="unusedReservationBillingOwnerId")
     def unused_reservation_billing_owner_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+        """
         return pulumi.get(self, "unused_reservation_billing_owner_id")
 
