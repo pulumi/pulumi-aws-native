@@ -90,7 +90,8 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateVolume", "ec2:DescribeVolumes", "ec2:DescribeVolumeAttribute", "ec2:ModifyVolumeAttribute", "ec2:CreateTags", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ]
+      "permissions" : [ "ec2:CreateVolume", "ec2:DescribeVolumes", "ec2:DescribeVolumeAttribute", "ec2:ModifyVolumeAttribute", "ec2:CreateTags", "kms:GenerateDataKeyWithoutPlaintext", "kms:CreateGrant" ],
+      "timeoutInMinutes" : 725
     },
     "read" : {
       "permissions" : [ "ec2:DescribeVolumes", "ec2:DescribeVolumeAttribute", "ec2:DescribeTags" ]
