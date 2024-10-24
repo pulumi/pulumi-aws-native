@@ -863,6 +863,7 @@ _utilities.register(
    "aws-native:appsync:DomainName": "DomainName",
    "aws-native:appsync:DomainNameApiAssociation": "DomainNameApiAssociation",
    "aws-native:appsync:FunctionConfiguration": "FunctionConfiguration",
+   "aws-native:appsync:GraphQlApi": "GraphQlApi",
    "aws-native:appsync:Resolver": "Resolver",
    "aws-native:appsync:SourceApiAssociation": "SourceApiAssociation"
   }
@@ -2764,7 +2765,8 @@ _utilities.register(
    "aws-native:route53:Dnssec": "Dnssec",
    "aws-native:route53:HealthCheck": "HealthCheck",
    "aws-native:route53:HostedZone": "HostedZone",
-   "aws-native:route53:KeySigningKey": "KeySigningKey"
+   "aws-native:route53:KeySigningKey": "KeySigningKey",
+   "aws-native:route53:RecordSet": "RecordSet"
   }
  },
  {
@@ -2882,6 +2884,7 @@ _utilities.register(
    "aws-native:sagemaker:Device": "Device",
    "aws-native:sagemaker:DeviceFleet": "DeviceFleet",
    "aws-native:sagemaker:Domain": "Domain",
+   "aws-native:sagemaker:Endpoint": "Endpoint",
    "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
    "aws-native:sagemaker:Image": "Image",
    "aws-native:sagemaker:ImageVersion": "ImageVersion",

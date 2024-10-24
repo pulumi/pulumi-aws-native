@@ -134,8 +134,6 @@ class DimensionType(str, Enum):
 class DomainConfigurationApplicationProtocol(str, Enum):
     """
     An enumerated string that speciﬁes the application-layer protocol.
-
-    > This property isn't available in China.
     """
     SECURE_MQTT = "SECURE_MQTT"
     MQTT_WSS = "MQTT_WSS"
@@ -146,8 +144,6 @@ class DomainConfigurationApplicationProtocol(str, Enum):
 class DomainConfigurationAuthenticationType(str, Enum):
     """
     An enumerated string that speciﬁes the authentication type.
-
-    > This property isn't available in China.
     """
     AWS_X509 = "AWS_X509"
     CUSTOM_AUTH = "CUSTOM_AUTH"

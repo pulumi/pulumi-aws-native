@@ -191,6 +191,9 @@ namespace Pulumi.AwsNative.AutoScaling
         ///  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
         /// </summary>
         public readonly ImmutableArray<string> TerminationPolicies;
+        /// <summary>
+        /// The traffic sources associated with this Auto Scaling group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AutoScalingGroupTrafficSourceIdentifier> TrafficSources;
         /// <summary>
         /// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.

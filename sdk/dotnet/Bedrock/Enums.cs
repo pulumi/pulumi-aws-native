@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         public static AgentActionGroupSignature AmazonUserInput { get; } = new AgentActionGroupSignature("AMAZON.UserInput");
+        public static AgentActionGroupSignature AmazonCodeInterpreter { get; } = new AgentActionGroupSignature("AMAZON.CodeInterpreter");
 
         public static bool operator ==(AgentActionGroupSignature left, AgentActionGroupSignature right) => left.Equals(right);
         public static bool operator !=(AgentActionGroupSignature left, AgentActionGroupSignature right) => !left.Equals(right);

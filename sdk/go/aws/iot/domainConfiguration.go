@@ -17,20 +17,14 @@ type DomainConfiguration struct {
 	pulumi.CustomResourceState
 
 	// An enumerated string that speciﬁes the application-layer protocol.
-	//
-	// > This property isn't available in China.
 	ApplicationProtocol DomainConfigurationApplicationProtocolPtrOutput `pulumi:"applicationProtocol"`
 	// The Amazon Resource Name (ARN) of the domain configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An enumerated string that speciﬁes the authentication type.
-	//
-	// > This property isn't available in China.
 	AuthenticationType DomainConfigurationAuthenticationTypePtrOutput `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrOutput `pulumi:"authorizerConfig"`
 	// An object that speciﬁes the client certificate conﬁguration for a domain.
-	//
-	// > This property isn't available in China.
 	ClientCertificateConfig DomainConfigurationClientCertificateConfigPtrOutput `pulumi:"clientCertificateConfig"`
 	// The name of the domain configuration. This value must be unique to a region.
 	DomainConfigurationName pulumi.StringPtrOutput `pulumi:"domainConfigurationName"`
@@ -117,18 +111,12 @@ func (DomainConfigurationState) ElementType() reflect.Type {
 
 type domainConfigurationArgs struct {
 	// An enumerated string that speciﬁes the application-layer protocol.
-	//
-	// > This property isn't available in China.
 	ApplicationProtocol *DomainConfigurationApplicationProtocol `pulumi:"applicationProtocol"`
 	// An enumerated string that speciﬁes the authentication type.
-	//
-	// > This property isn't available in China.
 	AuthenticationType *DomainConfigurationAuthenticationType `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain.
 	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
 	// An object that speciﬁes the client certificate conﬁguration for a domain.
-	//
-	// > This property isn't available in China.
 	ClientCertificateConfig *DomainConfigurationClientCertificateConfig `pulumi:"clientCertificateConfig"`
 	// The name of the domain configuration. This value must be unique to a region.
 	DomainConfigurationName *string `pulumi:"domainConfigurationName"`
@@ -165,18 +153,12 @@ type domainConfigurationArgs struct {
 // The set of arguments for constructing a DomainConfiguration resource.
 type DomainConfigurationArgs struct {
 	// An enumerated string that speciﬁes the application-layer protocol.
-	//
-	// > This property isn't available in China.
 	ApplicationProtocol DomainConfigurationApplicationProtocolPtrInput
 	// An enumerated string that speciﬁes the authentication type.
-	//
-	// > This property isn't available in China.
 	AuthenticationType DomainConfigurationAuthenticationTypePtrInput
 	// An object that specifies the authorization service for a domain.
 	AuthorizerConfig DomainConfigurationAuthorizerConfigPtrInput
 	// An object that speciﬁes the client certificate conﬁguration for a domain.
-	//
-	// > This property isn't available in China.
 	ClientCertificateConfig DomainConfigurationClientCertificateConfigPtrInput
 	// The name of the domain configuration. This value must be unique to a region.
 	DomainConfigurationName pulumi.StringPtrInput
@@ -248,8 +230,6 @@ func (o DomainConfigurationOutput) ToDomainConfigurationOutputWithContext(ctx co
 }
 
 // An enumerated string that speciﬁes the application-layer protocol.
-//
-// > This property isn't available in China.
 func (o DomainConfigurationOutput) ApplicationProtocol() DomainConfigurationApplicationProtocolPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationApplicationProtocolPtrOutput {
 		return v.ApplicationProtocol
@@ -262,8 +242,6 @@ func (o DomainConfigurationOutput) Arn() pulumi.StringOutput {
 }
 
 // An enumerated string that speciﬁes the authentication type.
-//
-// > This property isn't available in China.
 func (o DomainConfigurationOutput) AuthenticationType() DomainConfigurationAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationAuthenticationTypePtrOutput {
 		return v.AuthenticationType
@@ -276,8 +254,6 @@ func (o DomainConfigurationOutput) AuthorizerConfig() DomainConfigurationAuthori
 }
 
 // An object that speciﬁes the client certificate conﬁguration for a domain.
-//
-// > This property isn't available in China.
 func (o DomainConfigurationOutput) ClientCertificateConfig() DomainConfigurationClientCertificateConfigPtrOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationClientCertificateConfigPtrOutput {
 		return v.ClientCertificateConfig

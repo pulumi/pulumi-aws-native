@@ -111,6 +111,9 @@ namespace Pulumi.AwsNative.Eks
         /// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
         /// </summary>
         public readonly string? Version;
+        /// <summary>
+        /// The configuration for zonal shift for the cluster.
+        /// </summary>
         public readonly Outputs.ClusterZonalShiftConfig? ZonalShiftConfig;
 
         [OutputConstructor]

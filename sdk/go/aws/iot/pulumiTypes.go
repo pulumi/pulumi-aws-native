@@ -1536,8 +1536,6 @@ func (o DomainConfigurationAuthorizerConfigPtrOutput) DefaultAuthorizerName() pu
 
 type DomainConfigurationClientCertificateConfig struct {
 	// The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-	//
-	// > This property isn't available in China.
 	ClientCertificateCallbackArn *string `pulumi:"clientCertificateCallbackArn"`
 }
 
@@ -1554,8 +1552,6 @@ type DomainConfigurationClientCertificateConfigInput interface {
 
 type DomainConfigurationClientCertificateConfigArgs struct {
 	// The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-	//
-	// > This property isn't available in China.
 	ClientCertificateCallbackArn pulumi.StringPtrInput `pulumi:"clientCertificateCallbackArn"`
 }
 
@@ -1637,8 +1633,6 @@ func (o DomainConfigurationClientCertificateConfigOutput) ToDomainConfigurationC
 }
 
 // The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-//
-// > This property isn't available in China.
 func (o DomainConfigurationClientCertificateConfigOutput) ClientCertificateCallbackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationClientCertificateConfig) *string { return v.ClientCertificateCallbackArn }).(pulumi.StringPtrOutput)
 }
@@ -1668,8 +1662,6 @@ func (o DomainConfigurationClientCertificateConfigPtrOutput) Elem() DomainConfig
 }
 
 // The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-//
-// > This property isn't available in China.
 func (o DomainConfigurationClientCertificateConfigPtrOutput) ClientCertificateCallbackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationClientCertificateConfig) *string {
 		if v == nil {

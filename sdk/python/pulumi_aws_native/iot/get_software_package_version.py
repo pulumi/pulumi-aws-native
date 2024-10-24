@@ -48,11 +48,19 @@ class GetSoftwarePackageVersionResult:
     @property
     @pulumi.getter
     def attributes(self) -> Optional[Mapping[str, str]]:
+        """
+        Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+
+        The combined size of all the attributes on a package version is limited to 3KB.
+        """
         return pulumi.get(self, "attributes")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        A summary of the package version being created. This can be used to outline the package's contents or purpose.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -107,6 +115,10 @@ def get_software_package_version(package_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSoftwarePackageVersionResult:
     """
     resource definition
+
+
+    :param str package_name: The name of the associated software package.
+    :param str version_name: The name of the new package version.
     """
     __args__ = dict()
     __args__['packageName'] = package_name
@@ -126,6 +138,10 @@ def get_software_package_version_output(package_name: Optional[pulumi.Input[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoftwarePackageVersionResult]:
     """
     resource definition
+
+
+    :param str package_name: The name of the associated software package.
+    :param str version_name: The name of the new package version.
     """
     __args__ = dict()
     __args__['packageName'] = package_name

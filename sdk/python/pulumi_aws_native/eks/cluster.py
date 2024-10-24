@@ -53,6 +53,7 @@ class ClusterArgs:
                
                [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
         :param pulumi.Input[str] version: The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
+        :param pulumi.Input['ClusterZonalShiftConfigArgs'] zonal_shift_config: The configuration for zonal shift for the cluster.
         """
         pulumi.set(__self__, "resources_vpc_config", resources_vpc_config)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -228,6 +229,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="zonalShiftConfig")
     def zonal_shift_config(self) -> Optional[pulumi.Input['ClusterZonalShiftConfigArgs']]:
+        """
+        The configuration for zonal shift for the cluster.
+        """
         return pulumi.get(self, "zonal_shift_config")
 
     @zonal_shift_config.setter
@@ -273,6 +277,7 @@ class Cluster(pulumi.CustomResource):
                
                [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
         :param pulumi.Input[str] version: The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
+        :param pulumi.Input[Union['ClusterZonalShiftConfigArgs', 'ClusterZonalShiftConfigArgsDict']] zonal_shift_config: The configuration for zonal shift for the cluster.
         """
         ...
     @overload
@@ -547,5 +552,8 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="zonalShiftConfig")
     def zonal_shift_config(self) -> pulumi.Output[Optional['outputs.ClusterZonalShiftConfig']]:
+        """
+        The configuration for zonal shift for the cluster.
+        """
         return pulumi.get(self, "zonal_shift_config")
 

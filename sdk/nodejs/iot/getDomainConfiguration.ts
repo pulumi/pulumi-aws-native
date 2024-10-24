@@ -27,8 +27,6 @@ export interface GetDomainConfigurationArgs {
 export interface GetDomainConfigurationResult {
     /**
      * An enumerated string that speciﬁes the application-layer protocol.
-     *
-     * > This property isn't available in China.
      */
     readonly applicationProtocol?: enums.iot.DomainConfigurationApplicationProtocol;
     /**
@@ -37,8 +35,6 @@ export interface GetDomainConfigurationResult {
     readonly arn?: string;
     /**
      * An enumerated string that speciﬁes the authentication type.
-     *
-     * > This property isn't available in China.
      */
     readonly authenticationType?: enums.iot.DomainConfigurationAuthenticationType;
     /**
@@ -47,8 +43,6 @@ export interface GetDomainConfigurationResult {
     readonly authorizerConfig?: outputs.iot.DomainConfigurationAuthorizerConfig;
     /**
      * An object that speciﬁes the client certificate conﬁguration for a domain.
-     *
-     * > This property isn't available in China.
      */
     readonly clientCertificateConfig?: outputs.iot.DomainConfigurationClientCertificateConfig;
     /**

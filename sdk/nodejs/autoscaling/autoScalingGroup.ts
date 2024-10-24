@@ -175,6 +175,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
     public readonly terminationPolicies!: pulumi.Output<string[] | undefined>;
+    /**
+     * The traffic sources associated with this Auto Scaling group.
+     */
     public readonly trafficSources!: pulumi.Output<outputs.autoscaling.AutoScalingGroupTrafficSourceIdentifier[] | undefined>;
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
@@ -411,6 +414,9 @@ export interface AutoScalingGroupArgs {
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
     terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The traffic sources associated with this Auto Scaling group.
+     */
     trafficSources?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupTrafficSourceIdentifierArgs>[]>;
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.

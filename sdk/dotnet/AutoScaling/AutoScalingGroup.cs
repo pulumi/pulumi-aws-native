@@ -211,6 +211,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("terminationPolicies")]
         public Output<ImmutableArray<string>> TerminationPolicies { get; private set; } = null!;
 
+        /// <summary>
+        /// The traffic sources associated with this Auto Scaling group.
+        /// </summary>
         [Output("trafficSources")]
         public Output<ImmutableArray<Outputs.AutoScalingGroupTrafficSourceIdentifier>> TrafficSources { get; private set; } = null!;
 
@@ -516,6 +519,10 @@ namespace Pulumi.AwsNative.AutoScaling
 
         [Input("trafficSources")]
         private InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs>? _trafficSources;
+
+        /// <summary>
+        /// The traffic sources associated with this Auto Scaling group.
+        /// </summary>
         public InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs> TrafficSources
         {
             get => _trafficSources ?? (_trafficSources = new InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs>());

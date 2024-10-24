@@ -104,6 +104,7 @@ class AutoScalingGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
+        :param pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]] traffic_sources: The traffic sources associated with this Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifier: A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
                 If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
                  When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
@@ -540,6 +541,9 @@ class AutoScalingGroupArgs:
     @property
     @pulumi.getter(name="trafficSources")
     def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]]:
+        """
+        The traffic sources associated with this Auto Scaling group.
+        """
         return pulumi.get(self, "traffic_sources")
 
     @traffic_sources.setter
@@ -657,6 +661,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTrafficSourceIdentifierArgs', 'AutoScalingGroupTrafficSourceIdentifierArgsDict']]]] traffic_sources: The traffic sources associated with this Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifier: A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
                 If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
                  When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
@@ -1075,6 +1080,9 @@ class AutoScalingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="trafficSources")
     def traffic_sources(self) -> pulumi.Output[Optional[Sequence['outputs.AutoScalingGroupTrafficSourceIdentifier']]]:
+        """
+        The traffic sources associated with this Auto Scaling group.
+        """
         return pulumi.get(self, "traffic_sources")
 
     @property

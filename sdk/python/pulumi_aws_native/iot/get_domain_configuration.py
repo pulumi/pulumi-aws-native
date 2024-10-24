@@ -66,8 +66,6 @@ class GetDomainConfigurationResult:
     def application_protocol(self) -> Optional['DomainConfigurationApplicationProtocol']:
         """
         An enumerated string that speciﬁes the application-layer protocol.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "application_protocol")
 
@@ -84,8 +82,6 @@ class GetDomainConfigurationResult:
     def authentication_type(self) -> Optional['DomainConfigurationAuthenticationType']:
         """
         An enumerated string that speciﬁes the authentication type.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -102,8 +98,6 @@ class GetDomainConfigurationResult:
     def client_certificate_config(self) -> Optional['outputs.DomainConfigurationClientCertificateConfig']:
         """
         An object that speciﬁes the client certificate conﬁguration for a domain.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "client_certificate_config")
 

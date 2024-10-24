@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DeviceFleet{}
 	case "aws-native:sagemaker:Domain":
 		r = &Domain{}
+	case "aws-native:sagemaker:Endpoint":
+		r = &Endpoint{}
 	case "aws-native:sagemaker:FeatureGroup":
 		r = &FeatureGroup{}
 	case "aws-native:sagemaker:Image":

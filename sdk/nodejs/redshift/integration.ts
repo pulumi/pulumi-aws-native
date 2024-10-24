@@ -37,6 +37,9 @@ export class Integration extends pulumi.CustomResource {
         return obj['__pulumiType'] === Integration.__pulumiType;
     }
 
+    /**
+     * The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+     */
     public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The time (UTC) when the integration was created.
@@ -113,6 +116,9 @@ export class Integration extends pulumi.CustomResource {
  * The set of arguments for constructing a Integration resource.
  */
 export interface IntegrationArgs {
+    /**
+     * The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
+     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the integration.

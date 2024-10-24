@@ -348,6 +348,9 @@ class GetAutoScalingGroupResult:
     @property
     @pulumi.getter(name="trafficSources")
     def traffic_sources(self) -> Optional[Sequence['outputs.AutoScalingGroupTrafficSourceIdentifier']]:
+        """
+        The traffic sources associated with this Auto Scaling group.
+        """
         return pulumi.get(self, "traffic_sources")
 
     @property

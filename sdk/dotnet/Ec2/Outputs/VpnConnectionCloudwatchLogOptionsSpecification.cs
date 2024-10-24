@@ -10,13 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Options for sending VPN tunnel logs to CloudWatch.
+    /// </summary>
     [OutputType]
     public sealed class VpnConnectionCloudwatchLogOptionsSpecification
     {
         /// <summary>
-        /// Enable or disable VPN tunnel logging feature. Default value is `False` .
-        /// 
-        /// Valid values: `True` | `False`
+        /// Enable or disable VPN tunnel logging feature. Default value is ``False``.
+        ///  Valid values: ``True`` | ``False``
         /// </summary>
         public readonly bool? LogEnabled;
         /// <summary>
@@ -24,9 +26,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? LogGroupArn;
         /// <summary>
-        /// Set log format. Default format is `json` .
-        /// 
-        /// Valid values: `json` | `text`
+        /// Set log format. Default format is ``json``.
+        ///  Valid values: ``json`` | ``text``
         /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat? LogOutputFormat;
 

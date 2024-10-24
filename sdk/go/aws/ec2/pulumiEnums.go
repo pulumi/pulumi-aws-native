@@ -10647,9 +10647,9 @@ func (in *vpcEndpointTypePtr) ToVpcEndpointTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointTypePtrOutput)
 }
 
-// Set log format. Default format is `json` .
+// Set log format. Default format is “json“.
 //
-// Valid values: `json` | `text`
+//	Valid values: ``json`` | ``text``
 type VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat string
 
 const (
@@ -11661,11 +11661,10 @@ func (in *vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr) ToVpnC
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput)
 }
 
-// The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
+// The action to take after DPD timeout occurs. Specify “restart“ to restart the IKE initiation. Specify “clear“ to end the IKE session.
 //
-// Valid Values: `clear` | `none` | `restart`
-//
-// Default: `clear`
+//	Valid Values: ``clear`` | ``none`` | ``restart``
+//	Default: ``clear``
 type VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction string
 
 const (
@@ -11833,11 +11832,10 @@ func (in *vpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtr) ToVpnCo
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrOutput)
 }
 
-// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
+// The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify “start“ for AWS to initiate the IKE negotiation.
 //
-// Valid Values: `add` | `start`
-//
-// Default: `add`
+//	Valid Values: ``add`` | ``start``
+//	Default: ``add``
 type VpnConnectionVpnTunnelOptionsSpecificationStartupAction string
 
 const (

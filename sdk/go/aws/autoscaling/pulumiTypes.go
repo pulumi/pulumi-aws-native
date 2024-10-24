@@ -4209,8 +4209,30 @@ func (o AutoScalingGroupTotalLocalStorageGbRequestPtrOutput) Min() pulumi.Float6
 }
 
 type AutoScalingGroupTrafficSourceIdentifier struct {
+	// Identifies the traffic source.
+	//
+	// For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+	//
+	// For example:
+	//
+	// - Application Load Balancer ARN: `arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456`
+	// - Classic Load Balancer name: `my-classic-load-balancer`
+	// - VPC Lattice ARN: `arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456`
+	//
+	// To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
+	//
+	// To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
 	Identifier string `pulumi:"identifier"`
-	Type       string `pulumi:"type"`
+	// Provides additional context for the value of `Identifier` .
+	//
+	// The following lists the valid values:
+	//
+	// - `elb` if `Identifier` is the name of a Classic Load Balancer.
+	// - `elbv2` if `Identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+	// - `vpc-lattice` if `Identifier` is the ARN of a VPC Lattice target group.
+	//
+	// Required if the identifier is the name of a Classic Load Balancer.
+	Type string `pulumi:"type"`
 }
 
 // AutoScalingGroupTrafficSourceIdentifierInput is an input type that accepts AutoScalingGroupTrafficSourceIdentifierArgs and AutoScalingGroupTrafficSourceIdentifierOutput values.
@@ -4225,8 +4247,30 @@ type AutoScalingGroupTrafficSourceIdentifierInput interface {
 }
 
 type AutoScalingGroupTrafficSourceIdentifierArgs struct {
+	// Identifies the traffic source.
+	//
+	// For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+	//
+	// For example:
+	//
+	// - Application Load Balancer ARN: `arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456`
+	// - Classic Load Balancer name: `my-classic-load-balancer`
+	// - VPC Lattice ARN: `arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456`
+	//
+	// To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
+	//
+	// To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	Type       pulumi.StringInput `pulumi:"type"`
+	// Provides additional context for the value of `Identifier` .
+	//
+	// The following lists the valid values:
+	//
+	// - `elb` if `Identifier` is the name of a Classic Load Balancer.
+	// - `elbv2` if `Identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+	// - `vpc-lattice` if `Identifier` is the ARN of a VPC Lattice target group.
+	//
+	// Required if the identifier is the name of a Classic Load Balancer.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (AutoScalingGroupTrafficSourceIdentifierArgs) ElementType() reflect.Type {
@@ -4280,10 +4324,32 @@ func (o AutoScalingGroupTrafficSourceIdentifierOutput) ToAutoScalingGroupTraffic
 	return o
 }
 
+// Identifies the traffic source.
+//
+// For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+//
+// For example:
+//
+// - Application Load Balancer ARN: `arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456`
+// - Classic Load Balancer name: `my-classic-load-balancer`
+// - VPC Lattice ARN: `arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456`
+//
+// To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
+//
+// To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
 func (o AutoScalingGroupTrafficSourceIdentifierOutput) Identifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingGroupTrafficSourceIdentifier) string { return v.Identifier }).(pulumi.StringOutput)
 }
 
+// Provides additional context for the value of `Identifier` .
+//
+// The following lists the valid values:
+//
+// - `elb` if `Identifier` is the name of a Classic Load Balancer.
+// - `elbv2` if `Identifier` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+// - `vpc-lattice` if `Identifier` is the ARN of a VPC Lattice target group.
+//
+// Required if the identifier is the name of a Classic Load Balancer.
 func (o AutoScalingGroupTrafficSourceIdentifierOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingGroupTrafficSourceIdentifier) string { return v.Type }).(pulumi.StringOutput)
 }

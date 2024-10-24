@@ -179,6 +179,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="zonalShiftConfig")
     def zonal_shift_config(self) -> Optional['outputs.ClusterZonalShiftConfig']:
+        """
+        The configuration for zonal shift for the cluster.
+        """
         return pulumi.get(self, "zonal_shift_config")
 
 

@@ -59,8 +59,6 @@ namespace Pulumi.AwsNative.IoT
     {
         /// <summary>
         /// An enumerated string that speciﬁes the application-layer protocol.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         public readonly Pulumi.AwsNative.IoT.DomainConfigurationApplicationProtocol? ApplicationProtocol;
         /// <summary>
@@ -69,8 +67,6 @@ namespace Pulumi.AwsNative.IoT
         public readonly string? Arn;
         /// <summary>
         /// An enumerated string that speciﬁes the authentication type.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         public readonly Pulumi.AwsNative.IoT.DomainConfigurationAuthenticationType? AuthenticationType;
         /// <summary>
@@ -79,8 +75,6 @@ namespace Pulumi.AwsNative.IoT
         public readonly Outputs.DomainConfigurationAuthorizerConfig? AuthorizerConfig;
         /// <summary>
         /// An object that speciﬁes the client certificate conﬁguration for a domain.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         public readonly Outputs.DomainConfigurationClientCertificateConfig? ClientCertificateConfig;
         /// <summary>

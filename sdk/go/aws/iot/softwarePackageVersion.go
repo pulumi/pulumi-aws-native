@@ -17,17 +17,23 @@ import (
 type SoftwarePackageVersion struct {
 	pulumi.CustomResourceState
 
-	Attributes  pulumi.StringMapOutput `pulumi:"attributes"`
+	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+	//
+	// The combined size of all the attributes on a package version is limited to 3KB.
+	Attributes pulumi.StringMapOutput `pulumi:"attributes"`
+	// A summary of the package version being created. This can be used to outline the package's contents or purpose.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Error reason for a package version failure during creation or update.
 	ErrorReason pulumi.StringOutput `pulumi:"errorReason"`
+	// The name of the associated software package.
 	PackageName pulumi.StringOutput `pulumi:"packageName"`
 	// The Amazon Resource Name (ARN) for the package.
 	PackageVersionArn pulumi.StringOutput `pulumi:"packageVersionArn"`
 	// The status of the package version. For more information, see [Package version lifecycle](https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle) .
 	Status SoftwarePackageVersionPackageVersionStatusOutput `pulumi:"status"`
 	// An array of key-value pairs to apply to this resource.
-	Tags        aws.TagArrayOutput     `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The name of the new package version.
 	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
 }
 
@@ -79,21 +85,33 @@ func (SoftwarePackageVersionState) ElementType() reflect.Type {
 }
 
 type softwarePackageVersionArgs struct {
-	Attributes  map[string]string `pulumi:"attributes"`
-	Description *string           `pulumi:"description"`
-	PackageName string            `pulumi:"packageName"`
+	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+	//
+	// The combined size of all the attributes on a package version is limited to 3KB.
+	Attributes map[string]string `pulumi:"attributes"`
+	// A summary of the package version being created. This can be used to outline the package's contents or purpose.
+	Description *string `pulumi:"description"`
+	// The name of the associated software package.
+	PackageName string `pulumi:"packageName"`
 	// An array of key-value pairs to apply to this resource.
-	Tags        []aws.Tag `pulumi:"tags"`
-	VersionName *string   `pulumi:"versionName"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The name of the new package version.
+	VersionName *string `pulumi:"versionName"`
 }
 
 // The set of arguments for constructing a SoftwarePackageVersion resource.
 type SoftwarePackageVersionArgs struct {
-	Attributes  pulumi.StringMapInput
+	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+	//
+	// The combined size of all the attributes on a package version is limited to 3KB.
+	Attributes pulumi.StringMapInput
+	// A summary of the package version being created. This can be used to outline the package's contents or purpose.
 	Description pulumi.StringPtrInput
+	// The name of the associated software package.
 	PackageName pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
-	Tags        aws.TagArrayInput
+	Tags aws.TagArrayInput
+	// The name of the new package version.
 	VersionName pulumi.StringPtrInput
 }
 
@@ -134,10 +152,14 @@ func (o SoftwarePackageVersionOutput) ToSoftwarePackageVersionOutputWithContext(
 	return o
 }
 
+// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+//
+// The combined size of all the attributes on a package version is limited to 3KB.
 func (o SoftwarePackageVersionOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SoftwarePackageVersion) pulumi.StringMapOutput { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
+// A summary of the package version being created. This can be used to outline the package's contents or purpose.
 func (o SoftwarePackageVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoftwarePackageVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -147,6 +169,7 @@ func (o SoftwarePackageVersionOutput) ErrorReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwarePackageVersion) pulumi.StringOutput { return v.ErrorReason }).(pulumi.StringOutput)
 }
 
+// The name of the associated software package.
 func (o SoftwarePackageVersionOutput) PackageName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SoftwarePackageVersion) pulumi.StringOutput { return v.PackageName }).(pulumi.StringOutput)
 }
@@ -166,6 +189,7 @@ func (o SoftwarePackageVersionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *SoftwarePackageVersion) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The name of the new package version.
 func (o SoftwarePackageVersionOutput) VersionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SoftwarePackageVersion) pulumi.StringPtrOutput { return v.VersionName }).(pulumi.StringPtrOutput)
 }

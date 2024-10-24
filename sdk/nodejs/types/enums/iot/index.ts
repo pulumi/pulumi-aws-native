@@ -117,8 +117,6 @@ export const DomainConfigurationApplicationProtocol = {
 
 /**
  * An enumerated string that speciﬁes the application-layer protocol.
- *
- * > This property isn't available in China.
  */
 export type DomainConfigurationApplicationProtocol = (typeof DomainConfigurationApplicationProtocol)[keyof typeof DomainConfigurationApplicationProtocol];
 
@@ -132,8 +130,6 @@ export const DomainConfigurationAuthenticationType = {
 
 /**
  * An enumerated string that speciﬁes the authentication type.
- *
- * > This property isn't available in China.
  */
 export type DomainConfigurationAuthenticationType = (typeof DomainConfigurationAuthenticationType)[keyof typeof DomainConfigurationAuthenticationType];
 

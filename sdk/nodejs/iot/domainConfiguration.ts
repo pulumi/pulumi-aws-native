@@ -39,8 +39,6 @@ export class DomainConfiguration extends pulumi.CustomResource {
 
     /**
      * An enumerated string that speciﬁes the application-layer protocol.
-     *
-     * > This property isn't available in China.
      */
     public readonly applicationProtocol!: pulumi.Output<enums.iot.DomainConfigurationApplicationProtocol | undefined>;
     /**
@@ -49,8 +47,6 @@ export class DomainConfiguration extends pulumi.CustomResource {
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * An enumerated string that speciﬁes the authentication type.
-     *
-     * > This property isn't available in China.
      */
     public readonly authenticationType!: pulumi.Output<enums.iot.DomainConfigurationAuthenticationType | undefined>;
     /**
@@ -59,8 +55,6 @@ export class DomainConfiguration extends pulumi.CustomResource {
     public readonly authorizerConfig!: pulumi.Output<outputs.iot.DomainConfigurationAuthorizerConfig | undefined>;
     /**
      * An object that speciﬁes the client certificate conﬁguration for a domain.
-     *
-     * > This property isn't available in China.
      */
     public readonly clientCertificateConfig!: pulumi.Output<outputs.iot.DomainConfigurationClientCertificateConfig | undefined>;
     /**
@@ -178,14 +172,10 @@ export class DomainConfiguration extends pulumi.CustomResource {
 export interface DomainConfigurationArgs {
     /**
      * An enumerated string that speciﬁes the application-layer protocol.
-     *
-     * > This property isn't available in China.
      */
     applicationProtocol?: pulumi.Input<enums.iot.DomainConfigurationApplicationProtocol>;
     /**
      * An enumerated string that speciﬁes the authentication type.
-     *
-     * > This property isn't available in China.
      */
     authenticationType?: pulumi.Input<enums.iot.DomainConfigurationAuthenticationType>;
     /**
@@ -194,8 +184,6 @@ export interface DomainConfigurationArgs {
     authorizerConfig?: pulumi.Input<inputs.iot.DomainConfigurationAuthorizerConfigArgs>;
     /**
      * An object that speciﬁes the client certificate conﬁguration for a domain.
-     *
-     * > This property isn't available in China.
      */
     clientCertificateConfig?: pulumi.Input<inputs.iot.DomainConfigurationClientCertificateConfigArgs>;
     /**

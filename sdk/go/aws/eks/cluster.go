@@ -56,7 +56,8 @@ type Cluster struct {
 	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy ClusterUpgradePolicyPtrOutput `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version          pulumi.StringPtrOutput           `pulumi:"version"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
+	// The configuration for zonal shift for the cluster.
 	ZonalShiftConfig ClusterZonalShiftConfigPtrOutput `pulumi:"zonalShiftConfig"`
 }
 
@@ -141,7 +142,8 @@ type clusterArgs struct {
 	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy *ClusterUpgradePolicy `pulumi:"upgradePolicy"`
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version          *string                  `pulumi:"version"`
+	Version *string `pulumi:"version"`
+	// The configuration for zonal shift for the cluster.
 	ZonalShiftConfig *ClusterZonalShiftConfig `pulumi:"zonalShiftConfig"`
 }
 
@@ -172,7 +174,8 @@ type ClusterArgs struct {
 	// [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
 	UpgradePolicy ClusterUpgradePolicyPtrInput
 	// The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
-	Version          pulumi.StringPtrInput
+	Version pulumi.StringPtrInput
+	// The configuration for zonal shift for the cluster.
 	ZonalShiftConfig ClusterZonalShiftConfigPtrInput
 }
 
@@ -310,6 +313,7 @@ func (o ClusterOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
+// The configuration for zonal shift for the cluster.
 func (o ClusterOutput) ZonalShiftConfig() ClusterZonalShiftConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterZonalShiftConfigPtrOutput { return v.ZonalShiftConfig }).(ClusterZonalShiftConfigPtrOutput)
 }

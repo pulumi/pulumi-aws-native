@@ -1571,6 +1571,512 @@ func (o HostedZoneVpcArrayOutput) Index(i pulumi.IntInput) HostedZoneVpcOutput {
 	}).(HostedZoneVpcOutput)
 }
 
+type RecordSetAliasTarget struct {
+	// The value that you specify depends on where you want to route queries.
+	DnsName string `pulumi:"dnsName"`
+	// When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// The value used depends on where you want to route traffic.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+
+// RecordSetAliasTargetInput is an input type that accepts RecordSetAliasTargetArgs and RecordSetAliasTargetOutput values.
+// You can construct a concrete instance of `RecordSetAliasTargetInput` via:
+//
+//	RecordSetAliasTargetArgs{...}
+type RecordSetAliasTargetInput interface {
+	pulumi.Input
+
+	ToRecordSetAliasTargetOutput() RecordSetAliasTargetOutput
+	ToRecordSetAliasTargetOutputWithContext(context.Context) RecordSetAliasTargetOutput
+}
+
+type RecordSetAliasTargetArgs struct {
+	// The value that you specify depends on where you want to route queries.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// The value used depends on where you want to route traffic.
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+}
+
+func (RecordSetAliasTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetAliasTarget)(nil)).Elem()
+}
+
+func (i RecordSetAliasTargetArgs) ToRecordSetAliasTargetOutput() RecordSetAliasTargetOutput {
+	return i.ToRecordSetAliasTargetOutputWithContext(context.Background())
+}
+
+func (i RecordSetAliasTargetArgs) ToRecordSetAliasTargetOutputWithContext(ctx context.Context) RecordSetAliasTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetAliasTargetOutput)
+}
+
+func (i RecordSetAliasTargetArgs) ToRecordSetAliasTargetPtrOutput() RecordSetAliasTargetPtrOutput {
+	return i.ToRecordSetAliasTargetPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetAliasTargetArgs) ToRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordSetAliasTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetAliasTargetOutput).ToRecordSetAliasTargetPtrOutputWithContext(ctx)
+}
+
+// RecordSetAliasTargetPtrInput is an input type that accepts RecordSetAliasTargetArgs, RecordSetAliasTargetPtr and RecordSetAliasTargetPtrOutput values.
+// You can construct a concrete instance of `RecordSetAliasTargetPtrInput` via:
+//
+//	        RecordSetAliasTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetAliasTargetPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetAliasTargetPtrOutput() RecordSetAliasTargetPtrOutput
+	ToRecordSetAliasTargetPtrOutputWithContext(context.Context) RecordSetAliasTargetPtrOutput
+}
+
+type recordSetAliasTargetPtrType RecordSetAliasTargetArgs
+
+func RecordSetAliasTargetPtr(v *RecordSetAliasTargetArgs) RecordSetAliasTargetPtrInput {
+	return (*recordSetAliasTargetPtrType)(v)
+}
+
+func (*recordSetAliasTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetAliasTarget)(nil)).Elem()
+}
+
+func (i *recordSetAliasTargetPtrType) ToRecordSetAliasTargetPtrOutput() RecordSetAliasTargetPtrOutput {
+	return i.ToRecordSetAliasTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetAliasTargetPtrType) ToRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordSetAliasTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetAliasTargetPtrOutput)
+}
+
+type RecordSetAliasTargetOutput struct{ *pulumi.OutputState }
+
+func (RecordSetAliasTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetAliasTarget)(nil)).Elem()
+}
+
+func (o RecordSetAliasTargetOutput) ToRecordSetAliasTargetOutput() RecordSetAliasTargetOutput {
+	return o
+}
+
+func (o RecordSetAliasTargetOutput) ToRecordSetAliasTargetOutputWithContext(ctx context.Context) RecordSetAliasTargetOutput {
+	return o
+}
+
+func (o RecordSetAliasTargetOutput) ToRecordSetAliasTargetPtrOutput() RecordSetAliasTargetPtrOutput {
+	return o.ToRecordSetAliasTargetPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetAliasTargetOutput) ToRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordSetAliasTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetAliasTarget) *RecordSetAliasTarget {
+		return &v
+	}).(RecordSetAliasTargetPtrOutput)
+}
+
+// The value that you specify depends on where you want to route queries.
+func (o RecordSetAliasTargetOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetAliasTarget) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+func (o RecordSetAliasTargetOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RecordSetAliasTarget) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
+}
+
+// The value used depends on where you want to route traffic.
+func (o RecordSetAliasTargetOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetAliasTarget) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+type RecordSetAliasTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetAliasTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetAliasTarget)(nil)).Elem()
+}
+
+func (o RecordSetAliasTargetPtrOutput) ToRecordSetAliasTargetPtrOutput() RecordSetAliasTargetPtrOutput {
+	return o
+}
+
+func (o RecordSetAliasTargetPtrOutput) ToRecordSetAliasTargetPtrOutputWithContext(ctx context.Context) RecordSetAliasTargetPtrOutput {
+	return o
+}
+
+func (o RecordSetAliasTargetPtrOutput) Elem() RecordSetAliasTargetOutput {
+	return o.ApplyT(func(v *RecordSetAliasTarget) RecordSetAliasTarget {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetAliasTarget
+		return ret
+	}).(RecordSetAliasTargetOutput)
+}
+
+// The value that you specify depends on where you want to route queries.
+func (o RecordSetAliasTargetPtrOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetAliasTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsName
+	}).(pulumi.StringPtrOutput)
+}
+
+// When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+func (o RecordSetAliasTargetPtrOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RecordSetAliasTarget) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluateTargetHealth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The value used depends on where you want to route traffic.
+func (o RecordSetAliasTargetPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetAliasTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HostedZoneId
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordSetCidrRoutingConfig struct {
+	// The CIDR collection ID.
+	CollectionId string `pulumi:"collectionId"`
+	// The CIDR collection location name.
+	LocationName string `pulumi:"locationName"`
+}
+
+// RecordSetCidrRoutingConfigInput is an input type that accepts RecordSetCidrRoutingConfigArgs and RecordSetCidrRoutingConfigOutput values.
+// You can construct a concrete instance of `RecordSetCidrRoutingConfigInput` via:
+//
+//	RecordSetCidrRoutingConfigArgs{...}
+type RecordSetCidrRoutingConfigInput interface {
+	pulumi.Input
+
+	ToRecordSetCidrRoutingConfigOutput() RecordSetCidrRoutingConfigOutput
+	ToRecordSetCidrRoutingConfigOutputWithContext(context.Context) RecordSetCidrRoutingConfigOutput
+}
+
+type RecordSetCidrRoutingConfigArgs struct {
+	// The CIDR collection ID.
+	CollectionId pulumi.StringInput `pulumi:"collectionId"`
+	// The CIDR collection location name.
+	LocationName pulumi.StringInput `pulumi:"locationName"`
+}
+
+func (RecordSetCidrRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigOutput() RecordSetCidrRoutingConfigOutput {
+	return i.ToRecordSetCidrRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCidrRoutingConfigOutput)
+}
+
+func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
+	return i.ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetCidrRoutingConfigArgs) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCidrRoutingConfigOutput).ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// RecordSetCidrRoutingConfigPtrInput is an input type that accepts RecordSetCidrRoutingConfigArgs, RecordSetCidrRoutingConfigPtr and RecordSetCidrRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `RecordSetCidrRoutingConfigPtrInput` via:
+//
+//	        RecordSetCidrRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetCidrRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput
+	ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Context) RecordSetCidrRoutingConfigPtrOutput
+}
+
+type recordSetCidrRoutingConfigPtrType RecordSetCidrRoutingConfigArgs
+
+func RecordSetCidrRoutingConfigPtr(v *RecordSetCidrRoutingConfigArgs) RecordSetCidrRoutingConfigPtrInput {
+	return (*recordSetCidrRoutingConfigPtrType)(v)
+}
+
+func (*recordSetCidrRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (i *recordSetCidrRoutingConfigPtrType) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
+	return i.ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetCidrRoutingConfigPtrType) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetCidrRoutingConfigPtrOutput)
+}
+
+type RecordSetCidrRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (RecordSetCidrRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigOutput() RecordSetCidrRoutingConfigOutput {
+	return o
+}
+
+func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigOutput {
+	return o
+}
+
+func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
+	return o.ToRecordSetCidrRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetCidrRoutingConfigOutput) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetCidrRoutingConfig) *RecordSetCidrRoutingConfig {
+		return &v
+	}).(RecordSetCidrRoutingConfigPtrOutput)
+}
+
+// The CIDR collection ID.
+func (o RecordSetCidrRoutingConfigOutput) CollectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetCidrRoutingConfig) string { return v.CollectionId }).(pulumi.StringOutput)
+}
+
+// The CIDR collection location name.
+func (o RecordSetCidrRoutingConfigOutput) LocationName() pulumi.StringOutput {
+	return o.ApplyT(func(v RecordSetCidrRoutingConfig) string { return v.LocationName }).(pulumi.StringOutput)
+}
+
+type RecordSetCidrRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetCidrRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetCidrRoutingConfig)(nil)).Elem()
+}
+
+func (o RecordSetCidrRoutingConfigPtrOutput) ToRecordSetCidrRoutingConfigPtrOutput() RecordSetCidrRoutingConfigPtrOutput {
+	return o
+}
+
+func (o RecordSetCidrRoutingConfigPtrOutput) ToRecordSetCidrRoutingConfigPtrOutputWithContext(ctx context.Context) RecordSetCidrRoutingConfigPtrOutput {
+	return o
+}
+
+func (o RecordSetCidrRoutingConfigPtrOutput) Elem() RecordSetCidrRoutingConfigOutput {
+	return o.ApplyT(func(v *RecordSetCidrRoutingConfig) RecordSetCidrRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetCidrRoutingConfig
+		return ret
+	}).(RecordSetCidrRoutingConfigOutput)
+}
+
+// The CIDR collection ID.
+func (o RecordSetCidrRoutingConfigPtrOutput) CollectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetCidrRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CollectionId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CIDR collection location name.
+func (o RecordSetCidrRoutingConfigPtrOutput) LocationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetCidrRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocationName
+	}).(pulumi.StringPtrOutput)
+}
+
+type RecordSetGeoLocation struct {
+	// For geolocation resource record sets, a two-letter abbreviation that identifies a continent.
+	ContinentCode *string `pulumi:"continentCode"`
+	// For geolocation resource record sets, the two-letter code for a country.
+	CountryCode *string `pulumi:"countryCode"`
+	// For geolocation resource record sets, the two-letter code for a state of the United States.
+	SubdivisionCode *string `pulumi:"subdivisionCode"`
+}
+
+// RecordSetGeoLocationInput is an input type that accepts RecordSetGeoLocationArgs and RecordSetGeoLocationOutput values.
+// You can construct a concrete instance of `RecordSetGeoLocationInput` via:
+//
+//	RecordSetGeoLocationArgs{...}
+type RecordSetGeoLocationInput interface {
+	pulumi.Input
+
+	ToRecordSetGeoLocationOutput() RecordSetGeoLocationOutput
+	ToRecordSetGeoLocationOutputWithContext(context.Context) RecordSetGeoLocationOutput
+}
+
+type RecordSetGeoLocationArgs struct {
+	// For geolocation resource record sets, a two-letter abbreviation that identifies a continent.
+	ContinentCode pulumi.StringPtrInput `pulumi:"continentCode"`
+	// For geolocation resource record sets, the two-letter code for a country.
+	CountryCode pulumi.StringPtrInput `pulumi:"countryCode"`
+	// For geolocation resource record sets, the two-letter code for a state of the United States.
+	SubdivisionCode pulumi.StringPtrInput `pulumi:"subdivisionCode"`
+}
+
+func (RecordSetGeoLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGeoLocation)(nil)).Elem()
+}
+
+func (i RecordSetGeoLocationArgs) ToRecordSetGeoLocationOutput() RecordSetGeoLocationOutput {
+	return i.ToRecordSetGeoLocationOutputWithContext(context.Background())
+}
+
+func (i RecordSetGeoLocationArgs) ToRecordSetGeoLocationOutputWithContext(ctx context.Context) RecordSetGeoLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGeoLocationOutput)
+}
+
+func (i RecordSetGeoLocationArgs) ToRecordSetGeoLocationPtrOutput() RecordSetGeoLocationPtrOutput {
+	return i.ToRecordSetGeoLocationPtrOutputWithContext(context.Background())
+}
+
+func (i RecordSetGeoLocationArgs) ToRecordSetGeoLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGeoLocationOutput).ToRecordSetGeoLocationPtrOutputWithContext(ctx)
+}
+
+// RecordSetGeoLocationPtrInput is an input type that accepts RecordSetGeoLocationArgs, RecordSetGeoLocationPtr and RecordSetGeoLocationPtrOutput values.
+// You can construct a concrete instance of `RecordSetGeoLocationPtrInput` via:
+//
+//	        RecordSetGeoLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RecordSetGeoLocationPtrInput interface {
+	pulumi.Input
+
+	ToRecordSetGeoLocationPtrOutput() RecordSetGeoLocationPtrOutput
+	ToRecordSetGeoLocationPtrOutputWithContext(context.Context) RecordSetGeoLocationPtrOutput
+}
+
+type recordSetGeoLocationPtrType RecordSetGeoLocationArgs
+
+func RecordSetGeoLocationPtr(v *RecordSetGeoLocationArgs) RecordSetGeoLocationPtrInput {
+	return (*recordSetGeoLocationPtrType)(v)
+}
+
+func (*recordSetGeoLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGeoLocation)(nil)).Elem()
+}
+
+func (i *recordSetGeoLocationPtrType) ToRecordSetGeoLocationPtrOutput() RecordSetGeoLocationPtrOutput {
+	return i.ToRecordSetGeoLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *recordSetGeoLocationPtrType) ToRecordSetGeoLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecordSetGeoLocationPtrOutput)
+}
+
+type RecordSetGeoLocationOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGeoLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecordSetGeoLocation)(nil)).Elem()
+}
+
+func (o RecordSetGeoLocationOutput) ToRecordSetGeoLocationOutput() RecordSetGeoLocationOutput {
+	return o
+}
+
+func (o RecordSetGeoLocationOutput) ToRecordSetGeoLocationOutputWithContext(ctx context.Context) RecordSetGeoLocationOutput {
+	return o
+}
+
+func (o RecordSetGeoLocationOutput) ToRecordSetGeoLocationPtrOutput() RecordSetGeoLocationPtrOutput {
+	return o.ToRecordSetGeoLocationPtrOutputWithContext(context.Background())
+}
+
+func (o RecordSetGeoLocationOutput) ToRecordSetGeoLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecordSetGeoLocation) *RecordSetGeoLocation {
+		return &v
+	}).(RecordSetGeoLocationPtrOutput)
+}
+
+// For geolocation resource record sets, a two-letter abbreviation that identifies a continent.
+func (o RecordSetGeoLocationOutput) ContinentCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordSetGeoLocation) *string { return v.ContinentCode }).(pulumi.StringPtrOutput)
+}
+
+// For geolocation resource record sets, the two-letter code for a country.
+func (o RecordSetGeoLocationOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordSetGeoLocation) *string { return v.CountryCode }).(pulumi.StringPtrOutput)
+}
+
+// For geolocation resource record sets, the two-letter code for a state of the United States.
+func (o RecordSetGeoLocationOutput) SubdivisionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RecordSetGeoLocation) *string { return v.SubdivisionCode }).(pulumi.StringPtrOutput)
+}
+
+type RecordSetGeoLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (RecordSetGeoLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RecordSetGeoLocation)(nil)).Elem()
+}
+
+func (o RecordSetGeoLocationPtrOutput) ToRecordSetGeoLocationPtrOutput() RecordSetGeoLocationPtrOutput {
+	return o
+}
+
+func (o RecordSetGeoLocationPtrOutput) ToRecordSetGeoLocationPtrOutputWithContext(ctx context.Context) RecordSetGeoLocationPtrOutput {
+	return o
+}
+
+func (o RecordSetGeoLocationPtrOutput) Elem() RecordSetGeoLocationOutput {
+	return o.ApplyT(func(v *RecordSetGeoLocation) RecordSetGeoLocation {
+		if v != nil {
+			return *v
+		}
+		var ret RecordSetGeoLocation
+		return ret
+	}).(RecordSetGeoLocationOutput)
+}
+
+// For geolocation resource record sets, a two-letter abbreviation that identifies a continent.
+func (o RecordSetGeoLocationPtrOutput) ContinentCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGeoLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContinentCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// For geolocation resource record sets, the two-letter code for a country.
+func (o RecordSetGeoLocationPtrOutput) CountryCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGeoLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CountryCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// For geolocation resource record sets, the two-letter code for a state of the United States.
+func (o RecordSetGeoLocationPtrOutput) SubdivisionCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RecordSetGeoLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubdivisionCode
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CidrCollectionLocationInput)(nil)).Elem(), CidrCollectionLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CidrCollectionLocationArrayInput)(nil)).Elem(), CidrCollectionLocationArray{})
@@ -1585,6 +2091,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneQueryLoggingConfigPtrInput)(nil)).Elem(), HostedZoneQueryLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVpcInput)(nil)).Elem(), HostedZoneVpcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneVpcArrayInput)(nil)).Elem(), HostedZoneVpcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetAliasTargetPtrInput)(nil)).Elem(), RecordSetAliasTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetCidrRoutingConfigPtrInput)(nil)).Elem(), RecordSetCidrRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoLocationInput)(nil)).Elem(), RecordSetGeoLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordSetGeoLocationPtrInput)(nil)).Elem(), RecordSetGeoLocationArgs{})
 	pulumi.RegisterOutputType(CidrCollectionLocationOutput{})
 	pulumi.RegisterOutputType(CidrCollectionLocationArrayOutput{})
 	pulumi.RegisterOutputType(HealthCheckAlarmIdentifierOutput{})
@@ -1599,4 +2111,10 @@ func init() {
 	pulumi.RegisterOutputType(HostedZoneQueryLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneVpcOutput{})
 	pulumi.RegisterOutputType(HostedZoneVpcArrayOutput{})
+	pulumi.RegisterOutputType(RecordSetAliasTargetOutput{})
+	pulumi.RegisterOutputType(RecordSetAliasTargetPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigOutput{})
+	pulumi.RegisterOutputType(RecordSetCidrRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(RecordSetGeoLocationOutput{})
+	pulumi.RegisterOutputType(RecordSetGeoLocationPtrOutput{})
 }

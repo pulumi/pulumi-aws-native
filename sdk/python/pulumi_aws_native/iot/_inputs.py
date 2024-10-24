@@ -864,8 +864,6 @@ if not MYPY:
         client_certificate_callback_arn: NotRequired[pulumi.Input[str]]
         """
         The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-
-        > This property isn't available in China.
         """
 elif False:
     DomainConfigurationClientCertificateConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -876,8 +874,6 @@ class DomainConfigurationClientCertificateConfigArgs:
                  client_certificate_callback_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] client_certificate_callback_arn: The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-               
-               > This property isn't available in China.
         """
         if client_certificate_callback_arn is not None:
             pulumi.set(__self__, "client_certificate_callback_arn", client_certificate_callback_arn)
@@ -887,8 +883,6 @@ class DomainConfigurationClientCertificateConfigArgs:
     def client_certificate_callback_arn(self) -> Optional[pulumi.Input[str]]:
         """
         The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "client_certificate_callback_arn")
 

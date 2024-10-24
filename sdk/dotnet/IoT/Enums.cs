@@ -304,8 +304,6 @@ namespace Pulumi.AwsNative.IoT
 
     /// <summary>
     /// An enumerated string that speciﬁes the application-layer protocol.
-    /// 
-    /// &gt; This property isn't available in China.
     /// </summary>
     [EnumType]
     public readonly struct DomainConfigurationApplicationProtocol : IEquatable<DomainConfigurationApplicationProtocol>
@@ -339,8 +337,6 @@ namespace Pulumi.AwsNative.IoT
 
     /// <summary>
     /// An enumerated string that speciﬁes the authentication type.
-    /// 
-    /// &gt; This property isn't available in China.
     /// </summary>
     [EnumType]
     public readonly struct DomainConfigurationAuthenticationType : IEquatable<DomainConfigurationAuthenticationType>

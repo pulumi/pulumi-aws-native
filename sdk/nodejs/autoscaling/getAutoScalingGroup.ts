@@ -154,6 +154,9 @@ export interface GetAutoScalingGroupResult {
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
     readonly terminationPolicies?: string[];
+    /**
+     * The traffic sources associated with this Auto Scaling group.
+     */
     readonly trafficSources?: outputs.autoscaling.AutoScalingGroupTrafficSourceIdentifier[];
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.

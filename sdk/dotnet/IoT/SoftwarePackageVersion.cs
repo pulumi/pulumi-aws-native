@@ -15,9 +15,17 @@ namespace Pulumi.AwsNative.IoT
     [AwsNativeResourceType("aws-native:iot:SoftwarePackageVersion")]
     public partial class SoftwarePackageVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+        /// 
+        /// The combined size of all the attributes on a package version is limited to 3KB.
+        /// </summary>
         [Output("attributes")]
         public Output<ImmutableDictionary<string, string>?> Attributes { get; private set; } = null!;
 
+        /// <summary>
+        /// A summary of the package version being created. This can be used to outline the package's contents or purpose.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -27,6 +35,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("errorReason")]
         public Output<string> ErrorReason { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the associated software package.
+        /// </summary>
         [Output("packageName")]
         public Output<string> PackageName { get; private set; } = null!;
 
@@ -48,6 +59,9 @@ namespace Pulumi.AwsNative.IoT
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the new package version.
+        /// </summary>
         [Output("versionName")]
         public Output<string?> VersionName { get; private set; } = null!;
 
@@ -103,15 +117,27 @@ namespace Pulumi.AwsNative.IoT
     {
         [Input("attributes")]
         private InputMap<string>? _attributes;
+
+        /// <summary>
+        /// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+        /// 
+        /// The combined size of all the attributes on a package version is limited to 3KB.
+        /// </summary>
         public InputMap<string> Attributes
         {
             get => _attributes ?? (_attributes = new InputMap<string>());
             set => _attributes = value;
         }
 
+        /// <summary>
+        /// A summary of the package version being created. This can be used to outline the package's contents or purpose.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the associated software package.
+        /// </summary>
         [Input("packageName", required: true)]
         public Input<string> PackageName { get; set; } = null!;
 
@@ -127,6 +153,9 @@ namespace Pulumi.AwsNative.IoT
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The name of the new package version.
+        /// </summary>
         [Input("versionName")]
         public Input<string>? VersionName { get; set; }
 

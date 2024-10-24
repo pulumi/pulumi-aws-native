@@ -15,8 +15,6 @@ namespace Pulumi.AwsNative.IoT.Outputs
     {
         /// <summary>
         /// The ARN of the Lambda function that IoT invokes after mutual TLS authentication during the connection.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         public readonly string? ClientCertificateCallbackArn;
 
