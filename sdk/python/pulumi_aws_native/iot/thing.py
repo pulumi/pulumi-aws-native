@@ -95,9 +95,9 @@ class Thing(pulumi.CustomResource):
             thing_name=name_parameter,
             attribute_payload={
                 "attributes": {
-                    "my_attribute_a": my_attribute_value_a,
-                    "my_attribute_b": my_attribute_value_b,
-                    "my_attribute_c": my_attribute_value_c,
+                    "myAttributeA": my_attribute_value_a,
+                    "myAttributeB": my_attribute_value_b,
+                    "myAttributeC": my_attribute_value_c,
                 },
             })
 
@@ -141,9 +141,9 @@ class Thing(pulumi.CustomResource):
             thing_name=name_parameter,
             attribute_payload={
                 "attributes": {
-                    "my_attribute_a": my_attribute_value_a,
-                    "my_attribute_b": my_attribute_value_b,
-                    "my_attribute_c": my_attribute_value_c,
+                    "myAttributeA": my_attribute_value_a,
+                    "myAttributeB": my_attribute_value_b,
+                    "myAttributeC": my_attribute_value_c,
                 },
             })
 
