@@ -58,6 +58,7 @@
   "readOnlyProperties" : [ "/properties/Id" ],
   "writeOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/ResourceId", "/properties/ProfileId" ],
+  "replacementStrategy" : "delete_then_create",
   "primaryIdentifier" : [ "/properties/Id" ],
   "tagging" : {
     "taggable" : true,

@@ -47,6 +47,7 @@ AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::VpcLink
 AWS::AppConfig::Application
 AWS::AppConfig::ConfigurationProfile
+AWS::AppConfig::DeploymentStrategy
 AWS::AppConfig::Environment
 AWS::AppConfig::Extension
 AWS::AppConfig::ExtensionAssociation
@@ -74,6 +75,7 @@ AWS::AppSync::DataSource
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
 AWS::AppSync::FunctionConfiguration
+AWS::AppSync::GraphQLApi
 AWS::AppSync::Resolver
 AWS::AppSync::SourceApiAssociation
 AWS::ApplicationAutoScaling::ScalableTarget
@@ -864,6 +866,7 @@ AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
 AWS::Route53::HostedZone
 AWS::Route53::KeySigningKey
+AWS::Route53::RecordSet
 AWS::Route53Profiles::Profile
 AWS::Route53Profiles::ProfileAssociation
 AWS::Route53Profiles::ProfileResourceAssociation
@@ -950,6 +953,7 @@ AWS::SageMaker::DataQualityJobDefinition
 AWS::SageMaker::Device
 AWS::SageMaker::DeviceFleet
 AWS::SageMaker::Domain
+AWS::SageMaker::Endpoint
 AWS::SageMaker::FeatureGroup
 AWS::SageMaker::Image
 AWS::SageMaker::ImageVersion

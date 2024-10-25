@@ -86,6 +86,9 @@
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "Config" ],
   "createOnlyProperties" : [ "/properties/Config" ],
   "readOnlyProperties" : [ "/properties/Id" ],

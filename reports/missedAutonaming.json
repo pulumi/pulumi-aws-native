@@ -3416,7 +3416,8 @@
         "description": "Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:\n\n- `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .\n- `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account ."
       },
       "unusedReservationBillingOwnerId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned."
       }
     }
   },
@@ -3635,6 +3636,9 @@
   "aws-native:ec2:Eip": {
     "cfTypeName": "AWS::EC2::EIP",
     "properties": {
+      "address": {
+        "type": "string"
+      },
       "domain": {
         "type": "string",
         "description": "The network (``vpc``).\n If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource."
@@ -3642,6 +3646,9 @@
       "instanceId": {
         "type": "string",
         "description": "The ID of the instance.\n  Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource."
+      },
+      "ipamPoolId": {
+        "type": "string"
       },
       "networkBorderGroup": {
         "type": "string",
@@ -9767,7 +9774,7 @@
       },
       "configuration": {
         "$ref": "pulumi.json#/Any",
-        "description": "Configuration information to connect your data source repository to Amazon Q Business. Use this parameter to provide a JSON schema with configuration information specific to your data source connector.\n\nEach data source has a JSON schema provided by Amazon Q Business that you must use. For example, the Amazon S3 and Web Crawler connectors require the following JSON schemas:\n\n- [Amazon S3 JSON schema](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-api.html)\n- [Web Crawler JSON schema](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-api.html)\n\nYou can find configuration templates for your specific data source using the following steps:\n\n- Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source of your choice.\n- Then, from your specific data source connector page, select *Using the API* . You will find the JSON schema for your data source, including parameter descriptions, in this section.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property."
+        "description": "Use this property to specify a JSON or YAML schema with configuration properties specific to your data source connector to connect your data source repository to Amazon Q Business . You must use the JSON or YAML schema provided by Amazon Q .\n\nThe following links have the configuration properties and schemas for AWS CloudFormation for the following connectors:\n\n- [Amazon Simple Storage Service](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/s3-cfn.html)\n- [Amazon Q Web Crawler](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/web-crawler-cfn.html)\n\nSimilarly, you can find configuration templates and properties for your specific data source using the following steps:\n\n- Navigate to the [Supported connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connectors-list.html) page in the Amazon Q Business User Guide, and select the data source connector of your choice.\n- Then, from that specific data source connector's page, choose the topic containing *Using AWS CloudFormation* to find the schemas for your data source connector, including configuration parameter descriptions and examples.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::QBusiness::DataSource` for more information about the expected schema for this property."
       },
       "description": {
         "type": "string",
