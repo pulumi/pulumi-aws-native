@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     {
         /// <summary>
         /// The Code Editor application settings.
+        /// 
+        /// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         /// </summary>
         [Input("codeEditorAppSettings")]
         public Input<Inputs.UserProfileCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
@@ -26,6 +28,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         /// <summary>
         /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// 
+        /// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         /// </summary>
         public InputList<Inputs.UserProfileCustomFileSystemConfigArgs> CustomFileSystemConfigs
         {
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         /// <summary>
         /// Details about the POSIX identity that is used for file system operations.
+        /// 
+        /// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         /// </summary>
         [Input("customPosixUserConfig")]
         public Input<Inputs.UserProfileCustomPosixUserConfigArgs>? CustomPosixUserConfig { get; set; }
@@ -53,6 +59,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         /// <summary>
         /// The settings for the JupyterLab application.
+        /// 
+        /// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         /// </summary>
         [Input("jupyterLabAppSettings")]
         public Input<Inputs.UserProfileJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
@@ -95,6 +103,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
         /// <summary>
         /// The storage settings for a space.
+        /// 
+        /// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.UserProfileDefaultSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }

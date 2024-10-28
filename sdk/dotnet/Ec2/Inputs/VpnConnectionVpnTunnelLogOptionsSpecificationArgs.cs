@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
+    /// <summary>
+    /// Options for logging VPN tunnel activity.
+    /// </summary>
     public sealed class VpnConnectionVpnTunnelLogOptionsSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

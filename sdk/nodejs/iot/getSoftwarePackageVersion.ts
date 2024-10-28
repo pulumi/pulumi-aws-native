@@ -19,12 +19,26 @@ export function getSoftwarePackageVersion(args: GetSoftwarePackageVersionArgs, o
 }
 
 export interface GetSoftwarePackageVersionArgs {
+    /**
+     * The name of the associated software package.
+     */
     packageName: string;
+    /**
+     * The name of the new package version.
+     */
     versionName: string;
 }
 
 export interface GetSoftwarePackageVersionResult {
+    /**
+     * Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+     *
+     * The combined size of all the attributes on a package version is limited to 3KB.
+     */
     readonly attributes?: {[key: string]: string};
+    /**
+     * A summary of the package version being created. This can be used to outline the package's contents or purpose.
+     */
     readonly description?: string;
     /**
      * Error reason for a package version failure during creation or update.
@@ -55,6 +69,12 @@ export function getSoftwarePackageVersionOutput(args: GetSoftwarePackageVersionO
 }
 
 export interface GetSoftwarePackageVersionOutputArgs {
+    /**
+     * The name of the associated software package.
+     */
     packageName: pulumi.Input<string>;
+    /**
+     * The name of the new package version.
+     */
     versionName: pulumi.Input<string>;
 }

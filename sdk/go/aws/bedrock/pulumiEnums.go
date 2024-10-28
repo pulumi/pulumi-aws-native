@@ -14,7 +14,8 @@ import (
 type AgentActionGroupSignature string
 
 const (
-	AgentActionGroupSignatureAmazonUserInput = AgentActionGroupSignature("AMAZON.UserInput")
+	AgentActionGroupSignatureAmazonUserInput       = AgentActionGroupSignature("AMAZON.UserInput")
+	AgentActionGroupSignatureAmazonCodeInterpreter = AgentActionGroupSignature("AMAZON.CodeInterpreter")
 )
 
 func (AgentActionGroupSignature) ElementType() reflect.Type {
@@ -140,6 +141,7 @@ func (o AgentActionGroupSignaturePtrOutput) ToStringPtrOutputWithContext(ctx con
 // A concrete instance of `AgentActionGroupSignatureInput` can be one of the following:
 //
 //	AgentActionGroupSignatureAmazonUserInput
+//	AgentActionGroupSignatureAmazonCodeInterpreter
 type AgentActionGroupSignatureInput interface {
 	pulumi.Input
 

@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("autoScalingGroupName")]
         public Output<string?> AutoScalingGroupName { get; private set; } = null!;
 
+        [Output("availabilityZoneDistribution")]
+        public Output<Outputs.AutoScalingGroupAvailabilityZoneDistribution?> AvailabilityZoneDistribution { get; private set; } = null!;
+
         /// <summary>
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         /// </summary>
@@ -211,6 +214,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("terminationPolicies")]
         public Output<ImmutableArray<string>> TerminationPolicies { get; private set; } = null!;
 
+        /// <summary>
+        /// The traffic sources associated with this Auto Scaling group.
+        /// </summary>
         [Output("trafficSources")]
         public Output<ImmutableArray<Outputs.AutoScalingGroupTrafficSourceIdentifier>> TrafficSources { get; private set; } = null!;
 
@@ -280,6 +286,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         [Input("autoScalingGroupName")]
         public Input<string>? AutoScalingGroupName { get; set; }
+
+        [Input("availabilityZoneDistribution")]
+        public Input<Inputs.AutoScalingGroupAvailabilityZoneDistributionArgs>? AvailabilityZoneDistribution { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -516,6 +525,10 @@ namespace Pulumi.AwsNative.AutoScaling
 
         [Input("trafficSources")]
         private InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs>? _trafficSources;
+
+        /// <summary>
+        /// The traffic sources associated with this Auto Scaling group.
+        /// </summary>
         public InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs> TrafficSources
         {
             get => _trafficSources ?? (_trafficSources = new InputList<Inputs.AutoScalingGroupTrafficSourceIdentifierArgs>());

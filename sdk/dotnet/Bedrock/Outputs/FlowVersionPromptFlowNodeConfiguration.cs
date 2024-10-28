@@ -16,11 +16,16 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class FlowVersionPromptFlowNodeConfiguration
     {
+        public readonly Outputs.FlowVersionGuardrailConfiguration? GuardrailConfiguration;
         public readonly Union<Outputs.FlowVersionPromptFlowNodeSourceConfiguration0Properties, Outputs.FlowVersionPromptFlowNodeSourceConfiguration1Properties> SourceConfiguration;
 
         [OutputConstructor]
-        private FlowVersionPromptFlowNodeConfiguration(Union<Outputs.FlowVersionPromptFlowNodeSourceConfiguration0Properties, Outputs.FlowVersionPromptFlowNodeSourceConfiguration1Properties> sourceConfiguration)
+        private FlowVersionPromptFlowNodeConfiguration(
+            Outputs.FlowVersionGuardrailConfiguration? guardrailConfiguration,
+
+            Union<Outputs.FlowVersionPromptFlowNodeSourceConfiguration0Properties, Outputs.FlowVersionPromptFlowNodeSourceConfiguration1Properties> sourceConfiguration)
         {
+            GuardrailConfiguration = guardrailConfiguration;
             SourceConfiguration = sourceConfiguration;
         }
     }

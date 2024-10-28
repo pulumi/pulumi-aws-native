@@ -49,7 +49,6 @@ export interface GetPromptVersionResult {
      * Identifier for a Prompt
      */
     readonly promptId?: string;
-    readonly tags?: {[key: string]: string};
     /**
      * Time Stamp.
      */

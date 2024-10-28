@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.AutoScaling
     [OutputType]
     public sealed class GetAutoScalingGroupResult
     {
+        public readonly Outputs.AutoScalingGroupAvailabilityZoneDistribution? AvailabilityZoneDistribution;
         /// <summary>
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         /// </summary>
@@ -191,6 +192,9 @@ namespace Pulumi.AwsNative.AutoScaling
         ///  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
         /// </summary>
         public readonly ImmutableArray<string> TerminationPolicies;
+        /// <summary>
+        /// The traffic sources associated with this Auto Scaling group.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AutoScalingGroupTrafficSourceIdentifier> TrafficSources;
         /// <summary>
         /// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
@@ -202,6 +206,8 @@ namespace Pulumi.AwsNative.AutoScaling
 
         [OutputConstructor]
         private GetAutoScalingGroupResult(
+            Outputs.AutoScalingGroupAvailabilityZoneDistribution? availabilityZoneDistribution,
+
             ImmutableArray<string> availabilityZones,
 
             bool? capacityRebalance,
@@ -260,6 +266,7 @@ namespace Pulumi.AwsNative.AutoScaling
 
             ImmutableArray<string> vpcZoneIdentifier)
         {
+            AvailabilityZoneDistribution = availabilityZoneDistribution;
             AvailabilityZones = availabilityZones;
             CapacityRebalance = capacityRebalance;
             Context = context;

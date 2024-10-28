@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.PromptInferenceConfigurationProperties? InferenceConfiguration;
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         /// </summary>
         public readonly string? ModelId;
         /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// <summary>
         /// Contains configurations for the prompt template.
         /// </summary>
-        public readonly Outputs.PromptTemplateConfigurationProperties? TemplateConfiguration;
+        public readonly Outputs.PromptTemplateConfigurationProperties TemplateConfiguration;
         /// <summary>
         /// The type of prompt template to use.
         /// </summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             string name,
 
-            Outputs.PromptTemplateConfigurationProperties? templateConfiguration,
+            Outputs.PromptTemplateConfigurationProperties templateConfiguration,
 
             Pulumi.AwsNative.Bedrock.PromptTemplateType templateType)
         {

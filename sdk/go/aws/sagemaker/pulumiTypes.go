@@ -8374,16 +8374,24 @@ type DomainTag struct {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettings struct {
 	// The Code Editor application settings.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CodeEditorAppSettings *DomainCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
 	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomFileSystemConfigs []DomainCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
 	// Details about the POSIX identity that is used for file system operations.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomPosixUserConfig *DomainCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
 	// Defines which Amazon SageMaker application users are directed to by default.
 	DefaultLandingUri *string `pulumi:"defaultLandingUri"`
 	// The execution role for the user.
 	ExecutionRole string `pulumi:"executionRole"`
 	// The settings for the JupyterLab application.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	JupyterLabAppSettings *DomainJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
@@ -8398,6 +8406,8 @@ type DomainUserSettings struct {
 	// The sharing settings.
 	SharingSettings *DomainSharingSettings `pulumi:"sharingSettings"`
 	// The storage settings for a space.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	SpaceStorageSettings *DomainDefaultSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal *DomainUserSettingsStudioWebPortal `pulumi:"studioWebPortal"`
@@ -8419,16 +8429,24 @@ type DomainUserSettingsInput interface {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettingsArgs struct {
 	// The Code Editor application settings.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CodeEditorAppSettings DomainCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
 	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomFileSystemConfigs DomainCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
 	// Details about the POSIX identity that is used for file system operations.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomPosixUserConfig DomainCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
 	// Defines which Amazon SageMaker application users are directed to by default.
 	DefaultLandingUri pulumi.StringPtrInput `pulumi:"defaultLandingUri"`
 	// The execution role for the user.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
 	// The settings for the JupyterLab application.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	JupyterLabAppSettings DomainJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
@@ -8443,6 +8461,8 @@ type DomainUserSettingsArgs struct {
 	// The sharing settings.
 	SharingSettings DomainSharingSettingsPtrInput `pulumi:"sharingSettings"`
 	// The storage settings for a space.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	SpaceStorageSettings DomainDefaultSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal DomainUserSettingsStudioWebPortalPtrInput `pulumi:"studioWebPortal"`
@@ -8478,16 +8498,22 @@ func (o DomainUserSettingsOutput) ToDomainUserSettingsOutputWithContext(ctx cont
 }
 
 // The Code Editor application settings.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsOutput) CodeEditorAppSettings() DomainCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainCodeEditorAppSettings { return v.CodeEditorAppSettings }).(DomainCodeEditorAppSettingsPtrOutput)
 }
 
 // The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v DomainUserSettings) []DomainCustomFileSystemConfig { return v.CustomFileSystemConfigs }).(DomainCustomFileSystemConfigArrayOutput)
 }
 
 // Details about the POSIX identity that is used for file system operations.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsOutput) CustomPosixUserConfig() DomainCustomPosixUserConfigPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainCustomPosixUserConfig { return v.CustomPosixUserConfig }).(DomainCustomPosixUserConfigPtrOutput)
 }
@@ -8503,6 +8529,8 @@ func (o DomainUserSettingsOutput) ExecutionRole() pulumi.StringOutput {
 }
 
 // The settings for the JupyterLab application.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsOutput) JupyterLabAppSettings() DomainJupyterLabAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainJupyterLabAppSettings { return v.JupyterLabAppSettings }).(DomainJupyterLabAppSettingsPtrOutput)
 }
@@ -8538,6 +8566,8 @@ func (o DomainUserSettingsOutput) SharingSettings() DomainSharingSettingsPtrOutp
 }
 
 // The storage settings for a space.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsOutput) SpaceStorageSettings() DomainDefaultSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainDefaultSpaceStorageSettings { return v.SpaceStorageSettings }).(DomainDefaultSpaceStorageSettingsPtrOutput)
 }
@@ -8577,6 +8607,8 @@ func (o DomainUserSettingsPtrOutput) Elem() DomainUserSettingsOutput {
 }
 
 // The Code Editor application settings.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsPtrOutput) CodeEditorAppSettings() DomainCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainCodeEditorAppSettings {
 		if v == nil {
@@ -8587,6 +8619,8 @@ func (o DomainUserSettingsPtrOutput) CodeEditorAppSettings() DomainCodeEditorApp
 }
 
 // The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsPtrOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v *DomainUserSettings) []DomainCustomFileSystemConfig {
 		if v == nil {
@@ -8597,6 +8631,8 @@ func (o DomainUserSettingsPtrOutput) CustomFileSystemConfigs() DomainCustomFileS
 }
 
 // Details about the POSIX identity that is used for file system operations.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsPtrOutput) CustomPosixUserConfig() DomainCustomPosixUserConfigPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainCustomPosixUserConfig {
 		if v == nil {
@@ -8627,6 +8663,8 @@ func (o DomainUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 }
 
 // The settings for the JupyterLab application.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsPtrOutput) JupyterLabAppSettings() DomainJupyterLabAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainJupyterLabAppSettings {
 		if v == nil {
@@ -8697,6 +8735,8 @@ func (o DomainUserSettingsPtrOutput) SharingSettings() DomainSharingSettingsPtrO
 }
 
 // The storage settings for a space.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsPtrOutput) SpaceStorageSettings() DomainDefaultSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainDefaultSpaceStorageSettings {
 		if v == nil {
@@ -8724,6 +8764,1240 @@ func (o DomainUserSettingsPtrOutput) StudioWebPortalSettings() DomainStudioWebPo
 		}
 		return v.StudioWebPortalSettings
 	}).(DomainStudioWebPortalSettingsPtrOutput)
+}
+
+type EndpointAlarm struct {
+	// The name of the CloudWatch alarm.
+	AlarmName string `pulumi:"alarmName"`
+}
+
+// EndpointAlarmInput is an input type that accepts EndpointAlarmArgs and EndpointAlarmOutput values.
+// You can construct a concrete instance of `EndpointAlarmInput` via:
+//
+//	EndpointAlarmArgs{...}
+type EndpointAlarmInput interface {
+	pulumi.Input
+
+	ToEndpointAlarmOutput() EndpointAlarmOutput
+	ToEndpointAlarmOutputWithContext(context.Context) EndpointAlarmOutput
+}
+
+type EndpointAlarmArgs struct {
+	// The name of the CloudWatch alarm.
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
+}
+
+func (EndpointAlarmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAlarm)(nil)).Elem()
+}
+
+func (i EndpointAlarmArgs) ToEndpointAlarmOutput() EndpointAlarmOutput {
+	return i.ToEndpointAlarmOutputWithContext(context.Background())
+}
+
+func (i EndpointAlarmArgs) ToEndpointAlarmOutputWithContext(ctx context.Context) EndpointAlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAlarmOutput)
+}
+
+// EndpointAlarmArrayInput is an input type that accepts EndpointAlarmArray and EndpointAlarmArrayOutput values.
+// You can construct a concrete instance of `EndpointAlarmArrayInput` via:
+//
+//	EndpointAlarmArray{ EndpointAlarmArgs{...} }
+type EndpointAlarmArrayInput interface {
+	pulumi.Input
+
+	ToEndpointAlarmArrayOutput() EndpointAlarmArrayOutput
+	ToEndpointAlarmArrayOutputWithContext(context.Context) EndpointAlarmArrayOutput
+}
+
+type EndpointAlarmArray []EndpointAlarmInput
+
+func (EndpointAlarmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAlarm)(nil)).Elem()
+}
+
+func (i EndpointAlarmArray) ToEndpointAlarmArrayOutput() EndpointAlarmArrayOutput {
+	return i.ToEndpointAlarmArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointAlarmArray) ToEndpointAlarmArrayOutputWithContext(ctx context.Context) EndpointAlarmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAlarmArrayOutput)
+}
+
+type EndpointAlarmOutput struct{ *pulumi.OutputState }
+
+func (EndpointAlarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAlarm)(nil)).Elem()
+}
+
+func (o EndpointAlarmOutput) ToEndpointAlarmOutput() EndpointAlarmOutput {
+	return o
+}
+
+func (o EndpointAlarmOutput) ToEndpointAlarmOutputWithContext(ctx context.Context) EndpointAlarmOutput {
+	return o
+}
+
+// The name of the CloudWatch alarm.
+func (o EndpointAlarmOutput) AlarmName() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
+}
+
+type EndpointAlarmArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointAlarmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAlarm)(nil)).Elem()
+}
+
+func (o EndpointAlarmArrayOutput) ToEndpointAlarmArrayOutput() EndpointAlarmArrayOutput {
+	return o
+}
+
+func (o EndpointAlarmArrayOutput) ToEndpointAlarmArrayOutputWithContext(ctx context.Context) EndpointAlarmArrayOutput {
+	return o
+}
+
+func (o EndpointAlarmArrayOutput) Index(i pulumi.IntInput) EndpointAlarmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointAlarm {
+		return vs[0].([]EndpointAlarm)[vs[1].(int)]
+	}).(EndpointAlarmOutput)
+}
+
+type EndpointAutoRollbackConfig struct {
+	// List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+	Alarms []EndpointAlarm `pulumi:"alarms"`
+}
+
+// EndpointAutoRollbackConfigInput is an input type that accepts EndpointAutoRollbackConfigArgs and EndpointAutoRollbackConfigOutput values.
+// You can construct a concrete instance of `EndpointAutoRollbackConfigInput` via:
+//
+//	EndpointAutoRollbackConfigArgs{...}
+type EndpointAutoRollbackConfigInput interface {
+	pulumi.Input
+
+	ToEndpointAutoRollbackConfigOutput() EndpointAutoRollbackConfigOutput
+	ToEndpointAutoRollbackConfigOutputWithContext(context.Context) EndpointAutoRollbackConfigOutput
+}
+
+type EndpointAutoRollbackConfigArgs struct {
+	// List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+	Alarms EndpointAlarmArrayInput `pulumi:"alarms"`
+}
+
+func (EndpointAutoRollbackConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAutoRollbackConfig)(nil)).Elem()
+}
+
+func (i EndpointAutoRollbackConfigArgs) ToEndpointAutoRollbackConfigOutput() EndpointAutoRollbackConfigOutput {
+	return i.ToEndpointAutoRollbackConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointAutoRollbackConfigArgs) ToEndpointAutoRollbackConfigOutputWithContext(ctx context.Context) EndpointAutoRollbackConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAutoRollbackConfigOutput)
+}
+
+func (i EndpointAutoRollbackConfigArgs) ToEndpointAutoRollbackConfigPtrOutput() EndpointAutoRollbackConfigPtrOutput {
+	return i.ToEndpointAutoRollbackConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointAutoRollbackConfigArgs) ToEndpointAutoRollbackConfigPtrOutputWithContext(ctx context.Context) EndpointAutoRollbackConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAutoRollbackConfigOutput).ToEndpointAutoRollbackConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointAutoRollbackConfigPtrInput is an input type that accepts EndpointAutoRollbackConfigArgs, EndpointAutoRollbackConfigPtr and EndpointAutoRollbackConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointAutoRollbackConfigPtrInput` via:
+//
+//	        EndpointAutoRollbackConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointAutoRollbackConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointAutoRollbackConfigPtrOutput() EndpointAutoRollbackConfigPtrOutput
+	ToEndpointAutoRollbackConfigPtrOutputWithContext(context.Context) EndpointAutoRollbackConfigPtrOutput
+}
+
+type endpointAutoRollbackConfigPtrType EndpointAutoRollbackConfigArgs
+
+func EndpointAutoRollbackConfigPtr(v *EndpointAutoRollbackConfigArgs) EndpointAutoRollbackConfigPtrInput {
+	return (*endpointAutoRollbackConfigPtrType)(v)
+}
+
+func (*endpointAutoRollbackConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointAutoRollbackConfig)(nil)).Elem()
+}
+
+func (i *endpointAutoRollbackConfigPtrType) ToEndpointAutoRollbackConfigPtrOutput() EndpointAutoRollbackConfigPtrOutput {
+	return i.ToEndpointAutoRollbackConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointAutoRollbackConfigPtrType) ToEndpointAutoRollbackConfigPtrOutputWithContext(ctx context.Context) EndpointAutoRollbackConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAutoRollbackConfigPtrOutput)
+}
+
+type EndpointAutoRollbackConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointAutoRollbackConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAutoRollbackConfig)(nil)).Elem()
+}
+
+func (o EndpointAutoRollbackConfigOutput) ToEndpointAutoRollbackConfigOutput() EndpointAutoRollbackConfigOutput {
+	return o
+}
+
+func (o EndpointAutoRollbackConfigOutput) ToEndpointAutoRollbackConfigOutputWithContext(ctx context.Context) EndpointAutoRollbackConfigOutput {
+	return o
+}
+
+func (o EndpointAutoRollbackConfigOutput) ToEndpointAutoRollbackConfigPtrOutput() EndpointAutoRollbackConfigPtrOutput {
+	return o.ToEndpointAutoRollbackConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointAutoRollbackConfigOutput) ToEndpointAutoRollbackConfigPtrOutputWithContext(ctx context.Context) EndpointAutoRollbackConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointAutoRollbackConfig) *EndpointAutoRollbackConfig {
+		return &v
+	}).(EndpointAutoRollbackConfigPtrOutput)
+}
+
+// List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+func (o EndpointAutoRollbackConfigOutput) Alarms() EndpointAlarmArrayOutput {
+	return o.ApplyT(func(v EndpointAutoRollbackConfig) []EndpointAlarm { return v.Alarms }).(EndpointAlarmArrayOutput)
+}
+
+type EndpointAutoRollbackConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointAutoRollbackConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointAutoRollbackConfig)(nil)).Elem()
+}
+
+func (o EndpointAutoRollbackConfigPtrOutput) ToEndpointAutoRollbackConfigPtrOutput() EndpointAutoRollbackConfigPtrOutput {
+	return o
+}
+
+func (o EndpointAutoRollbackConfigPtrOutput) ToEndpointAutoRollbackConfigPtrOutputWithContext(ctx context.Context) EndpointAutoRollbackConfigPtrOutput {
+	return o
+}
+
+func (o EndpointAutoRollbackConfigPtrOutput) Elem() EndpointAutoRollbackConfigOutput {
+	return o.ApplyT(func(v *EndpointAutoRollbackConfig) EndpointAutoRollbackConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointAutoRollbackConfig
+		return ret
+	}).(EndpointAutoRollbackConfigOutput)
+}
+
+// List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+func (o EndpointAutoRollbackConfigPtrOutput) Alarms() EndpointAlarmArrayOutput {
+	return o.ApplyT(func(v *EndpointAutoRollbackConfig) []EndpointAlarm {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(EndpointAlarmArrayOutput)
+}
+
+type EndpointBlueGreenUpdatePolicy struct {
+	// The maximum time allowed for the blue/green update, in seconds.
+	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// The wait time before terminating the old endpoint during a blue/green deployment.
+	TerminationWaitInSeconds *int `pulumi:"terminationWaitInSeconds"`
+	// The traffic routing configuration for the blue/green deployment.
+	TrafficRoutingConfiguration EndpointTrafficRoutingConfig `pulumi:"trafficRoutingConfiguration"`
+}
+
+// EndpointBlueGreenUpdatePolicyInput is an input type that accepts EndpointBlueGreenUpdatePolicyArgs and EndpointBlueGreenUpdatePolicyOutput values.
+// You can construct a concrete instance of `EndpointBlueGreenUpdatePolicyInput` via:
+//
+//	EndpointBlueGreenUpdatePolicyArgs{...}
+type EndpointBlueGreenUpdatePolicyInput interface {
+	pulumi.Input
+
+	ToEndpointBlueGreenUpdatePolicyOutput() EndpointBlueGreenUpdatePolicyOutput
+	ToEndpointBlueGreenUpdatePolicyOutputWithContext(context.Context) EndpointBlueGreenUpdatePolicyOutput
+}
+
+type EndpointBlueGreenUpdatePolicyArgs struct {
+	// The maximum time allowed for the blue/green update, in seconds.
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// The wait time before terminating the old endpoint during a blue/green deployment.
+	TerminationWaitInSeconds pulumi.IntPtrInput `pulumi:"terminationWaitInSeconds"`
+	// The traffic routing configuration for the blue/green deployment.
+	TrafficRoutingConfiguration EndpointTrafficRoutingConfigInput `pulumi:"trafficRoutingConfiguration"`
+}
+
+func (EndpointBlueGreenUpdatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointBlueGreenUpdatePolicy)(nil)).Elem()
+}
+
+func (i EndpointBlueGreenUpdatePolicyArgs) ToEndpointBlueGreenUpdatePolicyOutput() EndpointBlueGreenUpdatePolicyOutput {
+	return i.ToEndpointBlueGreenUpdatePolicyOutputWithContext(context.Background())
+}
+
+func (i EndpointBlueGreenUpdatePolicyArgs) ToEndpointBlueGreenUpdatePolicyOutputWithContext(ctx context.Context) EndpointBlueGreenUpdatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointBlueGreenUpdatePolicyOutput)
+}
+
+func (i EndpointBlueGreenUpdatePolicyArgs) ToEndpointBlueGreenUpdatePolicyPtrOutput() EndpointBlueGreenUpdatePolicyPtrOutput {
+	return i.ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointBlueGreenUpdatePolicyArgs) ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointBlueGreenUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointBlueGreenUpdatePolicyOutput).ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(ctx)
+}
+
+// EndpointBlueGreenUpdatePolicyPtrInput is an input type that accepts EndpointBlueGreenUpdatePolicyArgs, EndpointBlueGreenUpdatePolicyPtr and EndpointBlueGreenUpdatePolicyPtrOutput values.
+// You can construct a concrete instance of `EndpointBlueGreenUpdatePolicyPtrInput` via:
+//
+//	        EndpointBlueGreenUpdatePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointBlueGreenUpdatePolicyPtrInput interface {
+	pulumi.Input
+
+	ToEndpointBlueGreenUpdatePolicyPtrOutput() EndpointBlueGreenUpdatePolicyPtrOutput
+	ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(context.Context) EndpointBlueGreenUpdatePolicyPtrOutput
+}
+
+type endpointBlueGreenUpdatePolicyPtrType EndpointBlueGreenUpdatePolicyArgs
+
+func EndpointBlueGreenUpdatePolicyPtr(v *EndpointBlueGreenUpdatePolicyArgs) EndpointBlueGreenUpdatePolicyPtrInput {
+	return (*endpointBlueGreenUpdatePolicyPtrType)(v)
+}
+
+func (*endpointBlueGreenUpdatePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointBlueGreenUpdatePolicy)(nil)).Elem()
+}
+
+func (i *endpointBlueGreenUpdatePolicyPtrType) ToEndpointBlueGreenUpdatePolicyPtrOutput() EndpointBlueGreenUpdatePolicyPtrOutput {
+	return i.ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointBlueGreenUpdatePolicyPtrType) ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointBlueGreenUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointBlueGreenUpdatePolicyPtrOutput)
+}
+
+type EndpointBlueGreenUpdatePolicyOutput struct{ *pulumi.OutputState }
+
+func (EndpointBlueGreenUpdatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointBlueGreenUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointBlueGreenUpdatePolicyOutput) ToEndpointBlueGreenUpdatePolicyOutput() EndpointBlueGreenUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointBlueGreenUpdatePolicyOutput) ToEndpointBlueGreenUpdatePolicyOutputWithContext(ctx context.Context) EndpointBlueGreenUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointBlueGreenUpdatePolicyOutput) ToEndpointBlueGreenUpdatePolicyPtrOutput() EndpointBlueGreenUpdatePolicyPtrOutput {
+	return o.ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointBlueGreenUpdatePolicyOutput) ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointBlueGreenUpdatePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointBlueGreenUpdatePolicy) *EndpointBlueGreenUpdatePolicy {
+		return &v
+	}).(EndpointBlueGreenUpdatePolicyPtrOutput)
+}
+
+// The maximum time allowed for the blue/green update, in seconds.
+func (o EndpointBlueGreenUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointBlueGreenUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The wait time before terminating the old endpoint during a blue/green deployment.
+func (o EndpointBlueGreenUpdatePolicyOutput) TerminationWaitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointBlueGreenUpdatePolicy) *int { return v.TerminationWaitInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The traffic routing configuration for the blue/green deployment.
+func (o EndpointBlueGreenUpdatePolicyOutput) TrafficRoutingConfiguration() EndpointTrafficRoutingConfigOutput {
+	return o.ApplyT(func(v EndpointBlueGreenUpdatePolicy) EndpointTrafficRoutingConfig {
+		return v.TrafficRoutingConfiguration
+	}).(EndpointTrafficRoutingConfigOutput)
+}
+
+type EndpointBlueGreenUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointBlueGreenUpdatePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointBlueGreenUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointBlueGreenUpdatePolicyPtrOutput) ToEndpointBlueGreenUpdatePolicyPtrOutput() EndpointBlueGreenUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointBlueGreenUpdatePolicyPtrOutput) ToEndpointBlueGreenUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointBlueGreenUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointBlueGreenUpdatePolicyPtrOutput) Elem() EndpointBlueGreenUpdatePolicyOutput {
+	return o.ApplyT(func(v *EndpointBlueGreenUpdatePolicy) EndpointBlueGreenUpdatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointBlueGreenUpdatePolicy
+		return ret
+	}).(EndpointBlueGreenUpdatePolicyOutput)
+}
+
+// The maximum time allowed for the blue/green update, in seconds.
+func (o EndpointBlueGreenUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointBlueGreenUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The wait time before terminating the old endpoint during a blue/green deployment.
+func (o EndpointBlueGreenUpdatePolicyPtrOutput) TerminationWaitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointBlueGreenUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationWaitInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The traffic routing configuration for the blue/green deployment.
+func (o EndpointBlueGreenUpdatePolicyPtrOutput) TrafficRoutingConfiguration() EndpointTrafficRoutingConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointBlueGreenUpdatePolicy) *EndpointTrafficRoutingConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.TrafficRoutingConfiguration
+	}).(EndpointTrafficRoutingConfigPtrOutput)
+}
+
+type EndpointCapacitySize struct {
+	// Specifies whether the `Value` is an instance count or a capacity unit.
+	Type string `pulumi:"type"`
+	// The value representing either the number of instances or the number of capacity units.
+	Value int `pulumi:"value"`
+}
+
+// EndpointCapacitySizeInput is an input type that accepts EndpointCapacitySizeArgs and EndpointCapacitySizeOutput values.
+// You can construct a concrete instance of `EndpointCapacitySizeInput` via:
+//
+//	EndpointCapacitySizeArgs{...}
+type EndpointCapacitySizeInput interface {
+	pulumi.Input
+
+	ToEndpointCapacitySizeOutput() EndpointCapacitySizeOutput
+	ToEndpointCapacitySizeOutputWithContext(context.Context) EndpointCapacitySizeOutput
+}
+
+type EndpointCapacitySizeArgs struct {
+	// Specifies whether the `Value` is an instance count or a capacity unit.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The value representing either the number of instances or the number of capacity units.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (EndpointCapacitySizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCapacitySize)(nil)).Elem()
+}
+
+func (i EndpointCapacitySizeArgs) ToEndpointCapacitySizeOutput() EndpointCapacitySizeOutput {
+	return i.ToEndpointCapacitySizeOutputWithContext(context.Background())
+}
+
+func (i EndpointCapacitySizeArgs) ToEndpointCapacitySizeOutputWithContext(ctx context.Context) EndpointCapacitySizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCapacitySizeOutput)
+}
+
+func (i EndpointCapacitySizeArgs) ToEndpointCapacitySizePtrOutput() EndpointCapacitySizePtrOutput {
+	return i.ToEndpointCapacitySizePtrOutputWithContext(context.Background())
+}
+
+func (i EndpointCapacitySizeArgs) ToEndpointCapacitySizePtrOutputWithContext(ctx context.Context) EndpointCapacitySizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCapacitySizeOutput).ToEndpointCapacitySizePtrOutputWithContext(ctx)
+}
+
+// EndpointCapacitySizePtrInput is an input type that accepts EndpointCapacitySizeArgs, EndpointCapacitySizePtr and EndpointCapacitySizePtrOutput values.
+// You can construct a concrete instance of `EndpointCapacitySizePtrInput` via:
+//
+//	        EndpointCapacitySizeArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointCapacitySizePtrInput interface {
+	pulumi.Input
+
+	ToEndpointCapacitySizePtrOutput() EndpointCapacitySizePtrOutput
+	ToEndpointCapacitySizePtrOutputWithContext(context.Context) EndpointCapacitySizePtrOutput
+}
+
+type endpointCapacitySizePtrType EndpointCapacitySizeArgs
+
+func EndpointCapacitySizePtr(v *EndpointCapacitySizeArgs) EndpointCapacitySizePtrInput {
+	return (*endpointCapacitySizePtrType)(v)
+}
+
+func (*endpointCapacitySizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCapacitySize)(nil)).Elem()
+}
+
+func (i *endpointCapacitySizePtrType) ToEndpointCapacitySizePtrOutput() EndpointCapacitySizePtrOutput {
+	return i.ToEndpointCapacitySizePtrOutputWithContext(context.Background())
+}
+
+func (i *endpointCapacitySizePtrType) ToEndpointCapacitySizePtrOutputWithContext(ctx context.Context) EndpointCapacitySizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointCapacitySizePtrOutput)
+}
+
+type EndpointCapacitySizeOutput struct{ *pulumi.OutputState }
+
+func (EndpointCapacitySizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointCapacitySize)(nil)).Elem()
+}
+
+func (o EndpointCapacitySizeOutput) ToEndpointCapacitySizeOutput() EndpointCapacitySizeOutput {
+	return o
+}
+
+func (o EndpointCapacitySizeOutput) ToEndpointCapacitySizeOutputWithContext(ctx context.Context) EndpointCapacitySizeOutput {
+	return o
+}
+
+func (o EndpointCapacitySizeOutput) ToEndpointCapacitySizePtrOutput() EndpointCapacitySizePtrOutput {
+	return o.ToEndpointCapacitySizePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointCapacitySizeOutput) ToEndpointCapacitySizePtrOutputWithContext(ctx context.Context) EndpointCapacitySizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointCapacitySize) *EndpointCapacitySize {
+		return &v
+	}).(EndpointCapacitySizePtrOutput)
+}
+
+// Specifies whether the `Value` is an instance count or a capacity unit.
+func (o EndpointCapacitySizeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointCapacitySize) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The value representing either the number of instances or the number of capacity units.
+func (o EndpointCapacitySizeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointCapacitySize) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type EndpointCapacitySizePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointCapacitySizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointCapacitySize)(nil)).Elem()
+}
+
+func (o EndpointCapacitySizePtrOutput) ToEndpointCapacitySizePtrOutput() EndpointCapacitySizePtrOutput {
+	return o
+}
+
+func (o EndpointCapacitySizePtrOutput) ToEndpointCapacitySizePtrOutputWithContext(ctx context.Context) EndpointCapacitySizePtrOutput {
+	return o
+}
+
+func (o EndpointCapacitySizePtrOutput) Elem() EndpointCapacitySizeOutput {
+	return o.ApplyT(func(v *EndpointCapacitySize) EndpointCapacitySize {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointCapacitySize
+		return ret
+	}).(EndpointCapacitySizeOutput)
+}
+
+// Specifies whether the `Value` is an instance count or a capacity unit.
+func (o EndpointCapacitySizePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCapacitySize) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value representing either the number of instances or the number of capacity units.
+func (o EndpointCapacitySizePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointCapacitySize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointDeploymentConfig struct {
+	// Configuration for automatic rollback if an error occurs during deployment.
+	AutoRollbackConfiguration *EndpointAutoRollbackConfig `pulumi:"autoRollbackConfiguration"`
+	// Configuration for blue-green update deployment policies.
+	BlueGreenUpdatePolicy *EndpointBlueGreenUpdatePolicy `pulumi:"blueGreenUpdatePolicy"`
+	// Configuration for rolling update deployment policies.
+	RollingUpdatePolicy *EndpointRollingUpdatePolicy `pulumi:"rollingUpdatePolicy"`
+}
+
+// EndpointDeploymentConfigInput is an input type that accepts EndpointDeploymentConfigArgs and EndpointDeploymentConfigOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigInput` via:
+//
+//	EndpointDeploymentConfigArgs{...}
+type EndpointDeploymentConfigInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigOutput() EndpointDeploymentConfigOutput
+	ToEndpointDeploymentConfigOutputWithContext(context.Context) EndpointDeploymentConfigOutput
+}
+
+type EndpointDeploymentConfigArgs struct {
+	// Configuration for automatic rollback if an error occurs during deployment.
+	AutoRollbackConfiguration EndpointAutoRollbackConfigPtrInput `pulumi:"autoRollbackConfiguration"`
+	// Configuration for blue-green update deployment policies.
+	BlueGreenUpdatePolicy EndpointBlueGreenUpdatePolicyPtrInput `pulumi:"blueGreenUpdatePolicy"`
+	// Configuration for rolling update deployment policies.
+	RollingUpdatePolicy EndpointRollingUpdatePolicyPtrInput `pulumi:"rollingUpdatePolicy"`
+}
+
+func (EndpointDeploymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfig)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigArgs) ToEndpointDeploymentConfigOutput() EndpointDeploymentConfigOutput {
+	return i.ToEndpointDeploymentConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigArgs) ToEndpointDeploymentConfigOutputWithContext(ctx context.Context) EndpointDeploymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigOutput)
+}
+
+func (i EndpointDeploymentConfigArgs) ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput {
+	return i.ToEndpointDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigArgs) ToEndpointDeploymentConfigPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigOutput).ToEndpointDeploymentConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigPtrInput is an input type that accepts EndpointDeploymentConfigArgs, EndpointDeploymentConfigPtr and EndpointDeploymentConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigPtrInput` via:
+//
+//	        EndpointDeploymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointDeploymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput
+	ToEndpointDeploymentConfigPtrOutputWithContext(context.Context) EndpointDeploymentConfigPtrOutput
+}
+
+type endpointDeploymentConfigPtrType EndpointDeploymentConfigArgs
+
+func EndpointDeploymentConfigPtr(v *EndpointDeploymentConfigArgs) EndpointDeploymentConfigPtrInput {
+	return (*endpointDeploymentConfigPtrType)(v)
+}
+
+func (*endpointDeploymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfig)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigPtrType) ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput {
+	return i.ToEndpointDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigPtrType) ToEndpointDeploymentConfigPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigPtrOutput)
+}
+
+type EndpointDeploymentConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfig)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigOutput() EndpointDeploymentConfigOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigOutputWithContext(ctx context.Context) EndpointDeploymentConfigOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput {
+	return o.ToEndpointDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfig) *EndpointDeploymentConfig {
+		return &v
+	}).(EndpointDeploymentConfigPtrOutput)
+}
+
+// Configuration for automatic rollback if an error occurs during deployment.
+func (o EndpointDeploymentConfigOutput) AutoRollbackConfiguration() EndpointAutoRollbackConfigPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointAutoRollbackConfig { return v.AutoRollbackConfiguration }).(EndpointAutoRollbackConfigPtrOutput)
+}
+
+// Configuration for blue-green update deployment policies.
+func (o EndpointDeploymentConfigOutput) BlueGreenUpdatePolicy() EndpointBlueGreenUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointBlueGreenUpdatePolicy { return v.BlueGreenUpdatePolicy }).(EndpointBlueGreenUpdatePolicyPtrOutput)
+}
+
+// Configuration for rolling update deployment policies.
+func (o EndpointDeploymentConfigOutput) RollingUpdatePolicy() EndpointRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointRollingUpdatePolicy { return v.RollingUpdatePolicy }).(EndpointRollingUpdatePolicyPtrOutput)
+}
+
+type EndpointDeploymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfig)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigPtrOutput) ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigPtrOutput) ToEndpointDeploymentConfigPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigPtrOutput) Elem() EndpointDeploymentConfigOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) EndpointDeploymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfig
+		return ret
+	}).(EndpointDeploymentConfigOutput)
+}
+
+// Configuration for automatic rollback if an error occurs during deployment.
+func (o EndpointDeploymentConfigPtrOutput) AutoRollbackConfiguration() EndpointAutoRollbackConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointAutoRollbackConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRollbackConfiguration
+	}).(EndpointAutoRollbackConfigPtrOutput)
+}
+
+// Configuration for blue-green update deployment policies.
+func (o EndpointDeploymentConfigPtrOutput) BlueGreenUpdatePolicy() EndpointBlueGreenUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointBlueGreenUpdatePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.BlueGreenUpdatePolicy
+	}).(EndpointBlueGreenUpdatePolicyPtrOutput)
+}
+
+// Configuration for rolling update deployment policies.
+func (o EndpointDeploymentConfigPtrOutput) RollingUpdatePolicy() EndpointRollingUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointRollingUpdatePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.RollingUpdatePolicy
+	}).(EndpointRollingUpdatePolicyPtrOutput)
+}
+
+type EndpointRollingUpdatePolicy struct {
+	// Specifies the maximum batch size for each rolling update.
+	MaximumBatchSize EndpointCapacitySize `pulumi:"maximumBatchSize"`
+	// The maximum time allowed for the rolling update, in seconds.
+	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// The maximum batch size for rollback during an update failure.
+	RollbackMaximumBatchSize *EndpointCapacitySize `pulumi:"rollbackMaximumBatchSize"`
+	// The time to wait between steps during the rolling update, in seconds.
+	WaitIntervalInSeconds int `pulumi:"waitIntervalInSeconds"`
+}
+
+// EndpointRollingUpdatePolicyInput is an input type that accepts EndpointRollingUpdatePolicyArgs and EndpointRollingUpdatePolicyOutput values.
+// You can construct a concrete instance of `EndpointRollingUpdatePolicyInput` via:
+//
+//	EndpointRollingUpdatePolicyArgs{...}
+type EndpointRollingUpdatePolicyInput interface {
+	pulumi.Input
+
+	ToEndpointRollingUpdatePolicyOutput() EndpointRollingUpdatePolicyOutput
+	ToEndpointRollingUpdatePolicyOutputWithContext(context.Context) EndpointRollingUpdatePolicyOutput
+}
+
+type EndpointRollingUpdatePolicyArgs struct {
+	// Specifies the maximum batch size for each rolling update.
+	MaximumBatchSize EndpointCapacitySizeInput `pulumi:"maximumBatchSize"`
+	// The maximum time allowed for the rolling update, in seconds.
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// The maximum batch size for rollback during an update failure.
+	RollbackMaximumBatchSize EndpointCapacitySizePtrInput `pulumi:"rollbackMaximumBatchSize"`
+	// The time to wait between steps during the rolling update, in seconds.
+	WaitIntervalInSeconds pulumi.IntInput `pulumi:"waitIntervalInSeconds"`
+}
+
+func (EndpointRollingUpdatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i EndpointRollingUpdatePolicyArgs) ToEndpointRollingUpdatePolicyOutput() EndpointRollingUpdatePolicyOutput {
+	return i.ToEndpointRollingUpdatePolicyOutputWithContext(context.Background())
+}
+
+func (i EndpointRollingUpdatePolicyArgs) ToEndpointRollingUpdatePolicyOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRollingUpdatePolicyOutput)
+}
+
+func (i EndpointRollingUpdatePolicyArgs) ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput {
+	return i.ToEndpointRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointRollingUpdatePolicyArgs) ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRollingUpdatePolicyOutput).ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx)
+}
+
+// EndpointRollingUpdatePolicyPtrInput is an input type that accepts EndpointRollingUpdatePolicyArgs, EndpointRollingUpdatePolicyPtr and EndpointRollingUpdatePolicyPtrOutput values.
+// You can construct a concrete instance of `EndpointRollingUpdatePolicyPtrInput` via:
+//
+//	        EndpointRollingUpdatePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointRollingUpdatePolicyPtrInput interface {
+	pulumi.Input
+
+	ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput
+	ToEndpointRollingUpdatePolicyPtrOutputWithContext(context.Context) EndpointRollingUpdatePolicyPtrOutput
+}
+
+type endpointRollingUpdatePolicyPtrType EndpointRollingUpdatePolicyArgs
+
+func EndpointRollingUpdatePolicyPtr(v *EndpointRollingUpdatePolicyArgs) EndpointRollingUpdatePolicyPtrInput {
+	return (*endpointRollingUpdatePolicyPtrType)(v)
+}
+
+func (*endpointRollingUpdatePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (i *endpointRollingUpdatePolicyPtrType) ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput {
+	return i.ToEndpointRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointRollingUpdatePolicyPtrType) ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRollingUpdatePolicyPtrOutput)
+}
+
+type EndpointRollingUpdatePolicyOutput struct{ *pulumi.OutputState }
+
+func (EndpointRollingUpdatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointRollingUpdatePolicyOutput) ToEndpointRollingUpdatePolicyOutput() EndpointRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointRollingUpdatePolicyOutput) ToEndpointRollingUpdatePolicyOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointRollingUpdatePolicyOutput) ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput {
+	return o.ToEndpointRollingUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointRollingUpdatePolicyOutput) ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRollingUpdatePolicy) *EndpointRollingUpdatePolicy {
+		return &v
+	}).(EndpointRollingUpdatePolicyPtrOutput)
+}
+
+// Specifies the maximum batch size for each rolling update.
+func (o EndpointRollingUpdatePolicyOutput) MaximumBatchSize() EndpointCapacitySizeOutput {
+	return o.ApplyT(func(v EndpointRollingUpdatePolicy) EndpointCapacitySize { return v.MaximumBatchSize }).(EndpointCapacitySizeOutput)
+}
+
+// The maximum time allowed for the rolling update, in seconds.
+func (o EndpointRollingUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointRollingUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The maximum batch size for rollback during an update failure.
+func (o EndpointRollingUpdatePolicyOutput) RollbackMaximumBatchSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v EndpointRollingUpdatePolicy) *EndpointCapacitySize { return v.RollbackMaximumBatchSize }).(EndpointCapacitySizePtrOutput)
+}
+
+// The time to wait between steps during the rolling update, in seconds.
+func (o EndpointRollingUpdatePolicyOutput) WaitIntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointRollingUpdatePolicy) int { return v.WaitIntervalInSeconds }).(pulumi.IntOutput)
+}
+
+type EndpointRollingUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointRollingUpdatePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRollingUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) ToEndpointRollingUpdatePolicyPtrOutput() EndpointRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) ToEndpointRollingUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointRollingUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointRollingUpdatePolicyPtrOutput) Elem() EndpointRollingUpdatePolicyOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) EndpointRollingUpdatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRollingUpdatePolicy
+		return ret
+	}).(EndpointRollingUpdatePolicyOutput)
+}
+
+// Specifies the maximum batch size for each rolling update.
+func (o EndpointRollingUpdatePolicyPtrOutput) MaximumBatchSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) *EndpointCapacitySize {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumBatchSize
+	}).(EndpointCapacitySizePtrOutput)
+}
+
+// The maximum time allowed for the rolling update, in seconds.
+func (o EndpointRollingUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum batch size for rollback during an update failure.
+func (o EndpointRollingUpdatePolicyPtrOutput) RollbackMaximumBatchSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) *EndpointCapacitySize {
+		if v == nil {
+			return nil
+		}
+		return v.RollbackMaximumBatchSize
+	}).(EndpointCapacitySizePtrOutput)
+}
+
+// The time to wait between steps during the rolling update, in seconds.
+func (o EndpointRollingUpdatePolicyPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointRollingUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WaitIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+type EndpointTrafficRoutingConfig struct {
+	// Specifies the size of the canary traffic in a canary deployment.
+	CanarySize *EndpointCapacitySize `pulumi:"canarySize"`
+	// Specifies the step size for linear traffic routing.
+	LinearStepSize *EndpointCapacitySize `pulumi:"linearStepSize"`
+	// Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+	Type string `pulumi:"type"`
+	// Specifies the wait interval between traffic shifts, in seconds.
+	WaitIntervalInSeconds *int `pulumi:"waitIntervalInSeconds"`
+}
+
+// EndpointTrafficRoutingConfigInput is an input type that accepts EndpointTrafficRoutingConfigArgs and EndpointTrafficRoutingConfigOutput values.
+// You can construct a concrete instance of `EndpointTrafficRoutingConfigInput` via:
+//
+//	EndpointTrafficRoutingConfigArgs{...}
+type EndpointTrafficRoutingConfigInput interface {
+	pulumi.Input
+
+	ToEndpointTrafficRoutingConfigOutput() EndpointTrafficRoutingConfigOutput
+	ToEndpointTrafficRoutingConfigOutputWithContext(context.Context) EndpointTrafficRoutingConfigOutput
+}
+
+type EndpointTrafficRoutingConfigArgs struct {
+	// Specifies the size of the canary traffic in a canary deployment.
+	CanarySize EndpointCapacitySizePtrInput `pulumi:"canarySize"`
+	// Specifies the step size for linear traffic routing.
+	LinearStepSize EndpointCapacitySizePtrInput `pulumi:"linearStepSize"`
+	// Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+	Type pulumi.StringInput `pulumi:"type"`
+	// Specifies the wait interval between traffic shifts, in seconds.
+	WaitIntervalInSeconds pulumi.IntPtrInput `pulumi:"waitIntervalInSeconds"`
+}
+
+func (EndpointTrafficRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointTrafficRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointTrafficRoutingConfigArgs) ToEndpointTrafficRoutingConfigOutput() EndpointTrafficRoutingConfigOutput {
+	return i.ToEndpointTrafficRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointTrafficRoutingConfigArgs) ToEndpointTrafficRoutingConfigOutputWithContext(ctx context.Context) EndpointTrafficRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointTrafficRoutingConfigOutput)
+}
+
+func (i EndpointTrafficRoutingConfigArgs) ToEndpointTrafficRoutingConfigPtrOutput() EndpointTrafficRoutingConfigPtrOutput {
+	return i.ToEndpointTrafficRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointTrafficRoutingConfigArgs) ToEndpointTrafficRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointTrafficRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointTrafficRoutingConfigOutput).ToEndpointTrafficRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointTrafficRoutingConfigPtrInput is an input type that accepts EndpointTrafficRoutingConfigArgs, EndpointTrafficRoutingConfigPtr and EndpointTrafficRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointTrafficRoutingConfigPtrInput` via:
+//
+//	        EndpointTrafficRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointTrafficRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointTrafficRoutingConfigPtrOutput() EndpointTrafficRoutingConfigPtrOutput
+	ToEndpointTrafficRoutingConfigPtrOutputWithContext(context.Context) EndpointTrafficRoutingConfigPtrOutput
+}
+
+type endpointTrafficRoutingConfigPtrType EndpointTrafficRoutingConfigArgs
+
+func EndpointTrafficRoutingConfigPtr(v *EndpointTrafficRoutingConfigArgs) EndpointTrafficRoutingConfigPtrInput {
+	return (*endpointTrafficRoutingConfigPtrType)(v)
+}
+
+func (*endpointTrafficRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointTrafficRoutingConfig)(nil)).Elem()
+}
+
+func (i *endpointTrafficRoutingConfigPtrType) ToEndpointTrafficRoutingConfigPtrOutput() EndpointTrafficRoutingConfigPtrOutput {
+	return i.ToEndpointTrafficRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointTrafficRoutingConfigPtrType) ToEndpointTrafficRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointTrafficRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointTrafficRoutingConfigPtrOutput)
+}
+
+type EndpointTrafficRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointTrafficRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointTrafficRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointTrafficRoutingConfigOutput) ToEndpointTrafficRoutingConfigOutput() EndpointTrafficRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointTrafficRoutingConfigOutput) ToEndpointTrafficRoutingConfigOutputWithContext(ctx context.Context) EndpointTrafficRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointTrafficRoutingConfigOutput) ToEndpointTrafficRoutingConfigPtrOutput() EndpointTrafficRoutingConfigPtrOutput {
+	return o.ToEndpointTrafficRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointTrafficRoutingConfigOutput) ToEndpointTrafficRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointTrafficRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointTrafficRoutingConfig) *EndpointTrafficRoutingConfig {
+		return &v
+	}).(EndpointTrafficRoutingConfigPtrOutput)
+}
+
+// Specifies the size of the canary traffic in a canary deployment.
+func (o EndpointTrafficRoutingConfigOutput) CanarySize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v EndpointTrafficRoutingConfig) *EndpointCapacitySize { return v.CanarySize }).(EndpointCapacitySizePtrOutput)
+}
+
+// Specifies the step size for linear traffic routing.
+func (o EndpointTrafficRoutingConfigOutput) LinearStepSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v EndpointTrafficRoutingConfig) *EndpointCapacitySize { return v.LinearStepSize }).(EndpointCapacitySizePtrOutput)
+}
+
+// Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+func (o EndpointTrafficRoutingConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointTrafficRoutingConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Specifies the wait interval between traffic shifts, in seconds.
+func (o EndpointTrafficRoutingConfigOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointTrafficRoutingConfig) *int { return v.WaitIntervalInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type EndpointTrafficRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointTrafficRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointTrafficRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointTrafficRoutingConfigPtrOutput) ToEndpointTrafficRoutingConfigPtrOutput() EndpointTrafficRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointTrafficRoutingConfigPtrOutput) ToEndpointTrafficRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointTrafficRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointTrafficRoutingConfigPtrOutput) Elem() EndpointTrafficRoutingConfigOutput {
+	return o.ApplyT(func(v *EndpointTrafficRoutingConfig) EndpointTrafficRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointTrafficRoutingConfig
+		return ret
+	}).(EndpointTrafficRoutingConfigOutput)
+}
+
+// Specifies the size of the canary traffic in a canary deployment.
+func (o EndpointTrafficRoutingConfigPtrOutput) CanarySize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v *EndpointTrafficRoutingConfig) *EndpointCapacitySize {
+		if v == nil {
+			return nil
+		}
+		return v.CanarySize
+	}).(EndpointCapacitySizePtrOutput)
+}
+
+// Specifies the step size for linear traffic routing.
+func (o EndpointTrafficRoutingConfigPtrOutput) LinearStepSize() EndpointCapacitySizePtrOutput {
+	return o.ApplyT(func(v *EndpointTrafficRoutingConfig) *EndpointCapacitySize {
+		if v == nil {
+			return nil
+		}
+		return v.LinearStepSize
+	}).(EndpointCapacitySizePtrOutput)
+}
+
+// Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+func (o EndpointTrafficRoutingConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointTrafficRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the wait interval between traffic shifts, in seconds.
+func (o EndpointTrafficRoutingConfigPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointTrafficRoutingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WaitIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointVariantProperty struct {
+	// The type of variant property (e.g., 'DesiredInstanceCount', 'DesiredWeight', 'DataCaptureConfig').
+	VariantPropertyType *string `pulumi:"variantPropertyType"`
+}
+
+// EndpointVariantPropertyInput is an input type that accepts EndpointVariantPropertyArgs and EndpointVariantPropertyOutput values.
+// You can construct a concrete instance of `EndpointVariantPropertyInput` via:
+//
+//	EndpointVariantPropertyArgs{...}
+type EndpointVariantPropertyInput interface {
+	pulumi.Input
+
+	ToEndpointVariantPropertyOutput() EndpointVariantPropertyOutput
+	ToEndpointVariantPropertyOutputWithContext(context.Context) EndpointVariantPropertyOutput
+}
+
+type EndpointVariantPropertyArgs struct {
+	// The type of variant property (e.g., 'DesiredInstanceCount', 'DesiredWeight', 'DataCaptureConfig').
+	VariantPropertyType pulumi.StringPtrInput `pulumi:"variantPropertyType"`
+}
+
+func (EndpointVariantPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointVariantProperty)(nil)).Elem()
+}
+
+func (i EndpointVariantPropertyArgs) ToEndpointVariantPropertyOutput() EndpointVariantPropertyOutput {
+	return i.ToEndpointVariantPropertyOutputWithContext(context.Background())
+}
+
+func (i EndpointVariantPropertyArgs) ToEndpointVariantPropertyOutputWithContext(ctx context.Context) EndpointVariantPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointVariantPropertyOutput)
+}
+
+// EndpointVariantPropertyArrayInput is an input type that accepts EndpointVariantPropertyArray and EndpointVariantPropertyArrayOutput values.
+// You can construct a concrete instance of `EndpointVariantPropertyArrayInput` via:
+//
+//	EndpointVariantPropertyArray{ EndpointVariantPropertyArgs{...} }
+type EndpointVariantPropertyArrayInput interface {
+	pulumi.Input
+
+	ToEndpointVariantPropertyArrayOutput() EndpointVariantPropertyArrayOutput
+	ToEndpointVariantPropertyArrayOutputWithContext(context.Context) EndpointVariantPropertyArrayOutput
+}
+
+type EndpointVariantPropertyArray []EndpointVariantPropertyInput
+
+func (EndpointVariantPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointVariantProperty)(nil)).Elem()
+}
+
+func (i EndpointVariantPropertyArray) ToEndpointVariantPropertyArrayOutput() EndpointVariantPropertyArrayOutput {
+	return i.ToEndpointVariantPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointVariantPropertyArray) ToEndpointVariantPropertyArrayOutputWithContext(ctx context.Context) EndpointVariantPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointVariantPropertyArrayOutput)
+}
+
+type EndpointVariantPropertyOutput struct{ *pulumi.OutputState }
+
+func (EndpointVariantPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointVariantProperty)(nil)).Elem()
+}
+
+func (o EndpointVariantPropertyOutput) ToEndpointVariantPropertyOutput() EndpointVariantPropertyOutput {
+	return o
+}
+
+func (o EndpointVariantPropertyOutput) ToEndpointVariantPropertyOutputWithContext(ctx context.Context) EndpointVariantPropertyOutput {
+	return o
+}
+
+// The type of variant property (e.g., 'DesiredInstanceCount', 'DesiredWeight', 'DataCaptureConfig').
+func (o EndpointVariantPropertyOutput) VariantPropertyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointVariantProperty) *string { return v.VariantPropertyType }).(pulumi.StringPtrOutput)
+}
+
+type EndpointVariantPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointVariantPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointVariantProperty)(nil)).Elem()
+}
+
+func (o EndpointVariantPropertyArrayOutput) ToEndpointVariantPropertyArrayOutput() EndpointVariantPropertyArrayOutput {
+	return o
+}
+
+func (o EndpointVariantPropertyArrayOutput) ToEndpointVariantPropertyArrayOutputWithContext(ctx context.Context) EndpointVariantPropertyArrayOutput {
+	return o
+}
+
+func (o EndpointVariantPropertyArrayOutput) Index(i pulumi.IntInput) EndpointVariantPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointVariantProperty {
+		return vs[0].([]EndpointVariantProperty)[vs[1].(int)]
+	}).(EndpointVariantPropertyOutput)
 }
 
 type FeatureGroupDataCatalogConfig struct {
@@ -38520,16 +39794,24 @@ type UserProfileTag struct {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettings struct {
 	// The Code Editor application settings.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CodeEditorAppSettings *UserProfileCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
 	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomFileSystemConfigs []UserProfileCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
 	// Details about the POSIX identity that is used for file system operations.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomPosixUserConfig *UserProfileCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
 	// Defines which Amazon SageMaker application users are directed to by default.
 	DefaultLandingUri *string `pulumi:"defaultLandingUri"`
 	// The user profile Amazon Resource Name (ARN).
 	ExecutionRole *string `pulumi:"executionRole"`
 	// The settings for the JupyterLab application.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	JupyterLabAppSettings *UserProfileJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings *UserProfileJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
@@ -38542,6 +39824,8 @@ type UserProfileUserSettings struct {
 	// The sharing settings.
 	SharingSettings *UserProfileSharingSettings `pulumi:"sharingSettings"`
 	// The storage settings for a space.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	SpaceStorageSettings *UserProfileDefaultSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal *UserProfileUserSettingsStudioWebPortal `pulumi:"studioWebPortal"`
@@ -38563,16 +39847,24 @@ type UserProfileUserSettingsInput interface {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettingsArgs struct {
 	// The Code Editor application settings.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CodeEditorAppSettings UserProfileCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
 	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomFileSystemConfigs UserProfileCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
 	// Details about the POSIX identity that is used for file system operations.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomPosixUserConfig UserProfileCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
 	// Defines which Amazon SageMaker application users are directed to by default.
 	DefaultLandingUri pulumi.StringPtrInput `pulumi:"defaultLandingUri"`
 	// The user profile Amazon Resource Name (ARN).
 	ExecutionRole pulumi.StringPtrInput `pulumi:"executionRole"`
 	// The settings for the JupyterLab application.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	JupyterLabAppSettings UserProfileJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings UserProfileJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
@@ -38585,6 +39877,8 @@ type UserProfileUserSettingsArgs struct {
 	// The sharing settings.
 	SharingSettings UserProfileSharingSettingsPtrInput `pulumi:"sharingSettings"`
 	// The storage settings for a space.
+	//
+	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	SpaceStorageSettings UserProfileDefaultSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal UserProfileUserSettingsStudioWebPortalPtrInput `pulumi:"studioWebPortal"`
@@ -38671,16 +39965,22 @@ func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithCon
 }
 
 // The Code Editor application settings.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsOutput) CodeEditorAppSettings() UserProfileCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileCodeEditorAppSettings { return v.CodeEditorAppSettings }).(UserProfileCodeEditorAppSettingsPtrOutput)
 }
 
 // The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsOutput) CustomFileSystemConfigs() UserProfileCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) []UserProfileCustomFileSystemConfig { return v.CustomFileSystemConfigs }).(UserProfileCustomFileSystemConfigArrayOutput)
 }
 
 // Details about the POSIX identity that is used for file system operations.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsOutput) CustomPosixUserConfig() UserProfileCustomPosixUserConfigPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileCustomPosixUserConfig { return v.CustomPosixUserConfig }).(UserProfileCustomPosixUserConfigPtrOutput)
 }
@@ -38696,6 +39996,8 @@ func (o UserProfileUserSettingsOutput) ExecutionRole() pulumi.StringPtrOutput {
 }
 
 // The settings for the JupyterLab application.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsOutput) JupyterLabAppSettings() UserProfileJupyterLabAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileJupyterLabAppSettings { return v.JupyterLabAppSettings }).(UserProfileJupyterLabAppSettingsPtrOutput)
 }
@@ -38732,6 +40034,8 @@ func (o UserProfileUserSettingsOutput) SharingSettings() UserProfileSharingSetti
 }
 
 // The storage settings for a space.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsOutput) SpaceStorageSettings() UserProfileDefaultSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileDefaultSpaceStorageSettings { return v.SpaceStorageSettings }).(UserProfileDefaultSpaceStorageSettingsPtrOutput)
 }
@@ -38771,6 +40075,8 @@ func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
 }
 
 // The Code Editor application settings.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsPtrOutput) CodeEditorAppSettings() UserProfileCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileCodeEditorAppSettings {
 		if v == nil {
@@ -38781,6 +40087,8 @@ func (o UserProfileUserSettingsPtrOutput) CodeEditorAppSettings() UserProfileCod
 }
 
 // The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsPtrOutput) CustomFileSystemConfigs() UserProfileCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) []UserProfileCustomFileSystemConfig {
 		if v == nil {
@@ -38791,6 +40099,8 @@ func (o UserProfileUserSettingsPtrOutput) CustomFileSystemConfigs() UserProfileC
 }
 
 // Details about the POSIX identity that is used for file system operations.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsPtrOutput) CustomPosixUserConfig() UserProfileCustomPosixUserConfigPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileCustomPosixUserConfig {
 		if v == nil {
@@ -38821,6 +40131,8 @@ func (o UserProfileUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput
 }
 
 // The settings for the JupyterLab application.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsPtrOutput) JupyterLabAppSettings() UserProfileJupyterLabAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileJupyterLabAppSettings {
 		if v == nil {
@@ -38881,6 +40193,8 @@ func (o UserProfileUserSettingsPtrOutput) SharingSettings() UserProfileSharingSe
 }
 
 // The storage settings for a space.
+//
+// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsPtrOutput) SpaceStorageSettings() UserProfileDefaultSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileDefaultSpaceStorageSettings {
 		if v == nil {
@@ -39016,6 +40330,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainStudioWebPortalSettingsInput)(nil)).Elem(), DomainStudioWebPortalSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainStudioWebPortalSettingsPtrInput)(nil)).Elem(), DomainStudioWebPortalSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsInput)(nil)).Elem(), DomainUserSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAlarmInput)(nil)).Elem(), EndpointAlarmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAlarmArrayInput)(nil)).Elem(), EndpointAlarmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAutoRollbackConfigInput)(nil)).Elem(), EndpointAutoRollbackConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAutoRollbackConfigPtrInput)(nil)).Elem(), EndpointAutoRollbackConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointBlueGreenUpdatePolicyInput)(nil)).Elem(), EndpointBlueGreenUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointBlueGreenUpdatePolicyPtrInput)(nil)).Elem(), EndpointBlueGreenUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCapacitySizeInput)(nil)).Elem(), EndpointCapacitySizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCapacitySizePtrInput)(nil)).Elem(), EndpointCapacitySizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigPtrInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRollingUpdatePolicyInput)(nil)).Elem(), EndpointRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRollingUpdatePolicyPtrInput)(nil)).Elem(), EndpointRollingUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTrafficRoutingConfigInput)(nil)).Elem(), EndpointTrafficRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointTrafficRoutingConfigPtrInput)(nil)).Elem(), EndpointTrafficRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointVariantPropertyInput)(nil)).Elem(), EndpointVariantPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointVariantPropertyArrayInput)(nil)).Elem(), EndpointVariantPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupDataCatalogConfigInput)(nil)).Elem(), FeatureGroupDataCatalogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupDataCatalogConfigPtrInput)(nil)).Elem(), FeatureGroupDataCatalogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionInput)(nil)).Elem(), FeatureGroupFeatureDefinitionArgs{})
@@ -39481,6 +40811,22 @@ func init() {
 	pulumi.RegisterOutputType(DomainStudioWebPortalSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointAlarmOutput{})
+	pulumi.RegisterOutputType(EndpointAlarmArrayOutput{})
+	pulumi.RegisterOutputType(EndpointAutoRollbackConfigOutput{})
+	pulumi.RegisterOutputType(EndpointAutoRollbackConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointBlueGreenUpdatePolicyOutput{})
+	pulumi.RegisterOutputType(EndpointBlueGreenUpdatePolicyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointCapacitySizeOutput{})
+	pulumi.RegisterOutputType(EndpointCapacitySizePtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointRollingUpdatePolicyOutput{})
+	pulumi.RegisterOutputType(EndpointRollingUpdatePolicyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointTrafficRoutingConfigOutput{})
+	pulumi.RegisterOutputType(EndpointTrafficRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointVariantPropertyOutput{})
+	pulumi.RegisterOutputType(EndpointVariantPropertyArrayOutput{})
 	pulumi.RegisterOutputType(FeatureGroupDataCatalogConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupDataCatalogConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})

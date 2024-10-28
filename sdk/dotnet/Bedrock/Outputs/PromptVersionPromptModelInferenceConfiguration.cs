@@ -29,10 +29,6 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly double? Temperature;
         /// <summary>
-        /// Sample from the k most likely next tokens
-        /// </summary>
-        public readonly double? TopK;
-        /// <summary>
         /// Cumulative probability cutoff for token selection
         /// </summary>
         public readonly double? TopP;
@@ -45,14 +41,11 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             double? temperature,
 
-            double? topK,
-
             double? topP)
         {
             MaxTokens = maxTokens;
             StopSequences = stopSequences;
             Temperature = temperature;
-            TopK = topK;
             TopP = topP;
         }
     }

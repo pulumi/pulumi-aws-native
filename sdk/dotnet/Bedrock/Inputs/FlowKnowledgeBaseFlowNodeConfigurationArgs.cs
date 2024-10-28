@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class FlowKnowledgeBaseFlowNodeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("guardrailConfiguration")]
+        public Input<Inputs.FlowGuardrailConfigurationArgs>? GuardrailConfiguration { get; set; }
+
         /// <summary>
         /// Identifier of the KnowledgeBase
         /// </summary>
@@ -22,7 +25,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<string> KnowledgeBaseId { get; set; } = null!;
 
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         /// </summary>
         [Input("modelId")]
         public Input<string>? ModelId { get; set; }

@@ -31,6 +31,13 @@ __all__ = [
     'FunctionConfigurationAppSyncRuntime',
     'FunctionConfigurationLambdaConflictHandlerConfig',
     'FunctionConfigurationSyncConfig',
+    'GraphQlApiAdditionalAuthenticationProvider',
+    'GraphQlApiCognitoUserPoolConfig',
+    'GraphQlApiEnhancedMetricsConfig',
+    'GraphQlApiLambdaAuthorizerConfig',
+    'GraphQlApiLogConfig',
+    'GraphQlApiOpenIdConnectConfig',
+    'GraphQlApiUserPoolConfig',
     'ResolverAppSyncRuntime',
     'ResolverCachingConfig',
     'ResolverLambdaConflictHandlerConfig',
@@ -787,6 +794,490 @@ class FunctionConfigurationSyncConfig(dict):
         The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
         """
         return pulumi.get(self, "lambda_conflict_handler_config")
+
+
+@pulumi.output_type
+class GraphQlApiAdditionalAuthenticationProvider(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "lambdaAuthorizerConfig":
+            suggest = "lambda_authorizer_config"
+        elif key == "openIdConnectConfig":
+            suggest = "open_id_connect_config"
+        elif key == "userPoolConfig":
+            suggest = "user_pool_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQlApiAdditionalAuthenticationProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQlApiAdditionalAuthenticationProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQlApiAdditionalAuthenticationProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_type: str,
+                 lambda_authorizer_config: Optional['outputs.GraphQlApiLambdaAuthorizerConfig'] = None,
+                 open_id_connect_config: Optional['outputs.GraphQlApiOpenIdConnectConfig'] = None,
+                 user_pool_config: Optional['outputs.GraphQlApiCognitoUserPoolConfig'] = None):
+        """
+        :param str authentication_type: The authentication type for API key, AWS Identity and Access Management, OIDC, Amazon Cognito user pools, or AWS Lambda.
+        :param 'GraphQlApiLambdaAuthorizerConfig' lambda_authorizer_config: Configuration for AWS Lambda function authorization.
+        :param 'GraphQlApiOpenIdConnectConfig' open_id_connect_config: The OIDC configuration.
+        :param 'GraphQlApiCognitoUserPoolConfig' user_pool_config: The Amazon Cognito user pool configuration.
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+        if open_id_connect_config is not None:
+            pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+        if user_pool_config is not None:
+            pulumi.set(__self__, "user_pool_config", user_pool_config)
+
+    @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        The authentication type for API key, AWS Identity and Access Management, OIDC, Amazon Cognito user pools, or AWS Lambda.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional['outputs.GraphQlApiLambdaAuthorizerConfig']:
+        """
+        Configuration for AWS Lambda function authorization.
+        """
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @property
+    @pulumi.getter(name="openIdConnectConfig")
+    def open_id_connect_config(self) -> Optional['outputs.GraphQlApiOpenIdConnectConfig']:
+        """
+        The OIDC configuration.
+        """
+        return pulumi.get(self, "open_id_connect_config")
+
+    @property
+    @pulumi.getter(name="userPoolConfig")
+    def user_pool_config(self) -> Optional['outputs.GraphQlApiCognitoUserPoolConfig']:
+        """
+        The Amazon Cognito user pool configuration.
+        """
+        return pulumi.get(self, "user_pool_config")
+
+
+@pulumi.output_type
+class GraphQlApiCognitoUserPoolConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appIdClientRegex":
+            suggest = "app_id_client_regex"
+        elif key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "userPoolId":
+            suggest = "user_pool_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQlApiCognitoUserPoolConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQlApiCognitoUserPoolConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQlApiCognitoUserPoolConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id_client_regex: Optional[str] = None,
+                 aws_region: Optional[str] = None,
+                 user_pool_id: Optional[str] = None):
+        """
+        :param str app_id_client_regex: A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        :param str aws_region: The AWS Region in which the user pool was created.
+        :param str user_pool_id: The user pool ID
+        """
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+
+    @property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[str]:
+        """
+        A regular expression for validating the incoming Amazon Cognito user pool app client ID. 
+        """
+        return pulumi.get(self, "app_id_client_regex")
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[str]:
+        """
+        The AWS Region in which the user pool was created.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[str]:
+        """
+        The user pool ID
+        """
+        return pulumi.get(self, "user_pool_id")
+
+
+@pulumi.output_type
+class GraphQlApiEnhancedMetricsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceLevelMetricsBehavior":
+            suggest = "data_source_level_metrics_behavior"
+        elif key == "operationLevelMetricsConfig":
+            suggest = "operation_level_metrics_config"
+        elif key == "resolverLevelMetricsBehavior":
+            suggest = "resolver_level_metrics_behavior"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQlApiEnhancedMetricsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQlApiEnhancedMetricsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQlApiEnhancedMetricsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_level_metrics_behavior: str,
+                 operation_level_metrics_config: str,
+                 resolver_level_metrics_behavior: str):
+        """
+        :param str data_source_level_metrics_behavior: Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:
+        :param str operation_level_metrics_config: Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:
+        :param str resolver_level_metrics_behavior: Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:
+        """
+        pulumi.set(__self__, "data_source_level_metrics_behavior", data_source_level_metrics_behavior)
+        pulumi.set(__self__, "operation_level_metrics_config", operation_level_metrics_config)
+        pulumi.set(__self__, "resolver_level_metrics_behavior", resolver_level_metrics_behavior)
+
+    @property
+    @pulumi.getter(name="dataSourceLevelMetricsBehavior")
+    def data_source_level_metrics_behavior(self) -> str:
+        """
+        Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:
+        """
+        return pulumi.get(self, "data_source_level_metrics_behavior")
+
+    @property
+    @pulumi.getter(name="operationLevelMetricsConfig")
+    def operation_level_metrics_config(self) -> str:
+        """
+        Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:
+        """
+        return pulumi.get(self, "operation_level_metrics_config")
+
+    @property
+    @pulumi.getter(name="resolverLevelMetricsBehavior")
+    def resolver_level_metrics_behavior(self) -> str:
+        """
+        Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:
+        """
+        return pulumi.get(self, "resolver_level_metrics_behavior")
+
+
+@pulumi.output_type
+class GraphQlApiLambdaAuthorizerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizerResultTtlInSeconds":
+            suggest = "authorizer_result_ttl_in_seconds"
+        elif key == "authorizerUri":
+            suggest = "authorizer_uri"
+        elif key == "identityValidationExpression":
+            suggest = "identity_validation_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQlApiLambdaAuthorizerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQlApiLambdaAuthorizerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQlApiLambdaAuthorizerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizer_result_ttl_in_seconds: Optional[int] = None,
+                 authorizer_uri: Optional[str] = None,
+                 identity_validation_expression: Optional[str] = None):
+        """
+        :param int authorizer_result_ttl_in_seconds: The number of seconds a response should be cached for.
+        :param str authorizer_uri: The ARN of the Lambda function to be called for authorization.
+        :param str identity_validation_expression: A regular expression for validation of tokens before the Lambda function is called.
+        """
+        if authorizer_result_ttl_in_seconds is not None:
+            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+        if authorizer_uri is not None:
+            pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+        if identity_validation_expression is not None:
+            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+
+    @property
+    @pulumi.getter(name="authorizerResultTtlInSeconds")
+    def authorizer_result_ttl_in_seconds(self) -> Optional[int]:
+        """
+        The number of seconds a response should be cached for.
+        """
+        return pulumi.get(self, "authorizer_result_ttl_in_seconds")
+
+    @property
+    @pulumi.getter(name="authorizerUri")
+    def authorizer_uri(self) -> Optional[str]:
+        """
+        The ARN of the Lambda function to be called for authorization.
+        """
+        return pulumi.get(self, "authorizer_uri")
+
+    @property
+    @pulumi.getter(name="identityValidationExpression")
+    def identity_validation_expression(self) -> Optional[str]:
+        """
+        A regular expression for validation of tokens before the Lambda function is called.
+        """
+        return pulumi.get(self, "identity_validation_expression")
+
+
+@pulumi.output_type
+class GraphQlApiLogConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogsRoleArn":
+            suggest = "cloud_watch_logs_role_arn"
+        elif key == "excludeVerboseContent":
+            suggest = "exclude_verbose_content"
+        elif key == "fieldLogLevel":
+            suggest = "field_log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQlApiLogConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQlApiLogConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQlApiLogConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs_role_arn: Optional[str] = None,
+                 exclude_verbose_content: Optional[bool] = None,
+                 field_log_level: Optional[str] = None):
+        """
+        :param str cloud_watch_logs_role_arn: The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
+        :param bool exclude_verbose_content: Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+        :param str field_log_level: The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        """
+        if cloud_watch_logs_role_arn is not None:
+            pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+        if exclude_verbose_content is not None:
+            pulumi.set(__self__, "exclude_verbose_content", exclude_verbose_content)
+        if field_log_level is not None:
+            pulumi.set(__self__, "field_log_level", field_log_level)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsRoleArn")
+    def cloud_watch_logs_role_arn(self) -> Optional[str]:
+        """
+        The service role that AWS AppSync will assume to publish to Amazon CloudWatch Logs in your account.
+        """
+        return pulumi.get(self, "cloud_watch_logs_role_arn")
+
+    @property
+    @pulumi.getter(name="excludeVerboseContent")
+    def exclude_verbose_content(self) -> Optional[bool]:
+        """
+        Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+        """
+        return pulumi.get(self, "exclude_verbose_content")
+
+    @property
+    @pulumi.getter(name="fieldLogLevel")
+    def field_log_level(self) -> Optional[str]:
+        """
+        The field logging level. Values can be NONE, ERROR, INFO, DEBUG, or ALL.
+        """
+        return pulumi.get(self, "field_log_level")
+
+
+@pulumi.output_type
+class GraphQlApiOpenIdConnectConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTtl":
+            suggest = "auth_ttl"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "iatTtl":
+            suggest = "iat_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQlApiOpenIdConnectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQlApiOpenIdConnectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQlApiOpenIdConnectConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_ttl: Optional[float] = None,
+                 client_id: Optional[str] = None,
+                 iat_ttl: Optional[float] = None,
+                 issuer: Optional[str] = None):
+        """
+        :param float auth_ttl: The number of milliseconds that a token is valid after being authenticated.
+        :param str client_id: The client identifier of the Relying party at the OpenID identity provider.
+        :param float iat_ttl: The number of milliseconds that a token is valid after it's issued to a user.
+        :param str issuer: The issuer for the OIDC configuration. 
+        """
+        if auth_ttl is not None:
+            pulumi.set(__self__, "auth_ttl", auth_ttl)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if iat_ttl is not None:
+            pulumi.set(__self__, "iat_ttl", iat_ttl)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+
+    @property
+    @pulumi.getter(name="authTtl")
+    def auth_ttl(self) -> Optional[float]:
+        """
+        The number of milliseconds that a token is valid after being authenticated.
+        """
+        return pulumi.get(self, "auth_ttl")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client identifier of the Relying party at the OpenID identity provider.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="iatTtl")
+    def iat_ttl(self) -> Optional[float]:
+        """
+        The number of milliseconds that a token is valid after it's issued to a user.
+        """
+        return pulumi.get(self, "iat_ttl")
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[str]:
+        """
+        The issuer for the OIDC configuration. 
+        """
+        return pulumi.get(self, "issuer")
+
+
+@pulumi.output_type
+class GraphQlApiUserPoolConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appIdClientRegex":
+            suggest = "app_id_client_regex"
+        elif key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "defaultAction":
+            suggest = "default_action"
+        elif key == "userPoolId":
+            suggest = "user_pool_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GraphQlApiUserPoolConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GraphQlApiUserPoolConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GraphQlApiUserPoolConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_id_client_regex: Optional[str] = None,
+                 aws_region: Optional[str] = None,
+                 default_action: Optional[str] = None,
+                 user_pool_id: Optional[str] = None):
+        """
+        :param str app_id_client_regex: A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+        :param str aws_region: The AWS Region in which the user pool was created.
+        :param str default_action: The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
+        :param str user_pool_id: The user pool ID.
+        """
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+        if aws_region is not None:
+            pulumi.set(__self__, "aws_region", aws_region)
+        if default_action is not None:
+            pulumi.set(__self__, "default_action", default_action)
+        if user_pool_id is not None:
+            pulumi.set(__self__, "user_pool_id", user_pool_id)
+
+    @property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[str]:
+        """
+        A regular expression for validating the incoming Amazon Cognito user pool app client ID.
+        """
+        return pulumi.get(self, "app_id_client_regex")
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> Optional[str]:
+        """
+        The AWS Region in which the user pool was created.
+        """
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> Optional[str]:
+        """
+        The action that you want your GraphQL API to take when a request that uses Amazon Cognito user pool authentication doesn't match the Amazon Cognito user pool configuration.
+        """
+        return pulumi.get(self, "default_action")
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> Optional[str]:
+        """
+        The user pool ID.
+        """
+        return pulumi.get(self, "user_pool_id")
 
 
 @pulumi.output_type

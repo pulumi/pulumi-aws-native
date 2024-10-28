@@ -74,6 +74,14 @@ __all__ = [
     'DomainSharingSettings',
     'DomainStudioWebPortalSettings',
     'DomainUserSettings',
+    'EndpointAlarm',
+    'EndpointAutoRollbackConfig',
+    'EndpointBlueGreenUpdatePolicy',
+    'EndpointCapacitySize',
+    'EndpointDeploymentConfig',
+    'EndpointRollingUpdatePolicy',
+    'EndpointTrafficRoutingConfig',
+    'EndpointVariantProperty',
     'FeatureGroupDataCatalogConfig',
     'FeatureGroupFeatureDefinition',
     'FeatureGroupOnlineStoreSecurityConfig',
@@ -3575,10 +3583,18 @@ class DomainUserSettings(dict):
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param str execution_role: The execution role for the user.
         :param 'DomainCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param Sequence['DomainCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param 'DomainCustomPosixUserConfig' custom_posix_user_config: Details about the POSIX identity that is used for file system operations.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param str default_landing_uri: Defines which Amazon SageMaker application users are directed to by default.
         :param 'DomainJupyterLabAppSettings' jupyter_lab_app_settings: The settings for the JupyterLab application.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param 'DomainJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
         :param 'DomainKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
         :param 'DomainRSessionAppSettings' r_session_app_settings: A collection of settings that configure the `RSessionGateway` app.
@@ -3586,6 +3602,8 @@ class DomainUserSettings(dict):
         :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param 'DomainSharingSettings' sharing_settings: The sharing settings.
         :param 'DomainDefaultSpaceStorageSettings' space_storage_settings: The storage settings for a space.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param 'DomainUserSettingsStudioWebPortal' studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         :param 'DomainStudioWebPortalSettings' studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
@@ -3632,6 +3650,8 @@ class DomainUserSettings(dict):
     def code_editor_app_settings(self) -> Optional['outputs.DomainCodeEditorAppSettings']:
         """
         The Code Editor application settings.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "code_editor_app_settings")
 
@@ -3640,6 +3660,8 @@ class DomainUserSettings(dict):
     def custom_file_system_configs(self) -> Optional[Sequence['outputs.DomainCustomFileSystemConfig']]:
         """
         The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -3648,6 +3670,8 @@ class DomainUserSettings(dict):
     def custom_posix_user_config(self) -> Optional['outputs.DomainCustomPosixUserConfig']:
         """
         Details about the POSIX identity that is used for file system operations.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "custom_posix_user_config")
 
@@ -3664,6 +3688,8 @@ class DomainUserSettings(dict):
     def jupyter_lab_app_settings(self) -> Optional['outputs.DomainJupyterLabAppSettings']:
         """
         The settings for the JupyterLab application.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
@@ -3720,6 +3746,8 @@ class DomainUserSettings(dict):
     def space_storage_settings(self) -> Optional['outputs.DomainDefaultSpaceStorageSettings']:
         """
         The storage settings for a space.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "space_storage_settings")
 
@@ -3738,6 +3766,402 @@ class DomainUserSettings(dict):
         Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
         return pulumi.get(self, "studio_web_portal_settings")
+
+
+@pulumi.output_type
+class EndpointAlarm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmName":
+            suggest = "alarm_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointAlarm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointAlarm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointAlarm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_name: str):
+        """
+        :param str alarm_name: The name of the CloudWatch alarm.
+        """
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> str:
+        """
+        The name of the CloudWatch alarm.
+        """
+        return pulumi.get(self, "alarm_name")
+
+
+@pulumi.output_type
+class EndpointAutoRollbackConfig(dict):
+    def __init__(__self__, *,
+                 alarms: Sequence['outputs.EndpointAlarm']):
+        """
+        :param Sequence['EndpointAlarm'] alarms: List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+        """
+        pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Sequence['outputs.EndpointAlarm']:
+        """
+        List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+        """
+        return pulumi.get(self, "alarms")
+
+
+@pulumi.output_type
+class EndpointBlueGreenUpdatePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficRoutingConfiguration":
+            suggest = "traffic_routing_configuration"
+        elif key == "maximumExecutionTimeoutInSeconds":
+            suggest = "maximum_execution_timeout_in_seconds"
+        elif key == "terminationWaitInSeconds":
+            suggest = "termination_wait_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointBlueGreenUpdatePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointBlueGreenUpdatePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointBlueGreenUpdatePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 traffic_routing_configuration: 'outputs.EndpointTrafficRoutingConfig',
+                 maximum_execution_timeout_in_seconds: Optional[int] = None,
+                 termination_wait_in_seconds: Optional[int] = None):
+        """
+        :param 'EndpointTrafficRoutingConfig' traffic_routing_configuration: The traffic routing configuration for the blue/green deployment.
+        :param int maximum_execution_timeout_in_seconds: The maximum time allowed for the blue/green update, in seconds.
+        :param int termination_wait_in_seconds: The wait time before terminating the old endpoint during a blue/green deployment.
+        """
+        pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if termination_wait_in_seconds is not None:
+            pulumi.set(__self__, "termination_wait_in_seconds", termination_wait_in_seconds)
+
+    @property
+    @pulumi.getter(name="trafficRoutingConfiguration")
+    def traffic_routing_configuration(self) -> 'outputs.EndpointTrafficRoutingConfig':
+        """
+        The traffic routing configuration for the blue/green deployment.
+        """
+        return pulumi.get(self, "traffic_routing_configuration")
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[int]:
+        """
+        The maximum time allowed for the blue/green update, in seconds.
+        """
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="terminationWaitInSeconds")
+    def termination_wait_in_seconds(self) -> Optional[int]:
+        """
+        The wait time before terminating the old endpoint during a blue/green deployment.
+        """
+        return pulumi.get(self, "termination_wait_in_seconds")
+
+
+@pulumi.output_type
+class EndpointCapacitySize(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: int):
+        """
+        :param str type: Specifies whether the `Value` is an instance count or a capacity unit.
+        :param int value: The value representing either the number of instances or the number of capacity units.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies whether the `Value` is an instance count or a capacity unit.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The value representing either the number of instances or the number of capacity units.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRollbackConfiguration":
+            suggest = "auto_rollback_configuration"
+        elif key == "blueGreenUpdatePolicy":
+            suggest = "blue_green_update_policy"
+        elif key == "rollingUpdatePolicy":
+            suggest = "rolling_update_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeploymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeploymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeploymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_rollback_configuration: Optional['outputs.EndpointAutoRollbackConfig'] = None,
+                 blue_green_update_policy: Optional['outputs.EndpointBlueGreenUpdatePolicy'] = None,
+                 rolling_update_policy: Optional['outputs.EndpointRollingUpdatePolicy'] = None):
+        """
+        :param 'EndpointAutoRollbackConfig' auto_rollback_configuration: Configuration for automatic rollback if an error occurs during deployment.
+        :param 'EndpointBlueGreenUpdatePolicy' blue_green_update_policy: Configuration for blue-green update deployment policies.
+        :param 'EndpointRollingUpdatePolicy' rolling_update_policy: Configuration for rolling update deployment policies.
+        """
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+        if blue_green_update_policy is not None:
+            pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+        if rolling_update_policy is not None:
+            pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional['outputs.EndpointAutoRollbackConfig']:
+        """
+        Configuration for automatic rollback if an error occurs during deployment.
+        """
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @property
+    @pulumi.getter(name="blueGreenUpdatePolicy")
+    def blue_green_update_policy(self) -> Optional['outputs.EndpointBlueGreenUpdatePolicy']:
+        """
+        Configuration for blue-green update deployment policies.
+        """
+        return pulumi.get(self, "blue_green_update_policy")
+
+    @property
+    @pulumi.getter(name="rollingUpdatePolicy")
+    def rolling_update_policy(self) -> Optional['outputs.EndpointRollingUpdatePolicy']:
+        """
+        Configuration for rolling update deployment policies.
+        """
+        return pulumi.get(self, "rolling_update_policy")
+
+
+@pulumi.output_type
+class EndpointRollingUpdatePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumBatchSize":
+            suggest = "maximum_batch_size"
+        elif key == "waitIntervalInSeconds":
+            suggest = "wait_interval_in_seconds"
+        elif key == "maximumExecutionTimeoutInSeconds":
+            suggest = "maximum_execution_timeout_in_seconds"
+        elif key == "rollbackMaximumBatchSize":
+            suggest = "rollback_maximum_batch_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointRollingUpdatePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointRollingUpdatePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointRollingUpdatePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_batch_size: 'outputs.EndpointCapacitySize',
+                 wait_interval_in_seconds: int,
+                 maximum_execution_timeout_in_seconds: Optional[int] = None,
+                 rollback_maximum_batch_size: Optional['outputs.EndpointCapacitySize'] = None):
+        """
+        :param 'EndpointCapacitySize' maximum_batch_size: Specifies the maximum batch size for each rolling update.
+        :param int wait_interval_in_seconds: The time to wait between steps during the rolling update, in seconds.
+        :param int maximum_execution_timeout_in_seconds: The maximum time allowed for the rolling update, in seconds.
+        :param 'EndpointCapacitySize' rollback_maximum_batch_size: The maximum batch size for rollback during an update failure.
+        """
+        pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
+        pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if rollback_maximum_batch_size is not None:
+            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+
+    @property
+    @pulumi.getter(name="maximumBatchSize")
+    def maximum_batch_size(self) -> 'outputs.EndpointCapacitySize':
+        """
+        Specifies the maximum batch size for each rolling update.
+        """
+        return pulumi.get(self, "maximum_batch_size")
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> int:
+        """
+        The time to wait between steps during the rolling update, in seconds.
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[int]:
+        """
+        The maximum time allowed for the rolling update, in seconds.
+        """
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="rollbackMaximumBatchSize")
+    def rollback_maximum_batch_size(self) -> Optional['outputs.EndpointCapacitySize']:
+        """
+        The maximum batch size for rollback during an update failure.
+        """
+        return pulumi.get(self, "rollback_maximum_batch_size")
+
+
+@pulumi.output_type
+class EndpointTrafficRoutingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "canarySize":
+            suggest = "canary_size"
+        elif key == "linearStepSize":
+            suggest = "linear_step_size"
+        elif key == "waitIntervalInSeconds":
+            suggest = "wait_interval_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointTrafficRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointTrafficRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointTrafficRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 canary_size: Optional['outputs.EndpointCapacitySize'] = None,
+                 linear_step_size: Optional['outputs.EndpointCapacitySize'] = None,
+                 wait_interval_in_seconds: Optional[int] = None):
+        """
+        :param str type: Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+        :param 'EndpointCapacitySize' canary_size: Specifies the size of the canary traffic in a canary deployment.
+        :param 'EndpointCapacitySize' linear_step_size: Specifies the step size for linear traffic routing.
+        :param int wait_interval_in_seconds: Specifies the wait interval between traffic shifts, in seconds.
+        """
+        pulumi.set(__self__, "type", type)
+        if canary_size is not None:
+            pulumi.set(__self__, "canary_size", canary_size)
+        if linear_step_size is not None:
+            pulumi.set(__self__, "linear_step_size", linear_step_size)
+        if wait_interval_in_seconds is not None:
+            pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="canarySize")
+    def canary_size(self) -> Optional['outputs.EndpointCapacitySize']:
+        """
+        Specifies the size of the canary traffic in a canary deployment.
+        """
+        return pulumi.get(self, "canary_size")
+
+    @property
+    @pulumi.getter(name="linearStepSize")
+    def linear_step_size(self) -> Optional['outputs.EndpointCapacitySize']:
+        """
+        Specifies the step size for linear traffic routing.
+        """
+        return pulumi.get(self, "linear_step_size")
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> Optional[int]:
+        """
+        Specifies the wait interval between traffic shifts, in seconds.
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+
+@pulumi.output_type
+class EndpointVariantProperty(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variantPropertyType":
+            suggest = "variant_property_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointVariantProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointVariantProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointVariantProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 variant_property_type: Optional[str] = None):
+        """
+        :param str variant_property_type: The type of variant property (e.g., 'DesiredInstanceCount', 'DesiredWeight', 'DataCaptureConfig').
+        """
+        if variant_property_type is not None:
+            pulumi.set(__self__, "variant_property_type", variant_property_type)
+
+    @property
+    @pulumi.getter(name="variantPropertyType")
+    def variant_property_type(self) -> Optional[str]:
+        """
+        The type of variant property (e.g., 'DesiredInstanceCount', 'DesiredWeight', 'DataCaptureConfig').
+        """
+        return pulumi.get(self, "variant_property_type")
 
 
 @pulumi.output_type
@@ -15979,17 +16403,27 @@ class UserProfileUserSettings(dict):
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param 'UserProfileCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param Sequence['UserProfileCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param 'UserProfileCustomPosixUserConfig' custom_posix_user_config: Details about the POSIX identity that is used for file system operations.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param str default_landing_uri: Defines which Amazon SageMaker application users are directed to by default.
         :param str execution_role: The user profile Amazon Resource Name (ARN).
         :param 'UserProfileJupyterLabAppSettings' jupyter_lab_app_settings: The settings for the JupyterLab application.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param 'UserProfileJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
         :param 'UserProfileKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
         :param 'UserProfileRStudioServerProAppSettings' r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the `RStudioServerPro` app.
         :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param 'UserProfileSharingSettings' sharing_settings: The sharing settings.
         :param 'UserProfileDefaultSpaceStorageSettings' space_storage_settings: The storage settings for a space.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param 'UserProfileUserSettingsStudioWebPortal' studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         :param 'UserProfileStudioWebPortalSettings' studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
@@ -16027,6 +16461,8 @@ class UserProfileUserSettings(dict):
     def code_editor_app_settings(self) -> Optional['outputs.UserProfileCodeEditorAppSettings']:
         """
         The Code Editor application settings.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "code_editor_app_settings")
 
@@ -16035,6 +16471,8 @@ class UserProfileUserSettings(dict):
     def custom_file_system_configs(self) -> Optional[Sequence['outputs.UserProfileCustomFileSystemConfig']]:
         """
         The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -16043,6 +16481,8 @@ class UserProfileUserSettings(dict):
     def custom_posix_user_config(self) -> Optional['outputs.UserProfileCustomPosixUserConfig']:
         """
         Details about the POSIX identity that is used for file system operations.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "custom_posix_user_config")
 
@@ -16067,6 +16507,8 @@ class UserProfileUserSettings(dict):
     def jupyter_lab_app_settings(self) -> Optional['outputs.UserProfileJupyterLabAppSettings']:
         """
         The settings for the JupyterLab application.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
@@ -16115,6 +16557,8 @@ class UserProfileUserSettings(dict):
     def space_storage_settings(self) -> Optional['outputs.UserProfileDefaultSpaceStorageSettings']:
         """
         The storage settings for a space.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "space_storage_settings")
 

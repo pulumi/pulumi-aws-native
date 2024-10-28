@@ -776,6 +776,7 @@ _utilities.register(
   "classes": {
    "aws-native:appconfig:Application": "Application",
    "aws-native:appconfig:ConfigurationProfile": "ConfigurationProfile",
+   "aws-native:appconfig:DeploymentStrategy": "DeploymentStrategy",
    "aws-native:appconfig:Environment": "Environment",
    "aws-native:appconfig:Extension": "Extension",
    "aws-native:appconfig:ExtensionAssociation": "ExtensionAssociation",
@@ -863,6 +864,7 @@ _utilities.register(
    "aws-native:appsync:DomainName": "DomainName",
    "aws-native:appsync:DomainNameApiAssociation": "DomainNameApiAssociation",
    "aws-native:appsync:FunctionConfiguration": "FunctionConfiguration",
+   "aws-native:appsync:GraphQlApi": "GraphQlApi",
    "aws-native:appsync:Resolver": "Resolver",
    "aws-native:appsync:SourceApiAssociation": "SourceApiAssociation"
   }
@@ -1415,6 +1417,7 @@ _utilities.register(
   "mod": "dms",
   "fqn": "pulumi_aws_native.dms",
   "classes": {
+   "aws-native:dms:DataMigration": "DataMigration",
    "aws-native:dms:DataProvider": "DataProvider",
    "aws-native:dms:InstanceProfile": "InstanceProfile",
    "aws-native:dms:MigrationProject": "MigrationProject",
@@ -2882,6 +2885,7 @@ _utilities.register(
    "aws-native:sagemaker:Device": "Device",
    "aws-native:sagemaker:DeviceFleet": "DeviceFleet",
    "aws-native:sagemaker:Domain": "Domain",
+   "aws-native:sagemaker:Endpoint": "Endpoint",
    "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
    "aws-native:sagemaker:Image": "Image",
    "aws-native:sagemaker:ImageVersion": "ImageVersion",

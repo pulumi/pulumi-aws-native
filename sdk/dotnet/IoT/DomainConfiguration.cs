@@ -17,8 +17,6 @@ namespace Pulumi.AwsNative.IoT
     {
         /// <summary>
         /// An enumerated string that speciﬁes the application-layer protocol.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         [Output("applicationProtocol")]
         public Output<Pulumi.AwsNative.IoT.DomainConfigurationApplicationProtocol?> ApplicationProtocol { get; private set; } = null!;
@@ -31,8 +29,6 @@ namespace Pulumi.AwsNative.IoT
 
         /// <summary>
         /// An enumerated string that speciﬁes the authentication type.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         [Output("authenticationType")]
         public Output<Pulumi.AwsNative.IoT.DomainConfigurationAuthenticationType?> AuthenticationType { get; private set; } = null!;
@@ -45,8 +41,6 @@ namespace Pulumi.AwsNative.IoT
 
         /// <summary>
         /// An object that speciﬁes the client certificate conﬁguration for a domain.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         [Output("clientCertificateConfig")]
         public Output<Outputs.DomainConfigurationClientCertificateConfig?> ClientCertificateConfig { get; private set; } = null!;
@@ -184,16 +178,12 @@ namespace Pulumi.AwsNative.IoT
     {
         /// <summary>
         /// An enumerated string that speciﬁes the application-layer protocol.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         [Input("applicationProtocol")]
         public Input<Pulumi.AwsNative.IoT.DomainConfigurationApplicationProtocol>? ApplicationProtocol { get; set; }
 
         /// <summary>
         /// An enumerated string that speciﬁes the authentication type.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         [Input("authenticationType")]
         public Input<Pulumi.AwsNative.IoT.DomainConfigurationAuthenticationType>? AuthenticationType { get; set; }
@@ -206,8 +196,6 @@ namespace Pulumi.AwsNative.IoT
 
         /// <summary>
         /// An object that speciﬁes the client certificate conﬁguration for a domain.
-        /// 
-        /// &gt; This property isn't available in China.
         /// </summary>
         [Input("clientCertificateConfig")]
         public Input<Inputs.DomainConfigurationClientCertificateConfigArgs>? ClientCertificateConfig { get; set; }

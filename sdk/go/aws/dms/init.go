@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:dms:DataMigration":
+		r = &DataMigration{}
 	case "aws-native:dms:DataProvider":
 		r = &DataProvider{}
 	case "aws-native:dms:InstanceProfile":

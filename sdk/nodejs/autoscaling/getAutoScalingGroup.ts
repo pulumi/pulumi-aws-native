@@ -30,6 +30,7 @@ export interface GetAutoScalingGroupArgs {
 }
 
 export interface GetAutoScalingGroupResult {
+    readonly availabilityZoneDistribution?: outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
      */
@@ -154,6 +155,9 @@ export interface GetAutoScalingGroupResult {
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
     readonly terminationPolicies?: string[];
+    /**
+     * The traffic sources associated with this Auto Scaling group.
+     */
     readonly trafficSources?: outputs.autoscaling.AutoScalingGroupTrafficSourceIdentifier[];
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.

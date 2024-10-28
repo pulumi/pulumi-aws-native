@@ -7,6 +7,38 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Dms
 {
+    /// <summary>
+    /// The property describes the type of migration.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataMigrationType : IEquatable<DataMigrationType>
+    {
+        private readonly string _value;
+
+        private DataMigrationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataMigrationType FullLoad { get; } = new DataMigrationType("full-load");
+        public static DataMigrationType Cdc { get; } = new DataMigrationType("cdc");
+        public static DataMigrationType FullLoadAndCdc { get; } = new DataMigrationType("full-load-and-cdc");
+
+        public static bool operator ==(DataMigrationType left, DataMigrationType right) => left.Equals(right);
+        public static bool operator !=(DataMigrationType left, DataMigrationType right) => !left.Equals(right);
+
+        public static explicit operator string(DataMigrationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataMigrationType other && Equals(other);
+        public bool Equals(DataMigrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DataProviderDmsSslModeValue : IEquatable<DataProviderDmsSslModeValue>
     {

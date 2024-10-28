@@ -10,6 +10,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The property describes the type of migration.
+type DataMigrationType string
+
+const (
+	DataMigrationTypeFullLoad       = DataMigrationType("full-load")
+	DataMigrationTypeCdc            = DataMigrationType("cdc")
+	DataMigrationTypeFullLoadAndCdc = DataMigrationType("full-load-and-cdc")
+)
+
+func (DataMigrationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataMigrationType)(nil)).Elem()
+}
+
+func (e DataMigrationType) ToDataMigrationTypeOutput() DataMigrationTypeOutput {
+	return pulumi.ToOutput(e).(DataMigrationTypeOutput)
+}
+
+func (e DataMigrationType) ToDataMigrationTypeOutputWithContext(ctx context.Context) DataMigrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataMigrationTypeOutput)
+}
+
+func (e DataMigrationType) ToDataMigrationTypePtrOutput() DataMigrationTypePtrOutput {
+	return e.ToDataMigrationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataMigrationType) ToDataMigrationTypePtrOutputWithContext(ctx context.Context) DataMigrationTypePtrOutput {
+	return DataMigrationType(e).ToDataMigrationTypeOutputWithContext(ctx).ToDataMigrationTypePtrOutputWithContext(ctx)
+}
+
+func (e DataMigrationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataMigrationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataMigrationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataMigrationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataMigrationTypeOutput struct{ *pulumi.OutputState }
+
+func (DataMigrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataMigrationType)(nil)).Elem()
+}
+
+func (o DataMigrationTypeOutput) ToDataMigrationTypeOutput() DataMigrationTypeOutput {
+	return o
+}
+
+func (o DataMigrationTypeOutput) ToDataMigrationTypeOutputWithContext(ctx context.Context) DataMigrationTypeOutput {
+	return o
+}
+
+func (o DataMigrationTypeOutput) ToDataMigrationTypePtrOutput() DataMigrationTypePtrOutput {
+	return o.ToDataMigrationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataMigrationTypeOutput) ToDataMigrationTypePtrOutputWithContext(ctx context.Context) DataMigrationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataMigrationType) *DataMigrationType {
+		return &v
+	}).(DataMigrationTypePtrOutput)
+}
+
+func (o DataMigrationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataMigrationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataMigrationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataMigrationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataMigrationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataMigrationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataMigrationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataMigrationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataMigrationType)(nil)).Elem()
+}
+
+func (o DataMigrationTypePtrOutput) ToDataMigrationTypePtrOutput() DataMigrationTypePtrOutput {
+	return o
+}
+
+func (o DataMigrationTypePtrOutput) ToDataMigrationTypePtrOutputWithContext(ctx context.Context) DataMigrationTypePtrOutput {
+	return o
+}
+
+func (o DataMigrationTypePtrOutput) Elem() DataMigrationTypeOutput {
+	return o.ApplyT(func(v *DataMigrationType) DataMigrationType {
+		if v != nil {
+			return *v
+		}
+		var ret DataMigrationType
+		return ret
+	}).(DataMigrationTypeOutput)
+}
+
+func (o DataMigrationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataMigrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataMigrationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataMigrationTypeInput is an input type that accepts values of the DataMigrationType enum
+// A concrete instance of `DataMigrationTypeInput` can be one of the following:
+//
+//	DataMigrationTypeFullLoad
+//	DataMigrationTypeCdc
+//	DataMigrationTypeFullLoadAndCdc
+type DataMigrationTypeInput interface {
+	pulumi.Input
+
+	ToDataMigrationTypeOutput() DataMigrationTypeOutput
+	ToDataMigrationTypeOutputWithContext(context.Context) DataMigrationTypeOutput
+}
+
+var dataMigrationTypePtrType = reflect.TypeOf((**DataMigrationType)(nil)).Elem()
+
+type DataMigrationTypePtrInput interface {
+	pulumi.Input
+
+	ToDataMigrationTypePtrOutput() DataMigrationTypePtrOutput
+	ToDataMigrationTypePtrOutputWithContext(context.Context) DataMigrationTypePtrOutput
+}
+
+type dataMigrationTypePtr string
+
+func DataMigrationTypePtr(v string) DataMigrationTypePtrInput {
+	return (*dataMigrationTypePtr)(&v)
+}
+
+func (*dataMigrationTypePtr) ElementType() reflect.Type {
+	return dataMigrationTypePtrType
+}
+
+func (in *dataMigrationTypePtr) ToDataMigrationTypePtrOutput() DataMigrationTypePtrOutput {
+	return pulumi.ToOutput(in).(DataMigrationTypePtrOutput)
+}
+
+func (in *dataMigrationTypePtr) ToDataMigrationTypePtrOutputWithContext(ctx context.Context) DataMigrationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataMigrationTypePtrOutput)
+}
+
 type DataProviderDmsSslModeValue string
 
 const (
@@ -688,6 +856,8 @@ func (in *replicationConfigReplicationTypePtr) ToReplicationConfigReplicationTyp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationTypeInput)(nil)).Elem(), DataMigrationType("full-load"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationTypePtrInput)(nil)).Elem(), DataMigrationType("full-load"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValueInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValuePtrInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEngineInput)(nil)).Elem(), DataProviderEngine("postgres"))
@@ -696,6 +866,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypePtrInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypeInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypePtrInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
+	pulumi.RegisterOutputType(DataMigrationTypeOutput{})
+	pulumi.RegisterOutputType(DataMigrationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataProviderDmsSslModeValueOutput{})
 	pulumi.RegisterOutputType(DataProviderDmsSslModeValuePtrOutput{})
 	pulumi.RegisterOutputType(DataProviderEngineOutput{})

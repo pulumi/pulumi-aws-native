@@ -37,12 +37,23 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === SoftwarePackageVersion.__pulumiType;
     }
 
+    /**
+     * Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+     *
+     * The combined size of all the attributes on a package version is limited to 3KB.
+     */
     public readonly attributes!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A summary of the package version being created. This can be used to outline the package's contents or purpose.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Error reason for a package version failure during creation or update.
      */
     public /*out*/ readonly errorReason!: pulumi.Output<string>;
+    /**
+     * The name of the associated software package.
+     */
     public readonly packageName!: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) for the package.
@@ -56,6 +67,9 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The name of the new package version.
+     */
     public readonly versionName!: pulumi.Output<string | undefined>;
 
     /**
@@ -101,12 +115,26 @@ export class SoftwarePackageVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a SoftwarePackageVersion resource.
  */
 export interface SoftwarePackageVersionArgs {
+    /**
+     * Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+     *
+     * The combined size of all the attributes on a package version is limited to 3KB.
+     */
     attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A summary of the package version being created. This can be used to outline the package's contents or purpose.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the associated software package.
+     */
     packageName: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The name of the new package version.
+     */
     versionName?: pulumi.Input<string>;
 }

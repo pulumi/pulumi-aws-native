@@ -40,15 +40,9 @@ class DomainConfigurationArgs:
         """
         The set of arguments for constructing a DomainConfiguration resource.
         :param pulumi.Input['DomainConfigurationApplicationProtocol'] application_protocol: An enumerated string that speciﬁes the application-layer protocol.
-               
-               > This property isn't available in China.
         :param pulumi.Input['DomainConfigurationAuthenticationType'] authentication_type: An enumerated string that speciﬁes the authentication type.
-               
-               > This property isn't available in China.
         :param pulumi.Input['DomainConfigurationAuthorizerConfigArgs'] authorizer_config: An object that specifies the authorization service for a domain.
         :param pulumi.Input['DomainConfigurationClientCertificateConfigArgs'] client_certificate_config: An object that speciﬁes the client certificate conﬁguration for a domain.
-               
-               > This property isn't available in China.
         :param pulumi.Input[str] domain_configuration_name: The name of the domain configuration. This value must be unique to a region.
         :param pulumi.Input['DomainConfigurationStatus'] domain_configuration_status: The status to which the domain configuration should be updated.
                
@@ -103,8 +97,6 @@ class DomainConfigurationArgs:
     def application_protocol(self) -> Optional[pulumi.Input['DomainConfigurationApplicationProtocol']]:
         """
         An enumerated string that speciﬁes the application-layer protocol.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "application_protocol")
 
@@ -117,8 +109,6 @@ class DomainConfigurationArgs:
     def authentication_type(self) -> Optional[pulumi.Input['DomainConfigurationAuthenticationType']]:
         """
         An enumerated string that speciﬁes the authentication type.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -143,8 +133,6 @@ class DomainConfigurationArgs:
     def client_certificate_config(self) -> Optional[pulumi.Input['DomainConfigurationClientCertificateConfigArgs']]:
         """
         An object that speciﬁes the client certificate conﬁguration for a domain.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "client_certificate_config")
 
@@ -298,15 +286,9 @@ class DomainConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DomainConfigurationApplicationProtocol'] application_protocol: An enumerated string that speciﬁes the application-layer protocol.
-               
-               > This property isn't available in China.
         :param pulumi.Input['DomainConfigurationAuthenticationType'] authentication_type: An enumerated string that speciﬁes the authentication type.
-               
-               > This property isn't available in China.
         :param pulumi.Input[Union['DomainConfigurationAuthorizerConfigArgs', 'DomainConfigurationAuthorizerConfigArgsDict']] authorizer_config: An object that specifies the authorization service for a domain.
         :param pulumi.Input[Union['DomainConfigurationClientCertificateConfigArgs', 'DomainConfigurationClientCertificateConfigArgsDict']] client_certificate_config: An object that speciﬁes the client certificate conﬁguration for a domain.
-               
-               > This property isn't available in China.
         :param pulumi.Input[str] domain_configuration_name: The name of the domain configuration. This value must be unique to a region.
         :param pulumi.Input['DomainConfigurationStatus'] domain_configuration_status: The status to which the domain configuration should be updated.
                
@@ -438,8 +420,6 @@ class DomainConfiguration(pulumi.CustomResource):
     def application_protocol(self) -> pulumi.Output[Optional['DomainConfigurationApplicationProtocol']]:
         """
         An enumerated string that speciﬁes the application-layer protocol.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "application_protocol")
 
@@ -456,8 +436,6 @@ class DomainConfiguration(pulumi.CustomResource):
     def authentication_type(self) -> pulumi.Output[Optional['DomainConfigurationAuthenticationType']]:
         """
         An enumerated string that speciﬁes the authentication type.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -474,8 +452,6 @@ class DomainConfiguration(pulumi.CustomResource):
     def client_certificate_config(self) -> pulumi.Output[Optional['outputs.DomainConfigurationClientCertificateConfig']]:
         """
         An object that speciﬁes the client certificate conﬁguration for a domain.
-
-        > This property isn't available in China.
         """
         return pulumi.get(self, "client_certificate_config")
 

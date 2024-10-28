@@ -5,11 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'DataMigrationType',
     'DataProviderDmsSslModeValue',
     'DataProviderEngine',
     'InstanceProfileNetworkType',
     'ReplicationConfigReplicationType',
 ]
+
+
+class DataMigrationType(str, Enum):
+    """
+    The property describes the type of migration.
+    """
+    FULL_LOAD = "full-load"
+    CDC = "cdc"
+    FULL_LOAD_AND_CDC = "full-load-and-cdc"
 
 
 class DataProviderDmsSslModeValue(str, Enum):

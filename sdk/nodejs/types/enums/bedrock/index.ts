@@ -4,6 +4,7 @@
 
 export const AgentActionGroupSignature = {
     AmazonUserInput: "AMAZON.UserInput",
+    AmazonCodeInterpreter: "AMAZON.CodeInterpreter",
 } as const;
 
 /**

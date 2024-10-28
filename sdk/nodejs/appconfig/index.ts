@@ -15,6 +15,11 @@ export type ConfigurationProfile = import("./configurationProfile").Configuratio
 export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
 utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
 
+export { DeploymentStrategyArgs } from "./deploymentStrategy";
+export type DeploymentStrategy = import("./deploymentStrategy").DeploymentStrategy;
+export const DeploymentStrategy: typeof import("./deploymentStrategy").DeploymentStrategy = null as any;
+utilities.lazyLoad(exports, ["DeploymentStrategy"], () => require("./deploymentStrategy"));
+
 export { EnvironmentArgs } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
@@ -39,6 +44,11 @@ export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigur
 export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
 export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
+
+export { GetDeploymentStrategyArgs, GetDeploymentStrategyResult, GetDeploymentStrategyOutputArgs } from "./getDeploymentStrategy";
+export const getDeploymentStrategy: typeof import("./getDeploymentStrategy").getDeploymentStrategy = null as any;
+export const getDeploymentStrategyOutput: typeof import("./getDeploymentStrategy").getDeploymentStrategyOutput = null as any;
+utilities.lazyLoad(exports, ["getDeploymentStrategy","getDeploymentStrategyOutput"], () => require("./getDeploymentStrategy"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
@@ -66,6 +76,9 @@ export const HostedConfigurationVersion: typeof import("./hostedConfigurationVer
 utilities.lazyLoad(exports, ["HostedConfigurationVersion"], () => require("./hostedConfigurationVersion"));
 
 
+// Export enums:
+export * from "../types/enums/appconfig";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -74,6 +87,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws-native:appconfig:ConfigurationProfile":
                 return new ConfigurationProfile(name, <any>undefined, { urn })
+            case "aws-native:appconfig:DeploymentStrategy":
+                return new DeploymentStrategy(name, <any>undefined, { urn })
             case "aws-native:appconfig:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "aws-native:appconfig:Extension":

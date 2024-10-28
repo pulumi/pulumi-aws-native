@@ -15880,11 +15880,13 @@ class VerifiedAccessTrustProviderOidcOptionsArgs:
 
 if not MYPY:
     class VpnConnectionCloudwatchLogOptionsSpecificationArgsDict(TypedDict):
+        """
+        Options for sending VPN tunnel logs to CloudWatch.
+        """
         log_enabled: NotRequired[pulumi.Input[bool]]
         """
-        Enable or disable VPN tunnel logging feature. Default value is `False` .
-
-        Valid values: `True` | `False`
+        Enable or disable VPN tunnel logging feature. Default value is ``False``.
+         Valid values: ``True`` | ``False``
         """
         log_group_arn: NotRequired[pulumi.Input[str]]
         """
@@ -15892,9 +15894,8 @@ if not MYPY:
         """
         log_output_format: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat']]
         """
-        Set log format. Default format is `json` .
-
-        Valid values: `json` | `text`
+        Set log format. Default format is ``json``.
+         Valid values: ``json`` | ``text``
         """
 elif False:
     VpnConnectionCloudwatchLogOptionsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -15906,13 +15907,12 @@ class VpnConnectionCloudwatchLogOptionsSpecificationArgs:
                  log_group_arn: Optional[pulumi.Input[str]] = None,
                  log_output_format: Optional[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat']] = None):
         """
-        :param pulumi.Input[bool] log_enabled: Enable or disable VPN tunnel logging feature. Default value is `False` .
-               
-               Valid values: `True` | `False`
+        Options for sending VPN tunnel logs to CloudWatch.
+        :param pulumi.Input[bool] log_enabled: Enable or disable VPN tunnel logging feature. Default value is ``False``.
+                Valid values: ``True`` | ``False``
         :param pulumi.Input[str] log_group_arn: The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
-        :param pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat'] log_output_format: Set log format. Default format is `json` .
-               
-               Valid values: `json` | `text`
+        :param pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat'] log_output_format: Set log format. Default format is ``json``.
+                Valid values: ``json`` | ``text``
         """
         if log_enabled is not None:
             pulumi.set(__self__, "log_enabled", log_enabled)
@@ -15925,9 +15925,8 @@ class VpnConnectionCloudwatchLogOptionsSpecificationArgs:
     @pulumi.getter(name="logEnabled")
     def log_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable or disable VPN tunnel logging feature. Default value is `False` .
-
-        Valid values: `True` | `False`
+        Enable or disable VPN tunnel logging feature. Default value is ``False``.
+         Valid values: ``True`` | ``False``
         """
         return pulumi.get(self, "log_enabled")
 
@@ -15951,9 +15950,8 @@ class VpnConnectionCloudwatchLogOptionsSpecificationArgs:
     @pulumi.getter(name="logOutputFormat")
     def log_output_format(self) -> Optional[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat']]:
         """
-        Set log format. Default format is `json` .
-
-        Valid values: `json` | `text`
+        Set log format. Default format is ``json``.
+         Valid values: ``json`` | ``text``
         """
         return pulumi.get(self, "log_output_format")
 
@@ -15964,6 +15962,9 @@ class VpnConnectionCloudwatchLogOptionsSpecificationArgs:
 
 if not MYPY:
     class VpnConnectionIkeVersionsRequestListValueArgsDict(TypedDict):
+        """
+        The IKE version that is permitted for the VPN tunnel.
+        """
         value: NotRequired[pulumi.Input['VpnConnectionIkeVersionsRequestListValueValue']]
         """
         The IKE version.
@@ -15976,6 +15977,7 @@ class VpnConnectionIkeVersionsRequestListValueArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input['VpnConnectionIkeVersionsRequestListValueValue']] = None):
         """
+        The IKE version that is permitted for the VPN tunnel.
         :param pulumi.Input['VpnConnectionIkeVersionsRequestListValueValue'] value: The IKE version.
         """
         if value is not None:
@@ -15996,6 +15998,9 @@ class VpnConnectionIkeVersionsRequestListValueArgs:
 
 if not MYPY:
     class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgsDict(TypedDict):
+        """
+        Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.
+        """
         value: NotRequired[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue']]
         """
         The value for the encryption algorithm.
@@ -16008,6 +16013,7 @@ class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue']] = None):
         """
+        Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE negotiations.
         :param pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueValue'] value: The value for the encryption algorithm.
         """
         if value is not None:
@@ -16028,6 +16034,9 @@ class VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs:
 
 if not MYPY:
     class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgsDict(TypedDict):
+        """
+        Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.
+        """
         value: NotRequired[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue']]
         """
         The value for the integrity algorithm.
@@ -16040,6 +16049,7 @@ class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue']] = None):
         """
+        Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE negotiations.
         :param pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueValue'] value: The value for the integrity algorithm.
         """
         if value is not None:
@@ -16060,6 +16070,9 @@ class VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs:
 
 if not MYPY:
     class VpnConnectionPhase1dhGroupNumbersRequestListValueArgsDict(TypedDict):
+        """
+        Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.
+        """
         value: NotRequired[pulumi.Input[int]]
         """
         The Diffie-Hellmann group number.
@@ -16072,6 +16085,7 @@ class VpnConnectionPhase1dhGroupNumbersRequestListValueArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[int]] = None):
         """
+        Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.
         :param pulumi.Input[int] value: The Diffie-Hellmann group number.
         """
         if value is not None:
@@ -16092,6 +16106,9 @@ class VpnConnectionPhase1dhGroupNumbersRequestListValueArgs:
 
 if not MYPY:
     class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgsDict(TypedDict):
+        """
+        Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.
+        """
         value: NotRequired[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue']]
         """
         The encryption algorithm.
@@ -16104,6 +16121,7 @@ class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue']] = None):
         """
+        Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.
         :param pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueValue'] value: The encryption algorithm.
         """
         if value is not None:
@@ -16124,6 +16142,9 @@ class VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs:
 
 if not MYPY:
     class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgsDict(TypedDict):
+        """
+        Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.
+        """
         value: NotRequired[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue']]
         """
         The integrity algorithm.
@@ -16136,6 +16157,7 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue']] = None):
         """
+        Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.
         :param pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue'] value: The integrity algorithm.
         """
         if value is not None:
@@ -16156,6 +16178,9 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs:
 
 if not MYPY:
     class VpnConnectionPhase2dhGroupNumbersRequestListValueArgsDict(TypedDict):
+        """
+        Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.
+        """
         value: NotRequired[pulumi.Input[int]]
         """
         The Diffie-Hellmann group number.
@@ -16168,6 +16193,7 @@ class VpnConnectionPhase2dhGroupNumbersRequestListValueArgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[int]] = None):
         """
+        Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.
         :param pulumi.Input[int] value: The Diffie-Hellmann group number.
         """
         if value is not None:
@@ -16188,6 +16214,9 @@ class VpnConnectionPhase2dhGroupNumbersRequestListValueArgs:
 
 if not MYPY:
     class VpnConnectionVpnTunnelLogOptionsSpecificationArgsDict(TypedDict):
+        """
+        Options for logging VPN tunnel activity.
+        """
         cloudwatch_log_options: NotRequired[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationArgsDict']]
         """
         Options for sending VPN tunnel logs to CloudWatch.
@@ -16200,6 +16229,7 @@ class VpnConnectionVpnTunnelLogOptionsSpecificationArgs:
     def __init__(__self__, *,
                  cloudwatch_log_options: Optional[pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationArgs']] = None):
         """
+        Options for logging VPN tunnel activity.
         :param pulumi.Input['VpnConnectionCloudwatchLogOptionsSpecificationArgs'] cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch.
         """
         if cloudwatch_log_options is not None:
@@ -16225,19 +16255,15 @@ if not MYPY:
         """
         dpd_timeout_action: NotRequired[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction']]
         """
-        The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
-
-        Valid Values: `clear` | `none` | `restart`
-
-        Default: `clear`
+        The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
+         Valid Values: ``clear`` | ``none`` | ``restart`` 
+         Default: ``clear``
         """
         dpd_timeout_seconds: NotRequired[pulumi.Input[int]]
         """
         The number of seconds after which a DPD timeout occurs.
-
-        Constraints: A value greater than or equal to 30.
-
-        Default: `30`
+         Constraints: A value greater than or equal to 30.
+         Default: ``30``
         """
         enable_tunnel_lifecycle_control: NotRequired[pulumi.Input[bool]]
         """
@@ -16246,8 +16272,7 @@ if not MYPY:
         ike_versions: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionIkeVersionsRequestListValueArgsDict']]]]
         """
         The IKE versions that are permitted for the VPN tunnel.
-
-        Valid values: `ikev1` | `ikev2`
+         Valid values: ``ikev1`` | ``ikev2``
         """
         log_options: NotRequired[pulumi.Input['VpnConnectionVpnTunnelLogOptionsSpecificationArgsDict']]
         """
@@ -16256,54 +16281,44 @@ if not MYPY:
         phase1_encryption_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgsDict']]]]
         """
         One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-
-        Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+         Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
         """
         phase1_integrity_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgsDict']]]]
         """
         One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-
-        Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+         Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
         """
         phase1_lifetime_seconds: NotRequired[pulumi.Input[int]]
         """
         The lifetime for phase 1 of the IKE negotiation, in seconds.
-
-        Constraints: A value between 900 and 28,800.
-
-        Default: `28800`
+         Constraints: A value between 900 and 28,800.
+         Default: ``28800``
         """
         phase1dh_group_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1dhGroupNumbersRequestListValueArgsDict']]]]
         """
         One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-
-        Valid values: `2` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+         Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         """
         phase2_encryption_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgsDict']]]]
         """
         One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-
-        Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+         Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
         """
         phase2_integrity_algorithms: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgsDict']]]]
         """
         One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-
-        Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+         Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
         """
         phase2_lifetime_seconds: NotRequired[pulumi.Input[int]]
         """
         The lifetime for phase 2 of the IKE negotiation, in seconds.
-
-        Constraints: A value between 900 and 3,600. The value must be less than the value for `Phase1LifetimeSeconds` .
-
-        Default: `3600`
+         Constraints: A value between 900 and 3,600. The value must be less than the value for ``Phase1LifetimeSeconds``.
+         Default: ``3600``
         """
         phase2dh_group_numbers: NotRequired[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2dhGroupNumbersRequestListValueArgsDict']]]]
         """
         One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-
-        Valid values: `2` | `5` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+         Valid values: ``2`` | ``5`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         """
         pre_shared_key: NotRequired[pulumi.Input[str]]
         """
@@ -16312,35 +16327,27 @@ if not MYPY:
         """
         rekey_fuzz_percentage: NotRequired[pulumi.Input[int]]
         """
-        The percentage of the rekey window (determined by `RekeyMarginTimeSeconds` ) during which the rekey time is randomly selected.
-
-        Constraints: A value between 0 and 100.
-
-        Default: `100`
+        The percentage of the rekey window (determined by ``RekeyMarginTimeSeconds``) during which the rekey time is randomly selected.
+         Constraints: A value between 0 and 100.
+         Default: ``100``
         """
         rekey_margin_time_seconds: NotRequired[pulumi.Input[int]]
         """
-        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `RekeyFuzzPercentage` .
-
-        Constraints: A value between 60 and half of `Phase2LifetimeSeconds` .
-
-        Default: `270`
+        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for ``RekeyFuzzPercentage``.
+         Constraints: A value between 60 and half of ``Phase2LifetimeSeconds``.
+         Default: ``270``
         """
         replay_window_size: NotRequired[pulumi.Input[int]]
         """
         The number of packets in an IKE replay window.
-
-        Constraints: A value between 64 and 2048.
-
-        Default: `1024`
+         Constraints: A value between 64 and 2048.
+         Default: ``1024``
         """
         startup_action: NotRequired[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationStartupAction']]
         """
-        The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
-
-        Valid Values: `add` | `start`
-
-        Default: `add`
+        The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
+         Valid Values: ``add`` | ``start`` 
+         Default: ``add``
         """
         tunnel_inside_cidr: NotRequired[pulumi.Input[str]]
         """
@@ -16357,8 +16364,7 @@ if not MYPY:
         tunnel_inside_ipv6_cidr: NotRequired[pulumi.Input[str]]
         """
         The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
-
-        Constraints: A size /126 CIDR block from the local `fd00::/8` range.
+         Constraints: A size /126 CIDR block from the local ``fd00::/8`` range.
         """
 elif False:
     VpnConnectionVpnTunnelOptionsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
@@ -16388,71 +16394,48 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
                  tunnel_inside_ipv6_cidr: Optional[pulumi.Input[str]] = None):
         """
         The tunnel options for a single VPN tunnel.
-        :param pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction'] dpd_timeout_action: The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
-               
-               Valid Values: `clear` | `none` | `restart`
-               
-               Default: `clear`
+        :param pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction'] dpd_timeout_action: The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
+                Valid Values: ``clear`` | ``none`` | ``restart`` 
+                Default: ``clear``
         :param pulumi.Input[int] dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs.
-               
-               Constraints: A value greater than or equal to 30.
-               
-               Default: `30`
+                Constraints: A value greater than or equal to 30.
+                Default: ``30``
         :param pulumi.Input[bool] enable_tunnel_lifecycle_control: Turn on or off tunnel endpoint lifecycle control feature.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionIkeVersionsRequestListValueArgs']]] ike_versions: The IKE versions that are permitted for the VPN tunnel.
-               
-               Valid values: `ikev1` | `ikev2`
+                Valid values: ``ikev1`` | ``ikev2``
         :param pulumi.Input['VpnConnectionVpnTunnelLogOptionsSpecificationArgs'] log_options: Options for logging VPN tunnel activity.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs']]] phase1_encryption_algorithms: One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-               
-               Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+                Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs']]] phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-               
-               Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+                Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
         :param pulumi.Input[int] phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation, in seconds.
-               
-               Constraints: A value between 900 and 28,800.
-               
-               Default: `28800`
+                Constraints: A value between 900 and 28,800.
+                Default: ``28800``
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1dhGroupNumbersRequestListValueArgs']]] phase1dh_group_numbers: One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-               
-               Valid values: `2` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+                Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs']]] phase2_encryption_algorithms: One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-               
-               Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+                Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs']]] phase2_integrity_algorithms: One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-               
-               Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+                Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
         :param pulumi.Input[int] phase2_lifetime_seconds: The lifetime for phase 2 of the IKE negotiation, in seconds.
-               
-               Constraints: A value between 900 and 3,600. The value must be less than the value for `Phase1LifetimeSeconds` .
-               
-               Default: `3600`
+                Constraints: A value between 900 and 3,600. The value must be less than the value for ``Phase1LifetimeSeconds``.
+                Default: ``3600``
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2dhGroupNumbersRequestListValueArgs']]] phase2dh_group_numbers: One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-               
-               Valid values: `2` | `5` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+                Valid values: ``2`` | ``5`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         :param pulumi.Input[str] pre_shared_key: The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
                 Constraints: Allowed characters are alphanumeric characters, periods (.), and underscores (_). Must be between 8 and 64 characters in length and cannot start with zero (0).
-        :param pulumi.Input[int] rekey_fuzz_percentage: The percentage of the rekey window (determined by `RekeyMarginTimeSeconds` ) during which the rekey time is randomly selected.
-               
-               Constraints: A value between 0 and 100.
-               
-               Default: `100`
-        :param pulumi.Input[int] rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `RekeyFuzzPercentage` .
-               
-               Constraints: A value between 60 and half of `Phase2LifetimeSeconds` .
-               
-               Default: `270`
+        :param pulumi.Input[int] rekey_fuzz_percentage: The percentage of the rekey window (determined by ``RekeyMarginTimeSeconds``) during which the rekey time is randomly selected.
+                Constraints: A value between 0 and 100.
+                Default: ``100``
+        :param pulumi.Input[int] rekey_margin_time_seconds: The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for ``RekeyFuzzPercentage``.
+                Constraints: A value between 60 and half of ``Phase2LifetimeSeconds``.
+                Default: ``270``
         :param pulumi.Input[int] replay_window_size: The number of packets in an IKE replay window.
-               
-               Constraints: A value between 64 and 2048.
-               
-               Default: `1024`
-        :param pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationStartupAction'] startup_action: The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
-               
-               Valid Values: `add` | `start`
-               
-               Default: `add`
+                Constraints: A value between 64 and 2048.
+                Default: ``1024``
+        :param pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationStartupAction'] startup_action: The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
+                Valid Values: ``add`` | ``start`` 
+                Default: ``add``
         :param pulumi.Input[str] tunnel_inside_cidr: The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. 
                 Constraints: A size /30 CIDR block from the ``169.254.0.0/16`` range. The following CIDR blocks are reserved and cannot be used:
                  +   ``169.254.0.0/30`` 
@@ -16463,8 +16446,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
                  +   ``169.254.5.0/30`` 
                  +   ``169.254.169.252/30``
         :param pulumi.Input[str] tunnel_inside_ipv6_cidr: The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
-               
-               Constraints: A size /126 CIDR block from the local `fd00::/8` range.
+                Constraints: A size /126 CIDR block from the local ``fd00::/8`` range.
         """
         if dpd_timeout_action is not None:
             pulumi.set(__self__, "dpd_timeout_action", dpd_timeout_action)
@@ -16511,11 +16493,9 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     @pulumi.getter(name="dpdTimeoutAction")
     def dpd_timeout_action(self) -> Optional[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction']]:
         """
-        The action to take after DPD timeout occurs. Specify `restart` to restart the IKE initiation. Specify `clear` to end the IKE session.
-
-        Valid Values: `clear` | `none` | `restart`
-
-        Default: `clear`
+        The action to take after DPD timeout occurs. Specify ``restart`` to restart the IKE initiation. Specify ``clear`` to end the IKE session.
+         Valid Values: ``clear`` | ``none`` | ``restart`` 
+         Default: ``clear``
         """
         return pulumi.get(self, "dpd_timeout_action")
 
@@ -16528,10 +16508,8 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def dpd_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The number of seconds after which a DPD timeout occurs.
-
-        Constraints: A value greater than or equal to 30.
-
-        Default: `30`
+         Constraints: A value greater than or equal to 30.
+         Default: ``30``
         """
         return pulumi.get(self, "dpd_timeout_seconds")
 
@@ -16556,8 +16534,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def ike_versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionIkeVersionsRequestListValueArgs']]]]:
         """
         The IKE versions that are permitted for the VPN tunnel.
-
-        Valid values: `ikev1` | `ikev2`
+         Valid values: ``ikev1`` | ``ikev2``
         """
         return pulumi.get(self, "ike_versions")
 
@@ -16582,8 +16559,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def phase1_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1EncryptionAlgorithmsRequestListValueArgs']]]]:
         """
         One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-
-        Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+         Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
         """
         return pulumi.get(self, "phase1_encryption_algorithms")
 
@@ -16596,8 +16572,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def phase1_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1IntegrityAlgorithmsRequestListValueArgs']]]]:
         """
         One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-
-        Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+         Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
         """
         return pulumi.get(self, "phase1_integrity_algorithms")
 
@@ -16610,10 +16585,8 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def phase1_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The lifetime for phase 1 of the IKE negotiation, in seconds.
-
-        Constraints: A value between 900 and 28,800.
-
-        Default: `28800`
+         Constraints: A value between 900 and 28,800.
+         Default: ``28800``
         """
         return pulumi.get(self, "phase1_lifetime_seconds")
 
@@ -16626,8 +16599,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def phase1dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase1dhGroupNumbersRequestListValueArgs']]]]:
         """
         One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.
-
-        Valid values: `2` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+         Valid values: ``2`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         """
         return pulumi.get(self, "phase1dh_group_numbers")
 
@@ -16640,8 +16612,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def phase2_encryption_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2EncryptionAlgorithmsRequestListValueArgs']]]]:
         """
         One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-
-        Valid values: `AES128` | `AES256` | `AES128-GCM-16` | `AES256-GCM-16`
+         Valid values: ``AES128`` | ``AES256`` | ``AES128-GCM-16`` | ``AES256-GCM-16``
         """
         return pulumi.get(self, "phase2_encryption_algorithms")
 
@@ -16654,8 +16625,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def phase2_integrity_algorithms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2IntegrityAlgorithmsRequestListValueArgs']]]]:
         """
         One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-
-        Valid values: `SHA1` | `SHA2-256` | `SHA2-384` | `SHA2-512`
+         Valid values: ``SHA1`` | ``SHA2-256`` | ``SHA2-384`` | ``SHA2-512``
         """
         return pulumi.get(self, "phase2_integrity_algorithms")
 
@@ -16668,10 +16638,8 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def phase2_lifetime_seconds(self) -> Optional[pulumi.Input[int]]:
         """
         The lifetime for phase 2 of the IKE negotiation, in seconds.
-
-        Constraints: A value between 900 and 3,600. The value must be less than the value for `Phase1LifetimeSeconds` .
-
-        Default: `3600`
+         Constraints: A value between 900 and 3,600. The value must be less than the value for ``Phase1LifetimeSeconds``.
+         Default: ``3600``
         """
         return pulumi.get(self, "phase2_lifetime_seconds")
 
@@ -16684,8 +16652,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def phase2dh_group_numbers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionPhase2dhGroupNumbersRequestListValueArgs']]]]:
         """
         One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.
-
-        Valid values: `2` | `5` | `14` | `15` | `16` | `17` | `18` | `19` | `20` | `21` | `22` | `23` | `24`
+         Valid values: ``2`` | ``5`` | ``14`` | ``15`` | ``16`` | ``17`` | ``18`` | ``19`` | ``20`` | ``21`` | ``22`` | ``23`` | ``24``
         """
         return pulumi.get(self, "phase2dh_group_numbers")
 
@@ -16710,11 +16677,9 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     @pulumi.getter(name="rekeyFuzzPercentage")
     def rekey_fuzz_percentage(self) -> Optional[pulumi.Input[int]]:
         """
-        The percentage of the rekey window (determined by `RekeyMarginTimeSeconds` ) during which the rekey time is randomly selected.
-
-        Constraints: A value between 0 and 100.
-
-        Default: `100`
+        The percentage of the rekey window (determined by ``RekeyMarginTimeSeconds``) during which the rekey time is randomly selected.
+         Constraints: A value between 0 and 100.
+         Default: ``100``
         """
         return pulumi.get(self, "rekey_fuzz_percentage")
 
@@ -16726,11 +16691,9 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     @pulumi.getter(name="rekeyMarginTimeSeconds")
     def rekey_margin_time_seconds(self) -> Optional[pulumi.Input[int]]:
         """
-        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for `RekeyFuzzPercentage` .
-
-        Constraints: A value between 60 and half of `Phase2LifetimeSeconds` .
-
-        Default: `270`
+        The margin time, in seconds, before the phase 2 lifetime expires, during which the AWS side of the VPN connection performs an IKE rekey. The exact time of the rekey is randomly selected based on the value for ``RekeyFuzzPercentage``.
+         Constraints: A value between 60 and half of ``Phase2LifetimeSeconds``.
+         Default: ``270``
         """
         return pulumi.get(self, "rekey_margin_time_seconds")
 
@@ -16743,10 +16706,8 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def replay_window_size(self) -> Optional[pulumi.Input[int]]:
         """
         The number of packets in an IKE replay window.
-
-        Constraints: A value between 64 and 2048.
-
-        Default: `1024`
+         Constraints: A value between 64 and 2048.
+         Default: ``1024``
         """
         return pulumi.get(self, "replay_window_size")
 
@@ -16758,11 +16719,9 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     @pulumi.getter(name="startupAction")
     def startup_action(self) -> Optional[pulumi.Input['VpnConnectionVpnTunnelOptionsSpecificationStartupAction']]:
         """
-        The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify `start` for AWS to initiate the IKE negotiation.
-
-        Valid Values: `add` | `start`
-
-        Default: `add`
+        The action to take when the establishing the tunnel for the VPN connection. By default, your customer gateway device must initiate the IKE negotiation and bring up the tunnel. Specify ``start`` for AWS to initiate the IKE negotiation.
+         Valid Values: ``add`` | ``start`` 
+         Default: ``add``
         """
         return pulumi.get(self, "startup_action")
 
@@ -16795,8 +16754,7 @@ class VpnConnectionVpnTunnelOptionsSpecificationArgs:
     def tunnel_inside_ipv6_cidr(self) -> Optional[pulumi.Input[str]]:
         """
         The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.
-
-        Constraints: A size /126 CIDR block from the local `fd00::/8` range.
+         Constraints: A size /126 CIDR block from the local ``fd00::/8`` range.
         """
         return pulumi.get(self, "tunnel_inside_ipv6_cidr")
 

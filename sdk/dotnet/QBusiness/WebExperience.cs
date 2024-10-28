@@ -39,11 +39,6 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("identityProviderConfiguration")]
         public Output<Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>?> IdentityProviderConfiguration { get; private set; } = null!;
 
-        /// <summary>
-        /// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
-        /// 
-        /// &gt; You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
-        /// </summary>
         [Output("origins")]
         public Output<ImmutableArray<string>> Origins { get; private set; } = null!;
 
@@ -172,12 +167,6 @@ namespace Pulumi.AwsNative.QBusiness
 
         [Input("origins")]
         private InputList<string>? _origins;
-
-        /// <summary>
-        /// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
-        /// 
-        /// &gt; You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
-        /// </summary>
         public InputList<string> Origins
         {
             get => _origins ?? (_origins = new InputList<string>());

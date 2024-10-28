@@ -136,7 +136,7 @@ class PromptVersion(pulumi.CustomResource):
             __props__.__dict__["updated_at"] = None
             __props__.__dict__["variants"] = None
             __props__.__dict__["version"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "promptArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "promptArn", "tags.*"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PromptVersion, __self__).__init__(
             'aws-native:bedrock:PromptVersion',

@@ -16,6 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DataMigrationSettingsArgs',
+    'DataMigrationSettingsArgsDict',
+    'DataMigrationSourceDataSettingsArgs',
+    'DataMigrationSourceDataSettingsArgsDict',
     'MigrationProjectDataProviderDescriptorArgs',
     'MigrationProjectDataProviderDescriptorArgsDict',
     'ReplicationConfigComputeConfigArgs',
@@ -35,6 +39,170 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class DataMigrationSettingsArgsDict(TypedDict):
+        cloudwatch_logs_enabled: NotRequired[pulumi.Input[bool]]
+        """
+        The property specifies whether to enable the Cloudwatch log.
+        """
+        number_of_jobs: NotRequired[pulumi.Input[int]]
+        """
+        The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
+        """
+        selection_rules: NotRequired[pulumi.Input[str]]
+        """
+        The property specifies the rules of selecting objects for data migration.
+        """
+elif False:
+    DataMigrationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataMigrationSettingsArgs:
+    def __init__(__self__, *,
+                 cloudwatch_logs_enabled: Optional[pulumi.Input[bool]] = None,
+                 number_of_jobs: Optional[pulumi.Input[int]] = None,
+                 selection_rules: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] cloudwatch_logs_enabled: The property specifies whether to enable the Cloudwatch log.
+        :param pulumi.Input[int] number_of_jobs: The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
+        :param pulumi.Input[str] selection_rules: The property specifies the rules of selecting objects for data migration.
+        """
+        if cloudwatch_logs_enabled is not None:
+            pulumi.set(__self__, "cloudwatch_logs_enabled", cloudwatch_logs_enabled)
+        if number_of_jobs is not None:
+            pulumi.set(__self__, "number_of_jobs", number_of_jobs)
+        if selection_rules is not None:
+            pulumi.set(__self__, "selection_rules", selection_rules)
+
+    @property
+    @pulumi.getter(name="cloudwatchLogsEnabled")
+    def cloudwatch_logs_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The property specifies whether to enable the Cloudwatch log.
+        """
+        return pulumi.get(self, "cloudwatch_logs_enabled")
+
+    @cloudwatch_logs_enabled.setter
+    def cloudwatch_logs_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cloudwatch_logs_enabled", value)
+
+    @property
+    @pulumi.getter(name="numberOfJobs")
+    def number_of_jobs(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
+        """
+        return pulumi.get(self, "number_of_jobs")
+
+    @number_of_jobs.setter
+    def number_of_jobs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_jobs", value)
+
+    @property
+    @pulumi.getter(name="selectionRules")
+    def selection_rules(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property specifies the rules of selecting objects for data migration.
+        """
+        return pulumi.get(self, "selection_rules")
+
+    @selection_rules.setter
+    def selection_rules(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selection_rules", value)
+
+
+if not MYPY:
+    class DataMigrationSourceDataSettingsArgsDict(TypedDict):
+        cdc_start_position: NotRequired[pulumi.Input[str]]
+        """
+        The property is a point in the database engine's log that defines a time where you can begin CDC.
+        """
+        cdc_start_time: NotRequired[pulumi.Input[str]]
+        """
+        The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
+        """
+        cdc_stop_time: NotRequired[pulumi.Input[str]]
+        """
+        The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
+        """
+        slot_name: NotRequired[pulumi.Input[str]]
+        """
+        The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
+        """
+elif False:
+    DataMigrationSourceDataSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataMigrationSourceDataSettingsArgs:
+    def __init__(__self__, *,
+                 cdc_start_position: Optional[pulumi.Input[str]] = None,
+                 cdc_start_time: Optional[pulumi.Input[str]] = None,
+                 cdc_stop_time: Optional[pulumi.Input[str]] = None,
+                 slot_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cdc_start_position: The property is a point in the database engine's log that defines a time where you can begin CDC.
+        :param pulumi.Input[str] cdc_start_time: The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
+        :param pulumi.Input[str] cdc_stop_time: The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
+        :param pulumi.Input[str] slot_name: The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
+        """
+        if cdc_start_position is not None:
+            pulumi.set(__self__, "cdc_start_position", cdc_start_position)
+        if cdc_start_time is not None:
+            pulumi.set(__self__, "cdc_start_time", cdc_start_time)
+        if cdc_stop_time is not None:
+            pulumi.set(__self__, "cdc_stop_time", cdc_stop_time)
+        if slot_name is not None:
+            pulumi.set(__self__, "slot_name", slot_name)
+
+    @property
+    @pulumi.getter(name="cdcStartPosition")
+    def cdc_start_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property is a point in the database engine's log that defines a time where you can begin CDC.
+        """
+        return pulumi.get(self, "cdc_start_position")
+
+    @cdc_start_position.setter
+    def cdc_start_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdc_start_position", value)
+
+    @property
+    @pulumi.getter(name="cdcStartTime")
+    def cdc_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
+        """
+        return pulumi.get(self, "cdc_start_time")
+
+    @cdc_start_time.setter
+    def cdc_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdc_start_time", value)
+
+    @property
+    @pulumi.getter(name="cdcStopTime")
+    def cdc_stop_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
+        """
+        return pulumi.get(self, "cdc_stop_time")
+
+    @cdc_stop_time.setter
+    def cdc_stop_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdc_stop_time", value)
+
+    @property
+    @pulumi.getter(name="slotName")
+    def slot_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
+        """
+        return pulumi.get(self, "slot_name")
+
+    @slot_name.setter
+    def slot_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "slot_name", value)
+
 
 if not MYPY:
     class MigrationProjectDataProviderDescriptorArgsDict(TypedDict):

@@ -123,6 +123,7 @@ namespace Pulumi.AwsNative.Connect
         public static ContactFlowType OutboundWhisper { get; } = new ContactFlowType("OUTBOUND_WHISPER");
         public static ContactFlowType AgentTransfer { get; } = new ContactFlowType("AGENT_TRANSFER");
         public static ContactFlowType QueueTransfer { get; } = new ContactFlowType("QUEUE_TRANSFER");
+        public static ContactFlowType Campaign { get; } = new ContactFlowType("CAMPAIGN");
 
         public static bool operator ==(ContactFlowType left, ContactFlowType right) => left.Equals(right);
         public static bool operator !=(ContactFlowType left, ContactFlowType right) => !left.Equals(right);

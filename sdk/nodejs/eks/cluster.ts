@@ -115,6 +115,9 @@ export class Cluster extends pulumi.CustomResource {
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */
     public readonly version!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration for zonal shift for the cluster.
+     */
     public readonly zonalShiftConfig!: pulumi.Output<outputs.eks.ClusterZonalShiftConfig | undefined>;
 
     /**
@@ -237,5 +240,8 @@ export interface ClusterArgs {
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */
     version?: pulumi.Input<string>;
+    /**
+     * The configuration for zonal shift for the cluster.
+     */
     zonalShiftConfig?: pulumi.Input<inputs.eks.ClusterZonalShiftConfigArgs>;
 }

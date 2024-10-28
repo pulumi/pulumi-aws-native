@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetSoftwarePackageVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the associated software package.
+        /// </summary>
         [Input("packageName", required: true)]
         public string PackageName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the new package version.
+        /// </summary>
         [Input("versionName", required: true)]
         public string VersionName { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.IoT
 
     public sealed class GetSoftwarePackageVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the associated software package.
+        /// </summary>
         [Input("packageName", required: true)]
         public Input<string> PackageName { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the new package version.
+        /// </summary>
         [Input("versionName", required: true)]
         public Input<string> VersionName { get; set; } = null!;
 
@@ -57,7 +69,15 @@ namespace Pulumi.AwsNative.IoT
     [OutputType]
     public sealed class GetSoftwarePackageVersionResult
     {
+        /// <summary>
+        /// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+        /// 
+        /// The combined size of all the attributes on a package version is limited to 3KB.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Attributes;
+        /// <summary>
+        /// A summary of the package version being created. This can be used to outline the package's contents or purpose.
+        /// </summary>
         public readonly string? Description;
         /// <summary>
         /// Error reason for a package version failure during creation or update.

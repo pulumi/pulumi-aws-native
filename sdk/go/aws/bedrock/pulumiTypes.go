@@ -9224,6 +9224,165 @@ func (o FlowDefinitionPtrOutput) Nodes() FlowNodeArrayOutput {
 	}).(FlowNodeArrayOutput)
 }
 
+// Configuration for a guardrail
+type FlowGuardrailConfiguration struct {
+	// Identifier for the guardrail, could be the id or the arn
+	GuardrailIdentifier *string `pulumi:"guardrailIdentifier"`
+	// Version of the guardrail
+	GuardrailVersion *string `pulumi:"guardrailVersion"`
+}
+
+// FlowGuardrailConfigurationInput is an input type that accepts FlowGuardrailConfigurationArgs and FlowGuardrailConfigurationOutput values.
+// You can construct a concrete instance of `FlowGuardrailConfigurationInput` via:
+//
+//	FlowGuardrailConfigurationArgs{...}
+type FlowGuardrailConfigurationInput interface {
+	pulumi.Input
+
+	ToFlowGuardrailConfigurationOutput() FlowGuardrailConfigurationOutput
+	ToFlowGuardrailConfigurationOutputWithContext(context.Context) FlowGuardrailConfigurationOutput
+}
+
+// Configuration for a guardrail
+type FlowGuardrailConfigurationArgs struct {
+	// Identifier for the guardrail, could be the id or the arn
+	GuardrailIdentifier pulumi.StringPtrInput `pulumi:"guardrailIdentifier"`
+	// Version of the guardrail
+	GuardrailVersion pulumi.StringPtrInput `pulumi:"guardrailVersion"`
+}
+
+func (FlowGuardrailConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i FlowGuardrailConfigurationArgs) ToFlowGuardrailConfigurationOutput() FlowGuardrailConfigurationOutput {
+	return i.ToFlowGuardrailConfigurationOutputWithContext(context.Background())
+}
+
+func (i FlowGuardrailConfigurationArgs) ToFlowGuardrailConfigurationOutputWithContext(ctx context.Context) FlowGuardrailConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGuardrailConfigurationOutput)
+}
+
+func (i FlowGuardrailConfigurationArgs) ToFlowGuardrailConfigurationPtrOutput() FlowGuardrailConfigurationPtrOutput {
+	return i.ToFlowGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FlowGuardrailConfigurationArgs) ToFlowGuardrailConfigurationPtrOutputWithContext(ctx context.Context) FlowGuardrailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGuardrailConfigurationOutput).ToFlowGuardrailConfigurationPtrOutputWithContext(ctx)
+}
+
+// FlowGuardrailConfigurationPtrInput is an input type that accepts FlowGuardrailConfigurationArgs, FlowGuardrailConfigurationPtr and FlowGuardrailConfigurationPtrOutput values.
+// You can construct a concrete instance of `FlowGuardrailConfigurationPtrInput` via:
+//
+//	        FlowGuardrailConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowGuardrailConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFlowGuardrailConfigurationPtrOutput() FlowGuardrailConfigurationPtrOutput
+	ToFlowGuardrailConfigurationPtrOutputWithContext(context.Context) FlowGuardrailConfigurationPtrOutput
+}
+
+type flowGuardrailConfigurationPtrType FlowGuardrailConfigurationArgs
+
+func FlowGuardrailConfigurationPtr(v *FlowGuardrailConfigurationArgs) FlowGuardrailConfigurationPtrInput {
+	return (*flowGuardrailConfigurationPtrType)(v)
+}
+
+func (*flowGuardrailConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowGuardrailConfiguration)(nil)).Elem()
+}
+
+func (i *flowGuardrailConfigurationPtrType) ToFlowGuardrailConfigurationPtrOutput() FlowGuardrailConfigurationPtrOutput {
+	return i.ToFlowGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *flowGuardrailConfigurationPtrType) ToFlowGuardrailConfigurationPtrOutputWithContext(ctx context.Context) FlowGuardrailConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowGuardrailConfigurationPtrOutput)
+}
+
+// Configuration for a guardrail
+type FlowGuardrailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowGuardrailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o FlowGuardrailConfigurationOutput) ToFlowGuardrailConfigurationOutput() FlowGuardrailConfigurationOutput {
+	return o
+}
+
+func (o FlowGuardrailConfigurationOutput) ToFlowGuardrailConfigurationOutputWithContext(ctx context.Context) FlowGuardrailConfigurationOutput {
+	return o
+}
+
+func (o FlowGuardrailConfigurationOutput) ToFlowGuardrailConfigurationPtrOutput() FlowGuardrailConfigurationPtrOutput {
+	return o.ToFlowGuardrailConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FlowGuardrailConfigurationOutput) ToFlowGuardrailConfigurationPtrOutputWithContext(ctx context.Context) FlowGuardrailConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowGuardrailConfiguration) *FlowGuardrailConfiguration {
+		return &v
+	}).(FlowGuardrailConfigurationPtrOutput)
+}
+
+// Identifier for the guardrail, could be the id or the arn
+func (o FlowGuardrailConfigurationOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowGuardrailConfiguration) *string { return v.GuardrailIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Version of the guardrail
+func (o FlowGuardrailConfigurationOutput) GuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowGuardrailConfiguration) *string { return v.GuardrailVersion }).(pulumi.StringPtrOutput)
+}
+
+type FlowGuardrailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowGuardrailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o FlowGuardrailConfigurationPtrOutput) ToFlowGuardrailConfigurationPtrOutput() FlowGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowGuardrailConfigurationPtrOutput) ToFlowGuardrailConfigurationPtrOutputWithContext(ctx context.Context) FlowGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowGuardrailConfigurationPtrOutput) Elem() FlowGuardrailConfigurationOutput {
+	return o.ApplyT(func(v *FlowGuardrailConfiguration) FlowGuardrailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowGuardrailConfiguration
+		return ret
+	}).(FlowGuardrailConfigurationOutput)
+}
+
+// Identifier for the guardrail, could be the id or the arn
+func (o FlowGuardrailConfigurationPtrOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the guardrail
+func (o FlowGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // Input flow node configuration
 type FlowInputFlowNodeConfiguration struct {
 }
@@ -9468,9 +9627,10 @@ func (o FlowIteratorFlowNodeConfigurationPtrOutput) Elem() FlowIteratorFlowNodeC
 
 // Knowledge base flow node configuration
 type FlowKnowledgeBaseFlowNodeConfiguration struct {
+	GuardrailConfiguration *FlowGuardrailConfiguration `pulumi:"guardrailConfiguration"`
 	// Identifier of the KnowledgeBase
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId *string `pulumi:"modelId"`
 }
 
@@ -9487,9 +9647,10 @@ type FlowKnowledgeBaseFlowNodeConfigurationInput interface {
 
 // Knowledge base flow node configuration
 type FlowKnowledgeBaseFlowNodeConfigurationArgs struct {
+	GuardrailConfiguration FlowGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
 	// Identifier of the KnowledgeBase
 	KnowledgeBaseId pulumi.StringInput `pulumi:"knowledgeBaseId"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId pulumi.StringPtrInput `pulumi:"modelId"`
 }
 
@@ -9571,12 +9732,18 @@ func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) ToFlowKnowledgeBaseFlowNod
 	}).(FlowKnowledgeBaseFlowNodeConfigurationPtrOutput)
 }
 
+func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) GuardrailConfiguration() FlowGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) *FlowGuardrailConfiguration {
+		return v.GuardrailConfiguration
+	}).(FlowGuardrailConfigurationPtrOutput)
+}
+
 // Identifier of the KnowledgeBase
 func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowKnowledgeBaseFlowNodeConfigurationOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowKnowledgeBaseFlowNodeConfiguration) *string { return v.ModelId }).(pulumi.StringPtrOutput)
 }
@@ -9605,6 +9772,15 @@ func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) Elem() FlowKnowledgeBas
 	}).(FlowKnowledgeBaseFlowNodeConfigurationOutput)
 }
 
+func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) GuardrailConfiguration() FlowGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *FlowGuardrailConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailConfiguration
+	}).(FlowGuardrailConfigurationPtrOutput)
+}
+
 // Identifier of the KnowledgeBase
 func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *string {
@@ -9615,7 +9791,7 @@ func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) KnowledgeBaseId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowKnowledgeBaseFlowNodeConfigurationPtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowKnowledgeBaseFlowNodeConfiguration) *string {
 		if v == nil {
@@ -12046,7 +12222,8 @@ func (o FlowOutputFlowNodeConfigurationPtrOutput) Elem() FlowOutputFlowNodeConfi
 
 // Prompt flow node configuration
 type FlowPromptFlowNodeConfiguration struct {
-	SourceConfiguration interface{} `pulumi:"sourceConfiguration"`
+	GuardrailConfiguration *FlowGuardrailConfiguration `pulumi:"guardrailConfiguration"`
+	SourceConfiguration    interface{}                 `pulumi:"sourceConfiguration"`
 }
 
 // FlowPromptFlowNodeConfigurationInput is an input type that accepts FlowPromptFlowNodeConfigurationArgs and FlowPromptFlowNodeConfigurationOutput values.
@@ -12062,7 +12239,8 @@ type FlowPromptFlowNodeConfigurationInput interface {
 
 // Prompt flow node configuration
 type FlowPromptFlowNodeConfigurationArgs struct {
-	SourceConfiguration pulumi.Input `pulumi:"sourceConfiguration"`
+	GuardrailConfiguration FlowGuardrailConfigurationPtrInput `pulumi:"guardrailConfiguration"`
+	SourceConfiguration    pulumi.Input                       `pulumi:"sourceConfiguration"`
 }
 
 func (FlowPromptFlowNodeConfigurationArgs) ElementType() reflect.Type {
@@ -12143,6 +12321,10 @@ func (o FlowPromptFlowNodeConfigurationOutput) ToFlowPromptFlowNodeConfiguration
 	}).(FlowPromptFlowNodeConfigurationPtrOutput)
 }
 
+func (o FlowPromptFlowNodeConfigurationOutput) GuardrailConfiguration() FlowGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowPromptFlowNodeConfiguration) *FlowGuardrailConfiguration { return v.GuardrailConfiguration }).(FlowGuardrailConfigurationPtrOutput)
+}
+
 func (o FlowPromptFlowNodeConfigurationOutput) SourceConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v FlowPromptFlowNodeConfiguration) interface{} { return v.SourceConfiguration }).(pulumi.AnyOutput)
 }
@@ -12171,6 +12353,15 @@ func (o FlowPromptFlowNodeConfigurationPtrOutput) Elem() FlowPromptFlowNodeConfi
 	}).(FlowPromptFlowNodeConfigurationOutput)
 }
 
+func (o FlowPromptFlowNodeConfigurationPtrOutput) GuardrailConfiguration() FlowGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowPromptFlowNodeConfiguration) *FlowGuardrailConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailConfiguration
+	}).(FlowGuardrailConfigurationPtrOutput)
+}
+
 func (o FlowPromptFlowNodeConfigurationPtrOutput) SourceConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FlowPromptFlowNodeConfiguration) interface{} {
 		if v == nil {
@@ -12183,7 +12374,7 @@ func (o FlowPromptFlowNodeConfigurationPtrOutput) SourceConfiguration() pulumi.A
 // Inline prompt configuration for prompt node
 type FlowPromptFlowNodeInlineConfiguration struct {
 	InferenceConfiguration *FlowPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId               string                                    `pulumi:"modelId"`
 	TemplateConfiguration FlowPromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
 	TemplateType          FlowPromptTemplateType                    `pulumi:"templateType"`
@@ -12203,7 +12394,7 @@ type FlowPromptFlowNodeInlineConfigurationInput interface {
 // Inline prompt configuration for prompt node
 type FlowPromptFlowNodeInlineConfigurationArgs struct {
 	InferenceConfiguration FlowPromptInferenceConfigurationPropertiesPtrInput `pulumi:"inferenceConfiguration"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId               pulumi.StringInput                             `pulumi:"modelId"`
 	TemplateConfiguration FlowPromptTemplateConfigurationPropertiesInput `pulumi:"templateConfiguration"`
 	TemplateType          FlowPromptTemplateTypeInput                    `pulumi:"templateType"`
@@ -12293,7 +12484,7 @@ func (o FlowPromptFlowNodeInlineConfigurationOutput) InferenceConfiguration() Fl
 	}).(FlowPromptInferenceConfigurationPropertiesPtrOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowPromptFlowNodeInlineConfigurationOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowPromptFlowNodeInlineConfiguration) string { return v.ModelId }).(pulumi.StringOutput)
 }
@@ -12341,7 +12532,7 @@ func (o FlowPromptFlowNodeInlineConfigurationPtrOutput) InferenceConfiguration()
 	}).(FlowPromptInferenceConfigurationPropertiesPtrOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowPromptFlowNodeInlineConfigurationPtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowPromptFlowNodeInlineConfiguration) *string {
 		if v == nil {
@@ -13036,8 +13227,6 @@ type FlowPromptModelInferenceConfiguration struct {
 	StopSequences []string `pulumi:"stopSequences"`
 	// Controls randomness, higher values increase diversity
 	Temperature *float64 `pulumi:"temperature"`
-	// Sample from the k most likely next tokens
-	TopK *float64 `pulumi:"topK"`
 	// Cumulative probability cutoff for token selection
 	TopP *float64 `pulumi:"topP"`
 }
@@ -13061,8 +13250,6 @@ type FlowPromptModelInferenceConfigurationArgs struct {
 	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
 	// Controls randomness, higher values increase diversity
 	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
-	// Sample from the k most likely next tokens
-	TopK pulumi.Float64PtrInput `pulumi:"topK"`
 	// Cumulative probability cutoff for token selection
 	TopP pulumi.Float64PtrInput `pulumi:"topP"`
 }
@@ -13160,11 +13347,6 @@ func (o FlowPromptModelInferenceConfigurationOutput) Temperature() pulumi.Float6
 	return o.ApplyT(func(v FlowPromptModelInferenceConfiguration) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
 }
 
-// Sample from the k most likely next tokens
-func (o FlowPromptModelInferenceConfigurationOutput) TopK() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v FlowPromptModelInferenceConfiguration) *float64 { return v.TopK }).(pulumi.Float64PtrOutput)
-}
-
 // Cumulative probability cutoff for token selection
 func (o FlowPromptModelInferenceConfigurationOutput) TopP() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FlowPromptModelInferenceConfiguration) *float64 { return v.TopP }).(pulumi.Float64PtrOutput)
@@ -13221,16 +13403,6 @@ func (o FlowPromptModelInferenceConfigurationPtrOutput) Temperature() pulumi.Flo
 			return nil
 		}
 		return v.Temperature
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Sample from the k most likely next tokens
-func (o FlowPromptModelInferenceConfigurationPtrOutput) TopK() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *FlowPromptModelInferenceConfiguration) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.TopK
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -16125,6 +16297,83 @@ func (o FlowVersionFlowNodeOutputTypeArrayOutput) Index(i pulumi.IntInput) FlowV
 	}).(FlowVersionFlowNodeOutputTypeOutput)
 }
 
+// Configuration for a guardrail
+type FlowVersionGuardrailConfiguration struct {
+	// Identifier for the guardrail, could be the id or the arn
+	GuardrailIdentifier *string `pulumi:"guardrailIdentifier"`
+	// Version of the guardrail
+	GuardrailVersion *string `pulumi:"guardrailVersion"`
+}
+
+// Configuration for a guardrail
+type FlowVersionGuardrailConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionGuardrailConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowVersionGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionGuardrailConfigurationOutput) ToFlowVersionGuardrailConfigurationOutput() FlowVersionGuardrailConfigurationOutput {
+	return o
+}
+
+func (o FlowVersionGuardrailConfigurationOutput) ToFlowVersionGuardrailConfigurationOutputWithContext(ctx context.Context) FlowVersionGuardrailConfigurationOutput {
+	return o
+}
+
+// Identifier for the guardrail, could be the id or the arn
+func (o FlowVersionGuardrailConfigurationOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowVersionGuardrailConfiguration) *string { return v.GuardrailIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// Version of the guardrail
+func (o FlowVersionGuardrailConfigurationOutput) GuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowVersionGuardrailConfiguration) *string { return v.GuardrailVersion }).(pulumi.StringPtrOutput)
+}
+
+type FlowVersionGuardrailConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowVersionGuardrailConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowVersionGuardrailConfiguration)(nil)).Elem()
+}
+
+func (o FlowVersionGuardrailConfigurationPtrOutput) ToFlowVersionGuardrailConfigurationPtrOutput() FlowVersionGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionGuardrailConfigurationPtrOutput) ToFlowVersionGuardrailConfigurationPtrOutputWithContext(ctx context.Context) FlowVersionGuardrailConfigurationPtrOutput {
+	return o
+}
+
+func (o FlowVersionGuardrailConfigurationPtrOutput) Elem() FlowVersionGuardrailConfigurationOutput {
+	return o.ApplyT(func(v *FlowVersionGuardrailConfiguration) FlowVersionGuardrailConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FlowVersionGuardrailConfiguration
+		return ret
+	}).(FlowVersionGuardrailConfigurationOutput)
+}
+
+// Identifier for the guardrail, could be the id or the arn
+func (o FlowVersionGuardrailConfigurationPtrOutput) GuardrailIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of the guardrail
+func (o FlowVersionGuardrailConfigurationPtrOutput) GuardrailVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowVersionGuardrailConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailVersion
+	}).(pulumi.StringPtrOutput)
+}
+
 // Input flow node configuration
 type FlowVersionInputFlowNodeConfiguration struct {
 }
@@ -16213,9 +16462,10 @@ func (o FlowVersionIteratorFlowNodeConfigurationPtrOutput) Elem() FlowVersionIte
 
 // Knowledge base flow node configuration
 type FlowVersionKnowledgeBaseFlowNodeConfiguration struct {
+	GuardrailConfiguration *FlowVersionGuardrailConfiguration `pulumi:"guardrailConfiguration"`
 	// Identifier of the KnowledgeBase
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId *string `pulumi:"modelId"`
 }
 
@@ -16234,12 +16484,18 @@ func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) ToFlowVersionKnowle
 	return o
 }
 
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) GuardrailConfiguration() FlowVersionGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionGuardrailConfiguration {
+		return v.GuardrailConfiguration
+	}).(FlowVersionGuardrailConfigurationPtrOutput)
+}
+
 // Identifier of the KnowledgeBase
 func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) KnowledgeBaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) string { return v.KnowledgeBaseId }).(pulumi.StringOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowVersionKnowledgeBaseFlowNodeConfigurationOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowVersionKnowledgeBaseFlowNodeConfiguration) *string { return v.ModelId }).(pulumi.StringPtrOutput)
 }
@@ -16268,6 +16524,15 @@ func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) Elem() FlowVersi
 	}).(FlowVersionKnowledgeBaseFlowNodeConfigurationOutput)
 }
 
+func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) GuardrailConfiguration() FlowVersionGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *FlowVersionGuardrailConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailConfiguration
+	}).(FlowVersionGuardrailConfigurationPtrOutput)
+}
+
 // Identifier of the KnowledgeBase
 func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) KnowledgeBaseId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *string {
@@ -16278,7 +16543,7 @@ func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) KnowledgeBaseId(
 	}).(pulumi.StringPtrOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowVersionKnowledgeBaseFlowNodeConfigurationPtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowVersionKnowledgeBaseFlowNodeConfiguration) *string {
 		if v == nil {
@@ -16470,7 +16735,8 @@ func (o FlowVersionOutputFlowNodeConfigurationPtrOutput) Elem() FlowVersionOutpu
 
 // Prompt flow node configuration
 type FlowVersionPromptFlowNodeConfiguration struct {
-	SourceConfiguration interface{} `pulumi:"sourceConfiguration"`
+	GuardrailConfiguration *FlowVersionGuardrailConfiguration `pulumi:"guardrailConfiguration"`
+	SourceConfiguration    interface{}                        `pulumi:"sourceConfiguration"`
 }
 
 // Prompt flow node configuration
@@ -16486,6 +16752,12 @@ func (o FlowVersionPromptFlowNodeConfigurationOutput) ToFlowVersionPromptFlowNod
 
 func (o FlowVersionPromptFlowNodeConfigurationOutput) ToFlowVersionPromptFlowNodeConfigurationOutputWithContext(ctx context.Context) FlowVersionPromptFlowNodeConfigurationOutput {
 	return o
+}
+
+func (o FlowVersionPromptFlowNodeConfigurationOutput) GuardrailConfiguration() FlowVersionGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v FlowVersionPromptFlowNodeConfiguration) *FlowVersionGuardrailConfiguration {
+		return v.GuardrailConfiguration
+	}).(FlowVersionGuardrailConfigurationPtrOutput)
 }
 
 func (o FlowVersionPromptFlowNodeConfigurationOutput) SourceConfiguration() pulumi.AnyOutput {
@@ -16516,6 +16788,15 @@ func (o FlowVersionPromptFlowNodeConfigurationPtrOutput) Elem() FlowVersionPromp
 	}).(FlowVersionPromptFlowNodeConfigurationOutput)
 }
 
+func (o FlowVersionPromptFlowNodeConfigurationPtrOutput) GuardrailConfiguration() FlowVersionGuardrailConfigurationPtrOutput {
+	return o.ApplyT(func(v *FlowVersionPromptFlowNodeConfiguration) *FlowVersionGuardrailConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.GuardrailConfiguration
+	}).(FlowVersionGuardrailConfigurationPtrOutput)
+}
+
 func (o FlowVersionPromptFlowNodeConfigurationPtrOutput) SourceConfiguration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *FlowVersionPromptFlowNodeConfiguration) interface{} {
 		if v == nil {
@@ -16528,7 +16809,7 @@ func (o FlowVersionPromptFlowNodeConfigurationPtrOutput) SourceConfiguration() p
 // Inline prompt configuration for prompt node
 type FlowVersionPromptFlowNodeInlineConfiguration struct {
 	InferenceConfiguration *FlowVersionPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId               string                                           `pulumi:"modelId"`
 	TemplateConfiguration FlowVersionPromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
 	TemplateType          FlowVersionPromptTemplateType                    `pulumi:"templateType"`
@@ -16555,7 +16836,7 @@ func (o FlowVersionPromptFlowNodeInlineConfigurationOutput) InferenceConfigurati
 	}).(FlowVersionPromptInferenceConfigurationPropertiesPtrOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowVersionPromptFlowNodeInlineConfigurationOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowVersionPromptFlowNodeInlineConfiguration) string { return v.ModelId }).(pulumi.StringOutput)
 }
@@ -16605,7 +16886,7 @@ func (o FlowVersionPromptFlowNodeInlineConfigurationPtrOutput) InferenceConfigur
 	}).(FlowVersionPromptInferenceConfigurationPropertiesPtrOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o FlowVersionPromptFlowNodeInlineConfigurationPtrOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlowVersionPromptFlowNodeInlineConfiguration) *string {
 		if v == nil {
@@ -16929,8 +17210,6 @@ type FlowVersionPromptModelInferenceConfiguration struct {
 	StopSequences []string `pulumi:"stopSequences"`
 	// Controls randomness, higher values increase diversity
 	Temperature *float64 `pulumi:"temperature"`
-	// Sample from the k most likely next tokens
-	TopK *float64 `pulumi:"topK"`
 	// Cumulative probability cutoff for token selection
 	TopP *float64 `pulumi:"topP"`
 }
@@ -16963,11 +17242,6 @@ func (o FlowVersionPromptModelInferenceConfigurationOutput) StopSequences() pulu
 // Controls randomness, higher values increase diversity
 func (o FlowVersionPromptModelInferenceConfigurationOutput) Temperature() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FlowVersionPromptModelInferenceConfiguration) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
-}
-
-// Sample from the k most likely next tokens
-func (o FlowVersionPromptModelInferenceConfigurationOutput) TopK() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v FlowVersionPromptModelInferenceConfiguration) *float64 { return v.TopK }).(pulumi.Float64PtrOutput)
 }
 
 // Cumulative probability cutoff for token selection
@@ -17026,16 +17300,6 @@ func (o FlowVersionPromptModelInferenceConfigurationPtrOutput) Temperature() pul
 			return nil
 		}
 		return v.Temperature
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Sample from the k most likely next tokens
-func (o FlowVersionPromptModelInferenceConfigurationPtrOutput) TopK() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *FlowVersionPromptModelInferenceConfiguration) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.TopK
 	}).(pulumi.Float64PtrOutput)
 }
 
@@ -21770,8 +22034,6 @@ type PromptModelInferenceConfiguration struct {
 	StopSequences []string `pulumi:"stopSequences"`
 	// Controls randomness, higher values increase diversity
 	Temperature *float64 `pulumi:"temperature"`
-	// Sample from the k most likely next tokens
-	TopK *float64 `pulumi:"topK"`
 	// Cumulative probability cutoff for token selection
 	TopP *float64 `pulumi:"topP"`
 }
@@ -21795,8 +22057,6 @@ type PromptModelInferenceConfigurationArgs struct {
 	StopSequences pulumi.StringArrayInput `pulumi:"stopSequences"`
 	// Controls randomness, higher values increase diversity
 	Temperature pulumi.Float64PtrInput `pulumi:"temperature"`
-	// Sample from the k most likely next tokens
-	TopK pulumi.Float64PtrInput `pulumi:"topK"`
 	// Cumulative probability cutoff for token selection
 	TopP pulumi.Float64PtrInput `pulumi:"topP"`
 }
@@ -21894,11 +22154,6 @@ func (o PromptModelInferenceConfigurationOutput) Temperature() pulumi.Float64Ptr
 	return o.ApplyT(func(v PromptModelInferenceConfiguration) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
 }
 
-// Sample from the k most likely next tokens
-func (o PromptModelInferenceConfigurationOutput) TopK() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v PromptModelInferenceConfiguration) *float64 { return v.TopK }).(pulumi.Float64PtrOutput)
-}
-
 // Cumulative probability cutoff for token selection
 func (o PromptModelInferenceConfigurationOutput) TopP() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v PromptModelInferenceConfiguration) *float64 { return v.TopP }).(pulumi.Float64PtrOutput)
@@ -21958,16 +22213,6 @@ func (o PromptModelInferenceConfigurationPtrOutput) Temperature() pulumi.Float64
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Sample from the k most likely next tokens
-func (o PromptModelInferenceConfigurationPtrOutput) TopK() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *PromptModelInferenceConfiguration) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.TopK
-	}).(pulumi.Float64PtrOutput)
-}
-
 // Cumulative probability cutoff for token selection
 func (o PromptModelInferenceConfigurationPtrOutput) TopP() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *PromptModelInferenceConfiguration) *float64 {
@@ -22016,47 +22261,6 @@ func (i PromptTemplateConfigurationPropertiesArgs) ToPromptTemplateConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(PromptTemplateConfigurationPropertiesOutput)
 }
 
-func (i PromptTemplateConfigurationPropertiesArgs) ToPromptTemplateConfigurationPropertiesPtrOutput() PromptTemplateConfigurationPropertiesPtrOutput {
-	return i.ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PromptTemplateConfigurationPropertiesArgs) ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PromptTemplateConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptTemplateConfigurationPropertiesOutput).ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(ctx)
-}
-
-// PromptTemplateConfigurationPropertiesPtrInput is an input type that accepts PromptTemplateConfigurationPropertiesArgs, PromptTemplateConfigurationPropertiesPtr and PromptTemplateConfigurationPropertiesPtrOutput values.
-// You can construct a concrete instance of `PromptTemplateConfigurationPropertiesPtrInput` via:
-//
-//	        PromptTemplateConfigurationPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type PromptTemplateConfigurationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPromptTemplateConfigurationPropertiesPtrOutput() PromptTemplateConfigurationPropertiesPtrOutput
-	ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(context.Context) PromptTemplateConfigurationPropertiesPtrOutput
-}
-
-type promptTemplateConfigurationPropertiesPtrType PromptTemplateConfigurationPropertiesArgs
-
-func PromptTemplateConfigurationPropertiesPtr(v *PromptTemplateConfigurationPropertiesArgs) PromptTemplateConfigurationPropertiesPtrInput {
-	return (*promptTemplateConfigurationPropertiesPtrType)(v)
-}
-
-func (*promptTemplateConfigurationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromptTemplateConfigurationProperties)(nil)).Elem()
-}
-
-func (i *promptTemplateConfigurationPropertiesPtrType) ToPromptTemplateConfigurationPropertiesPtrOutput() PromptTemplateConfigurationPropertiesPtrOutput {
-	return i.ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *promptTemplateConfigurationPropertiesPtrType) ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PromptTemplateConfigurationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptTemplateConfigurationPropertiesPtrOutput)
-}
-
 // Prompt template configuration
 type PromptTemplateConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -22072,51 +22276,8 @@ func (o PromptTemplateConfigurationPropertiesOutput) ToPromptTemplateConfigurati
 	return o
 }
 
-func (o PromptTemplateConfigurationPropertiesOutput) ToPromptTemplateConfigurationPropertiesPtrOutput() PromptTemplateConfigurationPropertiesPtrOutput {
-	return o.ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PromptTemplateConfigurationPropertiesOutput) ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PromptTemplateConfigurationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptTemplateConfigurationProperties) *PromptTemplateConfigurationProperties {
-		return &v
-	}).(PromptTemplateConfigurationPropertiesPtrOutput)
-}
-
 func (o PromptTemplateConfigurationPropertiesOutput) Text() PromptTextPromptTemplateConfigurationOutput {
 	return o.ApplyT(func(v PromptTemplateConfigurationProperties) PromptTextPromptTemplateConfiguration { return v.Text }).(PromptTextPromptTemplateConfigurationOutput)
-}
-
-type PromptTemplateConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PromptTemplateConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromptTemplateConfigurationProperties)(nil)).Elem()
-}
-
-func (o PromptTemplateConfigurationPropertiesPtrOutput) ToPromptTemplateConfigurationPropertiesPtrOutput() PromptTemplateConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o PromptTemplateConfigurationPropertiesPtrOutput) ToPromptTemplateConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PromptTemplateConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o PromptTemplateConfigurationPropertiesPtrOutput) Elem() PromptTemplateConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *PromptTemplateConfigurationProperties) PromptTemplateConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PromptTemplateConfigurationProperties
-		return ret
-	}).(PromptTemplateConfigurationPropertiesOutput)
-}
-
-func (o PromptTemplateConfigurationPropertiesPtrOutput) Text() PromptTextPromptTemplateConfigurationPtrOutput {
-	return o.ApplyT(func(v *PromptTemplateConfigurationProperties) *PromptTextPromptTemplateConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.Text
-	}).(PromptTextPromptTemplateConfigurationPtrOutput)
 }
 
 // Configuration for text prompt template
@@ -22160,47 +22321,6 @@ func (i PromptTextPromptTemplateConfigurationArgs) ToPromptTextPromptTemplateCon
 	return pulumi.ToOutputWithContext(ctx, i).(PromptTextPromptTemplateConfigurationOutput)
 }
 
-func (i PromptTextPromptTemplateConfigurationArgs) ToPromptTextPromptTemplateConfigurationPtrOutput() PromptTextPromptTemplateConfigurationPtrOutput {
-	return i.ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i PromptTextPromptTemplateConfigurationArgs) ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(ctx context.Context) PromptTextPromptTemplateConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptTextPromptTemplateConfigurationOutput).ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(ctx)
-}
-
-// PromptTextPromptTemplateConfigurationPtrInput is an input type that accepts PromptTextPromptTemplateConfigurationArgs, PromptTextPromptTemplateConfigurationPtr and PromptTextPromptTemplateConfigurationPtrOutput values.
-// You can construct a concrete instance of `PromptTextPromptTemplateConfigurationPtrInput` via:
-//
-//	        PromptTextPromptTemplateConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type PromptTextPromptTemplateConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToPromptTextPromptTemplateConfigurationPtrOutput() PromptTextPromptTemplateConfigurationPtrOutput
-	ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(context.Context) PromptTextPromptTemplateConfigurationPtrOutput
-}
-
-type promptTextPromptTemplateConfigurationPtrType PromptTextPromptTemplateConfigurationArgs
-
-func PromptTextPromptTemplateConfigurationPtr(v *PromptTextPromptTemplateConfigurationArgs) PromptTextPromptTemplateConfigurationPtrInput {
-	return (*promptTextPromptTemplateConfigurationPtrType)(v)
-}
-
-func (*promptTextPromptTemplateConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromptTextPromptTemplateConfiguration)(nil)).Elem()
-}
-
-func (i *promptTextPromptTemplateConfigurationPtrType) ToPromptTextPromptTemplateConfigurationPtrOutput() PromptTextPromptTemplateConfigurationPtrOutput {
-	return i.ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *promptTextPromptTemplateConfigurationPtrType) ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(ctx context.Context) PromptTextPromptTemplateConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PromptTextPromptTemplateConfigurationPtrOutput)
-}
-
 // Configuration for text prompt template
 type PromptTextPromptTemplateConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -22216,16 +22336,6 @@ func (o PromptTextPromptTemplateConfigurationOutput) ToPromptTextPromptTemplateC
 	return o
 }
 
-func (o PromptTextPromptTemplateConfigurationOutput) ToPromptTextPromptTemplateConfigurationPtrOutput() PromptTextPromptTemplateConfigurationPtrOutput {
-	return o.ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o PromptTextPromptTemplateConfigurationOutput) ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(ctx context.Context) PromptTextPromptTemplateConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptTextPromptTemplateConfiguration) *PromptTextPromptTemplateConfiguration {
-		return &v
-	}).(PromptTextPromptTemplateConfigurationPtrOutput)
-}
-
 // List of input variables
 func (o PromptTextPromptTemplateConfigurationOutput) InputVariables() PromptInputVariableArrayOutput {
 	return o.ApplyT(func(v PromptTextPromptTemplateConfiguration) []PromptInputVariable { return v.InputVariables }).(PromptInputVariableArrayOutput)
@@ -22238,59 +22348,6 @@ func (o PromptTextPromptTemplateConfigurationOutput) Text() pulumi.StringPtrOutp
 
 func (o PromptTextPromptTemplateConfigurationOutput) TextS3Location() PromptTextS3LocationPtrOutput {
 	return o.ApplyT(func(v PromptTextPromptTemplateConfiguration) *PromptTextS3Location { return v.TextS3Location }).(PromptTextS3LocationPtrOutput)
-}
-
-type PromptTextPromptTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (PromptTextPromptTemplateConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromptTextPromptTemplateConfiguration)(nil)).Elem()
-}
-
-func (o PromptTextPromptTemplateConfigurationPtrOutput) ToPromptTextPromptTemplateConfigurationPtrOutput() PromptTextPromptTemplateConfigurationPtrOutput {
-	return o
-}
-
-func (o PromptTextPromptTemplateConfigurationPtrOutput) ToPromptTextPromptTemplateConfigurationPtrOutputWithContext(ctx context.Context) PromptTextPromptTemplateConfigurationPtrOutput {
-	return o
-}
-
-func (o PromptTextPromptTemplateConfigurationPtrOutput) Elem() PromptTextPromptTemplateConfigurationOutput {
-	return o.ApplyT(func(v *PromptTextPromptTemplateConfiguration) PromptTextPromptTemplateConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret PromptTextPromptTemplateConfiguration
-		return ret
-	}).(PromptTextPromptTemplateConfigurationOutput)
-}
-
-// List of input variables
-func (o PromptTextPromptTemplateConfigurationPtrOutput) InputVariables() PromptInputVariableArrayOutput {
-	return o.ApplyT(func(v *PromptTextPromptTemplateConfiguration) []PromptInputVariable {
-		if v == nil {
-			return nil
-		}
-		return v.InputVariables
-	}).(PromptInputVariableArrayOutput)
-}
-
-// Prompt content for String prompt template
-func (o PromptTextPromptTemplateConfigurationPtrOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PromptTextPromptTemplateConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Text
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PromptTextPromptTemplateConfigurationPtrOutput) TextS3Location() PromptTextS3LocationPtrOutput {
-	return o.ApplyT(func(v *PromptTextPromptTemplateConfiguration) *PromptTextS3Location {
-		if v == nil {
-			return nil
-		}
-		return v.TextS3Location
-	}).(PromptTextS3LocationPtrOutput)
 }
 
 // The identifier for the S3 resource.
@@ -22475,12 +22532,12 @@ func (o PromptTextS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
 type PromptVariant struct {
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId *string `pulumi:"modelId"`
 	// Name for a variant.
 	Name string `pulumi:"name"`
 	// Contains configurations for the prompt template.
-	TemplateConfiguration *PromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
+	TemplateConfiguration PromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
 	// The type of prompt template to use.
 	TemplateType PromptTemplateType `pulumi:"templateType"`
 }
@@ -22500,12 +22557,12 @@ type PromptVariantInput interface {
 type PromptVariantArgs struct {
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration PromptInferenceConfigurationPropertiesPtrInput `pulumi:"inferenceConfiguration"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId pulumi.StringPtrInput `pulumi:"modelId"`
 	// Name for a variant.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Contains configurations for the prompt template.
-	TemplateConfiguration PromptTemplateConfigurationPropertiesPtrInput `pulumi:"templateConfiguration"`
+	TemplateConfiguration PromptTemplateConfigurationPropertiesInput `pulumi:"templateConfiguration"`
 	// The type of prompt template to use.
 	TemplateType PromptTemplateTypeInput `pulumi:"templateType"`
 }
@@ -22567,7 +22624,7 @@ func (o PromptVariantOutput) InferenceConfiguration() PromptInferenceConfigurati
 	return o.ApplyT(func(v PromptVariant) *PromptInferenceConfigurationProperties { return v.InferenceConfiguration }).(PromptInferenceConfigurationPropertiesPtrOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o PromptVariantOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PromptVariant) *string { return v.ModelId }).(pulumi.StringPtrOutput)
 }
@@ -22578,8 +22635,8 @@ func (o PromptVariantOutput) Name() pulumi.StringOutput {
 }
 
 // Contains configurations for the prompt template.
-func (o PromptVariantOutput) TemplateConfiguration() PromptTemplateConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v PromptVariant) *PromptTemplateConfigurationProperties { return v.TemplateConfiguration }).(PromptTemplateConfigurationPropertiesPtrOutput)
+func (o PromptVariantOutput) TemplateConfiguration() PromptTemplateConfigurationPropertiesOutput {
+	return o.ApplyT(func(v PromptVariant) PromptTemplateConfigurationProperties { return v.TemplateConfiguration }).(PromptTemplateConfigurationPropertiesOutput)
 }
 
 // The type of prompt template to use.
@@ -22725,8 +22782,6 @@ type PromptVersionPromptModelInferenceConfiguration struct {
 	StopSequences []string `pulumi:"stopSequences"`
 	// Controls randomness, higher values increase diversity
 	Temperature *float64 `pulumi:"temperature"`
-	// Sample from the k most likely next tokens
-	TopK *float64 `pulumi:"topK"`
 	// Cumulative probability cutoff for token selection
 	TopP *float64 `pulumi:"topP"`
 }
@@ -22759,11 +22814,6 @@ func (o PromptVersionPromptModelInferenceConfigurationOutput) StopSequences() pu
 // Controls randomness, higher values increase diversity
 func (o PromptVersionPromptModelInferenceConfigurationOutput) Temperature() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v PromptVersionPromptModelInferenceConfiguration) *float64 { return v.Temperature }).(pulumi.Float64PtrOutput)
-}
-
-// Sample from the k most likely next tokens
-func (o PromptVersionPromptModelInferenceConfigurationOutput) TopK() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v PromptVersionPromptModelInferenceConfiguration) *float64 { return v.TopK }).(pulumi.Float64PtrOutput)
 }
 
 // Cumulative probability cutoff for token selection
@@ -22825,16 +22875,6 @@ func (o PromptVersionPromptModelInferenceConfigurationPtrOutput) Temperature() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Sample from the k most likely next tokens
-func (o PromptVersionPromptModelInferenceConfigurationPtrOutput) TopK() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *PromptVersionPromptModelInferenceConfiguration) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.TopK
-	}).(pulumi.Float64PtrOutput)
-}
-
 // Cumulative probability cutoff for token selection
 func (o PromptVersionPromptModelInferenceConfigurationPtrOutput) TopP() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *PromptVersionPromptModelInferenceConfiguration) *float64 {
@@ -22876,49 +22916,16 @@ func (o PromptVersionPromptTemplateConfigurationPropertiesOutput) Text() PromptV
 	}).(PromptVersionTextPromptTemplateConfigurationOutput)
 }
 
-type PromptVersionPromptTemplateConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionPromptTemplateConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromptVersionPromptTemplateConfigurationProperties)(nil)).Elem()
-}
-
-func (o PromptVersionPromptTemplateConfigurationPropertiesPtrOutput) ToPromptVersionPromptTemplateConfigurationPropertiesPtrOutput() PromptVersionPromptTemplateConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o PromptVersionPromptTemplateConfigurationPropertiesPtrOutput) ToPromptVersionPromptTemplateConfigurationPropertiesPtrOutputWithContext(ctx context.Context) PromptVersionPromptTemplateConfigurationPropertiesPtrOutput {
-	return o
-}
-
-func (o PromptVersionPromptTemplateConfigurationPropertiesPtrOutput) Elem() PromptVersionPromptTemplateConfigurationPropertiesOutput {
-	return o.ApplyT(func(v *PromptVersionPromptTemplateConfigurationProperties) PromptVersionPromptTemplateConfigurationProperties {
-		if v != nil {
-			return *v
-		}
-		var ret PromptVersionPromptTemplateConfigurationProperties
-		return ret
-	}).(PromptVersionPromptTemplateConfigurationPropertiesOutput)
-}
-
-func (o PromptVersionPromptTemplateConfigurationPropertiesPtrOutput) Text() PromptVersionTextPromptTemplateConfigurationPtrOutput {
-	return o.ApplyT(func(v *PromptVersionPromptTemplateConfigurationProperties) *PromptVersionTextPromptTemplateConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.Text
-	}).(PromptVersionTextPromptTemplateConfigurationPtrOutput)
-}
-
 // Prompt variant
 type PromptVersionPromptVariant struct {
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptVersionPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
-	// ARN or name of a Bedrock model.
+	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 	ModelId *string `pulumi:"modelId"`
 	// Name for a variant.
 	Name string `pulumi:"name"`
 	// Contains configurations for the prompt template.
-	TemplateConfiguration *PromptVersionPromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
+	TemplateConfiguration PromptVersionPromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
 	// The type of prompt template to use.
 	TemplateType PromptVersionPromptTemplateType `pulumi:"templateType"`
 }
@@ -22945,7 +22952,7 @@ func (o PromptVersionPromptVariantOutput) InferenceConfiguration() PromptVersion
 	}).(PromptVersionPromptInferenceConfigurationPropertiesPtrOutput)
 }
 
-// ARN or name of a Bedrock model.
+// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
 func (o PromptVersionPromptVariantOutput) ModelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PromptVersionPromptVariant) *string { return v.ModelId }).(pulumi.StringPtrOutput)
 }
@@ -22956,10 +22963,10 @@ func (o PromptVersionPromptVariantOutput) Name() pulumi.StringOutput {
 }
 
 // Contains configurations for the prompt template.
-func (o PromptVersionPromptVariantOutput) TemplateConfiguration() PromptVersionPromptTemplateConfigurationPropertiesPtrOutput {
-	return o.ApplyT(func(v PromptVersionPromptVariant) *PromptVersionPromptTemplateConfigurationProperties {
+func (o PromptVersionPromptVariantOutput) TemplateConfiguration() PromptVersionPromptTemplateConfigurationPropertiesOutput {
+	return o.ApplyT(func(v PromptVersionPromptVariant) PromptVersionPromptTemplateConfigurationProperties {
 		return v.TemplateConfiguration
-	}).(PromptVersionPromptTemplateConfigurationPropertiesPtrOutput)
+	}).(PromptVersionPromptTemplateConfigurationPropertiesOutput)
 }
 
 // The type of prompt template to use.
@@ -23020,50 +23027,6 @@ func (o PromptVersionTextPromptTemplateConfigurationOutput) InputVariables() Pro
 // Prompt content for String prompt template
 func (o PromptVersionTextPromptTemplateConfigurationOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v PromptVersionTextPromptTemplateConfiguration) string { return v.Text }).(pulumi.StringOutput)
-}
-
-type PromptVersionTextPromptTemplateConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionTextPromptTemplateConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PromptVersionTextPromptTemplateConfiguration)(nil)).Elem()
-}
-
-func (o PromptVersionTextPromptTemplateConfigurationPtrOutput) ToPromptVersionTextPromptTemplateConfigurationPtrOutput() PromptVersionTextPromptTemplateConfigurationPtrOutput {
-	return o
-}
-
-func (o PromptVersionTextPromptTemplateConfigurationPtrOutput) ToPromptVersionTextPromptTemplateConfigurationPtrOutputWithContext(ctx context.Context) PromptVersionTextPromptTemplateConfigurationPtrOutput {
-	return o
-}
-
-func (o PromptVersionTextPromptTemplateConfigurationPtrOutput) Elem() PromptVersionTextPromptTemplateConfigurationOutput {
-	return o.ApplyT(func(v *PromptVersionTextPromptTemplateConfiguration) PromptVersionTextPromptTemplateConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret PromptVersionTextPromptTemplateConfiguration
-		return ret
-	}).(PromptVersionTextPromptTemplateConfigurationOutput)
-}
-
-// List of input variables
-func (o PromptVersionTextPromptTemplateConfigurationPtrOutput) InputVariables() PromptVersionPromptInputVariableArrayOutput {
-	return o.ApplyT(func(v *PromptVersionTextPromptTemplateConfiguration) []PromptVersionPromptInputVariable {
-		if v == nil {
-			return nil
-		}
-		return v.InputVariables
-	}).(PromptVersionPromptInputVariableArrayOutput)
-}
-
-// Prompt content for String prompt template
-func (o PromptVersionTextPromptTemplateConfigurationPtrOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PromptVersionTextPromptTemplateConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Text
-	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -23188,6 +23151,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDataConnectionConfigurationPtrInput)(nil)).Elem(), FlowDataConnectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionInput)(nil)).Elem(), FlowDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionPtrInput)(nil)).Elem(), FlowDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowGuardrailConfigurationInput)(nil)).Elem(), FlowGuardrailConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowGuardrailConfigurationPtrInput)(nil)).Elem(), FlowGuardrailConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputFlowNodeConfigurationInput)(nil)).Elem(), FlowInputFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowInputFlowNodeConfigurationPtrInput)(nil)).Elem(), FlowInputFlowNodeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowIteratorFlowNodeConfigurationInput)(nil)).Elem(), FlowIteratorFlowNodeConfigurationArgs{})
@@ -23318,9 +23283,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptModelInferenceConfigurationInput)(nil)).Elem(), PromptModelInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptModelInferenceConfigurationPtrInput)(nil)).Elem(), PromptModelInferenceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateConfigurationPropertiesInput)(nil)).Elem(), PromptTemplateConfigurationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateConfigurationPropertiesPtrInput)(nil)).Elem(), PromptTemplateConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTextPromptTemplateConfigurationInput)(nil)).Elem(), PromptTextPromptTemplateConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PromptTextPromptTemplateConfigurationPtrInput)(nil)).Elem(), PromptTextPromptTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTextS3LocationInput)(nil)).Elem(), PromptTextS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTextS3LocationPtrInput)(nil)).Elem(), PromptTextS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptVariantInput)(nil)).Elem(), PromptVariantArgs{})
@@ -23449,6 +23412,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowDataConnectionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(FlowGuardrailConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowGuardrailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowInputFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowInputFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowIteratorFlowNodeConfigurationOutput{})
@@ -23577,6 +23542,8 @@ func init() {
 	pulumi.RegisterOutputType(FlowVersionFlowNodeInputTypeArrayOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeOutputTypeOutput{})
 	pulumi.RegisterOutputType(FlowVersionFlowNodeOutputTypeArrayOutput{})
+	pulumi.RegisterOutputType(FlowVersionGuardrailConfigurationOutput{})
+	pulumi.RegisterOutputType(FlowVersionGuardrailConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionInputFlowNodeConfigurationOutput{})
 	pulumi.RegisterOutputType(FlowVersionInputFlowNodeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowVersionIteratorFlowNodeConfigurationOutput{})
@@ -23675,9 +23642,7 @@ func init() {
 	pulumi.RegisterOutputType(PromptModelInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptTemplateConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptTemplateConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PromptTextPromptTemplateConfigurationOutput{})
-	pulumi.RegisterOutputType(PromptTextPromptTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptTextS3LocationOutput{})
 	pulumi.RegisterOutputType(PromptTextS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(PromptVariantOutput{})
@@ -23689,9 +23654,7 @@ func init() {
 	pulumi.RegisterOutputType(PromptVersionPromptModelInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptModelInferenceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateConfigurationPropertiesOutput{})
-	pulumi.RegisterOutputType(PromptVersionPromptTemplateConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptVariantOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptVariantArrayOutput{})
 	pulumi.RegisterOutputType(PromptVersionTextPromptTemplateConfigurationOutput{})
-	pulumi.RegisterOutputType(PromptVersionTextPromptTemplateConfigurationPtrOutput{})
 }

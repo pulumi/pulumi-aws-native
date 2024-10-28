@@ -124,7 +124,7 @@ export class PromptVersion extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "promptArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "promptArn", "tags.*"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PromptVersion.__pulumiType, name, resourceInputs, opts);
     }

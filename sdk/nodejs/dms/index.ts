@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { DataMigrationArgs } from "./dataMigration";
+export type DataMigration = import("./dataMigration").DataMigration;
+export const DataMigration: typeof import("./dataMigration").DataMigration = null as any;
+utilities.lazyLoad(exports, ["DataMigration"], () => require("./dataMigration"));
+
 export { DataProviderArgs } from "./dataProvider";
 export type DataProvider = import("./dataProvider").DataProvider;
 export const DataProvider: typeof import("./dataProvider").DataProvider = null as any;
 utilities.lazyLoad(exports, ["DataProvider"], () => require("./dataProvider"));
+
+export { GetDataMigrationArgs, GetDataMigrationResult, GetDataMigrationOutputArgs } from "./getDataMigration";
+export const getDataMigration: typeof import("./getDataMigration").getDataMigration = null as any;
+export const getDataMigrationOutput: typeof import("./getDataMigration").getDataMigrationOutput = null as any;
+utilities.lazyLoad(exports, ["getDataMigration","getDataMigrationOutput"], () => require("./getDataMigration"));
 
 export { GetDataProviderArgs, GetDataProviderResult, GetDataProviderOutputArgs } from "./getDataProvider";
 export const getDataProvider: typeof import("./getDataProvider").getDataProvider = null as any;
@@ -53,6 +63,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:dms:DataMigration":
+                return new DataMigration(name, <any>undefined, { urn })
             case "aws-native:dms:DataProvider":
                 return new DataProvider(name, <any>undefined, { urn })
             case "aws-native:dms:InstanceProfile":

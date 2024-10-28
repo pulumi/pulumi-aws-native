@@ -130,6 +130,22 @@ __all__ = [
     'DomainStudioWebPortalSettingsArgsDict',
     'DomainUserSettingsArgs',
     'DomainUserSettingsArgsDict',
+    'EndpointAlarmArgs',
+    'EndpointAlarmArgsDict',
+    'EndpointAutoRollbackConfigArgs',
+    'EndpointAutoRollbackConfigArgsDict',
+    'EndpointBlueGreenUpdatePolicyArgs',
+    'EndpointBlueGreenUpdatePolicyArgsDict',
+    'EndpointCapacitySizeArgs',
+    'EndpointCapacitySizeArgsDict',
+    'EndpointDeploymentConfigArgs',
+    'EndpointDeploymentConfigArgsDict',
+    'EndpointRollingUpdatePolicyArgs',
+    'EndpointRollingUpdatePolicyArgsDict',
+    'EndpointTrafficRoutingConfigArgs',
+    'EndpointTrafficRoutingConfigArgsDict',
+    'EndpointVariantPropertyArgs',
+    'EndpointVariantPropertyArgsDict',
     'FeatureGroupDataCatalogConfigArgs',
     'FeatureGroupDataCatalogConfigArgsDict',
     'FeatureGroupFeatureDefinitionArgs',
@@ -4193,14 +4209,20 @@ if not MYPY:
         code_editor_app_settings: NotRequired[pulumi.Input['DomainCodeEditorAppSettingsArgsDict']]
         """
         The Code Editor application settings.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgsDict']]]]
         """
         The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         custom_posix_user_config: NotRequired[pulumi.Input['DomainCustomPosixUserConfigArgsDict']]
         """
         Details about the POSIX identity that is used for file system operations.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         default_landing_uri: NotRequired[pulumi.Input[str]]
         """
@@ -4209,6 +4231,8 @@ if not MYPY:
         jupyter_lab_app_settings: NotRequired[pulumi.Input['DomainJupyterLabAppSettingsArgsDict']]
         """
         The settings for the JupyterLab application.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         jupyter_server_app_settings: NotRequired[pulumi.Input['DomainJupyterServerAppSettingsArgsDict']]
         """
@@ -4237,6 +4261,8 @@ if not MYPY:
         space_storage_settings: NotRequired[pulumi.Input['DomainDefaultSpaceStorageSettingsArgsDict']]
         """
         The storage settings for a space.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         studio_web_portal: NotRequired[pulumi.Input['DomainUserSettingsStudioWebPortal']]
         """
@@ -4271,10 +4297,18 @@ class DomainUserSettingsArgs:
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param pulumi.Input[str] execution_role: The execution role for the user.
         :param pulumi.Input['DomainCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input['DomainCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input[str] default_landing_uri: Defines which Amazon SageMaker application users are directed to by default.
         :param pulumi.Input['DomainJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input['DomainJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
         :param pulumi.Input['DomainRSessionAppSettingsArgs'] r_session_app_settings: A collection of settings that configure the `RSessionGateway` app.
@@ -4282,6 +4316,8 @@ class DomainUserSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['DomainSharingSettingsArgs'] sharing_settings: The sharing settings.
         :param pulumi.Input['DomainDefaultSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a space.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input['DomainUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         :param pulumi.Input['DomainStudioWebPortalSettingsArgs'] studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
@@ -4332,6 +4368,8 @@ class DomainUserSettingsArgs:
     def code_editor_app_settings(self) -> Optional[pulumi.Input['DomainCodeEditorAppSettingsArgs']]:
         """
         The Code Editor application settings.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "code_editor_app_settings")
 
@@ -4344,6 +4382,8 @@ class DomainUserSettingsArgs:
     def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]]:
         """
         The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -4356,6 +4396,8 @@ class DomainUserSettingsArgs:
     def custom_posix_user_config(self) -> Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']]:
         """
         Details about the POSIX identity that is used for file system operations.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "custom_posix_user_config")
 
@@ -4380,6 +4422,8 @@ class DomainUserSettingsArgs:
     def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['DomainJupyterLabAppSettingsArgs']]:
         """
         The settings for the JupyterLab application.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
@@ -4464,6 +4508,8 @@ class DomainUserSettingsArgs:
     def space_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']]:
         """
         The storage settings for a space.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "space_storage_settings")
 
@@ -4494,6 +4540,474 @@ class DomainUserSettingsArgs:
     @studio_web_portal_settings.setter
     def studio_web_portal_settings(self, value: Optional[pulumi.Input['DomainStudioWebPortalSettingsArgs']]):
         pulumi.set(self, "studio_web_portal_settings", value)
+
+
+if not MYPY:
+    class EndpointAlarmArgsDict(TypedDict):
+        alarm_name: pulumi.Input[str]
+        """
+        The name of the CloudWatch alarm.
+        """
+elif False:
+    EndpointAlarmArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointAlarmArgs:
+    def __init__(__self__, *,
+                 alarm_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] alarm_name: The name of the CloudWatch alarm.
+        """
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> pulumi.Input[str]:
+        """
+        The name of the CloudWatch alarm.
+        """
+        return pulumi.get(self, "alarm_name")
+
+    @alarm_name.setter
+    def alarm_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "alarm_name", value)
+
+
+if not MYPY:
+    class EndpointAutoRollbackConfigArgsDict(TypedDict):
+        alarms: pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgsDict']]]
+        """
+        List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+        """
+elif False:
+    EndpointAutoRollbackConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointAutoRollbackConfigArgs:
+    def __init__(__self__, *,
+                 alarms: pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]] alarms: List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+        """
+        pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]:
+        """
+        List of CloudWatch alarms to monitor during the deployment. If any alarm goes off, the deployment is rolled back.
+        """
+        return pulumi.get(self, "alarms")
+
+    @alarms.setter
+    def alarms(self, value: pulumi.Input[Sequence[pulumi.Input['EndpointAlarmArgs']]]):
+        pulumi.set(self, "alarms", value)
+
+
+if not MYPY:
+    class EndpointBlueGreenUpdatePolicyArgsDict(TypedDict):
+        traffic_routing_configuration: pulumi.Input['EndpointTrafficRoutingConfigArgsDict']
+        """
+        The traffic routing configuration for the blue/green deployment.
+        """
+        maximum_execution_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The maximum time allowed for the blue/green update, in seconds.
+        """
+        termination_wait_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The wait time before terminating the old endpoint during a blue/green deployment.
+        """
+elif False:
+    EndpointBlueGreenUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointBlueGreenUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 traffic_routing_configuration: pulumi.Input['EndpointTrafficRoutingConfigArgs'],
+                 maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 termination_wait_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input['EndpointTrafficRoutingConfigArgs'] traffic_routing_configuration: The traffic routing configuration for the blue/green deployment.
+        :param pulumi.Input[int] maximum_execution_timeout_in_seconds: The maximum time allowed for the blue/green update, in seconds.
+        :param pulumi.Input[int] termination_wait_in_seconds: The wait time before terminating the old endpoint during a blue/green deployment.
+        """
+        pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if termination_wait_in_seconds is not None:
+            pulumi.set(__self__, "termination_wait_in_seconds", termination_wait_in_seconds)
+
+    @property
+    @pulumi.getter(name="trafficRoutingConfiguration")
+    def traffic_routing_configuration(self) -> pulumi.Input['EndpointTrafficRoutingConfigArgs']:
+        """
+        The traffic routing configuration for the blue/green deployment.
+        """
+        return pulumi.get(self, "traffic_routing_configuration")
+
+    @traffic_routing_configuration.setter
+    def traffic_routing_configuration(self, value: pulumi.Input['EndpointTrafficRoutingConfigArgs']):
+        pulumi.set(self, "traffic_routing_configuration", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum time allowed for the blue/green update, in seconds.
+        """
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @maximum_execution_timeout_in_seconds.setter
+    def maximum_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_execution_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="terminationWaitInSeconds")
+    def termination_wait_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The wait time before terminating the old endpoint during a blue/green deployment.
+        """
+        return pulumi.get(self, "termination_wait_in_seconds")
+
+    @termination_wait_in_seconds.setter
+    def termination_wait_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "termination_wait_in_seconds", value)
+
+
+if not MYPY:
+    class EndpointCapacitySizeArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies whether the `Value` is an instance count or a capacity unit.
+        """
+        value: pulumi.Input[int]
+        """
+        The value representing either the number of instances or the number of capacity units.
+        """
+elif False:
+    EndpointCapacitySizeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointCapacitySizeArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] type: Specifies whether the `Value` is an instance count or a capacity unit.
+        :param pulumi.Input[int] value: The value representing either the number of instances or the number of capacity units.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies whether the `Value` is an instance count or a capacity unit.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The value representing either the number of instances or the number of capacity units.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class EndpointDeploymentConfigArgsDict(TypedDict):
+        auto_rollback_configuration: NotRequired[pulumi.Input['EndpointAutoRollbackConfigArgsDict']]
+        """
+        Configuration for automatic rollback if an error occurs during deployment.
+        """
+        blue_green_update_policy: NotRequired[pulumi.Input['EndpointBlueGreenUpdatePolicyArgsDict']]
+        """
+        Configuration for blue-green update deployment policies.
+        """
+        rolling_update_policy: NotRequired[pulumi.Input['EndpointRollingUpdatePolicyArgsDict']]
+        """
+        Configuration for rolling update deployment policies.
+        """
+elif False:
+    EndpointDeploymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointDeploymentConfigArgs:
+    def __init__(__self__, *,
+                 auto_rollback_configuration: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']] = None,
+                 blue_green_update_policy: Optional[pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']] = None,
+                 rolling_update_policy: Optional[pulumi.Input['EndpointRollingUpdatePolicyArgs']] = None):
+        """
+        :param pulumi.Input['EndpointAutoRollbackConfigArgs'] auto_rollback_configuration: Configuration for automatic rollback if an error occurs during deployment.
+        :param pulumi.Input['EndpointBlueGreenUpdatePolicyArgs'] blue_green_update_policy: Configuration for blue-green update deployment policies.
+        :param pulumi.Input['EndpointRollingUpdatePolicyArgs'] rolling_update_policy: Configuration for rolling update deployment policies.
+        """
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+        if blue_green_update_policy is not None:
+            pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+        if rolling_update_policy is not None:
+            pulumi.set(__self__, "rolling_update_policy", rolling_update_policy)
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']]:
+        """
+        Configuration for automatic rollback if an error occurs during deployment.
+        """
+        return pulumi.get(self, "auto_rollback_configuration")
+
+    @auto_rollback_configuration.setter
+    def auto_rollback_configuration(self, value: Optional[pulumi.Input['EndpointAutoRollbackConfigArgs']]):
+        pulumi.set(self, "auto_rollback_configuration", value)
+
+    @property
+    @pulumi.getter(name="blueGreenUpdatePolicy")
+    def blue_green_update_policy(self) -> Optional[pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']]:
+        """
+        Configuration for blue-green update deployment policies.
+        """
+        return pulumi.get(self, "blue_green_update_policy")
+
+    @blue_green_update_policy.setter
+    def blue_green_update_policy(self, value: Optional[pulumi.Input['EndpointBlueGreenUpdatePolicyArgs']]):
+        pulumi.set(self, "blue_green_update_policy", value)
+
+    @property
+    @pulumi.getter(name="rollingUpdatePolicy")
+    def rolling_update_policy(self) -> Optional[pulumi.Input['EndpointRollingUpdatePolicyArgs']]:
+        """
+        Configuration for rolling update deployment policies.
+        """
+        return pulumi.get(self, "rolling_update_policy")
+
+    @rolling_update_policy.setter
+    def rolling_update_policy(self, value: Optional[pulumi.Input['EndpointRollingUpdatePolicyArgs']]):
+        pulumi.set(self, "rolling_update_policy", value)
+
+
+if not MYPY:
+    class EndpointRollingUpdatePolicyArgsDict(TypedDict):
+        maximum_batch_size: pulumi.Input['EndpointCapacitySizeArgsDict']
+        """
+        Specifies the maximum batch size for each rolling update.
+        """
+        wait_interval_in_seconds: pulumi.Input[int]
+        """
+        The time to wait between steps during the rolling update, in seconds.
+        """
+        maximum_execution_timeout_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The maximum time allowed for the rolling update, in seconds.
+        """
+        rollback_maximum_batch_size: NotRequired[pulumi.Input['EndpointCapacitySizeArgsDict']]
+        """
+        The maximum batch size for rollback during an update failure.
+        """
+elif False:
+    EndpointRollingUpdatePolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointRollingUpdatePolicyArgs:
+    def __init__(__self__, *,
+                 maximum_batch_size: pulumi.Input['EndpointCapacitySizeArgs'],
+                 wait_interval_in_seconds: pulumi.Input[int],
+                 maximum_execution_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 rollback_maximum_batch_size: Optional[pulumi.Input['EndpointCapacitySizeArgs']] = None):
+        """
+        :param pulumi.Input['EndpointCapacitySizeArgs'] maximum_batch_size: Specifies the maximum batch size for each rolling update.
+        :param pulumi.Input[int] wait_interval_in_seconds: The time to wait between steps during the rolling update, in seconds.
+        :param pulumi.Input[int] maximum_execution_timeout_in_seconds: The maximum time allowed for the rolling update, in seconds.
+        :param pulumi.Input['EndpointCapacitySizeArgs'] rollback_maximum_batch_size: The maximum batch size for rollback during an update failure.
+        """
+        pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
+        pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if rollback_maximum_batch_size is not None:
+            pulumi.set(__self__, "rollback_maximum_batch_size", rollback_maximum_batch_size)
+
+    @property
+    @pulumi.getter(name="maximumBatchSize")
+    def maximum_batch_size(self) -> pulumi.Input['EndpointCapacitySizeArgs']:
+        """
+        Specifies the maximum batch size for each rolling update.
+        """
+        return pulumi.get(self, "maximum_batch_size")
+
+    @maximum_batch_size.setter
+    def maximum_batch_size(self, value: pulumi.Input['EndpointCapacitySizeArgs']):
+        pulumi.set(self, "maximum_batch_size", value)
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> pulumi.Input[int]:
+        """
+        The time to wait between steps during the rolling update, in seconds.
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: pulumi.Input[int]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum time allowed for the rolling update, in seconds.
+        """
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @maximum_execution_timeout_in_seconds.setter
+    def maximum_execution_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_execution_timeout_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="rollbackMaximumBatchSize")
+    def rollback_maximum_batch_size(self) -> Optional[pulumi.Input['EndpointCapacitySizeArgs']]:
+        """
+        The maximum batch size for rollback during an update failure.
+        """
+        return pulumi.get(self, "rollback_maximum_batch_size")
+
+    @rollback_maximum_batch_size.setter
+    def rollback_maximum_batch_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
+        pulumi.set(self, "rollback_maximum_batch_size", value)
+
+
+if not MYPY:
+    class EndpointTrafficRoutingConfigArgsDict(TypedDict):
+        type: pulumi.Input[str]
+        """
+        Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+        """
+        canary_size: NotRequired[pulumi.Input['EndpointCapacitySizeArgsDict']]
+        """
+        Specifies the size of the canary traffic in a canary deployment.
+        """
+        linear_step_size: NotRequired[pulumi.Input['EndpointCapacitySizeArgsDict']]
+        """
+        Specifies the step size for linear traffic routing.
+        """
+        wait_interval_in_seconds: NotRequired[pulumi.Input[int]]
+        """
+        Specifies the wait interval between traffic shifts, in seconds.
+        """
+elif False:
+    EndpointTrafficRoutingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointTrafficRoutingConfigArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 canary_size: Optional[pulumi.Input['EndpointCapacitySizeArgs']] = None,
+                 linear_step_size: Optional[pulumi.Input['EndpointCapacitySizeArgs']] = None,
+                 wait_interval_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] type: Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+        :param pulumi.Input['EndpointCapacitySizeArgs'] canary_size: Specifies the size of the canary traffic in a canary deployment.
+        :param pulumi.Input['EndpointCapacitySizeArgs'] linear_step_size: Specifies the step size for linear traffic routing.
+        :param pulumi.Input[int] wait_interval_in_seconds: Specifies the wait interval between traffic shifts, in seconds.
+        """
+        pulumi.set(__self__, "type", type)
+        if canary_size is not None:
+            pulumi.set(__self__, "canary_size", canary_size)
+        if linear_step_size is not None:
+            pulumi.set(__self__, "linear_step_size", linear_step_size)
+        if wait_interval_in_seconds is not None:
+            pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Specifies the type of traffic routing (e.g., 'AllAtOnce', 'Canary', 'Linear').
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="canarySize")
+    def canary_size(self) -> Optional[pulumi.Input['EndpointCapacitySizeArgs']]:
+        """
+        Specifies the size of the canary traffic in a canary deployment.
+        """
+        return pulumi.get(self, "canary_size")
+
+    @canary_size.setter
+    def canary_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
+        pulumi.set(self, "canary_size", value)
+
+    @property
+    @pulumi.getter(name="linearStepSize")
+    def linear_step_size(self) -> Optional[pulumi.Input['EndpointCapacitySizeArgs']]:
+        """
+        Specifies the step size for linear traffic routing.
+        """
+        return pulumi.get(self, "linear_step_size")
+
+    @linear_step_size.setter
+    def linear_step_size(self, value: Optional[pulumi.Input['EndpointCapacitySizeArgs']]):
+        pulumi.set(self, "linear_step_size", value)
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the wait interval between traffic shifts, in seconds.
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @wait_interval_in_seconds.setter
+    def wait_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "wait_interval_in_seconds", value)
+
+
+if not MYPY:
+    class EndpointVariantPropertyArgsDict(TypedDict):
+        variant_property_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of variant property (e.g., 'DesiredInstanceCount', 'DesiredWeight', 'DataCaptureConfig').
+        """
+elif False:
+    EndpointVariantPropertyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EndpointVariantPropertyArgs:
+    def __init__(__self__, *,
+                 variant_property_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] variant_property_type: The type of variant property (e.g., 'DesiredInstanceCount', 'DesiredWeight', 'DataCaptureConfig').
+        """
+        if variant_property_type is not None:
+            pulumi.set(__self__, "variant_property_type", variant_property_type)
+
+    @property
+    @pulumi.getter(name="variantPropertyType")
+    def variant_property_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of variant property (e.g., 'DesiredInstanceCount', 'DesiredWeight', 'DataCaptureConfig').
+        """
+        return pulumi.get(self, "variant_property_type")
+
+    @variant_property_type.setter
+    def variant_property_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "variant_property_type", value)
 
 
 if not MYPY:
@@ -18531,14 +19045,20 @@ if not MYPY:
         code_editor_app_settings: NotRequired[pulumi.Input['UserProfileCodeEditorAppSettingsArgsDict']]
         """
         The Code Editor application settings.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         custom_file_system_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgsDict']]]]
         """
         The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         custom_posix_user_config: NotRequired[pulumi.Input['UserProfileCustomPosixUserConfigArgsDict']]
         """
         Details about the POSIX identity that is used for file system operations.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         default_landing_uri: NotRequired[pulumi.Input[str]]
         """
@@ -18551,6 +19071,8 @@ if not MYPY:
         jupyter_lab_app_settings: NotRequired[pulumi.Input['UserProfileJupyterLabAppSettingsArgsDict']]
         """
         The settings for the JupyterLab application.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         jupyter_server_app_settings: NotRequired[pulumi.Input['UserProfileJupyterServerAppSettingsArgsDict']]
         """
@@ -18575,6 +19097,8 @@ if not MYPY:
         space_storage_settings: NotRequired[pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgsDict']]
         """
         The storage settings for a space.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         studio_web_portal: NotRequired[pulumi.Input['UserProfileUserSettingsStudioWebPortal']]
         """
@@ -18607,17 +19131,27 @@ class UserProfileUserSettingsArgs:
         """
         A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
         :param pulumi.Input['UserProfileCodeEditorAppSettingsArgs'] code_editor_app_settings: The Code Editor application settings.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgs']]] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input['UserProfileCustomPosixUserConfigArgs'] custom_posix_user_config: Details about the POSIX identity that is used for file system operations.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input[str] default_landing_uri: Defines which Amazon SageMaker application users are directed to by default.
         :param pulumi.Input[str] execution_role: The user profile Amazon Resource Name (ARN).
         :param pulumi.Input['UserProfileJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The settings for the JupyterLab application.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input['UserProfileJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['UserProfileKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
         :param pulumi.Input['UserProfileRStudioServerProAppSettingsArgs'] r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the `RStudioServerPro` app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         :param pulumi.Input['UserProfileSharingSettingsArgs'] sharing_settings: The sharing settings.
         :param pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs'] space_storage_settings: The storage settings for a space.
+               
+               SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param pulumi.Input['UserProfileUserSettingsStudioWebPortal'] studio_web_portal: Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
         :param pulumi.Input['UserProfileStudioWebPortalSettingsArgs'] studio_web_portal_settings: Studio settings. If these settings are applied on a user level, they take priority over the settings applied on a domain level.
         """
@@ -18655,6 +19189,8 @@ class UserProfileUserSettingsArgs:
     def code_editor_app_settings(self) -> Optional[pulumi.Input['UserProfileCodeEditorAppSettingsArgs']]:
         """
         The Code Editor application settings.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "code_editor_app_settings")
 
@@ -18667,6 +19203,8 @@ class UserProfileUserSettingsArgs:
     def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileCustomFileSystemConfigArgs']]]]:
         """
         The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -18679,6 +19217,8 @@ class UserProfileUserSettingsArgs:
     def custom_posix_user_config(self) -> Optional[pulumi.Input['UserProfileCustomPosixUserConfigArgs']]:
         """
         Details about the POSIX identity that is used for file system operations.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "custom_posix_user_config")
 
@@ -18715,6 +19255,8 @@ class UserProfileUserSettingsArgs:
     def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['UserProfileJupyterLabAppSettingsArgs']]:
         """
         The settings for the JupyterLab application.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "jupyter_lab_app_settings")
 
@@ -18787,6 +19329,8 @@ class UserProfileUserSettingsArgs:
     def space_storage_settings(self) -> Optional[pulumi.Input['UserProfileDefaultSpaceStorageSettingsArgs']]:
         """
         The storage settings for a space.
+
+        SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
         return pulumi.get(self, "space_storage_settings")
 

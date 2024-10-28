@@ -81,7 +81,6 @@ namespace Pulumi.AwsNative.Bedrock
         /// Identifier for a Prompt
         /// </summary>
         public readonly string? PromptId;
-        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// Time Stamp.
         /// </summary>
@@ -109,8 +108,6 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? promptId,
 
-            ImmutableDictionary<string, string>? tags,
-
             string? updatedAt,
 
             ImmutableArray<Outputs.PromptVersionPromptVariant> variants,
@@ -123,7 +120,6 @@ namespace Pulumi.AwsNative.Bedrock
             DefaultVariant = defaultVariant;
             Name = name;
             PromptId = promptId;
-            Tags = tags;
             UpdatedAt = updatedAt;
             Variants = variants;
             Version = version;

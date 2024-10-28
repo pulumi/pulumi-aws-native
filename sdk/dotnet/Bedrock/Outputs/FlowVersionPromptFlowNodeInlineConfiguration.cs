@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     {
         public readonly Outputs.FlowVersionPromptInferenceConfigurationProperties? InferenceConfiguration;
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         /// </summary>
         public readonly string ModelId;
         public readonly Outputs.FlowVersionPromptTemplateConfigurationProperties TemplateConfiguration;

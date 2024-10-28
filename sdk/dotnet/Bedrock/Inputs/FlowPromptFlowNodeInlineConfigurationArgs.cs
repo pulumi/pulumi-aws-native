@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<Inputs.FlowPromptInferenceConfigurationPropertiesArgs>? InferenceConfiguration { get; set; }
 
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         /// </summary>
         [Input("modelId", required: true)]
         public Input<string> ModelId { get; set; } = null!;

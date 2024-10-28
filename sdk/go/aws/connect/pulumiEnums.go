@@ -523,6 +523,7 @@ const (
 	ContactFlowTypeOutboundWhisper = ContactFlowType("OUTBOUND_WHISPER")
 	ContactFlowTypeAgentTransfer   = ContactFlowType("AGENT_TRANSFER")
 	ContactFlowTypeQueueTransfer   = ContactFlowType("QUEUE_TRANSFER")
+	ContactFlowTypeCampaign        = ContactFlowType("CAMPAIGN")
 )
 
 func (ContactFlowType) ElementType() reflect.Type {
@@ -656,6 +657,7 @@ func (o ContactFlowTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 //	ContactFlowTypeOutboundWhisper
 //	ContactFlowTypeAgentTransfer
 //	ContactFlowTypeQueueTransfer
+//	ContactFlowTypeCampaign
 type ContactFlowTypeInput interface {
 	pulumi.Input
 

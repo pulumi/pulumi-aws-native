@@ -14,10 +14,12 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'AutoScalingGroupAcceleratorCountRequest',
     'AutoScalingGroupAcceleratorTotalMemoryMiBRequest',
+    'AutoScalingGroupAvailabilityZoneDistribution',
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequest',
     'AutoScalingGroupInstanceMaintenancePolicy',
     'AutoScalingGroupInstanceRequirements',
@@ -129,6 +131,36 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequest(dict):
         The memory minimum in MiB.
         """
         return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupAvailabilityZoneDistribution(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityDistributionStrategy":
+            suggest = "capacity_distribution_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupAvailabilityZoneDistribution. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupAvailabilityZoneDistribution.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupAvailabilityZoneDistribution.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_distribution_strategy: Optional['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy'] = None):
+        if capacity_distribution_strategy is not None:
+            pulumi.set(__self__, "capacity_distribution_strategy", capacity_distribution_strategy)
+
+    @property
+    @pulumi.getter(name="capacityDistributionStrategy")
+    def capacity_distribution_strategy(self) -> Optional['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']:
+        return pulumi.get(self, "capacity_distribution_strategy")
 
 
 @pulumi.output_type
@@ -1716,20 +1748,62 @@ class AutoScalingGroupTotalLocalStorageGbRequest(dict):
 
 @pulumi.output_type
 class AutoScalingGroupTrafficSourceIdentifier(dict):
+    """
+    Identifying information for a traffic source.
+    """
     def __init__(__self__, *,
                  identifier: str,
                  type: str):
+        """
+        Identifying information for a traffic source.
+        :param str identifier: Identifies the traffic source.
+                For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+                For example: 
+                 +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456`` 
+                 +  Classic Load Balancer name: ``my-classic-load-balancer`` 
+                 +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456`` 
+                 
+                To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
+                To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
+        :param str type: Provides additional context for the value of ``Identifier``.
+                The following lists the valid values:
+                 +   ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
+                 +   ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+                 +   ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
+                 
+                Required if the identifier is the name of a Classic Load Balancer.
+        """
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def identifier(self) -> str:
+        """
+        Identifies the traffic source.
+         For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+         For example: 
+          +  Application Load Balancer ARN: ``arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/1234567890123456`` 
+          +  Classic Load Balancer name: ``my-classic-load-balancer`` 
+          +  VPC Lattice ARN: ``arn:aws:vpc-lattice:us-west-2:123456789012:targetgroup/tg-1234567890123456`` 
+          
+         To get the ARN of a target group for a Application Load Balancer, Gateway Load Balancer, or Network Load Balancer, or the name of a Classic Load Balancer, use the Elastic Load Balancing [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) and [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operations.
+         To get the ARN of a target group for VPC Lattice, use the VPC Lattice [GetTargetGroup](https://docs.aws.amazon.com/vpc-lattice/latest/APIReference/API_GetTargetGroup.html) API operation.
+        """
         return pulumi.get(self, "identifier")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        Provides additional context for the value of ``Identifier``.
+         The following lists the valid values:
+          +   ``elb`` if ``Identifier`` is the name of a Classic Load Balancer.
+          +   ``elbv2`` if ``Identifier`` is the ARN of an Application Load Balancer, Gateway Load Balancer, or Network Load Balancer target group.
+          +   ``vpc-lattice`` if ``Identifier`` is the ARN of a VPC Lattice target group.
+          
+         Required if the identifier is the name of a Classic Load Balancer.
+        """
         return pulumi.get(self, "type")
 
 

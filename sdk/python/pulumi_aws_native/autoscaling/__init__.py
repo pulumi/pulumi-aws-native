@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .auto_scaling_group import *
 from .get_auto_scaling_group import *
 from .get_lifecycle_hook import *

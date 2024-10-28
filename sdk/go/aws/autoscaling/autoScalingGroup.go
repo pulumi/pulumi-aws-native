@@ -23,7 +23,8 @@ type AutoScalingGroup struct {
 	// The name of the Auto Scaling group. This name must be unique per Region per account.
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
-	AutoScalingGroupName pulumi.StringPtrOutput `pulumi:"autoScalingGroupName"`
+	AutoScalingGroupName         pulumi.StringPtrOutput                                `pulumi:"autoScalingGroupName"`
+	AvailabilityZoneDistribution AutoScalingGroupAvailabilityZoneDistributionPtrOutput `pulumi:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
@@ -98,8 +99,9 @@ type AutoScalingGroup struct {
 	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
 	// A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
-	TerminationPolicies pulumi.StringArrayOutput                           `pulumi:"terminationPolicies"`
-	TrafficSources      AutoScalingGroupTrafficSourceIdentifierArrayOutput `pulumi:"trafficSources"`
+	TerminationPolicies pulumi.StringArrayOutput `pulumi:"terminationPolicies"`
+	// The traffic sources associated with this Auto Scaling group.
+	TrafficSources AutoScalingGroupTrafficSourceIdentifierArrayOutput `pulumi:"trafficSources"`
 	// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
 	//  If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
 	//   When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
@@ -161,7 +163,8 @@ type autoScalingGroupArgs struct {
 	// The name of the Auto Scaling group. This name must be unique per Region per account.
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
-	AutoScalingGroupName *string `pulumi:"autoScalingGroupName"`
+	AutoScalingGroupName         *string                                       `pulumi:"autoScalingGroupName"`
+	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
@@ -236,8 +239,9 @@ type autoScalingGroupArgs struct {
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
-	TerminationPolicies []string                                  `pulumi:"terminationPolicies"`
-	TrafficSources      []AutoScalingGroupTrafficSourceIdentifier `pulumi:"trafficSources"`
+	TerminationPolicies []string `pulumi:"terminationPolicies"`
+	// The traffic sources associated with this Auto Scaling group.
+	TrafficSources []AutoScalingGroupTrafficSourceIdentifier `pulumi:"trafficSources"`
 	// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
 	//  If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
 	//   When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
@@ -250,7 +254,8 @@ type AutoScalingGroupArgs struct {
 	// The name of the Auto Scaling group. This name must be unique per Region per account.
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
-	AutoScalingGroupName pulumi.StringPtrInput
+	AutoScalingGroupName         pulumi.StringPtrInput
+	AvailabilityZoneDistribution AutoScalingGroupAvailabilityZoneDistributionPtrInput
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
@@ -326,7 +331,8 @@ type AutoScalingGroupArgs struct {
 	// A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	//  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
 	TerminationPolicies pulumi.StringArrayInput
-	TrafficSources      AutoScalingGroupTrafficSourceIdentifierArrayInput
+	// The traffic sources associated with this Auto Scaling group.
+	TrafficSources AutoScalingGroupTrafficSourceIdentifierArrayInput
 	// A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
 	//  If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
 	//   When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
@@ -377,6 +383,12 @@ func (o AutoScalingGroupOutput) ToAutoScalingGroupOutputWithContext(ctx context.
 //	 You cannot use a colon (:) in the name.
 func (o AutoScalingGroupOutput) AutoScalingGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.AutoScalingGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) AvailabilityZoneDistribution() AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
+		return v.AvailabilityZoneDistribution
+	}).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
 }
 
 // A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the “VPCZoneIdentifier“ property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
@@ -561,6 +573,7 @@ func (o AutoScalingGroupOutput) TerminationPolicies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringArrayOutput { return v.TerminationPolicies }).(pulumi.StringArrayOutput)
 }
 
+// The traffic sources associated with this Auto Scaling group.
 func (o AutoScalingGroupOutput) TrafficSources() AutoScalingGroupTrafficSourceIdentifierArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupTrafficSourceIdentifierArrayOutput { return v.TrafficSources }).(AutoScalingGroupTrafficSourceIdentifierArrayOutput)
 }

@@ -140,6 +140,8 @@ __all__ = [
     'FlowDataConnectionConfigurationArgsDict',
     'FlowDefinitionArgs',
     'FlowDefinitionArgsDict',
+    'FlowGuardrailConfigurationArgs',
+    'FlowGuardrailConfigurationArgsDict',
     'FlowInputFlowNodeConfigurationArgs',
     'FlowInputFlowNodeConfigurationArgsDict',
     'FlowIteratorFlowNodeConfigurationArgs',
@@ -3895,6 +3897,62 @@ class FlowDefinitionArgs:
 
 
 if not MYPY:
+    class FlowGuardrailConfigurationArgsDict(TypedDict):
+        """
+        Configuration for a guardrail
+        """
+        guardrail_identifier: NotRequired[pulumi.Input[str]]
+        """
+        Identifier for the guardrail, could be the id or the arn
+        """
+        guardrail_version: NotRequired[pulumi.Input[str]]
+        """
+        Version of the guardrail
+        """
+elif False:
+    FlowGuardrailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowGuardrailConfigurationArgs:
+    def __init__(__self__, *,
+                 guardrail_identifier: Optional[pulumi.Input[str]] = None,
+                 guardrail_version: Optional[pulumi.Input[str]] = None):
+        """
+        Configuration for a guardrail
+        :param pulumi.Input[str] guardrail_identifier: Identifier for the guardrail, could be the id or the arn
+        :param pulumi.Input[str] guardrail_version: Version of the guardrail
+        """
+        if guardrail_identifier is not None:
+            pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        if guardrail_version is not None:
+            pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier for the guardrail, could be the id or the arn
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @guardrail_identifier.setter
+    def guardrail_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guardrail_identifier", value)
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the guardrail
+        """
+        return pulumi.get(self, "guardrail_version")
+
+    @guardrail_version.setter
+    def guardrail_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guardrail_version", value)
+
+
+if not MYPY:
     class FlowInputFlowNodeConfigurationArgsDict(TypedDict):
         """
         Input flow node configuration
@@ -3939,9 +3997,10 @@ if not MYPY:
         """
         Identifier of the KnowledgeBase
         """
+        guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
         model_id: NotRequired[pulumi.Input[str]]
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
 elif False:
     FlowKnowledgeBaseFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3950,13 +4009,16 @@ elif False:
 class FlowKnowledgeBaseFlowNodeConfigurationArgs:
     def __init__(__self__, *,
                  knowledge_base_id: pulumi.Input[str],
+                 guardrail_configuration: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']] = None,
                  model_id: Optional[pulumi.Input[str]] = None):
         """
         Knowledge base flow node configuration
         :param pulumi.Input[str] knowledge_base_id: Identifier of the KnowledgeBase
-        :param pulumi.Input[str] model_id: ARN or name of a Bedrock model.
+        :param pulumi.Input[str] model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
 
@@ -3973,10 +4035,19 @@ class FlowKnowledgeBaseFlowNodeConfigurationArgs:
         pulumi.set(self, "knowledge_base_id", value)
 
     @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional[pulumi.Input['FlowGuardrailConfigurationArgs']]:
+        return pulumi.get(self, "guardrail_configuration")
+
+    @guardrail_configuration.setter
+    def guardrail_configuration(self, value: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']]):
+        pulumi.set(self, "guardrail_configuration", value)
+
+    @property
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
@@ -4675,17 +4746,21 @@ if not MYPY:
         Prompt flow node configuration
         """
         source_configuration: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgsDict', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgsDict']]
+        guardrail_configuration: NotRequired[pulumi.Input['FlowGuardrailConfigurationArgsDict']]
 elif False:
     FlowPromptFlowNodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class FlowPromptFlowNodeConfigurationArgs:
     def __init__(__self__, *,
-                 source_configuration: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgs', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgs']]):
+                 source_configuration: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgs', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgs']],
+                 guardrail_configuration: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']] = None):
         """
         Prompt flow node configuration
         """
         pulumi.set(__self__, "source_configuration", source_configuration)
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
 
     @property
     @pulumi.getter(name="sourceConfiguration")
@@ -4696,6 +4771,15 @@ class FlowPromptFlowNodeConfigurationArgs:
     def source_configuration(self, value: pulumi.Input[Union['FlowPromptFlowNodeSourceConfiguration0PropertiesArgs', 'FlowPromptFlowNodeSourceConfiguration1PropertiesArgs']]):
         pulumi.set(self, "source_configuration", value)
 
+    @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional[pulumi.Input['FlowGuardrailConfigurationArgs']]:
+        return pulumi.get(self, "guardrail_configuration")
+
+    @guardrail_configuration.setter
+    def guardrail_configuration(self, value: Optional[pulumi.Input['FlowGuardrailConfigurationArgs']]):
+        pulumi.set(self, "guardrail_configuration", value)
+
 
 if not MYPY:
     class FlowPromptFlowNodeInlineConfigurationArgsDict(TypedDict):
@@ -4704,7 +4788,7 @@ if not MYPY:
         """
         model_id: pulumi.Input[str]
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         template_configuration: pulumi.Input['FlowPromptTemplateConfigurationPropertiesArgsDict']
         template_type: pulumi.Input['FlowPromptTemplateType']
@@ -4721,7 +4805,7 @@ class FlowPromptFlowNodeInlineConfigurationArgs:
                  inference_configuration: Optional[pulumi.Input['FlowPromptInferenceConfigurationPropertiesArgs']] = None):
         """
         Inline prompt configuration for prompt node
-        :param pulumi.Input[str] model_id: ARN or name of a Bedrock model.
+        :param pulumi.Input[str] model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "model_id", model_id)
         pulumi.set(__self__, "template_configuration", template_configuration)
@@ -4733,7 +4817,7 @@ class FlowPromptFlowNodeInlineConfigurationArgs:
     @pulumi.getter(name="modelId")
     def model_id(self) -> pulumi.Input[str]:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
@@ -4941,10 +5025,6 @@ if not MYPY:
         """
         Controls randomness, higher values increase diversity
         """
-        top_k: NotRequired[pulumi.Input[float]]
-        """
-        Sample from the k most likely next tokens
-        """
         top_p: NotRequired[pulumi.Input[float]]
         """
         Cumulative probability cutoff for token selection
@@ -4958,14 +5038,12 @@ class FlowPromptModelInferenceConfigurationArgs:
                  max_tokens: Optional[pulumi.Input[float]] = None,
                  stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  temperature: Optional[pulumi.Input[float]] = None,
-                 top_k: Optional[pulumi.Input[float]] = None,
                  top_p: Optional[pulumi.Input[float]] = None):
         """
         Prompt model inference configuration
         :param pulumi.Input[float] max_tokens: Maximum length of output
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stop_sequences: List of stop sequences
         :param pulumi.Input[float] temperature: Controls randomness, higher values increase diversity
-        :param pulumi.Input[float] top_k: Sample from the k most likely next tokens
         :param pulumi.Input[float] top_p: Cumulative probability cutoff for token selection
         """
         if max_tokens is not None:
@@ -4974,8 +5052,6 @@ class FlowPromptModelInferenceConfigurationArgs:
             pulumi.set(__self__, "stop_sequences", stop_sequences)
         if temperature is not None:
             pulumi.set(__self__, "temperature", temperature)
-        if top_k is not None:
-            pulumi.set(__self__, "top_k", top_k)
         if top_p is not None:
             pulumi.set(__self__, "top_p", top_p)
 
@@ -5014,18 +5090,6 @@ class FlowPromptModelInferenceConfigurationArgs:
     @temperature.setter
     def temperature(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "temperature", value)
-
-    @property
-    @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[pulumi.Input[float]]:
-        """
-        Sample from the k most likely next tokens
-        """
-        return pulumi.get(self, "top_k")
-
-    @top_k.setter
-    def top_k(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "top_k", value)
 
     @property
     @pulumi.getter(name="topP")
@@ -7482,10 +7546,6 @@ if not MYPY:
         """
         Controls randomness, higher values increase diversity
         """
-        top_k: NotRequired[pulumi.Input[float]]
-        """
-        Sample from the k most likely next tokens
-        """
         top_p: NotRequired[pulumi.Input[float]]
         """
         Cumulative probability cutoff for token selection
@@ -7499,14 +7559,12 @@ class PromptModelInferenceConfigurationArgs:
                  max_tokens: Optional[pulumi.Input[float]] = None,
                  stop_sequences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  temperature: Optional[pulumi.Input[float]] = None,
-                 top_k: Optional[pulumi.Input[float]] = None,
                  top_p: Optional[pulumi.Input[float]] = None):
         """
         Prompt model inference configuration
         :param pulumi.Input[float] max_tokens: Maximum length of output
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stop_sequences: List of stop sequences
         :param pulumi.Input[float] temperature: Controls randomness, higher values increase diversity
-        :param pulumi.Input[float] top_k: Sample from the k most likely next tokens
         :param pulumi.Input[float] top_p: Cumulative probability cutoff for token selection
         """
         if max_tokens is not None:
@@ -7515,8 +7573,6 @@ class PromptModelInferenceConfigurationArgs:
             pulumi.set(__self__, "stop_sequences", stop_sequences)
         if temperature is not None:
             pulumi.set(__self__, "temperature", temperature)
-        if top_k is not None:
-            pulumi.set(__self__, "top_k", top_k)
         if top_p is not None:
             pulumi.set(__self__, "top_p", top_p)
 
@@ -7555,18 +7611,6 @@ class PromptModelInferenceConfigurationArgs:
     @temperature.setter
     def temperature(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "temperature", value)
-
-    @property
-    @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[pulumi.Input[float]]:
-        """
-        Sample from the k most likely next tokens
-        """
-        return pulumi.get(self, "top_k")
-
-    @top_k.setter
-    def top_k(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "top_k", value)
 
     @property
     @pulumi.getter(name="topP")
@@ -7761,6 +7805,10 @@ if not MYPY:
         """
         Name for a variant.
         """
+        template_configuration: pulumi.Input['PromptTemplateConfigurationPropertiesArgsDict']
+        """
+        Contains configurations for the prompt template.
+        """
         template_type: pulumi.Input['PromptTemplateType']
         """
         The type of prompt template to use.
@@ -7771,11 +7819,7 @@ if not MYPY:
         """
         model_id: NotRequired[pulumi.Input[str]]
         """
-        ARN or name of a Bedrock model.
-        """
-        template_configuration: NotRequired[pulumi.Input['PromptTemplateConfigurationPropertiesArgsDict']]
-        """
-        Contains configurations for the prompt template.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
 elif False:
     PromptVariantArgsDict: TypeAlias = Mapping[str, Any]
@@ -7784,26 +7828,25 @@ elif False:
 class PromptVariantArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 template_configuration: pulumi.Input['PromptTemplateConfigurationPropertiesArgs'],
                  template_type: pulumi.Input['PromptTemplateType'],
                  inference_configuration: Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']] = None,
-                 model_id: Optional[pulumi.Input[str]] = None,
-                 template_configuration: Optional[pulumi.Input['PromptTemplateConfigurationPropertiesArgs']] = None):
+                 model_id: Optional[pulumi.Input[str]] = None):
         """
         Prompt variant
         :param pulumi.Input[str] name: Name for a variant.
+        :param pulumi.Input['PromptTemplateConfigurationPropertiesArgs'] template_configuration: Contains configurations for the prompt template.
         :param pulumi.Input['PromptTemplateType'] template_type: The type of prompt template to use.
         :param pulumi.Input['PromptInferenceConfigurationPropertiesArgs'] inference_configuration: Contains inference configurations for the prompt variant.
-        :param pulumi.Input[str] model_id: ARN or name of a Bedrock model.
-        :param pulumi.Input['PromptTemplateConfigurationPropertiesArgs'] template_configuration: Contains configurations for the prompt template.
+        :param pulumi.Input[str] model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "template_configuration", template_configuration)
         pulumi.set(__self__, "template_type", template_type)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
-        if template_configuration is not None:
-            pulumi.set(__self__, "template_configuration", template_configuration)
 
     @property
     @pulumi.getter
@@ -7816,6 +7859,18 @@ class PromptVariantArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> pulumi.Input['PromptTemplateConfigurationPropertiesArgs']:
+        """
+        Contains configurations for the prompt template.
+        """
+        return pulumi.get(self, "template_configuration")
+
+    @template_configuration.setter
+    def template_configuration(self, value: pulumi.Input['PromptTemplateConfigurationPropertiesArgs']):
+        pulumi.set(self, "template_configuration", value)
 
     @property
     @pulumi.getter(name="templateType")
@@ -7845,24 +7900,12 @@ class PromptVariantArgs:
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
     @model_id.setter
     def model_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "model_id", value)
-
-    @property
-    @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> Optional[pulumi.Input['PromptTemplateConfigurationPropertiesArgs']]:
-        """
-        Contains configurations for the prompt template.
-        """
-        return pulumi.get(self, "template_configuration")
-
-    @template_configuration.setter
-    def template_configuration(self, value: Optional[pulumi.Input['PromptTemplateConfigurationPropertiesArgs']]):
-        pulumi.set(self, "template_configuration", value)
 
 

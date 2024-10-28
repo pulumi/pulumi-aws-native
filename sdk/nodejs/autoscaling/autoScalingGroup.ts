@@ -46,6 +46,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *   You cannot use a colon (:) in the name.
      */
     public readonly autoScalingGroupName!: pulumi.Output<string | undefined>;
+    public readonly availabilityZoneDistribution!: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution | undefined>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
      */
@@ -175,6 +176,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
     public readonly terminationPolicies!: pulumi.Output<string[] | undefined>;
+    /**
+     * The traffic sources associated with this Auto Scaling group.
+     */
     public readonly trafficSources!: pulumi.Output<outputs.autoscaling.AutoScalingGroupTrafficSourceIdentifier[] | undefined>;
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
@@ -202,6 +206,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'minSize'");
             }
             resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
+            resourceInputs["availabilityZoneDistribution"] = args ? args.availabilityZoneDistribution : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
             resourceInputs["context"] = args ? args.context : undefined;
@@ -234,6 +239,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["vpcZoneIdentifier"] = args ? args.vpcZoneIdentifier : undefined;
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
+            resourceInputs["availabilityZoneDistribution"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["capacityRebalance"] = undefined /*out*/;
             resourceInputs["context"] = undefined /*out*/;
@@ -282,6 +288,7 @@ export interface AutoScalingGroupArgs {
      *   You cannot use a colon (:) in the name.
      */
     autoScalingGroupName?: pulumi.Input<string>;
+    availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
      */
@@ -411,6 +418,9 @@ export interface AutoScalingGroupArgs {
      *  Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
      */
     terminationPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The traffic sources associated with this Auto Scaling group.
+     */
     trafficSources?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupTrafficSourceIdentifierArgs>[]>;
     /**
      * A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.

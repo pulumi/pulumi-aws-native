@@ -16,21 +16,25 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class FlowVersionKnowledgeBaseFlowNodeConfiguration
     {
+        public readonly Outputs.FlowVersionGuardrailConfiguration? GuardrailConfiguration;
         /// <summary>
         /// Identifier of the KnowledgeBase
         /// </summary>
         public readonly string KnowledgeBaseId;
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         /// </summary>
         public readonly string? ModelId;
 
         [OutputConstructor]
         private FlowVersionKnowledgeBaseFlowNodeConfiguration(
+            Outputs.FlowVersionGuardrailConfiguration? guardrailConfiguration,
+
             string knowledgeBaseId,
 
             string? modelId)
         {
+            GuardrailConfiguration = guardrailConfiguration;
             KnowledgeBaseId = knowledgeBaseId;
             ModelId = modelId;
         }

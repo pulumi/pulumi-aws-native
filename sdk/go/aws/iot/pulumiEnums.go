@@ -1571,8 +1571,6 @@ func (in *dimensionTypePtr) ToDimensionTypePtrOutputWithContext(ctx context.Cont
 }
 
 // An enumerated string that speciﬁes the application-layer protocol.
-//
-// > This property isn't available in China.
 type DomainConfigurationApplicationProtocol string
 
 const (
@@ -1743,8 +1741,6 @@ func (in *domainConfigurationApplicationProtocolPtr) ToDomainConfigurationApplic
 }
 
 // An enumerated string that speciﬁes the authentication type.
-//
-// > This property isn't available in China.
 type DomainConfigurationAuthenticationType string
 
 const (

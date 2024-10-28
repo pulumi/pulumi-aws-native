@@ -43,6 +43,7 @@ export const ContactFlowType = {
     OutboundWhisper: "OUTBOUND_WHISPER",
     AgentTransfer: "AGENT_TRANSFER",
     QueueTransfer: "QUEUE_TRANSFER",
+    Campaign: "CAMPAIGN",
 } as const;
 
 /**

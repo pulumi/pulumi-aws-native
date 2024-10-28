@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE negotiations.
+    /// </summary>
     [OutputType]
     public sealed class VpnConnectionPhase2dhGroupNumbersRequestListValue
     {

@@ -39,6 +39,7 @@ export class Eip extends pulumi.CustomResource {
         return obj['__pulumiType'] === Eip.__pulumiType;
     }
 
+    public readonly address!: pulumi.Output<string | undefined>;
     /**
      * The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
      */
@@ -53,6 +54,7 @@ export class Eip extends pulumi.CustomResource {
      *   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */
     public readonly instanceId!: pulumi.Output<string | undefined>;
+    public readonly ipamPoolId!: pulumi.Output<string | undefined>;
     /**
      * A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
      *  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
@@ -88,8 +90,10 @@ export class Eip extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["address"] = args ? args.address : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["ipamPoolId"] = args ? args.ipamPoolId : undefined;
             resourceInputs["networkBorderGroup"] = args ? args.networkBorderGroup : undefined;
             resourceInputs["publicIpv4Pool"] = args ? args.publicIpv4Pool : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -97,9 +101,11 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
         } else {
+            resourceInputs["address"] = undefined /*out*/;
             resourceInputs["allocationId"] = undefined /*out*/;
             resourceInputs["domain"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["ipamPoolId"] = undefined /*out*/;
             resourceInputs["networkBorderGroup"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
             resourceInputs["publicIpv4Pool"] = undefined /*out*/;
@@ -107,7 +113,7 @@ export class Eip extends pulumi.CustomResource {
             resourceInputs["transferAddress"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domain", "networkBorderGroup", "transferAddress"] };
+        const replaceOnChanges = { replaceOnChanges: ["address", "domain", "ipamPoolId", "networkBorderGroup", "transferAddress"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Eip.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,6 +123,7 @@ export class Eip extends pulumi.CustomResource {
  * The set of arguments for constructing a Eip resource.
  */
 export interface EipArgs {
+    address?: pulumi.Input<string>;
     /**
      * The network (``vpc``).
      *  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
@@ -127,6 +134,7 @@ export interface EipArgs {
      *   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */
     instanceId?: pulumi.Input<string>;
+    ipamPoolId?: pulumi.Input<string>;
     /**
      * A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
      *  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<Inputs.PromptInferenceConfigurationPropertiesArgs>? InferenceConfiguration { get; set; }
 
         /// <summary>
-        /// ARN or name of a Bedrock model.
+        /// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         /// </summary>
         [Input("modelId")]
         public Input<string>? ModelId { get; set; }
@@ -36,8 +36,8 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         /// <summary>
         /// Contains configurations for the prompt template.
         /// </summary>
-        [Input("templateConfiguration")]
-        public Input<Inputs.PromptTemplateConfigurationPropertiesArgs>? TemplateConfiguration { get; set; }
+        [Input("templateConfiguration", required: true)]
+        public Input<Inputs.PromptTemplateConfigurationPropertiesArgs> TemplateConfiguration { get; set; } = null!;
 
         /// <summary>
         /// The type of prompt template to use.

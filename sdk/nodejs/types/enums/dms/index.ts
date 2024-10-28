@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DataMigrationType = {
+    FullLoad: "full-load",
+    Cdc: "cdc",
+    FullLoadAndCdc: "full-load-and-cdc",
+} as const;
+
+/**
+ * The property describes the type of migration.
+ */
+export type DataMigrationType = (typeof DataMigrationType)[keyof typeof DataMigrationType];
+
 export const DataProviderDmsSslModeValue = {
     None: "none",
     Require: "require",

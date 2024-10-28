@@ -40,12 +40,6 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<double>? Temperature { get; set; }
 
         /// <summary>
-        /// Sample from the k most likely next tokens
-        /// </summary>
-        [Input("topK")]
-        public Input<double>? TopK { get; set; }
-
-        /// <summary>
         /// Cumulative probability cutoff for token selection
         /// </summary>
         [Input("topP")]

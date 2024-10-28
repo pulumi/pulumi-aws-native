@@ -79,6 +79,9 @@ export interface GetClusterResult {
      * The desired Kubernetes version for your cluster. If you don't specify a value here, the latest version available in Amazon EKS is used.
      */
     readonly version?: string;
+    /**
+     * The configuration for zonal shift for the cluster.
+     */
     readonly zonalShiftConfig?: outputs.eks.ClusterZonalShiftConfig;
 }
 /**

@@ -5,6 +5,7 @@
 import * as amplify from "./amplify";
 import * as amplifyuibuilder from "./amplifyuibuilder";
 import * as apigateway from "./apigateway";
+import * as appconfig from "./appconfig";
 import * as appflow from "./appflow";
 import * as applicationinsights from "./applicationinsights";
 import * as applicationsignals from "./applicationsignals";
@@ -13,6 +14,7 @@ import * as appsync from "./appsync";
 import * as arczonalshift from "./arczonalshift";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
+import * as autoscaling from "./autoscaling";
 import * as b2bi from "./b2bi";
 import * as backup from "./backup";
 import * as batch from "./batch";
@@ -172,6 +174,7 @@ export {
     amplify,
     amplifyuibuilder,
     apigateway,
+    appconfig,
     appflow,
     applicationinsights,
     applicationsignals,
@@ -180,6 +183,7 @@ export {
     arczonalshift,
     athena,
     auditmanager,
+    autoscaling,
     b2bi,
     backup,
     batch,

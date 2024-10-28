@@ -128,6 +128,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("totalInstanceCount")]
         public Output<int> TotalInstanceCount { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+        /// </summary>
         [Output("unusedReservationBillingOwnerId")]
         public Output<string?> UnusedReservationBillingOwnerId { get; private set; } = null!;
 
@@ -289,6 +292,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("tenancy")]
         public Input<string>? Tenancy { get; set; }
 
+        /// <summary>
+        /// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+        /// </summary>
         [Input("unusedReservationBillingOwnerId")]
         public Input<string>? UnusedReservationBillingOwnerId { get; set; }
 

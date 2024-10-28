@@ -19,6 +19,7 @@ import (
 type Eip struct {
 	pulumi.CustomResourceState
 
+	Address pulumi.StringPtrOutput `pulumi:"address"`
 	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
 	// The network (``vpc``).
@@ -27,6 +28,7 @@ type Eip struct {
 	// The ID of the instance.
 	//   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
+	IpamPoolId pulumi.StringPtrOutput `pulumi:"ipamPoolId"`
 	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
 	//  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
 	NetworkBorderGroup pulumi.StringPtrOutput `pulumi:"networkBorderGroup"`
@@ -50,7 +52,9 @@ func NewEip(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"address",
 		"domain",
+		"ipamPoolId",
 		"networkBorderGroup",
 		"transferAddress",
 	})
@@ -88,12 +92,14 @@ func (EipState) ElementType() reflect.Type {
 }
 
 type eipArgs struct {
+	Address *string `pulumi:"address"`
 	// The network (``vpc``).
 	//  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
 	Domain *string `pulumi:"domain"`
 	// The ID of the instance.
 	//   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	InstanceId *string `pulumi:"instanceId"`
+	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
 	//  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
 	NetworkBorderGroup *string `pulumi:"networkBorderGroup"`
@@ -109,12 +115,14 @@ type eipArgs struct {
 
 // The set of arguments for constructing a Eip resource.
 type EipArgs struct {
+	Address pulumi.StringPtrInput
 	// The network (``vpc``).
 	//  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
 	Domain pulumi.StringPtrInput
 	// The ID of the instance.
 	//   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	InstanceId pulumi.StringPtrInput
+	IpamPoolId pulumi.StringPtrInput
 	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
 	//  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
 	NetworkBorderGroup pulumi.StringPtrInput
@@ -165,6 +173,10 @@ func (o EipOutput) ToEipOutputWithContext(ctx context.Context) EipOutput {
 	return o
 }
 
+func (o EipOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.Address }).(pulumi.StringPtrOutput)
+}
+
 // The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 func (o EipOutput) AllocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringOutput { return v.AllocationId }).(pulumi.StringOutput)
@@ -182,6 +194,10 @@ func (o EipOutput) Domain() pulumi.StringPtrOutput {
 //	Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 func (o EipOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
+}
+
+func (o EipOutput) IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.IpamPoolId }).(pulumi.StringPtrOutput)
 }
 
 // A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.

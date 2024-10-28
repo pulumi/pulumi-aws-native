@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetAutoScalingGroupResult',
@@ -24,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
+    def __init__(__self__, availability_zone_distribution=None, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
+        if availability_zone_distribution and not isinstance(availability_zone_distribution, dict):
+            raise TypeError("Expected argument 'availability_zone_distribution' to be a dict")
+        pulumi.set(__self__, "availability_zone_distribution", availability_zone_distribution)
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -112,6 +116,11 @@ class GetAutoScalingGroupResult:
         if vpc_zone_identifier and not isinstance(vpc_zone_identifier, list):
             raise TypeError("Expected argument 'vpc_zone_identifier' to be a list")
         pulumi.set(__self__, "vpc_zone_identifier", vpc_zone_identifier)
+
+    @property
+    @pulumi.getter(name="availabilityZoneDistribution")
+    def availability_zone_distribution(self) -> Optional['outputs.AutoScalingGroupAvailabilityZoneDistribution']:
+        return pulumi.get(self, "availability_zone_distribution")
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -348,6 +357,9 @@ class GetAutoScalingGroupResult:
     @property
     @pulumi.getter(name="trafficSources")
     def traffic_sources(self) -> Optional[Sequence['outputs.AutoScalingGroupTrafficSourceIdentifier']]:
+        """
+        The traffic sources associated with this Auto Scaling group.
+        """
         return pulumi.get(self, "traffic_sources")
 
     @property
@@ -368,6 +380,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
         if False:
             yield self
         return GetAutoScalingGroupResult(
+            availability_zone_distribution=self.availability_zone_distribution,
             availability_zones=self.availability_zones,
             capacity_rebalance=self.capacity_rebalance,
             context=self.context,
@@ -418,6 +431,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:autoscaling:getAutoScalingGroup', __args__, opts=opts, typ=GetAutoScalingGroupResult).value
 
     return AwaitableGetAutoScalingGroupResult(
+        availability_zone_distribution=pulumi.get(__ret__, 'availability_zone_distribution'),
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
         capacity_rebalance=pulumi.get(__ret__, 'capacity_rebalance'),
         context=pulumi.get(__ret__, 'context'),
@@ -465,6 +479,7 @@ def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getAutoScalingGroup', __args__, opts=opts, typ=GetAutoScalingGroupResult)
     return __ret__.apply(lambda __response__: GetAutoScalingGroupResult(
+        availability_zone_distribution=pulumi.get(__response__, 'availability_zone_distribution'),
         availability_zones=pulumi.get(__response__, 'availability_zones'),
         capacity_rebalance=pulumi.get(__response__, 'capacity_rebalance'),
         context=pulumi.get(__response__, 'context'),

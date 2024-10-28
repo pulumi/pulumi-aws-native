@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:Eip")]
     public partial class Eip : global::Pulumi.CustomResource
     {
+        [Output("address")]
+        public Output<string?> Address { get; private set; } = null!;
+
         /// <summary>
         /// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
         /// </summary>
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Output("instanceId")]
         public Output<string?> InstanceId { get; private set; } = null!;
+
+        [Output("ipamPoolId")]
+        public Output<string?> IpamPoolId { get; private set; } = null!;
 
         /// <summary>
         /// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
@@ -95,7 +101,9 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "address",
                     "domain",
+                    "ipamPoolId",
                     "networkBorderGroup",
                     "transferAddress",
                 },
@@ -121,6 +129,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class EipArgs : global::Pulumi.ResourceArgs
     {
+        [Input("address")]
+        public Input<string>? Address { get; set; }
+
         /// <summary>
         /// The network (``vpc``).
         ///  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
@@ -134,6 +145,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        [Input("ipamPoolId")]
+        public Input<string>? IpamPoolId { get; set; }
 
         /// <summary>
         /// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.

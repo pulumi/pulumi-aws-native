@@ -30,20 +30,14 @@ type LookupDomainConfigurationArgs struct {
 
 type LookupDomainConfigurationResult struct {
 	// An enumerated string that speciﬁes the application-layer protocol.
-	//
-	// > This property isn't available in China.
 	ApplicationProtocol *DomainConfigurationApplicationProtocol `pulumi:"applicationProtocol"`
 	// The Amazon Resource Name (ARN) of the domain configuration.
 	Arn *string `pulumi:"arn"`
 	// An enumerated string that speciﬁes the authentication type.
-	//
-	// > This property isn't available in China.
 	AuthenticationType *DomainConfigurationAuthenticationType `pulumi:"authenticationType"`
 	// An object that specifies the authorization service for a domain.
 	AuthorizerConfig *DomainConfigurationAuthorizerConfig `pulumi:"authorizerConfig"`
 	// An object that speciﬁes the client certificate conﬁguration for a domain.
-	//
-	// > This property isn't available in China.
 	ClientCertificateConfig *DomainConfigurationClientCertificateConfig `pulumi:"clientCertificateConfig"`
 	// The status to which the domain configuration should be updated.
 	//
@@ -112,8 +106,6 @@ func (o LookupDomainConfigurationResultOutput) ToLookupDomainConfigurationResult
 }
 
 // An enumerated string that speciﬁes the application-layer protocol.
-//
-// > This property isn't available in China.
 func (o LookupDomainConfigurationResultOutput) ApplicationProtocol() DomainConfigurationApplicationProtocolPtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationApplicationProtocol {
 		return v.ApplicationProtocol
@@ -126,8 +118,6 @@ func (o LookupDomainConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 }
 
 // An enumerated string that speciﬁes the authentication type.
-//
-// > This property isn't available in China.
 func (o LookupDomainConfigurationResultOutput) AuthenticationType() DomainConfigurationAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationAuthenticationType {
 		return v.AuthenticationType
@@ -142,8 +132,6 @@ func (o LookupDomainConfigurationResultOutput) AuthorizerConfig() DomainConfigur
 }
 
 // An object that speciﬁes the client certificate conﬁguration for a domain.
-//
-// > This property isn't available in China.
 func (o LookupDomainConfigurationResultOutput) ClientCertificateConfig() DomainConfigurationClientCertificateConfigPtrOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) *DomainConfigurationClientCertificateConfig {
 		return v.ClientCertificateConfig

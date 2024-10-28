@@ -111,6 +111,7 @@ namespace Pulumi.AwsNative.Bedrock
                 {
                     "description",
                     "promptArn",
+                    "tags.*",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -131,6 +131,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for zonal shift for the cluster.
+        /// </summary>
         [Output("zonalShiftConfig")]
         public Output<Outputs.ClusterZonalShiftConfig?> ZonalShiftConfig { get; private set; } = null!;
 
@@ -275,6 +278,9 @@ namespace Pulumi.AwsNative.Eks
         [Input("version")]
         public Input<string>? Version { get; set; }
 
+        /// <summary>
+        /// The configuration for zonal shift for the cluster.
+        /// </summary>
         [Input("zonalShiftConfig")]
         public Input<Inputs.ClusterZonalShiftConfigArgs>? ZonalShiftConfig { get; set; }
 

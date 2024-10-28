@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['AutoScalingGroupArgs', 'AutoScalingGroup']
@@ -24,6 +25,7 @@ class AutoScalingGroupArgs:
                  max_size: pulumi.Input[str],
                  min_size: pulumi.Input[str],
                  auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
+                 availability_zone_distribution: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -104,6 +106,7 @@ class AutoScalingGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
+        :param pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]] traffic_sources: The traffic sources associated with this Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifier: A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
                 If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
                  When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
@@ -113,6 +116,8 @@ class AutoScalingGroupArgs:
         pulumi.set(__self__, "min_size", min_size)
         if auto_scaling_group_name is not None:
             pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
+        if availability_zone_distribution is not None:
+            pulumi.set(__self__, "availability_zone_distribution", availability_zone_distribution)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
@@ -208,6 +213,15 @@ class AutoScalingGroupArgs:
     @auto_scaling_group_name.setter
     def auto_scaling_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "auto_scaling_group_name", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneDistribution")
+    def availability_zone_distribution(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']]:
+        return pulumi.get(self, "availability_zone_distribution")
+
+    @availability_zone_distribution.setter
+    def availability_zone_distribution(self, value: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']]):
+        pulumi.set(self, "availability_zone_distribution", value)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -540,6 +554,9 @@ class AutoScalingGroupArgs:
     @property
     @pulumi.getter(name="trafficSources")
     def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTrafficSourceIdentifierArgs']]]]:
+        """
+        The traffic sources associated with this Auto Scaling group.
+        """
         return pulumi.get(self, "traffic_sources")
 
     @traffic_sources.setter
@@ -568,6 +585,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
+                 availability_zone_distribution: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -657,6 +675,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: A policy or a list of policies that are used to select the instance to terminate. These policies are executed in the order that you list them. For more information, see [Configure termination policies for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-termination-policies.html) in the *Amazon EC2 Auto Scaling User Guide*.
                 Valid values: ``Default`` | ``AllocationStrategy`` | ``ClosestToNextInstanceHour`` | ``NewestInstance`` | ``OldestInstance`` | ``OldestLaunchConfiguration`` | ``OldestLaunchTemplate`` | ``arn:aws:lambda:region:account-id:function:my-function:my-alias``
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTrafficSourceIdentifierArgs', 'AutoScalingGroupTrafficSourceIdentifierArgsDict']]]] traffic_sources: The traffic sources associated with this Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifier: A list of subnet IDs for a virtual private cloud (VPC) where instances in the Auto Scaling group can be created.
                 If this resource specifies public subnets and is also in a VPC that is defined in the same stack template, you must use the [DependsOn attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) to declare a dependency on the [VPC-gateway attachment](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html).
                  When you update ``VPCZoneIdentifier``, this retains the same Auto Scaling group and replaces old instances with new ones, according to the specified subnets. You can optionally specify how CloudFormation handles these updates by using an [UpdatePolicy attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html).
@@ -690,6 +709,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
+                 availability_zone_distribution: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -730,6 +750,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__ = AutoScalingGroupArgs.__new__(AutoScalingGroupArgs)
 
             __props__.__dict__["auto_scaling_group_name"] = auto_scaling_group_name
+            __props__.__dict__["availability_zone_distribution"] = availability_zone_distribution
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
             __props__.__dict__["context"] = context
@@ -789,6 +810,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__ = AutoScalingGroupArgs.__new__(AutoScalingGroupArgs)
 
         __props__.__dict__["auto_scaling_group_name"] = None
+        __props__.__dict__["availability_zone_distribution"] = None
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["capacity_rebalance"] = None
         __props__.__dict__["context"] = None
@@ -830,6 +852,11 @@ class AutoScalingGroup(pulumi.CustomResource):
           You cannot use a colon (:) in the name.
         """
         return pulumi.get(self, "auto_scaling_group_name")
+
+    @property
+    @pulumi.getter(name="availabilityZoneDistribution")
+    def availability_zone_distribution(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupAvailabilityZoneDistribution']]:
+        return pulumi.get(self, "availability_zone_distribution")
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1075,6 +1102,9 @@ class AutoScalingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="trafficSources")
     def traffic_sources(self) -> pulumi.Output[Optional[Sequence['outputs.AutoScalingGroupTrafficSourceIdentifier']]]:
+        """
+        The traffic sources associated with this Auto Scaling group.
+        """
         return pulumi.get(self, "traffic_sources")
 
     @property

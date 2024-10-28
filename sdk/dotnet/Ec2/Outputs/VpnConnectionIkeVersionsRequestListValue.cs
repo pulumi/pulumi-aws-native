@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// The IKE version that is permitted for the VPN tunnel.
+    /// </summary>
     [OutputType]
     public sealed class VpnConnectionIkeVersionsRequestListValue
     {

@@ -13,6 +13,313 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DataMigrationSettings struct {
+	// The property specifies whether to enable the Cloudwatch log.
+	CloudwatchLogsEnabled *bool `pulumi:"cloudwatchLogsEnabled"`
+	// The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
+	NumberOfJobs *int `pulumi:"numberOfJobs"`
+	// The property specifies the rules of selecting objects for data migration.
+	SelectionRules *string `pulumi:"selectionRules"`
+}
+
+// DataMigrationSettingsInput is an input type that accepts DataMigrationSettingsArgs and DataMigrationSettingsOutput values.
+// You can construct a concrete instance of `DataMigrationSettingsInput` via:
+//
+//	DataMigrationSettingsArgs{...}
+type DataMigrationSettingsInput interface {
+	pulumi.Input
+
+	ToDataMigrationSettingsOutput() DataMigrationSettingsOutput
+	ToDataMigrationSettingsOutputWithContext(context.Context) DataMigrationSettingsOutput
+}
+
+type DataMigrationSettingsArgs struct {
+	// The property specifies whether to enable the Cloudwatch log.
+	CloudwatchLogsEnabled pulumi.BoolPtrInput `pulumi:"cloudwatchLogsEnabled"`
+	// The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
+	NumberOfJobs pulumi.IntPtrInput `pulumi:"numberOfJobs"`
+	// The property specifies the rules of selecting objects for data migration.
+	SelectionRules pulumi.StringPtrInput `pulumi:"selectionRules"`
+}
+
+func (DataMigrationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataMigrationSettings)(nil)).Elem()
+}
+
+func (i DataMigrationSettingsArgs) ToDataMigrationSettingsOutput() DataMigrationSettingsOutput {
+	return i.ToDataMigrationSettingsOutputWithContext(context.Background())
+}
+
+func (i DataMigrationSettingsArgs) ToDataMigrationSettingsOutputWithContext(ctx context.Context) DataMigrationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataMigrationSettingsOutput)
+}
+
+func (i DataMigrationSettingsArgs) ToDataMigrationSettingsPtrOutput() DataMigrationSettingsPtrOutput {
+	return i.ToDataMigrationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DataMigrationSettingsArgs) ToDataMigrationSettingsPtrOutputWithContext(ctx context.Context) DataMigrationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataMigrationSettingsOutput).ToDataMigrationSettingsPtrOutputWithContext(ctx)
+}
+
+// DataMigrationSettingsPtrInput is an input type that accepts DataMigrationSettingsArgs, DataMigrationSettingsPtr and DataMigrationSettingsPtrOutput values.
+// You can construct a concrete instance of `DataMigrationSettingsPtrInput` via:
+//
+//	        DataMigrationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataMigrationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDataMigrationSettingsPtrOutput() DataMigrationSettingsPtrOutput
+	ToDataMigrationSettingsPtrOutputWithContext(context.Context) DataMigrationSettingsPtrOutput
+}
+
+type dataMigrationSettingsPtrType DataMigrationSettingsArgs
+
+func DataMigrationSettingsPtr(v *DataMigrationSettingsArgs) DataMigrationSettingsPtrInput {
+	return (*dataMigrationSettingsPtrType)(v)
+}
+
+func (*dataMigrationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataMigrationSettings)(nil)).Elem()
+}
+
+func (i *dataMigrationSettingsPtrType) ToDataMigrationSettingsPtrOutput() DataMigrationSettingsPtrOutput {
+	return i.ToDataMigrationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *dataMigrationSettingsPtrType) ToDataMigrationSettingsPtrOutputWithContext(ctx context.Context) DataMigrationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataMigrationSettingsPtrOutput)
+}
+
+type DataMigrationSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataMigrationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataMigrationSettings)(nil)).Elem()
+}
+
+func (o DataMigrationSettingsOutput) ToDataMigrationSettingsOutput() DataMigrationSettingsOutput {
+	return o
+}
+
+func (o DataMigrationSettingsOutput) ToDataMigrationSettingsOutputWithContext(ctx context.Context) DataMigrationSettingsOutput {
+	return o
+}
+
+func (o DataMigrationSettingsOutput) ToDataMigrationSettingsPtrOutput() DataMigrationSettingsPtrOutput {
+	return o.ToDataMigrationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DataMigrationSettingsOutput) ToDataMigrationSettingsPtrOutputWithContext(ctx context.Context) DataMigrationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataMigrationSettings) *DataMigrationSettings {
+		return &v
+	}).(DataMigrationSettingsPtrOutput)
+}
+
+// The property specifies whether to enable the Cloudwatch log.
+func (o DataMigrationSettingsOutput) CloudwatchLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataMigrationSettings) *bool { return v.CloudwatchLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
+func (o DataMigrationSettingsOutput) NumberOfJobs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DataMigrationSettings) *int { return v.NumberOfJobs }).(pulumi.IntPtrOutput)
+}
+
+// The property specifies the rules of selecting objects for data migration.
+func (o DataMigrationSettingsOutput) SelectionRules() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataMigrationSettings) *string { return v.SelectionRules }).(pulumi.StringPtrOutput)
+}
+
+type DataMigrationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DataMigrationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataMigrationSettings)(nil)).Elem()
+}
+
+func (o DataMigrationSettingsPtrOutput) ToDataMigrationSettingsPtrOutput() DataMigrationSettingsPtrOutput {
+	return o
+}
+
+func (o DataMigrationSettingsPtrOutput) ToDataMigrationSettingsPtrOutputWithContext(ctx context.Context) DataMigrationSettingsPtrOutput {
+	return o
+}
+
+func (o DataMigrationSettingsPtrOutput) Elem() DataMigrationSettingsOutput {
+	return o.ApplyT(func(v *DataMigrationSettings) DataMigrationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DataMigrationSettings
+		return ret
+	}).(DataMigrationSettingsOutput)
+}
+
+// The property specifies whether to enable the Cloudwatch log.
+func (o DataMigrationSettingsPtrOutput) CloudwatchLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataMigrationSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.
+func (o DataMigrationSettingsPtrOutput) NumberOfJobs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DataMigrationSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfJobs
+	}).(pulumi.IntPtrOutput)
+}
+
+// The property specifies the rules of selecting objects for data migration.
+func (o DataMigrationSettingsPtrOutput) SelectionRules() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataMigrationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectionRules
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataMigrationSourceDataSettings struct {
+	// The property is a point in the database engine's log that defines a time where you can begin CDC.
+	CdcStartPosition *string `pulumi:"cdcStartPosition"`
+	// The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
+	CdcStartTime *string `pulumi:"cdcStartTime"`
+	// The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
+	CdcStopTime *string `pulumi:"cdcStopTime"`
+	// The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
+	SlotName *string `pulumi:"slotName"`
+}
+
+// DataMigrationSourceDataSettingsInput is an input type that accepts DataMigrationSourceDataSettingsArgs and DataMigrationSourceDataSettingsOutput values.
+// You can construct a concrete instance of `DataMigrationSourceDataSettingsInput` via:
+//
+//	DataMigrationSourceDataSettingsArgs{...}
+type DataMigrationSourceDataSettingsInput interface {
+	pulumi.Input
+
+	ToDataMigrationSourceDataSettingsOutput() DataMigrationSourceDataSettingsOutput
+	ToDataMigrationSourceDataSettingsOutputWithContext(context.Context) DataMigrationSourceDataSettingsOutput
+}
+
+type DataMigrationSourceDataSettingsArgs struct {
+	// The property is a point in the database engine's log that defines a time where you can begin CDC.
+	CdcStartPosition pulumi.StringPtrInput `pulumi:"cdcStartPosition"`
+	// The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
+	CdcStartTime pulumi.StringPtrInput `pulumi:"cdcStartTime"`
+	// The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
+	CdcStopTime pulumi.StringPtrInput `pulumi:"cdcStopTime"`
+	// The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
+	SlotName pulumi.StringPtrInput `pulumi:"slotName"`
+}
+
+func (DataMigrationSourceDataSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataMigrationSourceDataSettings)(nil)).Elem()
+}
+
+func (i DataMigrationSourceDataSettingsArgs) ToDataMigrationSourceDataSettingsOutput() DataMigrationSourceDataSettingsOutput {
+	return i.ToDataMigrationSourceDataSettingsOutputWithContext(context.Background())
+}
+
+func (i DataMigrationSourceDataSettingsArgs) ToDataMigrationSourceDataSettingsOutputWithContext(ctx context.Context) DataMigrationSourceDataSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataMigrationSourceDataSettingsOutput)
+}
+
+// DataMigrationSourceDataSettingsArrayInput is an input type that accepts DataMigrationSourceDataSettingsArray and DataMigrationSourceDataSettingsArrayOutput values.
+// You can construct a concrete instance of `DataMigrationSourceDataSettingsArrayInput` via:
+//
+//	DataMigrationSourceDataSettingsArray{ DataMigrationSourceDataSettingsArgs{...} }
+type DataMigrationSourceDataSettingsArrayInput interface {
+	pulumi.Input
+
+	ToDataMigrationSourceDataSettingsArrayOutput() DataMigrationSourceDataSettingsArrayOutput
+	ToDataMigrationSourceDataSettingsArrayOutputWithContext(context.Context) DataMigrationSourceDataSettingsArrayOutput
+}
+
+type DataMigrationSourceDataSettingsArray []DataMigrationSourceDataSettingsInput
+
+func (DataMigrationSourceDataSettingsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataMigrationSourceDataSettings)(nil)).Elem()
+}
+
+func (i DataMigrationSourceDataSettingsArray) ToDataMigrationSourceDataSettingsArrayOutput() DataMigrationSourceDataSettingsArrayOutput {
+	return i.ToDataMigrationSourceDataSettingsArrayOutputWithContext(context.Background())
+}
+
+func (i DataMigrationSourceDataSettingsArray) ToDataMigrationSourceDataSettingsArrayOutputWithContext(ctx context.Context) DataMigrationSourceDataSettingsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataMigrationSourceDataSettingsArrayOutput)
+}
+
+type DataMigrationSourceDataSettingsOutput struct{ *pulumi.OutputState }
+
+func (DataMigrationSourceDataSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataMigrationSourceDataSettings)(nil)).Elem()
+}
+
+func (o DataMigrationSourceDataSettingsOutput) ToDataMigrationSourceDataSettingsOutput() DataMigrationSourceDataSettingsOutput {
+	return o
+}
+
+func (o DataMigrationSourceDataSettingsOutput) ToDataMigrationSourceDataSettingsOutputWithContext(ctx context.Context) DataMigrationSourceDataSettingsOutput {
+	return o
+}
+
+// The property is a point in the database engine's log that defines a time where you can begin CDC.
+func (o DataMigrationSourceDataSettingsOutput) CdcStartPosition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataMigrationSourceDataSettings) *string { return v.CdcStartPosition }).(pulumi.StringPtrOutput)
+}
+
+// The property indicates the start time for a change data capture (CDC) operation. The value is server time in UTC format.
+func (o DataMigrationSourceDataSettingsOutput) CdcStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataMigrationSourceDataSettings) *string { return v.CdcStartTime }).(pulumi.StringPtrOutput)
+}
+
+// The property indicates the stop time for a change data capture (CDC) operation. The value is server time in UTC format.
+func (o DataMigrationSourceDataSettingsOutput) CdcStopTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataMigrationSourceDataSettings) *string { return v.CdcStopTime }).(pulumi.StringPtrOutput)
+}
+
+// The property sets the name of a previously created logical replication slot for a change data capture (CDC) load of the source instance.
+func (o DataMigrationSourceDataSettingsOutput) SlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataMigrationSourceDataSettings) *string { return v.SlotName }).(pulumi.StringPtrOutput)
+}
+
+type DataMigrationSourceDataSettingsArrayOutput struct{ *pulumi.OutputState }
+
+func (DataMigrationSourceDataSettingsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataMigrationSourceDataSettings)(nil)).Elem()
+}
+
+func (o DataMigrationSourceDataSettingsArrayOutput) ToDataMigrationSourceDataSettingsArrayOutput() DataMigrationSourceDataSettingsArrayOutput {
+	return o
+}
+
+func (o DataMigrationSourceDataSettingsArrayOutput) ToDataMigrationSourceDataSettingsArrayOutputWithContext(ctx context.Context) DataMigrationSourceDataSettingsArrayOutput {
+	return o
+}
+
+func (o DataMigrationSourceDataSettingsArrayOutput) Index(i pulumi.IntInput) DataMigrationSourceDataSettingsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataMigrationSourceDataSettings {
+		return vs[0].([]DataMigrationSourceDataSettings)[vs[1].(int)]
+	}).(DataMigrationSourceDataSettingsOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DataMigrationTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type DataProviderTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -1658,6 +1965,10 @@ func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) SslMode() DataP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationSettingsInput)(nil)).Elem(), DataMigrationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationSettingsPtrInput)(nil)).Elem(), DataMigrationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationSourceDataSettingsInput)(nil)).Elem(), DataMigrationSourceDataSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationSourceDataSettingsArrayInput)(nil)).Elem(), DataMigrationSourceDataSettingsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectDataProviderDescriptorInput)(nil)).Elem(), MigrationProjectDataProviderDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MigrationProjectDataProviderDescriptorArrayInput)(nil)).Elem(), MigrationProjectDataProviderDescriptorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigComputeConfigInput)(nil)).Elem(), ReplicationConfigComputeConfigArgs{})
@@ -1673,6 +1984,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesOracleSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesOracleSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesPostgreSqlSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesPostgreSqlSettingsPropertiesArgs{})
+	pulumi.RegisterOutputType(DataMigrationSettingsOutput{})
+	pulumi.RegisterOutputType(DataMigrationSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DataMigrationSourceDataSettingsOutput{})
+	pulumi.RegisterOutputType(DataMigrationSourceDataSettingsArrayOutput{})
 	pulumi.RegisterOutputType(MigrationProjectDataProviderDescriptorOutput{})
 	pulumi.RegisterOutputType(MigrationProjectDataProviderDescriptorArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigComputeConfigOutput{})

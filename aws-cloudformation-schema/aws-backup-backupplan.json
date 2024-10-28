@@ -159,7 +159,7 @@
       "permissions" : [ "backup:GetBackupPlan", "backup:ListTags" ]
     },
     "create" : {
-      "permissions" : [ "backup:GetBackupPlan", "backup:ListTags", "backup:TagResource", "backup:CreateBackupPlan" ]
+      "permissions" : [ "backup:GetBackupPlan", "backup:TagResource", "backup:CreateBackupPlan" ]
     },
     "delete" : {
       "permissions" : [ "backup:GetBackupPlan", "backup:DeleteBackupPlan" ]

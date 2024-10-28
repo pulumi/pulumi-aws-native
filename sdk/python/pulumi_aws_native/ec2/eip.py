@@ -21,8 +21,10 @@ __all__ = ['EipArgs', 'Eip']
 @pulumi.input_type
 class EipArgs:
     def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -41,10 +43,14 @@ class EipArgs:
                  Updates to the ``Tags`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
         :param pulumi.Input[str] transfer_address: The Elastic IP address you are accepting for transfer. You can only accept one transferred address. For more information on Elastic IP address transfers, see [Transfer Elastic IP addresses](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro) in the *Amazon Virtual Private Cloud User Guide*.
         """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
+        if ipam_pool_id is not None:
+            pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if network_border_group is not None:
             pulumi.set(__self__, "network_border_group", network_border_group)
         if public_ipv4_pool is not None:
@@ -53,6 +59,15 @@ class EipArgs:
             pulumi.set(__self__, "tags", tags)
         if transfer_address is not None:
             pulumi.set(__self__, "transfer_address", transfer_address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
 
     @property
     @pulumi.getter
@@ -79,6 +94,15 @@ class EipArgs:
     @instance_id.setter
     def instance_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="ipamPoolId")
+    def ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipam_pool_id")
+
+    @ipam_pool_id.setter
+    def ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipam_pool_id", value)
 
     @property
     @pulumi.getter(name="networkBorderGroup")
@@ -137,8 +161,10 @@ class Eip(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 address: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -189,8 +215,10 @@ class Eip(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 address: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
+                 ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  network_border_group: Optional[pulumi.Input[str]] = None,
                  public_ipv4_pool: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -204,15 +232,17 @@ class Eip(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EipArgs.__new__(EipArgs)
 
+            __props__.__dict__["address"] = address
             __props__.__dict__["domain"] = domain
             __props__.__dict__["instance_id"] = instance_id
+            __props__.__dict__["ipam_pool_id"] = ipam_pool_id
             __props__.__dict__["network_border_group"] = network_border_group
             __props__.__dict__["public_ipv4_pool"] = public_ipv4_pool
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transfer_address"] = transfer_address
             __props__.__dict__["allocation_id"] = None
             __props__.__dict__["public_ip"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "networkBorderGroup", "transferAddress"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["address", "domain", "ipamPoolId", "networkBorderGroup", "transferAddress"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Eip, __self__).__init__(
             'aws-native:ec2:Eip',
@@ -236,15 +266,22 @@ class Eip(pulumi.CustomResource):
 
         __props__ = EipArgs.__new__(EipArgs)
 
+        __props__.__dict__["address"] = None
         __props__.__dict__["allocation_id"] = None
         __props__.__dict__["domain"] = None
         __props__.__dict__["instance_id"] = None
+        __props__.__dict__["ipam_pool_id"] = None
         __props__.__dict__["network_border_group"] = None
         __props__.__dict__["public_ip"] = None
         __props__.__dict__["public_ipv4_pool"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["transfer_address"] = None
         return Eip(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "address")
 
     @property
     @pulumi.getter(name="allocationId")
@@ -271,6 +308,11 @@ class Eip(pulumi.CustomResource):
           Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
         """
         return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="ipamPoolId")
+    def ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ipam_pool_id")
 
     @property
     @pulumi.getter(name="networkBorderGroup")

@@ -81,11 +81,6 @@ namespace Pulumi.AwsNative.QBusiness
         /// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         /// </summary>
         public readonly Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>? IdentityProviderConfiguration;
-        /// <summary>
-        /// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
-        /// 
-        /// &gt; You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
-        /// </summary>
         public readonly ImmutableArray<string> Origins;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the service role attached to your web experience.

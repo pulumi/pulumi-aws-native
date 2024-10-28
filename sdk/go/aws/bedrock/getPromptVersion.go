@@ -39,8 +39,7 @@ type LookupPromptVersionResult struct {
 	// Name for a prompt resource.
 	Name *string `pulumi:"name"`
 	// Identifier for a Prompt
-	PromptId *string           `pulumi:"promptId"`
-	Tags     map[string]string `pulumi:"tags"`
+	PromptId *string `pulumi:"promptId"`
 	// Time Stamp.
 	UpdatedAt *string `pulumi:"updatedAt"`
 	// List of prompt variants
@@ -119,10 +118,6 @@ func (o LookupPromptVersionResultOutput) Name() pulumi.StringPtrOutput {
 // Identifier for a Prompt
 func (o LookupPromptVersionResultOutput) PromptId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPromptVersionResult) *string { return v.PromptId }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupPromptVersionResultOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v LookupPromptVersionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // Time Stamp.

@@ -40,6 +40,11 @@ export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
+export { EndpointArgs } from "./endpoint";
+export type Endpoint = import("./endpoint").Endpoint;
+export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
+utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
+
 export { FeatureGroupArgs } from "./featureGroup";
 export type FeatureGroup = import("./featureGroup").FeatureGroup;
 export const FeatureGroup: typeof import("./featureGroup").FeatureGroup = null as any;
@@ -74,6 +79,11 @@ export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
+
+export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./getEndpoint";
+export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
+export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
 
 export { GetFeatureGroupArgs, GetFeatureGroupResult, GetFeatureGroupOutputArgs } from "./getFeatureGroup";
 export const getFeatureGroup: typeof import("./getFeatureGroup").getFeatureGroup = null as any;
@@ -272,6 +282,8 @@ const _module = {
                 return new DeviceFleet(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Domain":
                 return new Domain(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:Endpoint":
+                return new Endpoint(name, <any>undefined, { urn })
             case "aws-native:sagemaker:FeatureGroup":
                 return new FeatureGroup(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Image":

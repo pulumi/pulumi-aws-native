@@ -80,6 +80,7 @@ __all__ = [
     'FlowConnectionConfiguration1Properties',
     'FlowDataConnectionConfiguration',
     'FlowDefinition',
+    'FlowGuardrailConfiguration',
     'FlowInputFlowNodeConfiguration',
     'FlowIteratorFlowNodeConfiguration',
     'FlowKnowledgeBaseFlowNodeConfiguration',
@@ -144,6 +145,7 @@ __all__ = [
     'FlowVersionFlowNodeConfiguration9Properties',
     'FlowVersionFlowNodeInput',
     'FlowVersionFlowNodeOutput',
+    'FlowVersionGuardrailConfiguration',
     'FlowVersionInputFlowNodeConfiguration',
     'FlowVersionIteratorFlowNodeConfiguration',
     'FlowVersionKnowledgeBaseFlowNodeConfiguration',
@@ -3396,6 +3398,60 @@ class FlowDefinition(dict):
 
 
 @pulumi.output_type
+class FlowGuardrailConfiguration(dict):
+    """
+    Configuration for a guardrail
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guardrailIdentifier":
+            suggest = "guardrail_identifier"
+        elif key == "guardrailVersion":
+            suggest = "guardrail_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowGuardrailConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowGuardrailConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowGuardrailConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guardrail_identifier: Optional[str] = None,
+                 guardrail_version: Optional[str] = None):
+        """
+        Configuration for a guardrail
+        :param str guardrail_identifier: Identifier for the guardrail, could be the id or the arn
+        :param str guardrail_version: Version of the guardrail
+        """
+        if guardrail_identifier is not None:
+            pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        if guardrail_version is not None:
+            pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> Optional[str]:
+        """
+        Identifier for the guardrail, could be the id or the arn
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> Optional[str]:
+        """
+        Version of the guardrail
+        """
+        return pulumi.get(self, "guardrail_version")
+
+
+@pulumi.output_type
 class FlowInputFlowNodeConfiguration(dict):
     """
     Input flow node configuration
@@ -3429,6 +3485,8 @@ class FlowKnowledgeBaseFlowNodeConfiguration(dict):
         suggest = None
         if key == "knowledgeBaseId":
             suggest = "knowledge_base_id"
+        elif key == "guardrailConfiguration":
+            suggest = "guardrail_configuration"
         elif key == "modelId":
             suggest = "model_id"
 
@@ -3445,13 +3503,16 @@ class FlowKnowledgeBaseFlowNodeConfiguration(dict):
 
     def __init__(__self__, *,
                  knowledge_base_id: str,
+                 guardrail_configuration: Optional['outputs.FlowGuardrailConfiguration'] = None,
                  model_id: Optional[str] = None):
         """
         Knowledge base flow node configuration
         :param str knowledge_base_id: Identifier of the KnowledgeBase
-        :param str model_id: ARN or name of a Bedrock model.
+        :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
 
@@ -3464,10 +3525,15 @@ class FlowKnowledgeBaseFlowNodeConfiguration(dict):
         return pulumi.get(self, "knowledge_base_id")
 
     @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional['outputs.FlowGuardrailConfiguration']:
+        return pulumi.get(self, "guardrail_configuration")
+
+    @property
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[str]:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
@@ -3981,6 +4047,8 @@ class FlowPromptFlowNodeConfiguration(dict):
         suggest = None
         if key == "sourceConfiguration":
             suggest = "source_configuration"
+        elif key == "guardrailConfiguration":
+            suggest = "guardrail_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowPromptFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -3994,16 +4062,24 @@ class FlowPromptFlowNodeConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_configuration: Any):
+                 source_configuration: Any,
+                 guardrail_configuration: Optional['outputs.FlowGuardrailConfiguration'] = None):
         """
         Prompt flow node configuration
         """
         pulumi.set(__self__, "source_configuration", source_configuration)
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
 
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Any:
         return pulumi.get(self, "source_configuration")
+
+    @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional['outputs.FlowGuardrailConfiguration']:
+        return pulumi.get(self, "guardrail_configuration")
 
 
 @pulumi.output_type
@@ -4041,7 +4117,7 @@ class FlowPromptFlowNodeInlineConfiguration(dict):
                  inference_configuration: Optional['outputs.FlowPromptInferenceConfigurationProperties'] = None):
         """
         Inline prompt configuration for prompt node
-        :param str model_id: ARN or name of a Bedrock model.
+        :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "model_id", model_id)
         pulumi.set(__self__, "template_configuration", template_configuration)
@@ -4053,7 +4129,7 @@ class FlowPromptFlowNodeInlineConfiguration(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> str:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
@@ -4201,8 +4277,6 @@ class FlowPromptModelInferenceConfiguration(dict):
             suggest = "max_tokens"
         elif key == "stopSequences":
             suggest = "stop_sequences"
-        elif key == "topK":
-            suggest = "top_k"
         elif key == "topP":
             suggest = "top_p"
 
@@ -4221,14 +4295,12 @@ class FlowPromptModelInferenceConfiguration(dict):
                  max_tokens: Optional[float] = None,
                  stop_sequences: Optional[Sequence[str]] = None,
                  temperature: Optional[float] = None,
-                 top_k: Optional[float] = None,
                  top_p: Optional[float] = None):
         """
         Prompt model inference configuration
         :param float max_tokens: Maximum length of output
         :param Sequence[str] stop_sequences: List of stop sequences
         :param float temperature: Controls randomness, higher values increase diversity
-        :param float top_k: Sample from the k most likely next tokens
         :param float top_p: Cumulative probability cutoff for token selection
         """
         if max_tokens is not None:
@@ -4237,8 +4309,6 @@ class FlowPromptModelInferenceConfiguration(dict):
             pulumi.set(__self__, "stop_sequences", stop_sequences)
         if temperature is not None:
             pulumi.set(__self__, "temperature", temperature)
-        if top_k is not None:
-            pulumi.set(__self__, "top_k", top_k)
         if top_p is not None:
             pulumi.set(__self__, "top_p", top_p)
 
@@ -4265,14 +4335,6 @@ class FlowPromptModelInferenceConfiguration(dict):
         Controls randomness, higher values increase diversity
         """
         return pulumi.get(self, "temperature")
-
-    @property
-    @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[float]:
-        """
-        Sample from the k most likely next tokens
-        """
-        return pulumi.get(self, "top_k")
 
     @property
     @pulumi.getter(name="topP")
@@ -5321,6 +5383,60 @@ class FlowVersionFlowNodeOutput(dict):
 
 
 @pulumi.output_type
+class FlowVersionGuardrailConfiguration(dict):
+    """
+    Configuration for a guardrail
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guardrailIdentifier":
+            suggest = "guardrail_identifier"
+        elif key == "guardrailVersion":
+            suggest = "guardrail_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowVersionGuardrailConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowVersionGuardrailConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowVersionGuardrailConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guardrail_identifier: Optional[str] = None,
+                 guardrail_version: Optional[str] = None):
+        """
+        Configuration for a guardrail
+        :param str guardrail_identifier: Identifier for the guardrail, could be the id or the arn
+        :param str guardrail_version: Version of the guardrail
+        """
+        if guardrail_identifier is not None:
+            pulumi.set(__self__, "guardrail_identifier", guardrail_identifier)
+        if guardrail_version is not None:
+            pulumi.set(__self__, "guardrail_version", guardrail_version)
+
+    @property
+    @pulumi.getter(name="guardrailIdentifier")
+    def guardrail_identifier(self) -> Optional[str]:
+        """
+        Identifier for the guardrail, could be the id or the arn
+        """
+        return pulumi.get(self, "guardrail_identifier")
+
+    @property
+    @pulumi.getter(name="guardrailVersion")
+    def guardrail_version(self) -> Optional[str]:
+        """
+        Version of the guardrail
+        """
+        return pulumi.get(self, "guardrail_version")
+
+
+@pulumi.output_type
 class FlowVersionInputFlowNodeConfiguration(dict):
     """
     Input flow node configuration
@@ -5354,6 +5470,8 @@ class FlowVersionKnowledgeBaseFlowNodeConfiguration(dict):
         suggest = None
         if key == "knowledgeBaseId":
             suggest = "knowledge_base_id"
+        elif key == "guardrailConfiguration":
+            suggest = "guardrail_configuration"
         elif key == "modelId":
             suggest = "model_id"
 
@@ -5370,13 +5488,16 @@ class FlowVersionKnowledgeBaseFlowNodeConfiguration(dict):
 
     def __init__(__self__, *,
                  knowledge_base_id: str,
+                 guardrail_configuration: Optional['outputs.FlowVersionGuardrailConfiguration'] = None,
                  model_id: Optional[str] = None):
         """
         Knowledge base flow node configuration
         :param str knowledge_base_id: Identifier of the KnowledgeBase
-        :param str model_id: ARN or name of a Bedrock model.
+        :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
 
@@ -5389,10 +5510,15 @@ class FlowVersionKnowledgeBaseFlowNodeConfiguration(dict):
         return pulumi.get(self, "knowledge_base_id")
 
     @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional['outputs.FlowVersionGuardrailConfiguration']:
+        return pulumi.get(self, "guardrail_configuration")
+
+    @property
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[str]:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
@@ -5510,6 +5636,8 @@ class FlowVersionPromptFlowNodeConfiguration(dict):
         suggest = None
         if key == "sourceConfiguration":
             suggest = "source_configuration"
+        elif key == "guardrailConfiguration":
+            suggest = "guardrail_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FlowVersionPromptFlowNodeConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -5523,16 +5651,24 @@ class FlowVersionPromptFlowNodeConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_configuration: Any):
+                 source_configuration: Any,
+                 guardrail_configuration: Optional['outputs.FlowVersionGuardrailConfiguration'] = None):
         """
         Prompt flow node configuration
         """
         pulumi.set(__self__, "source_configuration", source_configuration)
+        if guardrail_configuration is not None:
+            pulumi.set(__self__, "guardrail_configuration", guardrail_configuration)
 
     @property
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Any:
         return pulumi.get(self, "source_configuration")
+
+    @property
+    @pulumi.getter(name="guardrailConfiguration")
+    def guardrail_configuration(self) -> Optional['outputs.FlowVersionGuardrailConfiguration']:
+        return pulumi.get(self, "guardrail_configuration")
 
 
 @pulumi.output_type
@@ -5570,7 +5706,7 @@ class FlowVersionPromptFlowNodeInlineConfiguration(dict):
                  inference_configuration: Optional['outputs.FlowVersionPromptInferenceConfigurationProperties'] = None):
         """
         Inline prompt configuration for prompt node
-        :param str model_id: ARN or name of a Bedrock model.
+        :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "model_id", model_id)
         pulumi.set(__self__, "template_configuration", template_configuration)
@@ -5582,7 +5718,7 @@ class FlowVersionPromptFlowNodeInlineConfiguration(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> str:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
 
@@ -5730,8 +5866,6 @@ class FlowVersionPromptModelInferenceConfiguration(dict):
             suggest = "max_tokens"
         elif key == "stopSequences":
             suggest = "stop_sequences"
-        elif key == "topK":
-            suggest = "top_k"
         elif key == "topP":
             suggest = "top_p"
 
@@ -5750,14 +5884,12 @@ class FlowVersionPromptModelInferenceConfiguration(dict):
                  max_tokens: Optional[float] = None,
                  stop_sequences: Optional[Sequence[str]] = None,
                  temperature: Optional[float] = None,
-                 top_k: Optional[float] = None,
                  top_p: Optional[float] = None):
         """
         Prompt model inference configuration
         :param float max_tokens: Maximum length of output
         :param Sequence[str] stop_sequences: List of stop sequences
         :param float temperature: Controls randomness, higher values increase diversity
-        :param float top_k: Sample from the k most likely next tokens
         :param float top_p: Cumulative probability cutoff for token selection
         """
         if max_tokens is not None:
@@ -5766,8 +5898,6 @@ class FlowVersionPromptModelInferenceConfiguration(dict):
             pulumi.set(__self__, "stop_sequences", stop_sequences)
         if temperature is not None:
             pulumi.set(__self__, "temperature", temperature)
-        if top_k is not None:
-            pulumi.set(__self__, "top_k", top_k)
         if top_p is not None:
             pulumi.set(__self__, "top_p", top_p)
 
@@ -5794,14 +5924,6 @@ class FlowVersionPromptModelInferenceConfiguration(dict):
         Controls randomness, higher values increase diversity
         """
         return pulumi.get(self, "temperature")
-
-    @property
-    @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[float]:
-        """
-        Sample from the k most likely next tokens
-        """
-        return pulumi.get(self, "top_k")
 
     @property
     @pulumi.getter(name="topP")
@@ -7732,8 +7854,6 @@ class PromptModelInferenceConfiguration(dict):
             suggest = "max_tokens"
         elif key == "stopSequences":
             suggest = "stop_sequences"
-        elif key == "topK":
-            suggest = "top_k"
         elif key == "topP":
             suggest = "top_p"
 
@@ -7752,14 +7872,12 @@ class PromptModelInferenceConfiguration(dict):
                  max_tokens: Optional[float] = None,
                  stop_sequences: Optional[Sequence[str]] = None,
                  temperature: Optional[float] = None,
-                 top_k: Optional[float] = None,
                  top_p: Optional[float] = None):
         """
         Prompt model inference configuration
         :param float max_tokens: Maximum length of output
         :param Sequence[str] stop_sequences: List of stop sequences
         :param float temperature: Controls randomness, higher values increase diversity
-        :param float top_k: Sample from the k most likely next tokens
         :param float top_p: Cumulative probability cutoff for token selection
         """
         if max_tokens is not None:
@@ -7768,8 +7886,6 @@ class PromptModelInferenceConfiguration(dict):
             pulumi.set(__self__, "stop_sequences", stop_sequences)
         if temperature is not None:
             pulumi.set(__self__, "temperature", temperature)
-        if top_k is not None:
-            pulumi.set(__self__, "top_k", top_k)
         if top_p is not None:
             pulumi.set(__self__, "top_p", top_p)
 
@@ -7796,14 +7912,6 @@ class PromptModelInferenceConfiguration(dict):
         Controls randomness, higher values increase diversity
         """
         return pulumi.get(self, "temperature")
-
-    @property
-    @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[float]:
-        """
-        Sample from the k most likely next tokens
-        """
-        return pulumi.get(self, "top_k")
 
     @property
     @pulumi.getter(name="topP")
@@ -7947,14 +8055,14 @@ class PromptVariant(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "templateType":
+        if key == "templateConfiguration":
+            suggest = "template_configuration"
+        elif key == "templateType":
             suggest = "template_type"
         elif key == "inferenceConfiguration":
             suggest = "inference_configuration"
         elif key == "modelId":
             suggest = "model_id"
-        elif key == "templateConfiguration":
-            suggest = "template_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PromptVariant. Access the value via the '{suggest}' property getter instead.")
@@ -7969,26 +8077,25 @@ class PromptVariant(dict):
 
     def __init__(__self__, *,
                  name: str,
+                 template_configuration: 'outputs.PromptTemplateConfigurationProperties',
                  template_type: 'PromptTemplateType',
                  inference_configuration: Optional['outputs.PromptInferenceConfigurationProperties'] = None,
-                 model_id: Optional[str] = None,
-                 template_configuration: Optional['outputs.PromptTemplateConfigurationProperties'] = None):
+                 model_id: Optional[str] = None):
         """
         Prompt variant
         :param str name: Name for a variant.
+        :param 'PromptTemplateConfigurationProperties' template_configuration: Contains configurations for the prompt template.
         :param 'PromptTemplateType' template_type: The type of prompt template to use.
         :param 'PromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
-        :param str model_id: ARN or name of a Bedrock model.
-        :param 'PromptTemplateConfigurationProperties' template_configuration: Contains configurations for the prompt template.
+        :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "template_configuration", template_configuration)
         pulumi.set(__self__, "template_type", template_type)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
-        if template_configuration is not None:
-            pulumi.set(__self__, "template_configuration", template_configuration)
 
     @property
     @pulumi.getter
@@ -7997,6 +8104,14 @@ class PromptVariant(dict):
         Name for a variant.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> 'outputs.PromptTemplateConfigurationProperties':
+        """
+        Contains configurations for the prompt template.
+        """
+        return pulumi.get(self, "template_configuration")
 
     @property
     @pulumi.getter(name="templateType")
@@ -8018,17 +8133,9 @@ class PromptVariant(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[str]:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
-
-    @property
-    @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> Optional['outputs.PromptTemplateConfigurationProperties']:
-        """
-        Contains configurations for the prompt template.
-        """
-        return pulumi.get(self, "template_configuration")
 
 
 @pulumi.output_type
@@ -8084,8 +8191,6 @@ class PromptVersionPromptModelInferenceConfiguration(dict):
             suggest = "max_tokens"
         elif key == "stopSequences":
             suggest = "stop_sequences"
-        elif key == "topK":
-            suggest = "top_k"
         elif key == "topP":
             suggest = "top_p"
 
@@ -8104,14 +8209,12 @@ class PromptVersionPromptModelInferenceConfiguration(dict):
                  max_tokens: Optional[float] = None,
                  stop_sequences: Optional[Sequence[str]] = None,
                  temperature: Optional[float] = None,
-                 top_k: Optional[float] = None,
                  top_p: Optional[float] = None):
         """
         Prompt model inference configuration
         :param float max_tokens: Maximum length of output
         :param Sequence[str] stop_sequences: List of stop sequences
         :param float temperature: Controls randomness, higher values increase diversity
-        :param float top_k: Sample from the k most likely next tokens
         :param float top_p: Cumulative probability cutoff for token selection
         """
         if max_tokens is not None:
@@ -8120,8 +8223,6 @@ class PromptVersionPromptModelInferenceConfiguration(dict):
             pulumi.set(__self__, "stop_sequences", stop_sequences)
         if temperature is not None:
             pulumi.set(__self__, "temperature", temperature)
-        if top_k is not None:
-            pulumi.set(__self__, "top_k", top_k)
         if top_p is not None:
             pulumi.set(__self__, "top_p", top_p)
 
@@ -8148,14 +8249,6 @@ class PromptVersionPromptModelInferenceConfiguration(dict):
         Controls randomness, higher values increase diversity
         """
         return pulumi.get(self, "temperature")
-
-    @property
-    @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[float]:
-        """
-        Sample from the k most likely next tokens
-        """
-        return pulumi.get(self, "top_k")
 
     @property
     @pulumi.getter(name="topP")
@@ -8192,14 +8285,14 @@ class PromptVersionPromptVariant(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "templateType":
+        if key == "templateConfiguration":
+            suggest = "template_configuration"
+        elif key == "templateType":
             suggest = "template_type"
         elif key == "inferenceConfiguration":
             suggest = "inference_configuration"
         elif key == "modelId":
             suggest = "model_id"
-        elif key == "templateConfiguration":
-            suggest = "template_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PromptVersionPromptVariant. Access the value via the '{suggest}' property getter instead.")
@@ -8214,26 +8307,25 @@ class PromptVersionPromptVariant(dict):
 
     def __init__(__self__, *,
                  name: str,
+                 template_configuration: 'outputs.PromptVersionPromptTemplateConfigurationProperties',
                  template_type: 'PromptVersionPromptTemplateType',
                  inference_configuration: Optional['outputs.PromptVersionPromptInferenceConfigurationProperties'] = None,
-                 model_id: Optional[str] = None,
-                 template_configuration: Optional['outputs.PromptVersionPromptTemplateConfigurationProperties'] = None):
+                 model_id: Optional[str] = None):
         """
         Prompt variant
         :param str name: Name for a variant.
+        :param 'PromptVersionPromptTemplateConfigurationProperties' template_configuration: Contains configurations for the prompt template.
         :param 'PromptVersionPromptTemplateType' template_type: The type of prompt template to use.
         :param 'PromptVersionPromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
-        :param str model_id: ARN or name of a Bedrock model.
-        :param 'PromptVersionPromptTemplateConfigurationProperties' template_configuration: Contains configurations for the prompt template.
+        :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "template_configuration", template_configuration)
         pulumi.set(__self__, "template_type", template_type)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id is not None:
             pulumi.set(__self__, "model_id", model_id)
-        if template_configuration is not None:
-            pulumi.set(__self__, "template_configuration", template_configuration)
 
     @property
     @pulumi.getter
@@ -8242,6 +8334,14 @@ class PromptVersionPromptVariant(dict):
         Name for a variant.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="templateConfiguration")
+    def template_configuration(self) -> 'outputs.PromptVersionPromptTemplateConfigurationProperties':
+        """
+        Contains configurations for the prompt template.
+        """
+        return pulumi.get(self, "template_configuration")
 
     @property
     @pulumi.getter(name="templateType")
@@ -8263,17 +8363,9 @@ class PromptVersionPromptVariant(dict):
     @pulumi.getter(name="modelId")
     def model_id(self) -> Optional[str]:
         """
-        ARN or name of a Bedrock model.
+        ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
         return pulumi.get(self, "model_id")
-
-    @property
-    @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> Optional['outputs.PromptVersionPromptTemplateConfigurationProperties']:
-        """
-        Contains configurations for the prompt template.
-        """
-        return pulumi.get(self, "template_configuration")
 
 
 @pulumi.output_type

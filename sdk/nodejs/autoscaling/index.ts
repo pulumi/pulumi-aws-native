@@ -61,6 +61,9 @@ export const WarmPool: typeof import("./warmPool").WarmPool = null as any;
 utilities.lazyLoad(exports, ["WarmPool"], () => require("./warmPool"));
 
 
+// Export enums:
+export * from "../types/enums/autoscaling";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

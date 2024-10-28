@@ -79,6 +79,7 @@ class ContactFlowType(str, Enum):
     OUTBOUND_WHISPER = "OUTBOUND_WHISPER"
     AGENT_TRANSFER = "AGENT_TRANSFER"
     QUEUE_TRANSFER = "QUEUE_TRANSFER"
+    CAMPAIGN = "CAMPAIGN"
 
 
 class EvaluationFormNumericQuestionPropertyValueAutomationLabel(str, Enum):

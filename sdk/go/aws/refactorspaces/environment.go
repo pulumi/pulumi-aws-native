@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -24,9 +23,9 @@ type Environment struct {
 	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
 	// The name of the environment.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The network fabric type of the environment.
-	NetworkFabricType EnvironmentNetworkFabricTypeOutput `pulumi:"networkFabricType"`
+	NetworkFabricType EnvironmentNetworkFabricTypePtrOutput `pulumi:"networkFabricType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the AWS Transit Gateway set up by the environment.
@@ -37,12 +36,9 @@ type Environment struct {
 func NewEnvironment(ctx *pulumi.Context,
 	name string, args *EnvironmentArgs, opts ...pulumi.ResourceOption) (*Environment, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &EnvironmentArgs{}
 	}
 
-	if args.NetworkFabricType == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkFabricType'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"description",
 		"name",
@@ -87,7 +83,7 @@ type environmentArgs struct {
 	// The name of the environment.
 	Name *string `pulumi:"name"`
 	// The network fabric type of the environment.
-	NetworkFabricType EnvironmentNetworkFabricType `pulumi:"networkFabricType"`
+	NetworkFabricType *EnvironmentNetworkFabricType `pulumi:"networkFabricType"`
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -99,7 +95,7 @@ type EnvironmentArgs struct {
 	// The name of the environment.
 	Name pulumi.StringPtrInput
 	// The network fabric type of the environment.
-	NetworkFabricType EnvironmentNetworkFabricTypeInput
+	NetworkFabricType EnvironmentNetworkFabricTypePtrInput
 	// Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
 	Tags aws.TagArrayInput
 }
@@ -157,13 +153,13 @@ func (o EnvironmentOutput) EnvironmentIdentifier() pulumi.StringOutput {
 }
 
 // The name of the environment.
-func (o EnvironmentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o EnvironmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The network fabric type of the environment.
-func (o EnvironmentOutput) NetworkFabricType() EnvironmentNetworkFabricTypeOutput {
-	return o.ApplyT(func(v *Environment) EnvironmentNetworkFabricTypeOutput { return v.NetworkFabricType }).(EnvironmentNetworkFabricTypeOutput)
+func (o EnvironmentOutput) NetworkFabricType() EnvironmentNetworkFabricTypePtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentNetworkFabricTypePtrOutput { return v.NetworkFabricType }).(EnvironmentNetworkFabricTypePtrOutput)
 }
 
 // Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.

@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPromptVersionResult:
-    def __init__(__self__, arn=None, created_at=None, customer_encryption_key_arn=None, default_variant=None, name=None, prompt_id=None, tags=None, updated_at=None, variants=None, version=None):
+    def __init__(__self__, arn=None, created_at=None, customer_encryption_key_arn=None, default_variant=None, name=None, prompt_id=None, updated_at=None, variants=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,9 +44,6 @@ class GetPromptVersionResult:
         if prompt_id and not isinstance(prompt_id, str):
             raise TypeError("Expected argument 'prompt_id' to be a str")
         pulumi.set(__self__, "prompt_id", prompt_id)
-        if tags and not isinstance(tags, dict):
-            raise TypeError("Expected argument 'tags' to be a dict")
-        pulumi.set(__self__, "tags", tags)
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
@@ -106,11 +103,6 @@ class GetPromptVersionResult:
         return pulumi.get(self, "prompt_id")
 
     @property
-    @pulumi.getter
-    def tags(self) -> Optional[Mapping[str, str]]:
-        return pulumi.get(self, "tags")
-
-    @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
         """
@@ -147,7 +139,6 @@ class AwaitableGetPromptVersionResult(GetPromptVersionResult):
             default_variant=self.default_variant,
             name=self.name,
             prompt_id=self.prompt_id,
-            tags=self.tags,
             updated_at=self.updated_at,
             variants=self.variants,
             version=self.version)
@@ -173,7 +164,6 @@ def get_prompt_version(arn: Optional[str] = None,
         default_variant=pulumi.get(__ret__, 'default_variant'),
         name=pulumi.get(__ret__, 'name'),
         prompt_id=pulumi.get(__ret__, 'prompt_id'),
-        tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         variants=pulumi.get(__ret__, 'variants'),
         version=pulumi.get(__ret__, 'version'))
@@ -196,7 +186,6 @@ def get_prompt_version_output(arn: Optional[pulumi.Input[str]] = None,
         default_variant=pulumi.get(__response__, 'default_variant'),
         name=pulumi.get(__response__, 'name'),
         prompt_id=pulumi.get(__response__, 'prompt_id'),
-        tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at'),
         variants=pulumi.get(__response__, 'variants'),
         version=pulumi.get(__response__, 'version')))

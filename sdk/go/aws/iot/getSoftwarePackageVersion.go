@@ -24,13 +24,19 @@ func LookupSoftwarePackageVersion(ctx *pulumi.Context, args *LookupSoftwarePacka
 }
 
 type LookupSoftwarePackageVersionArgs struct {
+	// The name of the associated software package.
 	PackageName string `pulumi:"packageName"`
+	// The name of the new package version.
 	VersionName string `pulumi:"versionName"`
 }
 
 type LookupSoftwarePackageVersionResult struct {
-	Attributes  map[string]string `pulumi:"attributes"`
-	Description *string           `pulumi:"description"`
+	// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+	//
+	// The combined size of all the attributes on a package version is limited to 3KB.
+	Attributes map[string]string `pulumi:"attributes"`
+	// A summary of the package version being created. This can be used to outline the package's contents or purpose.
+	Description *string `pulumi:"description"`
 	// Error reason for a package version failure during creation or update.
 	ErrorReason *string `pulumi:"errorReason"`
 	// The Amazon Resource Name (ARN) for the package.
@@ -61,7 +67,9 @@ func LookupSoftwarePackageVersionOutput(ctx *pulumi.Context, args LookupSoftware
 }
 
 type LookupSoftwarePackageVersionOutputArgs struct {
+	// The name of the associated software package.
 	PackageName pulumi.StringInput `pulumi:"packageName"`
+	// The name of the new package version.
 	VersionName pulumi.StringInput `pulumi:"versionName"`
 }
 
@@ -83,10 +91,14 @@ func (o LookupSoftwarePackageVersionResultOutput) ToLookupSoftwarePackageVersion
 	return o
 }
 
+// Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet.
+//
+// The combined size of all the attributes on a package version is limited to 3KB.
 func (o LookupSoftwarePackageVersionResultOutput) Attributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
 }
 
+// A summary of the package version being created. This can be used to outline the package's contents or purpose.
 func (o LookupSoftwarePackageVersionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSoftwarePackageVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

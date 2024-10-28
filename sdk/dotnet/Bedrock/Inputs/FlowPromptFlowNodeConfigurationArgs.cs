@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class FlowPromptFlowNodeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("guardrailConfiguration")]
+        public Input<Inputs.FlowGuardrailConfigurationArgs>? GuardrailConfiguration { get; set; }
+
         [Input("sourceConfiguration", required: true)]
         public InputUnion<Inputs.FlowPromptFlowNodeSourceConfiguration0PropertiesArgs, Inputs.FlowPromptFlowNodeSourceConfiguration1PropertiesArgs> SourceConfiguration { get; set; } = null!;
 
