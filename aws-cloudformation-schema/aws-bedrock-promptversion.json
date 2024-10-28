@@ -27,14 +27,14 @@
           "type" : "string",
           "maxLength" : 2048,
           "minLength" : 1,
-          "pattern" : "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$",
-          "description" : "ARN or name of a Bedrock model."
+          "pattern" : "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:imported-model/[a-z0-9]{12})|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)|([a-zA-Z0-9-:.]+)$",
+          "description" : "ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models."
         },
         "InferenceConfiguration" : {
           "$ref" : "#/definitions/PromptInferenceConfiguration"
         }
       },
-      "required" : [ "Name", "TemplateType" ],
+      "required" : [ "Name", "TemplateType", "TemplateConfiguration" ],
       "additionalProperties" : false
     },
     "TextPromptTemplateConfiguration" : {
@@ -53,7 +53,7 @@
             "$ref" : "#/definitions/PromptInputVariable"
           },
           "maxItems" : 5,
-          "minItems" : 1,
+          "minItems" : 0,
           "description" : "List of input variables",
           "insertionOrder" : true
         }
@@ -90,12 +90,6 @@
           "maximum" : 1,
           "minimum" : 0,
           "description" : "Cumulative probability cutoff for token selection"
-        },
-        "TopK" : {
-          "type" : "number",
-          "maximum" : 500,
-          "minimum" : 0,
-          "description" : "Sample from the k most likely next tokens"
         },
         "MaxTokens" : {
           "type" : "number",
@@ -199,7 +193,7 @@
       "items" : {
         "$ref" : "#/definitions/PromptVariant"
       },
-      "maxItems" : 3,
+      "maxItems" : 1,
       "minItems" : 1,
       "description" : "List of prompt variants",
       "insertionOrder" : true
@@ -234,16 +228,13 @@
   "required" : [ "PromptArn" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/PromptId", "/properties/UpdatedAt", "/properties/Version", "/properties/Name", "/properties/DefaultVariant", "/properties/Variants", "/properties/CustomerEncryptionKeyArn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/PromptArn", "/properties/Description" ],
+  "createOnlyProperties" : [ "/properties/PromptArn", "/properties/Description", "/properties/Tags" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "bedrock:CreatePromptVersion", "bedrock:GetPrompt", "bedrock:TagResource", "bedrock:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "read" : {
       "permissions" : [ "bedrock:GetPrompt", "bedrock:ListTagsForResource", "kms:Decrypt" ]
-    },
-    "update" : {
-      "permissions" : [ "noservice:NoAction" ]
     },
     "delete" : {
       "permissions" : [ "bedrock:DeletePrompt", "bedrock:GetPrompt" ]

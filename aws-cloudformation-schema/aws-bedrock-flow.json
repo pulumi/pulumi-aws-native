@@ -421,8 +421,11 @@
           "type" : "string",
           "maxLength" : 2048,
           "minLength" : 1,
-          "pattern" : "^arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}(([:][a-z0-9-]{1,63}){0,2})?/[a-z0-9]{12})|(:foundation-model/([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2})))|(([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.]?[a-z0-9-]{1,63})([:][a-z0-9-]{1,63}){0,2}))|(([0-9a-zA-Z][_-]?)+)$",
-          "description" : "ARN or name of a Bedrock model."
+          "pattern" : "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:imported-model/[a-z0-9]{12})|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)|([a-zA-Z0-9-:.]+)$",
+          "description" : "ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models."
+        },
+        "GuardrailConfiguration" : {
+          "$ref" : "#/definitions/GuardrailConfiguration"
         }
       },
       "required" : [ "KnowledgeBaseId" ],
@@ -483,6 +486,9 @@
       "properties" : {
         "SourceConfiguration" : {
           "$ref" : "#/definitions/PromptFlowNodeSourceConfiguration"
+        },
+        "GuardrailConfiguration" : {
+          "$ref" : "#/definitions/GuardrailConfiguration"
         }
       },
       "required" : [ "SourceConfiguration" ],
@@ -524,8 +530,8 @@
           "type" : "string",
           "maxLength" : 2048,
           "minLength" : 1,
-          "pattern" : "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)$",
-          "description" : "ARN or name of a Bedrock model."
+          "pattern" : "^(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:(([0-9]{12}:custom-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}/[a-z0-9]{12})|(:foundation-model/[a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|([0-9]{12}:imported-model/[a-z0-9]{12})|([0-9]{12}:provisioned-model/[a-z0-9]{12})))|([a-z0-9-]{1,63}[.]{1}[a-z0-9-]{1,63}([.:]?[a-z0-9-]{1,63}))|(([0-9a-zA-Z][_-]?)+)|(arn:aws(|-us-gov|-cn|-iso|-iso-b):bedrock:(|[0-9a-z-]{1,20}):(|[0-9]{12}):(inference-profile|application-inference-profile)/[a-zA-Z0-9-:.]+)|([a-zA-Z0-9-:.]+)$",
+          "description" : "ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models."
         },
         "InferenceConfiguration" : {
           "$ref" : "#/definitions/PromptInferenceConfiguration"
@@ -665,12 +671,6 @@
           "minimum" : 0,
           "description" : "Cumulative probability cutoff for token selection"
         },
-        "TopK" : {
-          "type" : "number",
-          "maximum" : 500,
-          "minimum" : 0,
-          "description" : "Sample from the k most likely next tokens"
-        },
         "MaxTokens" : {
           "type" : "number",
           "maximum" : 4096,
@@ -791,6 +791,24 @@
         }
       },
       "additionalProperties" : false
+    },
+    "GuardrailConfiguration" : {
+      "type" : "object",
+      "description" : "Configuration for a guardrail",
+      "properties" : {
+        "GuardrailIdentifier" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "pattern" : "^(([a-z0-9]+)|(arn:aws(-[^:]+)?:bedrock:[a-z0-9-]{1,20}:[0-9]{12}:guardrail/[a-z0-9]+))$",
+          "description" : "Identifier for the guardrail, could be the id or the arn"
+        },
+        "GuardrailVersion" : {
+          "type" : "string",
+          "pattern" : "^(([0-9]{1,8})|(DRAFT))$",
+          "description" : "Version of the guardrail"
+        }
+      },
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -881,19 +899,19 @@
   "additionalIdentifiers" : [ [ "/properties/Id" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock:CreateFlow", "bedrock:GetFlow", "bedrock:PrepareFlow", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "bedrock:TagResource", "bedrock:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "bedrock:CreateFlow", "bedrock:GetFlow", "bedrock:PrepareFlow", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "bedrock:TagResource", "bedrock:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt", "bedrock:CreateGuardrail", "bedrock:CreateGuardrailVersion", "bedrock:GetGuardrail" ]
     },
     "read" : {
-      "permissions" : [ "bedrock:GetFlow", "bedrock:ListTagsForResource", "kms:Decrypt" ]
+      "permissions" : [ "bedrock:GetFlow", "bedrock:ListTagsForResource", "kms:Decrypt", "bedrock:GetGuardrail" ]
     },
     "update" : {
-      "permissions" : [ "bedrock:UpdateFlow", "bedrock:GetFlow", "bedrock:PrepareFlow", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "bedrock:TagResource", "bedrock:UntagResource", "bedrock:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt" ]
+      "permissions" : [ "bedrock:UpdateFlow", "bedrock:GetFlow", "bedrock:PrepareFlow", "iam:PassRole", "s3:GetObject", "s3:GetObjectVersion", "bedrock:TagResource", "bedrock:UntagResource", "bedrock:ListTagsForResource", "kms:GenerateDataKey", "kms:Decrypt", "bedrock:UpdateGuardrail", "bedrock:GetGuardrail" ]
     },
     "delete" : {
-      "permissions" : [ "bedrock:DeleteFlow", "bedrock:GetFlow" ]
+      "permissions" : [ "bedrock:DeleteFlow", "bedrock:GetFlow", "bedrock:DeleteGuardrail", "bedrock:GetGuardrail" ]
     },
     "list" : {
-      "permissions" : [ "bedrock:ListFlows" ]
+      "permissions" : [ "bedrock:ListFlows", "bedrock:ListGuardrails" ]
     }
   },
   "tagging" : {
