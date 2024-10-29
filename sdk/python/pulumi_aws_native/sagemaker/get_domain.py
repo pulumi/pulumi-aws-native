@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, url=None):
+    def __init__(__self__, app_network_access_type=None, app_security_group_management=None, default_space_settings=None, default_user_settings=None, domain_arn=None, domain_id=None, domain_settings=None, home_efs_file_system_id=None, security_group_id_for_domain_boundary=None, single_sign_on_application_arn=None, single_sign_on_managed_application_instance_id=None, subnet_ids=None, tag_propagation=None, url=None):
         if app_network_access_type and not isinstance(app_network_access_type, str):
             raise TypeError("Expected argument 'app_network_access_type' to be a str")
         pulumi.set(__self__, "app_network_access_type", app_network_access_type)
@@ -62,6 +62,9 @@ class GetDomainResult:
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tag_propagation and not isinstance(tag_propagation, str):
+            raise TypeError("Expected argument 'tag_propagation' to be a str")
+        pulumi.set(__self__, "tag_propagation", tag_propagation)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
@@ -163,6 +166,14 @@ class GetDomainResult:
         return pulumi.get(self, "subnet_ids")
 
     @property
+    @pulumi.getter(name="tagPropagation")
+    def tag_propagation(self) -> Optional['DomainTagPropagation']:
+        """
+        Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+        """
+        return pulumi.get(self, "tag_propagation")
+
+    @property
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
@@ -189,6 +200,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             single_sign_on_application_arn=self.single_sign_on_application_arn,
             single_sign_on_managed_application_instance_id=self.single_sign_on_managed_application_instance_id,
             subnet_ids=self.subnet_ids,
+            tag_propagation=self.tag_propagation,
             url=self.url)
 
 
@@ -218,6 +230,7 @@ def get_domain(domain_id: Optional[str] = None,
         single_sign_on_application_arn=pulumi.get(__ret__, 'single_sign_on_application_arn'),
         single_sign_on_managed_application_instance_id=pulumi.get(__ret__, 'single_sign_on_managed_application_instance_id'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tag_propagation=pulumi.get(__ret__, 'tag_propagation'),
         url=pulumi.get(__ret__, 'url'))
 def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
@@ -244,4 +257,5 @@ def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
         single_sign_on_application_arn=pulumi.get(__response__, 'single_sign_on_application_arn'),
         single_sign_on_managed_application_instance_id=pulumi.get(__response__, 'single_sign_on_managed_application_instance_id'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tag_propagation=pulumi.get(__response__, 'tag_propagation'),
         url=pulumi.get(__response__, 'url')))

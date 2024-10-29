@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Backup.Outputs
     [OutputType]
     public sealed class LogicallyAirGappedBackupVaultNotificationObjectType
     {
+        /// <summary>
+        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
+        /// </summary>
         public readonly ImmutableArray<string> BackupVaultEvents;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
+        /// </summary>
         public readonly string SnsTopicArn;
 
         [OutputConstructor]

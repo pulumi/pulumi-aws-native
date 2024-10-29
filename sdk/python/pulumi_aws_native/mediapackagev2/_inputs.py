@@ -44,6 +44,8 @@ __all__ = [
     'OriginEndpointSegmentArgsDict',
     'OriginEndpointSpekeKeyProviderArgs',
     'OriginEndpointSpekeKeyProviderArgsDict',
+    'OriginEndpointStartTagArgs',
+    'OriginEndpointStartTagArgsDict',
 ]
 
 MYPY = False
@@ -546,6 +548,10 @@ if not MYPY:
         """
         <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
         """
+        clip_start_time: NotRequired[pulumi.Input[str]]
+        """
+        <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+        """
         end: NotRequired[pulumi.Input[str]]
         """
         <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
@@ -568,17 +574,21 @@ elif False:
 @pulumi.input_type
 class OriginEndpointFilterConfigurationArgs:
     def __init__(__self__, *,
+                 clip_start_time: Optional[pulumi.Input[str]] = None,
                  end: Optional[pulumi.Input[str]] = None,
                  manifest_filter: Optional[pulumi.Input[str]] = None,
                  start: Optional[pulumi.Input[str]] = None,
                  time_delay_seconds: Optional[pulumi.Input[int]] = None):
         """
         <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+        :param pulumi.Input[str] clip_start_time: <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
         :param pulumi.Input[str] end: <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
         :param pulumi.Input[str] manifest_filter: <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
         :param pulumi.Input[str] start: <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
         :param pulumi.Input[int] time_delay_seconds: <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
         """
+        if clip_start_time is not None:
+            pulumi.set(__self__, "clip_start_time", clip_start_time)
         if end is not None:
             pulumi.set(__self__, "end", end)
         if manifest_filter is not None:
@@ -587,6 +597,18 @@ class OriginEndpointFilterConfigurationArgs:
             pulumi.set(__self__, "start", start)
         if time_delay_seconds is not None:
             pulumi.set(__self__, "time_delay_seconds", time_delay_seconds)
+
+    @property
+    @pulumi.getter(name="clipStartTime")
+    def clip_start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+        """
+        return pulumi.get(self, "clip_start_time")
+
+    @clip_start_time.setter
+    def clip_start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "clip_start_time", value)
 
     @property
     @pulumi.getter
@@ -745,6 +767,7 @@ if not MYPY:
         """
         THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         """
+        start_tag: NotRequired[pulumi.Input['OriginEndpointStartTagArgsDict']]
         url: NotRequired[pulumi.Input[str]]
         """
         <p>The egress domain URL for stream delivery from MediaPackage.</p>
@@ -761,6 +784,7 @@ class OriginEndpointHlsManifestConfigurationArgs:
                  manifest_window_seconds: Optional[pulumi.Input[int]] = None,
                  program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
                  scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
+                 start_tag: Optional[pulumi.Input['OriginEndpointStartTagArgs']] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         <p>Retrieve the HTTP live streaming (HLS) manifest configuration.</p>
@@ -786,6 +810,8 @@ class OriginEndpointHlsManifestConfigurationArgs:
             pulumi.set(__self__, "program_date_time_interval_seconds", program_date_time_interval_seconds)
         if scte_hls is not None:
             pulumi.set(__self__, "scte_hls", scte_hls)
+        if start_tag is not None:
+            pulumi.set(__self__, "start_tag", start_tag)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -863,6 +889,15 @@ class OriginEndpointHlsManifestConfigurationArgs:
         pulumi.set(self, "scte_hls", value)
 
     @property
+    @pulumi.getter(name="startTag")
+    def start_tag(self) -> Optional[pulumi.Input['OriginEndpointStartTagArgs']]:
+        return pulumi.get(self, "start_tag")
+
+    @start_tag.setter
+    def start_tag(self, value: Optional[pulumi.Input['OriginEndpointStartTagArgs']]):
+        pulumi.set(self, "start_tag", value)
+
+    @property
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -905,6 +940,7 @@ if not MYPY:
         """
         The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
         """
+        start_tag: NotRequired[pulumi.Input['OriginEndpointStartTagArgsDict']]
         url: NotRequired[pulumi.Input[str]]
         """
         <p>The egress domain URL for stream delivery from MediaPackage.</p>
@@ -921,6 +957,7 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
                  manifest_window_seconds: Optional[pulumi.Input[int]] = None,
                  program_date_time_interval_seconds: Optional[pulumi.Input[int]] = None,
                  scte_hls: Optional[pulumi.Input['OriginEndpointScteHlsArgs']] = None,
+                 start_tag: Optional[pulumi.Input['OriginEndpointStartTagArgs']] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         <p>Retrieve the low-latency HTTP live streaming (HLS) manifest configuration.</p>
@@ -946,6 +983,8 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
             pulumi.set(__self__, "program_date_time_interval_seconds", program_date_time_interval_seconds)
         if scte_hls is not None:
             pulumi.set(__self__, "scte_hls", scte_hls)
+        if start_tag is not None:
+            pulumi.set(__self__, "start_tag", start_tag)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -1021,6 +1060,15 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @scte_hls.setter
     def scte_hls(self, value: Optional[pulumi.Input['OriginEndpointScteHlsArgs']]):
         pulumi.set(self, "scte_hls", value)
+
+    @property
+    @pulumi.getter(name="startTag")
+    def start_tag(self) -> Optional[pulumi.Input['OriginEndpointStartTagArgs']]:
+        return pulumi.get(self, "start_tag")
+
+    @start_tag.setter
+    def start_tag(self, value: Optional[pulumi.Input['OriginEndpointStartTagArgs']]):
+        pulumi.set(self, "start_tag", value)
 
     @property
     @pulumi.getter
@@ -1441,5 +1489,60 @@ class OriginEndpointSpekeKeyProviderArgs:
     @url.setter
     def url(self, value: pulumi.Input[str]):
         pulumi.set(self, "url", value)
+
+
+if not MYPY:
+    class OriginEndpointStartTagArgsDict(TypedDict):
+        """
+        <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+        """
+        time_offset: pulumi.Input[float]
+        """
+        <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+        """
+        precise: NotRequired[pulumi.Input[bool]]
+        """
+        <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+        """
+elif False:
+    OriginEndpointStartTagArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginEndpointStartTagArgs:
+    def __init__(__self__, *,
+                 time_offset: pulumi.Input[float],
+                 precise: Optional[pulumi.Input[bool]] = None):
+        """
+        <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+        :param pulumi.Input[float] time_offset: <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+        :param pulumi.Input[bool] precise: <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+        """
+        pulumi.set(__self__, "time_offset", time_offset)
+        if precise is not None:
+            pulumi.set(__self__, "precise", precise)
+
+    @property
+    @pulumi.getter(name="timeOffset")
+    def time_offset(self) -> pulumi.Input[float]:
+        """
+        <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+        """
+        return pulumi.get(self, "time_offset")
+
+    @time_offset.setter
+    def time_offset(self, value: pulumi.Input[float]):
+        pulumi.set(self, "time_offset", value)
+
+    @property
+    @pulumi.getter
+    def precise(self) -> Optional[pulumi.Input[bool]]:
+        """
+        <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+        """
+        return pulumi.get(self, "precise")
+
+    @precise.setter
+    def precise(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "precise", value)
 
 

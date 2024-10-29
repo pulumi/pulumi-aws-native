@@ -1133,17 +1133,27 @@ class LogicallyAirGappedBackupVaultNotificationObjectType(dict):
     def __init__(__self__, *,
                  backup_vault_events: Sequence[str],
                  sns_topic_arn: str):
+        """
+        :param Sequence[str] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
+        :param str sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
+        """
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
         pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
 
     @property
     @pulumi.getter(name="backupVaultEvents")
     def backup_vault_events(self) -> Sequence[str]:
+        """
+        An array of events that indicate the status of jobs to back up resources to the backup vault.
+        """
         return pulumi.get(self, "backup_vault_events")
 
     @property
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
+        """
         return pulumi.get(self, "sns_topic_arn")
 
 

@@ -84,6 +84,9 @@ class GetRestoreTestingPlanResult:
     @property
     @pulumi.getter(name="scheduleStatus")
     def schedule_status(self) -> Optional['RestoreTestingPlanRestoreTestingScheduleStatus']:
+        """
+        This parameter is not currently supported.
+        """
         return pulumi.get(self, "schedule_status")
 
     @property

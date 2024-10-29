@@ -106,6 +106,12 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+        /// </summary>
+        [Output("tagPropagation")]
+        public Output<Pulumi.AwsNative.SageMaker.DomainTagPropagation?> TagPropagation { get; private set; } = null!;
+
+        /// <summary>
         /// A list of tags to apply to the user profile.
         /// </summary>
         [Output("tags")]
@@ -236,6 +242,12 @@ namespace Pulumi.AwsNative.SageMaker
             get => _subnetIds ?? (_subnetIds = new InputList<string>());
             set => _subnetIds = value;
         }
+
+        /// <summary>
+        /// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+        /// </summary>
+        [Input("tagPropagation")]
+        public Input<Pulumi.AwsNative.SageMaker.DomainTagPropagation>? TagPropagation { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;

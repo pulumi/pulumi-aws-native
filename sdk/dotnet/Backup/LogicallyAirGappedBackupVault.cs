@@ -16,6 +16,8 @@ namespace Pulumi.AwsNative.Backup
     public partial class LogicallyAirGappedBackupVault : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The backup vault access policy document in JSON format.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         /// </summary>
         [Output("accessPolicy")]
@@ -24,27 +26,50 @@ namespace Pulumi.AwsNative.Backup
         [Output("backupVaultArn")]
         public Output<string> BackupVaultArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+        /// </summary>
         [Output("backupVaultName")]
         public Output<string> BackupVaultName { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to assign to the vault.
+        /// </summary>
         [Output("backupVaultTags")]
         public Output<ImmutableDictionary<string, string>?> BackupVaultTags { get; private set; } = null!;
 
         [Output("encryptionKeyArn")]
         public Output<string> EncryptionKeyArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The maximum retention period that the vault retains its recovery points.
+        /// </summary>
         [Output("maxRetentionDays")]
         public Output<int> MaxRetentionDays { get; private set; } = null!;
 
+        /// <summary>
+        /// This setting specifies the minimum retention period that the vault retains its recovery points.
+        /// 
+        /// The minimum value accepted is 7 days.
+        /// </summary>
         [Output("minRetentionDays")]
         public Output<int> MinRetentionDays { get; private set; } = null!;
 
+        /// <summary>
+        /// Returns event notifications for the specified backup vault.
+        /// </summary>
         [Output("notifications")]
         public Output<Outputs.LogicallyAirGappedBackupVaultNotificationObjectType?> Notifications { get; private set; } = null!;
 
+        /// <summary>
+        /// The current state of the vault.
+        /// </summary>
         [Output("vaultState")]
         public Output<string?> VaultState { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of vault described.
+        /// </summary>
         [Output("vaultType")]
         public Output<string?> VaultType { get; private set; } = null!;
 
@@ -100,34 +125,60 @@ namespace Pulumi.AwsNative.Backup
     public sealed class LogicallyAirGappedBackupVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The backup vault access policy document in JSON format.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         /// </summary>
         [Input("accessPolicy")]
         public Input<object>? AccessPolicy { get; set; }
 
+        /// <summary>
+        /// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+        /// </summary>
         [Input("backupVaultName")]
         public Input<string>? BackupVaultName { get; set; }
 
         [Input("backupVaultTags")]
         private InputMap<string>? _backupVaultTags;
+
+        /// <summary>
+        /// The tags to assign to the vault.
+        /// </summary>
         public InputMap<string> BackupVaultTags
         {
             get => _backupVaultTags ?? (_backupVaultTags = new InputMap<string>());
             set => _backupVaultTags = value;
         }
 
+        /// <summary>
+        /// The maximum retention period that the vault retains its recovery points.
+        /// </summary>
         [Input("maxRetentionDays", required: true)]
         public Input<int> MaxRetentionDays { get; set; } = null!;
 
+        /// <summary>
+        /// This setting specifies the minimum retention period that the vault retains its recovery points.
+        /// 
+        /// The minimum value accepted is 7 days.
+        /// </summary>
         [Input("minRetentionDays", required: true)]
         public Input<int> MinRetentionDays { get; set; } = null!;
 
+        /// <summary>
+        /// Returns event notifications for the specified backup vault.
+        /// </summary>
         [Input("notifications")]
         public Input<Inputs.LogicallyAirGappedBackupVaultNotificationObjectTypeArgs>? Notifications { get; set; }
 
+        /// <summary>
+        /// The current state of the vault.
+        /// </summary>
         [Input("vaultState")]
         public Input<string>? VaultState { get; set; }
 
+        /// <summary>
+        /// The type of vault described.
+        /// </summary>
         [Input("vaultType")]
         public Input<string>? VaultType { get; set; }
 

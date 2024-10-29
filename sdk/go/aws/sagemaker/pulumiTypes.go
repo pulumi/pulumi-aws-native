@@ -7851,6 +7851,8 @@ func (o DomainResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtr
 type DomainSettings struct {
 	// A collection of settings that configure the domain's Docker interaction.
 	DockerSettings *DomainDockerSettings `pulumi:"dockerSettings"`
+	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+	ExecutionRoleIdentityConfig *DomainSettingsExecutionRoleIdentityConfig `pulumi:"executionRoleIdentityConfig"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	RStudioServerProDomainSettings *DomainRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -7872,6 +7874,8 @@ type DomainSettingsInput interface {
 type DomainSettingsArgs struct {
 	// A collection of settings that configure the domain's Docker interaction.
 	DockerSettings DomainDockerSettingsPtrInput `pulumi:"dockerSettings"`
+	// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+	ExecutionRoleIdentityConfig DomainSettingsExecutionRoleIdentityConfigPtrInput `pulumi:"executionRoleIdentityConfig"`
 	// A collection of settings that configure the `RStudioServerPro` Domain-level app.
 	RStudioServerProDomainSettings DomainRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
@@ -7961,6 +7965,13 @@ func (o DomainSettingsOutput) DockerSettings() DomainDockerSettingsPtrOutput {
 	return o.ApplyT(func(v DomainSettings) *DomainDockerSettings { return v.DockerSettings }).(DomainDockerSettingsPtrOutput)
 }
 
+// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+func (o DomainSettingsOutput) ExecutionRoleIdentityConfig() DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return o.ApplyT(func(v DomainSettings) *DomainSettingsExecutionRoleIdentityConfig {
+		return v.ExecutionRoleIdentityConfig
+	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
+}
+
 // A collection of settings that configure the `RStudioServerPro` Domain-level app.
 func (o DomainSettingsOutput) RStudioServerProDomainSettings() DomainRStudioServerProDomainSettingsPtrOutput {
 	return o.ApplyT(func(v DomainSettings) *DomainRStudioServerProDomainSettings { return v.RStudioServerProDomainSettings }).(DomainRStudioServerProDomainSettingsPtrOutput)
@@ -8003,6 +8014,16 @@ func (o DomainSettingsPtrOutput) DockerSettings() DomainDockerSettingsPtrOutput 
 		}
 		return v.DockerSettings
 	}).(DomainDockerSettingsPtrOutput)
+}
+
+// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+func (o DomainSettingsPtrOutput) ExecutionRoleIdentityConfig() DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return o.ApplyT(func(v *DomainSettings) *DomainSettingsExecutionRoleIdentityConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleIdentityConfig
+	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
 }
 
 // A collection of settings that configure the `RStudioServerPro` Domain-level app.

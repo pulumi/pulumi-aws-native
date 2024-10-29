@@ -25,7 +25,9 @@ __all__ = [
     'DomainRStudioServerProAppSettingsAccessStatus',
     'DomainRStudioServerProAppSettingsUserGroup',
     'DomainResourceSpecInstanceType',
+    'DomainSettingsExecutionRoleIdentityConfig',
     'DomainSharingSettingsNotebookOutputOption',
+    'DomainTagPropagation',
     'DomainUserSettingsStudioWebPortal',
     'FeatureGroupFeatureDefinitionFeatureType',
     'FeatureGroupStorageType',
@@ -406,12 +408,28 @@ class DomainResourceSpecInstanceType(str, Enum):
     ML_TRN1N32XLARGE = "ml.trn1n.32xlarge"
 
 
+class DomainSettingsExecutionRoleIdentityConfig(str, Enum):
+    """
+    The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+    """
+    USER_PROFILE_NAME = "USER_PROFILE_NAME"
+    DISABLED = "DISABLED"
+
+
 class DomainSharingSettingsNotebookOutputOption(str, Enum):
     """
     Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
     """
     ALLOWED = "Allowed"
     DISABLED = "Disabled"
+
+
+class DomainTagPropagation(str, Enum):
+    """
+    Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class DomainUserSettingsStudioWebPortal(str, Enum):

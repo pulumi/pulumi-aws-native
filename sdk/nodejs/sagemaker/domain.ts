@@ -98,6 +98,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
+     * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+     */
+    public readonly tagPropagation!: pulumi.Output<enums.sagemaker.DomainTagPropagation | undefined>;
+    /**
      * A list of tags to apply to the user profile.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
@@ -142,6 +146,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["domainSettings"] = args ? args.domainSettings : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tagPropagation"] = args ? args.tagPropagation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["domainArn"] = undefined /*out*/;
@@ -167,6 +172,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["singleSignOnApplicationArn"] = undefined /*out*/;
             resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tagPropagation"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
@@ -218,6 +224,10 @@ export interface DomainArgs {
      * The VPC subnets that Studio uses for communication.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+     */
+    tagPropagation?: pulumi.Input<enums.sagemaker.DomainTagPropagation>;
     /**
      * A list of tags to apply to the user profile.
      */

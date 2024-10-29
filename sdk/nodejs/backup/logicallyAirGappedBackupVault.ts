@@ -38,17 +38,42 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
     }
 
     /**
+     * The backup vault access policy document in JSON format.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
      */
     public readonly accessPolicy!: pulumi.Output<any | undefined>;
     public /*out*/ readonly backupVaultArn!: pulumi.Output<string>;
+    /**
+     * The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+     */
     public readonly backupVaultName!: pulumi.Output<string>;
+    /**
+     * The tags to assign to the vault.
+     */
     public readonly backupVaultTags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly encryptionKeyArn!: pulumi.Output<string>;
+    /**
+     * The maximum retention period that the vault retains its recovery points.
+     */
     public readonly maxRetentionDays!: pulumi.Output<number>;
+    /**
+     * This setting specifies the minimum retention period that the vault retains its recovery points.
+     *
+     * The minimum value accepted is 7 days.
+     */
     public readonly minRetentionDays!: pulumi.Output<number>;
+    /**
+     * Returns event notifications for the specified backup vault.
+     */
     public readonly notifications!: pulumi.Output<outputs.backup.LogicallyAirGappedBackupVaultNotificationObjectType | undefined>;
+    /**
+     * The current state of the vault.
+     */
     public readonly vaultState!: pulumi.Output<string | undefined>;
+    /**
+     * The type of vault described.
+     */
     public readonly vaultType!: pulumi.Output<string | undefined>;
 
     /**
@@ -102,14 +127,39 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
  */
 export interface LogicallyAirGappedBackupVaultArgs {
     /**
+     * The backup vault access policy document in JSON format.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
      */
     accessPolicy?: any;
+    /**
+     * The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+     */
     backupVaultName?: pulumi.Input<string>;
+    /**
+     * The tags to assign to the vault.
+     */
     backupVaultTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The maximum retention period that the vault retains its recovery points.
+     */
     maxRetentionDays: pulumi.Input<number>;
+    /**
+     * This setting specifies the minimum retention period that the vault retains its recovery points.
+     *
+     * The minimum value accepted is 7 days.
+     */
     minRetentionDays: pulumi.Input<number>;
+    /**
+     * Returns event notifications for the specified backup vault.
+     */
     notifications?: pulumi.Input<inputs.backup.LogicallyAirGappedBackupVaultNotificationObjectTypeArgs>;
+    /**
+     * The current state of the vault.
+     */
     vaultState?: pulumi.Input<string>;
+    /**
+     * The type of vault described.
+     */
     vaultType?: pulumi.Input<string>;
 }

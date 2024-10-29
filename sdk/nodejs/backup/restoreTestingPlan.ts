@@ -57,6 +57,9 @@ export class RestoreTestingPlan extends pulumi.CustomResource {
      * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
      */
     public readonly scheduleExpressionTimezone!: pulumi.Output<string | undefined>;
+    /**
+     * This parameter is not currently supported.
+     */
     public readonly scheduleStatus!: pulumi.Output<enums.backup.RestoreTestingPlanRestoreTestingScheduleStatus | undefined>;
     /**
      * Defaults to 24 hours.
@@ -131,6 +134,9 @@ export interface RestoreTestingPlanArgs {
      * Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
      */
     scheduleExpressionTimezone?: pulumi.Input<string>;
+    /**
+     * This parameter is not currently supported.
+     */
     scheduleStatus?: pulumi.Input<enums.backup.RestoreTestingPlanRestoreTestingScheduleStatus>;
     /**
      * Defaults to 24 hours.

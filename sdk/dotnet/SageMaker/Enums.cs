@@ -769,6 +769,37 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainSettingsExecutionRoleIdentityConfig : IEquatable<DomainSettingsExecutionRoleIdentityConfig>
+    {
+        private readonly string _value;
+
+        private DomainSettingsExecutionRoleIdentityConfig(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainSettingsExecutionRoleIdentityConfig UserProfileName { get; } = new DomainSettingsExecutionRoleIdentityConfig("USER_PROFILE_NAME");
+        public static DomainSettingsExecutionRoleIdentityConfig Disabled { get; } = new DomainSettingsExecutionRoleIdentityConfig("DISABLED");
+
+        public static bool operator ==(DomainSettingsExecutionRoleIdentityConfig left, DomainSettingsExecutionRoleIdentityConfig right) => left.Equals(right);
+        public static bool operator !=(DomainSettingsExecutionRoleIdentityConfig left, DomainSettingsExecutionRoleIdentityConfig right) => !left.Equals(right);
+
+        public static explicit operator string(DomainSettingsExecutionRoleIdentityConfig value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainSettingsExecutionRoleIdentityConfig other && Equals(other);
+        public bool Equals(DomainSettingsExecutionRoleIdentityConfig other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
     /// </summary>
     [EnumType]
@@ -792,6 +823,37 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DomainSharingSettingsNotebookOutputOption other && Equals(other);
         public bool Equals(DomainSharingSettingsNotebookOutputOption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainTagPropagation : IEquatable<DomainTagPropagation>
+    {
+        private readonly string _value;
+
+        private DomainTagPropagation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainTagPropagation Enabled { get; } = new DomainTagPropagation("ENABLED");
+        public static DomainTagPropagation Disabled { get; } = new DomainTagPropagation("DISABLED");
+
+        public static bool operator ==(DomainTagPropagation left, DomainTagPropagation right) => left.Equals(right);
+        public static bool operator !=(DomainTagPropagation left, DomainTagPropagation right) => !left.Equals(right);
+
+        public static explicit operator string(DomainTagPropagation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainTagPropagation other && Equals(other);
+        public bool Equals(DomainTagPropagation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

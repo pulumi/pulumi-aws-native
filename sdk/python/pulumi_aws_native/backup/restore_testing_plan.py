@@ -37,6 +37,7 @@ class RestoreTestingPlanArgs:
         :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed.
         :param pulumi.Input[str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
         :param pulumi.Input[str] schedule_expression_timezone: Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        :param pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus'] schedule_status: This parameter is not currently supported.
         :param pulumi.Input[int] start_window_hours: Defaults to 24 hours.
                
                A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
@@ -106,6 +107,9 @@ class RestoreTestingPlanArgs:
     @property
     @pulumi.getter(name="scheduleStatus")
     def schedule_status(self) -> Optional[pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus']]:
+        """
+        This parameter is not currently supported.
+        """
         return pulumi.get(self, "schedule_status")
 
     @schedule_status.setter
@@ -161,6 +165,7 @@ class RestoreTestingPlan(pulumi.CustomResource):
         :param pulumi.Input[str] restore_testing_plan_name: The RestoreTestingPlanName is a unique string that is the name of the restore testing plan. This cannot be changed after creation, and it must consist of only alphanumeric characters and underscores.
         :param pulumi.Input[str] schedule_expression: A CRON expression in specified timezone when a restore testing plan is executed.
         :param pulumi.Input[str] schedule_expression_timezone: Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
+        :param pulumi.Input['RestoreTestingPlanRestoreTestingScheduleStatus'] schedule_status: This parameter is not currently supported.
         :param pulumi.Input[int] start_window_hours: Defaults to 24 hours.
                
                A value in hours after a restore test is scheduled before a job will be canceled if it doesn't start successfully. This value is optional. If this value is included, this parameter has a maximum value of 168 hours (one week).
@@ -295,6 +300,9 @@ class RestoreTestingPlan(pulumi.CustomResource):
     @property
     @pulumi.getter(name="scheduleStatus")
     def schedule_status(self) -> pulumi.Output[Optional['RestoreTestingPlanRestoreTestingScheduleStatus']]:
+        """
+        This parameter is not currently supported.
+        """
         return pulumi.get(self, "schedule_status")
 
     @property

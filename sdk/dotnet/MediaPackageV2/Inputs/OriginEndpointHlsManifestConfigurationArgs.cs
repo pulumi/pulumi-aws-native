@@ -52,6 +52,9 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         [Input("scteHls")]
         public Input<Inputs.OriginEndpointScteHlsArgs>? ScteHls { get; set; }
 
+        [Input("startTag")]
+        public Input<Inputs.OriginEndpointStartTagArgs>? StartTag { get; set; }
+
         /// <summary>
         /// &lt;p&gt;The egress domain URL for stream delivery from MediaPackage.&lt;/p&gt;
         /// </summary>

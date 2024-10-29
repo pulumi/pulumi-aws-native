@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Backup.Inputs
     {
         [Input("backupVaultEvents", required: true)]
         private InputList<string>? _backupVaultEvents;
+
+        /// <summary>
+        /// An array of events that indicate the status of jobs to back up resources to the backup vault.
+        /// </summary>
         public InputList<string> BackupVaultEvents
         {
             get => _backupVaultEvents ?? (_backupVaultEvents = new InputList<string>());
             set => _backupVaultEvents = value;
         }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
+        /// </summary>
         [Input("snsTopicArn", required: true)]
         public Input<string> SnsTopicArn { get; set; } = null!;
 

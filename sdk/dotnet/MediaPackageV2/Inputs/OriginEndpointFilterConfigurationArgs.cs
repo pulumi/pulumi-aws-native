@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     public sealed class OriginEndpointFilterConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// &lt;p&gt;Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.&lt;/p&gt;
+        /// </summary>
+        [Input("clipStartTime")]
+        public Input<string>? ClipStartTime { get; set; }
+
+        /// <summary>
         /// &lt;p&gt;Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.&lt;/p&gt;
         /// </summary>
         [Input("end")]

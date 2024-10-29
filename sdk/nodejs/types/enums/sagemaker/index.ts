@@ -343,6 +343,16 @@ export const DomainResourceSpecInstanceType = {
  */
 export type DomainResourceSpecInstanceType = (typeof DomainResourceSpecInstanceType)[keyof typeof DomainResourceSpecInstanceType];
 
+export const DomainSettingsExecutionRoleIdentityConfig = {
+    UserProfileName: "USER_PROFILE_NAME",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+ */
+export type DomainSettingsExecutionRoleIdentityConfig = (typeof DomainSettingsExecutionRoleIdentityConfig)[keyof typeof DomainSettingsExecutionRoleIdentityConfig];
+
 export const DomainSharingSettingsNotebookOutputOption = {
     Allowed: "Allowed",
     Disabled: "Disabled",
@@ -352,6 +362,16 @@ export const DomainSharingSettingsNotebookOutputOption = {
  * Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
  */
 export type DomainSharingSettingsNotebookOutputOption = (typeof DomainSharingSettingsNotebookOutputOption)[keyof typeof DomainSharingSettingsNotebookOutputOption];
+
+export const DomainTagPropagation = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+ */
+export type DomainTagPropagation = (typeof DomainTagPropagation)[keyof typeof DomainTagPropagation];
 
 export const DomainUserSettingsStudioWebPortal = {
     Enabled: "ENABLED",

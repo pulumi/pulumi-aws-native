@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.DomainDockerSettingsArgs>? DockerSettings { get; set; }
 
         /// <summary>
+        /// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+        /// </summary>
+        [Input("executionRoleIdentityConfig")]
+        public Input<Pulumi.AwsNative.SageMaker.DomainSettingsExecutionRoleIdentityConfig>? ExecutionRoleIdentityConfig { get; set; }
+
+        /// <summary>
         /// A collection of settings that configure the `RStudioServerPro` Domain-level app.
         /// </summary>
         [Input("rStudioServerProDomainSettings")]

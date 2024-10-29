@@ -18,19 +18,36 @@ export function getLogicallyAirGappedBackupVault(args: GetLogicallyAirGappedBack
 }
 
 export interface GetLogicallyAirGappedBackupVaultArgs {
+    /**
+     * The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+     */
     backupVaultName: string;
 }
 
 export interface GetLogicallyAirGappedBackupVaultResult {
     /**
+     * The backup vault access policy document in JSON format.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
      */
     readonly accessPolicy?: any;
     readonly backupVaultArn?: string;
+    /**
+     * The tags to assign to the vault.
+     */
     readonly backupVaultTags?: {[key: string]: string};
     readonly encryptionKeyArn?: string;
+    /**
+     * Returns event notifications for the specified backup vault.
+     */
     readonly notifications?: outputs.backup.LogicallyAirGappedBackupVaultNotificationObjectType;
+    /**
+     * The current state of the vault.
+     */
     readonly vaultState?: string;
+    /**
+     * The type of vault described.
+     */
     readonly vaultType?: string;
 }
 /**
@@ -44,5 +61,8 @@ export function getLogicallyAirGappedBackupVaultOutput(args: GetLogicallyAirGapp
 }
 
 export interface GetLogicallyAirGappedBackupVaultOutputArgs {
+    /**
+     * The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+     */
     backupVaultName: pulumi.Input<string>;
 }

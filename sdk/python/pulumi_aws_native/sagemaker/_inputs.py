@@ -3998,6 +3998,10 @@ if not MYPY:
         """
         A collection of settings that configure the domain's Docker interaction.
         """
+        execution_role_identity_config: NotRequired[pulumi.Input['DomainSettingsExecutionRoleIdentityConfig']]
+        """
+        The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+        """
         r_studio_server_pro_domain_settings: NotRequired[pulumi.Input['DomainRStudioServerProDomainSettingsArgsDict']]
         """
         A collection of settings that configure the `RStudioServerPro` Domain-level app.
@@ -4013,16 +4017,20 @@ elif False:
 class DomainSettingsArgs:
     def __init__(__self__, *,
                  docker_settings: Optional[pulumi.Input['DomainDockerSettingsArgs']] = None,
+                 execution_role_identity_config: Optional[pulumi.Input['DomainSettingsExecutionRoleIdentityConfig']] = None,
                  r_studio_server_pro_domain_settings: Optional[pulumi.Input['DomainRStudioServerProDomainSettingsArgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A collection of Domain settings.
         :param pulumi.Input['DomainDockerSettingsArgs'] docker_settings: A collection of settings that configure the domain's Docker interaction.
+        :param pulumi.Input['DomainSettingsExecutionRoleIdentityConfig'] execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
         :param pulumi.Input['DomainRStudioServerProDomainSettingsArgs'] r_studio_server_pro_domain_settings: A collection of settings that configure the `RStudioServerPro` Domain-level app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
         if docker_settings is not None:
             pulumi.set(__self__, "docker_settings", docker_settings)
+        if execution_role_identity_config is not None:
+            pulumi.set(__self__, "execution_role_identity_config", execution_role_identity_config)
         if r_studio_server_pro_domain_settings is not None:
             pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
@@ -4039,6 +4047,18 @@ class DomainSettingsArgs:
     @docker_settings.setter
     def docker_settings(self, value: Optional[pulumi.Input['DomainDockerSettingsArgs']]):
         pulumi.set(self, "docker_settings", value)
+
+    @property
+    @pulumi.getter(name="executionRoleIdentityConfig")
+    def execution_role_identity_config(self) -> Optional[pulumi.Input['DomainSettingsExecutionRoleIdentityConfig']]:
+        """
+        The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+        """
+        return pulumi.get(self, "execution_role_identity_config")
+
+    @execution_role_identity_config.setter
+    def execution_role_identity_config(self, value: Optional[pulumi.Input['DomainSettingsExecutionRoleIdentityConfig']]):
+        pulumi.set(self, "execution_role_identity_config", value)
 
     @property
     @pulumi.getter(name="rStudioServerProDomainSettings")

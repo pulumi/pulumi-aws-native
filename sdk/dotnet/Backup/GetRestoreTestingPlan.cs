@@ -73,6 +73,9 @@ namespace Pulumi.AwsNative.Backup
         /// Optional. This is the timezone in which the schedule expression is set. By default, ScheduleExpressions are in UTC. You can modify this to a specified timezone.
         /// </summary>
         public readonly string? ScheduleExpressionTimezone;
+        /// <summary>
+        /// This parameter is not currently supported.
+        /// </summary>
         public readonly Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingScheduleStatus? ScheduleStatus;
         /// <summary>
         /// Defaults to 24 hours.

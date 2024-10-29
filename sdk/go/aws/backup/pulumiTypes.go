@@ -2202,8 +2202,10 @@ func (o FrameworkTagArrayOutput) Index(i pulumi.IntInput) FrameworkTagOutput {
 }
 
 type LogicallyAirGappedBackupVaultNotificationObjectType struct {
+	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents []string `pulumi:"backupVaultEvents"`
-	SnsTopicArn       string   `pulumi:"snsTopicArn"`
+	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
+	SnsTopicArn string `pulumi:"snsTopicArn"`
 }
 
 // LogicallyAirGappedBackupVaultNotificationObjectTypeInput is an input type that accepts LogicallyAirGappedBackupVaultNotificationObjectTypeArgs and LogicallyAirGappedBackupVaultNotificationObjectTypeOutput values.
@@ -2218,8 +2220,10 @@ type LogicallyAirGappedBackupVaultNotificationObjectTypeInput interface {
 }
 
 type LogicallyAirGappedBackupVaultNotificationObjectTypeArgs struct {
+	// An array of events that indicate the status of jobs to back up resources to the backup vault.
 	BackupVaultEvents pulumi.StringArrayInput `pulumi:"backupVaultEvents"`
-	SnsTopicArn       pulumi.StringInput      `pulumi:"snsTopicArn"`
+	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
+	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
 }
 
 func (LogicallyAirGappedBackupVaultNotificationObjectTypeArgs) ElementType() reflect.Type {
@@ -2299,10 +2303,12 @@ func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) ToLogicallyAi
 	}).(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput)
 }
 
+// An array of events that indicate the status of jobs to back up resources to the backup vault.
 func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LogicallyAirGappedBackupVaultNotificationObjectType) []string { return v.BackupVaultEvents }).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
 func (o LogicallyAirGappedBackupVaultNotificationObjectTypeOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LogicallyAirGappedBackupVaultNotificationObjectType) string { return v.SnsTopicArn }).(pulumi.StringOutput)
 }
@@ -2331,6 +2337,7 @@ func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) Elem() Log
 	}).(LogicallyAirGappedBackupVaultNotificationObjectTypeOutput)
 }
 
+// An array of events that indicate the status of jobs to back up resources to the backup vault.
 func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) BackupVaultEvents() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVaultNotificationObjectType) []string {
 		if v == nil {
@@ -2340,6 +2347,7 @@ func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) BackupVaul
 	}).(pulumi.StringArrayOutput)
 }
 
+// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for example, `arn:aws:sns:us-west-2:111122223333:MyVaultTopic` .
 func (o LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVaultNotificationObjectType) *string {
 		if v == nil {

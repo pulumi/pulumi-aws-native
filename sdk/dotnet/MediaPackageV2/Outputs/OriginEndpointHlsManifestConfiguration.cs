@@ -41,6 +41,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         /// </summary>
         public readonly Outputs.OriginEndpointScteHls? ScteHls;
+        public readonly Outputs.OriginEndpointStartTag? StartTag;
         /// <summary>
         /// &lt;p&gt;The egress domain URL for stream delivery from MediaPackage.&lt;/p&gt;
         /// </summary>
@@ -60,6 +61,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             Outputs.OriginEndpointScteHls? scteHls,
 
+            Outputs.OriginEndpointStartTag? startTag,
+
             string? url)
         {
             ChildManifestName = childManifestName;
@@ -68,6 +71,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
             ManifestWindowSeconds = manifestWindowSeconds;
             ProgramDateTimeIntervalSeconds = programDateTimeIntervalSeconds;
             ScteHls = scteHls;
+            StartTag = startTag;
             Url = url;
         }
     }

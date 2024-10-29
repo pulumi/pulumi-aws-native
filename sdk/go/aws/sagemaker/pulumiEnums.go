@@ -3677,6 +3677,172 @@ func (in *domainResourceSpecInstanceTypePtr) ToDomainResourceSpecInstanceTypePtr
 	return pulumi.ToOutputWithContext(ctx, in).(DomainResourceSpecInstanceTypePtrOutput)
 }
 
+// The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key.
+type DomainSettingsExecutionRoleIdentityConfig string
+
+const (
+	DomainSettingsExecutionRoleIdentityConfigUserProfileName = DomainSettingsExecutionRoleIdentityConfig("USER_PROFILE_NAME")
+	DomainSettingsExecutionRoleIdentityConfigDisabled        = DomainSettingsExecutionRoleIdentityConfig("DISABLED")
+)
+
+func (DomainSettingsExecutionRoleIdentityConfig) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSettingsExecutionRoleIdentityConfig)(nil)).Elem()
+}
+
+func (e DomainSettingsExecutionRoleIdentityConfig) ToDomainSettingsExecutionRoleIdentityConfigOutput() DomainSettingsExecutionRoleIdentityConfigOutput {
+	return pulumi.ToOutput(e).(DomainSettingsExecutionRoleIdentityConfigOutput)
+}
+
+func (e DomainSettingsExecutionRoleIdentityConfig) ToDomainSettingsExecutionRoleIdentityConfigOutputWithContext(ctx context.Context) DomainSettingsExecutionRoleIdentityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainSettingsExecutionRoleIdentityConfigOutput)
+}
+
+func (e DomainSettingsExecutionRoleIdentityConfig) ToDomainSettingsExecutionRoleIdentityConfigPtrOutput() DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return e.ToDomainSettingsExecutionRoleIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (e DomainSettingsExecutionRoleIdentityConfig) ToDomainSettingsExecutionRoleIdentityConfigPtrOutputWithContext(ctx context.Context) DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return DomainSettingsExecutionRoleIdentityConfig(e).ToDomainSettingsExecutionRoleIdentityConfigOutputWithContext(ctx).ToDomainSettingsExecutionRoleIdentityConfigPtrOutputWithContext(ctx)
+}
+
+func (e DomainSettingsExecutionRoleIdentityConfig) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainSettingsExecutionRoleIdentityConfig) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainSettingsExecutionRoleIdentityConfig) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainSettingsExecutionRoleIdentityConfig) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainSettingsExecutionRoleIdentityConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainSettingsExecutionRoleIdentityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSettingsExecutionRoleIdentityConfig)(nil)).Elem()
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigOutput) ToDomainSettingsExecutionRoleIdentityConfigOutput() DomainSettingsExecutionRoleIdentityConfigOutput {
+	return o
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigOutput) ToDomainSettingsExecutionRoleIdentityConfigOutputWithContext(ctx context.Context) DomainSettingsExecutionRoleIdentityConfigOutput {
+	return o
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigOutput) ToDomainSettingsExecutionRoleIdentityConfigPtrOutput() DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return o.ToDomainSettingsExecutionRoleIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigOutput) ToDomainSettingsExecutionRoleIdentityConfigPtrOutputWithContext(ctx context.Context) DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSettingsExecutionRoleIdentityConfig) *DomainSettingsExecutionRoleIdentityConfig {
+		return &v
+	}).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainSettingsExecutionRoleIdentityConfig) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainSettingsExecutionRoleIdentityConfig) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainSettingsExecutionRoleIdentityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSettingsExecutionRoleIdentityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSettingsExecutionRoleIdentityConfig)(nil)).Elem()
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigPtrOutput) ToDomainSettingsExecutionRoleIdentityConfigPtrOutput() DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return o
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigPtrOutput) ToDomainSettingsExecutionRoleIdentityConfigPtrOutputWithContext(ctx context.Context) DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return o
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigPtrOutput) Elem() DomainSettingsExecutionRoleIdentityConfigOutput {
+	return o.ApplyT(func(v *DomainSettingsExecutionRoleIdentityConfig) DomainSettingsExecutionRoleIdentityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSettingsExecutionRoleIdentityConfig
+		return ret
+	}).(DomainSettingsExecutionRoleIdentityConfigOutput)
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSettingsExecutionRoleIdentityConfigPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainSettingsExecutionRoleIdentityConfig) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainSettingsExecutionRoleIdentityConfigInput is an input type that accepts values of the DomainSettingsExecutionRoleIdentityConfig enum
+// A concrete instance of `DomainSettingsExecutionRoleIdentityConfigInput` can be one of the following:
+//
+//	DomainSettingsExecutionRoleIdentityConfigUserProfileName
+//	DomainSettingsExecutionRoleIdentityConfigDisabled
+type DomainSettingsExecutionRoleIdentityConfigInput interface {
+	pulumi.Input
+
+	ToDomainSettingsExecutionRoleIdentityConfigOutput() DomainSettingsExecutionRoleIdentityConfigOutput
+	ToDomainSettingsExecutionRoleIdentityConfigOutputWithContext(context.Context) DomainSettingsExecutionRoleIdentityConfigOutput
+}
+
+var domainSettingsExecutionRoleIdentityConfigPtrType = reflect.TypeOf((**DomainSettingsExecutionRoleIdentityConfig)(nil)).Elem()
+
+type DomainSettingsExecutionRoleIdentityConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainSettingsExecutionRoleIdentityConfigPtrOutput() DomainSettingsExecutionRoleIdentityConfigPtrOutput
+	ToDomainSettingsExecutionRoleIdentityConfigPtrOutputWithContext(context.Context) DomainSettingsExecutionRoleIdentityConfigPtrOutput
+}
+
+type domainSettingsExecutionRoleIdentityConfigPtr string
+
+func DomainSettingsExecutionRoleIdentityConfigPtr(v string) DomainSettingsExecutionRoleIdentityConfigPtrInput {
+	return (*domainSettingsExecutionRoleIdentityConfigPtr)(&v)
+}
+
+func (*domainSettingsExecutionRoleIdentityConfigPtr) ElementType() reflect.Type {
+	return domainSettingsExecutionRoleIdentityConfigPtrType
+}
+
+func (in *domainSettingsExecutionRoleIdentityConfigPtr) ToDomainSettingsExecutionRoleIdentityConfigPtrOutput() DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return pulumi.ToOutput(in).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
+}
+
+func (in *domainSettingsExecutionRoleIdentityConfigPtr) ToDomainSettingsExecutionRoleIdentityConfigPtrOutputWithContext(ctx context.Context) DomainSettingsExecutionRoleIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainSettingsExecutionRoleIdentityConfigPtrOutput)
+}
+
 // Whether to include the notebook cell output when sharing the notebook. The default is Disabled.
 type DomainSharingSettingsNotebookOutputOption string
 
@@ -3841,6 +4007,172 @@ func (in *domainSharingSettingsNotebookOutputOptionPtr) ToDomainSharingSettingsN
 
 func (in *domainSharingSettingsNotebookOutputOptionPtr) ToDomainSharingSettingsNotebookOutputOptionPtrOutputWithContext(ctx context.Context) DomainSharingSettingsNotebookOutputOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DomainSharingSettingsNotebookOutputOptionPtrOutput)
+}
+
+// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+type DomainTagPropagation string
+
+const (
+	DomainTagPropagationEnabled  = DomainTagPropagation("ENABLED")
+	DomainTagPropagationDisabled = DomainTagPropagation("DISABLED")
+)
+
+func (DomainTagPropagation) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTagPropagation)(nil)).Elem()
+}
+
+func (e DomainTagPropagation) ToDomainTagPropagationOutput() DomainTagPropagationOutput {
+	return pulumi.ToOutput(e).(DomainTagPropagationOutput)
+}
+
+func (e DomainTagPropagation) ToDomainTagPropagationOutputWithContext(ctx context.Context) DomainTagPropagationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainTagPropagationOutput)
+}
+
+func (e DomainTagPropagation) ToDomainTagPropagationPtrOutput() DomainTagPropagationPtrOutput {
+	return e.ToDomainTagPropagationPtrOutputWithContext(context.Background())
+}
+
+func (e DomainTagPropagation) ToDomainTagPropagationPtrOutputWithContext(ctx context.Context) DomainTagPropagationPtrOutput {
+	return DomainTagPropagation(e).ToDomainTagPropagationOutputWithContext(ctx).ToDomainTagPropagationPtrOutputWithContext(ctx)
+}
+
+func (e DomainTagPropagation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainTagPropagation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainTagPropagation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainTagPropagation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainTagPropagationOutput struct{ *pulumi.OutputState }
+
+func (DomainTagPropagationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainTagPropagation)(nil)).Elem()
+}
+
+func (o DomainTagPropagationOutput) ToDomainTagPropagationOutput() DomainTagPropagationOutput {
+	return o
+}
+
+func (o DomainTagPropagationOutput) ToDomainTagPropagationOutputWithContext(ctx context.Context) DomainTagPropagationOutput {
+	return o
+}
+
+func (o DomainTagPropagationOutput) ToDomainTagPropagationPtrOutput() DomainTagPropagationPtrOutput {
+	return o.ToDomainTagPropagationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainTagPropagationOutput) ToDomainTagPropagationPtrOutputWithContext(ctx context.Context) DomainTagPropagationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainTagPropagation) *DomainTagPropagation {
+		return &v
+	}).(DomainTagPropagationPtrOutput)
+}
+
+func (o DomainTagPropagationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainTagPropagationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainTagPropagation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainTagPropagationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainTagPropagationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainTagPropagation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainTagPropagationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainTagPropagationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainTagPropagation)(nil)).Elem()
+}
+
+func (o DomainTagPropagationPtrOutput) ToDomainTagPropagationPtrOutput() DomainTagPropagationPtrOutput {
+	return o
+}
+
+func (o DomainTagPropagationPtrOutput) ToDomainTagPropagationPtrOutputWithContext(ctx context.Context) DomainTagPropagationPtrOutput {
+	return o
+}
+
+func (o DomainTagPropagationPtrOutput) Elem() DomainTagPropagationOutput {
+	return o.ApplyT(func(v *DomainTagPropagation) DomainTagPropagation {
+		if v != nil {
+			return *v
+		}
+		var ret DomainTagPropagation
+		return ret
+	}).(DomainTagPropagationOutput)
+}
+
+func (o DomainTagPropagationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainTagPropagationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainTagPropagation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainTagPropagationInput is an input type that accepts values of the DomainTagPropagation enum
+// A concrete instance of `DomainTagPropagationInput` can be one of the following:
+//
+//	DomainTagPropagationEnabled
+//	DomainTagPropagationDisabled
+type DomainTagPropagationInput interface {
+	pulumi.Input
+
+	ToDomainTagPropagationOutput() DomainTagPropagationOutput
+	ToDomainTagPropagationOutputWithContext(context.Context) DomainTagPropagationOutput
+}
+
+var domainTagPropagationPtrType = reflect.TypeOf((**DomainTagPropagation)(nil)).Elem()
+
+type DomainTagPropagationPtrInput interface {
+	pulumi.Input
+
+	ToDomainTagPropagationPtrOutput() DomainTagPropagationPtrOutput
+	ToDomainTagPropagationPtrOutputWithContext(context.Context) DomainTagPropagationPtrOutput
+}
+
+type domainTagPropagationPtr string
+
+func DomainTagPropagationPtr(v string) DomainTagPropagationPtrInput {
+	return (*domainTagPropagationPtr)(&v)
+}
+
+func (*domainTagPropagationPtr) ElementType() reflect.Type {
+	return domainTagPropagationPtrType
+}
+
+func (in *domainTagPropagationPtr) ToDomainTagPropagationPtrOutput() DomainTagPropagationPtrOutput {
+	return pulumi.ToOutput(in).(DomainTagPropagationPtrOutput)
+}
+
+func (in *domainTagPropagationPtr) ToDomainTagPropagationPtrOutputWithContext(ctx context.Context) DomainTagPropagationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainTagPropagationPtrOutput)
 }
 
 // Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
@@ -16442,8 +16774,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRStudioServerProAppSettingsUserGroupPtrInput)(nil)).Elem(), DomainRStudioServerProAppSettingsUserGroup("R_STUDIO_ADMIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInstanceTypeInput)(nil)).Elem(), DomainResourceSpecInstanceType("system"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainResourceSpecInstanceTypePtrInput)(nil)).Elem(), DomainResourceSpecInstanceType("system"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsExecutionRoleIdentityConfigInput)(nil)).Elem(), DomainSettingsExecutionRoleIdentityConfig("USER_PROFILE_NAME"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSettingsExecutionRoleIdentityConfigPtrInput)(nil)).Elem(), DomainSettingsExecutionRoleIdentityConfig("USER_PROFILE_NAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSharingSettingsNotebookOutputOptionPtrInput)(nil)).Elem(), DomainSharingSettingsNotebookOutputOption("Allowed"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagPropagationInput)(nil)).Elem(), DomainTagPropagation("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainTagPropagationPtrInput)(nil)).Elem(), DomainTagPropagation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainUserSettingsStudioWebPortalPtrInput)(nil)).Elem(), DomainUserSettingsStudioWebPortal("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionFeatureTypeInput)(nil)).Elem(), FeatureGroupFeatureDefinitionFeatureType("Integral"))
@@ -16627,8 +16963,12 @@ func init() {
 	pulumi.RegisterOutputType(DomainRStudioServerProAppSettingsUserGroupPtrOutput{})
 	pulumi.RegisterOutputType(DomainResourceSpecInstanceTypeOutput{})
 	pulumi.RegisterOutputType(DomainResourceSpecInstanceTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainSettingsExecutionRoleIdentityConfigOutput{})
+	pulumi.RegisterOutputType(DomainSettingsExecutionRoleIdentityConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionOutput{})
 	pulumi.RegisterOutputType(DomainSharingSettingsNotebookOutputOptionPtrOutput{})
+	pulumi.RegisterOutputType(DomainTagPropagationOutput{})
+	pulumi.RegisterOutputType(DomainTagPropagationPtrOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalOutput{})
 	pulumi.RegisterOutputType(DomainUserSettingsStudioWebPortalPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionFeatureTypeOutput{})

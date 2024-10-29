@@ -45,6 +45,9 @@ namespace Pulumi.AwsNative.Backup
         [Output("scheduleExpressionTimezone")]
         public Output<string?> ScheduleExpressionTimezone { get; private set; } = null!;
 
+        /// <summary>
+        /// This parameter is not currently supported.
+        /// </summary>
         [Output("scheduleStatus")]
         public Output<Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingScheduleStatus?> ScheduleStatus { get; private set; } = null!;
 
@@ -135,6 +138,9 @@ namespace Pulumi.AwsNative.Backup
         [Input("scheduleExpressionTimezone")]
         public Input<string>? ScheduleExpressionTimezone { get; set; }
 
+        /// <summary>
+        /// This parameter is not currently supported.
+        /// </summary>
         [Input("scheduleStatus")]
         public Input<Pulumi.AwsNative.Backup.RestoreTestingPlanRestoreTestingScheduleStatus>? ScheduleStatus { get; set; }
 

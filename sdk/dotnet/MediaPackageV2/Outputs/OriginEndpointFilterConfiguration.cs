@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
     public sealed class OriginEndpointFilterConfiguration
     {
         /// <summary>
+        /// &lt;p&gt;Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.&lt;/p&gt;
+        /// </summary>
+        public readonly string? ClipStartTime;
+        /// <summary>
         /// &lt;p&gt;Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.&lt;/p&gt;
         /// </summary>
         public readonly string? End;
@@ -35,6 +39,8 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
         [OutputConstructor]
         private OriginEndpointFilterConfiguration(
+            string? clipStartTime,
+
             string? end,
 
             string? manifestFilter,
@@ -43,6 +49,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
 
             int? timeDelaySeconds)
         {
+            ClipStartTime = clipStartTime;
             End = end;
             ManifestFilter = manifestFilter;
             Start = start;

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetLogicallyAirGappedBackupVaultArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+        /// </summary>
         [Input("backupVaultName", required: true)]
         public string BackupVaultName { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Backup
 
     public sealed class GetLogicallyAirGappedBackupVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+        /// </summary>
         [Input("backupVaultName", required: true)]
         public Input<string> BackupVaultName { get; set; } = null!;
 
@@ -52,14 +58,28 @@ namespace Pulumi.AwsNative.Backup
     public sealed class GetLogicallyAirGappedBackupVaultResult
     {
         /// <summary>
+        /// The backup vault access policy document in JSON format.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? AccessPolicy;
         public readonly string? BackupVaultArn;
+        /// <summary>
+        /// The tags to assign to the vault.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? BackupVaultTags;
         public readonly string? EncryptionKeyArn;
+        /// <summary>
+        /// Returns event notifications for the specified backup vault.
+        /// </summary>
         public readonly Outputs.LogicallyAirGappedBackupVaultNotificationObjectType? Notifications;
+        /// <summary>
+        /// The current state of the vault.
+        /// </summary>
         public readonly string? VaultState;
+        /// <summary>
+        /// The type of vault described.
+        /// </summary>
         public readonly string? VaultType;
 
         [OutputConstructor]

@@ -51,6 +51,8 @@ class GetLogicallyAirGappedBackupVaultResult:
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[Any]:
         """
+        The backup vault access policy document in JSON format.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "access_policy")
@@ -63,6 +65,9 @@ class GetLogicallyAirGappedBackupVaultResult:
     @property
     @pulumi.getter(name="backupVaultTags")
     def backup_vault_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags to assign to the vault.
+        """
         return pulumi.get(self, "backup_vault_tags")
 
     @property
@@ -73,16 +78,25 @@ class GetLogicallyAirGappedBackupVaultResult:
     @property
     @pulumi.getter
     def notifications(self) -> Optional['outputs.LogicallyAirGappedBackupVaultNotificationObjectType']:
+        """
+        Returns event notifications for the specified backup vault.
+        """
         return pulumi.get(self, "notifications")
 
     @property
     @pulumi.getter(name="vaultState")
     def vault_state(self) -> Optional[str]:
+        """
+        The current state of the vault.
+        """
         return pulumi.get(self, "vault_state")
 
     @property
     @pulumi.getter(name="vaultType")
     def vault_type(self) -> Optional[str]:
+        """
+        The type of vault described.
+        """
         return pulumi.get(self, "vault_type")
 
 
@@ -105,6 +119,9 @@ def get_logically_air_gapped_backup_vault(backup_vault_name: Optional[str] = Non
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLogicallyAirGappedBackupVaultResult:
     """
     Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
+
+
+    :param str backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
     """
     __args__ = dict()
     __args__['backupVaultName'] = backup_vault_name
@@ -123,6 +140,9 @@ def get_logically_air_gapped_backup_vault_output(backup_vault_name: Optional[pul
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogicallyAirGappedBackupVaultResult]:
     """
     Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
+
+
+    :param str backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
     """
     __args__ = dict()
     __args__['backupVaultName'] = backup_vault_name

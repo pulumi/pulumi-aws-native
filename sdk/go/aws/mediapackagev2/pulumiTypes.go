@@ -985,6 +985,8 @@ func (o OriginEndpointEncryptionMethodPtrOutput) TsEncryptionMethod() OriginEndp
 
 // <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
 type OriginEndpointFilterConfiguration struct {
+	// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+	ClipStartTime *string `pulumi:"clipStartTime"`
 	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
 	End *string `pulumi:"end"`
 	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
@@ -1008,6 +1010,8 @@ type OriginEndpointFilterConfigurationInput interface {
 
 // <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
 type OriginEndpointFilterConfigurationArgs struct {
+	// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+	ClipStartTime pulumi.StringPtrInput `pulumi:"clipStartTime"`
 	// <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
@@ -1096,6 +1100,11 @@ func (o OriginEndpointFilterConfigurationOutput) ToOriginEndpointFilterConfigura
 	}).(OriginEndpointFilterConfigurationPtrOutput)
 }
 
+// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointFilterConfigurationOutput) ClipStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OriginEndpointFilterConfiguration) *string { return v.ClipStartTime }).(pulumi.StringPtrOutput)
+}
+
 // <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
 func (o OriginEndpointFilterConfigurationOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointFilterConfiguration) *string { return v.End }).(pulumi.StringPtrOutput)
@@ -1138,6 +1147,16 @@ func (o OriginEndpointFilterConfigurationPtrOutput) Elem() OriginEndpointFilterC
 		var ret OriginEndpointFilterConfiguration
 		return ret
 	}).(OriginEndpointFilterConfigurationOutput)
+}
+
+// <p>Optionally specify the clip start time for all of your manifest egress requests. When you include clip start time, note that you cannot use clip start time query parameters for this manifest's endpoint URL.</p>
+func (o OriginEndpointFilterConfigurationPtrOutput) ClipStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointFilterConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClipStartTime
+	}).(pulumi.StringPtrOutput)
 }
 
 // <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
@@ -1396,7 +1415,8 @@ type OriginEndpointHlsManifestConfiguration struct {
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
 	// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
-	ScteHls *OriginEndpointScteHls `pulumi:"scteHls"`
+	ScteHls  *OriginEndpointScteHls  `pulumi:"scteHls"`
+	StartTag *OriginEndpointStartTag `pulumi:"startTag"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url *string `pulumi:"url"`
 }
@@ -1428,7 +1448,8 @@ type OriginEndpointHlsManifestConfigurationArgs struct {
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
 	// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
-	ScteHls OriginEndpointScteHlsPtrInput `pulumi:"scteHls"`
+	ScteHls  OriginEndpointScteHlsPtrInput  `pulumi:"scteHls"`
+	StartTag OriginEndpointStartTagPtrInput `pulumi:"startTag"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
@@ -1521,6 +1542,10 @@ func (o OriginEndpointHlsManifestConfigurationOutput) ScteHls() OriginEndpointSc
 	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *OriginEndpointScteHls { return v.ScteHls }).(OriginEndpointScteHlsPtrOutput)
 }
 
+func (o OriginEndpointHlsManifestConfigurationOutput) StartTag() OriginEndpointStartTagPtrOutput {
+	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *OriginEndpointStartTag { return v.StartTag }).(OriginEndpointStartTagPtrOutput)
+}
+
 // <p>The egress domain URL for stream delivery from MediaPackage.</p>
 func (o OriginEndpointHlsManifestConfigurationOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsManifestConfiguration) *string { return v.Url }).(pulumi.StringPtrOutput)
@@ -1562,7 +1587,8 @@ type OriginEndpointLowLatencyHlsManifestConfiguration struct {
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
 	// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
-	ScteHls *OriginEndpointScteHls `pulumi:"scteHls"`
+	ScteHls  *OriginEndpointScteHls  `pulumi:"scteHls"`
+	StartTag *OriginEndpointStartTag `pulumi:"startTag"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url *string `pulumi:"url"`
 }
@@ -1594,7 +1620,8 @@ type OriginEndpointLowLatencyHlsManifestConfigurationArgs struct {
 	//          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
 	// The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
-	ScteHls OriginEndpointScteHlsPtrInput `pulumi:"scteHls"`
+	ScteHls  OriginEndpointScteHlsPtrInput  `pulumi:"scteHls"`
+	StartTag OriginEndpointStartTagPtrInput `pulumi:"startTag"`
 	// <p>The egress domain URL for stream delivery from MediaPackage.</p>
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
@@ -1685,6 +1712,10 @@ func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ProgramDateTimeI
 // The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
 func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) ScteHls() OriginEndpointScteHlsPtrOutput {
 	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *OriginEndpointScteHls { return v.ScteHls }).(OriginEndpointScteHlsPtrOutput)
+}
+
+func (o OriginEndpointLowLatencyHlsManifestConfigurationOutput) StartTag() OriginEndpointStartTagPtrOutput {
+	return o.ApplyT(func(v OriginEndpointLowLatencyHlsManifestConfiguration) *OriginEndpointStartTag { return v.StartTag }).(OriginEndpointStartTagPtrOutput)
 }
 
 // <p>The egress domain URL for stream delivery from MediaPackage.</p>
@@ -2654,6 +2685,165 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+type OriginEndpointStartTag struct {
+	// <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+	Precise *bool `pulumi:"precise"`
+	// <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+	TimeOffset float64 `pulumi:"timeOffset"`
+}
+
+// OriginEndpointStartTagInput is an input type that accepts OriginEndpointStartTagArgs and OriginEndpointStartTagOutput values.
+// You can construct a concrete instance of `OriginEndpointStartTagInput` via:
+//
+//	OriginEndpointStartTagArgs{...}
+type OriginEndpointStartTagInput interface {
+	pulumi.Input
+
+	ToOriginEndpointStartTagOutput() OriginEndpointStartTagOutput
+	ToOriginEndpointStartTagOutputWithContext(context.Context) OriginEndpointStartTagOutput
+}
+
+// <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+type OriginEndpointStartTagArgs struct {
+	// <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+	Precise pulumi.BoolPtrInput `pulumi:"precise"`
+	// <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+	TimeOffset pulumi.Float64Input `pulumi:"timeOffset"`
+}
+
+func (OriginEndpointStartTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointStartTag)(nil)).Elem()
+}
+
+func (i OriginEndpointStartTagArgs) ToOriginEndpointStartTagOutput() OriginEndpointStartTagOutput {
+	return i.ToOriginEndpointStartTagOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointStartTagArgs) ToOriginEndpointStartTagOutputWithContext(ctx context.Context) OriginEndpointStartTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointStartTagOutput)
+}
+
+func (i OriginEndpointStartTagArgs) ToOriginEndpointStartTagPtrOutput() OriginEndpointStartTagPtrOutput {
+	return i.ToOriginEndpointStartTagPtrOutputWithContext(context.Background())
+}
+
+func (i OriginEndpointStartTagArgs) ToOriginEndpointStartTagPtrOutputWithContext(ctx context.Context) OriginEndpointStartTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointStartTagOutput).ToOriginEndpointStartTagPtrOutputWithContext(ctx)
+}
+
+// OriginEndpointStartTagPtrInput is an input type that accepts OriginEndpointStartTagArgs, OriginEndpointStartTagPtr and OriginEndpointStartTagPtrOutput values.
+// You can construct a concrete instance of `OriginEndpointStartTagPtrInput` via:
+//
+//	        OriginEndpointStartTagArgs{...}
+//
+//	or:
+//
+//	        nil
+type OriginEndpointStartTagPtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointStartTagPtrOutput() OriginEndpointStartTagPtrOutput
+	ToOriginEndpointStartTagPtrOutputWithContext(context.Context) OriginEndpointStartTagPtrOutput
+}
+
+type originEndpointStartTagPtrType OriginEndpointStartTagArgs
+
+func OriginEndpointStartTagPtr(v *OriginEndpointStartTagArgs) OriginEndpointStartTagPtrInput {
+	return (*originEndpointStartTagPtrType)(v)
+}
+
+func (*originEndpointStartTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointStartTag)(nil)).Elem()
+}
+
+func (i *originEndpointStartTagPtrType) ToOriginEndpointStartTagPtrOutput() OriginEndpointStartTagPtrOutput {
+	return i.ToOriginEndpointStartTagPtrOutputWithContext(context.Background())
+}
+
+func (i *originEndpointStartTagPtrType) ToOriginEndpointStartTagPtrOutputWithContext(ctx context.Context) OriginEndpointStartTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OriginEndpointStartTagPtrOutput)
+}
+
+// <p>To insert an EXT-X-START tag in your HLS playlist, specify a StartTag configuration object with a valid TimeOffset. When you do, you can also optionally specify whether to include a PRECISE value in the EXT-X-START tag.</p>
+type OriginEndpointStartTagOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointStartTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointStartTag)(nil)).Elem()
+}
+
+func (o OriginEndpointStartTagOutput) ToOriginEndpointStartTagOutput() OriginEndpointStartTagOutput {
+	return o
+}
+
+func (o OriginEndpointStartTagOutput) ToOriginEndpointStartTagOutputWithContext(ctx context.Context) OriginEndpointStartTagOutput {
+	return o
+}
+
+func (o OriginEndpointStartTagOutput) ToOriginEndpointStartTagPtrOutput() OriginEndpointStartTagPtrOutput {
+	return o.ToOriginEndpointStartTagPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointStartTagOutput) ToOriginEndpointStartTagPtrOutputWithContext(ctx context.Context) OriginEndpointStartTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointStartTag) *OriginEndpointStartTag {
+		return &v
+	}).(OriginEndpointStartTagPtrOutput)
+}
+
+// <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+func (o OriginEndpointStartTagOutput) Precise() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OriginEndpointStartTag) *bool { return v.Precise }).(pulumi.BoolPtrOutput)
+}
+
+// <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+func (o OriginEndpointStartTagOutput) TimeOffset() pulumi.Float64Output {
+	return o.ApplyT(func(v OriginEndpointStartTag) float64 { return v.TimeOffset }).(pulumi.Float64Output)
+}
+
+type OriginEndpointStartTagPtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointStartTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointStartTag)(nil)).Elem()
+}
+
+func (o OriginEndpointStartTagPtrOutput) ToOriginEndpointStartTagPtrOutput() OriginEndpointStartTagPtrOutput {
+	return o
+}
+
+func (o OriginEndpointStartTagPtrOutput) ToOriginEndpointStartTagPtrOutputWithContext(ctx context.Context) OriginEndpointStartTagPtrOutput {
+	return o
+}
+
+func (o OriginEndpointStartTagPtrOutput) Elem() OriginEndpointStartTagOutput {
+	return o.ApplyT(func(v *OriginEndpointStartTag) OriginEndpointStartTag {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointStartTag
+		return ret
+	}).(OriginEndpointStartTagOutput)
+}
+
+// <p>Specify the value for PRECISE within your EXT-X-START tag. Leave blank, or choose false, to use the default value NO. Choose yes to use the value YES.</p>
+func (o OriginEndpointStartTagPtrOutput) Precise() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OriginEndpointStartTag) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Precise
+	}).(pulumi.BoolPtrOutput)
+}
+
+// <p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>
+func (o OriginEndpointStartTagPtrOutput) TimeOffset() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *OriginEndpointStartTag) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeOffset
+	}).(pulumi.Float64PtrOutput)
+}
+
 type OriginEndpointTag struct {
 	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
@@ -2688,6 +2878,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSegmentPtrInput)(nil)).Elem(), OriginEndpointSegmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSpekeKeyProviderInput)(nil)).Elem(), OriginEndpointSpekeKeyProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointSpekeKeyProviderPtrInput)(nil)).Elem(), OriginEndpointSpekeKeyProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointStartTagInput)(nil)).Elem(), OriginEndpointStartTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointStartTagPtrInput)(nil)).Elem(), OriginEndpointStartTagArgs{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointOutput{})
 	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashManifestConfigurationOutput{})
@@ -2718,4 +2910,6 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointSegmentPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointSpekeKeyProviderOutput{})
 	pulumi.RegisterOutputType(OriginEndpointSpekeKeyProviderPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointStartTagOutput{})
+	pulumi.RegisterOutputType(OriginEndpointStartTagPtrOutput{})
 }

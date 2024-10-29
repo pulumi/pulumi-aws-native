@@ -34,6 +34,7 @@ class DomainArgs:
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_settings: Optional[pulumi.Input['DomainSettingsArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
+                 tag_propagation: Optional[pulumi.Input['DomainTagPropagation']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Domain resource.
@@ -47,6 +48,7 @@ class DomainArgs:
         :param pulumi.Input[str] domain_name: A name for the domain.
         :param pulumi.Input['DomainSettingsArgs'] domain_settings: A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
+        :param pulumi.Input['DomainTagPropagation'] tag_propagation: Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A list of tags to apply to the user profile.
         """
         pulumi.set(__self__, "auth_mode", auth_mode)
@@ -65,6 +67,8 @@ class DomainArgs:
             pulumi.set(__self__, "domain_settings", domain_settings)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if tag_propagation is not None:
+            pulumi.set(__self__, "tag_propagation", tag_propagation)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -189,6 +193,18 @@ class DomainArgs:
         pulumi.set(self, "kms_key_id", value)
 
     @property
+    @pulumi.getter(name="tagPropagation")
+    def tag_propagation(self) -> Optional[pulumi.Input['DomainTagPropagation']]:
+        """
+        Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+        """
+        return pulumi.get(self, "tag_propagation")
+
+    @tag_propagation.setter
+    def tag_propagation(self, value: Optional[pulumi.Input['DomainTagPropagation']]):
+        pulumi.set(self, "tag_propagation", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
@@ -215,6 +231,7 @@ class Domain(pulumi.CustomResource):
                  domain_settings: Optional[pulumi.Input[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_propagation: Optional[pulumi.Input['DomainTagPropagation']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -232,6 +249,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']] domain_settings: A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
         :param pulumi.Input[str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The VPC subnets that Studio uses for communication.
+        :param pulumi.Input['DomainTagPropagation'] tag_propagation: Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A list of tags to apply to the user profile.
         :param pulumi.Input[str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
@@ -268,6 +286,7 @@ class Domain(pulumi.CustomResource):
                  domain_settings: Optional[pulumi.Input[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_propagation: Optional[pulumi.Input['DomainTagPropagation']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -294,6 +313,7 @@ class Domain(pulumi.CustomResource):
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
             __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tag_propagation"] = tag_propagation
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -344,6 +364,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["single_sign_on_application_arn"] = None
         __props__.__dict__["single_sign_on_managed_application_instance_id"] = None
         __props__.__dict__["subnet_ids"] = None
+        __props__.__dict__["tag_propagation"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["url"] = None
         __props__.__dict__["vpc_id"] = None
@@ -468,6 +489,14 @@ class Domain(pulumi.CustomResource):
         The VPC subnets that Studio uses for communication.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="tagPropagation")
+    def tag_propagation(self) -> pulumi.Output[Optional['DomainTagPropagation']]:
+        """
+        Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+        """
+        return pulumi.get(self, "tag_propagation")
 
     @property
     @pulumi.getter

@@ -74,6 +74,10 @@ export interface GetDomainResult {
      */
     readonly subnetIds?: string[];
     /**
+     * Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+     */
+    readonly tagPropagation?: enums.sagemaker.DomainTagPropagation;
+    /**
      * The URL to the created domain.
      */
     readonly url?: string;

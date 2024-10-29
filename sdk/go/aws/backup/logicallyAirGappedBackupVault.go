@@ -16,17 +16,28 @@ import (
 type LogicallyAirGappedBackupVault struct {
 	pulumi.CustomResourceState
 
+	// The backup vault access policy document in JSON format.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
-	AccessPolicy     pulumi.AnyOutput                                             `pulumi:"accessPolicy"`
-	BackupVaultArn   pulumi.StringOutput                                          `pulumi:"backupVaultArn"`
-	BackupVaultName  pulumi.StringOutput                                          `pulumi:"backupVaultName"`
-	BackupVaultTags  pulumi.StringMapOutput                                       `pulumi:"backupVaultTags"`
-	EncryptionKeyArn pulumi.StringOutput                                          `pulumi:"encryptionKeyArn"`
-	MaxRetentionDays pulumi.IntOutput                                             `pulumi:"maxRetentionDays"`
-	MinRetentionDays pulumi.IntOutput                                             `pulumi:"minRetentionDays"`
-	Notifications    LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
-	VaultState       pulumi.StringPtrOutput                                       `pulumi:"vaultState"`
-	VaultType        pulumi.StringPtrOutput                                       `pulumi:"vaultType"`
+	AccessPolicy   pulumi.AnyOutput    `pulumi:"accessPolicy"`
+	BackupVaultArn pulumi.StringOutput `pulumi:"backupVaultArn"`
+	// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
+	// The tags to assign to the vault.
+	BackupVaultTags  pulumi.StringMapOutput `pulumi:"backupVaultTags"`
+	EncryptionKeyArn pulumi.StringOutput    `pulumi:"encryptionKeyArn"`
+	// The maximum retention period that the vault retains its recovery points.
+	MaxRetentionDays pulumi.IntOutput `pulumi:"maxRetentionDays"`
+	// This setting specifies the minimum retention period that the vault retains its recovery points.
+	//
+	// The minimum value accepted is 7 days.
+	MinRetentionDays pulumi.IntOutput `pulumi:"minRetentionDays"`
+	// Returns event notifications for the specified backup vault.
+	Notifications LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
+	// The current state of the vault.
+	VaultState pulumi.StringPtrOutput `pulumi:"vaultState"`
+	// The type of vault described.
+	VaultType pulumi.StringPtrOutput `pulumi:"vaultType"`
 }
 
 // NewLogicallyAirGappedBackupVault registers a new resource with the given unique name, arguments, and options.
@@ -81,28 +92,50 @@ func (LogicallyAirGappedBackupVaultState) ElementType() reflect.Type {
 }
 
 type logicallyAirGappedBackupVaultArgs struct {
+	// The backup vault access policy document in JSON format.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
-	AccessPolicy     interface{}                                          `pulumi:"accessPolicy"`
-	BackupVaultName  *string                                              `pulumi:"backupVaultName"`
-	BackupVaultTags  map[string]string                                    `pulumi:"backupVaultTags"`
-	MaxRetentionDays int                                                  `pulumi:"maxRetentionDays"`
-	MinRetentionDays int                                                  `pulumi:"minRetentionDays"`
-	Notifications    *LogicallyAirGappedBackupVaultNotificationObjectType `pulumi:"notifications"`
-	VaultState       *string                                              `pulumi:"vaultState"`
-	VaultType        *string                                              `pulumi:"vaultType"`
+	AccessPolicy interface{} `pulumi:"accessPolicy"`
+	// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+	BackupVaultName *string `pulumi:"backupVaultName"`
+	// The tags to assign to the vault.
+	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
+	// The maximum retention period that the vault retains its recovery points.
+	MaxRetentionDays int `pulumi:"maxRetentionDays"`
+	// This setting specifies the minimum retention period that the vault retains its recovery points.
+	//
+	// The minimum value accepted is 7 days.
+	MinRetentionDays int `pulumi:"minRetentionDays"`
+	// Returns event notifications for the specified backup vault.
+	Notifications *LogicallyAirGappedBackupVaultNotificationObjectType `pulumi:"notifications"`
+	// The current state of the vault.
+	VaultState *string `pulumi:"vaultState"`
+	// The type of vault described.
+	VaultType *string `pulumi:"vaultType"`
 }
 
 // The set of arguments for constructing a LogicallyAirGappedBackupVault resource.
 type LogicallyAirGappedBackupVaultArgs struct {
+	// The backup vault access policy document in JSON format.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
-	AccessPolicy     pulumi.Input
-	BackupVaultName  pulumi.StringPtrInput
-	BackupVaultTags  pulumi.StringMapInput
+	AccessPolicy pulumi.Input
+	// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+	BackupVaultName pulumi.StringPtrInput
+	// The tags to assign to the vault.
+	BackupVaultTags pulumi.StringMapInput
+	// The maximum retention period that the vault retains its recovery points.
 	MaxRetentionDays pulumi.IntInput
+	// This setting specifies the minimum retention period that the vault retains its recovery points.
+	//
+	// The minimum value accepted is 7 days.
 	MinRetentionDays pulumi.IntInput
-	Notifications    LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput
-	VaultState       pulumi.StringPtrInput
-	VaultType        pulumi.StringPtrInput
+	// Returns event notifications for the specified backup vault.
+	Notifications LogicallyAirGappedBackupVaultNotificationObjectTypePtrInput
+	// The current state of the vault.
+	VaultState pulumi.StringPtrInput
+	// The type of vault described.
+	VaultType pulumi.StringPtrInput
 }
 
 func (LogicallyAirGappedBackupVaultArgs) ElementType() reflect.Type {
@@ -142,6 +175,8 @@ func (o LogicallyAirGappedBackupVaultOutput) ToLogicallyAirGappedBackupVaultOutp
 	return o
 }
 
+// The backup vault access policy document in JSON format.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
 func (o LogicallyAirGappedBackupVaultOutput) AccessPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.AnyOutput { return v.AccessPolicy }).(pulumi.AnyOutput)
@@ -151,10 +186,12 @@ func (o LogicallyAirGappedBackupVaultOutput) BackupVaultArn() pulumi.StringOutpu
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.BackupVaultArn }).(pulumi.StringOutput)
 }
 
+// The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
 func (o LogicallyAirGappedBackupVaultOutput) BackupVaultName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.BackupVaultName }).(pulumi.StringOutput)
 }
 
+// The tags to assign to the vault.
 func (o LogicallyAirGappedBackupVaultOutput) BackupVaultTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringMapOutput { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
@@ -163,24 +200,31 @@ func (o LogicallyAirGappedBackupVaultOutput) EncryptionKeyArn() pulumi.StringOut
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.EncryptionKeyArn }).(pulumi.StringOutput)
 }
 
+// The maximum retention period that the vault retains its recovery points.
 func (o LogicallyAirGappedBackupVaultOutput) MaxRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.IntOutput { return v.MaxRetentionDays }).(pulumi.IntOutput)
 }
 
+// This setting specifies the minimum retention period that the vault retains its recovery points.
+//
+// The minimum value accepted is 7 days.
 func (o LogicallyAirGappedBackupVaultOutput) MinRetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.IntOutput { return v.MinRetentionDays }).(pulumi.IntOutput)
 }
 
+// Returns event notifications for the specified backup vault.
 func (o LogicallyAirGappedBackupVaultOutput) Notifications() LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput {
 		return v.Notifications
 	}).(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput)
 }
 
+// The current state of the vault.
 func (o LogicallyAirGappedBackupVaultOutput) VaultState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringPtrOutput { return v.VaultState }).(pulumi.StringPtrOutput)
 }
 
+// The type of vault described.
 func (o LogicallyAirGappedBackupVaultOutput) VaultType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringPtrOutput { return v.VaultType }).(pulumi.StringPtrOutput)
 }

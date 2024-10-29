@@ -106,6 +106,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
+        /// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+        /// </summary>
+        public readonly Pulumi.AwsNative.SageMaker.DomainTagPropagation? TagPropagation;
+        /// <summary>
         /// The URL to the created domain.
         /// </summary>
         public readonly string? Url;
@@ -136,6 +140,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             ImmutableArray<string> subnetIds,
 
+            Pulumi.AwsNative.SageMaker.DomainTagPropagation? tagPropagation,
+
             string? url)
         {
             AppNetworkAccessType = appNetworkAccessType;
@@ -150,6 +156,7 @@ namespace Pulumi.AwsNative.SageMaker
             SingleSignOnApplicationArn = singleSignOnApplicationArn;
             SingleSignOnManagedApplicationInstanceId = singleSignOnManagedApplicationInstanceId;
             SubnetIds = subnetIds;
+            TagPropagation = tagPropagation;
             Url = url;
         }
     }

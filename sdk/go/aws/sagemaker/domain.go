@@ -47,6 +47,8 @@ type Domain struct {
 	SingleSignOnManagedApplicationInstanceId pulumi.StringOutput `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+	TagPropagation DomainTagPropagationPtrOutput `pulumi:"tagPropagation"`
 	// A list of tags to apply to the user profile.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The URL to the created domain.
@@ -134,6 +136,8 @@ type domainArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+	TagPropagation *DomainTagPropagation `pulumi:"tagPropagation"`
 	// A list of tags to apply to the user profile.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -160,6 +164,8 @@ type DomainArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds pulumi.StringArrayInput
+	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+	TagPropagation DomainTagPropagationPtrInput
 	// A list of tags to apply to the user profile.
 	Tags aws.CreateOnlyTagArrayInput
 	// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -276,6 +282,11 @@ func (o DomainOutput) SingleSignOnManagedApplicationInstanceId() pulumi.StringOu
 // The VPC subnets that Studio uses for communication.
 func (o DomainOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+func (o DomainOutput) TagPropagation() DomainTagPropagationPtrOutput {
+	return o.ApplyT(func(v *Domain) DomainTagPropagationPtrOutput { return v.TagPropagation }).(DomainTagPropagationPtrOutput)
 }
 
 // A list of tags to apply to the user profile.

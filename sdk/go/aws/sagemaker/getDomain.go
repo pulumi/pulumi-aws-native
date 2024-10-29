@@ -52,6 +52,8 @@ type LookupDomainResult struct {
 	SingleSignOnManagedApplicationInstanceId *string `pulumi:"singleSignOnManagedApplicationInstanceId"`
 	// The VPC subnets that Studio uses for communication.
 	SubnetIds []string `pulumi:"subnetIds"`
+	// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+	TagPropagation *DomainTagPropagation `pulumi:"tagPropagation"`
 	// The URL to the created domain.
 	Url *string `pulumi:"url"`
 }
@@ -156,6 +158,11 @@ func (o LookupDomainResultOutput) SingleSignOnManagedApplicationInstanceId() pul
 // The VPC subnets that Studio uses for communication.
 func (o LookupDomainResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
+func (o LookupDomainResultOutput) TagPropagation() DomainTagPropagationPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainTagPropagation { return v.TagPropagation }).(DomainTagPropagationPtrOutput)
 }
 
 // The URL to the created domain.

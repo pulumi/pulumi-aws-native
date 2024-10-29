@@ -31,7 +31,18 @@ class LogicallyAirGappedBackupVaultArgs:
                  vault_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LogicallyAirGappedBackupVault resource.
-        :param Any access_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
+        :param pulumi.Input[int] max_retention_days: The maximum retention period that the vault retains its recovery points.
+        :param pulumi.Input[int] min_retention_days: This setting specifies the minimum retention period that the vault retains its recovery points.
+               
+               The minimum value accepted is 7 days.
+        :param Any access_policy: The backup vault access policy document in JSON format.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
+        :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_vault_tags: The tags to assign to the vault.
+        :param pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs'] notifications: Returns event notifications for the specified backup vault.
+        :param pulumi.Input[str] vault_state: The current state of the vault.
+        :param pulumi.Input[str] vault_type: The type of vault described.
         """
         pulumi.set(__self__, "max_retention_days", max_retention_days)
         pulumi.set(__self__, "min_retention_days", min_retention_days)
@@ -51,6 +62,9 @@ class LogicallyAirGappedBackupVaultArgs:
     @property
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> pulumi.Input[int]:
+        """
+        The maximum retention period that the vault retains its recovery points.
+        """
         return pulumi.get(self, "max_retention_days")
 
     @max_retention_days.setter
@@ -60,6 +74,11 @@ class LogicallyAirGappedBackupVaultArgs:
     @property
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> pulumi.Input[int]:
+        """
+        This setting specifies the minimum retention period that the vault retains its recovery points.
+
+        The minimum value accepted is 7 days.
+        """
         return pulumi.get(self, "min_retention_days")
 
     @min_retention_days.setter
@@ -70,6 +89,8 @@ class LogicallyAirGappedBackupVaultArgs:
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> Optional[Any]:
         """
+        The backup vault access policy document in JSON format.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "access_policy")
@@ -81,6 +102,9 @@ class LogicallyAirGappedBackupVaultArgs:
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+        """
         return pulumi.get(self, "backup_vault_name")
 
     @backup_vault_name.setter
@@ -90,6 +114,9 @@ class LogicallyAirGappedBackupVaultArgs:
     @property
     @pulumi.getter(name="backupVaultTags")
     def backup_vault_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags to assign to the vault.
+        """
         return pulumi.get(self, "backup_vault_tags")
 
     @backup_vault_tags.setter
@@ -99,6 +126,9 @@ class LogicallyAirGappedBackupVaultArgs:
     @property
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']]:
+        """
+        Returns event notifications for the specified backup vault.
+        """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
@@ -108,6 +138,9 @@ class LogicallyAirGappedBackupVaultArgs:
     @property
     @pulumi.getter(name="vaultState")
     def vault_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current state of the vault.
+        """
         return pulumi.get(self, "vault_state")
 
     @vault_state.setter
@@ -117,6 +150,9 @@ class LogicallyAirGappedBackupVaultArgs:
     @property
     @pulumi.getter(name="vaultType")
     def vault_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of vault described.
+        """
         return pulumi.get(self, "vault_type")
 
     @vault_type.setter
@@ -143,7 +179,18 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any access_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
+        :param Any access_policy: The backup vault access policy document in JSON format.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
+        :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_vault_tags: The tags to assign to the vault.
+        :param pulumi.Input[int] max_retention_days: The maximum retention period that the vault retains its recovery points.
+        :param pulumi.Input[int] min_retention_days: This setting specifies the minimum retention period that the vault retains its recovery points.
+               
+               The minimum value accepted is 7 days.
+        :param pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']] notifications: Returns event notifications for the specified backup vault.
+        :param pulumi.Input[str] vault_state: The current state of the vault.
+        :param pulumi.Input[str] vault_type: The type of vault described.
         """
         ...
     @overload
@@ -240,6 +287,8 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
     @pulumi.getter(name="accessPolicy")
     def access_policy(self) -> pulumi.Output[Optional[Any]]:
         """
+        The backup vault access policy document in JSON format.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Backup::LogicallyAirGappedBackupVault` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "access_policy")
@@ -252,11 +301,17 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
     @property
     @pulumi.getter(name="backupVaultName")
     def backup_vault_name(self) -> pulumi.Output[str]:
+        """
+        The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
+        """
         return pulumi.get(self, "backup_vault_name")
 
     @property
     @pulumi.getter(name="backupVaultTags")
     def backup_vault_tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags to assign to the vault.
+        """
         return pulumi.get(self, "backup_vault_tags")
 
     @property
@@ -267,25 +322,42 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
     @property
     @pulumi.getter(name="maxRetentionDays")
     def max_retention_days(self) -> pulumi.Output[int]:
+        """
+        The maximum retention period that the vault retains its recovery points.
+        """
         return pulumi.get(self, "max_retention_days")
 
     @property
     @pulumi.getter(name="minRetentionDays")
     def min_retention_days(self) -> pulumi.Output[int]:
+        """
+        This setting specifies the minimum retention period that the vault retains its recovery points.
+
+        The minimum value accepted is 7 days.
+        """
         return pulumi.get(self, "min_retention_days")
 
     @property
     @pulumi.getter
     def notifications(self) -> pulumi.Output[Optional['outputs.LogicallyAirGappedBackupVaultNotificationObjectType']]:
+        """
+        Returns event notifications for the specified backup vault.
+        """
         return pulumi.get(self, "notifications")
 
     @property
     @pulumi.getter(name="vaultState")
     def vault_state(self) -> pulumi.Output[Optional[str]]:
+        """
+        The current state of the vault.
+        """
         return pulumi.get(self, "vault_state")
 
     @property
     @pulumi.getter(name="vaultType")
     def vault_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of vault described.
+        """
         return pulumi.get(self, "vault_type")
 
