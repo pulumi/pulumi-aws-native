@@ -89,7 +89,7 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false
   },
-  "required" : [ "Definition", "EngineType", "Name" ],
+  "required" : [ "EngineType", "Name" ],
   "readOnlyProperties" : [ "/properties/ApplicationArn", "/properties/ApplicationId" ],
   "writeOnlyProperties" : [ "/properties/Definition" ],
   "createOnlyProperties" : [ "/properties/EngineType", "/properties/Name", "/properties/KmsKeyId", "/properties/RoleArn" ],
