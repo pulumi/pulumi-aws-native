@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -35,6 +38,10 @@ export interface GetSpaceResult {
      * The name of the space that appears in the Studio UI.
      */
     readonly spaceDisplayName?: string;
+    /**
+     * A list of tags to apply to the space.
+     */
+    readonly tags?: outputs.Tag[];
     /**
      * Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
      *

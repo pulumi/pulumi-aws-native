@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApiArgs } from "./api";
+export type Api = import("./api").Api;
+export const Api: typeof import("./api").Api = null as any;
+utilities.lazyLoad(exports, ["Api"], () => require("./api"));
+
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
@@ -24,6 +29,11 @@ export { FunctionConfigurationArgs } from "./functionConfiguration";
 export type FunctionConfiguration = import("./functionConfiguration").FunctionConfiguration;
 export const FunctionConfiguration: typeof import("./functionConfiguration").FunctionConfiguration = null as any;
 utilities.lazyLoad(exports, ["FunctionConfiguration"], () => require("./functionConfiguration"));
+
+export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
+export const getApi: typeof import("./getApi").getApi = null as any;
+export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
+utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
@@ -83,6 +93,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:appsync:Api":
+                return new Api(name, <any>undefined, { urn })
             case "aws-native:appsync:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
             case "aws-native:appsync:DomainName":

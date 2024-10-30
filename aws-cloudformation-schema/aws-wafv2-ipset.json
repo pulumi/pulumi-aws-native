@@ -95,10 +95,11 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Id" ],
   "additionalProperties" : false,
   "tagging" : {
-    "cloudFormationSystemTags" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
-    "taggable" : false
+    "cloudFormationSystemTags" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "taggable" : true,
+    "tagProperty" : "/properties/Tags"
   },
   "handlers" : {
     "create" : {
@@ -111,7 +112,7 @@
       "permissions" : [ "wafv2:GetIPSet", "wafv2:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "wafv2:UpdateIPSet", "wafv2:GetIPSet", "wafv2:ListTagsForResource" ]
+      "permissions" : [ "wafv2:UpdateIPSet", "wafv2:GetIPSet", "wafv2:ListTagsForResource", "wafv2:TagResource", "wafv2:UntagResource" ]
     },
     "list" : {
       "permissions" : [ "wafv2:listIPSets" ],

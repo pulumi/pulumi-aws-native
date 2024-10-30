@@ -47,9 +47,6 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Definition == nil {
-		return nil, errors.New("invalid value for required argument 'Definition'")
-	}
 	if args.EngineType == nil {
 		return nil, errors.New("invalid value for required argument 'EngineType'")
 	}

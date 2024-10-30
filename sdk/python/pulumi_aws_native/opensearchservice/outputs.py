@@ -14,8 +14,11 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
+    'ApplicationAppConfig',
+    'ApplicationDataSource',
     'DomainAdvancedSecurityOptionsInput',
     'DomainClusterConfig',
     'DomainCognitoOptions',
@@ -37,7 +40,94 @@ __all__ = [
     'DomainVpcOptions',
     'DomainWindowStartTime',
     'DomainZoneAwarenessConfig',
+    'IamIdentityCenterOptionsProperties',
 ]
+
+@pulumi.output_type
+class ApplicationAppConfig(dict):
+    """
+    A key-value pair of AppConfig
+    """
+    def __init__(__self__, *,
+                 key: 'ApplicationAppConfigType',
+                 value: str):
+        """
+        A key-value pair of AppConfig
+        :param 'ApplicationAppConfigType' key: The configuration key
+        :param str value: The configuration value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> 'ApplicationAppConfigType':
+        """
+        The configuration key
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The configuration value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationDataSource(dict):
+    """
+    Datasource arn and description
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceArn":
+            suggest = "data_source_arn"
+        elif key == "dataSourceDescription":
+            suggest = "data_source_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_arn: Any,
+                 data_source_description: Optional[str] = None):
+        """
+        Datasource arn and description
+        :param Any data_source_arn: The ARN of the data source.
+        :param str data_source_description: Description of the data source.
+        """
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        if data_source_description is not None:
+            pulumi.set(__self__, "data_source_description", data_source_description)
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> Any:
+        """
+        The ARN of the data source.
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @property
+    @pulumi.getter(name="dataSourceDescription")
+    def data_source_description(self) -> Optional[str]:
+        """
+        Description of the data source.
+        """
+        return pulumi.get(self, "data_source_description")
+
 
 @pulumi.output_type
 class DomainAdvancedSecurityOptionsInput(dict):
@@ -1460,5 +1550,71 @@ class DomainZoneAwarenessConfig(dict):
         Valid values are `2` and `3` . Default is 2.
         """
         return pulumi.get(self, "availability_zone_count")
+
+
+@pulumi.output_type
+class IamIdentityCenterOptionsProperties(dict):
+    """
+    Options for configuring IAM Identity Center
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamIdentityCenterInstanceArn":
+            suggest = "iam_identity_center_instance_arn"
+        elif key == "iamRoleForIdentityCenterApplicationArn":
+            suggest = "iam_role_for_identity_center_application_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IamIdentityCenterOptionsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IamIdentityCenterOptionsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IamIdentityCenterOptionsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 iam_identity_center_instance_arn: Optional[Any] = None,
+                 iam_role_for_identity_center_application_arn: Optional[str] = None):
+        """
+        Options for configuring IAM Identity Center
+        :param bool enabled: Whether IAM Identity Center is enabled.
+        :param Any iam_identity_center_instance_arn: The ARN of the IAM Identity Center instance.
+        :param str iam_role_for_identity_center_application_arn: The ARN of the IAM role for Identity Center application.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if iam_identity_center_instance_arn is not None:
+            pulumi.set(__self__, "iam_identity_center_instance_arn", iam_identity_center_instance_arn)
+        if iam_role_for_identity_center_application_arn is not None:
+            pulumi.set(__self__, "iam_role_for_identity_center_application_arn", iam_role_for_identity_center_application_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether IAM Identity Center is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="iamIdentityCenterInstanceArn")
+    def iam_identity_center_instance_arn(self) -> Optional[Any]:
+        """
+        The ARN of the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "iam_identity_center_instance_arn")
+
+    @property
+    @pulumi.getter(name="iamRoleForIdentityCenterApplicationArn")
+    def iam_role_for_identity_center_application_arn(self) -> Optional[str]:
+        """
+        The ARN of the IAM role for Identity Center application.
+        """
+        return pulumi.get(self, "iam_role_for_identity_center_application_arn")
 
 

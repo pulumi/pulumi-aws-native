@@ -53,10 +53,6 @@ namespace Pulumi.AwsNative.SecretsManager
     {
         public readonly string? Id;
         /// <summary>
-        /// The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
-        /// </summary>
-        public readonly string? SecretId;
-        /// <summary>
         /// The ID of the database or cluster.
         /// </summary>
         public readonly string? TargetId;
@@ -77,14 +73,11 @@ namespace Pulumi.AwsNative.SecretsManager
         private GetSecretTargetAttachmentResult(
             string? id,
 
-            string? secretId,
-
             string? targetId,
 
             string? targetType)
         {
             Id = id;
-            SecretId = secretId;
             TargetId = targetId;
             TargetType = targetType;
         }

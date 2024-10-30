@@ -28,8 +28,6 @@ type LookupSecretTargetAttachmentArgs struct {
 
 type LookupSecretTargetAttachmentResult struct {
 	Id *string `pulumi:"id"`
-	// The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
-	SecretId *string `pulumi:"secretId"`
 	// The ID of the database or cluster.
 	TargetId *string `pulumi:"targetId"`
 	// A string that defines the type of service or database associated with the secret. This value instructs Secrets Manager how to update the secret with the details of the service or database. This value must be one of the following:
@@ -87,11 +85,6 @@ func (o LookupSecretTargetAttachmentResultOutput) ToLookupSecretTargetAttachment
 
 func (o LookupSecretTargetAttachmentResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSecretTargetAttachmentResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
-func (o LookupSecretTargetAttachmentResultOutput) SecretId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupSecretTargetAttachmentResult) *string { return v.SecretId }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the database or cluster.

@@ -19,6 +19,7 @@ import (
 type Eip struct {
 	pulumi.CustomResourceState
 
+	// Describes an Elastic IP address, or a carrier IP address.
 	Address pulumi.StringPtrOutput `pulumi:"address"`
 	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
@@ -92,6 +93,7 @@ func (EipState) ElementType() reflect.Type {
 }
 
 type eipArgs struct {
+	// Describes an Elastic IP address, or a carrier IP address.
 	Address *string `pulumi:"address"`
 	// The network (``vpc``).
 	//  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
@@ -115,6 +117,7 @@ type eipArgs struct {
 
 // The set of arguments for constructing a Eip resource.
 type EipArgs struct {
+	// Describes an Elastic IP address, or a carrier IP address.
 	Address pulumi.StringPtrInput
 	// The network (``vpc``).
 	//  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
@@ -173,6 +176,7 @@ func (o EipOutput) ToEipOutputWithContext(ctx context.Context) EipOutput {
 	return o
 }
 
+// Describes an Elastic IP address, or a carrier IP address.
 func (o EipOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.Address }).(pulumi.StringPtrOutput)
 }

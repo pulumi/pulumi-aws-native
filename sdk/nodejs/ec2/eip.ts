@@ -39,6 +39,9 @@ export class Eip extends pulumi.CustomResource {
         return obj['__pulumiType'] === Eip.__pulumiType;
     }
 
+    /**
+     * Describes an Elastic IP address, or a carrier IP address.
+     */
     public readonly address!: pulumi.Output<string | undefined>;
     /**
      * The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
@@ -123,6 +126,9 @@ export class Eip extends pulumi.CustomResource {
  * The set of arguments for constructing a Eip resource.
  */
 export interface EipArgs {
+    /**
+     * Describes an Elastic IP address, or a carrier IP address.
+     */
     address?: pulumi.Input<string>;
     /**
      * The network (``vpc``).

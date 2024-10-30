@@ -50,7 +50,7 @@ export class Application extends pulumi.CustomResource {
      *
      * For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
      */
-    public readonly definition!: pulumi.Output<outputs.m2.ApplicationDefinition0Properties | outputs.m2.ApplicationDefinition1Properties>;
+    public readonly definition!: pulumi.Output<outputs.m2.ApplicationDefinition0Properties | outputs.m2.ApplicationDefinition1Properties | undefined>;
     /**
      * The description of the application.
      */
@@ -89,9 +89,6 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'definition'");
-            }
             if ((!args || args.engineType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
@@ -131,7 +128,7 @@ export interface ApplicationArgs {
      *
      * For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
      */
-    definition: pulumi.Input<inputs.m2.ApplicationDefinition0PropertiesArgs | inputs.m2.ApplicationDefinition1PropertiesArgs>;
+    definition?: pulumi.Input<inputs.m2.ApplicationDefinition0PropertiesArgs | inputs.m2.ApplicationDefinition1PropertiesArgs>;
     /**
      * The description of the application.
      */

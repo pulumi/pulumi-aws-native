@@ -10,6 +10,350 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Security configuration for your AppSync API.
+type ApiAuthenticationType string
+
+const (
+	ApiAuthenticationTypeAmazonCognitoUserPools = ApiAuthenticationType("AMAZON_COGNITO_USER_POOLS")
+	ApiAuthenticationTypeAwsIam                 = ApiAuthenticationType("AWS_IAM")
+	ApiAuthenticationTypeApiKey                 = ApiAuthenticationType("API_KEY")
+	ApiAuthenticationTypeOpenidConnect          = ApiAuthenticationType("OPENID_CONNECT")
+	ApiAuthenticationTypeAwsLambda              = ApiAuthenticationType("AWS_LAMBDA")
+)
+
+func (ApiAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAuthenticationType)(nil)).Elem()
+}
+
+func (e ApiAuthenticationType) ToApiAuthenticationTypeOutput() ApiAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(ApiAuthenticationTypeOutput)
+}
+
+func (e ApiAuthenticationType) ToApiAuthenticationTypeOutputWithContext(ctx context.Context) ApiAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApiAuthenticationTypeOutput)
+}
+
+func (e ApiAuthenticationType) ToApiAuthenticationTypePtrOutput() ApiAuthenticationTypePtrOutput {
+	return e.ToApiAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ApiAuthenticationType) ToApiAuthenticationTypePtrOutputWithContext(ctx context.Context) ApiAuthenticationTypePtrOutput {
+	return ApiAuthenticationType(e).ToApiAuthenticationTypeOutputWithContext(ctx).ToApiAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e ApiAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApiAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApiAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApiAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApiAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (ApiAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAuthenticationType)(nil)).Elem()
+}
+
+func (o ApiAuthenticationTypeOutput) ToApiAuthenticationTypeOutput() ApiAuthenticationTypeOutput {
+	return o
+}
+
+func (o ApiAuthenticationTypeOutput) ToApiAuthenticationTypeOutputWithContext(ctx context.Context) ApiAuthenticationTypeOutput {
+	return o
+}
+
+func (o ApiAuthenticationTypeOutput) ToApiAuthenticationTypePtrOutput() ApiAuthenticationTypePtrOutput {
+	return o.ToApiAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApiAuthenticationTypeOutput) ToApiAuthenticationTypePtrOutputWithContext(ctx context.Context) ApiAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiAuthenticationType) *ApiAuthenticationType {
+		return &v
+	}).(ApiAuthenticationTypePtrOutput)
+}
+
+func (o ApiAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApiAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApiAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiAuthenticationType)(nil)).Elem()
+}
+
+func (o ApiAuthenticationTypePtrOutput) ToApiAuthenticationTypePtrOutput() ApiAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o ApiAuthenticationTypePtrOutput) ToApiAuthenticationTypePtrOutputWithContext(ctx context.Context) ApiAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o ApiAuthenticationTypePtrOutput) Elem() ApiAuthenticationTypeOutput {
+	return o.ApplyT(func(v *ApiAuthenticationType) ApiAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret ApiAuthenticationType
+		return ret
+	}).(ApiAuthenticationTypeOutput)
+}
+
+func (o ApiAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApiAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApiAuthenticationTypeInput is an input type that accepts values of the ApiAuthenticationType enum
+// A concrete instance of `ApiAuthenticationTypeInput` can be one of the following:
+//
+//	ApiAuthenticationTypeAmazonCognitoUserPools
+//	ApiAuthenticationTypeAwsIam
+//	ApiAuthenticationTypeApiKey
+//	ApiAuthenticationTypeOpenidConnect
+//	ApiAuthenticationTypeAwsLambda
+type ApiAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToApiAuthenticationTypeOutput() ApiAuthenticationTypeOutput
+	ToApiAuthenticationTypeOutputWithContext(context.Context) ApiAuthenticationTypeOutput
+}
+
+var apiAuthenticationTypePtrType = reflect.TypeOf((**ApiAuthenticationType)(nil)).Elem()
+
+type ApiAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToApiAuthenticationTypePtrOutput() ApiAuthenticationTypePtrOutput
+	ToApiAuthenticationTypePtrOutputWithContext(context.Context) ApiAuthenticationTypePtrOutput
+}
+
+type apiAuthenticationTypePtr string
+
+func ApiAuthenticationTypePtr(v string) ApiAuthenticationTypePtrInput {
+	return (*apiAuthenticationTypePtr)(&v)
+}
+
+func (*apiAuthenticationTypePtr) ElementType() reflect.Type {
+	return apiAuthenticationTypePtrType
+}
+
+func (in *apiAuthenticationTypePtr) ToApiAuthenticationTypePtrOutput() ApiAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(ApiAuthenticationTypePtrOutput)
+}
+
+func (in *apiAuthenticationTypePtr) ToApiAuthenticationTypePtrOutputWithContext(ctx context.Context) ApiAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApiAuthenticationTypePtrOutput)
+}
+
+// Logging level for the AppSync API.
+type ApiEventLogLevel string
+
+const (
+	ApiEventLogLevelNone  = ApiEventLogLevel("NONE")
+	ApiEventLogLevelError = ApiEventLogLevel("ERROR")
+	ApiEventLogLevelAll   = ApiEventLogLevel("ALL")
+	ApiEventLogLevelInfo  = ApiEventLogLevel("INFO")
+	ApiEventLogLevelDebug = ApiEventLogLevel("DEBUG")
+)
+
+func (ApiEventLogLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventLogLevel)(nil)).Elem()
+}
+
+func (e ApiEventLogLevel) ToApiEventLogLevelOutput() ApiEventLogLevelOutput {
+	return pulumi.ToOutput(e).(ApiEventLogLevelOutput)
+}
+
+func (e ApiEventLogLevel) ToApiEventLogLevelOutputWithContext(ctx context.Context) ApiEventLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApiEventLogLevelOutput)
+}
+
+func (e ApiEventLogLevel) ToApiEventLogLevelPtrOutput() ApiEventLogLevelPtrOutput {
+	return e.ToApiEventLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (e ApiEventLogLevel) ToApiEventLogLevelPtrOutputWithContext(ctx context.Context) ApiEventLogLevelPtrOutput {
+	return ApiEventLogLevel(e).ToApiEventLogLevelOutputWithContext(ctx).ToApiEventLogLevelPtrOutputWithContext(ctx)
+}
+
+func (e ApiEventLogLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApiEventLogLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApiEventLogLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApiEventLogLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApiEventLogLevelOutput struct{ *pulumi.OutputState }
+
+func (ApiEventLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventLogLevel)(nil)).Elem()
+}
+
+func (o ApiEventLogLevelOutput) ToApiEventLogLevelOutput() ApiEventLogLevelOutput {
+	return o
+}
+
+func (o ApiEventLogLevelOutput) ToApiEventLogLevelOutputWithContext(ctx context.Context) ApiEventLogLevelOutput {
+	return o
+}
+
+func (o ApiEventLogLevelOutput) ToApiEventLogLevelPtrOutput() ApiEventLogLevelPtrOutput {
+	return o.ToApiEventLogLevelPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventLogLevelOutput) ToApiEventLogLevelPtrOutputWithContext(ctx context.Context) ApiEventLogLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEventLogLevel) *ApiEventLogLevel {
+		return &v
+	}).(ApiEventLogLevelPtrOutput)
+}
+
+func (o ApiEventLogLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApiEventLogLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiEventLogLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApiEventLogLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventLogLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApiEventLogLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApiEventLogLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEventLogLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventLogLevel)(nil)).Elem()
+}
+
+func (o ApiEventLogLevelPtrOutput) ToApiEventLogLevelPtrOutput() ApiEventLogLevelPtrOutput {
+	return o
+}
+
+func (o ApiEventLogLevelPtrOutput) ToApiEventLogLevelPtrOutputWithContext(ctx context.Context) ApiEventLogLevelPtrOutput {
+	return o
+}
+
+func (o ApiEventLogLevelPtrOutput) Elem() ApiEventLogLevelOutput {
+	return o.ApplyT(func(v *ApiEventLogLevel) ApiEventLogLevel {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEventLogLevel
+		return ret
+	}).(ApiEventLogLevelOutput)
+}
+
+func (o ApiEventLogLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApiEventLogLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApiEventLogLevelInput is an input type that accepts values of the ApiEventLogLevel enum
+// A concrete instance of `ApiEventLogLevelInput` can be one of the following:
+//
+//	ApiEventLogLevelNone
+//	ApiEventLogLevelError
+//	ApiEventLogLevelAll
+//	ApiEventLogLevelInfo
+//	ApiEventLogLevelDebug
+type ApiEventLogLevelInput interface {
+	pulumi.Input
+
+	ToApiEventLogLevelOutput() ApiEventLogLevelOutput
+	ToApiEventLogLevelOutputWithContext(context.Context) ApiEventLogLevelOutput
+}
+
+var apiEventLogLevelPtrType = reflect.TypeOf((**ApiEventLogLevel)(nil)).Elem()
+
+type ApiEventLogLevelPtrInput interface {
+	pulumi.Input
+
+	ToApiEventLogLevelPtrOutput() ApiEventLogLevelPtrOutput
+	ToApiEventLogLevelPtrOutputWithContext(context.Context) ApiEventLogLevelPtrOutput
+}
+
+type apiEventLogLevelPtr string
+
+func ApiEventLogLevelPtr(v string) ApiEventLogLevelPtrInput {
+	return (*apiEventLogLevelPtr)(&v)
+}
+
+func (*apiEventLogLevelPtr) ElementType() reflect.Type {
+	return apiEventLogLevelPtrType
+}
+
+func (in *apiEventLogLevelPtr) ToApiEventLogLevelPtrOutput() ApiEventLogLevelPtrOutput {
+	return pulumi.ToOutput(in).(ApiEventLogLevelPtrOutput)
+}
+
+func (in *apiEventLogLevelPtr) ToApiEventLogLevelPtrOutputWithContext(ctx context.Context) ApiEventLogLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApiEventLogLevelPtrOutput)
+}
+
 // Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
 //
 // `MetricsConfig` can be `ENABLED` or `DISABLED` .
@@ -608,12 +952,20 @@ func (o SourceApiAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationTypeInput)(nil)).Elem(), ApiAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationTypePtrInput)(nil)).Elem(), ApiAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventLogLevelInput)(nil)).Elem(), ApiEventLogLevel("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventLogLevelPtrInput)(nil)).Elem(), ApiEventLogLevel("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMetricsConfigInput)(nil)).Elem(), DataSourceMetricsConfig("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMetricsConfigPtrInput)(nil)).Elem(), DataSourceMetricsConfig("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigPtrInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigMergeTypeInput)(nil)).Elem(), SourceApiAssociationConfigMergeType("AUTO_MERGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigMergeTypePtrInput)(nil)).Elem(), SourceApiAssociationConfigMergeType("AUTO_MERGE"))
+	pulumi.RegisterOutputType(ApiAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(ApiAuthenticationTypePtrOutput{})
+	pulumi.RegisterOutputType(ApiEventLogLevelOutput{})
+	pulumi.RegisterOutputType(ApiEventLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceMetricsConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverMetricsConfigOutput{})

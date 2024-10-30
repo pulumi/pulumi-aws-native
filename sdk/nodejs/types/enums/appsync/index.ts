@@ -2,6 +2,32 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApiAuthenticationType = {
+    AmazonCognitoUserPools: "AMAZON_COGNITO_USER_POOLS",
+    AwsIam: "AWS_IAM",
+    ApiKey: "API_KEY",
+    OpenidConnect: "OPENID_CONNECT",
+    AwsLambda: "AWS_LAMBDA",
+} as const;
+
+/**
+ * Security configuration for your AppSync API.
+ */
+export type ApiAuthenticationType = (typeof ApiAuthenticationType)[keyof typeof ApiAuthenticationType];
+
+export const ApiEventLogLevel = {
+    None: "NONE",
+    Error: "ERROR",
+    All: "ALL",
+    Info: "INFO",
+    Debug: "DEBUG",
+} as const;
+
+/**
+ * Logging level for the AppSync API.
+ */
+export type ApiEventLogLevel = (typeof ApiEventLogLevel)[keyof typeof ApiEventLogLevel];
+
 export const DataSourceMetricsConfig = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

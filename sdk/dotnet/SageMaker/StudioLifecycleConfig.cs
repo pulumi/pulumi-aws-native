@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> StudioLifecycleConfigArn { get; private set; } = null!;
 
         /// <summary>
-        /// The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+        /// The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
         /// </summary>
         [Output("studioLifecycleConfigContent")]
         public Output<string> StudioLifecycleConfigContent { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> StudioLifecycleConfigName { get; private set; } = null!;
 
         /// <summary>
-        /// Tags to be associated with the Lifecycle Configuration.
+        /// Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Pulumi.AwsNative.SageMaker.StudioLifecycleConfigAppType> StudioLifecycleConfigAppType { get; set; } = null!;
 
         /// <summary>
-        /// The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+        /// The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
         /// </summary>
         [Input("studioLifecycleConfigContent", required: true)]
         public Input<string> StudioLifecycleConfigContent { get; set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.SageMaker
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
-        /// Tags to be associated with the Lifecycle Configuration.
+        /// Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {

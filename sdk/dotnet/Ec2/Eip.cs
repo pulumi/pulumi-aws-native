@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Ec2
     [AwsNativeResourceType("aws-native:ec2:Eip")]
     public partial class Eip : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Describes an Elastic IP address, or a carrier IP address.
+        /// </summary>
         [Output("address")]
         public Output<string?> Address { get; private set; } = null!;
 
@@ -129,6 +132,9 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class EipArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes an Elastic IP address, or a carrier IP address.
+        /// </summary>
         [Input("address")]
         public Input<string>? Address { get; set; }
 

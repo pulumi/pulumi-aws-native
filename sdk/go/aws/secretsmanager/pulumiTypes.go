@@ -13,6 +13,508 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type RotationScheduleHostedRotationLambda struct {
+	// A string of the characters that you don't want in the password.
+	ExcludeCharacters *string `pulumi:"excludeCharacters"`
+	// The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+	MasterSecretArn *string `pulumi:"masterSecretArn"`
+	// The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+	MasterSecretKmsKeyArn *string `pulumi:"masterSecretKmsKeyArn"`
+	// The name of the Lambda rotation function.
+	RotationLambdaName *string `pulumi:"rotationLambdaName"`
+	// The type of rotation template to use
+	RotationType string `pulumi:"rotationType"`
+	// The python runtime associated with the Lambda function
+	Runtime *string `pulumi:"runtime"`
+	// The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+	SuperuserSecretArn *string `pulumi:"superuserSecretArn"`
+	// The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+	SuperuserSecretKmsKeyArn *string `pulumi:"superuserSecretKmsKeyArn"`
+	// A comma-separated list of security group IDs applied to the target database.
+	VpcSecurityGroupIds *string `pulumi:"vpcSecurityGroupIds"`
+	// A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
+	VpcSubnetIds *string `pulumi:"vpcSubnetIds"`
+}
+
+// RotationScheduleHostedRotationLambdaInput is an input type that accepts RotationScheduleHostedRotationLambdaArgs and RotationScheduleHostedRotationLambdaOutput values.
+// You can construct a concrete instance of `RotationScheduleHostedRotationLambdaInput` via:
+//
+//	RotationScheduleHostedRotationLambdaArgs{...}
+type RotationScheduleHostedRotationLambdaInput interface {
+	pulumi.Input
+
+	ToRotationScheduleHostedRotationLambdaOutput() RotationScheduleHostedRotationLambdaOutput
+	ToRotationScheduleHostedRotationLambdaOutputWithContext(context.Context) RotationScheduleHostedRotationLambdaOutput
+}
+
+type RotationScheduleHostedRotationLambdaArgs struct {
+	// A string of the characters that you don't want in the password.
+	ExcludeCharacters pulumi.StringPtrInput `pulumi:"excludeCharacters"`
+	// The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+	MasterSecretArn pulumi.StringPtrInput `pulumi:"masterSecretArn"`
+	// The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+	MasterSecretKmsKeyArn pulumi.StringPtrInput `pulumi:"masterSecretKmsKeyArn"`
+	// The name of the Lambda rotation function.
+	RotationLambdaName pulumi.StringPtrInput `pulumi:"rotationLambdaName"`
+	// The type of rotation template to use
+	RotationType pulumi.StringInput `pulumi:"rotationType"`
+	// The python runtime associated with the Lambda function
+	Runtime pulumi.StringPtrInput `pulumi:"runtime"`
+	// The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+	SuperuserSecretArn pulumi.StringPtrInput `pulumi:"superuserSecretArn"`
+	// The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+	SuperuserSecretKmsKeyArn pulumi.StringPtrInput `pulumi:"superuserSecretKmsKeyArn"`
+	// A comma-separated list of security group IDs applied to the target database.
+	VpcSecurityGroupIds pulumi.StringPtrInput `pulumi:"vpcSecurityGroupIds"`
+	// A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
+	VpcSubnetIds pulumi.StringPtrInput `pulumi:"vpcSubnetIds"`
+}
+
+func (RotationScheduleHostedRotationLambdaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationScheduleHostedRotationLambda)(nil)).Elem()
+}
+
+func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaOutput() RotationScheduleHostedRotationLambdaOutput {
+	return i.ToRotationScheduleHostedRotationLambdaOutputWithContext(context.Background())
+}
+
+func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleHostedRotationLambdaOutput)
+}
+
+func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
+	return i.ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i RotationScheduleHostedRotationLambdaArgs) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleHostedRotationLambdaOutput).ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx)
+}
+
+// RotationScheduleHostedRotationLambdaPtrInput is an input type that accepts RotationScheduleHostedRotationLambdaArgs, RotationScheduleHostedRotationLambdaPtr and RotationScheduleHostedRotationLambdaPtrOutput values.
+// You can construct a concrete instance of `RotationScheduleHostedRotationLambdaPtrInput` via:
+//
+//	        RotationScheduleHostedRotationLambdaArgs{...}
+//
+//	or:
+//
+//	        nil
+type RotationScheduleHostedRotationLambdaPtrInput interface {
+	pulumi.Input
+
+	ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput
+	ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Context) RotationScheduleHostedRotationLambdaPtrOutput
+}
+
+type rotationScheduleHostedRotationLambdaPtrType RotationScheduleHostedRotationLambdaArgs
+
+func RotationScheduleHostedRotationLambdaPtr(v *RotationScheduleHostedRotationLambdaArgs) RotationScheduleHostedRotationLambdaPtrInput {
+	return (*rotationScheduleHostedRotationLambdaPtrType)(v)
+}
+
+func (*rotationScheduleHostedRotationLambdaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RotationScheduleHostedRotationLambda)(nil)).Elem()
+}
+
+func (i *rotationScheduleHostedRotationLambdaPtrType) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
+	return i.ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Background())
+}
+
+func (i *rotationScheduleHostedRotationLambdaPtrType) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleHostedRotationLambdaPtrOutput)
+}
+
+type RotationScheduleHostedRotationLambdaOutput struct{ *pulumi.OutputState }
+
+func (RotationScheduleHostedRotationLambdaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationScheduleHostedRotationLambda)(nil)).Elem()
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRotationLambdaOutput() RotationScheduleHostedRotationLambdaOutput {
+	return o
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRotationLambdaOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaOutput {
+	return o
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
+	return o.ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(context.Background())
+}
+
+func (o RotationScheduleHostedRotationLambdaOutput) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RotationScheduleHostedRotationLambda) *RotationScheduleHostedRotationLambda {
+		return &v
+	}).(RotationScheduleHostedRotationLambdaPtrOutput)
+}
+
+// A string of the characters that you don't want in the password.
+func (o RotationScheduleHostedRotationLambdaOutput) ExcludeCharacters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.ExcludeCharacters }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+func (o RotationScheduleHostedRotationLambdaOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+func (o RotationScheduleHostedRotationLambdaOutput) MasterSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.MasterSecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+func (o RotationScheduleHostedRotationLambdaOutput) MasterSecretKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.MasterSecretKmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Lambda rotation function.
+func (o RotationScheduleHostedRotationLambdaOutput) RotationLambdaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.RotationLambdaName }).(pulumi.StringPtrOutput)
+}
+
+// The type of rotation template to use
+func (o RotationScheduleHostedRotationLambdaOutput) RotationType() pulumi.StringOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) string { return v.RotationType }).(pulumi.StringOutput)
+}
+
+// The python runtime associated with the Lambda function
+func (o RotationScheduleHostedRotationLambdaOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+func (o RotationScheduleHostedRotationLambdaOutput) SuperuserSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.SuperuserSecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+func (o RotationScheduleHostedRotationLambdaOutput) SuperuserSecretKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.SuperuserSecretKmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// A comma-separated list of security group IDs applied to the target database.
+func (o RotationScheduleHostedRotationLambdaOutput) VpcSecurityGroupIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.VpcSecurityGroupIds }).(pulumi.StringPtrOutput)
+}
+
+// A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
+func (o RotationScheduleHostedRotationLambdaOutput) VpcSubnetIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleHostedRotationLambda) *string { return v.VpcSubnetIds }).(pulumi.StringPtrOutput)
+}
+
+type RotationScheduleHostedRotationLambdaPtrOutput struct{ *pulumi.OutputState }
+
+func (RotationScheduleHostedRotationLambdaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RotationScheduleHostedRotationLambda)(nil)).Elem()
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) ToRotationScheduleHostedRotationLambdaPtrOutput() RotationScheduleHostedRotationLambdaPtrOutput {
+	return o
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) ToRotationScheduleHostedRotationLambdaPtrOutputWithContext(ctx context.Context) RotationScheduleHostedRotationLambdaPtrOutput {
+	return o
+}
+
+func (o RotationScheduleHostedRotationLambdaPtrOutput) Elem() RotationScheduleHostedRotationLambdaOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) RotationScheduleHostedRotationLambda {
+		if v != nil {
+			return *v
+		}
+		var ret RotationScheduleHostedRotationLambda
+		return ret
+	}).(RotationScheduleHostedRotationLambdaOutput)
+}
+
+// A string of the characters that you don't want in the password.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) ExcludeCharacters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeCharacters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) MasterSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) MasterSecretKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MasterSecretKmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Lambda rotation function.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) RotationLambdaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RotationLambdaName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of rotation template to use
+func (o RotationScheduleHostedRotationLambdaPtrOutput) RotationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RotationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The python runtime associated with the Lambda function
+func (o RotationScheduleHostedRotationLambdaPtrOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Runtime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) SuperuserSecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuperuserSecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) SuperuserSecretKmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuperuserSecretKmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A comma-separated list of security group IDs applied to the target database.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) VpcSecurityGroupIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSecurityGroupIds
+	}).(pulumi.StringPtrOutput)
+}
+
+// A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
+func (o RotationScheduleHostedRotationLambdaPtrOutput) VpcSubnetIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleHostedRotationLambda) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VpcSubnetIds
+	}).(pulumi.StringPtrOutput)
+}
+
+type RotationScheduleRotationRules struct {
+	// The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
+	AutomaticallyAfterDays *int `pulumi:"automaticallyAfterDays"`
+	// The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
+	Duration *string `pulumi:"duration"`
+	// A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
+	ScheduleExpression *string `pulumi:"scheduleExpression"`
+}
+
+// RotationScheduleRotationRulesInput is an input type that accepts RotationScheduleRotationRulesArgs and RotationScheduleRotationRulesOutput values.
+// You can construct a concrete instance of `RotationScheduleRotationRulesInput` via:
+//
+//	RotationScheduleRotationRulesArgs{...}
+type RotationScheduleRotationRulesInput interface {
+	pulumi.Input
+
+	ToRotationScheduleRotationRulesOutput() RotationScheduleRotationRulesOutput
+	ToRotationScheduleRotationRulesOutputWithContext(context.Context) RotationScheduleRotationRulesOutput
+}
+
+type RotationScheduleRotationRulesArgs struct {
+	// The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
+	AutomaticallyAfterDays pulumi.IntPtrInput `pulumi:"automaticallyAfterDays"`
+	// The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
+	Duration pulumi.StringPtrInput `pulumi:"duration"`
+	// A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
+	ScheduleExpression pulumi.StringPtrInput `pulumi:"scheduleExpression"`
+}
+
+func (RotationScheduleRotationRulesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationScheduleRotationRules)(nil)).Elem()
+}
+
+func (i RotationScheduleRotationRulesArgs) ToRotationScheduleRotationRulesOutput() RotationScheduleRotationRulesOutput {
+	return i.ToRotationScheduleRotationRulesOutputWithContext(context.Background())
+}
+
+func (i RotationScheduleRotationRulesArgs) ToRotationScheduleRotationRulesOutputWithContext(ctx context.Context) RotationScheduleRotationRulesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleRotationRulesOutput)
+}
+
+func (i RotationScheduleRotationRulesArgs) ToRotationScheduleRotationRulesPtrOutput() RotationScheduleRotationRulesPtrOutput {
+	return i.ToRotationScheduleRotationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i RotationScheduleRotationRulesArgs) ToRotationScheduleRotationRulesPtrOutputWithContext(ctx context.Context) RotationScheduleRotationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleRotationRulesOutput).ToRotationScheduleRotationRulesPtrOutputWithContext(ctx)
+}
+
+// RotationScheduleRotationRulesPtrInput is an input type that accepts RotationScheduleRotationRulesArgs, RotationScheduleRotationRulesPtr and RotationScheduleRotationRulesPtrOutput values.
+// You can construct a concrete instance of `RotationScheduleRotationRulesPtrInput` via:
+//
+//	        RotationScheduleRotationRulesArgs{...}
+//
+//	or:
+//
+//	        nil
+type RotationScheduleRotationRulesPtrInput interface {
+	pulumi.Input
+
+	ToRotationScheduleRotationRulesPtrOutput() RotationScheduleRotationRulesPtrOutput
+	ToRotationScheduleRotationRulesPtrOutputWithContext(context.Context) RotationScheduleRotationRulesPtrOutput
+}
+
+type rotationScheduleRotationRulesPtrType RotationScheduleRotationRulesArgs
+
+func RotationScheduleRotationRulesPtr(v *RotationScheduleRotationRulesArgs) RotationScheduleRotationRulesPtrInput {
+	return (*rotationScheduleRotationRulesPtrType)(v)
+}
+
+func (*rotationScheduleRotationRulesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RotationScheduleRotationRules)(nil)).Elem()
+}
+
+func (i *rotationScheduleRotationRulesPtrType) ToRotationScheduleRotationRulesPtrOutput() RotationScheduleRotationRulesPtrOutput {
+	return i.ToRotationScheduleRotationRulesPtrOutputWithContext(context.Background())
+}
+
+func (i *rotationScheduleRotationRulesPtrType) ToRotationScheduleRotationRulesPtrOutputWithContext(ctx context.Context) RotationScheduleRotationRulesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RotationScheduleRotationRulesPtrOutput)
+}
+
+type RotationScheduleRotationRulesOutput struct{ *pulumi.OutputState }
+
+func (RotationScheduleRotationRulesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RotationScheduleRotationRules)(nil)).Elem()
+}
+
+func (o RotationScheduleRotationRulesOutput) ToRotationScheduleRotationRulesOutput() RotationScheduleRotationRulesOutput {
+	return o
+}
+
+func (o RotationScheduleRotationRulesOutput) ToRotationScheduleRotationRulesOutputWithContext(ctx context.Context) RotationScheduleRotationRulesOutput {
+	return o
+}
+
+func (o RotationScheduleRotationRulesOutput) ToRotationScheduleRotationRulesPtrOutput() RotationScheduleRotationRulesPtrOutput {
+	return o.ToRotationScheduleRotationRulesPtrOutputWithContext(context.Background())
+}
+
+func (o RotationScheduleRotationRulesOutput) ToRotationScheduleRotationRulesPtrOutputWithContext(ctx context.Context) RotationScheduleRotationRulesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RotationScheduleRotationRules) *RotationScheduleRotationRules {
+		return &v
+	}).(RotationScheduleRotationRulesPtrOutput)
+}
+
+// The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
+func (o RotationScheduleRotationRulesOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v RotationScheduleRotationRules) *int { return v.AutomaticallyAfterDays }).(pulumi.IntPtrOutput)
+}
+
+// The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
+func (o RotationScheduleRotationRulesOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleRotationRules) *string { return v.Duration }).(pulumi.StringPtrOutput)
+}
+
+// A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
+func (o RotationScheduleRotationRulesOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RotationScheduleRotationRules) *string { return v.ScheduleExpression }).(pulumi.StringPtrOutput)
+}
+
+type RotationScheduleRotationRulesPtrOutput struct{ *pulumi.OutputState }
+
+func (RotationScheduleRotationRulesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RotationScheduleRotationRules)(nil)).Elem()
+}
+
+func (o RotationScheduleRotationRulesPtrOutput) ToRotationScheduleRotationRulesPtrOutput() RotationScheduleRotationRulesPtrOutput {
+	return o
+}
+
+func (o RotationScheduleRotationRulesPtrOutput) ToRotationScheduleRotationRulesPtrOutputWithContext(ctx context.Context) RotationScheduleRotationRulesPtrOutput {
+	return o
+}
+
+func (o RotationScheduleRotationRulesPtrOutput) Elem() RotationScheduleRotationRulesOutput {
+	return o.ApplyT(func(v *RotationScheduleRotationRules) RotationScheduleRotationRules {
+		if v != nil {
+			return *v
+		}
+		var ret RotationScheduleRotationRules
+		return ret
+	}).(RotationScheduleRotationRulesOutput)
+}
+
+// The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
+func (o RotationScheduleRotationRulesPtrOutput) AutomaticallyAfterDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleRotationRules) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AutomaticallyAfterDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
+func (o RotationScheduleRotationRulesPtrOutput) Duration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleRotationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Duration
+	}).(pulumi.StringPtrOutput)
+}
+
+// A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
+func (o RotationScheduleRotationRulesPtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RotationScheduleRotationRules) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScheduleExpression
+	}).(pulumi.StringPtrOutput)
+}
+
 // Generates a random password. We recommend that you specify the maximum length and include every character type that the system you are generating a password for can support.
 //
 //	*Required permissions:* ``secretsmanager:GetRandomPassword``. For more information, see [IAM policy actions for Secrets Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssecretsmanager.html#awssecretsmanager-actions-as-permissions) and [Authentication and access control in Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html).
@@ -448,10 +950,18 @@ type SecretTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleHostedRotationLambdaInput)(nil)).Elem(), RotationScheduleHostedRotationLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleHostedRotationLambdaPtrInput)(nil)).Elem(), RotationScheduleHostedRotationLambdaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleRotationRulesInput)(nil)).Elem(), RotationScheduleRotationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RotationScheduleRotationRulesPtrInput)(nil)).Elem(), RotationScheduleRotationRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretGenerateSecretStringInput)(nil)).Elem(), SecretGenerateSecretStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretGenerateSecretStringPtrInput)(nil)).Elem(), SecretGenerateSecretStringArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaRegionInput)(nil)).Elem(), SecretReplicaRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaRegionArrayInput)(nil)).Elem(), SecretReplicaRegionArray{})
+	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaOutput{})
+	pulumi.RegisterOutputType(RotationScheduleHostedRotationLambdaPtrOutput{})
+	pulumi.RegisterOutputType(RotationScheduleRotationRulesOutput{})
+	pulumi.RegisterOutputType(RotationScheduleRotationRulesPtrOutput{})
 	pulumi.RegisterOutputType(SecretGenerateSecretStringOutput{})
 	pulumi.RegisterOutputType(SecretGenerateSecretStringPtrOutput{})
 	pulumi.RegisterOutputType(SecretReplicaRegionOutput{})

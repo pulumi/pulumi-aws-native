@@ -31,6 +31,7 @@ class EipArgs:
                  transfer_address: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Eip resource.
+        :param pulumi.Input[str] address: Describes an Elastic IP address, or a carrier IP address.
         :param pulumi.Input[str] domain: The network (``vpc``).
                 If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
         :param pulumi.Input[str] instance_id: The ID of the instance.
@@ -63,6 +64,9 @@ class EipArgs:
     @property
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes an Elastic IP address, or a carrier IP address.
+        """
         return pulumi.get(self, "address")
 
     @address.setter
@@ -177,6 +181,7 @@ class Eip(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] address: Describes an Elastic IP address, or a carrier IP address.
         :param pulumi.Input[str] domain: The network (``vpc``).
                 If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
         :param pulumi.Input[str] instance_id: The ID of the instance.
@@ -281,6 +286,9 @@ class Eip(pulumi.CustomResource):
     @property
     @pulumi.getter
     def address(self) -> pulumi.Output[Optional[str]]:
+        """
+        Describes an Elastic IP address, or a carrier IP address.
+        """
         return pulumi.get(self, "address")
 
     @property

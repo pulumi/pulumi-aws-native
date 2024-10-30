@@ -10,6 +10,11 @@ export type AiPrompt = import("./aiPrompt").AiPrompt;
 export const AiPrompt: typeof import("./aiPrompt").AiPrompt = null as any;
 utilities.lazyLoad(exports, ["AiPrompt"], () => require("./aiPrompt"));
 
+export { AiPromptVersionArgs } from "./aiPromptVersion";
+export type AiPromptVersion = import("./aiPromptVersion").AiPromptVersion;
+export const AiPromptVersion: typeof import("./aiPromptVersion").AiPromptVersion = null as any;
+utilities.lazyLoad(exports, ["AiPromptVersion"], () => require("./aiPromptVersion"));
+
 export { AssistantArgs } from "./assistant";
 export type Assistant = import("./assistant").Assistant;
 export const Assistant: typeof import("./assistant").Assistant = null as any;
@@ -24,6 +29,11 @@ export { GetAiPromptArgs, GetAiPromptResult, GetAiPromptOutputArgs } from "./get
 export const getAiPrompt: typeof import("./getAiPrompt").getAiPrompt = null as any;
 export const getAiPromptOutput: typeof import("./getAiPrompt").getAiPromptOutput = null as any;
 utilities.lazyLoad(exports, ["getAiPrompt","getAiPromptOutput"], () => require("./getAiPrompt"));
+
+export { GetAiPromptVersionArgs, GetAiPromptVersionResult, GetAiPromptVersionOutputArgs } from "./getAiPromptVersion";
+export const getAiPromptVersion: typeof import("./getAiPromptVersion").getAiPromptVersion = null as any;
+export const getAiPromptVersionOutput: typeof import("./getAiPromptVersion").getAiPromptVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getAiPromptVersion","getAiPromptVersionOutput"], () => require("./getAiPromptVersion"));
 
 export { GetAssistantArgs, GetAssistantResult, GetAssistantOutputArgs } from "./getAssistant";
 export const getAssistant: typeof import("./getAssistant").getAssistant = null as any;
@@ -55,6 +65,8 @@ const _module = {
         switch (type) {
             case "aws-native:wisdom:AiPrompt":
                 return new AiPrompt(name, <any>undefined, { urn })
+            case "aws-native:wisdom:AiPromptVersion":
+                return new AiPromptVersion(name, <any>undefined, { urn })
             case "aws-native:wisdom:Assistant":
                 return new Assistant(name, <any>undefined, { urn })
             case "aws-native:wisdom:AssistantAssociation":

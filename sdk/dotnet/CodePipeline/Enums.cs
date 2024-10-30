@@ -149,6 +149,7 @@ namespace Pulumi.AwsNative.CodePipeline
         }
 
         public static PipelineFailureConditionsResult Rollback { get; } = new PipelineFailureConditionsResult("ROLLBACK");
+        public static PipelineFailureConditionsResult Retry { get; } = new PipelineFailureConditionsResult("RETRY");
 
         public static bool operator ==(PipelineFailureConditionsResult left, PipelineFailureConditionsResult right) => left.Equals(right);
         public static bool operator !=(PipelineFailureConditionsResult left, PipelineFailureConditionsResult right) => !left.Equals(right);
@@ -158,6 +159,37 @@ namespace Pulumi.AwsNative.CodePipeline
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PipelineFailureConditionsResult other && Equals(other);
         public bool Equals(PipelineFailureConditionsResult other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
+    /// </summary>
+    [EnumType]
+    public readonly struct PipelineFailureConditionsRetryConfigurationPropertiesRetryMode : IEquatable<PipelineFailureConditionsRetryConfigurationPropertiesRetryMode>
+    {
+        private readonly string _value;
+
+        private PipelineFailureConditionsRetryConfigurationPropertiesRetryMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PipelineFailureConditionsRetryConfigurationPropertiesRetryMode AllActions { get; } = new PipelineFailureConditionsRetryConfigurationPropertiesRetryMode("ALL_ACTIONS");
+        public static PipelineFailureConditionsRetryConfigurationPropertiesRetryMode FailedActions { get; } = new PipelineFailureConditionsRetryConfigurationPropertiesRetryMode("FAILED_ACTIONS");
+
+        public static bool operator ==(PipelineFailureConditionsRetryConfigurationPropertiesRetryMode left, PipelineFailureConditionsRetryConfigurationPropertiesRetryMode right) => left.Equals(right);
+        public static bool operator !=(PipelineFailureConditionsRetryConfigurationPropertiesRetryMode left, PipelineFailureConditionsRetryConfigurationPropertiesRetryMode right) => !left.Equals(right);
+
+        public static explicit operator string(PipelineFailureConditionsRetryConfigurationPropertiesRetryMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PipelineFailureConditionsRetryConfigurationPropertiesRetryMode other && Equals(other);
+        public bool Equals(PipelineFailureConditionsRetryConfigurationPropertiesRetryMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

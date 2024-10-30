@@ -15,6 +15,10 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'RotationScheduleHostedRotationLambdaArgs',
+    'RotationScheduleHostedRotationLambdaArgsDict',
+    'RotationScheduleRotationRulesArgs',
+    'RotationScheduleRotationRulesArgsDict',
     'SecretGenerateSecretStringArgs',
     'SecretGenerateSecretStringArgsDict',
     'SecretReplicaRegionArgs',
@@ -22,6 +26,309 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class RotationScheduleHostedRotationLambdaArgsDict(TypedDict):
+        rotation_type: pulumi.Input[str]
+        """
+        The type of rotation template to use
+        """
+        exclude_characters: NotRequired[pulumi.Input[str]]
+        """
+        A string of the characters that you don't want in the password.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+        """
+        master_secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+        """
+        master_secret_kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+        """
+        rotation_lambda_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the Lambda rotation function.
+        """
+        runtime: NotRequired[pulumi.Input[str]]
+        """
+        The python runtime associated with the Lambda function
+        """
+        superuser_secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+        """
+        superuser_secret_kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+        """
+        vpc_security_group_ids: NotRequired[pulumi.Input[str]]
+        """
+        A comma-separated list of security group IDs applied to the target database.
+        """
+        vpc_subnet_ids: NotRequired[pulumi.Input[str]]
+        """
+        A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
+        """
+elif False:
+    RotationScheduleHostedRotationLambdaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RotationScheduleHostedRotationLambdaArgs:
+    def __init__(__self__, *,
+                 rotation_type: pulumi.Input[str],
+                 exclude_characters: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 master_secret_arn: Optional[pulumi.Input[str]] = None,
+                 master_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 rotation_lambda_name: Optional[pulumi.Input[str]] = None,
+                 runtime: Optional[pulumi.Input[str]] = None,
+                 superuser_secret_arn: Optional[pulumi.Input[str]] = None,
+                 superuser_secret_kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 vpc_security_group_ids: Optional[pulumi.Input[str]] = None,
+                 vpc_subnet_ids: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] rotation_type: The type of rotation template to use
+        :param pulumi.Input[str] exclude_characters: A string of the characters that you don't want in the password.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+        :param pulumi.Input[str] master_secret_arn: The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+        :param pulumi.Input[str] master_secret_kms_key_arn: The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+        :param pulumi.Input[str] rotation_lambda_name: The name of the Lambda rotation function.
+        :param pulumi.Input[str] runtime: The python runtime associated with the Lambda function
+        :param pulumi.Input[str] superuser_secret_arn: The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+        :param pulumi.Input[str] superuser_secret_kms_key_arn: The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+        :param pulumi.Input[str] vpc_security_group_ids: A comma-separated list of security group IDs applied to the target database.
+        :param pulumi.Input[str] vpc_subnet_ids: A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
+        """
+        pulumi.set(__self__, "rotation_type", rotation_type)
+        if exclude_characters is not None:
+            pulumi.set(__self__, "exclude_characters", exclude_characters)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if master_secret_arn is not None:
+            pulumi.set(__self__, "master_secret_arn", master_secret_arn)
+        if master_secret_kms_key_arn is not None:
+            pulumi.set(__self__, "master_secret_kms_key_arn", master_secret_kms_key_arn)
+        if rotation_lambda_name is not None:
+            pulumi.set(__self__, "rotation_lambda_name", rotation_lambda_name)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if superuser_secret_arn is not None:
+            pulumi.set(__self__, "superuser_secret_arn", superuser_secret_arn)
+        if superuser_secret_kms_key_arn is not None:
+            pulumi.set(__self__, "superuser_secret_kms_key_arn", superuser_secret_kms_key_arn)
+        if vpc_security_group_ids is not None:
+            pulumi.set(__self__, "vpc_security_group_ids", vpc_security_group_ids)
+        if vpc_subnet_ids is not None:
+            pulumi.set(__self__, "vpc_subnet_ids", vpc_subnet_ids)
+
+    @property
+    @pulumi.getter(name="rotationType")
+    def rotation_type(self) -> pulumi.Input[str]:
+        """
+        The type of rotation template to use
+        """
+        return pulumi.get(self, "rotation_type")
+
+    @rotation_type.setter
+    def rotation_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rotation_type", value)
+
+    @property
+    @pulumi.getter(name="excludeCharacters")
+    def exclude_characters(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string of the characters that you don't want in the password.
+        """
+        return pulumi.get(self, "exclude_characters")
+
+    @exclude_characters.setter
+    def exclude_characters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude_characters", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the KMS key that Secrets Manager uses to encrypt the secret. If you don't specify this value, then Secrets Manager uses the key aws/secretsmanager. If aws/secretsmanager doesn't yet exist, then Secrets Manager creates it for you automatically the first time it encrypts the secret value.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="masterSecretArn")
+    def master_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+        """
+        return pulumi.get(self, "master_secret_arn")
+
+    @master_secret_arn.setter
+    def master_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="masterSecretKmsKeyArn")
+    def master_secret_kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+        """
+        return pulumi.get(self, "master_secret_kms_key_arn")
+
+    @master_secret_kms_key_arn.setter
+    def master_secret_kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "master_secret_kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="rotationLambdaName")
+    def rotation_lambda_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Lambda rotation function.
+        """
+        return pulumi.get(self, "rotation_lambda_name")
+
+    @rotation_lambda_name.setter
+    def rotation_lambda_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rotation_lambda_name", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input[str]]:
+        """
+        The python runtime associated with the Lambda function
+        """
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime", value)
+
+    @property
+    @pulumi.getter(name="superuserSecretArn")
+    def superuser_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the secret that contains superuser credentials, if you use the alternating users rotation strategy. CloudFormation grants the execution role for the Lambda rotation function GetSecretValue permission to the secret in this property.
+        """
+        return pulumi.get(self, "superuser_secret_arn")
+
+    @superuser_secret_arn.setter
+    def superuser_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "superuser_secret_arn", value)
+
+    @property
+    @pulumi.getter(name="superuserSecretKmsKeyArn")
+    def superuser_secret_kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the KMS key that Secrets Manager used to encrypt the superuser secret, if you use the alternating users strategy and the superuser secret is encrypted with a customer managed key. You don't need to specify this property if the superuser secret is encrypted using the key aws/secretsmanager. CloudFormation grants the execution role for the Lambda rotation function Decrypt, DescribeKey, and GenerateDataKey permission to the key in this property.
+        """
+        return pulumi.get(self, "superuser_secret_kms_key_arn")
+
+    @superuser_secret_kms_key_arn.setter
+    def superuser_secret_kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "superuser_secret_kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="vpcSecurityGroupIds")
+    def vpc_security_group_ids(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma-separated list of security group IDs applied to the target database.
+        """
+        return pulumi.get(self, "vpc_security_group_ids")
+
+    @vpc_security_group_ids.setter
+    def vpc_security_group_ids(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcSubnetIds")
+    def vpc_subnet_ids(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma separated list of VPC subnet IDs of the target database network. The Lambda rotation function is in the same subnet group.
+        """
+        return pulumi.get(self, "vpc_subnet_ids")
+
+    @vpc_subnet_ids.setter
+    def vpc_subnet_ids(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_subnet_ids", value)
+
+
+if not MYPY:
+    class RotationScheduleRotationRulesArgsDict(TypedDict):
+        automatically_after_days: NotRequired[pulumi.Input[int]]
+        """
+        The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
+        """
+        duration: NotRequired[pulumi.Input[str]]
+        """
+        The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
+        """
+        schedule_expression: NotRequired[pulumi.Input[str]]
+        """
+        A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
+        """
+elif False:
+    RotationScheduleRotationRulesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RotationScheduleRotationRulesArgs:
+    def __init__(__self__, *,
+                 automatically_after_days: Optional[pulumi.Input[int]] = None,
+                 duration: Optional[pulumi.Input[str]] = None,
+                 schedule_expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] automatically_after_days: The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
+        :param pulumi.Input[str] duration: The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
+        :param pulumi.Input[str] schedule_expression: A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
+        """
+        if automatically_after_days is not None:
+            pulumi.set(__self__, "automatically_after_days", automatically_after_days)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if schedule_expression is not None:
+            pulumi.set(__self__, "schedule_expression", schedule_expression)
+
+    @property
+    @pulumi.getter(name="automaticallyAfterDays")
+    def automatically_after_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days between automatic scheduled rotations of the secret. You can use this value to check that your secret meets your compliance guidelines for how often secrets must be rotated.
+        """
+        return pulumi.get(self, "automatically_after_days")
+
+    @automatically_after_days.setter
+    def automatically_after_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "automatically_after_days", value)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The length of the rotation window in hours, for example 3h for a three hour window. Secrets Manager rotates your secret at any time during this window. The window must not extend into the next rotation window or the next UTC day. The window starts according to the ScheduleExpression. If you don't specify a Duration, for a ScheduleExpression in hours, the window automatically closes after one hour. For a ScheduleExpression in days, the window automatically closes at the end of the UTC day.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "duration", value)
+
+    @property
+    @pulumi.getter(name="scheduleExpression")
+    def schedule_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        A cron() or rate() expression that defines the schedule for rotating your secret. Secrets Manager rotation schedules use UTC time zone.
+        """
+        return pulumi.get(self, "schedule_expression")
+
+    @schedule_expression.setter
+    def schedule_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_expression", value)
+
 
 if not MYPY:
     class SecretGenerateSecretStringArgsDict(TypedDict):

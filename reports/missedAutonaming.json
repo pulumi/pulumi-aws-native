@@ -3637,7 +3637,8 @@
     "cfTypeName": "AWS::EC2::EIP",
     "properties": {
       "address": {
-        "type": "string"
+        "type": "string",
+        "description": "Describes an Elastic IP address, or a carrier IP address."
       },
       "domain": {
         "type": "string",
@@ -11457,6 +11458,31 @@
       }
     }
   },
+  "aws-native:secretsmanager:RotationSchedule": {
+    "cfTypeName": "AWS::SecretsManager::RotationSchedule",
+    "properties": {
+      "hostedRotationLambda": {
+        "$ref": "#/types/aws-native:secretsmanager:RotationScheduleHostedRotationLambda",
+        "description": "Creates a new Lambda rotation function based on one of the Secrets Manager rotation function templates. To use a rotation function that already exists, specify RotationLambdaARN instead."
+      },
+      "rotateImmediatelyOnUpdate": {
+        "type": "boolean",
+        "description": "Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window."
+      },
+      "rotationLambdaArn": {
+        "type": "string",
+        "description": "The ARN of an existing Lambda rotation function. To specify a rotation function that is also defined in this template, use the Ref function."
+      },
+      "rotationRules": {
+        "$ref": "#/types/aws-native:secretsmanager:RotationScheduleRotationRules",
+        "description": "A structure that defines the rotation configuration for this secret."
+      },
+      "secretId": {
+        "type": "string",
+        "description": "The ARN or name of the secret to rotate."
+      }
+    }
+  },
   "aws-native:secretsmanager:SecretTargetAttachment": {
     "cfTypeName": "AWS::SecretsManager::SecretTargetAttachment",
     "properties": {
@@ -12794,6 +12820,20 @@
       "webAclArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource."
+      }
+    }
+  },
+  "aws-native:wisdom:AiPromptVersion": {
+    "cfTypeName": "AWS::Wisdom::AIPromptVersion",
+    "properties": {
+      "aiPromptId": {
+        "type": "string"
+      },
+      "assistantId": {
+        "type": "string"
+      },
+      "modifiedTimeSeconds": {
+        "type": "number"
       }
     }
   },

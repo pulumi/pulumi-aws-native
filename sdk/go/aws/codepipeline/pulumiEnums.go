@@ -687,6 +687,7 @@ type PipelineFailureConditionsResult string
 
 const (
 	PipelineFailureConditionsResultRollback = PipelineFailureConditionsResult("ROLLBACK")
+	PipelineFailureConditionsResultRetry    = PipelineFailureConditionsResult("RETRY")
 )
 
 func (PipelineFailureConditionsResult) ElementType() reflect.Type {
@@ -812,6 +813,7 @@ func (o PipelineFailureConditionsResultPtrOutput) ToStringPtrOutputWithContext(c
 // A concrete instance of `PipelineFailureConditionsResultInput` can be one of the following:
 //
 //	PipelineFailureConditionsResultRollback
+//	PipelineFailureConditionsResultRetry
 type PipelineFailureConditionsResultInput interface {
 	pulumi.Input
 
@@ -844,6 +846,172 @@ func (in *pipelineFailureConditionsResultPtr) ToPipelineFailureConditionsResultP
 
 func (in *pipelineFailureConditionsResultPtr) ToPipelineFailureConditionsResultPtrOutputWithContext(ctx context.Context) PipelineFailureConditionsResultPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PipelineFailureConditionsResultPtrOutput)
+}
+
+// The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
+type PipelineFailureConditionsRetryConfigurationPropertiesRetryMode string
+
+const (
+	PipelineFailureConditionsRetryConfigurationPropertiesRetryModeAllActions    = PipelineFailureConditionsRetryConfigurationPropertiesRetryMode("ALL_ACTIONS")
+	PipelineFailureConditionsRetryConfigurationPropertiesRetryModeFailedActions = PipelineFailureConditionsRetryConfigurationPropertiesRetryMode("FAILED_ACTIONS")
+)
+
+func (PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineFailureConditionsRetryConfigurationPropertiesRetryMode)(nil)).Elem()
+}
+
+func (e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput() PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput {
+	return pulumi.ToOutput(e).(PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput)
+}
+
+func (e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutputWithContext(ctx context.Context) PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput)
+}
+
+func (e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput() PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput {
+	return e.ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutputWithContext(context.Background())
+}
+
+func (e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutputWithContext(ctx context.Context) PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput {
+	return PipelineFailureConditionsRetryConfigurationPropertiesRetryMode(e).ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutputWithContext(ctx).ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutputWithContext(ctx)
+}
+
+func (e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput struct{ *pulumi.OutputState }
+
+func (PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PipelineFailureConditionsRetryConfigurationPropertiesRetryMode)(nil)).Elem()
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput() PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput {
+	return o
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutputWithContext(ctx context.Context) PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput {
+	return o
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput() PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput {
+	return o.ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutputWithContext(context.Background())
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutputWithContext(ctx context.Context) PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) *PipelineFailureConditionsRetryConfigurationPropertiesRetryMode {
+		return &v
+	}).(PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput)
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput struct{ *pulumi.OutputState }
+
+func (PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PipelineFailureConditionsRetryConfigurationPropertiesRetryMode)(nil)).Elem()
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput() PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput {
+	return o
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutputWithContext(ctx context.Context) PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput {
+	return o
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput) Elem() PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput {
+	return o.ApplyT(func(v *PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) PipelineFailureConditionsRetryConfigurationPropertiesRetryMode {
+		if v != nil {
+			return *v
+		}
+		var ret PipelineFailureConditionsRetryConfigurationPropertiesRetryMode
+		return ret
+	}).(PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput)
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PipelineFailureConditionsRetryConfigurationPropertiesRetryMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PipelineFailureConditionsRetryConfigurationPropertiesRetryModeInput is an input type that accepts values of the PipelineFailureConditionsRetryConfigurationPropertiesRetryMode enum
+// A concrete instance of `PipelineFailureConditionsRetryConfigurationPropertiesRetryModeInput` can be one of the following:
+//
+//	PipelineFailureConditionsRetryConfigurationPropertiesRetryModeAllActions
+//	PipelineFailureConditionsRetryConfigurationPropertiesRetryModeFailedActions
+type PipelineFailureConditionsRetryConfigurationPropertiesRetryModeInput interface {
+	pulumi.Input
+
+	ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput() PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput
+	ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutputWithContext(context.Context) PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput
+}
+
+var pipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrType = reflect.TypeOf((**PipelineFailureConditionsRetryConfigurationPropertiesRetryMode)(nil)).Elem()
+
+type PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrInput interface {
+	pulumi.Input
+
+	ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput() PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput
+	ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutputWithContext(context.Context) PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput
+}
+
+type pipelineFailureConditionsRetryConfigurationPropertiesRetryModePtr string
+
+func PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtr(v string) PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrInput {
+	return (*pipelineFailureConditionsRetryConfigurationPropertiesRetryModePtr)(&v)
+}
+
+func (*pipelineFailureConditionsRetryConfigurationPropertiesRetryModePtr) ElementType() reflect.Type {
+	return pipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrType
+}
+
+func (in *pipelineFailureConditionsRetryConfigurationPropertiesRetryModePtr) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput() PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput {
+	return pulumi.ToOutput(in).(PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput)
+}
+
+func (in *pipelineFailureConditionsRetryConfigurationPropertiesRetryModePtr) ToPipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutputWithContext(ctx context.Context) PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput)
 }
 
 // The source provider for the event, such as connections configured for a repository with Git tags, for the specified trigger configuration.
@@ -1187,6 +1355,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineExecutionModePtrInput)(nil)).Elem(), PipelineExecutionMode("QUEUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFailureConditionsResultInput)(nil)).Elem(), PipelineFailureConditionsResult("ROLLBACK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFailureConditionsResultPtrInput)(nil)).Elem(), PipelineFailureConditionsResult("ROLLBACK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFailureConditionsRetryConfigurationPropertiesRetryModeInput)(nil)).Elem(), PipelineFailureConditionsRetryConfigurationPropertiesRetryMode("ALL_ACTIONS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrInput)(nil)).Elem(), PipelineFailureConditionsRetryConfigurationPropertiesRetryMode("ALL_ACTIONS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerDeclarationProviderTypeInput)(nil)).Elem(), PipelineTriggerDeclarationProviderType("CodeStarSourceConnection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTriggerDeclarationProviderTypePtrInput)(nil)).Elem(), PipelineTriggerDeclarationProviderType("CodeStarSourceConnection"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineTypeInput)(nil)).Elem(), PipelineType("V1"))
@@ -1201,6 +1371,8 @@ func init() {
 	pulumi.RegisterOutputType(PipelineExecutionModePtrOutput{})
 	pulumi.RegisterOutputType(PipelineFailureConditionsResultOutput{})
 	pulumi.RegisterOutputType(PipelineFailureConditionsResultPtrOutput{})
+	pulumi.RegisterOutputType(PipelineFailureConditionsRetryConfigurationPropertiesRetryModeOutput{})
+	pulumi.RegisterOutputType(PipelineFailureConditionsRetryConfigurationPropertiesRetryModePtrOutput{})
 	pulumi.RegisterOutputType(PipelineTriggerDeclarationProviderTypeOutput{})
 	pulumi.RegisterOutputType(PipelineTriggerDeclarationProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(PipelineTypeOutput{})

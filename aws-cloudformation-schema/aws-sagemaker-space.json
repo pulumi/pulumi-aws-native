@@ -373,7 +373,7 @@
   },
   "required" : [ "DomainId", "SpaceName" ],
   "createOnlyProperties" : [ "/properties/DomainId", "/properties/SpaceName", "/properties/SpaceSharingSettings", "/properties/OwnershipSettings" ],
-  "writeOnlyProperties" : [ "/properties/SpaceSettings", "/properties/Tags" ],
+  "writeOnlyProperties" : [ "/properties/SpaceSettings" ],
   "primaryIdentifier" : [ "/properties/DomainId", "/properties/SpaceName" ],
   "readOnlyProperties" : [ "/properties/SpaceArn", "/properties/Url" ],
   "tagging" : {
@@ -381,23 +381,24 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateSpace", "sagemaker:DescribeSpace" ]
+      "permissions" : [ "sagemaker:CreateSpace", "sagemaker:DescribeSpace", "sagemaker:ListTags", "sagemaker:AddTags" ]
     },
     "read" : {
-      "permissions" : [ "sagemaker:DescribeSpace" ]
+      "permissions" : [ "sagemaker:DescribeSpace", "sagemaker:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "sagemaker:UpdateSpace", "sagemaker:DescribeSpace" ]
+      "permissions" : [ "sagemaker:UpdateSpace", "sagemaker:DescribeSpace", "sagemaker:AddTags", "sagemaker:DeleteTags", "sagemaker:ListTags" ]
     },
     "delete" : {
-      "permissions" : [ "sagemaker:DeleteSpace", "sagemaker:DescribeSpace" ]
+      "permissions" : [ "sagemaker:DeleteSpace", "sagemaker:DescribeSpace", "sagemaker:DeleteTags" ]
     },
     "list" : {
-      "permissions" : [ "sagemaker:ListSpaces" ]
+      "permissions" : [ "sagemaker:ListSpaces", "sagemaker:ListTags" ]
     }
   }
 }

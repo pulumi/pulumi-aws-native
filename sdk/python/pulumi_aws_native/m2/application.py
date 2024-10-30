@@ -22,8 +22,8 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 definition: pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']],
                  engine_type: pulumi.Input['ApplicationEngineType'],
+                 definition: Optional[pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,10 +31,10 @@ class ApplicationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Application resource.
+        :param pulumi.Input['ApplicationEngineType'] engine_type: The type of the target platform for this application.
         :param pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
                
                For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
-        :param pulumi.Input['ApplicationEngineType'] engine_type: The type of the target platform for this application.
         :param pulumi.Input[str] description: The description of the application.
         :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
         :param pulumi.Input[str] name: The name of the application.
@@ -43,8 +43,9 @@ class ApplicationArgs:
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
-        pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "engine_type", engine_type)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
@@ -57,20 +58,6 @@ class ApplicationArgs:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def definition(self) -> pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]:
-        """
-        The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
-
-        For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
-        """
-        return pulumi.get(self, "definition")
-
-    @definition.setter
-    def definition(self, value: pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]):
-        pulumi.set(self, "definition", value)
-
-    @property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Input['ApplicationEngineType']:
         """
@@ -81,6 +68,20 @@ class ApplicationArgs:
     @engine_type.setter
     def engine_type(self, value: pulumi.Input['ApplicationEngineType']):
         pulumi.set(self, "engine_type", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]]:
+        """
+        The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+
+        For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]]):
+        pulumi.set(self, "definition", value)
 
     @property
     @pulumi.getter
@@ -215,8 +216,6 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            if definition is None and not opts.urn:
-                raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
             __props__.__dict__["description"] = description
             if engine_type is None and not opts.urn:
@@ -281,7 +280,7 @@ class Application(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Any]:
+    def definition(self) -> pulumi.Output[Optional[Any]]:
         """
         The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
 

@@ -48,12 +48,23 @@ export type PipelineExecutionMode = (typeof PipelineExecutionMode)[keyof typeof 
 
 export const PipelineFailureConditionsResult = {
     Rollback: "ROLLBACK",
+    Retry: "RETRY",
 } as const;
 
 /**
  * The specified result for when the failure conditions are met, such as rolling back the stage
  */
 export type PipelineFailureConditionsResult = (typeof PipelineFailureConditionsResult)[keyof typeof PipelineFailureConditionsResult];
+
+export const PipelineFailureConditionsRetryConfigurationPropertiesRetryMode = {
+    AllActions: "ALL_ACTIONS",
+    FailedActions: "FAILED_ACTIONS",
+} as const;
+
+/**
+ * The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
+ */
+export type PipelineFailureConditionsRetryConfigurationPropertiesRetryMode = (typeof PipelineFailureConditionsRetryConfigurationPropertiesRetryMode)[keyof typeof PipelineFailureConditionsRetryConfigurationPropertiesRetryMode];
 
 export const PipelineTriggerDeclarationProviderType = {
     CodeStarSourceConnection: "CodeStarSourceConnection",

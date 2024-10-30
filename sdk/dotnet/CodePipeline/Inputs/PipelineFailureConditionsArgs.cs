@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         [Input("result")]
         public Input<Pulumi.AwsNative.CodePipeline.PipelineFailureConditionsResult>? Result { get; set; }
 
+        /// <summary>
+        /// The configuration that specifies the retry configuration for a stage
+        /// </summary>
+        [Input("retryConfiguration")]
+        public Input<Inputs.PipelineFailureConditionsRetryConfigurationPropertiesArgs>? RetryConfiguration { get; set; }
+
         public PipelineFailureConditionsArgs()
         {
         }

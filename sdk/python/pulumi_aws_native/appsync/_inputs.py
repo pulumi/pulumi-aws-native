@@ -16,6 +16,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApiAuthModeArgs',
+    'ApiAuthModeArgsDict',
+    'ApiAuthProviderArgs',
+    'ApiAuthProviderArgsDict',
+    'ApiCognitoConfigArgs',
+    'ApiCognitoConfigArgsDict',
+    'ApiEventConfigArgs',
+    'ApiEventConfigArgsDict',
+    'ApiEventLogConfigArgs',
+    'ApiEventLogConfigArgsDict',
+    'ApiLambdaAuthorizerConfigArgs',
+    'ApiLambdaAuthorizerConfigArgsDict',
+    'ApiOpenIdConnectConfigArgs',
+    'ApiOpenIdConnectConfigArgsDict',
     'DataSourceAuthorizationConfigArgs',
     'DataSourceAuthorizationConfigArgsDict',
     'DataSourceAwsIamConfigArgs',
@@ -73,6 +87,393 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApiAuthModeArgsDict(TypedDict):
+        """
+        An auth mode.
+        """
+        auth_type: NotRequired[pulumi.Input['ApiAuthenticationType']]
+elif False:
+    ApiAuthModeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiAuthModeArgs:
+    def __init__(__self__, *,
+                 auth_type: Optional[pulumi.Input['ApiAuthenticationType']] = None):
+        """
+        An auth mode.
+        """
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[pulumi.Input['ApiAuthenticationType']]:
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: Optional[pulumi.Input['ApiAuthenticationType']]):
+        pulumi.set(self, "auth_type", value)
+
+
+if not MYPY:
+    class ApiAuthProviderArgsDict(TypedDict):
+        """
+        An auth provider for the AppSync API.
+        """
+        auth_type: pulumi.Input['ApiAuthenticationType']
+        cognito_config: NotRequired[pulumi.Input['ApiCognitoConfigArgsDict']]
+        lambda_authorizer_config: NotRequired[pulumi.Input['ApiLambdaAuthorizerConfigArgsDict']]
+        open_id_connect_config: NotRequired[pulumi.Input['ApiOpenIdConnectConfigArgsDict']]
+elif False:
+    ApiAuthProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiAuthProviderArgs:
+    def __init__(__self__, *,
+                 auth_type: pulumi.Input['ApiAuthenticationType'],
+                 cognito_config: Optional[pulumi.Input['ApiCognitoConfigArgs']] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input['ApiLambdaAuthorizerConfigArgs']] = None,
+                 open_id_connect_config: Optional[pulumi.Input['ApiOpenIdConnectConfigArgs']] = None):
+        """
+        An auth provider for the AppSync API.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        if cognito_config is not None:
+            pulumi.set(__self__, "cognito_config", cognito_config)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+        if open_id_connect_config is not None:
+            pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input['ApiAuthenticationType']:
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input['ApiAuthenticationType']):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="cognitoConfig")
+    def cognito_config(self) -> Optional[pulumi.Input['ApiCognitoConfigArgs']]:
+        return pulumi.get(self, "cognito_config")
+
+    @cognito_config.setter
+    def cognito_config(self, value: Optional[pulumi.Input['ApiCognitoConfigArgs']]):
+        pulumi.set(self, "cognito_config", value)
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['ApiLambdaAuthorizerConfigArgs']]:
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @lambda_authorizer_config.setter
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['ApiLambdaAuthorizerConfigArgs']]):
+        pulumi.set(self, "lambda_authorizer_config", value)
+
+    @property
+    @pulumi.getter(name="openIdConnectConfig")
+    def open_id_connect_config(self) -> Optional[pulumi.Input['ApiOpenIdConnectConfigArgs']]:
+        return pulumi.get(self, "open_id_connect_config")
+
+    @open_id_connect_config.setter
+    def open_id_connect_config(self, value: Optional[pulumi.Input['ApiOpenIdConnectConfigArgs']]):
+        pulumi.set(self, "open_id_connect_config", value)
+
+
+if not MYPY:
+    class ApiCognitoConfigArgsDict(TypedDict):
+        """
+        Optional authorization configuration for using Amazon Cognito user pools with your API endpoint.
+        """
+        aws_region: pulumi.Input[str]
+        user_pool_id: pulumi.Input[str]
+        app_id_client_regex: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiCognitoConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiCognitoConfigArgs:
+    def __init__(__self__, *,
+                 aws_region: pulumi.Input[str],
+                 user_pool_id: pulumi.Input[str],
+                 app_id_client_regex: Optional[pulumi.Input[str]] = None):
+        """
+        Optional authorization configuration for using Amazon Cognito user pools with your API endpoint.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "aws_region")
+
+    @aws_region.setter
+    def aws_region(self, value: pulumi.Input[str]):
+        pulumi.set(self, "aws_region", value)
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "user_pool_id")
+
+    @user_pool_id.setter
+    def user_pool_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_pool_id", value)
+
+    @property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_id_client_regex")
+
+    @app_id_client_regex.setter
+    def app_id_client_regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_id_client_regex", value)
+
+
+if not MYPY:
+    class ApiEventConfigArgsDict(TypedDict):
+        """
+        The configuration for an Event Api
+        """
+        auth_providers: pulumi.Input[Sequence[pulumi.Input['ApiAuthProviderArgsDict']]]
+        connection_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgsDict']]]
+        default_publish_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgsDict']]]
+        default_subscribe_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgsDict']]]
+        log_config: NotRequired[pulumi.Input['ApiEventLogConfigArgsDict']]
+elif False:
+    ApiEventConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiEventConfigArgs:
+    def __init__(__self__, *,
+                 auth_providers: pulumi.Input[Sequence[pulumi.Input['ApiAuthProviderArgs']]],
+                 connection_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]],
+                 default_publish_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]],
+                 default_subscribe_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]],
+                 log_config: Optional[pulumi.Input['ApiEventLogConfigArgs']] = None):
+        """
+        The configuration for an Event Api
+        """
+        pulumi.set(__self__, "auth_providers", auth_providers)
+        pulumi.set(__self__, "connection_auth_modes", connection_auth_modes)
+        pulumi.set(__self__, "default_publish_auth_modes", default_publish_auth_modes)
+        pulumi.set(__self__, "default_subscribe_auth_modes", default_subscribe_auth_modes)
+        if log_config is not None:
+            pulumi.set(__self__, "log_config", log_config)
+
+    @property
+    @pulumi.getter(name="authProviders")
+    def auth_providers(self) -> pulumi.Input[Sequence[pulumi.Input['ApiAuthProviderArgs']]]:
+        return pulumi.get(self, "auth_providers")
+
+    @auth_providers.setter
+    def auth_providers(self, value: pulumi.Input[Sequence[pulumi.Input['ApiAuthProviderArgs']]]):
+        pulumi.set(self, "auth_providers", value)
+
+    @property
+    @pulumi.getter(name="connectionAuthModes")
+    def connection_auth_modes(self) -> pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]]:
+        return pulumi.get(self, "connection_auth_modes")
+
+    @connection_auth_modes.setter
+    def connection_auth_modes(self, value: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]]):
+        pulumi.set(self, "connection_auth_modes", value)
+
+    @property
+    @pulumi.getter(name="defaultPublishAuthModes")
+    def default_publish_auth_modes(self) -> pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]]:
+        return pulumi.get(self, "default_publish_auth_modes")
+
+    @default_publish_auth_modes.setter
+    def default_publish_auth_modes(self, value: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]]):
+        pulumi.set(self, "default_publish_auth_modes", value)
+
+    @property
+    @pulumi.getter(name="defaultSubscribeAuthModes")
+    def default_subscribe_auth_modes(self) -> pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]]:
+        return pulumi.get(self, "default_subscribe_auth_modes")
+
+    @default_subscribe_auth_modes.setter
+    def default_subscribe_auth_modes(self, value: pulumi.Input[Sequence[pulumi.Input['ApiAuthModeArgs']]]):
+        pulumi.set(self, "default_subscribe_auth_modes", value)
+
+    @property
+    @pulumi.getter(name="logConfig")
+    def log_config(self) -> Optional[pulumi.Input['ApiEventLogConfigArgs']]:
+        return pulumi.get(self, "log_config")
+
+    @log_config.setter
+    def log_config(self, value: Optional[pulumi.Input['ApiEventLogConfigArgs']]):
+        pulumi.set(self, "log_config", value)
+
+
+if not MYPY:
+    class ApiEventLogConfigArgsDict(TypedDict):
+        """
+        The log config for the AppSync API.
+        """
+        cloud_watch_logs_role_arn: pulumi.Input[str]
+        log_level: pulumi.Input['ApiEventLogLevel']
+elif False:
+    ApiEventLogConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiEventLogConfigArgs:
+    def __init__(__self__, *,
+                 cloud_watch_logs_role_arn: pulumi.Input[str],
+                 log_level: pulumi.Input['ApiEventLogLevel']):
+        """
+        The log config for the AppSync API.
+        """
+        pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+        pulumi.set(__self__, "log_level", log_level)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsRoleArn")
+    def cloud_watch_logs_role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cloud_watch_logs_role_arn")
+
+    @cloud_watch_logs_role_arn.setter
+    def cloud_watch_logs_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cloud_watch_logs_role_arn", value)
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> pulumi.Input['ApiEventLogLevel']:
+        return pulumi.get(self, "log_level")
+
+    @log_level.setter
+    def log_level(self, value: pulumi.Input['ApiEventLogLevel']):
+        pulumi.set(self, "log_level", value)
+
+
+if not MYPY:
+    class ApiLambdaAuthorizerConfigArgsDict(TypedDict):
+        """
+        A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+        """
+        authorizer_uri: pulumi.Input[str]
+        authorizer_result_ttl_in_seconds: NotRequired[pulumi.Input[int]]
+        identity_validation_expression: NotRequired[pulumi.Input[str]]
+elif False:
+    ApiLambdaAuthorizerConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiLambdaAuthorizerConfigArgs:
+    def __init__(__self__, *,
+                 authorizer_uri: pulumi.Input[str],
+                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 identity_validation_expression: Optional[pulumi.Input[str]] = None):
+        """
+        A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+        """
+        pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+        if authorizer_result_ttl_in_seconds is not None:
+            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+        if identity_validation_expression is not None:
+            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+
+    @property
+    @pulumi.getter(name="authorizerUri")
+    def authorizer_uri(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "authorizer_uri")
+
+    @authorizer_uri.setter
+    def authorizer_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorizer_uri", value)
+
+    @property
+    @pulumi.getter(name="authorizerResultTtlInSeconds")
+    def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "authorizer_result_ttl_in_seconds")
+
+    @authorizer_result_ttl_in_seconds.setter
+    def authorizer_result_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "authorizer_result_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="identityValidationExpression")
+    def identity_validation_expression(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "identity_validation_expression")
+
+    @identity_validation_expression.setter
+    def identity_validation_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_validation_expression", value)
+
+
+if not MYPY:
+    class ApiOpenIdConnectConfigArgsDict(TypedDict):
+        """
+        The OpenID Connect configuration.
+        """
+        issuer: pulumi.Input[str]
+        auth_ttl: NotRequired[pulumi.Input[float]]
+        client_id: NotRequired[pulumi.Input[str]]
+        iat_ttl: NotRequired[pulumi.Input[float]]
+elif False:
+    ApiOpenIdConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiOpenIdConnectConfigArgs:
+    def __init__(__self__, *,
+                 issuer: pulumi.Input[str],
+                 auth_ttl: Optional[pulumi.Input[float]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 iat_ttl: Optional[pulumi.Input[float]] = None):
+        """
+        The OpenID Connect configuration.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        if auth_ttl is not None:
+            pulumi.set(__self__, "auth_ttl", auth_ttl)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if iat_ttl is not None:
+            pulumi.set(__self__, "iat_ttl", iat_ttl)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: pulumi.Input[str]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="authTtl")
+    def auth_ttl(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "auth_ttl")
+
+    @auth_ttl.setter
+    def auth_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "auth_ttl", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="iatTtl")
+    def iat_ttl(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "iat_ttl")
+
+    @iat_ttl.setter
+    def iat_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "iat_ttl", value)
+
 
 if not MYPY:
     class DataSourceAuthorizationConfigArgsDict(TypedDict):

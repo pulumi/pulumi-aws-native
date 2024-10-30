@@ -23,13 +23,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecretTargetAttachmentResult:
-    def __init__(__self__, id=None, secret_id=None, target_id=None, target_type=None):
+    def __init__(__self__, id=None, target_id=None, target_type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if secret_id and not isinstance(secret_id, str):
-            raise TypeError("Expected argument 'secret_id' to be a str")
-        pulumi.set(__self__, "secret_id", secret_id)
         if target_id and not isinstance(target_id, str):
             raise TypeError("Expected argument 'target_id' to be a str")
         pulumi.set(__self__, "target_id", target_id)
@@ -41,14 +38,6 @@ class GetSecretTargetAttachmentResult:
     @pulumi.getter
     def id(self) -> Optional[str]:
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="secretId")
-    def secret_id(self) -> Optional[str]:
-        """
-        The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
-        """
-        return pulumi.get(self, "secret_id")
 
     @property
     @pulumi.getter(name="targetId")
@@ -82,7 +71,6 @@ class AwaitableGetSecretTargetAttachmentResult(GetSecretTargetAttachmentResult):
             yield self
         return GetSecretTargetAttachmentResult(
             id=self.id,
-            secret_id=self.secret_id,
             target_id=self.target_id,
             target_type=self.target_type)
 
@@ -99,7 +87,6 @@ def get_secret_target_attachment(id: Optional[str] = None,
 
     return AwaitableGetSecretTargetAttachmentResult(
         id=pulumi.get(__ret__, 'id'),
-        secret_id=pulumi.get(__ret__, 'secret_id'),
         target_id=pulumi.get(__ret__, 'target_id'),
         target_type=pulumi.get(__ret__, 'target_type'))
 def get_secret_target_attachment_output(id: Optional[pulumi.Input[str]] = None,
@@ -113,6 +100,5 @@ def get_secret_target_attachment_output(id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:secretsmanager:getSecretTargetAttachment', __args__, opts=opts, typ=GetSecretTargetAttachmentResult)
     return __ret__.apply(lambda __response__: GetSecretTargetAttachmentResult(
         id=pulumi.get(__response__, 'id'),
-        secret_id=pulumi.get(__response__, 'secret_id'),
         target_id=pulumi.get(__response__, 'target_id'),
         target_type=pulumi.get(__response__, 'target_type')))

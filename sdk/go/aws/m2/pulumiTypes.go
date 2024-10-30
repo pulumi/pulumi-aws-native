@@ -44,6 +44,47 @@ func (i ApplicationDefinition0PropertiesArgs) ToApplicationDefinition0Properties
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinition0PropertiesOutput)
 }
 
+func (i ApplicationDefinition0PropertiesArgs) ToApplicationDefinition0PropertiesPtrOutput() ApplicationDefinition0PropertiesPtrOutput {
+	return i.ToApplicationDefinition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefinition0PropertiesArgs) ToApplicationDefinition0PropertiesPtrOutputWithContext(ctx context.Context) ApplicationDefinition0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinition0PropertiesOutput).ToApplicationDefinition0PropertiesPtrOutputWithContext(ctx)
+}
+
+// ApplicationDefinition0PropertiesPtrInput is an input type that accepts ApplicationDefinition0PropertiesArgs, ApplicationDefinition0PropertiesPtr and ApplicationDefinition0PropertiesPtrOutput values.
+// You can construct a concrete instance of `ApplicationDefinition0PropertiesPtrInput` via:
+//
+//	        ApplicationDefinition0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationDefinition0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToApplicationDefinition0PropertiesPtrOutput() ApplicationDefinition0PropertiesPtrOutput
+	ToApplicationDefinition0PropertiesPtrOutputWithContext(context.Context) ApplicationDefinition0PropertiesPtrOutput
+}
+
+type applicationDefinition0PropertiesPtrType ApplicationDefinition0PropertiesArgs
+
+func ApplicationDefinition0PropertiesPtr(v *ApplicationDefinition0PropertiesArgs) ApplicationDefinition0PropertiesPtrInput {
+	return (*applicationDefinition0PropertiesPtrType)(v)
+}
+
+func (*applicationDefinition0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationDefinition0Properties)(nil)).Elem()
+}
+
+func (i *applicationDefinition0PropertiesPtrType) ToApplicationDefinition0PropertiesPtrOutput() ApplicationDefinition0PropertiesPtrOutput {
+	return i.ToApplicationDefinition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationDefinition0PropertiesPtrType) ToApplicationDefinition0PropertiesPtrOutputWithContext(ctx context.Context) ApplicationDefinition0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinition0PropertiesPtrOutput)
+}
+
 type ApplicationDefinition0PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDefinition0PropertiesOutput) ElementType() reflect.Type {
@@ -58,8 +99,51 @@ func (o ApplicationDefinition0PropertiesOutput) ToApplicationDefinition0Properti
 	return o
 }
 
+func (o ApplicationDefinition0PropertiesOutput) ToApplicationDefinition0PropertiesPtrOutput() ApplicationDefinition0PropertiesPtrOutput {
+	return o.ToApplicationDefinition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationDefinition0PropertiesOutput) ToApplicationDefinition0PropertiesPtrOutputWithContext(ctx context.Context) ApplicationDefinition0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationDefinition0Properties) *ApplicationDefinition0Properties {
+		return &v
+	}).(ApplicationDefinition0PropertiesPtrOutput)
+}
+
 func (o ApplicationDefinition0PropertiesOutput) S3Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDefinition0Properties) string { return v.S3Location }).(pulumi.StringOutput)
+}
+
+type ApplicationDefinition0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinition0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationDefinition0Properties)(nil)).Elem()
+}
+
+func (o ApplicationDefinition0PropertiesPtrOutput) ToApplicationDefinition0PropertiesPtrOutput() ApplicationDefinition0PropertiesPtrOutput {
+	return o
+}
+
+func (o ApplicationDefinition0PropertiesPtrOutput) ToApplicationDefinition0PropertiesPtrOutputWithContext(ctx context.Context) ApplicationDefinition0PropertiesPtrOutput {
+	return o
+}
+
+func (o ApplicationDefinition0PropertiesPtrOutput) Elem() ApplicationDefinition0PropertiesOutput {
+	return o.ApplyT(func(v *ApplicationDefinition0Properties) ApplicationDefinition0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationDefinition0Properties
+		return ret
+	}).(ApplicationDefinition0PropertiesOutput)
+}
+
+func (o ApplicationDefinition0PropertiesPtrOutput) S3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition0Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Location
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationDefinition1Properties struct {
@@ -93,6 +177,47 @@ func (i ApplicationDefinition1PropertiesArgs) ToApplicationDefinition1Properties
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinition1PropertiesOutput)
 }
 
+func (i ApplicationDefinition1PropertiesArgs) ToApplicationDefinition1PropertiesPtrOutput() ApplicationDefinition1PropertiesPtrOutput {
+	return i.ToApplicationDefinition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationDefinition1PropertiesArgs) ToApplicationDefinition1PropertiesPtrOutputWithContext(ctx context.Context) ApplicationDefinition1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinition1PropertiesOutput).ToApplicationDefinition1PropertiesPtrOutputWithContext(ctx)
+}
+
+// ApplicationDefinition1PropertiesPtrInput is an input type that accepts ApplicationDefinition1PropertiesArgs, ApplicationDefinition1PropertiesPtr and ApplicationDefinition1PropertiesPtrOutput values.
+// You can construct a concrete instance of `ApplicationDefinition1PropertiesPtrInput` via:
+//
+//	        ApplicationDefinition1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationDefinition1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToApplicationDefinition1PropertiesPtrOutput() ApplicationDefinition1PropertiesPtrOutput
+	ToApplicationDefinition1PropertiesPtrOutputWithContext(context.Context) ApplicationDefinition1PropertiesPtrOutput
+}
+
+type applicationDefinition1PropertiesPtrType ApplicationDefinition1PropertiesArgs
+
+func ApplicationDefinition1PropertiesPtr(v *ApplicationDefinition1PropertiesArgs) ApplicationDefinition1PropertiesPtrInput {
+	return (*applicationDefinition1PropertiesPtrType)(v)
+}
+
+func (*applicationDefinition1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationDefinition1Properties)(nil)).Elem()
+}
+
+func (i *applicationDefinition1PropertiesPtrType) ToApplicationDefinition1PropertiesPtrOutput() ApplicationDefinition1PropertiesPtrOutput {
+	return i.ToApplicationDefinition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationDefinition1PropertiesPtrType) ToApplicationDefinition1PropertiesPtrOutputWithContext(ctx context.Context) ApplicationDefinition1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDefinition1PropertiesPtrOutput)
+}
+
 type ApplicationDefinition1PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDefinition1PropertiesOutput) ElementType() reflect.Type {
@@ -107,8 +232,51 @@ func (o ApplicationDefinition1PropertiesOutput) ToApplicationDefinition1Properti
 	return o
 }
 
+func (o ApplicationDefinition1PropertiesOutput) ToApplicationDefinition1PropertiesPtrOutput() ApplicationDefinition1PropertiesPtrOutput {
+	return o.ToApplicationDefinition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationDefinition1PropertiesOutput) ToApplicationDefinition1PropertiesPtrOutputWithContext(ctx context.Context) ApplicationDefinition1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationDefinition1Properties) *ApplicationDefinition1Properties {
+		return &v
+	}).(ApplicationDefinition1PropertiesPtrOutput)
+}
+
 func (o ApplicationDefinition1PropertiesOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationDefinition1Properties) string { return v.Content }).(pulumi.StringOutput)
+}
+
+type ApplicationDefinition1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDefinition1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationDefinition1Properties)(nil)).Elem()
+}
+
+func (o ApplicationDefinition1PropertiesPtrOutput) ToApplicationDefinition1PropertiesPtrOutput() ApplicationDefinition1PropertiesPtrOutput {
+	return o
+}
+
+func (o ApplicationDefinition1PropertiesPtrOutput) ToApplicationDefinition1PropertiesPtrOutputWithContext(ctx context.Context) ApplicationDefinition1PropertiesPtrOutput {
+	return o
+}
+
+func (o ApplicationDefinition1PropertiesPtrOutput) Elem() ApplicationDefinition1PropertiesOutput {
+	return o.ApplyT(func(v *ApplicationDefinition1Properties) ApplicationDefinition1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationDefinition1Properties
+		return ret
+	}).(ApplicationDefinition1PropertiesOutput)
+}
+
+func (o ApplicationDefinition1PropertiesPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationDefinition1Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Content
+	}).(pulumi.StringPtrOutput)
 }
 
 // Defines the details of a high availability configuration.
@@ -344,13 +512,17 @@ func (o EnvironmentStorageConfigurationArrayOutput) Index(i pulumi.IntInput) Env
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinition0PropertiesInput)(nil)).Elem(), ApplicationDefinition0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinition0PropertiesPtrInput)(nil)).Elem(), ApplicationDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinition1PropertiesInput)(nil)).Elem(), ApplicationDefinition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDefinition1PropertiesPtrInput)(nil)).Elem(), ApplicationDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHighAvailabilityConfigInput)(nil)).Elem(), EnvironmentHighAvailabilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentHighAvailabilityConfigPtrInput)(nil)).Elem(), EnvironmentHighAvailabilityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStorageConfigurationInput)(nil)).Elem(), EnvironmentStorageConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentStorageConfigurationArrayInput)(nil)).Elem(), EnvironmentStorageConfigurationArray{})
 	pulumi.RegisterOutputType(ApplicationDefinition0PropertiesOutput{})
+	pulumi.RegisterOutputType(ApplicationDefinition0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationDefinition1PropertiesOutput{})
+	pulumi.RegisterOutputType(ApplicationDefinition1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentHighAvailabilityConfigOutput{})
 	pulumi.RegisterOutputType(EnvironmentHighAvailabilityConfigPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentStorageConfigurationOutput{})

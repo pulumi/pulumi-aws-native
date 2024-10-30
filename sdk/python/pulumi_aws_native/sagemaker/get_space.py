@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetSpaceResult',
@@ -23,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetSpaceResult:
-    def __init__(__self__, space_arn=None, space_display_name=None, url=None):
+    def __init__(__self__, space_arn=None, space_display_name=None, tags=None, url=None):
         if space_arn and not isinstance(space_arn, str):
             raise TypeError("Expected argument 'space_arn' to be a str")
         pulumi.set(__self__, "space_arn", space_arn)
         if space_display_name and not isinstance(space_display_name, str):
             raise TypeError("Expected argument 'space_display_name' to be a str")
         pulumi.set(__self__, "space_display_name", space_display_name)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if url and not isinstance(url, str):
             raise TypeError("Expected argument 'url' to be a str")
         pulumi.set(__self__, "url", url)
@@ -49,6 +53,14 @@ class GetSpaceResult:
         The name of the space that appears in the Studio UI.
         """
         return pulumi.get(self, "space_display_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A list of tags to apply to the space.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -73,6 +85,7 @@ class AwaitableGetSpaceResult(GetSpaceResult):
         return GetSpaceResult(
             space_arn=self.space_arn,
             space_display_name=self.space_display_name,
+            tags=self.tags,
             url=self.url)
 
 
@@ -95,6 +108,7 @@ def get_space(domain_id: Optional[str] = None,
     return AwaitableGetSpaceResult(
         space_arn=pulumi.get(__ret__, 'space_arn'),
         space_display_name=pulumi.get(__ret__, 'space_display_name'),
+        tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 def get_space_output(domain_id: Optional[pulumi.Input[str]] = None,
                      space_name: Optional[pulumi.Input[str]] = None,
@@ -114,4 +128,5 @@ def get_space_output(domain_id: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetSpaceResult(
         space_arn=pulumi.get(__response__, 'space_arn'),
         space_display_name=pulumi.get(__response__, 'space_display_name'),
+        tags=pulumi.get(__response__, 'tags'),
         url=pulumi.get(__response__, 'url')))

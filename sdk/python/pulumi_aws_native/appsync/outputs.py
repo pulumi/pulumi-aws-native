@@ -17,6 +17,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiAuthMode',
+    'ApiAuthProvider',
+    'ApiCognitoConfig',
+    'ApiEventConfig',
+    'ApiEventLogConfig',
+    'ApiLambdaAuthorizerConfig',
+    'ApiOpenIdConnectConfig',
     'DataSourceAuthorizationConfig',
     'DataSourceAwsIamConfig',
     'DataSourceDeltaSyncConfig',
@@ -45,6 +52,395 @@ __all__ = [
     'ResolverSyncConfig',
     'SourceApiAssociationConfig',
 ]
+
+@pulumi.output_type
+class ApiAuthMode(dict):
+    """
+    An auth mode.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiAuthMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiAuthMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiAuthMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: Optional['ApiAuthenticationType'] = None):
+        """
+        An auth mode.
+        """
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional['ApiAuthenticationType']:
+        return pulumi.get(self, "auth_type")
+
+
+@pulumi.output_type
+class ApiAuthProvider(dict):
+    """
+    An auth provider for the AppSync API.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+        elif key == "cognitoConfig":
+            suggest = "cognito_config"
+        elif key == "lambdaAuthorizerConfig":
+            suggest = "lambda_authorizer_config"
+        elif key == "openIdConnectConfig":
+            suggest = "open_id_connect_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiAuthProvider. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiAuthProvider.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiAuthProvider.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: 'ApiAuthenticationType',
+                 cognito_config: Optional['outputs.ApiCognitoConfig'] = None,
+                 lambda_authorizer_config: Optional['outputs.ApiLambdaAuthorizerConfig'] = None,
+                 open_id_connect_config: Optional['outputs.ApiOpenIdConnectConfig'] = None):
+        """
+        An auth provider for the AppSync API.
+        """
+        pulumi.set(__self__, "auth_type", auth_type)
+        if cognito_config is not None:
+            pulumi.set(__self__, "cognito_config", cognito_config)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
+        if open_id_connect_config is not None:
+            pulumi.set(__self__, "open_id_connect_config", open_id_connect_config)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> 'ApiAuthenticationType':
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="cognitoConfig")
+    def cognito_config(self) -> Optional['outputs.ApiCognitoConfig']:
+        return pulumi.get(self, "cognito_config")
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional['outputs.ApiLambdaAuthorizerConfig']:
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @property
+    @pulumi.getter(name="openIdConnectConfig")
+    def open_id_connect_config(self) -> Optional['outputs.ApiOpenIdConnectConfig']:
+        return pulumi.get(self, "open_id_connect_config")
+
+
+@pulumi.output_type
+class ApiCognitoConfig(dict):
+    """
+    Optional authorization configuration for using Amazon Cognito user pools with your API endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsRegion":
+            suggest = "aws_region"
+        elif key == "userPoolId":
+            suggest = "user_pool_id"
+        elif key == "appIdClientRegex":
+            suggest = "app_id_client_regex"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiCognitoConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiCognitoConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiCognitoConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_region: str,
+                 user_pool_id: str,
+                 app_id_client_regex: Optional[str] = None):
+        """
+        Optional authorization configuration for using Amazon Cognito user pools with your API endpoint.
+        """
+        pulumi.set(__self__, "aws_region", aws_region)
+        pulumi.set(__self__, "user_pool_id", user_pool_id)
+        if app_id_client_regex is not None:
+            pulumi.set(__self__, "app_id_client_regex", app_id_client_regex)
+
+    @property
+    @pulumi.getter(name="awsRegion")
+    def aws_region(self) -> str:
+        return pulumi.get(self, "aws_region")
+
+    @property
+    @pulumi.getter(name="userPoolId")
+    def user_pool_id(self) -> str:
+        return pulumi.get(self, "user_pool_id")
+
+    @property
+    @pulumi.getter(name="appIdClientRegex")
+    def app_id_client_regex(self) -> Optional[str]:
+        return pulumi.get(self, "app_id_client_regex")
+
+
+@pulumi.output_type
+class ApiEventConfig(dict):
+    """
+    The configuration for an Event Api
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authProviders":
+            suggest = "auth_providers"
+        elif key == "connectionAuthModes":
+            suggest = "connection_auth_modes"
+        elif key == "defaultPublishAuthModes":
+            suggest = "default_publish_auth_modes"
+        elif key == "defaultSubscribeAuthModes":
+            suggest = "default_subscribe_auth_modes"
+        elif key == "logConfig":
+            suggest = "log_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_providers: Sequence['outputs.ApiAuthProvider'],
+                 connection_auth_modes: Sequence['outputs.ApiAuthMode'],
+                 default_publish_auth_modes: Sequence['outputs.ApiAuthMode'],
+                 default_subscribe_auth_modes: Sequence['outputs.ApiAuthMode'],
+                 log_config: Optional['outputs.ApiEventLogConfig'] = None):
+        """
+        The configuration for an Event Api
+        """
+        pulumi.set(__self__, "auth_providers", auth_providers)
+        pulumi.set(__self__, "connection_auth_modes", connection_auth_modes)
+        pulumi.set(__self__, "default_publish_auth_modes", default_publish_auth_modes)
+        pulumi.set(__self__, "default_subscribe_auth_modes", default_subscribe_auth_modes)
+        if log_config is not None:
+            pulumi.set(__self__, "log_config", log_config)
+
+    @property
+    @pulumi.getter(name="authProviders")
+    def auth_providers(self) -> Sequence['outputs.ApiAuthProvider']:
+        return pulumi.get(self, "auth_providers")
+
+    @property
+    @pulumi.getter(name="connectionAuthModes")
+    def connection_auth_modes(self) -> Sequence['outputs.ApiAuthMode']:
+        return pulumi.get(self, "connection_auth_modes")
+
+    @property
+    @pulumi.getter(name="defaultPublishAuthModes")
+    def default_publish_auth_modes(self) -> Sequence['outputs.ApiAuthMode']:
+        return pulumi.get(self, "default_publish_auth_modes")
+
+    @property
+    @pulumi.getter(name="defaultSubscribeAuthModes")
+    def default_subscribe_auth_modes(self) -> Sequence['outputs.ApiAuthMode']:
+        return pulumi.get(self, "default_subscribe_auth_modes")
+
+    @property
+    @pulumi.getter(name="logConfig")
+    def log_config(self) -> Optional['outputs.ApiEventLogConfig']:
+        return pulumi.get(self, "log_config")
+
+
+@pulumi.output_type
+class ApiEventLogConfig(dict):
+    """
+    The log config for the AppSync API.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogsRoleArn":
+            suggest = "cloud_watch_logs_role_arn"
+        elif key == "logLevel":
+            suggest = "log_level"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiEventLogConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiEventLogConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiEventLogConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs_role_arn: str,
+                 log_level: 'ApiEventLogLevel'):
+        """
+        The log config for the AppSync API.
+        """
+        pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
+        pulumi.set(__self__, "log_level", log_level)
+
+    @property
+    @pulumi.getter(name="cloudWatchLogsRoleArn")
+    def cloud_watch_logs_role_arn(self) -> str:
+        return pulumi.get(self, "cloud_watch_logs_role_arn")
+
+    @property
+    @pulumi.getter(name="logLevel")
+    def log_level(self) -> 'ApiEventLogLevel':
+        return pulumi.get(self, "log_level")
+
+
+@pulumi.output_type
+class ApiLambdaAuthorizerConfig(dict):
+    """
+    A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizerUri":
+            suggest = "authorizer_uri"
+        elif key == "authorizerResultTtlInSeconds":
+            suggest = "authorizer_result_ttl_in_seconds"
+        elif key == "identityValidationExpression":
+            suggest = "identity_validation_expression"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiLambdaAuthorizerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiLambdaAuthorizerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiLambdaAuthorizerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizer_uri: str,
+                 authorizer_result_ttl_in_seconds: Optional[int] = None,
+                 identity_validation_expression: Optional[str] = None):
+        """
+        A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+        """
+        pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+        if authorizer_result_ttl_in_seconds is not None:
+            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+        if identity_validation_expression is not None:
+            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+
+    @property
+    @pulumi.getter(name="authorizerUri")
+    def authorizer_uri(self) -> str:
+        return pulumi.get(self, "authorizer_uri")
+
+    @property
+    @pulumi.getter(name="authorizerResultTtlInSeconds")
+    def authorizer_result_ttl_in_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "authorizer_result_ttl_in_seconds")
+
+    @property
+    @pulumi.getter(name="identityValidationExpression")
+    def identity_validation_expression(self) -> Optional[str]:
+        return pulumi.get(self, "identity_validation_expression")
+
+
+@pulumi.output_type
+class ApiOpenIdConnectConfig(dict):
+    """
+    The OpenID Connect configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authTtl":
+            suggest = "auth_ttl"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "iatTtl":
+            suggest = "iat_ttl"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiOpenIdConnectConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiOpenIdConnectConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiOpenIdConnectConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 issuer: str,
+                 auth_ttl: Optional[float] = None,
+                 client_id: Optional[str] = None,
+                 iat_ttl: Optional[float] = None):
+        """
+        The OpenID Connect configuration.
+        """
+        pulumi.set(__self__, "issuer", issuer)
+        if auth_ttl is not None:
+            pulumi.set(__self__, "auth_ttl", auth_ttl)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if iat_ttl is not None:
+            pulumi.set(__self__, "iat_ttl", iat_ttl)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> str:
+        return pulumi.get(self, "issuer")
+
+    @property
+    @pulumi.getter(name="authTtl")
+    def auth_ttl(self) -> Optional[float]:
+        return pulumi.get(self, "auth_ttl")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="iatTtl")
+    def iat_ttl(self) -> Optional[float]:
+        return pulumi.get(self, "iat_ttl")
+
 
 @pulumi.output_type
 class DataSourceAuthorizationConfig(dict):

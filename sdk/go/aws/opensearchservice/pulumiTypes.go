@@ -13,6 +13,232 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair of AppConfig
+type ApplicationAppConfig struct {
+	// The configuration key
+	Key ApplicationAppConfigType `pulumi:"key"`
+	// The configuration value.
+	Value string `pulumi:"value"`
+}
+
+// ApplicationAppConfigInput is an input type that accepts ApplicationAppConfigArgs and ApplicationAppConfigOutput values.
+// You can construct a concrete instance of `ApplicationAppConfigInput` via:
+//
+//	ApplicationAppConfigArgs{...}
+type ApplicationAppConfigInput interface {
+	pulumi.Input
+
+	ToApplicationAppConfigOutput() ApplicationAppConfigOutput
+	ToApplicationAppConfigOutputWithContext(context.Context) ApplicationAppConfigOutput
+}
+
+// A key-value pair of AppConfig
+type ApplicationAppConfigArgs struct {
+	// The configuration key
+	Key ApplicationAppConfigTypeInput `pulumi:"key"`
+	// The configuration value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ApplicationAppConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAppConfig)(nil)).Elem()
+}
+
+func (i ApplicationAppConfigArgs) ToApplicationAppConfigOutput() ApplicationAppConfigOutput {
+	return i.ToApplicationAppConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationAppConfigArgs) ToApplicationAppConfigOutputWithContext(ctx context.Context) ApplicationAppConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppConfigOutput)
+}
+
+// ApplicationAppConfigArrayInput is an input type that accepts ApplicationAppConfigArray and ApplicationAppConfigArrayOutput values.
+// You can construct a concrete instance of `ApplicationAppConfigArrayInput` via:
+//
+//	ApplicationAppConfigArray{ ApplicationAppConfigArgs{...} }
+type ApplicationAppConfigArrayInput interface {
+	pulumi.Input
+
+	ToApplicationAppConfigArrayOutput() ApplicationAppConfigArrayOutput
+	ToApplicationAppConfigArrayOutputWithContext(context.Context) ApplicationAppConfigArrayOutput
+}
+
+type ApplicationAppConfigArray []ApplicationAppConfigInput
+
+func (ApplicationAppConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAppConfig)(nil)).Elem()
+}
+
+func (i ApplicationAppConfigArray) ToApplicationAppConfigArrayOutput() ApplicationAppConfigArrayOutput {
+	return i.ToApplicationAppConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationAppConfigArray) ToApplicationAppConfigArrayOutputWithContext(ctx context.Context) ApplicationAppConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppConfigArrayOutput)
+}
+
+// A key-value pair of AppConfig
+type ApplicationAppConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAppConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAppConfig)(nil)).Elem()
+}
+
+func (o ApplicationAppConfigOutput) ToApplicationAppConfigOutput() ApplicationAppConfigOutput {
+	return o
+}
+
+func (o ApplicationAppConfigOutput) ToApplicationAppConfigOutputWithContext(ctx context.Context) ApplicationAppConfigOutput {
+	return o
+}
+
+// The configuration key
+func (o ApplicationAppConfigOutput) Key() ApplicationAppConfigTypeOutput {
+	return o.ApplyT(func(v ApplicationAppConfig) ApplicationAppConfigType { return v.Key }).(ApplicationAppConfigTypeOutput)
+}
+
+// The configuration value.
+func (o ApplicationAppConfigOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationAppConfig) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ApplicationAppConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAppConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAppConfig)(nil)).Elem()
+}
+
+func (o ApplicationAppConfigArrayOutput) ToApplicationAppConfigArrayOutput() ApplicationAppConfigArrayOutput {
+	return o
+}
+
+func (o ApplicationAppConfigArrayOutput) ToApplicationAppConfigArrayOutputWithContext(ctx context.Context) ApplicationAppConfigArrayOutput {
+	return o
+}
+
+func (o ApplicationAppConfigArrayOutput) Index(i pulumi.IntInput) ApplicationAppConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationAppConfig {
+		return vs[0].([]ApplicationAppConfig)[vs[1].(int)]
+	}).(ApplicationAppConfigOutput)
+}
+
+// Datasource arn and description
+type ApplicationDataSource struct {
+	// The ARN of the data source.
+	DataSourceArn interface{} `pulumi:"dataSourceArn"`
+	// Description of the data source.
+	DataSourceDescription *string `pulumi:"dataSourceDescription"`
+}
+
+// ApplicationDataSourceInput is an input type that accepts ApplicationDataSourceArgs and ApplicationDataSourceOutput values.
+// You can construct a concrete instance of `ApplicationDataSourceInput` via:
+//
+//	ApplicationDataSourceArgs{...}
+type ApplicationDataSourceInput interface {
+	pulumi.Input
+
+	ToApplicationDataSourceOutput() ApplicationDataSourceOutput
+	ToApplicationDataSourceOutputWithContext(context.Context) ApplicationDataSourceOutput
+}
+
+// Datasource arn and description
+type ApplicationDataSourceArgs struct {
+	// The ARN of the data source.
+	DataSourceArn pulumi.Input `pulumi:"dataSourceArn"`
+	// Description of the data source.
+	DataSourceDescription pulumi.StringPtrInput `pulumi:"dataSourceDescription"`
+}
+
+func (ApplicationDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDataSource)(nil)).Elem()
+}
+
+func (i ApplicationDataSourceArgs) ToApplicationDataSourceOutput() ApplicationDataSourceOutput {
+	return i.ToApplicationDataSourceOutputWithContext(context.Background())
+}
+
+func (i ApplicationDataSourceArgs) ToApplicationDataSourceOutputWithContext(ctx context.Context) ApplicationDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDataSourceOutput)
+}
+
+// ApplicationDataSourceArrayInput is an input type that accepts ApplicationDataSourceArray and ApplicationDataSourceArrayOutput values.
+// You can construct a concrete instance of `ApplicationDataSourceArrayInput` via:
+//
+//	ApplicationDataSourceArray{ ApplicationDataSourceArgs{...} }
+type ApplicationDataSourceArrayInput interface {
+	pulumi.Input
+
+	ToApplicationDataSourceArrayOutput() ApplicationDataSourceArrayOutput
+	ToApplicationDataSourceArrayOutputWithContext(context.Context) ApplicationDataSourceArrayOutput
+}
+
+type ApplicationDataSourceArray []ApplicationDataSourceInput
+
+func (ApplicationDataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDataSource)(nil)).Elem()
+}
+
+func (i ApplicationDataSourceArray) ToApplicationDataSourceArrayOutput() ApplicationDataSourceArrayOutput {
+	return i.ToApplicationDataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationDataSourceArray) ToApplicationDataSourceArrayOutputWithContext(ctx context.Context) ApplicationDataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDataSourceArrayOutput)
+}
+
+// Datasource arn and description
+type ApplicationDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDataSource)(nil)).Elem()
+}
+
+func (o ApplicationDataSourceOutput) ToApplicationDataSourceOutput() ApplicationDataSourceOutput {
+	return o
+}
+
+func (o ApplicationDataSourceOutput) ToApplicationDataSourceOutputWithContext(ctx context.Context) ApplicationDataSourceOutput {
+	return o
+}
+
+// The ARN of the data source.
+func (o ApplicationDataSourceOutput) DataSourceArn() pulumi.AnyOutput {
+	return o.ApplyT(func(v ApplicationDataSource) interface{} { return v.DataSourceArn }).(pulumi.AnyOutput)
+}
+
+// Description of the data source.
+func (o ApplicationDataSourceOutput) DataSourceDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationDataSource) *string { return v.DataSourceDescription }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationDataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDataSource)(nil)).Elem()
+}
+
+func (o ApplicationDataSourceArrayOutput) ToApplicationDataSourceArrayOutput() ApplicationDataSourceArrayOutput {
+	return o
+}
+
+func (o ApplicationDataSourceArrayOutput) ToApplicationDataSourceArrayOutputWithContext(ctx context.Context) ApplicationDataSourceArrayOutput {
+	return o
+}
+
+func (o ApplicationDataSourceArrayOutput) Index(i pulumi.IntInput) ApplicationDataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationDataSource {
+		return vs[0].([]ApplicationDataSource)[vs[1].(int)]
+	}).(ApplicationDataSourceOutput)
+}
+
+// A key-value pair metadata associated with resource
+type ApplicationTag struct {
+	// The key in the key-value pair
+	Key string `pulumi:"key"`
+	// The value in the key-value pair
+	Value string `pulumi:"value"`
+}
+
 type DomainAdvancedSecurityOptionsInput struct {
 	// Date and time when the migration period will be disabled. Only necessary when [enabling fine-grained access control on an existing domain](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-enabling-existing) .
 	AnonymousAuthDisableDate *string `pulumi:"anonymousAuthDisableDate"`
@@ -3816,7 +4042,189 @@ func (o DomainZoneAwarenessConfigPtrOutput) AvailabilityZoneCount() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Options for configuring IAM Identity Center
+type IamIdentityCenterOptionsProperties struct {
+	// Whether IAM Identity Center is enabled.
+	Enabled *bool `pulumi:"enabled"`
+	// The ARN of the IAM Identity Center instance.
+	IamIdentityCenterInstanceArn interface{} `pulumi:"iamIdentityCenterInstanceArn"`
+	// The ARN of the IAM role for Identity Center application.
+	IamRoleForIdentityCenterApplicationArn *string `pulumi:"iamRoleForIdentityCenterApplicationArn"`
+}
+
+// IamIdentityCenterOptionsPropertiesInput is an input type that accepts IamIdentityCenterOptionsPropertiesArgs and IamIdentityCenterOptionsPropertiesOutput values.
+// You can construct a concrete instance of `IamIdentityCenterOptionsPropertiesInput` via:
+//
+//	IamIdentityCenterOptionsPropertiesArgs{...}
+type IamIdentityCenterOptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToIamIdentityCenterOptionsPropertiesOutput() IamIdentityCenterOptionsPropertiesOutput
+	ToIamIdentityCenterOptionsPropertiesOutputWithContext(context.Context) IamIdentityCenterOptionsPropertiesOutput
+}
+
+// Options for configuring IAM Identity Center
+type IamIdentityCenterOptionsPropertiesArgs struct {
+	// Whether IAM Identity Center is enabled.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The ARN of the IAM Identity Center instance.
+	IamIdentityCenterInstanceArn pulumi.Input `pulumi:"iamIdentityCenterInstanceArn"`
+	// The ARN of the IAM role for Identity Center application.
+	IamRoleForIdentityCenterApplicationArn pulumi.StringPtrInput `pulumi:"iamRoleForIdentityCenterApplicationArn"`
+}
+
+func (IamIdentityCenterOptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IamIdentityCenterOptionsProperties)(nil)).Elem()
+}
+
+func (i IamIdentityCenterOptionsPropertiesArgs) ToIamIdentityCenterOptionsPropertiesOutput() IamIdentityCenterOptionsPropertiesOutput {
+	return i.ToIamIdentityCenterOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i IamIdentityCenterOptionsPropertiesArgs) ToIamIdentityCenterOptionsPropertiesOutputWithContext(ctx context.Context) IamIdentityCenterOptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamIdentityCenterOptionsPropertiesOutput)
+}
+
+func (i IamIdentityCenterOptionsPropertiesArgs) ToIamIdentityCenterOptionsPropertiesPtrOutput() IamIdentityCenterOptionsPropertiesPtrOutput {
+	return i.ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i IamIdentityCenterOptionsPropertiesArgs) ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(ctx context.Context) IamIdentityCenterOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamIdentityCenterOptionsPropertiesOutput).ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// IamIdentityCenterOptionsPropertiesPtrInput is an input type that accepts IamIdentityCenterOptionsPropertiesArgs, IamIdentityCenterOptionsPropertiesPtr and IamIdentityCenterOptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `IamIdentityCenterOptionsPropertiesPtrInput` via:
+//
+//	        IamIdentityCenterOptionsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type IamIdentityCenterOptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToIamIdentityCenterOptionsPropertiesPtrOutput() IamIdentityCenterOptionsPropertiesPtrOutput
+	ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(context.Context) IamIdentityCenterOptionsPropertiesPtrOutput
+}
+
+type iamIdentityCenterOptionsPropertiesPtrType IamIdentityCenterOptionsPropertiesArgs
+
+func IamIdentityCenterOptionsPropertiesPtr(v *IamIdentityCenterOptionsPropertiesArgs) IamIdentityCenterOptionsPropertiesPtrInput {
+	return (*iamIdentityCenterOptionsPropertiesPtrType)(v)
+}
+
+func (*iamIdentityCenterOptionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IamIdentityCenterOptionsProperties)(nil)).Elem()
+}
+
+func (i *iamIdentityCenterOptionsPropertiesPtrType) ToIamIdentityCenterOptionsPropertiesPtrOutput() IamIdentityCenterOptionsPropertiesPtrOutput {
+	return i.ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *iamIdentityCenterOptionsPropertiesPtrType) ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(ctx context.Context) IamIdentityCenterOptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IamIdentityCenterOptionsPropertiesPtrOutput)
+}
+
+// Options for configuring IAM Identity Center
+type IamIdentityCenterOptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (IamIdentityCenterOptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IamIdentityCenterOptionsProperties)(nil)).Elem()
+}
+
+func (o IamIdentityCenterOptionsPropertiesOutput) ToIamIdentityCenterOptionsPropertiesOutput() IamIdentityCenterOptionsPropertiesOutput {
+	return o
+}
+
+func (o IamIdentityCenterOptionsPropertiesOutput) ToIamIdentityCenterOptionsPropertiesOutputWithContext(ctx context.Context) IamIdentityCenterOptionsPropertiesOutput {
+	return o
+}
+
+func (o IamIdentityCenterOptionsPropertiesOutput) ToIamIdentityCenterOptionsPropertiesPtrOutput() IamIdentityCenterOptionsPropertiesPtrOutput {
+	return o.ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o IamIdentityCenterOptionsPropertiesOutput) ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(ctx context.Context) IamIdentityCenterOptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IamIdentityCenterOptionsProperties) *IamIdentityCenterOptionsProperties {
+		return &v
+	}).(IamIdentityCenterOptionsPropertiesPtrOutput)
+}
+
+// Whether IAM Identity Center is enabled.
+func (o IamIdentityCenterOptionsPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IamIdentityCenterOptionsProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the IAM Identity Center instance.
+func (o IamIdentityCenterOptionsPropertiesOutput) IamIdentityCenterInstanceArn() pulumi.AnyOutput {
+	return o.ApplyT(func(v IamIdentityCenterOptionsProperties) interface{} { return v.IamIdentityCenterInstanceArn }).(pulumi.AnyOutput)
+}
+
+// The ARN of the IAM role for Identity Center application.
+func (o IamIdentityCenterOptionsPropertiesOutput) IamRoleForIdentityCenterApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IamIdentityCenterOptionsProperties) *string { return v.IamRoleForIdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+type IamIdentityCenterOptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (IamIdentityCenterOptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IamIdentityCenterOptionsProperties)(nil)).Elem()
+}
+
+func (o IamIdentityCenterOptionsPropertiesPtrOutput) ToIamIdentityCenterOptionsPropertiesPtrOutput() IamIdentityCenterOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o IamIdentityCenterOptionsPropertiesPtrOutput) ToIamIdentityCenterOptionsPropertiesPtrOutputWithContext(ctx context.Context) IamIdentityCenterOptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o IamIdentityCenterOptionsPropertiesPtrOutput) Elem() IamIdentityCenterOptionsPropertiesOutput {
+	return o.ApplyT(func(v *IamIdentityCenterOptionsProperties) IamIdentityCenterOptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret IamIdentityCenterOptionsProperties
+		return ret
+	}).(IamIdentityCenterOptionsPropertiesOutput)
+}
+
+// Whether IAM Identity Center is enabled.
+func (o IamIdentityCenterOptionsPropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IamIdentityCenterOptionsProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the IAM Identity Center instance.
+func (o IamIdentityCenterOptionsPropertiesPtrOutput) IamIdentityCenterInstanceArn() pulumi.AnyOutput {
+	return o.ApplyT(func(v *IamIdentityCenterOptionsProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.IamIdentityCenterInstanceArn
+	}).(pulumi.AnyOutput)
+}
+
+// The ARN of the IAM role for Identity Center application.
+func (o IamIdentityCenterOptionsPropertiesPtrOutput) IamRoleForIdentityCenterApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IamIdentityCenterOptionsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamRoleForIdentityCenterApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigInput)(nil)).Elem(), ApplicationAppConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigArrayInput)(nil)).Elem(), ApplicationAppConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDataSourceInput)(nil)).Elem(), ApplicationDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDataSourceArrayInput)(nil)).Elem(), ApplicationDataSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInputInput)(nil)).Elem(), DomainAdvancedSecurityOptionsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInputPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigInput)(nil)).Elem(), DomainClusterConfigArgs{})
@@ -3857,6 +4265,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainWindowStartTimePtrInput)(nil)).Elem(), DomainWindowStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainZoneAwarenessConfigInput)(nil)).Elem(), DomainZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainZoneAwarenessConfigPtrInput)(nil)).Elem(), DomainZoneAwarenessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IamIdentityCenterOptionsPropertiesInput)(nil)).Elem(), IamIdentityCenterOptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IamIdentityCenterOptionsPropertiesPtrInput)(nil)).Elem(), IamIdentityCenterOptionsPropertiesArgs{})
+	pulumi.RegisterOutputType(ApplicationAppConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationAppConfigArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationDataSourceOutput{})
+	pulumi.RegisterOutputType(ApplicationDataSourceArrayOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsInputPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigOutput{})
@@ -3899,4 +4313,6 @@ func init() {
 	pulumi.RegisterOutputType(DomainWindowStartTimePtrOutput{})
 	pulumi.RegisterOutputType(DomainZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(DomainZoneAwarenessConfigPtrOutput{})
+	pulumi.RegisterOutputType(IamIdentityCenterOptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(IamIdentityCenterOptionsPropertiesPtrOutput{})
 }

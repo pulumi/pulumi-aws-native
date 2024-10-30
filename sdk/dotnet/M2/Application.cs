@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.M2
         /// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         /// </summary>
         [Output("definition")]
-        public Output<Union<Outputs.ApplicationDefinition0Properties, Outputs.ApplicationDefinition1Properties>> Definition { get; private set; } = null!;
+        public Output<Union<Outputs.ApplicationDefinition0Properties, Outputs.ApplicationDefinition1Properties>?> Definition { get; private set; } = null!;
 
         /// <summary>
         /// The description of the application.
@@ -130,8 +130,8 @@ namespace Pulumi.AwsNative.M2
         /// 
         /// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         /// </summary>
-        [Input("definition", required: true)]
-        public InputUnion<Inputs.ApplicationDefinition0PropertiesArgs, Inputs.ApplicationDefinition1PropertiesArgs> Definition { get; set; } = null!;
+        [Input("definition")]
+        public InputUnion<Inputs.ApplicationDefinition0PropertiesArgs, Inputs.ApplicationDefinition1PropertiesArgs>? Definition { get; set; }
 
         /// <summary>
         /// The description of the application.

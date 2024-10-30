@@ -157,6 +157,8 @@ class SecretTargetAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_type'")
             __props__.__dict__["target_type"] = target_type
             __props__.__dict__["aws_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["secretId"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecretTargetAttachment, __self__).__init__(
             'aws-native:secretsmanager:SecretTargetAttachment',
             resource_name,

@@ -21,11 +21,11 @@ type StudioLifecycleConfig struct {
 	StudioLifecycleConfigAppType StudioLifecycleConfigAppTypeOutput `pulumi:"studioLifecycleConfigAppType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration.
 	StudioLifecycleConfigArn pulumi.StringOutput `pulumi:"studioLifecycleConfigArn"`
-	// The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+	// The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringOutput `pulumi:"studioLifecycleConfigContent"`
 	// The name of the Amazon SageMaker Studio Lifecycle Configuration.
 	StudioLifecycleConfigName pulumi.StringOutput `pulumi:"studioLifecycleConfigName"`
-	// Tags to be associated with the Lifecycle Configuration.
+	// Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
@@ -84,11 +84,11 @@ func (StudioLifecycleConfigState) ElementType() reflect.Type {
 type studioLifecycleConfigArgs struct {
 	// The App type that the Lifecycle Configuration is attached to.
 	StudioLifecycleConfigAppType StudioLifecycleConfigAppType `pulumi:"studioLifecycleConfigAppType"`
-	// The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+	// The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent string `pulumi:"studioLifecycleConfigContent"`
 	// The name of the Amazon SageMaker Studio Lifecycle Configuration.
 	StudioLifecycleConfigName *string `pulumi:"studioLifecycleConfigName"`
-	// Tags to be associated with the Lifecycle Configuration.
+	// Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
@@ -96,11 +96,11 @@ type studioLifecycleConfigArgs struct {
 type StudioLifecycleConfigArgs struct {
 	// The App type that the Lifecycle Configuration is attached to.
 	StudioLifecycleConfigAppType StudioLifecycleConfigAppTypeInput
-	// The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+	// The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
 	StudioLifecycleConfigContent pulumi.StringInput
 	// The name of the Amazon SageMaker Studio Lifecycle Configuration.
 	StudioLifecycleConfigName pulumi.StringPtrInput
-	// Tags to be associated with the Lifecycle Configuration.
+	// Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
 	Tags aws.CreateOnlyTagArrayInput
 }
 
@@ -153,7 +153,7 @@ func (o StudioLifecycleConfigOutput) StudioLifecycleConfigArn() pulumi.StringOut
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigArn }).(pulumi.StringOutput)
 }
 
-// The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+// The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
 func (o StudioLifecycleConfigOutput) StudioLifecycleConfigContent() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigContent }).(pulumi.StringOutput)
 }
@@ -163,7 +163,7 @@ func (o StudioLifecycleConfigOutput) StudioLifecycleConfigName() pulumi.StringOu
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.StudioLifecycleConfigName }).(pulumi.StringOutput)
 }
 
-// Tags to be associated with the Lifecycle Configuration.
+// Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
 func (o StudioLifecycleConfigOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

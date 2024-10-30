@@ -49,6 +49,10 @@ func NewSecretTargetAttachment(ctx *pulumi.Context,
 	if args.TargetType == nil {
 		return nil, errors.New("invalid value for required argument 'TargetType'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"secretId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SecretTargetAttachment
 	err := ctx.RegisterResource("aws-native:secretsmanager:SecretTargetAttachment", name, args, &resource, opts...)

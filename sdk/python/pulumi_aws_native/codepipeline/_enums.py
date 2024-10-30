@@ -10,6 +10,7 @@ __all__ = [
     'PipelineBlockerDeclarationType',
     'PipelineExecutionMode',
     'PipelineFailureConditionsResult',
+    'PipelineFailureConditionsRetryConfigurationPropertiesRetryMode',
     'PipelineTriggerDeclarationProviderType',
     'PipelineType',
 ]
@@ -56,6 +57,15 @@ class PipelineFailureConditionsResult(str, Enum):
     The specified result for when the failure conditions are met, such as rolling back the stage
     """
     ROLLBACK = "ROLLBACK"
+    RETRY = "RETRY"
+
+
+class PipelineFailureConditionsRetryConfigurationPropertiesRetryMode(str, Enum):
+    """
+    The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
+    """
+    ALL_ACTIONS = "ALL_ACTIONS"
+    FAILED_ACTIONS = "FAILED_ACTIONS"
 
 
 class PipelineTriggerDeclarationProviderType(str, Enum):

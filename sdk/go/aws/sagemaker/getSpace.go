@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type LookupSpaceResult struct {
 	SpaceArn *string `pulumi:"spaceArn"`
 	// The name of the space that appears in the Studio UI.
 	SpaceDisplayName *string `pulumi:"spaceDisplayName"`
+	// A list of tags to apply to the space.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
 	//
 	// The following application types are supported:
@@ -96,6 +99,11 @@ func (o LookupSpaceResultOutput) SpaceArn() pulumi.StringPtrOutput {
 // The name of the space that appears in the Studio UI.
 func (o LookupSpaceResultOutput) SpaceDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpaceResult) *string { return v.SpaceDisplayName }).(pulumi.StringPtrOutput)
+}
+
+// A list of tags to apply to the space.
+func (o LookupSpaceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSpaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.

@@ -10,6 +10,11 @@ export const getResourcePolicy: typeof import("./getResourcePolicy").getResource
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getResourcePolicy","getResourcePolicyOutput"], () => require("./getResourcePolicy"));
 
+export { GetRotationScheduleArgs, GetRotationScheduleResult, GetRotationScheduleOutputArgs } from "./getRotationSchedule";
+export const getRotationSchedule: typeof import("./getRotationSchedule").getRotationSchedule = null as any;
+export const getRotationScheduleOutput: typeof import("./getRotationSchedule").getRotationScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getRotationSchedule","getRotationScheduleOutput"], () => require("./getRotationSchedule"));
+
 export { GetSecretArgs, GetSecretResult, GetSecretOutputArgs } from "./getSecret";
 export const getSecret: typeof import("./getSecret").getSecret = null as any;
 export const getSecretOutput: typeof import("./getSecret").getSecretOutput = null as any;
@@ -24,6 +29,11 @@ export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
 utilities.lazyLoad(exports, ["ResourcePolicy"], () => require("./resourcePolicy"));
+
+export { RotationScheduleArgs } from "./rotationSchedule";
+export type RotationSchedule = import("./rotationSchedule").RotationSchedule;
+export const RotationSchedule: typeof import("./rotationSchedule").RotationSchedule = null as any;
+utilities.lazyLoad(exports, ["RotationSchedule"], () => require("./rotationSchedule"));
 
 export { SecretArgs } from "./secret";
 export type Secret = import("./secret").Secret;
@@ -42,6 +52,8 @@ const _module = {
         switch (type) {
             case "aws-native:secretsmanager:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
+            case "aws-native:secretsmanager:RotationSchedule":
+                return new RotationSchedule(name, <any>undefined, { urn })
             case "aws-native:secretsmanager:Secret":
                 return new Secret(name, <any>undefined, { urn })
             case "aws-native:secretsmanager:SecretTargetAttachment":

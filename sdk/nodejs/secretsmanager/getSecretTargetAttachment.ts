@@ -21,10 +21,6 @@ export interface GetSecretTargetAttachmentArgs {
 export interface GetSecretTargetAttachmentResult {
     readonly id?: string;
     /**
-     * The ARN or name of the secret. To reference a secret also created in this template, use the see [Ref](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html) function with the secret's logical ID. This field is unique for each target attachment definition.
-     */
-    readonly secretId?: string;
-    /**
      * The ID of the database or cluster.
      */
     readonly targetId?: string;

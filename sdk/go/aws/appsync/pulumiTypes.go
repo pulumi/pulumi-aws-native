@@ -13,6 +13,1086 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// An auth mode.
+type ApiAuthMode struct {
+	AuthType *ApiAuthenticationType `pulumi:"authType"`
+}
+
+// ApiAuthModeInput is an input type that accepts ApiAuthModeArgs and ApiAuthModeOutput values.
+// You can construct a concrete instance of `ApiAuthModeInput` via:
+//
+//	ApiAuthModeArgs{...}
+type ApiAuthModeInput interface {
+	pulumi.Input
+
+	ToApiAuthModeOutput() ApiAuthModeOutput
+	ToApiAuthModeOutputWithContext(context.Context) ApiAuthModeOutput
+}
+
+// An auth mode.
+type ApiAuthModeArgs struct {
+	AuthType ApiAuthenticationTypePtrInput `pulumi:"authType"`
+}
+
+func (ApiAuthModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAuthMode)(nil)).Elem()
+}
+
+func (i ApiAuthModeArgs) ToApiAuthModeOutput() ApiAuthModeOutput {
+	return i.ToApiAuthModeOutputWithContext(context.Background())
+}
+
+func (i ApiAuthModeArgs) ToApiAuthModeOutputWithContext(ctx context.Context) ApiAuthModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthModeOutput)
+}
+
+// ApiAuthModeArrayInput is an input type that accepts ApiAuthModeArray and ApiAuthModeArrayOutput values.
+// You can construct a concrete instance of `ApiAuthModeArrayInput` via:
+//
+//	ApiAuthModeArray{ ApiAuthModeArgs{...} }
+type ApiAuthModeArrayInput interface {
+	pulumi.Input
+
+	ToApiAuthModeArrayOutput() ApiAuthModeArrayOutput
+	ToApiAuthModeArrayOutputWithContext(context.Context) ApiAuthModeArrayOutput
+}
+
+type ApiAuthModeArray []ApiAuthModeInput
+
+func (ApiAuthModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiAuthMode)(nil)).Elem()
+}
+
+func (i ApiAuthModeArray) ToApiAuthModeArrayOutput() ApiAuthModeArrayOutput {
+	return i.ToApiAuthModeArrayOutputWithContext(context.Background())
+}
+
+func (i ApiAuthModeArray) ToApiAuthModeArrayOutputWithContext(ctx context.Context) ApiAuthModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthModeArrayOutput)
+}
+
+// An auth mode.
+type ApiAuthModeOutput struct{ *pulumi.OutputState }
+
+func (ApiAuthModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAuthMode)(nil)).Elem()
+}
+
+func (o ApiAuthModeOutput) ToApiAuthModeOutput() ApiAuthModeOutput {
+	return o
+}
+
+func (o ApiAuthModeOutput) ToApiAuthModeOutputWithContext(ctx context.Context) ApiAuthModeOutput {
+	return o
+}
+
+func (o ApiAuthModeOutput) AuthType() ApiAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v ApiAuthMode) *ApiAuthenticationType { return v.AuthType }).(ApiAuthenticationTypePtrOutput)
+}
+
+type ApiAuthModeArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiAuthModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiAuthMode)(nil)).Elem()
+}
+
+func (o ApiAuthModeArrayOutput) ToApiAuthModeArrayOutput() ApiAuthModeArrayOutput {
+	return o
+}
+
+func (o ApiAuthModeArrayOutput) ToApiAuthModeArrayOutputWithContext(ctx context.Context) ApiAuthModeArrayOutput {
+	return o
+}
+
+func (o ApiAuthModeArrayOutput) Index(i pulumi.IntInput) ApiAuthModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiAuthMode {
+		return vs[0].([]ApiAuthMode)[vs[1].(int)]
+	}).(ApiAuthModeOutput)
+}
+
+// An auth provider for the AppSync API.
+type ApiAuthProvider struct {
+	AuthType               ApiAuthenticationType      `pulumi:"authType"`
+	CognitoConfig          *ApiCognitoConfig          `pulumi:"cognitoConfig"`
+	LambdaAuthorizerConfig *ApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
+	OpenIdConnectConfig    *ApiOpenIdConnectConfig    `pulumi:"openIdConnectConfig"`
+}
+
+// ApiAuthProviderInput is an input type that accepts ApiAuthProviderArgs and ApiAuthProviderOutput values.
+// You can construct a concrete instance of `ApiAuthProviderInput` via:
+//
+//	ApiAuthProviderArgs{...}
+type ApiAuthProviderInput interface {
+	pulumi.Input
+
+	ToApiAuthProviderOutput() ApiAuthProviderOutput
+	ToApiAuthProviderOutputWithContext(context.Context) ApiAuthProviderOutput
+}
+
+// An auth provider for the AppSync API.
+type ApiAuthProviderArgs struct {
+	AuthType               ApiAuthenticationTypeInput        `pulumi:"authType"`
+	CognitoConfig          ApiCognitoConfigPtrInput          `pulumi:"cognitoConfig"`
+	LambdaAuthorizerConfig ApiLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
+	OpenIdConnectConfig    ApiOpenIdConnectConfigPtrInput    `pulumi:"openIdConnectConfig"`
+}
+
+func (ApiAuthProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAuthProvider)(nil)).Elem()
+}
+
+func (i ApiAuthProviderArgs) ToApiAuthProviderOutput() ApiAuthProviderOutput {
+	return i.ToApiAuthProviderOutputWithContext(context.Background())
+}
+
+func (i ApiAuthProviderArgs) ToApiAuthProviderOutputWithContext(ctx context.Context) ApiAuthProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthProviderOutput)
+}
+
+// ApiAuthProviderArrayInput is an input type that accepts ApiAuthProviderArray and ApiAuthProviderArrayOutput values.
+// You can construct a concrete instance of `ApiAuthProviderArrayInput` via:
+//
+//	ApiAuthProviderArray{ ApiAuthProviderArgs{...} }
+type ApiAuthProviderArrayInput interface {
+	pulumi.Input
+
+	ToApiAuthProviderArrayOutput() ApiAuthProviderArrayOutput
+	ToApiAuthProviderArrayOutputWithContext(context.Context) ApiAuthProviderArrayOutput
+}
+
+type ApiAuthProviderArray []ApiAuthProviderInput
+
+func (ApiAuthProviderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiAuthProvider)(nil)).Elem()
+}
+
+func (i ApiAuthProviderArray) ToApiAuthProviderArrayOutput() ApiAuthProviderArrayOutput {
+	return i.ToApiAuthProviderArrayOutputWithContext(context.Background())
+}
+
+func (i ApiAuthProviderArray) ToApiAuthProviderArrayOutputWithContext(ctx context.Context) ApiAuthProviderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthProviderArrayOutput)
+}
+
+// An auth provider for the AppSync API.
+type ApiAuthProviderOutput struct{ *pulumi.OutputState }
+
+func (ApiAuthProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiAuthProvider)(nil)).Elem()
+}
+
+func (o ApiAuthProviderOutput) ToApiAuthProviderOutput() ApiAuthProviderOutput {
+	return o
+}
+
+func (o ApiAuthProviderOutput) ToApiAuthProviderOutputWithContext(ctx context.Context) ApiAuthProviderOutput {
+	return o
+}
+
+func (o ApiAuthProviderOutput) AuthType() ApiAuthenticationTypeOutput {
+	return o.ApplyT(func(v ApiAuthProvider) ApiAuthenticationType { return v.AuthType }).(ApiAuthenticationTypeOutput)
+}
+
+func (o ApiAuthProviderOutput) CognitoConfig() ApiCognitoConfigPtrOutput {
+	return o.ApplyT(func(v ApiAuthProvider) *ApiCognitoConfig { return v.CognitoConfig }).(ApiCognitoConfigPtrOutput)
+}
+
+func (o ApiAuthProviderOutput) LambdaAuthorizerConfig() ApiLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyT(func(v ApiAuthProvider) *ApiLambdaAuthorizerConfig { return v.LambdaAuthorizerConfig }).(ApiLambdaAuthorizerConfigPtrOutput)
+}
+
+func (o ApiAuthProviderOutput) OpenIdConnectConfig() ApiOpenIdConnectConfigPtrOutput {
+	return o.ApplyT(func(v ApiAuthProvider) *ApiOpenIdConnectConfig { return v.OpenIdConnectConfig }).(ApiOpenIdConnectConfigPtrOutput)
+}
+
+type ApiAuthProviderArrayOutput struct{ *pulumi.OutputState }
+
+func (ApiAuthProviderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApiAuthProvider)(nil)).Elem()
+}
+
+func (o ApiAuthProviderArrayOutput) ToApiAuthProviderArrayOutput() ApiAuthProviderArrayOutput {
+	return o
+}
+
+func (o ApiAuthProviderArrayOutput) ToApiAuthProviderArrayOutputWithContext(ctx context.Context) ApiAuthProviderArrayOutput {
+	return o
+}
+
+func (o ApiAuthProviderArrayOutput) Index(i pulumi.IntInput) ApiAuthProviderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiAuthProvider {
+		return vs[0].([]ApiAuthProvider)[vs[1].(int)]
+	}).(ApiAuthProviderOutput)
+}
+
+// Optional authorization configuration for using Amazon Cognito user pools with your API endpoint.
+type ApiCognitoConfig struct {
+	AppIdClientRegex *string `pulumi:"appIdClientRegex"`
+	AwsRegion        string  `pulumi:"awsRegion"`
+	UserPoolId       string  `pulumi:"userPoolId"`
+}
+
+// ApiCognitoConfigInput is an input type that accepts ApiCognitoConfigArgs and ApiCognitoConfigOutput values.
+// You can construct a concrete instance of `ApiCognitoConfigInput` via:
+//
+//	ApiCognitoConfigArgs{...}
+type ApiCognitoConfigInput interface {
+	pulumi.Input
+
+	ToApiCognitoConfigOutput() ApiCognitoConfigOutput
+	ToApiCognitoConfigOutputWithContext(context.Context) ApiCognitoConfigOutput
+}
+
+// Optional authorization configuration for using Amazon Cognito user pools with your API endpoint.
+type ApiCognitoConfigArgs struct {
+	AppIdClientRegex pulumi.StringPtrInput `pulumi:"appIdClientRegex"`
+	AwsRegion        pulumi.StringInput    `pulumi:"awsRegion"`
+	UserPoolId       pulumi.StringInput    `pulumi:"userPoolId"`
+}
+
+func (ApiCognitoConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiCognitoConfig)(nil)).Elem()
+}
+
+func (i ApiCognitoConfigArgs) ToApiCognitoConfigOutput() ApiCognitoConfigOutput {
+	return i.ToApiCognitoConfigOutputWithContext(context.Background())
+}
+
+func (i ApiCognitoConfigArgs) ToApiCognitoConfigOutputWithContext(ctx context.Context) ApiCognitoConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiCognitoConfigOutput)
+}
+
+func (i ApiCognitoConfigArgs) ToApiCognitoConfigPtrOutput() ApiCognitoConfigPtrOutput {
+	return i.ToApiCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiCognitoConfigArgs) ToApiCognitoConfigPtrOutputWithContext(ctx context.Context) ApiCognitoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiCognitoConfigOutput).ToApiCognitoConfigPtrOutputWithContext(ctx)
+}
+
+// ApiCognitoConfigPtrInput is an input type that accepts ApiCognitoConfigArgs, ApiCognitoConfigPtr and ApiCognitoConfigPtrOutput values.
+// You can construct a concrete instance of `ApiCognitoConfigPtrInput` via:
+//
+//	        ApiCognitoConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiCognitoConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiCognitoConfigPtrOutput() ApiCognitoConfigPtrOutput
+	ToApiCognitoConfigPtrOutputWithContext(context.Context) ApiCognitoConfigPtrOutput
+}
+
+type apiCognitoConfigPtrType ApiCognitoConfigArgs
+
+func ApiCognitoConfigPtr(v *ApiCognitoConfigArgs) ApiCognitoConfigPtrInput {
+	return (*apiCognitoConfigPtrType)(v)
+}
+
+func (*apiCognitoConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiCognitoConfig)(nil)).Elem()
+}
+
+func (i *apiCognitoConfigPtrType) ToApiCognitoConfigPtrOutput() ApiCognitoConfigPtrOutput {
+	return i.ToApiCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiCognitoConfigPtrType) ToApiCognitoConfigPtrOutputWithContext(ctx context.Context) ApiCognitoConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiCognitoConfigPtrOutput)
+}
+
+// Optional authorization configuration for using Amazon Cognito user pools with your API endpoint.
+type ApiCognitoConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiCognitoConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiCognitoConfig)(nil)).Elem()
+}
+
+func (o ApiCognitoConfigOutput) ToApiCognitoConfigOutput() ApiCognitoConfigOutput {
+	return o
+}
+
+func (o ApiCognitoConfigOutput) ToApiCognitoConfigOutputWithContext(ctx context.Context) ApiCognitoConfigOutput {
+	return o
+}
+
+func (o ApiCognitoConfigOutput) ToApiCognitoConfigPtrOutput() ApiCognitoConfigPtrOutput {
+	return o.ToApiCognitoConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiCognitoConfigOutput) ToApiCognitoConfigPtrOutputWithContext(ctx context.Context) ApiCognitoConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiCognitoConfig) *ApiCognitoConfig {
+		return &v
+	}).(ApiCognitoConfigPtrOutput)
+}
+
+func (o ApiCognitoConfigOutput) AppIdClientRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiCognitoConfig) *string { return v.AppIdClientRegex }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiCognitoConfigOutput) AwsRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiCognitoConfig) string { return v.AwsRegion }).(pulumi.StringOutput)
+}
+
+func (o ApiCognitoConfigOutput) UserPoolId() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiCognitoConfig) string { return v.UserPoolId }).(pulumi.StringOutput)
+}
+
+type ApiCognitoConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiCognitoConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiCognitoConfig)(nil)).Elem()
+}
+
+func (o ApiCognitoConfigPtrOutput) ToApiCognitoConfigPtrOutput() ApiCognitoConfigPtrOutput {
+	return o
+}
+
+func (o ApiCognitoConfigPtrOutput) ToApiCognitoConfigPtrOutputWithContext(ctx context.Context) ApiCognitoConfigPtrOutput {
+	return o
+}
+
+func (o ApiCognitoConfigPtrOutput) Elem() ApiCognitoConfigOutput {
+	return o.ApplyT(func(v *ApiCognitoConfig) ApiCognitoConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiCognitoConfig
+		return ret
+	}).(ApiCognitoConfigOutput)
+}
+
+func (o ApiCognitoConfigPtrOutput) AppIdClientRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiCognitoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppIdClientRegex
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApiCognitoConfigPtrOutput) AwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiCognitoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AwsRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApiCognitoConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiCognitoConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UserPoolId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for an Event Api
+type ApiEventConfig struct {
+	AuthProviders             []ApiAuthProvider  `pulumi:"authProviders"`
+	ConnectionAuthModes       []ApiAuthMode      `pulumi:"connectionAuthModes"`
+	DefaultPublishAuthModes   []ApiAuthMode      `pulumi:"defaultPublishAuthModes"`
+	DefaultSubscribeAuthModes []ApiAuthMode      `pulumi:"defaultSubscribeAuthModes"`
+	LogConfig                 *ApiEventLogConfig `pulumi:"logConfig"`
+}
+
+// ApiEventConfigInput is an input type that accepts ApiEventConfigArgs and ApiEventConfigOutput values.
+// You can construct a concrete instance of `ApiEventConfigInput` via:
+//
+//	ApiEventConfigArgs{...}
+type ApiEventConfigInput interface {
+	pulumi.Input
+
+	ToApiEventConfigOutput() ApiEventConfigOutput
+	ToApiEventConfigOutputWithContext(context.Context) ApiEventConfigOutput
+}
+
+// The configuration for an Event Api
+type ApiEventConfigArgs struct {
+	AuthProviders             ApiAuthProviderArrayInput `pulumi:"authProviders"`
+	ConnectionAuthModes       ApiAuthModeArrayInput     `pulumi:"connectionAuthModes"`
+	DefaultPublishAuthModes   ApiAuthModeArrayInput     `pulumi:"defaultPublishAuthModes"`
+	DefaultSubscribeAuthModes ApiAuthModeArrayInput     `pulumi:"defaultSubscribeAuthModes"`
+	LogConfig                 ApiEventLogConfigPtrInput `pulumi:"logConfig"`
+}
+
+func (ApiEventConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfig)(nil)).Elem()
+}
+
+func (i ApiEventConfigArgs) ToApiEventConfigOutput() ApiEventConfigOutput {
+	return i.ToApiEventConfigOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigArgs) ToApiEventConfigOutputWithContext(ctx context.Context) ApiEventConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigOutput)
+}
+
+func (i ApiEventConfigArgs) ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput {
+	return i.ToApiEventConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiEventConfigArgs) ToApiEventConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigOutput).ToApiEventConfigPtrOutputWithContext(ctx)
+}
+
+// ApiEventConfigPtrInput is an input type that accepts ApiEventConfigArgs, ApiEventConfigPtr and ApiEventConfigPtrOutput values.
+// You can construct a concrete instance of `ApiEventConfigPtrInput` via:
+//
+//	        ApiEventConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiEventConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput
+	ToApiEventConfigPtrOutputWithContext(context.Context) ApiEventConfigPtrOutput
+}
+
+type apiEventConfigPtrType ApiEventConfigArgs
+
+func ApiEventConfigPtr(v *ApiEventConfigArgs) ApiEventConfigPtrInput {
+	return (*apiEventConfigPtrType)(v)
+}
+
+func (*apiEventConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfig)(nil)).Elem()
+}
+
+func (i *apiEventConfigPtrType) ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput {
+	return i.ToApiEventConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiEventConfigPtrType) ToApiEventConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventConfigPtrOutput)
+}
+
+// The configuration for an Event Api
+type ApiEventConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigOutput) ToApiEventConfigOutput() ApiEventConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigOutput) ToApiEventConfigOutputWithContext(ctx context.Context) ApiEventConfigOutput {
+	return o
+}
+
+func (o ApiEventConfigOutput) ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput {
+	return o.ToApiEventConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventConfigOutput) ToApiEventConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEventConfig) *ApiEventConfig {
+		return &v
+	}).(ApiEventConfigPtrOutput)
+}
+
+func (o ApiEventConfigOutput) AuthProviders() ApiAuthProviderArrayOutput {
+	return o.ApplyT(func(v ApiEventConfig) []ApiAuthProvider { return v.AuthProviders }).(ApiAuthProviderArrayOutput)
+}
+
+func (o ApiEventConfigOutput) ConnectionAuthModes() ApiAuthModeArrayOutput {
+	return o.ApplyT(func(v ApiEventConfig) []ApiAuthMode { return v.ConnectionAuthModes }).(ApiAuthModeArrayOutput)
+}
+
+func (o ApiEventConfigOutput) DefaultPublishAuthModes() ApiAuthModeArrayOutput {
+	return o.ApplyT(func(v ApiEventConfig) []ApiAuthMode { return v.DefaultPublishAuthModes }).(ApiAuthModeArrayOutput)
+}
+
+func (o ApiEventConfigOutput) DefaultSubscribeAuthModes() ApiAuthModeArrayOutput {
+	return o.ApplyT(func(v ApiEventConfig) []ApiAuthMode { return v.DefaultSubscribeAuthModes }).(ApiAuthModeArrayOutput)
+}
+
+func (o ApiEventConfigOutput) LogConfig() ApiEventLogConfigPtrOutput {
+	return o.ApplyT(func(v ApiEventConfig) *ApiEventLogConfig { return v.LogConfig }).(ApiEventLogConfigPtrOutput)
+}
+
+type ApiEventConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEventConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventConfig)(nil)).Elem()
+}
+
+func (o ApiEventConfigPtrOutput) ToApiEventConfigPtrOutput() ApiEventConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigPtrOutput) ToApiEventConfigPtrOutputWithContext(ctx context.Context) ApiEventConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventConfigPtrOutput) Elem() ApiEventConfigOutput {
+	return o.ApplyT(func(v *ApiEventConfig) ApiEventConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEventConfig
+		return ret
+	}).(ApiEventConfigOutput)
+}
+
+func (o ApiEventConfigPtrOutput) AuthProviders() ApiAuthProviderArrayOutput {
+	return o.ApplyT(func(v *ApiEventConfig) []ApiAuthProvider {
+		if v == nil {
+			return nil
+		}
+		return v.AuthProviders
+	}).(ApiAuthProviderArrayOutput)
+}
+
+func (o ApiEventConfigPtrOutput) ConnectionAuthModes() ApiAuthModeArrayOutput {
+	return o.ApplyT(func(v *ApiEventConfig) []ApiAuthMode {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionAuthModes
+	}).(ApiAuthModeArrayOutput)
+}
+
+func (o ApiEventConfigPtrOutput) DefaultPublishAuthModes() ApiAuthModeArrayOutput {
+	return o.ApplyT(func(v *ApiEventConfig) []ApiAuthMode {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultPublishAuthModes
+	}).(ApiAuthModeArrayOutput)
+}
+
+func (o ApiEventConfigPtrOutput) DefaultSubscribeAuthModes() ApiAuthModeArrayOutput {
+	return o.ApplyT(func(v *ApiEventConfig) []ApiAuthMode {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultSubscribeAuthModes
+	}).(ApiAuthModeArrayOutput)
+}
+
+func (o ApiEventConfigPtrOutput) LogConfig() ApiEventLogConfigPtrOutput {
+	return o.ApplyT(func(v *ApiEventConfig) *ApiEventLogConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfig
+	}).(ApiEventLogConfigPtrOutput)
+}
+
+// The log config for the AppSync API.
+type ApiEventLogConfig struct {
+	CloudWatchLogsRoleArn string           `pulumi:"cloudWatchLogsRoleArn"`
+	LogLevel              ApiEventLogLevel `pulumi:"logLevel"`
+}
+
+// ApiEventLogConfigInput is an input type that accepts ApiEventLogConfigArgs and ApiEventLogConfigOutput values.
+// You can construct a concrete instance of `ApiEventLogConfigInput` via:
+//
+//	ApiEventLogConfigArgs{...}
+type ApiEventLogConfigInput interface {
+	pulumi.Input
+
+	ToApiEventLogConfigOutput() ApiEventLogConfigOutput
+	ToApiEventLogConfigOutputWithContext(context.Context) ApiEventLogConfigOutput
+}
+
+// The log config for the AppSync API.
+type ApiEventLogConfigArgs struct {
+	CloudWatchLogsRoleArn pulumi.StringInput    `pulumi:"cloudWatchLogsRoleArn"`
+	LogLevel              ApiEventLogLevelInput `pulumi:"logLevel"`
+}
+
+func (ApiEventLogConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventLogConfig)(nil)).Elem()
+}
+
+func (i ApiEventLogConfigArgs) ToApiEventLogConfigOutput() ApiEventLogConfigOutput {
+	return i.ToApiEventLogConfigOutputWithContext(context.Background())
+}
+
+func (i ApiEventLogConfigArgs) ToApiEventLogConfigOutputWithContext(ctx context.Context) ApiEventLogConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventLogConfigOutput)
+}
+
+func (i ApiEventLogConfigArgs) ToApiEventLogConfigPtrOutput() ApiEventLogConfigPtrOutput {
+	return i.ToApiEventLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiEventLogConfigArgs) ToApiEventLogConfigPtrOutputWithContext(ctx context.Context) ApiEventLogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventLogConfigOutput).ToApiEventLogConfigPtrOutputWithContext(ctx)
+}
+
+// ApiEventLogConfigPtrInput is an input type that accepts ApiEventLogConfigArgs, ApiEventLogConfigPtr and ApiEventLogConfigPtrOutput values.
+// You can construct a concrete instance of `ApiEventLogConfigPtrInput` via:
+//
+//	        ApiEventLogConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiEventLogConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiEventLogConfigPtrOutput() ApiEventLogConfigPtrOutput
+	ToApiEventLogConfigPtrOutputWithContext(context.Context) ApiEventLogConfigPtrOutput
+}
+
+type apiEventLogConfigPtrType ApiEventLogConfigArgs
+
+func ApiEventLogConfigPtr(v *ApiEventLogConfigArgs) ApiEventLogConfigPtrInput {
+	return (*apiEventLogConfigPtrType)(v)
+}
+
+func (*apiEventLogConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventLogConfig)(nil)).Elem()
+}
+
+func (i *apiEventLogConfigPtrType) ToApiEventLogConfigPtrOutput() ApiEventLogConfigPtrOutput {
+	return i.ToApiEventLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiEventLogConfigPtrType) ToApiEventLogConfigPtrOutputWithContext(ctx context.Context) ApiEventLogConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiEventLogConfigPtrOutput)
+}
+
+// The log config for the AppSync API.
+type ApiEventLogConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiEventLogConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiEventLogConfig)(nil)).Elem()
+}
+
+func (o ApiEventLogConfigOutput) ToApiEventLogConfigOutput() ApiEventLogConfigOutput {
+	return o
+}
+
+func (o ApiEventLogConfigOutput) ToApiEventLogConfigOutputWithContext(ctx context.Context) ApiEventLogConfigOutput {
+	return o
+}
+
+func (o ApiEventLogConfigOutput) ToApiEventLogConfigPtrOutput() ApiEventLogConfigPtrOutput {
+	return o.ToApiEventLogConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiEventLogConfigOutput) ToApiEventLogConfigPtrOutputWithContext(ctx context.Context) ApiEventLogConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiEventLogConfig) *ApiEventLogConfig {
+		return &v
+	}).(ApiEventLogConfigPtrOutput)
+}
+
+func (o ApiEventLogConfigOutput) CloudWatchLogsRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiEventLogConfig) string { return v.CloudWatchLogsRoleArn }).(pulumi.StringOutput)
+}
+
+func (o ApiEventLogConfigOutput) LogLevel() ApiEventLogLevelOutput {
+	return o.ApplyT(func(v ApiEventLogConfig) ApiEventLogLevel { return v.LogLevel }).(ApiEventLogLevelOutput)
+}
+
+type ApiEventLogConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiEventLogConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiEventLogConfig)(nil)).Elem()
+}
+
+func (o ApiEventLogConfigPtrOutput) ToApiEventLogConfigPtrOutput() ApiEventLogConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventLogConfigPtrOutput) ToApiEventLogConfigPtrOutputWithContext(ctx context.Context) ApiEventLogConfigPtrOutput {
+	return o
+}
+
+func (o ApiEventLogConfigPtrOutput) Elem() ApiEventLogConfigOutput {
+	return o.ApplyT(func(v *ApiEventLogConfig) ApiEventLogConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiEventLogConfig
+		return ret
+	}).(ApiEventLogConfigOutput)
+}
+
+func (o ApiEventLogConfigPtrOutput) CloudWatchLogsRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiEventLogConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudWatchLogsRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApiEventLogConfigPtrOutput) LogLevel() ApiEventLogLevelPtrOutput {
+	return o.ApplyT(func(v *ApiEventLogConfig) *ApiEventLogLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.LogLevel
+	}).(ApiEventLogLevelPtrOutput)
+}
+
+// A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+type ApiLambdaAuthorizerConfig struct {
+	AuthorizerResultTtlInSeconds *int    `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                string  `pulumi:"authorizerUri"`
+	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
+}
+
+// ApiLambdaAuthorizerConfigInput is an input type that accepts ApiLambdaAuthorizerConfigArgs and ApiLambdaAuthorizerConfigOutput values.
+// You can construct a concrete instance of `ApiLambdaAuthorizerConfigInput` via:
+//
+//	ApiLambdaAuthorizerConfigArgs{...}
+type ApiLambdaAuthorizerConfigInput interface {
+	pulumi.Input
+
+	ToApiLambdaAuthorizerConfigOutput() ApiLambdaAuthorizerConfigOutput
+	ToApiLambdaAuthorizerConfigOutputWithContext(context.Context) ApiLambdaAuthorizerConfigOutput
+}
+
+// A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+type ApiLambdaAuthorizerConfigArgs struct {
+	AuthorizerResultTtlInSeconds pulumi.IntPtrInput    `pulumi:"authorizerResultTtlInSeconds"`
+	AuthorizerUri                pulumi.StringInput    `pulumi:"authorizerUri"`
+	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
+}
+
+func (ApiLambdaAuthorizerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (i ApiLambdaAuthorizerConfigArgs) ToApiLambdaAuthorizerConfigOutput() ApiLambdaAuthorizerConfigOutput {
+	return i.ToApiLambdaAuthorizerConfigOutputWithContext(context.Background())
+}
+
+func (i ApiLambdaAuthorizerConfigArgs) ToApiLambdaAuthorizerConfigOutputWithContext(ctx context.Context) ApiLambdaAuthorizerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiLambdaAuthorizerConfigOutput)
+}
+
+func (i ApiLambdaAuthorizerConfigArgs) ToApiLambdaAuthorizerConfigPtrOutput() ApiLambdaAuthorizerConfigPtrOutput {
+	return i.ToApiLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiLambdaAuthorizerConfigArgs) ToApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) ApiLambdaAuthorizerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiLambdaAuthorizerConfigOutput).ToApiLambdaAuthorizerConfigPtrOutputWithContext(ctx)
+}
+
+// ApiLambdaAuthorizerConfigPtrInput is an input type that accepts ApiLambdaAuthorizerConfigArgs, ApiLambdaAuthorizerConfigPtr and ApiLambdaAuthorizerConfigPtrOutput values.
+// You can construct a concrete instance of `ApiLambdaAuthorizerConfigPtrInput` via:
+//
+//	        ApiLambdaAuthorizerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiLambdaAuthorizerConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiLambdaAuthorizerConfigPtrOutput() ApiLambdaAuthorizerConfigPtrOutput
+	ToApiLambdaAuthorizerConfigPtrOutputWithContext(context.Context) ApiLambdaAuthorizerConfigPtrOutput
+}
+
+type apiLambdaAuthorizerConfigPtrType ApiLambdaAuthorizerConfigArgs
+
+func ApiLambdaAuthorizerConfigPtr(v *ApiLambdaAuthorizerConfigArgs) ApiLambdaAuthorizerConfigPtrInput {
+	return (*apiLambdaAuthorizerConfigPtrType)(v)
+}
+
+func (*apiLambdaAuthorizerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (i *apiLambdaAuthorizerConfigPtrType) ToApiLambdaAuthorizerConfigPtrOutput() ApiLambdaAuthorizerConfigPtrOutput {
+	return i.ToApiLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiLambdaAuthorizerConfigPtrType) ToApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) ApiLambdaAuthorizerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiLambdaAuthorizerConfigPtrOutput)
+}
+
+// A LambdaAuthorizerConfig holds configuration on how to authorize AWS AppSync API access when using the AWS_LAMBDA authorizer mode. Be aware that an AWS AppSync API may have only one Lambda authorizer configured at a time.
+type ApiLambdaAuthorizerConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiLambdaAuthorizerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (o ApiLambdaAuthorizerConfigOutput) ToApiLambdaAuthorizerConfigOutput() ApiLambdaAuthorizerConfigOutput {
+	return o
+}
+
+func (o ApiLambdaAuthorizerConfigOutput) ToApiLambdaAuthorizerConfigOutputWithContext(ctx context.Context) ApiLambdaAuthorizerConfigOutput {
+	return o
+}
+
+func (o ApiLambdaAuthorizerConfigOutput) ToApiLambdaAuthorizerConfigPtrOutput() ApiLambdaAuthorizerConfigPtrOutput {
+	return o.ToApiLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiLambdaAuthorizerConfigOutput) ToApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) ApiLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiLambdaAuthorizerConfig) *ApiLambdaAuthorizerConfig {
+		return &v
+	}).(ApiLambdaAuthorizerConfigPtrOutput)
+}
+
+func (o ApiLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApiLambdaAuthorizerConfig) *int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o ApiLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiLambdaAuthorizerConfig) string { return v.AuthorizerUri }).(pulumi.StringOutput)
+}
+
+func (o ApiLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiLambdaAuthorizerConfig) *string { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
+}
+
+type ApiLambdaAuthorizerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiLambdaAuthorizerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (o ApiLambdaAuthorizerConfigPtrOutput) ToApiLambdaAuthorizerConfigPtrOutput() ApiLambdaAuthorizerConfigPtrOutput {
+	return o
+}
+
+func (o ApiLambdaAuthorizerConfigPtrOutput) ToApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) ApiLambdaAuthorizerConfigPtrOutput {
+	return o
+}
+
+func (o ApiLambdaAuthorizerConfigPtrOutput) Elem() ApiLambdaAuthorizerConfigOutput {
+	return o.ApplyT(func(v *ApiLambdaAuthorizerConfig) ApiLambdaAuthorizerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiLambdaAuthorizerConfig
+		return ret
+	}).(ApiLambdaAuthorizerConfigOutput)
+}
+
+func (o ApiLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApiLambdaAuthorizerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizerResultTtlInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ApiLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiLambdaAuthorizerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizerUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApiLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiLambdaAuthorizerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityValidationExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OpenID Connect configuration.
+type ApiOpenIdConnectConfig struct {
+	AuthTtl  *float64 `pulumi:"authTtl"`
+	ClientId *string  `pulumi:"clientId"`
+	IatTtl   *float64 `pulumi:"iatTtl"`
+	Issuer   string   `pulumi:"issuer"`
+}
+
+// ApiOpenIdConnectConfigInput is an input type that accepts ApiOpenIdConnectConfigArgs and ApiOpenIdConnectConfigOutput values.
+// You can construct a concrete instance of `ApiOpenIdConnectConfigInput` via:
+//
+//	ApiOpenIdConnectConfigArgs{...}
+type ApiOpenIdConnectConfigInput interface {
+	pulumi.Input
+
+	ToApiOpenIdConnectConfigOutput() ApiOpenIdConnectConfigOutput
+	ToApiOpenIdConnectConfigOutputWithContext(context.Context) ApiOpenIdConnectConfigOutput
+}
+
+// The OpenID Connect configuration.
+type ApiOpenIdConnectConfigArgs struct {
+	AuthTtl  pulumi.Float64PtrInput `pulumi:"authTtl"`
+	ClientId pulumi.StringPtrInput  `pulumi:"clientId"`
+	IatTtl   pulumi.Float64PtrInput `pulumi:"iatTtl"`
+	Issuer   pulumi.StringInput     `pulumi:"issuer"`
+}
+
+func (ApiOpenIdConnectConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOpenIdConnectConfig)(nil)).Elem()
+}
+
+func (i ApiOpenIdConnectConfigArgs) ToApiOpenIdConnectConfigOutput() ApiOpenIdConnectConfigOutput {
+	return i.ToApiOpenIdConnectConfigOutputWithContext(context.Background())
+}
+
+func (i ApiOpenIdConnectConfigArgs) ToApiOpenIdConnectConfigOutputWithContext(ctx context.Context) ApiOpenIdConnectConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOpenIdConnectConfigOutput)
+}
+
+func (i ApiOpenIdConnectConfigArgs) ToApiOpenIdConnectConfigPtrOutput() ApiOpenIdConnectConfigPtrOutput {
+	return i.ToApiOpenIdConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ApiOpenIdConnectConfigArgs) ToApiOpenIdConnectConfigPtrOutputWithContext(ctx context.Context) ApiOpenIdConnectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOpenIdConnectConfigOutput).ToApiOpenIdConnectConfigPtrOutputWithContext(ctx)
+}
+
+// ApiOpenIdConnectConfigPtrInput is an input type that accepts ApiOpenIdConnectConfigArgs, ApiOpenIdConnectConfigPtr and ApiOpenIdConnectConfigPtrOutput values.
+// You can construct a concrete instance of `ApiOpenIdConnectConfigPtrInput` via:
+//
+//	        ApiOpenIdConnectConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApiOpenIdConnectConfigPtrInput interface {
+	pulumi.Input
+
+	ToApiOpenIdConnectConfigPtrOutput() ApiOpenIdConnectConfigPtrOutput
+	ToApiOpenIdConnectConfigPtrOutputWithContext(context.Context) ApiOpenIdConnectConfigPtrOutput
+}
+
+type apiOpenIdConnectConfigPtrType ApiOpenIdConnectConfigArgs
+
+func ApiOpenIdConnectConfigPtr(v *ApiOpenIdConnectConfigArgs) ApiOpenIdConnectConfigPtrInput {
+	return (*apiOpenIdConnectConfigPtrType)(v)
+}
+
+func (*apiOpenIdConnectConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOpenIdConnectConfig)(nil)).Elem()
+}
+
+func (i *apiOpenIdConnectConfigPtrType) ToApiOpenIdConnectConfigPtrOutput() ApiOpenIdConnectConfigPtrOutput {
+	return i.ToApiOpenIdConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *apiOpenIdConnectConfigPtrType) ToApiOpenIdConnectConfigPtrOutputWithContext(ctx context.Context) ApiOpenIdConnectConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApiOpenIdConnectConfigPtrOutput)
+}
+
+// The OpenID Connect configuration.
+type ApiOpenIdConnectConfigOutput struct{ *pulumi.OutputState }
+
+func (ApiOpenIdConnectConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiOpenIdConnectConfig)(nil)).Elem()
+}
+
+func (o ApiOpenIdConnectConfigOutput) ToApiOpenIdConnectConfigOutput() ApiOpenIdConnectConfigOutput {
+	return o
+}
+
+func (o ApiOpenIdConnectConfigOutput) ToApiOpenIdConnectConfigOutputWithContext(ctx context.Context) ApiOpenIdConnectConfigOutput {
+	return o
+}
+
+func (o ApiOpenIdConnectConfigOutput) ToApiOpenIdConnectConfigPtrOutput() ApiOpenIdConnectConfigPtrOutput {
+	return o.ToApiOpenIdConnectConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ApiOpenIdConnectConfigOutput) ToApiOpenIdConnectConfigPtrOutputWithContext(ctx context.Context) ApiOpenIdConnectConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApiOpenIdConnectConfig) *ApiOpenIdConnectConfig {
+		return &v
+	}).(ApiOpenIdConnectConfigPtrOutput)
+}
+
+func (o ApiOpenIdConnectConfigOutput) AuthTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApiOpenIdConnectConfig) *float64 { return v.AuthTtl }).(pulumi.Float64PtrOutput)
+}
+
+func (o ApiOpenIdConnectConfigOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiOpenIdConnectConfig) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOpenIdConnectConfigOutput) IatTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ApiOpenIdConnectConfig) *float64 { return v.IatTtl }).(pulumi.Float64PtrOutput)
+}
+
+func (o ApiOpenIdConnectConfigOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v ApiOpenIdConnectConfig) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+type ApiOpenIdConnectConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiOpenIdConnectConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiOpenIdConnectConfig)(nil)).Elem()
+}
+
+func (o ApiOpenIdConnectConfigPtrOutput) ToApiOpenIdConnectConfigPtrOutput() ApiOpenIdConnectConfigPtrOutput {
+	return o
+}
+
+func (o ApiOpenIdConnectConfigPtrOutput) ToApiOpenIdConnectConfigPtrOutputWithContext(ctx context.Context) ApiOpenIdConnectConfigPtrOutput {
+	return o
+}
+
+func (o ApiOpenIdConnectConfigPtrOutput) Elem() ApiOpenIdConnectConfigOutput {
+	return o.ApplyT(func(v *ApiOpenIdConnectConfig) ApiOpenIdConnectConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ApiOpenIdConnectConfig
+		return ret
+	}).(ApiOpenIdConnectConfigOutput)
+}
+
+func (o ApiOpenIdConnectConfigPtrOutput) AuthTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApiOpenIdConnectConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.AuthTtl
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ApiOpenIdConnectConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOpenIdConnectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ApiOpenIdConnectConfigPtrOutput) IatTtl() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ApiOpenIdConnectConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.IatTtl
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o ApiOpenIdConnectConfigPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiOpenIdConnectConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this AppSync API.
+type ApiTag struct {
+	// A string used to identify this tag. You can specify a maximum of 128 characters for a tag key.
+	Key string `pulumi:"key"`
+	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+	Value string `pulumi:"value"`
+}
+
 type DataSourceAuthorizationConfig struct {
 	// The authorization type that the HTTP endpoint requires.
 	AuthorizationType string `pulumi:"authorizationType"`
@@ -4488,6 +5568,20 @@ func (o SourceApiAssociationConfigPtrOutput) MergeType() SourceApiAssociationCon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthModeInput)(nil)).Elem(), ApiAuthModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthModeArrayInput)(nil)).Elem(), ApiAuthModeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthProviderInput)(nil)).Elem(), ApiAuthProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthProviderArrayInput)(nil)).Elem(), ApiAuthProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiCognitoConfigInput)(nil)).Elem(), ApiCognitoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiCognitoConfigPtrInput)(nil)).Elem(), ApiCognitoConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigInput)(nil)).Elem(), ApiEventConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventConfigPtrInput)(nil)).Elem(), ApiEventConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventLogConfigInput)(nil)).Elem(), ApiEventLogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventLogConfigPtrInput)(nil)).Elem(), ApiEventLogConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiLambdaAuthorizerConfigInput)(nil)).Elem(), ApiLambdaAuthorizerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiLambdaAuthorizerConfigPtrInput)(nil)).Elem(), ApiLambdaAuthorizerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOpenIdConnectConfigInput)(nil)).Elem(), ApiOpenIdConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiOpenIdConnectConfigPtrInput)(nil)).Elem(), ApiOpenIdConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigPtrInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAwsIamConfigInput)(nil)).Elem(), DataSourceAwsIamConfigArgs{})
@@ -4542,6 +5636,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverSyncConfigPtrInput)(nil)).Elem(), ResolverSyncConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigInput)(nil)).Elem(), SourceApiAssociationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigPtrInput)(nil)).Elem(), SourceApiAssociationConfigArgs{})
+	pulumi.RegisterOutputType(ApiAuthModeOutput{})
+	pulumi.RegisterOutputType(ApiAuthModeArrayOutput{})
+	pulumi.RegisterOutputType(ApiAuthProviderOutput{})
+	pulumi.RegisterOutputType(ApiAuthProviderArrayOutput{})
+	pulumi.RegisterOutputType(ApiCognitoConfigOutput{})
+	pulumi.RegisterOutputType(ApiCognitoConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigOutput{})
+	pulumi.RegisterOutputType(ApiEventConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiEventLogConfigOutput{})
+	pulumi.RegisterOutputType(ApiEventLogConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiLambdaAuthorizerConfigOutput{})
+	pulumi.RegisterOutputType(ApiLambdaAuthorizerConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiOpenIdConnectConfigOutput{})
+	pulumi.RegisterOutputType(ApiOpenIdConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAwsIamConfigOutput{})

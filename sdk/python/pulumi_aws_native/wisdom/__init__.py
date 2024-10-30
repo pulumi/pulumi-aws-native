@@ -7,9 +7,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .ai_prompt import *
+from .ai_prompt_version import *
 from .assistant import *
 from .assistant_association import *
 from .get_ai_prompt import *
+from .get_ai_prompt_version import *
 from .get_assistant import *
 from .get_assistant_association import *
 from .get_knowledge_base import *

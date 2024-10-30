@@ -29,9 +29,9 @@ class StudioLifecycleConfigArgs:
         """
         The set of arguments for constructing a StudioLifecycleConfig resource.
         :param pulumi.Input['StudioLifecycleConfigAppType'] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to.
-        :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+        :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Amazon SageMaker Studio Lifecycle Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Tags to be associated with the Lifecycle Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
         """
         pulumi.set(__self__, "studio_lifecycle_config_app_type", studio_lifecycle_config_app_type)
         pulumi.set(__self__, "studio_lifecycle_config_content", studio_lifecycle_config_content)
@@ -56,7 +56,7 @@ class StudioLifecycleConfigArgs:
     @pulumi.getter(name="studioLifecycleConfigContent")
     def studio_lifecycle_config_content(self) -> pulumi.Input[str]:
         """
-        The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+        The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
         """
         return pulumi.get(self, "studio_lifecycle_config_content")
 
@@ -80,7 +80,7 @@ class StudioLifecycleConfigArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
-        Tags to be associated with the Lifecycle Configuration.
+        Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
         """
         return pulumi.get(self, "tags")
 
@@ -105,9 +105,9 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['StudioLifecycleConfigAppType'] studio_lifecycle_config_app_type: The App type that the Lifecycle Configuration is attached to.
-        :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+        :param pulumi.Input[str] studio_lifecycle_config_content: The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
         :param pulumi.Input[str] studio_lifecycle_config_name: The name of the Amazon SageMaker Studio Lifecycle Configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Tags to be associated with the Lifecycle Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
         """
         ...
     @overload
@@ -206,7 +206,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     @pulumi.getter(name="studioLifecycleConfigContent")
     def studio_lifecycle_config_content(self) -> pulumi.Output[str]:
         """
-        The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+        The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
         """
         return pulumi.get(self, "studio_lifecycle_config_content")
 
@@ -222,7 +222,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
-        Tags to be associated with the Lifecycle Configuration.
+        Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
         """
         return pulumi.get(self, "tags")
 

@@ -87,6 +87,8 @@ export class SecretTargetAttachment extends pulumi.CustomResource {
             resourceInputs["targetType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["secretId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SecretTargetAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }

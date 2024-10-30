@@ -113,6 +113,7 @@ import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
+import * as opensearchservice from "./opensearchservice";
 import * as organizations from "./organizations";
 import * as osis from "./osis";
 import * as panorama from "./panorama";
@@ -282,6 +283,7 @@ export {
     oam,
     omics,
     opensearchserverless,
+    opensearchservice,
     organizations,
     osis,
     panorama,

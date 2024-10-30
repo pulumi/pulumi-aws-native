@@ -29,6 +29,7 @@ __all__ = [
     'PipelineCondition',
     'PipelineEncryptionKey',
     'PipelineFailureConditions',
+    'PipelineFailureConditionsRetryConfigurationProperties',
     'PipelineGitBranchFilterCriteria',
     'PipelineGitConfiguration',
     'PipelineGitFilePathFilterCriteria',
@@ -757,18 +758,39 @@ class PipelineFailureConditions(dict):
     """
     The configuration that specifies the result, such as rollback, to occur upon stage failure
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryConfiguration":
+            suggest = "retry_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineFailureConditions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineFailureConditions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineFailureConditions.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  conditions: Optional[Sequence['outputs.PipelineCondition']] = None,
-                 result: Optional['PipelineFailureConditionsResult'] = None):
+                 result: Optional['PipelineFailureConditionsResult'] = None,
+                 retry_configuration: Optional['outputs.PipelineFailureConditionsRetryConfigurationProperties'] = None):
         """
         The configuration that specifies the result, such as rollback, to occur upon stage failure
         :param Sequence['PipelineCondition'] conditions: The conditions that are configured as failure conditions.
         :param 'PipelineFailureConditionsResult' result: The specified result for when the failure conditions are met, such as rolling back the stage
+        :param 'PipelineFailureConditionsRetryConfigurationProperties' retry_configuration: The configuration that specifies the retry configuration for a stage
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
         if result is not None:
             pulumi.set(__self__, "result", result)
+        if retry_configuration is not None:
+            pulumi.set(__self__, "retry_configuration", retry_configuration)
 
     @property
     @pulumi.getter
@@ -785,6 +807,54 @@ class PipelineFailureConditions(dict):
         The specified result for when the failure conditions are met, such as rolling back the stage
         """
         return pulumi.get(self, "result")
+
+    @property
+    @pulumi.getter(name="retryConfiguration")
+    def retry_configuration(self) -> Optional['outputs.PipelineFailureConditionsRetryConfigurationProperties']:
+        """
+        The configuration that specifies the retry configuration for a stage
+        """
+        return pulumi.get(self, "retry_configuration")
+
+
+@pulumi.output_type
+class PipelineFailureConditionsRetryConfigurationProperties(dict):
+    """
+    The configuration that specifies the retry configuration for a stage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryMode":
+            suggest = "retry_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PipelineFailureConditionsRetryConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PipelineFailureConditionsRetryConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PipelineFailureConditionsRetryConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retry_mode: Optional['PipelineFailureConditionsRetryConfigurationPropertiesRetryMode'] = None):
+        """
+        The configuration that specifies the retry configuration for a stage
+        :param 'PipelineFailureConditionsRetryConfigurationPropertiesRetryMode' retry_mode: The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
+        """
+        if retry_mode is not None:
+            pulumi.set(__self__, "retry_mode", retry_mode)
+
+    @property
+    @pulumi.getter(name="retryMode")
+    def retry_mode(self) -> Optional['PipelineFailureConditionsRetryConfigurationPropertiesRetryMode']:
+        """
+        The specified retry mode type for the given stage. FAILED_ACTIONS will retry only the failed actions. ALL_ACTIONS will retry both failed and successful
+        """
+        return pulumi.get(self, "retry_mode")
 
 
 @pulumi.output_type

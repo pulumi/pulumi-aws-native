@@ -24,15 +24,22 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
         /// The specified result for when the failure conditions are met, such as rolling back the stage
         /// </summary>
         public readonly Pulumi.AwsNative.CodePipeline.PipelineFailureConditionsResult? Result;
+        /// <summary>
+        /// The configuration that specifies the retry configuration for a stage
+        /// </summary>
+        public readonly Outputs.PipelineFailureConditionsRetryConfigurationProperties? RetryConfiguration;
 
         [OutputConstructor]
         private PipelineFailureConditions(
             ImmutableArray<Outputs.PipelineCondition> conditions,
 
-            Pulumi.AwsNative.CodePipeline.PipelineFailureConditionsResult? result)
+            Pulumi.AwsNative.CodePipeline.PipelineFailureConditionsResult? result,
+
+            Outputs.PipelineFailureConditionsRetryConfigurationProperties? retryConfiguration)
         {
             Conditions = conditions;
             Result = result;
+            RetryConfiguration = retryConfiguration;
         }
     }
 }

@@ -46,7 +46,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly studioLifecycleConfigArn!: pulumi.Output<string>;
     /**
-     * The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+     * The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
      */
     public readonly studioLifecycleConfigContent!: pulumi.Output<string>;
     /**
@@ -54,7 +54,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
      */
     public readonly studioLifecycleConfigName!: pulumi.Output<string>;
     /**
-     * Tags to be associated with the Lifecycle Configuration.
+     * Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
@@ -103,7 +103,7 @@ export interface StudioLifecycleConfigArgs {
      */
     studioLifecycleConfigAppType: pulumi.Input<enums.sagemaker.StudioLifecycleConfigAppType>;
     /**
-     * The content of your Amazon SageMaker Studio Lifecycle Configuration script.
+     * The content of your Amazon SageMaker Studio Lifecycle Configuration script. This content must be base64 encoded.
      */
     studioLifecycleConfigContent: pulumi.Input<string>;
     /**
@@ -111,7 +111,7 @@ export interface StudioLifecycleConfigArgs {
      */
     studioLifecycleConfigName?: pulumi.Input<string>;
     /**
-     * Tags to be associated with the Lifecycle Configuration.
+     * Tags to be associated with the Lifecycle Configuration. Each tag consists of a key and an optional value. Tag keys must be unique per resource. Tags are searchable using the Search API.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

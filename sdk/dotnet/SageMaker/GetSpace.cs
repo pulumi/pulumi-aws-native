@@ -78,6 +78,10 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly string? SpaceDisplayName;
         /// <summary>
+        /// A list of tags to apply to the space.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Returns the URL of the space. If the space is created with AWS IAM Identity Center (Successor to AWS Single Sign-On) authentication, users can navigate to the URL after appending the respective redirect parameter for the application type to be federated through AWS IAM Identity Center.
         /// 
         /// The following application types are supported:
@@ -94,10 +98,13 @@ namespace Pulumi.AwsNative.SageMaker
 
             string? spaceDisplayName,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             string? url)
         {
             SpaceArn = spaceArn;
             SpaceDisplayName = spaceDisplayName;
+            Tags = tags;
             Url = url;
         }
     }

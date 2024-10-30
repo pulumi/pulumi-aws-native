@@ -71,6 +71,7 @@ AWS::AppStream::ApplicationFleetAssociation
 AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
+AWS::AppSync::Api
 AWS::AppSync::DataSource
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation
@@ -770,6 +771,7 @@ AWS::OpenSearchServerless::LifecyclePolicy
 AWS::OpenSearchServerless::SecurityConfig
 AWS::OpenSearchServerless::SecurityPolicy
 AWS::OpenSearchServerless::VpcEndpoint
+AWS::OpenSearchService::Application
 AWS::OpenSearchService::Domain
 AWS::OpsWorksCM::Server
 AWS::Organizations::Account
@@ -975,6 +977,7 @@ AWS::SageMaker::UserProfile
 AWS::Scheduler::Schedule
 AWS::Scheduler::ScheduleGroup
 AWS::SecretsManager::ResourcePolicy
+AWS::SecretsManager::RotationSchedule
 AWS::SecretsManager::Secret
 AWS::SecretsManager::SecretTargetAttachment
 AWS::SecurityHub::AutomationRule
@@ -1048,6 +1051,7 @@ AWS::WAFv2::RuleGroup
 AWS::WAFv2::WebACL
 AWS::WAFv2::WebACLAssociation
 AWS::Wisdom::AIPrompt
+AWS::Wisdom::AIPromptVersion
 AWS::Wisdom::Assistant
 AWS::Wisdom::AssistantAssociation
 AWS::Wisdom::KnowledgeBase

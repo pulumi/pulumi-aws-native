@@ -860,6 +860,7 @@ _utilities.register(
   "mod": "appsync",
   "fqn": "pulumi_aws_native.appsync",
   "classes": {
+   "aws-native:appsync:Api": "Api",
    "aws-native:appsync:DataSource": "DataSource",
    "aws-native:appsync:DomainName": "DomainName",
    "aws-native:appsync:DomainNameApiAssociation": "DomainNameApiAssociation",
@@ -2489,6 +2490,7 @@ _utilities.register(
   "mod": "opensearchservice",
   "fqn": "pulumi_aws_native.opensearchservice",
   "classes": {
+   "aws-native:opensearchservice:Application": "Application",
    "aws-native:opensearchservice:Domain": "Domain"
   }
  },
@@ -2921,6 +2923,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.secretsmanager",
   "classes": {
    "aws-native:secretsmanager:ResourcePolicy": "ResourcePolicy",
+   "aws-native:secretsmanager:RotationSchedule": "RotationSchedule",
    "aws-native:secretsmanager:Secret": "Secret",
    "aws-native:secretsmanager:SecretTargetAttachment": "SecretTargetAttachment"
   }
@@ -3215,6 +3218,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.wisdom",
   "classes": {
    "aws-native:wisdom:AiPrompt": "AiPrompt",
+   "aws-native:wisdom:AiPromptVersion": "AiPromptVersion",
    "aws-native:wisdom:Assistant": "Assistant",
    "aws-native:wisdom:AssistantAssociation": "AssistantAssociation",
    "aws-native:wisdom:KnowledgeBase": "KnowledgeBase"

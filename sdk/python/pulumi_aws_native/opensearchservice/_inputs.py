@@ -13,8 +13,13 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
+    'ApplicationAppConfigArgs',
+    'ApplicationAppConfigArgsDict',
+    'ApplicationDataSourceArgs',
+    'ApplicationDataSourceArgsDict',
     'DomainAdvancedSecurityOptionsInputArgs',
     'DomainAdvancedSecurityOptionsInputArgsDict',
     'DomainClusterConfigArgs',
@@ -55,9 +60,120 @@ __all__ = [
     'DomainWindowStartTimeArgsDict',
     'DomainZoneAwarenessConfigArgs',
     'DomainZoneAwarenessConfigArgsDict',
+    'IamIdentityCenterOptionsPropertiesArgs',
+    'IamIdentityCenterOptionsPropertiesArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApplicationAppConfigArgsDict(TypedDict):
+        """
+        A key-value pair of AppConfig
+        """
+        key: pulumi.Input['ApplicationAppConfigType']
+        """
+        The configuration key
+        """
+        value: pulumi.Input[str]
+        """
+        The configuration value.
+        """
+elif False:
+    ApplicationAppConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationAppConfigArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input['ApplicationAppConfigType'],
+                 value: pulumi.Input[str]):
+        """
+        A key-value pair of AppConfig
+        :param pulumi.Input['ApplicationAppConfigType'] key: The configuration key
+        :param pulumi.Input[str] value: The configuration value.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input['ApplicationAppConfigType']:
+        """
+        The configuration key
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input['ApplicationAppConfigType']):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The configuration value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ApplicationDataSourceArgsDict(TypedDict):
+        """
+        Datasource arn and description
+        """
+        data_source_arn: Any
+        """
+        The ARN of the data source.
+        """
+        data_source_description: NotRequired[pulumi.Input[str]]
+        """
+        Description of the data source.
+        """
+elif False:
+    ApplicationDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationDataSourceArgs:
+    def __init__(__self__, *,
+                 data_source_arn: Any,
+                 data_source_description: Optional[pulumi.Input[str]] = None):
+        """
+        Datasource arn and description
+        :param Any data_source_arn: The ARN of the data source.
+        :param pulumi.Input[str] data_source_description: Description of the data source.
+        """
+        pulumi.set(__self__, "data_source_arn", data_source_arn)
+        if data_source_description is not None:
+            pulumi.set(__self__, "data_source_description", data_source_description)
+
+    @property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> Any:
+        """
+        The ARN of the data source.
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @data_source_arn.setter
+    def data_source_arn(self, value: Any):
+        pulumi.set(self, "data_source_arn", value)
+
+    @property
+    @pulumi.getter(name="dataSourceDescription")
+    def data_source_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the data source.
+        """
+        return pulumi.get(self, "data_source_description")
+
+    @data_source_description.setter
+    def data_source_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_source_description", value)
+
 
 if not MYPY:
     class DomainAdvancedSecurityOptionsInputArgsDict(TypedDict):
@@ -1619,5 +1735,81 @@ class DomainZoneAwarenessConfigArgs:
     @availability_zone_count.setter
     def availability_zone_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "availability_zone_count", value)
+
+
+if not MYPY:
+    class IamIdentityCenterOptionsPropertiesArgsDict(TypedDict):
+        """
+        Options for configuring IAM Identity Center
+        """
+        enabled: NotRequired[pulumi.Input[bool]]
+        """
+        Whether IAM Identity Center is enabled.
+        """
+        iam_identity_center_instance_arn: NotRequired[Any]
+        """
+        The ARN of the IAM Identity Center instance.
+        """
+        iam_role_for_identity_center_application_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the IAM role for Identity Center application.
+        """
+elif False:
+    IamIdentityCenterOptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IamIdentityCenterOptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 iam_identity_center_instance_arn: Optional[Any] = None,
+                 iam_role_for_identity_center_application_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Options for configuring IAM Identity Center
+        :param pulumi.Input[bool] enabled: Whether IAM Identity Center is enabled.
+        :param Any iam_identity_center_instance_arn: The ARN of the IAM Identity Center instance.
+        :param pulumi.Input[str] iam_role_for_identity_center_application_arn: The ARN of the IAM role for Identity Center application.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if iam_identity_center_instance_arn is not None:
+            pulumi.set(__self__, "iam_identity_center_instance_arn", iam_identity_center_instance_arn)
+        if iam_role_for_identity_center_application_arn is not None:
+            pulumi.set(__self__, "iam_role_for_identity_center_application_arn", iam_role_for_identity_center_application_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether IAM Identity Center is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="iamIdentityCenterInstanceArn")
+    def iam_identity_center_instance_arn(self) -> Optional[Any]:
+        """
+        The ARN of the IAM Identity Center instance.
+        """
+        return pulumi.get(self, "iam_identity_center_instance_arn")
+
+    @iam_identity_center_instance_arn.setter
+    def iam_identity_center_instance_arn(self, value: Optional[Any]):
+        pulumi.set(self, "iam_identity_center_instance_arn", value)
+
+    @property
+    @pulumi.getter(name="iamRoleForIdentityCenterApplicationArn")
+    def iam_role_for_identity_center_application_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the IAM role for Identity Center application.
+        """
+        return pulumi.get(self, "iam_role_for_identity_center_application_arn")
+
+    @iam_role_for_identity_center_application_arn.setter
+    def iam_role_for_identity_center_application_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam_role_for_identity_center_application_arn", value)
 
 

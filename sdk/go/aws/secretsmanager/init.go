@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:secretsmanager:ResourcePolicy":
 		r = &ResourcePolicy{}
+	case "aws-native:secretsmanager:RotationSchedule":
+		r = &RotationSchedule{}
 	case "aws-native:secretsmanager:Secret":
 		r = &Secret{}
 	case "aws-native:secretsmanager:SecretTargetAttachment":
