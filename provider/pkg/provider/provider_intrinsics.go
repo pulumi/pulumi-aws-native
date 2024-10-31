@@ -88,7 +88,8 @@ func cidr(inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	}
 
 	current, ok := gocidr.PreviousSubnet(network, prefixLen)
-	if ok || !network.Contains(current.IP) {
+	// ok is true if we have rolled over (which we don't want)
+	if ok {
 		return nil, fmt.Errorf("not enough remaining address space for a subnet with a prefix of %d bits after %s", len(subnets), current.String())
 	}
 	for i := 0; i < len(subnets); i++ {
