@@ -9964,7 +9964,8 @@
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).\n\n\u003e You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` ."
       },
       "roleArn": {
         "type": "string",

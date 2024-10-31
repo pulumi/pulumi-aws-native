@@ -100,5 +100,8 @@
     "list" : {
       "permissions" : [ "rds:DescribeGlobalClusters" ]
     }
+  },
+  "tagging" : {
+    "taggable" : true
   }
 }
