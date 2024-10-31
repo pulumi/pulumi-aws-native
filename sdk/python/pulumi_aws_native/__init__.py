@@ -861,6 +861,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.appsync",
   "classes": {
    "aws-native:appsync:Api": "Api",
+   "aws-native:appsync:ChannelNamespace": "ChannelNamespace",
    "aws-native:appsync:DataSource": "DataSource",
    "aws-native:appsync:DomainName": "DomainName",
    "aws-native:appsync:DomainNameApiAssociation": "DomainNameApiAssociation",

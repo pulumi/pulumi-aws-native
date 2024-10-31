@@ -110,6 +110,7 @@ export class Domain extends pulumi.CustomResource {
      * If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
+    public readonly identityCenterOptions!: pulumi.Output<outputs.opensearchservice.DomainIdentityCenterOptions | undefined>;
     /**
      * Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
      */
@@ -168,6 +169,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["ebsOptions"] = args ? args.ebsOptions : undefined;
             resourceInputs["encryptionAtRestOptions"] = args ? args.encryptionAtRestOptions : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["identityCenterOptions"] = args ? args.identityCenterOptions : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["logPublishingOptions"] = args ? args.logPublishingOptions : undefined;
             resourceInputs["nodeToNodeEncryptionOptions"] = args ? args.nodeToNodeEncryptionOptions : undefined;
@@ -201,6 +203,7 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["ebsOptions"] = undefined /*out*/;
             resourceInputs["encryptionAtRestOptions"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["identityCenterOptions"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["logPublishingOptions"] = undefined /*out*/;
             resourceInputs["nodeToNodeEncryptionOptions"] = undefined /*out*/;
@@ -275,6 +278,7 @@ export interface DomainArgs {
      * If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
      */
     engineVersion?: pulumi.Input<string>;
+    identityCenterOptions?: pulumi.Input<inputs.opensearchservice.DomainIdentityCenterOptionsArgs>;
     /**
      * Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
      */

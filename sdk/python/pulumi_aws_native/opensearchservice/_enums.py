@@ -6,6 +6,8 @@ from enum import Enum
 
 __all__ = [
     'ApplicationAppConfigType',
+    'DomainRolesKeyIdcType',
+    'DomainSubjectKeyIdcType',
 ]
 
 
@@ -15,3 +17,20 @@ class ApplicationAppConfigType(str, Enum):
     """
     OPENSEARCH_DASHBOARDS_DASHBOARD_ADMIN_USERS = "opensearchDashboards.dashboardAdmin.users"
     OPENSEARCH_DASHBOARDS_DASHBOARD_ADMIN_GROUPS = "opensearchDashboards.dashboardAdmin.groups"
+
+
+class DomainRolesKeyIdcType(str, Enum):
+    """
+    Roles Key Idc type values.
+    """
+    GROUP_NAME = "GroupName"
+    GROUP_ID = "GroupId"
+
+
+class DomainSubjectKeyIdcType(str, Enum):
+    """
+    Subject Key Idc type values.
+    """
+    USER_NAME = "UserName"
+    USER_ID = "UserId"
+    EMAIL = "Email"

@@ -1813,6 +1813,241 @@ func (o DomainEndpointOptionsPtrOutput) TlsSecurityPolicy() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// Options for configuring Identity Center
+type DomainIdentityCenterOptions struct {
+	// Whether Identity Center is enabled.
+	EnabledApiAccess *bool `pulumi:"enabledApiAccess"`
+	// The ARN of the Identity Center application.
+	IdentityCenterApplicationArn *string `pulumi:"identityCenterApplicationArn"`
+	// The ARN of the Identity Center instance.
+	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
+	// The IdentityStoreId for Identity Center options.
+	IdentityStoreId *string `pulumi:"identityStoreId"`
+	// The roles key for Identity Center options.
+	RolesKey *DomainRolesKeyIdcType `pulumi:"rolesKey"`
+	// The subject key for Identity Center options.
+	SubjectKey *DomainSubjectKeyIdcType `pulumi:"subjectKey"`
+}
+
+// DomainIdentityCenterOptionsInput is an input type that accepts DomainIdentityCenterOptionsArgs and DomainIdentityCenterOptionsOutput values.
+// You can construct a concrete instance of `DomainIdentityCenterOptionsInput` via:
+//
+//	DomainIdentityCenterOptionsArgs{...}
+type DomainIdentityCenterOptionsInput interface {
+	pulumi.Input
+
+	ToDomainIdentityCenterOptionsOutput() DomainIdentityCenterOptionsOutput
+	ToDomainIdentityCenterOptionsOutputWithContext(context.Context) DomainIdentityCenterOptionsOutput
+}
+
+// Options for configuring Identity Center
+type DomainIdentityCenterOptionsArgs struct {
+	// Whether Identity Center is enabled.
+	EnabledApiAccess pulumi.BoolPtrInput `pulumi:"enabledApiAccess"`
+	// The ARN of the Identity Center application.
+	IdentityCenterApplicationArn pulumi.StringPtrInput `pulumi:"identityCenterApplicationArn"`
+	// The ARN of the Identity Center instance.
+	IdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"identityCenterInstanceArn"`
+	// The IdentityStoreId for Identity Center options.
+	IdentityStoreId pulumi.StringPtrInput `pulumi:"identityStoreId"`
+	// The roles key for Identity Center options.
+	RolesKey DomainRolesKeyIdcTypePtrInput `pulumi:"rolesKey"`
+	// The subject key for Identity Center options.
+	SubjectKey DomainSubjectKeyIdcTypePtrInput `pulumi:"subjectKey"`
+}
+
+func (DomainIdentityCenterOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityCenterOptions)(nil)).Elem()
+}
+
+func (i DomainIdentityCenterOptionsArgs) ToDomainIdentityCenterOptionsOutput() DomainIdentityCenterOptionsOutput {
+	return i.ToDomainIdentityCenterOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityCenterOptionsArgs) ToDomainIdentityCenterOptionsOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterOptionsOutput)
+}
+
+func (i DomainIdentityCenterOptionsArgs) ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput {
+	return i.ToDomainIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainIdentityCenterOptionsArgs) ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterOptionsOutput).ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainIdentityCenterOptionsPtrInput is an input type that accepts DomainIdentityCenterOptionsArgs, DomainIdentityCenterOptionsPtr and DomainIdentityCenterOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainIdentityCenterOptionsPtrInput` via:
+//
+//	        DomainIdentityCenterOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainIdentityCenterOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput
+	ToDomainIdentityCenterOptionsPtrOutputWithContext(context.Context) DomainIdentityCenterOptionsPtrOutput
+}
+
+type domainIdentityCenterOptionsPtrType DomainIdentityCenterOptionsArgs
+
+func DomainIdentityCenterOptionsPtr(v *DomainIdentityCenterOptionsArgs) DomainIdentityCenterOptionsPtrInput {
+	return (*domainIdentityCenterOptionsPtrType)(v)
+}
+
+func (*domainIdentityCenterOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityCenterOptions)(nil)).Elem()
+}
+
+func (i *domainIdentityCenterOptionsPtrType) ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput {
+	return i.ToDomainIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainIdentityCenterOptionsPtrType) ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainIdentityCenterOptionsPtrOutput)
+}
+
+// Options for configuring Identity Center
+type DomainIdentityCenterOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityCenterOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainIdentityCenterOptions)(nil)).Elem()
+}
+
+func (o DomainIdentityCenterOptionsOutput) ToDomainIdentityCenterOptionsOutput() DomainIdentityCenterOptionsOutput {
+	return o
+}
+
+func (o DomainIdentityCenterOptionsOutput) ToDomainIdentityCenterOptionsOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsOutput {
+	return o
+}
+
+func (o DomainIdentityCenterOptionsOutput) ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput {
+	return o.ToDomainIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainIdentityCenterOptionsOutput) ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainIdentityCenterOptions) *DomainIdentityCenterOptions {
+		return &v
+	}).(DomainIdentityCenterOptionsPtrOutput)
+}
+
+// Whether Identity Center is enabled.
+func (o DomainIdentityCenterOptionsOutput) EnabledApiAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *bool { return v.EnabledApiAccess }).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the Identity Center application.
+func (o DomainIdentityCenterOptionsOutput) IdentityCenterApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.IdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Identity Center instance.
+func (o DomainIdentityCenterOptionsOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.IdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// The IdentityStoreId for Identity Center options.
+func (o DomainIdentityCenterOptionsOutput) IdentityStoreId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *string { return v.IdentityStoreId }).(pulumi.StringPtrOutput)
+}
+
+// The roles key for Identity Center options.
+func (o DomainIdentityCenterOptionsOutput) RolesKey() DomainRolesKeyIdcTypePtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *DomainRolesKeyIdcType { return v.RolesKey }).(DomainRolesKeyIdcTypePtrOutput)
+}
+
+// The subject key for Identity Center options.
+func (o DomainIdentityCenterOptionsOutput) SubjectKey() DomainSubjectKeyIdcTypePtrOutput {
+	return o.ApplyT(func(v DomainIdentityCenterOptions) *DomainSubjectKeyIdcType { return v.SubjectKey }).(DomainSubjectKeyIdcTypePtrOutput)
+}
+
+type DomainIdentityCenterOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainIdentityCenterOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainIdentityCenterOptions)(nil)).Elem()
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) ToDomainIdentityCenterOptionsPtrOutput() DomainIdentityCenterOptionsPtrOutput {
+	return o
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) ToDomainIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) DomainIdentityCenterOptionsPtrOutput {
+	return o
+}
+
+func (o DomainIdentityCenterOptionsPtrOutput) Elem() DomainIdentityCenterOptionsOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) DomainIdentityCenterOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainIdentityCenterOptions
+		return ret
+	}).(DomainIdentityCenterOptionsOutput)
+}
+
+// Whether Identity Center is enabled.
+func (o DomainIdentityCenterOptionsPtrOutput) EnabledApiAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledApiAccess
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The ARN of the Identity Center application.
+func (o DomainIdentityCenterOptionsPtrOutput) IdentityCenterApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Identity Center instance.
+func (o DomainIdentityCenterOptionsPtrOutput) IdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IdentityStoreId for Identity Center options.
+func (o DomainIdentityCenterOptionsPtrOutput) IdentityStoreId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityStoreId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The roles key for Identity Center options.
+func (o DomainIdentityCenterOptionsPtrOutput) RolesKey() DomainRolesKeyIdcTypePtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *DomainRolesKeyIdcType {
+		if v == nil {
+			return nil
+		}
+		return v.RolesKey
+	}).(DomainRolesKeyIdcTypePtrOutput)
+}
+
+// The subject key for Identity Center options.
+func (o DomainIdentityCenterOptionsPtrOutput) SubjectKey() DomainSubjectKeyIdcTypePtrOutput {
+	return o.ApplyT(func(v *DomainIdentityCenterOptions) *DomainSubjectKeyIdcType {
+		if v == nil {
+			return nil
+		}
+		return v.SubjectKey
+	}).(DomainSubjectKeyIdcTypePtrOutput)
+}
+
 type DomainIdp struct {
 	// The unique entity ID of the application in the SAML identity provider.
 	EntityId string `pulumi:"entityId"`
@@ -4239,6 +4474,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEncryptionAtRestOptionsPtrInput)(nil)).Elem(), DomainEncryptionAtRestOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEndpointOptionsPtrInput)(nil)).Elem(), DomainEndpointOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityCenterOptionsInput)(nil)).Elem(), DomainIdentityCenterOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityCenterOptionsPtrInput)(nil)).Elem(), DomainIdentityCenterOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdpInput)(nil)).Elem(), DomainIdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdpPtrInput)(nil)).Elem(), DomainIdpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJwtOptionsInput)(nil)).Elem(), DomainJwtOptionsArgs{})
@@ -4285,6 +4522,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainEncryptionAtRestOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEndpointOptionsOutput{})
 	pulumi.RegisterOutputType(DomainEndpointOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainIdentityCenterOptionsOutput{})
+	pulumi.RegisterOutputType(DomainIdentityCenterOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdpOutput{})
 	pulumi.RegisterOutputType(DomainIdpPtrOutput{})
 	pulumi.RegisterOutputType(DomainJwtOptionsOutput{})

@@ -504,6 +504,22 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly int? PerformanceInsightsRetentionPeriod;
         /// <summary>
+        /// The port number on which the database accepts connections.
+        ///  This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
+        ///  Valid Values: ``1150-65535`` 
+        ///  Default:
+        ///   +  RDS for Db2 - ``50000`` 
+        ///   +  RDS for MariaDB - ``3306`` 
+        ///   +  RDS for Microsoft SQL Server - ``1433`` 
+        ///   +  RDS for MySQL - ``3306`` 
+        ///   +  RDS for Oracle - ``1521`` 
+        ///   +  RDS for PostgreSQL - ``5432`` 
+        ///   
+        ///  Constraints:
+        ///   +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
+        /// </summary>
+        public readonly string? Port;
+        /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled, using the ``BackupRetentionPeriod`` parameter. For more information, see [Backup Window](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow) in the *Amazon RDS User Guide.* 
         ///  Constraints:
         ///   +  Must be in the format ``hh24:mi-hh24:mi``.
@@ -677,6 +693,8 @@ namespace Pulumi.AwsNative.Rds
 
             int? performanceInsightsRetentionPeriod,
 
+            string? port,
+
             string? preferredBackupWindow,
 
             string? preferredMaintenanceWindow,
@@ -744,6 +762,7 @@ namespace Pulumi.AwsNative.Rds
             OptionGroupName = optionGroupName;
             PerformanceInsightsKmsKeyId = performanceInsightsKmsKeyId;
             PerformanceInsightsRetentionPeriod = performanceInsightsRetentionPeriod;
+            Port = port;
             PreferredBackupWindow = preferredBackupWindow;
             PreferredMaintenanceWindow = preferredMaintenanceWindow;
             ProcessorFeatures = processorFeatures;

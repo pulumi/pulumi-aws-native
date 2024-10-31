@@ -996,7 +996,6 @@ namespace Pulumi.AwsNative.Rds
                     "kmsKeyId",
                     "masterUsername",
                     "ncharCharacterSetName",
-                    "port",
                     "sourceRegion",
                     "storageEncrypted",
                     "timezone",

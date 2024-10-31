@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -156,6 +156,9 @@ class GetDbInstanceResult:
         if performance_insights_retention_period and not isinstance(performance_insights_retention_period, int):
             raise TypeError("Expected argument 'performance_insights_retention_period' to be a int")
         pulumi.set(__self__, "performance_insights_retention_period", performance_insights_retention_period)
+        if port and not isinstance(port, str):
+            raise TypeError("Expected argument 'port' to be a str")
+        pulumi.set(__self__, "port", port)
         if preferred_backup_window and not isinstance(preferred_backup_window, str):
             raise TypeError("Expected argument 'preferred_backup_window' to be a str")
         pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
@@ -768,6 +771,26 @@ class GetDbInstanceResult:
         return pulumi.get(self, "performance_insights_retention_period")
 
     @property
+    @pulumi.getter
+    def port(self) -> Optional[str]:
+        """
+        The port number on which the database accepts connections.
+         This setting doesn't apply to Aurora DB instances. The port number is managed by the cluster.
+         Valid Values: ``1150-65535`` 
+         Default:
+          +  RDS for Db2 - ``50000`` 
+          +  RDS for MariaDB - ``3306`` 
+          +  RDS for Microsoft SQL Server - ``1433`` 
+          +  RDS for MySQL - ``3306`` 
+          +  RDS for Oracle - ``1521`` 
+          +  RDS for PostgreSQL - ``5432`` 
+          
+         Constraints:
+          +  For RDS for Microsoft SQL Server, the value can't be ``1234``, ``1434``, ``3260``, ``3343``, ``3389``, ``47001``, or ``49152-49156``.
+        """
+        return pulumi.get(self, "port")
+
+    @property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> Optional[str]:
         """
@@ -950,6 +973,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             option_group_name=self.option_group_name,
             performance_insights_kms_key_id=self.performance_insights_kms_key_id,
             performance_insights_retention_period=self.performance_insights_retention_period,
+            port=self.port,
             preferred_backup_window=self.preferred_backup_window,
             preferred_maintenance_window=self.preferred_maintenance_window,
             processor_features=self.processor_features,
@@ -1043,6 +1067,7 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
         option_group_name=pulumi.get(__ret__, 'option_group_name'),
         performance_insights_kms_key_id=pulumi.get(__ret__, 'performance_insights_kms_key_id'),
         performance_insights_retention_period=pulumi.get(__ret__, 'performance_insights_retention_period'),
+        port=pulumi.get(__ret__, 'port'),
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         processor_features=pulumi.get(__ret__, 'processor_features'),
@@ -1133,6 +1158,7 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] =
         option_group_name=pulumi.get(__response__, 'option_group_name'),
         performance_insights_kms_key_id=pulumi.get(__response__, 'performance_insights_kms_key_id'),
         performance_insights_retention_period=pulumi.get(__response__, 'performance_insights_retention_period'),
+        port=pulumi.get(__response__, 'port'),
         preferred_backup_window=pulumi.get(__response__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__response__, 'preferred_maintenance_window'),
         processor_features=pulumi.get(__response__, 'processor_features'),

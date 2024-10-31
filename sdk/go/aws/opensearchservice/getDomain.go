@@ -69,7 +69,8 @@ type LookupDomainResult struct {
 	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The resource ID. For example, `123456789012/my-domain` .
-	Id *string `pulumi:"id"`
+	Id                    *string                      `pulumi:"id"`
+	IdentityCenterOptions *DomainIdentityCenterOptions `pulumi:"identityCenterOptions"`
 	// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
@@ -218,6 +219,10 @@ func (o LookupDomainResultOutput) EngineVersion() pulumi.StringPtrOutput {
 // The resource ID. For example, `123456789012/my-domain` .
 func (o LookupDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupDomainResultOutput) IdentityCenterOptions() DomainIdentityCenterOptionsPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainIdentityCenterOptions { return v.IdentityCenterOptions }).(DomainIdentityCenterOptionsPtrOutput)
 }
 
 // Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.

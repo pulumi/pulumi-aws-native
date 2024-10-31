@@ -1093,6 +1093,111 @@ type ApiTag struct {
 	Value string `pulumi:"value"`
 }
 
+// An auth mode.
+type ChannelNamespaceAuthMode struct {
+	AuthType *ChannelNamespaceAuthenticationType `pulumi:"authType"`
+}
+
+// ChannelNamespaceAuthModeInput is an input type that accepts ChannelNamespaceAuthModeArgs and ChannelNamespaceAuthModeOutput values.
+// You can construct a concrete instance of `ChannelNamespaceAuthModeInput` via:
+//
+//	ChannelNamespaceAuthModeArgs{...}
+type ChannelNamespaceAuthModeInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceAuthModeOutput() ChannelNamespaceAuthModeOutput
+	ToChannelNamespaceAuthModeOutputWithContext(context.Context) ChannelNamespaceAuthModeOutput
+}
+
+// An auth mode.
+type ChannelNamespaceAuthModeArgs struct {
+	AuthType ChannelNamespaceAuthenticationTypePtrInput `pulumi:"authType"`
+}
+
+func (ChannelNamespaceAuthModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceAuthMode)(nil)).Elem()
+}
+
+func (i ChannelNamespaceAuthModeArgs) ToChannelNamespaceAuthModeOutput() ChannelNamespaceAuthModeOutput {
+	return i.ToChannelNamespaceAuthModeOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceAuthModeArgs) ToChannelNamespaceAuthModeOutputWithContext(ctx context.Context) ChannelNamespaceAuthModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceAuthModeOutput)
+}
+
+// ChannelNamespaceAuthModeArrayInput is an input type that accepts ChannelNamespaceAuthModeArray and ChannelNamespaceAuthModeArrayOutput values.
+// You can construct a concrete instance of `ChannelNamespaceAuthModeArrayInput` via:
+//
+//	ChannelNamespaceAuthModeArray{ ChannelNamespaceAuthModeArgs{...} }
+type ChannelNamespaceAuthModeArrayInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceAuthModeArrayOutput() ChannelNamespaceAuthModeArrayOutput
+	ToChannelNamespaceAuthModeArrayOutputWithContext(context.Context) ChannelNamespaceAuthModeArrayOutput
+}
+
+type ChannelNamespaceAuthModeArray []ChannelNamespaceAuthModeInput
+
+func (ChannelNamespaceAuthModeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelNamespaceAuthMode)(nil)).Elem()
+}
+
+func (i ChannelNamespaceAuthModeArray) ToChannelNamespaceAuthModeArrayOutput() ChannelNamespaceAuthModeArrayOutput {
+	return i.ToChannelNamespaceAuthModeArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelNamespaceAuthModeArray) ToChannelNamespaceAuthModeArrayOutputWithContext(ctx context.Context) ChannelNamespaceAuthModeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelNamespaceAuthModeArrayOutput)
+}
+
+// An auth mode.
+type ChannelNamespaceAuthModeOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceAuthModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceAuthMode)(nil)).Elem()
+}
+
+func (o ChannelNamespaceAuthModeOutput) ToChannelNamespaceAuthModeOutput() ChannelNamespaceAuthModeOutput {
+	return o
+}
+
+func (o ChannelNamespaceAuthModeOutput) ToChannelNamespaceAuthModeOutputWithContext(ctx context.Context) ChannelNamespaceAuthModeOutput {
+	return o
+}
+
+func (o ChannelNamespaceAuthModeOutput) AuthType() ChannelNamespaceAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v ChannelNamespaceAuthMode) *ChannelNamespaceAuthenticationType { return v.AuthType }).(ChannelNamespaceAuthenticationTypePtrOutput)
+}
+
+type ChannelNamespaceAuthModeArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceAuthModeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelNamespaceAuthMode)(nil)).Elem()
+}
+
+func (o ChannelNamespaceAuthModeArrayOutput) ToChannelNamespaceAuthModeArrayOutput() ChannelNamespaceAuthModeArrayOutput {
+	return o
+}
+
+func (o ChannelNamespaceAuthModeArrayOutput) ToChannelNamespaceAuthModeArrayOutputWithContext(ctx context.Context) ChannelNamespaceAuthModeArrayOutput {
+	return o
+}
+
+func (o ChannelNamespaceAuthModeArrayOutput) Index(i pulumi.IntInput) ChannelNamespaceAuthModeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelNamespaceAuthMode {
+		return vs[0].([]ChannelNamespaceAuthMode)[vs[1].(int)]
+	}).(ChannelNamespaceAuthModeOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this AppSync API.
+type ChannelNamespaceTag struct {
+	// A string used to identify this tag. You can specify a maximum of 128 characters for a tag key.
+	Key string `pulumi:"key"`
+	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
+	Value string `pulumi:"value"`
+}
+
 type DataSourceAuthorizationConfig struct {
 	// The authorization type that the HTTP endpoint requires.
 	AuthorizationType string `pulumi:"authorizationType"`
@@ -5582,6 +5687,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiLambdaAuthorizerConfigPtrInput)(nil)).Elem(), ApiLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOpenIdConnectConfigInput)(nil)).Elem(), ApiOpenIdConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiOpenIdConnectConfigPtrInput)(nil)).Elem(), ApiOpenIdConnectConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceAuthModeInput)(nil)).Elem(), ChannelNamespaceAuthModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceAuthModeArrayInput)(nil)).Elem(), ChannelNamespaceAuthModeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthorizationConfigPtrInput)(nil)).Elem(), DataSourceAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAwsIamConfigInput)(nil)).Elem(), DataSourceAwsIamConfigArgs{})
@@ -5650,6 +5757,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiLambdaAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApiOpenIdConnectConfigOutput{})
 	pulumi.RegisterOutputType(ApiOpenIdConnectConfigPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceAuthModeOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceAuthModeArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAwsIamConfigOutput{})

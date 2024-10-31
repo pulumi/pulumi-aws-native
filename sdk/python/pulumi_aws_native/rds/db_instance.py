@@ -3008,7 +3008,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["db_instance_arn"] = None
             __props__.__dict__["db_system_id"] = None
             __props__.__dict__["dbi_resource_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "port", "sourceRegion", "storageEncrypted", "timezone"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbInstance, __self__).__init__(
             'aws-native:rds:DbInstance',

@@ -26,6 +26,7 @@ __all__ = [
     'DomainEbsOptions',
     'DomainEncryptionAtRestOptions',
     'DomainEndpointOptions',
+    'DomainIdentityCenterOptions',
     'DomainIdp',
     'DomainJwtOptions',
     'DomainLogPublishingOption',
@@ -790,6 +791,116 @@ class DomainEndpointOptions(dict):
         - *Policy-Min-TLS-1-2-PFS-2023-10:* TLS security policy that supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites
         """
         return pulumi.get(self, "tls_security_policy")
+
+
+@pulumi.output_type
+class DomainIdentityCenterOptions(dict):
+    """
+    Options for configuring Identity Center
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enabledApiAccess":
+            suggest = "enabled_api_access"
+        elif key == "identityCenterApplicationArn":
+            suggest = "identity_center_application_arn"
+        elif key == "identityCenterInstanceArn":
+            suggest = "identity_center_instance_arn"
+        elif key == "identityStoreId":
+            suggest = "identity_store_id"
+        elif key == "rolesKey":
+            suggest = "roles_key"
+        elif key == "subjectKey":
+            suggest = "subject_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainIdentityCenterOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainIdentityCenterOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainIdentityCenterOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled_api_access: Optional[bool] = None,
+                 identity_center_application_arn: Optional[str] = None,
+                 identity_center_instance_arn: Optional[str] = None,
+                 identity_store_id: Optional[str] = None,
+                 roles_key: Optional['DomainRolesKeyIdcType'] = None,
+                 subject_key: Optional['DomainSubjectKeyIdcType'] = None):
+        """
+        Options for configuring Identity Center
+        :param bool enabled_api_access: Whether Identity Center is enabled.
+        :param str identity_center_application_arn: The ARN of the Identity Center application.
+        :param str identity_center_instance_arn: The ARN of the Identity Center instance.
+        :param str identity_store_id: The IdentityStoreId for Identity Center options.
+        :param 'DomainRolesKeyIdcType' roles_key: The roles key for Identity Center options.
+        :param 'DomainSubjectKeyIdcType' subject_key: The subject key for Identity Center options.
+        """
+        if enabled_api_access is not None:
+            pulumi.set(__self__, "enabled_api_access", enabled_api_access)
+        if identity_center_application_arn is not None:
+            pulumi.set(__self__, "identity_center_application_arn", identity_center_application_arn)
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+        if identity_store_id is not None:
+            pulumi.set(__self__, "identity_store_id", identity_store_id)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @property
+    @pulumi.getter(name="enabledApiAccess")
+    def enabled_api_access(self) -> Optional[bool]:
+        """
+        Whether Identity Center is enabled.
+        """
+        return pulumi.get(self, "enabled_api_access")
+
+    @property
+    @pulumi.getter(name="identityCenterApplicationArn")
+    def identity_center_application_arn(self) -> Optional[str]:
+        """
+        The ARN of the Identity Center application.
+        """
+        return pulumi.get(self, "identity_center_application_arn")
+
+    @property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[str]:
+        """
+        The ARN of the Identity Center instance.
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+    @property
+    @pulumi.getter(name="identityStoreId")
+    def identity_store_id(self) -> Optional[str]:
+        """
+        The IdentityStoreId for Identity Center options.
+        """
+        return pulumi.get(self, "identity_store_id")
+
+    @property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional['DomainRolesKeyIdcType']:
+        """
+        The roles key for Identity Center options.
+        """
+        return pulumi.get(self, "roles_key")
+
+    @property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional['DomainSubjectKeyIdcType']:
+        """
+        The subject key for Identity Center options.
+        """
+        return pulumi.get(self, "subject_key")
 
 
 @pulumi.output_type

@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DomainArgs', 'Domain']
@@ -33,6 +34,7 @@ class DomainArgs:
                  ebs_options: Optional[pulumi.Input['DomainEbsOptionsArgs']] = None,
                  encryption_at_rest_options: Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 identity_center_options: Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input['DomainLogPublishingOptionArgs']]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']] = None,
@@ -97,6 +99,8 @@ class DomainArgs:
             pulumi.set(__self__, "encryption_at_rest_options", encryption_at_rest_options)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
+        if identity_center_options is not None:
+            pulumi.set(__self__, "identity_center_options", identity_center_options)
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if log_publishing_options is not None:
@@ -249,6 +253,15 @@ class DomainArgs:
         pulumi.set(self, "engine_version", value)
 
     @property
+    @pulumi.getter(name="identityCenterOptions")
+    def identity_center_options(self) -> Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]:
+        return pulumi.get(self, "identity_center_options")
+
+    @identity_center_options.setter
+    def identity_center_options(self, value: Optional[pulumi.Input['DomainIdentityCenterOptionsArgs']]):
+        pulumi.set(self, "identity_center_options", value)
+
+    @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -371,6 +384,7 @@ class Domain(pulumi.CustomResource):
                  ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 identity_center_options: Optional[pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict']]] = None,
@@ -453,6 +467,7 @@ class Domain(pulumi.CustomResource):
                  ebs_options: Optional[pulumi.Input[Union['DomainEbsOptionsArgs', 'DomainEbsOptionsArgsDict']]] = None,
                  encryption_at_rest_options: Optional[pulumi.Input[Union['DomainEncryptionAtRestOptionsArgs', 'DomainEncryptionAtRestOptionsArgsDict']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
+                 identity_center_options: Optional[pulumi.Input[Union['DomainIdentityCenterOptionsArgs', 'DomainIdentityCenterOptionsArgsDict']]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  log_publishing_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DomainLogPublishingOptionArgs', 'DomainLogPublishingOptionArgsDict']]]]] = None,
                  node_to_node_encryption_options: Optional[pulumi.Input[Union['DomainNodeToNodeEncryptionOptionsArgs', 'DomainNodeToNodeEncryptionOptionsArgsDict']]] = None,
@@ -481,6 +496,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["ebs_options"] = ebs_options
             __props__.__dict__["encryption_at_rest_options"] = encryption_at_rest_options
             __props__.__dict__["engine_version"] = engine_version
+            __props__.__dict__["identity_center_options"] = identity_center_options
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["log_publishing_options"] = log_publishing_options
             __props__.__dict__["node_to_node_encryption_options"] = node_to_node_encryption_options
@@ -537,6 +553,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["ebs_options"] = None
         __props__.__dict__["encryption_at_rest_options"] = None
         __props__.__dict__["engine_version"] = None
+        __props__.__dict__["identity_center_options"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["log_publishing_options"] = None
         __props__.__dict__["node_to_node_encryption_options"] = None
@@ -685,6 +702,11 @@ class Domain(pulumi.CustomResource):
         If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
         """
         return pulumi.get(self, "engine_version")
+
+    @property
+    @pulumi.getter(name="identityCenterOptions")
+    def identity_center_options(self) -> pulumi.Output[Optional['outputs.DomainIdentityCenterOptions']]:
+        return pulumi.get(self, "identity_center_options")
 
     @property
     @pulumi.getter(name="ipAddressType")

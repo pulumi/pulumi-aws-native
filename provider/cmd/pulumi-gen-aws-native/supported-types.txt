@@ -72,6 +72,7 @@ AWS::AppStream::DirectoryConfig
 AWS::AppStream::Entitlement
 AWS::AppStream::ImageBuilder
 AWS::AppSync::Api
+AWS::AppSync::ChannelNamespace
 AWS::AppSync::DataSource
 AWS::AppSync::DomainName
 AWS::AppSync::DomainNameApiAssociation

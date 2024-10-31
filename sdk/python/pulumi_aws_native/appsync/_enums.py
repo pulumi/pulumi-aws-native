@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ApiAuthenticationType',
     'ApiEventLogLevel',
+    'ChannelNamespaceAuthenticationType',
     'DataSourceMetricsConfig',
     'ResolverMetricsConfig',
     'SourceApiAssociationConfigMergeType',
@@ -34,6 +35,17 @@ class ApiEventLogLevel(str, Enum):
     ALL = "ALL"
     INFO = "INFO"
     DEBUG = "DEBUG"
+
+
+class ChannelNamespaceAuthenticationType(str, Enum):
+    """
+    Security configuration for your AppSync API.
+    """
+    AMAZON_COGNITO_USER_POOLS = "AMAZON_COGNITO_USER_POOLS"
+    AWS_IAM = "AWS_IAM"
+    API_KEY = "API_KEY"
+    OPENID_CONNECT = "OPENID_CONNECT"
+    AWS_LAMBDA = "AWS_LAMBDA"
 
 
 class DataSourceMetricsConfig(str, Enum):

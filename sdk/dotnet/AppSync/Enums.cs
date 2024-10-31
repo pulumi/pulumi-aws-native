@@ -76,6 +76,40 @@ namespace Pulumi.AwsNative.AppSync
     }
 
     /// <summary>
+    /// Security configuration for your AppSync API.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelNamespaceAuthenticationType : IEquatable<ChannelNamespaceAuthenticationType>
+    {
+        private readonly string _value;
+
+        private ChannelNamespaceAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelNamespaceAuthenticationType AmazonCognitoUserPools { get; } = new ChannelNamespaceAuthenticationType("AMAZON_COGNITO_USER_POOLS");
+        public static ChannelNamespaceAuthenticationType AwsIam { get; } = new ChannelNamespaceAuthenticationType("AWS_IAM");
+        public static ChannelNamespaceAuthenticationType ApiKey { get; } = new ChannelNamespaceAuthenticationType("API_KEY");
+        public static ChannelNamespaceAuthenticationType OpenidConnect { get; } = new ChannelNamespaceAuthenticationType("OPENID_CONNECT");
+        public static ChannelNamespaceAuthenticationType AwsLambda { get; } = new ChannelNamespaceAuthenticationType("AWS_LAMBDA");
+
+        public static bool operator ==(ChannelNamespaceAuthenticationType left, ChannelNamespaceAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(ChannelNamespaceAuthenticationType left, ChannelNamespaceAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelNamespaceAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelNamespaceAuthenticationType other && Equals(other);
+        public bool Equals(ChannelNamespaceAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
     /// 
     /// `MetricsConfig` can be `ENABLED` or `DISABLED` .

@@ -120,6 +120,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         [Output("engineVersion")]
         public Output<string?> EngineVersion { get; private set; } = null!;
 
+        [Output("identityCenterOptions")]
+        public Output<Outputs.DomainIdentityCenterOptions?> IdentityCenterOptions { get; private set; } = null!;
+
         /// <summary>
         /// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
         /// </summary>
@@ -302,6 +305,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
+
+        [Input("identityCenterOptions")]
+        public Input<Inputs.DomainIdentityCenterOptionsArgs>? IdentityCenterOptions { get; set; }
 
         /// <summary>
         /// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.

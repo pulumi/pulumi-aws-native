@@ -293,7 +293,7 @@
         "Value" : {
           "description" : "The Diffie-Hellmann group number.",
           "type" : "integer",
-          "enum" : [ 2, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
+          "enum" : [ 2, 5, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 ]
         }
       }
     }

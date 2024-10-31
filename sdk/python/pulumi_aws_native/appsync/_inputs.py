@@ -30,6 +30,8 @@ __all__ = [
     'ApiLambdaAuthorizerConfigArgsDict',
     'ApiOpenIdConnectConfigArgs',
     'ApiOpenIdConnectConfigArgsDict',
+    'ChannelNamespaceAuthModeArgs',
+    'ChannelNamespaceAuthModeArgsDict',
     'DataSourceAuthorizationConfigArgs',
     'DataSourceAuthorizationConfigArgsDict',
     'DataSourceAwsIamConfigArgs',
@@ -473,6 +475,35 @@ class ApiOpenIdConnectConfigArgs:
     @iat_ttl.setter
     def iat_ttl(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "iat_ttl", value)
+
+
+if not MYPY:
+    class ChannelNamespaceAuthModeArgsDict(TypedDict):
+        """
+        An auth mode.
+        """
+        auth_type: NotRequired[pulumi.Input['ChannelNamespaceAuthenticationType']]
+elif False:
+    ChannelNamespaceAuthModeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ChannelNamespaceAuthModeArgs:
+    def __init__(__self__, *,
+                 auth_type: Optional[pulumi.Input['ChannelNamespaceAuthenticationType']] = None):
+        """
+        An auth mode.
+        """
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[pulumi.Input['ChannelNamespaceAuthenticationType']]:
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: Optional[pulumi.Input['ChannelNamespaceAuthenticationType']]):
+        pulumi.set(self, "auth_type", value)
 
 
 if not MYPY:

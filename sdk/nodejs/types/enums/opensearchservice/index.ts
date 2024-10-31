@@ -11,3 +11,24 @@ export const ApplicationAppConfigType = {
  * AppConfig type values.
  */
 export type ApplicationAppConfigType = (typeof ApplicationAppConfigType)[keyof typeof ApplicationAppConfigType];
+
+export const DomainRolesKeyIdcType = {
+    GroupName: "GroupName",
+    GroupId: "GroupId",
+} as const;
+
+/**
+ * Roles Key Idc type values.
+ */
+export type DomainRolesKeyIdcType = (typeof DomainRolesKeyIdcType)[keyof typeof DomainRolesKeyIdcType];
+
+export const DomainSubjectKeyIdcType = {
+    UserName: "UserName",
+    UserId: "UserId",
+    Email: "Email",
+} as const;
+
+/**
+ * Subject Key Idc type values.
+ */
+export type DomainSubjectKeyIdcType = (typeof DomainSubjectKeyIdcType)[keyof typeof DomainSubjectKeyIdcType];

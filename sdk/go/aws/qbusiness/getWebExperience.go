@@ -37,7 +37,10 @@ type LookupWebExperienceResult struct {
 	DefaultEndpoint *string `pulumi:"defaultEndpoint"`
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration interface{} `pulumi:"identityProviderConfiguration"`
-	Origins                       []string    `pulumi:"origins"`
+	// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+	//
+	// > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
+	Origins []string `pulumi:"origins"`
 	// The Amazon Resource Name (ARN) of the service role attached to your web experience.
 	//
 	// > You must provide this value if you're using IAM Identity Center to manage end user access to your application. If you're using legacy identity management to manage user access, you don't need to provide this value.
@@ -121,6 +124,9 @@ func (o LookupWebExperienceResultOutput) IdentityProviderConfiguration() pulumi.
 	return o.ApplyT(func(v LookupWebExperienceResult) interface{} { return v.IdentityProviderConfiguration }).(pulumi.AnyOutput)
 }
 
+// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
+//
+// > You must only submit a *base URL* and not a full path. For example, `https://docs.aws.amazon.com` .
 func (o LookupWebExperienceResultOutput) Origins() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupWebExperienceResult) []string { return v.Origins }).(pulumi.StringArrayOutput)
 }

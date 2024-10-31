@@ -10,6 +10,11 @@ export type Api = import("./api").Api;
 export const Api: typeof import("./api").Api = null as any;
 utilities.lazyLoad(exports, ["Api"], () => require("./api"));
 
+export { ChannelNamespaceArgs } from "./channelNamespace";
+export type ChannelNamespace = import("./channelNamespace").ChannelNamespace;
+export const ChannelNamespace: typeof import("./channelNamespace").ChannelNamespace = null as any;
+utilities.lazyLoad(exports, ["ChannelNamespace"], () => require("./channelNamespace"));
+
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
@@ -34,6 +39,11 @@ export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
 export const getApi: typeof import("./getApi").getApi = null as any;
 export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
 utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
+
+export { GetChannelNamespaceArgs, GetChannelNamespaceResult, GetChannelNamespaceOutputArgs } from "./getChannelNamespace";
+export const getChannelNamespace: typeof import("./getChannelNamespace").getChannelNamespace = null as any;
+export const getChannelNamespaceOutput: typeof import("./getChannelNamespace").getChannelNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getChannelNamespace","getChannelNamespaceOutput"], () => require("./getChannelNamespace"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
@@ -95,6 +105,8 @@ const _module = {
         switch (type) {
             case "aws-native:appsync:Api":
                 return new Api(name, <any>undefined, { urn })
+            case "aws-native:appsync:ChannelNamespace":
+                return new ChannelNamespace(name, <any>undefined, { urn })
             case "aws-native:appsync:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
             case "aws-native:appsync:DomainName":

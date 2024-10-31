@@ -130,6 +130,7 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// The resource ID. For example, `123456789012/my-domain` .
         /// </summary>
         public readonly string? Id;
+        public readonly Outputs.DomainIdentityCenterOptions? IdentityCenterOptions;
         /// <summary>
         /// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
         /// </summary>
@@ -199,6 +200,8 @@ namespace Pulumi.AwsNative.OpenSearchService
 
             string? id,
 
+            Outputs.DomainIdentityCenterOptions? identityCenterOptions,
+
             string? ipAddressType,
 
             ImmutableDictionary<string, Outputs.DomainLogPublishingOption>? logPublishingOptions,
@@ -234,6 +237,7 @@ namespace Pulumi.AwsNative.OpenSearchService
             EncryptionAtRestOptions = encryptionAtRestOptions;
             EngineVersion = engineVersion;
             Id = id;
+            IdentityCenterOptions = identityCenterOptions;
             IpAddressType = ipAddressType;
             LogPublishingOptions = logPublishingOptions;
             NodeToNodeEncryptionOptions = nodeToNodeEncryptionOptions;

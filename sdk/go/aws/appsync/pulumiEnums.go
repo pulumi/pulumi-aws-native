@@ -354,6 +354,178 @@ func (in *apiEventLogLevelPtr) ToApiEventLogLevelPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ApiEventLogLevelPtrOutput)
 }
 
+// Security configuration for your AppSync API.
+type ChannelNamespaceAuthenticationType string
+
+const (
+	ChannelNamespaceAuthenticationTypeAmazonCognitoUserPools = ChannelNamespaceAuthenticationType("AMAZON_COGNITO_USER_POOLS")
+	ChannelNamespaceAuthenticationTypeAwsIam                 = ChannelNamespaceAuthenticationType("AWS_IAM")
+	ChannelNamespaceAuthenticationTypeApiKey                 = ChannelNamespaceAuthenticationType("API_KEY")
+	ChannelNamespaceAuthenticationTypeOpenidConnect          = ChannelNamespaceAuthenticationType("OPENID_CONNECT")
+	ChannelNamespaceAuthenticationTypeAwsLambda              = ChannelNamespaceAuthenticationType("AWS_LAMBDA")
+)
+
+func (ChannelNamespaceAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceAuthenticationType)(nil)).Elem()
+}
+
+func (e ChannelNamespaceAuthenticationType) ToChannelNamespaceAuthenticationTypeOutput() ChannelNamespaceAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(ChannelNamespaceAuthenticationTypeOutput)
+}
+
+func (e ChannelNamespaceAuthenticationType) ToChannelNamespaceAuthenticationTypeOutputWithContext(ctx context.Context) ChannelNamespaceAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelNamespaceAuthenticationTypeOutput)
+}
+
+func (e ChannelNamespaceAuthenticationType) ToChannelNamespaceAuthenticationTypePtrOutput() ChannelNamespaceAuthenticationTypePtrOutput {
+	return e.ToChannelNamespaceAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelNamespaceAuthenticationType) ToChannelNamespaceAuthenticationTypePtrOutputWithContext(ctx context.Context) ChannelNamespaceAuthenticationTypePtrOutput {
+	return ChannelNamespaceAuthenticationType(e).ToChannelNamespaceAuthenticationTypeOutputWithContext(ctx).ToChannelNamespaceAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelNamespaceAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelNamespaceAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelNamespaceAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelNamespaceAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelNamespaceAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelNamespaceAuthenticationType)(nil)).Elem()
+}
+
+func (o ChannelNamespaceAuthenticationTypeOutput) ToChannelNamespaceAuthenticationTypeOutput() ChannelNamespaceAuthenticationTypeOutput {
+	return o
+}
+
+func (o ChannelNamespaceAuthenticationTypeOutput) ToChannelNamespaceAuthenticationTypeOutputWithContext(ctx context.Context) ChannelNamespaceAuthenticationTypeOutput {
+	return o
+}
+
+func (o ChannelNamespaceAuthenticationTypeOutput) ToChannelNamespaceAuthenticationTypePtrOutput() ChannelNamespaceAuthenticationTypePtrOutput {
+	return o.ToChannelNamespaceAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceAuthenticationTypeOutput) ToChannelNamespaceAuthenticationTypePtrOutputWithContext(ctx context.Context) ChannelNamespaceAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelNamespaceAuthenticationType) *ChannelNamespaceAuthenticationType {
+		return &v
+	}).(ChannelNamespaceAuthenticationTypePtrOutput)
+}
+
+func (o ChannelNamespaceAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelNamespaceAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelNamespaceAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelNamespaceAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelNamespaceAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelNamespaceAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelNamespaceAuthenticationType)(nil)).Elem()
+}
+
+func (o ChannelNamespaceAuthenticationTypePtrOutput) ToChannelNamespaceAuthenticationTypePtrOutput() ChannelNamespaceAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceAuthenticationTypePtrOutput) ToChannelNamespaceAuthenticationTypePtrOutputWithContext(ctx context.Context) ChannelNamespaceAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o ChannelNamespaceAuthenticationTypePtrOutput) Elem() ChannelNamespaceAuthenticationTypeOutput {
+	return o.ApplyT(func(v *ChannelNamespaceAuthenticationType) ChannelNamespaceAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelNamespaceAuthenticationType
+		return ret
+	}).(ChannelNamespaceAuthenticationTypeOutput)
+}
+
+func (o ChannelNamespaceAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelNamespaceAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelNamespaceAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelNamespaceAuthenticationTypeInput is an input type that accepts values of the ChannelNamespaceAuthenticationType enum
+// A concrete instance of `ChannelNamespaceAuthenticationTypeInput` can be one of the following:
+//
+//	ChannelNamespaceAuthenticationTypeAmazonCognitoUserPools
+//	ChannelNamespaceAuthenticationTypeAwsIam
+//	ChannelNamespaceAuthenticationTypeApiKey
+//	ChannelNamespaceAuthenticationTypeOpenidConnect
+//	ChannelNamespaceAuthenticationTypeAwsLambda
+type ChannelNamespaceAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceAuthenticationTypeOutput() ChannelNamespaceAuthenticationTypeOutput
+	ToChannelNamespaceAuthenticationTypeOutputWithContext(context.Context) ChannelNamespaceAuthenticationTypeOutput
+}
+
+var channelNamespaceAuthenticationTypePtrType = reflect.TypeOf((**ChannelNamespaceAuthenticationType)(nil)).Elem()
+
+type ChannelNamespaceAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelNamespaceAuthenticationTypePtrOutput() ChannelNamespaceAuthenticationTypePtrOutput
+	ToChannelNamespaceAuthenticationTypePtrOutputWithContext(context.Context) ChannelNamespaceAuthenticationTypePtrOutput
+}
+
+type channelNamespaceAuthenticationTypePtr string
+
+func ChannelNamespaceAuthenticationTypePtr(v string) ChannelNamespaceAuthenticationTypePtrInput {
+	return (*channelNamespaceAuthenticationTypePtr)(&v)
+}
+
+func (*channelNamespaceAuthenticationTypePtr) ElementType() reflect.Type {
+	return channelNamespaceAuthenticationTypePtrType
+}
+
+func (in *channelNamespaceAuthenticationTypePtr) ToChannelNamespaceAuthenticationTypePtrOutput() ChannelNamespaceAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelNamespaceAuthenticationTypePtrOutput)
+}
+
+func (in *channelNamespaceAuthenticationTypePtr) ToChannelNamespaceAuthenticationTypePtrOutputWithContext(ctx context.Context) ChannelNamespaceAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelNamespaceAuthenticationTypePtrOutput)
+}
+
 // Enables or disables enhanced data source metrics for specified data sources. Note that `MetricsConfig` won't be used unless the `dataSourceLevelMetricsBehavior` value is set to `PER_DATA_SOURCE_METRICS` . If the `dataSourceLevelMetricsBehavior` is set to `FULL_REQUEST_DATA_SOURCE_METRICS` instead, `MetricsConfig` will be ignored. However, you can still set its value.
 //
 // `MetricsConfig` can be `ENABLED` or `DISABLED` .
@@ -956,6 +1128,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationTypePtrInput)(nil)).Elem(), ApiAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventLogLevelInput)(nil)).Elem(), ApiEventLogLevel("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiEventLogLevelPtrInput)(nil)).Elem(), ApiEventLogLevel("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceAuthenticationTypeInput)(nil)).Elem(), ChannelNamespaceAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelNamespaceAuthenticationTypePtrInput)(nil)).Elem(), ChannelNamespaceAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMetricsConfigInput)(nil)).Elem(), DataSourceMetricsConfig("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMetricsConfigPtrInput)(nil)).Elem(), DataSourceMetricsConfig("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
@@ -966,6 +1140,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(ApiEventLogLevelOutput{})
 	pulumi.RegisterOutputType(ApiEventLogLevelPtrOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(ChannelNamespaceAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceMetricsConfigOutput{})
 	pulumi.RegisterOutputType(DataSourceMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverMetricsConfigOutput{})

@@ -34,6 +34,8 @@ __all__ = [
     'DomainEncryptionAtRestOptionsArgsDict',
     'DomainEndpointOptionsArgs',
     'DomainEndpointOptionsArgsDict',
+    'DomainIdentityCenterOptionsArgs',
+    'DomainIdentityCenterOptionsArgsDict',
     'DomainIdpArgs',
     'DomainIdpArgsDict',
     'DomainJwtOptionsArgs',
@@ -1025,6 +1027,142 @@ class DomainEndpointOptionsArgs:
     @tls_security_policy.setter
     def tls_security_policy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tls_security_policy", value)
+
+
+if not MYPY:
+    class DomainIdentityCenterOptionsArgsDict(TypedDict):
+        """
+        Options for configuring Identity Center
+        """
+        enabled_api_access: NotRequired[pulumi.Input[bool]]
+        """
+        Whether Identity Center is enabled.
+        """
+        identity_center_application_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Identity Center application.
+        """
+        identity_center_instance_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the Identity Center instance.
+        """
+        identity_store_id: NotRequired[pulumi.Input[str]]
+        """
+        The IdentityStoreId for Identity Center options.
+        """
+        roles_key: NotRequired[pulumi.Input['DomainRolesKeyIdcType']]
+        """
+        The roles key for Identity Center options.
+        """
+        subject_key: NotRequired[pulumi.Input['DomainSubjectKeyIdcType']]
+        """
+        The subject key for Identity Center options.
+        """
+elif False:
+    DomainIdentityCenterOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainIdentityCenterOptionsArgs:
+    def __init__(__self__, *,
+                 enabled_api_access: Optional[pulumi.Input[bool]] = None,
+                 identity_center_application_arn: Optional[pulumi.Input[str]] = None,
+                 identity_center_instance_arn: Optional[pulumi.Input[str]] = None,
+                 identity_store_id: Optional[pulumi.Input[str]] = None,
+                 roles_key: Optional[pulumi.Input['DomainRolesKeyIdcType']] = None,
+                 subject_key: Optional[pulumi.Input['DomainSubjectKeyIdcType']] = None):
+        """
+        Options for configuring Identity Center
+        :param pulumi.Input[bool] enabled_api_access: Whether Identity Center is enabled.
+        :param pulumi.Input[str] identity_center_application_arn: The ARN of the Identity Center application.
+        :param pulumi.Input[str] identity_center_instance_arn: The ARN of the Identity Center instance.
+        :param pulumi.Input[str] identity_store_id: The IdentityStoreId for Identity Center options.
+        :param pulumi.Input['DomainRolesKeyIdcType'] roles_key: The roles key for Identity Center options.
+        :param pulumi.Input['DomainSubjectKeyIdcType'] subject_key: The subject key for Identity Center options.
+        """
+        if enabled_api_access is not None:
+            pulumi.set(__self__, "enabled_api_access", enabled_api_access)
+        if identity_center_application_arn is not None:
+            pulumi.set(__self__, "identity_center_application_arn", identity_center_application_arn)
+        if identity_center_instance_arn is not None:
+            pulumi.set(__self__, "identity_center_instance_arn", identity_center_instance_arn)
+        if identity_store_id is not None:
+            pulumi.set(__self__, "identity_store_id", identity_store_id)
+        if roles_key is not None:
+            pulumi.set(__self__, "roles_key", roles_key)
+        if subject_key is not None:
+            pulumi.set(__self__, "subject_key", subject_key)
+
+    @property
+    @pulumi.getter(name="enabledApiAccess")
+    def enabled_api_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Identity Center is enabled.
+        """
+        return pulumi.get(self, "enabled_api_access")
+
+    @enabled_api_access.setter
+    def enabled_api_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled_api_access", value)
+
+    @property
+    @pulumi.getter(name="identityCenterApplicationArn")
+    def identity_center_application_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Identity Center application.
+        """
+        return pulumi.get(self, "identity_center_application_arn")
+
+    @identity_center_application_arn.setter
+    def identity_center_application_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_center_application_arn", value)
+
+    @property
+    @pulumi.getter(name="identityCenterInstanceArn")
+    def identity_center_instance_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Identity Center instance.
+        """
+        return pulumi.get(self, "identity_center_instance_arn")
+
+    @identity_center_instance_arn.setter
+    def identity_center_instance_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_center_instance_arn", value)
+
+    @property
+    @pulumi.getter(name="identityStoreId")
+    def identity_store_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IdentityStoreId for Identity Center options.
+        """
+        return pulumi.get(self, "identity_store_id")
+
+    @identity_store_id.setter
+    def identity_store_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_store_id", value)
+
+    @property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> Optional[pulumi.Input['DomainRolesKeyIdcType']]:
+        """
+        The roles key for Identity Center options.
+        """
+        return pulumi.get(self, "roles_key")
+
+    @roles_key.setter
+    def roles_key(self, value: Optional[pulumi.Input['DomainRolesKeyIdcType']]):
+        pulumi.set(self, "roles_key", value)
+
+    @property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> Optional[pulumi.Input['DomainSubjectKeyIdcType']]:
+        """
+        The subject key for Identity Center options.
+        """
+        return pulumi.get(self, "subject_key")
+
+    @subject_key.setter
+    def subject_key(self, value: Optional[pulumi.Input['DomainSubjectKeyIdcType']]):
+        pulumi.set(self, "subject_key", value)
 
 
 if not MYPY:

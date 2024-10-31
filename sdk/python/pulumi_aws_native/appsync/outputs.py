@@ -24,6 +24,7 @@ __all__ = [
     'ApiEventLogConfig',
     'ApiLambdaAuthorizerConfig',
     'ApiOpenIdConnectConfig',
+    'ChannelNamespaceAuthMode',
     'DataSourceAuthorizationConfig',
     'DataSourceAwsIamConfig',
     'DataSourceDeltaSyncConfig',
@@ -440,6 +441,42 @@ class ApiOpenIdConnectConfig(dict):
     @pulumi.getter(name="iatTtl")
     def iat_ttl(self) -> Optional[float]:
         return pulumi.get(self, "iat_ttl")
+
+
+@pulumi.output_type
+class ChannelNamespaceAuthMode(dict):
+    """
+    An auth mode.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authType":
+            suggest = "auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelNamespaceAuthMode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelNamespaceAuthMode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelNamespaceAuthMode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_type: Optional['ChannelNamespaceAuthenticationType'] = None):
+        """
+        An auth mode.
+        """
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional['ChannelNamespaceAuthenticationType']:
+        return pulumi.get(self, "auth_type")
 
 
 @pulumi.output_type

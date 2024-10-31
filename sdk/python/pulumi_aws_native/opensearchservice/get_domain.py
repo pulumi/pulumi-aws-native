@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetDomainResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainResult:
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_config=None, cognito_options=None, domain_arn=None, domain_endpoint=None, domain_endpoint_options=None, domain_endpoint_v2=None, domain_endpoints=None, ebs_options=None, encryption_at_rest_options=None, engine_version=None, id=None, identity_center_options=None, ip_address_type=None, log_publishing_options=None, node_to_node_encryption_options=None, off_peak_window_options=None, service_software_options=None, skip_shard_migration_wait=None, snapshot_options=None, software_update_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, dict):
             raise TypeError("Expected argument 'access_policies' to be a dict")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -71,6 +72,9 @@ class GetDomainResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity_center_options and not isinstance(identity_center_options, dict):
+            raise TypeError("Expected argument 'identity_center_options' to be a dict")
+        pulumi.set(__self__, "identity_center_options", identity_center_options)
         if ip_address_type and not isinstance(ip_address_type, str):
             raise TypeError("Expected argument 'ip_address_type' to be a str")
         pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -228,6 +232,11 @@ class GetDomainResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="identityCenterOptions")
+    def identity_center_options(self) -> Optional['outputs.DomainIdentityCenterOptions']:
+        return pulumi.get(self, "identity_center_options")
+
+    @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[str]:
         """
@@ -325,6 +334,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             encryption_at_rest_options=self.encryption_at_rest_options,
             engine_version=self.engine_version,
             id=self.id,
+            identity_center_options=self.identity_center_options,
             ip_address_type=self.ip_address_type,
             log_publishing_options=self.log_publishing_options,
             node_to_node_encryption_options=self.node_to_node_encryption_options,
@@ -370,6 +380,7 @@ def get_domain(domain_name: Optional[str] = None,
         encryption_at_rest_options=pulumi.get(__ret__, 'encryption_at_rest_options'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
         id=pulumi.get(__ret__, 'id'),
+        identity_center_options=pulumi.get(__ret__, 'identity_center_options'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         log_publishing_options=pulumi.get(__ret__, 'log_publishing_options'),
         node_to_node_encryption_options=pulumi.get(__ret__, 'node_to_node_encryption_options'),
@@ -412,6 +423,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
         encryption_at_rest_options=pulumi.get(__response__, 'encryption_at_rest_options'),
         engine_version=pulumi.get(__response__, 'engine_version'),
         id=pulumi.get(__response__, 'id'),
+        identity_center_options=pulumi.get(__response__, 'identity_center_options'),
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         log_publishing_options=pulumi.get(__response__, 'log_publishing_options'),
         node_to_node_encryption_options=pulumi.get(__response__, 'node_to_node_encryption_options'),

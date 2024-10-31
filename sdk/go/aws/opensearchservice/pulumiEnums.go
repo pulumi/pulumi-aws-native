@@ -176,9 +176,351 @@ func (in *applicationAppConfigTypePtr) ToApplicationAppConfigTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAppConfigTypePtrOutput)
 }
 
+// Roles Key Idc type values.
+type DomainRolesKeyIdcType string
+
+const (
+	DomainRolesKeyIdcTypeGroupName = DomainRolesKeyIdcType("GroupName")
+	DomainRolesKeyIdcTypeGroupId   = DomainRolesKeyIdcType("GroupId")
+)
+
+func (DomainRolesKeyIdcType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRolesKeyIdcType)(nil)).Elem()
+}
+
+func (e DomainRolesKeyIdcType) ToDomainRolesKeyIdcTypeOutput() DomainRolesKeyIdcTypeOutput {
+	return pulumi.ToOutput(e).(DomainRolesKeyIdcTypeOutput)
+}
+
+func (e DomainRolesKeyIdcType) ToDomainRolesKeyIdcTypeOutputWithContext(ctx context.Context) DomainRolesKeyIdcTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainRolesKeyIdcTypeOutput)
+}
+
+func (e DomainRolesKeyIdcType) ToDomainRolesKeyIdcTypePtrOutput() DomainRolesKeyIdcTypePtrOutput {
+	return e.ToDomainRolesKeyIdcTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainRolesKeyIdcType) ToDomainRolesKeyIdcTypePtrOutputWithContext(ctx context.Context) DomainRolesKeyIdcTypePtrOutput {
+	return DomainRolesKeyIdcType(e).ToDomainRolesKeyIdcTypeOutputWithContext(ctx).ToDomainRolesKeyIdcTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainRolesKeyIdcType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainRolesKeyIdcType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainRolesKeyIdcType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainRolesKeyIdcType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainRolesKeyIdcTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainRolesKeyIdcTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainRolesKeyIdcType)(nil)).Elem()
+}
+
+func (o DomainRolesKeyIdcTypeOutput) ToDomainRolesKeyIdcTypeOutput() DomainRolesKeyIdcTypeOutput {
+	return o
+}
+
+func (o DomainRolesKeyIdcTypeOutput) ToDomainRolesKeyIdcTypeOutputWithContext(ctx context.Context) DomainRolesKeyIdcTypeOutput {
+	return o
+}
+
+func (o DomainRolesKeyIdcTypeOutput) ToDomainRolesKeyIdcTypePtrOutput() DomainRolesKeyIdcTypePtrOutput {
+	return o.ToDomainRolesKeyIdcTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainRolesKeyIdcTypeOutput) ToDomainRolesKeyIdcTypePtrOutputWithContext(ctx context.Context) DomainRolesKeyIdcTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainRolesKeyIdcType) *DomainRolesKeyIdcType {
+		return &v
+	}).(DomainRolesKeyIdcTypePtrOutput)
+}
+
+func (o DomainRolesKeyIdcTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainRolesKeyIdcTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainRolesKeyIdcType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainRolesKeyIdcTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRolesKeyIdcTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainRolesKeyIdcType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainRolesKeyIdcTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainRolesKeyIdcTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainRolesKeyIdcType)(nil)).Elem()
+}
+
+func (o DomainRolesKeyIdcTypePtrOutput) ToDomainRolesKeyIdcTypePtrOutput() DomainRolesKeyIdcTypePtrOutput {
+	return o
+}
+
+func (o DomainRolesKeyIdcTypePtrOutput) ToDomainRolesKeyIdcTypePtrOutputWithContext(ctx context.Context) DomainRolesKeyIdcTypePtrOutput {
+	return o
+}
+
+func (o DomainRolesKeyIdcTypePtrOutput) Elem() DomainRolesKeyIdcTypeOutput {
+	return o.ApplyT(func(v *DomainRolesKeyIdcType) DomainRolesKeyIdcType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainRolesKeyIdcType
+		return ret
+	}).(DomainRolesKeyIdcTypeOutput)
+}
+
+func (o DomainRolesKeyIdcTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainRolesKeyIdcTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainRolesKeyIdcType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainRolesKeyIdcTypeInput is an input type that accepts values of the DomainRolesKeyIdcType enum
+// A concrete instance of `DomainRolesKeyIdcTypeInput` can be one of the following:
+//
+//	DomainRolesKeyIdcTypeGroupName
+//	DomainRolesKeyIdcTypeGroupId
+type DomainRolesKeyIdcTypeInput interface {
+	pulumi.Input
+
+	ToDomainRolesKeyIdcTypeOutput() DomainRolesKeyIdcTypeOutput
+	ToDomainRolesKeyIdcTypeOutputWithContext(context.Context) DomainRolesKeyIdcTypeOutput
+}
+
+var domainRolesKeyIdcTypePtrType = reflect.TypeOf((**DomainRolesKeyIdcType)(nil)).Elem()
+
+type DomainRolesKeyIdcTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainRolesKeyIdcTypePtrOutput() DomainRolesKeyIdcTypePtrOutput
+	ToDomainRolesKeyIdcTypePtrOutputWithContext(context.Context) DomainRolesKeyIdcTypePtrOutput
+}
+
+type domainRolesKeyIdcTypePtr string
+
+func DomainRolesKeyIdcTypePtr(v string) DomainRolesKeyIdcTypePtrInput {
+	return (*domainRolesKeyIdcTypePtr)(&v)
+}
+
+func (*domainRolesKeyIdcTypePtr) ElementType() reflect.Type {
+	return domainRolesKeyIdcTypePtrType
+}
+
+func (in *domainRolesKeyIdcTypePtr) ToDomainRolesKeyIdcTypePtrOutput() DomainRolesKeyIdcTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainRolesKeyIdcTypePtrOutput)
+}
+
+func (in *domainRolesKeyIdcTypePtr) ToDomainRolesKeyIdcTypePtrOutputWithContext(ctx context.Context) DomainRolesKeyIdcTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainRolesKeyIdcTypePtrOutput)
+}
+
+// Subject Key Idc type values.
+type DomainSubjectKeyIdcType string
+
+const (
+	DomainSubjectKeyIdcTypeUserName = DomainSubjectKeyIdcType("UserName")
+	DomainSubjectKeyIdcTypeUserId   = DomainSubjectKeyIdcType("UserId")
+	DomainSubjectKeyIdcTypeEmail    = DomainSubjectKeyIdcType("Email")
+)
+
+func (DomainSubjectKeyIdcType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSubjectKeyIdcType)(nil)).Elem()
+}
+
+func (e DomainSubjectKeyIdcType) ToDomainSubjectKeyIdcTypeOutput() DomainSubjectKeyIdcTypeOutput {
+	return pulumi.ToOutput(e).(DomainSubjectKeyIdcTypeOutput)
+}
+
+func (e DomainSubjectKeyIdcType) ToDomainSubjectKeyIdcTypeOutputWithContext(ctx context.Context) DomainSubjectKeyIdcTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainSubjectKeyIdcTypeOutput)
+}
+
+func (e DomainSubjectKeyIdcType) ToDomainSubjectKeyIdcTypePtrOutput() DomainSubjectKeyIdcTypePtrOutput {
+	return e.ToDomainSubjectKeyIdcTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainSubjectKeyIdcType) ToDomainSubjectKeyIdcTypePtrOutputWithContext(ctx context.Context) DomainSubjectKeyIdcTypePtrOutput {
+	return DomainSubjectKeyIdcType(e).ToDomainSubjectKeyIdcTypeOutputWithContext(ctx).ToDomainSubjectKeyIdcTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainSubjectKeyIdcType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainSubjectKeyIdcType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainSubjectKeyIdcType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainSubjectKeyIdcType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainSubjectKeyIdcTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainSubjectKeyIdcTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainSubjectKeyIdcType)(nil)).Elem()
+}
+
+func (o DomainSubjectKeyIdcTypeOutput) ToDomainSubjectKeyIdcTypeOutput() DomainSubjectKeyIdcTypeOutput {
+	return o
+}
+
+func (o DomainSubjectKeyIdcTypeOutput) ToDomainSubjectKeyIdcTypeOutputWithContext(ctx context.Context) DomainSubjectKeyIdcTypeOutput {
+	return o
+}
+
+func (o DomainSubjectKeyIdcTypeOutput) ToDomainSubjectKeyIdcTypePtrOutput() DomainSubjectKeyIdcTypePtrOutput {
+	return o.ToDomainSubjectKeyIdcTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainSubjectKeyIdcTypeOutput) ToDomainSubjectKeyIdcTypePtrOutputWithContext(ctx context.Context) DomainSubjectKeyIdcTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainSubjectKeyIdcType) *DomainSubjectKeyIdcType {
+		return &v
+	}).(DomainSubjectKeyIdcTypePtrOutput)
+}
+
+func (o DomainSubjectKeyIdcTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainSubjectKeyIdcTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainSubjectKeyIdcType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainSubjectKeyIdcTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSubjectKeyIdcTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainSubjectKeyIdcType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainSubjectKeyIdcTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainSubjectKeyIdcTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainSubjectKeyIdcType)(nil)).Elem()
+}
+
+func (o DomainSubjectKeyIdcTypePtrOutput) ToDomainSubjectKeyIdcTypePtrOutput() DomainSubjectKeyIdcTypePtrOutput {
+	return o
+}
+
+func (o DomainSubjectKeyIdcTypePtrOutput) ToDomainSubjectKeyIdcTypePtrOutputWithContext(ctx context.Context) DomainSubjectKeyIdcTypePtrOutput {
+	return o
+}
+
+func (o DomainSubjectKeyIdcTypePtrOutput) Elem() DomainSubjectKeyIdcTypeOutput {
+	return o.ApplyT(func(v *DomainSubjectKeyIdcType) DomainSubjectKeyIdcType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainSubjectKeyIdcType
+		return ret
+	}).(DomainSubjectKeyIdcTypeOutput)
+}
+
+func (o DomainSubjectKeyIdcTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainSubjectKeyIdcTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainSubjectKeyIdcType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainSubjectKeyIdcTypeInput is an input type that accepts values of the DomainSubjectKeyIdcType enum
+// A concrete instance of `DomainSubjectKeyIdcTypeInput` can be one of the following:
+//
+//	DomainSubjectKeyIdcTypeUserName
+//	DomainSubjectKeyIdcTypeUserId
+//	DomainSubjectKeyIdcTypeEmail
+type DomainSubjectKeyIdcTypeInput interface {
+	pulumi.Input
+
+	ToDomainSubjectKeyIdcTypeOutput() DomainSubjectKeyIdcTypeOutput
+	ToDomainSubjectKeyIdcTypeOutputWithContext(context.Context) DomainSubjectKeyIdcTypeOutput
+}
+
+var domainSubjectKeyIdcTypePtrType = reflect.TypeOf((**DomainSubjectKeyIdcType)(nil)).Elem()
+
+type DomainSubjectKeyIdcTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainSubjectKeyIdcTypePtrOutput() DomainSubjectKeyIdcTypePtrOutput
+	ToDomainSubjectKeyIdcTypePtrOutputWithContext(context.Context) DomainSubjectKeyIdcTypePtrOutput
+}
+
+type domainSubjectKeyIdcTypePtr string
+
+func DomainSubjectKeyIdcTypePtr(v string) DomainSubjectKeyIdcTypePtrInput {
+	return (*domainSubjectKeyIdcTypePtr)(&v)
+}
+
+func (*domainSubjectKeyIdcTypePtr) ElementType() reflect.Type {
+	return domainSubjectKeyIdcTypePtrType
+}
+
+func (in *domainSubjectKeyIdcTypePtr) ToDomainSubjectKeyIdcTypePtrOutput() DomainSubjectKeyIdcTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainSubjectKeyIdcTypePtrOutput)
+}
+
+func (in *domainSubjectKeyIdcTypePtr) ToDomainSubjectKeyIdcTypePtrOutputWithContext(ctx context.Context) DomainSubjectKeyIdcTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainSubjectKeyIdcTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypeInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypePtrInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRolesKeyIdcTypeInput)(nil)).Elem(), DomainRolesKeyIdcType("GroupName"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainRolesKeyIdcTypePtrInput)(nil)).Elem(), DomainRolesKeyIdcType("GroupName"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubjectKeyIdcTypeInput)(nil)).Elem(), DomainSubjectKeyIdcType("UserName"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubjectKeyIdcTypePtrInput)(nil)).Elem(), DomainSubjectKeyIdcType("UserName"))
 	pulumi.RegisterOutputType(ApplicationAppConfigTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationAppConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainRolesKeyIdcTypeOutput{})
+	pulumi.RegisterOutputType(DomainRolesKeyIdcTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainSubjectKeyIdcTypeOutput{})
+	pulumi.RegisterOutputType(DomainSubjectKeyIdcTypePtrOutput{})
 }
