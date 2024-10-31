@@ -87,7 +87,10 @@ func cidr(inputs resource.PropertyMap) (resource.PropertyMap, error) {
 		return nil, fmt.Errorf("cidrBits %d would extend prefix to %d bits, which is too long for an %s address", int(cidrBits.NumberValue()), prefixLen, protocol)
 	}
 
-	current, _ := gocidr.PreviousSubnet(network, prefixLen)
+	current, ok := gocidr.PreviousSubnet(network, prefixLen)
+	if ok || !network.Contains(current.IP) {
+		return nil, fmt.Errorf("not enough remaining address space for a subnet with a prefix of %d bits after %s", len(subnets), current.String())
+	}
 	for i := 0; i < len(subnets); i++ {
 		subnet, ok := gocidr.NextSubnet(current, prefixLen)
 		if ok || !network.Contains(subnet.IP) {
