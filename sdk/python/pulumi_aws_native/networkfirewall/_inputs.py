@@ -314,6 +314,9 @@ class FirewallPolicyPublishMetricActionArgs:
 
 if not MYPY:
     class FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgsDict(TypedDict):
+        """
+        Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        """
         tcp_idle_timeout_seconds: NotRequired[pulumi.Input[int]]
 elif False:
     FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -322,6 +325,9 @@ elif False:
 class FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs:
     def __init__(__self__, *,
                  tcp_idle_timeout_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        """
         if tcp_idle_timeout_seconds is not None:
             pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
 
@@ -338,6 +344,9 @@ class FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs:
 if not MYPY:
     class FirewallPolicyStatefulEngineOptionsArgsDict(TypedDict):
         flow_timeouts: NotRequired[pulumi.Input['FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgsDict']]
+        """
+        Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        """
         rule_order: NotRequired[pulumi.Input['FirewallPolicyRuleOrder']]
         """
         Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
@@ -360,6 +369,7 @@ class FirewallPolicyStatefulEngineOptionsArgs:
                  rule_order: Optional[pulumi.Input['FirewallPolicyRuleOrder']] = None,
                  stream_exception_policy: Optional[pulumi.Input['FirewallPolicyStreamExceptionPolicy']] = None):
         """
+        :param pulumi.Input['FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs'] flow_timeouts: Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
         :param pulumi.Input['FirewallPolicyRuleOrder'] rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
         :param pulumi.Input['FirewallPolicyStreamExceptionPolicy'] stream_exception_policy: Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
                
@@ -377,6 +387,9 @@ class FirewallPolicyStatefulEngineOptionsArgs:
     @property
     @pulumi.getter(name="flowTimeouts")
     def flow_timeouts(self) -> Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs']]:
+        """
+        Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        """
         return pulumi.get(self, "flow_timeouts")
 
     @flow_timeouts.setter

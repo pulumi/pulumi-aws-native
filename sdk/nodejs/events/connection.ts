@@ -72,13 +72,13 @@ export class Connection extends pulumi.CustomResource {
     /**
      * A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
      */
-    public readonly authParameters!: pulumi.Output<outputs.events.ConnectionAuthParameters>;
+    public readonly authParameters!: pulumi.Output<outputs.events.ConnectionAuthParameters | undefined>;
     /**
      * The type of authorization to use for the connection.
      *
      * > OAUTH tokens are refreshed when a 401 or 407 response is returned.
      */
-    public readonly authorizationType!: pulumi.Output<enums.events.ConnectionAuthorizationType>;
+    public readonly authorizationType!: pulumi.Output<enums.events.ConnectionAuthorizationType | undefined>;
     /**
      * Description of the connection.
      */
@@ -99,16 +99,10 @@ export class Connection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authParameters === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'authParameters'");
-            }
-            if ((!args || args.authorizationType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'authorizationType'");
-            }
             resourceInputs["authParameters"] = args ? args.authParameters : undefined;
             resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
@@ -137,13 +131,13 @@ export interface ConnectionArgs {
     /**
      * A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
      */
-    authParameters: pulumi.Input<inputs.events.ConnectionAuthParametersArgs>;
+    authParameters?: pulumi.Input<inputs.events.ConnectionAuthParametersArgs>;
     /**
      * The type of authorization to use for the connection.
      *
      * > OAUTH tokens are refreshed when a 401 or 407 response is returned.
      */
-    authorizationType: pulumi.Input<enums.events.ConnectionAuthorizationType>;
+    authorizationType?: pulumi.Input<enums.events.ConnectionAuthorizationType>;
     /**
      * Description of the connection.
      */

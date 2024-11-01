@@ -17,6 +17,19 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AiAgentAiAgentConfiguration0Properties',
+    'AiAgentAiAgentConfiguration1Properties',
+    'AiAgentAnswerRecommendationAiAgentConfiguration',
+    'AiAgentAssociationConfiguration',
+    'AiAgentAssociationConfigurationDataProperties',
+    'AiAgentKnowledgeBaseAssociationConfigurationData',
+    'AiAgentManualSearchAiAgentConfiguration',
+    'AiAgentOrCondition0Properties',
+    'AiAgentOrCondition1Properties',
+    'AiAgentTagCondition',
+    'AiAgentTagFilter0Properties',
+    'AiAgentTagFilter1Properties',
+    'AiAgentTagFilter2Properties',
     'AiPromptAiPromptTemplateConfiguration',
     'AssistantAssociationAssociationData',
     'AssistantServerSideEncryptionConfiguration',
@@ -25,6 +38,458 @@ __all__ = [
     'KnowledgeBaseServerSideEncryptionConfiguration',
     'KnowledgeBaseSourceConfiguration',
 ]
+
+@pulumi.output_type
+class AiAgentAiAgentConfiguration0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manualSearchAiAgentConfiguration":
+            suggest = "manual_search_ai_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAiAgentConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAiAgentConfiguration0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAiAgentConfiguration0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 manual_search_ai_agent_configuration: 'outputs.AiAgentManualSearchAiAgentConfiguration'):
+        pulumi.set(__self__, "manual_search_ai_agent_configuration", manual_search_ai_agent_configuration)
+
+    @property
+    @pulumi.getter(name="manualSearchAiAgentConfiguration")
+    def manual_search_ai_agent_configuration(self) -> 'outputs.AiAgentManualSearchAiAgentConfiguration':
+        return pulumi.get(self, "manual_search_ai_agent_configuration")
+
+
+@pulumi.output_type
+class AiAgentAiAgentConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerRecommendationAiAgentConfiguration":
+            suggest = "answer_recommendation_ai_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAiAgentConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAiAgentConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAiAgentConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 answer_recommendation_ai_agent_configuration: 'outputs.AiAgentAnswerRecommendationAiAgentConfiguration'):
+        pulumi.set(__self__, "answer_recommendation_ai_agent_configuration", answer_recommendation_ai_agent_configuration)
+
+    @property
+    @pulumi.getter(name="answerRecommendationAiAgentConfiguration")
+    def answer_recommendation_ai_agent_configuration(self) -> 'outputs.AiAgentAnswerRecommendationAiAgentConfiguration':
+        return pulumi.get(self, "answer_recommendation_ai_agent_configuration")
+
+
+@pulumi.output_type
+class AiAgentAnswerRecommendationAiAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerGenerationAiPromptId":
+            suggest = "answer_generation_ai_prompt_id"
+        elif key == "associationConfigurations":
+            suggest = "association_configurations"
+        elif key == "intentLabelingGenerationAiPromptId":
+            suggest = "intent_labeling_generation_ai_prompt_id"
+        elif key == "queryReformulationAiPromptId":
+            suggest = "query_reformulation_ai_prompt_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAnswerRecommendationAiAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAnswerRecommendationAiAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAnswerRecommendationAiAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 answer_generation_ai_prompt_id: Optional[str] = None,
+                 association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None,
+                 intent_labeling_generation_ai_prompt_id: Optional[str] = None,
+                 query_reformulation_ai_prompt_id: Optional[str] = None):
+        if answer_generation_ai_prompt_id is not None:
+            pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+        if intent_labeling_generation_ai_prompt_id is not None:
+            pulumi.set(__self__, "intent_labeling_generation_ai_prompt_id", intent_labeling_generation_ai_prompt_id)
+        if query_reformulation_ai_prompt_id is not None:
+            pulumi.set(__self__, "query_reformulation_ai_prompt_id", query_reformulation_ai_prompt_id)
+
+    @property
+    @pulumi.getter(name="answerGenerationAiPromptId")
+    def answer_generation_ai_prompt_id(self) -> Optional[str]:
+        return pulumi.get(self, "answer_generation_ai_prompt_id")
+
+    @property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[Sequence['outputs.AiAgentAssociationConfiguration']]:
+        return pulumi.get(self, "association_configurations")
+
+    @property
+    @pulumi.getter(name="intentLabelingGenerationAiPromptId")
+    def intent_labeling_generation_ai_prompt_id(self) -> Optional[str]:
+        return pulumi.get(self, "intent_labeling_generation_ai_prompt_id")
+
+    @property
+    @pulumi.getter(name="queryReformulationAiPromptId")
+    def query_reformulation_ai_prompt_id(self) -> Optional[str]:
+        return pulumi.get(self, "query_reformulation_ai_prompt_id")
+
+
+@pulumi.output_type
+class AiAgentAssociationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associationConfigurationData":
+            suggest = "association_configuration_data"
+        elif key == "associationId":
+            suggest = "association_id"
+        elif key == "associationType":
+            suggest = "association_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAssociationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAssociationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAssociationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 association_configuration_data: Optional['outputs.AiAgentAssociationConfigurationDataProperties'] = None,
+                 association_id: Optional[str] = None,
+                 association_type: Optional['AiAgentAiAgentAssociationConfigurationType'] = None):
+        if association_configuration_data is not None:
+            pulumi.set(__self__, "association_configuration_data", association_configuration_data)
+        if association_id is not None:
+            pulumi.set(__self__, "association_id", association_id)
+        if association_type is not None:
+            pulumi.set(__self__, "association_type", association_type)
+
+    @property
+    @pulumi.getter(name="associationConfigurationData")
+    def association_configuration_data(self) -> Optional['outputs.AiAgentAssociationConfigurationDataProperties']:
+        return pulumi.get(self, "association_configuration_data")
+
+    @property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> Optional[str]:
+        return pulumi.get(self, "association_id")
+
+    @property
+    @pulumi.getter(name="associationType")
+    def association_type(self) -> Optional['AiAgentAiAgentAssociationConfigurationType']:
+        return pulumi.get(self, "association_type")
+
+
+@pulumi.output_type
+class AiAgentAssociationConfigurationDataProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "knowledgeBaseAssociationConfigurationData":
+            suggest = "knowledge_base_association_configuration_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAssociationConfigurationDataProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAssociationConfigurationDataProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAssociationConfigurationDataProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 knowledge_base_association_configuration_data: 'outputs.AiAgentKnowledgeBaseAssociationConfigurationData'):
+        pulumi.set(__self__, "knowledge_base_association_configuration_data", knowledge_base_association_configuration_data)
+
+    @property
+    @pulumi.getter(name="knowledgeBaseAssociationConfigurationData")
+    def knowledge_base_association_configuration_data(self) -> 'outputs.AiAgentKnowledgeBaseAssociationConfigurationData':
+        return pulumi.get(self, "knowledge_base_association_configuration_data")
+
+
+@pulumi.output_type
+class AiAgentKnowledgeBaseAssociationConfigurationData(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentTagFilter":
+            suggest = "content_tag_filter"
+        elif key == "maxResults":
+            suggest = "max_results"
+        elif key == "overrideKnowledgeBaseSearchType":
+            suggest = "override_knowledge_base_search_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentKnowledgeBaseAssociationConfigurationData. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentKnowledgeBaseAssociationConfigurationData.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentKnowledgeBaseAssociationConfigurationData.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_tag_filter: Optional[Any] = None,
+                 max_results: Optional[float] = None,
+                 override_knowledge_base_search_type: Optional['AiAgentKnowledgeBaseSearchType'] = None):
+        if content_tag_filter is not None:
+            pulumi.set(__self__, "content_tag_filter", content_tag_filter)
+        if max_results is not None:
+            pulumi.set(__self__, "max_results", max_results)
+        if override_knowledge_base_search_type is not None:
+            pulumi.set(__self__, "override_knowledge_base_search_type", override_knowledge_base_search_type)
+
+    @property
+    @pulumi.getter(name="contentTagFilter")
+    def content_tag_filter(self) -> Optional[Any]:
+        return pulumi.get(self, "content_tag_filter")
+
+    @property
+    @pulumi.getter(name="maxResults")
+    def max_results(self) -> Optional[float]:
+        return pulumi.get(self, "max_results")
+
+    @property
+    @pulumi.getter(name="overrideKnowledgeBaseSearchType")
+    def override_knowledge_base_search_type(self) -> Optional['AiAgentKnowledgeBaseSearchType']:
+        return pulumi.get(self, "override_knowledge_base_search_type")
+
+
+@pulumi.output_type
+class AiAgentManualSearchAiAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "answerGenerationAiPromptId":
+            suggest = "answer_generation_ai_prompt_id"
+        elif key == "associationConfigurations":
+            suggest = "association_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentManualSearchAiAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentManualSearchAiAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentManualSearchAiAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 answer_generation_ai_prompt_id: Optional[str] = None,
+                 association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None):
+        if answer_generation_ai_prompt_id is not None:
+            pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+
+    @property
+    @pulumi.getter(name="answerGenerationAiPromptId")
+    def answer_generation_ai_prompt_id(self) -> Optional[str]:
+        return pulumi.get(self, "answer_generation_ai_prompt_id")
+
+    @property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[Sequence['outputs.AiAgentAssociationConfiguration']]:
+        return pulumi.get(self, "association_configurations")
+
+
+@pulumi.output_type
+class AiAgentOrCondition0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andConditions":
+            suggest = "and_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentOrCondition0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentOrCondition0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentOrCondition0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_conditions: Sequence['outputs.AiAgentTagCondition']):
+        pulumi.set(__self__, "and_conditions", and_conditions)
+
+    @property
+    @pulumi.getter(name="andConditions")
+    def and_conditions(self) -> Sequence['outputs.AiAgentTagCondition']:
+        return pulumi.get(self, "and_conditions")
+
+
+@pulumi.output_type
+class AiAgentOrCondition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagCondition":
+            suggest = "tag_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentOrCondition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentOrCondition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentOrCondition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_condition: 'outputs.AiAgentTagCondition'):
+        pulumi.set(__self__, "tag_condition", tag_condition)
+
+    @property
+    @pulumi.getter(name="tagCondition")
+    def tag_condition(self) -> 'outputs.AiAgentTagCondition':
+        return pulumi.get(self, "tag_condition")
+
+
+@pulumi.output_type
+class AiAgentTagCondition(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AiAgentTagFilter0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tagCondition":
+            suggest = "tag_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentTagFilter0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentTagFilter0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentTagFilter0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tag_condition: 'outputs.AiAgentTagCondition'):
+        pulumi.set(__self__, "tag_condition", tag_condition)
+
+    @property
+    @pulumi.getter(name="tagCondition")
+    def tag_condition(self) -> 'outputs.AiAgentTagCondition':
+        return pulumi.get(self, "tag_condition")
+
+
+@pulumi.output_type
+class AiAgentTagFilter1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andConditions":
+            suggest = "and_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentTagFilter1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentTagFilter1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentTagFilter1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_conditions: Sequence['outputs.AiAgentTagCondition']):
+        pulumi.set(__self__, "and_conditions", and_conditions)
+
+    @property
+    @pulumi.getter(name="andConditions")
+    def and_conditions(self) -> Sequence['outputs.AiAgentTagCondition']:
+        return pulumi.get(self, "and_conditions")
+
+
+@pulumi.output_type
+class AiAgentTagFilter2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "orConditions":
+            suggest = "or_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentTagFilter2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentTagFilter2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentTagFilter2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 or_conditions: Sequence[Any]):
+        pulumi.set(__self__, "or_conditions", or_conditions)
+
+    @property
+    @pulumi.getter(name="orConditions")
+    def or_conditions(self) -> Sequence[Any]:
+        return pulumi.get(self, "or_conditions")
+
 
 @pulumi.output_type
 class AiPromptAiPromptTemplateConfiguration(dict):

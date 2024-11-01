@@ -2241,6 +2241,211 @@ func (o AgentS3IdentifierPtrOutput) S3ObjectKey() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Model configuration
+type ApplicationInferenceProfileInferenceProfileModel struct {
+	// ARN for Foundation Models in Bedrock. These models can be used as base models for model customization jobs
+	ModelArn *string `pulumi:"modelArn"`
+}
+
+// Model configuration
+type ApplicationInferenceProfileInferenceProfileModelOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInferenceProfileInferenceProfileModelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModel)(nil)).Elem()
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelOutput) ToApplicationInferenceProfileInferenceProfileModelOutput() ApplicationInferenceProfileInferenceProfileModelOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelOutput) ToApplicationInferenceProfileInferenceProfileModelOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileModelOutput {
+	return o
+}
+
+// ARN for Foundation Models in Bedrock. These models can be used as base models for model customization jobs
+func (o ApplicationInferenceProfileInferenceProfileModelOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationInferenceProfileInferenceProfileModel) *string { return v.ModelArn }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationInferenceProfileInferenceProfileModelArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInferenceProfileInferenceProfileModelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationInferenceProfileInferenceProfileModel)(nil)).Elem()
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelArrayOutput) ToApplicationInferenceProfileInferenceProfileModelArrayOutput() ApplicationInferenceProfileInferenceProfileModelArrayOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelArrayOutput) ToApplicationInferenceProfileInferenceProfileModelArrayOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileModelArrayOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelArrayOutput) Index(i pulumi.IntInput) ApplicationInferenceProfileInferenceProfileModelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationInferenceProfileInferenceProfileModel {
+		return vs[0].([]ApplicationInferenceProfileInferenceProfileModel)[vs[1].(int)]
+	}).(ApplicationInferenceProfileInferenceProfileModelOutput)
+}
+
+// Various ways to encode a list of models in a CreateInferenceProfile request
+type ApplicationInferenceProfileInferenceProfileModelSource0Properties struct {
+	// Source arns for a custom inference profile to copy its regional load balancing config from. This
+	// can either be a foundation model or predefined inference profile ARN.
+	CopyFrom string `pulumi:"copyFrom"`
+}
+
+// Various ways to encode a list of models in a CreateInferenceProfile request
+type ApplicationInferenceProfileInferenceProfileModelSourceProperties struct {
+	// Source arns for a custom inference profile to copy its regional load balancing config from. This
+	// can either be a foundation model or predefined inference profile ARN.
+	CopyFrom string `pulumi:"copyFrom"`
+}
+
+// ApplicationInferenceProfileInferenceProfileModelSourcePropertiesInput is an input type that accepts ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs and ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput values.
+// You can construct a concrete instance of `ApplicationInferenceProfileInferenceProfileModelSourcePropertiesInput` via:
+//
+//	ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{...}
+type ApplicationInferenceProfileInferenceProfileModelSourcePropertiesInput interface {
+	pulumi.Input
+
+	ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput
+	ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutputWithContext(context.Context) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput
+}
+
+// Various ways to encode a list of models in a CreateInferenceProfile request
+type ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs struct {
+	// Source arns for a custom inference profile to copy its regional load balancing config from. This
+	// can either be a foundation model or predefined inference profile ARN.
+	CopyFrom pulumi.StringInput `pulumi:"copyFrom"`
+}
+
+func (ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourceProperties)(nil)).Elem()
+}
+
+func (i ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput {
+	return i.ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutputWithContext(context.Background())
+}
+
+func (i ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput)
+}
+
+func (i ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
+	return i.ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput).ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(ctx)
+}
+
+// ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput is an input type that accepts ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs, ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtr and ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput values.
+// You can construct a concrete instance of `ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput` via:
+//
+//	        ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput
+	ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(context.Context) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput
+}
+
+type applicationInferenceProfileInferenceProfileModelSourcePropertiesPtrType ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs
+
+func ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtr(v *ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput {
+	return (*applicationInferenceProfileInferenceProfileModelSourcePropertiesPtrType)(v)
+}
+
+func (*applicationInferenceProfileInferenceProfileModelSourcePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInferenceProfileInferenceProfileModelSourceProperties)(nil)).Elem()
+}
+
+func (i *applicationInferenceProfileInferenceProfileModelSourcePropertiesPtrType) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
+	return i.ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationInferenceProfileInferenceProfileModelSourcePropertiesPtrType) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput)
+}
+
+// Various ways to encode a list of models in a CreateInferenceProfile request
+type ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourceProperties)(nil)).Elem()
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
+	return o.ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInferenceProfileInferenceProfileModelSourceProperties) *ApplicationInferenceProfileInferenceProfileModelSourceProperties {
+		return &v
+	}).(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput)
+}
+
+// Source arns for a custom inference profile to copy its regional load balancing config from. This
+// can either be a foundation model or predefined inference profile ARN.
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput) CopyFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationInferenceProfileInferenceProfileModelSourceProperties) string { return v.CopyFrom }).(pulumi.StringOutput)
+}
+
+type ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInferenceProfileInferenceProfileModelSourceProperties)(nil)).Elem()
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput) ToApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput) Elem() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput {
+	return o.ApplyT(func(v *ApplicationInferenceProfileInferenceProfileModelSourceProperties) ApplicationInferenceProfileInferenceProfileModelSourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInferenceProfileInferenceProfileModelSourceProperties
+		return ret
+	}).(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput)
+}
+
+// Source arns for a custom inference profile to copy its regional load balancing config from. This
+// can either be a foundation model or predefined inference profile ARN.
+func (o ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput) CopyFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationInferenceProfileInferenceProfileModelSourceProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CopyFrom
+	}).(pulumi.StringPtrOutput)
+}
+
+// Definition of the key/value pair for a tag
+type ApplicationInferenceProfileTag struct {
+	// Tag Key
+	Key string `pulumi:"key"`
+	// Tag Value
+	Value string `pulumi:"value"`
+}
+
 // Settings for a foundation model used to parse documents for a data source.
 type DataSourceBedrockFoundationModelConfiguration struct {
 	// The model's ARN.
@@ -23060,6 +23265,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptOverrideConfigurationPtrInput)(nil)).Elem(), AgentPromptOverrideConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentS3IdentifierInput)(nil)).Elem(), AgentS3IdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentS3IdentifierPtrInput)(nil)).Elem(), AgentS3IdentifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingConfigurationInput)(nil)).Elem(), DataSourceChunkingConfigurationArgs{})
@@ -23320,6 +23527,10 @@ func init() {
 	pulumi.RegisterOutputType(AgentPromptOverrideConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentS3IdentifierOutput{})
 	pulumi.RegisterOutputType(AgentS3IdentifierPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelOutput{})
+	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput{})
+	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingConfigurationOutput{})

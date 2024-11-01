@@ -445,6 +445,7 @@ class FirewallPolicyStatefulEngineOptions(dict):
                  rule_order: Optional['FirewallPolicyRuleOrder'] = None,
                  stream_exception_policy: Optional['FirewallPolicyStreamExceptionPolicy'] = None):
         """
+        :param 'FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties' flow_timeouts: Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
         :param 'FirewallPolicyRuleOrder' rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
         :param 'FirewallPolicyStreamExceptionPolicy' stream_exception_policy: Configures how Network Firewall processes traffic when a network connection breaks midstream. Network connections can break due to disruptions in external networks or within the firewall itself.
                
@@ -462,6 +463,9 @@ class FirewallPolicyStatefulEngineOptions(dict):
     @property
     @pulumi.getter(name="flowTimeouts")
     def flow_timeouts(self) -> Optional['outputs.FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties']:
+        """
+        Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        """
         return pulumi.get(self, "flow_timeouts")
 
     @property
@@ -487,6 +491,9 @@ class FirewallPolicyStatefulEngineOptions(dict):
 
 @pulumi.output_type
 class FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties(dict):
+    """
+    Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -506,6 +513,9 @@ class FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties(dict):
 
     def __init__(__self__, *,
                  tcp_idle_timeout_seconds: Optional[int] = None):
+        """
+        Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        """
         if tcp_idle_timeout_seconds is not None:
             pulumi.set(__self__, "tcp_idle_timeout_seconds", tcp_idle_timeout_seconds)
 

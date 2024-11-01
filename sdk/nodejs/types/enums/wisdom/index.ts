@@ -2,6 +2,26 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AiAgentAiAgentAssociationConfigurationType = {
+    KnowledgeBase: "KNOWLEDGE_BASE",
+} as const;
+
+export type AiAgentAiAgentAssociationConfigurationType = (typeof AiAgentAiAgentAssociationConfigurationType)[keyof typeof AiAgentAiAgentAssociationConfigurationType];
+
+export const AiAgentAiAgentType = {
+    ManualSearch: "MANUAL_SEARCH",
+    AnswerRecommendation: "ANSWER_RECOMMENDATION",
+} as const;
+
+export type AiAgentAiAgentType = (typeof AiAgentAiAgentType)[keyof typeof AiAgentAiAgentType];
+
+export const AiAgentKnowledgeBaseSearchType = {
+    Hybrid: "HYBRID",
+    Semantic: "SEMANTIC",
+} as const;
+
+export type AiAgentKnowledgeBaseSearchType = (typeof AiAgentKnowledgeBaseSearchType)[keyof typeof AiAgentKnowledgeBaseSearchType];
+
 export const AiPromptAiPromptApiFormat = {
     AnthropicClaudeMessages: "ANTHROPIC_CLAUDE_MESSAGES",
     AnthropicClaudeTextCompletions: "ANTHROPIC_CLAUDE_TEXT_COMPLETIONS",

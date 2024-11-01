@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Events
         /// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
         /// </summary>
         [Output("authParameters")]
-        public Output<Outputs.ConnectionAuthParameters> AuthParameters { get; private set; } = null!;
+        public Output<Outputs.ConnectionAuthParameters?> AuthParameters { get; private set; } = null!;
 
         /// <summary>
         /// The type of authorization to use for the connection.
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.Events
         /// &gt; OAUTH tokens are refreshed when a 401 or 407 response is returned.
         /// </summary>
         [Output("authorizationType")]
-        public Output<Pulumi.AwsNative.Events.ConnectionAuthorizationType> AuthorizationType { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Events.ConnectionAuthorizationType?> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
         /// Description of the connection.
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Events
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Connection(string name, ConnectionArgs args, CustomResourceOptions? options = null)
+        public Connection(string name, ConnectionArgs? args = null, CustomResourceOptions? options = null)
             : base("aws-native:events:Connection", name, args ?? new ConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -144,16 +144,16 @@ namespace Pulumi.AwsNative.Events
         /// <summary>
         /// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
         /// </summary>
-        [Input("authParameters", required: true)]
-        public Input<Inputs.ConnectionAuthParametersArgs> AuthParameters { get; set; } = null!;
+        [Input("authParameters")]
+        public Input<Inputs.ConnectionAuthParametersArgs>? AuthParameters { get; set; }
 
         /// <summary>
         /// The type of authorization to use for the connection.
         /// 
         /// &gt; OAUTH tokens are refreshed when a 401 or 407 response is returned.
         /// </summary>
-        [Input("authorizationType", required: true)]
-        public Input<Pulumi.AwsNative.Events.ConnectionAuthorizationType> AuthorizationType { get; set; } = null!;
+        [Input("authorizationType")]
+        public Input<Pulumi.AwsNative.Events.ConnectionAuthorizationType>? AuthorizationType { get; set; }
 
         /// <summary>
         /// Description of the connection.

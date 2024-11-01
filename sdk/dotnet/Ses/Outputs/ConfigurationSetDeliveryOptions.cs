@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Ses.Outputs
     public sealed class ConfigurationSetDeliveryOptions
     {
         /// <summary>
+        /// Specifies the maximum time until which SES will retry sending emails
+        /// </summary>
+        public readonly double? MaxDeliverySeconds;
+        /// <summary>
         /// The name of the dedicated IP pool to associate with the configuration set.
         /// </summary>
         public readonly string? SendingPoolName;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.Ses.Outputs
 
         [OutputConstructor]
         private ConfigurationSetDeliveryOptions(
+            double? maxDeliverySeconds,
+
             string? sendingPoolName,
 
             string? tlsPolicy)
         {
+            MaxDeliverySeconds = maxDeliverySeconds;
             SendingPoolName = sendingPoolName;
             TlsPolicy = tlsPolicy;
         }

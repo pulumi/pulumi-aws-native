@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Ses.Inputs
     public sealed class ConfigurationSetDeliveryOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the maximum time until which SES will retry sending emails
+        /// </summary>
+        [Input("maxDeliverySeconds")]
+        public Input<double>? MaxDeliverySeconds { get; set; }
+
+        /// <summary>
         /// The name of the dedicated IP pool to associate with the configuration set.
         /// </summary>
         [Input("sendingPoolName")]

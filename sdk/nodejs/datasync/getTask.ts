@@ -38,7 +38,7 @@ export interface GetTaskResult {
      */
     readonly excludes?: outputs.datasync.TaskFilterRule[];
     /**
-     * Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+     * Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
      */
     readonly includes?: outputs.datasync.TaskFilterRule[];
     /**

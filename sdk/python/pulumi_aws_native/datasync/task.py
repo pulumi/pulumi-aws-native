@@ -41,7 +41,7 @@ class TaskArgs:
         :param pulumi.Input[str] source_location_arn: The ARN of the source location for the task.
         :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] excludes: Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
-        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] includes: Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] includes: Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         :param pulumi.Input['TaskManifestConfigArgs'] manifest_config: The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         :param pulumi.Input[str] name: The name of a task. This value is a text reference that is used to identify the task in the console.
         :param pulumi.Input['TaskOptionsArgs'] options: Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
@@ -124,7 +124,7 @@ class TaskArgs:
     @pulumi.getter
     def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
         """
-        Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         """
         return pulumi.get(self, "includes")
 
@@ -256,7 +256,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         :param pulumi.Input[str] destination_location_arn: The ARN of an AWS storage resource's location.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]] excludes: Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]] includes: Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TaskFilterRuleArgs', 'TaskFilterRuleArgsDict']]]] includes: Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         :param pulumi.Input[Union['TaskManifestConfigArgs', 'TaskManifestConfigArgsDict']] manifest_config: The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         :param pulumi.Input[str] name: The name of a task. This value is a text reference that is used to identify the task in the console.
         :param pulumi.Input[Union['TaskOptionsArgs', 'TaskOptionsArgsDict']] options: Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
@@ -431,7 +431,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def includes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskFilterRule']]]:
         """
-        Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         """
         return pulumi.get(self, "includes")
 

@@ -30,6 +30,11 @@ class ApiArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Api resource.
+        :param pulumi.Input[str] name: The API name.
+        :param pulumi.Input[str] owner_contact: The owner contact information for an API resource.
+               
+               This field accepts any string input with a length of 0 - 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags.
         """
         if event_config is not None:
             pulumi.set(__self__, "event_config", event_config)
@@ -52,6 +57,9 @@ class ApiArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The API name.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -61,6 +69,11 @@ class ApiArgs:
     @property
     @pulumi.getter(name="ownerContact")
     def owner_contact(self) -> Optional[pulumi.Input[str]]:
+        """
+        The owner contact information for an API resource.
+
+        This field accepts any string input with a length of 0 - 256 characters.
+        """
         return pulumi.get(self, "owner_contact")
 
     @owner_contact.setter
@@ -70,6 +83,9 @@ class ApiArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -92,6 +108,11 @@ class Api(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] name: The API name.
+        :param pulumi.Input[str] owner_contact: The owner contact information for an API resource.
+               
+               This field accepts any string input with a length of 0 - 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags.
         """
         ...
     @overload
@@ -197,15 +218,26 @@ class Api(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The API name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerContact")
     def owner_contact(self) -> pulumi.Output[Optional[str]]:
+        """
+        The owner contact information for an API resource.
+
+        This field accepts any string input with a length of 0 - 256 characters.
+        """
         return pulumi.get(self, "owner_contact")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags.
+        """
         return pulumi.get(self, "tags")
 

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AiAgentArgs } from "./aiAgent";
+export type AiAgent = import("./aiAgent").AiAgent;
+export const AiAgent: typeof import("./aiAgent").AiAgent = null as any;
+utilities.lazyLoad(exports, ["AiAgent"], () => require("./aiAgent"));
+
 export { AiPromptArgs } from "./aiPrompt";
 export type AiPrompt = import("./aiPrompt").AiPrompt;
 export const AiPrompt: typeof import("./aiPrompt").AiPrompt = null as any;
@@ -24,6 +29,11 @@ export { AssistantAssociationArgs } from "./assistantAssociation";
 export type AssistantAssociation = import("./assistantAssociation").AssistantAssociation;
 export const AssistantAssociation: typeof import("./assistantAssociation").AssistantAssociation = null as any;
 utilities.lazyLoad(exports, ["AssistantAssociation"], () => require("./assistantAssociation"));
+
+export { GetAiAgentArgs, GetAiAgentResult, GetAiAgentOutputArgs } from "./getAiAgent";
+export const getAiAgent: typeof import("./getAiAgent").getAiAgent = null as any;
+export const getAiAgentOutput: typeof import("./getAiAgent").getAiAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getAiAgent","getAiAgentOutput"], () => require("./getAiAgent"));
 
 export { GetAiPromptArgs, GetAiPromptResult, GetAiPromptOutputArgs } from "./getAiPrompt";
 export const getAiPrompt: typeof import("./getAiPrompt").getAiPrompt = null as any;
@@ -63,6 +73,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:wisdom:AiAgent":
+                return new AiAgent(name, <any>undefined, { urn })
             case "aws-native:wisdom:AiPrompt":
                 return new AiPrompt(name, <any>undefined, { urn })
             case "aws-native:wisdom:AiPromptVersion":

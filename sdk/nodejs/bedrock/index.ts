@@ -15,6 +15,11 @@ export type AgentAlias = import("./agentAlias").AgentAlias;
 export const AgentAlias: typeof import("./agentAlias").AgentAlias = null as any;
 utilities.lazyLoad(exports, ["AgentAlias"], () => require("./agentAlias"));
 
+export { ApplicationInferenceProfileArgs } from "./applicationInferenceProfile";
+export type ApplicationInferenceProfile = import("./applicationInferenceProfile").ApplicationInferenceProfile;
+export const ApplicationInferenceProfile: typeof import("./applicationInferenceProfile").ApplicationInferenceProfile = null as any;
+utilities.lazyLoad(exports, ["ApplicationInferenceProfile"], () => require("./applicationInferenceProfile"));
+
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
@@ -44,6 +49,11 @@ export { GetAgentAliasArgs, GetAgentAliasResult, GetAgentAliasOutputArgs } from 
 export const getAgentAlias: typeof import("./getAgentAlias").getAgentAlias = null as any;
 export const getAgentAliasOutput: typeof import("./getAgentAlias").getAgentAliasOutput = null as any;
 utilities.lazyLoad(exports, ["getAgentAlias","getAgentAliasOutput"], () => require("./getAgentAlias"));
+
+export { GetApplicationInferenceProfileArgs, GetApplicationInferenceProfileResult, GetApplicationInferenceProfileOutputArgs } from "./getApplicationInferenceProfile";
+export const getApplicationInferenceProfile: typeof import("./getApplicationInferenceProfile").getApplicationInferenceProfile = null as any;
+export const getApplicationInferenceProfileOutput: typeof import("./getApplicationInferenceProfile").getApplicationInferenceProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationInferenceProfile","getApplicationInferenceProfileOutput"], () => require("./getApplicationInferenceProfile"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
@@ -127,6 +137,8 @@ const _module = {
                 return new Agent(name, <any>undefined, { urn })
             case "aws-native:bedrock:AgentAlias":
                 return new AgentAlias(name, <any>undefined, { urn })
+            case "aws-native:bedrock:ApplicationInferenceProfile":
+                return new ApplicationInferenceProfile(name, <any>undefined, { urn })
             case "aws-native:bedrock:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
             case "aws-native:bedrock:Flow":

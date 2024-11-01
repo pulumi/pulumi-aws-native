@@ -243,7 +243,7 @@ type CapacityProviderManagedScaling struct {
 	InstanceWarmupPeriod *int `pulumi:"instanceWarmupPeriod"`
 	// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `10000` is used.
 	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
-	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
 	//
 	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 	//
@@ -272,7 +272,7 @@ type CapacityProviderManagedScalingArgs struct {
 	InstanceWarmupPeriod pulumi.IntPtrInput `pulumi:"instanceWarmupPeriod"`
 	// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `10000` is used.
 	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
-	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
 	//
 	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 	//
@@ -372,7 +372,7 @@ func (o CapacityProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.In
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
 //
 // When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 //
@@ -435,7 +435,7 @@ func (o CapacityProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
 //
 // When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 //

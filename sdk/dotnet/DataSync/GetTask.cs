@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly ImmutableArray<Outputs.TaskFilterRule> Excludes;
         /// <summary>
-        /// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         /// </summary>
         public readonly ImmutableArray<Outputs.TaskFilterRule> Includes;
         /// <summary>

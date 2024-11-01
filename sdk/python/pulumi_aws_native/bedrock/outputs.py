@@ -33,6 +33,8 @@ __all__ = [
     'AgentPromptConfiguration',
     'AgentPromptOverrideConfiguration',
     'AgentS3Identifier',
+    'ApplicationInferenceProfileInferenceProfileModel',
+    'ApplicationInferenceProfileInferenceProfileModelSourceProperties',
     'DataSourceBedrockFoundationModelConfiguration',
     'DataSourceChunkingConfiguration',
     'DataSourceConfiguration',
@@ -1119,6 +1121,87 @@ class AgentS3Identifier(dict):
         A object key in S3.
         """
         return pulumi.get(self, "s3_object_key")
+
+
+@pulumi.output_type
+class ApplicationInferenceProfileInferenceProfileModel(dict):
+    """
+    Model configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelArn":
+            suggest = "model_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInferenceProfileInferenceProfileModel. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInferenceProfileInferenceProfileModel.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInferenceProfileInferenceProfileModel.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_arn: Optional[str] = None):
+        """
+        Model configuration
+        :param str model_arn: ARN for Foundation Models in Bedrock. These models can be used as base models for model customization jobs
+        """
+        if model_arn is not None:
+            pulumi.set(__self__, "model_arn", model_arn)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> Optional[str]:
+        """
+        ARN for Foundation Models in Bedrock. These models can be used as base models for model customization jobs
+        """
+        return pulumi.get(self, "model_arn")
+
+
+@pulumi.output_type
+class ApplicationInferenceProfileInferenceProfileModelSourceProperties(dict):
+    """
+    Various ways to encode a list of models in a CreateInferenceProfile request
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyFrom":
+            suggest = "copy_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInferenceProfileInferenceProfileModelSourceProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInferenceProfileInferenceProfileModelSourceProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInferenceProfileInferenceProfileModelSourceProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_from: str):
+        """
+        Various ways to encode a list of models in a CreateInferenceProfile request
+        :param str copy_from: Source arns for a custom inference profile to copy its regional load balancing config from. This
+               can either be a foundation model or predefined inference profile ARN.
+        """
+        pulumi.set(__self__, "copy_from", copy_from)
+
+    @property
+    @pulumi.getter(name="copyFrom")
+    def copy_from(self) -> str:
+        """
+        Source arns for a custom inference profile to copy its regional load balancing config from. This
+        can either be a foundation model or predefined inference profile ARN.
+        """
+        return pulumi.get(self, "copy_from")
 
 
 @pulumi.output_type

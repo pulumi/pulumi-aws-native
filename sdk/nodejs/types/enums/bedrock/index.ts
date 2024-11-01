@@ -115,6 +115,25 @@ export const AgentType = {
  */
 export type AgentType = (typeof AgentType)[keyof typeof AgentType];
 
+export const ApplicationInferenceProfileInferenceProfileStatus = {
+    Active: "ACTIVE",
+} as const;
+
+/**
+ * Status of the Inference Profile
+ */
+export type ApplicationInferenceProfileInferenceProfileStatus = (typeof ApplicationInferenceProfileInferenceProfileStatus)[keyof typeof ApplicationInferenceProfileInferenceProfileStatus];
+
+export const ApplicationInferenceProfileInferenceProfileType = {
+    Application: "APPLICATION",
+    SystemDefined: "SYSTEM_DEFINED",
+} as const;
+
+/**
+ * Type of the Inference Profile
+ */
+export type ApplicationInferenceProfileInferenceProfileType = (typeof ApplicationInferenceProfileInferenceProfileType)[keyof typeof ApplicationInferenceProfileInferenceProfileType];
+
 export const DataSourceChunkingStrategy = {
     FixedSize: "FIXED_SIZE",
     None: "NONE",

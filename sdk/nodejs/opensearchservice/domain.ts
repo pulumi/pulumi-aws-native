@@ -110,6 +110,9 @@ export class Domain extends pulumi.CustomResource {
      * If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
+    /**
+     * Container for IAM Identity Center Option control for the domain.
+     */
     public readonly identityCenterOptions!: pulumi.Output<outputs.opensearchservice.DomainIdentityCenterOptions | undefined>;
     /**
      * Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
@@ -278,6 +281,9 @@ export interface DomainArgs {
      * If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
      */
     engineVersion?: pulumi.Input<string>;
+    /**
+     * Container for IAM Identity Center Option control for the domain.
+     */
     identityCenterOptions?: pulumi.Input<inputs.opensearchservice.DomainIdentityCenterOptionsArgs>;
     /**
      * Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.

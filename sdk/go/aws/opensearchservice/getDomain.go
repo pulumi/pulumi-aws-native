@@ -69,7 +69,8 @@ type LookupDomainResult struct {
 	// If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The resource ID. For example, `123456789012/my-domain` .
-	Id                    *string                      `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Container for IAM Identity Center Option control for the domain.
 	IdentityCenterOptions *DomainIdentityCenterOptions `pulumi:"identityCenterOptions"`
 	// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
 	IpAddressType *string `pulumi:"ipAddressType"`
@@ -221,6 +222,7 @@ func (o LookupDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Container for IAM Identity Center Option control for the domain.
 func (o LookupDomainResultOutput) IdentityCenterOptions() DomainIdentityCenterOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainIdentityCenterOptions { return v.IdentityCenterOptions }).(DomainIdentityCenterOptionsPtrOutput)
 }

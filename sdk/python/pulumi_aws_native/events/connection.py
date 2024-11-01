@@ -22,8 +22,8 @@ __all__ = ['ConnectionArgs', 'Connection']
 @pulumi.input_type
 class ConnectionArgs:
     def __init__(__self__, *,
-                 auth_parameters: pulumi.Input['ConnectionAuthParametersArgs'],
-                 authorization_type: pulumi.Input['ConnectionAuthorizationType'],
+                 auth_parameters: Optional[pulumi.Input['ConnectionAuthParametersArgs']] = None,
+                 authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -35,8 +35,10 @@ class ConnectionArgs:
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[str] name: Name of the connection.
         """
-        pulumi.set(__self__, "auth_parameters", auth_parameters)
-        pulumi.set(__self__, "authorization_type", authorization_type)
+        if auth_parameters is not None:
+            pulumi.set(__self__, "auth_parameters", auth_parameters)
+        if authorization_type is not None:
+            pulumi.set(__self__, "authorization_type", authorization_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -44,19 +46,19 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter(name="authParameters")
-    def auth_parameters(self) -> pulumi.Input['ConnectionAuthParametersArgs']:
+    def auth_parameters(self) -> Optional[pulumi.Input['ConnectionAuthParametersArgs']]:
         """
         A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
         """
         return pulumi.get(self, "auth_parameters")
 
     @auth_parameters.setter
-    def auth_parameters(self, value: pulumi.Input['ConnectionAuthParametersArgs']):
+    def auth_parameters(self, value: Optional[pulumi.Input['ConnectionAuthParametersArgs']]):
         pulumi.set(self, "auth_parameters", value)
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> pulumi.Input['ConnectionAuthorizationType']:
+    def authorization_type(self) -> Optional[pulumi.Input['ConnectionAuthorizationType']]:
         """
         The type of authorization to use for the connection.
 
@@ -65,7 +67,7 @@ class ConnectionArgs:
         return pulumi.get(self, "authorization_type")
 
     @authorization_type.setter
-    def authorization_type(self, value: pulumi.Input['ConnectionAuthorizationType']):
+    def authorization_type(self, value: Optional[pulumi.Input['ConnectionAuthorizationType']]):
         pulumi.set(self, "authorization_type", value)
 
     @property
@@ -145,7 +147,7 @@ class Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionArgs,
+                 args: Optional[ConnectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::Events::Connection.
@@ -204,11 +206,7 @@ class Connection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
-            if auth_parameters is None and not opts.urn:
-                raise TypeError("Missing required property 'auth_parameters'")
             __props__.__dict__["auth_parameters"] = auth_parameters
-            if authorization_type is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_type'")
             __props__.__dict__["authorization_type"] = authorization_type
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -256,7 +254,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authParameters")
-    def auth_parameters(self) -> pulumi.Output['outputs.ConnectionAuthParameters']:
+    def auth_parameters(self) -> pulumi.Output[Optional['outputs.ConnectionAuthParameters']]:
         """
         A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
         """
@@ -264,7 +262,7 @@ class Connection(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authorizationType")
-    def authorization_type(self) -> pulumi.Output['ConnectionAuthorizationType']:
+    def authorization_type(self) -> pulumi.Output[Optional['ConnectionAuthorizationType']]:
         """
         The type of authorization to use for the connection.
 

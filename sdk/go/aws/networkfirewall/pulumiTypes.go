@@ -953,6 +953,7 @@ func (o FirewallPolicyPublishMetricActionPtrOutput) Dimensions() FirewallPolicyD
 }
 
 type FirewallPolicyStatefulEngineOptions struct {
+	// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
 	FlowTimeouts *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties `pulumi:"flowTimeouts"`
 	// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 	RuleOrder *FirewallPolicyRuleOrder `pulumi:"ruleOrder"`
@@ -976,6 +977,7 @@ type FirewallPolicyStatefulEngineOptionsInput interface {
 }
 
 type FirewallPolicyStatefulEngineOptionsArgs struct {
+	// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
 	FlowTimeouts FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrInput `pulumi:"flowTimeouts"`
 	// Indicates how to manage the order of stateful rule evaluation for the policy. `DEFAULT_ACTION_ORDER` is the default behavior. Stateful rules are provided to the rule engine as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more information, see [Evaluation order for stateful rules](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
 	RuleOrder FirewallPolicyRuleOrderPtrInput `pulumi:"ruleOrder"`
@@ -1064,6 +1066,7 @@ func (o FirewallPolicyStatefulEngineOptionsOutput) ToFirewallPolicyStatefulEngin
 	}).(FirewallPolicyStatefulEngineOptionsPtrOutput)
 }
 
+// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
 func (o FirewallPolicyStatefulEngineOptionsOutput) FlowTimeouts() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyStatefulEngineOptions) *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties {
 		return v.FlowTimeouts
@@ -1110,6 +1113,7 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) Elem() FirewallPolicyState
 	}).(FirewallPolicyStatefulEngineOptionsOutput)
 }
 
+// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
 func (o FirewallPolicyStatefulEngineOptionsPtrOutput) FlowTimeouts() FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput {
 	return o.ApplyT(func(v *FirewallPolicyStatefulEngineOptions) *FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties {
 		if v == nil {
@@ -1143,6 +1147,7 @@ func (o FirewallPolicyStatefulEngineOptionsPtrOutput) StreamExceptionPolicy() Fi
 	}).(FirewallPolicyStreamExceptionPolicyPtrOutput)
 }
 
+// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
 type FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties struct {
 	TcpIdleTimeoutSeconds *int `pulumi:"tcpIdleTimeoutSeconds"`
 }
@@ -1158,6 +1163,7 @@ type FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesInput interface {
 	ToFirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutputWithContext(context.Context) FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput
 }
 
+// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
 type FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs struct {
 	TcpIdleTimeoutSeconds pulumi.IntPtrInput `pulumi:"tcpIdleTimeoutSeconds"`
 }
@@ -1215,6 +1221,7 @@ func (i *firewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrType) ToFir
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesPtrOutput)
 }
 
+// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
 type FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesOutput) ElementType() reflect.Type {

@@ -155,6 +155,8 @@ func (o ConfigurationSetDashboardOptionsPtrOutput) EngagementMetrics() pulumi.St
 
 // An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 type ConfigurationSetDeliveryOptions struct {
+	// Specifies the maximum time until which SES will retry sending emails
+	MaxDeliverySeconds *float64 `pulumi:"maxDeliverySeconds"`
 	// The name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName *string `pulumi:"sendingPoolName"`
 	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
@@ -174,6 +176,8 @@ type ConfigurationSetDeliveryOptionsInput interface {
 
 // An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
 type ConfigurationSetDeliveryOptionsArgs struct {
+	// Specifies the maximum time until which SES will retry sending emails
+	MaxDeliverySeconds pulumi.Float64PtrInput `pulumi:"maxDeliverySeconds"`
 	// The name of the dedicated IP pool to associate with the configuration set.
 	SendingPoolName pulumi.StringPtrInput `pulumi:"sendingPoolName"`
 	// Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
@@ -258,6 +262,11 @@ func (o ConfigurationSetDeliveryOptionsOutput) ToConfigurationSetDeliveryOptions
 	}).(ConfigurationSetDeliveryOptionsPtrOutput)
 }
 
+// Specifies the maximum time until which SES will retry sending emails
+func (o ConfigurationSetDeliveryOptionsOutput) MaxDeliverySeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *float64 { return v.MaxDeliverySeconds }).(pulumi.Float64PtrOutput)
+}
+
 // The name of the dedicated IP pool to associate with the configuration set.
 func (o ConfigurationSetDeliveryOptionsOutput) SendingPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetDeliveryOptions) *string { return v.SendingPoolName }).(pulumi.StringPtrOutput)
@@ -290,6 +299,16 @@ func (o ConfigurationSetDeliveryOptionsPtrOutput) Elem() ConfigurationSetDeliver
 		var ret ConfigurationSetDeliveryOptions
 		return ret
 	}).(ConfigurationSetDeliveryOptionsOutput)
+}
+
+// Specifies the maximum time until which SES will retry sending emails
+func (o ConfigurationSetDeliveryOptionsPtrOutput) MaxDeliverySeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetDeliveryOptions) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.MaxDeliverySeconds
+	}).(pulumi.Float64PtrOutput)
 }
 
 // The name of the dedicated IP pool to associate with the configuration set.

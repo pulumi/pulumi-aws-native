@@ -234,6 +234,9 @@ class GetDomainResult:
     @property
     @pulumi.getter(name="identityCenterOptions")
     def identity_center_options(self) -> Optional['outputs.DomainIdentityCenterOptions']:
+        """
+        Container for IAM Identity Center Option control for the domain.
+        """
         return pulumi.get(self, "identity_center_options")
 
     @property

@@ -5,6 +5,9 @@
 from enum import Enum
 
 __all__ = [
+    'AiAgentAiAgentAssociationConfigurationType',
+    'AiAgentAiAgentType',
+    'AiAgentKnowledgeBaseSearchType',
     'AiPromptAiPromptApiFormat',
     'AiPromptAiPromptTemplateType',
     'AiPromptAiPromptType',
@@ -12,6 +15,20 @@ __all__ = [
     'AssistantType',
     'KnowledgeBaseType',
 ]
+
+
+class AiAgentAiAgentAssociationConfigurationType(str, Enum):
+    KNOWLEDGE_BASE = "KNOWLEDGE_BASE"
+
+
+class AiAgentAiAgentType(str, Enum):
+    MANUAL_SEARCH = "MANUAL_SEARCH"
+    ANSWER_RECOMMENDATION = "ANSWER_RECOMMENDATION"
+
+
+class AiAgentKnowledgeBaseSearchType(str, Enum):
+    HYBRID = "HYBRID"
+    SEMANTIC = "SEMANTIC"
 
 
 class AiPromptAiPromptApiFormat(str, Enum):

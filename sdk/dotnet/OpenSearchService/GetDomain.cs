@@ -130,6 +130,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// The resource ID. For example, `123456789012/my-domain` .
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Container for IAM Identity Center Option control for the domain.
+        /// </summary>
         public readonly Outputs.DomainIdentityCenterOptions? IdentityCenterOptions;
         /// <summary>
         /// Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.

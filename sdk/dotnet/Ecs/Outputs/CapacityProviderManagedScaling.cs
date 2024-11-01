@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly int? MaximumScalingStepSize;
         /// <summary>
-        /// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
+        /// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
         /// 
         /// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
         /// 

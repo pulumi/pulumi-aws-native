@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyStatefulEngineOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+        /// </summary>
         [Input("flowTimeouts")]
         public Input<Inputs.FirewallPolicyStatefulEngineOptionsFlowTimeoutsPropertiesArgs>? FlowTimeouts { get; set; }
 

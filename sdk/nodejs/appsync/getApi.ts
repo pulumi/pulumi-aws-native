@@ -35,8 +35,19 @@ export interface GetApiResult {
     readonly apiId?: string;
     readonly dns?: {[key: string]: string};
     readonly eventConfig?: outputs.appsync.ApiEventConfig;
+    /**
+     * The API name.
+     */
     readonly name?: string;
+    /**
+     * The owner contact information for an API resource.
+     *
+     * This field accepts any string input with a length of 0 - 256 characters.
+     */
     readonly ownerContact?: string;
+    /**
+     * The tags.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

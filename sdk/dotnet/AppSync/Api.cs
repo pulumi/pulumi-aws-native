@@ -33,12 +33,23 @@ namespace Pulumi.AwsNative.AppSync
         [Output("eventConfig")]
         public Output<Outputs.ApiEventConfig?> EventConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The API name.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The owner contact information for an API resource.
+        /// 
+        /// This field accepts any string input with a length of 0 - 256 characters.
+        /// </summary>
         [Output("ownerContact")]
         public Output<string?> OwnerContact { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -90,14 +101,26 @@ namespace Pulumi.AwsNative.AppSync
         [Input("eventConfig")]
         public Input<Inputs.ApiEventConfigArgs>? EventConfig { get; set; }
 
+        /// <summary>
+        /// The API name.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The owner contact information for an API resource.
+        /// 
+        /// This field accepts any string input with a length of 0 - 256 characters.
+        /// </summary>
         [Input("ownerContact")]
         public Input<string>? OwnerContact { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

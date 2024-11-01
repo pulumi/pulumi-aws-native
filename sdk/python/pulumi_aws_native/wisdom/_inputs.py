@@ -16,6 +16,32 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AiAgentAiAgentConfiguration0PropertiesArgs',
+    'AiAgentAiAgentConfiguration0PropertiesArgsDict',
+    'AiAgentAiAgentConfiguration1PropertiesArgs',
+    'AiAgentAiAgentConfiguration1PropertiesArgsDict',
+    'AiAgentAnswerRecommendationAiAgentConfigurationArgs',
+    'AiAgentAnswerRecommendationAiAgentConfigurationArgsDict',
+    'AiAgentAssociationConfigurationDataPropertiesArgs',
+    'AiAgentAssociationConfigurationDataPropertiesArgsDict',
+    'AiAgentAssociationConfigurationArgs',
+    'AiAgentAssociationConfigurationArgsDict',
+    'AiAgentKnowledgeBaseAssociationConfigurationDataArgs',
+    'AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict',
+    'AiAgentManualSearchAiAgentConfigurationArgs',
+    'AiAgentManualSearchAiAgentConfigurationArgsDict',
+    'AiAgentOrCondition0PropertiesArgs',
+    'AiAgentOrCondition0PropertiesArgsDict',
+    'AiAgentOrCondition1PropertiesArgs',
+    'AiAgentOrCondition1PropertiesArgsDict',
+    'AiAgentTagConditionArgs',
+    'AiAgentTagConditionArgsDict',
+    'AiAgentTagFilter0PropertiesArgs',
+    'AiAgentTagFilter0PropertiesArgsDict',
+    'AiAgentTagFilter1PropertiesArgs',
+    'AiAgentTagFilter1PropertiesArgsDict',
+    'AiAgentTagFilter2PropertiesArgs',
+    'AiAgentTagFilter2PropertiesArgsDict',
     'AiPromptAiPromptTemplateConfigurationArgs',
     'AiPromptAiPromptTemplateConfigurationArgsDict',
     'AssistantAssociationAssociationDataArgs',
@@ -33,6 +59,413 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AiAgentAiAgentConfiguration0PropertiesArgsDict(TypedDict):
+        manual_search_ai_agent_configuration: pulumi.Input['AiAgentManualSearchAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration0PropertiesArgs:
+    def __init__(__self__, *,
+                 manual_search_ai_agent_configuration: pulumi.Input['AiAgentManualSearchAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "manual_search_ai_agent_configuration", manual_search_ai_agent_configuration)
+
+    @property
+    @pulumi.getter(name="manualSearchAiAgentConfiguration")
+    def manual_search_ai_agent_configuration(self) -> pulumi.Input['AiAgentManualSearchAiAgentConfigurationArgs']:
+        return pulumi.get(self, "manual_search_ai_agent_configuration")
+
+    @manual_search_ai_agent_configuration.setter
+    def manual_search_ai_agent_configuration(self, value: pulumi.Input['AiAgentManualSearchAiAgentConfigurationArgs']):
+        pulumi.set(self, "manual_search_ai_agent_configuration", value)
+
+
+if not MYPY:
+    class AiAgentAiAgentConfiguration1PropertiesArgsDict(TypedDict):
+        answer_recommendation_ai_agent_configuration: pulumi.Input['AiAgentAnswerRecommendationAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 answer_recommendation_ai_agent_configuration: pulumi.Input['AiAgentAnswerRecommendationAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "answer_recommendation_ai_agent_configuration", answer_recommendation_ai_agent_configuration)
+
+    @property
+    @pulumi.getter(name="answerRecommendationAiAgentConfiguration")
+    def answer_recommendation_ai_agent_configuration(self) -> pulumi.Input['AiAgentAnswerRecommendationAiAgentConfigurationArgs']:
+        return pulumi.get(self, "answer_recommendation_ai_agent_configuration")
+
+    @answer_recommendation_ai_agent_configuration.setter
+    def answer_recommendation_ai_agent_configuration(self, value: pulumi.Input['AiAgentAnswerRecommendationAiAgentConfigurationArgs']):
+        pulumi.set(self, "answer_recommendation_ai_agent_configuration", value)
+
+
+if not MYPY:
+    class AiAgentAnswerRecommendationAiAgentConfigurationArgsDict(TypedDict):
+        answer_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
+        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+        intent_labeling_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
+        query_reformulation_ai_prompt_id: NotRequired[pulumi.Input[str]]
+elif False:
+    AiAgentAnswerRecommendationAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 answer_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
+                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 intent_labeling_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
+                 query_reformulation_ai_prompt_id: Optional[pulumi.Input[str]] = None):
+        if answer_generation_ai_prompt_id is not None:
+            pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+        if intent_labeling_generation_ai_prompt_id is not None:
+            pulumi.set(__self__, "intent_labeling_generation_ai_prompt_id", intent_labeling_generation_ai_prompt_id)
+        if query_reformulation_ai_prompt_id is not None:
+            pulumi.set(__self__, "query_reformulation_ai_prompt_id", query_reformulation_ai_prompt_id)
+
+    @property
+    @pulumi.getter(name="answerGenerationAiPromptId")
+    def answer_generation_ai_prompt_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "answer_generation_ai_prompt_id")
+
+    @answer_generation_ai_prompt_id.setter
+    def answer_generation_ai_prompt_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "answer_generation_ai_prompt_id", value)
+
+    @property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+        return pulumi.get(self, "association_configurations")
+
+    @association_configurations.setter
+    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+        pulumi.set(self, "association_configurations", value)
+
+    @property
+    @pulumi.getter(name="intentLabelingGenerationAiPromptId")
+    def intent_labeling_generation_ai_prompt_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "intent_labeling_generation_ai_prompt_id")
+
+    @intent_labeling_generation_ai_prompt_id.setter
+    def intent_labeling_generation_ai_prompt_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "intent_labeling_generation_ai_prompt_id", value)
+
+    @property
+    @pulumi.getter(name="queryReformulationAiPromptId")
+    def query_reformulation_ai_prompt_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "query_reformulation_ai_prompt_id")
+
+    @query_reformulation_ai_prompt_id.setter
+    def query_reformulation_ai_prompt_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "query_reformulation_ai_prompt_id", value)
+
+
+if not MYPY:
+    class AiAgentAssociationConfigurationDataPropertiesArgsDict(TypedDict):
+        knowledge_base_association_configuration_data: pulumi.Input['AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict']
+elif False:
+    AiAgentAssociationConfigurationDataPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAssociationConfigurationDataPropertiesArgs:
+    def __init__(__self__, *,
+                 knowledge_base_association_configuration_data: pulumi.Input['AiAgentKnowledgeBaseAssociationConfigurationDataArgs']):
+        pulumi.set(__self__, "knowledge_base_association_configuration_data", knowledge_base_association_configuration_data)
+
+    @property
+    @pulumi.getter(name="knowledgeBaseAssociationConfigurationData")
+    def knowledge_base_association_configuration_data(self) -> pulumi.Input['AiAgentKnowledgeBaseAssociationConfigurationDataArgs']:
+        return pulumi.get(self, "knowledge_base_association_configuration_data")
+
+    @knowledge_base_association_configuration_data.setter
+    def knowledge_base_association_configuration_data(self, value: pulumi.Input['AiAgentKnowledgeBaseAssociationConfigurationDataArgs']):
+        pulumi.set(self, "knowledge_base_association_configuration_data", value)
+
+
+if not MYPY:
+    class AiAgentAssociationConfigurationArgsDict(TypedDict):
+        association_configuration_data: NotRequired[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgsDict']]
+        association_id: NotRequired[pulumi.Input[str]]
+        association_type: NotRequired[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]
+elif False:
+    AiAgentAssociationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAssociationConfigurationArgs:
+    def __init__(__self__, *,
+                 association_configuration_data: Optional[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgs']] = None,
+                 association_id: Optional[pulumi.Input[str]] = None,
+                 association_type: Optional[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']] = None):
+        if association_configuration_data is not None:
+            pulumi.set(__self__, "association_configuration_data", association_configuration_data)
+        if association_id is not None:
+            pulumi.set(__self__, "association_id", association_id)
+        if association_type is not None:
+            pulumi.set(__self__, "association_type", association_type)
+
+    @property
+    @pulumi.getter(name="associationConfigurationData")
+    def association_configuration_data(self) -> Optional[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgs']]:
+        return pulumi.get(self, "association_configuration_data")
+
+    @association_configuration_data.setter
+    def association_configuration_data(self, value: Optional[pulumi.Input['AiAgentAssociationConfigurationDataPropertiesArgs']]):
+        pulumi.set(self, "association_configuration_data", value)
+
+    @property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "association_id")
+
+    @association_id.setter
+    def association_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "association_id", value)
+
+    @property
+    @pulumi.getter(name="associationType")
+    def association_type(self) -> Optional[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]:
+        return pulumi.get(self, "association_type")
+
+    @association_type.setter
+    def association_type(self, value: Optional[pulumi.Input['AiAgentAiAgentAssociationConfigurationType']]):
+        pulumi.set(self, "association_type", value)
+
+
+if not MYPY:
+    class AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict(TypedDict):
+        content_tag_filter: NotRequired[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgsDict', 'AiAgentTagFilter1PropertiesArgsDict', 'AiAgentTagFilter2PropertiesArgsDict']]]
+        max_results: NotRequired[pulumi.Input[float]]
+        override_knowledge_base_search_type: NotRequired[pulumi.Input['AiAgentKnowledgeBaseSearchType']]
+elif False:
+    AiAgentKnowledgeBaseAssociationConfigurationDataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentKnowledgeBaseAssociationConfigurationDataArgs:
+    def __init__(__self__, *,
+                 content_tag_filter: Optional[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]] = None,
+                 max_results: Optional[pulumi.Input[float]] = None,
+                 override_knowledge_base_search_type: Optional[pulumi.Input['AiAgentKnowledgeBaseSearchType']] = None):
+        if content_tag_filter is not None:
+            pulumi.set(__self__, "content_tag_filter", content_tag_filter)
+        if max_results is not None:
+            pulumi.set(__self__, "max_results", max_results)
+        if override_knowledge_base_search_type is not None:
+            pulumi.set(__self__, "override_knowledge_base_search_type", override_knowledge_base_search_type)
+
+    @property
+    @pulumi.getter(name="contentTagFilter")
+    def content_tag_filter(self) -> Optional[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]]:
+        return pulumi.get(self, "content_tag_filter")
+
+    @content_tag_filter.setter
+    def content_tag_filter(self, value: Optional[pulumi.Input[Union['AiAgentTagFilter0PropertiesArgs', 'AiAgentTagFilter1PropertiesArgs', 'AiAgentTagFilter2PropertiesArgs']]]):
+        pulumi.set(self, "content_tag_filter", value)
+
+    @property
+    @pulumi.getter(name="maxResults")
+    def max_results(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "max_results")
+
+    @max_results.setter
+    def max_results(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_results", value)
+
+    @property
+    @pulumi.getter(name="overrideKnowledgeBaseSearchType")
+    def override_knowledge_base_search_type(self) -> Optional[pulumi.Input['AiAgentKnowledgeBaseSearchType']]:
+        return pulumi.get(self, "override_knowledge_base_search_type")
+
+    @override_knowledge_base_search_type.setter
+    def override_knowledge_base_search_type(self, value: Optional[pulumi.Input['AiAgentKnowledgeBaseSearchType']]):
+        pulumi.set(self, "override_knowledge_base_search_type", value)
+
+
+if not MYPY:
+    class AiAgentManualSearchAiAgentConfigurationArgsDict(TypedDict):
+        answer_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
+        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+elif False:
+    AiAgentManualSearchAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentManualSearchAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 answer_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
+                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None):
+        if answer_generation_ai_prompt_id is not None:
+            pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+
+    @property
+    @pulumi.getter(name="answerGenerationAiPromptId")
+    def answer_generation_ai_prompt_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "answer_generation_ai_prompt_id")
+
+    @answer_generation_ai_prompt_id.setter
+    def answer_generation_ai_prompt_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "answer_generation_ai_prompt_id", value)
+
+    @property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+        return pulumi.get(self, "association_configurations")
+
+    @association_configurations.setter
+    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+        pulumi.set(self, "association_configurations", value)
+
+
+if not MYPY:
+    class AiAgentOrCondition0PropertiesArgsDict(TypedDict):
+        and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgsDict']]]
+elif False:
+    AiAgentOrCondition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentOrCondition0PropertiesArgs:
+    def __init__(__self__, *,
+                 and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgs']]]):
+        pulumi.set(__self__, "and_conditions", and_conditions)
+
+    @property
+    @pulumi.getter(name="andConditions")
+    def and_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgs']]]:
+        return pulumi.get(self, "and_conditions")
+
+    @and_conditions.setter
+    def and_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgs']]]):
+        pulumi.set(self, "and_conditions", value)
+
+
+if not MYPY:
+    class AiAgentOrCondition1PropertiesArgsDict(TypedDict):
+        tag_condition: pulumi.Input['AiAgentTagConditionArgsDict']
+elif False:
+    AiAgentOrCondition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentOrCondition1PropertiesArgs:
+    def __init__(__self__, *,
+                 tag_condition: pulumi.Input['AiAgentTagConditionArgs']):
+        pulumi.set(__self__, "tag_condition", tag_condition)
+
+    @property
+    @pulumi.getter(name="tagCondition")
+    def tag_condition(self) -> pulumi.Input['AiAgentTagConditionArgs']:
+        return pulumi.get(self, "tag_condition")
+
+    @tag_condition.setter
+    def tag_condition(self, value: pulumi.Input['AiAgentTagConditionArgs']):
+        pulumi.set(self, "tag_condition", value)
+
+
+if not MYPY:
+    class AiAgentTagConditionArgsDict(TypedDict):
+        key: pulumi.Input[str]
+        value: NotRequired[pulumi.Input[str]]
+elif False:
+    AiAgentTagConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentTagConditionArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class AiAgentTagFilter0PropertiesArgsDict(TypedDict):
+        tag_condition: pulumi.Input['AiAgentTagConditionArgsDict']
+elif False:
+    AiAgentTagFilter0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentTagFilter0PropertiesArgs:
+    def __init__(__self__, *,
+                 tag_condition: pulumi.Input['AiAgentTagConditionArgs']):
+        pulumi.set(__self__, "tag_condition", tag_condition)
+
+    @property
+    @pulumi.getter(name="tagCondition")
+    def tag_condition(self) -> pulumi.Input['AiAgentTagConditionArgs']:
+        return pulumi.get(self, "tag_condition")
+
+    @tag_condition.setter
+    def tag_condition(self, value: pulumi.Input['AiAgentTagConditionArgs']):
+        pulumi.set(self, "tag_condition", value)
+
+
+if not MYPY:
+    class AiAgentTagFilter1PropertiesArgsDict(TypedDict):
+        and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgsDict']]]
+elif False:
+    AiAgentTagFilter1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentTagFilter1PropertiesArgs:
+    def __init__(__self__, *,
+                 and_conditions: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgs']]]):
+        pulumi.set(__self__, "and_conditions", and_conditions)
+
+    @property
+    @pulumi.getter(name="andConditions")
+    def and_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgs']]]:
+        return pulumi.get(self, "and_conditions")
+
+    @and_conditions.setter
+    def and_conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AiAgentTagConditionArgs']]]):
+        pulumi.set(self, "and_conditions", value)
+
+
+if not MYPY:
+    class AiAgentTagFilter2PropertiesArgsDict(TypedDict):
+        or_conditions: pulumi.Input[Sequence[pulumi.Input[Union['AiAgentOrCondition0PropertiesArgsDict', 'AiAgentOrCondition1PropertiesArgsDict']]]]
+elif False:
+    AiAgentTagFilter2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentTagFilter2PropertiesArgs:
+    def __init__(__self__, *,
+                 or_conditions: pulumi.Input[Sequence[pulumi.Input[Union['AiAgentOrCondition0PropertiesArgs', 'AiAgentOrCondition1PropertiesArgs']]]]):
+        pulumi.set(__self__, "or_conditions", or_conditions)
+
+    @property
+    @pulumi.getter(name="orConditions")
+    def or_conditions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['AiAgentOrCondition0PropertiesArgs', 'AiAgentOrCondition1PropertiesArgs']]]]:
+        return pulumi.get(self, "or_conditions")
+
+    @or_conditions.setter
+    def or_conditions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AiAgentOrCondition0PropertiesArgs', 'AiAgentOrCondition1PropertiesArgs']]]]):
+        pulumi.set(self, "or_conditions", value)
+
 
 if not MYPY:
     class AiPromptAiPromptTemplateConfigurationArgsDict(TypedDict):
