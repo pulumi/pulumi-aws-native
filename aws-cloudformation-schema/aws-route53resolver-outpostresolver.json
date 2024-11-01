@@ -104,7 +104,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "route53resolver:TagResource", "route53resolver:UntagResource" ]
   },
   "required" : [ "OutpostArn", "PreferredInstanceType", "Name" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/Status", "/properties/StatusMessage", "/properties/CreationTime", "/properties/ModificationTime", "/properties/CreatorRequestId" ],
@@ -112,7 +113,7 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "route53resolver:CreateOutpostResolver", "route53resolver:GetOutpostResolver", "route53resolver:ListTagsForResource", "outposts:GetOutpost" ]
+      "permissions" : [ "route53resolver:CreateOutpostResolver", "route53resolver:GetOutpostResolver", "route53resolver:ListTagsForResource", "outposts:GetOutpost", "route53resolver:TagResource" ]
     },
     "read" : {
       "permissions" : [ "route53resolver:GetOutpostResolver", "route53resolver:ListTagsForResource" ]
