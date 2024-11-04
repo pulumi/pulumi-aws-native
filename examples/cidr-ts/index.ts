@@ -1,4 +1,4 @@
-// Copyright 2016-2021, Pulumi Corporation.
+// Copyright 2016-2024, Pulumi Corporation.
 
 import * as pulumi from '@pulumi/pulumi';
 import * as aws from "@pulumi/aws-native";
