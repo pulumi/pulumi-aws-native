@@ -43,6 +43,6 @@ pulumi.all([cidrs.subnets, ipvcCidrs.subnets]).apply(([ipv4, ipv6]) => {
             vpcId: vpc.id,
             cidrBlock: ipv4[i],
             ipv6CidrBlock: ipv6[i]
-        });
+        }, { dependsOn: [ipv6Cidr]});
     }
 });
