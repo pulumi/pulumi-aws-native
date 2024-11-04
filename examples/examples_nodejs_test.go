@@ -29,6 +29,15 @@ func TestGetTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestVpcCidrs(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "cidr-ts"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestUpdate(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{

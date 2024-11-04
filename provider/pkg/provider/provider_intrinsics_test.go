@@ -17,29 +17,29 @@ func Test_cidr(t *testing.T) {
 		assert.NoError(t, err)
 		subnets := res["subnets"].ArrayValue()
 		assert.Equal(t, []resource.PropertyValue{
-			resource.NewStringProperty("2600:1f16:44e:3e00::/120"),
-			resource.NewStringProperty("2600:1f16:44e:3e00::100/120"),
-			resource.NewStringProperty("2600:1f16:44e:3e00::200/120"),
-			resource.NewStringProperty("2600:1f16:44e:3e00::300/120"),
+			resource.NewStringProperty("2600:1f16:44e:3e00::/64"),
+			resource.NewStringProperty("2600:1f16:44e:3e01::/64"),
+			resource.NewStringProperty("2600:1f16:44e:3e02::/64"),
+			resource.NewStringProperty("2600:1f16:44e:3e03::/64"),
 		}, subnets)
 
 	})
 
-	t.Run("ipv6, count=1, cidrbits=60", func(t *testing.T) {
+	t.Run("ipv6, count=2, cidrbits=64", func(t *testing.T) {
 		res, err := cidr(resource.NewPropertyMapFromMap(map[string]interface{}{
-			"ipBlock":  "2a05:d024:d::/56",
-			"count":    1,
-			"cidrBits": 4,
+			"ipBlock":  "2600:1f16:19ee:8000::/56",
+			"count":    2,
+			"cidrBits": 64,
 		}))
 		assert.NoError(t, err)
 		subnets := res["subnets"].ArrayValue()
 		assert.Equal(t, []resource.PropertyValue{
-			resource.NewStringProperty("2a05:d024:d::/60"),
+			resource.NewStringProperty("2600:1f16:19ee:8000::/64"),
+			resource.NewStringProperty("2600:1f16:19ee:8001::/64"),
 		}, subnets)
-
 	})
 
-	t.Run("ipv4, count=1, cidrbits=60", func(t *testing.T) {
+	t.Run("ipv4, count=6, cidrbits=60", func(t *testing.T) {
 		res, err := cidr(resource.NewPropertyMapFromMap(map[string]interface{}{
 			"ipBlock":  "192.168.0.0/24",
 			"count":    6,
@@ -48,41 +48,52 @@ func Test_cidr(t *testing.T) {
 		assert.NoError(t, err)
 		subnets := res["subnets"].ArrayValue()
 		assert.Equal(t, []resource.PropertyValue{
-			resource.NewStringProperty("192.168.0.0/29"),
-			resource.NewStringProperty("192.168.0.8/29"),
-			resource.NewStringProperty("192.168.0.16/29"),
-			resource.NewStringProperty("192.168.0.24/29"),
-			resource.NewStringProperty("192.168.0.32/29"),
-			resource.NewStringProperty("192.168.0.40/29"),
+			resource.NewStringProperty("192.168.0.0/27"),
+			resource.NewStringProperty("192.168.0.32/27"),
+			resource.NewStringProperty("192.168.0.64/27"),
+			resource.NewStringProperty("192.168.0.96/27"),
+			resource.NewStringProperty("192.168.0.128/27"),
+			resource.NewStringProperty("192.168.0.160/27"),
 		}, subnets)
 
 	})
 
-	t.Run("ipv4 too long prefix", func(t *testing.T) {
+	t.Run("ipv4 invalid cidrBits", func(t *testing.T) {
 		_, err := cidr(resource.NewPropertyMapFromMap(map[string]interface{}{
 			"ipBlock":  "192.168.0.0/24",
 			"count":    6,
-			"cidrBits": 15,
+			"cidrBits": 36,
 		}))
-		assert.ErrorContains(t, err, "cidrBits 15 would extend prefix to 39 bits, which is too long for an IPv4 address")
+		assert.ErrorContains(t, err, "cidrBits 36 is more than 32 bits for an IPv4 address")
 	})
 
-	t.Run("ipv6 too long prefix", func(t *testing.T) {
+	t.Run("ipv6 invalid cidrBits", func(t *testing.T) {
 		_, err := cidr(resource.NewPropertyMapFromMap(map[string]interface{}{
 			"ipBlock":  "2600:1f16:44e:3e00::/56",
 			"count":    6,
-			"cidrBits": 80,
+			"cidrBits": 129,
 		}))
-		assert.ErrorContains(t, err, "cidrBits 80 would extend prefix to 136 bits, which is too long for an IPv6 address")
+		assert.ErrorContains(t, err, "cidrBits 129 is more than 128 bits for an IPv6 address")
 	})
 
-	t.Run("ipv6 not enough space", func(t *testing.T) {
+	t.Run("ipv6, not enough space", func(t *testing.T) {
 		_, err := cidr(resource.NewPropertyMapFromMap(map[string]interface{}{
-			"ipBlock":  "2600:1f16:44e:3e00::/56",
-			"count":    3,
-			"cidrBits": 1,
+			"ipBlock": "2a05:d024:d::/56",
+			"count":   3,
+			// 128 - 71 = 57 (2 subnets)
+			"cidrBits": 71,
 		}))
-		assert.ErrorContains(t, err, "not enough remaining address space for a subnet with a prefix of 3 bits after 2600:1f16:44e:3e80::/57")
+		assert.ErrorContains(t, err, "not enough remaining address space for a subnet")
+	})
+
+	t.Run("ipv4, not enough space", func(t *testing.T) {
+		_, err := cidr(resource.NewPropertyMapFromMap(map[string]interface{}{
+			"ipBlock": "192.168.1.0/24",
+			"count":   5,
+			// 32 - 6 = 26 (4 subnets)
+			"cidrBits": 6,
+		}))
+		assert.ErrorContains(t, err, "not enough remaining address space for a subnet")
 	})
 
 }
