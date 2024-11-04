@@ -15,6 +15,8 @@ __all__ = [
     'AgentPromptType',
     'AgentStatus',
     'AgentType',
+    'ApplicationInferenceProfileInferenceProfileStatus',
+    'ApplicationInferenceProfileInferenceProfileType',
     'DataSourceChunkingStrategy',
     'DataSourceConfluenceSourceConfigurationAuthType',
     'DataSourceConfluenceSourceConfigurationHostType',
@@ -145,6 +147,21 @@ class AgentType(str, Enum):
     INTEGER = "integer"
     BOOLEAN = "boolean"
     ARRAY = "array"
+
+
+class ApplicationInferenceProfileInferenceProfileStatus(str, Enum):
+    """
+    Status of the Inference Profile
+    """
+    ACTIVE = "ACTIVE"
+
+
+class ApplicationInferenceProfileInferenceProfileType(str, Enum):
+    """
+    Type of the Inference Profile
+    """
+    APPLICATION = "APPLICATION"
+    SYSTEM_DEFINED = "SYSTEM_DEFINED"
 
 
 class DataSourceChunkingStrategy(str, Enum):

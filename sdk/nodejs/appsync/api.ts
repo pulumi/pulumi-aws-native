@@ -47,8 +47,19 @@ export class Api extends pulumi.CustomResource {
     public /*out*/ readonly apiId!: pulumi.Output<string>;
     public /*out*/ readonly dns!: pulumi.Output<{[key: string]: string}>;
     public readonly eventConfig!: pulumi.Output<outputs.appsync.ApiEventConfig | undefined>;
+    /**
+     * The API name.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The owner contact information for an API resource.
+     *
+     * This field accepts any string input with a length of 0 - 256 characters.
+     */
     public readonly ownerContact!: pulumi.Output<string | undefined>;
+    /**
+     * The tags.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -88,7 +99,18 @@ export class Api extends pulumi.CustomResource {
  */
 export interface ApiArgs {
     eventConfig?: pulumi.Input<inputs.appsync.ApiEventConfigArgs>;
+    /**
+     * The API name.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The owner contact information for an API resource.
+     *
+     * This field accepts any string input with a length of 0 - 256 characters.
+     */
     ownerContact?: pulumi.Input<string>;
+    /**
+     * The tags.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

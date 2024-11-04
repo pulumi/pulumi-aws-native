@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Excludes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         /// </summary>
         [Output("includes")]
         public Output<ImmutableArray<Outputs.TaskFilterRule>> Includes { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.AwsNative.DataSync
         private InputList<Inputs.TaskFilterRuleArgs>? _includes;
 
         /// <summary>
-        /// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        /// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         /// </summary>
         public InputList<Inputs.TaskFilterRuleArgs> Includes
         {

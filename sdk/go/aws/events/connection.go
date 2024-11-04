@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -65,11 +64,11 @@ type Connection struct {
 	// The arn of the connection resource.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
-	AuthParameters ConnectionAuthParametersOutput `pulumi:"authParameters"`
+	AuthParameters ConnectionAuthParametersPtrOutput `pulumi:"authParameters"`
 	// The type of authorization to use for the connection.
 	//
 	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
-	AuthorizationType ConnectionAuthorizationTypeOutput `pulumi:"authorizationType"`
+	AuthorizationType ConnectionAuthorizationTypePtrOutput `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the connection.
@@ -82,15 +81,9 @@ type Connection struct {
 func NewConnection(ctx *pulumi.Context,
 	name string, args *ConnectionArgs, opts ...pulumi.ResourceOption) (*Connection, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &ConnectionArgs{}
 	}
 
-	if args.AuthParameters == nil {
-		return nil, errors.New("invalid value for required argument 'AuthParameters'")
-	}
-	if args.AuthorizationType == nil {
-		return nil, errors.New("invalid value for required argument 'AuthorizationType'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
 	})
@@ -129,11 +122,11 @@ func (ConnectionState) ElementType() reflect.Type {
 
 type connectionArgs struct {
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
-	AuthParameters ConnectionAuthParameters `pulumi:"authParameters"`
+	AuthParameters *ConnectionAuthParameters `pulumi:"authParameters"`
 	// The type of authorization to use for the connection.
 	//
 	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
-	AuthorizationType ConnectionAuthorizationType `pulumi:"authorizationType"`
+	AuthorizationType *ConnectionAuthorizationType `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
 	// Name of the connection.
@@ -143,11 +136,11 @@ type connectionArgs struct {
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
 	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
-	AuthParameters ConnectionAuthParametersInput
+	AuthParameters ConnectionAuthParametersPtrInput
 	// The type of authorization to use for the connection.
 	//
 	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
-	AuthorizationType ConnectionAuthorizationTypeInput
+	AuthorizationType ConnectionAuthorizationTypePtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
 	// Name of the connection.
@@ -197,15 +190,15 @@ func (o ConnectionOutput) Arn() pulumi.StringOutput {
 }
 
 // A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
-func (o ConnectionOutput) AuthParameters() ConnectionAuthParametersOutput {
-	return o.ApplyT(func(v *Connection) ConnectionAuthParametersOutput { return v.AuthParameters }).(ConnectionAuthParametersOutput)
+func (o ConnectionOutput) AuthParameters() ConnectionAuthParametersPtrOutput {
+	return o.ApplyT(func(v *Connection) ConnectionAuthParametersPtrOutput { return v.AuthParameters }).(ConnectionAuthParametersPtrOutput)
 }
 
 // The type of authorization to use for the connection.
 //
 // > OAUTH tokens are refreshed when a 401 or 407 response is returned.
-func (o ConnectionOutput) AuthorizationType() ConnectionAuthorizationTypeOutput {
-	return o.ApplyT(func(v *Connection) ConnectionAuthorizationTypeOutput { return v.AuthorizationType }).(ConnectionAuthorizationTypeOutput)
+func (o ConnectionOutput) AuthorizationType() ConnectionAuthorizationTypePtrOutput {
+	return o.ApplyT(func(v *Connection) ConnectionAuthorizationTypePtrOutput { return v.AuthorizationType }).(ConnectionAuthorizationTypePtrOutput)
 }
 
 // Description of the connection.

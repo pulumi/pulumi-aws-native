@@ -46,6 +46,8 @@ __all__ = [
     'AgentPromptOverrideConfigurationArgsDict',
     'AgentS3IdentifierArgs',
     'AgentS3IdentifierArgsDict',
+    'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs',
+    'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict',
     'DataSourceBedrockFoundationModelConfigurationArgs',
     'DataSourceBedrockFoundationModelConfigurationArgsDict',
     'DataSourceChunkingConfigurationArgs',
@@ -1319,6 +1321,44 @@ class AgentS3IdentifierArgs:
     @s3_object_key.setter
     def s3_object_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_object_key", value)
+
+
+if not MYPY:
+    class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict(TypedDict):
+        """
+        Various ways to encode a list of models in a CreateInferenceProfile request
+        """
+        copy_from: pulumi.Input[str]
+        """
+        Source arns for a custom inference profile to copy its regional load balancing config from. This
+        can either be a foundation model or predefined inference profile ARN.
+        """
+elif False:
+    ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs:
+    def __init__(__self__, *,
+                 copy_from: pulumi.Input[str]):
+        """
+        Various ways to encode a list of models in a CreateInferenceProfile request
+        :param pulumi.Input[str] copy_from: Source arns for a custom inference profile to copy its regional load balancing config from. This
+               can either be a foundation model or predefined inference profile ARN.
+        """
+        pulumi.set(__self__, "copy_from", copy_from)
+
+    @property
+    @pulumi.getter(name="copyFrom")
+    def copy_from(self) -> pulumi.Input[str]:
+        """
+        Source arns for a custom inference profile to copy its regional load balancing config from. This
+        can either be a foundation model or predefined inference profile ARN.
+        """
+        return pulumi.get(self, "copy_from")
+
+    @copy_from.setter
+    def copy_from(self, value: pulumi.Input[str]):
+        pulumi.set(self, "copy_from", value)
 
 
 if not MYPY:

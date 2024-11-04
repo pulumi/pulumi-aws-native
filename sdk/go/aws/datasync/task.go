@@ -79,7 +79,7 @@ type Task struct {
 	DestinationNetworkInterfaceArns pulumi.StringArrayOutput `pulumi:"destinationNetworkInterfaceArns"`
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Excludes TaskFilterRuleArrayOutput `pulumi:"excludes"`
-	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Includes TaskFilterRuleArrayOutput `pulumi:"includes"`
 	// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 	ManifestConfig TaskManifestConfigPtrOutput `pulumi:"manifestConfig"`
@@ -162,7 +162,7 @@ type taskArgs struct {
 	DestinationLocationArn string `pulumi:"destinationLocationArn"`
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Excludes []TaskFilterRule `pulumi:"excludes"`
-	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Includes []TaskFilterRule `pulumi:"includes"`
 	// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 	ManifestConfig *TaskManifestConfig `pulumi:"manifestConfig"`
@@ -190,7 +190,7 @@ type TaskArgs struct {
 	DestinationLocationArn pulumi.StringInput
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Excludes TaskFilterRuleArrayInput
-	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Includes TaskFilterRuleArrayInput
 	// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 	ManifestConfig TaskManifestConfigPtrInput
@@ -267,7 +267,7 @@ func (o TaskOutput) Excludes() TaskFilterRuleArrayOutput {
 	return o.ApplyT(func(v *Task) TaskFilterRuleArrayOutput { return v.Excludes }).(TaskFilterRuleArrayOutput)
 }
 
-// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 func (o TaskOutput) Includes() TaskFilterRuleArrayOutput {
 	return o.ApplyT(func(v *Task) TaskFilterRuleArrayOutput { return v.Includes }).(TaskFilterRuleArrayOutput)
 }

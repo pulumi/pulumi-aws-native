@@ -42,7 +42,7 @@ func (p *cfnProvider) getAZs(ctx context.Context, inputs resource.PropertyMap) (
 	}), nil
 }
 
-func (p *cfnProvider) cidr(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+func cidr(inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	ipBlock, ok := inputs["ipBlock"]
 	if !ok {
 		return nil, fmt.Errorf("missing required property 'ipBlock'")
@@ -53,7 +53,7 @@ func (p *cfnProvider) cidr(ctx context.Context, inputs resource.PropertyMap) (re
 
 	count, ok := inputs["count"]
 	if !ok {
-		return nil, fmt.Errorf("mising required property 'count'")
+		return nil, fmt.Errorf("missing required property 'count'")
 	}
 	if !count.IsNumber() || count.NumberValue() < 1 || count.NumberValue() > 256 {
 		return nil, fmt.Errorf("'count' must be a number between 1 and 256")
@@ -61,7 +61,7 @@ func (p *cfnProvider) cidr(ctx context.Context, inputs resource.PropertyMap) (re
 
 	cidrBits, ok := inputs["cidrBits"]
 	if !ok {
-		return nil, fmt.Errorf("mising required property 'cidrBits'")
+		return nil, fmt.Errorf("missing required property 'cidrBits'")
 	}
 	if !cidrBits.IsNumber() || cidrBits.NumberValue() < 0 {
 		return nil, fmt.Errorf("'cidrBits' must be a positive number")
@@ -73,20 +73,41 @@ func (p *cfnProvider) cidr(ctx context.Context, inputs resource.PropertyMap) (re
 	}
 
 	subnets := make([]resource.PropertyValue, int(count.NumberValue()))
-	subnets[0] = resource.NewStringProperty(network.String())
+	startPrefixLen, _ := network.Mask.Size()
 
-	prefixLen := int(cidrBits.NumberValue())
-	for i := 1; i < len(subnets)-1; i++ {
-		subnet, ok := gocidr.NextSubnet(network, prefixLen)
-		if !ok {
-			return nil, fmt.Errorf("could not create %d subnets", len(subnets))
+	prefixLen := int(cidrBits.NumberValue()) + startPrefixLen
+	if prefixLen > len(network.IP)*8 {
+		protocol := "IP"
+		switch len(network.IP) * 8 {
+		case 32:
+			protocol = "IPv4"
+		case 128:
+			protocol = "IPv6"
 		}
-		subnets[i], network = resource.NewStringProperty(subnet.String()), subnet
+		return nil, fmt.Errorf("cidrBits %d would extend prefix to %d bits, which is too long for an %s address", int(cidrBits.NumberValue()), prefixLen, protocol)
+	}
+
+	current, ok := gocidr.PreviousSubnet(network, prefixLen)
+	// ok is true if we have rolled over (which we don't want)
+	if ok {
+		return nil, fmt.Errorf("not enough remaining address space for a subnet with a prefix of %d bits after %s", len(subnets), current.String())
+	}
+	for i := 0; i < len(subnets); i++ {
+		subnet, ok := gocidr.NextSubnet(current, prefixLen)
+		if ok || !network.Contains(subnet.IP) {
+			return nil, fmt.Errorf("not enough remaining address space for a subnet with a prefix of %d bits after %s", len(subnets), current.String())
+		}
+		current = subnet
+		subnets[i] = resource.NewStringProperty(subnet.String())
 	}
 
 	return resource.PropertyMap{
 		"subnets": resource.NewArrayProperty(subnets),
 	}, nil
+}
+
+func (p *cfnProvider) cidr(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {
+	return cidr(inputs)
 }
 
 func (p *cfnProvider) importValue(ctx context.Context, inputs resource.PropertyMap) (resource.PropertyMap, error) {

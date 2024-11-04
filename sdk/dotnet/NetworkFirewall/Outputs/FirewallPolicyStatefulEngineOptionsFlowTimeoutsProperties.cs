@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NetworkFirewall.Outputs
 {
 
+    /// <summary>
+    /// Configures the amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
+    /// </summary>
     [OutputType]
     public sealed class FirewallPolicyStatefulEngineOptionsFlowTimeoutsProperties
     {

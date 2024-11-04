@@ -35,7 +35,7 @@ type LookupTaskResult struct {
 	DestinationNetworkInterfaceArns []string `pulumi:"destinationNetworkInterfaceArns"`
 	// Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Excludes []TaskFilterRule `pulumi:"excludes"`
-	// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+	// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 	Includes []TaskFilterRule `pulumi:"includes"`
 	// The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 	ManifestConfig *TaskManifestConfig `pulumi:"manifestConfig"`
@@ -116,7 +116,7 @@ func (o LookupTaskResultOutput) Excludes() TaskFilterRuleArrayOutput {
 	return o.ApplyT(func(v LookupTaskResult) []TaskFilterRule { return v.Excludes }).(TaskFilterRuleArrayOutput)
 }
 
-// Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+// Specifies include filters that define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
 func (o LookupTaskResultOutput) Includes() TaskFilterRuleArrayOutput {
 	return o.ApplyT(func(v LookupTaskResult) []TaskFilterRule { return v.Includes }).(TaskFilterRuleArrayOutput)
 }

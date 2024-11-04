@@ -78,16 +78,27 @@ class GetApiResult:
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The API name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="ownerContact")
     def owner_contact(self) -> Optional[str]:
+        """
+        The owner contact information for an API resource.
+
+        This field accepts any string input with a length of 0 - 256 characters.
+        """
         return pulumi.get(self, "owner_contact")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags.
+        """
         return pulumi.get(self, "tags")
 
 

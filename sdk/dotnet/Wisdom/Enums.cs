@@ -8,6 +8,89 @@ using Pulumi;
 namespace Pulumi.AwsNative.Wisdom
 {
     [EnumType]
+    public readonly struct AiAgentAiAgentAssociationConfigurationType : IEquatable<AiAgentAiAgentAssociationConfigurationType>
+    {
+        private readonly string _value;
+
+        private AiAgentAiAgentAssociationConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiAgentAiAgentAssociationConfigurationType KnowledgeBase { get; } = new AiAgentAiAgentAssociationConfigurationType("KNOWLEDGE_BASE");
+
+        public static bool operator ==(AiAgentAiAgentAssociationConfigurationType left, AiAgentAiAgentAssociationConfigurationType right) => left.Equals(right);
+        public static bool operator !=(AiAgentAiAgentAssociationConfigurationType left, AiAgentAiAgentAssociationConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(AiAgentAiAgentAssociationConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiAgentAiAgentAssociationConfigurationType other && Equals(other);
+        public bool Equals(AiAgentAiAgentAssociationConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AiAgentAiAgentType : IEquatable<AiAgentAiAgentType>
+    {
+        private readonly string _value;
+
+        private AiAgentAiAgentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiAgentAiAgentType ManualSearch { get; } = new AiAgentAiAgentType("MANUAL_SEARCH");
+        public static AiAgentAiAgentType AnswerRecommendation { get; } = new AiAgentAiAgentType("ANSWER_RECOMMENDATION");
+
+        public static bool operator ==(AiAgentAiAgentType left, AiAgentAiAgentType right) => left.Equals(right);
+        public static bool operator !=(AiAgentAiAgentType left, AiAgentAiAgentType right) => !left.Equals(right);
+
+        public static explicit operator string(AiAgentAiAgentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiAgentAiAgentType other && Equals(other);
+        public bool Equals(AiAgentAiAgentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AiAgentKnowledgeBaseSearchType : IEquatable<AiAgentKnowledgeBaseSearchType>
+    {
+        private readonly string _value;
+
+        private AiAgentKnowledgeBaseSearchType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiAgentKnowledgeBaseSearchType Hybrid { get; } = new AiAgentKnowledgeBaseSearchType("HYBRID");
+        public static AiAgentKnowledgeBaseSearchType Semantic { get; } = new AiAgentKnowledgeBaseSearchType("SEMANTIC");
+
+        public static bool operator ==(AiAgentKnowledgeBaseSearchType left, AiAgentKnowledgeBaseSearchType right) => left.Equals(right);
+        public static bool operator !=(AiAgentKnowledgeBaseSearchType left, AiAgentKnowledgeBaseSearchType right) => !left.Equals(right);
+
+        public static explicit operator string(AiAgentKnowledgeBaseSearchType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiAgentKnowledgeBaseSearchType other && Equals(other);
+        public bool Equals(AiAgentKnowledgeBaseSearchType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AiPromptAiPromptApiFormat : IEquatable<AiPromptAiPromptApiFormat>
     {
         private readonly string _value;

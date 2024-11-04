@@ -975,6 +975,7 @@ _utilities.register(
   "classes": {
    "aws-native:bedrock:Agent": "Agent",
    "aws-native:bedrock:AgentAlias": "AgentAlias",
+   "aws-native:bedrock:ApplicationInferenceProfile": "ApplicationInferenceProfile",
    "aws-native:bedrock:DataSource": "DataSource",
    "aws-native:bedrock:Flow": "Flow",
    "aws-native:bedrock:FlowAlias": "FlowAlias",
@@ -3218,6 +3219,7 @@ _utilities.register(
   "mod": "wisdom",
   "fqn": "pulumi_aws_native.wisdom",
   "classes": {
+   "aws-native:wisdom:AiAgent": "AiAgent",
    "aws-native:wisdom:AiPrompt": "AiPrompt",
    "aws-native:wisdom:AiPromptVersion": "AiPromptVersion",
    "aws-native:wisdom:Assistant": "Assistant",

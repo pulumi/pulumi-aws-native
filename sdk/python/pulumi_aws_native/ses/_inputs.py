@@ -220,6 +220,10 @@ if not MYPY:
         """
         An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
         """
+        max_delivery_seconds: NotRequired[pulumi.Input[float]]
+        """
+        Specifies the maximum time until which SES will retry sending emails
+        """
         sending_pool_name: NotRequired[pulumi.Input[str]]
         """
         The name of the dedicated IP pool to associate with the configuration set.
@@ -234,17 +238,33 @@ elif False:
 @pulumi.input_type
 class ConfigurationSetDeliveryOptionsArgs:
     def __init__(__self__, *,
+                 max_delivery_seconds: Optional[pulumi.Input[float]] = None,
                  sending_pool_name: Optional[pulumi.Input[str]] = None,
                  tls_policy: Optional[pulumi.Input[str]] = None):
         """
         An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+        :param pulumi.Input[float] max_delivery_seconds: Specifies the maximum time until which SES will retry sending emails
         :param pulumi.Input[str] sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
         :param pulumi.Input[str] tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is Require , messages are only delivered if a TLS connection can be established. If the value is Optional , messages can be delivered in plain text if a TLS connection can't be established.
         """
+        if max_delivery_seconds is not None:
+            pulumi.set(__self__, "max_delivery_seconds", max_delivery_seconds)
         if sending_pool_name is not None:
             pulumi.set(__self__, "sending_pool_name", sending_pool_name)
         if tls_policy is not None:
             pulumi.set(__self__, "tls_policy", tls_policy)
+
+    @property
+    @pulumi.getter(name="maxDeliverySeconds")
+    def max_delivery_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        Specifies the maximum time until which SES will retry sending emails
+        """
+        return pulumi.get(self, "max_delivery_seconds")
+
+    @max_delivery_seconds.setter
+    def max_delivery_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_delivery_seconds", value)
 
     @property
     @pulumi.getter(name="sendingPoolName")

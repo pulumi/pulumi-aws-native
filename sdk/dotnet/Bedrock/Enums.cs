@@ -331,6 +331,67 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Status of the Inference Profile
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationInferenceProfileInferenceProfileStatus : IEquatable<ApplicationInferenceProfileInferenceProfileStatus>
+    {
+        private readonly string _value;
+
+        private ApplicationInferenceProfileInferenceProfileStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationInferenceProfileInferenceProfileStatus Active { get; } = new ApplicationInferenceProfileInferenceProfileStatus("ACTIVE");
+
+        public static bool operator ==(ApplicationInferenceProfileInferenceProfileStatus left, ApplicationInferenceProfileInferenceProfileStatus right) => left.Equals(right);
+        public static bool operator !=(ApplicationInferenceProfileInferenceProfileStatus left, ApplicationInferenceProfileInferenceProfileStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationInferenceProfileInferenceProfileStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationInferenceProfileInferenceProfileStatus other && Equals(other);
+        public bool Equals(ApplicationInferenceProfileInferenceProfileStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of the Inference Profile
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationInferenceProfileInferenceProfileType : IEquatable<ApplicationInferenceProfileInferenceProfileType>
+    {
+        private readonly string _value;
+
+        private ApplicationInferenceProfileInferenceProfileType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationInferenceProfileInferenceProfileType Application { get; } = new ApplicationInferenceProfileInferenceProfileType("APPLICATION");
+        public static ApplicationInferenceProfileInferenceProfileType SystemDefined { get; } = new ApplicationInferenceProfileInferenceProfileType("SYSTEM_DEFINED");
+
+        public static bool operator ==(ApplicationInferenceProfileInferenceProfileType left, ApplicationInferenceProfileInferenceProfileType right) => left.Equals(right);
+        public static bool operator !=(ApplicationInferenceProfileInferenceProfileType left, ApplicationInferenceProfileInferenceProfileType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationInferenceProfileInferenceProfileType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationInferenceProfileInferenceProfileType other && Equals(other);
+        public bool Equals(ApplicationInferenceProfileInferenceProfileType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for NONE, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
     /// </summary>
     [EnumType]

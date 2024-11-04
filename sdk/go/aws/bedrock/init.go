@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Agent{}
 	case "aws-native:bedrock:AgentAlias":
 		r = &AgentAlias{}
+	case "aws-native:bedrock:ApplicationInferenceProfile":
+		r = &ApplicationInferenceProfile{}
 	case "aws-native:bedrock:DataSource":
 		r = &DataSource{}
 	case "aws-native:bedrock:Flow":

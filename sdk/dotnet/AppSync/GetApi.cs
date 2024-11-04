@@ -67,8 +67,19 @@ namespace Pulumi.AwsNative.AppSync
         public readonly string? ApiId;
         public readonly ImmutableDictionary<string, string>? Dns;
         public readonly Outputs.ApiEventConfig? EventConfig;
+        /// <summary>
+        /// The API name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The owner contact information for an API resource.
+        /// 
+        /// This field accepts any string input with a length of 0 - 256 characters.
+        /// </summary>
         public readonly string? OwnerContact;
+        /// <summary>
+        /// The tags.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

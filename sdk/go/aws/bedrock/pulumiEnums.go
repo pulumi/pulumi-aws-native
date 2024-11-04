@@ -1537,6 +1537,187 @@ func (in *agentTypePtr) ToAgentTypePtrOutputWithContext(ctx context.Context) Age
 	return pulumi.ToOutputWithContext(ctx, in).(AgentTypePtrOutput)
 }
 
+// Status of the Inference Profile
+type ApplicationInferenceProfileInferenceProfileStatus string
+
+const (
+	ApplicationInferenceProfileInferenceProfileStatusActive = ApplicationInferenceProfileInferenceProfileStatus("ACTIVE")
+)
+
+type ApplicationInferenceProfileInferenceProfileStatusOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInferenceProfileInferenceProfileStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileStatus)(nil)).Elem()
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusOutput) ToApplicationInferenceProfileInferenceProfileStatusOutput() ApplicationInferenceProfileInferenceProfileStatusOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusOutput) ToApplicationInferenceProfileInferenceProfileStatusOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileStatusOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusOutput) ToApplicationInferenceProfileInferenceProfileStatusPtrOutput() ApplicationInferenceProfileInferenceProfileStatusPtrOutput {
+	return o.ToApplicationInferenceProfileInferenceProfileStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusOutput) ToApplicationInferenceProfileInferenceProfileStatusPtrOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInferenceProfileInferenceProfileStatus) *ApplicationInferenceProfileInferenceProfileStatus {
+		return &v
+	}).(ApplicationInferenceProfileInferenceProfileStatusPtrOutput)
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationInferenceProfileInferenceProfileStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationInferenceProfileInferenceProfileStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationInferenceProfileInferenceProfileStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInferenceProfileInferenceProfileStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInferenceProfileInferenceProfileStatus)(nil)).Elem()
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusPtrOutput) ToApplicationInferenceProfileInferenceProfileStatusPtrOutput() ApplicationInferenceProfileInferenceProfileStatusPtrOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusPtrOutput) ToApplicationInferenceProfileInferenceProfileStatusPtrOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileStatusPtrOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusPtrOutput) Elem() ApplicationInferenceProfileInferenceProfileStatusOutput {
+	return o.ApplyT(func(v *ApplicationInferenceProfileInferenceProfileStatus) ApplicationInferenceProfileInferenceProfileStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInferenceProfileInferenceProfileStatus
+		return ret
+	}).(ApplicationInferenceProfileInferenceProfileStatusOutput)
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationInferenceProfileInferenceProfileStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the Inference Profile
+type ApplicationInferenceProfileInferenceProfileType string
+
+const (
+	ApplicationInferenceProfileInferenceProfileTypeApplication   = ApplicationInferenceProfileInferenceProfileType("APPLICATION")
+	ApplicationInferenceProfileInferenceProfileTypeSystemDefined = ApplicationInferenceProfileInferenceProfileType("SYSTEM_DEFINED")
+)
+
+type ApplicationInferenceProfileInferenceProfileTypeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInferenceProfileInferenceProfileTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileType)(nil)).Elem()
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypeOutput) ToApplicationInferenceProfileInferenceProfileTypeOutput() ApplicationInferenceProfileInferenceProfileTypeOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypeOutput) ToApplicationInferenceProfileInferenceProfileTypeOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileTypeOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypeOutput) ToApplicationInferenceProfileInferenceProfileTypePtrOutput() ApplicationInferenceProfileInferenceProfileTypePtrOutput {
+	return o.ToApplicationInferenceProfileInferenceProfileTypePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypeOutput) ToApplicationInferenceProfileInferenceProfileTypePtrOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationInferenceProfileInferenceProfileType) *ApplicationInferenceProfileInferenceProfileType {
+		return &v
+	}).(ApplicationInferenceProfileInferenceProfileTypePtrOutput)
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationInferenceProfileInferenceProfileType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationInferenceProfileInferenceProfileType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationInferenceProfileInferenceProfileTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationInferenceProfileInferenceProfileTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationInferenceProfileInferenceProfileType)(nil)).Elem()
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypePtrOutput) ToApplicationInferenceProfileInferenceProfileTypePtrOutput() ApplicationInferenceProfileInferenceProfileTypePtrOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypePtrOutput) ToApplicationInferenceProfileInferenceProfileTypePtrOutputWithContext(ctx context.Context) ApplicationInferenceProfileInferenceProfileTypePtrOutput {
+	return o
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypePtrOutput) Elem() ApplicationInferenceProfileInferenceProfileTypeOutput {
+	return o.ApplyT(func(v *ApplicationInferenceProfileInferenceProfileType) ApplicationInferenceProfileInferenceProfileType {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationInferenceProfileInferenceProfileType
+		return ret
+	}).(ApplicationInferenceProfileInferenceProfileTypeOutput)
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationInferenceProfileInferenceProfileTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationInferenceProfileInferenceProfileType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Knowledge base can split your source data into chunks. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. You have the following options for chunking your data. If you opt for NONE, then you may want to pre-process your files by splitting them up such that each file corresponds to a chunk.
 type DataSourceChunkingStrategy string
 
@@ -6962,6 +7143,10 @@ func init() {
 	pulumi.RegisterOutputType(AgentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AgentTypeOutput{})
 	pulumi.RegisterOutputType(AgentTypePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileStatusOutput{})
+	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileStatusPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfluenceSourceConfigurationAuthTypeOutput{})

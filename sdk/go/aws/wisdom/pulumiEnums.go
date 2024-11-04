@@ -10,6 +10,499 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AiAgentAiAgentAssociationConfigurationType string
+
+const (
+	AiAgentAiAgentAssociationConfigurationTypeKnowledgeBase = AiAgentAiAgentAssociationConfigurationType("KNOWLEDGE_BASE")
+)
+
+func (AiAgentAiAgentAssociationConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentAssociationConfigurationType)(nil)).Elem()
+}
+
+func (e AiAgentAiAgentAssociationConfigurationType) ToAiAgentAiAgentAssociationConfigurationTypeOutput() AiAgentAiAgentAssociationConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(AiAgentAiAgentAssociationConfigurationTypeOutput)
+}
+
+func (e AiAgentAiAgentAssociationConfigurationType) ToAiAgentAiAgentAssociationConfigurationTypeOutputWithContext(ctx context.Context) AiAgentAiAgentAssociationConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiAgentAiAgentAssociationConfigurationTypeOutput)
+}
+
+func (e AiAgentAiAgentAssociationConfigurationType) ToAiAgentAiAgentAssociationConfigurationTypePtrOutput() AiAgentAiAgentAssociationConfigurationTypePtrOutput {
+	return e.ToAiAgentAiAgentAssociationConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentAiAgentAssociationConfigurationType) ToAiAgentAiAgentAssociationConfigurationTypePtrOutputWithContext(ctx context.Context) AiAgentAiAgentAssociationConfigurationTypePtrOutput {
+	return AiAgentAiAgentAssociationConfigurationType(e).ToAiAgentAiAgentAssociationConfigurationTypeOutputWithContext(ctx).ToAiAgentAiAgentAssociationConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e AiAgentAiAgentAssociationConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentAiAgentAssociationConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentAiAgentAssociationConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentAiAgentAssociationConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiAgentAiAgentAssociationConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentAssociationConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentAssociationConfigurationType)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypeOutput) ToAiAgentAiAgentAssociationConfigurationTypeOutput() AiAgentAiAgentAssociationConfigurationTypeOutput {
+	return o
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypeOutput) ToAiAgentAiAgentAssociationConfigurationTypeOutputWithContext(ctx context.Context) AiAgentAiAgentAssociationConfigurationTypeOutput {
+	return o
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypeOutput) ToAiAgentAiAgentAssociationConfigurationTypePtrOutput() AiAgentAiAgentAssociationConfigurationTypePtrOutput {
+	return o.ToAiAgentAiAgentAssociationConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypeOutput) ToAiAgentAiAgentAssociationConfigurationTypePtrOutputWithContext(ctx context.Context) AiAgentAiAgentAssociationConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiAgentAiAgentAssociationConfigurationType) *AiAgentAiAgentAssociationConfigurationType {
+		return &v
+	}).(AiAgentAiAgentAssociationConfigurationTypePtrOutput)
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentAiAgentAssociationConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentAiAgentAssociationConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentAiAgentAssociationConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentAssociationConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentAiAgentAssociationConfigurationType)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypePtrOutput) ToAiAgentAiAgentAssociationConfigurationTypePtrOutput() AiAgentAiAgentAssociationConfigurationTypePtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypePtrOutput) ToAiAgentAiAgentAssociationConfigurationTypePtrOutputWithContext(ctx context.Context) AiAgentAiAgentAssociationConfigurationTypePtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypePtrOutput) Elem() AiAgentAiAgentAssociationConfigurationTypeOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentAssociationConfigurationType) AiAgentAiAgentAssociationConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentAiAgentAssociationConfigurationType
+		return ret
+	}).(AiAgentAiAgentAssociationConfigurationTypeOutput)
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentAiAgentAssociationConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiAgentAiAgentAssociationConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiAgentAiAgentAssociationConfigurationTypeInput is an input type that accepts values of the AiAgentAiAgentAssociationConfigurationType enum
+// A concrete instance of `AiAgentAiAgentAssociationConfigurationTypeInput` can be one of the following:
+//
+//	AiAgentAiAgentAssociationConfigurationTypeKnowledgeBase
+type AiAgentAiAgentAssociationConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentAssociationConfigurationTypeOutput() AiAgentAiAgentAssociationConfigurationTypeOutput
+	ToAiAgentAiAgentAssociationConfigurationTypeOutputWithContext(context.Context) AiAgentAiAgentAssociationConfigurationTypeOutput
+}
+
+var aiAgentAiAgentAssociationConfigurationTypePtrType = reflect.TypeOf((**AiAgentAiAgentAssociationConfigurationType)(nil)).Elem()
+
+type AiAgentAiAgentAssociationConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentAssociationConfigurationTypePtrOutput() AiAgentAiAgentAssociationConfigurationTypePtrOutput
+	ToAiAgentAiAgentAssociationConfigurationTypePtrOutputWithContext(context.Context) AiAgentAiAgentAssociationConfigurationTypePtrOutput
+}
+
+type aiAgentAiAgentAssociationConfigurationTypePtr string
+
+func AiAgentAiAgentAssociationConfigurationTypePtr(v string) AiAgentAiAgentAssociationConfigurationTypePtrInput {
+	return (*aiAgentAiAgentAssociationConfigurationTypePtr)(&v)
+}
+
+func (*aiAgentAiAgentAssociationConfigurationTypePtr) ElementType() reflect.Type {
+	return aiAgentAiAgentAssociationConfigurationTypePtrType
+}
+
+func (in *aiAgentAiAgentAssociationConfigurationTypePtr) ToAiAgentAiAgentAssociationConfigurationTypePtrOutput() AiAgentAiAgentAssociationConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(AiAgentAiAgentAssociationConfigurationTypePtrOutput)
+}
+
+func (in *aiAgentAiAgentAssociationConfigurationTypePtr) ToAiAgentAiAgentAssociationConfigurationTypePtrOutputWithContext(ctx context.Context) AiAgentAiAgentAssociationConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiAgentAiAgentAssociationConfigurationTypePtrOutput)
+}
+
+type AiAgentAiAgentType string
+
+const (
+	AiAgentAiAgentTypeManualSearch         = AiAgentAiAgentType("MANUAL_SEARCH")
+	AiAgentAiAgentTypeAnswerRecommendation = AiAgentAiAgentType("ANSWER_RECOMMENDATION")
+)
+
+func (AiAgentAiAgentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentType)(nil)).Elem()
+}
+
+func (e AiAgentAiAgentType) ToAiAgentAiAgentTypeOutput() AiAgentAiAgentTypeOutput {
+	return pulumi.ToOutput(e).(AiAgentAiAgentTypeOutput)
+}
+
+func (e AiAgentAiAgentType) ToAiAgentAiAgentTypeOutputWithContext(ctx context.Context) AiAgentAiAgentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiAgentAiAgentTypeOutput)
+}
+
+func (e AiAgentAiAgentType) ToAiAgentAiAgentTypePtrOutput() AiAgentAiAgentTypePtrOutput {
+	return e.ToAiAgentAiAgentTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentAiAgentType) ToAiAgentAiAgentTypePtrOutputWithContext(ctx context.Context) AiAgentAiAgentTypePtrOutput {
+	return AiAgentAiAgentType(e).ToAiAgentAiAgentTypeOutputWithContext(ctx).ToAiAgentAiAgentTypePtrOutputWithContext(ctx)
+}
+
+func (e AiAgentAiAgentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentAiAgentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentAiAgentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentAiAgentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiAgentAiAgentTypeOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentType)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentTypeOutput) ToAiAgentAiAgentTypeOutput() AiAgentAiAgentTypeOutput {
+	return o
+}
+
+func (o AiAgentAiAgentTypeOutput) ToAiAgentAiAgentTypeOutputWithContext(ctx context.Context) AiAgentAiAgentTypeOutput {
+	return o
+}
+
+func (o AiAgentAiAgentTypeOutput) ToAiAgentAiAgentTypePtrOutput() AiAgentAiAgentTypePtrOutput {
+	return o.ToAiAgentAiAgentTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentAiAgentTypeOutput) ToAiAgentAiAgentTypePtrOutputWithContext(ctx context.Context) AiAgentAiAgentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiAgentAiAgentType) *AiAgentAiAgentType {
+		return &v
+	}).(AiAgentAiAgentTypePtrOutput)
+}
+
+func (o AiAgentAiAgentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiAgentAiAgentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentAiAgentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiAgentAiAgentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentAiAgentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentAiAgentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentAiAgentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentAiAgentType)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentTypePtrOutput) ToAiAgentAiAgentTypePtrOutput() AiAgentAiAgentTypePtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentTypePtrOutput) ToAiAgentAiAgentTypePtrOutputWithContext(ctx context.Context) AiAgentAiAgentTypePtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentTypePtrOutput) Elem() AiAgentAiAgentTypeOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentType) AiAgentAiAgentType {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentAiAgentType
+		return ret
+	}).(AiAgentAiAgentTypeOutput)
+}
+
+func (o AiAgentAiAgentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentAiAgentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiAgentAiAgentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiAgentAiAgentTypeInput is an input type that accepts values of the AiAgentAiAgentType enum
+// A concrete instance of `AiAgentAiAgentTypeInput` can be one of the following:
+//
+//	AiAgentAiAgentTypeManualSearch
+//	AiAgentAiAgentTypeAnswerRecommendation
+type AiAgentAiAgentTypeInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentTypeOutput() AiAgentAiAgentTypeOutput
+	ToAiAgentAiAgentTypeOutputWithContext(context.Context) AiAgentAiAgentTypeOutput
+}
+
+var aiAgentAiAgentTypePtrType = reflect.TypeOf((**AiAgentAiAgentType)(nil)).Elem()
+
+type AiAgentAiAgentTypePtrInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentTypePtrOutput() AiAgentAiAgentTypePtrOutput
+	ToAiAgentAiAgentTypePtrOutputWithContext(context.Context) AiAgentAiAgentTypePtrOutput
+}
+
+type aiAgentAiAgentTypePtr string
+
+func AiAgentAiAgentTypePtr(v string) AiAgentAiAgentTypePtrInput {
+	return (*aiAgentAiAgentTypePtr)(&v)
+}
+
+func (*aiAgentAiAgentTypePtr) ElementType() reflect.Type {
+	return aiAgentAiAgentTypePtrType
+}
+
+func (in *aiAgentAiAgentTypePtr) ToAiAgentAiAgentTypePtrOutput() AiAgentAiAgentTypePtrOutput {
+	return pulumi.ToOutput(in).(AiAgentAiAgentTypePtrOutput)
+}
+
+func (in *aiAgentAiAgentTypePtr) ToAiAgentAiAgentTypePtrOutputWithContext(ctx context.Context) AiAgentAiAgentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiAgentAiAgentTypePtrOutput)
+}
+
+type AiAgentKnowledgeBaseSearchType string
+
+const (
+	AiAgentKnowledgeBaseSearchTypeHybrid   = AiAgentKnowledgeBaseSearchType("HYBRID")
+	AiAgentKnowledgeBaseSearchTypeSemantic = AiAgentKnowledgeBaseSearchType("SEMANTIC")
+)
+
+func (AiAgentKnowledgeBaseSearchType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentKnowledgeBaseSearchType)(nil)).Elem()
+}
+
+func (e AiAgentKnowledgeBaseSearchType) ToAiAgentKnowledgeBaseSearchTypeOutput() AiAgentKnowledgeBaseSearchTypeOutput {
+	return pulumi.ToOutput(e).(AiAgentKnowledgeBaseSearchTypeOutput)
+}
+
+func (e AiAgentKnowledgeBaseSearchType) ToAiAgentKnowledgeBaseSearchTypeOutputWithContext(ctx context.Context) AiAgentKnowledgeBaseSearchTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiAgentKnowledgeBaseSearchTypeOutput)
+}
+
+func (e AiAgentKnowledgeBaseSearchType) ToAiAgentKnowledgeBaseSearchTypePtrOutput() AiAgentKnowledgeBaseSearchTypePtrOutput {
+	return e.ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentKnowledgeBaseSearchType) ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(ctx context.Context) AiAgentKnowledgeBaseSearchTypePtrOutput {
+	return AiAgentKnowledgeBaseSearchType(e).ToAiAgentKnowledgeBaseSearchTypeOutputWithContext(ctx).ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(ctx)
+}
+
+func (e AiAgentKnowledgeBaseSearchType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentKnowledgeBaseSearchType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiAgentKnowledgeBaseSearchType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiAgentKnowledgeBaseSearchType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiAgentKnowledgeBaseSearchTypeOutput struct{ *pulumi.OutputState }
+
+func (AiAgentKnowledgeBaseSearchTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentKnowledgeBaseSearchType)(nil)).Elem()
+}
+
+func (o AiAgentKnowledgeBaseSearchTypeOutput) ToAiAgentKnowledgeBaseSearchTypeOutput() AiAgentKnowledgeBaseSearchTypeOutput {
+	return o
+}
+
+func (o AiAgentKnowledgeBaseSearchTypeOutput) ToAiAgentKnowledgeBaseSearchTypeOutputWithContext(ctx context.Context) AiAgentKnowledgeBaseSearchTypeOutput {
+	return o
+}
+
+func (o AiAgentKnowledgeBaseSearchTypeOutput) ToAiAgentKnowledgeBaseSearchTypePtrOutput() AiAgentKnowledgeBaseSearchTypePtrOutput {
+	return o.ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentKnowledgeBaseSearchTypeOutput) ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(ctx context.Context) AiAgentKnowledgeBaseSearchTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiAgentKnowledgeBaseSearchType) *AiAgentKnowledgeBaseSearchType {
+		return &v
+	}).(AiAgentKnowledgeBaseSearchTypePtrOutput)
+}
+
+func (o AiAgentKnowledgeBaseSearchTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiAgentKnowledgeBaseSearchTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentKnowledgeBaseSearchType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiAgentKnowledgeBaseSearchTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentKnowledgeBaseSearchTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiAgentKnowledgeBaseSearchType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiAgentKnowledgeBaseSearchTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentKnowledgeBaseSearchTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentKnowledgeBaseSearchType)(nil)).Elem()
+}
+
+func (o AiAgentKnowledgeBaseSearchTypePtrOutput) ToAiAgentKnowledgeBaseSearchTypePtrOutput() AiAgentKnowledgeBaseSearchTypePtrOutput {
+	return o
+}
+
+func (o AiAgentKnowledgeBaseSearchTypePtrOutput) ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(ctx context.Context) AiAgentKnowledgeBaseSearchTypePtrOutput {
+	return o
+}
+
+func (o AiAgentKnowledgeBaseSearchTypePtrOutput) Elem() AiAgentKnowledgeBaseSearchTypeOutput {
+	return o.ApplyT(func(v *AiAgentKnowledgeBaseSearchType) AiAgentKnowledgeBaseSearchType {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentKnowledgeBaseSearchType
+		return ret
+	}).(AiAgentKnowledgeBaseSearchTypeOutput)
+}
+
+func (o AiAgentKnowledgeBaseSearchTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiAgentKnowledgeBaseSearchTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiAgentKnowledgeBaseSearchType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiAgentKnowledgeBaseSearchTypeInput is an input type that accepts values of the AiAgentKnowledgeBaseSearchType enum
+// A concrete instance of `AiAgentKnowledgeBaseSearchTypeInput` can be one of the following:
+//
+//	AiAgentKnowledgeBaseSearchTypeHybrid
+//	AiAgentKnowledgeBaseSearchTypeSemantic
+type AiAgentKnowledgeBaseSearchTypeInput interface {
+	pulumi.Input
+
+	ToAiAgentKnowledgeBaseSearchTypeOutput() AiAgentKnowledgeBaseSearchTypeOutput
+	ToAiAgentKnowledgeBaseSearchTypeOutputWithContext(context.Context) AiAgentKnowledgeBaseSearchTypeOutput
+}
+
+var aiAgentKnowledgeBaseSearchTypePtrType = reflect.TypeOf((**AiAgentKnowledgeBaseSearchType)(nil)).Elem()
+
+type AiAgentKnowledgeBaseSearchTypePtrInput interface {
+	pulumi.Input
+
+	ToAiAgentKnowledgeBaseSearchTypePtrOutput() AiAgentKnowledgeBaseSearchTypePtrOutput
+	ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(context.Context) AiAgentKnowledgeBaseSearchTypePtrOutput
+}
+
+type aiAgentKnowledgeBaseSearchTypePtr string
+
+func AiAgentKnowledgeBaseSearchTypePtr(v string) AiAgentKnowledgeBaseSearchTypePtrInput {
+	return (*aiAgentKnowledgeBaseSearchTypePtr)(&v)
+}
+
+func (*aiAgentKnowledgeBaseSearchTypePtr) ElementType() reflect.Type {
+	return aiAgentKnowledgeBaseSearchTypePtrType
+}
+
+func (in *aiAgentKnowledgeBaseSearchTypePtr) ToAiAgentKnowledgeBaseSearchTypePtrOutput() AiAgentKnowledgeBaseSearchTypePtrOutput {
+	return pulumi.ToOutput(in).(AiAgentKnowledgeBaseSearchTypePtrOutput)
+}
+
+func (in *aiAgentKnowledgeBaseSearchTypePtr) ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(ctx context.Context) AiAgentKnowledgeBaseSearchTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiAgentKnowledgeBaseSearchTypePtrOutput)
+}
+
 type AiPromptAiPromptApiFormat string
 
 const (
@@ -999,6 +1492,12 @@ func (in *knowledgeBaseTypePtr) ToKnowledgeBaseTypePtrOutputWithContext(ctx cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentAssociationConfigurationTypeInput)(nil)).Elem(), AiAgentAiAgentAssociationConfigurationType("KNOWLEDGE_BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentAssociationConfigurationTypePtrInput)(nil)).Elem(), AiAgentAiAgentAssociationConfigurationType("KNOWLEDGE_BASE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentTypeInput)(nil)).Elem(), AiAgentAiAgentType("MANUAL_SEARCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentTypePtrInput)(nil)).Elem(), AiAgentAiAgentType("MANUAL_SEARCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseSearchTypeInput)(nil)).Elem(), AiAgentKnowledgeBaseSearchType("HYBRID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseSearchTypePtrInput)(nil)).Elem(), AiAgentKnowledgeBaseSearchType("HYBRID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptApiFormatInput)(nil)).Elem(), AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptApiFormatPtrInput)(nil)).Elem(), AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateTypeInput)(nil)).Elem(), AiPromptAiPromptTemplateType("TEXT"))
@@ -1011,6 +1510,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTypePtrInput)(nil)).Elem(), AssistantType("AGENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
+	pulumi.RegisterOutputType(AiAgentAiAgentAssociationConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentAssociationConfigurationTypePtrOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentTypeOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentTypePtrOutput{})
+	pulumi.RegisterOutputType(AiAgentKnowledgeBaseSearchTypeOutput{})
+	pulumi.RegisterOutputType(AiAgentKnowledgeBaseSearchTypePtrOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptApiFormatOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptApiFormatPtrOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateTypeOutput{})
