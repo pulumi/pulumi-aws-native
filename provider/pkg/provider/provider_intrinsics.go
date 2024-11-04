@@ -42,6 +42,14 @@ func (p *cfnProvider) getAZs(ctx context.Context, inputs resource.PropertyMap) (
 	}), nil
 }
 
+// Goal is to implement the Fn::Cidr intrinsic function
+// https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-cidr.html
+// ipBlock: The user-specified CIDR block to be split into smaller CIDR blocks.
+// count: The number of CIDR blocks to generate. Valid range is between 1 and 256.
+// cidrBits: The number of subnet bits for the CIDR. For example, specifying a value "8" for this parameter will create a CIDR with a mask of "/24".
+//
+//	Note: Subnet bits is the inverse of subnet mask. To calculate the required host bits
+//	for a given subnet bits, subtract the subnet bits from 32 for ipv4 or 128 for ipv6.
 func cidr(inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	ipBlock, ok := inputs["ipBlock"]
 	if !ok {
@@ -71,21 +79,24 @@ func cidr(inputs resource.PropertyMap) (resource.PropertyMap, error) {
 	if err != nil {
 		return nil, fmt.Errorf("invalid IP block: %s", err)
 	}
+	protocol := "IP"
+	bits := len(network.IP) * 8
+	switch bits {
+	case 32:
+		protocol = "IPv4"
+	case 128:
+		protocol = "IPv6"
+	}
 
 	subnets := make([]resource.PropertyValue, int(count.NumberValue()))
-	startPrefixLen, _ := network.Mask.Size()
+	subnetBits := int(cidrBits.NumberValue())
 
-	prefixLen := int(cidrBits.NumberValue()) + startPrefixLen
-	if prefixLen > len(network.IP)*8 {
-		protocol := "IP"
-		switch len(network.IP) * 8 {
-		case 32:
-			protocol = "IPv4"
-		case 128:
-			protocol = "IPv6"
-		}
-		return nil, fmt.Errorf("cidrBits %d would extend prefix to %d bits, which is too long for an %s address", int(cidrBits.NumberValue()), prefixLen, protocol)
+	if subnetBits > bits {
+		return nil, fmt.Errorf("cidrBits %d is more than %d bits for an %s address. \n"+
+			"cidrBits is the inverse of subnet mask, e.g. cidrBits=5 would create a subnet mask of '/27'", subnetBits, bits, protocol)
 	}
+
+	prefixLen := bits - subnetBits
 
 	current, ok := gocidr.PreviousSubnet(network, prefixLen)
 	// ok is true if we have rolled over (which we don't want)
