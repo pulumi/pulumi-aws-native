@@ -354,6 +354,7 @@ AWS::EC2::RouteTable
 AWS::EC2::SecurityGroup
 AWS::EC2::SecurityGroupEgress
 AWS::EC2::SecurityGroupIngress
+AWS::EC2::SecurityGroupVpcAssociation
 AWS::EC2::SnapshotBlockPublicAccess
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet

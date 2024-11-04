@@ -4893,6 +4893,19 @@
       }
     }
   },
+  "aws-native:ec2:SecurityGroupVpcAssociation": {
+    "cfTypeName": "AWS::EC2::SecurityGroupVpcAssociation",
+    "properties": {
+      "groupId": {
+        "type": "string",
+        "description": "The group ID of the specified security group."
+      },
+      "vpcId": {
+        "type": "string",
+        "description": "The ID of the VPC in the security group vpc association."
+      }
+    }
+  },
   "aws-native:ec2:SnapshotBlockPublicAccess": {
     "cfTypeName": "AWS::EC2::SnapshotBlockPublicAccess",
     "properties": {
@@ -10101,6 +10114,9 @@
       "backupRetentionPeriod": {
         "type": "integer",
         "description": "The number of days for which automated backups are retained.\n Default: 1\n Constraints:\n  +  Must be a value from 1 to 35\n  \n Valid for: Aurora DB clusters and Multi-AZ DB clusters"
+      },
+      "clusterScalabilityType": {
+        "type": "string"
       },
       "copyTagsToSnapshot": {
         "type": "boolean",
