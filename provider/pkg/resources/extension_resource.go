@@ -5,6 +5,7 @@ package resources
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
@@ -112,7 +113,7 @@ func ApplyDefaults(typedInputs ExtensionResourceInputs) (ExtensionResourceInputs
 	return typedInputs, nil
 }
 
-func (r *extensionResource) Create(ctx context.Context, urn resource.URN, inputs resource.PropertyMap) (identifier *string, outputs map[string]any, err error) {
+func (r *extensionResource) Create(ctx context.Context, urn resource.URN, inputs resource.PropertyMap, timeout time.Duration) (identifier *string, outputs resource.PropertyMap, err error) {
 	var typedInputs ExtensionResourceInputs
 	_, err = resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -124,10 +125,11 @@ func (r *extensionResource) Create(ctx context.Context, urn resource.URN, inputs
 		return nil, nil, fmt.Errorf("failed to create resource: %w", err)
 	}
 
-	return id, typedInputs.toOutputs(resourceState), nil
+	rawOutputs := typedInputs.toOutputs(resourceState)
+	return id, CheckpointObject(inputs, rawOutputs), nil
 }
 
-func (r *extensionResource) Read(ctx context.Context, urn resource.URN, id string, oldInputs, oldState resource.PropertyMap) (outputs map[string]any, inputs resource.PropertyMap, exists bool, err error) {
+func (r *extensionResource) Read(ctx context.Context, urn resource.URN, id string, oldInputs, oldState resource.PropertyMap) (outputs resource.PropertyMap, inputs resource.PropertyMap, exists bool, err error) {
 	if len(oldState) == 0 {
 		// We can't yet support import because the type would not be known.
 		return nil, nil, false, fmt.Errorf("ExtensionResource import not implemented")
@@ -161,10 +163,11 @@ func (r *extensionResource) Read(ctx context.Context, urn resource.URN, id strin
 	typedInputs.Properties = resourcex.Decode(newProperties)
 	newInputs := oldInputs.Copy()
 	newInputs[resource.PropertyKey("properties")] = resource.PropertyValue{V: newProperties}
-	return typedInputs.toOutputs(resourceState), newInputs, true, nil
+	rawState := typedInputs.toOutputs(resourceState)
+	return CheckpointObject(newInputs, rawState), newInputs, true, nil
 }
 
-func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap, oldInputs resource.PropertyMap) (map[string]any, error) {
+func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap, oldInputs resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error) {
 	var typedOldInputs ExtensionResourceInputs
 	_, err := resourcex.Unmarshal(&typedOldInputs, oldInputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -191,10 +194,11 @@ func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id str
 		return nil, fmt.Errorf("failed to update resource: %w", err)
 	}
 
-	return typedInputs.toOutputs(resourceState), nil
+	rawState := typedInputs.toOutputs(resourceState)
+	return CheckpointObject(inputs, rawState), nil
 }
 
-func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap) error {
+func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap, timeout time.Duration) error {
 	var typedInputs ExtensionResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
