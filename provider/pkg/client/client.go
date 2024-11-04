@@ -18,6 +18,7 @@ import (
 
 // CloudControlApiClient providers CRUD operations around Cloud Control API, with the mechanics of API calls abstracted away.
 // For instance, it serializes and deserializes wire data and follows the protocol of long-running operations.
+//go:generate mockgen -package client -source client.go -destination mock_client.go CloudControlApiClient
 type CloudControlClient interface {
 	// Create creates a resource of the specified type with the desired state.
 	// It awaits the operation until completion and returns a map of output property values.

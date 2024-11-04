@@ -9,6 +9,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
+//go:generate mockgen -package resources -source custom.go -destination mock_custom_resource.go CustomResource
 type CustomResource interface {
 	// Check validates and transforms the inputs of the resource.
 	Check(ctx context.Context, urn resource.URN, randomSeed []byte, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error)

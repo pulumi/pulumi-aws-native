@@ -33,6 +33,7 @@ func TestCheckpointObject(t *testing.T) {
 	secretInputs := inputsField.SecretValue().Element.ObjectValue()
 	assert.Equal(t, inputs, secretInputs)
 }
+
 func TestParseCheckpointObject(t *testing.T) {
 	inputs := resource.PropertyMap{
 		"input1": resource.NewStringProperty("value1"),
