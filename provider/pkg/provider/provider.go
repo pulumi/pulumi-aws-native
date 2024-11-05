@@ -798,7 +798,7 @@ func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pu
 	}
 
 	// Extract old inputs from the `__inputs` field of the old state.
-	oldInputs := parseCheckpointObject(oldState)
+	oldInputs := resources.ParseCheckpointObject(oldState)
 
 	diff := oldInputs.Diff(newInputs)
 
@@ -830,11 +830,11 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	resourceToken := string(urn.Type())
 	var id *string
-	var outputs map[string]interface{}
+	var outputs resource.PropertyMap
 	var createErr error
-	var payload map[string]interface{}
+	timeout := time.Duration(req.GetTimeout()) * time.Second
 	if customResource, ok := p.customResources[resourceToken]; ok {
-		id, outputs, createErr = customResource.Create(ctx, urn, inputs)
+		id, outputs, createErr = customResource.Create(ctx, urn, inputs, timeout)
 	} else {
 		// Standard resource
 		spec, hasSpec := p.resourceMap.Resources[resourceToken]
@@ -844,7 +844,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		cfType := spec.CfType
 
 		// Convert SDK inputs to CFN payload.
-		payload, err = naming.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
+		payload, err := naming.SdkToCfn(&spec, p.resourceMap.Types, resourcex.Decode(inputs))
 		if err != nil {
 			return nil, fmt.Errorf("Failed to convert value for %s: %w", resourceToken, err)
 		}
@@ -857,19 +857,20 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			return nil, errors.Wrapf(createErr, "creating resource")
 		}
 
-		outputs = naming.CfnToSdk(resourceState)
+		rawOutputs := naming.CfnToSdk(resourceState)
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if hasSpec && len(spec.WriteOnly) > 0 {
 			inputsMap := inputs.Mappable()
 			for _, writeOnlyProp := range spec.WriteOnly {
-				if _, ok := outputs[writeOnlyProp]; !ok {
+				if _, ok := rawOutputs[writeOnlyProp]; !ok {
 					inputValue, ok := inputsMap[writeOnlyProp]
 					if ok {
-						outputs[writeOnlyProp] = inputValue
+						rawOutputs[writeOnlyProp] = inputValue
 					}
 				}
 			}
 		}
+		outputs = resources.CheckpointObject(inputs, rawOutputs)
 	}
 
 	if createErr != nil {
@@ -878,9 +879,8 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 		}
 		// Resource was created but failed to fully initialize.
 		// It has some state, so we return a partial error.
-		obj := checkpointObject(inputs, outputs)
 		checkpoint, err := plugin.MarshalProperties(
-			obj,
+			outputs,
 			plugin.MarshalOptions{
 				Label:        "currentResourceStateCheckpoint.checkpoint",
 				KeepSecrets:  true,
@@ -896,7 +896,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	// Store both outputs and inputs into the state.
 	checkpoint, err := plugin.MarshalProperties(
-		checkpointObject(inputs, outputs),
+		outputs,
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
@@ -923,12 +923,12 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 		return nil, err
 	}
 	// Extract old inputs from the `__inputs` field of the old state.
-	inputs := parseCheckpointObject(oldState)
+	inputs := resources.ParseCheckpointObject(oldState)
 
 	// Read the resource state from AWS.
 	resourceToken := string(urn.Type())
 	var newInputs resource.PropertyMap
-	var newState map[string]interface{}
+	var newState resource.PropertyMap
 	var exists bool
 	if customResource, ok := p.customResources[resourceToken]; ok {
 		newState, newInputs, exists, err = customResource.Read(ctx, urn, id, inputs, oldState)
@@ -954,12 +954,12 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// Not Exists means that the resource was deleted.
 			return &pulumirpc.ReadResponse{Id: ""}, nil
 		}
-		newState = naming.CfnToSdk(resourceState)
+		rawState := naming.CfnToSdk(resourceState)
 
 		if inputs == nil {
 			// There may be no old state (i.e., importing a new resource).
 			// Extract inputs from the response body.
-			newStateProps := resource.NewPropertyMapFromMap(newState)
+			newStateProps := resource.NewPropertyMapFromMap(rawState)
 			inputs, err = schema.GetInputsFromState(&spec, newStateProps)
 			if err != nil {
 				return nil, err
@@ -981,18 +981,18 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			if len(spec.WriteOnly) > 0 {
 				missingProps := make([]string, 0, len(spec.WriteOnly))
 				for _, writeOnlyProp := range spec.WriteOnly {
-					if _, ok := newState[writeOnlyProp]; !ok {
+					if _, ok := rawState[writeOnlyProp]; !ok {
 						oldValue, ok := oldStateMap[writeOnlyProp]
 						missingProps = append(missingProps, writeOnlyProp)
 						if ok {
-							newState[writeOnlyProp] = oldValue
+							rawState[writeOnlyProp] = oldValue
 						}
 					}
 				}
 				p.host.Log(ctx, diag.Warning, urn, fmt.Sprintf("Can't refresh write-only properties: %s", strings.Join(missingProps, ", ")))
 			}
 			// 2. Project new outputs to their corresponding input shape (exclude attributes).
-			newStateProps := resource.NewPropertyMapFromMap(newState)
+			newStateProps := resource.NewPropertyMapFromMap(rawState)
 			newInputProjection, err := schema.GetInputsFromState(&spec, newStateProps)
 			if err != nil {
 				return nil, err
@@ -1003,10 +1003,12 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// 4. Apply this difference to the actual inputs (not a projection) that we have in state.
 			newInputs = resources.ApplyDiff(inputs, diff)
 		}
+
+		newState = resources.CheckpointObject(newInputs, rawState)
 	}
 	// Store both outputs and inputs into the state checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
-		checkpointObject(newInputs, newState),
+		newState,
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
@@ -1052,14 +1054,15 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	if err != nil {
 		return nil, errors.Wrapf(err, "diff failed because malformed resource inputs")
 	}
-	oldInputs := parseCheckpointObject(oldState)
+	oldInputs := resources.ParseCheckpointObject(oldState)
 
-	var outputs map[string]interface{}
+	var outputs resource.PropertyMap
 	id := req.GetId()
 	resourceToken := string(urn.Type())
 	if customResource, ok := p.customResources[resourceToken]; ok {
+		timeout := time.Duration(req.GetTimeout()) * time.Second
 		// Custom resource
-		outputs, err = customResource.Update(ctx, urn, id, newInputs, oldInputs)
+		outputs, err = customResource.Update(ctx, urn, id, newInputs, oldInputs, timeout)
 		if err != nil {
 			return nil, err
 		}
@@ -1080,24 +1083,25 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 		if err != nil {
 			return nil, err
 		}
-		outputs = naming.CfnToSdk(resourceState)
+		rawOutputs := naming.CfnToSdk(resourceState)
 
 		// Write-only properties are not returned in the outputs, so we assume they should have the same value we sent from the inputs.
 		if len(spec.WriteOnly) > 0 {
 			inputsMap := newInputs.Mappable()
 			for _, writeOnlyProp := range spec.WriteOnly {
-				if _, ok := outputs[writeOnlyProp]; !ok {
+				if _, ok := rawOutputs[writeOnlyProp]; !ok {
 					inputValue, ok := inputsMap[writeOnlyProp]
 					if ok {
-						outputs[writeOnlyProp] = inputValue
+						rawOutputs[writeOnlyProp] = inputValue
 					}
 				}
 			}
 		}
+		outputs = resources.CheckpointObject(newInputs, rawOutputs)
 	}
 	// Store both outputs and inputs into the state and return RPC checkpoint.
 	checkpoint, err := plugin.MarshalProperties(
-		checkpointObject(newInputs, outputs),
+		outputs,
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
 	)
 	if err != nil {
@@ -1125,7 +1129,8 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 			return nil, errors.Wrapf(err, "failed to parse inputs for update")
 		}
 
-		err = customResource.Delete(ctx, urn, id, oldInputs)
+		timeout := time.Duration(req.GetTimeout()) * time.Second
+		err = customResource.Delete(ctx, urn, id, oldInputs, timeout)
 		if err != nil {
 			return nil, err
 		}
@@ -1171,22 +1176,6 @@ func (p *cfnProvider) GetPluginInfo(context.Context, *pbempty.Empty) (*pulumirpc
 func (p *cfnProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
 	p.canceler.cancel()
 	return &pbempty.Empty{}, nil
-}
-
-// checkpointObject puts inputs in the `__inputs` field of the state.
-func checkpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
-	object := resource.NewPropertyMapFromMap(outputs)
-	object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
-	return object
-}
-
-// parseCheckpointObject returns inputs that are saved in the `__inputs` field of the state.
-func parseCheckpointObject(obj resource.PropertyMap) resource.PropertyMap {
-	if inputs, ok := obj["__inputs"]; ok {
-		return inputs.SecretValue().Element.ObjectValue()
-	}
-
-	return nil
 }
 
 // pulumiUserAgentMiddleware adds a Pulumi-specific user-agent to the request middleware.
