@@ -397,7 +397,7 @@ func TestUpdate(t *testing.T) {
 	}
 
 	t.Run("CustomResource", func(t *testing.T) {
-		mockCustomResource.EXPECT().Update(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), 5*time.Minute).Return(
+		mockCustomResource.EXPECT().Update(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any(), 5*time.Minute).Return(
 			resource.PropertyMap{"foo": resource.NewStringProperty("bar")}, nil,
 		)
 
@@ -410,7 +410,7 @@ func TestUpdate(t *testing.T) {
 	})
 
 	t.Run("CustomResource/Error", func(t *testing.T) {
-		mockCustomResource.EXPECT().Update(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), 5*time.Minute).Return(
+		mockCustomResource.EXPECT().Update(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any(), 5*time.Minute).Return(
 			nil, assert.AnError,
 		)
 
@@ -509,14 +509,14 @@ func TestDelete(t *testing.T) {
 	}
 
 	t.Run("CustomResource", func(t *testing.T) {
-		mockCustomResource.EXPECT().Delete(ctx, urn, "resource-id", gomock.Any(), gomock.Any()).Return(nil)
+		mockCustomResource.EXPECT().Delete(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any()).Return(nil)
 
 		_, err := provider.Delete(ctx, req)
 		assert.NoError(t, err)
 	})
 
 	t.Run("CustomResource/Error", func(t *testing.T) {
-		mockCustomResource.EXPECT().Delete(ctx, urn, "resource-id", gomock.Any(), gomock.Any()).Return(assert.AnError)
+		mockCustomResource.EXPECT().Delete(ctx, urn, "resource-id", gomock.Any(), gomock.Any(), gomock.Any()).Return(assert.AnError)
 
 		_, err := provider.Delete(ctx, req)
 		assert.Error(t, err)

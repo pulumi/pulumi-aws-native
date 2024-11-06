@@ -75,17 +75,17 @@ func (mr *MockCustomResourceMockRecorder) Create(ctx, urn, inputs, timeout any) 
 }
 
 // Delete mocks base method.
-func (m *MockCustomResource) Delete(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap, timeout time.Duration) error {
+func (m *MockCustomResource) Delete(ctx context.Context, urn resource.URN, id string, inputs, state resource.PropertyMap, timeout time.Duration) error {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Delete", ctx, urn, id, inputs, timeout)
+	ret := m.ctrl.Call(m, "Delete", ctx, urn, id, inputs, state, timeout)
 	ret0, _ := ret[0].(error)
 	return ret0
 }
 
 // Delete indicates an expected call of Delete.
-func (mr *MockCustomResourceMockRecorder) Delete(ctx, urn, id, inputs, timeout any) *gomock.Call {
+func (mr *MockCustomResourceMockRecorder) Delete(ctx, urn, id, inputs, state, timeout any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockCustomResource)(nil).Delete), ctx, urn, id, inputs, timeout)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockCustomResource)(nil).Delete), ctx, urn, id, inputs, state, timeout)
 }
 
 // Read mocks base method.
@@ -106,16 +106,16 @@ func (mr *MockCustomResourceMockRecorder) Read(ctx, urn, id, oldInputs, oldOutpu
 }
 
 // Update mocks base method.
-func (m *MockCustomResource) Update(ctx context.Context, urn resource.URN, id string, inputs, oldInputs resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error) {
+func (m *MockCustomResource) Update(ctx context.Context, urn resource.URN, id string, inputs, oldInputs, state resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Update", ctx, urn, id, inputs, oldInputs, timeout)
+	ret := m.ctrl.Call(m, "Update", ctx, urn, id, inputs, oldInputs, state, timeout)
 	ret0, _ := ret[0].(resource.PropertyMap)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // Update indicates an expected call of Update.
-func (mr *MockCustomResourceMockRecorder) Update(ctx, urn, id, inputs, oldInputs, timeout any) *gomock.Call {
+func (mr *MockCustomResourceMockRecorder) Update(ctx, urn, id, inputs, oldInputs, state, timeout any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockCustomResource)(nil).Update), ctx, urn, id, inputs, oldInputs, timeout)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockCustomResource)(nil).Update), ctx, urn, id, inputs, oldInputs, state, timeout)
 }

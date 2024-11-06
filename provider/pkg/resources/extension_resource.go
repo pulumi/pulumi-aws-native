@@ -167,7 +167,7 @@ func (r *extensionResource) Read(ctx context.Context, urn resource.URN, id strin
 	return CheckpointObject(newInputs, rawState), newInputs, true, nil
 }
 
-func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap, oldInputs resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error) {
+func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id string, inputs, oldInputs, state resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error) {
 	var typedOldInputs ExtensionResourceInputs
 	_, err := resourcex.Unmarshal(&typedOldInputs, oldInputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -198,7 +198,7 @@ func (r *extensionResource) Update(ctx context.Context, urn resource.URN, id str
 	return CheckpointObject(inputs, rawState), nil
 }
 
-func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap, timeout time.Duration) error {
+func (r *extensionResource) Delete(ctx context.Context, urn resource.URN, id string, inputs, state resource.PropertyMap, timeout time.Duration) error {
 	var typedInputs ExtensionResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {

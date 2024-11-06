@@ -18,7 +18,7 @@ type CustomResource interface {
 	// Read returns the outputs and the updated inputs of the resource.
 	Read(ctx context.Context, urn resource.URN, id string, oldInputs, oldOutputs resource.PropertyMap) (outputs resource.PropertyMap, inputs resource.PropertyMap, exists bool, err error)
 	// Update applies the diff of the inputs to the resource and returns the updated outputs.
-	Update(ctx context.Context, urn resource.URN, id string, inputs, oldInputs resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error)
+	Update(ctx context.Context, urn resource.URN, id string, inputs, oldInputs, state resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error)
 	// Delete removes the resource from the cloud provider.
-	Delete(ctx context.Context, urn resource.URN, id string, inputs resource.PropertyMap, timeout time.Duration) error
+	Delete(ctx context.Context, urn resource.URN, id string, inputs, state resource.PropertyMap, timeout time.Duration) error
 }

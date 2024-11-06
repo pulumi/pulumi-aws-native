@@ -1061,7 +1061,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	if customResource, ok := p.customResources[resourceToken]; ok {
 		timeout := time.Duration(req.GetTimeout()) * time.Second
 		// Custom resource
-		outputs, err = customResource.Update(ctx, urn, id, newInputs, oldInputs, timeout)
+		outputs, err = customResource.Update(ctx, urn, id, newInputs, oldInputs, oldState, timeout)
 		if err != nil {
 			return nil, err
 		}
@@ -1128,8 +1128,13 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 			return nil, errors.Wrapf(err, "failed to parse inputs for update")
 		}
 
+		// Retrieve the state.
+		state, err := plugin.UnmarshalProperties(req.GetProperties(), plugin.MarshalOptions{
+			Label: fmt.Sprintf("%s.state", label), KeepUnknowns: true, SkipNulls: true, KeepSecrets: true,
+		})
+
 		timeout := time.Duration(req.GetTimeout()) * time.Second
-		err = customResource.Delete(ctx, urn, id, oldInputs, timeout)
+		err = customResource.Delete(ctx, urn, id, oldInputs, state, timeout)
 		if err != nil {
 			return nil, err
 		}
