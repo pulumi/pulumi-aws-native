@@ -8,7 +8,13 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/assertpreview"
+	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/pulumi/pulumi/sdk/v3/go/auto"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestSimpleTs(t *testing.T) {
@@ -27,6 +33,43 @@ func TestGetTs(t *testing.T) {
 		})
 
 	integration.ProgramTest(t, &test)
+}
+
+func TestCustomResourceEmulator(t *testing.T) {
+	crossTest := func(t *testing.T, outputs auto.OutputMap) {
+		require.Contains(t, outputs, "cloudformationAmiId")
+		cloudformationAmiId := outputs["cloudformationAmiId"].Value.(string)
+		require.NotEmpty(t, cloudformationAmiId)
+
+		require.Contains(t, outputs, "emulatorAmiId")
+		emulatorAmiId := outputs["emulatorAmiId"].Value.(string)
+		assert.Equal(t, cloudformationAmiId, emulatorAmiId)
+	}
+
+	cwd := getCwd(t)
+	options := []opttest.Option{
+		opttest.LocalProviderPath("aws-native", filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws-native"),
+	}
+	test := pulumitest.NewPulumiTest(t, filepath.Join(cwd, "cfn-custom-resource"), options...)
+	test.SetConfig(t, "amiRegion", "us-west-2")
+
+	upResult := test.Up(t)
+	t.Logf("#%v", upResult.Summary)
+	crossTest(t, upResult.Outputs)
+
+	previewResult := test.Preview(t)
+	assertpreview.HasNoChanges(t, previewResult)
+
+	test.SetConfig(t, "amiRegion", "us-east-1")
+	upResult = test.Up(t)
+	t.Logf("#%v", upResult.Summary)
+	crossTest(t, upResult.Outputs)
+
+	previewResult = test.Preview(t)
+	assertpreview.HasNoChanges(t, previewResult)
+
+	test.Destroy(t)
 }
 
 func TestVpcCidrs(t *testing.T) {
