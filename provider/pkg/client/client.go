@@ -6,16 +6,15 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"glog"
 	"strings"
 	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws/retry"
 	"github.com/aws/aws-sdk-go-v2/aws/transport/http"
-	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/smithy-go"
+	"github.com/golang/glog"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -170,10 +169,11 @@ func (c *clientImpl) getResourceRetryNotFound(
 	var lastError error
 	for attempt := 0; attempt < maxAttempts; attempt++ {
 		result, err := c.api.GetResource(ctx, typeName, identifier)
+		var notFound *types.ResourceNotFoundException
 		switch {
 		case err == nil:
 			return result, nil
-		case !errors.Is(err, &types.ResourceNotFoundException{}):
+		case !errors.As(err, &notFound):
 			return nil, err
 		}
 		lastError = err
@@ -181,8 +181,8 @@ func (c *clientImpl) getResourceRetryNotFound(
 		delay, err := retryBackoff.BackoffDelay(attempt, nil)
 		contract.AssertNoErrorf(err, "BackoffDelay should not fail")
 
-		glog.V(9).Infof("CloudControl GetResource failed with ResourceNotFoundException:"+
-			" attempt #%d, retrying in %v", identifier, attempt, delay)
+		glog.V(9).Infof("CloudControl GetResource(%q, %q) failed with ResourceNotFoundException:"+
+			" attempt #%d, retrying in %v", typeName, identifier, attempt, delay)
 
 		select {
 		case <-ctx.Done():
