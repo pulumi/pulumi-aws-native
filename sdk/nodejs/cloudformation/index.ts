@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CustomResourceEmulatorArgs } from "./customResourceEmulator";
+export type CustomResourceEmulator = import("./customResourceEmulator").CustomResourceEmulator;
+export const CustomResourceEmulator: typeof import("./customResourceEmulator").CustomResourceEmulator = null as any;
+utilities.lazyLoad(exports, ["CustomResourceEmulator"], () => require("./customResourceEmulator"));
+
 export { GetHookDefaultVersionArgs, GetHookDefaultVersionResult, GetHookDefaultVersionOutputArgs } from "./getHookDefaultVersion";
 export const getHookDefaultVersion: typeof import("./getHookDefaultVersion").getHookDefaultVersion = null as any;
 export const getHookDefaultVersionOutput: typeof import("./getHookDefaultVersion").getHookDefaultVersionOutput = null as any;
@@ -128,6 +133,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cloudformation:CustomResourceEmulator":
+                return new CustomResourceEmulator(name, <any>undefined, { urn })
             case "aws-native:cloudformation:HookDefaultVersion":
                 return new HookDefaultVersion(name, <any>undefined, { urn })
             case "aws-native:cloudformation:HookTypeConfig":
