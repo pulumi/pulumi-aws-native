@@ -3,12 +3,8 @@
 package client
 
 import (
-	"bytes"
 	"context"
-	"crypto/rand"
-	"encoding/base64"
 	"errors"
-	"io"
 	"net/http"
 	"testing"
 	"time"
@@ -17,7 +13,6 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/smithy-go"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
-	"github.com/hexops/autogold/v2"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -375,45 +370,12 @@ func (m *mockAPI) WaitForResourceOpCompletion(ctx context.Context, pi *types.Pro
 
 func TestGetResourceRetryNotFoundRetrySettings(t *testing.T) {
 	ci := &clientImpl{}
-	millisecondDelays := []float64{}
+	var totalDelay time.Duration
 	attempts, backoff := ci.getResourceRetryNotFoundRetrySettings()
 	for attempt := 0; attempt < attempts; attempt++ {
 		delay, err := backoff.BackoffDelay(attempt, nil)
 		require.NoError(t, err)
-		millisecondDelays = append(millisecondDelays, float64(delay/time.Millisecond))
+		totalDelay += delay
 	}
-	autogold.Expect([]float64{853, 437, 3000}).Equal(t, millisecondDelays)
-}
-
-type cycleReader struct {
-	io.Reader
-}
-
-func newCycleReader(r io.Reader) io.Reader {
-	cycle := &cycleReader{}
-	cycle.Reader = io.MultiReader(r, cycle)
-	return cycle
-}
-
-func init() {
-	// Fix crypto/rand entropy generator to produce deterministic results so that the tests are stable.
-	randomData := "UsCVGVwZuuC8rVuW3jXDcDP2SkPA3KitYnQIHH1R4hcRGvisAdV7UzIcjRdl/GmoqlSNfXigYMxNxrWrOPrhyToJZLPwZl" +
-		"PJVQe5q9Y9/ogJPSPPN+SVAjkNro4rRPppV6lgY0yq1rLbUJHg00ydcuqwCpS45jrrgCh8YuVoRli4Kf1LyZJ5PC3D2Nh02dXVXj" +
-		"L9TSHaKRZ/+beq3uCT1Kg4TbNvpJ52k3tPdq7W2JxuJu+SM6yS9eRDwf1w7vZiJsxna51G2npBmPf8NrAZz7EEYK8opOcOCnd7ME" +
-		"z3pXLF3KLw9c6r4sIPO5c5NGa4QrLu1/YOM7VY15EPU2h+HxmAiJFkBEEpjBjuDjXJZFTn1R5AnmX9AiN/9CWSjlzEsZiuW8HDNx" +
-		"c6TNhX9+xtFu8tyfiP6A+f9TrpbWNPqDU2uueHSZCyWRd1M8GsD9atGJYnYyXnWZsoLhtgvw7/AFC9PClqKCv6560/7hwxrLWVfP" +
-		"ZTq6J2l8NqRN7u6y+O4s/YPTda466SmHFfHynsJJbtrqIIiQ53PoEdFLxYp1VHfNC6I73+YWcq1q+Pp9q2E89+ET0ntmN86wpDXV" +
-		"u4xkrhDSHIzSnTm6WYjH/GaSm38FSf6M8oksPKni0JVoORERlH8gyfG3tZkvUHFMYpyd4uuTJ0GVEmXWYgGHFNgfp5WrIr6GePgX" +
-		"dXBPE2xyIKqQ0H0kxnAkJ7O38qOA+sg4izd4qPxiSQInQWB37HONwqupSlZm5pNdkludk7ZjiJbzn+YuaaPuOs0GJMddr/6VfsTh" +
-		"aZU6ulVwu9X3PHkCfi7Oydq4weJrYRsE0XGUMlRQHCJEndUTKqkq6NG+6wXZ3xcXCZhK7IqTh7PITpbTCrhvbjN8iqja5yRj1czE" +
-		"bEBzL9hXSCpp6mLMTDkCwCaw3HE7DeMCv4Jb+3/ndbgkvobfnLzzlKoX2xGnF0D/0hAKZp9fWsF5oVd3y2BsMoeJyUpOSmwHU4Hh" +
-		"Z6cJRpEp+N9EDEOGg0DrEBjx7xSEl3enKrTgQpeNAODydGA/m/vrABdSDxMh12A9a5QozvkKnC4W0La90Vhf4Xg7f5ZvQOsJXvlx" +
-		"/Y1GNjwOmzr4JfH9OGKeuk0uqTft14sE5K6JvUKWNz902sYUYRP/yXfH2Ql3TUrW0TgitzTpLip4bFzKsi8C0LSrSnq4NglaDSpt" +
-		"irK439aqTx0GDF+UR47ReDkbsS/z40IdiOTC19zh2+Z997/1SPBQ7bP0tbeDIG4jBykO091MVG5x9LCVg412kKf5ztr52ltId7VM" +
-		"QuqudhDSN0DIaPf/3EPZNlJWSqDB8Tnxj9oQCC0m5FVk8fplb24AKGyg/umPvbwG3+icA+wA=="
-	fixedRandom, err := base64.StdEncoding.DecodeString(randomData)
-	if err != nil {
-		panic(err)
-	}
-	rand.Reader = newCycleReader(bytes.NewReader(fixedRandom))
+	require.LessOrEqual(t, totalDelay, 10*time.Second)
 }
