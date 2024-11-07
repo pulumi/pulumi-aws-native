@@ -281,6 +281,50 @@ func TestClientCreate(t *testing.T) {
 		assert.Nil(t, id)
 		assert.Nil(t, outputs)
 	})
+
+	t.Run("GetResource is retried if it fails with a ResourceNotFoundException", func(t *testing.T) {
+		resourceID := "exampleID"
+		mockAPI.CreateResourceFunc = func(ctx context.Context, cfType, desiredState string) (*types.ProgressEvent, error) {
+			return &types.ProgressEvent{
+				OperationStatus: types.OperationStatusSuccess,
+				Identifier:      &resourceID,
+			}, nil
+		}
+		mockAPI.WaitForResourceOpCompletionFunc = func(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
+			return pi, nil
+		}
+		getResourceInvocation := 0
+		mockAPI.GetResourceFunc = func(ctx context.Context, typeName, identifier string) (map[string]interface{}, error) {
+			switch getResourceInvocation {
+			case 0:
+				getResourceInvocation++
+				return nil, &smithy.OperationError{
+					ServiceID:     "CloudControl",
+					OperationName: "GetResource",
+					Err: &awshttp.ResponseError{
+						RequestID: "9068dc0f-1124-4fc7-a120-39956230b810",
+						ResponseError: &smithyhttp.ResponseError{
+							Response: &smithyhttp.Response{
+								Response: &http.Response{
+									StatusCode: 400,
+								},
+							},
+							Err: &types.ResourceNotFoundException{},
+						},
+					},
+				}
+			default:
+				return map[string]interface{}{"output1": "outvalue1"}, nil
+			}
+		}
+
+		id, outputs, err := client.Create(ctx, typeName, desiredState)
+
+		assert.NoError(t, err)
+		t.Logf("ID=%v", id)
+		t.Logf("Outputs=%v", outputs)
+	})
+
 }
 
 // Mock API implementation
