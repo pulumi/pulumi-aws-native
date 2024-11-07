@@ -53,7 +53,7 @@ func NewCfnCustomResource(providerName string, s3Client client.S3Client, lambdaC
 		providerName: providerName,
 		s3Client:     s3Client,
 		lambdaClient: lambdaClient,
-		clock: &realClock{},
+		clock:        &realClock{},
 	}
 }
 
@@ -138,7 +138,7 @@ func CfnCustomResourceSpec() pschema.ResourceSpec {
 			"bucketName": {
 				Description: "The name of the S3 bucket to use for storing the response from the Custom Resource.\n\n" +
 					"The IAM principal configured for the provider must have `s3:PutObject`, `s3:HeadObject` and `s3:GetObject` permissions on this bucket.",
-				TypeSpec:    pschema.TypeSpec{Type: "string"},
+				TypeSpec: pschema.TypeSpec{Type: "string"},
 			},
 			"bucketKeyPrefix": {
 				Description: "The prefix to use for the bucket key when storing the response from the Custom Resource provider.",
@@ -526,6 +526,10 @@ func (i CfnCustomResourceInputs) makeOutputs(inputs resource.PropertyMap, respon
 }
 
 func sanitizeCustomResourceResponse(event *cfn.Event, response *cfn.Response) *cfn.Response {
+	if response == nil || response.PhysicalResourceID == "" {
+		return response
+	}
+
 	// ensure PhysicalResourceID is set. For Create requests we fall back to the RequestID,
 	// for Update and Delete requests we fall back to the PhysicalResourceID from state
 	if response.PhysicalResourceID == "" && (event.RequestType == cfn.RequestDelete || event.RequestType == cfn.RequestUpdate) {

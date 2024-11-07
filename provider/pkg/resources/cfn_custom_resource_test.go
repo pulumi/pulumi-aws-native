@@ -351,6 +351,110 @@ func TestCfnCustomResource_Create(t *testing.T) {
 	}
 }
 
+func TestCfnCustomResource_Create_PartialError(t *testing.T) {
+	t.Parallel()
+
+	tests := []struct {
+		name               string
+		physicalResourceID string
+		expectedError      string
+		customResourceData map[string]interface{}
+	}{
+		{
+			name:               "With PhysicalResourceID",
+			physicalResourceID: "physical-resource-id",
+			expectedError:      "some error occurred",
+			customResourceData: map[string]interface{}{"key": "value"},
+		},
+		{
+			name:               "Without PhysicalResourceID",
+			physicalResourceID: "",
+			expectedError:      "some error occurred",
+			customResourceData: map[string]interface{}{"key": "value"},
+		},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+			ctrl := gomock.NewController(t)
+			defer ctrl.Finish()
+
+			mockLambdaClient := client.NewMockLambdaClient(ctrl)
+			mockS3Client := client.NewMockS3Client(ctrl)
+
+			stackID := "stack-id"
+			serviceToken := "arn:aws:lambda:us-west-2:123456789012:function:my-function"
+			bucketKeyPrefix := "bucket-key-prefix"
+			bucketName := "bucket-name"
+			resourceType := "Custom::MyResource"
+
+			mockLambdaClient.EXPECT().InvokeAsync(gomock.Any(), serviceToken, gomock.Any()).Return(nil)
+			mockS3Client.EXPECT().PresignPutObject(gomock.Any(), bucketName, matchesBucketKeyPrefix(bucketKeyPrefix), gomock.Any()).Return("https://example.com", nil)
+
+			response := cfn.Response{
+				Status:             cfn.StatusFailed,
+				RequestID:          "request-id",
+				LogicalResourceID:  "logical-resource-id",
+				StackID:            stackID,
+				PhysicalResourceID: tt.physicalResourceID,
+				Data:               tt.customResourceData,
+				Reason:             tt.expectedError,
+			}
+
+			responseMessage, err := json.Marshal(response)
+			require.NoError(t, err)
+
+			mockS3Client.EXPECT().WaitForObject(
+				gomock.Any(),
+				bucketName,
+				matchesBucketKeyPrefix(bucketKeyPrefix),
+				DefaultCustomResourceTimeout,
+			).Return(io.NopCloser(bytes.NewReader(responseMessage)), nil)
+
+			c := &cfnCustomResource{
+				providerName: "testProvider",
+				lambdaClient: mockLambdaClient,
+				s3Client:     mockS3Client,
+			}
+			ctx := context.Background()
+			urn := urn.URN("urn:pulumi:testProject::test::aws-native:cloudformation:CfnCustomResource::dummy")
+
+			inputs := resource.PropertyMap{
+				"serviceToken":             resource.NewStringProperty(serviceToken),
+				"resourceType":             resource.NewStringProperty(resourceType),
+				"stackID":                  resource.NewStringProperty(stackID),
+				"bucketName":               resource.NewStringProperty(bucketName),
+				"bucketKeyPrefix":          resource.NewStringProperty(bucketKeyPrefix),
+				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{"key": "value"})),
+			}
+
+			id, outputs, err := c.Create(ctx, urn, inputs, 0)
+
+			require.Error(t, err)
+			assert.Contains(t, err.Error(), tt.expectedError)
+			if tt.physicalResourceID != "" {
+				assert.Equal(t, &tt.physicalResourceID, id)
+			} else {
+				assert.Nil(t, id)
+			}
+
+			expectedState := CfnCustomResourceState{
+				PhysicalResourceID: tt.physicalResourceID,
+				Data:               tt.customResourceData,
+				StackID:            stackID,
+				ServiceToken:       serviceToken,
+				Bucket:             bucketName,
+				ResourceType:       resourceType,
+			}
+
+			expectedOutputs := CheckpointPropertyMap(inputs, expectedState.ToPropertyMap())
+			assert.Equal(t, expectedOutputs, outputs)
+		})
+	}
+}
+
 func TestCfnCustomResource_Create_PresignPutObjectFail(t *testing.T) {
 	t.Parallel()
 	ctrl := gomock.NewController(t)
@@ -1037,12 +1141,12 @@ func TestCfnCustomResource_Read(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
-		name          string
-		oldState      resource.PropertyMap
-		oldInputs     resource.PropertyMap
-		expectedState resource.PropertyMap
+		name           string
+		oldState       resource.PropertyMap
+		oldInputs      resource.PropertyMap
+		expectedState  resource.PropertyMap
 		expectedInputs resource.PropertyMap
-		expectedError string
+		expectedError  string
 	}{
 		{
 			name: "Success",
@@ -1057,10 +1161,10 @@ func TestCfnCustomResource_Read(t *testing.T) {
 				"resourceType": resource.NewStringProperty("Custom::MyResource"),
 			},
 			oldInputs: resource.PropertyMap{
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"resourceType": resource.NewStringProperty("Custom::MyResource"),
-				"stackID":      resource.NewStringProperty("stack-id"),
-				"bucketName":   resource.NewStringProperty("bucket-name"),
+				"serviceToken":    resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
+				"resourceType":    resource.NewStringProperty("Custom::MyResource"),
+				"stackID":         resource.NewStringProperty("stack-id"),
+				"bucketName":      resource.NewStringProperty("bucket-name"),
 				"bucketKeyPrefix": resource.NewStringProperty("bucket-key-prefix"),
 				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
 					"key": "value",
@@ -1077,10 +1181,10 @@ func TestCfnCustomResource_Read(t *testing.T) {
 				"resourceType": resource.NewStringProperty("Custom::MyResource"),
 			},
 			expectedInputs: resource.PropertyMap{
-				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
-				"resourceType": resource.NewStringProperty("Custom::MyResource"),
-				"stackID":      resource.NewStringProperty("stack-id"),
-				"bucketName":   resource.NewStringProperty("bucket-name"),
+				"serviceToken":    resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
+				"resourceType":    resource.NewStringProperty("Custom::MyResource"),
+				"stackID":         resource.NewStringProperty("stack-id"),
+				"bucketName":      resource.NewStringProperty("bucket-name"),
 				"bucketKeyPrefix": resource.NewStringProperty("bucket-key-prefix"),
 				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
 					"key": "value",
@@ -1088,7 +1192,7 @@ func TestCfnCustomResource_Read(t *testing.T) {
 			},
 		},
 		{
-			name: "No State",
+			name:          "No State",
 			expectedError: "CustomResourceEmulator import not implemented",
 		},
 	}
