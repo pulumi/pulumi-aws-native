@@ -6,18 +6,24 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"glog"
 	"strings"
+	"time"
 
+	"github.com/aws/aws-sdk-go-v2/aws/retry"
 	"github.com/aws/aws-sdk-go-v2/aws/transport/http"
+	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/smithy-go"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // CloudControlApiClient providers CRUD operations around Cloud Control API, with the mechanics of API calls abstracted away.
 // For instance, it serializes and deserializes wire data and follows the protocol of long-running operations.
+//
 //go:generate mockgen -package client -source client.go -destination mock_client.go CloudControlApiClient
 type CloudControlClient interface {
 	// Create creates a resource of the specified type with the desired state.
@@ -82,7 +88,7 @@ func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState m
 	// Read the state - even if there was a creation error but the progress event contains a resource ID.
 	// Retrieve the resource state from AWS.
 	// Note that we do so even if creation hasn't succeeded but the identifier is assigned.
-	resourceState, err = c.api.GetResource(ctx, typeName, *pi.Identifier)
+	resourceState, err = c.getResourceRetryNotFound(ctx, typeName, *pi.Identifier)
 	if err != nil {
 		if waitErr != nil {
 			// Both wait and read fail. Provisioning failed entirely, return the wait error as more informative.
@@ -151,4 +157,39 @@ func (c *clientImpl) Delete(ctx context.Context, typeName, identifier string) er
 	}
 
 	return err
+}
+
+// Wraps c.api.GetResource with Not Found error retry logic to try to compensate for eventual consistency issues for
+// newly created resources.
+func (c *clientImpl) getResourceRetryNotFound(
+	ctx context.Context,
+	typeName, identifier string,
+) (map[string]interface{}, error) {
+	retryBackoff := retry.NewExponentialJitterBackoff(30 * time.Second)
+	maxAttempts := 5
+	var lastError error
+	for attempt := 0; attempt < maxAttempts; attempt++ {
+		result, err := c.api.GetResource(ctx, typeName, identifier)
+		switch {
+		case err == nil:
+			return result, nil
+		case !errors.Is(err, &types.ResourceNotFoundException{}):
+			return nil, err
+		}
+		lastError = err
+
+		delay, err := retryBackoff.BackoffDelay(attempt, nil)
+		contract.AssertNoErrorf(err, "BackoffDelay should not fail")
+
+		glog.V(9).Infof("CloudControl GetResource failed with ResourceNotFoundException:"+
+			" attempt #%d, retrying in %v", identifier, attempt, delay)
+
+		select {
+		case <-ctx.Done():
+			return nil, ctx.Err()
+		case <-time.After(delay):
+			continue
+		}
+	}
+	return nil, lastError
 }
