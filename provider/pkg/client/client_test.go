@@ -7,13 +7,16 @@ import (
 	"errors"
 	"net/http"
 	"testing"
+	"time"
 
 	awshttp "github.com/aws/aws-sdk-go-v2/aws/transport/http"
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol/types"
 	"github.com/aws/smithy-go"
 	smithyhttp "github.com/aws/smithy-go/transport/http"
+	"github.com/hexops/autogold/v2"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestClientRead(t *testing.T) {
@@ -364,4 +367,16 @@ func (m *mockAPI) GetResourceRequestStatus(ctx context.Context, requestToken str
 
 func (m *mockAPI) WaitForResourceOpCompletion(ctx context.Context, pi *types.ProgressEvent) (*types.ProgressEvent, error) {
 	return m.WaitForResourceOpCompletionFunc(ctx, pi)
+}
+
+func TestGetResourceRetryNotFoundRetrySettings(t *testing.T) {
+	ci := &clientImpl{}
+	millisecondDelays := []float64{}
+	attempts, backoff := ci.getResourceRetryNotFoundRetrySettings()
+	for attempt := 0; attempt < attempts; attempt++ {
+		delay, err := backoff.BackoffDelay(attempt, nil)
+		require.NoError(t, err)
+		millisecondDelays = append(millisecondDelays, float64(delay/time.Millisecond))
+	}
+	autogold.Expect([]float64{532, 1749, 1147, 4619, 9765}).Equal(t, millisecondDelays)
 }

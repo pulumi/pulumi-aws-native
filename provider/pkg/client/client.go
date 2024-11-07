@@ -172,8 +172,7 @@ func (c *clientImpl) getResourceRetryNotFound(
 	ctx context.Context,
 	typeName, identifier string,
 ) (map[string]interface{}, error) {
-	retryBackoff := retry.NewExponentialJitterBackoff(30 * time.Second)
-	maxAttempts := 5
+	maxAttempts, retryBackoff := c.getResourceRetryNotFoundRetrySettings()
 	var lastError error
 	for attempt := 0; attempt < maxAttempts; attempt++ {
 		result, err := c.api.GetResource(ctx, typeName, identifier)
@@ -200,4 +199,10 @@ func (c *clientImpl) getResourceRetryNotFound(
 		}
 	}
 	return nil, lastError
+}
+
+func (*clientImpl) getResourceRetryNotFoundRetrySettings() (int, *retry.ExponentialJitterBackoff) {
+	retryBackoff := retry.NewExponentialJitterBackoff(30 * time.Second)
+	maxAttempts := 5
+	return maxAttempts, retryBackoff
 }
