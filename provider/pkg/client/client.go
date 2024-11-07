@@ -84,10 +84,18 @@ func (c *clientImpl) Create(ctx context.Context, typeName string, desiredState m
 		return nil, nil, errors.New("received nil identifier while awaiting completion")
 	}
 
+	// Pick the getResource method. If there was an error from awaiting completion, simply try once. If there were
+	// no errors however, try multiple times to tolerate occasional GetResource NotFound errors that arise due to
+	// eventual consistency.
+	getResource := c.api.GetResource
+	if waitErr == nil {
+		getResource = c.getResourceRetryNotFound
+	}
+
 	// Read the state - even if there was a creation error but the progress event contains a resource ID.
 	// Retrieve the resource state from AWS.
 	// Note that we do so even if creation hasn't succeeded but the identifier is assigned.
-	resourceState, err = c.getResourceRetryNotFound(ctx, typeName, *pi.Identifier)
+	resourceState, err = getResource(ctx, typeName, *pi.Identifier)
 	if err != nil {
 		if waitErr != nil {
 			// Both wait and read fail. Provisioning failed entirely, return the wait error as more informative.
