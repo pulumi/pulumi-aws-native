@@ -39,6 +39,8 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/cloudcontrol"
 	"github.com/aws/aws-sdk-go-v2/service/cloudformation"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
+	"github.com/aws/aws-sdk-go-v2/service/lambda"
+	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/aws/aws-sdk-go-v2/service/ssm"
 	"github.com/aws/aws-sdk-go-v2/service/sts"
 	ststypes "github.com/aws/aws-sdk-go-v2/service/sts/types"
@@ -116,6 +118,8 @@ type cfnProvider struct {
 	ec2 *ec2.Client
 	ssm *ssm.Client
 	sts *sts.Client
+	s3  *s3.Client
+	lambda *lambda.Client
 
 	customResources map[string]resources.CustomResource
 }
@@ -266,14 +270,15 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 	}
 
-	var diffs []string
+	var diffs, replaces []string
 	for _, k := range diff.Keys() {
 		diffs = append(diffs, string(k))
 	}
 
 	return &pulumirpc.DiffResponse{
-		Changes: pulumirpc.DiffResponse_DIFF_SOME,
-		Diffs:   diffs,
+		Changes:  pulumirpc.DiffResponse_DIFF_SOME,
+		Diffs:    diffs,
+		Replaces: replaces,
 	}, nil
 }
 
@@ -488,6 +493,8 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	p.ec2 = ec2.NewFromConfig(cfg)
 	p.ssm = ssm.NewFromConfig(cfg)
 	p.sts = sts.NewFromConfig(cfg)
+	p.s3 = s3.NewFromConfig(cfg)
+	p.lambda = lambda.NewFromConfig(cfg)
 
 	if !skipCredentialsValidation {
 		callerIdentityResp, err := p.sts.GetCallerIdentity(ctx, &sts.GetCallerIdentityInput{})
@@ -505,8 +512,12 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		}
 	}
 
+	lambdaClient := client.NewLambdaClient(p.lambda)
+	s3Client := client.NewS3Client(p.s3, s3.NewPresignClient(p.s3))
+
 	p.customResources = map[string]resources.CustomResource{
 		metadata.ExtensionResourceToken: resources.NewExtensionResource(p.ccc),
+		metadata.CfnCustomResourceToken: resources.NewCfnCustomResource(p.name, s3Client, lambdaClient),
 	}
 
 	p.configured = true
@@ -1125,7 +1136,7 @@ func (p *cfnProvider) Delete(ctx context.Context, req *pulumirpc.DeleteRequest) 
 			KeepSecrets:  true,
 		})
 		if err != nil {
-			return nil, errors.Wrapf(err, "failed to parse inputs for update")
+			return nil, errors.Wrapf(err, "failed to parse inputs for delete")
 		}
 
 		// Retrieve the state.

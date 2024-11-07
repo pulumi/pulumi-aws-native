@@ -391,6 +391,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 		},
 		Resources: map[string]pschema.ResourceSpec{
 			metadata.ExtensionResourceToken: resources.ExtensionResourceSpec(),
+			metadata.CfnCustomResourceToken: resources.CfnCustomResourceSpec(),
 		},
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]pschema.RawMessage{},
