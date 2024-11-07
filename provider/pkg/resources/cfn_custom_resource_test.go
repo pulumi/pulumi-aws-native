@@ -1089,7 +1089,7 @@ func TestCfnCustomResource_Read(t *testing.T) {
 		},
 		{
 			name: "No State",
-			expectedError: "CfnCustomResource import not implemented",
+			expectedError: "CustomResourceEmulator import not implemented",
 		},
 	}
 
