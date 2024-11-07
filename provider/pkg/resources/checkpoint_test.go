@@ -8,6 +8,8 @@ import (
 )
 
 func TestCheckpointObject(t *testing.T) {
+	t.Parallel()
+
 	inputs := resource.PropertyMap{
 		"input1": resource.NewStringProperty("value1"),
 		"input2": resource.NewNumberProperty(42),
@@ -35,6 +37,8 @@ func TestCheckpointObject(t *testing.T) {
 }
 
 func TestParseCheckpointObject(t *testing.T) {
+	t.Parallel()
+
 	inputs := resource.PropertyMap{
 		"input1": resource.NewStringProperty("value1"),
 		"input2": resource.NewNumberProperty(42),
@@ -65,6 +69,8 @@ func TestParseCheckpointObject(t *testing.T) {
 }
 
 func TestRoundTripCheckpointObject(t *testing.T) {
+	t.Parallel()
+
 	inputs := resource.PropertyMap{
 		"input1": resource.NewStringProperty("value1"),
 		"input2": resource.NewNumberProperty(42),
@@ -87,4 +93,53 @@ func TestRoundTripCheckpointObject(t *testing.T) {
 	// Check if the outputs are still correctly set
 	assert.Equal(t, resource.NewStringProperty("value1"), checkpoint["output1"])
 	assert.Equal(t, resource.NewNumberProperty(42), checkpoint["output2"])
+}
+
+func TestCheckpointPropertyMap(t *testing.T) {
+	t.Parallel()
+
+	inputs := resource.PropertyMap{
+		"input1": resource.NewStringProperty("value1"),
+		"input2": resource.NewNumberProperty(42),
+	}
+
+	outputs := resource.PropertyMap{
+		"output1": resource.NewStringProperty("value1"),
+		"output2": resource.NewNumberProperty(42),
+	}
+
+	result := CheckpointPropertyMap(inputs, outputs)
+
+	// Check if outputs are correctly set
+	assert.Equal(t, resource.NewStringProperty("value1"), result["output1"])
+	assert.Equal(t, resource.NewNumberProperty(42), result["output2"])
+
+	// Check if __inputs field is correctly set and is a secret
+	inputsField, ok := result["__inputs"]
+	assert.True(t, ok)
+	assert.True(t, inputsField.IsSecret())
+
+	// Check if the secret value contains the correct inputs
+	secretInputs := inputsField.SecretValue().Element.ObjectValue()
+	assert.Equal(t, inputs, secretInputs)
+}
+
+func TestCheckpointPropertyMapWithNilOutputs(t *testing.T) {
+	t.Parallel()
+
+	inputs := resource.PropertyMap{
+		"input1": resource.NewStringProperty("value1"),
+		"input2": resource.NewNumberProperty(42),
+	}
+
+	result := CheckpointPropertyMap(inputs, nil)
+
+	// Check if __inputs field is correctly set and is a secret
+	inputsField, ok := result["__inputs"]
+	assert.True(t, ok)
+	assert.True(t, inputsField.IsSecret())
+
+	// Check if the secret value contains the correct inputs
+	secretInputs := inputsField.SecretValue().Element.ObjectValue()
+	assert.Equal(t, inputs, secretInputs)
 }

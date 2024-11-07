@@ -288,6 +288,47 @@ func cfnValueToSdk(value interface{}) interface{} {
 	}
 }
 
+// ToStringifiedMap creates a copy of the input map with all primitive values converted to strings.
+func ToStringifiedMap(value map[string]interface{}) map[string]interface{} {
+	if value == nil {
+		return nil
+	}
+
+	result := map[string]interface{}{}
+	for k, v := range value {
+		result[k] = primitivesToString(v)
+	}
+	return result
+}
+
+func primitivesToString(value interface{}) interface{} {
+	if value == nil {
+		return nil
+	}
+
+	switch reflect.TypeOf(value).Kind() {
+	case reflect.Map:
+		valueMap, ok := value.(map[string]interface{})
+		if !ok {
+			return value
+		}
+		result := map[string]interface{}{}
+		for k, v := range valueMap {
+			result[k] = primitivesToString(v)
+		}
+		return result
+	case reflect.Slice, reflect.Array:
+		s := reflect.ValueOf(value)
+		result := make([]interface{}, s.Len())
+		for i := 0; i < s.Len(); i++ {
+			result[i] = primitivesToString(s.Index(i).Interface())
+		}
+		return result
+	default:
+		return fmt.Sprintf("%v", value)
+	}
+}
+
 type ConversionError struct {
 	Type  string
 	Value interface{}

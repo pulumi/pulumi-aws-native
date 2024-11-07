@@ -8,9 +8,20 @@ import (
 
 // CheckpointObject puts inputs in the `__inputs` field of the state.
 func CheckpointObject(inputs resource.PropertyMap, outputs map[string]interface{}) resource.PropertyMap {
-	object := resource.NewPropertyMapFromMap(outputs)
-	object["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
-	return object
+	return CheckpointPropertyMap(inputs, resource.NewPropertyMapFromMap(outputs))
+}
+
+// CheckpointPropertyMap puts inputs in the `__inputs` field of the state.
+func CheckpointPropertyMap(inputs resource.PropertyMap, outputs resource.PropertyMap) resource.PropertyMap {
+	var props resource.PropertyMap
+	if outputs == nil {
+		props = resource.PropertyMap{}
+	} else {
+		props = outputs.Copy()
+	}
+
+	props["__inputs"] = resource.MakeSecret(resource.NewObjectProperty(inputs))
+	return props
 }
 
 // ParseCheckpointObject returns inputs that are saved in the `__inputs` field of the state.
