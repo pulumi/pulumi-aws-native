@@ -10,15 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Configures how streaming sessions are backed up when launched from this launch
-    ///             profile.&lt;/p&gt;
-    /// </summary>
     public sealed class LaunchProfileStreamConfigurationSessionBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The maximum number of backups that each streaming session created from this launch
-        ///             profile can have.&lt;/p&gt;
+        /// The maximum number of backups that each streaming session created from this launch profile can have.
         /// </summary>
         [Input("maxBackupsToRetain")]
         public Input<double>? MaxBackupsToRetain { get; set; }
@@ -29,7 +24,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         /// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
         /// </summary>
         [Input("mode")]
-        public Input<Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionBackupMode>? Mode { get; set; }
+        public Input<string>? Mode { get; set; }
 
         public LaunchProfileStreamConfigurationSessionBackupArgs()
         {

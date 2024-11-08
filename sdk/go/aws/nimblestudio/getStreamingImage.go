@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a streaming session machine image that can be used to launch a streaming session
+// Resource Type definition for AWS::NimbleStudio::StreamingImage
 func LookupStreamingImage(ctx *pulumi.Context, args *LookupStreamingImageArgs, opts ...pulumi.InvokeOption) (*LookupStreamingImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStreamingImageResult
@@ -25,21 +25,21 @@ func LookupStreamingImage(ctx *pulumi.Context, args *LookupStreamingImageArgs, o
 type LookupStreamingImageArgs struct {
 	// The unique identifier for the streaming image resource.
 	StreamingImageId string `pulumi:"streamingImageId"`
-	// <p>The studioId. </p>
-	StudioId string `pulumi:"studioId"`
 }
 
 type LookupStreamingImageResult struct {
-	// <p>A human-readable description of the streaming image.</p>
-	Description             *string                                `pulumi:"description"`
-	EncryptionConfiguration *StreamingImageEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+	// A human-readable description of the streaming image.
+	Description                    *string                                `pulumi:"description"`
+	EncryptionConfiguration        *StreamingImageEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	EncryptionConfigurationKeyArn  *string                                `pulumi:"encryptionConfigurationKeyArn"`
+	EncryptionConfigurationKeyType *string                                `pulumi:"encryptionConfigurationKeyType"`
+	// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
 	EulaIds []string `pulumi:"eulaIds"`
-	// <p>A friendly name for a streaming image resource.</p>
+	// A friendly name for a streaming image resource.
 	Name *string `pulumi:"name"`
-	// <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+	// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
 	Owner *string `pulumi:"owner"`
-	// <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+	// The platform of the streaming image, either WINDOWS or LINUX.
 	Platform *string `pulumi:"platform"`
 	// The unique identifier for the streaming image resource.
 	StreamingImageId *string `pulumi:"streamingImageId"`
@@ -67,8 +67,6 @@ func LookupStreamingImageOutput(ctx *pulumi.Context, args LookupStreamingImageOu
 type LookupStreamingImageOutputArgs struct {
 	// The unique identifier for the streaming image resource.
 	StreamingImageId pulumi.StringInput `pulumi:"streamingImageId"`
-	// <p>The studioId. </p>
-	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
 func (LookupStreamingImageOutputArgs) ElementType() reflect.Type {
@@ -89,7 +87,7 @@ func (o LookupStreamingImageResultOutput) ToLookupStreamingImageResultOutputWith
 	return o
 }
 
-// <p>A human-readable description of the streaming image.</p>
+// A human-readable description of the streaming image.
 func (o LookupStreamingImageResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -100,22 +98,30 @@ func (o LookupStreamingImageResultOutput) EncryptionConfiguration() StreamingIma
 	}).(StreamingImageEncryptionConfigurationPtrOutput)
 }
 
-// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+func (o LookupStreamingImageResultOutput) EncryptionConfigurationKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.EncryptionConfigurationKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupStreamingImageResultOutput) EncryptionConfigurationKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.EncryptionConfigurationKeyType }).(pulumi.StringPtrOutput)
+}
+
+// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
 func (o LookupStreamingImageResultOutput) EulaIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) []string { return v.EulaIds }).(pulumi.StringArrayOutput)
 }
 
-// <p>A friendly name for a streaming image resource.</p>
+// A friendly name for a streaming image resource.
 func (o LookupStreamingImageResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
 func (o LookupStreamingImageResultOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+// The platform of the streaming image, either WINDOWS or LINUX.
 func (o LookupStreamingImageResultOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }

@@ -37,14 +37,41 @@ export class AiAgent extends pulumi.CustomResource {
         return obj['__pulumiType'] === AiAgent.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the AI agent.
+     */
     public /*out*/ readonly aiAgentArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the AI Agent.
+     */
     public /*out*/ readonly aiAgentId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     public readonly assistantId!: pulumi.Output<string>;
+    /**
+     * Configuration for the AI Agent.
+     */
     public readonly configuration!: pulumi.Output<outputs.wisdom.AiAgentAiAgentConfiguration0Properties | outputs.wisdom.AiAgentAiAgentConfiguration1Properties>;
+    /**
+     * The description of the AI Agent.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the AI Agent.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the AI Agent.
+     */
     public readonly type!: pulumi.Output<enums.wisdom.AiAgentAiAgentType>;
 
     /**
@@ -98,10 +125,28 @@ export class AiAgent extends pulumi.CustomResource {
  * The set of arguments for constructing a AiAgent resource.
  */
 export interface AiAgentArgs {
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: pulumi.Input<string>;
+    /**
+     * Configuration for the AI Agent.
+     */
     configuration: pulumi.Input<inputs.wisdom.AiAgentAiAgentConfiguration0PropertiesArgs | inputs.wisdom.AiAgentAiAgentConfiguration1PropertiesArgs>;
+    /**
+     * The description of the AI Agent.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the AI Agent.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of the AI Agent.
+     */
     type: pulumi.Input<enums.wisdom.AiAgentAiAgentType>;
 }

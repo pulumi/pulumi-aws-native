@@ -45,26 +45,41 @@ class GetAiAgentResult:
     @property
     @pulumi.getter(name="aiAgentArn")
     def ai_agent_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AI agent.
+        """
         return pulumi.get(self, "ai_agent_arn")
 
     @property
     @pulumi.getter(name="aiAgentId")
     def ai_agent_id(self) -> Optional[str]:
+        """
+        The identifier of the AI Agent.
+        """
         return pulumi.get(self, "ai_agent_id")
 
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
+        """
+        Configuration for the AI Agent.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the AI Agent.
+        """
         return pulumi.get(self, "description")
 
 
@@ -86,6 +101,10 @@ def get_ai_agent(ai_agent_id: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAiAgentResult:
     """
     Definition of AWS::Wisdom::AIAgent Resource Type
+
+
+    :param str ai_agent_id: The identifier of the AI Agent.
+    :param str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
     """
     __args__ = dict()
     __args__['aiAgentId'] = ai_agent_id
@@ -104,6 +123,10 @@ def get_ai_agent_output(ai_agent_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAiAgentResult]:
     """
     Definition of AWS::Wisdom::AIAgent Resource Type
+
+
+    :param str ai_agent_id: The identifier of the AI Agent.
+    :param str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
     """
     __args__ = dict()
     __args__['aiAgentId'] = ai_agent_id

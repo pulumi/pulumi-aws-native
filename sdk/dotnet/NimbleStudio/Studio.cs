@@ -10,31 +10,31 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
-    /// Represents a studio that contains other Nimble Studio resources
+    /// Resource Type definition for AWS::NimbleStudio::Studio
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:Studio")]
     public partial class Studio : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// &lt;p&gt;The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
         /// </summary>
         [Output("adminRoleArn")]
         public Output<string> AdminRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;A friendly name for the studio.&lt;/p&gt;
+        /// A friendly name for the studio.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The Amazon Web Services Region where the studio resource is located.&lt;/p&gt;
+        /// The AWS Region where the studio resource is located. For example, `us-west-2` .
         /// </summary>
         [Output("homeRegion")]
         public Output<string> HomeRegion { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.&lt;/p&gt;
+        /// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
         /// </summary>
         [Output("ssoClientId")]
         public Output<string> SsoClientId { get; private set; } = null!;
@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string> StudioId { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.&lt;/p&gt;
+        /// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
         /// </summary>
         [Output("studioName")]
         public Output<string> StudioName { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The address of the web page for the studio.&lt;/p&gt;
+        /// The unique identifier for the studio resource.
         /// </summary>
         [Output("studioUrl")]
         public Output<string> StudioUrl { get; private set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// The IAM role that studio users assume when logging in to the Nimble Studio portal.
         /// </summary>
         [Output("userRoleArn")]
         public Output<string> UserRoleArn { get; private set; } = null!;
@@ -128,13 +128,13 @@ namespace Pulumi.AwsNative.NimbleStudio
     public sealed class StudioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
         /// </summary>
         [Input("adminRoleArn", required: true)]
         public Input<string> AdminRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;A friendly name for the studio.&lt;/p&gt;
+        /// A friendly name for the studio.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Input<Inputs.StudioEncryptionConfigurationArgs>? StudioEncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.&lt;/p&gt;
+        /// The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
         /// </summary>
         [Input("studioName")]
         public Input<string>? StudioName { get; set; }
@@ -166,7 +166,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
 
         /// <summary>
-        /// &lt;p&gt;The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// The IAM role that studio users assume when logging in to the Nimble Studio portal.
         /// </summary>
         [Input("userRoleArn", required: true)]
         public Input<string> UserRoleArn { get; set; } = null!;

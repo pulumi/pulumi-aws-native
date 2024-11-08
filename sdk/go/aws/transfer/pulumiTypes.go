@@ -1774,6 +1774,309 @@ func (o SftpConfigPropertiesPtrOutput) UserSecretId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type UserHomeDirectoryMapEntry struct {
+	// Represents an entry for `HomeDirectoryMappings` .
+	Entry string `pulumi:"entry"`
+	// Represents the map target that is used in a `HomeDirectoryMapEntry` .
+	Target string `pulumi:"target"`
+	// Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
+	//
+	// > By default, home directory mappings have a `Type` of `DIRECTORY` when you create a Transfer Family server. You would need to explicitly set `Type` to `FILE` if you want a mapping to have a file target.
+	Type *UserMapType `pulumi:"type"`
+}
+
+// UserHomeDirectoryMapEntryInput is an input type that accepts UserHomeDirectoryMapEntryArgs and UserHomeDirectoryMapEntryOutput values.
+// You can construct a concrete instance of `UserHomeDirectoryMapEntryInput` via:
+//
+//	UserHomeDirectoryMapEntryArgs{...}
+type UserHomeDirectoryMapEntryInput interface {
+	pulumi.Input
+
+	ToUserHomeDirectoryMapEntryOutput() UserHomeDirectoryMapEntryOutput
+	ToUserHomeDirectoryMapEntryOutputWithContext(context.Context) UserHomeDirectoryMapEntryOutput
+}
+
+type UserHomeDirectoryMapEntryArgs struct {
+	// Represents an entry for `HomeDirectoryMappings` .
+	Entry pulumi.StringInput `pulumi:"entry"`
+	// Represents the map target that is used in a `HomeDirectoryMapEntry` .
+	Target pulumi.StringInput `pulumi:"target"`
+	// Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
+	//
+	// > By default, home directory mappings have a `Type` of `DIRECTORY` when you create a Transfer Family server. You would need to explicitly set `Type` to `FILE` if you want a mapping to have a file target.
+	Type UserMapTypePtrInput `pulumi:"type"`
+}
+
+func (UserHomeDirectoryMapEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHomeDirectoryMapEntry)(nil)).Elem()
+}
+
+func (i UserHomeDirectoryMapEntryArgs) ToUserHomeDirectoryMapEntryOutput() UserHomeDirectoryMapEntryOutput {
+	return i.ToUserHomeDirectoryMapEntryOutputWithContext(context.Background())
+}
+
+func (i UserHomeDirectoryMapEntryArgs) ToUserHomeDirectoryMapEntryOutputWithContext(ctx context.Context) UserHomeDirectoryMapEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHomeDirectoryMapEntryOutput)
+}
+
+// UserHomeDirectoryMapEntryArrayInput is an input type that accepts UserHomeDirectoryMapEntryArray and UserHomeDirectoryMapEntryArrayOutput values.
+// You can construct a concrete instance of `UserHomeDirectoryMapEntryArrayInput` via:
+//
+//	UserHomeDirectoryMapEntryArray{ UserHomeDirectoryMapEntryArgs{...} }
+type UserHomeDirectoryMapEntryArrayInput interface {
+	pulumi.Input
+
+	ToUserHomeDirectoryMapEntryArrayOutput() UserHomeDirectoryMapEntryArrayOutput
+	ToUserHomeDirectoryMapEntryArrayOutputWithContext(context.Context) UserHomeDirectoryMapEntryArrayOutput
+}
+
+type UserHomeDirectoryMapEntryArray []UserHomeDirectoryMapEntryInput
+
+func (UserHomeDirectoryMapEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserHomeDirectoryMapEntry)(nil)).Elem()
+}
+
+func (i UserHomeDirectoryMapEntryArray) ToUserHomeDirectoryMapEntryArrayOutput() UserHomeDirectoryMapEntryArrayOutput {
+	return i.ToUserHomeDirectoryMapEntryArrayOutputWithContext(context.Background())
+}
+
+func (i UserHomeDirectoryMapEntryArray) ToUserHomeDirectoryMapEntryArrayOutputWithContext(ctx context.Context) UserHomeDirectoryMapEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserHomeDirectoryMapEntryArrayOutput)
+}
+
+type UserHomeDirectoryMapEntryOutput struct{ *pulumi.OutputState }
+
+func (UserHomeDirectoryMapEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHomeDirectoryMapEntry)(nil)).Elem()
+}
+
+func (o UserHomeDirectoryMapEntryOutput) ToUserHomeDirectoryMapEntryOutput() UserHomeDirectoryMapEntryOutput {
+	return o
+}
+
+func (o UserHomeDirectoryMapEntryOutput) ToUserHomeDirectoryMapEntryOutputWithContext(ctx context.Context) UserHomeDirectoryMapEntryOutput {
+	return o
+}
+
+// Represents an entry for `HomeDirectoryMappings` .
+func (o UserHomeDirectoryMapEntryOutput) Entry() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHomeDirectoryMapEntry) string { return v.Entry }).(pulumi.StringOutput)
+}
+
+// Represents the map target that is used in a `HomeDirectoryMapEntry` .
+func (o UserHomeDirectoryMapEntryOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v UserHomeDirectoryMapEntry) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
+//
+// > By default, home directory mappings have a `Type` of `DIRECTORY` when you create a Transfer Family server. You would need to explicitly set `Type` to `FILE` if you want a mapping to have a file target.
+func (o UserHomeDirectoryMapEntryOutput) Type() UserMapTypePtrOutput {
+	return o.ApplyT(func(v UserHomeDirectoryMapEntry) *UserMapType { return v.Type }).(UserMapTypePtrOutput)
+}
+
+type UserHomeDirectoryMapEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (UserHomeDirectoryMapEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserHomeDirectoryMapEntry)(nil)).Elem()
+}
+
+func (o UserHomeDirectoryMapEntryArrayOutput) ToUserHomeDirectoryMapEntryArrayOutput() UserHomeDirectoryMapEntryArrayOutput {
+	return o
+}
+
+func (o UserHomeDirectoryMapEntryArrayOutput) ToUserHomeDirectoryMapEntryArrayOutputWithContext(ctx context.Context) UserHomeDirectoryMapEntryArrayOutput {
+	return o
+}
+
+func (o UserHomeDirectoryMapEntryArrayOutput) Index(i pulumi.IntInput) UserHomeDirectoryMapEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserHomeDirectoryMapEntry {
+		return vs[0].([]UserHomeDirectoryMapEntry)[vs[1].(int)]
+	}).(UserHomeDirectoryMapEntryOutput)
+}
+
+type UserPosixProfile struct {
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid float64 `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
+	SecondaryGids []float64 `pulumi:"secondaryGids"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid float64 `pulumi:"uid"`
+}
+
+// UserPosixProfileInput is an input type that accepts UserPosixProfileArgs and UserPosixProfileOutput values.
+// You can construct a concrete instance of `UserPosixProfileInput` via:
+//
+//	UserPosixProfileArgs{...}
+type UserPosixProfileInput interface {
+	pulumi.Input
+
+	ToUserPosixProfileOutput() UserPosixProfileOutput
+	ToUserPosixProfileOutputWithContext(context.Context) UserPosixProfileOutput
+}
+
+type UserPosixProfileArgs struct {
+	// The POSIX group ID used for all EFS operations by this user.
+	Gid pulumi.Float64Input `pulumi:"gid"`
+	// The secondary POSIX group IDs used for all EFS operations by this user.
+	SecondaryGids pulumi.Float64ArrayInput `pulumi:"secondaryGids"`
+	// The POSIX user ID used for all EFS operations by this user.
+	Uid pulumi.Float64Input `pulumi:"uid"`
+}
+
+func (UserPosixProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPosixProfile)(nil)).Elem()
+}
+
+func (i UserPosixProfileArgs) ToUserPosixProfileOutput() UserPosixProfileOutput {
+	return i.ToUserPosixProfileOutputWithContext(context.Background())
+}
+
+func (i UserPosixProfileArgs) ToUserPosixProfileOutputWithContext(ctx context.Context) UserPosixProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfileOutput)
+}
+
+func (i UserPosixProfileArgs) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
+	return i.ToUserPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (i UserPosixProfileArgs) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfileOutput).ToUserPosixProfilePtrOutputWithContext(ctx)
+}
+
+// UserPosixProfilePtrInput is an input type that accepts UserPosixProfileArgs, UserPosixProfilePtr and UserPosixProfilePtrOutput values.
+// You can construct a concrete instance of `UserPosixProfilePtrInput` via:
+//
+//	        UserPosixProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPosixProfilePtrInput interface {
+	pulumi.Input
+
+	ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput
+	ToUserPosixProfilePtrOutputWithContext(context.Context) UserPosixProfilePtrOutput
+}
+
+type userPosixProfilePtrType UserPosixProfileArgs
+
+func UserPosixProfilePtr(v *UserPosixProfileArgs) UserPosixProfilePtrInput {
+	return (*userPosixProfilePtrType)(v)
+}
+
+func (*userPosixProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPosixProfile)(nil)).Elem()
+}
+
+func (i *userPosixProfilePtrType) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
+	return i.ToUserPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *userPosixProfilePtrType) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPosixProfilePtrOutput)
+}
+
+type UserPosixProfileOutput struct{ *pulumi.OutputState }
+
+func (UserPosixProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPosixProfile)(nil)).Elem()
+}
+
+func (o UserPosixProfileOutput) ToUserPosixProfileOutput() UserPosixProfileOutput {
+	return o
+}
+
+func (o UserPosixProfileOutput) ToUserPosixProfileOutputWithContext(ctx context.Context) UserPosixProfileOutput {
+	return o
+}
+
+func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
+	return o.ToUserPosixProfilePtrOutputWithContext(context.Background())
+}
+
+func (o UserPosixProfileOutput) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPosixProfile) *UserPosixProfile {
+		return &v
+	}).(UserPosixProfilePtrOutput)
+}
+
+// The POSIX group ID used for all EFS operations by this user.
+func (o UserPosixProfileOutput) Gid() pulumi.Float64Output {
+	return o.ApplyT(func(v UserPosixProfile) float64 { return v.Gid }).(pulumi.Float64Output)
+}
+
+// The secondary POSIX group IDs used for all EFS operations by this user.
+func (o UserPosixProfileOutput) SecondaryGids() pulumi.Float64ArrayOutput {
+	return o.ApplyT(func(v UserPosixProfile) []float64 { return v.SecondaryGids }).(pulumi.Float64ArrayOutput)
+}
+
+// The POSIX user ID used for all EFS operations by this user.
+func (o UserPosixProfileOutput) Uid() pulumi.Float64Output {
+	return o.ApplyT(func(v UserPosixProfile) float64 { return v.Uid }).(pulumi.Float64Output)
+}
+
+type UserPosixProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (UserPosixProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPosixProfile)(nil)).Elem()
+}
+
+func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutput() UserPosixProfilePtrOutput {
+	return o
+}
+
+func (o UserPosixProfilePtrOutput) ToUserPosixProfilePtrOutputWithContext(ctx context.Context) UserPosixProfilePtrOutput {
+	return o
+}
+
+func (o UserPosixProfilePtrOutput) Elem() UserPosixProfileOutput {
+	return o.ApplyT(func(v *UserPosixProfile) UserPosixProfile {
+		if v != nil {
+			return *v
+		}
+		var ret UserPosixProfile
+		return ret
+	}).(UserPosixProfileOutput)
+}
+
+// The POSIX group ID used for all EFS operations by this user.
+func (o UserPosixProfilePtrOutput) Gid() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *UserPosixProfile) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Gid
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The secondary POSIX group IDs used for all EFS operations by this user.
+func (o UserPosixProfilePtrOutput) SecondaryGids() pulumi.Float64ArrayOutput {
+	return o.ApplyT(func(v *UserPosixProfile) []float64 {
+		if v == nil {
+			return nil
+		}
+		return v.SecondaryGids
+	}).(pulumi.Float64ArrayOutput)
+}
+
+// The POSIX user ID used for all EFS operations by this user.
+func (o UserPosixProfilePtrOutput) Uid() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *UserPosixProfile) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Uid
+	}).(pulumi.Float64PtrOutput)
+}
+
+type UserTag struct {
+	// The name assigned to the tag that you create.
+	Key string `pulumi:"key"`
+	// Contains one or more values that you assigned to the key name you create.
+	Value string `pulumi:"value"`
+}
+
 // Specifies the details for an EFS file.
 type WorkflowEfsInputFileLocation struct {
 	// Specifies the EFS filesystem that contains the file.
@@ -3608,6 +3911,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerWorkflowDetailsPtrInput)(nil)).Elem(), ServerWorkflowDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SftpConfigPropertiesInput)(nil)).Elem(), SftpConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SftpConfigPropertiesPtrInput)(nil)).Elem(), SftpConfigPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMapEntryInput)(nil)).Elem(), UserHomeDirectoryMapEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMapEntryArrayInput)(nil)).Elem(), UserHomeDirectoryMapEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfileInput)(nil)).Elem(), UserPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfilePtrInput)(nil)).Elem(), UserPosixProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEfsInputFileLocationPtrInput)(nil)).Elem(), WorkflowEfsInputFileLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowInputFileLocationInput)(nil)).Elem(), WorkflowInputFileLocationArgs{})
@@ -3646,6 +3953,10 @@ func init() {
 	pulumi.RegisterOutputType(ServerWorkflowDetailsPtrOutput{})
 	pulumi.RegisterOutputType(SftpConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(SftpConfigPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(UserHomeDirectoryMapEntryOutput{})
+	pulumi.RegisterOutputType(UserHomeDirectoryMapEntryArrayOutput{})
+	pulumi.RegisterOutputType(UserPosixProfileOutput{})
+	pulumi.RegisterOutputType(UserPosixProfilePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationOutput{})
 	pulumi.RegisterOutputType(WorkflowEfsInputFileLocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowInputFileLocationOutput{})

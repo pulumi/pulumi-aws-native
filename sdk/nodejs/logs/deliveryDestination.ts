@@ -64,6 +64,10 @@ export class DeliveryDestination extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The format of the logs that are sent to this delivery destination.
+     */
+    public readonly outputFormat!: pulumi.Output<string | undefined>;
+    /**
      * The tags that have been assigned to this delivery destination.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -82,6 +86,7 @@ export class DeliveryDestination extends pulumi.CustomResource {
             resourceInputs["deliveryDestinationPolicy"] = args ? args.deliveryDestinationPolicy : undefined;
             resourceInputs["destinationResourceArn"] = args ? args.destinationResourceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
@@ -91,10 +96,11 @@ export class DeliveryDestination extends pulumi.CustomResource {
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
             resourceInputs["destinationResourceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputFormat"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["destinationResourceArn", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["destinationResourceArn", "name", "outputFormat"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryDestination.__pulumiType, name, resourceInputs, opts);
     }
@@ -120,6 +126,10 @@ export interface DeliveryDestinationArgs {
      * The name of this delivery destination.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The format of the logs that are sent to this delivery destination.
+     */
+    outputFormat?: pulumi.Input<string>;
     /**
      * The tags that have been assigned to this delivery destination.
      */

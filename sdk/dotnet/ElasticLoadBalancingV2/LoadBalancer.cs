@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
+        [Output("enablePrefixForIpv6SourceNat")]
+        public Output<string?> EnablePrefixForIpv6SourceNat { get; private set; } = null!;
+
         /// <summary>
         /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         /// </summary>
@@ -174,6 +177,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
+        [Input("enablePrefixForIpv6SourceNat")]
+        public Input<string>? EnablePrefixForIpv6SourceNat { get; set; }
+
         /// <summary>
         /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         /// </summary>

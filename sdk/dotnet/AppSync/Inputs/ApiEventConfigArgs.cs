@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.AppSync.Inputs
     {
         [Input("authProviders", required: true)]
         private InputList<Inputs.ApiAuthProviderArgs>? _authProviders;
+
+        /// <summary>
+        /// A list of authorization providers.
+        /// </summary>
         public InputList<Inputs.ApiAuthProviderArgs> AuthProviders
         {
             get => _authProviders ?? (_authProviders = new InputList<Inputs.ApiAuthProviderArgs>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
         [Input("connectionAuthModes", required: true)]
         private InputList<Inputs.ApiAuthModeArgs>? _connectionAuthModes;
+
+        /// <summary>
+        /// A list of valid authorization modes for the Event API connections.
+        /// </summary>
         public InputList<Inputs.ApiAuthModeArgs> ConnectionAuthModes
         {
             get => _connectionAuthModes ?? (_connectionAuthModes = new InputList<Inputs.ApiAuthModeArgs>());
@@ -33,6 +41,10 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
         [Input("defaultPublishAuthModes", required: true)]
         private InputList<Inputs.ApiAuthModeArgs>? _defaultPublishAuthModes;
+
+        /// <summary>
+        /// A list of valid authorization modes for the Event API publishing.
+        /// </summary>
         public InputList<Inputs.ApiAuthModeArgs> DefaultPublishAuthModes
         {
             get => _defaultPublishAuthModes ?? (_defaultPublishAuthModes = new InputList<Inputs.ApiAuthModeArgs>());
@@ -41,12 +53,19 @@ namespace Pulumi.AwsNative.AppSync.Inputs
 
         [Input("defaultSubscribeAuthModes", required: true)]
         private InputList<Inputs.ApiAuthModeArgs>? _defaultSubscribeAuthModes;
+
+        /// <summary>
+        /// A list of valid authorization modes for the Event API subscriptions.
+        /// </summary>
         public InputList<Inputs.ApiAuthModeArgs> DefaultSubscribeAuthModes
         {
             get => _defaultSubscribeAuthModes ?? (_defaultSubscribeAuthModes = new InputList<Inputs.ApiAuthModeArgs>());
             set => _defaultSubscribeAuthModes = value;
         }
 
+        /// <summary>
+        /// The CloudWatch Logs configuration for the Event API.
+        /// </summary>
         [Input("logConfig")]
         public Input<Inputs.ApiEventLogConfigArgs>? LogConfig { get; set; }
 

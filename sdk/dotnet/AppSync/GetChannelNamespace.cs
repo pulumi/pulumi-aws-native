@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetChannelNamespaceArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the channel namespace.
+        /// </summary>
         [Input("channelNamespaceArn", required: true)]
         public string ChannelNamespaceArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class GetChannelNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the channel namespace.
+        /// </summary>
         [Input("channelNamespaceArn", required: true)]
         public Input<string> ChannelNamespaceArn { get; set; } = null!;
 
@@ -51,7 +57,13 @@ namespace Pulumi.AwsNative.AppSync
     [OutputType]
     public sealed class GetChannelNamespaceResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the channel namespace.
+        /// </summary>
         public readonly string? ChannelNamespaceArn;
+        /// <summary>
+        /// The event handler functions that run custom business logic to process published events and subscribe requests.
+        /// </summary>
         public readonly string? CodeHandlers;
         /// <summary>
         /// List of AuthModes supported for Publish operations.
@@ -61,6 +73,9 @@ namespace Pulumi.AwsNative.AppSync
         /// List of AuthModes supported for Subscribe operations.
         /// </summary>
         public readonly ImmutableArray<Outputs.ChannelNamespaceAuthMode> SubscribeAuthModes;
+        /// <summary>
+        /// A set of tags (key-value pairs) for this channel namespace.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

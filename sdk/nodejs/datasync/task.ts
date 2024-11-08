@@ -120,6 +120,10 @@ export class Task extends pulumi.CustomResource {
      */
     public /*out*/ readonly taskArn!: pulumi.Output<string>;
     /**
+     * Specifies the task mode for the task.
+     */
+    public readonly taskMode!: pulumi.Output<enums.datasync.TaskMode | undefined>;
+    /**
      * Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
      *
      * When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
@@ -153,6 +157,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskMode"] = args ? args.taskMode : undefined;
             resourceInputs["taskReportConfig"] = args ? args.taskReportConfig : undefined;
             resourceInputs["destinationNetworkInterfaceArns"] = undefined /*out*/;
             resourceInputs["sourceNetworkInterfaceArns"] = undefined /*out*/;
@@ -173,10 +178,11 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["taskArn"] = undefined /*out*/;
+            resourceInputs["taskMode"] = undefined /*out*/;
             resourceInputs["taskReportConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["destinationLocationArn", "sourceLocationArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["destinationLocationArn", "sourceLocationArn", "taskMode"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Task.__pulumiType, name, resourceInputs, opts);
     }
@@ -226,6 +232,10 @@ export interface TaskArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * Specifies the task mode for the task.
+     */
+    taskMode?: pulumi.Input<enums.datasync.TaskMode>;
     /**
      * Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
      *

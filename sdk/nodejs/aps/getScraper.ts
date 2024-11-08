@@ -26,13 +26,25 @@ export interface GetScraperArgs {
 
 export interface GetScraperResult {
     /**
+     * Scraper alias.
+     */
+    readonly alias?: string;
+    /**
      * Scraper ARN.
      */
     readonly arn?: string;
     /**
+     * The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+     */
+    readonly destination?: outputs.aps.ScraperDestination;
+    /**
      * IAM role ARN for the scraper.
      */
     readonly roleArn?: string;
+    /**
+     * The configuration in use by the scraper.
+     */
+    readonly scrapeConfiguration?: outputs.aps.ScraperScrapeConfiguration;
     /**
      * Required to identify a specific scraper.
      */

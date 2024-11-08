@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly int? ContainerPort;
         /// <summary>
-        /// The name of the load balancer to associate with the Amazon ECS service or task set.
+        /// The name of the load balancer to associate with the service or task set.
         ///  If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         /// </summary>
         public readonly string? LoadBalancerName;

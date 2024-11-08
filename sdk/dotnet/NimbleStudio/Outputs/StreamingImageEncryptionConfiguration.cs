@@ -10,26 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;TODO&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class StreamingImageEncryptionConfiguration
     {
         /// <summary>
-        /// &lt;p&gt;The ARN for a KMS key that is used to encrypt studio data.&lt;/p&gt;
+        /// The ARN for a KMS key that is used to encrypt studio data.
         /// </summary>
         public readonly string? KeyArn;
         /// <summary>
         /// The type of KMS key that is used to encrypt studio data.
         /// </summary>
-        public readonly Pulumi.AwsNative.NimbleStudio.StreamingImageEncryptionConfigurationKeyType KeyType;
+        public readonly string KeyType;
 
         [OutputConstructor]
         private StreamingImageEncryptionConfiguration(
             string? keyArn,
 
-            Pulumi.AwsNative.NimbleStudio.StreamingImageEncryptionConfigurationKeyType keyType)
+            string keyType)
         {
             KeyArn = keyArn;
             KeyType = keyType;

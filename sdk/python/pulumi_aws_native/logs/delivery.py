@@ -23,15 +23,31 @@ class DeliveryArgs:
     def __init__(__self__, *,
                  delivery_destination_arn: pulumi.Input[str],
                  delivery_source_name: pulumi.Input[str],
+                 field_delimiter: Optional[pulumi.Input[str]] = None,
+                 record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 s3_enable_hive_compatible_path: Optional[pulumi.Input[bool]] = None,
+                 s3_suffix_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Delivery resource.
         :param pulumi.Input[str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
         :param pulumi.Input[str] delivery_source_name: The name of the delivery source that is associated with this delivery.
+        :param pulumi.Input[str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] record_fields: The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+        :param pulumi.Input[bool] s3_enable_hive_compatible_path: This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        :param pulumi.Input[str] s3_suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that have been assigned to this delivery.
         """
         pulumi.set(__self__, "delivery_destination_arn", delivery_destination_arn)
         pulumi.set(__self__, "delivery_source_name", delivery_source_name)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if record_fields is not None:
+            pulumi.set(__self__, "record_fields", record_fields)
+        if s3_enable_hive_compatible_path is not None:
+            pulumi.set(__self__, "s3_enable_hive_compatible_path", s3_enable_hive_compatible_path)
+        if s3_suffix_path is not None:
+            pulumi.set(__self__, "s3_suffix_path", s3_suffix_path)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -60,6 +76,54 @@ class DeliveryArgs:
         pulumi.set(self, "delivery_source_name", value)
 
     @property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @field_delimiter.setter
+    def field_delimiter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_delimiter", value)
+
+    @property
+    @pulumi.getter(name="recordFields")
+    def record_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+        """
+        return pulumi.get(self, "record_fields")
+
+    @record_fields.setter
+    def record_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "record_fields", value)
+
+    @property
+    @pulumi.getter(name="s3EnableHiveCompatiblePath")
+    def s3_enable_hive_compatible_path(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        """
+        return pulumi.get(self, "s3_enable_hive_compatible_path")
+
+    @s3_enable_hive_compatible_path.setter
+    def s3_enable_hive_compatible_path(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "s3_enable_hive_compatible_path", value)
+
+    @property
+    @pulumi.getter(name="s3SuffixPath")
+    def s3_suffix_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+        """
+        return pulumi.get(self, "s3_suffix_path")
+
+    @s3_suffix_path.setter
+    def s3_suffix_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_suffix_path", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -79,6 +143,10 @@ class Delivery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_arn: Optional[pulumi.Input[str]] = None,
                  delivery_source_name: Optional[pulumi.Input[str]] = None,
+                 field_delimiter: Optional[pulumi.Input[str]] = None,
+                 record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 s3_enable_hive_compatible_path: Optional[pulumi.Input[bool]] = None,
+                 s3_suffix_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -92,6 +160,10 @@ class Delivery(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] delivery_destination_arn: The ARN of the delivery destination that is associated with this delivery.
         :param pulumi.Input[str] delivery_source_name: The name of the delivery source that is associated with this delivery.
+        :param pulumi.Input[str] field_delimiter: The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] record_fields: The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+        :param pulumi.Input[bool] s3_enable_hive_compatible_path: This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        :param pulumi.Input[str] s3_suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that have been assigned to this delivery.
         """
         ...
@@ -124,6 +196,10 @@ class Delivery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_destination_arn: Optional[pulumi.Input[str]] = None,
                  delivery_source_name: Optional[pulumi.Input[str]] = None,
+                 field_delimiter: Optional[pulumi.Input[str]] = None,
+                 record_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 s3_enable_hive_compatible_path: Optional[pulumi.Input[bool]] = None,
+                 s3_suffix_path: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -140,6 +216,10 @@ class Delivery(pulumi.CustomResource):
             if delivery_source_name is None and not opts.urn:
                 raise TypeError("Missing required property 'delivery_source_name'")
             __props__.__dict__["delivery_source_name"] = delivery_source_name
+            __props__.__dict__["field_delimiter"] = field_delimiter
+            __props__.__dict__["record_fields"] = record_fields
+            __props__.__dict__["s3_enable_hive_compatible_path"] = s3_enable_hive_compatible_path
+            __props__.__dict__["s3_suffix_path"] = s3_suffix_path
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["delivery_destination_type"] = None
@@ -173,6 +253,10 @@ class Delivery(pulumi.CustomResource):
         __props__.__dict__["delivery_destination_type"] = None
         __props__.__dict__["delivery_id"] = None
         __props__.__dict__["delivery_source_name"] = None
+        __props__.__dict__["field_delimiter"] = None
+        __props__.__dict__["record_fields"] = None
+        __props__.__dict__["s3_enable_hive_compatible_path"] = None
+        __props__.__dict__["s3_suffix_path"] = None
         __props__.__dict__["tags"] = None
         return Delivery(resource_name, opts=opts, __props__=__props__)
 
@@ -215,6 +299,38 @@ class Delivery(pulumi.CustomResource):
         The name of the delivery source that is associated with this delivery.
         """
         return pulumi.get(self, "delivery_source_name")
+
+    @property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> pulumi.Output[Optional[str]]:
+        """
+        The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @property
+    @pulumi.getter(name="recordFields")
+    def record_fields(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+        """
+        return pulumi.get(self, "record_fields")
+
+    @property
+    @pulumi.getter(name="s3EnableHiveCompatiblePath")
+    def s3_enable_hive_compatible_path(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        """
+        return pulumi.get(self, "s3_enable_hive_compatible_path")
+
+    @property
+    @pulumi.getter(name="s3SuffixPath")
+    def s3_suffix_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+        """
+        return pulumi.get(self, "s3_suffix_path")
 
     @property
     @pulumi.getter

@@ -9446,6 +9446,186 @@ func (o DataSourceMySqlParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 	}).(pulumi.Float64PtrOutput)
 }
 
+type DataSourceOAuthParameters struct {
+	IdentityProviderResourceUri             *string                            `pulumi:"identityProviderResourceUri"`
+	IdentityProviderVpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"identityProviderVpcConnectionProperties"`
+	OAuthScope                              *string                            `pulumi:"oAuthScope"`
+	TokenProviderUrl                        string                             `pulumi:"tokenProviderUrl"`
+}
+
+// DataSourceOAuthParametersInput is an input type that accepts DataSourceOAuthParametersArgs and DataSourceOAuthParametersOutput values.
+// You can construct a concrete instance of `DataSourceOAuthParametersInput` via:
+//
+//	DataSourceOAuthParametersArgs{...}
+type DataSourceOAuthParametersInput interface {
+	pulumi.Input
+
+	ToDataSourceOAuthParametersOutput() DataSourceOAuthParametersOutput
+	ToDataSourceOAuthParametersOutputWithContext(context.Context) DataSourceOAuthParametersOutput
+}
+
+type DataSourceOAuthParametersArgs struct {
+	IdentityProviderResourceUri             pulumi.StringPtrInput                     `pulumi:"identityProviderResourceUri"`
+	IdentityProviderVpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput `pulumi:"identityProviderVpcConnectionProperties"`
+	OAuthScope                              pulumi.StringPtrInput                     `pulumi:"oAuthScope"`
+	TokenProviderUrl                        pulumi.StringInput                        `pulumi:"tokenProviderUrl"`
+}
+
+func (DataSourceOAuthParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOAuthParameters)(nil)).Elem()
+}
+
+func (i DataSourceOAuthParametersArgs) ToDataSourceOAuthParametersOutput() DataSourceOAuthParametersOutput {
+	return i.ToDataSourceOAuthParametersOutputWithContext(context.Background())
+}
+
+func (i DataSourceOAuthParametersArgs) ToDataSourceOAuthParametersOutputWithContext(ctx context.Context) DataSourceOAuthParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOAuthParametersOutput)
+}
+
+func (i DataSourceOAuthParametersArgs) ToDataSourceOAuthParametersPtrOutput() DataSourceOAuthParametersPtrOutput {
+	return i.ToDataSourceOAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceOAuthParametersArgs) ToDataSourceOAuthParametersPtrOutputWithContext(ctx context.Context) DataSourceOAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOAuthParametersOutput).ToDataSourceOAuthParametersPtrOutputWithContext(ctx)
+}
+
+// DataSourceOAuthParametersPtrInput is an input type that accepts DataSourceOAuthParametersArgs, DataSourceOAuthParametersPtr and DataSourceOAuthParametersPtrOutput values.
+// You can construct a concrete instance of `DataSourceOAuthParametersPtrInput` via:
+//
+//	        DataSourceOAuthParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceOAuthParametersPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceOAuthParametersPtrOutput() DataSourceOAuthParametersPtrOutput
+	ToDataSourceOAuthParametersPtrOutputWithContext(context.Context) DataSourceOAuthParametersPtrOutput
+}
+
+type dataSourceOAuthParametersPtrType DataSourceOAuthParametersArgs
+
+func DataSourceOAuthParametersPtr(v *DataSourceOAuthParametersArgs) DataSourceOAuthParametersPtrInput {
+	return (*dataSourceOAuthParametersPtrType)(v)
+}
+
+func (*dataSourceOAuthParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceOAuthParameters)(nil)).Elem()
+}
+
+func (i *dataSourceOAuthParametersPtrType) ToDataSourceOAuthParametersPtrOutput() DataSourceOAuthParametersPtrOutput {
+	return i.ToDataSourceOAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceOAuthParametersPtrType) ToDataSourceOAuthParametersPtrOutputWithContext(ctx context.Context) DataSourceOAuthParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceOAuthParametersPtrOutput)
+}
+
+type DataSourceOAuthParametersOutput struct{ *pulumi.OutputState }
+
+func (DataSourceOAuthParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceOAuthParameters)(nil)).Elem()
+}
+
+func (o DataSourceOAuthParametersOutput) ToDataSourceOAuthParametersOutput() DataSourceOAuthParametersOutput {
+	return o
+}
+
+func (o DataSourceOAuthParametersOutput) ToDataSourceOAuthParametersOutputWithContext(ctx context.Context) DataSourceOAuthParametersOutput {
+	return o
+}
+
+func (o DataSourceOAuthParametersOutput) ToDataSourceOAuthParametersPtrOutput() DataSourceOAuthParametersPtrOutput {
+	return o.ToDataSourceOAuthParametersPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceOAuthParametersOutput) ToDataSourceOAuthParametersPtrOutputWithContext(ctx context.Context) DataSourceOAuthParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceOAuthParameters) *DataSourceOAuthParameters {
+		return &v
+	}).(DataSourceOAuthParametersPtrOutput)
+}
+
+func (o DataSourceOAuthParametersOutput) IdentityProviderResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceOAuthParameters) *string { return v.IdentityProviderResourceUri }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOAuthParametersOutput) IdentityProviderVpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {
+	return o.ApplyT(func(v DataSourceOAuthParameters) *DataSourceVpcConnectionProperties {
+		return v.IdentityProviderVpcConnectionProperties
+	}).(DataSourceVpcConnectionPropertiesPtrOutput)
+}
+
+func (o DataSourceOAuthParametersOutput) OAuthScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceOAuthParameters) *string { return v.OAuthScope }).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOAuthParametersOutput) TokenProviderUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v DataSourceOAuthParameters) string { return v.TokenProviderUrl }).(pulumi.StringOutput)
+}
+
+type DataSourceOAuthParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceOAuthParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceOAuthParameters)(nil)).Elem()
+}
+
+func (o DataSourceOAuthParametersPtrOutput) ToDataSourceOAuthParametersPtrOutput() DataSourceOAuthParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceOAuthParametersPtrOutput) ToDataSourceOAuthParametersPtrOutputWithContext(ctx context.Context) DataSourceOAuthParametersPtrOutput {
+	return o
+}
+
+func (o DataSourceOAuthParametersPtrOutput) Elem() DataSourceOAuthParametersOutput {
+	return o.ApplyT(func(v *DataSourceOAuthParameters) DataSourceOAuthParameters {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceOAuthParameters
+		return ret
+	}).(DataSourceOAuthParametersOutput)
+}
+
+func (o DataSourceOAuthParametersPtrOutput) IdentityProviderResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOAuthParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityProviderResourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOAuthParametersPtrOutput) IdentityProviderVpcConnectionProperties() DataSourceVpcConnectionPropertiesPtrOutput {
+	return o.ApplyT(func(v *DataSourceOAuthParameters) *DataSourceVpcConnectionProperties {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityProviderVpcConnectionProperties
+	}).(DataSourceVpcConnectionPropertiesPtrOutput)
+}
+
+func (o DataSourceOAuthParametersPtrOutput) OAuthScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOAuthParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthScope
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceOAuthParametersPtrOutput) TokenProviderUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceOAuthParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TokenProviderUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The parameters for Oracle.</p>
 type DataSourceOracleParameters struct {
 	// <p>The database.</p>
@@ -11482,10 +11662,13 @@ func (o DataSourceS3ParametersPtrOutput) RoleArn() pulumi.StringPtrOutput {
 
 // <p>The parameters for Snowflake.</p>
 type DataSourceSnowflakeParameters struct {
+	AuthenticationType *DataSourceAuthenticationType `pulumi:"authenticationType"`
 	// <p>Database.</p>
-	Database string `pulumi:"database"`
+	Database                  string  `pulumi:"database"`
+	DatabaseAccessControlRole *string `pulumi:"databaseAccessControlRole"`
 	// <p>Host.</p>
-	Host string `pulumi:"host"`
+	Host            string                     `pulumi:"host"`
+	OAuthParameters *DataSourceOAuthParameters `pulumi:"oAuthParameters"`
 	// <p>Warehouse.</p>
 	Warehouse string `pulumi:"warehouse"`
 }
@@ -11503,10 +11686,13 @@ type DataSourceSnowflakeParametersInput interface {
 
 // <p>The parameters for Snowflake.</p>
 type DataSourceSnowflakeParametersArgs struct {
+	AuthenticationType DataSourceAuthenticationTypePtrInput `pulumi:"authenticationType"`
 	// <p>Database.</p>
-	Database pulumi.StringInput `pulumi:"database"`
+	Database                  pulumi.StringInput    `pulumi:"database"`
+	DatabaseAccessControlRole pulumi.StringPtrInput `pulumi:"databaseAccessControlRole"`
 	// <p>Host.</p>
-	Host pulumi.StringInput `pulumi:"host"`
+	Host            pulumi.StringInput                `pulumi:"host"`
+	OAuthParameters DataSourceOAuthParametersPtrInput `pulumi:"oAuthParameters"`
 	// <p>Warehouse.</p>
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
 }
@@ -11589,14 +11775,26 @@ func (o DataSourceSnowflakeParametersOutput) ToDataSourceSnowflakeParametersPtrO
 	}).(DataSourceSnowflakeParametersPtrOutput)
 }
 
+func (o DataSourceSnowflakeParametersOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v DataSourceSnowflakeParameters) *DataSourceAuthenticationType { return v.AuthenticationType }).(DataSourceAuthenticationTypePtrOutput)
+}
+
 // <p>Database.</p>
 func (o DataSourceSnowflakeParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
+func (o DataSourceSnowflakeParametersOutput) DatabaseAccessControlRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceSnowflakeParameters) *string { return v.DatabaseAccessControlRole }).(pulumi.StringPtrOutput)
+}
+
 // <p>Host.</p>
 func (o DataSourceSnowflakeParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) string { return v.Host }).(pulumi.StringOutput)
+}
+
+func (o DataSourceSnowflakeParametersOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceSnowflakeParameters) *DataSourceOAuthParameters { return v.OAuthParameters }).(DataSourceOAuthParametersPtrOutput)
 }
 
 // <p>Warehouse.</p>
@@ -11628,6 +11826,15 @@ func (o DataSourceSnowflakeParametersPtrOutput) Elem() DataSourceSnowflakeParame
 	}).(DataSourceSnowflakeParametersOutput)
 }
 
+func (o DataSourceSnowflakeParametersPtrOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *DataSourceAuthenticationType {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationType
+	}).(DataSourceAuthenticationTypePtrOutput)
+}
+
 // <p>Database.</p>
 func (o DataSourceSnowflakeParametersPtrOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *string {
@@ -11635,6 +11842,15 @@ func (o DataSourceSnowflakeParametersPtrOutput) Database() pulumi.StringPtrOutpu
 			return nil
 		}
 		return &v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceSnowflakeParametersPtrOutput) DatabaseAccessControlRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseAccessControlRole
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -11646,6 +11862,15 @@ func (o DataSourceSnowflakeParametersPtrOutput) Host() pulumi.StringPtrOutput {
 		}
 		return &v.Host
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceSnowflakeParametersPtrOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *DataSourceOAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthParameters
+	}).(DataSourceOAuthParametersPtrOutput)
 }
 
 // <p>Warehouse.</p>
@@ -12143,10 +12368,13 @@ func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 
 // <p>The parameters that are required to connect to a Starburst data source.</p>
 type DataSourceStarburstParameters struct {
+	AuthenticationType *DataSourceAuthenticationType `pulumi:"authenticationType"`
 	// <p>The catalog name for the Starburst data source.</p>
-	Catalog string `pulumi:"catalog"`
+	Catalog                   string  `pulumi:"catalog"`
+	DatabaseAccessControlRole *string `pulumi:"databaseAccessControlRole"`
 	// <p>The host name of the Starburst data source.</p>
-	Host string `pulumi:"host"`
+	Host            string                     `pulumi:"host"`
+	OAuthParameters *DataSourceOAuthParameters `pulumi:"oAuthParameters"`
 	// <p>The port for the Starburst data source.</p>
 	Port float64 `pulumi:"port"`
 	// The product type for the Starburst data source.
@@ -12166,10 +12394,13 @@ type DataSourceStarburstParametersInput interface {
 
 // <p>The parameters that are required to connect to a Starburst data source.</p>
 type DataSourceStarburstParametersArgs struct {
+	AuthenticationType DataSourceAuthenticationTypePtrInput `pulumi:"authenticationType"`
 	// <p>The catalog name for the Starburst data source.</p>
-	Catalog pulumi.StringInput `pulumi:"catalog"`
+	Catalog                   pulumi.StringInput    `pulumi:"catalog"`
+	DatabaseAccessControlRole pulumi.StringPtrInput `pulumi:"databaseAccessControlRole"`
 	// <p>The host name of the Starburst data source.</p>
-	Host pulumi.StringInput `pulumi:"host"`
+	Host            pulumi.StringInput                `pulumi:"host"`
+	OAuthParameters DataSourceOAuthParametersPtrInput `pulumi:"oAuthParameters"`
 	// <p>The port for the Starburst data source.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
 	// The product type for the Starburst data source.
@@ -12254,14 +12485,26 @@ func (o DataSourceStarburstParametersOutput) ToDataSourceStarburstParametersPtrO
 	}).(DataSourceStarburstParametersPtrOutput)
 }
 
+func (o DataSourceStarburstParametersOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v DataSourceStarburstParameters) *DataSourceAuthenticationType { return v.AuthenticationType }).(DataSourceAuthenticationTypePtrOutput)
+}
+
 // <p>The catalog name for the Starburst data source.</p>
 func (o DataSourceStarburstParametersOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) string { return v.Catalog }).(pulumi.StringOutput)
 }
 
+func (o DataSourceStarburstParametersOutput) DatabaseAccessControlRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceStarburstParameters) *string { return v.DatabaseAccessControlRole }).(pulumi.StringPtrOutput)
+}
+
 // <p>The host name of the Starburst data source.</p>
 func (o DataSourceStarburstParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) string { return v.Host }).(pulumi.StringOutput)
+}
+
+func (o DataSourceStarburstParametersOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
+	return o.ApplyT(func(v DataSourceStarburstParameters) *DataSourceOAuthParameters { return v.OAuthParameters }).(DataSourceOAuthParametersPtrOutput)
 }
 
 // <p>The port for the Starburst data source.</p>
@@ -12298,6 +12541,15 @@ func (o DataSourceStarburstParametersPtrOutput) Elem() DataSourceStarburstParame
 	}).(DataSourceStarburstParametersOutput)
 }
 
+func (o DataSourceStarburstParametersPtrOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
+	return o.ApplyT(func(v *DataSourceStarburstParameters) *DataSourceAuthenticationType {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationType
+	}).(DataSourceAuthenticationTypePtrOutput)
+}
+
 // <p>The catalog name for the Starburst data source.</p>
 func (o DataSourceStarburstParametersPtrOutput) Catalog() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceStarburstParameters) *string {
@@ -12305,6 +12557,15 @@ func (o DataSourceStarburstParametersPtrOutput) Catalog() pulumi.StringPtrOutput
 			return nil
 		}
 		return &v.Catalog
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceStarburstParametersPtrOutput) DatabaseAccessControlRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceStarburstParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseAccessControlRole
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12316,6 +12577,15 @@ func (o DataSourceStarburstParametersPtrOutput) Host() pulumi.StringPtrOutput {
 		}
 		return &v.Host
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataSourceStarburstParametersPtrOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
+	return o.ApplyT(func(v *DataSourceStarburstParameters) *DataSourceOAuthParameters {
+		if v == nil {
+			return nil
+		}
+		return v.OAuthParameters
+	}).(DataSourceOAuthParametersPtrOutput)
 }
 
 // <p>The port for the Starburst data source.</p>
@@ -85662,114 +85932,6 @@ func (o TemplateTableConditionalFormattingPtrOutput) ConditionalFormattingOption
 	}).(TemplateTableConditionalFormattingOptionArrayOutput)
 }
 
-type TemplateTableConditionalFormattingOption struct {
-	// The cell conditional formatting option for a table.
-	Cell *TemplateTableCellConditionalFormatting `pulumi:"cell"`
-	// The row conditional formatting option for a table.
-	Row *TemplateTableRowConditionalFormatting `pulumi:"row"`
-}
-
-// TemplateTableConditionalFormattingOptionInput is an input type that accepts TemplateTableConditionalFormattingOptionArgs and TemplateTableConditionalFormattingOptionOutput values.
-// You can construct a concrete instance of `TemplateTableConditionalFormattingOptionInput` via:
-//
-//	TemplateTableConditionalFormattingOptionArgs{...}
-type TemplateTableConditionalFormattingOptionInput interface {
-	pulumi.Input
-
-	ToTemplateTableConditionalFormattingOptionOutput() TemplateTableConditionalFormattingOptionOutput
-	ToTemplateTableConditionalFormattingOptionOutputWithContext(context.Context) TemplateTableConditionalFormattingOptionOutput
-}
-
-type TemplateTableConditionalFormattingOptionArgs struct {
-	// The cell conditional formatting option for a table.
-	Cell TemplateTableCellConditionalFormattingPtrInput `pulumi:"cell"`
-	// The row conditional formatting option for a table.
-	Row TemplateTableRowConditionalFormattingPtrInput `pulumi:"row"`
-}
-
-func (TemplateTableConditionalFormattingOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableConditionalFormattingOption)(nil)).Elem()
-}
-
-func (i TemplateTableConditionalFormattingOptionArgs) ToTemplateTableConditionalFormattingOptionOutput() TemplateTableConditionalFormattingOptionOutput {
-	return i.ToTemplateTableConditionalFormattingOptionOutputWithContext(context.Background())
-}
-
-func (i TemplateTableConditionalFormattingOptionArgs) ToTemplateTableConditionalFormattingOptionOutputWithContext(ctx context.Context) TemplateTableConditionalFormattingOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConditionalFormattingOptionOutput)
-}
-
-// TemplateTableConditionalFormattingOptionArrayInput is an input type that accepts TemplateTableConditionalFormattingOptionArray and TemplateTableConditionalFormattingOptionArrayOutput values.
-// You can construct a concrete instance of `TemplateTableConditionalFormattingOptionArrayInput` via:
-//
-//	TemplateTableConditionalFormattingOptionArray{ TemplateTableConditionalFormattingOptionArgs{...} }
-type TemplateTableConditionalFormattingOptionArrayInput interface {
-	pulumi.Input
-
-	ToTemplateTableConditionalFormattingOptionArrayOutput() TemplateTableConditionalFormattingOptionArrayOutput
-	ToTemplateTableConditionalFormattingOptionArrayOutputWithContext(context.Context) TemplateTableConditionalFormattingOptionArrayOutput
-}
-
-type TemplateTableConditionalFormattingOptionArray []TemplateTableConditionalFormattingOptionInput
-
-func (TemplateTableConditionalFormattingOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateTableConditionalFormattingOption)(nil)).Elem()
-}
-
-func (i TemplateTableConditionalFormattingOptionArray) ToTemplateTableConditionalFormattingOptionArrayOutput() TemplateTableConditionalFormattingOptionArrayOutput {
-	return i.ToTemplateTableConditionalFormattingOptionArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateTableConditionalFormattingOptionArray) ToTemplateTableConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) TemplateTableConditionalFormattingOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConditionalFormattingOptionArrayOutput)
-}
-
-type TemplateTableConditionalFormattingOptionOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableConditionalFormattingOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateTableConditionalFormattingOption)(nil)).Elem()
-}
-
-func (o TemplateTableConditionalFormattingOptionOutput) ToTemplateTableConditionalFormattingOptionOutput() TemplateTableConditionalFormattingOptionOutput {
-	return o
-}
-
-func (o TemplateTableConditionalFormattingOptionOutput) ToTemplateTableConditionalFormattingOptionOutputWithContext(ctx context.Context) TemplateTableConditionalFormattingOptionOutput {
-	return o
-}
-
-// The cell conditional formatting option for a table.
-func (o TemplateTableConditionalFormattingOptionOutput) Cell() TemplateTableCellConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v TemplateTableConditionalFormattingOption) *TemplateTableCellConditionalFormatting {
-		return v.Cell
-	}).(TemplateTableCellConditionalFormattingPtrOutput)
-}
-
-// The row conditional formatting option for a table.
-func (o TemplateTableConditionalFormattingOptionOutput) Row() TemplateTableRowConditionalFormattingPtrOutput {
-	return o.ApplyT(func(v TemplateTableConditionalFormattingOption) *TemplateTableRowConditionalFormatting { return v.Row }).(TemplateTableRowConditionalFormattingPtrOutput)
-}
-
-type TemplateTableConditionalFormattingOptionArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateTableConditionalFormattingOptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateTableConditionalFormattingOption)(nil)).Elem()
-}
-
-func (o TemplateTableConditionalFormattingOptionArrayOutput) ToTemplateTableConditionalFormattingOptionArrayOutput() TemplateTableConditionalFormattingOptionArrayOutput {
-	return o
-}
-
-func (o TemplateTableConditionalFormattingOptionArrayOutput) ToTemplateTableConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) TemplateTableConditionalFormattingOptionArrayOutput {
-	return o
-}
-
-func (o TemplateTableConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInput) TemplateTableConditionalFormattingOptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTableConditionalFormattingOption {
-		return vs[0].([]TemplateTableConditionalFormattingOption)[vs[1].(int)]
-	}).(TemplateTableConditionalFormattingOptionOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDescriptionInput)(nil)).Elem(), DataSetColumnDescriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnDescriptionPtrInput)(nil)).Elem(), DataSetColumnDescriptionArgs{})
@@ -85885,6 +86047,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMariaDbParametersPtrInput)(nil)).Elem(), DataSourceMariaDbParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMySqlParametersInput)(nil)).Elem(), DataSourceMySqlParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMySqlParametersPtrInput)(nil)).Elem(), DataSourceMySqlParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOAuthParametersInput)(nil)).Elem(), DataSourceOAuthParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOAuthParametersPtrInput)(nil)).Elem(), DataSourceOAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOracleParametersInput)(nil)).Elem(), DataSourceOracleParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceOracleParametersPtrInput)(nil)).Elem(), DataSourceOracleParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersInput)(nil)).Elem(), DataSourceParametersArgs{})
@@ -86751,8 +86915,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableCellStylePtrInput)(nil)).Elem(), TemplateTableCellStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingInput)(nil)).Elem(), TemplateTableConditionalFormattingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingPtrInput)(nil)).Elem(), TemplateTableConditionalFormattingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingOptionInput)(nil)).Elem(), TemplateTableConditionalFormattingOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingOptionArrayInput)(nil)).Elem(), TemplateTableConditionalFormattingOptionArray{})
 	pulumi.RegisterOutputType(DataSetColumnDescriptionOutput{})
 	pulumi.RegisterOutputType(DataSetColumnDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(DataSetColumnGroupOutput{})
@@ -86869,6 +87031,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceMariaDbParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceMySqlParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceMySqlParametersPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceOAuthParametersOutput{})
+	pulumi.RegisterOutputType(DataSourceOAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceOracleParametersOutput{})
 	pulumi.RegisterOutputType(DataSourceOracleParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersOutput{})
@@ -87741,6 +87905,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateTableCellStylePtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableConditionalFormattingOutput{})
 	pulumi.RegisterOutputType(TemplateTableConditionalFormattingPtrOutput{})
-	pulumi.RegisterOutputType(TemplateTableConditionalFormattingOptionOutput{})
-	pulumi.RegisterOutputType(TemplateTableConditionalFormattingOptionArrayOutput{})
 }

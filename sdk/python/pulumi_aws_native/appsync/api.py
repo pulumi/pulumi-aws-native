@@ -30,11 +30,12 @@ class ApiArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Api resource.
-        :param pulumi.Input[str] name: The API name.
+        :param pulumi.Input['ApiEventConfigArgs'] event_config: Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+        :param pulumi.Input[str] name: The name of the `Api` .
         :param pulumi.Input[str] owner_contact: The owner contact information for an API resource.
                
                This field accepts any string input with a length of 0 - 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this API.
         """
         if event_config is not None:
             pulumi.set(__self__, "event_config", event_config)
@@ -48,6 +49,9 @@ class ApiArgs:
     @property
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> Optional[pulumi.Input['ApiEventConfigArgs']]:
+        """
+        Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+        """
         return pulumi.get(self, "event_config")
 
     @event_config.setter
@@ -58,7 +62,7 @@ class ApiArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The API name.
+        The name of the `Api` .
         """
         return pulumi.get(self, "name")
 
@@ -84,7 +88,7 @@ class ApiArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tags.
+        A set of tags (key-value pairs) for this API.
         """
         return pulumi.get(self, "tags")
 
@@ -108,11 +112,12 @@ class Api(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] name: The API name.
+        :param pulumi.Input[Union['ApiEventConfigArgs', 'ApiEventConfigArgsDict']] event_config: Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+        :param pulumi.Input[str] name: The name of the `Api` .
         :param pulumi.Input[str] owner_contact: The owner contact information for an API resource.
                
                This field accepts any string input with a length of 0 - 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this API.
         """
         ...
     @overload
@@ -207,19 +212,22 @@ class Api(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def dns(self) -> pulumi.Output[Mapping[str, str]]:
+    def dns(self) -> pulumi.Output['outputs.ApiDnsMap']:
         return pulumi.get(self, "dns")
 
     @property
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> pulumi.Output[Optional['outputs.ApiEventConfig']]:
+        """
+        Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+        """
         return pulumi.get(self, "event_config")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The API name.
+        The name of the `Api` .
         """
         return pulumi.get(self, "name")
 
@@ -237,7 +245,7 @@ class Api(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tags.
+        A set of tags (key-value pairs) for this API.
         """
         return pulumi.get(self, "tags")
 

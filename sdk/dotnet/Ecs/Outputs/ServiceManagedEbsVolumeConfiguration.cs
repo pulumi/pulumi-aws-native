@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 {
 
     /// <summary>
-    /// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+    /// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
     ///  Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
     /// </summary>
     [OutputType]
@@ -22,9 +22,10 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
-        /// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-        ///  The available filesystem types are
+        /// The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+        ///  The available Linux filesystem types are
         ///  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+        ///  The available Windows filesystem types are ``NTFS``.
         /// </summary>
         public readonly string? FilesystemType;
         /// <summary>

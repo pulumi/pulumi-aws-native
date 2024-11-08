@@ -62,6 +62,22 @@ export class Delivery extends pulumi.CustomResource {
      */
     public readonly deliverySourceName!: pulumi.Output<string>;
     /**
+     * The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+     */
+    public readonly fieldDelimiter!: pulumi.Output<string | undefined>;
+    /**
+     * The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+     */
+    public readonly recordFields!: pulumi.Output<string[] | undefined>;
+    /**
+     * This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+     */
+    public readonly s3EnableHiveCompatiblePath!: pulumi.Output<boolean | undefined>;
+    /**
+     * This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+     */
+    public readonly s3SuffixPath!: pulumi.Output<string | undefined>;
+    /**
      * The tags that have been assigned to this delivery.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -85,6 +101,10 @@ export class Delivery extends pulumi.CustomResource {
             }
             resourceInputs["deliveryDestinationArn"] = args ? args.deliveryDestinationArn : undefined;
             resourceInputs["deliverySourceName"] = args ? args.deliverySourceName : undefined;
+            resourceInputs["fieldDelimiter"] = args ? args.fieldDelimiter : undefined;
+            resourceInputs["recordFields"] = args ? args.recordFields : undefined;
+            resourceInputs["s3EnableHiveCompatiblePath"] = args ? args.s3EnableHiveCompatiblePath : undefined;
+            resourceInputs["s3SuffixPath"] = args ? args.s3SuffixPath : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
@@ -95,6 +115,10 @@ export class Delivery extends pulumi.CustomResource {
             resourceInputs["deliveryDestinationType"] = undefined /*out*/;
             resourceInputs["deliveryId"] = undefined /*out*/;
             resourceInputs["deliverySourceName"] = undefined /*out*/;
+            resourceInputs["fieldDelimiter"] = undefined /*out*/;
+            resourceInputs["recordFields"] = undefined /*out*/;
+            resourceInputs["s3EnableHiveCompatiblePath"] = undefined /*out*/;
+            resourceInputs["s3SuffixPath"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,6 +140,22 @@ export interface DeliveryArgs {
      * The name of the delivery source that is associated with this delivery.
      */
     deliverySourceName: pulumi.Input<string>;
+    /**
+     * The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+     */
+    fieldDelimiter?: pulumi.Input<string>;
+    /**
+     * The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+     */
+    recordFields?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+     */
+    s3EnableHiveCompatiblePath?: pulumi.Input<boolean>;
+    /**
+     * This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+     */
+    s3SuffixPath?: pulumi.Input<string>;
     /**
      * The tags that have been assigned to this delivery.
      */

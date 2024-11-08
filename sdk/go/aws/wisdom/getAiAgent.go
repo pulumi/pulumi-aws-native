@@ -23,16 +23,23 @@ func LookupAiAgent(ctx *pulumi.Context, args *LookupAiAgentArgs, opts ...pulumi.
 }
 
 type LookupAiAgentArgs struct {
-	AiAgentId   string `pulumi:"aiAgentId"`
+	// The identifier of the AI Agent.
+	AiAgentId string `pulumi:"aiAgentId"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId string `pulumi:"assistantId"`
 }
 
 type LookupAiAgentResult struct {
-	AiAgentArn    *string     `pulumi:"aiAgentArn"`
-	AiAgentId     *string     `pulumi:"aiAgentId"`
-	AssistantArn  *string     `pulumi:"assistantArn"`
+	// The Amazon Resource Name (ARN) of the AI agent.
+	AiAgentArn *string `pulumi:"aiAgentArn"`
+	// The identifier of the AI Agent.
+	AiAgentId *string `pulumi:"aiAgentId"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+	AssistantArn *string `pulumi:"assistantArn"`
+	// Configuration for the AI Agent.
 	Configuration interface{} `pulumi:"configuration"`
-	Description   *string     `pulumi:"description"`
+	// The description of the AI Agent.
+	Description *string `pulumi:"description"`
 }
 
 func LookupAiAgentOutput(ctx *pulumi.Context, args LookupAiAgentOutputArgs, opts ...pulumi.InvokeOption) LookupAiAgentResultOutput {
@@ -55,7 +62,9 @@ func LookupAiAgentOutput(ctx *pulumi.Context, args LookupAiAgentOutputArgs, opts
 }
 
 type LookupAiAgentOutputArgs struct {
-	AiAgentId   pulumi.StringInput `pulumi:"aiAgentId"`
+	// The identifier of the AI Agent.
+	AiAgentId pulumi.StringInput `pulumi:"aiAgentId"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId pulumi.StringInput `pulumi:"assistantId"`
 }
 
@@ -77,22 +86,27 @@ func (o LookupAiAgentResultOutput) ToLookupAiAgentResultOutputWithContext(ctx co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AI agent.
 func (o LookupAiAgentResultOutput) AiAgentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentResult) *string { return v.AiAgentArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the AI Agent.
 func (o LookupAiAgentResultOutput) AiAgentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentResult) *string { return v.AiAgentId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o LookupAiAgentResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }
 
+// Configuration for the AI Agent.
 func (o LookupAiAgentResultOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupAiAgentResult) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
 
+// The description of the AI Agent.
 func (o LookupAiAgentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

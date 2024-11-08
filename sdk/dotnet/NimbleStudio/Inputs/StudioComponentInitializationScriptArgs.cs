@@ -10,14 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;Initialization scripts for studio components.&lt;/p&gt;
-    /// </summary>
     public sealed class StudioComponentInitializationScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
-        ///             version is "2021-03-31".&lt;/p&gt;
+        /// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
         /// </summary>
         [Input("launchProfileProtocolVersion")]
         public Input<string>? LaunchProfileProtocolVersion { get; set; }
@@ -26,16 +22,16 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         /// The platform of the initialization script, either Windows or Linux.
         /// </summary>
         [Input("platform")]
-        public Input<Pulumi.AwsNative.NimbleStudio.StudioComponentLaunchProfilePlatform>? Platform { get; set; }
+        public Input<string>? Platform { get; set; }
 
         /// <summary>
         /// The method to use when running the initialization script.
         /// </summary>
         [Input("runContext")]
-        public Input<Pulumi.AwsNative.NimbleStudio.StudioComponentInitializationScriptRunContext>? RunContext { get; set; }
+        public Input<string>? RunContext { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;The initialization script.&lt;/p&gt;
+        /// The initialization script.
         /// </summary>
         [Input("script")]
         public Input<string>? Script { get; set; }

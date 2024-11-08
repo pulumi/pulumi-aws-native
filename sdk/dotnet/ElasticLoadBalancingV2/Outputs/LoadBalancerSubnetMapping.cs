@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         /// [Network Load Balancers] The private IPv4 address for an internal load balancer.
         /// </summary>
         public readonly string? PrivateIPv4Address;
+        public readonly string? SourceNatIpv6Prefix;
         /// <summary>
         /// The ID of the subnet.
         /// </summary>
@@ -41,11 +42,14 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
             string? privateIPv4Address,
 
+            string? sourceNatIpv6Prefix,
+
             string subnetId)
         {
             AllocationId = allocationId;
             IPv6Address = iPv6Address;
             PrivateIPv4Address = privateIPv4Address;
+            SourceNatIpv6Prefix = sourceNatIpv6Prefix;
             SubnetId = subnetId;
         }
     }

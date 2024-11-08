@@ -1385,6 +1385,38 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct SecurityGroupVpcAssociationState : IEquatable<SecurityGroupVpcAssociationState>
+    {
+        private readonly string _value;
+
+        private SecurityGroupVpcAssociationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityGroupVpcAssociationState Associating { get; } = new SecurityGroupVpcAssociationState("associating");
+        public static SecurityGroupVpcAssociationState Associated { get; } = new SecurityGroupVpcAssociationState("associated");
+        public static SecurityGroupVpcAssociationState AssociationFailed { get; } = new SecurityGroupVpcAssociationState("association-failed");
+        public static SecurityGroupVpcAssociationState Disassociating { get; } = new SecurityGroupVpcAssociationState("disassociating");
+        public static SecurityGroupVpcAssociationState Disassociated { get; } = new SecurityGroupVpcAssociationState("disassociated");
+        public static SecurityGroupVpcAssociationState DisassociationFailed { get; } = new SecurityGroupVpcAssociationState("disassociation-failed");
+
+        public static bool operator ==(SecurityGroupVpcAssociationState left, SecurityGroupVpcAssociationState right) => left.Equals(right);
+        public static bool operator !=(SecurityGroupVpcAssociationState left, SecurityGroupVpcAssociationState right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityGroupVpcAssociationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityGroupVpcAssociationState other && Equals(other);
+        public bool Equals(SecurityGroupVpcAssociationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The state of EBS Snapshot Block Public Access.
     /// </summary>

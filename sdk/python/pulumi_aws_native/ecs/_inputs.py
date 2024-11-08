@@ -288,7 +288,7 @@ if not MYPY:
         """
         minimum_scaling_step_size: NotRequired[pulumi.Input[int]]
         """
-        The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
+        The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 
         When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 
@@ -317,7 +317,7 @@ class CapacityProviderManagedScalingArgs:
         The managed scaling settings for the Auto Scaling group capacity provider.
         :param pulumi.Input[int] instance_warmup_period: The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of `300` seconds is used.
         :param pulumi.Input[int] maximum_scaling_step_size: The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `10000` is used.
-        :param pulumi.Input[int] minimum_scaling_step_size: The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
+        :param pulumi.Input[int] minimum_scaling_step_size: The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
                
                When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
                
@@ -364,7 +364,7 @@ class CapacityProviderManagedScalingArgs:
     @pulumi.getter(name="minimumScalingStepSize")
     def minimum_scaling_step_size(self) -> Optional[pulumi.Input[int]]:
         """
-        The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
+        The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 
         When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 
@@ -1728,7 +1728,7 @@ class ServiceDeploymentCircuitBreakerArgs:
 if not MYPY:
     class ServiceDeploymentConfigurationArgsDict(TypedDict):
         """
-        Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
+        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         """
         alarms: NotRequired[pulumi.Input['ServiceDeploymentAlarmsArgsDict']]
         """
@@ -1775,7 +1775,7 @@ class ServiceDeploymentConfigurationArgs:
                  maximum_percent: Optional[pulumi.Input[int]] = None,
                  minimum_healthy_percent: Optional[pulumi.Input[int]] = None):
         """
-        Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
+        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         :param pulumi.Input['ServiceDeploymentAlarmsArgs'] alarms: Information about the CloudWatch alarms.
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -2016,7 +2016,7 @@ if not MYPY:
         """
         load_balancer_name: NotRequired[pulumi.Input[str]]
         """
-        The name of the load balancer to associate with the Amazon ECS service or task set.
+        The name of the load balancer to associate with the service or task set.
          If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         """
         target_group_arn: NotRequired[pulumi.Input[str]]
@@ -2044,7 +2044,7 @@ class ServiceLoadBalancerArgs:
         :param pulumi.Input[str] container_name: The name of the container (as it appears in a container definition) to associate with the load balancer.
                 You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
         :param pulumi.Input[int] container_port: The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
-        :param pulumi.Input[str] load_balancer_name: The name of the load balancer to associate with the Amazon ECS service or task set.
+        :param pulumi.Input[str] load_balancer_name: The name of the load balancer to associate with the service or task set.
                 If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         :param pulumi.Input[str] target_group_arn: The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
                 A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. 
@@ -2090,7 +2090,7 @@ class ServiceLoadBalancerArgs:
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the load balancer to associate with the Amazon ECS service or task set.
+        The name of the load balancer to associate with the service or task set.
          If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         """
         return pulumi.get(self, "load_balancer_name")
@@ -2253,7 +2253,7 @@ class ServiceLogConfigurationArgs:
 if not MYPY:
     class ServiceManagedEbsVolumeConfigurationArgsDict(TypedDict):
         """
-        The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+        The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
          Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
         """
         role_arn: pulumi.Input[str]
@@ -2266,9 +2266,10 @@ if not MYPY:
         """
         filesystem_type: NotRequired[pulumi.Input[str]]
         """
-        The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-         The available filesystem types are
+        The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+         The available Linux filesystem types are
          ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+         The available Windows filesystem types are ``NTFS``.
         """
         iops: NotRequired[pulumi.Input[int]]
         """
@@ -2336,13 +2337,14 @@ class ServiceManagedEbsVolumeConfigurationArgs:
                  throughput: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
-        The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+        The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
          Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to associate with this volume. This is the Amazon ECS infrastructure IAM role that is used to manage your AWS infrastructure. We recommend using the Amazon ECS-managed ``AmazonECSInfrastructureRolePolicyForVolumes`` IAM policy with this role. For more information, see [Amazon ECS infrastructure IAM role](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html) in the *Amazon ECS Developer Guide*.
         :param pulumi.Input[bool] encrypted: Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
-        :param pulumi.Input[str] filesystem_type: The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-                The available filesystem types are
+        :param pulumi.Input[str] filesystem_type: The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+                The available Linux filesystem types are
                 ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+                The available Windows filesystem types are ``NTFS``.
         :param pulumi.Input[int] iops: The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
                 The following are the supported values for each volume type.
                  +   ``gp3``: 3,000 - 16,000 IOPS
@@ -2420,9 +2422,10 @@ class ServiceManagedEbsVolumeConfigurationArgs:
     @pulumi.getter(name="filesystemType")
     def filesystem_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-         The available filesystem types are
+        The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+         The available Linux filesystem types are
          ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+         The available Windows filesystem types are ``NTFS``.
         """
         return pulumi.get(self, "filesystem_type")
 

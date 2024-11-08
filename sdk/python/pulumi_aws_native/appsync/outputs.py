@@ -20,6 +20,7 @@ __all__ = [
     'ApiAuthMode',
     'ApiAuthProvider',
     'ApiCognitoConfig',
+    'ApiDnsMap',
     'ApiEventConfig',
     'ApiEventLogConfig',
     'ApiLambdaAuthorizerConfig',
@@ -210,6 +211,41 @@ class ApiCognitoConfig(dict):
 
 
 @pulumi.output_type
+class ApiDnsMap(dict):
+    """
+    A map of DNS names for the AppSync API.
+    """
+    def __init__(__self__, *,
+                 http: Optional[str] = None,
+                 realtime: Optional[str] = None):
+        """
+        A map of DNS names for the AppSync API.
+        :param str http: The domain name of the Api's HTTP endpoint.
+        :param str realtime: The domain name of the Api's real-time endpoint.
+        """
+        if http is not None:
+            pulumi.set(__self__, "http", http)
+        if realtime is not None:
+            pulumi.set(__self__, "realtime", realtime)
+
+    @property
+    @pulumi.getter
+    def http(self) -> Optional[str]:
+        """
+        The domain name of the Api's HTTP endpoint.
+        """
+        return pulumi.get(self, "http")
+
+    @property
+    @pulumi.getter
+    def realtime(self) -> Optional[str]:
+        """
+        The domain name of the Api's real-time endpoint.
+        """
+        return pulumi.get(self, "realtime")
+
+
+@pulumi.output_type
 class ApiEventConfig(dict):
     """
     The configuration for an Event Api
@@ -247,6 +283,11 @@ class ApiEventConfig(dict):
                  log_config: Optional['outputs.ApiEventLogConfig'] = None):
         """
         The configuration for an Event Api
+        :param Sequence['ApiAuthProvider'] auth_providers: A list of authorization providers.
+        :param Sequence['ApiAuthMode'] connection_auth_modes: A list of valid authorization modes for the Event API connections.
+        :param Sequence['ApiAuthMode'] default_publish_auth_modes: A list of valid authorization modes for the Event API publishing.
+        :param Sequence['ApiAuthMode'] default_subscribe_auth_modes: A list of valid authorization modes for the Event API subscriptions.
+        :param 'ApiEventLogConfig' log_config: The CloudWatch Logs configuration for the Event API.
         """
         pulumi.set(__self__, "auth_providers", auth_providers)
         pulumi.set(__self__, "connection_auth_modes", connection_auth_modes)
@@ -258,26 +299,41 @@ class ApiEventConfig(dict):
     @property
     @pulumi.getter(name="authProviders")
     def auth_providers(self) -> Sequence['outputs.ApiAuthProvider']:
+        """
+        A list of authorization providers.
+        """
         return pulumi.get(self, "auth_providers")
 
     @property
     @pulumi.getter(name="connectionAuthModes")
     def connection_auth_modes(self) -> Sequence['outputs.ApiAuthMode']:
+        """
+        A list of valid authorization modes for the Event API connections.
+        """
         return pulumi.get(self, "connection_auth_modes")
 
     @property
     @pulumi.getter(name="defaultPublishAuthModes")
     def default_publish_auth_modes(self) -> Sequence['outputs.ApiAuthMode']:
+        """
+        A list of valid authorization modes for the Event API publishing.
+        """
         return pulumi.get(self, "default_publish_auth_modes")
 
     @property
     @pulumi.getter(name="defaultSubscribeAuthModes")
     def default_subscribe_auth_modes(self) -> Sequence['outputs.ApiAuthMode']:
+        """
+        A list of valid authorization modes for the Event API subscriptions.
+        """
         return pulumi.get(self, "default_subscribe_auth_modes")
 
     @property
     @pulumi.getter(name="logConfig")
     def log_config(self) -> Optional['outputs.ApiEventLogConfig']:
+        """
+        The CloudWatch Logs configuration for the Event API.
+        """
         return pulumi.get(self, "log_config")
 
 
@@ -310,6 +366,8 @@ class ApiEventLogConfig(dict):
                  log_level: 'ApiEventLogLevel'):
         """
         The log config for the AppSync API.
+        :param str cloud_watch_logs_role_arn: The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
+        :param 'ApiEventLogLevel' log_level: The type of information to log for the Event API.
         """
         pulumi.set(__self__, "cloud_watch_logs_role_arn", cloud_watch_logs_role_arn)
         pulumi.set(__self__, "log_level", log_level)
@@ -317,11 +375,17 @@ class ApiEventLogConfig(dict):
     @property
     @pulumi.getter(name="cloudWatchLogsRoleArn")
     def cloud_watch_logs_role_arn(self) -> str:
+        """
+        The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
+        """
         return pulumi.get(self, "cloud_watch_logs_role_arn")
 
     @property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> 'ApiEventLogLevel':
+        """
+        The type of information to log for the Event API.
+        """
         return pulumi.get(self, "log_level")
 
 

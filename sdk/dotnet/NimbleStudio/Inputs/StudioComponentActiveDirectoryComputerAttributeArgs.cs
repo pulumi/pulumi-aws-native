@@ -10,20 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;An LDAP attribute of an Active Directory computer account, in the form of a name:value
-    ///             pair.&lt;/p&gt;
-    /// </summary>
     public sealed class StudioComponentActiveDirectoryComputerAttributeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The name for the LDAP attribute.&lt;/p&gt;
+        /// The name for the LDAP attribute.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;The value for the LDAP attribute.&lt;/p&gt;
+        /// The value for the LDAP attribute.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

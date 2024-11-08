@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a studio that contains other Nimble Studio resources
+// Resource Type definition for AWS::NimbleStudio::Studio
 func LookupStudio(ctx *pulumi.Context, args *LookupStudioArgs, opts ...pulumi.InvokeOption) (*LookupStudioResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupStudioResult
@@ -28,21 +28,21 @@ type LookupStudioArgs struct {
 }
 
 type LookupStudioResult struct {
-	// <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+	// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
 	AdminRoleArn *string `pulumi:"adminRoleArn"`
-	// <p>A friendly name for the studio.</p>
+	// A friendly name for the studio.
 	DisplayName *string `pulumi:"displayName"`
-	// <p>The Amazon Web Services Region where the studio resource is located.</p>
+	// The AWS Region where the studio resource is located. For example, `us-west-2` .
 	HomeRegion *string `pulumi:"homeRegion"`
-	// <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
+	// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
 	SsoClientId *string `pulumi:"ssoClientId"`
 	// Configuration of the encryption method that is used for the studio.
 	StudioEncryptionConfiguration *StudioEncryptionConfiguration `pulumi:"studioEncryptionConfiguration"`
 	// The unique identifier for the studio resource.
 	StudioId *string `pulumi:"studioId"`
-	// <p>The address of the web page for the studio.</p>
+	// The unique identifier for the studio resource.
 	StudioUrl *string `pulumi:"studioUrl"`
-	// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+	// The IAM role that studio users assume when logging in to the Nimble Studio portal.
 	UserRoleArn *string `pulumi:"userRoleArn"`
 }
 
@@ -88,22 +88,22 @@ func (o LookupStudioResultOutput) ToLookupStudioResultOutputWithContext(ctx cont
 	return o
 }
 
-// <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
 func (o LookupStudioResultOutput) AdminRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.AdminRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// <p>A friendly name for the studio.</p>
+// A friendly name for the studio.
 func (o LookupStudioResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// <p>The Amazon Web Services Region where the studio resource is located.</p>
+// The AWS Region where the studio resource is located. For example, `us-west-2` .
 func (o LookupStudioResultOutput) HomeRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.HomeRegion }).(pulumi.StringPtrOutput)
 }
 
-// <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
+// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
 func (o LookupStudioResultOutput) SsoClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.SsoClientId }).(pulumi.StringPtrOutput)
 }
@@ -118,12 +118,12 @@ func (o LookupStudioResultOutput) StudioId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.StudioId }).(pulumi.StringPtrOutput)
 }
 
-// <p>The address of the web page for the studio.</p>
+// The unique identifier for the studio resource.
 func (o LookupStudioResultOutput) StudioUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.StudioUrl }).(pulumi.StringPtrOutput)
 }
 
-// <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+// The IAM role that studio users assume when logging in to the Nimble Studio portal.
 func (o LookupStudioResultOutput) UserRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStudioResult) *string { return v.UserRoleArn }).(pulumi.StringPtrOutput)
 }

@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DbProxyEndpoint{}
 	case "aws-native:rds:DbProxyTargetGroup":
 		r = &DbProxyTargetGroup{}
+	case "aws-native:rds:DbShardGroup":
+		r = &DbShardGroup{}
 	case "aws-native:rds:DbSubnetGroup":
 		r = &DbSubnetGroup{}
 	case "aws-native:rds:EventSubscription":

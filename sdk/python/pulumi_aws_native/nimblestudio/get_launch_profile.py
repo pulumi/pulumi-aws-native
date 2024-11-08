@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetLaunchProfileResult',
@@ -49,7 +48,7 @@ class GetLaunchProfileResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        <p>The description.</p>
+        A human-readable description of the launch profile.
         """
         return pulumi.get(self, "description")
 
@@ -65,8 +64,7 @@ class GetLaunchProfileResult:
     @pulumi.getter(name="launchProfileProtocolVersions")
     def launch_profile_protocol_versions(self) -> Optional[Sequence[str]]:
         """
-        <p>The version number of the protocol that is used by the launch profile. The only valid
-                    version is "2021-03-31".</p>
+        The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
         """
         return pulumi.get(self, "launch_profile_protocol_versions")
 
@@ -74,7 +72,7 @@ class GetLaunchProfileResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        <p>The name for the launch profile.</p>
+        A friendly name for the launch profile.
         """
         return pulumi.get(self, "name")
 
@@ -90,8 +88,7 @@ class GetLaunchProfileResult:
     @pulumi.getter(name="studioComponentIds")
     def studio_component_ids(self) -> Optional[Sequence[str]]:
         """
-        <p>Unique identifiers for a collection of studio components that can be used with this
-                    launch profile.</p>
+        Unique identifiers for a collection of studio components that can be used with this launch profile.
         """
         return pulumi.get(self, "studio_component_ids")
 
@@ -111,18 +108,15 @@ class AwaitableGetLaunchProfileResult(GetLaunchProfileResult):
 
 
 def get_launch_profile(launch_profile_id: Optional[str] = None,
-                       studio_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLaunchProfileResult:
     """
-    Represents a launch profile which delegates access to a collection of studio components to studio users
+    Resource Type definition for AWS::NimbleStudio::LaunchProfile
 
 
     :param str launch_profile_id: The unique identifier for the launch profile resource.
-    :param str studio_id: <p>The studio ID. </p>
     """
     __args__ = dict()
     __args__['launchProfileId'] = launch_profile_id
-    __args__['studioId'] = studio_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:nimblestudio:getLaunchProfile', __args__, opts=opts, typ=GetLaunchProfileResult).value
 
@@ -134,18 +128,15 @@ def get_launch_profile(launch_profile_id: Optional[str] = None,
         stream_configuration=pulumi.get(__ret__, 'stream_configuration'),
         studio_component_ids=pulumi.get(__ret__, 'studio_component_ids'))
 def get_launch_profile_output(launch_profile_id: Optional[pulumi.Input[str]] = None,
-                              studio_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchProfileResult]:
     """
-    Represents a launch profile which delegates access to a collection of studio components to studio users
+    Resource Type definition for AWS::NimbleStudio::LaunchProfile
 
 
     :param str launch_profile_id: The unique identifier for the launch profile resource.
-    :param str studio_id: <p>The studio ID. </p>
     """
     __args__ = dict()
     __args__['launchProfileId'] = launch_profile_id
-    __args__['studioId'] = studio_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getLaunchProfile', __args__, opts=opts, typ=GetLaunchProfileResult)
     return __ret__.apply(lambda __response__: GetLaunchProfileResult(

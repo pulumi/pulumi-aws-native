@@ -186,5 +186,8 @@ class AiPromptVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[float]:
+        """
+        The version number for this AI Prompt version.
+        """
         return pulumi.get(self, "version_number")
 

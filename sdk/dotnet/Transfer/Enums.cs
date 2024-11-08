@@ -591,6 +591,62 @@ namespace Pulumi.AwsNative.Transfer
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct UserHomeDirectoryType : IEquatable<UserHomeDirectoryType>
+    {
+        private readonly string _value;
+
+        private UserHomeDirectoryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserHomeDirectoryType Path { get; } = new UserHomeDirectoryType("PATH");
+        public static UserHomeDirectoryType Logical { get; } = new UserHomeDirectoryType("LOGICAL");
+
+        public static bool operator ==(UserHomeDirectoryType left, UserHomeDirectoryType right) => left.Equals(right);
+        public static bool operator !=(UserHomeDirectoryType left, UserHomeDirectoryType right) => !left.Equals(right);
+
+        public static explicit operator string(UserHomeDirectoryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserHomeDirectoryType other && Equals(other);
+        public bool Equals(UserHomeDirectoryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct UserMapType : IEquatable<UserMapType>
+    {
+        private readonly string _value;
+
+        private UserMapType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserMapType File { get; } = new UserMapType("FILE");
+        public static UserMapType Directory { get; } = new UserMapType("DIRECTORY");
+
+        public static bool operator ==(UserMapType left, UserMapType right) => left.Equals(right);
+        public static bool operator !=(UserMapType left, UserMapType right) => !left.Equals(right);
+
+        public static explicit operator string(UserMapType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserMapType other && Equals(other);
+        public bool Equals(UserMapType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
     /// </summary>

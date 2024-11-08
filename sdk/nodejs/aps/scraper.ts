@@ -109,7 +109,7 @@ export class Scraper extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["alias", "destination", "scrapeConfiguration", "source"] };
+        const replaceOnChanges = { replaceOnChanges: ["source"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Scraper.__pulumiType, name, resourceInputs, opts);
     }

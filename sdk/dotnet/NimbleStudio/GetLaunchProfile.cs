@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.NimbleStudio
     public static class GetLaunchProfile
     {
         /// <summary>
-        /// Represents a launch profile which delegates access to a collection of studio components to studio users
+        /// Resource Type definition for AWS::NimbleStudio::LaunchProfile
         /// </summary>
         public static Task<GetLaunchProfileResult> InvokeAsync(GetLaunchProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a launch profile which delegates access to a collection of studio components to studio users
+        /// Resource Type definition for AWS::NimbleStudio::LaunchProfile
         /// </summary>
         public static Output<GetLaunchProfileResult> Invoke(GetLaunchProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileInvokeArgs(), options.WithDefaults());
@@ -32,12 +32,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         [Input("launchProfileId", required: true)]
         public string LaunchProfileId { get; set; } = null!;
-
-        /// <summary>
-        /// &lt;p&gt;The studio ID. &lt;/p&gt;
-        /// </summary>
-        [Input("studioId", required: true)]
-        public string StudioId { get; set; } = null!;
 
         public GetLaunchProfileArgs()
         {
@@ -53,12 +47,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Input("launchProfileId", required: true)]
         public Input<string> LaunchProfileId { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The studio ID. &lt;/p&gt;
-        /// </summary>
-        [Input("studioId", required: true)]
-        public Input<string> StudioId { get; set; } = null!;
-
         public GetLaunchProfileInvokeArgs()
         {
         }
@@ -70,7 +58,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     public sealed class GetLaunchProfileResult
     {
         /// <summary>
-        /// &lt;p&gt;The description.&lt;/p&gt;
+        /// A human-readable description of the launch profile.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -78,12 +66,11 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         public readonly string? LaunchProfileId;
         /// <summary>
-        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
-        ///             version is "2021-03-31".&lt;/p&gt;
+        /// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
         /// </summary>
         public readonly ImmutableArray<string> LaunchProfileProtocolVersions;
         /// <summary>
-        /// &lt;p&gt;The name for the launch profile.&lt;/p&gt;
+        /// A friendly name for the launch profile.
         /// </summary>
         public readonly string? Name;
         /// <summary>
@@ -91,8 +78,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         public readonly Outputs.LaunchProfileStreamConfiguration? StreamConfiguration;
         /// <summary>
-        /// &lt;p&gt;Unique identifiers for a collection of studio components that can be used with this
-        ///             launch profile.&lt;/p&gt;
+        /// Unique identifiers for a collection of studio components that can be used with this launch profile.
         /// </summary>
         public readonly ImmutableArray<string> StudioComponentIds;
 

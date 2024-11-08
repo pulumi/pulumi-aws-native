@@ -99,6 +99,8 @@ type Task struct {
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the task.
 	TaskArn pulumi.StringOutput `pulumi:"taskArn"`
+	// Specifies the task mode for the task.
+	TaskMode TaskModePtrOutput `pulumi:"taskMode"`
 	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 	//
 	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
@@ -121,6 +123,7 @@ func NewTask(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"destinationLocationArn",
 		"sourceLocationArn",
+		"taskMode",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -176,6 +179,8 @@ type taskArgs struct {
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// Specifies the task mode for the task.
+	TaskMode *TaskMode `pulumi:"taskMode"`
 	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 	//
 	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
@@ -204,6 +209,8 @@ type TaskArgs struct {
 	SourceLocationArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
+	// Specifies the task mode for the task.
+	TaskMode TaskModePtrInput
 	// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 	//
 	// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
@@ -315,6 +322,11 @@ func (o TaskOutput) Tags() aws.TagArrayOutput {
 // The ARN of the task.
 func (o TaskOutput) TaskArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringOutput { return v.TaskArn }).(pulumi.StringOutput)
+}
+
+// Specifies the task mode for the task.
+func (o TaskOutput) TaskMode() TaskModePtrOutput {
+	return o.ApplyT(func(v *Task) TaskModePtrOutput { return v.TaskMode }).(TaskModePtrOutput)
 }
 
 // Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .

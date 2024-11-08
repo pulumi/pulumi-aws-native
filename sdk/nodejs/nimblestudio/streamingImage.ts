@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a streaming session machine image that can be used to launch a streaming session
+ * Resource Type definition for AWS::NimbleStudio::StreamingImage
  */
 export class StreamingImage extends pulumi.CustomResource {
     /**
@@ -38,28 +38,30 @@ export class StreamingImage extends pulumi.CustomResource {
     }
 
     /**
-     * <p>A human-readable description of the streaming image.</p>
+     * A human-readable description of the streaming image.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+     * The ID of an EC2 machine image with which to create the streaming image.
      */
     public readonly ec2ImageId!: pulumi.Output<string>;
     public /*out*/ readonly encryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StreamingImageEncryptionConfiguration>;
+    public readonly encryptionConfigurationKeyArn!: pulumi.Output<string | undefined>;
+    public readonly encryptionConfigurationKeyType!: pulumi.Output<string | undefined>;
     /**
-     * <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+     * The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
      */
     public /*out*/ readonly eulaIds!: pulumi.Output<string[]>;
     /**
-     * <p>A friendly name for a streaming image resource.</p>
+     * A friendly name for a streaming image resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+     * The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
      */
     public /*out*/ readonly owner!: pulumi.Output<string>;
     /**
-     * <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+     * The platform of the streaming image, either WINDOWS or LINUX.
      */
     public /*out*/ readonly platform!: pulumi.Output<string>;
     /**
@@ -67,7 +69,7 @@ export class StreamingImage extends pulumi.CustomResource {
      */
     public /*out*/ readonly streamingImageId!: pulumi.Output<string>;
     /**
-     * <p>The studioId. </p>
+     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
      */
     public readonly studioId!: pulumi.Output<string>;
     /**
@@ -96,6 +98,8 @@ export class StreamingImage extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ec2ImageId"] = args ? args.ec2ImageId : undefined;
+            resourceInputs["encryptionConfigurationKeyArn"] = args ? args.encryptionConfigurationKeyArn : undefined;
+            resourceInputs["encryptionConfigurationKeyType"] = args ? args.encryptionConfigurationKeyType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["studioId"] = args ? args.studioId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -108,6 +112,8 @@ export class StreamingImage extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["ec2ImageId"] = undefined /*out*/;
             resourceInputs["encryptionConfiguration"] = undefined /*out*/;
+            resourceInputs["encryptionConfigurationKeyArn"] = undefined /*out*/;
+            resourceInputs["encryptionConfigurationKeyType"] = undefined /*out*/;
             resourceInputs["eulaIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["owner"] = undefined /*out*/;
@@ -128,19 +134,21 @@ export class StreamingImage extends pulumi.CustomResource {
  */
 export interface StreamingImageArgs {
     /**
-     * <p>A human-readable description of the streaming image.</p>
+     * A human-readable description of the streaming image.
      */
     description?: pulumi.Input<string>;
     /**
-     * <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+     * The ID of an EC2 machine image with which to create the streaming image.
      */
     ec2ImageId: pulumi.Input<string>;
+    encryptionConfigurationKeyArn?: pulumi.Input<string>;
+    encryptionConfigurationKeyType?: pulumi.Input<string>;
     /**
-     * <p>A friendly name for a streaming image resource.</p>
+     * A friendly name for a streaming image resource.
      */
     name?: pulumi.Input<string>;
     /**
-     * <p>The studioId. </p>
+     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
      */
     studioId: pulumi.Input<string>;
     /**

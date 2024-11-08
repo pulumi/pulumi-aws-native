@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+ * Resource Type definition for AWS::NimbleStudio::StudioComponent
  */
 export class StudioComponent extends pulumi.CustomResource {
     /**
@@ -40,47 +40,39 @@ export class StudioComponent extends pulumi.CustomResource {
     /**
      * The configuration of the studio component, based on component type.
      */
-    public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration0Properties | outputs.nimblestudio.StudioComponentConfiguration1Properties | outputs.nimblestudio.StudioComponentConfiguration2Properties | outputs.nimblestudio.StudioComponentConfiguration3Properties | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.nimblestudio.StudioComponentConfiguration | undefined>;
     /**
-     * <p>The description.</p>
+     * A human-readable description for the studio component resource.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * <p>The EC2 security groups that control access to the studio component.</p>
+     * The EC2 security groups that control access to the studio component.
      */
     public readonly ec2SecurityGroupIds!: pulumi.Output<string[] | undefined>;
     /**
-     * <p>Initialization scripts for studio components.</p>
+     * Initialization scripts for studio components.
      */
     public readonly initializationScripts!: pulumi.Output<outputs.nimblestudio.StudioComponentInitializationScript[] | undefined>;
     /**
-     * <p>The name for the studio component.</p>
+     * A friendly name for the studio component resource.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-     */
-    public readonly runtimeRoleArn!: pulumi.Output<string | undefined>;
-    /**
-     * <p>Parameters for the studio component scripts.</p>
+     * Parameters for the studio component scripts.
      */
     public readonly scriptParameters!: pulumi.Output<outputs.nimblestudio.StudioComponentScriptParameterKeyValue[] | undefined>;
-    /**
-     * An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-     */
-    public readonly secureInitializationRoleArn!: pulumi.Output<string | undefined>;
     /**
      * The unique identifier for the studio component resource.
      */
     public /*out*/ readonly studioComponentId!: pulumi.Output<string>;
     /**
-     * <p>The studio ID. </p>
+     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
      */
     public readonly studioId!: pulumi.Output<string>;
     /**
      * The specific subtype of a studio component.
      */
-    public readonly subtype!: pulumi.Output<enums.nimblestudio.StudioComponentSubtype | undefined>;
+    public readonly subtype!: pulumi.Output<string | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
@@ -90,7 +82,7 @@ export class StudioComponent extends pulumi.CustomResource {
     /**
      * The type of the studio component.
      */
-    public readonly type!: pulumi.Output<enums.nimblestudio.StudioComponentType>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a StudioComponent resource with the given unique name, arguments, and options.
@@ -114,9 +106,7 @@ export class StudioComponent extends pulumi.CustomResource {
             resourceInputs["ec2SecurityGroupIds"] = args ? args.ec2SecurityGroupIds : undefined;
             resourceInputs["initializationScripts"] = args ? args.initializationScripts : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["runtimeRoleArn"] = args ? args.runtimeRoleArn : undefined;
             resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
-            resourceInputs["secureInitializationRoleArn"] = args ? args.secureInitializationRoleArn : undefined;
             resourceInputs["studioId"] = args ? args.studioId : undefined;
             resourceInputs["subtype"] = args ? args.subtype : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -128,9 +118,7 @@ export class StudioComponent extends pulumi.CustomResource {
             resourceInputs["ec2SecurityGroupIds"] = undefined /*out*/;
             resourceInputs["initializationScripts"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["runtimeRoleArn"] = undefined /*out*/;
             resourceInputs["scriptParameters"] = undefined /*out*/;
-            resourceInputs["secureInitializationRoleArn"] = undefined /*out*/;
             resourceInputs["studioComponentId"] = undefined /*out*/;
             resourceInputs["studioId"] = undefined /*out*/;
             resourceInputs["subtype"] = undefined /*out*/;
@@ -151,43 +139,35 @@ export interface StudioComponentArgs {
     /**
      * The configuration of the studio component, based on component type.
      */
-    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfiguration0PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration1PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration2PropertiesArgs | inputs.nimblestudio.StudioComponentConfiguration3PropertiesArgs>;
+    configuration?: pulumi.Input<inputs.nimblestudio.StudioComponentConfigurationArgs>;
     /**
-     * <p>The description.</p>
+     * A human-readable description for the studio component resource.
      */
     description?: pulumi.Input<string>;
     /**
-     * <p>The EC2 security groups that control access to the studio component.</p>
+     * The EC2 security groups that control access to the studio component.
      */
     ec2SecurityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * <p>Initialization scripts for studio components.</p>
+     * Initialization scripts for studio components.
      */
     initializationScripts?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentInitializationScriptArgs>[]>;
     /**
-     * <p>The name for the studio component.</p>
+     * A friendly name for the studio component resource.
      */
     name?: pulumi.Input<string>;
     /**
-     * An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-     */
-    runtimeRoleArn?: pulumi.Input<string>;
-    /**
-     * <p>Parameters for the studio component scripts.</p>
+     * Parameters for the studio component scripts.
      */
     scriptParameters?: pulumi.Input<pulumi.Input<inputs.nimblestudio.StudioComponentScriptParameterKeyValueArgs>[]>;
     /**
-     * An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-     */
-    secureInitializationRoleArn?: pulumi.Input<string>;
-    /**
-     * <p>The studio ID. </p>
+     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
      */
     studioId: pulumi.Input<string>;
     /**
      * The specific subtype of a studio component.
      */
-    subtype?: pulumi.Input<enums.nimblestudio.StudioComponentSubtype>;
+    subtype?: pulumi.Input<string>;
     /**
      * An array of key-value pairs to apply to this resource.
      *
@@ -197,5 +177,5 @@ export interface StudioComponentArgs {
     /**
      * The type of the studio component.
      */
-    type: pulumi.Input<enums.nimblestudio.StudioComponentType>;
+    type: pulumi.Input<string>;
 }

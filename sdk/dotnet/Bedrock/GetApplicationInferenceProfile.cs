@@ -61,7 +61,13 @@ namespace Pulumi.AwsNative.Bedrock
         /// Time Stamp
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the inference profile.
+        /// </summary>
         public readonly string? InferenceProfileArn;
+        /// <summary>
+        /// The unique identifier of the inference profile.
+        /// </summary>
         public readonly string? InferenceProfileId;
         /// <summary>
         /// Inference profile identifier. Supports both system-defined inference profile ids, and inference profile ARNs.
@@ -71,11 +77,20 @@ namespace Pulumi.AwsNative.Bedrock
         /// List of model configuration
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationInferenceProfileInferenceProfileModel> Models;
+        /// <summary>
+        /// The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.ApplicationInferenceProfileInferenceProfileStatus? Status;
         /// <summary>
         /// List of Tags
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The type of the inference profile. The following types are possible:
+        /// 
+        /// - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+        /// - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.ApplicationInferenceProfileInferenceProfileType? Type;
         /// <summary>
         /// Time Stamp

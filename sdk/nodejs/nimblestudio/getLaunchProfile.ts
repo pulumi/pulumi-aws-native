@@ -8,13 +8,12 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a launch profile which delegates access to a collection of studio components to studio users
+ * Resource Type definition for AWS::NimbleStudio::LaunchProfile
  */
 export function getLaunchProfile(args: GetLaunchProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:nimblestudio:getLaunchProfile", {
         "launchProfileId": args.launchProfileId,
-        "studioId": args.studioId,
     }, opts);
 }
 
@@ -23,15 +22,11 @@ export interface GetLaunchProfileArgs {
      * The unique identifier for the launch profile resource.
      */
     launchProfileId: string;
-    /**
-     * <p>The studio ID. </p>
-     */
-    studioId: string;
 }
 
 export interface GetLaunchProfileResult {
     /**
-     * <p>The description.</p>
+     * A human-readable description of the launch profile.
      */
     readonly description?: string;
     /**
@@ -39,12 +34,11 @@ export interface GetLaunchProfileResult {
      */
     readonly launchProfileId?: string;
     /**
-     * <p>The version number of the protocol that is used by the launch profile. The only valid
-     *             version is "2021-03-31".</p>
+     * The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
      */
     readonly launchProfileProtocolVersions?: string[];
     /**
-     * <p>The name for the launch profile.</p>
+     * A friendly name for the launch profile.
      */
     readonly name?: string;
     /**
@@ -52,19 +46,17 @@ export interface GetLaunchProfileResult {
      */
     readonly streamConfiguration?: outputs.nimblestudio.LaunchProfileStreamConfiguration;
     /**
-     * <p>Unique identifiers for a collection of studio components that can be used with this
-     *             launch profile.</p>
+     * Unique identifiers for a collection of studio components that can be used with this launch profile.
      */
     readonly studioComponentIds?: string[];
 }
 /**
- * Represents a launch profile which delegates access to a collection of studio components to studio users
+ * Resource Type definition for AWS::NimbleStudio::LaunchProfile
  */
 export function getLaunchProfileOutput(args: GetLaunchProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:nimblestudio:getLaunchProfile", {
         "launchProfileId": args.launchProfileId,
-        "studioId": args.studioId,
     }, opts);
 }
 
@@ -73,8 +65,4 @@ export interface GetLaunchProfileOutputArgs {
      * The unique identifier for the launch profile resource.
      */
     launchProfileId: pulumi.Input<string>;
-    /**
-     * <p>The studio ID. </p>
-     */
-    studioId: pulumi.Input<string>;
 }

@@ -46,11 +46,17 @@ class GetChannelNamespaceResult:
     @property
     @pulumi.getter(name="channelNamespaceArn")
     def channel_namespace_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the channel namespace.
+        """
         return pulumi.get(self, "channel_namespace_arn")
 
     @property
     @pulumi.getter(name="codeHandlers")
     def code_handlers(self) -> Optional[str]:
+        """
+        The event handler functions that run custom business logic to process published events and subscribe requests.
+        """
         return pulumi.get(self, "code_handlers")
 
     @property
@@ -72,6 +78,9 @@ class GetChannelNamespaceResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A set of tags (key-value pairs) for this channel namespace.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -92,6 +101,9 @@ def get_channel_namespace(channel_namespace_arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelNamespaceResult:
     """
     Resource schema for AppSync ChannelNamespace
+
+
+    :param str channel_namespace_arn: The Amazon Resource Name (ARN) of the channel namespace.
     """
     __args__ = dict()
     __args__['channelNamespaceArn'] = channel_namespace_arn
@@ -108,6 +120,9 @@ def get_channel_namespace_output(channel_namespace_arn: Optional[pulumi.Input[st
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelNamespaceResult]:
     """
     Resource schema for AppSync ChannelNamespace
+
+
+    :param str channel_namespace_arn: The Amazon Resource Name (ARN) of the channel namespace.
     """
     __args__ = dict()
     __args__['channelNamespaceArn'] = channel_namespace_arn

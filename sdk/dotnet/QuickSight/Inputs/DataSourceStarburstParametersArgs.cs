@@ -15,17 +15,26 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSourceStarburstParametersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("authenticationType")]
+        public Input<Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType>? AuthenticationType { get; set; }
+
         /// <summary>
         /// &lt;p&gt;The catalog name for the Starburst data source.&lt;/p&gt;
         /// </summary>
         [Input("catalog", required: true)]
         public Input<string> Catalog { get; set; } = null!;
 
+        [Input("databaseAccessControlRole")]
+        public Input<string>? DatabaseAccessControlRole { get; set; }
+
         /// <summary>
         /// &lt;p&gt;The host name of the Starburst data source.&lt;/p&gt;
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
+
+        [Input("oAuthParameters")]
+        public Input<Inputs.DataSourceOAuthParametersArgs>? OAuthParameters { get; set; }
 
         /// <summary>
         /// &lt;p&gt;The port for the Starburst data source.&lt;/p&gt;

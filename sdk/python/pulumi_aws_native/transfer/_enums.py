@@ -24,6 +24,8 @@ __all__ = [
     'ServerSetStatOption',
     'ServerSftpAuthenticationMethods',
     'ServerTlsSessionResumptionMode',
+    'UserHomeDirectoryType',
+    'UserMapType',
     'WorkflowStepCopyStepDetailsPropertiesOverwriteExisting',
     'WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting',
     'WorkflowStepDecryptStepDetailsPropertiesType',
@@ -176,6 +178,16 @@ class ServerTlsSessionResumptionMode(str, Enum):
     DISABLED = "DISABLED"
     ENABLED = "ENABLED"
     ENFORCED = "ENFORCED"
+
+
+class UserHomeDirectoryType(str, Enum):
+    PATH = "PATH"
+    LOGICAL = "LOGICAL"
+
+
+class UserMapType(str, Enum):
+    FILE = "FILE"
+    DIRECTORY = "DIRECTORY"
 
 
 class WorkflowStepCopyStepDetailsPropertiesOverwriteExisting(str, Enum):

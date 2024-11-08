@@ -111,6 +111,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityGroupEgress{}
 	case "aws-native:ec2:SecurityGroupIngress":
 		r = &SecurityGroupIngress{}
+	case "aws-native:ec2:SecurityGroupVpcAssociation":
+		r = &SecurityGroupVpcAssociation{}
 	case "aws-native:ec2:SnapshotBlockPublicAccess":
 		r = &SnapshotBlockPublicAccess{}
 	case "aws-native:ec2:SpotFleet":

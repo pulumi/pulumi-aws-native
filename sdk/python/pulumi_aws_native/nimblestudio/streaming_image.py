@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = ['StreamingImageArgs', 'StreamingImage']
 
@@ -24,14 +23,16 @@ class StreamingImageArgs:
                  ec2_image_id: pulumi.Input[str],
                  studio_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration_key_arn: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration_key_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StreamingImage resource.
-        :param pulumi.Input[str] ec2_image_id: <p>The ID of an EC2 machine image with which to create this streaming image.</p>
-        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
-        :param pulumi.Input[str] description: <p>A human-readable description of the streaming image.</p>
-        :param pulumi.Input[str] name: <p>A friendly name for a streaming image resource.</p>
+        :param pulumi.Input[str] ec2_image_id: The ID of an EC2 machine image with which to create the streaming image.
+        :param pulumi.Input[str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
+        :param pulumi.Input[str] description: A human-readable description of the streaming image.
+        :param pulumi.Input[str] name: A friendly name for a streaming image resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -40,6 +41,10 @@ class StreamingImageArgs:
         pulumi.set(__self__, "studio_id", studio_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if encryption_configuration_key_arn is not None:
+            pulumi.set(__self__, "encryption_configuration_key_arn", encryption_configuration_key_arn)
+        if encryption_configuration_key_type is not None:
+            pulumi.set(__self__, "encryption_configuration_key_type", encryption_configuration_key_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -49,7 +54,7 @@ class StreamingImageArgs:
     @pulumi.getter(name="ec2ImageId")
     def ec2_image_id(self) -> pulumi.Input[str]:
         """
-        <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+        The ID of an EC2 machine image with which to create the streaming image.
         """
         return pulumi.get(self, "ec2_image_id")
 
@@ -61,7 +66,7 @@ class StreamingImageArgs:
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
         """
-        <p>The studioId. </p>
+        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         """
         return pulumi.get(self, "studio_id")
 
@@ -73,7 +78,7 @@ class StreamingImageArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>A human-readable description of the streaming image.</p>
+        A human-readable description of the streaming image.
         """
         return pulumi.get(self, "description")
 
@@ -82,10 +87,28 @@ class StreamingImageArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="encryptionConfigurationKeyArn")
+    def encryption_configuration_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encryption_configuration_key_arn")
+
+    @encryption_configuration_key_arn.setter
+    def encryption_configuration_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_configuration_key_arn", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfigurationKeyType")
+    def encryption_configuration_key_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "encryption_configuration_key_type")
+
+    @encryption_configuration_key_type.setter
+    def encryption_configuration_key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_configuration_key_type", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>A friendly name for a streaming image resource.</p>
+        A friendly name for a streaming image resource.
         """
         return pulumi.get(self, "name")
 
@@ -115,19 +138,21 @@ class StreamingImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_image_id: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration_key_arn: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration_key_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Represents a streaming session machine image that can be used to launch a streaming session
+        Resource Type definition for AWS::NimbleStudio::StreamingImage
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: <p>A human-readable description of the streaming image.</p>
-        :param pulumi.Input[str] ec2_image_id: <p>The ID of an EC2 machine image with which to create this streaming image.</p>
-        :param pulumi.Input[str] name: <p>A friendly name for a streaming image resource.</p>
-        :param pulumi.Input[str] studio_id: <p>The studioId. </p>
+        :param pulumi.Input[str] description: A human-readable description of the streaming image.
+        :param pulumi.Input[str] ec2_image_id: The ID of an EC2 machine image with which to create the streaming image.
+        :param pulumi.Input[str] name: A friendly name for a streaming image resource.
+        :param pulumi.Input[str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -139,7 +164,7 @@ class StreamingImage(pulumi.CustomResource):
                  args: StreamingImageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a streaming session machine image that can be used to launch a streaming session
+        Resource Type definition for AWS::NimbleStudio::StreamingImage
 
         :param str resource_name: The name of the resource.
         :param StreamingImageArgs args: The arguments to use to populate this resource's properties.
@@ -158,6 +183,8 @@ class StreamingImage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_image_id: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration_key_arn: Optional[pulumi.Input[str]] = None,
+                 encryption_configuration_key_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -174,6 +201,8 @@ class StreamingImage(pulumi.CustomResource):
             if ec2_image_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ec2_image_id'")
             __props__.__dict__["ec2_image_id"] = ec2_image_id
+            __props__.__dict__["encryption_configuration_key_arn"] = encryption_configuration_key_arn
+            __props__.__dict__["encryption_configuration_key_type"] = encryption_configuration_key_type
             __props__.__dict__["name"] = name
             if studio_id is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_id'")
@@ -211,6 +240,8 @@ class StreamingImage(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["ec2_image_id"] = None
         __props__.__dict__["encryption_configuration"] = None
+        __props__.__dict__["encryption_configuration_key_arn"] = None
+        __props__.__dict__["encryption_configuration_key_type"] = None
         __props__.__dict__["eula_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner"] = None
@@ -224,7 +255,7 @@ class StreamingImage(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        <p>A human-readable description of the streaming image.</p>
+        A human-readable description of the streaming image.
         """
         return pulumi.get(self, "description")
 
@@ -232,7 +263,7 @@ class StreamingImage(pulumi.CustomResource):
     @pulumi.getter(name="ec2ImageId")
     def ec2_image_id(self) -> pulumi.Output[str]:
         """
-        <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+        The ID of an EC2 machine image with which to create the streaming image.
         """
         return pulumi.get(self, "ec2_image_id")
 
@@ -242,10 +273,20 @@ class StreamingImage(pulumi.CustomResource):
         return pulumi.get(self, "encryption_configuration")
 
     @property
+    @pulumi.getter(name="encryptionConfigurationKeyArn")
+    def encryption_configuration_key_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "encryption_configuration_key_arn")
+
+    @property
+    @pulumi.getter(name="encryptionConfigurationKeyType")
+    def encryption_configuration_key_type(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "encryption_configuration_key_type")
+
+    @property
     @pulumi.getter(name="eulaIds")
     def eula_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+        The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
         """
         return pulumi.get(self, "eula_ids")
 
@@ -253,7 +294,7 @@ class StreamingImage(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        <p>A friendly name for a streaming image resource.</p>
+        A friendly name for a streaming image resource.
         """
         return pulumi.get(self, "name")
 
@@ -261,7 +302,7 @@ class StreamingImage(pulumi.CustomResource):
     @pulumi.getter
     def owner(self) -> pulumi.Output[str]:
         """
-        <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+        The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
         """
         return pulumi.get(self, "owner")
 
@@ -269,7 +310,7 @@ class StreamingImage(pulumi.CustomResource):
     @pulumi.getter
     def platform(self) -> pulumi.Output[str]:
         """
-        <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+        The platform of the streaming image, either WINDOWS or LINUX.
         """
         return pulumi.get(self, "platform")
 
@@ -285,7 +326,7 @@ class StreamingImage(pulumi.CustomResource):
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
         """
-        <p>The studioId. </p>
+        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         """
         return pulumi.get(self, "studio_id")
 

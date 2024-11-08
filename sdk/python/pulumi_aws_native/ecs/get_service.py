@@ -93,7 +93,7 @@ class GetServiceResult:
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional['outputs.ServiceDeploymentConfiguration']:
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         """
         return pulumi.get(self, "deployment_configuration")
 

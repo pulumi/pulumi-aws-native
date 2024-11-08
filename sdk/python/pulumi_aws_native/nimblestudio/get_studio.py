@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetStudioResult',
@@ -55,7 +54,7 @@ class GetStudioResult:
     @pulumi.getter(name="adminRoleArn")
     def admin_role_arn(self) -> Optional[str]:
         """
-        <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+        The IAM role that studio admins assume when logging in to the Nimble Studio portal.
         """
         return pulumi.get(self, "admin_role_arn")
 
@@ -63,7 +62,7 @@ class GetStudioResult:
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
         """
-        <p>A friendly name for the studio.</p>
+        A friendly name for the studio.
         """
         return pulumi.get(self, "display_name")
 
@@ -71,7 +70,7 @@ class GetStudioResult:
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> Optional[str]:
         """
-        <p>The Amazon Web Services Region where the studio resource is located.</p>
+        The AWS Region where the studio resource is located. For example, `us-west-2` .
         """
         return pulumi.get(self, "home_region")
 
@@ -79,7 +78,7 @@ class GetStudioResult:
     @pulumi.getter(name="ssoClientId")
     def sso_client_id(self) -> Optional[str]:
         """
-        <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
+        The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
         """
         return pulumi.get(self, "sso_client_id")
 
@@ -103,7 +102,7 @@ class GetStudioResult:
     @pulumi.getter(name="studioUrl")
     def studio_url(self) -> Optional[str]:
         """
-        <p>The address of the web page for the studio.</p>
+        The unique identifier for the studio resource.
         """
         return pulumi.get(self, "studio_url")
 
@@ -111,7 +110,7 @@ class GetStudioResult:
     @pulumi.getter(name="userRoleArn")
     def user_role_arn(self) -> Optional[str]:
         """
-        <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+        The IAM role that studio users assume when logging in to the Nimble Studio portal.
         """
         return pulumi.get(self, "user_role_arn")
 
@@ -135,7 +134,7 @@ class AwaitableGetStudioResult(GetStudioResult):
 def get_studio(studio_id: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStudioResult:
     """
-    Represents a studio that contains other Nimble Studio resources
+    Resource Type definition for AWS::NimbleStudio::Studio
 
 
     :param str studio_id: The unique identifier for the studio resource.
@@ -157,7 +156,7 @@ def get_studio(studio_id: Optional[str] = None,
 def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioResult]:
     """
-    Represents a studio that contains other Nimble Studio resources
+    Resource Type definition for AWS::NimbleStudio::Studio
 
 
     :param str studio_id: The unique identifier for the studio resource.

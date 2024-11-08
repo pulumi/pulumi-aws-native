@@ -1341,7 +1341,8 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "A map of tags attached to the prompt version and their values."
       }
     }
   },
@@ -3638,7 +3639,7 @@
     "properties": {
       "address": {
         "type": "string",
-        "description": "Describes an Elastic IP address, or a carrier IP address."
+        "description": "An Elastic IP address or a carrier IP address in a Wavelength Zone."
       },
       "domain": {
         "type": "string",
@@ -3649,7 +3650,8 @@
         "description": "The ID of the instance.\n  Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource."
       },
       "ipamPoolId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* ."
       },
       "networkBorderGroup": {
         "type": "string",
@@ -4890,6 +4892,19 @@
       "toPort": {
         "type": "integer",
         "description": "The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of -1 indicates all ICMP/ICMPv6 codes for the specified ICMP type. If you specify all ICMP/ICMPv6 types, you must specify all codes.\n\nUse this for ICMP and any protocol that uses ports."
+      }
+    }
+  },
+  "aws-native:ec2:SecurityGroupVpcAssociation": {
+    "cfTypeName": "AWS::EC2::SecurityGroupVpcAssociation",
+    "properties": {
+      "groupId": {
+        "type": "string",
+        "description": "The group ID of the specified security group."
+      },
+      "vpcId": {
+        "type": "string",
+        "description": "The ID of the VPC in the security group vpc association."
       }
     }
   },
@@ -8533,6 +8548,25 @@
         "type": "string",
         "description": "The name of the delivery source that is associated with this delivery."
       },
+      "fieldDelimiter": {
+        "type": "string",
+        "description": "The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format."
+      },
+      "recordFields": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list."
+      },
+      "s3EnableHiveCompatiblePath": {
+        "type": "boolean",
+        "description": "This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive."
+      },
+      "s3SuffixPath": {
+        "type": "string",
+        "description": "This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source."
+      },
       "tags": {
         "type": "array",
         "items": {
@@ -10102,6 +10136,10 @@
         "type": "integer",
         "description": "The number of days for which automated backups are retained.\n Default: 1\n Constraints:\n  +  Must be a value from 1 to 35\n  \n Valid for: Aurora DB clusters and Multi-AZ DB clusters"
       },
+      "clusterScalabilityType": {
+        "type": "string",
+        "description": "Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation."
+      },
       "copyTagsToSnapshot": {
         "type": "boolean",
         "description": "A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.\n Valid for: Aurora DB clusters and Multi-AZ DB clusters"
@@ -10681,6 +10719,42 @@
       "targetGroupName": {
         "$ref": "#/types/aws-native:rds:DbProxyTargetGroupTargetGroupName",
         "description": "The identifier for the DBProxyTargetGroup"
+      }
+    }
+  },
+  "aws-native:rds:DbShardGroup": {
+    "cfTypeName": "AWS::RDS::DBShardGroup",
+    "properties": {
+      "computeRedundancy": {
+        "type": "integer",
+        "description": "Specifies whether to create standby instances for the DB shard group."
+      },
+      "dbClusterIdentifier": {
+        "type": "string",
+        "description": "The name of the primary DB cluster for the DB shard group."
+      },
+      "dbShardGroupIdentifier": {
+        "type": "string",
+        "description": "The name of the DB shard group."
+      },
+      "maxAcu": {
+        "type": "number",
+        "description": "The maximum capacity of the DB shard group in Aurora capacity units (ACUs)."
+      },
+      "minAcu": {
+        "type": "number",
+        "description": "The minimum capacity of the DB shard group in Aurora capacity units (ACUs)."
+      },
+      "publiclyAccessible": {
+        "type": "boolean",
+        "description": "Indicates whether the DB shard group is publicly accessible."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
       }
     }
   },
@@ -12821,6 +12895,20 @@
       "webAclArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource."
+      }
+    }
+  },
+  "aws-native:wisdom:AiAgentVersion": {
+    "cfTypeName": "AWS::Wisdom::AIAgentVersion",
+    "properties": {
+      "aiAgentId": {
+        "type": "string"
+      },
+      "assistantId": {
+        "type": "string"
+      },
+      "modifiedTimeSeconds": {
+        "type": "number"
       }
     }
   },

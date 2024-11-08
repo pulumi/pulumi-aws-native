@@ -31,6 +31,8 @@ class ApplicationInferenceProfileArgs:
         """
         The set of arguments for constructing a ApplicationInferenceProfile resource.
         :param pulumi.Input[str] description: Description of the inference profile
+        :param pulumi.Input[str] inference_profile_name: The name of the inference profile.
+        :param pulumi.Input['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs'] model_source: Contains configurations for the inference profile to copy as the resource.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: List of Tags
         """
         if description is not None:
@@ -57,6 +59,9 @@ class ApplicationInferenceProfileArgs:
     @property
     @pulumi.getter(name="inferenceProfileName")
     def inference_profile_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the inference profile.
+        """
         return pulumi.get(self, "inference_profile_name")
 
     @inference_profile_name.setter
@@ -66,6 +71,9 @@ class ApplicationInferenceProfileArgs:
     @property
     @pulumi.getter(name="modelSource")
     def model_source(self) -> Optional[pulumi.Input['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs']]:
+        """
+        Contains configurations for the inference profile to copy as the resource.
+        """
         return pulumi.get(self, "model_source")
 
     @model_source.setter
@@ -101,6 +109,8 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the inference profile
+        :param pulumi.Input[str] inference_profile_name: The name of the inference profile.
+        :param pulumi.Input[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict']] model_source: Contains configurations for the inference profile to copy as the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: List of Tags
         """
         ...
@@ -209,11 +219,17 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="inferenceProfileArn")
     def inference_profile_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the inference profile.
+        """
         return pulumi.get(self, "inference_profile_arn")
 
     @property
     @pulumi.getter(name="inferenceProfileId")
     def inference_profile_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the inference profile.
+        """
         return pulumi.get(self, "inference_profile_id")
 
     @property
@@ -227,11 +243,17 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
     @property
     @pulumi.getter(name="inferenceProfileName")
     def inference_profile_name(self) -> pulumi.Output[str]:
+        """
+        The name of the inference profile.
+        """
         return pulumi.get(self, "inference_profile_name")
 
     @property
     @pulumi.getter(name="modelSource")
     def model_source(self) -> pulumi.Output[Optional['outputs.ApplicationInferenceProfileInferenceProfileModelSourceProperties']]:
+        """
+        Contains configurations for the inference profile to copy as the resource.
+        """
         return pulumi.get(self, "model_source")
 
     @property
@@ -245,6 +267,9 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def status(self) -> pulumi.Output['ApplicationInferenceProfileInferenceProfileStatus']:
+        """
+        The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -258,6 +283,12 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['ApplicationInferenceProfileInferenceProfileType']:
+        """
+        The type of the inference profile. The following types are possible:
+
+        - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+        - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
+        """
         return pulumi.get(self, "type")
 
     @property

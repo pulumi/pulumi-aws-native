@@ -38,7 +38,7 @@ type LookupServiceResult struct {
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
 	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
 	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
-	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
 	// The number of instantiations of the specified task definition to place and keep running in your service.
 	//  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
@@ -142,7 +142,7 @@ func (o LookupServiceResultOutput) CapacityProviderStrategy() ServiceCapacityPro
 	return o.ApplyT(func(v LookupServiceResult) []ServiceCapacityProviderStrategyItem { return v.CapacityProviderStrategy }).(ServiceCapacityProviderStrategyItemArrayOutput)
 }
 
-// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 func (o LookupServiceResultOutput) DeploymentConfiguration() ServiceDeploymentConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceDeploymentConfiguration { return v.DeploymentConfiguration }).(ServiceDeploymentConfigurationPtrOutput)
 }

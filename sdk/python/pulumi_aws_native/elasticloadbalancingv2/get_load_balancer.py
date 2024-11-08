@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerResult:
-    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, ip_address_type=None, load_balancer_arn=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
+    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, enable_prefix_for_ipv6_source_nat=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, ip_address_type=None, load_balancer_arn=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
         if canonical_hosted_zone_id and not isinstance(canonical_hosted_zone_id, str):
             raise TypeError("Expected argument 'canonical_hosted_zone_id' to be a str")
         pulumi.set(__self__, "canonical_hosted_zone_id", canonical_hosted_zone_id)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
+        if enable_prefix_for_ipv6_source_nat and not isinstance(enable_prefix_for_ipv6_source_nat, str):
+            raise TypeError("Expected argument 'enable_prefix_for_ipv6_source_nat' to be a str")
+        pulumi.set(__self__, "enable_prefix_for_ipv6_source_nat", enable_prefix_for_ipv6_source_nat)
         if enforce_security_group_inbound_rules_on_private_link_traffic and not isinstance(enforce_security_group_inbound_rules_on_private_link_traffic, str):
             raise TypeError("Expected argument 'enforce_security_group_inbound_rules_on_private_link_traffic' to be a str")
         pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
@@ -78,6 +81,11 @@ class GetLoadBalancerResult:
         The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="enablePrefixForIpv6SourceNat")
+    def enable_prefix_for_ipv6_source_nat(self) -> Optional[str]:
+        return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
 
     @property
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
@@ -182,6 +190,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
         return GetLoadBalancerResult(
             canonical_hosted_zone_id=self.canonical_hosted_zone_id,
             dns_name=self.dns_name,
+            enable_prefix_for_ipv6_source_nat=self.enable_prefix_for_ipv6_source_nat,
             enforce_security_group_inbound_rules_on_private_link_traffic=self.enforce_security_group_inbound_rules_on_private_link_traffic,
             ip_address_type=self.ip_address_type,
             load_balancer_arn=self.load_balancer_arn,
@@ -210,6 +219,7 @@ def get_load_balancer(load_balancer_arn: Optional[str] = None,
     return AwaitableGetLoadBalancerResult(
         canonical_hosted_zone_id=pulumi.get(__ret__, 'canonical_hosted_zone_id'),
         dns_name=pulumi.get(__ret__, 'dns_name'),
+        enable_prefix_for_ipv6_source_nat=pulumi.get(__ret__, 'enable_prefix_for_ipv6_source_nat'),
         enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__ret__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
         ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         load_balancer_arn=pulumi.get(__ret__, 'load_balancer_arn'),
@@ -235,6 +245,7 @@ def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = No
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         canonical_hosted_zone_id=pulumi.get(__response__, 'canonical_hosted_zone_id'),
         dns_name=pulumi.get(__response__, 'dns_name'),
+        enable_prefix_for_ipv6_source_nat=pulumi.get(__response__, 'enable_prefix_for_ipv6_source_nat'),
         enforce_security_group_inbound_rules_on_private_link_traffic=pulumi.get(__response__, 'enforce_security_group_inbound_rules_on_private_link_traffic'),
         ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         load_balancer_arn=pulumi.get(__response__, 'load_balancer_arn'),

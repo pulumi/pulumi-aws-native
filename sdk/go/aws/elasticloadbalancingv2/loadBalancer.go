@@ -19,7 +19,8 @@ type LoadBalancer struct {
 	// The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
 	CanonicalHostedZoneId pulumi.StringOutput `pulumi:"canonicalHostedZoneId"`
 	// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
-	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	DnsName                      pulumi.StringOutput    `pulumi:"dnsName"`
+	EnablePrefixForIpv6SourceNat pulumi.StringPtrOutput `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// Note: Internal load balancers must use the ``ipv4`` IP address type.
@@ -112,6 +113,7 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
+	EnablePrefixForIpv6SourceNat *string `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
 	// Note: Internal load balancers must use the ``ipv4`` IP address type.
@@ -154,6 +156,7 @@ type loadBalancerArgs struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
+	EnablePrefixForIpv6SourceNat pulumi.StringPtrInput
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
 	// Note: Internal load balancers must use the ``ipv4`` IP address type.
@@ -239,6 +242,10 @@ func (o LoadBalancerOutput) CanonicalHostedZoneId() pulumi.StringOutput {
 // The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
 func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
+}
+
+func (o LoadBalancerOutput) EnablePrefixForIpv6SourceNat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.EnablePrefixForIpv6SourceNat }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.

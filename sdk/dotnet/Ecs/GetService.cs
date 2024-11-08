@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem> CapacityProviderStrategy;
         /// <summary>
-        /// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        /// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         /// </summary>
         public readonly Outputs.ServiceDeploymentConfiguration? DeploymentConfiguration;
         /// <summary>

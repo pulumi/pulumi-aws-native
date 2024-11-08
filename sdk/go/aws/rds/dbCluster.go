@@ -59,6 +59,8 @@ type DbCluster struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
+	// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+	ClusterScalabilityType pulumi.StringPtrOutput `pulumi:"clusterScalabilityType"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
@@ -415,6 +417,7 @@ func NewDbCluster(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"availabilityZones[*]",
+		"clusterScalabilityType",
 		"databaseName",
 		"dbClusterIdentifier",
 		"dbSubnetGroupName",
@@ -490,6 +493,8 @@ type dbClusterArgs struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+	ClusterScalabilityType *string `pulumi:"clusterScalabilityType"`
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
@@ -856,6 +861,8 @@ type DbClusterArgs struct {
 	//
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	BackupRetentionPeriod pulumi.IntPtrInput
+	// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+	ClusterScalabilityType pulumi.StringPtrInput
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	CopyTagsToSnapshot pulumi.BoolPtrInput
@@ -1279,6 +1286,11 @@ func (o DbClusterOutput) BacktrackWindow() pulumi.IntPtrOutput {
 //	Valid for: Aurora DB clusters and Multi-AZ DB clusters
 func (o DbClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.IntPtrOutput { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+func (o DbClusterOutput) ClusterScalabilityType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.ClusterScalabilityType }).(pulumi.StringPtrOutput)
 }
 
 // A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.

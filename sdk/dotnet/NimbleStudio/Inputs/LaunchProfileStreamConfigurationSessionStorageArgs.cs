@@ -10,21 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The configuration for a streaming session’s upload storage.&lt;/p&gt;
-    /// </summary>
     public sealed class LaunchProfileStreamConfigurationSessionStorageArgs : global::Pulumi.ResourceArgs
     {
         [Input("mode", required: true)]
-        private InputList<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingSessionStorageMode>? _mode;
+        private InputList<string>? _mode;
 
         /// <summary>
-        /// &lt;p&gt;Allows artists to upload files to their workstations. The only valid option is
-        ///                 &lt;code&gt;UPLOAD&lt;/code&gt;.&lt;/p&gt;
+        /// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
         /// </summary>
-        public InputList<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingSessionStorageMode> Mode
+        public InputList<string> Mode
         {
-            get => _mode ?? (_mode = new InputList<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingSessionStorageMode>());
+            get => _mode ?? (_mode = new InputList<string>());
             set => _mode = value;
         }
 

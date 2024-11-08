@@ -10,32 +10,27 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The configuration for a shared file storage system that is associated with a studio
-    ///             resource.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class StudioComponentSharedFileSystemConfiguration
     {
         /// <summary>
-        /// &lt;p&gt;The endpoint of the shared file system that is accessed by the studio component
-        ///             resource.&lt;/p&gt;
+        /// The endpoint of the shared file system that is accessed by the studio component resource.
         /// </summary>
         public readonly string? Endpoint;
         /// <summary>
-        /// &lt;p&gt;The unique identifier for a file system.&lt;/p&gt;
+        /// The unique identifier for a file system.
         /// </summary>
         public readonly string? FileSystemId;
         /// <summary>
-        /// &lt;p&gt;The mount location for a shared file system on a Linux virtual workstation.&lt;/p&gt;
+        /// The mount location for a shared file system on a Linux virtual workstation.
         /// </summary>
         public readonly string? LinuxMountPoint;
         /// <summary>
-        /// &lt;p&gt;The name of the file share.&lt;/p&gt;
+        /// The name of the file share.
         /// </summary>
         public readonly string? ShareName;
         /// <summary>
-        /// &lt;p&gt;The mount location for a shared file system on a Windows virtual workstation.&lt;/p&gt;
+        /// The mount location for a shared file system on a Windows virtual workstation.
         /// </summary>
         public readonly string? WindowsMountDrive;
 

@@ -350,6 +350,7 @@ export const AnalysisLayoutElementType = {
     FilterControl: "FILTER_CONTROL",
     ParameterControl: "PARAMETER_CONTROL",
     TextBox: "TEXT_BOX",
+    Image: "IMAGE",
 } as const;
 
 export type AnalysisLayoutElementType = (typeof AnalysisLayoutElementType)[keyof typeof AnalysisLayoutElementType];
@@ -1328,6 +1329,7 @@ export const DashboardLayoutElementType = {
     FilterControl: "FILTER_CONTROL",
     ParameterControl: "PARAMETER_CONTROL",
     TextBox: "TEXT_BOX",
+    Image: "IMAGE",
 } as const;
 
 export type DashboardLayoutElementType = (typeof DashboardLayoutElementType)[keyof typeof DashboardLayoutElementType];
@@ -2092,6 +2094,14 @@ export const DataSetTimeGranularity = {
 
 export type DataSetTimeGranularity = (typeof DataSetTimeGranularity)[keyof typeof DataSetTimeGranularity];
 
+export const DataSourceAuthenticationType = {
+    Password: "PASSWORD",
+    Token: "TOKEN",
+    X509: "X509",
+} as const;
+
+export type DataSourceAuthenticationType = (typeof DataSourceAuthenticationType)[keyof typeof DataSourceAuthenticationType];
+
 export const DataSourceErrorInfoType = {
     AccessDenied: "ACCESS_DENIED",
     CopySourceNotFound: "COPY_SOURCE_NOT_FOUND",
@@ -2566,6 +2576,7 @@ export const TemplateLayoutElementType = {
     FilterControl: "FILTER_CONTROL",
     ParameterControl: "PARAMETER_CONTROL",
     TextBox: "TEXT_BOX",
+    Image: "IMAGE",
 } as const;
 
 export type TemplateLayoutElementType = (typeof TemplateLayoutElementType)[keyof typeof TemplateLayoutElementType];

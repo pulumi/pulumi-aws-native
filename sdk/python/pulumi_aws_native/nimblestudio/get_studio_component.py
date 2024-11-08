@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetStudioComponentResult',
@@ -25,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetStudioComponentResult:
-    def __init__(__self__, configuration=None, description=None, ec2_security_group_ids=None, initialization_scripts=None, name=None, runtime_role_arn=None, script_parameters=None, secure_initialization_role_arn=None, studio_component_id=None, type=None):
+    def __init__(__self__, configuration=None, description=None, ec2_security_group_ids=None, initialization_scripts=None, name=None, script_parameters=None, studio_component_id=None, type=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -41,15 +40,9 @@ class GetStudioComponentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if runtime_role_arn and not isinstance(runtime_role_arn, str):
-            raise TypeError("Expected argument 'runtime_role_arn' to be a str")
-        pulumi.set(__self__, "runtime_role_arn", runtime_role_arn)
         if script_parameters and not isinstance(script_parameters, list):
             raise TypeError("Expected argument 'script_parameters' to be a list")
         pulumi.set(__self__, "script_parameters", script_parameters)
-        if secure_initialization_role_arn and not isinstance(secure_initialization_role_arn, str):
-            raise TypeError("Expected argument 'secure_initialization_role_arn' to be a str")
-        pulumi.set(__self__, "secure_initialization_role_arn", secure_initialization_role_arn)
         if studio_component_id and not isinstance(studio_component_id, str):
             raise TypeError("Expected argument 'studio_component_id' to be a str")
         pulumi.set(__self__, "studio_component_id", studio_component_id)
@@ -59,7 +52,7 @@ class GetStudioComponentResult:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional['outputs.StudioComponentConfiguration']:
         """
         The configuration of the studio component, based on component type.
         """
@@ -69,7 +62,7 @@ class GetStudioComponentResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        <p>The description.</p>
+        A human-readable description for the studio component resource.
         """
         return pulumi.get(self, "description")
 
@@ -77,7 +70,7 @@ class GetStudioComponentResult:
     @pulumi.getter(name="ec2SecurityGroupIds")
     def ec2_security_group_ids(self) -> Optional[Sequence[str]]:
         """
-        <p>The EC2 security groups that control access to the studio component.</p>
+        The EC2 security groups that control access to the studio component.
         """
         return pulumi.get(self, "ec2_security_group_ids")
 
@@ -85,7 +78,7 @@ class GetStudioComponentResult:
     @pulumi.getter(name="initializationScripts")
     def initialization_scripts(self) -> Optional[Sequence['outputs.StudioComponentInitializationScript']]:
         """
-        <p>Initialization scripts for studio components.</p>
+        Initialization scripts for studio components.
         """
         return pulumi.get(self, "initialization_scripts")
 
@@ -93,33 +86,17 @@ class GetStudioComponentResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        <p>The name for the studio component.</p>
+        A friendly name for the studio component resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="runtimeRoleArn")
-    def runtime_role_arn(self) -> Optional[str]:
-        """
-        An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-        """
-        return pulumi.get(self, "runtime_role_arn")
 
     @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> Optional[Sequence['outputs.StudioComponentScriptParameterKeyValue']]:
         """
-        <p>Parameters for the studio component scripts.</p>
+        Parameters for the studio component scripts.
         """
         return pulumi.get(self, "script_parameters")
-
-    @property
-    @pulumi.getter(name="secureInitializationRoleArn")
-    def secure_initialization_role_arn(self) -> Optional[str]:
-        """
-        An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-        """
-        return pulumi.get(self, "secure_initialization_role_arn")
 
     @property
     @pulumi.getter(name="studioComponentId")
@@ -131,7 +108,7 @@ class GetStudioComponentResult:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional['StudioComponentType']:
+    def type(self) -> Optional[str]:
         """
         The type of the studio component.
         """
@@ -149,26 +126,21 @@ class AwaitableGetStudioComponentResult(GetStudioComponentResult):
             ec2_security_group_ids=self.ec2_security_group_ids,
             initialization_scripts=self.initialization_scripts,
             name=self.name,
-            runtime_role_arn=self.runtime_role_arn,
             script_parameters=self.script_parameters,
-            secure_initialization_role_arn=self.secure_initialization_role_arn,
             studio_component_id=self.studio_component_id,
             type=self.type)
 
 
 def get_studio_component(studio_component_id: Optional[str] = None,
-                         studio_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStudioComponentResult:
     """
-    Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+    Resource Type definition for AWS::NimbleStudio::StudioComponent
 
 
     :param str studio_component_id: The unique identifier for the studio component resource.
-    :param str studio_id: <p>The studio ID. </p>
     """
     __args__ = dict()
     __args__['studioComponentId'] = studio_component_id
-    __args__['studioId'] = studio_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:nimblestudio:getStudioComponent', __args__, opts=opts, typ=GetStudioComponentResult).value
 
@@ -178,24 +150,19 @@ def get_studio_component(studio_component_id: Optional[str] = None,
         ec2_security_group_ids=pulumi.get(__ret__, 'ec2_security_group_ids'),
         initialization_scripts=pulumi.get(__ret__, 'initialization_scripts'),
         name=pulumi.get(__ret__, 'name'),
-        runtime_role_arn=pulumi.get(__ret__, 'runtime_role_arn'),
         script_parameters=pulumi.get(__ret__, 'script_parameters'),
-        secure_initialization_role_arn=pulumi.get(__ret__, 'secure_initialization_role_arn'),
         studio_component_id=pulumi.get(__ret__, 'studio_component_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_studio_component_output(studio_component_id: Optional[pulumi.Input[str]] = None,
-                                studio_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioComponentResult]:
     """
-    Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+    Resource Type definition for AWS::NimbleStudio::StudioComponent
 
 
     :param str studio_component_id: The unique identifier for the studio component resource.
-    :param str studio_id: <p>The studio ID. </p>
     """
     __args__ = dict()
     __args__['studioComponentId'] = studio_component_id
-    __args__['studioId'] = studio_id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getStudioComponent', __args__, opts=opts, typ=GetStudioComponentResult)
     return __ret__.apply(lambda __response__: GetStudioComponentResult(
@@ -204,8 +171,6 @@ def get_studio_component_output(studio_component_id: Optional[pulumi.Input[str]]
         ec2_security_group_ids=pulumi.get(__response__, 'ec2_security_group_ids'),
         initialization_scripts=pulumi.get(__response__, 'initialization_scripts'),
         name=pulumi.get(__response__, 'name'),
-        runtime_role_arn=pulumi.get(__response__, 'runtime_role_arn'),
         script_parameters=pulumi.get(__response__, 'script_parameters'),
-        secure_initialization_role_arn=pulumi.get(__response__, 'secure_initialization_role_arn'),
         studio_component_id=pulumi.get(__response__, 'studio_component_id'),
         type=pulumi.get(__response__, 'type')))

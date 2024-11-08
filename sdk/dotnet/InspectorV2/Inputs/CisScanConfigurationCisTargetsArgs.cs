@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.InspectorV2.Inputs
             set => _accountIds = value;
         }
 
-        [Input("targetResourceTags")]
+        [Input("targetResourceTags", required: true)]
         private InputMap<object>? _targetResourceTags;
         public InputMap<object> TargetResourceTags
         {

@@ -30,6 +30,12 @@ class AiAgentArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AiAgent resource.
+        :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        :param pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs']] configuration: Configuration for the AI Agent.
+        :param pulumi.Input['AiAgentAiAgentType'] type: The type of the AI Agent.
+        :param pulumi.Input[str] description: The description of the AI Agent.
+        :param pulumi.Input[str] name: The name of the AI Agent.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "assistant_id", assistant_id)
         pulumi.set(__self__, "configuration", configuration)
@@ -44,6 +50,9 @@ class AiAgentArgs:
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        """
         return pulumi.get(self, "assistant_id")
 
     @assistant_id.setter
@@ -53,6 +62,9 @@ class AiAgentArgs:
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs']]:
+        """
+        Configuration for the AI Agent.
+        """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
@@ -62,6 +74,9 @@ class AiAgentArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AiAgentAiAgentType']:
+        """
+        The type of the AI Agent.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -71,6 +86,9 @@ class AiAgentArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the AI Agent.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -80,6 +98,9 @@ class AiAgentArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the AI Agent.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -89,6 +110,9 @@ class AiAgentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -113,6 +137,12 @@ class AiAgent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        :param pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict']]] configuration: Configuration for the AI Agent.
+        :param pulumi.Input[str] description: The description of the AI Agent.
+        :param pulumi.Input[str] name: The name of the AI Agent.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input['AiAgentAiAgentType'] type: The type of the AI Agent.
         """
         ...
     @overload
@@ -206,45 +236,72 @@ class AiAgent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aiAgentArn")
     def ai_agent_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AI agent.
+        """
         return pulumi.get(self, "ai_agent_arn")
 
     @property
     @pulumi.getter(name="aiAgentId")
     def ai_agent_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the AI Agent.
+        """
         return pulumi.get(self, "ai_agent_id")
 
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        """
         return pulumi.get(self, "assistant_id")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Any]:
+        """
+        Configuration for the AI Agent.
+        """
         return pulumi.get(self, "configuration")
 
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the AI Agent.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the AI Agent.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output['AiAgentAiAgentType']:
+        """
+        The type of the AI Agent.
+        """
         return pulumi.get(self, "type")
 

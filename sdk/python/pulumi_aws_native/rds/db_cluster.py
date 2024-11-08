@@ -29,6 +29,7 @@ class DbClusterArgs:
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 cluster_scalability_type: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -102,6 +103,7 @@ class DbClusterArgs:
                  +  Must be a value from 1 to 35
                  
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
+        :param pulumi.Input[str] cluster_scalability_type: Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
@@ -401,6 +403,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "backtrack_window", backtrack_window)
         if backup_retention_period is not None:
             pulumi.set(__self__, "backup_retention_period", backup_retention_period)
+        if cluster_scalability_type is not None:
+            pulumi.set(__self__, "cluster_scalability_type", cluster_scalability_type)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
         if database_name is not None:
@@ -589,6 +593,18 @@ class DbClusterArgs:
     @backup_retention_period.setter
     def backup_retention_period(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "backup_retention_period", value)
+
+    @property
+    @pulumi.getter(name="clusterScalabilityType")
+    def cluster_scalability_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+        """
+        return pulumi.get(self, "cluster_scalability_type")
+
+    @cluster_scalability_type.setter
+    def cluster_scalability_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_scalability_type", value)
 
     @property
     @pulumi.getter(name="copyTagsToSnapshot")
@@ -1449,6 +1465,7 @@ class DbCluster(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 cluster_scalability_type: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -1542,6 +1559,7 @@ class DbCluster(pulumi.CustomResource):
                  +  Must be a value from 1 to 35
                  
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
+        :param pulumi.Input[str] cluster_scalability_type: Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
@@ -1875,6 +1893,7 @@ class DbCluster(pulumi.CustomResource):
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backtrack_window: Optional[pulumi.Input[int]] = None,
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
+                 cluster_scalability_type: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -1941,6 +1960,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["backtrack_window"] = backtrack_window
             __props__.__dict__["backup_retention_period"] = backup_retention_period
+            __props__.__dict__["cluster_scalability_type"] = cluster_scalability_type
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
@@ -1996,7 +2016,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["db_cluster_resource_id"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["storage_throughput"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]", "clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbCluster, __self__).__init__(
             'aws-native:rds:DbCluster',
@@ -2026,6 +2046,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["backtrack_window"] = None
         __props__.__dict__["backup_retention_period"] = None
+        __props__.__dict__["cluster_scalability_type"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["db_cluster_arn"] = None
@@ -2144,6 +2165,14 @@ class DbCluster(pulumi.CustomResource):
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "backup_retention_period")
+
+    @property
+    @pulumi.getter(name="clusterScalabilityType")
+    def cluster_scalability_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+        """
+        return pulumi.get(self, "cluster_scalability_type")
 
     @property
     @pulumi.getter(name="copyTagsToSnapshot")

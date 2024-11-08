@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<string?> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        /// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         /// </summary>
         [Output("deploymentConfiguration")]
         public Output<Outputs.ServiceDeploymentConfiguration?> DeploymentConfiguration { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.AwsNative.Ecs
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        /// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         /// </summary>
         [Input("deploymentConfiguration")]
         public Input<Inputs.ServiceDeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }

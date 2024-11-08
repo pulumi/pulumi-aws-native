@@ -29,10 +29,16 @@ type LookupScraperArgs struct {
 }
 
 type LookupScraperResult struct {
+	// Scraper alias.
+	Alias *string `pulumi:"alias"`
 	// Scraper ARN.
 	Arn *string `pulumi:"arn"`
+	// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+	Destination *ScraperDestination `pulumi:"destination"`
 	// IAM role ARN for the scraper.
 	RoleArn *string `pulumi:"roleArn"`
+	// The configuration in use by the scraper.
+	ScrapeConfiguration *ScraperScrapeConfiguration `pulumi:"scrapeConfiguration"`
 	// Required to identify a specific scraper.
 	ScraperId *string `pulumi:"scraperId"`
 	// An array of key-value pairs to apply to this resource.
@@ -81,14 +87,29 @@ func (o LookupScraperResultOutput) ToLookupScraperResultOutputWithContext(ctx co
 	return o
 }
 
+// Scraper alias.
+func (o LookupScraperResultOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupScraperResult) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
 // Scraper ARN.
 func (o LookupScraperResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScraperResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+func (o LookupScraperResultOutput) Destination() ScraperDestinationPtrOutput {
+	return o.ApplyT(func(v LookupScraperResult) *ScraperDestination { return v.Destination }).(ScraperDestinationPtrOutput)
+}
+
 // IAM role ARN for the scraper.
 func (o LookupScraperResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScraperResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The configuration in use by the scraper.
+func (o LookupScraperResultOutput) ScrapeConfiguration() ScraperScrapeConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupScraperResult) *ScraperScrapeConfiguration { return v.ScrapeConfiguration }).(ScraperScrapeConfigurationPtrOutput)
 }
 
 // Required to identify a specific scraper.

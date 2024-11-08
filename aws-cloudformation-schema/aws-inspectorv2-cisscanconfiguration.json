@@ -107,7 +107,7 @@
         }
       },
       "additionalProperties" : false,
-      "required" : [ "AccountIds" ]
+      "required" : [ "AccountIds", "TargetResourceTags" ]
     },
     "TargetResourceTags" : {
       "patternProperties" : {

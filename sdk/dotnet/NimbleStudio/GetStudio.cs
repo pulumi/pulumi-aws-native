@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.NimbleStudio
     public static class GetStudio
     {
         /// <summary>
-        /// Represents a studio that contains other Nimble Studio resources
+        /// Resource Type definition for AWS::NimbleStudio::Studio
         /// </summary>
         public static Task<GetStudioResult> InvokeAsync(GetStudioArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStudioResult>("aws-native:nimblestudio:getStudio", args ?? new GetStudioArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a studio that contains other Nimble Studio resources
+        /// Resource Type definition for AWS::NimbleStudio::Studio
         /// </summary>
         public static Output<GetStudioResult> Invoke(GetStudioInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudioResult>("aws-native:nimblestudio:getStudio", args ?? new GetStudioInvokeArgs(), options.WithDefaults());
@@ -58,19 +58,19 @@ namespace Pulumi.AwsNative.NimbleStudio
     public sealed class GetStudioResult
     {
         /// <summary>
-        /// &lt;p&gt;The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// The IAM role that studio admins assume when logging in to the Nimble Studio portal.
         /// </summary>
         public readonly string? AdminRoleArn;
         /// <summary>
-        /// &lt;p&gt;A friendly name for the studio.&lt;/p&gt;
+        /// A friendly name for the studio.
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// &lt;p&gt;The Amazon Web Services Region where the studio resource is located.&lt;/p&gt;
+        /// The AWS Region where the studio resource is located. For example, `us-west-2` .
         /// </summary>
         public readonly string? HomeRegion;
         /// <summary>
-        /// &lt;p&gt;The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.&lt;/p&gt;
+        /// The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
         /// </summary>
         public readonly string? SsoClientId;
         /// <summary>
@@ -82,11 +82,11 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         public readonly string? StudioId;
         /// <summary>
-        /// &lt;p&gt;The address of the web page for the studio.&lt;/p&gt;
+        /// The unique identifier for the studio resource.
         /// </summary>
         public readonly string? StudioUrl;
         /// <summary>
-        /// &lt;p&gt;The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.&lt;/p&gt;
+        /// The IAM role that studio users assume when logging in to the Nimble Studio portal.
         /// </summary>
         public readonly string? UserRoleArn;
 

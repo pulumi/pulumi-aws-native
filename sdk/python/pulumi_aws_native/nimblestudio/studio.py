@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['StudioArgs', 'Studio']
@@ -30,11 +29,11 @@ class StudioArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Studio resource.
-        :param pulumi.Input[str] admin_role_arn: <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
-        :param pulumi.Input[str] display_name: <p>A friendly name for the studio.</p>
-        :param pulumi.Input[str] user_role_arn: <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+        :param pulumi.Input[str] admin_role_arn: The IAM role that studio admins assume when logging in to the Nimble Studio portal.
+        :param pulumi.Input[str] display_name: A friendly name for the studio.
+        :param pulumi.Input[str] user_role_arn: The IAM role that studio users assume when logging in to the Nimble Studio portal.
         :param pulumi.Input['StudioEncryptionConfigurationArgs'] studio_encryption_configuration: Configuration of the encryption method that is used for the studio.
-        :param pulumi.Input[str] studio_name: <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+        :param pulumi.Input[str] studio_name: The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -53,7 +52,7 @@ class StudioArgs:
     @pulumi.getter(name="adminRoleArn")
     def admin_role_arn(self) -> pulumi.Input[str]:
         """
-        <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+        The IAM role that studio admins assume when logging in to the Nimble Studio portal.
         """
         return pulumi.get(self, "admin_role_arn")
 
@@ -65,7 +64,7 @@ class StudioArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
         """
-        <p>A friendly name for the studio.</p>
+        A friendly name for the studio.
         """
         return pulumi.get(self, "display_name")
 
@@ -77,7 +76,7 @@ class StudioArgs:
     @pulumi.getter(name="userRoleArn")
     def user_role_arn(self) -> pulumi.Input[str]:
         """
-        <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+        The IAM role that studio users assume when logging in to the Nimble Studio portal.
         """
         return pulumi.get(self, "user_role_arn")
 
@@ -101,7 +100,7 @@ class StudioArgs:
     @pulumi.getter(name="studioName")
     def studio_name(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+        The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
         """
         return pulumi.get(self, "studio_name")
 
@@ -137,18 +136,18 @@ class Studio(pulumi.CustomResource):
                  user_role_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Represents a studio that contains other Nimble Studio resources
+        Resource Type definition for AWS::NimbleStudio::Studio
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] admin_role_arn: <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
-        :param pulumi.Input[str] display_name: <p>A friendly name for the studio.</p>
+        :param pulumi.Input[str] admin_role_arn: The IAM role that studio admins assume when logging in to the Nimble Studio portal.
+        :param pulumi.Input[str] display_name: A friendly name for the studio.
         :param pulumi.Input[Union['StudioEncryptionConfigurationArgs', 'StudioEncryptionConfigurationArgsDict']] studio_encryption_configuration: Configuration of the encryption method that is used for the studio.
-        :param pulumi.Input[str] studio_name: <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+        :param pulumi.Input[str] studio_name: The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        :param pulumi.Input[str] user_role_arn: <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+        :param pulumi.Input[str] user_role_arn: The IAM role that studio users assume when logging in to the Nimble Studio portal.
         """
         ...
     @overload
@@ -157,7 +156,7 @@ class Studio(pulumi.CustomResource):
                  args: StudioArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a studio that contains other Nimble Studio resources
+        Resource Type definition for AWS::NimbleStudio::Studio
 
         :param str resource_name: The name of the resource.
         :param StudioArgs args: The arguments to use to populate this resource's properties.
@@ -245,7 +244,7 @@ class Studio(pulumi.CustomResource):
     @pulumi.getter(name="adminRoleArn")
     def admin_role_arn(self) -> pulumi.Output[str]:
         """
-        <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+        The IAM role that studio admins assume when logging in to the Nimble Studio portal.
         """
         return pulumi.get(self, "admin_role_arn")
 
@@ -253,7 +252,7 @@ class Studio(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
         """
-        <p>A friendly name for the studio.</p>
+        A friendly name for the studio.
         """
         return pulumi.get(self, "display_name")
 
@@ -261,7 +260,7 @@ class Studio(pulumi.CustomResource):
     @pulumi.getter(name="homeRegion")
     def home_region(self) -> pulumi.Output[str]:
         """
-        <p>The Amazon Web Services Region where the studio resource is located.</p>
+        The AWS Region where the studio resource is located. For example, `us-west-2` .
         """
         return pulumi.get(self, "home_region")
 
@@ -269,7 +268,7 @@ class Studio(pulumi.CustomResource):
     @pulumi.getter(name="ssoClientId")
     def sso_client_id(self) -> pulumi.Output[str]:
         """
-        <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
+        The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
         """
         return pulumi.get(self, "sso_client_id")
 
@@ -293,7 +292,7 @@ class Studio(pulumi.CustomResource):
     @pulumi.getter(name="studioName")
     def studio_name(self) -> pulumi.Output[str]:
         """
-        <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+        The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
         """
         return pulumi.get(self, "studio_name")
 
@@ -301,7 +300,7 @@ class Studio(pulumi.CustomResource):
     @pulumi.getter(name="studioUrl")
     def studio_url(self) -> pulumi.Output[str]:
         """
-        <p>The address of the web page for the studio.</p>
+        The unique identifier for the studio resource.
         """
         return pulumi.get(self, "studio_url")
 
@@ -319,7 +318,7 @@ class Studio(pulumi.CustomResource):
     @pulumi.getter(name="userRoleArn")
     def user_role_arn(self) -> pulumi.Output[str]:
         """
-        <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+        The IAM role that studio users assume when logging in to the Nimble Studio portal.
         """
         return pulumi.get(self, "user_role_arn")
 

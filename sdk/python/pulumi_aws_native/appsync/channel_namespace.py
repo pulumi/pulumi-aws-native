@@ -34,9 +34,12 @@ class ChannelNamespaceArgs:
         """
         The set of arguments for constructing a ChannelNamespace resource.
         :param pulumi.Input[str] api_id: AppSync Api Id that this Channel Namespace belongs to.
+        :param pulumi.Input[str] code_handlers: The event handler functions that run custom business logic to process published events and subscribe requests.
         :param pulumi.Input[str] code_s3_location: The Amazon S3 endpoint where the code is located.
+        :param pulumi.Input[str] name: The name of the channel namespace. This name must be unique within the `Api` .
         :param pulumi.Input[Sequence[pulumi.Input['ChannelNamespaceAuthModeArgs']]] publish_auth_modes: List of AuthModes supported for Publish operations.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelNamespaceAuthModeArgs']]] subscribe_auth_modes: List of AuthModes supported for Subscribe operations.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of tags (key-value pairs) for this channel namespace.
         """
         pulumi.set(__self__, "api_id", api_id)
         if code_handlers is not None:
@@ -67,6 +70,9 @@ class ChannelNamespaceArgs:
     @property
     @pulumi.getter(name="codeHandlers")
     def code_handlers(self) -> Optional[pulumi.Input[str]]:
+        """
+        The event handler functions that run custom business logic to process published events and subscribe requests.
+        """
         return pulumi.get(self, "code_handlers")
 
     @code_handlers.setter
@@ -88,6 +94,9 @@ class ChannelNamespaceArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the channel namespace. This name must be unique within the `Api` .
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -121,6 +130,9 @@ class ChannelNamespaceArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A set of tags (key-value pairs) for this channel namespace.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -147,9 +159,12 @@ class ChannelNamespace(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: AppSync Api Id that this Channel Namespace belongs to.
+        :param pulumi.Input[str] code_handlers: The event handler functions that run custom business logic to process published events and subscribe requests.
         :param pulumi.Input[str] code_s3_location: The Amazon S3 endpoint where the code is located.
+        :param pulumi.Input[str] name: The name of the channel namespace. This name must be unique within the `Api` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]] publish_auth_modes: List of AuthModes supported for Publish operations.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelNamespaceAuthModeArgs', 'ChannelNamespaceAuthModeArgsDict']]]] subscribe_auth_modes: List of AuthModes supported for Subscribe operations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this channel namespace.
         """
         ...
     @overload
@@ -246,11 +261,17 @@ class ChannelNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelNamespaceArn")
     def channel_namespace_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the channel namespace.
+        """
         return pulumi.get(self, "channel_namespace_arn")
 
     @property
     @pulumi.getter(name="codeHandlers")
     def code_handlers(self) -> pulumi.Output[Optional[str]]:
+        """
+        The event handler functions that run custom business logic to process published events and subscribe requests.
+        """
         return pulumi.get(self, "code_handlers")
 
     @property
@@ -264,6 +285,9 @@ class ChannelNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the channel namespace. This name must be unique within the `Api` .
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -285,5 +309,8 @@ class ChannelNamespace(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A set of tags (key-value pairs) for this channel namespace.
+        """
         return pulumi.get(self, "tags")
 

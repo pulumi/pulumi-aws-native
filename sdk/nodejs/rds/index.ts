@@ -45,6 +45,11 @@ export type DbProxyTargetGroup = import("./dbProxyTargetGroup").DbProxyTargetGro
 export const DbProxyTargetGroup: typeof import("./dbProxyTargetGroup").DbProxyTargetGroup = null as any;
 utilities.lazyLoad(exports, ["DbProxyTargetGroup"], () => require("./dbProxyTargetGroup"));
 
+export { DbShardGroupArgs } from "./dbShardGroup";
+export type DbShardGroup = import("./dbShardGroup").DbShardGroup;
+export const DbShardGroup: typeof import("./dbShardGroup").DbShardGroup = null as any;
+utilities.lazyLoad(exports, ["DbShardGroup"], () => require("./dbShardGroup"));
+
 export { DbSubnetGroupArgs } from "./dbSubnetGroup";
 export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
 export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
@@ -94,6 +99,11 @@ export { GetDbProxyTargetGroupArgs, GetDbProxyTargetGroupResult, GetDbProxyTarge
 export const getDbProxyTargetGroup: typeof import("./getDbProxyTargetGroup").getDbProxyTargetGroup = null as any;
 export const getDbProxyTargetGroupOutput: typeof import("./getDbProxyTargetGroup").getDbProxyTargetGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDbProxyTargetGroup","getDbProxyTargetGroupOutput"], () => require("./getDbProxyTargetGroup"));
+
+export { GetDbShardGroupArgs, GetDbShardGroupResult, GetDbShardGroupOutputArgs } from "./getDbShardGroup";
+export const getDbShardGroup: typeof import("./getDbShardGroup").getDbShardGroup = null as any;
+export const getDbShardGroupOutput: typeof import("./getDbShardGroup").getDbShardGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDbShardGroup","getDbShardGroupOutput"], () => require("./getDbShardGroup"));
 
 export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArgs } from "./getDbSubnetGroup";
 export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
@@ -159,6 +169,8 @@ const _module = {
                 return new DbProxyEndpoint(name, <any>undefined, { urn })
             case "aws-native:rds:DbProxyTargetGroup":
                 return new DbProxyTargetGroup(name, <any>undefined, { urn })
+            case "aws-native:rds:DbShardGroup":
+                return new DbShardGroup(name, <any>undefined, { urn })
             case "aws-native:rds:DbSubnetGroup":
                 return new DbSubnetGroup(name, <any>undefined, { urn })
             case "aws-native:rds:EventSubscription":

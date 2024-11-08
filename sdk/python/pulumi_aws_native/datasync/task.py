@@ -34,6 +34,7 @@ class TaskArgs:
                  options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
                  schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 task_mode: Optional[pulumi.Input['TaskMode']] = None,
                  task_report_config: Optional[pulumi.Input['TaskReportConfigArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
@@ -47,6 +48,7 @@ class TaskArgs:
         :param pulumi.Input['TaskOptionsArgs'] options: Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
         :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['TaskMode'] task_mode: Specifies the task mode for the task.
         :param pulumi.Input['TaskReportConfigArgs'] task_report_config: Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
                
                When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
@@ -69,6 +71,8 @@ class TaskArgs:
             pulumi.set(__self__, "schedule", schedule)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if task_mode is not None:
+            pulumi.set(__self__, "task_mode", task_mode)
         if task_report_config is not None:
             pulumi.set(__self__, "task_report_config", task_report_config)
 
@@ -193,6 +197,18 @@ class TaskArgs:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter(name="taskMode")
+    def task_mode(self) -> Optional[pulumi.Input['TaskMode']]:
+        """
+        Specifies the task mode for the task.
+        """
+        return pulumi.get(self, "task_mode")
+
+    @task_mode.setter
+    def task_mode(self, value: Optional[pulumi.Input['TaskMode']]):
+        pulumi.set(self, "task_mode", value)
+
+    @property
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> Optional[pulumi.Input['TaskReportConfigArgs']]:
         """
@@ -222,6 +238,7 @@ class Task(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_mode: Optional[pulumi.Input['TaskMode']] = None,
                  task_report_config: Optional[pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']]] = None,
                  __props__=None):
         """
@@ -263,6 +280,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         :param pulumi.Input[str] source_location_arn: The ARN of the source location for the task.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input['TaskMode'] task_mode: Specifies the task mode for the task.
         :param pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']] task_report_config: Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
                
                When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
@@ -325,6 +343,7 @@ class Task(pulumi.CustomResource):
                  schedule: Optional[pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 task_mode: Optional[pulumi.Input['TaskMode']] = None,
                  task_report_config: Optional[pulumi.Input[Union['TaskReportConfigArgs', 'TaskReportConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -349,12 +368,13 @@ class Task(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source_location_arn'")
             __props__.__dict__["source_location_arn"] = source_location_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["task_mode"] = task_mode
             __props__.__dict__["task_report_config"] = task_report_config
             __props__.__dict__["destination_network_interface_arns"] = None
             __props__.__dict__["source_network_interface_arns"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["task_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationLocationArn", "sourceLocationArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationLocationArn", "sourceLocationArn", "taskMode"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Task, __self__).__init__(
             'aws-native:datasync:Task',
@@ -392,6 +412,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["task_arn"] = None
+        __props__.__dict__["task_mode"] = None
         __props__.__dict__["task_report_config"] = None
         return Task(resource_name, opts=opts, __props__=__props__)
 
@@ -506,6 +527,14 @@ class Task(pulumi.CustomResource):
         The ARN of the task.
         """
         return pulumi.get(self, "task_arn")
+
+    @property
+    @pulumi.getter(name="taskMode")
+    def task_mode(self) -> pulumi.Output[Optional['TaskMode']]:
+        """
+        Specifies the task mode for the task.
+        """
+        return pulumi.get(self, "task_mode")
 
     @property
     @pulumi.getter(name="taskReportConfig")

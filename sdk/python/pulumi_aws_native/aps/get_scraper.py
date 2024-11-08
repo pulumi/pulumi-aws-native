@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,19 +25,36 @@ __all__ = [
 
 @pulumi.output_type
 class GetScraperResult:
-    def __init__(__self__, arn=None, role_arn=None, scraper_id=None, tags=None):
+    def __init__(__self__, alias=None, arn=None, destination=None, role_arn=None, scrape_configuration=None, scraper_id=None, tags=None):
+        if alias and not isinstance(alias, str):
+            raise TypeError("Expected argument 'alias' to be a str")
+        pulumi.set(__self__, "alias", alias)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if destination and not isinstance(destination, dict):
+            raise TypeError("Expected argument 'destination' to be a dict")
+        pulumi.set(__self__, "destination", destination)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if scrape_configuration and not isinstance(scrape_configuration, dict):
+            raise TypeError("Expected argument 'scrape_configuration' to be a dict")
+        pulumi.set(__self__, "scrape_configuration", scrape_configuration)
         if scraper_id and not isinstance(scraper_id, str):
             raise TypeError("Expected argument 'scraper_id' to be a str")
         pulumi.set(__self__, "scraper_id", scraper_id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> Optional[str]:
+        """
+        Scraper alias.
+        """
+        return pulumi.get(self, "alias")
 
     @property
     @pulumi.getter
@@ -47,12 +65,28 @@ class GetScraperResult:
         return pulumi.get(self, "arn")
 
     @property
+    @pulumi.getter
+    def destination(self) -> Optional['outputs.ScraperDestination']:
+        """
+        The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
         IAM role ARN for the scraper.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="scrapeConfiguration")
+    def scrape_configuration(self) -> Optional['outputs.ScraperScrapeConfiguration']:
+        """
+        The configuration in use by the scraper.
+        """
+        return pulumi.get(self, "scrape_configuration")
 
     @property
     @pulumi.getter(name="scraperId")
@@ -77,8 +111,11 @@ class AwaitableGetScraperResult(GetScraperResult):
         if False:
             yield self
         return GetScraperResult(
+            alias=self.alias,
             arn=self.arn,
+            destination=self.destination,
             role_arn=self.role_arn,
+            scrape_configuration=self.scrape_configuration,
             scraper_id=self.scraper_id,
             tags=self.tags)
 
@@ -97,8 +134,11 @@ def get_scraper(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:aps:getScraper', __args__, opts=opts, typ=GetScraperResult).value
 
     return AwaitableGetScraperResult(
+        alias=pulumi.get(__ret__, 'alias'),
         arn=pulumi.get(__ret__, 'arn'),
+        destination=pulumi.get(__ret__, 'destination'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
+        scrape_configuration=pulumi.get(__ret__, 'scrape_configuration'),
         scraper_id=pulumi.get(__ret__, 'scraper_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_scraper_output(arn: Optional[pulumi.Input[str]] = None,
@@ -114,7 +154,10 @@ def get_scraper_output(arn: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:aps:getScraper', __args__, opts=opts, typ=GetScraperResult)
     return __ret__.apply(lambda __response__: GetScraperResult(
+        alias=pulumi.get(__response__, 'alias'),
         arn=pulumi.get(__response__, 'arn'),
+        destination=pulumi.get(__response__, 'destination'),
         role_arn=pulumi.get(__response__, 'role_arn'),
+        scrape_configuration=pulumi.get(__response__, 'scrape_configuration'),
         scraper_id=pulumi.get(__response__, 'scraper_id'),
         tags=pulumi.get(__response__, 'tags')))

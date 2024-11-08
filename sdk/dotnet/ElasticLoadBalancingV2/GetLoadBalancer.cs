@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
         /// </summary>
         public readonly string? DnsName;
+        public readonly string? EnablePrefixForIpv6SourceNat;
         /// <summary>
         /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         /// </summary>
@@ -126,6 +127,8 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
             string? dnsName,
 
+            string? enablePrefixForIpv6SourceNat,
+
             string? enforceSecurityGroupInboundRulesOnPrivateLinkTraffic,
 
             string? ipAddressType,
@@ -148,6 +151,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         {
             CanonicalHostedZoneId = canonicalHostedZoneId;
             DnsName = dnsName;
+            EnablePrefixForIpv6SourceNat = enablePrefixForIpv6SourceNat;
             EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic = enforceSecurityGroupInboundRulesOnPrivateLinkTraffic;
             IpAddressType = ipAddressType;
             LoadBalancerArn = loadBalancerArn;

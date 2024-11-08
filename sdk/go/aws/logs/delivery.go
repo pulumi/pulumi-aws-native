@@ -31,6 +31,14 @@ type Delivery struct {
 	DeliveryId pulumi.StringOutput `pulumi:"deliveryId"`
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName pulumi.StringOutput `pulumi:"deliverySourceName"`
+	// The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+	FieldDelimiter pulumi.StringPtrOutput `pulumi:"fieldDelimiter"`
+	// The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+	RecordFields pulumi.StringArrayOutput `pulumi:"recordFields"`
+	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+	S3EnableHiveCompatiblePath pulumi.BoolPtrOutput `pulumi:"s3EnableHiveCompatiblePath"`
+	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+	S3SuffixPath pulumi.StringPtrOutput `pulumi:"s3SuffixPath"`
 	// The tags that have been assigned to this delivery.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -90,6 +98,14 @@ type deliveryArgs struct {
 	DeliveryDestinationArn string `pulumi:"deliveryDestinationArn"`
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName string `pulumi:"deliverySourceName"`
+	// The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	// The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+	RecordFields []string `pulumi:"recordFields"`
+	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+	S3EnableHiveCompatiblePath *bool `pulumi:"s3EnableHiveCompatiblePath"`
+	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+	S3SuffixPath *string `pulumi:"s3SuffixPath"`
 	// The tags that have been assigned to this delivery.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -100,6 +116,14 @@ type DeliveryArgs struct {
 	DeliveryDestinationArn pulumi.StringInput
 	// The name of the delivery source that is associated with this delivery.
 	DeliverySourceName pulumi.StringInput
+	// The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+	FieldDelimiter pulumi.StringPtrInput
+	// The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+	RecordFields pulumi.StringArrayInput
+	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+	S3EnableHiveCompatiblePath pulumi.BoolPtrInput
+	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+	S3SuffixPath pulumi.StringPtrInput
 	// The tags that have been assigned to this delivery.
 	Tags aws.TagArrayInput
 }
@@ -164,6 +188,26 @@ func (o DeliveryOutput) DeliveryId() pulumi.StringOutput {
 // The name of the delivery source that is associated with this delivery.
 func (o DeliveryOutput) DeliverySourceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Delivery) pulumi.StringOutput { return v.DeliverySourceName }).(pulumi.StringOutput)
+}
+
+// The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+func (o DeliveryOutput) FieldDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Delivery) pulumi.StringPtrOutput { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
+}
+
+// The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+func (o DeliveryOutput) RecordFields() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Delivery) pulumi.StringArrayOutput { return v.RecordFields }).(pulumi.StringArrayOutput)
+}
+
+// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+func (o DeliveryOutput) S3EnableHiveCompatiblePath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Delivery) pulumi.BoolPtrOutput { return v.S3EnableHiveCompatiblePath }).(pulumi.BoolPtrOutput)
+}
+
+// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+func (o DeliveryOutput) S3SuffixPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Delivery) pulumi.StringPtrOutput { return v.S3SuffixPath }).(pulumi.StringPtrOutput)
 }
 
 // The tags that have been assigned to this delivery.

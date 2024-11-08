@@ -12,38 +12,34 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+// Resource Type definition for AWS::NimbleStudio::StudioComponent
 type StudioComponent struct {
 	pulumi.CustomResourceState
 
 	// The configuration of the studio component, based on component type.
-	Configuration pulumi.AnyOutput `pulumi:"configuration"`
-	// <p>The description.</p>
+	Configuration StudioComponentConfigurationPtrOutput `pulumi:"configuration"`
+	// A human-readable description for the studio component resource.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// <p>The EC2 security groups that control access to the studio component.</p>
+	// The EC2 security groups that control access to the studio component.
 	Ec2SecurityGroupIds pulumi.StringArrayOutput `pulumi:"ec2SecurityGroupIds"`
-	// <p>Initialization scripts for studio components.</p>
+	// Initialization scripts for studio components.
 	InitializationScripts StudioComponentInitializationScriptArrayOutput `pulumi:"initializationScripts"`
-	// <p>The name for the studio component.</p>
+	// A friendly name for the studio component resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-	RuntimeRoleArn pulumi.StringPtrOutput `pulumi:"runtimeRoleArn"`
-	// <p>Parameters for the studio component scripts.</p>
+	// Parameters for the studio component scripts.
 	ScriptParameters StudioComponentScriptParameterKeyValueArrayOutput `pulumi:"scriptParameters"`
-	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-	SecureInitializationRoleArn pulumi.StringPtrOutput `pulumi:"secureInitializationRoleArn"`
 	// The unique identifier for the studio component resource.
 	StudioComponentId pulumi.StringOutput `pulumi:"studioComponentId"`
-	// <p>The studio ID. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId pulumi.StringOutput `pulumi:"studioId"`
 	// The specific subtype of a studio component.
-	Subtype StudioComponentSubtypePtrOutput `pulumi:"subtype"`
+	Subtype pulumi.StringPtrOutput `pulumi:"subtype"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the studio component.
-	Type StudioComponentTypeOutput `pulumi:"type"`
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewStudioComponent registers a new resource with the given unique name, arguments, and options.
@@ -99,61 +95,53 @@ func (StudioComponentState) ElementType() reflect.Type {
 
 type studioComponentArgs struct {
 	// The configuration of the studio component, based on component type.
-	Configuration interface{} `pulumi:"configuration"`
-	// <p>The description.</p>
+	Configuration *StudioComponentConfiguration `pulumi:"configuration"`
+	// A human-readable description for the studio component resource.
 	Description *string `pulumi:"description"`
-	// <p>The EC2 security groups that control access to the studio component.</p>
+	// The EC2 security groups that control access to the studio component.
 	Ec2SecurityGroupIds []string `pulumi:"ec2SecurityGroupIds"`
-	// <p>Initialization scripts for studio components.</p>
+	// Initialization scripts for studio components.
 	InitializationScripts []StudioComponentInitializationScript `pulumi:"initializationScripts"`
-	// <p>The name for the studio component.</p>
+	// A friendly name for the studio component resource.
 	Name *string `pulumi:"name"`
-	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-	RuntimeRoleArn *string `pulumi:"runtimeRoleArn"`
-	// <p>Parameters for the studio component scripts.</p>
+	// Parameters for the studio component scripts.
 	ScriptParameters []StudioComponentScriptParameterKeyValue `pulumi:"scriptParameters"`
-	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-	SecureInitializationRoleArn *string `pulumi:"secureInitializationRoleArn"`
-	// <p>The studio ID. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId string `pulumi:"studioId"`
 	// The specific subtype of a studio component.
-	Subtype *StudioComponentSubtype `pulumi:"subtype"`
+	Subtype *string `pulumi:"subtype"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the studio component.
-	Type StudioComponentType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a StudioComponent resource.
 type StudioComponentArgs struct {
 	// The configuration of the studio component, based on component type.
-	Configuration pulumi.Input
-	// <p>The description.</p>
+	Configuration StudioComponentConfigurationPtrInput
+	// A human-readable description for the studio component resource.
 	Description pulumi.StringPtrInput
-	// <p>The EC2 security groups that control access to the studio component.</p>
+	// The EC2 security groups that control access to the studio component.
 	Ec2SecurityGroupIds pulumi.StringArrayInput
-	// <p>Initialization scripts for studio components.</p>
+	// Initialization scripts for studio components.
 	InitializationScripts StudioComponentInitializationScriptArrayInput
-	// <p>The name for the studio component.</p>
+	// A friendly name for the studio component resource.
 	Name pulumi.StringPtrInput
-	// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-	RuntimeRoleArn pulumi.StringPtrInput
-	// <p>Parameters for the studio component scripts.</p>
+	// Parameters for the studio component scripts.
 	ScriptParameters StudioComponentScriptParameterKeyValueArrayInput
-	// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-	SecureInitializationRoleArn pulumi.StringPtrInput
-	// <p>The studio ID. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId pulumi.StringInput
 	// The specific subtype of a studio component.
-	Subtype StudioComponentSubtypePtrInput
+	Subtype pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags pulumi.StringMapInput
 	// The type of the studio component.
-	Type StudioComponentTypeInput
+	Type pulumi.StringInput
 }
 
 func (StudioComponentArgs) ElementType() reflect.Type {
@@ -194,45 +182,35 @@ func (o StudioComponentOutput) ToStudioComponentOutputWithContext(ctx context.Co
 }
 
 // The configuration of the studio component, based on component type.
-func (o StudioComponentOutput) Configuration() pulumi.AnyOutput {
-	return o.ApplyT(func(v *StudioComponent) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
+func (o StudioComponentOutput) Configuration() StudioComponentConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponent) StudioComponentConfigurationPtrOutput { return v.Configuration }).(StudioComponentConfigurationPtrOutput)
 }
 
-// <p>The description.</p>
+// A human-readable description for the studio component resource.
 func (o StudioComponentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// <p>The EC2 security groups that control access to the studio component.</p>
+// The EC2 security groups that control access to the studio component.
 func (o StudioComponentOutput) Ec2SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringArrayOutput { return v.Ec2SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// <p>Initialization scripts for studio components.</p>
+// Initialization scripts for studio components.
 func (o StudioComponentOutput) InitializationScripts() StudioComponentInitializationScriptArrayOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentInitializationScriptArrayOutput {
 		return v.InitializationScripts
 	}).(StudioComponentInitializationScriptArrayOutput)
 }
 
-// <p>The name for the studio component.</p>
+// A friendly name for the studio component resource.
 func (o StudioComponentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-func (o StudioComponentOutput) RuntimeRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.RuntimeRoleArn }).(pulumi.StringPtrOutput)
-}
-
-// <p>Parameters for the studio component scripts.</p>
+// Parameters for the studio component scripts.
 func (o StudioComponentOutput) ScriptParameters() StudioComponentScriptParameterKeyValueArrayOutput {
 	return o.ApplyT(func(v *StudioComponent) StudioComponentScriptParameterKeyValueArrayOutput { return v.ScriptParameters }).(StudioComponentScriptParameterKeyValueArrayOutput)
-}
-
-// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-func (o StudioComponentOutput) SecureInitializationRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.SecureInitializationRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The unique identifier for the studio component resource.
@@ -240,14 +218,14 @@ func (o StudioComponentOutput) StudioComponentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioComponentId }).(pulumi.StringOutput)
 }
 
-// <p>The studio ID. </p>
+// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 func (o StudioComponentOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }
 
 // The specific subtype of a studio component.
-func (o StudioComponentOutput) Subtype() StudioComponentSubtypePtrOutput {
-	return o.ApplyT(func(v *StudioComponent) StudioComponentSubtypePtrOutput { return v.Subtype }).(StudioComponentSubtypePtrOutput)
+func (o StudioComponentOutput) Subtype() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringPtrOutput { return v.Subtype }).(pulumi.StringPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.
@@ -258,8 +236,8 @@ func (o StudioComponentOutput) Tags() pulumi.StringMapOutput {
 }
 
 // The type of the studio component.
-func (o StudioComponentOutput) Type() StudioComponentTypeOutput {
-	return o.ApplyT(func(v *StudioComponent) StudioComponentTypeOutput { return v.Type }).(StudioComponentTypeOutput)
+func (o StudioComponentOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *StudioComponent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {

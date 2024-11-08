@@ -30,16 +30,23 @@ type LookupApplicationInferenceProfileArgs struct {
 
 type LookupApplicationInferenceProfileResult struct {
 	// Time Stamp
-	CreatedAt           *string `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// The Amazon Resource Name (ARN) of the inference profile.
 	InferenceProfileArn *string `pulumi:"inferenceProfileArn"`
-	InferenceProfileId  *string `pulumi:"inferenceProfileId"`
+	// The unique identifier of the inference profile.
+	InferenceProfileId *string `pulumi:"inferenceProfileId"`
 	// Inference profile identifier. Supports both system-defined inference profile ids, and inference profile ARNs.
 	InferenceProfileIdentifier *string `pulumi:"inferenceProfileIdentifier"`
 	// List of model configuration
 	Models []ApplicationInferenceProfileInferenceProfileModel `pulumi:"models"`
+	// The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
 	Status *ApplicationInferenceProfileInferenceProfileStatus `pulumi:"status"`
 	// List of Tags
-	Tags []aws.Tag                                        `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
+	// The type of the inference profile. The following types are possible:
+	//
+	// - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+	// - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
 	Type *ApplicationInferenceProfileInferenceProfileType `pulumi:"type"`
 	// Time Stamp
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -92,10 +99,12 @@ func (o LookupApplicationInferenceProfileResultOutput) CreatedAt() pulumi.String
 	return o.ApplyT(func(v LookupApplicationInferenceProfileResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the inference profile.
 func (o LookupApplicationInferenceProfileResultOutput) InferenceProfileArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInferenceProfileResult) *string { return v.InferenceProfileArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the inference profile.
 func (o LookupApplicationInferenceProfileResultOutput) InferenceProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInferenceProfileResult) *string { return v.InferenceProfileId }).(pulumi.StringPtrOutput)
 }
@@ -112,6 +121,7 @@ func (o LookupApplicationInferenceProfileResultOutput) Models() ApplicationInfer
 	}).(ApplicationInferenceProfileInferenceProfileModelArrayOutput)
 }
 
+// The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
 func (o LookupApplicationInferenceProfileResultOutput) Status() ApplicationInferenceProfileInferenceProfileStatusPtrOutput {
 	return o.ApplyT(func(v LookupApplicationInferenceProfileResult) *ApplicationInferenceProfileInferenceProfileStatus {
 		return v.Status
@@ -123,6 +133,10 @@ func (o LookupApplicationInferenceProfileResultOutput) Tags() aws.TagArrayOutput
 	return o.ApplyT(func(v LookupApplicationInferenceProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of the inference profile. The following types are possible:
+//
+// - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+// - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
 func (o LookupApplicationInferenceProfileResultOutput) Type() ApplicationInferenceProfileInferenceProfileTypePtrOutput {
 	return o.ApplyT(func(v LookupApplicationInferenceProfileResult) *ApplicationInferenceProfileInferenceProfileType {
 		return v.Type

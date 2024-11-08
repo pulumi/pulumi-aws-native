@@ -46,6 +46,7 @@ __all__ = [
     'NetworkInsightsAnalysisStatus',
     'NetworkInsightsPathProtocol',
     'PrefixListAddressFamily',
+    'SecurityGroupVpcAssociationState',
     'SnapshotBlockPublicAccessState',
     'SpotFleetEbsBlockDeviceVolumeType',
     'SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem',
@@ -510,6 +511,15 @@ class PrefixListAddressFamily(str, Enum):
     """
     I_PV4 = "IPv4"
     I_PV6 = "IPv6"
+
+
+class SecurityGroupVpcAssociationState(str, Enum):
+    ASSOCIATING = "associating"
+    ASSOCIATED = "associated"
+    ASSOCIATION_FAILED = "association-failed"
+    DISASSOCIATING = "disassociating"
+    DISASSOCIATED = "disassociated"
+    DISASSOCIATION_FAILED = "disassociation-failed"
 
 
 class SnapshotBlockPublicAccessState(str, Enum):

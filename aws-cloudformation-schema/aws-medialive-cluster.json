@@ -134,13 +134,13 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "medialive:CreateCluster", "medialive:DescribeCluster", "medialive:CreateTags", "ecs:CreateCluster", "ecs:RegisterTaskDefinition", "ecs:TagResource", "ecs:CreateService", "iam:PassRole" ]
+      "permissions" : [ "medialive:CreateCluster", "medialive:DescribeCluster", "medialive:CreateTags", "ecs:CreateCluster", "ecs:RegisterTaskDefinition", "ecs:TagResource", "ecs:CreateService", "iam:PassRole", "medialive:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "medialive:DescribeCluster" ]
+      "permissions" : [ "medialive:DescribeCluster", "medialive:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "medialive:UpdateCluster", "medialive:DescribeCluster", "medialive:CreateTags", "medialive:DeleteTags" ]
+      "permissions" : [ "medialive:UpdateCluster", "medialive:DescribeCluster", "medialive:CreateTags", "medialive:DeleteTags", "medialive:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "medialive:DeleteCluster", "medialive:DescribeCluster" ]

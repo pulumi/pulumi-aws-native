@@ -8,13 +8,12 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a streaming session machine image that can be used to launch a streaming session
+ * Resource Type definition for AWS::NimbleStudio::StreamingImage
  */
 export function getStreamingImage(args: GetStreamingImageArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:nimblestudio:getStreamingImage", {
         "streamingImageId": args.streamingImageId,
-        "studioId": args.studioId,
     }, opts);
 }
 
@@ -23,32 +22,30 @@ export interface GetStreamingImageArgs {
      * The unique identifier for the streaming image resource.
      */
     streamingImageId: string;
-    /**
-     * <p>The studioId. </p>
-     */
-    studioId: string;
 }
 
 export interface GetStreamingImageResult {
     /**
-     * <p>A human-readable description of the streaming image.</p>
+     * A human-readable description of the streaming image.
      */
     readonly description?: string;
     readonly encryptionConfiguration?: outputs.nimblestudio.StreamingImageEncryptionConfiguration;
+    readonly encryptionConfigurationKeyArn?: string;
+    readonly encryptionConfigurationKeyType?: string;
     /**
-     * <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+     * The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
      */
     readonly eulaIds?: string[];
     /**
-     * <p>A friendly name for a streaming image resource.</p>
+     * A friendly name for a streaming image resource.
      */
     readonly name?: string;
     /**
-     * <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+     * The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
      */
     readonly owner?: string;
     /**
-     * <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+     * The platform of the streaming image, either WINDOWS or LINUX.
      */
     readonly platform?: string;
     /**
@@ -57,13 +54,12 @@ export interface GetStreamingImageResult {
     readonly streamingImageId?: string;
 }
 /**
- * Represents a streaming session machine image that can be used to launch a streaming session
+ * Resource Type definition for AWS::NimbleStudio::StreamingImage
  */
 export function getStreamingImageOutput(args: GetStreamingImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:nimblestudio:getStreamingImage", {
         "streamingImageId": args.streamingImageId,
-        "studioId": args.studioId,
     }, opts);
 }
 
@@ -72,8 +68,4 @@ export interface GetStreamingImageOutputArgs {
      * The unique identifier for the streaming image resource.
      */
     streamingImageId: pulumi.Input<string>;
-    /**
-     * <p>The studioId. </p>
-     */
-    studioId: pulumi.Input<string>;
 }

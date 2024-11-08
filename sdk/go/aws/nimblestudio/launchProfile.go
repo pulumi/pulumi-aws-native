@@ -12,28 +12,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a launch profile which delegates access to a collection of studio components to studio users
+// Resource Type definition for AWS::NimbleStudio::LaunchProfile
 type LaunchProfile struct {
 	pulumi.CustomResourceState
 
-	// <p>The description.</p>
+	// A human-readable description of the launch profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
-	//             These subnets must support the specified instance types. </p>
+	// Unique identifiers for a collection of EC2 subnets.
 	Ec2SubnetIds pulumi.StringArrayOutput `pulumi:"ec2SubnetIds"`
 	// The unique identifier for the launch profile resource.
 	LaunchProfileId pulumi.StringOutput `pulumi:"launchProfileId"`
-	// <p>The version number of the protocol that is used by the launch profile. The only valid
-	//             version is "2021-03-31".</p>
+	// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersions pulumi.StringArrayOutput `pulumi:"launchProfileProtocolVersions"`
-	// <p>The name for the launch profile.</p>
+	// A friendly name for the launch profile.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A configuration for a streaming session.
 	StreamConfiguration LaunchProfileStreamConfigurationOutput `pulumi:"streamConfiguration"`
-	// <p>Unique identifiers for a collection of studio components that can be used with this
-	//             launch profile.</p>
+	// Unique identifiers for a collection of studio components that can be used with this launch profile.
 	StudioComponentIds pulumi.StringArrayOutput `pulumi:"studioComponentIds"`
-	// <p>The studio ID. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId pulumi.StringOutput `pulumi:"studioId"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -102,22 +99,19 @@ func (LaunchProfileState) ElementType() reflect.Type {
 }
 
 type launchProfileArgs struct {
-	// <p>The description.</p>
+	// A human-readable description of the launch profile.
 	Description *string `pulumi:"description"`
-	// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
-	//             These subnets must support the specified instance types. </p>
+	// Unique identifiers for a collection of EC2 subnets.
 	Ec2SubnetIds []string `pulumi:"ec2SubnetIds"`
-	// <p>The version number of the protocol that is used by the launch profile. The only valid
-	//             version is "2021-03-31".</p>
+	// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersions []string `pulumi:"launchProfileProtocolVersions"`
-	// <p>The name for the launch profile.</p>
+	// A friendly name for the launch profile.
 	Name *string `pulumi:"name"`
 	// A configuration for a streaming session.
 	StreamConfiguration LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
-	// <p>Unique identifiers for a collection of studio components that can be used with this
-	//             launch profile.</p>
+	// Unique identifiers for a collection of studio components that can be used with this launch profile.
 	StudioComponentIds []string `pulumi:"studioComponentIds"`
-	// <p>The studio ID. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId string `pulumi:"studioId"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -127,22 +121,19 @@ type launchProfileArgs struct {
 
 // The set of arguments for constructing a LaunchProfile resource.
 type LaunchProfileArgs struct {
-	// <p>The description.</p>
+	// A human-readable description of the launch profile.
 	Description pulumi.StringPtrInput
-	// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
-	//             These subnets must support the specified instance types. </p>
+	// Unique identifiers for a collection of EC2 subnets.
 	Ec2SubnetIds pulumi.StringArrayInput
-	// <p>The version number of the protocol that is used by the launch profile. The only valid
-	//             version is "2021-03-31".</p>
+	// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersions pulumi.StringArrayInput
-	// <p>The name for the launch profile.</p>
+	// A friendly name for the launch profile.
 	Name pulumi.StringPtrInput
 	// A configuration for a streaming session.
 	StreamConfiguration LaunchProfileStreamConfigurationInput
-	// <p>Unique identifiers for a collection of studio components that can be used with this
-	//             launch profile.</p>
+	// Unique identifiers for a collection of studio components that can be used with this launch profile.
 	StudioComponentIds pulumi.StringArrayInput
-	// <p>The studio ID. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -187,14 +178,12 @@ func (o LaunchProfileOutput) ToLaunchProfileOutputWithContext(ctx context.Contex
 	return o
 }
 
-// <p>The description.</p>
+// A human-readable description of the launch profile.
 func (o LaunchProfileOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
-//
-//	These subnets must support the specified instance types. </p>
+// Unique identifiers for a collection of EC2 subnets.
 func (o LaunchProfileOutput) Ec2SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringArrayOutput { return v.Ec2SubnetIds }).(pulumi.StringArrayOutput)
 }
@@ -204,14 +193,12 @@ func (o LaunchProfileOutput) LaunchProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.LaunchProfileId }).(pulumi.StringOutput)
 }
 
-// <p>The version number of the protocol that is used by the launch profile. The only valid
-//
-//	version is "2021-03-31".</p>
+// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 func (o LaunchProfileOutput) LaunchProfileProtocolVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringArrayOutput { return v.LaunchProfileProtocolVersions }).(pulumi.StringArrayOutput)
 }
 
-// <p>The name for the launch profile.</p>
+// A friendly name for the launch profile.
 func (o LaunchProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -221,14 +208,12 @@ func (o LaunchProfileOutput) StreamConfiguration() LaunchProfileStreamConfigurat
 	return o.ApplyT(func(v *LaunchProfile) LaunchProfileStreamConfigurationOutput { return v.StreamConfiguration }).(LaunchProfileStreamConfigurationOutput)
 }
 
-// <p>Unique identifiers for a collection of studio components that can be used with this
-//
-//	launch profile.</p>
+// Unique identifiers for a collection of studio components that can be used with this launch profile.
 func (o LaunchProfileOutput) StudioComponentIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringArrayOutput { return v.StudioComponentIds }).(pulumi.StringArrayOutput)
 }
 
-// <p>The studio ID. </p>
+// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 func (o LaunchProfileOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchProfile) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }

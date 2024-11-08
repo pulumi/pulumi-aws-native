@@ -88,9 +88,6 @@ namespace Pulumi.AwsNative.Aps
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "alias",
-                    "destination",
-                    "scrapeConfiguration",
                     "source",
                 },
             };

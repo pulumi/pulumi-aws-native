@@ -50,6 +50,30 @@ namespace Pulumi.AwsNative.Logs
         public Output<string> DeliverySourceName { get; private set; } = null!;
 
         /// <summary>
+        /// The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+        /// </summary>
+        [Output("fieldDelimiter")]
+        public Output<string?> FieldDelimiter { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+        /// </summary>
+        [Output("recordFields")]
+        public Output<ImmutableArray<string>> RecordFields { get; private set; } = null!;
+
+        /// <summary>
+        /// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        /// </summary>
+        [Output("s3EnableHiveCompatiblePath")]
+        public Output<bool?> S3EnableHiveCompatiblePath { get; private set; } = null!;
+
+        /// <summary>
+        /// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+        /// </summary>
+        [Output("s3SuffixPath")]
+        public Output<string?> S3SuffixPath { get; private set; } = null!;
+
+        /// <summary>
         /// The tags that have been assigned to this delivery.
         /// </summary>
         [Output("tags")]
@@ -116,6 +140,36 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("deliverySourceName", required: true)]
         public Input<string> DeliverySourceName { get; set; } = null!;
+
+        /// <summary>
+        /// The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+        /// </summary>
+        [Input("fieldDelimiter")]
+        public Input<string>? FieldDelimiter { get; set; }
+
+        [Input("recordFields")]
+        private InputList<string>? _recordFields;
+
+        /// <summary>
+        /// The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+        /// </summary>
+        public InputList<string> RecordFields
+        {
+            get => _recordFields ?? (_recordFields = new InputList<string>());
+            set => _recordFields = value;
+        }
+
+        /// <summary>
+        /// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        /// </summary>
+        [Input("s3EnableHiveCompatiblePath")]
+        public Input<bool>? S3EnableHiveCompatiblePath { get; set; }
+
+        /// <summary>
+        /// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+        /// </summary>
+        [Input("s3SuffixPath")]
+        public Input<string>? S3SuffixPath { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

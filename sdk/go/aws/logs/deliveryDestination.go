@@ -32,6 +32,8 @@ type DeliveryDestination struct {
 	DestinationResourceArn pulumi.StringPtrOutput `pulumi:"destinationResourceArn"`
 	// The name of this delivery destination.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The format of the logs that are sent to this delivery destination.
+	OutputFormat pulumi.StringPtrOutput `pulumi:"outputFormat"`
 	// The tags that have been assigned to this delivery destination.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -46,6 +48,7 @@ func NewDeliveryDestination(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"destinationResourceArn",
 		"name",
+		"outputFormat",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -91,6 +94,8 @@ type deliveryDestinationArgs struct {
 	DestinationResourceArn *string `pulumi:"destinationResourceArn"`
 	// The name of this delivery destination.
 	Name *string `pulumi:"name"`
+	// The format of the logs that are sent to this delivery destination.
+	OutputFormat *string `pulumi:"outputFormat"`
 	// The tags that have been assigned to this delivery destination.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -107,6 +112,8 @@ type DeliveryDestinationArgs struct {
 	DestinationResourceArn pulumi.StringPtrInput
 	// The name of this delivery destination.
 	Name pulumi.StringPtrInput
+	// The format of the logs that are sent to this delivery destination.
+	OutputFormat pulumi.StringPtrInput
 	// The tags that have been assigned to this delivery destination.
 	Tags aws.TagArrayInput
 }
@@ -177,6 +184,11 @@ func (o DeliveryDestinationOutput) DestinationResourceArn() pulumi.StringPtrOutp
 // The name of this delivery destination.
 func (o DeliveryDestinationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliveryDestination) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The format of the logs that are sent to this delivery destination.
+func (o DeliveryDestinationOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryDestination) pulumi.StringPtrOutput { return v.OutputFormat }).(pulumi.StringPtrOutput)
 }
 
 // The tags that have been assigned to this delivery destination.

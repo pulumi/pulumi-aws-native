@@ -19,7 +19,7 @@ import (
 type Eip struct {
 	pulumi.CustomResourceState
 
-	// Describes an Elastic IP address, or a carrier IP address.
+	// An Elastic IP address or a carrier IP address in a Wavelength Zone.
 	Address pulumi.StringPtrOutput `pulumi:"address"`
 	// The ID that AWS assigns to represent the allocation of the address for use with Amazon VPC. This is returned only for VPC elastic IP addresses. For example, `eipalloc-5723d13e` .
 	AllocationId pulumi.StringOutput `pulumi:"allocationId"`
@@ -29,6 +29,7 @@ type Eip struct {
 	// The ID of the instance.
 	//   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	InstanceId pulumi.StringPtrOutput `pulumi:"instanceId"`
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
 	IpamPoolId pulumi.StringPtrOutput `pulumi:"ipamPoolId"`
 	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
 	//  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
@@ -93,7 +94,7 @@ func (EipState) ElementType() reflect.Type {
 }
 
 type eipArgs struct {
-	// Describes an Elastic IP address, or a carrier IP address.
+	// An Elastic IP address or a carrier IP address in a Wavelength Zone.
 	Address *string `pulumi:"address"`
 	// The network (``vpc``).
 	//  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
@@ -101,6 +102,7 @@ type eipArgs struct {
 	// The ID of the instance.
 	//   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	InstanceId *string `pulumi:"instanceId"`
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
 	IpamPoolId *string `pulumi:"ipamPoolId"`
 	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
 	//  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
@@ -117,7 +119,7 @@ type eipArgs struct {
 
 // The set of arguments for constructing a Eip resource.
 type EipArgs struct {
-	// Describes an Elastic IP address, or a carrier IP address.
+	// An Elastic IP address or a carrier IP address in a Wavelength Zone.
 	Address pulumi.StringPtrInput
 	// The network (``vpc``).
 	//  If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
@@ -125,6 +127,7 @@ type EipArgs struct {
 	// The ID of the instance.
 	//   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
 	InstanceId pulumi.StringPtrInput
+	// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
 	IpamPoolId pulumi.StringPtrInput
 	// A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
 	//  Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
@@ -176,7 +179,7 @@ func (o EipOutput) ToEipOutputWithContext(ctx context.Context) EipOutput {
 	return o
 }
 
-// Describes an Elastic IP address, or a carrier IP address.
+// An Elastic IP address or a carrier IP address in a Wavelength Zone.
 func (o EipOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.Address }).(pulumi.StringPtrOutput)
 }
@@ -200,6 +203,7 @@ func (o EipOutput) InstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.InstanceId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
 func (o EipOutput) IpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Eip) pulumi.StringPtrOutput { return v.IpamPoolId }).(pulumi.StringPtrOutput)
 }

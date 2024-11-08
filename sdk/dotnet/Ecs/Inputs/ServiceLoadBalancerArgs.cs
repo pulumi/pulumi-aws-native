@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<int>? ContainerPort { get; set; }
 
         /// <summary>
-        /// The name of the load balancer to associate with the Amazon ECS service or task set.
+        /// The name of the load balancer to associate with the service or task set.
         ///  If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         /// </summary>
         [Input("loadBalancerName")]

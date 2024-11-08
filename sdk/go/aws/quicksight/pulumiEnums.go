@@ -6592,6 +6592,7 @@ const (
 	AnalysisLayoutElementTypeFilterControl    = AnalysisLayoutElementType("FILTER_CONTROL")
 	AnalysisLayoutElementTypeParameterControl = AnalysisLayoutElementType("PARAMETER_CONTROL")
 	AnalysisLayoutElementTypeTextBox          = AnalysisLayoutElementType("TEXT_BOX")
+	AnalysisLayoutElementTypeImage            = AnalysisLayoutElementType("IMAGE")
 )
 
 func (AnalysisLayoutElementType) ElementType() reflect.Type {
@@ -6720,6 +6721,7 @@ func (o AnalysisLayoutElementTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 //	AnalysisLayoutElementTypeFilterControl
 //	AnalysisLayoutElementTypeParameterControl
 //	AnalysisLayoutElementTypeTextBox
+//	AnalysisLayoutElementTypeImage
 type AnalysisLayoutElementTypeInput interface {
 	pulumi.Input
 
@@ -26585,6 +26587,7 @@ const (
 	DashboardLayoutElementTypeFilterControl    = DashboardLayoutElementType("FILTER_CONTROL")
 	DashboardLayoutElementTypeParameterControl = DashboardLayoutElementType("PARAMETER_CONTROL")
 	DashboardLayoutElementTypeTextBox          = DashboardLayoutElementType("TEXT_BOX")
+	DashboardLayoutElementTypeImage            = DashboardLayoutElementType("IMAGE")
 )
 
 func (DashboardLayoutElementType) ElementType() reflect.Type {
@@ -26713,6 +26716,7 @@ func (o DashboardLayoutElementTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 //	DashboardLayoutElementTypeFilterControl
 //	DashboardLayoutElementTypeParameterControl
 //	DashboardLayoutElementTypeTextBox
+//	DashboardLayoutElementTypeImage
 type DashboardLayoutElementTypeInput interface {
 	pulumi.Input
 
@@ -42577,6 +42581,173 @@ func (in *dataSetTimeGranularityPtr) ToDataSetTimeGranularityPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetTimeGranularityPtrOutput)
 }
 
+type DataSourceAuthenticationType string
+
+const (
+	DataSourceAuthenticationTypePassword = DataSourceAuthenticationType("PASSWORD")
+	DataSourceAuthenticationTypeToken    = DataSourceAuthenticationType("TOKEN")
+	DataSourceAuthenticationTypeX509     = DataSourceAuthenticationType("X509")
+)
+
+func (DataSourceAuthenticationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAuthenticationType)(nil)).Elem()
+}
+
+func (e DataSourceAuthenticationType) ToDataSourceAuthenticationTypeOutput() DataSourceAuthenticationTypeOutput {
+	return pulumi.ToOutput(e).(DataSourceAuthenticationTypeOutput)
+}
+
+func (e DataSourceAuthenticationType) ToDataSourceAuthenticationTypeOutputWithContext(ctx context.Context) DataSourceAuthenticationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceAuthenticationTypeOutput)
+}
+
+func (e DataSourceAuthenticationType) ToDataSourceAuthenticationTypePtrOutput() DataSourceAuthenticationTypePtrOutput {
+	return e.ToDataSourceAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceAuthenticationType) ToDataSourceAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceAuthenticationTypePtrOutput {
+	return DataSourceAuthenticationType(e).ToDataSourceAuthenticationTypeOutputWithContext(ctx).ToDataSourceAuthenticationTypePtrOutputWithContext(ctx)
+}
+
+func (e DataSourceAuthenticationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceAuthenticationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceAuthenticationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceAuthenticationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceAuthenticationTypeOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAuthenticationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceAuthenticationType)(nil)).Elem()
+}
+
+func (o DataSourceAuthenticationTypeOutput) ToDataSourceAuthenticationTypeOutput() DataSourceAuthenticationTypeOutput {
+	return o
+}
+
+func (o DataSourceAuthenticationTypeOutput) ToDataSourceAuthenticationTypeOutputWithContext(ctx context.Context) DataSourceAuthenticationTypeOutput {
+	return o
+}
+
+func (o DataSourceAuthenticationTypeOutput) ToDataSourceAuthenticationTypePtrOutput() DataSourceAuthenticationTypePtrOutput {
+	return o.ToDataSourceAuthenticationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAuthenticationTypeOutput) ToDataSourceAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceAuthenticationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceAuthenticationType) *DataSourceAuthenticationType {
+		return &v
+	}).(DataSourceAuthenticationTypePtrOutput)
+}
+
+func (o DataSourceAuthenticationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceAuthenticationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceAuthenticationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceAuthenticationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAuthenticationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceAuthenticationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceAuthenticationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceAuthenticationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceAuthenticationType)(nil)).Elem()
+}
+
+func (o DataSourceAuthenticationTypePtrOutput) ToDataSourceAuthenticationTypePtrOutput() DataSourceAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o DataSourceAuthenticationTypePtrOutput) ToDataSourceAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceAuthenticationTypePtrOutput {
+	return o
+}
+
+func (o DataSourceAuthenticationTypePtrOutput) Elem() DataSourceAuthenticationTypeOutput {
+	return o.ApplyT(func(v *DataSourceAuthenticationType) DataSourceAuthenticationType {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceAuthenticationType
+		return ret
+	}).(DataSourceAuthenticationTypeOutput)
+}
+
+func (o DataSourceAuthenticationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceAuthenticationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceAuthenticationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceAuthenticationTypeInput is an input type that accepts values of the DataSourceAuthenticationType enum
+// A concrete instance of `DataSourceAuthenticationTypeInput` can be one of the following:
+//
+//	DataSourceAuthenticationTypePassword
+//	DataSourceAuthenticationTypeToken
+//	DataSourceAuthenticationTypeX509
+type DataSourceAuthenticationTypeInput interface {
+	pulumi.Input
+
+	ToDataSourceAuthenticationTypeOutput() DataSourceAuthenticationTypeOutput
+	ToDataSourceAuthenticationTypeOutputWithContext(context.Context) DataSourceAuthenticationTypeOutput
+}
+
+var dataSourceAuthenticationTypePtrType = reflect.TypeOf((**DataSourceAuthenticationType)(nil)).Elem()
+
+type DataSourceAuthenticationTypePtrInput interface {
+	pulumi.Input
+
+	ToDataSourceAuthenticationTypePtrOutput() DataSourceAuthenticationTypePtrOutput
+	ToDataSourceAuthenticationTypePtrOutputWithContext(context.Context) DataSourceAuthenticationTypePtrOutput
+}
+
+type dataSourceAuthenticationTypePtr string
+
+func DataSourceAuthenticationTypePtr(v string) DataSourceAuthenticationTypePtrInput {
+	return (*dataSourceAuthenticationTypePtr)(&v)
+}
+
+func (*dataSourceAuthenticationTypePtr) ElementType() reflect.Type {
+	return dataSourceAuthenticationTypePtrType
+}
+
+func (in *dataSourceAuthenticationTypePtr) ToDataSourceAuthenticationTypePtrOutput() DataSourceAuthenticationTypePtrOutput {
+	return pulumi.ToOutput(in).(DataSourceAuthenticationTypePtrOutput)
+}
+
+func (in *dataSourceAuthenticationTypePtr) ToDataSourceAuthenticationTypePtrOutputWithContext(ctx context.Context) DataSourceAuthenticationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceAuthenticationTypePtrOutput)
+}
+
 type DataSourceErrorInfoType string
 
 const (
@@ -50603,6 +50774,7 @@ const (
 	TemplateLayoutElementTypeFilterControl    = TemplateLayoutElementType("FILTER_CONTROL")
 	TemplateLayoutElementTypeParameterControl = TemplateLayoutElementType("PARAMETER_CONTROL")
 	TemplateLayoutElementTypeTextBox          = TemplateLayoutElementType("TEXT_BOX")
+	TemplateLayoutElementTypeImage            = TemplateLayoutElementType("IMAGE")
 )
 
 func (TemplateLayoutElementType) ElementType() reflect.Type {
@@ -50731,6 +50903,7 @@ func (o TemplateLayoutElementTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 //	TemplateLayoutElementTypeFilterControl
 //	TemplateLayoutElementTypeParameterControl
 //	TemplateLayoutElementTypeTextBox
+//	TemplateLayoutElementTypeImage
 type TemplateLayoutElementTypeInput interface {
 	pulumi.Input
 
@@ -68472,6 +68645,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTextQualifierPtrInput)(nil)).Elem(), DataSetTextQualifier("DOUBLE_QUOTE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTimeGranularityInput)(nil)).Elem(), DataSetTimeGranularity("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTimeGranularityPtrInput)(nil)).Elem(), DataSetTimeGranularity("YEAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthenticationTypeInput)(nil)).Elem(), DataSourceAuthenticationType("PASSWORD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthenticationTypePtrInput)(nil)).Elem(), DataSourceAuthenticationType("PASSWORD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoTypeInput)(nil)).Elem(), DataSourceErrorInfoType("ACCESS_DENIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceErrorInfoTypePtrInput)(nil)).Elem(), DataSourceErrorInfoType("ACCESS_DENIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceStarburstProductTypeInput)(nil)).Elem(), DataSourceStarburstProductType("GALAXY"))
@@ -69276,6 +69451,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSetTextQualifierPtrOutput{})
 	pulumi.RegisterOutputType(DataSetTimeGranularityOutput{})
 	pulumi.RegisterOutputType(DataSetTimeGranularityPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceAuthenticationTypeOutput{})
+	pulumi.RegisterOutputType(DataSourceAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceErrorInfoTypeOutput{})
 	pulumi.RegisterOutputType(DataSourceErrorInfoTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceResourceStatusOutput{})

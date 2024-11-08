@@ -108,13 +108,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "medialive:CreateNetwork", "medialive:CreateTags" ]
+      "permissions" : [ "medialive:CreateNetwork", "medialive:CreateTags", "medialive:DescribeNetwork", "medialive:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "medialive:DescribeNetwork" ]
+      "permissions" : [ "medialive:DescribeNetwork", "medialive:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "medialive:UpdateNetwork", "medialive:CreateTags", "medialive:DeleteTags", "medialive:DescribeNetwork" ]
+      "permissions" : [ "medialive:UpdateNetwork", "medialive:CreateTags", "medialive:DeleteTags", "medialive:DescribeNetwork", "medialive:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "medialive:DeleteNetwork", "medialive:DescribeNetwork" ]

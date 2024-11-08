@@ -109,7 +109,6 @@ import * as memorydb from "./memorydb";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as networkfirewall from "./networkfirewall";
-import * as nimblestudio from "./nimblestudio";
 import * as oam from "./oam";
 import * as omics from "./omics";
 import * as opensearchserverless from "./opensearchserverless";
@@ -279,7 +278,6 @@ export {
     msk,
     mwaa,
     networkfirewall,
-    nimblestudio,
     oam,
     omics,
     opensearchserverless,

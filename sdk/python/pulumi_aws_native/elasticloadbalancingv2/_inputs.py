@@ -2893,6 +2893,7 @@ if not MYPY:
           
          The following attributes are supported by only Network Load Balancers:
           +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+          +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
         """
         value: NotRequired[pulumi.Input[str]]
         """
@@ -2940,6 +2941,7 @@ class LoadBalancerAttributeArgs:
                  
                 The following attributes are supported by only Network Load Balancers:
                  +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+                 +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
         :param pulumi.Input[str] value: The value of the attribute.
         """
         if key is not None:
@@ -2983,6 +2985,7 @@ class LoadBalancerAttributeArgs:
           
          The following attributes are supported by only Network Load Balancers:
           +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+          +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
         """
         return pulumi.get(self, "key")
 
@@ -3024,6 +3027,7 @@ if not MYPY:
         """
         [Network Load Balancers] The private IPv4 address for an internal load balancer.
         """
+        source_nat_ipv6_prefix: NotRequired[pulumi.Input[str]]
 elif False:
     LoadBalancerSubnetMappingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3033,7 +3037,8 @@ class LoadBalancerSubnetMappingArgs:
                  subnet_id: pulumi.Input[str],
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  i_pv6_address: Optional[pulumi.Input[str]] = None,
-                 private_i_pv4_address: Optional[pulumi.Input[str]] = None):
+                 private_i_pv4_address: Optional[pulumi.Input[str]] = None,
+                 source_nat_ipv6_prefix: Optional[pulumi.Input[str]] = None):
         """
         Specifies a subnet for a load balancer.
         :param pulumi.Input[str] subnet_id: The ID of the subnet.
@@ -3048,6 +3053,8 @@ class LoadBalancerSubnetMappingArgs:
             pulumi.set(__self__, "i_pv6_address", i_pv6_address)
         if private_i_pv4_address is not None:
             pulumi.set(__self__, "private_i_pv4_address", private_i_pv4_address)
+        if source_nat_ipv6_prefix is not None:
+            pulumi.set(__self__, "source_nat_ipv6_prefix", source_nat_ipv6_prefix)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -3096,6 +3103,15 @@ class LoadBalancerSubnetMappingArgs:
     @private_i_pv4_address.setter
     def private_i_pv4_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_i_pv4_address", value)
+
+    @property
+    @pulumi.getter(name="sourceNatIpv6Prefix")
+    def source_nat_ipv6_prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "source_nat_ipv6_prefix")
+
+    @source_nat_ipv6_prefix.setter
+    def source_nat_ipv6_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_nat_ipv6_prefix", value)
 
 
 if not MYPY:

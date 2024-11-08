@@ -2255,6 +2255,7 @@ class LoadBalancerAttribute(dict):
                  
                 The following attributes are supported by only Network Load Balancers:
                  +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+                 +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
         :param str value: The value of the attribute.
         """
         if key is not None:
@@ -2298,6 +2299,7 @@ class LoadBalancerAttribute(dict):
           
          The following attributes are supported by only Network Load Balancers:
           +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+          +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
         """
         return pulumi.get(self, "key")
 
@@ -2326,6 +2328,8 @@ class LoadBalancerSubnetMapping(dict):
             suggest = "i_pv6_address"
         elif key == "privateIPv4Address":
             suggest = "private_i_pv4_address"
+        elif key == "sourceNatIpv6Prefix":
+            suggest = "source_nat_ipv6_prefix"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LoadBalancerSubnetMapping. Access the value via the '{suggest}' property getter instead.")
@@ -2342,7 +2346,8 @@ class LoadBalancerSubnetMapping(dict):
                  subnet_id: str,
                  allocation_id: Optional[str] = None,
                  i_pv6_address: Optional[str] = None,
-                 private_i_pv4_address: Optional[str] = None):
+                 private_i_pv4_address: Optional[str] = None,
+                 source_nat_ipv6_prefix: Optional[str] = None):
         """
         Specifies a subnet for a load balancer.
         :param str subnet_id: The ID of the subnet.
@@ -2357,6 +2362,8 @@ class LoadBalancerSubnetMapping(dict):
             pulumi.set(__self__, "i_pv6_address", i_pv6_address)
         if private_i_pv4_address is not None:
             pulumi.set(__self__, "private_i_pv4_address", private_i_pv4_address)
+        if source_nat_ipv6_prefix is not None:
+            pulumi.set(__self__, "source_nat_ipv6_prefix", source_nat_ipv6_prefix)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -2389,6 +2396,11 @@ class LoadBalancerSubnetMapping(dict):
         [Network Load Balancers] The private IPv4 address for an internal load balancer.
         """
         return pulumi.get(self, "private_i_pv4_address")
+
+    @property
+    @pulumi.getter(name="sourceNatIpv6Prefix")
+    def source_nat_ipv6_prefix(self) -> Optional[str]:
+        return pulumi.get(self, "source_nat_ipv6_prefix")
 
 
 @pulumi.output_type

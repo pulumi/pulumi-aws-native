@@ -24,17 +24,21 @@ func LookupChannelNamespace(ctx *pulumi.Context, args *LookupChannelNamespaceArg
 }
 
 type LookupChannelNamespaceArgs struct {
+	// The Amazon Resource Name (ARN) of the channel namespace.
 	ChannelNamespaceArn string `pulumi:"channelNamespaceArn"`
 }
 
 type LookupChannelNamespaceResult struct {
+	// The Amazon Resource Name (ARN) of the channel namespace.
 	ChannelNamespaceArn *string `pulumi:"channelNamespaceArn"`
-	CodeHandlers        *string `pulumi:"codeHandlers"`
+	// The event handler functions that run custom business logic to process published events and subscribe requests.
+	CodeHandlers *string `pulumi:"codeHandlers"`
 	// List of AuthModes supported for Publish operations.
 	PublishAuthModes []ChannelNamespaceAuthMode `pulumi:"publishAuthModes"`
 	// List of AuthModes supported for Subscribe operations.
 	SubscribeAuthModes []ChannelNamespaceAuthMode `pulumi:"subscribeAuthModes"`
-	Tags               []aws.Tag                  `pulumi:"tags"`
+	// A set of tags (key-value pairs) for this channel namespace.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupChannelNamespaceOutput(ctx *pulumi.Context, args LookupChannelNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupChannelNamespaceResultOutput {
@@ -57,6 +61,7 @@ func LookupChannelNamespaceOutput(ctx *pulumi.Context, args LookupChannelNamespa
 }
 
 type LookupChannelNamespaceOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the channel namespace.
 	ChannelNamespaceArn pulumi.StringInput `pulumi:"channelNamespaceArn"`
 }
 
@@ -78,10 +83,12 @@ func (o LookupChannelNamespaceResultOutput) ToLookupChannelNamespaceResultOutput
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the channel namespace.
 func (o LookupChannelNamespaceResultOutput) ChannelNamespaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelNamespaceResult) *string { return v.ChannelNamespaceArn }).(pulumi.StringPtrOutput)
 }
 
+// The event handler functions that run custom business logic to process published events and subscribe requests.
 func (o LookupChannelNamespaceResultOutput) CodeHandlers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelNamespaceResult) *string { return v.CodeHandlers }).(pulumi.StringPtrOutput)
 }
@@ -96,6 +103,7 @@ func (o LookupChannelNamespaceResultOutput) SubscribeAuthModes() ChannelNamespac
 	return o.ApplyT(func(v LookupChannelNamespaceResult) []ChannelNamespaceAuthMode { return v.SubscribeAuthModes }).(ChannelNamespaceAuthModeArrayOutput)
 }
 
+// A set of tags (key-value pairs) for this channel namespace.
 func (o LookupChannelNamespaceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupChannelNamespaceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

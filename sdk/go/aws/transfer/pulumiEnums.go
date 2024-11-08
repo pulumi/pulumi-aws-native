@@ -3133,6 +3133,336 @@ func (in *serverTlsSessionResumptionModePtr) ToServerTlsSessionResumptionModePtr
 	return pulumi.ToOutputWithContext(ctx, in).(ServerTlsSessionResumptionModePtrOutput)
 }
 
+type UserHomeDirectoryType string
+
+const (
+	UserHomeDirectoryTypePath    = UserHomeDirectoryType("PATH")
+	UserHomeDirectoryTypeLogical = UserHomeDirectoryType("LOGICAL")
+)
+
+func (UserHomeDirectoryType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHomeDirectoryType)(nil)).Elem()
+}
+
+func (e UserHomeDirectoryType) ToUserHomeDirectoryTypeOutput() UserHomeDirectoryTypeOutput {
+	return pulumi.ToOutput(e).(UserHomeDirectoryTypeOutput)
+}
+
+func (e UserHomeDirectoryType) ToUserHomeDirectoryTypeOutputWithContext(ctx context.Context) UserHomeDirectoryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserHomeDirectoryTypeOutput)
+}
+
+func (e UserHomeDirectoryType) ToUserHomeDirectoryTypePtrOutput() UserHomeDirectoryTypePtrOutput {
+	return e.ToUserHomeDirectoryTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserHomeDirectoryType) ToUserHomeDirectoryTypePtrOutputWithContext(ctx context.Context) UserHomeDirectoryTypePtrOutput {
+	return UserHomeDirectoryType(e).ToUserHomeDirectoryTypeOutputWithContext(ctx).ToUserHomeDirectoryTypePtrOutputWithContext(ctx)
+}
+
+func (e UserHomeDirectoryType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserHomeDirectoryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserHomeDirectoryType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserHomeDirectoryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserHomeDirectoryTypeOutput struct{ *pulumi.OutputState }
+
+func (UserHomeDirectoryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserHomeDirectoryType)(nil)).Elem()
+}
+
+func (o UserHomeDirectoryTypeOutput) ToUserHomeDirectoryTypeOutput() UserHomeDirectoryTypeOutput {
+	return o
+}
+
+func (o UserHomeDirectoryTypeOutput) ToUserHomeDirectoryTypeOutputWithContext(ctx context.Context) UserHomeDirectoryTypeOutput {
+	return o
+}
+
+func (o UserHomeDirectoryTypeOutput) ToUserHomeDirectoryTypePtrOutput() UserHomeDirectoryTypePtrOutput {
+	return o.ToUserHomeDirectoryTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserHomeDirectoryTypeOutput) ToUserHomeDirectoryTypePtrOutputWithContext(ctx context.Context) UserHomeDirectoryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserHomeDirectoryType) *UserHomeDirectoryType {
+		return &v
+	}).(UserHomeDirectoryTypePtrOutput)
+}
+
+func (o UserHomeDirectoryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserHomeDirectoryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserHomeDirectoryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserHomeDirectoryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserHomeDirectoryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserHomeDirectoryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserHomeDirectoryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserHomeDirectoryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserHomeDirectoryType)(nil)).Elem()
+}
+
+func (o UserHomeDirectoryTypePtrOutput) ToUserHomeDirectoryTypePtrOutput() UserHomeDirectoryTypePtrOutput {
+	return o
+}
+
+func (o UserHomeDirectoryTypePtrOutput) ToUserHomeDirectoryTypePtrOutputWithContext(ctx context.Context) UserHomeDirectoryTypePtrOutput {
+	return o
+}
+
+func (o UserHomeDirectoryTypePtrOutput) Elem() UserHomeDirectoryTypeOutput {
+	return o.ApplyT(func(v *UserHomeDirectoryType) UserHomeDirectoryType {
+		if v != nil {
+			return *v
+		}
+		var ret UserHomeDirectoryType
+		return ret
+	}).(UserHomeDirectoryTypeOutput)
+}
+
+func (o UserHomeDirectoryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserHomeDirectoryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserHomeDirectoryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserHomeDirectoryTypeInput is an input type that accepts values of the UserHomeDirectoryType enum
+// A concrete instance of `UserHomeDirectoryTypeInput` can be one of the following:
+//
+//	UserHomeDirectoryTypePath
+//	UserHomeDirectoryTypeLogical
+type UserHomeDirectoryTypeInput interface {
+	pulumi.Input
+
+	ToUserHomeDirectoryTypeOutput() UserHomeDirectoryTypeOutput
+	ToUserHomeDirectoryTypeOutputWithContext(context.Context) UserHomeDirectoryTypeOutput
+}
+
+var userHomeDirectoryTypePtrType = reflect.TypeOf((**UserHomeDirectoryType)(nil)).Elem()
+
+type UserHomeDirectoryTypePtrInput interface {
+	pulumi.Input
+
+	ToUserHomeDirectoryTypePtrOutput() UserHomeDirectoryTypePtrOutput
+	ToUserHomeDirectoryTypePtrOutputWithContext(context.Context) UserHomeDirectoryTypePtrOutput
+}
+
+type userHomeDirectoryTypePtr string
+
+func UserHomeDirectoryTypePtr(v string) UserHomeDirectoryTypePtrInput {
+	return (*userHomeDirectoryTypePtr)(&v)
+}
+
+func (*userHomeDirectoryTypePtr) ElementType() reflect.Type {
+	return userHomeDirectoryTypePtrType
+}
+
+func (in *userHomeDirectoryTypePtr) ToUserHomeDirectoryTypePtrOutput() UserHomeDirectoryTypePtrOutput {
+	return pulumi.ToOutput(in).(UserHomeDirectoryTypePtrOutput)
+}
+
+func (in *userHomeDirectoryTypePtr) ToUserHomeDirectoryTypePtrOutputWithContext(ctx context.Context) UserHomeDirectoryTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserHomeDirectoryTypePtrOutput)
+}
+
+type UserMapType string
+
+const (
+	UserMapTypeFile      = UserMapType("FILE")
+	UserMapTypeDirectory = UserMapType("DIRECTORY")
+)
+
+func (UserMapType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserMapType)(nil)).Elem()
+}
+
+func (e UserMapType) ToUserMapTypeOutput() UserMapTypeOutput {
+	return pulumi.ToOutput(e).(UserMapTypeOutput)
+}
+
+func (e UserMapType) ToUserMapTypeOutputWithContext(ctx context.Context) UserMapTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UserMapTypeOutput)
+}
+
+func (e UserMapType) ToUserMapTypePtrOutput() UserMapTypePtrOutput {
+	return e.ToUserMapTypePtrOutputWithContext(context.Background())
+}
+
+func (e UserMapType) ToUserMapTypePtrOutputWithContext(ctx context.Context) UserMapTypePtrOutput {
+	return UserMapType(e).ToUserMapTypeOutputWithContext(ctx).ToUserMapTypePtrOutputWithContext(ctx)
+}
+
+func (e UserMapType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserMapType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UserMapType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UserMapType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UserMapTypeOutput struct{ *pulumi.OutputState }
+
+func (UserMapTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserMapType)(nil)).Elem()
+}
+
+func (o UserMapTypeOutput) ToUserMapTypeOutput() UserMapTypeOutput {
+	return o
+}
+
+func (o UserMapTypeOutput) ToUserMapTypeOutputWithContext(ctx context.Context) UserMapTypeOutput {
+	return o
+}
+
+func (o UserMapTypeOutput) ToUserMapTypePtrOutput() UserMapTypePtrOutput {
+	return o.ToUserMapTypePtrOutputWithContext(context.Background())
+}
+
+func (o UserMapTypeOutput) ToUserMapTypePtrOutputWithContext(ctx context.Context) UserMapTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserMapType) *UserMapType {
+		return &v
+	}).(UserMapTypePtrOutput)
+}
+
+func (o UserMapTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UserMapTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserMapType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UserMapTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserMapTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UserMapType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserMapTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UserMapTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserMapType)(nil)).Elem()
+}
+
+func (o UserMapTypePtrOutput) ToUserMapTypePtrOutput() UserMapTypePtrOutput {
+	return o
+}
+
+func (o UserMapTypePtrOutput) ToUserMapTypePtrOutputWithContext(ctx context.Context) UserMapTypePtrOutput {
+	return o
+}
+
+func (o UserMapTypePtrOutput) Elem() UserMapTypeOutput {
+	return o.ApplyT(func(v *UserMapType) UserMapType {
+		if v != nil {
+			return *v
+		}
+		var ret UserMapType
+		return ret
+	}).(UserMapTypeOutput)
+}
+
+func (o UserMapTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UserMapTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UserMapType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UserMapTypeInput is an input type that accepts values of the UserMapType enum
+// A concrete instance of `UserMapTypeInput` can be one of the following:
+//
+//	UserMapTypeFile
+//	UserMapTypeDirectory
+type UserMapTypeInput interface {
+	pulumi.Input
+
+	ToUserMapTypeOutput() UserMapTypeOutput
+	ToUserMapTypeOutputWithContext(context.Context) UserMapTypeOutput
+}
+
+var userMapTypePtrType = reflect.TypeOf((**UserMapType)(nil)).Elem()
+
+type UserMapTypePtrInput interface {
+	pulumi.Input
+
+	ToUserMapTypePtrOutput() UserMapTypePtrOutput
+	ToUserMapTypePtrOutputWithContext(context.Context) UserMapTypePtrOutput
+}
+
+type userMapTypePtr string
+
+func UserMapTypePtr(v string) UserMapTypePtrInput {
+	return (*userMapTypePtr)(&v)
+}
+
+func (*userMapTypePtr) ElementType() reflect.Type {
+	return userMapTypePtrType
+}
+
+func (in *userMapTypePtr) ToUserMapTypePtrOutput() UserMapTypePtrOutput {
+	return pulumi.ToOutput(in).(UserMapTypePtrOutput)
+}
+
+func (in *userMapTypePtr) ToUserMapTypePtrOutputWithContext(ctx context.Context) UserMapTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UserMapTypePtrOutput)
+}
+
 // A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
 type WorkflowStepCopyStepDetailsPropertiesOverwriteExisting string
 
@@ -3837,6 +4167,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerSftpAuthenticationMethodsPtrInput)(nil)).Elem(), ServerSftpAuthenticationMethods("PASSWORD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerTlsSessionResumptionModeInput)(nil)).Elem(), ServerTlsSessionResumptionMode("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerTlsSessionResumptionModePtrInput)(nil)).Elem(), ServerTlsSessionResumptionMode("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryTypeInput)(nil)).Elem(), UserHomeDirectoryType("PATH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryTypePtrInput)(nil)).Elem(), UserHomeDirectoryType("PATH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserMapTypeInput)(nil)).Elem(), UserMapType("FILE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UserMapTypePtrInput)(nil)).Elem(), UserMapType("FILE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesOverwriteExistingInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesOverwriteExisting("TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrInput)(nil)).Elem(), WorkflowStepCopyStepDetailsPropertiesOverwriteExisting("TRUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingInput)(nil)).Elem(), WorkflowStepDecryptStepDetailsPropertiesOverwriteExisting("TRUE"))
@@ -3885,6 +4219,10 @@ func init() {
 	pulumi.RegisterOutputType(ServerSftpAuthenticationMethodsPtrOutput{})
 	pulumi.RegisterOutputType(ServerTlsSessionResumptionModeOutput{})
 	pulumi.RegisterOutputType(ServerTlsSessionResumptionModePtrOutput{})
+	pulumi.RegisterOutputType(UserHomeDirectoryTypeOutput{})
+	pulumi.RegisterOutputType(UserHomeDirectoryTypePtrOutput{})
+	pulumi.RegisterOutputType(UserMapTypeOutput{})
+	pulumi.RegisterOutputType(UserMapTypePtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingOutput{})
 	pulumi.RegisterOutputType(WorkflowStepCopyStepDetailsPropertiesOverwriteExistingPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowStepDecryptStepDetailsPropertiesOverwriteExistingOutput{})

@@ -19,18 +19,27 @@ type ApplicationInferenceProfile struct {
 	// Time Stamp
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Description of the inference profile
-	Description         pulumi.StringPtrOutput `pulumi:"description"`
-	InferenceProfileArn pulumi.StringOutput    `pulumi:"inferenceProfileArn"`
-	InferenceProfileId  pulumi.StringOutput    `pulumi:"inferenceProfileId"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Amazon Resource Name (ARN) of the inference profile.
+	InferenceProfileArn pulumi.StringOutput `pulumi:"inferenceProfileArn"`
+	// The unique identifier of the inference profile.
+	InferenceProfileId pulumi.StringOutput `pulumi:"inferenceProfileId"`
 	// Inference profile identifier. Supports both system-defined inference profile ids, and inference profile ARNs.
-	InferenceProfileIdentifier pulumi.StringOutput                                                       `pulumi:"inferenceProfileIdentifier"`
-	InferenceProfileName       pulumi.StringOutput                                                       `pulumi:"inferenceProfileName"`
-	ModelSource                ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput `pulumi:"modelSource"`
+	InferenceProfileIdentifier pulumi.StringOutput `pulumi:"inferenceProfileIdentifier"`
+	// The name of the inference profile.
+	InferenceProfileName pulumi.StringOutput `pulumi:"inferenceProfileName"`
+	// Contains configurations for the inference profile to copy as the resource.
+	ModelSource ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput `pulumi:"modelSource"`
 	// List of model configuration
 	Models ApplicationInferenceProfileInferenceProfileModelArrayOutput `pulumi:"models"`
-	Status ApplicationInferenceProfileInferenceProfileStatusOutput     `pulumi:"status"`
+	// The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
+	Status ApplicationInferenceProfileInferenceProfileStatusOutput `pulumi:"status"`
 	// List of Tags
-	Tags aws.TagArrayOutput                                    `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The type of the inference profile. The following types are possible:
+	//
+	// - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+	// - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
 	Type ApplicationInferenceProfileInferenceProfileTypeOutput `pulumi:"type"`
 	// Time Stamp
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -83,9 +92,11 @@ func (ApplicationInferenceProfileState) ElementType() reflect.Type {
 
 type applicationInferenceProfileArgs struct {
 	// Description of the inference profile
-	Description          *string                                                           `pulumi:"description"`
-	InferenceProfileName *string                                                           `pulumi:"inferenceProfileName"`
-	ModelSource          *ApplicationInferenceProfileInferenceProfileModelSourceProperties `pulumi:"modelSource"`
+	Description *string `pulumi:"description"`
+	// The name of the inference profile.
+	InferenceProfileName *string `pulumi:"inferenceProfileName"`
+	// Contains configurations for the inference profile to copy as the resource.
+	ModelSource *ApplicationInferenceProfileInferenceProfileModelSourceProperties `pulumi:"modelSource"`
 	// List of Tags
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -93,9 +104,11 @@ type applicationInferenceProfileArgs struct {
 // The set of arguments for constructing a ApplicationInferenceProfile resource.
 type ApplicationInferenceProfileArgs struct {
 	// Description of the inference profile
-	Description          pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The name of the inference profile.
 	InferenceProfileName pulumi.StringPtrInput
-	ModelSource          ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput
+	// Contains configurations for the inference profile to copy as the resource.
+	ModelSource ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput
 	// List of Tags
 	Tags aws.TagArrayInput
 }
@@ -147,10 +160,12 @@ func (o ApplicationInferenceProfileOutput) Description() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *ApplicationInferenceProfile) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the inference profile.
 func (o ApplicationInferenceProfileOutput) InferenceProfileArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInferenceProfile) pulumi.StringOutput { return v.InferenceProfileArn }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the inference profile.
 func (o ApplicationInferenceProfileOutput) InferenceProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInferenceProfile) pulumi.StringOutput { return v.InferenceProfileId }).(pulumi.StringOutput)
 }
@@ -160,10 +175,12 @@ func (o ApplicationInferenceProfileOutput) InferenceProfileIdentifier() pulumi.S
 	return o.ApplyT(func(v *ApplicationInferenceProfile) pulumi.StringOutput { return v.InferenceProfileIdentifier }).(pulumi.StringOutput)
 }
 
+// The name of the inference profile.
 func (o ApplicationInferenceProfileOutput) InferenceProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationInferenceProfile) pulumi.StringOutput { return v.InferenceProfileName }).(pulumi.StringOutput)
 }
 
+// Contains configurations for the inference profile to copy as the resource.
 func (o ApplicationInferenceProfileOutput) ModelSource() ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *ApplicationInferenceProfile) ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput {
 		return v.ModelSource
@@ -177,6 +194,7 @@ func (o ApplicationInferenceProfileOutput) Models() ApplicationInferenceProfileI
 	}).(ApplicationInferenceProfileInferenceProfileModelArrayOutput)
 }
 
+// The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
 func (o ApplicationInferenceProfileOutput) Status() ApplicationInferenceProfileInferenceProfileStatusOutput {
 	return o.ApplyT(func(v *ApplicationInferenceProfile) ApplicationInferenceProfileInferenceProfileStatusOutput {
 		return v.Status
@@ -188,6 +206,10 @@ func (o ApplicationInferenceProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ApplicationInferenceProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The type of the inference profile. The following types are possible:
+//
+// - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+// - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
 func (o ApplicationInferenceProfileOutput) Type() ApplicationInferenceProfileInferenceProfileTypeOutput {
 	return o.ApplyT(func(v *ApplicationInferenceProfile) ApplicationInferenceProfileInferenceProfileTypeOutput {
 		return v.Type

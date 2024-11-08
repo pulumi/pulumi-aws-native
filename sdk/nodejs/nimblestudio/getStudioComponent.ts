@@ -8,13 +8,12 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+ * Resource Type definition for AWS::NimbleStudio::StudioComponent
  */
 export function getStudioComponent(args: GetStudioComponentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:nimblestudio:getStudioComponent", {
         "studioComponentId": args.studioComponentId,
-        "studioId": args.studioId,
     }, opts);
 }
 
@@ -23,45 +22,33 @@ export interface GetStudioComponentArgs {
      * The unique identifier for the studio component resource.
      */
     studioComponentId: string;
-    /**
-     * <p>The studio ID. </p>
-     */
-    studioId: string;
 }
 
 export interface GetStudioComponentResult {
     /**
      * The configuration of the studio component, based on component type.
      */
-    readonly configuration?: outputs.nimblestudio.StudioComponentConfiguration0Properties | outputs.nimblestudio.StudioComponentConfiguration1Properties | outputs.nimblestudio.StudioComponentConfiguration2Properties | outputs.nimblestudio.StudioComponentConfiguration3Properties;
+    readonly configuration?: outputs.nimblestudio.StudioComponentConfiguration;
     /**
-     * <p>The description.</p>
+     * A human-readable description for the studio component resource.
      */
     readonly description?: string;
     /**
-     * <p>The EC2 security groups that control access to the studio component.</p>
+     * The EC2 security groups that control access to the studio component.
      */
     readonly ec2SecurityGroupIds?: string[];
     /**
-     * <p>Initialization scripts for studio components.</p>
+     * Initialization scripts for studio components.
      */
     readonly initializationScripts?: outputs.nimblestudio.StudioComponentInitializationScript[];
     /**
-     * <p>The name for the studio component.</p>
+     * A friendly name for the studio component resource.
      */
     readonly name?: string;
     /**
-     * An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-     */
-    readonly runtimeRoleArn?: string;
-    /**
-     * <p>Parameters for the studio component scripts.</p>
+     * Parameters for the studio component scripts.
      */
     readonly scriptParameters?: outputs.nimblestudio.StudioComponentScriptParameterKeyValue[];
-    /**
-     * An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-     */
-    readonly secureInitializationRoleArn?: string;
     /**
      * The unique identifier for the studio component resource.
      */
@@ -69,16 +56,15 @@ export interface GetStudioComponentResult {
     /**
      * The type of the studio component.
      */
-    readonly type?: enums.nimblestudio.StudioComponentType;
+    readonly type?: string;
 }
 /**
- * Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+ * Resource Type definition for AWS::NimbleStudio::StudioComponent
  */
 export function getStudioComponentOutput(args: GetStudioComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:nimblestudio:getStudioComponent", {
         "studioComponentId": args.studioComponentId,
-        "studioId": args.studioId,
     }, opts);
 }
 
@@ -87,8 +73,4 @@ export interface GetStudioComponentOutputArgs {
      * The unique identifier for the studio component resource.
      */
     studioComponentId: pulumi.Input<string>;
-    /**
-     * <p>The studio ID. </p>
-     */
-    studioId: pulumi.Input<string>;
 }

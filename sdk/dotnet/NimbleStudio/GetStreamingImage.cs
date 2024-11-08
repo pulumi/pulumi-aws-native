@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.NimbleStudio
     public static class GetStreamingImage
     {
         /// <summary>
-        /// Represents a streaming session machine image that can be used to launch a streaming session
+        /// Resource Type definition for AWS::NimbleStudio::StreamingImage
         /// </summary>
         public static Task<GetStreamingImageResult> InvokeAsync(GetStreamingImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a streaming session machine image that can be used to launch a streaming session
+        /// Resource Type definition for AWS::NimbleStudio::StreamingImage
         /// </summary>
         public static Output<GetStreamingImageResult> Invoke(GetStreamingImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageInvokeArgs(), options.WithDefaults());
@@ -32,12 +32,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         [Input("streamingImageId", required: true)]
         public string StreamingImageId { get; set; } = null!;
-
-        /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
-        /// </summary>
-        [Input("studioId", required: true)]
-        public string StudioId { get; set; } = null!;
 
         public GetStreamingImageArgs()
         {
@@ -53,12 +47,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Input("streamingImageId", required: true)]
         public Input<string> StreamingImageId { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
-        /// </summary>
-        [Input("studioId", required: true)]
-        public Input<string> StudioId { get; set; } = null!;
-
         public GetStreamingImageInvokeArgs()
         {
         }
@@ -70,24 +58,26 @@ namespace Pulumi.AwsNative.NimbleStudio
     public sealed class GetStreamingImageResult
     {
         /// <summary>
-        /// &lt;p&gt;A human-readable description of the streaming image.&lt;/p&gt;
+        /// A human-readable description of the streaming image.
         /// </summary>
         public readonly string? Description;
         public readonly Outputs.StreamingImageEncryptionConfiguration? EncryptionConfiguration;
+        public readonly string? EncryptionConfigurationKeyArn;
+        public readonly string? EncryptionConfigurationKeyType;
         /// <summary>
-        /// &lt;p&gt;The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.&lt;/p&gt;
+        /// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
         /// </summary>
         public readonly ImmutableArray<string> EulaIds;
         /// <summary>
-        /// &lt;p&gt;A friendly name for a streaming image resource.&lt;/p&gt;
+        /// A friendly name for a streaming image resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// &lt;p&gt;The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.&lt;/p&gt;
+        /// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
         /// </summary>
         public readonly string? Owner;
         /// <summary>
-        /// &lt;p&gt;The platform of the streaming image, either WINDOWS or LINUX.&lt;/p&gt;
+        /// The platform of the streaming image, either WINDOWS or LINUX.
         /// </summary>
         public readonly string? Platform;
         /// <summary>
@@ -101,6 +91,10 @@ namespace Pulumi.AwsNative.NimbleStudio
 
             Outputs.StreamingImageEncryptionConfiguration? encryptionConfiguration,
 
+            string? encryptionConfigurationKeyArn,
+
+            string? encryptionConfigurationKeyType,
+
             ImmutableArray<string> eulaIds,
 
             string? name,
@@ -113,6 +107,8 @@ namespace Pulumi.AwsNative.NimbleStudio
         {
             Description = description;
             EncryptionConfiguration = encryptionConfiguration;
+            EncryptionConfigurationKeyArn = encryptionConfigurationKeyArn;
+            EncryptionConfigurationKeyType = encryptionConfigurationKeyType;
             EulaIds = eulaIds;
             Name = name;
             Owner = owner;

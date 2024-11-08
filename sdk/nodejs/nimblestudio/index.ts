@@ -46,9 +46,6 @@ export const StudioComponent: typeof import("./studioComponent").StudioComponent
 utilities.lazyLoad(exports, ["StudioComponent"], () => require("./studioComponent"));
 
 
-// Export enums:
-export * from "../types/enums/nimblestudio";
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

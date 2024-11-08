@@ -39,7 +39,7 @@ export interface GetServiceResult {
      */
     readonly capacityProviderStrategy?: outputs.ecs.ServiceCapacityProviderStrategyItem[];
     /**
-     * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+     * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
      */
     readonly deploymentConfiguration?: outputs.ecs.ServiceDeploymentConfiguration;
     /**

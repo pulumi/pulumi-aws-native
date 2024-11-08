@@ -12,26 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a streaming session machine image that can be used to launch a streaming session
+// Resource Type definition for AWS::NimbleStudio::StreamingImage
 type StreamingImage struct {
 	pulumi.CustomResourceState
 
-	// <p>A human-readable description of the streaming image.</p>
+	// A human-readable description of the streaming image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
-	Ec2ImageId              pulumi.StringOutput                         `pulumi:"ec2ImageId"`
-	EncryptionConfiguration StreamingImageEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
-	// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+	// The ID of an EC2 machine image with which to create the streaming image.
+	Ec2ImageId                     pulumi.StringOutput                         `pulumi:"ec2ImageId"`
+	EncryptionConfiguration        StreamingImageEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
+	EncryptionConfigurationKeyArn  pulumi.StringPtrOutput                      `pulumi:"encryptionConfigurationKeyArn"`
+	EncryptionConfigurationKeyType pulumi.StringPtrOutput                      `pulumi:"encryptionConfigurationKeyType"`
+	// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
 	EulaIds pulumi.StringArrayOutput `pulumi:"eulaIds"`
-	// <p>A friendly name for a streaming image resource.</p>
+	// A friendly name for a streaming image resource.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+	// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
 	Owner pulumi.StringOutput `pulumi:"owner"`
-	// <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+	// The platform of the streaming image, either WINDOWS or LINUX.
 	Platform pulumi.StringOutput `pulumi:"platform"`
 	// The unique identifier for the streaming image resource.
 	StreamingImageId pulumi.StringOutput `pulumi:"streamingImageId"`
-	// <p>The studioId. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId pulumi.StringOutput `pulumi:"studioId"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -91,13 +93,15 @@ func (StreamingImageState) ElementType() reflect.Type {
 }
 
 type streamingImageArgs struct {
-	// <p>A human-readable description of the streaming image.</p>
+	// A human-readable description of the streaming image.
 	Description *string `pulumi:"description"`
-	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
-	Ec2ImageId string `pulumi:"ec2ImageId"`
-	// <p>A friendly name for a streaming image resource.</p>
+	// The ID of an EC2 machine image with which to create the streaming image.
+	Ec2ImageId                     string  `pulumi:"ec2ImageId"`
+	EncryptionConfigurationKeyArn  *string `pulumi:"encryptionConfigurationKeyArn"`
+	EncryptionConfigurationKeyType *string `pulumi:"encryptionConfigurationKeyType"`
+	// A friendly name for a streaming image resource.
 	Name *string `pulumi:"name"`
-	// <p>The studioId. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId string `pulumi:"studioId"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -107,13 +111,15 @@ type streamingImageArgs struct {
 
 // The set of arguments for constructing a StreamingImage resource.
 type StreamingImageArgs struct {
-	// <p>A human-readable description of the streaming image.</p>
+	// A human-readable description of the streaming image.
 	Description pulumi.StringPtrInput
-	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
-	Ec2ImageId pulumi.StringInput
-	// <p>A friendly name for a streaming image resource.</p>
+	// The ID of an EC2 machine image with which to create the streaming image.
+	Ec2ImageId                     pulumi.StringInput
+	EncryptionConfigurationKeyArn  pulumi.StringPtrInput
+	EncryptionConfigurationKeyType pulumi.StringPtrInput
+	// A friendly name for a streaming image resource.
 	Name pulumi.StringPtrInput
-	// <p>The studioId. </p>
+	// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 	StudioId pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -158,12 +164,12 @@ func (o StreamingImageOutput) ToStreamingImageOutputWithContext(ctx context.Cont
 	return o
 }
 
-// <p>A human-readable description of the streaming image.</p>
+// A human-readable description of the streaming image.
 func (o StreamingImageOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
+// The ID of an EC2 machine image with which to create the streaming image.
 func (o StreamingImageOutput) Ec2ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Ec2ImageId }).(pulumi.StringOutput)
 }
@@ -172,22 +178,30 @@ func (o StreamingImageOutput) EncryptionConfiguration() StreamingImageEncryption
 	return o.ApplyT(func(v *StreamingImage) StreamingImageEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(StreamingImageEncryptionConfigurationOutput)
 }
 
-// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
+func (o StreamingImageOutput) EncryptionConfigurationKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringPtrOutput { return v.EncryptionConfigurationKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o StreamingImageOutput) EncryptionConfigurationKeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImage) pulumi.StringPtrOutput { return v.EncryptionConfigurationKeyType }).(pulumi.StringPtrOutput)
+}
+
+// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
 func (o StreamingImageOutput) EulaIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringArrayOutput { return v.EulaIds }).(pulumi.StringArrayOutput)
 }
 
-// <p>A friendly name for a streaming image resource.</p>
+// A friendly name for a streaming image resource.
 func (o StreamingImageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// <p>The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
 func (o StreamingImageOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Owner }).(pulumi.StringOutput)
 }
 
-// <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+// The platform of the streaming image, either WINDOWS or LINUX.
 func (o StreamingImageOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
@@ -197,7 +211,7 @@ func (o StreamingImageOutput) StreamingImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.StreamingImageId }).(pulumi.StringOutput)
 }
 
-// <p>The studioId. </p>
+// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
 func (o StreamingImageOutput) StudioId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.StudioId }).(pulumi.StringOutput)
 }

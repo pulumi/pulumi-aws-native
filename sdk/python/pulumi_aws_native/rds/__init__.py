@@ -14,6 +14,7 @@ from .db_parameter_group import *
 from .db_proxy import *
 from .db_proxy_endpoint import *
 from .db_proxy_target_group import *
+from .db_shard_group import *
 from .db_subnet_group import *
 from .event_subscription import *
 from .get_custom_db_engine_version import *
@@ -24,6 +25,7 @@ from .get_db_parameter_group import *
 from .get_db_proxy import *
 from .get_db_proxy_endpoint import *
 from .get_db_proxy_target_group import *
+from .get_db_shard_group import *
 from .get_db_subnet_group import *
 from .get_event_subscription import *
 from .get_global_cluster import *

@@ -2170,6 +2170,14 @@ func (o DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput) Sessio
 	}).(pulumi.StringArrayOutput)
 }
 
+// A key-value pair to associate with a resource.
+type DbShardGroupTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
 // Metadata assigned to an Amazon RDS resource consisting of a key-value pair.
 //
 //	For more information, see [Tagging Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide* or [Tagging Amazon Aurora and Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html) in the *Amazon Aurora User Guide*.

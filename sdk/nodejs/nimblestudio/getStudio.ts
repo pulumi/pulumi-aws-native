@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a studio that contains other Nimble Studio resources
+ * Resource Type definition for AWS::NimbleStudio::Studio
  */
 export function getStudio(args: GetStudioArgs, opts?: pulumi.InvokeOptions): Promise<GetStudioResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,19 +26,19 @@ export interface GetStudioArgs {
 
 export interface GetStudioResult {
     /**
-     * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+     * The IAM role that studio admins assume when logging in to the Nimble Studio portal.
      */
     readonly adminRoleArn?: string;
     /**
-     * <p>A friendly name for the studio.</p>
+     * A friendly name for the studio.
      */
     readonly displayName?: string;
     /**
-     * <p>The Amazon Web Services Region where the studio resource is located.</p>
+     * The AWS Region where the studio resource is located. For example, `us-west-2` .
      */
     readonly homeRegion?: string;
     /**
-     * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
+     * The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
      */
     readonly ssoClientId?: string;
     /**
@@ -50,16 +50,16 @@ export interface GetStudioResult {
      */
     readonly studioId?: string;
     /**
-     * <p>The address of the web page for the studio.</p>
+     * The unique identifier for the studio resource.
      */
     readonly studioUrl?: string;
     /**
-     * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+     * The IAM role that studio users assume when logging in to the Nimble Studio portal.
      */
     readonly userRoleArn?: string;
 }
 /**
- * Represents a studio that contains other Nimble Studio resources
+ * Resource Type definition for AWS::NimbleStudio::Studio
  */
 export function getStudioOutput(args: GetStudioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

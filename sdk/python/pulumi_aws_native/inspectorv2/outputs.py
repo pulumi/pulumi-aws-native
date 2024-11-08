@@ -56,10 +56,9 @@ class CisScanConfigurationCisTargets(dict):
 
     def __init__(__self__, *,
                  account_ids: Sequence[str],
-                 target_resource_tags: Optional[Mapping[str, Any]] = None):
+                 target_resource_tags: Mapping[str, Any]):
         pulumi.set(__self__, "account_ids", account_ids)
-        if target_resource_tags is not None:
-            pulumi.set(__self__, "target_resource_tags", target_resource_tags)
+        pulumi.set(__self__, "target_resource_tags", target_resource_tags)
 
     @property
     @pulumi.getter(name="accountIds")
@@ -68,7 +67,7 @@ class CisScanConfigurationCisTargets(dict):
 
     @property
     @pulumi.getter(name="targetResourceTags")
-    def target_resource_tags(self) -> Optional[Mapping[str, Any]]:
+    def target_resource_tags(self) -> Mapping[str, Any]:
         return pulumi.get(self, "target_resource_tags")
 
 

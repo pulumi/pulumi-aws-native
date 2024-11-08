@@ -28,13 +28,16 @@ namespace Pulumi.AwsNative.AppSync
         public Output<string> ApiId { get; private set; } = null!;
 
         [Output("dns")]
-        public Output<ImmutableDictionary<string, string>> Dns { get; private set; } = null!;
+        public Output<Outputs.ApiDnsMap> Dns { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+        /// </summary>
         [Output("eventConfig")]
         public Output<Outputs.ApiEventConfig?> EventConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The API name.
+        /// The name of the `Api` .
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -48,7 +51,7 @@ namespace Pulumi.AwsNative.AppSync
         public Output<string?> OwnerContact { get; private set; } = null!;
 
         /// <summary>
-        /// The tags.
+        /// A set of tags (key-value pairs) for this API.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -98,11 +101,14 @@ namespace Pulumi.AwsNative.AppSync
 
     public sealed class ApiArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+        /// </summary>
         [Input("eventConfig")]
         public Input<Inputs.ApiEventConfigArgs>? EventConfig { get; set; }
 
         /// <summary>
-        /// The API name.
+        /// The name of the `Api` .
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -119,7 +125,7 @@ namespace Pulumi.AwsNative.AppSync
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags.
+        /// A set of tags (key-value pairs) for this API.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

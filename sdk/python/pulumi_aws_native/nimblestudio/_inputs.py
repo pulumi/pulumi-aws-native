@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from ._enums import *
 
 __all__ = [
     'LaunchProfileStreamConfigurationSessionBackupArgs',
@@ -32,14 +31,8 @@ __all__ = [
     'StudioComponentActiveDirectoryConfigurationArgsDict',
     'StudioComponentComputeFarmConfigurationArgs',
     'StudioComponentComputeFarmConfigurationArgsDict',
-    'StudioComponentConfiguration0PropertiesArgs',
-    'StudioComponentConfiguration0PropertiesArgsDict',
-    'StudioComponentConfiguration1PropertiesArgs',
-    'StudioComponentConfiguration1PropertiesArgsDict',
-    'StudioComponentConfiguration2PropertiesArgs',
-    'StudioComponentConfiguration2PropertiesArgsDict',
-    'StudioComponentConfiguration3PropertiesArgs',
-    'StudioComponentConfiguration3PropertiesArgsDict',
+    'StudioComponentConfigurationArgs',
+    'StudioComponentConfigurationArgsDict',
     'StudioComponentInitializationScriptArgs',
     'StudioComponentInitializationScriptArgsDict',
     'StudioComponentLicenseServiceConfigurationArgs',
@@ -56,16 +49,11 @@ MYPY = False
 
 if not MYPY:
     class LaunchProfileStreamConfigurationSessionBackupArgsDict(TypedDict):
-        """
-        <p>Configures how streaming sessions are backed up when launched from this launch
-                    profile.</p>
-        """
         max_backups_to_retain: NotRequired[pulumi.Input[float]]
         """
-        <p>The maximum number of backups that each streaming session created from this launch
-                    profile can have.</p>
+        The maximum number of backups that each streaming session created from this launch profile can have.
         """
-        mode: NotRequired[pulumi.Input['LaunchProfileSessionBackupMode']]
+        mode: NotRequired[pulumi.Input[str]]
         """
         Specifies how artists sessions are backed up.
 
@@ -78,13 +66,10 @@ elif False:
 class LaunchProfileStreamConfigurationSessionBackupArgs:
     def __init__(__self__, *,
                  max_backups_to_retain: Optional[pulumi.Input[float]] = None,
-                 mode: Optional[pulumi.Input['LaunchProfileSessionBackupMode']] = None):
+                 mode: Optional[pulumi.Input[str]] = None):
         """
-        <p>Configures how streaming sessions are backed up when launched from this launch
-                    profile.</p>
-        :param pulumi.Input[float] max_backups_to_retain: <p>The maximum number of backups that each streaming session created from this launch
-                           profile can have.</p>
-        :param pulumi.Input['LaunchProfileSessionBackupMode'] mode: Specifies how artists sessions are backed up.
+        :param pulumi.Input[float] max_backups_to_retain: The maximum number of backups that each streaming session created from this launch profile can have.
+        :param pulumi.Input[str] mode: Specifies how artists sessions are backed up.
                
                Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
         """
@@ -97,8 +82,7 @@ class LaunchProfileStreamConfigurationSessionBackupArgs:
     @pulumi.getter(name="maxBackupsToRetain")
     def max_backups_to_retain(self) -> Optional[pulumi.Input[float]]:
         """
-        <p>The maximum number of backups that each streaming session created from this launch
-                    profile can have.</p>
+        The maximum number of backups that each streaming session created from this launch profile can have.
         """
         return pulumi.get(self, "max_backups_to_retain")
 
@@ -108,7 +92,7 @@ class LaunchProfileStreamConfigurationSessionBackupArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['LaunchProfileSessionBackupMode']]:
+    def mode(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies how artists sessions are backed up.
 
@@ -117,19 +101,15 @@ class LaunchProfileStreamConfigurationSessionBackupArgs:
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input['LaunchProfileSessionBackupMode']]):
+    def mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mode", value)
 
 
 if not MYPY:
     class LaunchProfileStreamConfigurationSessionStorageArgsDict(TypedDict):
+        mode: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        <p>The configuration for a streaming session’s upload storage.</p>
-        """
-        mode: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]
-        """
-        <p>Allows artists to upload files to their workstations. The only valid option is
-                        <code>UPLOAD</code>.</p>
+        Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
         """
         root: NotRequired[pulumi.Input['LaunchProfileStreamingSessionStorageRootArgsDict']]
         """
@@ -141,12 +121,10 @@ elif False:
 @pulumi.input_type
 class LaunchProfileStreamConfigurationSessionStorageArgs:
     def __init__(__self__, *,
-                 mode: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]],
+                 mode: pulumi.Input[Sequence[pulumi.Input[str]]],
                  root: Optional[pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs']] = None):
         """
-        <p>The configuration for a streaming session’s upload storage.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]] mode: <p>Allows artists to upload files to their workstations. The only valid option is
-                               <code>UPLOAD</code>.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] mode: Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
         :param pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs'] root: The configuration for the upload storage root of the streaming session.
         """
         pulumi.set(__self__, "mode", mode)
@@ -155,15 +133,14 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
 
     @property
     @pulumi.getter
-    def mode(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]:
+    def mode(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        <p>Allows artists to upload files to their workstations. The only valid option is
-                        <code>UPLOAD</code>.</p>
+        Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]]):
+    def mode(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "mode", value)
 
     @property
@@ -181,24 +158,19 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
 
 if not MYPY:
     class LaunchProfileStreamConfigurationArgsDict(TypedDict):
-        """
-        <p>A configuration for a streaming session.</p>
-        """
-        clipboard_mode: pulumi.Input['LaunchProfileStreamingClipboardMode']
+        clipboard_mode: pulumi.Input[str]
         """
         Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
         """
-        ec2_instance_types: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingInstanceType']]]
+        ec2_instance_types: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        <p>The EC2 instance types that users can select from when launching a streaming session
-                    with this launch profile.</p>
+        The EC2 instance types that users can select from when launching a streaming session with this launch profile.
         """
         streaming_image_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
         """
-        <p>The streaming images that users can select from when launching a streaming session
-                    with this launch profile.</p>
+        The streaming images that users can select from when launching a streaming session with this launch profile.
         """
-        automatic_termination_mode: NotRequired[pulumi.Input['LaunchProfileAutomaticTerminationMode']]
+        automatic_termination_mode: NotRequired[pulumi.Input[str]]
         """
         Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
 
@@ -209,35 +181,23 @@ if not MYPY:
         """
         max_session_length_in_minutes: NotRequired[pulumi.Input[float]]
         """
-        <p>The length of time, in minutes, that a streaming session can be active before it is
-                    stopped or terminated. After this point, Nimble Studio automatically terminates or
-                    stops the session. The default length of time is 690 minutes, and the maximum length of
-                    time is 30 days.</p>
+        The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
         """
         max_stopped_session_length_in_minutes: NotRequired[pulumi.Input[float]]
         """
-        <p>Integer that determines if you can start and stop your sessions and how long a session
-                    can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
-                    5760.</p>
-                 <p>This field is allowed only when <code>sessionPersistenceMode</code> is
-                        <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
-                        <code>ACTIVATED</code>.</p>
-                 <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
-                    call <code>StopStreamingSession</code>, the session fails. If the time that a session
-                    stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
-                    value, the session will automatically be terminated (instead of
-                    <code>STOPPED</code>).</p>
-                 <p>If the value is set to a positive number, the session can be stopped. You can call
-                        <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
-                    If the time that a session stays in the <code>READY</code> state exceeds the
-                        <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-                    stopped (instead of terminated).</p>
+        Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
+
+        This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
+
+        If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+
+        If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
         """
         session_backup: NotRequired[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgsDict']]
         """
         Information about the streaming session backup.
         """
-        session_persistence_mode: NotRequired[pulumi.Input['LaunchProfileSessionPersistenceMode']]
+        session_persistence_mode: NotRequired[pulumi.Input[str]]
         """
         Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
         """
@@ -257,51 +217,36 @@ elif False:
 @pulumi.input_type
 class LaunchProfileStreamConfigurationArgs:
     def __init__(__self__, *,
-                 clipboard_mode: pulumi.Input['LaunchProfileStreamingClipboardMode'],
-                 ec2_instance_types: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingInstanceType']]],
+                 clipboard_mode: pulumi.Input[str],
+                 ec2_instance_types: pulumi.Input[Sequence[pulumi.Input[str]]],
                  streaming_image_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 automatic_termination_mode: Optional[pulumi.Input['LaunchProfileAutomaticTerminationMode']] = None,
+                 automatic_termination_mode: Optional[pulumi.Input[str]] = None,
                  max_session_length_in_minutes: Optional[pulumi.Input[float]] = None,
                  max_stopped_session_length_in_minutes: Optional[pulumi.Input[float]] = None,
                  session_backup: Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs']] = None,
-                 session_persistence_mode: Optional[pulumi.Input['LaunchProfileSessionPersistenceMode']] = None,
+                 session_persistence_mode: Optional[pulumi.Input[str]] = None,
                  session_storage: Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs']] = None,
                  volume_configuration: Optional[pulumi.Input['LaunchProfileVolumeConfigurationArgs']] = None):
         """
-        <p>A configuration for a streaming session.</p>
-        :param pulumi.Input['LaunchProfileStreamingClipboardMode'] clipboard_mode: Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingInstanceType']]] ec2_instance_types: <p>The EC2 instance types that users can select from when launching a streaming session
-                           with this launch profile.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_image_ids: <p>The streaming images that users can select from when launching a streaming session
-                           with this launch profile.</p>
-        :param pulumi.Input['LaunchProfileAutomaticTerminationMode'] automatic_termination_mode: Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
+        :param pulumi.Input[str] clipboard_mode: Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_instance_types: The EC2 instance types that users can select from when launching a streaming session with this launch profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_image_ids: The streaming images that users can select from when launching a streaming session with this launch profile.
+        :param pulumi.Input[str] automatic_termination_mode: Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
                
                - When `ACTIVATED` , the streaming session is scheduled for termination after being in the `STOPPED` state for the time specified in `maxStoppedSessionLengthInMinutes` .
                - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
                
                This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-        :param pulumi.Input[float] max_session_length_in_minutes: <p>The length of time, in minutes, that a streaming session can be active before it is
-                           stopped or terminated. After this point, Nimble Studio automatically terminates or
-                           stops the session. The default length of time is 690 minutes, and the maximum length of
-                           time is 30 days.</p>
-        :param pulumi.Input[float] max_stopped_session_length_in_minutes: <p>Integer that determines if you can start and stop your sessions and how long a session
-                           can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
-                           5760.</p>
-                        <p>This field is allowed only when <code>sessionPersistenceMode</code> is
-                               <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
-                               <code>ACTIVATED</code>.</p>
-                        <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
-                           call <code>StopStreamingSession</code>, the session fails. If the time that a session
-                           stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
-                           value, the session will automatically be terminated (instead of
-                           <code>STOPPED</code>).</p>
-                        <p>If the value is set to a positive number, the session can be stopped. You can call
-                               <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
-                           If the time that a session stays in the <code>READY</code> state exceeds the
-                               <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-                           stopped (instead of terminated).</p>
+        :param pulumi.Input[float] max_session_length_in_minutes: The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
+        :param pulumi.Input[float] max_stopped_session_length_in_minutes: Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
+               
+               This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
+               
+               If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+               
+               If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
         :param pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs'] session_backup: Information about the streaming session backup.
-        :param pulumi.Input['LaunchProfileSessionPersistenceMode'] session_persistence_mode: Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
+        :param pulumi.Input[str] session_persistence_mode: Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
         :param pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs'] session_storage: The upload storage for a streaming session.
         :param pulumi.Input['LaunchProfileVolumeConfigurationArgs'] volume_configuration: Custom volume configuration for the root volumes that are attached to streaming sessions.
                
@@ -327,35 +272,33 @@ class LaunchProfileStreamConfigurationArgs:
 
     @property
     @pulumi.getter(name="clipboardMode")
-    def clipboard_mode(self) -> pulumi.Input['LaunchProfileStreamingClipboardMode']:
+    def clipboard_mode(self) -> pulumi.Input[str]:
         """
         Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
         """
         return pulumi.get(self, "clipboard_mode")
 
     @clipboard_mode.setter
-    def clipboard_mode(self, value: pulumi.Input['LaunchProfileStreamingClipboardMode']):
+    def clipboard_mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "clipboard_mode", value)
 
     @property
     @pulumi.getter(name="ec2InstanceTypes")
-    def ec2_instance_types(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingInstanceType']]]:
+    def ec2_instance_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        <p>The EC2 instance types that users can select from when launching a streaming session
-                    with this launch profile.</p>
+        The EC2 instance types that users can select from when launching a streaming session with this launch profile.
         """
         return pulumi.get(self, "ec2_instance_types")
 
     @ec2_instance_types.setter
-    def ec2_instance_types(self, value: pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingInstanceType']]]):
+    def ec2_instance_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "ec2_instance_types", value)
 
     @property
     @pulumi.getter(name="streamingImageIds")
     def streaming_image_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        <p>The streaming images that users can select from when launching a streaming session
-                    with this launch profile.</p>
+        The streaming images that users can select from when launching a streaming session with this launch profile.
         """
         return pulumi.get(self, "streaming_image_ids")
 
@@ -365,7 +308,7 @@ class LaunchProfileStreamConfigurationArgs:
 
     @property
     @pulumi.getter(name="automaticTerminationMode")
-    def automatic_termination_mode(self) -> Optional[pulumi.Input['LaunchProfileAutomaticTerminationMode']]:
+    def automatic_termination_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
 
@@ -377,17 +320,14 @@ class LaunchProfileStreamConfigurationArgs:
         return pulumi.get(self, "automatic_termination_mode")
 
     @automatic_termination_mode.setter
-    def automatic_termination_mode(self, value: Optional[pulumi.Input['LaunchProfileAutomaticTerminationMode']]):
+    def automatic_termination_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "automatic_termination_mode", value)
 
     @property
     @pulumi.getter(name="maxSessionLengthInMinutes")
     def max_session_length_in_minutes(self) -> Optional[pulumi.Input[float]]:
         """
-        <p>The length of time, in minutes, that a streaming session can be active before it is
-                    stopped or terminated. After this point, Nimble Studio automatically terminates or
-                    stops the session. The default length of time is 690 minutes, and the maximum length of
-                    time is 30 days.</p>
+        The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
         """
         return pulumi.get(self, "max_session_length_in_minutes")
 
@@ -399,22 +339,13 @@ class LaunchProfileStreamConfigurationArgs:
     @pulumi.getter(name="maxStoppedSessionLengthInMinutes")
     def max_stopped_session_length_in_minutes(self) -> Optional[pulumi.Input[float]]:
         """
-        <p>Integer that determines if you can start and stop your sessions and how long a session
-                    can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
-                    5760.</p>
-                 <p>This field is allowed only when <code>sessionPersistenceMode</code> is
-                        <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
-                        <code>ACTIVATED</code>.</p>
-                 <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
-                    call <code>StopStreamingSession</code>, the session fails. If the time that a session
-                    stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
-                    value, the session will automatically be terminated (instead of
-                    <code>STOPPED</code>).</p>
-                 <p>If the value is set to a positive number, the session can be stopped. You can call
-                        <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
-                    If the time that a session stays in the <code>READY</code> state exceeds the
-                        <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-                    stopped (instead of terminated).</p>
+        Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
+
+        This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
+
+        If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+
+        If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
         """
         return pulumi.get(self, "max_stopped_session_length_in_minutes")
 
@@ -436,14 +367,14 @@ class LaunchProfileStreamConfigurationArgs:
 
     @property
     @pulumi.getter(name="sessionPersistenceMode")
-    def session_persistence_mode(self) -> Optional[pulumi.Input['LaunchProfileSessionPersistenceMode']]:
+    def session_persistence_mode(self) -> Optional[pulumi.Input[str]]:
         """
         Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
         """
         return pulumi.get(self, "session_persistence_mode")
 
     @session_persistence_mode.setter
-    def session_persistence_mode(self, value: Optional[pulumi.Input['LaunchProfileSessionPersistenceMode']]):
+    def session_persistence_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "session_persistence_mode", value)
 
     @property
@@ -475,17 +406,13 @@ class LaunchProfileStreamConfigurationArgs:
 
 if not MYPY:
     class LaunchProfileStreamingSessionStorageRootArgsDict(TypedDict):
-        """
-        <p>The upload storage root location (folder) on streaming workstations where files are
-                    uploaded.</p>
-        """
         linux: NotRequired[pulumi.Input[str]]
         """
-        <p>The folder path in Linux workstations where files are uploaded.</p>
+        The folder path in Linux workstations where files are uploaded.
         """
         windows: NotRequired[pulumi.Input[str]]
         """
-        <p>The folder path in Windows workstations where files are uploaded.</p>
+        The folder path in Windows workstations where files are uploaded.
         """
 elif False:
     LaunchProfileStreamingSessionStorageRootArgsDict: TypeAlias = Mapping[str, Any]
@@ -496,10 +423,8 @@ class LaunchProfileStreamingSessionStorageRootArgs:
                  linux: Optional[pulumi.Input[str]] = None,
                  windows: Optional[pulumi.Input[str]] = None):
         """
-        <p>The upload storage root location (folder) on streaming workstations where files are
-                    uploaded.</p>
-        :param pulumi.Input[str] linux: <p>The folder path in Linux workstations where files are uploaded.</p>
-        :param pulumi.Input[str] windows: <p>The folder path in Windows workstations where files are uploaded.</p>
+        :param pulumi.Input[str] linux: The folder path in Linux workstations where files are uploaded.
+        :param pulumi.Input[str] windows: The folder path in Windows workstations where files are uploaded.
         """
         if linux is not None:
             pulumi.set(__self__, "linux", linux)
@@ -510,7 +435,7 @@ class LaunchProfileStreamingSessionStorageRootArgs:
     @pulumi.getter
     def linux(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The folder path in Linux workstations where files are uploaded.</p>
+        The folder path in Linux workstations where files are uploaded.
         """
         return pulumi.get(self, "linux")
 
@@ -522,7 +447,7 @@ class LaunchProfileStreamingSessionStorageRootArgs:
     @pulumi.getter
     def windows(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The folder path in Windows workstations where files are uploaded.</p>
+        The folder path in Windows workstations where files are uploaded.
         """
         return pulumi.get(self, "windows")
 
@@ -533,26 +458,17 @@ class LaunchProfileStreamingSessionStorageRootArgs:
 
 if not MYPY:
     class LaunchProfileVolumeConfigurationArgsDict(TypedDict):
-        """
-        <p>Custom volume configuration for the root volumes that are attached to streaming
-                    sessions.</p>
-                 <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
-                        <code>ACTIVATED</code>.</p>
-        """
         iops: NotRequired[pulumi.Input[float]]
         """
-        <p>The number of I/O operations per second for the root volume that is attached to
-                    streaming session.</p>
+        The number of I/O operations per second for the root volume that is attached to streaming session.
         """
         size: NotRequired[pulumi.Input[float]]
         """
-        <p>The size of the root volume that is attached to the streaming session. The root volume
-                    size is measured in GiBs.</p>
+        The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
         """
         throughput: NotRequired[pulumi.Input[float]]
         """
-        <p>The throughput to provision for the root volume that is attached to the streaming
-                    session. The throughput is measured in MiB/s.</p>
+        The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
         """
 elif False:
     LaunchProfileVolumeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -564,16 +480,9 @@ class LaunchProfileVolumeConfigurationArgs:
                  size: Optional[pulumi.Input[float]] = None,
                  throughput: Optional[pulumi.Input[float]] = None):
         """
-        <p>Custom volume configuration for the root volumes that are attached to streaming
-                    sessions.</p>
-                 <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
-                        <code>ACTIVATED</code>.</p>
-        :param pulumi.Input[float] iops: <p>The number of I/O operations per second for the root volume that is attached to
-                           streaming session.</p>
-        :param pulumi.Input[float] size: <p>The size of the root volume that is attached to the streaming session. The root volume
-                           size is measured in GiBs.</p>
-        :param pulumi.Input[float] throughput: <p>The throughput to provision for the root volume that is attached to the streaming
-                           session. The throughput is measured in MiB/s.</p>
+        :param pulumi.Input[float] iops: The number of I/O operations per second for the root volume that is attached to streaming session.
+        :param pulumi.Input[float] size: The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
+        :param pulumi.Input[float] throughput: The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
         """
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
@@ -586,8 +495,7 @@ class LaunchProfileVolumeConfigurationArgs:
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[float]]:
         """
-        <p>The number of I/O operations per second for the root volume that is attached to
-                    streaming session.</p>
+        The number of I/O operations per second for the root volume that is attached to streaming session.
         """
         return pulumi.get(self, "iops")
 
@@ -599,8 +507,7 @@ class LaunchProfileVolumeConfigurationArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[float]]:
         """
-        <p>The size of the root volume that is attached to the streaming session. The root volume
-                    size is measured in GiBs.</p>
+        The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
         """
         return pulumi.get(self, "size")
 
@@ -612,8 +519,7 @@ class LaunchProfileVolumeConfigurationArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[float]]:
         """
-        <p>The throughput to provision for the root volume that is attached to the streaming
-                    session. The throughput is measured in MiB/s.</p>
+        The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
         """
         return pulumi.get(self, "throughput")
 
@@ -624,17 +530,13 @@ class LaunchProfileVolumeConfigurationArgs:
 
 if not MYPY:
     class StudioComponentActiveDirectoryComputerAttributeArgsDict(TypedDict):
-        """
-        <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
-                    pair.</p>
-        """
         name: NotRequired[pulumi.Input[str]]
         """
-        <p>The name for the LDAP attribute.</p>
+        The name for the LDAP attribute.
         """
         value: NotRequired[pulumi.Input[str]]
         """
-        <p>The value for the LDAP attribute.</p>
+        The value for the LDAP attribute.
         """
 elif False:
     StudioComponentActiveDirectoryComputerAttributeArgsDict: TypeAlias = Mapping[str, Any]
@@ -645,10 +547,8 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
-                    pair.</p>
-        :param pulumi.Input[str] name: <p>The name for the LDAP attribute.</p>
-        :param pulumi.Input[str] value: <p>The value for the LDAP attribute.</p>
+        :param pulumi.Input[str] name: The name for the LDAP attribute.
+        :param pulumi.Input[str] value: The value for the LDAP attribute.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -659,7 +559,7 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The name for the LDAP attribute.</p>
+        The name for the LDAP attribute.
         """
         return pulumi.get(self, "name")
 
@@ -671,7 +571,7 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The value for the LDAP attribute.</p>
+        The value for the LDAP attribute.
         """
         return pulumi.get(self, "value")
 
@@ -682,23 +582,17 @@ class StudioComponentActiveDirectoryComputerAttributeArgs:
 
 if not MYPY:
     class StudioComponentActiveDirectoryConfigurationArgsDict(TypedDict):
-        """
-        <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
-                    resource.</p>
-        """
         computer_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgsDict']]]]
         """
-        <p>A collection of custom attributes for an Active Directory computer.</p>
+        A collection of custom attributes for an Active Directory computer.
         """
         directory_id: NotRequired[pulumi.Input[str]]
         """
-        <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-                    using this studio component.</p>
+        The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
         """
         organizational_unit_distinguished_name: NotRequired[pulumi.Input[str]]
         """
-        <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
-                    computer.</p>
+        The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
         """
 elif False:
     StudioComponentActiveDirectoryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -710,13 +604,9 @@ class StudioComponentActiveDirectoryConfigurationArgs:
                  directory_id: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
         """
-        <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
-                    resource.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]] computer_attributes: <p>A collection of custom attributes for an Active Directory computer.</p>
-        :param pulumi.Input[str] directory_id: <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-                           using this studio component.</p>
-        :param pulumi.Input[str] organizational_unit_distinguished_name: <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
-                           computer.</p>
+        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]] computer_attributes: A collection of custom attributes for an Active Directory computer.
+        :param pulumi.Input[str] directory_id: The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
+        :param pulumi.Input[str] organizational_unit_distinguished_name: The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
         """
         if computer_attributes is not None:
             pulumi.set(__self__, "computer_attributes", computer_attributes)
@@ -729,7 +619,7 @@ class StudioComponentActiveDirectoryConfigurationArgs:
     @pulumi.getter(name="computerAttributes")
     def computer_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentActiveDirectoryComputerAttributeArgs']]]]:
         """
-        <p>A collection of custom attributes for an Active Directory computer.</p>
+        A collection of custom attributes for an Active Directory computer.
         """
         return pulumi.get(self, "computer_attributes")
 
@@ -741,8 +631,7 @@ class StudioComponentActiveDirectoryConfigurationArgs:
     @pulumi.getter(name="directoryId")
     def directory_id(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-                    using this studio component.</p>
+        The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
         """
         return pulumi.get(self, "directory_id")
 
@@ -754,8 +643,7 @@ class StudioComponentActiveDirectoryConfigurationArgs:
     @pulumi.getter(name="organizationalUnitDistinguishedName")
     def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
-                    computer.</p>
+        The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
 
@@ -766,18 +654,13 @@ class StudioComponentActiveDirectoryConfigurationArgs:
 
 if not MYPY:
     class StudioComponentComputeFarmConfigurationArgsDict(TypedDict):
-        """
-        <p>The configuration for a render farm that is associated with a studio resource.</p>
-        """
         active_directory_user: NotRequired[pulumi.Input[str]]
         """
-        <p>The name of an Active Directory user that is used on ComputeFarm worker
-                    instances.</p>
+        The name of an Active Directory user that is used on ComputeFarm worker instances.
         """
         endpoint: NotRequired[pulumi.Input[str]]
         """
-        <p>The endpoint of the ComputeFarm that is accessed by the studio component
-                    resource.</p>
+        The endpoint of the ComputeFarm that is accessed by the studio component resource.
         """
 elif False:
     StudioComponentComputeFarmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -788,11 +671,8 @@ class StudioComponentComputeFarmConfigurationArgs:
                  active_directory_user: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None):
         """
-        <p>The configuration for a render farm that is associated with a studio resource.</p>
-        :param pulumi.Input[str] active_directory_user: <p>The name of an Active Directory user that is used on ComputeFarm worker
-                           instances.</p>
-        :param pulumi.Input[str] endpoint: <p>The endpoint of the ComputeFarm that is accessed by the studio component
-                           resource.</p>
+        :param pulumi.Input[str] active_directory_user: The name of an Active Directory user that is used on ComputeFarm worker instances.
+        :param pulumi.Input[str] endpoint: The endpoint of the ComputeFarm that is accessed by the studio component resource.
         """
         if active_directory_user is not None:
             pulumi.set(__self__, "active_directory_user", active_directory_user)
@@ -803,8 +683,7 @@ class StudioComponentComputeFarmConfigurationArgs:
     @pulumi.getter(name="activeDirectoryUser")
     def active_directory_user(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The name of an Active Directory user that is used on ComputeFarm worker
-                    instances.</p>
+        The name of an Active Directory user that is used on ComputeFarm worker instances.
         """
         return pulumi.get(self, "active_directory_user")
 
@@ -816,8 +695,7 @@ class StudioComponentComputeFarmConfigurationArgs:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The endpoint of the ComputeFarm that is accessed by the studio component
-                    resource.</p>
+        The endpoint of the ComputeFarm that is accessed by the studio component resource.
         """
         return pulumi.get(self, "endpoint")
 
@@ -827,138 +705,114 @@ class StudioComponentComputeFarmConfigurationArgs:
 
 
 if not MYPY:
-    class StudioComponentConfiguration0PropertiesArgsDict(TypedDict):
+    class StudioComponentConfigurationArgsDict(TypedDict):
+        active_directory_configuration: NotRequired[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgsDict']]
         """
-        <p>The configuration of the studio component, based on component type.</p>
+        The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
         """
-        active_directory_configuration: pulumi.Input['StudioComponentActiveDirectoryConfigurationArgsDict']
+        compute_farm_configuration: NotRequired[pulumi.Input['StudioComponentComputeFarmConfigurationArgsDict']]
+        """
+        The configuration for a render farm that is associated with a studio resource.
+        """
+        license_service_configuration: NotRequired[pulumi.Input['StudioComponentLicenseServiceConfigurationArgsDict']]
+        """
+        The configuration for a license service that is associated with a studio resource.
+        """
+        shared_file_system_configuration: NotRequired[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgsDict']]
+        """
+        The configuration for a shared file storage system that is associated with a studio resource.
+        """
 elif False:
-    StudioComponentConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    StudioComponentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class StudioComponentConfiguration0PropertiesArgs:
+class StudioComponentConfigurationArgs:
     def __init__(__self__, *,
-                 active_directory_configuration: pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']):
+                 active_directory_configuration: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']] = None,
+                 compute_farm_configuration: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']] = None,
+                 license_service_configuration: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']] = None,
+                 shared_file_system_configuration: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']] = None):
         """
-        <p>The configuration of the studio component, based on component type.</p>
+        :param pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs'] active_directory_configuration: The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
+        :param pulumi.Input['StudioComponentComputeFarmConfigurationArgs'] compute_farm_configuration: The configuration for a render farm that is associated with a studio resource.
+        :param pulumi.Input['StudioComponentLicenseServiceConfigurationArgs'] license_service_configuration: The configuration for a license service that is associated with a studio resource.
+        :param pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs'] shared_file_system_configuration: The configuration for a shared file storage system that is associated with a studio resource.
         """
-        pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
+        if active_directory_configuration is not None:
+            pulumi.set(__self__, "active_directory_configuration", active_directory_configuration)
+        if compute_farm_configuration is not None:
+            pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
+        if license_service_configuration is not None:
+            pulumi.set(__self__, "license_service_configuration", license_service_configuration)
+        if shared_file_system_configuration is not None:
+            pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
 
     @property
     @pulumi.getter(name="activeDirectoryConfiguration")
-    def active_directory_configuration(self) -> pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']:
+    def active_directory_configuration(self) -> Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]:
+        """
+        The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
+        """
         return pulumi.get(self, "active_directory_configuration")
 
     @active_directory_configuration.setter
-    def active_directory_configuration(self, value: pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']):
+    def active_directory_configuration(self, value: Optional[pulumi.Input['StudioComponentActiveDirectoryConfigurationArgs']]):
         pulumi.set(self, "active_directory_configuration", value)
-
-
-if not MYPY:
-    class StudioComponentConfiguration1PropertiesArgsDict(TypedDict):
-        """
-        <p>The configuration of the studio component, based on component type.</p>
-        """
-        compute_farm_configuration: pulumi.Input['StudioComponentComputeFarmConfigurationArgsDict']
-elif False:
-    StudioComponentConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class StudioComponentConfiguration1PropertiesArgs:
-    def __init__(__self__, *,
-                 compute_farm_configuration: pulumi.Input['StudioComponentComputeFarmConfigurationArgs']):
-        """
-        <p>The configuration of the studio component, based on component type.</p>
-        """
-        pulumi.set(__self__, "compute_farm_configuration", compute_farm_configuration)
 
     @property
     @pulumi.getter(name="computeFarmConfiguration")
-    def compute_farm_configuration(self) -> pulumi.Input['StudioComponentComputeFarmConfigurationArgs']:
+    def compute_farm_configuration(self) -> Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]:
+        """
+        The configuration for a render farm that is associated with a studio resource.
+        """
         return pulumi.get(self, "compute_farm_configuration")
 
     @compute_farm_configuration.setter
-    def compute_farm_configuration(self, value: pulumi.Input['StudioComponentComputeFarmConfigurationArgs']):
+    def compute_farm_configuration(self, value: Optional[pulumi.Input['StudioComponentComputeFarmConfigurationArgs']]):
         pulumi.set(self, "compute_farm_configuration", value)
-
-
-if not MYPY:
-    class StudioComponentConfiguration2PropertiesArgsDict(TypedDict):
-        """
-        <p>The configuration of the studio component, based on component type.</p>
-        """
-        license_service_configuration: pulumi.Input['StudioComponentLicenseServiceConfigurationArgsDict']
-elif False:
-    StudioComponentConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class StudioComponentConfiguration2PropertiesArgs:
-    def __init__(__self__, *,
-                 license_service_configuration: pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']):
-        """
-        <p>The configuration of the studio component, based on component type.</p>
-        """
-        pulumi.set(__self__, "license_service_configuration", license_service_configuration)
 
     @property
     @pulumi.getter(name="licenseServiceConfiguration")
-    def license_service_configuration(self) -> pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']:
+    def license_service_configuration(self) -> Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]:
+        """
+        The configuration for a license service that is associated with a studio resource.
+        """
         return pulumi.get(self, "license_service_configuration")
 
     @license_service_configuration.setter
-    def license_service_configuration(self, value: pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']):
+    def license_service_configuration(self, value: Optional[pulumi.Input['StudioComponentLicenseServiceConfigurationArgs']]):
         pulumi.set(self, "license_service_configuration", value)
-
-
-if not MYPY:
-    class StudioComponentConfiguration3PropertiesArgsDict(TypedDict):
-        """
-        <p>The configuration of the studio component, based on component type.</p>
-        """
-        shared_file_system_configuration: pulumi.Input['StudioComponentSharedFileSystemConfigurationArgsDict']
-elif False:
-    StudioComponentConfiguration3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class StudioComponentConfiguration3PropertiesArgs:
-    def __init__(__self__, *,
-                 shared_file_system_configuration: pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']):
-        """
-        <p>The configuration of the studio component, based on component type.</p>
-        """
-        pulumi.set(__self__, "shared_file_system_configuration", shared_file_system_configuration)
 
     @property
     @pulumi.getter(name="sharedFileSystemConfiguration")
-    def shared_file_system_configuration(self) -> pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']:
+    def shared_file_system_configuration(self) -> Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]:
+        """
+        The configuration for a shared file storage system that is associated with a studio resource.
+        """
         return pulumi.get(self, "shared_file_system_configuration")
 
     @shared_file_system_configuration.setter
-    def shared_file_system_configuration(self, value: pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']):
+    def shared_file_system_configuration(self, value: Optional[pulumi.Input['StudioComponentSharedFileSystemConfigurationArgs']]):
         pulumi.set(self, "shared_file_system_configuration", value)
 
 
 if not MYPY:
     class StudioComponentInitializationScriptArgsDict(TypedDict):
-        """
-        <p>Initialization scripts for studio components.</p>
-        """
         launch_profile_protocol_version: NotRequired[pulumi.Input[str]]
         """
-        <p>The version number of the protocol that is used by the launch profile. The only valid
-                    version is "2021-03-31".</p>
+        The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
         """
-        platform: NotRequired[pulumi.Input['StudioComponentLaunchProfilePlatform']]
+        platform: NotRequired[pulumi.Input[str]]
         """
         The platform of the initialization script, either Windows or Linux.
         """
-        run_context: NotRequired[pulumi.Input['StudioComponentInitializationScriptRunContext']]
+        run_context: NotRequired[pulumi.Input[str]]
         """
         The method to use when running the initialization script.
         """
         script: NotRequired[pulumi.Input[str]]
         """
-        <p>The initialization script.</p>
+        The initialization script.
         """
 elif False:
     StudioComponentInitializationScriptArgsDict: TypeAlias = Mapping[str, Any]
@@ -967,16 +821,14 @@ elif False:
 class StudioComponentInitializationScriptArgs:
     def __init__(__self__, *,
                  launch_profile_protocol_version: Optional[pulumi.Input[str]] = None,
-                 platform: Optional[pulumi.Input['StudioComponentLaunchProfilePlatform']] = None,
-                 run_context: Optional[pulumi.Input['StudioComponentInitializationScriptRunContext']] = None,
+                 platform: Optional[pulumi.Input[str]] = None,
+                 run_context: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None):
         """
-        <p>Initialization scripts for studio components.</p>
-        :param pulumi.Input[str] launch_profile_protocol_version: <p>The version number of the protocol that is used by the launch profile. The only valid
-                           version is "2021-03-31".</p>
-        :param pulumi.Input['StudioComponentLaunchProfilePlatform'] platform: The platform of the initialization script, either Windows or Linux.
-        :param pulumi.Input['StudioComponentInitializationScriptRunContext'] run_context: The method to use when running the initialization script.
-        :param pulumi.Input[str] script: <p>The initialization script.</p>
+        :param pulumi.Input[str] launch_profile_protocol_version: The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
+        :param pulumi.Input[str] platform: The platform of the initialization script, either Windows or Linux.
+        :param pulumi.Input[str] run_context: The method to use when running the initialization script.
+        :param pulumi.Input[str] script: The initialization script.
         """
         if launch_profile_protocol_version is not None:
             pulumi.set(__self__, "launch_profile_protocol_version", launch_profile_protocol_version)
@@ -991,8 +843,7 @@ class StudioComponentInitializationScriptArgs:
     @pulumi.getter(name="launchProfileProtocolVersion")
     def launch_profile_protocol_version(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The version number of the protocol that is used by the launch profile. The only valid
-                    version is "2021-03-31".</p>
+        The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
         """
         return pulumi.get(self, "launch_profile_protocol_version")
 
@@ -1002,33 +853,33 @@ class StudioComponentInitializationScriptArgs:
 
     @property
     @pulumi.getter
-    def platform(self) -> Optional[pulumi.Input['StudioComponentLaunchProfilePlatform']]:
+    def platform(self) -> Optional[pulumi.Input[str]]:
         """
         The platform of the initialization script, either Windows or Linux.
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: Optional[pulumi.Input['StudioComponentLaunchProfilePlatform']]):
+    def platform(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "platform", value)
 
     @property
     @pulumi.getter(name="runContext")
-    def run_context(self) -> Optional[pulumi.Input['StudioComponentInitializationScriptRunContext']]:
+    def run_context(self) -> Optional[pulumi.Input[str]]:
         """
         The method to use when running the initialization script.
         """
         return pulumi.get(self, "run_context")
 
     @run_context.setter
-    def run_context(self, value: Optional[pulumi.Input['StudioComponentInitializationScriptRunContext']]):
+    def run_context(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "run_context", value)
 
     @property
     @pulumi.getter
     def script(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The initialization script.</p>
+        The initialization script.
         """
         return pulumi.get(self, "script")
 
@@ -1039,14 +890,9 @@ class StudioComponentInitializationScriptArgs:
 
 if not MYPY:
     class StudioComponentLicenseServiceConfigurationArgsDict(TypedDict):
-        """
-        <p>The configuration for a license service that is associated with a studio
-                    resource.</p>
-        """
         endpoint: NotRequired[pulumi.Input[str]]
         """
-        <p>The endpoint of the license service that is accessed by the studio component
-                    resource.</p>
+        The endpoint of the license service that is accessed by the studio component resource.
         """
 elif False:
     StudioComponentLicenseServiceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1056,10 +902,7 @@ class StudioComponentLicenseServiceConfigurationArgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None):
         """
-        <p>The configuration for a license service that is associated with a studio
-                    resource.</p>
-        :param pulumi.Input[str] endpoint: <p>The endpoint of the license service that is accessed by the studio component
-                           resource.</p>
+        :param pulumi.Input[str] endpoint: The endpoint of the license service that is accessed by the studio component resource.
         """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
@@ -1068,8 +911,7 @@ class StudioComponentLicenseServiceConfigurationArgs:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The endpoint of the license service that is accessed by the studio component
-                    resource.</p>
+        The endpoint of the license service that is accessed by the studio component resource.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1080,16 +922,13 @@ class StudioComponentLicenseServiceConfigurationArgs:
 
 if not MYPY:
     class StudioComponentScriptParameterKeyValueArgsDict(TypedDict):
-        """
-        <p>A parameter for a studio component script, in the form of a key:value pair.</p>
-        """
         key: NotRequired[pulumi.Input[str]]
         """
-        <p>A script parameter key.</p>
+        A script parameter key.
         """
         value: NotRequired[pulumi.Input[str]]
         """
-        <p>A script parameter value.</p>
+        A script parameter value.
         """
 elif False:
     StudioComponentScriptParameterKeyValueArgsDict: TypeAlias = Mapping[str, Any]
@@ -1100,9 +939,8 @@ class StudioComponentScriptParameterKeyValueArgs:
                  key: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        <p>A parameter for a studio component script, in the form of a key:value pair.</p>
-        :param pulumi.Input[str] key: <p>A script parameter key.</p>
-        :param pulumi.Input[str] value: <p>A script parameter value.</p>
+        :param pulumi.Input[str] key: A script parameter key.
+        :param pulumi.Input[str] value: A script parameter value.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -1113,7 +951,7 @@ class StudioComponentScriptParameterKeyValueArgs:
     @pulumi.getter
     def key(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>A script parameter key.</p>
+        A script parameter key.
         """
         return pulumi.get(self, "key")
 
@@ -1125,7 +963,7 @@ class StudioComponentScriptParameterKeyValueArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>A script parameter value.</p>
+        A script parameter value.
         """
         return pulumi.get(self, "value")
 
@@ -1136,30 +974,25 @@ class StudioComponentScriptParameterKeyValueArgs:
 
 if not MYPY:
     class StudioComponentSharedFileSystemConfigurationArgsDict(TypedDict):
-        """
-        <p>The configuration for a shared file storage system that is associated with a studio
-                    resource.</p>
-        """
         endpoint: NotRequired[pulumi.Input[str]]
         """
-        <p>The endpoint of the shared file system that is accessed by the studio component
-                    resource.</p>
+        The endpoint of the shared file system that is accessed by the studio component resource.
         """
         file_system_id: NotRequired[pulumi.Input[str]]
         """
-        <p>The unique identifier for a file system.</p>
+        The unique identifier for a file system.
         """
         linux_mount_point: NotRequired[pulumi.Input[str]]
         """
-        <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+        The mount location for a shared file system on a Linux virtual workstation.
         """
         share_name: NotRequired[pulumi.Input[str]]
         """
-        <p>The name of the file share.</p>
+        The name of the file share.
         """
         windows_mount_drive: NotRequired[pulumi.Input[str]]
         """
-        <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+        The mount location for a shared file system on a Windows virtual workstation.
         """
 elif False:
     StudioComponentSharedFileSystemConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1173,14 +1006,11 @@ class StudioComponentSharedFileSystemConfigurationArgs:
                  share_name: Optional[pulumi.Input[str]] = None,
                  windows_mount_drive: Optional[pulumi.Input[str]] = None):
         """
-        <p>The configuration for a shared file storage system that is associated with a studio
-                    resource.</p>
-        :param pulumi.Input[str] endpoint: <p>The endpoint of the shared file system that is accessed by the studio component
-                           resource.</p>
-        :param pulumi.Input[str] file_system_id: <p>The unique identifier for a file system.</p>
-        :param pulumi.Input[str] linux_mount_point: <p>The mount location for a shared file system on a Linux virtual workstation.</p>
-        :param pulumi.Input[str] share_name: <p>The name of the file share.</p>
-        :param pulumi.Input[str] windows_mount_drive: <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+        :param pulumi.Input[str] endpoint: The endpoint of the shared file system that is accessed by the studio component resource.
+        :param pulumi.Input[str] file_system_id: The unique identifier for a file system.
+        :param pulumi.Input[str] linux_mount_point: The mount location for a shared file system on a Linux virtual workstation.
+        :param pulumi.Input[str] share_name: The name of the file share.
+        :param pulumi.Input[str] windows_mount_drive: The mount location for a shared file system on a Windows virtual workstation.
         """
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
@@ -1197,8 +1027,7 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The endpoint of the shared file system that is accessed by the studio component
-                    resource.</p>
+        The endpoint of the shared file system that is accessed by the studio component resource.
         """
         return pulumi.get(self, "endpoint")
 
@@ -1210,7 +1039,7 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The unique identifier for a file system.</p>
+        The unique identifier for a file system.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -1222,7 +1051,7 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @pulumi.getter(name="linuxMountPoint")
     def linux_mount_point(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+        The mount location for a shared file system on a Linux virtual workstation.
         """
         return pulumi.get(self, "linux_mount_point")
 
@@ -1234,7 +1063,7 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @pulumi.getter(name="shareName")
     def share_name(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The name of the file share.</p>
+        The name of the file share.
         """
         return pulumi.get(self, "share_name")
 
@@ -1246,7 +1075,7 @@ class StudioComponentSharedFileSystemConfigurationArgs:
     @pulumi.getter(name="windowsMountDrive")
     def windows_mount_drive(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+        The mount location for a shared file system on a Windows virtual workstation.
         """
         return pulumi.get(self, "windows_mount_drive")
 
@@ -1257,16 +1086,13 @@ class StudioComponentSharedFileSystemConfigurationArgs:
 
 if not MYPY:
     class StudioEncryptionConfigurationArgsDict(TypedDict):
-        """
-        <p>Configuration of the encryption method that is used for the studio.</p>
-        """
-        key_type: pulumi.Input['StudioEncryptionConfigurationKeyType']
+        key_type: pulumi.Input[str]
         """
         The type of KMS key that is used to encrypt studio data.
         """
         key_arn: NotRequired[pulumi.Input[str]]
         """
-        <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+        The ARN for a KMS key that is used to encrypt studio data.
         """
 elif False:
     StudioEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -1274,12 +1100,11 @@ elif False:
 @pulumi.input_type
 class StudioEncryptionConfigurationArgs:
     def __init__(__self__, *,
-                 key_type: pulumi.Input['StudioEncryptionConfigurationKeyType'],
+                 key_type: pulumi.Input[str],
                  key_arn: Optional[pulumi.Input[str]] = None):
         """
-        <p>Configuration of the encryption method that is used for the studio.</p>
-        :param pulumi.Input['StudioEncryptionConfigurationKeyType'] key_type: The type of KMS key that is used to encrypt studio data.
-        :param pulumi.Input[str] key_arn: <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+        :param pulumi.Input[str] key_type: The type of KMS key that is used to encrypt studio data.
+        :param pulumi.Input[str] key_arn: The ARN for a KMS key that is used to encrypt studio data.
         """
         pulumi.set(__self__, "key_type", key_type)
         if key_arn is not None:
@@ -1287,21 +1112,21 @@ class StudioEncryptionConfigurationArgs:
 
     @property
     @pulumi.getter(name="keyType")
-    def key_type(self) -> pulumi.Input['StudioEncryptionConfigurationKeyType']:
+    def key_type(self) -> pulumi.Input[str]:
         """
         The type of KMS key that is used to encrypt studio data.
         """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
-    def key_type(self, value: pulumi.Input['StudioEncryptionConfigurationKeyType']):
+    def key_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_type", value)
 
     @property
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+        The ARN for a KMS key that is used to encrypt studio data.
         """
         return pulumi.get(self, "key_arn")
 

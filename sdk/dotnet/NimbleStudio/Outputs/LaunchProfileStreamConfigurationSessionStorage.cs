@@ -10,17 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The configuration for a streaming session’s upload storage.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class LaunchProfileStreamConfigurationSessionStorage
     {
         /// <summary>
-        /// &lt;p&gt;Allows artists to upload files to their workstations. The only valid option is
-        ///                 &lt;code&gt;UPLOAD&lt;/code&gt;.&lt;/p&gt;
+        /// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingSessionStorageMode> Mode;
+        public readonly ImmutableArray<string> Mode;
         /// <summary>
         /// The configuration for the upload storage root of the streaming session.
         /// </summary>
@@ -28,7 +24,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
 
         [OutputConstructor]
         private LaunchProfileStreamConfigurationSessionStorage(
-            ImmutableArray<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingSessionStorageMode> mode,
+            ImmutableArray<string> mode,
 
             Outputs.LaunchProfileStreamingSessionStorageRoot? root)
         {

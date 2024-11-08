@@ -41,12 +41,21 @@ export class ChannelNamespace extends pulumi.CustomResource {
      * AppSync Api Id that this Channel Namespace belongs to.
      */
     public readonly apiId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the channel namespace.
+     */
     public /*out*/ readonly channelNamespaceArn!: pulumi.Output<string>;
+    /**
+     * The event handler functions that run custom business logic to process published events and subscribe requests.
+     */
     public readonly codeHandlers!: pulumi.Output<string | undefined>;
     /**
      * The Amazon S3 endpoint where the code is located.
      */
     public readonly codeS3Location!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the channel namespace. This name must be unique within the `Api` .
+     */
     public readonly name!: pulumi.Output<string>;
     /**
      * List of AuthModes supported for Publish operations.
@@ -56,6 +65,9 @@ export class ChannelNamespace extends pulumi.CustomResource {
      * List of AuthModes supported for Subscribe operations.
      */
     public readonly subscribeAuthModes!: pulumi.Output<outputs.appsync.ChannelNamespaceAuthMode[] | undefined>;
+    /**
+     * A set of tags (key-value pairs) for this channel namespace.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -105,11 +117,17 @@ export interface ChannelNamespaceArgs {
      * AppSync Api Id that this Channel Namespace belongs to.
      */
     apiId: pulumi.Input<string>;
+    /**
+     * The event handler functions that run custom business logic to process published events and subscribe requests.
+     */
     codeHandlers?: pulumi.Input<string>;
     /**
      * The Amazon S3 endpoint where the code is located.
      */
     codeS3Location?: pulumi.Input<string>;
+    /**
+     * The name of the channel namespace. This name must be unique within the `Api` .
+     */
     name?: pulumi.Input<string>;
     /**
      * List of AuthModes supported for Publish operations.
@@ -119,5 +137,8 @@ export interface ChannelNamespaceArgs {
      * List of AuthModes supported for Subscribe operations.
      */
     subscribeAuthModes?: pulumi.Input<pulumi.Input<inputs.appsync.ChannelNamespaceAuthModeArgs>[]>;
+    /**
+     * A set of tags (key-value pairs) for this channel namespace.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

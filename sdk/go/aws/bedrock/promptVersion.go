@@ -31,8 +31,9 @@ type PromptVersion struct {
 	// ARN of a prompt resource possibly with a version
 	PromptArn pulumi.StringOutput `pulumi:"promptArn"`
 	// Identifier for a Prompt
-	PromptId pulumi.StringOutput    `pulumi:"promptId"`
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	PromptId pulumi.StringOutput `pulumi:"promptId"`
+	// A map of tags attached to the prompt version and their values.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Time Stamp.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// List of prompt variants
@@ -93,8 +94,9 @@ type promptVersionArgs struct {
 	// Description for a prompt version resource.
 	Description *string `pulumi:"description"`
 	// ARN of a prompt resource possibly with a version
-	PromptArn string            `pulumi:"promptArn"`
-	Tags      map[string]string `pulumi:"tags"`
+	PromptArn string `pulumi:"promptArn"`
+	// A map of tags attached to the prompt version and their values.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PromptVersion resource.
@@ -103,7 +105,8 @@ type PromptVersionArgs struct {
 	Description pulumi.StringPtrInput
 	// ARN of a prompt resource possibly with a version
 	PromptArn pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// A map of tags attached to the prompt version and their values.
+	Tags pulumi.StringMapInput
 }
 
 func (PromptVersionArgs) ElementType() reflect.Type {
@@ -183,6 +186,7 @@ func (o PromptVersionOutput) PromptId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PromptVersion) pulumi.StringOutput { return v.PromptId }).(pulumi.StringOutput)
 }
 
+// A map of tags attached to the prompt version and their values.
 func (o PromptVersionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PromptVersion) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

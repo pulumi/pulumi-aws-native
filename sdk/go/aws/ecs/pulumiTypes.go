@@ -243,7 +243,7 @@ type CapacityProviderManagedScaling struct {
 	InstanceWarmupPeriod *int `pulumi:"instanceWarmupPeriod"`
 	// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `10000` is used.
 	MaximumScalingStepSize *int `pulumi:"maximumScalingStepSize"`
-	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
+	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 	//
 	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 	//
@@ -272,7 +272,7 @@ type CapacityProviderManagedScalingArgs struct {
 	InstanceWarmupPeriod pulumi.IntPtrInput `pulumi:"instanceWarmupPeriod"`
 	// The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `10000` is used.
 	MaximumScalingStepSize pulumi.IntPtrInput `pulumi:"maximumScalingStepSize"`
-	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
+	// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 	//
 	// When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 	//
@@ -372,7 +372,7 @@ func (o CapacityProviderManagedScalingOutput) MaximumScalingStepSize() pulumi.In
 	return o.ApplyT(func(v CapacityProviderManagedScaling) *int { return v.MaximumScalingStepSize }).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
+// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 //
 // When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 //
@@ -435,7 +435,7 @@ func (o CapacityProviderManagedScalingPtrOutput) MaximumScalingStepSize() pulumi
 	}).(pulumi.IntPtrOutput)
 }
 
-// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. If this parameter is omitted, the default value of `1` is used.
+// The minimum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale in process is not affected by this parameter If this parameter is omitted, the default value of `1` is used.
 //
 // When additional capacity is required, Amazon ECS will scale up the minimum scaling step size even if the actual demand is less than the minimum scaling step size.
 //
@@ -3286,7 +3286,7 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
+// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 type ServiceDeploymentConfiguration struct {
 	// Information about the CloudWatch alarms.
 	Alarms *ServiceDeploymentAlarms `pulumi:"alarms"`
@@ -3327,7 +3327,7 @@ type ServiceDeploymentConfigurationInput interface {
 	ToServiceDeploymentConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationOutput
 }
 
-// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
+// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 type ServiceDeploymentConfigurationArgs struct {
 	// Information about the CloudWatch alarms.
 	Alarms ServiceDeploymentAlarmsPtrInput `pulumi:"alarms"`
@@ -3410,7 +3410,7 @@ func (i *serviceDeploymentConfigurationPtrType) ToServiceDeploymentConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationPtrOutput)
 }
 
-// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
+// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 type ServiceDeploymentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentConfigurationOutput) ElementType() reflect.Type {
@@ -3844,7 +3844,7 @@ type ServiceLoadBalancer struct {
 	ContainerName *string `pulumi:"containerName"`
 	// The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
 	ContainerPort *int `pulumi:"containerPort"`
-	// The name of the load balancer to associate with the Amazon ECS service or task set.
+	// The name of the load balancer to associate with the service or task set.
 	//  If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 	LoadBalancerName *string `pulumi:"loadBalancerName"`
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
@@ -3876,7 +3876,7 @@ type ServiceLoadBalancerArgs struct {
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
 	// The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
 	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// The name of the load balancer to associate with the Amazon ECS service or task set.
+	// The name of the load balancer to associate with the service or task set.
 	//  If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
@@ -3954,7 +3954,7 @@ func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// The name of the load balancer to associate with the Amazon ECS service or task set.
+// The name of the load balancer to associate with the service or task set.
 //
 //	If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 func (o ServiceLoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
@@ -4256,15 +4256,16 @@ func (o ServiceLogConfigurationPtrOutput) SecretOptions() ServiceSecretArrayOutp
 	}).(ServiceSecretArrayOutput)
 }
 
-// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
 //
 //	Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
 type ServiceManagedEbsVolumeConfiguration struct {
 	// Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	Encrypted *bool `pulumi:"encrypted"`
-	// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-	//  The available filesystem types are
+	// The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+	//  The available Linux filesystem types are
 	//  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+	//  The available Windows filesystem types are ``NTFS``.
 	FilesystemType *string `pulumi:"filesystemType"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type.
@@ -4316,15 +4317,16 @@ type ServiceManagedEbsVolumeConfigurationInput interface {
 	ToServiceManagedEbsVolumeConfigurationOutputWithContext(context.Context) ServiceManagedEbsVolumeConfigurationOutput
 }
 
-// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
 //
 //	Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
 type ServiceManagedEbsVolumeConfigurationArgs struct {
 	// Indicates whether the volume should be encrypted. If no value is specified, encryption is turned on by default. This parameter maps 1:1 with the ``Encrypted`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
-	// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
-	//  The available filesystem types are
+	// The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+	//  The available Linux filesystem types are
 	//  ``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+	//  The available Windows filesystem types are ``NTFS``.
 	FilesystemType pulumi.StringPtrInput `pulumi:"filesystemType"`
 	// The number of I/O operations per second (IOPS). For ``gp3``, ``io1``, and ``io2`` volumes, this represents the number of IOPS that are provisioned for the volume. For ``gp2`` volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting.
 	//  The following are the supported values for each volume type.
@@ -4418,7 +4420,7 @@ func (i *serviceManagedEbsVolumeConfigurationPtrType) ToServiceManagedEbsVolumeC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceManagedEbsVolumeConfigurationPtrOutput)
 }
 
-// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service.
+// The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
 //
 //	Many of these parameters map 1:1 with the Amazon EBS ``CreateVolume`` API request parameters.
 type ServiceManagedEbsVolumeConfigurationOutput struct{ *pulumi.OutputState }
@@ -4450,10 +4452,11 @@ func (o ServiceManagedEbsVolumeConfigurationOutput) Encrypted() pulumi.BoolPtrOu
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+// The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
 //
-//	The available filesystem types are
+//	The available Linux filesystem types are
 //	``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+//	The available Windows filesystem types are ``NTFS``.
 func (o ServiceManagedEbsVolumeConfigurationOutput) FilesystemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *string { return v.FilesystemType }).(pulumi.StringPtrOutput)
 }
@@ -4558,10 +4561,11 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Encrypted() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Linux filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
+// The filesystem type for the volume. For volumes created from a snapshot, you must specify the same filesystem type that the volume was using when the snapshot was created. If there is a filesystem type mismatch, the task will fail to start.
 //
-//	The available filesystem types are
+//	The available Linux filesystem types are
 //	``ext3``, ``ext4``, and ``xfs``. If no value is specified, the ``xfs`` filesystem type is used by default.
+//	The available Windows filesystem types are ``NTFS``.
 func (o ServiceManagedEbsVolumeConfigurationPtrOutput) FilesystemType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *string {
 		if v == nil {

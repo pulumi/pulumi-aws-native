@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:wisdom:AiAgent":
 		r = &AiAgent{}
+	case "aws-native:wisdom:AiAgentVersion":
+		r = &AiAgentVersion{}
 	case "aws-native:wisdom:AiPrompt":
 		r = &AiPrompt{}
 	case "aws-native:wisdom:AiPromptVersion":

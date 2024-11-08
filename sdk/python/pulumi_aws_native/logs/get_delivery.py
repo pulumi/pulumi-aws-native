@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliveryResult:
-    def __init__(__self__, arn=None, delivery_destination_type=None, delivery_id=None, tags=None):
+    def __init__(__self__, arn=None, delivery_destination_type=None, delivery_id=None, field_delimiter=None, record_fields=None, s3_enable_hive_compatible_path=None, s3_suffix_path=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,18 @@ class GetDeliveryResult:
         if delivery_id and not isinstance(delivery_id, str):
             raise TypeError("Expected argument 'delivery_id' to be a str")
         pulumi.set(__self__, "delivery_id", delivery_id)
+        if field_delimiter and not isinstance(field_delimiter, str):
+            raise TypeError("Expected argument 'field_delimiter' to be a str")
+        pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if record_fields and not isinstance(record_fields, list):
+            raise TypeError("Expected argument 'record_fields' to be a list")
+        pulumi.set(__self__, "record_fields", record_fields)
+        if s3_enable_hive_compatible_path and not isinstance(s3_enable_hive_compatible_path, bool):
+            raise TypeError("Expected argument 's3_enable_hive_compatible_path' to be a bool")
+        pulumi.set(__self__, "s3_enable_hive_compatible_path", s3_enable_hive_compatible_path)
+        if s3_suffix_path and not isinstance(s3_suffix_path, str):
+            raise TypeError("Expected argument 's3_suffix_path' to be a str")
+        pulumi.set(__self__, "s3_suffix_path", s3_suffix_path)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -63,6 +75,38 @@ class GetDeliveryResult:
         return pulumi.get(self, "delivery_id")
 
     @property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[str]:
+        """
+        The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+        """
+        return pulumi.get(self, "field_delimiter")
+
+    @property
+    @pulumi.getter(name="recordFields")
+    def record_fields(self) -> Optional[Sequence[str]]:
+        """
+        The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+        """
+        return pulumi.get(self, "record_fields")
+
+    @property
+    @pulumi.getter(name="s3EnableHiveCompatiblePath")
+    def s3_enable_hive_compatible_path(self) -> Optional[bool]:
+        """
+        This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        """
+        return pulumi.get(self, "s3_enable_hive_compatible_path")
+
+    @property
+    @pulumi.getter(name="s3SuffixPath")
+    def s3_suffix_path(self) -> Optional[str]:
+        """
+        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+        """
+        return pulumi.get(self, "s3_suffix_path")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -80,6 +124,10 @@ class AwaitableGetDeliveryResult(GetDeliveryResult):
             arn=self.arn,
             delivery_destination_type=self.delivery_destination_type,
             delivery_id=self.delivery_id,
+            field_delimiter=self.field_delimiter,
+            record_fields=self.record_fields,
+            s3_enable_hive_compatible_path=self.s3_enable_hive_compatible_path,
+            s3_suffix_path=self.s3_suffix_path,
             tags=self.tags)
 
 
@@ -104,6 +152,10 @@ def get_delivery(delivery_id: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         delivery_destination_type=pulumi.get(__ret__, 'delivery_destination_type'),
         delivery_id=pulumi.get(__ret__, 'delivery_id'),
+        field_delimiter=pulumi.get(__ret__, 'field_delimiter'),
+        record_fields=pulumi.get(__ret__, 'record_fields'),
+        s3_enable_hive_compatible_path=pulumi.get(__ret__, 's3_enable_hive_compatible_path'),
+        s3_suffix_path=pulumi.get(__ret__, 's3_suffix_path'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_delivery_output(delivery_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryResult]:
@@ -125,4 +177,8 @@ def get_delivery_output(delivery_id: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         delivery_destination_type=pulumi.get(__response__, 'delivery_destination_type'),
         delivery_id=pulumi.get(__response__, 'delivery_id'),
+        field_delimiter=pulumi.get(__response__, 'field_delimiter'),
+        record_fields=pulumi.get(__response__, 'record_fields'),
+        s3_enable_hive_compatible_path=pulumi.get(__response__, 's3_enable_hive_compatible_path'),
+        s3_suffix_path=pulumi.get(__response__, 's3_suffix_path'),
         tags=pulumi.get(__response__, 'tags')))

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a studio that contains other Nimble Studio resources
+ * Resource Type definition for AWS::NimbleStudio::Studio
  */
 export class Studio extends pulumi.CustomResource {
     /**
@@ -38,19 +38,19 @@ export class Studio extends pulumi.CustomResource {
     }
 
     /**
-     * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+     * The IAM role that studio admins assume when logging in to the Nimble Studio portal.
      */
     public readonly adminRoleArn!: pulumi.Output<string>;
     /**
-     * <p>A friendly name for the studio.</p>
+     * A friendly name for the studio.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * <p>The Amazon Web Services Region where the studio resource is located.</p>
+     * The AWS Region where the studio resource is located. For example, `us-west-2` .
      */
     public /*out*/ readonly homeRegion!: pulumi.Output<string>;
     /**
-     * <p>The Amazon Web Services SSO application client ID used to integrate with Amazon Web Services SSO to enable Amazon Web Services SSO users to log in to Nimble Studio portal.</p>
+     * The IAM Identity Center application client ID that is used to integrate with IAM Identity Center , which enables IAM Identity Center users to log into the  portal.
      */
     public /*out*/ readonly ssoClientId!: pulumi.Output<string>;
     /**
@@ -62,11 +62,11 @@ export class Studio extends pulumi.CustomResource {
      */
     public /*out*/ readonly studioId!: pulumi.Output<string>;
     /**
-     * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+     * The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
      */
     public readonly studioName!: pulumi.Output<string>;
     /**
-     * <p>The address of the web page for the studio.</p>
+     * The unique identifier for the studio resource.
      */
     public /*out*/ readonly studioUrl!: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class Studio extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+     * The IAM role that studio users assume when logging in to the Nimble Studio portal.
      */
     public readonly userRoleArn!: pulumi.Output<string>;
 
@@ -134,11 +134,11 @@ export class Studio extends pulumi.CustomResource {
  */
 export interface StudioArgs {
     /**
-     * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio portal.</p>
+     * The IAM role that studio admins assume when logging in to the Nimble Studio portal.
      */
     adminRoleArn: pulumi.Input<string>;
     /**
-     * <p>A friendly name for the studio.</p>
+     * A friendly name for the studio.
      */
     displayName: pulumi.Input<string>;
     /**
@@ -146,7 +146,7 @@ export interface StudioArgs {
      */
     studioEncryptionConfiguration?: pulumi.Input<inputs.nimblestudio.StudioEncryptionConfigurationArgs>;
     /**
-     * <p>The studio name that is used in the URL of the Nimble Studio portal when accessed by Nimble Studio users.</p>
+     * The name of the studio, as included in the URL when accessing it in the Nimble Studio portal.
      */
     studioName?: pulumi.Input<string>;
     /**
@@ -156,7 +156,7 @@ export interface StudioArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio portal.</p>
+     * The IAM role that studio users assume when logging in to the Nimble Studio portal.
      */
     userRoleArn: pulumi.Input<string>;
 }

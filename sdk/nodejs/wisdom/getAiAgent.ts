@@ -19,15 +19,36 @@ export function getAiAgent(args: GetAiAgentArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetAiAgentArgs {
+    /**
+     * The identifier of the AI Agent.
+     */
     aiAgentId: string;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: string;
 }
 
 export interface GetAiAgentResult {
+    /**
+     * The Amazon Resource Name (ARN) of the AI agent.
+     */
     readonly aiAgentArn?: string;
+    /**
+     * The identifier of the AI Agent.
+     */
     readonly aiAgentId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+     */
     readonly assistantArn?: string;
+    /**
+     * Configuration for the AI Agent.
+     */
     readonly configuration?: outputs.wisdom.AiAgentAiAgentConfiguration0Properties | outputs.wisdom.AiAgentAiAgentConfiguration1Properties;
+    /**
+     * The description of the AI Agent.
+     */
     readonly description?: string;
 }
 /**
@@ -42,6 +63,12 @@ export function getAiAgentOutput(args: GetAiAgentOutputArgs, opts?: pulumi.Invok
 }
 
 export interface GetAiAgentOutputArgs {
+    /**
+     * The identifier of the AI Agent.
+     */
     aiAgentId: pulumi.Input<string>;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: pulumi.Input<string>;
 }

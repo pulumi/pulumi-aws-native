@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.AppSync.Outputs
     [OutputType]
     public sealed class ApiEventLogConfig
     {
+        /// <summary>
+        /// The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
+        /// </summary>
         public readonly string CloudWatchLogsRoleArn;
+        /// <summary>
+        /// The type of information to log for the Event API.
+        /// </summary>
         public readonly Pulumi.AwsNative.AppSync.ApiEventLogLevel LogLevel;
 
         [OutputConstructor]

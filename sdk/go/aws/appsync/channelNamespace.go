@@ -18,17 +18,21 @@ type ChannelNamespace struct {
 	pulumi.CustomResourceState
 
 	// AppSync Api Id that this Channel Namespace belongs to.
-	ApiId               pulumi.StringOutput    `pulumi:"apiId"`
-	ChannelNamespaceArn pulumi.StringOutput    `pulumi:"channelNamespaceArn"`
-	CodeHandlers        pulumi.StringPtrOutput `pulumi:"codeHandlers"`
+	ApiId pulumi.StringOutput `pulumi:"apiId"`
+	// The Amazon Resource Name (ARN) of the channel namespace.
+	ChannelNamespaceArn pulumi.StringOutput `pulumi:"channelNamespaceArn"`
+	// The event handler functions that run custom business logic to process published events and subscribe requests.
+	CodeHandlers pulumi.StringPtrOutput `pulumi:"codeHandlers"`
 	// The Amazon S3 endpoint where the code is located.
 	CodeS3Location pulumi.StringPtrOutput `pulumi:"codeS3Location"`
-	Name           pulumi.StringOutput    `pulumi:"name"`
+	// The name of the channel namespace. This name must be unique within the `Api` .
+	Name pulumi.StringOutput `pulumi:"name"`
 	// List of AuthModes supported for Publish operations.
 	PublishAuthModes ChannelNamespaceAuthModeArrayOutput `pulumi:"publishAuthModes"`
 	// List of AuthModes supported for Subscribe operations.
 	SubscribeAuthModes ChannelNamespaceAuthModeArrayOutput `pulumi:"subscribeAuthModes"`
-	Tags               aws.TagArrayOutput                  `pulumi:"tags"`
+	// A set of tags (key-value pairs) for this channel namespace.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewChannelNamespace registers a new resource with the given unique name, arguments, and options.
@@ -80,31 +84,37 @@ func (ChannelNamespaceState) ElementType() reflect.Type {
 
 type channelNamespaceArgs struct {
 	// AppSync Api Id that this Channel Namespace belongs to.
-	ApiId        string  `pulumi:"apiId"`
+	ApiId string `pulumi:"apiId"`
+	// The event handler functions that run custom business logic to process published events and subscribe requests.
 	CodeHandlers *string `pulumi:"codeHandlers"`
 	// The Amazon S3 endpoint where the code is located.
 	CodeS3Location *string `pulumi:"codeS3Location"`
-	Name           *string `pulumi:"name"`
+	// The name of the channel namespace. This name must be unique within the `Api` .
+	Name *string `pulumi:"name"`
 	// List of AuthModes supported for Publish operations.
 	PublishAuthModes []ChannelNamespaceAuthMode `pulumi:"publishAuthModes"`
 	// List of AuthModes supported for Subscribe operations.
 	SubscribeAuthModes []ChannelNamespaceAuthMode `pulumi:"subscribeAuthModes"`
-	Tags               []aws.Tag                  `pulumi:"tags"`
+	// A set of tags (key-value pairs) for this channel namespace.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ChannelNamespace resource.
 type ChannelNamespaceArgs struct {
 	// AppSync Api Id that this Channel Namespace belongs to.
-	ApiId        pulumi.StringInput
+	ApiId pulumi.StringInput
+	// The event handler functions that run custom business logic to process published events and subscribe requests.
 	CodeHandlers pulumi.StringPtrInput
 	// The Amazon S3 endpoint where the code is located.
 	CodeS3Location pulumi.StringPtrInput
-	Name           pulumi.StringPtrInput
+	// The name of the channel namespace. This name must be unique within the `Api` .
+	Name pulumi.StringPtrInput
 	// List of AuthModes supported for Publish operations.
 	PublishAuthModes ChannelNamespaceAuthModeArrayInput
 	// List of AuthModes supported for Subscribe operations.
 	SubscribeAuthModes ChannelNamespaceAuthModeArrayInput
-	Tags               aws.TagArrayInput
+	// A set of tags (key-value pairs) for this channel namespace.
+	Tags aws.TagArrayInput
 }
 
 func (ChannelNamespaceArgs) ElementType() reflect.Type {
@@ -149,10 +159,12 @@ func (o ChannelNamespaceOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringOutput { return v.ApiId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the channel namespace.
 func (o ChannelNamespaceOutput) ChannelNamespaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringOutput { return v.ChannelNamespaceArn }).(pulumi.StringOutput)
 }
 
+// The event handler functions that run custom business logic to process published events and subscribe requests.
 func (o ChannelNamespaceOutput) CodeHandlers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringPtrOutput { return v.CodeHandlers }).(pulumi.StringPtrOutput)
 }
@@ -162,6 +174,7 @@ func (o ChannelNamespaceOutput) CodeS3Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringPtrOutput { return v.CodeS3Location }).(pulumi.StringPtrOutput)
 }
 
+// The name of the channel namespace. This name must be unique within the `Api` .
 func (o ChannelNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -176,6 +189,7 @@ func (o ChannelNamespaceOutput) SubscribeAuthModes() ChannelNamespaceAuthModeArr
 	return o.ApplyT(func(v *ChannelNamespace) ChannelNamespaceAuthModeArrayOutput { return v.SubscribeAuthModes }).(ChannelNamespaceAuthModeArrayOutput)
 }
 
+// A set of tags (key-value pairs) for this channel namespace.
 func (o ChannelNamespaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ChannelNamespace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

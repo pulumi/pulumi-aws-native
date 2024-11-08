@@ -92,6 +92,10 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly backupRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
+     * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+     */
+    public readonly clusterScalabilityType!: pulumi.Output<string | undefined>;
+    /**
      * A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
@@ -563,6 +567,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backtrackWindow"] = args ? args.backtrackWindow : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
+            resourceInputs["clusterScalabilityType"] = args ? args.clusterScalabilityType : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
@@ -625,6 +630,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["backtrackWindow"] = undefined /*out*/;
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
+            resourceInputs["clusterScalabilityType"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["dbClusterArn"] = undefined /*out*/;
@@ -682,7 +688,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"] };
+        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -730,6 +736,10 @@ export interface DbClusterArgs {
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+     */
+    clusterScalabilityType?: pulumi.Input<string>;
     /**
      * A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters

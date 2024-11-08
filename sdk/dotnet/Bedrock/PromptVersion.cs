@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("promptId")]
         public Output<string> PromptId { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags attached to the prompt version and their values.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -149,6 +152,10 @@ namespace Pulumi.AwsNative.Bedrock
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags attached to the prompt version and their values.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

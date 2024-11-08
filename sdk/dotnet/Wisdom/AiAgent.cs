@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:AiAgent")]
     public partial class AiAgent : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AI agent.
+        /// </summary>
         [Output("aiAgentArn")]
         public Output<string> AiAgentArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the AI Agent.
+        /// </summary>
         [Output("aiAgentId")]
         public Output<string> AiAgentId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        /// </summary>
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Output("assistantId")]
         public Output<string> AssistantId { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration for the AI Agent.
+        /// </summary>
         [Output("configuration")]
         public Output<Union<Outputs.AiAgentAiAgentConfiguration0Properties, Outputs.AiAgentAiAgentConfiguration1Properties>> Configuration { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the AI Agent.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the AI Agent.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the AI Agent.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Wisdom.AiAgentAiAgentType> Type { get; private set; } = null!;
 
@@ -94,26 +121,45 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class AiAgentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
+        /// <summary>
+        /// Configuration for the AI Agent.
+        /// </summary>
         [Input("configuration", required: true)]
         public InputUnion<Inputs.AiAgentAiAgentConfiguration0PropertiesArgs, Inputs.AiAgentAiAgentConfiguration1PropertiesArgs> Configuration { get; set; } = null!;
 
+        /// <summary>
+        /// The description of the AI Agent.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the AI Agent.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The type of the AI Agent.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AiAgentAiAgentType> Type { get; set; } = null!;
 

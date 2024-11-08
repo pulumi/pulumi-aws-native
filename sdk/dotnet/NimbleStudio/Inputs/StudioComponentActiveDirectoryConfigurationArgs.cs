@@ -10,17 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Inputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The configuration for a Microsoft Active Directory (Microsoft AD) studio
-    ///             resource.&lt;/p&gt;
-    /// </summary>
     public sealed class StudioComponentActiveDirectoryConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("computerAttributes")]
         private InputList<Inputs.StudioComponentActiveDirectoryComputerAttributeArgs>? _computerAttributes;
 
         /// <summary>
-        /// &lt;p&gt;A collection of custom attributes for an Active Directory computer.&lt;/p&gt;
+        /// A collection of custom attributes for an Active Directory computer.
         /// </summary>
         public InputList<Inputs.StudioComponentActiveDirectoryComputerAttributeArgs> ComputerAttributes
         {
@@ -29,15 +25,13 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         }
 
         /// <summary>
-        /// &lt;p&gt;The directory ID of the Directory Service for Microsoft Active Directory to access
-        ///             using this studio component.&lt;/p&gt;
+        /// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
         /// </summary>
         [Input("directoryId")]
         public Input<string>? DirectoryId { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;The distinguished name (DN) and organizational unit (OU) of an Active Directory
-        ///             computer.&lt;/p&gt;
+        /// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
         /// </summary>
         [Input("organizationalUnitDistinguishedName")]
         public Input<string>? OrganizationalUnitDistinguishedName { get; set; }

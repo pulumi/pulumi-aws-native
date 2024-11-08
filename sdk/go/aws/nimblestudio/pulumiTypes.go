@@ -13,7 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfiguration struct {
 	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
 	//
@@ -21,42 +20,28 @@ type LaunchProfileStreamConfiguration struct {
 	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
 	//
 	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-	AutomaticTerminationMode *LaunchProfileAutomaticTerminationMode `pulumi:"automaticTerminationMode"`
+	AutomaticTerminationMode *string `pulumi:"automaticTerminationMode"`
 	// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-	ClipboardMode LaunchProfileStreamingClipboardMode `pulumi:"clipboardMode"`
-	// <p>The EC2 instance types that users can select from when launching a streaming session
-	//             with this launch profile.</p>
-	Ec2InstanceTypes []LaunchProfileStreamingInstanceType `pulumi:"ec2InstanceTypes"`
-	// <p>The length of time, in minutes, that a streaming session can be active before it is
-	//             stopped or terminated. After this point, Nimble Studio automatically terminates or
-	//             stops the session. The default length of time is 690 minutes, and the maximum length of
-	//             time is 30 days.</p>
+	ClipboardMode string `pulumi:"clipboardMode"`
+	// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
+	Ec2InstanceTypes []string `pulumi:"ec2InstanceTypes"`
+	// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
 	MaxSessionLengthInMinutes *float64 `pulumi:"maxSessionLengthInMinutes"`
-	// <p>Integer that determines if you can start and stop your sessions and how long a session
-	//             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
-	//             5760.</p>
-	//          <p>This field is allowed only when <code>sessionPersistenceMode</code> is
-	//                 <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
-	//                 <code>ACTIVATED</code>.</p>
-	//          <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
-	//             call <code>StopStreamingSession</code>, the session fails. If the time that a session
-	//             stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
-	//             value, the session will automatically be terminated (instead of
-	//             <code>STOPPED</code>).</p>
-	//          <p>If the value is set to a positive number, the session can be stopped. You can call
-	//                 <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
-	//             If the time that a session stays in the <code>READY</code> state exceeds the
-	//                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-	//             stopped (instead of terminated).</p>
+	// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
+	//
+	// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
+	//
+	// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+	//
+	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 	MaxStoppedSessionLengthInMinutes *float64 `pulumi:"maxStoppedSessionLengthInMinutes"`
 	// Information about the streaming session backup.
 	SessionBackup *LaunchProfileStreamConfigurationSessionBackup `pulumi:"sessionBackup"`
 	// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-	SessionPersistenceMode *LaunchProfileSessionPersistenceMode `pulumi:"sessionPersistenceMode"`
+	SessionPersistenceMode *string `pulumi:"sessionPersistenceMode"`
 	// The upload storage for a streaming session.
 	SessionStorage *LaunchProfileStreamConfigurationSessionStorage `pulumi:"sessionStorage"`
-	// <p>The streaming images that users can select from when launching a streaming session
-	//             with this launch profile.</p>
+	// The streaming images that users can select from when launching a streaming session with this launch profile.
 	StreamingImageIds []string `pulumi:"streamingImageIds"`
 	// Custom volume configuration for the root volumes that are attached to streaming sessions.
 	//
@@ -75,7 +60,6 @@ type LaunchProfileStreamConfigurationInput interface {
 	ToLaunchProfileStreamConfigurationOutputWithContext(context.Context) LaunchProfileStreamConfigurationOutput
 }
 
-// <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfigurationArgs struct {
 	// Indicates if a streaming session created from this launch profile should be terminated automatically or retained without termination after being in a `STOPPED` state.
 	//
@@ -83,42 +67,28 @@ type LaunchProfileStreamConfigurationArgs struct {
 	// - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
 	//
 	// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-	AutomaticTerminationMode LaunchProfileAutomaticTerminationModePtrInput `pulumi:"automaticTerminationMode"`
+	AutomaticTerminationMode pulumi.StringPtrInput `pulumi:"automaticTerminationMode"`
 	// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-	ClipboardMode LaunchProfileStreamingClipboardModeInput `pulumi:"clipboardMode"`
-	// <p>The EC2 instance types that users can select from when launching a streaming session
-	//             with this launch profile.</p>
-	Ec2InstanceTypes LaunchProfileStreamingInstanceTypeArrayInput `pulumi:"ec2InstanceTypes"`
-	// <p>The length of time, in minutes, that a streaming session can be active before it is
-	//             stopped or terminated. After this point, Nimble Studio automatically terminates or
-	//             stops the session. The default length of time is 690 minutes, and the maximum length of
-	//             time is 30 days.</p>
+	ClipboardMode pulumi.StringInput `pulumi:"clipboardMode"`
+	// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
+	Ec2InstanceTypes pulumi.StringArrayInput `pulumi:"ec2InstanceTypes"`
+	// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
 	MaxSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxSessionLengthInMinutes"`
-	// <p>Integer that determines if you can start and stop your sessions and how long a session
-	//             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
-	//             5760.</p>
-	//          <p>This field is allowed only when <code>sessionPersistenceMode</code> is
-	//                 <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
-	//                 <code>ACTIVATED</code>.</p>
-	//          <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
-	//             call <code>StopStreamingSession</code>, the session fails. If the time that a session
-	//             stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
-	//             value, the session will automatically be terminated (instead of
-	//             <code>STOPPED</code>).</p>
-	//          <p>If the value is set to a positive number, the session can be stopped. You can call
-	//                 <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
-	//             If the time that a session stays in the <code>READY</code> state exceeds the
-	//                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-	//             stopped (instead of terminated).</p>
+	// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
+	//
+	// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
+	//
+	// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+	//
+	// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 	MaxStoppedSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxStoppedSessionLengthInMinutes"`
 	// Information about the streaming session backup.
 	SessionBackup LaunchProfileStreamConfigurationSessionBackupPtrInput `pulumi:"sessionBackup"`
 	// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-	SessionPersistenceMode LaunchProfileSessionPersistenceModePtrInput `pulumi:"sessionPersistenceMode"`
+	SessionPersistenceMode pulumi.StringPtrInput `pulumi:"sessionPersistenceMode"`
 	// The upload storage for a streaming session.
 	SessionStorage LaunchProfileStreamConfigurationSessionStoragePtrInput `pulumi:"sessionStorage"`
-	// <p>The streaming images that users can select from when launching a streaming session
-	//             with this launch profile.</p>
+	// The streaming images that users can select from when launching a streaming session with this launch profile.
 	StreamingImageIds pulumi.StringArrayInput `pulumi:"streamingImageIds"`
 	// Custom volume configuration for the root volumes that are attached to streaming sessions.
 	//
@@ -138,7 +108,6 @@ func (i LaunchProfileStreamConfigurationArgs) ToLaunchProfileStreamConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationOutput)
 }
 
-// <p>A configuration for a streaming session.</p>
 type LaunchProfileStreamConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileStreamConfigurationOutput) ElementType() reflect.Type {
@@ -159,52 +128,32 @@ func (o LaunchProfileStreamConfigurationOutput) ToLaunchProfileStreamConfigurati
 // - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
 //
 // This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-func (o LaunchProfileStreamConfigurationOutput) AutomaticTerminationMode() LaunchProfileAutomaticTerminationModePtrOutput {
-	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileAutomaticTerminationMode {
-		return v.AutomaticTerminationMode
-	}).(LaunchProfileAutomaticTerminationModePtrOutput)
+func (o LaunchProfileStreamConfigurationOutput) AutomaticTerminationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *string { return v.AutomaticTerminationMode }).(pulumi.StringPtrOutput)
 }
 
 // Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-func (o LaunchProfileStreamConfigurationOutput) ClipboardMode() LaunchProfileStreamingClipboardModeOutput {
-	return o.ApplyT(func(v LaunchProfileStreamConfiguration) LaunchProfileStreamingClipboardMode { return v.ClipboardMode }).(LaunchProfileStreamingClipboardModeOutput)
+func (o LaunchProfileStreamConfigurationOutput) ClipboardMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) string { return v.ClipboardMode }).(pulumi.StringOutput)
 }
 
-// <p>The EC2 instance types that users can select from when launching a streaming session
-//
-//	with this launch profile.</p>
-func (o LaunchProfileStreamConfigurationOutput) Ec2InstanceTypes() LaunchProfileStreamingInstanceTypeArrayOutput {
-	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []LaunchProfileStreamingInstanceType {
-		return v.Ec2InstanceTypes
-	}).(LaunchProfileStreamingInstanceTypeArrayOutput)
+// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
+func (o LaunchProfileStreamConfigurationOutput) Ec2InstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.Ec2InstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// <p>The length of time, in minutes, that a streaming session can be active before it is
-//
-//	stopped or terminated. After this point, Nimble Studio automatically terminates or
-//	stops the session. The default length of time is 690 minutes, and the maximum length of
-//	time is 30 days.</p>
+// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
 func (o LaunchProfileStreamConfigurationOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// <p>Integer that determines if you can start and stop your sessions and how long a session
+// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
 //
-//	   can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
-//	   5760.</p>
-//	<p>This field is allowed only when <code>sessionPersistenceMode</code> is
-//	       <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
-//	       <code>ACTIVATED</code>.</p>
-//	<p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
-//	   call <code>StopStreamingSession</code>, the session fails. If the time that a session
-//	   stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
-//	   value, the session will automatically be terminated (instead of
-//	   <code>STOPPED</code>).</p>
-//	<p>If the value is set to a positive number, the session can be stopped. You can call
-//	       <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
-//	   If the time that a session stays in the <code>READY</code> state exceeds the
-//	       <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-//	   stopped (instead of terminated).</p>
+// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
+//
+// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+//
+// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 func (o LaunchProfileStreamConfigurationOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxStoppedSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
@@ -217,10 +166,8 @@ func (o LaunchProfileStreamConfigurationOutput) SessionBackup() LaunchProfileStr
 }
 
 // Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-func (o LaunchProfileStreamConfigurationOutput) SessionPersistenceMode() LaunchProfileSessionPersistenceModePtrOutput {
-	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileSessionPersistenceMode {
-		return v.SessionPersistenceMode
-	}).(LaunchProfileSessionPersistenceModePtrOutput)
+func (o LaunchProfileStreamConfigurationOutput) SessionPersistenceMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *string { return v.SessionPersistenceMode }).(pulumi.StringPtrOutput)
 }
 
 // The upload storage for a streaming session.
@@ -230,9 +177,7 @@ func (o LaunchProfileStreamConfigurationOutput) SessionStorage() LaunchProfileSt
 	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-// <p>The streaming images that users can select from when launching a streaming session
-//
-//	with this launch profile.</p>
+// The streaming images that users can select from when launching a streaming session with this launch profile.
 func (o LaunchProfileStreamConfigurationOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) []string { return v.StreamingImageIds }).(pulumi.StringArrayOutput)
 }
@@ -276,42 +221,36 @@ func (o LaunchProfileStreamConfigurationPtrOutput) Elem() LaunchProfileStreamCon
 // - When `DEACTIVATED` , the streaming session can remain in the `STOPPED` state indefinitely.
 //
 // This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
-func (o LaunchProfileStreamConfigurationPtrOutput) AutomaticTerminationMode() LaunchProfileAutomaticTerminationModePtrOutput {
-	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileAutomaticTerminationMode {
+func (o LaunchProfileStreamConfigurationPtrOutput) AutomaticTerminationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return v.AutomaticTerminationMode
-	}).(LaunchProfileAutomaticTerminationModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
-func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() LaunchProfileStreamingClipboardModePtrOutput {
-	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamingClipboardMode {
+func (o LaunchProfileStreamConfigurationPtrOutput) ClipboardMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.ClipboardMode
-	}).(LaunchProfileStreamingClipboardModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The EC2 instance types that users can select from when launching a streaming session
-//
-//	with this launch profile.</p>
-func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() LaunchProfileStreamingInstanceTypeArrayOutput {
-	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []LaunchProfileStreamingInstanceType {
+// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
+func (o LaunchProfileStreamConfigurationPtrOutput) Ec2InstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
 		if v == nil {
 			return nil
 		}
 		return v.Ec2InstanceTypes
-	}).(LaunchProfileStreamingInstanceTypeArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
-// <p>The length of time, in minutes, that a streaming session can be active before it is
-//
-//	stopped or terminated. After this point, Nimble Studio automatically terminates or
-//	stops the session. The default length of time is 690 minutes, and the maximum length of
-//	time is 30 days.</p>
+// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -321,23 +260,13 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxSessionLengthInMinutes() p
 	}).(pulumi.Float64PtrOutput)
 }
 
-// <p>Integer that determines if you can start and stop your sessions and how long a session
+// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
 //
-//	   can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
-//	   5760.</p>
-//	<p>This field is allowed only when <code>sessionPersistenceMode</code> is
-//	       <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
-//	       <code>ACTIVATED</code>.</p>
-//	<p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
-//	   call <code>StopStreamingSession</code>, the session fails. If the time that a session
-//	   stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
-//	   value, the session will automatically be terminated (instead of
-//	   <code>STOPPED</code>).</p>
-//	<p>If the value is set to a positive number, the session can be stopped. You can call
-//	       <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
-//	   If the time that a session stays in the <code>READY</code> state exceeds the
-//	       <code>maxSessionLengthInMinutes</code> value, the session will automatically be
-//	   stopped (instead of terminated).</p>
+// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
+//
+// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+//
+// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
 func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinutes() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *float64 {
 		if v == nil {
@@ -358,13 +287,13 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionBackup() LaunchProfile
 }
 
 // Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-func (o LaunchProfileStreamConfigurationPtrOutput) SessionPersistenceMode() LaunchProfileSessionPersistenceModePtrOutput {
-	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileSessionPersistenceMode {
+func (o LaunchProfileStreamConfigurationPtrOutput) SessionPersistenceMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return v.SessionPersistenceMode
-	}).(LaunchProfileSessionPersistenceModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 // The upload storage for a streaming session.
@@ -377,9 +306,7 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfil
 	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-// <p>The streaming images that users can select from when launching a streaming session
-//
-//	with this launch profile.</p>
+// The streaming images that users can select from when launching a streaming session with this launch profile.
 func (o LaunchProfileStreamConfigurationPtrOutput) StreamingImageIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) []string {
 		if v == nil {
@@ -401,17 +328,13 @@ func (o LaunchProfileStreamConfigurationPtrOutput) VolumeConfiguration() LaunchP
 	}).(LaunchProfileVolumeConfigurationPtrOutput)
 }
 
-// <p>Configures how streaming sessions are backed up when launched from this launch
-//
-//	profile.</p>
 type LaunchProfileStreamConfigurationSessionBackup struct {
-	// <p>The maximum number of backups that each streaming session created from this launch
-	//             profile can have.</p>
+	// The maximum number of backups that each streaming session created from this launch profile can have.
 	MaxBackupsToRetain *float64 `pulumi:"maxBackupsToRetain"`
 	// Specifies how artists sessions are backed up.
 	//
 	// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
-	Mode *LaunchProfileSessionBackupMode `pulumi:"mode"`
+	Mode *string `pulumi:"mode"`
 }
 
 // LaunchProfileStreamConfigurationSessionBackupInput is an input type that accepts LaunchProfileStreamConfigurationSessionBackupArgs and LaunchProfileStreamConfigurationSessionBackupOutput values.
@@ -425,17 +348,13 @@ type LaunchProfileStreamConfigurationSessionBackupInput interface {
 	ToLaunchProfileStreamConfigurationSessionBackupOutputWithContext(context.Context) LaunchProfileStreamConfigurationSessionBackupOutput
 }
 
-// <p>Configures how streaming sessions are backed up when launched from this launch
-//
-//	profile.</p>
 type LaunchProfileStreamConfigurationSessionBackupArgs struct {
-	// <p>The maximum number of backups that each streaming session created from this launch
-	//             profile can have.</p>
+	// The maximum number of backups that each streaming session created from this launch profile can have.
 	MaxBackupsToRetain pulumi.Float64PtrInput `pulumi:"maxBackupsToRetain"`
 	// Specifies how artists sessions are backed up.
 	//
 	// Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
-	Mode LaunchProfileSessionBackupModePtrInput `pulumi:"mode"`
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
 func (LaunchProfileStreamConfigurationSessionBackupArgs) ElementType() reflect.Type {
@@ -491,9 +410,6 @@ func (i *launchProfileStreamConfigurationSessionBackupPtrType) ToLaunchProfileSt
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-// <p>Configures how streaming sessions are backed up when launched from this launch
-//
-//	profile.</p>
 type LaunchProfileStreamConfigurationSessionBackupOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileStreamConfigurationSessionBackupOutput) ElementType() reflect.Type {
@@ -518,9 +434,7 @@ func (o LaunchProfileStreamConfigurationSessionBackupOutput) ToLaunchProfileStre
 	}).(LaunchProfileStreamConfigurationSessionBackupPtrOutput)
 }
 
-// <p>The maximum number of backups that each streaming session created from this launch
-//
-//	profile can have.</p>
+// The maximum number of backups that each streaming session created from this launch profile can have.
 func (o LaunchProfileStreamConfigurationSessionBackupOutput) MaxBackupsToRetain() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionBackup) *float64 { return v.MaxBackupsToRetain }).(pulumi.Float64PtrOutput)
 }
@@ -528,8 +442,8 @@ func (o LaunchProfileStreamConfigurationSessionBackupOutput) MaxBackupsToRetain(
 // Specifies how artists sessions are backed up.
 //
 // Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
-func (o LaunchProfileStreamConfigurationSessionBackupOutput) Mode() LaunchProfileSessionBackupModePtrOutput {
-	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionBackup) *LaunchProfileSessionBackupMode { return v.Mode }).(LaunchProfileSessionBackupModePtrOutput)
+func (o LaunchProfileStreamConfigurationSessionBackupOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionBackup) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
 type LaunchProfileStreamConfigurationSessionBackupPtrOutput struct{ *pulumi.OutputState }
@@ -556,9 +470,7 @@ func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Elem() LaunchPro
 	}).(LaunchProfileStreamConfigurationSessionBackupOutput)
 }
 
-// <p>The maximum number of backups that each streaming session created from this launch
-//
-//	profile can have.</p>
+// The maximum number of backups that each streaming session created from this launch profile can have.
 func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) MaxBackupsToRetain() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionBackup) *float64 {
 		if v == nil {
@@ -571,20 +483,18 @@ func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) MaxBackupsToReta
 // Specifies how artists sessions are backed up.
 //
 // Configures backups for streaming sessions launched with this launch profile. The default value is `DEACTIVATED` , which means that backups are deactivated. To allow backups, set this value to `AUTOMATIC` .
-func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Mode() LaunchProfileSessionBackupModePtrOutput {
-	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionBackup) *LaunchProfileSessionBackupMode {
+func (o LaunchProfileStreamConfigurationSessionBackupPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionBackup) *string {
 		if v == nil {
 			return nil
 		}
 		return v.Mode
-	}).(LaunchProfileSessionBackupModePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The configuration for a streaming session’s upload storage.</p>
 type LaunchProfileStreamConfigurationSessionStorage struct {
-	// <p>Allows artists to upload files to their workstations. The only valid option is
-	//                 <code>UPLOAD</code>.</p>
-	Mode []LaunchProfileStreamingSessionStorageMode `pulumi:"mode"`
+	// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
+	Mode []string `pulumi:"mode"`
 	// The configuration for the upload storage root of the streaming session.
 	Root *LaunchProfileStreamingSessionStorageRoot `pulumi:"root"`
 }
@@ -600,11 +510,9 @@ type LaunchProfileStreamConfigurationSessionStorageInput interface {
 	ToLaunchProfileStreamConfigurationSessionStorageOutputWithContext(context.Context) LaunchProfileStreamConfigurationSessionStorageOutput
 }
 
-// <p>The configuration for a streaming session’s upload storage.</p>
 type LaunchProfileStreamConfigurationSessionStorageArgs struct {
-	// <p>Allows artists to upload files to their workstations. The only valid option is
-	//                 <code>UPLOAD</code>.</p>
-	Mode LaunchProfileStreamingSessionStorageModeArrayInput `pulumi:"mode"`
+	// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
+	Mode pulumi.StringArrayInput `pulumi:"mode"`
 	// The configuration for the upload storage root of the streaming session.
 	Root LaunchProfileStreamingSessionStorageRootPtrInput `pulumi:"root"`
 }
@@ -662,7 +570,6 @@ func (i *launchProfileStreamConfigurationSessionStoragePtrType) ToLaunchProfileS
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-// <p>The configuration for a streaming session’s upload storage.</p>
 type LaunchProfileStreamConfigurationSessionStorageOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileStreamConfigurationSessionStorageOutput) ElementType() reflect.Type {
@@ -687,13 +594,9 @@ func (o LaunchProfileStreamConfigurationSessionStorageOutput) ToLaunchProfileStr
 	}).(LaunchProfileStreamConfigurationSessionStoragePtrOutput)
 }
 
-// <p>Allows artists to upload files to their workstations. The only valid option is
-//
-//	<code>UPLOAD</code>.</p>
-func (o LaunchProfileStreamConfigurationSessionStorageOutput) Mode() LaunchProfileStreamingSessionStorageModeArrayOutput {
-	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) []LaunchProfileStreamingSessionStorageMode {
-		return v.Mode
-	}).(LaunchProfileStreamingSessionStorageModeArrayOutput)
+// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
+func (o LaunchProfileStreamConfigurationSessionStorageOutput) Mode() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) []string { return v.Mode }).(pulumi.StringArrayOutput)
 }
 
 // The configuration for the upload storage root of the streaming session.
@@ -727,16 +630,14 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Elem() LaunchPr
 	}).(LaunchProfileStreamConfigurationSessionStorageOutput)
 }
 
-// <p>Allows artists to upload files to their workstations. The only valid option is
-//
-//	<code>UPLOAD</code>.</p>
-func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Mode() LaunchProfileStreamingSessionStorageModeArrayOutput {
-	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) []LaunchProfileStreamingSessionStorageMode {
+// Allows artists to upload files to their workstations. The only valid option is `UPLOAD` .
+func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Mode() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) []string {
 		if v == nil {
 			return nil
 		}
 		return v.Mode
-	}).(LaunchProfileStreamingSessionStorageModeArrayOutput)
+	}).(pulumi.StringArrayOutput)
 }
 
 // The configuration for the upload storage root of the streaming session.
@@ -749,13 +650,10 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Root() LaunchPr
 	}).(LaunchProfileStreamingSessionStorageRootPtrOutput)
 }
 
-// <p>The upload storage root location (folder) on streaming workstations where files are
-//
-//	uploaded.</p>
 type LaunchProfileStreamingSessionStorageRoot struct {
-	// <p>The folder path in Linux workstations where files are uploaded.</p>
+	// The folder path in Linux workstations where files are uploaded.
 	Linux *string `pulumi:"linux"`
-	// <p>The folder path in Windows workstations where files are uploaded.</p>
+	// The folder path in Windows workstations where files are uploaded.
 	Windows *string `pulumi:"windows"`
 }
 
@@ -770,13 +668,10 @@ type LaunchProfileStreamingSessionStorageRootInput interface {
 	ToLaunchProfileStreamingSessionStorageRootOutputWithContext(context.Context) LaunchProfileStreamingSessionStorageRootOutput
 }
 
-// <p>The upload storage root location (folder) on streaming workstations where files are
-//
-//	uploaded.</p>
 type LaunchProfileStreamingSessionStorageRootArgs struct {
-	// <p>The folder path in Linux workstations where files are uploaded.</p>
+	// The folder path in Linux workstations where files are uploaded.
 	Linux pulumi.StringPtrInput `pulumi:"linux"`
-	// <p>The folder path in Windows workstations where files are uploaded.</p>
+	// The folder path in Windows workstations where files are uploaded.
 	Windows pulumi.StringPtrInput `pulumi:"windows"`
 }
 
@@ -833,9 +728,6 @@ func (i *launchProfileStreamingSessionStorageRootPtrType) ToLaunchProfileStreami
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileStreamingSessionStorageRootPtrOutput)
 }
 
-// <p>The upload storage root location (folder) on streaming workstations where files are
-//
-//	uploaded.</p>
 type LaunchProfileStreamingSessionStorageRootOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileStreamingSessionStorageRootOutput) ElementType() reflect.Type {
@@ -860,12 +752,12 @@ func (o LaunchProfileStreamingSessionStorageRootOutput) ToLaunchProfileStreaming
 	}).(LaunchProfileStreamingSessionStorageRootPtrOutput)
 }
 
-// <p>The folder path in Linux workstations where files are uploaded.</p>
+// The folder path in Linux workstations where files are uploaded.
 func (o LaunchProfileStreamingSessionStorageRootOutput) Linux() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamingSessionStorageRoot) *string { return v.Linux }).(pulumi.StringPtrOutput)
 }
 
-// <p>The folder path in Windows workstations where files are uploaded.</p>
+// The folder path in Windows workstations where files are uploaded.
 func (o LaunchProfileStreamingSessionStorageRootOutput) Windows() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamingSessionStorageRoot) *string { return v.Windows }).(pulumi.StringPtrOutput)
 }
@@ -894,7 +786,7 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Elem() LaunchProfileS
 	}).(LaunchProfileStreamingSessionStorageRootOutput)
 }
 
-// <p>The folder path in Linux workstations where files are uploaded.</p>
+// The folder path in Linux workstations where files are uploaded.
 func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Linux() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageRoot) *string {
 		if v == nil {
@@ -904,7 +796,7 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Linux() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The folder path in Windows workstations where files are uploaded.</p>
+// The folder path in Windows workstations where files are uploaded.
 func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Windows() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamingSessionStorageRoot) *string {
 		if v == nil {
@@ -914,20 +806,12 @@ func (o LaunchProfileStreamingSessionStorageRootPtrOutput) Windows() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>Custom volume configuration for the root volumes that are attached to streaming
-//
-//	   sessions.</p>
-//	<p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
-//	       <code>ACTIVATED</code>.</p>
 type LaunchProfileVolumeConfiguration struct {
-	// <p>The number of I/O operations per second for the root volume that is attached to
-	//             streaming session.</p>
+	// The number of I/O operations per second for the root volume that is attached to streaming session.
 	Iops *float64 `pulumi:"iops"`
-	// <p>The size of the root volume that is attached to the streaming session. The root volume
-	//             size is measured in GiBs.</p>
+	// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
 	Size *float64 `pulumi:"size"`
-	// <p>The throughput to provision for the root volume that is attached to the streaming
-	//             session. The throughput is measured in MiB/s.</p>
+	// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
 	Throughput *float64 `pulumi:"throughput"`
 }
 
@@ -942,20 +826,12 @@ type LaunchProfileVolumeConfigurationInput interface {
 	ToLaunchProfileVolumeConfigurationOutputWithContext(context.Context) LaunchProfileVolumeConfigurationOutput
 }
 
-// <p>Custom volume configuration for the root volumes that are attached to streaming
-//
-//	   sessions.</p>
-//	<p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
-//	       <code>ACTIVATED</code>.</p>
 type LaunchProfileVolumeConfigurationArgs struct {
-	// <p>The number of I/O operations per second for the root volume that is attached to
-	//             streaming session.</p>
+	// The number of I/O operations per second for the root volume that is attached to streaming session.
 	Iops pulumi.Float64PtrInput `pulumi:"iops"`
-	// <p>The size of the root volume that is attached to the streaming session. The root volume
-	//             size is measured in GiBs.</p>
+	// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
 	Size pulumi.Float64PtrInput `pulumi:"size"`
-	// <p>The throughput to provision for the root volume that is attached to the streaming
-	//             session. The throughput is measured in MiB/s.</p>
+	// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
 	Throughput pulumi.Float64PtrInput `pulumi:"throughput"`
 }
 
@@ -1012,11 +888,6 @@ func (i *launchProfileVolumeConfigurationPtrType) ToLaunchProfileVolumeConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchProfileVolumeConfigurationPtrOutput)
 }
 
-// <p>Custom volume configuration for the root volumes that are attached to streaming
-//
-//	   sessions.</p>
-//	<p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
-//	       <code>ACTIVATED</code>.</p>
 type LaunchProfileVolumeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LaunchProfileVolumeConfigurationOutput) ElementType() reflect.Type {
@@ -1041,23 +912,17 @@ func (o LaunchProfileVolumeConfigurationOutput) ToLaunchProfileVolumeConfigurati
 	}).(LaunchProfileVolumeConfigurationPtrOutput)
 }
 
-// <p>The number of I/O operations per second for the root volume that is attached to
-//
-//	streaming session.</p>
+// The number of I/O operations per second for the root volume that is attached to streaming session.
 func (o LaunchProfileVolumeConfigurationOutput) Iops() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Iops }).(pulumi.Float64PtrOutput)
 }
 
-// <p>The size of the root volume that is attached to the streaming session. The root volume
-//
-//	size is measured in GiBs.</p>
+// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
 func (o LaunchProfileVolumeConfigurationOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Size }).(pulumi.Float64PtrOutput)
 }
 
-// <p>The throughput to provision for the root volume that is attached to the streaming
-//
-//	session. The throughput is measured in MiB/s.</p>
+// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
 func (o LaunchProfileVolumeConfigurationOutput) Throughput() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LaunchProfileVolumeConfiguration) *float64 { return v.Throughput }).(pulumi.Float64PtrOutput)
 }
@@ -1086,9 +951,7 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Elem() LaunchProfileVolumeCon
 	}).(LaunchProfileVolumeConfigurationOutput)
 }
 
-// <p>The number of I/O operations per second for the root volume that is attached to
-//
-//	streaming session.</p>
+// The number of I/O operations per second for the root volume that is attached to streaming session.
 func (o LaunchProfileVolumeConfigurationPtrOutput) Iops() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
 		if v == nil {
@@ -1098,9 +961,7 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Iops() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// <p>The size of the root volume that is attached to the streaming session. The root volume
-//
-//	size is measured in GiBs.</p>
+// The size of the root volume that is attached to the streaming session. The root volume size is measured in GiBs.
 func (o LaunchProfileVolumeConfigurationPtrOutput) Size() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
 		if v == nil {
@@ -1110,9 +971,7 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Size() pulumi.Float64PtrOutpu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// <p>The throughput to provision for the root volume that is attached to the streaming
-//
-//	session. The throughput is measured in MiB/s.</p>
+// The throughput to provision for the root volume that is attached to the streaming session. The throughput is measured in MiB/s.
 func (o LaunchProfileVolumeConfigurationPtrOutput) Throughput() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *LaunchProfileVolumeConfiguration) *float64 {
 		if v == nil {
@@ -1122,15 +981,13 @@ func (o LaunchProfileVolumeConfigurationPtrOutput) Throughput() pulumi.Float64Pt
 	}).(pulumi.Float64PtrOutput)
 }
 
-// <p>TODO</p>
 type StreamingImageEncryptionConfiguration struct {
-	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+	// The ARN for a KMS key that is used to encrypt studio data.
 	KeyArn *string `pulumi:"keyArn"`
 	// The type of KMS key that is used to encrypt studio data.
-	KeyType StreamingImageEncryptionConfigurationKeyType `pulumi:"keyType"`
+	KeyType string `pulumi:"keyType"`
 }
 
-// <p>TODO</p>
 type StreamingImageEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StreamingImageEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -1145,16 +1002,14 @@ func (o StreamingImageEncryptionConfigurationOutput) ToStreamingImageEncryptionC
 	return o
 }
 
-// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+// The ARN for a KMS key that is used to encrypt studio data.
 func (o StreamingImageEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The type of KMS key that is used to encrypt studio data.
-func (o StreamingImageEncryptionConfigurationOutput) KeyType() StreamingImageEncryptionConfigurationKeyTypeOutput {
-	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) StreamingImageEncryptionConfigurationKeyType {
-		return v.KeyType
-	}).(StreamingImageEncryptionConfigurationKeyTypeOutput)
+func (o StreamingImageEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v StreamingImageEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
 }
 
 type StreamingImageEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1181,7 +1036,7 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) Elem() StreamingImageEnc
 	}).(StreamingImageEncryptionConfigurationOutput)
 }
 
-// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+// The ARN for a KMS key that is used to encrypt studio data.
 func (o StreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *string {
 		if v == nil {
@@ -1192,22 +1047,19 @@ func (o StreamingImageEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPt
 }
 
 // The type of KMS key that is used to encrypt studio data.
-func (o StreamingImageEncryptionConfigurationPtrOutput) KeyType() StreamingImageEncryptionConfigurationKeyTypePtrOutput {
-	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *StreamingImageEncryptionConfigurationKeyType {
+func (o StreamingImageEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamingImageEncryptionConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.KeyType
-	}).(StreamingImageEncryptionConfigurationKeyTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
-// <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
-//
-//	pair.</p>
 type StudioComponentActiveDirectoryComputerAttribute struct {
-	// <p>The name for the LDAP attribute.</p>
+	// The name for the LDAP attribute.
 	Name *string `pulumi:"name"`
-	// <p>The value for the LDAP attribute.</p>
+	// The value for the LDAP attribute.
 	Value *string `pulumi:"value"`
 }
 
@@ -1222,13 +1074,10 @@ type StudioComponentActiveDirectoryComputerAttributeInput interface {
 	ToStudioComponentActiveDirectoryComputerAttributeOutputWithContext(context.Context) StudioComponentActiveDirectoryComputerAttributeOutput
 }
 
-// <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
-//
-//	pair.</p>
 type StudioComponentActiveDirectoryComputerAttributeArgs struct {
-	// <p>The name for the LDAP attribute.</p>
+	// The name for the LDAP attribute.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// <p>The value for the LDAP attribute.</p>
+	// The value for the LDAP attribute.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1269,9 +1118,6 @@ func (i StudioComponentActiveDirectoryComputerAttributeArray) ToStudioComponentA
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
 }
 
-// <p>An LDAP attribute of an Active Directory computer account, in the form of a name:value
-//
-//	pair.</p>
 type StudioComponentActiveDirectoryComputerAttributeOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentActiveDirectoryComputerAttributeOutput) ElementType() reflect.Type {
@@ -1286,12 +1132,12 @@ func (o StudioComponentActiveDirectoryComputerAttributeOutput) ToStudioComponent
 	return o
 }
 
-// <p>The name for the LDAP attribute.</p>
+// The name for the LDAP attribute.
 func (o StudioComponentActiveDirectoryComputerAttributeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryComputerAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// <p>The value for the LDAP attribute.</p>
+// The value for the LDAP attribute.
 func (o StudioComponentActiveDirectoryComputerAttributeOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryComputerAttribute) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -1316,17 +1162,12 @@ func (o StudioComponentActiveDirectoryComputerAttributeArrayOutput) Index(i pulu
 	}).(StudioComponentActiveDirectoryComputerAttributeOutput)
 }
 
-// <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
-//
-//	resource.</p>
 type StudioComponentActiveDirectoryConfiguration struct {
-	// <p>A collection of custom attributes for an Active Directory computer.</p>
+	// A collection of custom attributes for an Active Directory computer.
 	ComputerAttributes []StudioComponentActiveDirectoryComputerAttribute `pulumi:"computerAttributes"`
-	// <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-	//             using this studio component.</p>
+	// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
 	DirectoryId *string `pulumi:"directoryId"`
-	// <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
-	//             computer.</p>
+	// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
 	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
 }
 
@@ -1341,17 +1182,12 @@ type StudioComponentActiveDirectoryConfigurationInput interface {
 	ToStudioComponentActiveDirectoryConfigurationOutputWithContext(context.Context) StudioComponentActiveDirectoryConfigurationOutput
 }
 
-// <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
-//
-//	resource.</p>
 type StudioComponentActiveDirectoryConfigurationArgs struct {
-	// <p>A collection of custom attributes for an Active Directory computer.</p>
+	// A collection of custom attributes for an Active Directory computer.
 	ComputerAttributes StudioComponentActiveDirectoryComputerAttributeArrayInput `pulumi:"computerAttributes"`
-	// <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-	//             using this studio component.</p>
+	// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
 	DirectoryId pulumi.StringPtrInput `pulumi:"directoryId"`
-	// <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
-	//             computer.</p>
+	// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
 	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
 }
 
@@ -1408,9 +1244,6 @@ func (i *studioComponentActiveDirectoryConfigurationPtrType) ToStudioComponentAc
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
-//
-//	resource.</p>
 type StudioComponentActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
@@ -1435,23 +1268,19 @@ func (o StudioComponentActiveDirectoryConfigurationOutput) ToStudioComponentActi
 	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// <p>A collection of custom attributes for an Active Directory computer.</p>
+// A collection of custom attributes for an Active Directory computer.
 func (o StudioComponentActiveDirectoryConfigurationOutput) ComputerAttributes() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) []StudioComponentActiveDirectoryComputerAttribute {
 		return v.ComputerAttributes
 	}).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
 }
 
-// <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-//
-//	using this studio component.</p>
+// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
 func (o StudioComponentActiveDirectoryConfigurationOutput) DirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) *string { return v.DirectoryId }).(pulumi.StringPtrOutput)
 }
 
-// <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
-//
-//	computer.</p>
+// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
 func (o StudioComponentActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentActiveDirectoryConfiguration) *string {
 		return v.OrganizationalUnitDistinguishedName
@@ -1482,7 +1311,7 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) Elem() StudioCompo
 	}).(StudioComponentActiveDirectoryConfigurationOutput)
 }
 
-// <p>A collection of custom attributes for an Active Directory computer.</p>
+// A collection of custom attributes for an Active Directory computer.
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ComputerAttributes() StudioComponentActiveDirectoryComputerAttributeArrayOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) []StudioComponentActiveDirectoryComputerAttribute {
 		if v == nil {
@@ -1492,9 +1321,7 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) ComputerAttributes
 	}).(StudioComponentActiveDirectoryComputerAttributeArrayOutput)
 }
 
-// <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-//
-//	using this studio component.</p>
+// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) DirectoryId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -1504,9 +1331,7 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) DirectoryId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The distinguished name (DN) and organizational unit (OU) of an Active Directory
-//
-//	computer.</p>
+// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
 func (o StudioComponentActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentActiveDirectoryConfiguration) *string {
 		if v == nil {
@@ -1516,13 +1341,10 @@ func (o StudioComponentActiveDirectoryConfigurationPtrOutput) OrganizationalUnit
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The configuration for a render farm that is associated with a studio resource.</p>
 type StudioComponentComputeFarmConfiguration struct {
-	// <p>The name of an Active Directory user that is used on ComputeFarm worker
-	//             instances.</p>
+	// The name of an Active Directory user that is used on ComputeFarm worker instances.
 	ActiveDirectoryUser *string `pulumi:"activeDirectoryUser"`
-	// <p>The endpoint of the ComputeFarm that is accessed by the studio component
-	//             resource.</p>
+	// The endpoint of the ComputeFarm that is accessed by the studio component resource.
 	Endpoint *string `pulumi:"endpoint"`
 }
 
@@ -1537,13 +1359,10 @@ type StudioComponentComputeFarmConfigurationInput interface {
 	ToStudioComponentComputeFarmConfigurationOutputWithContext(context.Context) StudioComponentComputeFarmConfigurationOutput
 }
 
-// <p>The configuration for a render farm that is associated with a studio resource.</p>
 type StudioComponentComputeFarmConfigurationArgs struct {
-	// <p>The name of an Active Directory user that is used on ComputeFarm worker
-	//             instances.</p>
+	// The name of an Active Directory user that is used on ComputeFarm worker instances.
 	ActiveDirectoryUser pulumi.StringPtrInput `pulumi:"activeDirectoryUser"`
-	// <p>The endpoint of the ComputeFarm that is accessed by the studio component
-	//             resource.</p>
+	// The endpoint of the ComputeFarm that is accessed by the studio component resource.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 }
 
@@ -1600,7 +1419,6 @@ func (i *studioComponentComputeFarmConfigurationPtrType) ToStudioComponentComput
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// <p>The configuration for a render farm that is associated with a studio resource.</p>
 type StudioComponentComputeFarmConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentComputeFarmConfigurationOutput) ElementType() reflect.Type {
@@ -1625,16 +1443,12 @@ func (o StudioComponentComputeFarmConfigurationOutput) ToStudioComponentComputeF
 	}).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// <p>The name of an Active Directory user that is used on ComputeFarm worker
-//
-//	instances.</p>
+// The name of an Active Directory user that is used on ComputeFarm worker instances.
 func (o StudioComponentComputeFarmConfigurationOutput) ActiveDirectoryUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentComputeFarmConfiguration) *string { return v.ActiveDirectoryUser }).(pulumi.StringPtrOutput)
 }
 
-// <p>The endpoint of the ComputeFarm that is accessed by the studio component
-//
-//	resource.</p>
+// The endpoint of the ComputeFarm that is accessed by the studio component resource.
 func (o StudioComponentComputeFarmConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentComputeFarmConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -1663,9 +1477,7 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) Elem() StudioComponent
 	}).(StudioComponentComputeFarmConfigurationOutput)
 }
 
-// <p>The name of an Active Directory user that is used on ComputeFarm worker
-//
-//	instances.</p>
+// The name of an Active Directory user that is used on ComputeFarm worker instances.
 func (o StudioComponentComputeFarmConfigurationPtrOutput) ActiveDirectoryUser() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) *string {
 		if v == nil {
@@ -1675,9 +1487,7 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) ActiveDirectoryUser() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The endpoint of the ComputeFarm that is accessed by the studio component
-//
-//	resource.</p>
+// The endpoint of the ComputeFarm that is accessed by the studio component resource.
 func (o StudioComponentComputeFarmConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentComputeFarmConfiguration) *string {
 		if v == nil {
@@ -1687,568 +1497,216 @@ func (o StudioComponentComputeFarmConfigurationPtrOutput) Endpoint() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration0Properties struct {
-	ActiveDirectoryConfiguration StudioComponentActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`
+type StudioComponentConfiguration struct {
+	// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
+	ActiveDirectoryConfiguration *StudioComponentActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`
+	// The configuration for a render farm that is associated with a studio resource.
+	ComputeFarmConfiguration *StudioComponentComputeFarmConfiguration `pulumi:"computeFarmConfiguration"`
+	// The configuration for a license service that is associated with a studio resource.
+	LicenseServiceConfiguration *StudioComponentLicenseServiceConfiguration `pulumi:"licenseServiceConfiguration"`
+	// The configuration for a shared file storage system that is associated with a studio resource.
+	SharedFileSystemConfiguration *StudioComponentSharedFileSystemConfiguration `pulumi:"sharedFileSystemConfiguration"`
 }
 
-// StudioComponentConfiguration0PropertiesInput is an input type that accepts StudioComponentConfiguration0PropertiesArgs and StudioComponentConfiguration0PropertiesOutput values.
-// You can construct a concrete instance of `StudioComponentConfiguration0PropertiesInput` via:
+// StudioComponentConfigurationInput is an input type that accepts StudioComponentConfigurationArgs and StudioComponentConfigurationOutput values.
+// You can construct a concrete instance of `StudioComponentConfigurationInput` via:
 //
-//	StudioComponentConfiguration0PropertiesArgs{...}
-type StudioComponentConfiguration0PropertiesInput interface {
+//	StudioComponentConfigurationArgs{...}
+type StudioComponentConfigurationInput interface {
 	pulumi.Input
 
-	ToStudioComponentConfiguration0PropertiesOutput() StudioComponentConfiguration0PropertiesOutput
-	ToStudioComponentConfiguration0PropertiesOutputWithContext(context.Context) StudioComponentConfiguration0PropertiesOutput
+	ToStudioComponentConfigurationOutput() StudioComponentConfigurationOutput
+	ToStudioComponentConfigurationOutputWithContext(context.Context) StudioComponentConfigurationOutput
 }
 
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration0PropertiesArgs struct {
-	ActiveDirectoryConfiguration StudioComponentActiveDirectoryConfigurationInput `pulumi:"activeDirectoryConfiguration"`
+type StudioComponentConfigurationArgs struct {
+	// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
+	ActiveDirectoryConfiguration StudioComponentActiveDirectoryConfigurationPtrInput `pulumi:"activeDirectoryConfiguration"`
+	// The configuration for a render farm that is associated with a studio resource.
+	ComputeFarmConfiguration StudioComponentComputeFarmConfigurationPtrInput `pulumi:"computeFarmConfiguration"`
+	// The configuration for a license service that is associated with a studio resource.
+	LicenseServiceConfiguration StudioComponentLicenseServiceConfigurationPtrInput `pulumi:"licenseServiceConfiguration"`
+	// The configuration for a shared file storage system that is associated with a studio resource.
+	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfigurationPtrInput `pulumi:"sharedFileSystemConfiguration"`
 }
 
-func (StudioComponentConfiguration0PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentConfiguration0Properties)(nil)).Elem()
+func (StudioComponentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration)(nil)).Elem()
 }
 
-func (i StudioComponentConfiguration0PropertiesArgs) ToStudioComponentConfiguration0PropertiesOutput() StudioComponentConfiguration0PropertiesOutput {
-	return i.ToStudioComponentConfiguration0PropertiesOutputWithContext(context.Background())
+func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationOutput() StudioComponentConfigurationOutput {
+	return i.ToStudioComponentConfigurationOutputWithContext(context.Background())
 }
 
-func (i StudioComponentConfiguration0PropertiesArgs) ToStudioComponentConfiguration0PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration0PropertiesOutput)
+func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationOutputWithContext(ctx context.Context) StudioComponentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfigurationOutput)
 }
 
-func (i StudioComponentConfiguration0PropertiesArgs) ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput {
-	return i.ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(context.Background())
+func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput {
+	return i.ToStudioComponentConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i StudioComponentConfiguration0PropertiesArgs) ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration0PropertiesOutput).ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx)
+func (i StudioComponentConfigurationArgs) ToStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfigurationOutput).ToStudioComponentConfigurationPtrOutputWithContext(ctx)
 }
 
-// StudioComponentConfiguration0PropertiesPtrInput is an input type that accepts StudioComponentConfiguration0PropertiesArgs, StudioComponentConfiguration0PropertiesPtr and StudioComponentConfiguration0PropertiesPtrOutput values.
-// You can construct a concrete instance of `StudioComponentConfiguration0PropertiesPtrInput` via:
+// StudioComponentConfigurationPtrInput is an input type that accepts StudioComponentConfigurationArgs, StudioComponentConfigurationPtr and StudioComponentConfigurationPtrOutput values.
+// You can construct a concrete instance of `StudioComponentConfigurationPtrInput` via:
 //
-//	        StudioComponentConfiguration0PropertiesArgs{...}
+//	        StudioComponentConfigurationArgs{...}
 //
 //	or:
 //
 //	        nil
-type StudioComponentConfiguration0PropertiesPtrInput interface {
+type StudioComponentConfigurationPtrInput interface {
 	pulumi.Input
 
-	ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput
-	ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(context.Context) StudioComponentConfiguration0PropertiesPtrOutput
+	ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput
+	ToStudioComponentConfigurationPtrOutputWithContext(context.Context) StudioComponentConfigurationPtrOutput
 }
 
-type studioComponentConfiguration0PropertiesPtrType StudioComponentConfiguration0PropertiesArgs
+type studioComponentConfigurationPtrType StudioComponentConfigurationArgs
 
-func StudioComponentConfiguration0PropertiesPtr(v *StudioComponentConfiguration0PropertiesArgs) StudioComponentConfiguration0PropertiesPtrInput {
-	return (*studioComponentConfiguration0PropertiesPtrType)(v)
+func StudioComponentConfigurationPtr(v *StudioComponentConfigurationArgs) StudioComponentConfigurationPtrInput {
+	return (*studioComponentConfigurationPtrType)(v)
 }
 
-func (*studioComponentConfiguration0PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentConfiguration0Properties)(nil)).Elem()
+func (*studioComponentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration)(nil)).Elem()
 }
 
-func (i *studioComponentConfiguration0PropertiesPtrType) ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput {
-	return i.ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(context.Background())
+func (i *studioComponentConfigurationPtrType) ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput {
+	return i.ToStudioComponentConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (i *studioComponentConfiguration0PropertiesPtrType) ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration0PropertiesPtrOutput)
+func (i *studioComponentConfigurationPtrType) ToStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfigurationPtrOutput)
 }
 
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+type StudioComponentConfigurationOutput struct{ *pulumi.OutputState }
 
-func (StudioComponentConfiguration0PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentConfiguration0Properties)(nil)).Elem()
+func (StudioComponentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StudioComponentConfiguration)(nil)).Elem()
 }
 
-func (o StudioComponentConfiguration0PropertiesOutput) ToStudioComponentConfiguration0PropertiesOutput() StudioComponentConfiguration0PropertiesOutput {
+func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationOutput() StudioComponentConfigurationOutput {
 	return o
 }
 
-func (o StudioComponentConfiguration0PropertiesOutput) ToStudioComponentConfiguration0PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesOutput {
+func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationOutputWithContext(ctx context.Context) StudioComponentConfigurationOutput {
 	return o
 }
 
-func (o StudioComponentConfiguration0PropertiesOutput) ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput {
-	return o.ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(context.Background())
+func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput {
+	return o.ToStudioComponentConfigurationPtrOutputWithContext(context.Background())
 }
 
-func (o StudioComponentConfiguration0PropertiesOutput) ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration0Properties) *StudioComponentConfiguration0Properties {
+func (o StudioComponentConfigurationOutput) ToStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration) *StudioComponentConfiguration {
 		return &v
-	}).(StudioComponentConfiguration0PropertiesPtrOutput)
+	}).(StudioComponentConfigurationPtrOutput)
 }
 
-func (o StudioComponentConfiguration0PropertiesOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationOutput {
-	return o.ApplyT(func(v StudioComponentConfiguration0Properties) StudioComponentActiveDirectoryConfiguration {
+// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
+func (o StudioComponentConfigurationOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
 		return v.ActiveDirectoryConfiguration
-	}).(StudioComponentActiveDirectoryConfigurationOutput)
-}
-
-type StudioComponentConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentConfiguration0Properties)(nil)).Elem()
-}
-
-func (o StudioComponentConfiguration0PropertiesPtrOutput) ToStudioComponentConfiguration0PropertiesPtrOutput() StudioComponentConfiguration0PropertiesPtrOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration0PropertiesPtrOutput) ToStudioComponentConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration0PropertiesPtrOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration0PropertiesPtrOutput) Elem() StudioComponentConfiguration0PropertiesOutput {
-	return o.ApplyT(func(v *StudioComponentConfiguration0Properties) StudioComponentConfiguration0Properties {
-		if v != nil {
-			return *v
-		}
-		var ret StudioComponentConfiguration0Properties
-		return ret
-	}).(StudioComponentConfiguration0PropertiesOutput)
-}
-
-func (o StudioComponentConfiguration0PropertiesPtrOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponentConfiguration0Properties) *StudioComponentActiveDirectoryConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.ActiveDirectoryConfiguration
 	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
 }
 
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration1Properties struct {
-	ComputeFarmConfiguration StudioComponentComputeFarmConfiguration `pulumi:"computeFarmConfiguration"`
-}
-
-// StudioComponentConfiguration1PropertiesInput is an input type that accepts StudioComponentConfiguration1PropertiesArgs and StudioComponentConfiguration1PropertiesOutput values.
-// You can construct a concrete instance of `StudioComponentConfiguration1PropertiesInput` via:
-//
-//	StudioComponentConfiguration1PropertiesArgs{...}
-type StudioComponentConfiguration1PropertiesInput interface {
-	pulumi.Input
-
-	ToStudioComponentConfiguration1PropertiesOutput() StudioComponentConfiguration1PropertiesOutput
-	ToStudioComponentConfiguration1PropertiesOutputWithContext(context.Context) StudioComponentConfiguration1PropertiesOutput
-}
-
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration1PropertiesArgs struct {
-	ComputeFarmConfiguration StudioComponentComputeFarmConfigurationInput `pulumi:"computeFarmConfiguration"`
-}
-
-func (StudioComponentConfiguration1PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentConfiguration1Properties)(nil)).Elem()
-}
-
-func (i StudioComponentConfiguration1PropertiesArgs) ToStudioComponentConfiguration1PropertiesOutput() StudioComponentConfiguration1PropertiesOutput {
-	return i.ToStudioComponentConfiguration1PropertiesOutputWithContext(context.Background())
-}
-
-func (i StudioComponentConfiguration1PropertiesArgs) ToStudioComponentConfiguration1PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration1PropertiesOutput)
-}
-
-func (i StudioComponentConfiguration1PropertiesArgs) ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput {
-	return i.ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i StudioComponentConfiguration1PropertiesArgs) ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration1PropertiesOutput).ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx)
-}
-
-// StudioComponentConfiguration1PropertiesPtrInput is an input type that accepts StudioComponentConfiguration1PropertiesArgs, StudioComponentConfiguration1PropertiesPtr and StudioComponentConfiguration1PropertiesPtrOutput values.
-// You can construct a concrete instance of `StudioComponentConfiguration1PropertiesPtrInput` via:
-//
-//	        StudioComponentConfiguration1PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type StudioComponentConfiguration1PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput
-	ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(context.Context) StudioComponentConfiguration1PropertiesPtrOutput
-}
-
-type studioComponentConfiguration1PropertiesPtrType StudioComponentConfiguration1PropertiesArgs
-
-func StudioComponentConfiguration1PropertiesPtr(v *StudioComponentConfiguration1PropertiesArgs) StudioComponentConfiguration1PropertiesPtrInput {
-	return (*studioComponentConfiguration1PropertiesPtrType)(v)
-}
-
-func (*studioComponentConfiguration1PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentConfiguration1Properties)(nil)).Elem()
-}
-
-func (i *studioComponentConfiguration1PropertiesPtrType) ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput {
-	return i.ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *studioComponentConfiguration1PropertiesPtrType) ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration1PropertiesPtrOutput)
-}
-
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentConfiguration1PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentConfiguration1Properties)(nil)).Elem()
-}
-
-func (o StudioComponentConfiguration1PropertiesOutput) ToStudioComponentConfiguration1PropertiesOutput() StudioComponentConfiguration1PropertiesOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration1PropertiesOutput) ToStudioComponentConfiguration1PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration1PropertiesOutput) ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput {
-	return o.ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StudioComponentConfiguration1PropertiesOutput) ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration1Properties) *StudioComponentConfiguration1Properties {
-		return &v
-	}).(StudioComponentConfiguration1PropertiesPtrOutput)
-}
-
-func (o StudioComponentConfiguration1PropertiesOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationOutput {
-	return o.ApplyT(func(v StudioComponentConfiguration1Properties) StudioComponentComputeFarmConfiguration {
+// The configuration for a render farm that is associated with a studio resource.
+func (o StudioComponentConfigurationOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
 		return v.ComputeFarmConfiguration
-	}).(StudioComponentComputeFarmConfigurationOutput)
-}
-
-type StudioComponentConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentConfiguration1Properties)(nil)).Elem()
-}
-
-func (o StudioComponentConfiguration1PropertiesPtrOutput) ToStudioComponentConfiguration1PropertiesPtrOutput() StudioComponentConfiguration1PropertiesPtrOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration1PropertiesPtrOutput) ToStudioComponentConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration1PropertiesPtrOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration1PropertiesPtrOutput) Elem() StudioComponentConfiguration1PropertiesOutput {
-	return o.ApplyT(func(v *StudioComponentConfiguration1Properties) StudioComponentConfiguration1Properties {
-		if v != nil {
-			return *v
-		}
-		var ret StudioComponentConfiguration1Properties
-		return ret
-	}).(StudioComponentConfiguration1PropertiesOutput)
-}
-
-func (o StudioComponentConfiguration1PropertiesPtrOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponentConfiguration1Properties) *StudioComponentComputeFarmConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.ComputeFarmConfiguration
 	}).(StudioComponentComputeFarmConfigurationPtrOutput)
 }
 
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration2Properties struct {
-	LicenseServiceConfiguration StudioComponentLicenseServiceConfiguration `pulumi:"licenseServiceConfiguration"`
-}
-
-// StudioComponentConfiguration2PropertiesInput is an input type that accepts StudioComponentConfiguration2PropertiesArgs and StudioComponentConfiguration2PropertiesOutput values.
-// You can construct a concrete instance of `StudioComponentConfiguration2PropertiesInput` via:
-//
-//	StudioComponentConfiguration2PropertiesArgs{...}
-type StudioComponentConfiguration2PropertiesInput interface {
-	pulumi.Input
-
-	ToStudioComponentConfiguration2PropertiesOutput() StudioComponentConfiguration2PropertiesOutput
-	ToStudioComponentConfiguration2PropertiesOutputWithContext(context.Context) StudioComponentConfiguration2PropertiesOutput
-}
-
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration2PropertiesArgs struct {
-	LicenseServiceConfiguration StudioComponentLicenseServiceConfigurationInput `pulumi:"licenseServiceConfiguration"`
-}
-
-func (StudioComponentConfiguration2PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentConfiguration2Properties)(nil)).Elem()
-}
-
-func (i StudioComponentConfiguration2PropertiesArgs) ToStudioComponentConfiguration2PropertiesOutput() StudioComponentConfiguration2PropertiesOutput {
-	return i.ToStudioComponentConfiguration2PropertiesOutputWithContext(context.Background())
-}
-
-func (i StudioComponentConfiguration2PropertiesArgs) ToStudioComponentConfiguration2PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration2PropertiesOutput)
-}
-
-func (i StudioComponentConfiguration2PropertiesArgs) ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput {
-	return i.ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i StudioComponentConfiguration2PropertiesArgs) ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration2PropertiesOutput).ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx)
-}
-
-// StudioComponentConfiguration2PropertiesPtrInput is an input type that accepts StudioComponentConfiguration2PropertiesArgs, StudioComponentConfiguration2PropertiesPtr and StudioComponentConfiguration2PropertiesPtrOutput values.
-// You can construct a concrete instance of `StudioComponentConfiguration2PropertiesPtrInput` via:
-//
-//	        StudioComponentConfiguration2PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type StudioComponentConfiguration2PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput
-	ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(context.Context) StudioComponentConfiguration2PropertiesPtrOutput
-}
-
-type studioComponentConfiguration2PropertiesPtrType StudioComponentConfiguration2PropertiesArgs
-
-func StudioComponentConfiguration2PropertiesPtr(v *StudioComponentConfiguration2PropertiesArgs) StudioComponentConfiguration2PropertiesPtrInput {
-	return (*studioComponentConfiguration2PropertiesPtrType)(v)
-}
-
-func (*studioComponentConfiguration2PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentConfiguration2Properties)(nil)).Elem()
-}
-
-func (i *studioComponentConfiguration2PropertiesPtrType) ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput {
-	return i.ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *studioComponentConfiguration2PropertiesPtrType) ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration2PropertiesPtrOutput)
-}
-
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration2PropertiesOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentConfiguration2PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentConfiguration2Properties)(nil)).Elem()
-}
-
-func (o StudioComponentConfiguration2PropertiesOutput) ToStudioComponentConfiguration2PropertiesOutput() StudioComponentConfiguration2PropertiesOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration2PropertiesOutput) ToStudioComponentConfiguration2PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration2PropertiesOutput) ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput {
-	return o.ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StudioComponentConfiguration2PropertiesOutput) ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration2Properties) *StudioComponentConfiguration2Properties {
-		return &v
-	}).(StudioComponentConfiguration2PropertiesPtrOutput)
-}
-
-func (o StudioComponentConfiguration2PropertiesOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationOutput {
-	return o.ApplyT(func(v StudioComponentConfiguration2Properties) StudioComponentLicenseServiceConfiguration {
+// The configuration for a license service that is associated with a studio resource.
+func (o StudioComponentConfigurationOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
 		return v.LicenseServiceConfiguration
-	}).(StudioComponentLicenseServiceConfigurationOutput)
-}
-
-type StudioComponentConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentConfiguration2PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentConfiguration2Properties)(nil)).Elem()
-}
-
-func (o StudioComponentConfiguration2PropertiesPtrOutput) ToStudioComponentConfiguration2PropertiesPtrOutput() StudioComponentConfiguration2PropertiesPtrOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration2PropertiesPtrOutput) ToStudioComponentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration2PropertiesPtrOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration2PropertiesPtrOutput) Elem() StudioComponentConfiguration2PropertiesOutput {
-	return o.ApplyT(func(v *StudioComponentConfiguration2Properties) StudioComponentConfiguration2Properties {
-		if v != nil {
-			return *v
-		}
-		var ret StudioComponentConfiguration2Properties
-		return ret
-	}).(StudioComponentConfiguration2PropertiesOutput)
-}
-
-func (o StudioComponentConfiguration2PropertiesPtrOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponentConfiguration2Properties) *StudioComponentLicenseServiceConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.LicenseServiceConfiguration
 	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration3Properties struct {
-	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfiguration `pulumi:"sharedFileSystemConfiguration"`
-}
-
-// StudioComponentConfiguration3PropertiesInput is an input type that accepts StudioComponentConfiguration3PropertiesArgs and StudioComponentConfiguration3PropertiesOutput values.
-// You can construct a concrete instance of `StudioComponentConfiguration3PropertiesInput` via:
-//
-//	StudioComponentConfiguration3PropertiesArgs{...}
-type StudioComponentConfiguration3PropertiesInput interface {
-	pulumi.Input
-
-	ToStudioComponentConfiguration3PropertiesOutput() StudioComponentConfiguration3PropertiesOutput
-	ToStudioComponentConfiguration3PropertiesOutputWithContext(context.Context) StudioComponentConfiguration3PropertiesOutput
-}
-
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration3PropertiesArgs struct {
-	SharedFileSystemConfiguration StudioComponentSharedFileSystemConfigurationInput `pulumi:"sharedFileSystemConfiguration"`
-}
-
-func (StudioComponentConfiguration3PropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentConfiguration3Properties)(nil)).Elem()
-}
-
-func (i StudioComponentConfiguration3PropertiesArgs) ToStudioComponentConfiguration3PropertiesOutput() StudioComponentConfiguration3PropertiesOutput {
-	return i.ToStudioComponentConfiguration3PropertiesOutputWithContext(context.Background())
-}
-
-func (i StudioComponentConfiguration3PropertiesArgs) ToStudioComponentConfiguration3PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration3PropertiesOutput)
-}
-
-func (i StudioComponentConfiguration3PropertiesArgs) ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput {
-	return i.ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i StudioComponentConfiguration3PropertiesArgs) ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration3PropertiesOutput).ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx)
-}
-
-// StudioComponentConfiguration3PropertiesPtrInput is an input type that accepts StudioComponentConfiguration3PropertiesArgs, StudioComponentConfiguration3PropertiesPtr and StudioComponentConfiguration3PropertiesPtrOutput values.
-// You can construct a concrete instance of `StudioComponentConfiguration3PropertiesPtrInput` via:
-//
-//	        StudioComponentConfiguration3PropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type StudioComponentConfiguration3PropertiesPtrInput interface {
-	pulumi.Input
-
-	ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput
-	ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(context.Context) StudioComponentConfiguration3PropertiesPtrOutput
-}
-
-type studioComponentConfiguration3PropertiesPtrType StudioComponentConfiguration3PropertiesArgs
-
-func StudioComponentConfiguration3PropertiesPtr(v *StudioComponentConfiguration3PropertiesArgs) StudioComponentConfiguration3PropertiesPtrInput {
-	return (*studioComponentConfiguration3PropertiesPtrType)(v)
-}
-
-func (*studioComponentConfiguration3PropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentConfiguration3Properties)(nil)).Elem()
-}
-
-func (i *studioComponentConfiguration3PropertiesPtrType) ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput {
-	return i.ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *studioComponentConfiguration3PropertiesPtrType) ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentConfiguration3PropertiesPtrOutput)
-}
-
-// <p>The configuration of the studio component, based on component type.</p>
-type StudioComponentConfiguration3PropertiesOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentConfiguration3PropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioComponentConfiguration3Properties)(nil)).Elem()
-}
-
-func (o StudioComponentConfiguration3PropertiesOutput) ToStudioComponentConfiguration3PropertiesOutput() StudioComponentConfiguration3PropertiesOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration3PropertiesOutput) ToStudioComponentConfiguration3PropertiesOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration3PropertiesOutput) ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput {
-	return o.ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StudioComponentConfiguration3PropertiesOutput) ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioComponentConfiguration3Properties) *StudioComponentConfiguration3Properties {
-		return &v
-	}).(StudioComponentConfiguration3PropertiesPtrOutput)
-}
-
-func (o StudioComponentConfiguration3PropertiesOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationOutput {
-	return o.ApplyT(func(v StudioComponentConfiguration3Properties) StudioComponentSharedFileSystemConfiguration {
+// The configuration for a shared file storage system that is associated with a studio resource.
+func (o StudioComponentConfigurationOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o.ApplyT(func(v StudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
 		return v.SharedFileSystemConfiguration
-	}).(StudioComponentSharedFileSystemConfigurationOutput)
-}
-
-type StudioComponentConfiguration3PropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioComponentConfiguration3PropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioComponentConfiguration3Properties)(nil)).Elem()
-}
-
-func (o StudioComponentConfiguration3PropertiesPtrOutput) ToStudioComponentConfiguration3PropertiesPtrOutput() StudioComponentConfiguration3PropertiesPtrOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration3PropertiesPtrOutput) ToStudioComponentConfiguration3PropertiesPtrOutputWithContext(ctx context.Context) StudioComponentConfiguration3PropertiesPtrOutput {
-	return o
-}
-
-func (o StudioComponentConfiguration3PropertiesPtrOutput) Elem() StudioComponentConfiguration3PropertiesOutput {
-	return o.ApplyT(func(v *StudioComponentConfiguration3Properties) StudioComponentConfiguration3Properties {
-		if v != nil {
-			return *v
-		}
-		var ret StudioComponentConfiguration3Properties
-		return ret
-	}).(StudioComponentConfiguration3PropertiesOutput)
-}
-
-func (o StudioComponentConfiguration3PropertiesPtrOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
-	return o.ApplyT(func(v *StudioComponentConfiguration3Properties) *StudioComponentSharedFileSystemConfiguration {
-		if v == nil {
-			return nil
-		}
-		return &v.SharedFileSystemConfiguration
 	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
 }
 
-// <p>Initialization scripts for studio components.</p>
+type StudioComponentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (StudioComponentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StudioComponentConfiguration)(nil)).Elem()
+}
+
+func (o StudioComponentConfigurationPtrOutput) ToStudioComponentConfigurationPtrOutput() StudioComponentConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfigurationPtrOutput) ToStudioComponentConfigurationPtrOutputWithContext(ctx context.Context) StudioComponentConfigurationPtrOutput {
+	return o
+}
+
+func (o StudioComponentConfigurationPtrOutput) Elem() StudioComponentConfigurationOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) StudioComponentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret StudioComponentConfiguration
+		return ret
+	}).(StudioComponentConfigurationOutput)
+}
+
+// The configuration for a AWS Directory Service for Microsoft Active Directory studio resource.
+func (o StudioComponentConfigurationPtrOutput) ActiveDirectoryConfiguration() StudioComponentActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentActiveDirectoryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ActiveDirectoryConfiguration
+	}).(StudioComponentActiveDirectoryConfigurationPtrOutput)
+}
+
+// The configuration for a render farm that is associated with a studio resource.
+func (o StudioComponentConfigurationPtrOutput) ComputeFarmConfiguration() StudioComponentComputeFarmConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentComputeFarmConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeFarmConfiguration
+	}).(StudioComponentComputeFarmConfigurationPtrOutput)
+}
+
+// The configuration for a license service that is associated with a studio resource.
+func (o StudioComponentConfigurationPtrOutput) LicenseServiceConfiguration() StudioComponentLicenseServiceConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentLicenseServiceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LicenseServiceConfiguration
+	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
+}
+
+// The configuration for a shared file storage system that is associated with a studio resource.
+func (o StudioComponentConfigurationPtrOutput) SharedFileSystemConfiguration() StudioComponentSharedFileSystemConfigurationPtrOutput {
+	return o.ApplyT(func(v *StudioComponentConfiguration) *StudioComponentSharedFileSystemConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SharedFileSystemConfiguration
+	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
+}
+
 type StudioComponentInitializationScript struct {
-	// <p>The version number of the protocol that is used by the launch profile. The only valid
-	//             version is "2021-03-31".</p>
+	// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersion *string `pulumi:"launchProfileProtocolVersion"`
 	// The platform of the initialization script, either Windows or Linux.
-	Platform *StudioComponentLaunchProfilePlatform `pulumi:"platform"`
+	Platform *string `pulumi:"platform"`
 	// The method to use when running the initialization script.
-	RunContext *StudioComponentInitializationScriptRunContext `pulumi:"runContext"`
-	// <p>The initialization script.</p>
+	RunContext *string `pulumi:"runContext"`
+	// The initialization script.
 	Script *string `pulumi:"script"`
 }
 
@@ -2263,16 +1721,14 @@ type StudioComponentInitializationScriptInput interface {
 	ToStudioComponentInitializationScriptOutputWithContext(context.Context) StudioComponentInitializationScriptOutput
 }
 
-// <p>Initialization scripts for studio components.</p>
 type StudioComponentInitializationScriptArgs struct {
-	// <p>The version number of the protocol that is used by the launch profile. The only valid
-	//             version is "2021-03-31".</p>
+	// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersion pulumi.StringPtrInput `pulumi:"launchProfileProtocolVersion"`
 	// The platform of the initialization script, either Windows or Linux.
-	Platform StudioComponentLaunchProfilePlatformPtrInput `pulumi:"platform"`
+	Platform pulumi.StringPtrInput `pulumi:"platform"`
 	// The method to use when running the initialization script.
-	RunContext StudioComponentInitializationScriptRunContextPtrInput `pulumi:"runContext"`
-	// <p>The initialization script.</p>
+	RunContext pulumi.StringPtrInput `pulumi:"runContext"`
+	// The initialization script.
 	Script pulumi.StringPtrInput `pulumi:"script"`
 }
 
@@ -2313,7 +1769,6 @@ func (i StudioComponentInitializationScriptArray) ToStudioComponentInitializatio
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentInitializationScriptArrayOutput)
 }
 
-// <p>Initialization scripts for studio components.</p>
 type StudioComponentInitializationScriptOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentInitializationScriptOutput) ElementType() reflect.Type {
@@ -2328,26 +1783,22 @@ func (o StudioComponentInitializationScriptOutput) ToStudioComponentInitializati
 	return o
 }
 
-// <p>The version number of the protocol that is used by the launch profile. The only valid
-//
-//	version is "2021-03-31".</p>
+// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 func (o StudioComponentInitializationScriptOutput) LaunchProfileProtocolVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.LaunchProfileProtocolVersion }).(pulumi.StringPtrOutput)
 }
 
 // The platform of the initialization script, either Windows or Linux.
-func (o StudioComponentInitializationScriptOutput) Platform() StudioComponentLaunchProfilePlatformPtrOutput {
-	return o.ApplyT(func(v StudioComponentInitializationScript) *StudioComponentLaunchProfilePlatform { return v.Platform }).(StudioComponentLaunchProfilePlatformPtrOutput)
+func (o StudioComponentInitializationScriptOutput) Platform() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
 // The method to use when running the initialization script.
-func (o StudioComponentInitializationScriptOutput) RunContext() StudioComponentInitializationScriptRunContextPtrOutput {
-	return o.ApplyT(func(v StudioComponentInitializationScript) *StudioComponentInitializationScriptRunContext {
-		return v.RunContext
-	}).(StudioComponentInitializationScriptRunContextPtrOutput)
+func (o StudioComponentInitializationScriptOutput) RunContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.RunContext }).(pulumi.StringPtrOutput)
 }
 
-// <p>The initialization script.</p>
+// The initialization script.
 func (o StudioComponentInitializationScriptOutput) Script() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentInitializationScript) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
@@ -2372,12 +1823,8 @@ func (o StudioComponentInitializationScriptArrayOutput) Index(i pulumi.IntInput)
 	}).(StudioComponentInitializationScriptOutput)
 }
 
-// <p>The configuration for a license service that is associated with a studio
-//
-//	resource.</p>
 type StudioComponentLicenseServiceConfiguration struct {
-	// <p>The endpoint of the license service that is accessed by the studio component
-	//             resource.</p>
+	// The endpoint of the license service that is accessed by the studio component resource.
 	Endpoint *string `pulumi:"endpoint"`
 }
 
@@ -2392,12 +1839,8 @@ type StudioComponentLicenseServiceConfigurationInput interface {
 	ToStudioComponentLicenseServiceConfigurationOutputWithContext(context.Context) StudioComponentLicenseServiceConfigurationOutput
 }
 
-// <p>The configuration for a license service that is associated with a studio
-//
-//	resource.</p>
 type StudioComponentLicenseServiceConfigurationArgs struct {
-	// <p>The endpoint of the license service that is accessed by the studio component
-	//             resource.</p>
+	// The endpoint of the license service that is accessed by the studio component resource.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
 }
 
@@ -2454,9 +1897,6 @@ func (i *studioComponentLicenseServiceConfigurationPtrType) ToStudioComponentLic
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// <p>The configuration for a license service that is associated with a studio
-//
-//	resource.</p>
 type StudioComponentLicenseServiceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentLicenseServiceConfigurationOutput) ElementType() reflect.Type {
@@ -2481,9 +1921,7 @@ func (o StudioComponentLicenseServiceConfigurationOutput) ToStudioComponentLicen
 	}).(StudioComponentLicenseServiceConfigurationPtrOutput)
 }
 
-// <p>The endpoint of the license service that is accessed by the studio component
-//
-//	resource.</p>
+// The endpoint of the license service that is accessed by the studio component resource.
 func (o StudioComponentLicenseServiceConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentLicenseServiceConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
@@ -2512,9 +1950,7 @@ func (o StudioComponentLicenseServiceConfigurationPtrOutput) Elem() StudioCompon
 	}).(StudioComponentLicenseServiceConfigurationOutput)
 }
 
-// <p>The endpoint of the license service that is accessed by the studio component
-//
-//	resource.</p>
+// The endpoint of the license service that is accessed by the studio component resource.
 func (o StudioComponentLicenseServiceConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentLicenseServiceConfiguration) *string {
 		if v == nil {
@@ -2524,11 +1960,10 @@ func (o StudioComponentLicenseServiceConfigurationPtrOutput) Endpoint() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>A parameter for a studio component script, in the form of a key:value pair.</p>
 type StudioComponentScriptParameterKeyValue struct {
-	// <p>A script parameter key.</p>
+	// A script parameter key.
 	Key *string `pulumi:"key"`
-	// <p>A script parameter value.</p>
+	// A script parameter value.
 	Value *string `pulumi:"value"`
 }
 
@@ -2543,11 +1978,10 @@ type StudioComponentScriptParameterKeyValueInput interface {
 	ToStudioComponentScriptParameterKeyValueOutputWithContext(context.Context) StudioComponentScriptParameterKeyValueOutput
 }
 
-// <p>A parameter for a studio component script, in the form of a key:value pair.</p>
 type StudioComponentScriptParameterKeyValueArgs struct {
-	// <p>A script parameter key.</p>
+	// A script parameter key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// <p>A script parameter value.</p>
+	// A script parameter value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -2588,7 +2022,6 @@ func (i StudioComponentScriptParameterKeyValueArray) ToStudioComponentScriptPara
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentScriptParameterKeyValueArrayOutput)
 }
 
-// <p>A parameter for a studio component script, in the form of a key:value pair.</p>
 type StudioComponentScriptParameterKeyValueOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentScriptParameterKeyValueOutput) ElementType() reflect.Type {
@@ -2603,12 +2036,12 @@ func (o StudioComponentScriptParameterKeyValueOutput) ToStudioComponentScriptPar
 	return o
 }
 
-// <p>A script parameter key.</p>
+// A script parameter key.
 func (o StudioComponentScriptParameterKeyValueOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentScriptParameterKeyValue) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// <p>A script parameter value.</p>
+// A script parameter value.
 func (o StudioComponentScriptParameterKeyValueOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentScriptParameterKeyValue) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -2633,20 +2066,16 @@ func (o StudioComponentScriptParameterKeyValueArrayOutput) Index(i pulumi.IntInp
 	}).(StudioComponentScriptParameterKeyValueOutput)
 }
 
-// <p>The configuration for a shared file storage system that is associated with a studio
-//
-//	resource.</p>
 type StudioComponentSharedFileSystemConfiguration struct {
-	// <p>The endpoint of the shared file system that is accessed by the studio component
-	//             resource.</p>
+	// The endpoint of the shared file system that is accessed by the studio component resource.
 	Endpoint *string `pulumi:"endpoint"`
-	// <p>The unique identifier for a file system.</p>
+	// The unique identifier for a file system.
 	FileSystemId *string `pulumi:"fileSystemId"`
-	// <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+	// The mount location for a shared file system on a Linux virtual workstation.
 	LinuxMountPoint *string `pulumi:"linuxMountPoint"`
-	// <p>The name of the file share.</p>
+	// The name of the file share.
 	ShareName *string `pulumi:"shareName"`
-	// <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+	// The mount location for a shared file system on a Windows virtual workstation.
 	WindowsMountDrive *string `pulumi:"windowsMountDrive"`
 }
 
@@ -2661,20 +2090,16 @@ type StudioComponentSharedFileSystemConfigurationInput interface {
 	ToStudioComponentSharedFileSystemConfigurationOutputWithContext(context.Context) StudioComponentSharedFileSystemConfigurationOutput
 }
 
-// <p>The configuration for a shared file storage system that is associated with a studio
-//
-//	resource.</p>
 type StudioComponentSharedFileSystemConfigurationArgs struct {
-	// <p>The endpoint of the shared file system that is accessed by the studio component
-	//             resource.</p>
+	// The endpoint of the shared file system that is accessed by the studio component resource.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// <p>The unique identifier for a file system.</p>
+	// The unique identifier for a file system.
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
-	// <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+	// The mount location for a shared file system on a Linux virtual workstation.
 	LinuxMountPoint pulumi.StringPtrInput `pulumi:"linuxMountPoint"`
-	// <p>The name of the file share.</p>
+	// The name of the file share.
 	ShareName pulumi.StringPtrInput `pulumi:"shareName"`
-	// <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+	// The mount location for a shared file system on a Windows virtual workstation.
 	WindowsMountDrive pulumi.StringPtrInput `pulumi:"windowsMountDrive"`
 }
 
@@ -2731,9 +2156,6 @@ func (i *studioComponentSharedFileSystemConfigurationPtrType) ToStudioComponentS
 	return pulumi.ToOutputWithContext(ctx, i).(StudioComponentSharedFileSystemConfigurationPtrOutput)
 }
 
-// <p>The configuration for a shared file storage system that is associated with a studio
-//
-//	resource.</p>
 type StudioComponentSharedFileSystemConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioComponentSharedFileSystemConfigurationOutput) ElementType() reflect.Type {
@@ -2758,29 +2180,27 @@ func (o StudioComponentSharedFileSystemConfigurationOutput) ToStudioComponentSha
 	}).(StudioComponentSharedFileSystemConfigurationPtrOutput)
 }
 
-// <p>The endpoint of the shared file system that is accessed by the studio component
-//
-//	resource.</p>
+// The endpoint of the shared file system that is accessed by the studio component resource.
 func (o StudioComponentSharedFileSystemConfigurationOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
 }
 
-// <p>The unique identifier for a file system.</p>
+// The unique identifier for a file system.
 func (o StudioComponentSharedFileSystemConfigurationOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
-// <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+// The mount location for a shared file system on a Linux virtual workstation.
 func (o StudioComponentSharedFileSystemConfigurationOutput) LinuxMountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.LinuxMountPoint }).(pulumi.StringPtrOutput)
 }
 
-// <p>The name of the file share.</p>
+// The name of the file share.
 func (o StudioComponentSharedFileSystemConfigurationOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.ShareName }).(pulumi.StringPtrOutput)
 }
 
-// <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+// The mount location for a shared file system on a Windows virtual workstation.
 func (o StudioComponentSharedFileSystemConfigurationOutput) WindowsMountDrive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioComponentSharedFileSystemConfiguration) *string { return v.WindowsMountDrive }).(pulumi.StringPtrOutput)
 }
@@ -2809,9 +2229,7 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Elem() StudioComp
 	}).(StudioComponentSharedFileSystemConfigurationOutput)
 }
 
-// <p>The endpoint of the shared file system that is accessed by the studio component
-//
-//	resource.</p>
+// The endpoint of the shared file system that is accessed by the studio component resource.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2821,7 +2239,7 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) Endpoint() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The unique identifier for a file system.</p>
+// The unique identifier for a file system.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2831,7 +2249,7 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) FileSystemId() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The mount location for a shared file system on a Linux virtual workstation.</p>
+// The mount location for a shared file system on a Linux virtual workstation.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) LinuxMountPoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2841,7 +2259,7 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) LinuxMountPoint()
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The name of the file share.</p>
+// The name of the file share.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2851,7 +2269,7 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) ShareName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>The mount location for a shared file system on a Windows virtual workstation.</p>
+// The mount location for a shared file system on a Windows virtual workstation.
 func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioComponentSharedFileSystemConfiguration) *string {
 		if v == nil {
@@ -2861,12 +2279,11 @@ func (o StudioComponentSharedFileSystemConfigurationPtrOutput) WindowsMountDrive
 	}).(pulumi.StringPtrOutput)
 }
 
-// <p>Configuration of the encryption method that is used for the studio.</p>
 type StudioEncryptionConfiguration struct {
-	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+	// The ARN for a KMS key that is used to encrypt studio data.
 	KeyArn *string `pulumi:"keyArn"`
 	// The type of KMS key that is used to encrypt studio data.
-	KeyType StudioEncryptionConfigurationKeyType `pulumi:"keyType"`
+	KeyType string `pulumi:"keyType"`
 }
 
 // StudioEncryptionConfigurationInput is an input type that accepts StudioEncryptionConfigurationArgs and StudioEncryptionConfigurationOutput values.
@@ -2880,12 +2297,11 @@ type StudioEncryptionConfigurationInput interface {
 	ToStudioEncryptionConfigurationOutputWithContext(context.Context) StudioEncryptionConfigurationOutput
 }
 
-// <p>Configuration of the encryption method that is used for the studio.</p>
 type StudioEncryptionConfigurationArgs struct {
-	// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+	// The ARN for a KMS key that is used to encrypt studio data.
 	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
 	// The type of KMS key that is used to encrypt studio data.
-	KeyType StudioEncryptionConfigurationKeyTypeInput `pulumi:"keyType"`
+	KeyType pulumi.StringInput `pulumi:"keyType"`
 }
 
 func (StudioEncryptionConfigurationArgs) ElementType() reflect.Type {
@@ -2941,7 +2357,6 @@ func (i *studioEncryptionConfigurationPtrType) ToStudioEncryptionConfigurationPt
 	return pulumi.ToOutputWithContext(ctx, i).(StudioEncryptionConfigurationPtrOutput)
 }
 
-// <p>Configuration of the encryption method that is used for the studio.</p>
 type StudioEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (StudioEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -2966,14 +2381,14 @@ func (o StudioEncryptionConfigurationOutput) ToStudioEncryptionConfigurationPtrO
 	}).(StudioEncryptionConfigurationPtrOutput)
 }
 
-// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+// The ARN for a KMS key that is used to encrypt studio data.
 func (o StudioEncryptionConfigurationOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StudioEncryptionConfiguration) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The type of KMS key that is used to encrypt studio data.
-func (o StudioEncryptionConfigurationOutput) KeyType() StudioEncryptionConfigurationKeyTypeOutput {
-	return o.ApplyT(func(v StudioEncryptionConfiguration) StudioEncryptionConfigurationKeyType { return v.KeyType }).(StudioEncryptionConfigurationKeyTypeOutput)
+func (o StudioEncryptionConfigurationOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v StudioEncryptionConfiguration) string { return v.KeyType }).(pulumi.StringOutput)
 }
 
 type StudioEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3000,7 +2415,7 @@ func (o StudioEncryptionConfigurationPtrOutput) Elem() StudioEncryptionConfigura
 	}).(StudioEncryptionConfigurationOutput)
 }
 
-// <p>The ARN for a KMS key that is used to encrypt studio data.</p>
+// The ARN for a KMS key that is used to encrypt studio data.
 func (o StudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StudioEncryptionConfiguration) *string {
 		if v == nil {
@@ -3011,13 +2426,13 @@ func (o StudioEncryptionConfigurationPtrOutput) KeyArn() pulumi.StringPtrOutput 
 }
 
 // The type of KMS key that is used to encrypt studio data.
-func (o StudioEncryptionConfigurationPtrOutput) KeyType() StudioEncryptionConfigurationKeyTypePtrOutput {
-	return o.ApplyT(func(v *StudioEncryptionConfiguration) *StudioEncryptionConfigurationKeyType {
+func (o StudioEncryptionConfigurationPtrOutput) KeyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StudioEncryptionConfiguration) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.KeyType
-	}).(StudioEncryptionConfigurationKeyTypePtrOutput)
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -3036,14 +2451,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentActiveDirectoryConfigurationPtrInput)(nil)).Elem(), StudioComponentActiveDirectoryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentComputeFarmConfigurationInput)(nil)).Elem(), StudioComponentComputeFarmConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentComputeFarmConfigurationPtrInput)(nil)).Elem(), StudioComponentComputeFarmConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration0PropertiesInput)(nil)).Elem(), StudioComponentConfiguration0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration0PropertiesPtrInput)(nil)).Elem(), StudioComponentConfiguration0PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration1PropertiesInput)(nil)).Elem(), StudioComponentConfiguration1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration1PropertiesPtrInput)(nil)).Elem(), StudioComponentConfiguration1PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration2PropertiesInput)(nil)).Elem(), StudioComponentConfiguration2PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration2PropertiesPtrInput)(nil)).Elem(), StudioComponentConfiguration2PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration3PropertiesInput)(nil)).Elem(), StudioComponentConfiguration3PropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfiguration3PropertiesPtrInput)(nil)).Elem(), StudioComponentConfiguration3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfigurationInput)(nil)).Elem(), StudioComponentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentConfigurationPtrInput)(nil)).Elem(), StudioComponentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptInput)(nil)).Elem(), StudioComponentInitializationScriptArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentInitializationScriptArrayInput)(nil)).Elem(), StudioComponentInitializationScriptArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioComponentLicenseServiceConfigurationInput)(nil)).Elem(), StudioComponentLicenseServiceConfigurationArgs{})
@@ -3072,14 +2481,8 @@ func init() {
 	pulumi.RegisterOutputType(StudioComponentActiveDirectoryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentComputeFarmConfigurationOutput{})
 	pulumi.RegisterOutputType(StudioComponentComputeFarmConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(StudioComponentConfiguration0PropertiesOutput{})
-	pulumi.RegisterOutputType(StudioComponentConfiguration0PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(StudioComponentConfiguration1PropertiesOutput{})
-	pulumi.RegisterOutputType(StudioComponentConfiguration1PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(StudioComponentConfiguration2PropertiesOutput{})
-	pulumi.RegisterOutputType(StudioComponentConfiguration2PropertiesPtrOutput{})
-	pulumi.RegisterOutputType(StudioComponentConfiguration3PropertiesOutput{})
-	pulumi.RegisterOutputType(StudioComponentConfiguration3PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfigurationOutput{})
+	pulumi.RegisterOutputType(StudioComponentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StudioComponentInitializationScriptOutput{})
 	pulumi.RegisterOutputType(StudioComponentInitializationScriptArrayOutput{})
 	pulumi.RegisterOutputType(StudioComponentLicenseServiceConfigurationOutput{})

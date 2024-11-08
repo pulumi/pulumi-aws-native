@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Logs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The format of the logs that are sent to this delivery destination.
+        /// </summary>
+        [Output("outputFormat")]
+        public Output<string?> OutputFormat { get; private set; } = null!;
+
+        /// <summary>
         /// The tags that have been assigned to this delivery destination.
         /// </summary>
         [Output("tags")]
@@ -84,6 +90,7 @@ namespace Pulumi.AwsNative.Logs
                 {
                     "destinationResourceArn",
                     "name",
+                    "outputFormat",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,6 +141,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The format of the logs that are sent to this delivery destination.
+        /// </summary>
+        [Input("outputFormat")]
+        public Input<string>? OutputFormat { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

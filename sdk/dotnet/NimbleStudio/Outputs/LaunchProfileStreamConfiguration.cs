@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;A configuration for a streaming session.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class LaunchProfileStreamConfiguration
     {
@@ -24,40 +21,27 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         /// 
         /// This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` . When allowed, the default value for this parameter is `DEACTIVATED` .
         /// </summary>
-        public readonly Pulumi.AwsNative.NimbleStudio.LaunchProfileAutomaticTerminationMode? AutomaticTerminationMode;
+        public readonly string? AutomaticTerminationMode;
         /// <summary>
         /// Allows or deactivates the use of the system clipboard to copy and paste between the streaming session and streaming client.
         /// </summary>
-        public readonly Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingClipboardMode ClipboardMode;
+        public readonly string ClipboardMode;
         /// <summary>
-        /// &lt;p&gt;The EC2 instance types that users can select from when launching a streaming session
-        ///             with this launch profile.&lt;/p&gt;
+        /// The EC2 instance types that users can select from when launching a streaming session with this launch profile.
         /// </summary>
-        public readonly ImmutableArray<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingInstanceType> Ec2InstanceTypes;
+        public readonly ImmutableArray<string> Ec2InstanceTypes;
         /// <summary>
-        /// &lt;p&gt;The length of time, in minutes, that a streaming session can be active before it is
-        ///             stopped or terminated. After this point, Nimble Studio automatically terminates or
-        ///             stops the session. The default length of time is 690 minutes, and the maximum length of
-        ///             time is 30 days.&lt;/p&gt;
+        /// The length of time, in minutes, that a streaming session can be active before it is stopped or terminated. After this point, Nimble Studio automatically terminates or stops the session. The default length of time is 690 minutes, and the maximum length of time is 30 days.
         /// </summary>
         public readonly double? MaxSessionLengthInMinutes;
         /// <summary>
-        /// &lt;p&gt;Integer that determines if you can start and stop your sessions and how long a session
-        ///             can stay in the &lt;code&gt;STOPPED&lt;/code&gt; state. The default value is 0. The maximum value is
-        ///             5760.&lt;/p&gt;
-        ///          &lt;p&gt;This field is allowed only when &lt;code&gt;sessionPersistenceMode&lt;/code&gt; is
-        ///                 &lt;code&gt;ACTIVATED&lt;/code&gt; and &lt;code&gt;automaticTerminationMode&lt;/code&gt; is
-        ///                 &lt;code&gt;ACTIVATED&lt;/code&gt;.&lt;/p&gt;
-        ///          &lt;p&gt;If the value is set to 0, your sessions can’t be &lt;code&gt;STOPPED&lt;/code&gt;. If you then
-        ///             call &lt;code&gt;StopStreamingSession&lt;/code&gt;, the session fails. If the time that a session
-        ///             stays in the &lt;code&gt;READY&lt;/code&gt; state exceeds the &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt;
-        ///             value, the session will automatically be terminated (instead of
-        ///             &lt;code&gt;STOPPED&lt;/code&gt;).&lt;/p&gt;
-        ///          &lt;p&gt;If the value is set to a positive number, the session can be stopped. You can call
-        ///                 &lt;code&gt;StopStreamingSession&lt;/code&gt; to stop sessions in the &lt;code&gt;READY&lt;/code&gt; state.
-        ///             If the time that a session stays in the &lt;code&gt;READY&lt;/code&gt; state exceeds the
-        ///                 &lt;code&gt;maxSessionLengthInMinutes&lt;/code&gt; value, the session will automatically be
-        ///             stopped (instead of terminated).&lt;/p&gt;
+        /// Integer that determines if you can start and stop your sessions and how long a session can stay in the `STOPPED` state. The default value is 0. The maximum value is 5760.
+        /// 
+        /// This field is allowed only when `sessionPersistenceMode` is `ACTIVATED` and `automaticTerminationMode` is `ACTIVATED` .
+        /// 
+        /// If the value is set to 0, your sessions can’t be `STOPPED` . If you then call `StopStreamingSession` , the session fails. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be terminated (instead of `STOPPED` ).
+        /// 
+        /// If the value is set to a positive number, the session can be stopped. You can call `StopStreamingSession` to stop sessions in the `READY` state. If the time that a session stays in the `READY` state exceeds the `maxSessionLengthInMinutes` value, the session will automatically be stopped (instead of terminated).
         /// </summary>
         public readonly double? MaxStoppedSessionLengthInMinutes;
         /// <summary>
@@ -67,14 +51,13 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         /// <summary>
         /// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
         /// </summary>
-        public readonly Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionPersistenceMode? SessionPersistenceMode;
+        public readonly string? SessionPersistenceMode;
         /// <summary>
         /// The upload storage for a streaming session.
         /// </summary>
         public readonly Outputs.LaunchProfileStreamConfigurationSessionStorage? SessionStorage;
         /// <summary>
-        /// &lt;p&gt;The streaming images that users can select from when launching a streaming session
-        ///             with this launch profile.&lt;/p&gt;
+        /// The streaming images that users can select from when launching a streaming session with this launch profile.
         /// </summary>
         public readonly ImmutableArray<string> StreamingImageIds;
         /// <summary>
@@ -86,11 +69,11 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
 
         [OutputConstructor]
         private LaunchProfileStreamConfiguration(
-            Pulumi.AwsNative.NimbleStudio.LaunchProfileAutomaticTerminationMode? automaticTerminationMode,
+            string? automaticTerminationMode,
 
-            Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingClipboardMode clipboardMode,
+            string clipboardMode,
 
-            ImmutableArray<Pulumi.AwsNative.NimbleStudio.LaunchProfileStreamingInstanceType> ec2InstanceTypes,
+            ImmutableArray<string> ec2InstanceTypes,
 
             double? maxSessionLengthInMinutes,
 
@@ -98,7 +81,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
 
             Outputs.LaunchProfileStreamConfigurationSessionBackup? sessionBackup,
 
-            Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionPersistenceMode? sessionPersistenceMode,
+            string? sessionPersistenceMode,
 
             Outputs.LaunchProfileStreamConfigurationSessionStorage? sessionStorage,
 

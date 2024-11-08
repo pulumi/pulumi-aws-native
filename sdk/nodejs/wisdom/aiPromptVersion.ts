@@ -40,6 +40,9 @@ export class AiPromptVersion extends pulumi.CustomResource {
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
     public readonly assistantId!: pulumi.Output<string>;
     public readonly modifiedTimeSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * The version number for this AI Prompt version.
+     */
     public /*out*/ readonly versionNumber!: pulumi.Output<number>;
 
     /**

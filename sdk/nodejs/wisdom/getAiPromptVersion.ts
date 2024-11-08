@@ -19,6 +19,9 @@ export function getAiPromptVersion(args: GetAiPromptVersionArgs, opts?: pulumi.I
 export interface GetAiPromptVersionArgs {
     aiPromptId: string;
     assistantId: string;
+    /**
+     * The version number for this AI Prompt version.
+     */
     versionNumber: number;
 }
 
@@ -26,6 +29,9 @@ export interface GetAiPromptVersionResult {
     readonly aiPromptArn?: string;
     readonly aiPromptVersionId?: string;
     readonly assistantArn?: string;
+    /**
+     * The version number for this AI Prompt version.
+     */
     readonly versionNumber?: number;
 }
 /**
@@ -43,5 +49,8 @@ export function getAiPromptVersionOutput(args: GetAiPromptVersionOutputArgs, opt
 export interface GetAiPromptVersionOutputArgs {
     aiPromptId: pulumi.Input<string>;
     assistantId: pulumi.Input<string>;
+    /**
+     * The version number for this AI Prompt version.
+     */
     versionNumber: pulumi.Input<number>;
 }

@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
-    /// Represents a streaming session machine image that can be used to launch a streaming session
+    /// Resource Type definition for AWS::NimbleStudio::StreamingImage
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:StreamingImage")]
     public partial class StreamingImage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// &lt;p&gt;A human-readable description of the streaming image.&lt;/p&gt;
+        /// A human-readable description of the streaming image.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The ID of an EC2 machine image with which to create this streaming image.&lt;/p&gt;
+        /// The ID of an EC2 machine image with which to create the streaming image.
         /// </summary>
         [Output("ec2ImageId")]
         public Output<string> Ec2ImageId { get; private set; } = null!;
@@ -30,26 +30,32 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("encryptionConfiguration")]
         public Output<Outputs.StreamingImageEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
 
+        [Output("encryptionConfigurationKeyArn")]
+        public Output<string?> EncryptionConfigurationKeyArn { get; private set; } = null!;
+
+        [Output("encryptionConfigurationKeyType")]
+        public Output<string?> EncryptionConfigurationKeyType { get; private set; } = null!;
+
         /// <summary>
-        /// &lt;p&gt;The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.&lt;/p&gt;
+        /// The list of IDs of EULAs that must be accepted before a streaming session can be started using this streaming image.
         /// </summary>
         [Output("eulaIds")]
         public Output<ImmutableArray<string>> EulaIds { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;A friendly name for a streaming image resource.&lt;/p&gt;
+        /// A friendly name for a streaming image resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The owner of the streaming image, either the studioId that contains the streaming image, or 'amazon' for images that are provided by Amazon Nimble Studio.&lt;/p&gt;
+        /// The owner of the streaming image, either the studioId that contains the streaming image or 'amazon' for images that are provided by  .
         /// </summary>
         [Output("owner")]
         public Output<string> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The platform of the streaming image, either WINDOWS or LINUX.&lt;/p&gt;
+        /// The platform of the streaming image, either WINDOWS or LINUX.
         /// </summary>
         [Output("platform")]
         public Output<string> Platform { get; private set; } = null!;
@@ -61,7 +67,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string> StreamingImageId { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
@@ -126,25 +132,31 @@ namespace Pulumi.AwsNative.NimbleStudio
     public sealed class StreamingImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;A human-readable description of the streaming image.&lt;/p&gt;
+        /// A human-readable description of the streaming image.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;The ID of an EC2 machine image with which to create this streaming image.&lt;/p&gt;
+        /// The ID of an EC2 machine image with which to create the streaming image.
         /// </summary>
         [Input("ec2ImageId", required: true)]
         public Input<string> Ec2ImageId { get; set; } = null!;
 
+        [Input("encryptionConfigurationKeyArn")]
+        public Input<string>? EncryptionConfigurationKeyArn { get; set; }
+
+        [Input("encryptionConfigurationKeyType")]
+        public Input<string>? EncryptionConfigurationKeyType { get; set; }
+
         /// <summary>
-        /// &lt;p&gt;A friendly name for a streaming image resource.&lt;/p&gt;
+        /// A friendly name for a streaming image resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// &lt;p&gt;The studioId. &lt;/p&gt;
+        /// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;

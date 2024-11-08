@@ -76,6 +76,40 @@ func (o ScraperDestinationOutput) AmpConfiguration() ScraperDestinationAmpConfig
 	return o.ApplyT(func(v ScraperDestination) *ScraperDestinationAmpConfigurationProperties { return v.AmpConfiguration }).(ScraperDestinationAmpConfigurationPropertiesPtrOutput)
 }
 
+type ScraperDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperDestination)(nil)).Elem()
+}
+
+func (o ScraperDestinationPtrOutput) ToScraperDestinationPtrOutput() ScraperDestinationPtrOutput {
+	return o
+}
+
+func (o ScraperDestinationPtrOutput) ToScraperDestinationPtrOutputWithContext(ctx context.Context) ScraperDestinationPtrOutput {
+	return o
+}
+
+func (o ScraperDestinationPtrOutput) Elem() ScraperDestinationOutput {
+	return o.ApplyT(func(v *ScraperDestination) ScraperDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperDestination
+		return ret
+	}).(ScraperDestinationOutput)
+}
+
+// Configuration for Amazon Managed Prometheus metrics destination
+func (o ScraperDestinationPtrOutput) AmpConfiguration() ScraperDestinationAmpConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *ScraperDestination) *ScraperDestinationAmpConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.AmpConfiguration
+	}).(ScraperDestinationAmpConfigurationPropertiesPtrOutput)
+}
+
 // Configuration for Amazon Managed Prometheus metrics destination
 type ScraperDestinationAmpConfigurationProperties struct {
 	// ARN of an Amazon Managed Prometheus workspace
@@ -269,6 +303,40 @@ func (o ScraperScrapeConfigurationOutput) ToScraperScrapeConfigurationOutputWith
 // Prometheus compatible scrape configuration in base64 encoded blob format
 func (o ScraperScrapeConfigurationOutput) ConfigurationBlob() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScraperScrapeConfiguration) *string { return v.ConfigurationBlob }).(pulumi.StringPtrOutput)
+}
+
+type ScraperScrapeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScraperScrapeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScraperScrapeConfiguration)(nil)).Elem()
+}
+
+func (o ScraperScrapeConfigurationPtrOutput) ToScraperScrapeConfigurationPtrOutput() ScraperScrapeConfigurationPtrOutput {
+	return o
+}
+
+func (o ScraperScrapeConfigurationPtrOutput) ToScraperScrapeConfigurationPtrOutputWithContext(ctx context.Context) ScraperScrapeConfigurationPtrOutput {
+	return o
+}
+
+func (o ScraperScrapeConfigurationPtrOutput) Elem() ScraperScrapeConfigurationOutput {
+	return o.ApplyT(func(v *ScraperScrapeConfiguration) ScraperScrapeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScraperScrapeConfiguration
+		return ret
+	}).(ScraperScrapeConfigurationOutput)
+}
+
+// Prometheus compatible scrape configuration in base64 encoded blob format
+func (o ScraperScrapeConfigurationPtrOutput) ConfigurationBlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScraperScrapeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationBlob
+	}).(pulumi.StringPtrOutput)
 }
 
 // Scraper metrics source
@@ -671,9 +739,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationPtrInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
 	pulumi.RegisterOutputType(ScraperDestinationOutput{})
+	pulumi.RegisterOutputType(ScraperDestinationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScraperDestinationAmpConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ScraperScrapeConfigurationOutput{})
+	pulumi.RegisterOutputType(ScraperScrapeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ScraperSourceOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ScraperSourceEksConfigurationPropertiesPtrOutput{})

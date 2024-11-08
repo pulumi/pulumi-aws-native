@@ -31,11 +31,12 @@ class EipArgs:
                  transfer_address: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Eip resource.
-        :param pulumi.Input[str] address: Describes an Elastic IP address, or a carrier IP address.
+        :param pulumi.Input[str] address: An Elastic IP address or a carrier IP address in a Wavelength Zone.
         :param pulumi.Input[str] domain: The network (``vpc``).
                 If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
         :param pulumi.Input[str] instance_id: The ID of the instance.
                  Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
+        :param pulumi.Input[str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
         :param pulumi.Input[str] network_border_group: A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
                 Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
         :param pulumi.Input[str] public_ipv4_pool: The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
@@ -65,7 +66,7 @@ class EipArgs:
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input[str]]:
         """
-        Describes an Elastic IP address, or a carrier IP address.
+        An Elastic IP address or a carrier IP address in a Wavelength Zone.
         """
         return pulumi.get(self, "address")
 
@@ -102,6 +103,9 @@ class EipArgs:
     @property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
+        """
         return pulumi.get(self, "ipam_pool_id")
 
     @ipam_pool_id.setter
@@ -181,11 +185,12 @@ class Eip(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address: Describes an Elastic IP address, or a carrier IP address.
+        :param pulumi.Input[str] address: An Elastic IP address or a carrier IP address in a Wavelength Zone.
         :param pulumi.Input[str] domain: The network (``vpc``).
                 If you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) on this resource.
         :param pulumi.Input[str] instance_id: The ID of the instance.
                  Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
+        :param pulumi.Input[str] ipam_pool_id: The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
         :param pulumi.Input[str] network_border_group: A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
                 Use [DescribeAvailabilityZones](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html) to view the network border groups.
         :param pulumi.Input[str] public_ipv4_pool: The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool.
@@ -287,7 +292,7 @@ class Eip(pulumi.CustomResource):
     @pulumi.getter
     def address(self) -> pulumi.Output[Optional[str]]:
         """
-        Describes an Elastic IP address, or a carrier IP address.
+        An Elastic IP address or a carrier IP address in a Wavelength Zone.
         """
         return pulumi.get(self, "address")
 
@@ -320,6 +325,9 @@ class Eip(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipamPoolId")
     def ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
+        """
         return pulumi.get(self, "ipam_pool_id")
 
     @property

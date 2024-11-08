@@ -45,6 +45,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    public readonly enablePrefixForIpv6SourceNat!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
      */
@@ -127,6 +128,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["enablePrefixForIpv6SourceNat"] = args ? args.enablePrefixForIpv6SourceNat : undefined;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = args ? args.enforceSecurityGroupInboundRulesOnPrivateLinkTraffic : undefined;
             resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["loadBalancerAttributes"] = args ? args.loadBalancerAttributes : undefined;
@@ -145,6 +147,7 @@ export class LoadBalancer extends pulumi.CustomResource {
         } else {
             resourceInputs["canonicalHostedZoneId"] = undefined /*out*/;
             resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["enablePrefixForIpv6SourceNat"] = undefined /*out*/;
             resourceInputs["enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"] = undefined /*out*/;
             resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["loadBalancerArn"] = undefined /*out*/;
@@ -170,6 +173,7 @@ export class LoadBalancer extends pulumi.CustomResource {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
+    enablePrefixForIpv6SourceNat?: pulumi.Input<string>;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
      */

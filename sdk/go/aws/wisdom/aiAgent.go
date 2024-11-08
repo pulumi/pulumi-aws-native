@@ -16,15 +16,24 @@ import (
 type AiAgent struct {
 	pulumi.CustomResourceState
 
-	AiAgentArn    pulumi.StringOutput      `pulumi:"aiAgentArn"`
-	AiAgentId     pulumi.StringOutput      `pulumi:"aiAgentId"`
-	AssistantArn  pulumi.StringOutput      `pulumi:"assistantArn"`
-	AssistantId   pulumi.StringOutput      `pulumi:"assistantId"`
-	Configuration pulumi.AnyOutput         `pulumi:"configuration"`
-	Description   pulumi.StringPtrOutput   `pulumi:"description"`
-	Name          pulumi.StringPtrOutput   `pulumi:"name"`
-	Tags          pulumi.StringMapOutput   `pulumi:"tags"`
-	Type          AiAgentAiAgentTypeOutput `pulumi:"type"`
+	// The Amazon Resource Name (ARN) of the AI agent.
+	AiAgentArn pulumi.StringOutput `pulumi:"aiAgentArn"`
+	// The identifier of the AI Agent.
+	AiAgentId pulumi.StringOutput `pulumi:"aiAgentId"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+	AssistantArn pulumi.StringOutput `pulumi:"assistantArn"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+	AssistantId pulumi.StringOutput `pulumi:"assistantId"`
+	// Configuration for the AI Agent.
+	Configuration pulumi.AnyOutput `pulumi:"configuration"`
+	// The description of the AI Agent.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the AI Agent.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// The type of the AI Agent.
+	Type AiAgentAiAgentTypeOutput `pulumi:"type"`
 }
 
 // NewAiAgent registers a new resource with the given unique name, arguments, and options.
@@ -83,22 +92,34 @@ func (AiAgentState) ElementType() reflect.Type {
 }
 
 type aiAgentArgs struct {
-	AssistantId   string             `pulumi:"assistantId"`
-	Configuration interface{}        `pulumi:"configuration"`
-	Description   *string            `pulumi:"description"`
-	Name          *string            `pulumi:"name"`
-	Tags          map[string]string  `pulumi:"tags"`
-	Type          AiAgentAiAgentType `pulumi:"type"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+	AssistantId string `pulumi:"assistantId"`
+	// Configuration for the AI Agent.
+	Configuration interface{} `pulumi:"configuration"`
+	// The description of the AI Agent.
+	Description *string `pulumi:"description"`
+	// The name of the AI Agent.
+	Name *string `pulumi:"name"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags map[string]string `pulumi:"tags"`
+	// The type of the AI Agent.
+	Type AiAgentAiAgentType `pulumi:"type"`
 }
 
 // The set of arguments for constructing a AiAgent resource.
 type AiAgentArgs struct {
-	AssistantId   pulumi.StringInput
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+	AssistantId pulumi.StringInput
+	// Configuration for the AI Agent.
 	Configuration pulumi.Input
-	Description   pulumi.StringPtrInput
-	Name          pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
-	Type          AiAgentAiAgentTypeInput
+	// The description of the AI Agent.
+	Description pulumi.StringPtrInput
+	// The name of the AI Agent.
+	Name pulumi.StringPtrInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags pulumi.StringMapInput
+	// The type of the AI Agent.
+	Type AiAgentAiAgentTypeInput
 }
 
 func (AiAgentArgs) ElementType() reflect.Type {
@@ -138,38 +159,47 @@ func (o AiAgentOutput) ToAiAgentOutputWithContext(ctx context.Context) AiAgentOu
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AI agent.
 func (o AiAgentOutput) AiAgentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.StringOutput { return v.AiAgentArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the AI Agent.
 func (o AiAgentOutput) AiAgentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.StringOutput { return v.AiAgentId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o AiAgentOutput) AssistantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 func (o AiAgentOutput) AssistantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.StringOutput { return v.AssistantId }).(pulumi.StringOutput)
 }
 
+// Configuration for the AI Agent.
 func (o AiAgentOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }
 
+// The description of the AI Agent.
 func (o AiAgentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the AI Agent.
 func (o AiAgentOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o AiAgentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// The type of the AI Agent.
 func (o AiAgentOutput) Type() AiAgentAiAgentTypeOutput {
 	return o.ApplyT(func(v *AiAgent) AiAgentAiAgentTypeOutput { return v.Type }).(AiAgentAiAgentTypeOutput)
 }

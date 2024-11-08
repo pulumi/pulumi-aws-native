@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.NimbleStudio
     public static class GetStudioComponent
     {
         /// <summary>
-        /// Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+        /// Resource Type definition for AWS::NimbleStudio::StudioComponent
         /// </summary>
         public static Task<GetStudioComponentResult> InvokeAsync(GetStudioComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStudioComponentResult>("aws-native:nimblestudio:getStudioComponent", args ?? new GetStudioComponentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+        /// Resource Type definition for AWS::NimbleStudio::StudioComponent
         /// </summary>
         public static Output<GetStudioComponentResult> Invoke(GetStudioComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudioComponentResult>("aws-native:nimblestudio:getStudioComponent", args ?? new GetStudioComponentInvokeArgs(), options.WithDefaults());
@@ -32,12 +32,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         [Input("studioComponentId", required: true)]
         public string StudioComponentId { get; set; } = null!;
-
-        /// <summary>
-        /// &lt;p&gt;The studio ID. &lt;/p&gt;
-        /// </summary>
-        [Input("studioId", required: true)]
-        public string StudioId { get; set; } = null!;
 
         public GetStudioComponentArgs()
         {
@@ -53,12 +47,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Input("studioComponentId", required: true)]
         public Input<string> StudioComponentId { get; set; } = null!;
 
-        /// <summary>
-        /// &lt;p&gt;The studio ID. &lt;/p&gt;
-        /// </summary>
-        [Input("studioId", required: true)]
-        public Input<string> StudioId { get; set; } = null!;
-
         public GetStudioComponentInvokeArgs()
         {
         }
@@ -72,35 +60,27 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// The configuration of the studio component, based on component type.
         /// </summary>
-        public readonly object? Configuration;
+        public readonly Outputs.StudioComponentConfiguration? Configuration;
         /// <summary>
-        /// &lt;p&gt;The description.&lt;/p&gt;
+        /// A human-readable description for the studio component resource.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// &lt;p&gt;The EC2 security groups that control access to the studio component.&lt;/p&gt;
+        /// The EC2 security groups that control access to the studio component.
         /// </summary>
         public readonly ImmutableArray<string> Ec2SecurityGroupIds;
         /// <summary>
-        /// &lt;p&gt;Initialization scripts for studio components.&lt;/p&gt;
+        /// Initialization scripts for studio components.
         /// </summary>
         public readonly ImmutableArray<Outputs.StudioComponentInitializationScript> InitializationScripts;
         /// <summary>
-        /// &lt;p&gt;The name for the studio component.&lt;/p&gt;
+        /// A friendly name for the studio component resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-        /// </summary>
-        public readonly string? RuntimeRoleArn;
-        /// <summary>
-        /// &lt;p&gt;Parameters for the studio component scripts.&lt;/p&gt;
+        /// Parameters for the studio component scripts.
         /// </summary>
         public readonly ImmutableArray<Outputs.StudioComponentScriptParameterKeyValue> ScriptParameters;
-        /// <summary>
-        /// An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-        /// </summary>
-        public readonly string? SecureInitializationRoleArn;
         /// <summary>
         /// The unique identifier for the studio component resource.
         /// </summary>
@@ -108,11 +88,11 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// <summary>
         /// The type of the studio component.
         /// </summary>
-        public readonly Pulumi.AwsNative.NimbleStudio.StudioComponentType? Type;
+        public readonly string? Type;
 
         [OutputConstructor]
         private GetStudioComponentResult(
-            object? configuration,
+            Outputs.StudioComponentConfiguration? configuration,
 
             string? description,
 
@@ -122,24 +102,18 @@ namespace Pulumi.AwsNative.NimbleStudio
 
             string? name,
 
-            string? runtimeRoleArn,
-
             ImmutableArray<Outputs.StudioComponentScriptParameterKeyValue> scriptParameters,
-
-            string? secureInitializationRoleArn,
 
             string? studioComponentId,
 
-            Pulumi.AwsNative.NimbleStudio.StudioComponentType? type)
+            string? type)
         {
             Configuration = configuration;
             Description = description;
             Ec2SecurityGroupIds = ec2SecurityGroupIds;
             InitializationScripts = initializationScripts;
             Name = name;
-            RuntimeRoleArn = runtimeRoleArn;
             ScriptParameters = scriptParameters;
-            SecureInitializationRoleArn = secureInitializationRoleArn;
             StudioComponentId = studioComponentId;
             Type = type;
         }

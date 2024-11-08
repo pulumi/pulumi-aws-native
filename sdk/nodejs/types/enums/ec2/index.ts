@@ -519,6 +519,17 @@ export const PrefixListAddressFamily = {
  */
 export type PrefixListAddressFamily = (typeof PrefixListAddressFamily)[keyof typeof PrefixListAddressFamily];
 
+export const SecurityGroupVpcAssociationState = {
+    Associating: "associating",
+    Associated: "associated",
+    AssociationFailed: "association-failed",
+    Disassociating: "disassociating",
+    Disassociated: "disassociated",
+    DisassociationFailed: "disassociation-failed",
+} as const;
+
+export type SecurityGroupVpcAssociationState = (typeof SecurityGroupVpcAssociationState)[keyof typeof SecurityGroupVpcAssociationState];
+
 export const SnapshotBlockPublicAccessState = {
     BlockAllSharing: "block-all-sharing",
     BlockNewSharing: "block-new-sharing",

@@ -50,7 +50,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly cluster!: pulumi.Output<string | undefined>;
     /**
-     * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+     * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
      */
     public readonly deploymentConfiguration!: pulumi.Output<outputs.ecs.ServiceDeploymentConfiguration | undefined>;
     /**
@@ -253,7 +253,7 @@ export interface ServiceArgs {
      */
     cluster?: pulumi.Input<string>;
     /**
-     * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+     * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
      */
     deploymentConfiguration?: pulumi.Input<inputs.ecs.ServiceDeploymentConfigurationArgs>;
     /**

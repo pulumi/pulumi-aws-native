@@ -55,6 +55,9 @@ class GetAiPromptVersionResult:
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[float]:
+        """
+        The version number for this AI Prompt version.
+        """
         return pulumi.get(self, "version_number")
 
 
@@ -76,6 +79,9 @@ def get_ai_prompt_version(ai_prompt_id: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAiPromptVersionResult:
     """
     Definition of AWS::Wisdom::AIPromptVersion Resource Type
+
+
+    :param float version_number: The version number for this AI Prompt version.
     """
     __args__ = dict()
     __args__['aiPromptId'] = ai_prompt_id
@@ -95,6 +101,9 @@ def get_ai_prompt_version_output(ai_prompt_id: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAiPromptVersionResult]:
     """
     Definition of AWS::Wisdom::AIPromptVersion Resource Type
+
+
+    :param float version_number: The version number for this AI Prompt version.
     """
     __args__ = dict()
     __args__['aiPromptId'] = ai_prompt_id

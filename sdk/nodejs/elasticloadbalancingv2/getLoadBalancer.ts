@@ -33,6 +33,7 @@ export interface GetLoadBalancerResult {
      * The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
      */
     readonly dnsName?: string;
+    readonly enablePrefixForIpv6SourceNat?: string;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
      */

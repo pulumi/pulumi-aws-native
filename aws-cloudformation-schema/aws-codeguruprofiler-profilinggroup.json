@@ -110,6 +110,14 @@
   "primaryIdentifier" : [ "/properties/ProfilingGroupName" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ProfilingGroupName", "/properties/ComputePlatform" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "codeguru-profiler:TagResource", "codeguru-profiler:ListTagsForResource", "codeguru-profiler:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "sns:Publish", "codeguru-profiler:AddNotificationChannels", "codeguru-profiler:CreateProfilingGroup", "codeguru-profiler:PutPermission", "codeguru-profiler:TagResource" ]
@@ -118,13 +126,13 @@
       "permissions" : [ "codeguru-profiler:DescribeProfilingGroup", "codeguru-profiler:ListTagsForResource", "codeguru-profiler:GetNotificationConfiguration", "codeguru-profiler:GetPolicy" ]
     },
     "update" : {
-      "permissions" : [ "sns:Publish", "codeguru-profiler:AddNotificationChannels", "codeguru-profiler:GetNotificationConfiguration", "codeguru-profiler:RemoveNotificationChannel", "codeguru-profiler:PutPermission", "codeguru-profiler:RemovePermission", "codeguru-profiler:GetPolicy", "codeguru-profiler:TagResource", "codeguru-profiler:UntagResource", "codeguru-profiler:ListTagsForResource" ]
+      "permissions" : [ "sns:Publish", "codeguru-profiler:DescribeProfilingGroup", "codeguru-profiler:AddNotificationChannels", "codeguru-profiler:GetNotificationConfiguration", "codeguru-profiler:RemoveNotificationChannel", "codeguru-profiler:PutPermission", "codeguru-profiler:RemovePermission", "codeguru-profiler:GetPolicy", "codeguru-profiler:TagResource", "codeguru-profiler:UntagResource", "codeguru-profiler:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "codeguru-profiler:DeleteProfilingGroup" ]
     },
     "list" : {
-      "permissions" : [ "codeguru-profiler:ListProfilingGroups", "codeguru-profiler:ListTagsForResource" ]
+      "permissions" : [ "codeguru-profiler:ListProfilingGroups", "codeguru-profiler:ListTagsForResource", "codeguru-profiler:GetNotificationConfiguration", "codeguru-profiler:GetPolicy" ]
     }
   }
 }

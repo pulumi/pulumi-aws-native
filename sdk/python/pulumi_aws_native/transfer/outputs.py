@@ -25,6 +25,8 @@ __all__ = [
     'ServerWorkflowDetail',
     'ServerWorkflowDetails',
     'SftpConfigProperties',
+    'UserHomeDirectoryMapEntry',
+    'UserPosixProfile',
     'WorkflowEfsInputFileLocation',
     'WorkflowInputFileLocation',
     'WorkflowS3FileLocation',
@@ -756,6 +758,109 @@ class SftpConfigProperties(dict):
         ARN or name of the secret in AWS Secrets Manager which contains the SFTP user's private keys or passwords.
         """
         return pulumi.get(self, "user_secret_id")
+
+
+@pulumi.output_type
+class UserHomeDirectoryMapEntry(dict):
+    def __init__(__self__, *,
+                 entry: str,
+                 target: str,
+                 type: Optional['UserMapType'] = None):
+        """
+        :param str entry: Represents an entry for `HomeDirectoryMappings` .
+        :param str target: Represents the map target that is used in a `HomeDirectoryMapEntry` .
+        :param 'UserMapType' type: Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
+               
+               > By default, home directory mappings have a `Type` of `DIRECTORY` when you create a Transfer Family server. You would need to explicitly set `Type` to `FILE` if you want a mapping to have a file target.
+        """
+        pulumi.set(__self__, "entry", entry)
+        pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def entry(self) -> str:
+        """
+        Represents an entry for `HomeDirectoryMappings` .
+        """
+        return pulumi.get(self, "entry")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        Represents the map target that is used in a `HomeDirectoryMapEntry` .
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['UserMapType']:
+        """
+        Specifies the type of mapping. Set the type to `FILE` if you want the mapping to point to a file, or `DIRECTORY` for the directory to point to a directory.
+
+        > By default, home directory mappings have a `Type` of `DIRECTORY` when you create a Transfer Family server. You would need to explicitly set `Type` to `FILE` if you want a mapping to have a file target.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class UserPosixProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secondaryGids":
+            suggest = "secondary_gids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPosixProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPosixProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPosixProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gid: float,
+                 uid: float,
+                 secondary_gids: Optional[Sequence[float]] = None):
+        """
+        :param float gid: The POSIX group ID used for all EFS operations by this user.
+        :param float uid: The POSIX user ID used for all EFS operations by this user.
+        :param Sequence[float] secondary_gids: The secondary POSIX group IDs used for all EFS operations by this user.
+        """
+        pulumi.set(__self__, "gid", gid)
+        pulumi.set(__self__, "uid", uid)
+        if secondary_gids is not None:
+            pulumi.set(__self__, "secondary_gids", secondary_gids)
+
+    @property
+    @pulumi.getter
+    def gid(self) -> float:
+        """
+        The POSIX group ID used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "gid")
+
+    @property
+    @pulumi.getter
+    def uid(self) -> float:
+        """
+        The POSIX user ID used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "uid")
+
+    @property
+    @pulumi.getter(name="secondaryGids")
+    def secondary_gids(self) -> Optional[Sequence[float]]:
+        """
+        The secondary POSIX group IDs used for all EFS operations by this user.
+        """
+        return pulumi.get(self, "secondary_gids")
 
 
 @pulumi.output_type

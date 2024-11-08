@@ -16,14 +16,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceSnowflakeParameters
     {
+        public readonly Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType? AuthenticationType;
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         public readonly string Database;
+        public readonly string? DatabaseAccessControlRole;
         /// <summary>
         /// &lt;p&gt;Host.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
+        public readonly Outputs.DataSourceOAuthParameters? OAuthParameters;
         /// <summary>
         /// &lt;p&gt;Warehouse.&lt;/p&gt;
         /// </summary>
@@ -31,14 +34,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSourceSnowflakeParameters(
+            Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType? authenticationType,
+
             string database,
+
+            string? databaseAccessControlRole,
 
             string host,
 
+            Outputs.DataSourceOAuthParameters? oAuthParameters,
+
             string warehouse)
         {
+            AuthenticationType = authenticationType;
             Database = database;
+            DatabaseAccessControlRole = databaseAccessControlRole;
             Host = host;
+            OAuthParameters = oAuthParameters;
             Warehouse = warehouse;
         }
     }

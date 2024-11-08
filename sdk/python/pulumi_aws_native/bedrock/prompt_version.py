@@ -28,6 +28,7 @@ class PromptVersionArgs:
         The set of arguments for constructing a PromptVersion resource.
         :param pulumi.Input[str] prompt_arn: ARN of a prompt resource possibly with a version
         :param pulumi.Input[str] description: Description for a prompt version resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags attached to the prompt version and their values.
         """
         pulumi.set(__self__, "prompt_arn", prompt_arn)
         if description is not None:
@@ -62,6 +63,9 @@ class PromptVersionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags attached to the prompt version and their values.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -85,6 +89,7 @@ class PromptVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for a prompt version resource.
         :param pulumi.Input[str] prompt_arn: ARN of a prompt resource possibly with a version
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags attached to the prompt version and their values.
         """
         ...
     @overload
@@ -241,6 +246,9 @@ class PromptVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags attached to the prompt version and their values.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -140,6 +140,12 @@ namespace Pulumi.AwsNative.DataSync
         public Output<string> TaskArn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the task mode for the task.
+        /// </summary>
+        [Output("taskMode")]
+        public Output<Pulumi.AwsNative.DataSync.TaskMode?> TaskMode { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
         /// 
         /// When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
@@ -174,6 +180,7 @@ namespace Pulumi.AwsNative.DataSync
                 {
                     "destinationLocationArn",
                     "sourceLocationArn",
+                    "taskMode",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -274,6 +281,12 @@ namespace Pulumi.AwsNative.DataSync
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the task mode for the task.
+        /// </summary>
+        [Input("taskMode")]
+        public Input<Pulumi.AwsNative.DataSync.TaskMode>? TaskMode { get; set; }
 
         /// <summary>
         /// Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .

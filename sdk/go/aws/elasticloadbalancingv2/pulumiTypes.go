@@ -5095,6 +5095,7 @@ type LoadBalancerAttribute struct {
 	//
 	//  The following attributes are supported by only Network Load Balancers:
 	//   +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+	//   +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 	Key *string `pulumi:"key"`
 	// The value of the attribute.
 	Value *string `pulumi:"value"`
@@ -5145,6 +5146,7 @@ type LoadBalancerAttributeArgs struct {
 	//
 	//  The following attributes are supported by only Network Load Balancers:
 	//   +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+	//   +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The value of the attribute.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -5235,6 +5237,7 @@ func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ct
 //
 //	The following attributes are supported by only Network Load Balancers:
 //	 +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
+//	 +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 func (o LoadBalancerAttributeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -5271,7 +5274,8 @@ type LoadBalancerSubnetMapping struct {
 	// [Network Load Balancers] The IPv6 address.
 	IPv6Address *string `pulumi:"iPv6Address"`
 	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
-	PrivateIPv4Address *string `pulumi:"privateIPv4Address"`
+	PrivateIPv4Address  *string `pulumi:"privateIPv4Address"`
+	SourceNatIpv6Prefix *string `pulumi:"sourceNatIpv6Prefix"`
 	// The ID of the subnet.
 	SubnetId string `pulumi:"subnetId"`
 }
@@ -5294,7 +5298,8 @@ type LoadBalancerSubnetMappingArgs struct {
 	// [Network Load Balancers] The IPv6 address.
 	IPv6Address pulumi.StringPtrInput `pulumi:"iPv6Address"`
 	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
-	PrivateIPv4Address pulumi.StringPtrInput `pulumi:"privateIPv4Address"`
+	PrivateIPv4Address  pulumi.StringPtrInput `pulumi:"privateIPv4Address"`
+	SourceNatIpv6Prefix pulumi.StringPtrInput `pulumi:"sourceNatIpv6Prefix"`
 	// The ID of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
@@ -5364,6 +5369,10 @@ func (o LoadBalancerSubnetMappingOutput) IPv6Address() pulumi.StringPtrOutput {
 // [Network Load Balancers] The private IPv4 address for an internal load balancer.
 func (o LoadBalancerSubnetMappingOutput) PrivateIPv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.PrivateIPv4Address }).(pulumi.StringPtrOutput)
+}
+
+func (o LoadBalancerSubnetMappingOutput) SourceNatIpv6Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.SourceNatIpv6Prefix }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the subnet.

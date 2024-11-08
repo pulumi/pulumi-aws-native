@@ -6876,6 +6876,100 @@ func (in *prefixListAddressFamilyPtr) ToPrefixListAddressFamilyPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(PrefixListAddressFamilyPtrOutput)
 }
 
+type SecurityGroupVpcAssociationStateEnum string
+
+const (
+	SecurityGroupVpcAssociationStateEnumAssociating          = SecurityGroupVpcAssociationStateEnum("associating")
+	SecurityGroupVpcAssociationStateEnumAssociated           = SecurityGroupVpcAssociationStateEnum("associated")
+	SecurityGroupVpcAssociationStateEnumAssociationFailed    = SecurityGroupVpcAssociationStateEnum("association-failed")
+	SecurityGroupVpcAssociationStateEnumDisassociating       = SecurityGroupVpcAssociationStateEnum("disassociating")
+	SecurityGroupVpcAssociationStateEnumDisassociated        = SecurityGroupVpcAssociationStateEnum("disassociated")
+	SecurityGroupVpcAssociationStateEnumDisassociationFailed = SecurityGroupVpcAssociationStateEnum("disassociation-failed")
+)
+
+type SecurityGroupVpcAssociationStateEnumOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupVpcAssociationStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupVpcAssociationStateEnum)(nil)).Elem()
+}
+
+func (o SecurityGroupVpcAssociationStateEnumOutput) ToSecurityGroupVpcAssociationStateEnumOutput() SecurityGroupVpcAssociationStateEnumOutput {
+	return o
+}
+
+func (o SecurityGroupVpcAssociationStateEnumOutput) ToSecurityGroupVpcAssociationStateEnumOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationStateEnumOutput {
+	return o
+}
+
+func (o SecurityGroupVpcAssociationStateEnumOutput) ToSecurityGroupVpcAssociationStateEnumPtrOutput() SecurityGroupVpcAssociationStateEnumPtrOutput {
+	return o.ToSecurityGroupVpcAssociationStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupVpcAssociationStateEnumOutput) ToSecurityGroupVpcAssociationStateEnumPtrOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroupVpcAssociationStateEnum) *SecurityGroupVpcAssociationStateEnum {
+		return &v
+	}).(SecurityGroupVpcAssociationStateEnumPtrOutput)
+}
+
+func (o SecurityGroupVpcAssociationStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupVpcAssociationStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupVpcAssociationStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupVpcAssociationStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupVpcAssociationStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityGroupVpcAssociationStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityGroupVpcAssociationStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupVpcAssociationStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityGroupVpcAssociationStateEnum)(nil)).Elem()
+}
+
+func (o SecurityGroupVpcAssociationStateEnumPtrOutput) ToSecurityGroupVpcAssociationStateEnumPtrOutput() SecurityGroupVpcAssociationStateEnumPtrOutput {
+	return o
+}
+
+func (o SecurityGroupVpcAssociationStateEnumPtrOutput) ToSecurityGroupVpcAssociationStateEnumPtrOutputWithContext(ctx context.Context) SecurityGroupVpcAssociationStateEnumPtrOutput {
+	return o
+}
+
+func (o SecurityGroupVpcAssociationStateEnumPtrOutput) Elem() SecurityGroupVpcAssociationStateEnumOutput {
+	return o.ApplyT(func(v *SecurityGroupVpcAssociationStateEnum) SecurityGroupVpcAssociationStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityGroupVpcAssociationStateEnum
+		return ret
+	}).(SecurityGroupVpcAssociationStateEnumOutput)
+}
+
+func (o SecurityGroupVpcAssociationStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityGroupVpcAssociationStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityGroupVpcAssociationStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The state of EBS Snapshot Block Public Access.
 type SnapshotBlockPublicAccessStateEnum string
 
@@ -12230,6 +12324,8 @@ func init() {
 	pulumi.RegisterOutputType(NetworkInsightsPathProtocolPtrOutput{})
 	pulumi.RegisterOutputType(PrefixListAddressFamilyOutput{})
 	pulumi.RegisterOutputType(PrefixListAddressFamilyPtrOutput{})
+	pulumi.RegisterOutputType(SecurityGroupVpcAssociationStateEnumOutput{})
+	pulumi.RegisterOutputType(SecurityGroupVpcAssociationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumOutput{})
 	pulumi.RegisterOutputType(SnapshotBlockPublicAccessStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceVolumeTypeOutput{})

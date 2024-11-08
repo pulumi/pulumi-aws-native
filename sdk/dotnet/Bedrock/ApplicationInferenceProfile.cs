@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the inference profile.
+        /// </summary>
         [Output("inferenceProfileArn")]
         public Output<string> InferenceProfileArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the inference profile.
+        /// </summary>
         [Output("inferenceProfileId")]
         public Output<string> InferenceProfileId { get; private set; } = null!;
 
@@ -39,9 +45,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("inferenceProfileIdentifier")]
         public Output<string> InferenceProfileIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the inference profile.
+        /// </summary>
         [Output("inferenceProfileName")]
         public Output<string> InferenceProfileName { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains configurations for the inference profile to copy as the resource.
+        /// </summary>
         [Output("modelSource")]
         public Output<Outputs.ApplicationInferenceProfileInferenceProfileModelSourceProperties?> ModelSource { get; private set; } = null!;
 
@@ -51,6 +63,9 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("models")]
         public Output<ImmutableArray<Outputs.ApplicationInferenceProfileInferenceProfileModel>> Models { get; private set; } = null!;
 
+        /// <summary>
+        /// The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
+        /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Bedrock.ApplicationInferenceProfileInferenceProfileStatus> Status { get; private set; } = null!;
 
@@ -60,6 +75,12 @@ namespace Pulumi.AwsNative.Bedrock
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of the inference profile. The following types are possible:
+        /// 
+        /// - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+        /// - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
+        /// </summary>
         [Output("type")]
         public Output<Pulumi.AwsNative.Bedrock.ApplicationInferenceProfileInferenceProfileType> Type { get; private set; } = null!;
 
@@ -126,9 +147,15 @@ namespace Pulumi.AwsNative.Bedrock
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the inference profile.
+        /// </summary>
         [Input("inferenceProfileName")]
         public Input<string>? InferenceProfileName { get; set; }
 
+        /// <summary>
+        /// Contains configurations for the inference profile to copy as the resource.
+        /// </summary>
         [Input("modelSource")]
         public Input<Inputs.ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs>? ModelSource { get; set; }
 

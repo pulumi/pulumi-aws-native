@@ -187,6 +187,20 @@ export const ServerTlsSessionResumptionMode = {
 
 export type ServerTlsSessionResumptionMode = (typeof ServerTlsSessionResumptionMode)[keyof typeof ServerTlsSessionResumptionMode];
 
+export const UserHomeDirectoryType = {
+    Path: "PATH",
+    Logical: "LOGICAL",
+} as const;
+
+export type UserHomeDirectoryType = (typeof UserHomeDirectoryType)[keyof typeof UserHomeDirectoryType];
+
+export const UserMapType = {
+    File: "FILE",
+    Directory: "DIRECTORY",
+} as const;
+
+export type UserMapType = (typeof UserMapType)[keyof typeof UserMapType];
+
 export const WorkflowStepCopyStepDetailsPropertiesOverwriteExisting = {
     True: "TRUE",
     False: "FALSE",

@@ -15,17 +15,26 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class DataSourceSnowflakeParametersArgs : global::Pulumi.ResourceArgs
     {
+        [Input("authenticationType")]
+        public Input<Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType>? AuthenticationType { get; set; }
+
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
+        [Input("databaseAccessControlRole")]
+        public Input<string>? DatabaseAccessControlRole { get; set; }
+
         /// <summary>
         /// &lt;p&gt;Host.&lt;/p&gt;
         /// </summary>
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
+
+        [Input("oAuthParameters")]
+        public Input<Inputs.DataSourceOAuthParametersArgs>? OAuthParameters { get; set; }
 
         /// <summary>
         /// &lt;p&gt;Warehouse.&lt;/p&gt;

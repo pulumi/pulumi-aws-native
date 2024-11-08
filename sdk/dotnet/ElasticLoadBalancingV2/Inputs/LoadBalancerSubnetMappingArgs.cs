@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
         [Input("privateIPv4Address")]
         public Input<string>? PrivateIPv4Address { get; set; }
 
+        [Input("sourceNatIpv6Prefix")]
+        public Input<string>? SourceNatIpv6Prefix { get; set; }
+
         /// <summary>
         /// The ID of the subnet.
         /// </summary>

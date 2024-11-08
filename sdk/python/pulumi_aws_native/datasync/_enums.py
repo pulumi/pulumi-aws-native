@@ -25,6 +25,7 @@ __all__ = [
     'TaskFilterRuleFilterType',
     'TaskManifestConfigAction',
     'TaskManifestConfigFormat',
+    'TaskMode',
     'TaskOptionsAtime',
     'TaskOptionsGid',
     'TaskOptionsLogLevel',
@@ -225,6 +226,14 @@ class TaskManifestConfigFormat(str, Enum):
     Specifies the file format of your manifest.
     """
     CSV = "CSV"
+
+
+class TaskMode(str, Enum):
+    """
+    Specifies the task mode for the task.
+    """
+    BASIC = "BASIC"
+    ENHANCED = "ENHANCED"
 
 
 class TaskOptionsAtime(str, Enum):

@@ -10,19 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The upload storage root location (folder) on streaming workstations where files are
-    ///             uploaded.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class LaunchProfileStreamingSessionStorageRoot
     {
         /// <summary>
-        /// &lt;p&gt;The folder path in Linux workstations where files are uploaded.&lt;/p&gt;
+        /// The folder path in Linux workstations where files are uploaded.
         /// </summary>
         public readonly string? Linux;
         /// <summary>
-        /// &lt;p&gt;The folder path in Windows workstations where files are uploaded.&lt;/p&gt;
+        /// The folder path in Windows workstations where files are uploaded.
         /// </summary>
         public readonly string? Windows;
 

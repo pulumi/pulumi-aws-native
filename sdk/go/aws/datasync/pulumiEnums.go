@@ -3210,6 +3210,172 @@ func (in *taskManifestConfigFormatPtr) ToTaskManifestConfigFormatPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(TaskManifestConfigFormatPtrOutput)
 }
 
+// Specifies the task mode for the task.
+type TaskMode string
+
+const (
+	TaskModeBasic    = TaskMode("BASIC")
+	TaskModeEnhanced = TaskMode("ENHANCED")
+)
+
+func (TaskMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskMode)(nil)).Elem()
+}
+
+func (e TaskMode) ToTaskModeOutput() TaskModeOutput {
+	return pulumi.ToOutput(e).(TaskModeOutput)
+}
+
+func (e TaskMode) ToTaskModeOutputWithContext(ctx context.Context) TaskModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskModeOutput)
+}
+
+func (e TaskMode) ToTaskModePtrOutput() TaskModePtrOutput {
+	return e.ToTaskModePtrOutputWithContext(context.Background())
+}
+
+func (e TaskMode) ToTaskModePtrOutputWithContext(ctx context.Context) TaskModePtrOutput {
+	return TaskMode(e).ToTaskModeOutputWithContext(ctx).ToTaskModePtrOutputWithContext(ctx)
+}
+
+func (e TaskMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskModeOutput struct{ *pulumi.OutputState }
+
+func (TaskModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskMode)(nil)).Elem()
+}
+
+func (o TaskModeOutput) ToTaskModeOutput() TaskModeOutput {
+	return o
+}
+
+func (o TaskModeOutput) ToTaskModeOutputWithContext(ctx context.Context) TaskModeOutput {
+	return o
+}
+
+func (o TaskModeOutput) ToTaskModePtrOutput() TaskModePtrOutput {
+	return o.ToTaskModePtrOutputWithContext(context.Background())
+}
+
+func (o TaskModeOutput) ToTaskModePtrOutputWithContext(ctx context.Context) TaskModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskMode) *TaskMode {
+		return &v
+	}).(TaskModePtrOutput)
+}
+
+func (o TaskModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskModePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskMode)(nil)).Elem()
+}
+
+func (o TaskModePtrOutput) ToTaskModePtrOutput() TaskModePtrOutput {
+	return o
+}
+
+func (o TaskModePtrOutput) ToTaskModePtrOutputWithContext(ctx context.Context) TaskModePtrOutput {
+	return o
+}
+
+func (o TaskModePtrOutput) Elem() TaskModeOutput {
+	return o.ApplyT(func(v *TaskMode) TaskMode {
+		if v != nil {
+			return *v
+		}
+		var ret TaskMode
+		return ret
+	}).(TaskModeOutput)
+}
+
+func (o TaskModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskModeInput is an input type that accepts values of the TaskMode enum
+// A concrete instance of `TaskModeInput` can be one of the following:
+//
+//	TaskModeBasic
+//	TaskModeEnhanced
+type TaskModeInput interface {
+	pulumi.Input
+
+	ToTaskModeOutput() TaskModeOutput
+	ToTaskModeOutputWithContext(context.Context) TaskModeOutput
+}
+
+var taskModePtrType = reflect.TypeOf((**TaskMode)(nil)).Elem()
+
+type TaskModePtrInput interface {
+	pulumi.Input
+
+	ToTaskModePtrOutput() TaskModePtrOutput
+	ToTaskModePtrOutputWithContext(context.Context) TaskModePtrOutput
+}
+
+type taskModePtr string
+
+func TaskModePtr(v string) TaskModePtrInput {
+	return (*taskModePtr)(&v)
+}
+
+func (*taskModePtr) ElementType() reflect.Type {
+	return taskModePtrType
+}
+
+func (in *taskModePtr) ToTaskModePtrOutput() TaskModePtrOutput {
+	return pulumi.ToOutput(in).(TaskModePtrOutput)
+}
+
+func (in *taskModePtr) ToTaskModePtrOutputWithContext(ctx context.Context) TaskModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskModePtrOutput)
+}
+
 // A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
 type TaskOptionsAtime string
 
@@ -7007,6 +7173,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigActionPtrInput)(nil)).Elem(), TaskManifestConfigAction("TRANSFER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigFormatInput)(nil)).Elem(), TaskManifestConfigFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskManifestConfigFormatPtrInput)(nil)).Elem(), TaskManifestConfigFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskModeInput)(nil)).Elem(), TaskMode("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskModePtrInput)(nil)).Elem(), TaskMode("BASIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsAtimeInput)(nil)).Elem(), TaskOptionsAtime("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsAtimePtrInput)(nil)).Elem(), TaskOptionsAtime("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsGidInput)(nil)).Elem(), TaskOptionsGid("NONE"))
@@ -7091,6 +7259,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskManifestConfigActionPtrOutput{})
 	pulumi.RegisterOutputType(TaskManifestConfigFormatOutput{})
 	pulumi.RegisterOutputType(TaskManifestConfigFormatPtrOutput{})
+	pulumi.RegisterOutputType(TaskModeOutput{})
+	pulumi.RegisterOutputType(TaskModePtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsAtimeOutput{})
 	pulumi.RegisterOutputType(TaskOptionsAtimePtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsGidOutput{})

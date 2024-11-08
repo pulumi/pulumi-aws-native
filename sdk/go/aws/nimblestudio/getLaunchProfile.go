@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Represents a launch profile which delegates access to a collection of studio components to studio users
+// Resource Type definition for AWS::NimbleStudio::LaunchProfile
 func LookupLaunchProfile(ctx *pulumi.Context, args *LookupLaunchProfileArgs, opts ...pulumi.InvokeOption) (*LookupLaunchProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLaunchProfileResult
@@ -25,24 +25,20 @@ func LookupLaunchProfile(ctx *pulumi.Context, args *LookupLaunchProfileArgs, opt
 type LookupLaunchProfileArgs struct {
 	// The unique identifier for the launch profile resource.
 	LaunchProfileId string `pulumi:"launchProfileId"`
-	// <p>The studio ID. </p>
-	StudioId string `pulumi:"studioId"`
 }
 
 type LookupLaunchProfileResult struct {
-	// <p>The description.</p>
+	// A human-readable description of the launch profile.
 	Description *string `pulumi:"description"`
 	// The unique identifier for the launch profile resource.
 	LaunchProfileId *string `pulumi:"launchProfileId"`
-	// <p>The version number of the protocol that is used by the launch profile. The only valid
-	//             version is "2021-03-31".</p>
+	// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 	LaunchProfileProtocolVersions []string `pulumi:"launchProfileProtocolVersions"`
-	// <p>The name for the launch profile.</p>
+	// A friendly name for the launch profile.
 	Name *string `pulumi:"name"`
 	// A configuration for a streaming session.
 	StreamConfiguration *LaunchProfileStreamConfiguration `pulumi:"streamConfiguration"`
-	// <p>Unique identifiers for a collection of studio components that can be used with this
-	//             launch profile.</p>
+	// Unique identifiers for a collection of studio components that can be used with this launch profile.
 	StudioComponentIds []string `pulumi:"studioComponentIds"`
 }
 
@@ -68,8 +64,6 @@ func LookupLaunchProfileOutput(ctx *pulumi.Context, args LookupLaunchProfileOutp
 type LookupLaunchProfileOutputArgs struct {
 	// The unique identifier for the launch profile resource.
 	LaunchProfileId pulumi.StringInput `pulumi:"launchProfileId"`
-	// <p>The studio ID. </p>
-	StudioId pulumi.StringInput `pulumi:"studioId"`
 }
 
 func (LookupLaunchProfileOutputArgs) ElementType() reflect.Type {
@@ -90,7 +84,7 @@ func (o LookupLaunchProfileResultOutput) ToLookupLaunchProfileResultOutputWithCo
 	return o
 }
 
-// <p>The description.</p>
+// A human-readable description of the launch profile.
 func (o LookupLaunchProfileResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -100,14 +94,12 @@ func (o LookupLaunchProfileResultOutput) LaunchProfileId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupLaunchProfileResult) *string { return v.LaunchProfileId }).(pulumi.StringPtrOutput)
 }
 
-// <p>The version number of the protocol that is used by the launch profile. The only valid
-//
-//	version is "2021-03-31".</p>
+// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
 func (o LookupLaunchProfileResultOutput) LaunchProfileProtocolVersions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) []string { return v.LaunchProfileProtocolVersions }).(pulumi.StringArrayOutput)
 }
 
-// <p>The name for the launch profile.</p>
+// A friendly name for the launch profile.
 func (o LookupLaunchProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -117,9 +109,7 @@ func (o LookupLaunchProfileResultOutput) StreamConfiguration() LaunchProfileStre
 	return o.ApplyT(func(v LookupLaunchProfileResult) *LaunchProfileStreamConfiguration { return v.StreamConfiguration }).(LaunchProfileStreamConfigurationPtrOutput)
 }
 
-// <p>Unique identifiers for a collection of studio components that can be used with this
-//
-//	launch profile.</p>
+// Unique identifiers for a collection of studio components that can be used with this launch profile.
 func (o LookupLaunchProfileResultOutput) StudioComponentIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLaunchProfileResult) []string { return v.StudioComponentIds }).(pulumi.StringArrayOutput)
 }

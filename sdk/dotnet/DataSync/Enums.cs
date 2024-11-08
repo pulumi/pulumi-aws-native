@@ -644,6 +644,37 @@ namespace Pulumi.AwsNative.DataSync
     }
 
     /// <summary>
+    /// Specifies the task mode for the task.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskMode : IEquatable<TaskMode>
+    {
+        private readonly string _value;
+
+        private TaskMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskMode Basic { get; } = new TaskMode("BASIC");
+        public static TaskMode Enhanced { get; } = new TaskMode("ENHANCED");
+
+        public static bool operator ==(TaskMode left, TaskMode right) => left.Equals(right);
+        public static bool operator !=(TaskMode left, TaskMode right) => !left.Equals(right);
+
+        public static explicit operator string(TaskMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskMode other && Equals(other);
+        public bool Equals(TaskMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A file metadata value that shows the last time a file was accessed (that is, when the file was read or written to).
     /// </summary>
     [EnumType]

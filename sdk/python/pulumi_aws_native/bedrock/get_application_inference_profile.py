@@ -66,11 +66,17 @@ class GetApplicationInferenceProfileResult:
     @property
     @pulumi.getter(name="inferenceProfileArn")
     def inference_profile_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the inference profile.
+        """
         return pulumi.get(self, "inference_profile_arn")
 
     @property
     @pulumi.getter(name="inferenceProfileId")
     def inference_profile_id(self) -> Optional[str]:
+        """
+        The unique identifier of the inference profile.
+        """
         return pulumi.get(self, "inference_profile_id")
 
     @property
@@ -92,6 +98,9 @@ class GetApplicationInferenceProfileResult:
     @property
     @pulumi.getter
     def status(self) -> Optional['ApplicationInferenceProfileInferenceProfileStatus']:
+        """
+        The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -105,6 +114,12 @@ class GetApplicationInferenceProfileResult:
     @property
     @pulumi.getter
     def type(self) -> Optional['ApplicationInferenceProfileInferenceProfileType']:
+        """
+        The type of the inference profile. The following types are possible:
+
+        - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+        - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
+        """
         return pulumi.get(self, "type")
 
     @property

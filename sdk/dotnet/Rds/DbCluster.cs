@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.Rds
         public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+        /// </summary>
+        [Output("clusterScalabilityType")]
+        public Output<string?> ClusterScalabilityType { get; private set; } = null!;
+
+        /// <summary>
         /// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
         ///  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         /// </summary>
@@ -671,6 +677,7 @@ namespace Pulumi.AwsNative.Rds
                 ReplaceOnChanges =
                 {
                     "availabilityZones[*]",
+                    "clusterScalabilityType",
                     "databaseName",
                     "dbClusterIdentifier",
                     "dbSubnetGroupName",
@@ -769,6 +776,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("backupRetentionPeriod")]
         public Input<int>? BackupRetentionPeriod { get; set; }
+
+        /// <summary>
+        /// Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+        /// </summary>
+        [Input("clusterScalabilityType")]
+        public Input<string>? ClusterScalabilityType { get; set; }
 
         /// <summary>
         /// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.

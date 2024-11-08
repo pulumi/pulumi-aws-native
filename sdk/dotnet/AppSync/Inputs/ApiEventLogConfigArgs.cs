@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.AppSync.Inputs
     /// </summary>
     public sealed class ApiEventLogConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
+        /// </summary>
         [Input("cloudWatchLogsRoleArn", required: true)]
         public Input<string> CloudWatchLogsRoleArn { get; set; } = null!;
 
+        /// <summary>
+        /// The type of information to log for the Event API.
+        /// </summary>
         [Input("logLevel", required: true)]
         public Input<Pulumi.AwsNative.AppSync.ApiEventLogLevel> LogLevel { get; set; } = null!;
 

@@ -285,6 +285,11 @@ export const getSecurityGroupIngress: typeof import("./getSecurityGroupIngress")
 export const getSecurityGroupIngressOutput: typeof import("./getSecurityGroupIngress").getSecurityGroupIngressOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityGroupIngress","getSecurityGroupIngressOutput"], () => require("./getSecurityGroupIngress"));
 
+export { GetSecurityGroupVpcAssociationArgs, GetSecurityGroupVpcAssociationResult, GetSecurityGroupVpcAssociationOutputArgs } from "./getSecurityGroupVpcAssociation";
+export const getSecurityGroupVpcAssociation: typeof import("./getSecurityGroupVpcAssociation").getSecurityGroupVpcAssociation = null as any;
+export const getSecurityGroupVpcAssociationOutput: typeof import("./getSecurityGroupVpcAssociation").getSecurityGroupVpcAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityGroupVpcAssociation","getSecurityGroupVpcAssociationOutput"], () => require("./getSecurityGroupVpcAssociation"));
+
 export { GetSnapshotBlockPublicAccessArgs, GetSnapshotBlockPublicAccessResult, GetSnapshotBlockPublicAccessOutputArgs } from "./getSnapshotBlockPublicAccess";
 export const getSnapshotBlockPublicAccess: typeof import("./getSnapshotBlockPublicAccess").getSnapshotBlockPublicAccess = null as any;
 export const getSnapshotBlockPublicAccessOutput: typeof import("./getSnapshotBlockPublicAccess").getSnapshotBlockPublicAccessOutput = null as any;
@@ -605,6 +610,11 @@ export type SecurityGroupIngress = import("./securityGroupIngress").SecurityGrou
 export const SecurityGroupIngress: typeof import("./securityGroupIngress").SecurityGroupIngress = null as any;
 utilities.lazyLoad(exports, ["SecurityGroupIngress"], () => require("./securityGroupIngress"));
 
+export { SecurityGroupVpcAssociationArgs } from "./securityGroupVpcAssociation";
+export type SecurityGroupVpcAssociation = import("./securityGroupVpcAssociation").SecurityGroupVpcAssociation;
+export const SecurityGroupVpcAssociation: typeof import("./securityGroupVpcAssociation").SecurityGroupVpcAssociation = null as any;
+utilities.lazyLoad(exports, ["SecurityGroupVpcAssociation"], () => require("./securityGroupVpcAssociation"));
+
 export { SnapshotBlockPublicAccessArgs } from "./snapshotBlockPublicAccess";
 export type SnapshotBlockPublicAccess = import("./snapshotBlockPublicAccess").SnapshotBlockPublicAccess;
 export const SnapshotBlockPublicAccess: typeof import("./snapshotBlockPublicAccess").SnapshotBlockPublicAccess = null as any;
@@ -888,6 +898,8 @@ const _module = {
                 return new SecurityGroupEgress(name, <any>undefined, { urn })
             case "aws-native:ec2:SecurityGroupIngress":
                 return new SecurityGroupIngress(name, <any>undefined, { urn })
+            case "aws-native:ec2:SecurityGroupVpcAssociation":
+                return new SecurityGroupVpcAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:SnapshotBlockPublicAccess":
                 return new SnapshotBlockPublicAccess(name, <any>undefined, { urn })
             case "aws-native:ec2:SpotFleet":

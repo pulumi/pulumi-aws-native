@@ -69,6 +69,9 @@ export class PromptVersion extends pulumi.CustomResource {
      * Identifier for a Prompt
      */
     public /*out*/ readonly promptId!: pulumi.Output<string>;
+    /**
+     * A map of tags attached to the prompt version and their values.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Time Stamp.
@@ -142,5 +145,8 @@ export interface PromptVersionArgs {
      * ARN of a prompt resource possibly with a version
      */
     promptArn: pulumi.Input<string>;
+    /**
+     * A map of tags attached to the prompt version and their values.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

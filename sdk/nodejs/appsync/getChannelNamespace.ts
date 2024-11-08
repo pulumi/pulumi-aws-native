@@ -18,11 +18,20 @@ export function getChannelNamespace(args: GetChannelNamespaceArgs, opts?: pulumi
 }
 
 export interface GetChannelNamespaceArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the channel namespace.
+     */
     channelNamespaceArn: string;
 }
 
 export interface GetChannelNamespaceResult {
+    /**
+     * The Amazon Resource Name (ARN) of the channel namespace.
+     */
     readonly channelNamespaceArn?: string;
+    /**
+     * The event handler functions that run custom business logic to process published events and subscribe requests.
+     */
     readonly codeHandlers?: string;
     /**
      * List of AuthModes supported for Publish operations.
@@ -32,6 +41,9 @@ export interface GetChannelNamespaceResult {
      * List of AuthModes supported for Subscribe operations.
      */
     readonly subscribeAuthModes?: outputs.appsync.ChannelNamespaceAuthMode[];
+    /**
+     * A set of tags (key-value pairs) for this channel namespace.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -45,5 +57,8 @@ export function getChannelNamespaceOutput(args: GetChannelNamespaceOutputArgs, o
 }
 
 export interface GetChannelNamespaceOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the channel namespace.
+     */
     channelNamespaceArn: pulumi.Input<string>;
 }

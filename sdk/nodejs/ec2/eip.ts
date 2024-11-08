@@ -40,7 +40,7 @@ export class Eip extends pulumi.CustomResource {
     }
 
     /**
-     * Describes an Elastic IP address, or a carrier IP address.
+     * An Elastic IP address or a carrier IP address in a Wavelength Zone.
      */
     public readonly address!: pulumi.Output<string | undefined>;
     /**
@@ -57,6 +57,9 @@ export class Eip extends pulumi.CustomResource {
      *   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */
     public readonly instanceId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
+     */
     public readonly ipamPoolId!: pulumi.Output<string | undefined>;
     /**
      * A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.
@@ -127,7 +130,7 @@ export class Eip extends pulumi.CustomResource {
  */
 export interface EipArgs {
     /**
-     * Describes an Elastic IP address, or a carrier IP address.
+     * An Elastic IP address or a carrier IP address in a Wavelength Zone.
      */
     address?: pulumi.Input<string>;
     /**
@@ -140,6 +143,9 @@ export interface EipArgs {
      *   Updates to the ``InstanceId`` property may require *some interruptions*. Updates on an EIP reassociates the address on its associated resource.
      */
     instanceId?: pulumi.Input<string>;
+    /**
+     * The ID of an IPAM pool which has an Amazon-provided or BYOIP public IPv4 CIDR provisioned to it. For more information, see [Allocate sequential Elastic IP addresses from an IPAM pool](https://docs.aws.amazon.com/vpc/latest/ipam/tutorials-eip-pool.html) in the *Amazon VPC IPAM User Guide* .
+     */
     ipamPoolId?: pulumi.Input<string>;
     /**
      * A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.

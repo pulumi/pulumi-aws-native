@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a launch profile which delegates access to a collection of studio components to studio users
+ * Resource Type definition for AWS::NimbleStudio::LaunchProfile
  */
 export class LaunchProfile extends pulumi.CustomResource {
     /**
@@ -38,12 +38,11 @@ export class LaunchProfile extends pulumi.CustomResource {
     }
 
     /**
-     * <p>The description.</p>
+     * A human-readable description of the launch profile.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
-     *             These subnets must support the specified instance types. </p>
+     * Unique identifiers for a collection of EC2 subnets.
      */
     public readonly ec2SubnetIds!: pulumi.Output<string[]>;
     /**
@@ -51,12 +50,11 @@ export class LaunchProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly launchProfileId!: pulumi.Output<string>;
     /**
-     * <p>The version number of the protocol that is used by the launch profile. The only valid
-     *             version is "2021-03-31".</p>
+     * The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
      */
     public readonly launchProfileProtocolVersions!: pulumi.Output<string[]>;
     /**
-     * <p>The name for the launch profile.</p>
+     * A friendly name for the launch profile.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -64,12 +62,11 @@ export class LaunchProfile extends pulumi.CustomResource {
      */
     public readonly streamConfiguration!: pulumi.Output<outputs.nimblestudio.LaunchProfileStreamConfiguration>;
     /**
-     * <p>Unique identifiers for a collection of studio components that can be used with this
-     *             launch profile.</p>
+     * Unique identifiers for a collection of studio components that can be used with this launch profile.
      */
     public readonly studioComponentIds!: pulumi.Output<string[]>;
     /**
-     * <p>The studio ID. </p>
+     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
      */
     public readonly studioId!: pulumi.Output<string>;
     /**
@@ -137,21 +134,19 @@ export class LaunchProfile extends pulumi.CustomResource {
  */
 export interface LaunchProfileArgs {
     /**
-     * <p>The description.</p>
+     * A human-readable description of the launch profile.
      */
     description?: pulumi.Input<string>;
     /**
-     * <p>Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
-     *             These subnets must support the specified instance types. </p>
+     * Unique identifiers for a collection of EC2 subnets.
      */
     ec2SubnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * <p>The version number of the protocol that is used by the launch profile. The only valid
-     *             version is "2021-03-31".</p>
+     * The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
      */
     launchProfileProtocolVersions: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * <p>The name for the launch profile.</p>
+     * A friendly name for the launch profile.
      */
     name?: pulumi.Input<string>;
     /**
@@ -159,12 +154,11 @@ export interface LaunchProfileArgs {
      */
     streamConfiguration: pulumi.Input<inputs.nimblestudio.LaunchProfileStreamConfigurationArgs>;
     /**
-     * <p>Unique identifiers for a collection of studio components that can be used with this
-     *             launch profile.</p>
+     * Unique identifiers for a collection of studio components that can be used with this launch profile.
      */
     studioComponentIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * <p>The studio ID. </p>
+     * The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
      */
     studioId: pulumi.Input<string>;
     /**

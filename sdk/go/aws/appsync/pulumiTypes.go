@@ -391,13 +391,95 @@ func (o ApiCognitoConfigPtrOutput) UserPoolId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A map of DNS names for the AppSync API.
+type ApiDnsMap struct {
+	// The domain name of the Api's HTTP endpoint.
+	Http *string `pulumi:"http"`
+	// The domain name of the Api's real-time endpoint.
+	Realtime *string `pulumi:"realtime"`
+}
+
+// A map of DNS names for the AppSync API.
+type ApiDnsMapOutput struct{ *pulumi.OutputState }
+
+func (ApiDnsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApiDnsMap)(nil)).Elem()
+}
+
+func (o ApiDnsMapOutput) ToApiDnsMapOutput() ApiDnsMapOutput {
+	return o
+}
+
+func (o ApiDnsMapOutput) ToApiDnsMapOutputWithContext(ctx context.Context) ApiDnsMapOutput {
+	return o
+}
+
+// The domain name of the Api's HTTP endpoint.
+func (o ApiDnsMapOutput) Http() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiDnsMap) *string { return v.Http }).(pulumi.StringPtrOutput)
+}
+
+// The domain name of the Api's real-time endpoint.
+func (o ApiDnsMapOutput) Realtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApiDnsMap) *string { return v.Realtime }).(pulumi.StringPtrOutput)
+}
+
+type ApiDnsMapPtrOutput struct{ *pulumi.OutputState }
+
+func (ApiDnsMapPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApiDnsMap)(nil)).Elem()
+}
+
+func (o ApiDnsMapPtrOutput) ToApiDnsMapPtrOutput() ApiDnsMapPtrOutput {
+	return o
+}
+
+func (o ApiDnsMapPtrOutput) ToApiDnsMapPtrOutputWithContext(ctx context.Context) ApiDnsMapPtrOutput {
+	return o
+}
+
+func (o ApiDnsMapPtrOutput) Elem() ApiDnsMapOutput {
+	return o.ApplyT(func(v *ApiDnsMap) ApiDnsMap {
+		if v != nil {
+			return *v
+		}
+		var ret ApiDnsMap
+		return ret
+	}).(ApiDnsMapOutput)
+}
+
+// The domain name of the Api's HTTP endpoint.
+func (o ApiDnsMapPtrOutput) Http() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDnsMap) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain name of the Api's real-time endpoint.
+func (o ApiDnsMapPtrOutput) Realtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApiDnsMap) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Realtime
+	}).(pulumi.StringPtrOutput)
+}
+
 // The configuration for an Event Api
 type ApiEventConfig struct {
-	AuthProviders             []ApiAuthProvider  `pulumi:"authProviders"`
-	ConnectionAuthModes       []ApiAuthMode      `pulumi:"connectionAuthModes"`
-	DefaultPublishAuthModes   []ApiAuthMode      `pulumi:"defaultPublishAuthModes"`
-	DefaultSubscribeAuthModes []ApiAuthMode      `pulumi:"defaultSubscribeAuthModes"`
-	LogConfig                 *ApiEventLogConfig `pulumi:"logConfig"`
+	// A list of authorization providers.
+	AuthProviders []ApiAuthProvider `pulumi:"authProviders"`
+	// A list of valid authorization modes for the Event API connections.
+	ConnectionAuthModes []ApiAuthMode `pulumi:"connectionAuthModes"`
+	// A list of valid authorization modes for the Event API publishing.
+	DefaultPublishAuthModes []ApiAuthMode `pulumi:"defaultPublishAuthModes"`
+	// A list of valid authorization modes for the Event API subscriptions.
+	DefaultSubscribeAuthModes []ApiAuthMode `pulumi:"defaultSubscribeAuthModes"`
+	// The CloudWatch Logs configuration for the Event API.
+	LogConfig *ApiEventLogConfig `pulumi:"logConfig"`
 }
 
 // ApiEventConfigInput is an input type that accepts ApiEventConfigArgs and ApiEventConfigOutput values.
@@ -413,11 +495,16 @@ type ApiEventConfigInput interface {
 
 // The configuration for an Event Api
 type ApiEventConfigArgs struct {
-	AuthProviders             ApiAuthProviderArrayInput `pulumi:"authProviders"`
-	ConnectionAuthModes       ApiAuthModeArrayInput     `pulumi:"connectionAuthModes"`
-	DefaultPublishAuthModes   ApiAuthModeArrayInput     `pulumi:"defaultPublishAuthModes"`
-	DefaultSubscribeAuthModes ApiAuthModeArrayInput     `pulumi:"defaultSubscribeAuthModes"`
-	LogConfig                 ApiEventLogConfigPtrInput `pulumi:"logConfig"`
+	// A list of authorization providers.
+	AuthProviders ApiAuthProviderArrayInput `pulumi:"authProviders"`
+	// A list of valid authorization modes for the Event API connections.
+	ConnectionAuthModes ApiAuthModeArrayInput `pulumi:"connectionAuthModes"`
+	// A list of valid authorization modes for the Event API publishing.
+	DefaultPublishAuthModes ApiAuthModeArrayInput `pulumi:"defaultPublishAuthModes"`
+	// A list of valid authorization modes for the Event API subscriptions.
+	DefaultSubscribeAuthModes ApiAuthModeArrayInput `pulumi:"defaultSubscribeAuthModes"`
+	// The CloudWatch Logs configuration for the Event API.
+	LogConfig ApiEventLogConfigPtrInput `pulumi:"logConfig"`
 }
 
 func (ApiEventConfigArgs) ElementType() reflect.Type {
@@ -498,22 +585,27 @@ func (o ApiEventConfigOutput) ToApiEventConfigPtrOutputWithContext(ctx context.C
 	}).(ApiEventConfigPtrOutput)
 }
 
+// A list of authorization providers.
 func (o ApiEventConfigOutput) AuthProviders() ApiAuthProviderArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiAuthProvider { return v.AuthProviders }).(ApiAuthProviderArrayOutput)
 }
 
+// A list of valid authorization modes for the Event API connections.
 func (o ApiEventConfigOutput) ConnectionAuthModes() ApiAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiAuthMode { return v.ConnectionAuthModes }).(ApiAuthModeArrayOutput)
 }
 
+// A list of valid authorization modes for the Event API publishing.
 func (o ApiEventConfigOutput) DefaultPublishAuthModes() ApiAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiAuthMode { return v.DefaultPublishAuthModes }).(ApiAuthModeArrayOutput)
 }
 
+// A list of valid authorization modes for the Event API subscriptions.
 func (o ApiEventConfigOutput) DefaultSubscribeAuthModes() ApiAuthModeArrayOutput {
 	return o.ApplyT(func(v ApiEventConfig) []ApiAuthMode { return v.DefaultSubscribeAuthModes }).(ApiAuthModeArrayOutput)
 }
 
+// The CloudWatch Logs configuration for the Event API.
 func (o ApiEventConfigOutput) LogConfig() ApiEventLogConfigPtrOutput {
 	return o.ApplyT(func(v ApiEventConfig) *ApiEventLogConfig { return v.LogConfig }).(ApiEventLogConfigPtrOutput)
 }
@@ -542,6 +634,7 @@ func (o ApiEventConfigPtrOutput) Elem() ApiEventConfigOutput {
 	}).(ApiEventConfigOutput)
 }
 
+// A list of authorization providers.
 func (o ApiEventConfigPtrOutput) AuthProviders() ApiAuthProviderArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiAuthProvider {
 		if v == nil {
@@ -551,6 +644,7 @@ func (o ApiEventConfigPtrOutput) AuthProviders() ApiAuthProviderArrayOutput {
 	}).(ApiAuthProviderArrayOutput)
 }
 
+// A list of valid authorization modes for the Event API connections.
 func (o ApiEventConfigPtrOutput) ConnectionAuthModes() ApiAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiAuthMode {
 		if v == nil {
@@ -560,6 +654,7 @@ func (o ApiEventConfigPtrOutput) ConnectionAuthModes() ApiAuthModeArrayOutput {
 	}).(ApiAuthModeArrayOutput)
 }
 
+// A list of valid authorization modes for the Event API publishing.
 func (o ApiEventConfigPtrOutput) DefaultPublishAuthModes() ApiAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiAuthMode {
 		if v == nil {
@@ -569,6 +664,7 @@ func (o ApiEventConfigPtrOutput) DefaultPublishAuthModes() ApiAuthModeArrayOutpu
 	}).(ApiAuthModeArrayOutput)
 }
 
+// A list of valid authorization modes for the Event API subscriptions.
 func (o ApiEventConfigPtrOutput) DefaultSubscribeAuthModes() ApiAuthModeArrayOutput {
 	return o.ApplyT(func(v *ApiEventConfig) []ApiAuthMode {
 		if v == nil {
@@ -578,6 +674,7 @@ func (o ApiEventConfigPtrOutput) DefaultSubscribeAuthModes() ApiAuthModeArrayOut
 	}).(ApiAuthModeArrayOutput)
 }
 
+// The CloudWatch Logs configuration for the Event API.
 func (o ApiEventConfigPtrOutput) LogConfig() ApiEventLogConfigPtrOutput {
 	return o.ApplyT(func(v *ApiEventConfig) *ApiEventLogConfig {
 		if v == nil {
@@ -589,8 +686,10 @@ func (o ApiEventConfigPtrOutput) LogConfig() ApiEventLogConfigPtrOutput {
 
 // The log config for the AppSync API.
 type ApiEventLogConfig struct {
-	CloudWatchLogsRoleArn string           `pulumi:"cloudWatchLogsRoleArn"`
-	LogLevel              ApiEventLogLevel `pulumi:"logLevel"`
+	// The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
+	CloudWatchLogsRoleArn string `pulumi:"cloudWatchLogsRoleArn"`
+	// The type of information to log for the Event API.
+	LogLevel ApiEventLogLevel `pulumi:"logLevel"`
 }
 
 // ApiEventLogConfigInput is an input type that accepts ApiEventLogConfigArgs and ApiEventLogConfigOutput values.
@@ -606,8 +705,10 @@ type ApiEventLogConfigInput interface {
 
 // The log config for the AppSync API.
 type ApiEventLogConfigArgs struct {
-	CloudWatchLogsRoleArn pulumi.StringInput    `pulumi:"cloudWatchLogsRoleArn"`
-	LogLevel              ApiEventLogLevelInput `pulumi:"logLevel"`
+	// The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
+	CloudWatchLogsRoleArn pulumi.StringInput `pulumi:"cloudWatchLogsRoleArn"`
+	// The type of information to log for the Event API.
+	LogLevel ApiEventLogLevelInput `pulumi:"logLevel"`
 }
 
 func (ApiEventLogConfigArgs) ElementType() reflect.Type {
@@ -688,10 +789,12 @@ func (o ApiEventLogConfigOutput) ToApiEventLogConfigPtrOutputWithContext(ctx con
 	}).(ApiEventLogConfigPtrOutput)
 }
 
+// The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
 func (o ApiEventLogConfigOutput) CloudWatchLogsRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ApiEventLogConfig) string { return v.CloudWatchLogsRoleArn }).(pulumi.StringOutput)
 }
 
+// The type of information to log for the Event API.
 func (o ApiEventLogConfigOutput) LogLevel() ApiEventLogLevelOutput {
 	return o.ApplyT(func(v ApiEventLogConfig) ApiEventLogLevel { return v.LogLevel }).(ApiEventLogLevelOutput)
 }
@@ -720,6 +823,7 @@ func (o ApiEventLogConfigPtrOutput) Elem() ApiEventLogConfigOutput {
 	}).(ApiEventLogConfigOutput)
 }
 
+// The IAM service role that AWS AppSync assumes to publish CloudWatch Logs in your account.
 func (o ApiEventLogConfigPtrOutput) CloudWatchLogsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiEventLogConfig) *string {
 		if v == nil {
@@ -729,6 +833,7 @@ func (o ApiEventLogConfigPtrOutput) CloudWatchLogsRoleArn() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of information to log for the Event API.
 func (o ApiEventLogConfigPtrOutput) LogLevel() ApiEventLogLevelPtrOutput {
 	return o.ApplyT(func(v *ApiEventLogConfig) *ApiEventLogLevel {
 		if v == nil {
@@ -5749,6 +5854,8 @@ func init() {
 	pulumi.RegisterOutputType(ApiAuthProviderArrayOutput{})
 	pulumi.RegisterOutputType(ApiCognitoConfigOutput{})
 	pulumi.RegisterOutputType(ApiCognitoConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApiDnsMapOutput{})
+	pulumi.RegisterOutputType(ApiDnsMapPtrOutput{})
 	pulumi.RegisterOutputType(ApiEventConfigOutput{})
 	pulumi.RegisterOutputType(ApiEventConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApiEventLogConfigOutput{})

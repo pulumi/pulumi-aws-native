@@ -16,14 +16,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceStarburstParameters
     {
+        public readonly Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType? AuthenticationType;
         /// <summary>
         /// &lt;p&gt;The catalog name for the Starburst data source.&lt;/p&gt;
         /// </summary>
         public readonly string Catalog;
+        public readonly string? DatabaseAccessControlRole;
         /// <summary>
         /// &lt;p&gt;The host name of the Starburst data source.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
+        public readonly Outputs.DataSourceOAuthParameters? OAuthParameters;
         /// <summary>
         /// &lt;p&gt;The port for the Starburst data source.&lt;/p&gt;
         /// </summary>
@@ -35,16 +38,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private DataSourceStarburstParameters(
+            Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType? authenticationType,
+
             string catalog,
 
+            string? databaseAccessControlRole,
+
             string host,
+
+            Outputs.DataSourceOAuthParameters? oAuthParameters,
 
             double port,
 
             Pulumi.AwsNative.QuickSight.DataSourceStarburstProductType? productType)
         {
+            AuthenticationType = authenticationType;
             Catalog = catalog;
+            DatabaseAccessControlRole = databaseAccessControlRole;
             Host = host;
+            OAuthParameters = oAuthParameters;
             Port = port;
             ProductType = productType;
         }

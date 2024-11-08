@@ -53,7 +53,7 @@ class ServiceArgs:
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
                 A capacity provider strategy may contain a maximum of 6 capacity providers.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
         :param pulumi.Input[int] desired_count: The number of instantiations of the specified task definition to place and keep running in your service.
                 For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
@@ -178,7 +178,7 @@ class ServiceArgs:
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]:
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         """
         return pulumi.get(self, "deployment_configuration")
 
@@ -493,7 +493,7 @@ class Service(pulumi.CustomResource):
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
                 A capacity provider strategy may contain a maximum of 6 capacity providers.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
         :param pulumi.Input[int] desired_count: The number of instantiations of the specified task definition to place and keep running in your service.
                 For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
@@ -697,7 +697,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentConfiguration']]:
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
         """
         return pulumi.get(self, "deployment_configuration")
 

@@ -45,23 +45,44 @@ export class ApplicationInferenceProfile extends pulumi.CustomResource {
      * Description of the inference profile
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the inference profile.
+     */
     public /*out*/ readonly inferenceProfileArn!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the inference profile.
+     */
     public /*out*/ readonly inferenceProfileId!: pulumi.Output<string>;
     /**
      * Inference profile identifier. Supports both system-defined inference profile ids, and inference profile ARNs.
      */
     public /*out*/ readonly inferenceProfileIdentifier!: pulumi.Output<string>;
+    /**
+     * The name of the inference profile.
+     */
     public readonly inferenceProfileName!: pulumi.Output<string>;
+    /**
+     * Contains configurations for the inference profile to copy as the resource.
+     */
     public readonly modelSource!: pulumi.Output<outputs.bedrock.ApplicationInferenceProfileInferenceProfileModelSourceProperties | undefined>;
     /**
      * List of model configuration
      */
     public /*out*/ readonly models!: pulumi.Output<outputs.bedrock.ApplicationInferenceProfileInferenceProfileModel[]>;
+    /**
+     * The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
+     */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrock.ApplicationInferenceProfileInferenceProfileStatus>;
     /**
      * List of Tags
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The type of the inference profile. The following types are possible:
+     *
+     * - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+     * - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
+     */
     public /*out*/ readonly type!: pulumi.Output<enums.bedrock.ApplicationInferenceProfileInferenceProfileType>;
     /**
      * Time Stamp
@@ -120,7 +141,13 @@ export interface ApplicationInferenceProfileArgs {
      * Description of the inference profile
      */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the inference profile.
+     */
     inferenceProfileName?: pulumi.Input<string>;
+    /**
+     * Contains configurations for the inference profile to copy as the resource.
+     */
     modelSource?: pulumi.Input<inputs.bedrock.ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs>;
     /**
      * List of Tags

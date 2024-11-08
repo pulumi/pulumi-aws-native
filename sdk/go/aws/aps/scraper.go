@@ -52,9 +52,6 @@ func NewScraper(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"alias",
-		"destination",
-		"scrapeConfiguration",
 		"source",
 	})
 	opts = append(opts, replaceOnChanges)

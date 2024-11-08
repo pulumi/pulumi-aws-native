@@ -13,6 +13,114 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateTableConditionalFormattingOption struct {
+	// The cell conditional formatting option for a table.
+	Cell *TemplateTableCellConditionalFormatting `pulumi:"cell"`
+	// The row conditional formatting option for a table.
+	Row *TemplateTableRowConditionalFormatting `pulumi:"row"`
+}
+
+// TemplateTableConditionalFormattingOptionInput is an input type that accepts TemplateTableConditionalFormattingOptionArgs and TemplateTableConditionalFormattingOptionOutput values.
+// You can construct a concrete instance of `TemplateTableConditionalFormattingOptionInput` via:
+//
+//	TemplateTableConditionalFormattingOptionArgs{...}
+type TemplateTableConditionalFormattingOptionInput interface {
+	pulumi.Input
+
+	ToTemplateTableConditionalFormattingOptionOutput() TemplateTableConditionalFormattingOptionOutput
+	ToTemplateTableConditionalFormattingOptionOutputWithContext(context.Context) TemplateTableConditionalFormattingOptionOutput
+}
+
+type TemplateTableConditionalFormattingOptionArgs struct {
+	// The cell conditional formatting option for a table.
+	Cell TemplateTableCellConditionalFormattingPtrInput `pulumi:"cell"`
+	// The row conditional formatting option for a table.
+	Row TemplateTableRowConditionalFormattingPtrInput `pulumi:"row"`
+}
+
+func (TemplateTableConditionalFormattingOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableConditionalFormattingOption)(nil)).Elem()
+}
+
+func (i TemplateTableConditionalFormattingOptionArgs) ToTemplateTableConditionalFormattingOptionOutput() TemplateTableConditionalFormattingOptionOutput {
+	return i.ToTemplateTableConditionalFormattingOptionOutputWithContext(context.Background())
+}
+
+func (i TemplateTableConditionalFormattingOptionArgs) ToTemplateTableConditionalFormattingOptionOutputWithContext(ctx context.Context) TemplateTableConditionalFormattingOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConditionalFormattingOptionOutput)
+}
+
+// TemplateTableConditionalFormattingOptionArrayInput is an input type that accepts TemplateTableConditionalFormattingOptionArray and TemplateTableConditionalFormattingOptionArrayOutput values.
+// You can construct a concrete instance of `TemplateTableConditionalFormattingOptionArrayInput` via:
+//
+//	TemplateTableConditionalFormattingOptionArray{ TemplateTableConditionalFormattingOptionArgs{...} }
+type TemplateTableConditionalFormattingOptionArrayInput interface {
+	pulumi.Input
+
+	ToTemplateTableConditionalFormattingOptionArrayOutput() TemplateTableConditionalFormattingOptionArrayOutput
+	ToTemplateTableConditionalFormattingOptionArrayOutputWithContext(context.Context) TemplateTableConditionalFormattingOptionArrayOutput
+}
+
+type TemplateTableConditionalFormattingOptionArray []TemplateTableConditionalFormattingOptionInput
+
+func (TemplateTableConditionalFormattingOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTableConditionalFormattingOption)(nil)).Elem()
+}
+
+func (i TemplateTableConditionalFormattingOptionArray) ToTemplateTableConditionalFormattingOptionArrayOutput() TemplateTableConditionalFormattingOptionArrayOutput {
+	return i.ToTemplateTableConditionalFormattingOptionArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateTableConditionalFormattingOptionArray) ToTemplateTableConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) TemplateTableConditionalFormattingOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateTableConditionalFormattingOptionArrayOutput)
+}
+
+type TemplateTableConditionalFormattingOptionOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableConditionalFormattingOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateTableConditionalFormattingOption)(nil)).Elem()
+}
+
+func (o TemplateTableConditionalFormattingOptionOutput) ToTemplateTableConditionalFormattingOptionOutput() TemplateTableConditionalFormattingOptionOutput {
+	return o
+}
+
+func (o TemplateTableConditionalFormattingOptionOutput) ToTemplateTableConditionalFormattingOptionOutputWithContext(ctx context.Context) TemplateTableConditionalFormattingOptionOutput {
+	return o
+}
+
+// The cell conditional formatting option for a table.
+func (o TemplateTableConditionalFormattingOptionOutput) Cell() TemplateTableCellConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v TemplateTableConditionalFormattingOption) *TemplateTableCellConditionalFormatting {
+		return v.Cell
+	}).(TemplateTableCellConditionalFormattingPtrOutput)
+}
+
+// The row conditional formatting option for a table.
+func (o TemplateTableConditionalFormattingOptionOutput) Row() TemplateTableRowConditionalFormattingPtrOutput {
+	return o.ApplyT(func(v TemplateTableConditionalFormattingOption) *TemplateTableRowConditionalFormatting { return v.Row }).(TemplateTableRowConditionalFormattingPtrOutput)
+}
+
+type TemplateTableConditionalFormattingOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateTableConditionalFormattingOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateTableConditionalFormattingOption)(nil)).Elem()
+}
+
+func (o TemplateTableConditionalFormattingOptionArrayOutput) ToTemplateTableConditionalFormattingOptionArrayOutput() TemplateTableConditionalFormattingOptionArrayOutput {
+	return o
+}
+
+func (o TemplateTableConditionalFormattingOptionArrayOutput) ToTemplateTableConditionalFormattingOptionArrayOutputWithContext(ctx context.Context) TemplateTableConditionalFormattingOptionArrayOutput {
+	return o
+}
+
+func (o TemplateTableConditionalFormattingOptionArrayOutput) Index(i pulumi.IntInput) TemplateTableConditionalFormattingOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateTableConditionalFormattingOption {
+		return vs[0].([]TemplateTableConditionalFormattingOption)[vs[1].(int)]
+	}).(TemplateTableConditionalFormattingOptionOutput)
+}
+
 type TemplateTableConfiguration struct {
 	// The field options for a table visual.
 	FieldOptions *TemplateTableFieldOptions `pulumi:"fieldOptions"`
@@ -20299,6 +20407,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingOptionInput)(nil)).Elem(), TemplateTableConditionalFormattingOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConditionalFormattingOptionArrayInput)(nil)).Elem(), TemplateTableConditionalFormattingOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConfigurationInput)(nil)).Elem(), TemplateTableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableConfigurationPtrInput)(nil)).Elem(), TemplateTableConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateTableFieldCustomIconContentInput)(nil)).Elem(), TemplateTableFieldCustomIconContentArgs{})
@@ -20517,6 +20627,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateTableConditionalFormattingOptionOutput{})
+	pulumi.RegisterOutputType(TemplateTableConditionalFormattingOptionArrayOutput{})
 	pulumi.RegisterOutputType(TemplateTableConfigurationOutput{})
 	pulumi.RegisterOutputType(TemplateTableConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateTableFieldCustomIconContentOutput{})

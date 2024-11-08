@@ -26,6 +26,7 @@ class DeliveryDestinationArgs:
                  delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input['DeliveryDestinationDestinationPolicyArgs']]]] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DeliveryDestination resource.
@@ -36,6 +37,7 @@ class DeliveryDestinationArgs:
                Length Constraints: Maximum length of 51200
         :param pulumi.Input[str] destination_resource_arn: The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         :param pulumi.Input[str] name: The name of this delivery destination.
+        :param pulumi.Input[str] output_format: The format of the logs that are sent to this delivery destination.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags that have been assigned to this delivery destination.
         """
         if delivery_destination_policy is not None:
@@ -44,6 +46,8 @@ class DeliveryDestinationArgs:
             pulumi.set(__self__, "destination_resource_arn", destination_resource_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if output_format is not None:
+            pulumi.set(__self__, "output_format", output_format)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -88,6 +92,18 @@ class DeliveryDestinationArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format of the logs that are sent to this delivery destination.
+        """
+        return pulumi.get(self, "output_format")
+
+    @output_format.setter
+    def output_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_format", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -108,6 +124,7 @@ class DeliveryDestination(pulumi.CustomResource):
                  delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]]]] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -124,6 +141,7 @@ class DeliveryDestination(pulumi.CustomResource):
                Length Constraints: Maximum length of 51200
         :param pulumi.Input[str] destination_resource_arn: The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Firehose.
         :param pulumi.Input[str] name: The name of this delivery destination.
+        :param pulumi.Input[str] output_format: The format of the logs that are sent to this delivery destination.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that have been assigned to this delivery destination.
         """
         ...
@@ -155,6 +173,7 @@ class DeliveryDestination(pulumi.CustomResource):
                  delivery_destination_policy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DeliveryDestinationDestinationPolicyArgs', 'DeliveryDestinationDestinationPolicyArgsDict']]]]] = None,
                  destination_resource_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 output_format: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -168,10 +187,11 @@ class DeliveryDestination(pulumi.CustomResource):
             __props__.__dict__["delivery_destination_policy"] = delivery_destination_policy
             __props__.__dict__["destination_resource_arn"] = destination_resource_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["output_format"] = output_format
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["delivery_destination_type"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationResourceArn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["destinationResourceArn", "name", "outputFormat"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryDestination, __self__).__init__(
             'aws-native:logs:DeliveryDestination',
@@ -200,6 +220,7 @@ class DeliveryDestination(pulumi.CustomResource):
         __props__.__dict__["delivery_destination_type"] = None
         __props__.__dict__["destination_resource_arn"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["output_format"] = None
         __props__.__dict__["tags"] = None
         return DeliveryDestination(resource_name, opts=opts, __props__=__props__)
 
@@ -246,6 +267,14 @@ class DeliveryDestination(pulumi.CustomResource):
         The name of this delivery destination.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="outputFormat")
+    def output_format(self) -> pulumi.Output[Optional[str]]:
+        """
+        The format of the logs that are sent to this delivery destination.
+        """
+        return pulumi.get(self, "output_format")
 
     @property
     @pulumi.getter

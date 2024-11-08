@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['StudioComponentArgs', 'StudioComponent']
@@ -23,30 +22,26 @@ __all__ = ['StudioComponentArgs', 'StudioComponent']
 class StudioComponentArgs:
     def __init__(__self__, *,
                  studio_id: pulumi.Input[str],
-                 type: pulumi.Input['StudioComponentType'],
-                 configuration: Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]] = None,
+                 type: pulumi.Input[str],
+                 configuration: Optional[pulumi.Input['StudioComponentConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 runtime_role_arn: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]] = None,
-                 secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
-                 subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
+                 subtype: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a StudioComponent resource.
-        :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
-        :param pulumi.Input['StudioComponentType'] type: The type of the studio component.
-        :param pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']] configuration: The configuration of the studio component, based on component type.
-        :param pulumi.Input[str] description: <p>The description.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
-        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]] initialization_scripts: <p>Initialization scripts for studio components.</p>
-        :param pulumi.Input[str] name: <p>The name for the studio component.</p>
-        :param pulumi.Input[str] runtime_role_arn: An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]] script_parameters: <p>Parameters for the studio component scripts.</p>
-        :param pulumi.Input[str] secure_initialization_role_arn: An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-        :param pulumi.Input['StudioComponentSubtype'] subtype: The specific subtype of a studio component.
+        :param pulumi.Input[str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
+        :param pulumi.Input[str] type: The type of the studio component.
+        :param pulumi.Input['StudioComponentConfigurationArgs'] configuration: The configuration of the studio component, based on component type.
+        :param pulumi.Input[str] description: A human-readable description for the studio component resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: The EC2 security groups that control access to the studio component.
+        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]] initialization_scripts: Initialization scripts for studio components.
+        :param pulumi.Input[str] name: A friendly name for the studio component resource.
+        :param pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]] script_parameters: Parameters for the studio component scripts.
+        :param pulumi.Input[str] subtype: The specific subtype of a studio component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -63,12 +58,8 @@ class StudioComponentArgs:
             pulumi.set(__self__, "initialization_scripts", initialization_scripts)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if runtime_role_arn is not None:
-            pulumi.set(__self__, "runtime_role_arn", runtime_role_arn)
         if script_parameters is not None:
             pulumi.set(__self__, "script_parameters", script_parameters)
-        if secure_initialization_role_arn is not None:
-            pulumi.set(__self__, "secure_initialization_role_arn", secure_initialization_role_arn)
         if subtype is not None:
             pulumi.set(__self__, "subtype", subtype)
         if tags is not None:
@@ -78,7 +69,7 @@ class StudioComponentArgs:
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Input[str]:
         """
-        <p>The studio ID. </p>
+        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         """
         return pulumi.get(self, "studio_id")
 
@@ -88,33 +79,33 @@ class StudioComponentArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['StudioComponentType']:
+    def type(self) -> pulumi.Input[str]:
         """
         The type of the studio component.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['StudioComponentType']):
+    def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]]:
+    def configuration(self) -> Optional[pulumi.Input['StudioComponentConfigurationArgs']]:
         """
         The configuration of the studio component, based on component type.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgs']]]):
+    def configuration(self, value: Optional[pulumi.Input['StudioComponentConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The description.</p>
+        A human-readable description for the studio component resource.
         """
         return pulumi.get(self, "description")
 
@@ -126,7 +117,7 @@ class StudioComponentArgs:
     @pulumi.getter(name="ec2SecurityGroupIds")
     def ec2_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        <p>The EC2 security groups that control access to the studio component.</p>
+        The EC2 security groups that control access to the studio component.
         """
         return pulumi.get(self, "ec2_security_group_ids")
 
@@ -138,7 +129,7 @@ class StudioComponentArgs:
     @pulumi.getter(name="initializationScripts")
     def initialization_scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentInitializationScriptArgs']]]]:
         """
-        <p>Initialization scripts for studio components.</p>
+        Initialization scripts for studio components.
         """
         return pulumi.get(self, "initialization_scripts")
 
@@ -150,7 +141,7 @@ class StudioComponentArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        <p>The name for the studio component.</p>
+        A friendly name for the studio component resource.
         """
         return pulumi.get(self, "name")
 
@@ -159,22 +150,10 @@ class StudioComponentArgs:
         pulumi.set(self, "name", value)
 
     @property
-    @pulumi.getter(name="runtimeRoleArn")
-    def runtime_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-        """
-        return pulumi.get(self, "runtime_role_arn")
-
-    @runtime_role_arn.setter
-    def runtime_role_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "runtime_role_arn", value)
-
-    @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StudioComponentScriptParameterKeyValueArgs']]]]:
         """
-        <p>Parameters for the studio component scripts.</p>
+        Parameters for the studio component scripts.
         """
         return pulumi.get(self, "script_parameters")
 
@@ -183,27 +162,15 @@ class StudioComponentArgs:
         pulumi.set(self, "script_parameters", value)
 
     @property
-    @pulumi.getter(name="secureInitializationRoleArn")
-    def secure_initialization_role_arn(self) -> Optional[pulumi.Input[str]]:
-        """
-        An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-        """
-        return pulumi.get(self, "secure_initialization_role_arn")
-
-    @secure_initialization_role_arn.setter
-    def secure_initialization_role_arn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secure_initialization_role_arn", value)
-
-    @property
     @pulumi.getter
-    def subtype(self) -> Optional[pulumi.Input['StudioComponentSubtype']]:
+    def subtype(self) -> Optional[pulumi.Input[str]]:
         """
         The specific subtype of a studio component.
         """
         return pulumi.get(self, "subtype")
 
     @subtype.setter
-    def subtype(self, value: Optional[pulumi.Input['StudioComponentSubtype']]):
+    def subtype(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subtype", value)
 
     @property
@@ -226,38 +193,34 @@ class StudioComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration0PropertiesArgsDict'], Union['StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgsDict'], Union['StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgsDict'], Union['StudioComponentConfiguration3PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgsDict']]]] = None,
+                 configuration: Optional[pulumi.Input[Union['StudioComponentConfigurationArgs', 'StudioComponentConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 runtime_role_arn: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]]] = None,
-                 secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
+                 subtype: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input['StudioComponentType']] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+        Resource Type definition for AWS::NimbleStudio::StudioComponent
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration0PropertiesArgsDict'], Union['StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgsDict'], Union['StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgsDict'], Union['StudioComponentConfiguration3PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgsDict']]] configuration: The configuration of the studio component, based on component type.
-        :param pulumi.Input[str] description: <p>The description.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: <p>The EC2 security groups that control access to the studio component.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]] initialization_scripts: <p>Initialization scripts for studio components.</p>
-        :param pulumi.Input[str] name: <p>The name for the studio component.</p>
-        :param pulumi.Input[str] runtime_role_arn: An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]] script_parameters: <p>Parameters for the studio component scripts.</p>
-        :param pulumi.Input[str] secure_initialization_role_arn: An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-        :param pulumi.Input[str] studio_id: <p>The studio ID. </p>
-        :param pulumi.Input['StudioComponentSubtype'] subtype: The specific subtype of a studio component.
+        :param pulumi.Input[Union['StudioComponentConfigurationArgs', 'StudioComponentConfigurationArgsDict']] configuration: The configuration of the studio component, based on component type.
+        :param pulumi.Input[str] description: A human-readable description for the studio component resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ec2_security_group_ids: The EC2 security groups that control access to the studio component.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]] initialization_scripts: Initialization scripts for studio components.
+        :param pulumi.Input[str] name: A friendly name for the studio component resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]] script_parameters: Parameters for the studio component scripts.
+        :param pulumi.Input[str] studio_id: The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
+        :param pulumi.Input[str] subtype: The specific subtype of a studio component.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
-        :param pulumi.Input['StudioComponentType'] type: The type of the studio component.
+        :param pulumi.Input[str] type: The type of the studio component.
         """
         ...
     @overload
@@ -266,7 +229,7 @@ class StudioComponent(pulumi.CustomResource):
                  args: StudioComponentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents a studio component that connects a non-Nimble Studio resource in your account to your studio
+        Resource Type definition for AWS::NimbleStudio::StudioComponent
 
         :param str resource_name: The name of the resource.
         :param StudioComponentArgs args: The arguments to use to populate this resource's properties.
@@ -283,18 +246,16 @@ class StudioComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['StudioComponentConfiguration0PropertiesArgs', 'StudioComponentConfiguration0PropertiesArgsDict'], Union['StudioComponentConfiguration1PropertiesArgs', 'StudioComponentConfiguration1PropertiesArgsDict'], Union['StudioComponentConfiguration2PropertiesArgs', 'StudioComponentConfiguration2PropertiesArgsDict'], Union['StudioComponentConfiguration3PropertiesArgs', 'StudioComponentConfiguration3PropertiesArgsDict']]]] = None,
+                 configuration: Optional[pulumi.Input[Union['StudioComponentConfigurationArgs', 'StudioComponentConfigurationArgsDict']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ec2_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  initialization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentInitializationScriptArgs', 'StudioComponentInitializationScriptArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 runtime_role_arn: Optional[pulumi.Input[str]] = None,
                  script_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StudioComponentScriptParameterKeyValueArgs', 'StudioComponentScriptParameterKeyValueArgsDict']]]]] = None,
-                 secure_initialization_role_arn: Optional[pulumi.Input[str]] = None,
                  studio_id: Optional[pulumi.Input[str]] = None,
-                 subtype: Optional[pulumi.Input['StudioComponentSubtype']] = None,
+                 subtype: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input['StudioComponentType']] = None,
+                 type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -309,9 +270,7 @@ class StudioComponent(pulumi.CustomResource):
             __props__.__dict__["ec2_security_group_ids"] = ec2_security_group_ids
             __props__.__dict__["initialization_scripts"] = initialization_scripts
             __props__.__dict__["name"] = name
-            __props__.__dict__["runtime_role_arn"] = runtime_role_arn
             __props__.__dict__["script_parameters"] = script_parameters
-            __props__.__dict__["secure_initialization_role_arn"] = secure_initialization_role_arn
             if studio_id is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_id'")
             __props__.__dict__["studio_id"] = studio_id
@@ -350,9 +309,7 @@ class StudioComponent(pulumi.CustomResource):
         __props__.__dict__["ec2_security_group_ids"] = None
         __props__.__dict__["initialization_scripts"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["runtime_role_arn"] = None
         __props__.__dict__["script_parameters"] = None
-        __props__.__dict__["secure_initialization_role_arn"] = None
         __props__.__dict__["studio_component_id"] = None
         __props__.__dict__["studio_id"] = None
         __props__.__dict__["subtype"] = None
@@ -362,7 +319,7 @@ class StudioComponent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional[Any]]:
+    def configuration(self) -> pulumi.Output[Optional['outputs.StudioComponentConfiguration']]:
         """
         The configuration of the studio component, based on component type.
         """
@@ -372,7 +329,7 @@ class StudioComponent(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        <p>The description.</p>
+        A human-readable description for the studio component resource.
         """
         return pulumi.get(self, "description")
 
@@ -380,7 +337,7 @@ class StudioComponent(pulumi.CustomResource):
     @pulumi.getter(name="ec2SecurityGroupIds")
     def ec2_security_group_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        <p>The EC2 security groups that control access to the studio component.</p>
+        The EC2 security groups that control access to the studio component.
         """
         return pulumi.get(self, "ec2_security_group_ids")
 
@@ -388,7 +345,7 @@ class StudioComponent(pulumi.CustomResource):
     @pulumi.getter(name="initializationScripts")
     def initialization_scripts(self) -> pulumi.Output[Optional[Sequence['outputs.StudioComponentInitializationScript']]]:
         """
-        <p>Initialization scripts for studio components.</p>
+        Initialization scripts for studio components.
         """
         return pulumi.get(self, "initialization_scripts")
 
@@ -396,33 +353,17 @@ class StudioComponent(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        <p>The name for the studio component.</p>
+        A friendly name for the studio component resource.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="runtimeRoleArn")
-    def runtime_role_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running.
-        """
-        return pulumi.get(self, "runtime_role_arn")
 
     @property
     @pulumi.getter(name="scriptParameters")
     def script_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.StudioComponentScriptParameterKeyValue']]]:
         """
-        <p>Parameters for the studio component scripts.</p>
+        Parameters for the studio component scripts.
         """
         return pulumi.get(self, "script_parameters")
-
-    @property
-    @pulumi.getter(name="secureInitializationRoleArn")
-    def secure_initialization_role_arn(self) -> pulumi.Output[Optional[str]]:
-        """
-        An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.
-        """
-        return pulumi.get(self, "secure_initialization_role_arn")
 
     @property
     @pulumi.getter(name="studioComponentId")
@@ -436,13 +377,13 @@ class StudioComponent(pulumi.CustomResource):
     @pulumi.getter(name="studioId")
     def studio_id(self) -> pulumi.Output[str]:
         """
-        <p>The studio ID. </p>
+        The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         """
         return pulumi.get(self, "studio_id")
 
     @property
     @pulumi.getter
-    def subtype(self) -> pulumi.Output[Optional['StudioComponentSubtype']]:
+    def subtype(self) -> pulumi.Output[Optional[str]]:
         """
         The specific subtype of a studio component.
         """
@@ -460,7 +401,7 @@ class StudioComponent(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output['StudioComponentType']:
+    def type(self) -> pulumi.Output[str]:
         """
         The type of the studio component.
         """

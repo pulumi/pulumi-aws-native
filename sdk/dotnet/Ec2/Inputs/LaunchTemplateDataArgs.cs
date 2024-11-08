@@ -81,7 +81,8 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.LaunchTemplateElasticInferenceAcceleratorArgs>? _elasticInferenceAccelerators;
 
         /// <summary>
-        /// An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
+        /// Amazon Elastic Inference is no longer available.
+        ///   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
         ///  You cannot specify accelerators from different generations in the same request.
         ///   Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
         /// </summary>
@@ -146,7 +147,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         ///   
         ///   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
         ///  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-        ///   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+        ///   For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
         /// </summary>
         [Input("instanceRequirements")]
         public Input<Inputs.LaunchTemplateInstanceRequirementsArgs>? InstanceRequirements { get; set; }
@@ -263,8 +264,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.TagSpecificationArgs>? _tagSpecifications;
 
         /// <summary>
-        /// The tags to apply to the resources that are created during instance launch.
-        ///  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
+        /// The tags to apply to resources that are created during instance launch.
         ///  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
         /// </summary>
         public InputList<Inputs.TagSpecificationArgs> TagSpecifications

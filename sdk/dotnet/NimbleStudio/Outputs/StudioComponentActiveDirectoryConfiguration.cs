@@ -10,25 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio.Outputs
 {
 
-    /// <summary>
-    /// &lt;p&gt;The configuration for a Microsoft Active Directory (Microsoft AD) studio
-    ///             resource.&lt;/p&gt;
-    /// </summary>
     [OutputType]
     public sealed class StudioComponentActiveDirectoryConfiguration
     {
         /// <summary>
-        /// &lt;p&gt;A collection of custom attributes for an Active Directory computer.&lt;/p&gt;
+        /// A collection of custom attributes for an Active Directory computer.
         /// </summary>
         public readonly ImmutableArray<Outputs.StudioComponentActiveDirectoryComputerAttribute> ComputerAttributes;
         /// <summary>
-        /// &lt;p&gt;The directory ID of the Directory Service for Microsoft Active Directory to access
-        ///             using this studio component.&lt;/p&gt;
+        /// The directory ID of the AWS Directory Service for Microsoft Active Directory to access using this studio component.
         /// </summary>
         public readonly string? DirectoryId;
         /// <summary>
-        /// &lt;p&gt;The distinguished name (DN) and organizational unit (OU) of an Active Directory
-        ///             computer.&lt;/p&gt;
+        /// The distinguished name (DN) and organizational unit (OU) of an Active Directory computer.
         /// </summary>
         public readonly string? OrganizationalUnitDistinguishedName;
 

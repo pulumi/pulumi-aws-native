@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.AppSync
         [Output("apiId")]
         public Output<string> ApiId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the channel namespace.
+        /// </summary>
         [Output("channelNamespaceArn")]
         public Output<string> ChannelNamespaceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The event handler functions that run custom business logic to process published events and subscribe requests.
+        /// </summary>
         [Output("codeHandlers")]
         public Output<string?> CodeHandlers { get; private set; } = null!;
 
@@ -33,6 +39,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("codeS3Location")]
         public Output<string?> CodeS3Location { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the channel namespace. This name must be unique within the `Api` .
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
@@ -48,6 +57,9 @@ namespace Pulumi.AwsNative.AppSync
         [Output("subscribeAuthModes")]
         public Output<ImmutableArray<Outputs.ChannelNamespaceAuthMode>> SubscribeAuthModes { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of tags (key-value pairs) for this channel namespace.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -107,6 +119,9 @@ namespace Pulumi.AwsNative.AppSync
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
 
+        /// <summary>
+        /// The event handler functions that run custom business logic to process published events and subscribe requests.
+        /// </summary>
         [Input("codeHandlers")]
         public Input<string>? CodeHandlers { get; set; }
 
@@ -116,6 +131,9 @@ namespace Pulumi.AwsNative.AppSync
         [Input("codeS3Location")]
         public Input<string>? CodeS3Location { get; set; }
 
+        /// <summary>
+        /// The name of the channel namespace. This name must be unique within the `Api` .
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -145,6 +163,10 @@ namespace Pulumi.AwsNative.AppSync
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A set of tags (key-value pairs) for this channel namespace.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -78,6 +78,22 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? DeliveryId;
         /// <summary>
+        /// The field delimiter to use between record fields when the final output format of a delivery is in Plain , W3C , or Raw format.
+        /// </summary>
+        public readonly string? FieldDelimiter;
+        /// <summary>
+        /// The list of record fields to be delivered to the destination, in order. If the delivery's log source has mandatory fields, they must be included in this list.
+        /// </summary>
+        public readonly ImmutableArray<string> RecordFields;
+        /// <summary>
+        /// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+        /// </summary>
+        public readonly bool? S3EnableHiveCompatiblePath;
+        /// <summary>
+        /// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. See ConfigurationTemplate$allowedSuffixPathFields for more info on what values are supported in the suffix path for each log source.
+        /// </summary>
+        public readonly string? S3SuffixPath;
+        /// <summary>
         /// The tags that have been assigned to this delivery.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -90,11 +106,23 @@ namespace Pulumi.AwsNative.Logs
 
             string? deliveryId,
 
+            string? fieldDelimiter,
+
+            ImmutableArray<string> recordFields,
+
+            bool? s3EnableHiveCompatiblePath,
+
+            string? s3SuffixPath,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             DeliveryDestinationType = deliveryDestinationType;
             DeliveryId = deliveryId;
+            FieldDelimiter = fieldDelimiter;
+            RecordFields = recordFields;
+            S3EnableHiveCompatiblePath = s3EnableHiveCompatiblePath;
+            S3SuffixPath = s3SuffixPath;
             Tags = tags;
         }
     }

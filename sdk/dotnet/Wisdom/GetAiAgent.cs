@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiAgentArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the AI Agent.
+        /// </summary>
         [Input("aiAgentId", required: true)]
         public string AiAgentId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiAgentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the AI Agent.
+        /// </summary>
         [Input("aiAgentId", required: true)]
         public Input<string> AiAgentId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
@@ -57,10 +69,25 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetAiAgentResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AI agent.
+        /// </summary>
         public readonly string? AiAgentArn;
+        /// <summary>
+        /// The identifier of the AI Agent.
+        /// </summary>
         public readonly string? AiAgentId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        /// </summary>
         public readonly string? AssistantArn;
+        /// <summary>
+        /// Configuration for the AI Agent.
+        /// </summary>
         public readonly Union<Outputs.AiAgentAiAgentConfiguration0Properties, Outputs.AiAgentAiAgentConfiguration1Properties>? Configuration;
+        /// <summary>
+        /// The description of the AI Agent.
+        /// </summary>
         public readonly string? Description;
 
         [OutputConstructor]

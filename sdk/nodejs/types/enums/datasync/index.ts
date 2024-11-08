@@ -218,6 +218,16 @@ export const TaskManifestConfigFormat = {
  */
 export type TaskManifestConfigFormat = (typeof TaskManifestConfigFormat)[keyof typeof TaskManifestConfigFormat];
 
+export const TaskMode = {
+    Basic: "BASIC",
+    Enhanced: "ENHANCED",
+} as const;
+
+/**
+ * Specifies the task mode for the task.
+ */
+export type TaskMode = (typeof TaskMode)[keyof typeof TaskMode];
+
 export const TaskOptionsAtime = {
     None: "NONE",
     BestEffort: "BEST_EFFORT",

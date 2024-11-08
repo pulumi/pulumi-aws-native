@@ -67,19 +67,22 @@ class GetApiResult:
 
     @property
     @pulumi.getter
-    def dns(self) -> Optional[Mapping[str, str]]:
+    def dns(self) -> Optional['outputs.ApiDnsMap']:
         return pulumi.get(self, "dns")
 
     @property
     @pulumi.getter(name="eventConfig")
     def event_config(self) -> Optional['outputs.ApiEventConfig']:
+        """
+        Describes the authorization configuration for connections, message publishing, message subscriptions, and logging for an Event API.
+        """
         return pulumi.get(self, "event_config")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The API name.
+        The name of the `Api` .
         """
         return pulumi.get(self, "name")
 
@@ -97,7 +100,7 @@ class GetApiResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags.
+        A set of tags (key-value pairs) for this API.
         """
         return pulumi.get(self, "tags")
 

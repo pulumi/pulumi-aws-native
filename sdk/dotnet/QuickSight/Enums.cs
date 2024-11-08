@@ -1183,6 +1183,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static AnalysisLayoutElementType FilterControl { get; } = new AnalysisLayoutElementType("FILTER_CONTROL");
         public static AnalysisLayoutElementType ParameterControl { get; } = new AnalysisLayoutElementType("PARAMETER_CONTROL");
         public static AnalysisLayoutElementType TextBox { get; } = new AnalysisLayoutElementType("TEXT_BOX");
+        public static AnalysisLayoutElementType Image { get; } = new AnalysisLayoutElementType("IMAGE");
 
         public static bool operator ==(AnalysisLayoutElementType left, AnalysisLayoutElementType right) => left.Equals(right);
         public static bool operator !=(AnalysisLayoutElementType left, AnalysisLayoutElementType right) => !left.Equals(right);
@@ -4681,6 +4682,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static DashboardLayoutElementType FilterControl { get; } = new DashboardLayoutElementType("FILTER_CONTROL");
         public static DashboardLayoutElementType ParameterControl { get; } = new DashboardLayoutElementType("PARAMETER_CONTROL");
         public static DashboardLayoutElementType TextBox { get; } = new DashboardLayoutElementType("TEXT_BOX");
+        public static DashboardLayoutElementType Image { get; } = new DashboardLayoutElementType("IMAGE");
 
         public static bool operator ==(DashboardLayoutElementType left, DashboardLayoutElementType right) => left.Equals(right);
         public static bool operator !=(DashboardLayoutElementType left, DashboardLayoutElementType right) => !left.Equals(right);
@@ -7453,6 +7455,35 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DataSourceAuthenticationType : IEquatable<DataSourceAuthenticationType>
+    {
+        private readonly string _value;
+
+        private DataSourceAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceAuthenticationType Password { get; } = new DataSourceAuthenticationType("PASSWORD");
+        public static DataSourceAuthenticationType Token { get; } = new DataSourceAuthenticationType("TOKEN");
+        public static DataSourceAuthenticationType X509 { get; } = new DataSourceAuthenticationType("X509");
+
+        public static bool operator ==(DataSourceAuthenticationType left, DataSourceAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(DataSourceAuthenticationType left, DataSourceAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceAuthenticationType other && Equals(other);
+        public bool Equals(DataSourceAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DataSourceErrorInfoType : IEquatable<DataSourceErrorInfoType>
     {
         private readonly string _value;
@@ -8943,6 +8974,7 @@ namespace Pulumi.AwsNative.QuickSight
         public static TemplateLayoutElementType FilterControl { get; } = new TemplateLayoutElementType("FILTER_CONTROL");
         public static TemplateLayoutElementType ParameterControl { get; } = new TemplateLayoutElementType("PARAMETER_CONTROL");
         public static TemplateLayoutElementType TextBox { get; } = new TemplateLayoutElementType("TEXT_BOX");
+        public static TemplateLayoutElementType Image { get; } = new TemplateLayoutElementType("IMAGE");
 
         public static bool operator ==(TemplateLayoutElementType left, TemplateLayoutElementType right) => left.Equals(right);
         public static bool operator !=(TemplateLayoutElementType left, TemplateLayoutElementType right) => !left.Equals(right);

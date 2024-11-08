@@ -54,7 +54,14 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotsitewise:TagResource", "iotsitewise:UntagResource", "iotsitewise:ListTagsForResource" ]
+  },
   "required" : [ "DashboardDefinition", "DashboardDescription", "DashboardName" ],
   "readOnlyProperties" : [ "/properties/DashboardArn", "/properties/DashboardId" ],
   "createOnlyProperties" : [ "/properties/ProjectId" ],
@@ -74,7 +81,7 @@
       "permissions" : [ "iotsitewise:DescribeDashboard", "iotsitewise:DeleteDashboard" ]
     },
     "list" : {
-      "permissions" : [ "iotsitewise:ListDashboards" ]
+      "permissions" : [ "iotsitewise:ListDashboards", "iotsitewise:ListTagsForResource" ]
     }
   }
 }

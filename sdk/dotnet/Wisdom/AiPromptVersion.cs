@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("modifiedTimeSeconds")]
         public Output<double?> ModifiedTimeSeconds { get; private set; } = null!;
 
+        /// <summary>
+        /// The version number for this AI Prompt version.
+        /// </summary>
         [Output("versionNumber")]
         public Output<double> VersionNumber { get; private set; } = null!;
 

@@ -58,13 +58,25 @@ namespace Pulumi.AwsNative.Aps
     public sealed class GetScraperResult
     {
         /// <summary>
+        /// Scraper alias.
+        /// </summary>
+        public readonly string? Alias;
+        /// <summary>
         /// Scraper ARN.
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        /// </summary>
+        public readonly Outputs.ScraperDestination? Destination;
+        /// <summary>
         /// IAM role ARN for the scraper.
         /// </summary>
         public readonly string? RoleArn;
+        /// <summary>
+        /// The configuration in use by the scraper.
+        /// </summary>
+        public readonly Outputs.ScraperScrapeConfiguration? ScrapeConfiguration;
         /// <summary>
         /// Required to identify a specific scraper.
         /// </summary>
@@ -76,16 +88,25 @@ namespace Pulumi.AwsNative.Aps
 
         [OutputConstructor]
         private GetScraperResult(
+            string? alias,
+
             string? arn,
 
+            Outputs.ScraperDestination? destination,
+
             string? roleArn,
+
+            Outputs.ScraperScrapeConfiguration? scrapeConfiguration,
 
             string? scraperId,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            Alias = alias;
             Arn = arn;
+            Destination = destination;
             RoleArn = roleArn;
+            ScrapeConfiguration = scrapeConfiguration;
             ScraperId = scraperId;
             Tags = tags;
         }

@@ -1494,6 +1494,7 @@ _utilities.register(
    "aws-native:ec2:SecurityGroup": "SecurityGroup",
    "aws-native:ec2:SecurityGroupEgress": "SecurityGroupEgress",
    "aws-native:ec2:SecurityGroupIngress": "SecurityGroupIngress",
+   "aws-native:ec2:SecurityGroupVpcAssociation": "SecurityGroupVpcAssociation",
    "aws-native:ec2:SnapshotBlockPublicAccess": "SnapshotBlockPublicAccess",
    "aws-native:ec2:SpotFleet": "SpotFleet",
    "aws-native:ec2:Subnet": "Subnet",
@@ -2660,6 +2661,7 @@ _utilities.register(
    "aws-native:rds:DbProxy": "DbProxy",
    "aws-native:rds:DbProxyEndpoint": "DbProxyEndpoint",
    "aws-native:rds:DbProxyTargetGroup": "DbProxyTargetGroup",
+   "aws-native:rds:DbShardGroup": "DbShardGroup",
    "aws-native:rds:DbSubnetGroup": "DbSubnetGroup",
    "aws-native:rds:EventSubscription": "EventSubscription",
    "aws-native:rds:GlobalCluster": "GlobalCluster",
@@ -3162,6 +3164,7 @@ _utilities.register(
    "aws-native:transfer:Connector": "Connector",
    "aws-native:transfer:Profile": "Profile",
    "aws-native:transfer:Server": "Server",
+   "aws-native:transfer:User": "User",
    "aws-native:transfer:Workflow": "Workflow"
   }
  },
@@ -3220,6 +3223,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.wisdom",
   "classes": {
    "aws-native:wisdom:AiAgent": "AiAgent",
+   "aws-native:wisdom:AiAgentVersion": "AiAgentVersion",
    "aws-native:wisdom:AiPrompt": "AiPrompt",
    "aws-native:wisdom:AiPromptVersion": "AiPromptVersion",
    "aws-native:wisdom:Assistant": "Assistant",

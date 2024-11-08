@@ -29,7 +29,13 @@ export interface GetApplicationInferenceProfileResult {
      * Time Stamp
      */
     readonly createdAt?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the inference profile.
+     */
     readonly inferenceProfileArn?: string;
+    /**
+     * The unique identifier of the inference profile.
+     */
     readonly inferenceProfileId?: string;
     /**
      * Inference profile identifier. Supports both system-defined inference profile ids, and inference profile ARNs.
@@ -39,11 +45,20 @@ export interface GetApplicationInferenceProfileResult {
      * List of model configuration
      */
     readonly models?: outputs.bedrock.ApplicationInferenceProfileInferenceProfileModel[];
+    /**
+     * The status of the inference profile. `ACTIVE` means that the inference profile is ready to be used.
+     */
     readonly status?: enums.bedrock.ApplicationInferenceProfileInferenceProfileStatus;
     /**
      * List of Tags
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The type of the inference profile. The following types are possible:
+     *
+     * - `SYSTEM_DEFINED` – The inference profile is defined by Amazon Bedrock. You can route inference requests across regions with these inference profiles.
+     * - `APPLICATION` – The inference profile was created by a user. This type of inference profile can track metrics and costs when invoking the model in it. The inference profile may route requests to one or multiple regions.
+     */
     readonly type?: enums.bedrock.ApplicationInferenceProfileInferenceProfileType;
     /**
      * Time Stamp

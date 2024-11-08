@@ -51,7 +51,7 @@ MYPY = False
 if not MYPY:
     class CisScanConfigurationCisTargetsArgsDict(TypedDict):
         account_ids: pulumi.Input[Sequence[pulumi.Input[str]]]
-        target_resource_tags: NotRequired[pulumi.Input[Mapping[str, Any]]]
+        target_resource_tags: pulumi.Input[Mapping[str, Any]]
 elif False:
     CisScanConfigurationCisTargetsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -59,10 +59,9 @@ elif False:
 class CisScanConfigurationCisTargetsArgs:
     def __init__(__self__, *,
                  account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 target_resource_tags: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 target_resource_tags: pulumi.Input[Mapping[str, Any]]):
         pulumi.set(__self__, "account_ids", account_ids)
-        if target_resource_tags is not None:
-            pulumi.set(__self__, "target_resource_tags", target_resource_tags)
+        pulumi.set(__self__, "target_resource_tags", target_resource_tags)
 
     @property
     @pulumi.getter(name="accountIds")
@@ -75,11 +74,11 @@ class CisScanConfigurationCisTargetsArgs:
 
     @property
     @pulumi.getter(name="targetResourceTags")
-    def target_resource_tags(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def target_resource_tags(self) -> pulumi.Input[Mapping[str, Any]]:
         return pulumi.get(self, "target_resource_tags")
 
     @target_resource_tags.setter
-    def target_resource_tags(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def target_resource_tags(self, value: pulumi.Input[Mapping[str, Any]]):
         pulumi.set(self, "target_resource_tags", value)
 
 

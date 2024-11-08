@@ -260,6 +260,7 @@ __all__ = [
     'DataSetStatus',
     'DataSetTextQualifier',
     'DataSetTimeGranularity',
+    'DataSourceAuthenticationType',
     'DataSourceErrorInfoType',
     'DataSourceResourceStatus',
     'DataSourceStarburstProductType',
@@ -687,6 +688,7 @@ class AnalysisLayoutElementType(str, Enum):
     FILTER_CONTROL = "FILTER_CONTROL"
     PARAMETER_CONTROL = "PARAMETER_CONTROL"
     TEXT_BOX = "TEXT_BOX"
+    IMAGE = "IMAGE"
 
 
 class AnalysisLegendPosition(str, Enum):
@@ -1425,6 +1427,7 @@ class DashboardLayoutElementType(str, Enum):
     FILTER_CONTROL = "FILTER_CONTROL"
     PARAMETER_CONTROL = "PARAMETER_CONTROL"
     TEXT_BOX = "TEXT_BOX"
+    IMAGE = "IMAGE"
 
 
 class DashboardLegendPosition(str, Enum):
@@ -1997,6 +2000,12 @@ class DataSetTimeGranularity(str, Enum):
     MILLISECOND = "MILLISECOND"
 
 
+class DataSourceAuthenticationType(str, Enum):
+    PASSWORD = "PASSWORD"
+    TOKEN = "TOKEN"
+    X509 = "X509"
+
+
 class DataSourceErrorInfoType(str, Enum):
     ACCESS_DENIED = "ACCESS_DENIED"
     COPY_SOURCE_NOT_FOUND = "COPY_SOURCE_NOT_FOUND"
@@ -2375,6 +2384,7 @@ class TemplateLayoutElementType(str, Enum):
     FILTER_CONTROL = "FILTER_CONTROL"
     PARAMETER_CONTROL = "PARAMETER_CONTROL"
     TEXT_BOX = "TEXT_BOX"
+    IMAGE = "IMAGE"
 
 
 class TemplateLegendPosition(str, Enum):

@@ -23,6 +23,7 @@ __all__ = ['LoadBalancerArgs', 'LoadBalancer']
 @pulumi.input_type
 class LoadBalancerArgs:
     def __init__(__self__, *,
+                 enable_prefix_for_ipv6_source_nat: Optional[pulumi.Input[str]] = None,
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]]] = None,
@@ -64,6 +65,8 @@ class LoadBalancerArgs:
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the load balancer.
         :param pulumi.Input[str] type: The type of load balancer. The default is ``application``.
         """
+        if enable_prefix_for_ipv6_source_nat is not None:
+            pulumi.set(__self__, "enable_prefix_for_ipv6_source_nat", enable_prefix_for_ipv6_source_nat)
         if enforce_security_group_inbound_rules_on_private_link_traffic is not None:
             pulumi.set(__self__, "enforce_security_group_inbound_rules_on_private_link_traffic", enforce_security_group_inbound_rules_on_private_link_traffic)
         if ip_address_type is not None:
@@ -84,6 +87,15 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="enablePrefixForIpv6SourceNat")
+    def enable_prefix_for_ipv6_source_nat(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
+
+    @enable_prefix_for_ipv6_source_nat.setter
+    def enable_prefix_for_ipv6_source_nat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enable_prefix_for_ipv6_source_nat", value)
 
     @property
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")
@@ -229,6 +241,7 @@ class LoadBalancer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_prefix_for_ipv6_source_nat: Optional[pulumi.Input[str]] = None,
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]]] = None,
@@ -298,6 +311,7 @@ class LoadBalancer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_prefix_for_ipv6_source_nat: Optional[pulumi.Input[str]] = None,
                  enforce_security_group_inbound_rules_on_private_link_traffic: Optional[pulumi.Input[str]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  load_balancer_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]]] = None,
@@ -317,6 +331,7 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LoadBalancerArgs.__new__(LoadBalancerArgs)
 
+            __props__.__dict__["enable_prefix_for_ipv6_source_nat"] = enable_prefix_for_ipv6_source_nat
             __props__.__dict__["enforce_security_group_inbound_rules_on_private_link_traffic"] = enforce_security_group_inbound_rules_on_private_link_traffic
             __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["load_balancer_attributes"] = load_balancer_attributes
@@ -358,6 +373,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         __props__.__dict__["canonical_hosted_zone_id"] = None
         __props__.__dict__["dns_name"] = None
+        __props__.__dict__["enable_prefix_for_ipv6_source_nat"] = None
         __props__.__dict__["enforce_security_group_inbound_rules_on_private_link_traffic"] = None
         __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["load_balancer_arn"] = None
@@ -388,6 +404,11 @@ class LoadBalancer(pulumi.CustomResource):
         The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
         """
         return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="enablePrefixForIpv6SourceNat")
+    def enable_prefix_for_ipv6_source_nat(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
 
     @property
     @pulumi.getter(name="enforceSecurityGroupInboundRulesOnPrivateLinkTraffic")

@@ -25,7 +25,7 @@ type Service struct {
 	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayOutput `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
-	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 	DeploymentConfiguration ServiceDeploymentConfigurationPtrOutput `pulumi:"deploymentConfiguration"`
 	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
 	DeploymentController ServiceDeploymentControllerPtrOutput `pulumi:"deploymentController"`
@@ -154,7 +154,7 @@ type serviceArgs struct {
 	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster *string `pulumi:"cluster"`
-	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
 	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
 	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
@@ -232,7 +232,7 @@ type ServiceArgs struct {
 	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringPtrInput
-	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 	DeploymentConfiguration ServiceDeploymentConfigurationPtrInput
 	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
 	DeploymentController ServiceDeploymentControllerPtrInput
@@ -352,7 +352,7 @@ func (o ServiceOutput) Cluster() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Cluster }).(pulumi.StringPtrOutput)
 }
 
-// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
+// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
 func (o ServiceOutput) DeploymentConfiguration() ServiceDeploymentConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDeploymentConfigurationPtrOutput { return v.DeploymentConfiguration }).(ServiceDeploymentConfigurationPtrOutput)
 }

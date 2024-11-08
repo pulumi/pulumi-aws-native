@@ -23,16 +23,18 @@ func LookupAiPromptVersion(ctx *pulumi.Context, args *LookupAiPromptVersionArgs,
 }
 
 type LookupAiPromptVersionArgs struct {
-	AiPromptId    string  `pulumi:"aiPromptId"`
-	AssistantId   string  `pulumi:"assistantId"`
+	AiPromptId  string `pulumi:"aiPromptId"`
+	AssistantId string `pulumi:"assistantId"`
+	// The version number for this AI Prompt version.
 	VersionNumber float64 `pulumi:"versionNumber"`
 }
 
 type LookupAiPromptVersionResult struct {
-	AiPromptArn       *string  `pulumi:"aiPromptArn"`
-	AiPromptVersionId *string  `pulumi:"aiPromptVersionId"`
-	AssistantArn      *string  `pulumi:"assistantArn"`
-	VersionNumber     *float64 `pulumi:"versionNumber"`
+	AiPromptArn       *string `pulumi:"aiPromptArn"`
+	AiPromptVersionId *string `pulumi:"aiPromptVersionId"`
+	AssistantArn      *string `pulumi:"assistantArn"`
+	// The version number for this AI Prompt version.
+	VersionNumber *float64 `pulumi:"versionNumber"`
 }
 
 func LookupAiPromptVersionOutput(ctx *pulumi.Context, args LookupAiPromptVersionOutputArgs, opts ...pulumi.InvokeOption) LookupAiPromptVersionResultOutput {
@@ -55,8 +57,9 @@ func LookupAiPromptVersionOutput(ctx *pulumi.Context, args LookupAiPromptVersion
 }
 
 type LookupAiPromptVersionOutputArgs struct {
-	AiPromptId    pulumi.StringInput  `pulumi:"aiPromptId"`
-	AssistantId   pulumi.StringInput  `pulumi:"assistantId"`
+	AiPromptId  pulumi.StringInput `pulumi:"aiPromptId"`
+	AssistantId pulumi.StringInput `pulumi:"assistantId"`
+	// The version number for this AI Prompt version.
 	VersionNumber pulumi.Float64Input `pulumi:"versionNumber"`
 }
 
@@ -90,6 +93,7 @@ func (o LookupAiPromptVersionResultOutput) AssistantArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupAiPromptVersionResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }
 
+// The version number for this AI Prompt version.
 func (o LookupAiPromptVersionResultOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupAiPromptVersionResult) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
 }

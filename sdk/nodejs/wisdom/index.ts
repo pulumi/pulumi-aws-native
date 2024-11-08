@@ -10,6 +10,11 @@ export type AiAgent = import("./aiAgent").AiAgent;
 export const AiAgent: typeof import("./aiAgent").AiAgent = null as any;
 utilities.lazyLoad(exports, ["AiAgent"], () => require("./aiAgent"));
 
+export { AiAgentVersionArgs } from "./aiAgentVersion";
+export type AiAgentVersion = import("./aiAgentVersion").AiAgentVersion;
+export const AiAgentVersion: typeof import("./aiAgentVersion").AiAgentVersion = null as any;
+utilities.lazyLoad(exports, ["AiAgentVersion"], () => require("./aiAgentVersion"));
+
 export { AiPromptArgs } from "./aiPrompt";
 export type AiPrompt = import("./aiPrompt").AiPrompt;
 export const AiPrompt: typeof import("./aiPrompt").AiPrompt = null as any;
@@ -34,6 +39,11 @@ export { GetAiAgentArgs, GetAiAgentResult, GetAiAgentOutputArgs } from "./getAiA
 export const getAiAgent: typeof import("./getAiAgent").getAiAgent = null as any;
 export const getAiAgentOutput: typeof import("./getAiAgent").getAiAgentOutput = null as any;
 utilities.lazyLoad(exports, ["getAiAgent","getAiAgentOutput"], () => require("./getAiAgent"));
+
+export { GetAiAgentVersionArgs, GetAiAgentVersionResult, GetAiAgentVersionOutputArgs } from "./getAiAgentVersion";
+export const getAiAgentVersion: typeof import("./getAiAgentVersion").getAiAgentVersion = null as any;
+export const getAiAgentVersionOutput: typeof import("./getAiAgentVersion").getAiAgentVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getAiAgentVersion","getAiAgentVersionOutput"], () => require("./getAiAgentVersion"));
 
 export { GetAiPromptArgs, GetAiPromptResult, GetAiPromptOutputArgs } from "./getAiPrompt";
 export const getAiPrompt: typeof import("./getAiPrompt").getAiPrompt = null as any;
@@ -75,6 +85,8 @@ const _module = {
         switch (type) {
             case "aws-native:wisdom:AiAgent":
                 return new AiAgent(name, <any>undefined, { urn })
+            case "aws-native:wisdom:AiAgentVersion":
+                return new AiAgentVersion(name, <any>undefined, { urn })
             case "aws-native:wisdom:AiPrompt":
                 return new AiPrompt(name, <any>undefined, { urn })
             case "aws-native:wisdom:AiPromptVersion":

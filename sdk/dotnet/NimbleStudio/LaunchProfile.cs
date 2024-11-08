@@ -10,20 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.NimbleStudio
 {
     /// <summary>
-    /// Represents a launch profile which delegates access to a collection of studio components to studio users
+    /// Resource Type definition for AWS::NimbleStudio::LaunchProfile
     /// </summary>
     [AwsNativeResourceType("aws-native:nimblestudio:LaunchProfile")]
     public partial class LaunchProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// &lt;p&gt;The description.&lt;/p&gt;
+        /// A human-readable description of the launch profile.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
-        ///             These subnets must support the specified instance types. &lt;/p&gt;
+        /// Unique identifiers for a collection of EC2 subnets.
         /// </summary>
         [Output("ec2SubnetIds")]
         public Output<ImmutableArray<string>> Ec2SubnetIds { get; private set; } = null!;
@@ -35,14 +34,13 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<string> LaunchProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
-        ///             version is "2021-03-31".&lt;/p&gt;
+        /// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
         /// </summary>
         [Output("launchProfileProtocolVersions")]
         public Output<ImmutableArray<string>> LaunchProfileProtocolVersions { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The name for the launch profile.&lt;/p&gt;
+        /// A friendly name for the launch profile.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -54,14 +52,13 @@ namespace Pulumi.AwsNative.NimbleStudio
         public Output<Outputs.LaunchProfileStreamConfiguration> StreamConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;Unique identifiers for a collection of studio components that can be used with this
-        ///             launch profile.&lt;/p&gt;
+        /// Unique identifiers for a collection of studio components that can be used with this launch profile.
         /// </summary>
         [Output("studioComponentIds")]
         public Output<ImmutableArray<string>> StudioComponentIds { get; private set; } = null!;
 
         /// <summary>
-        /// &lt;p&gt;The studio ID. &lt;/p&gt;
+        /// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         /// </summary>
         [Output("studioId")]
         public Output<string> StudioId { get; private set; } = null!;
@@ -126,7 +123,7 @@ namespace Pulumi.AwsNative.NimbleStudio
     public sealed class LaunchProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// &lt;p&gt;The description.&lt;/p&gt;
+        /// A human-readable description of the launch profile.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -135,8 +132,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         private InputList<string>? _ec2SubnetIds;
 
         /// <summary>
-        /// &lt;p&gt;Specifies the IDs of the EC2 subnets where streaming sessions will be accessible from.
-        ///             These subnets must support the specified instance types. &lt;/p&gt;
+        /// Unique identifiers for a collection of EC2 subnets.
         /// </summary>
         public InputList<string> Ec2SubnetIds
         {
@@ -148,8 +144,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         private InputList<string>? _launchProfileProtocolVersions;
 
         /// <summary>
-        /// &lt;p&gt;The version number of the protocol that is used by the launch profile. The only valid
-        ///             version is "2021-03-31".&lt;/p&gt;
+        /// The version number of the protocol that is used by the launch profile. The only valid version is "2021-03-31".
         /// </summary>
         public InputList<string> LaunchProfileProtocolVersions
         {
@@ -158,7 +153,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
 
         /// <summary>
-        /// &lt;p&gt;The name for the launch profile.&lt;/p&gt;
+        /// A friendly name for the launch profile.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -173,8 +168,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         private InputList<string>? _studioComponentIds;
 
         /// <summary>
-        /// &lt;p&gt;Unique identifiers for a collection of studio components that can be used with this
-        ///             launch profile.&lt;/p&gt;
+        /// Unique identifiers for a collection of studio components that can be used with this launch profile.
         /// </summary>
         public InputList<string> StudioComponentIds
         {
@@ -183,7 +177,7 @@ namespace Pulumi.AwsNative.NimbleStudio
         }
 
         /// <summary>
-        /// &lt;p&gt;The studio ID. &lt;/p&gt;
+        /// The unique identifier for a studio resource. In Nimble Studio, all other resources are contained in a studio resource.
         /// </summary>
         [Input("studioId", required: true)]
         public Input<string> StudioId { get; set; } = null!;

@@ -115,10 +115,17 @@
   "writeOnlyProperties" : [ "/properties/SidewalkUpdate", "/properties/Sidewalk" ],
   "createOnlyProperties" : [ "/properties/PartnerAccountId" ],
   "primaryIdentifier" : [ "/properties/PartnerAccountId" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotwireless:AssociateAwsAccountWithPartnerAccount", "iotwireless:TagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iotwireless:AssociateAwsAccountWithPartnerAccount", "iotwireless:TagResource", "iotwireless:GetPartnerAccount" ]
     },
     "read" : {
       "permissions" : [ "iotwireless:GetPartnerAccount", "iotwireless:ListTagsForResource" ]
@@ -127,7 +134,7 @@
       "permissions" : [ "iotwireless:ListPartnerAccounts", "iotwireless:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotwireless:UpdatePartnerAccount", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iotwireless:GetPartnerAccount", "iotwireless:AssociateAwsAccountWithPartnerAccount", "iotwireless:UpdatePartnerAccount", "iotwireless:ListTagsForResource", "iotwireless:TagResource", "iotwireless:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "iotwireless:DisassociateAwsAccountFromPartnerAccount" ]
