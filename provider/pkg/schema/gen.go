@@ -17,6 +17,7 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema/docs"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -391,7 +392,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 		},
 		Resources: map[string]pschema.ResourceSpec{
 			metadata.ExtensionResourceToken: resources.ExtensionResourceSpec(),
-			metadata.CfnCustomResourceToken: resources.CfnCustomResourceSpec(),
+			metadata.CfnCustomResourceToken: resources.CfnCustomResourceSpec(docs.CfnCustomResourceEmulatorDocs),
 		},
 		Functions: map[string]pschema.FunctionSpec{},
 		Language:  map[string]pschema.RawMessage{},

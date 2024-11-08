@@ -139,10 +139,10 @@ func (s CfnCustomResourceState) ToPropertyMap() resource.PropertyMap {
 	return resource.NewPropertyMap(s)
 }
 
-func CfnCustomResourceSpec() pschema.ResourceSpec {
+func CfnCustomResourceSpec(description string) pschema.ResourceSpec {
 	return pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: "TODO: pulumi/pulumi-cdk#109",
+			Description: description,
 			Properties: map[string]pschema.PropertySpec{
 				"physicalResourceId": {
 					Description: "The name or unique identifier that corresponds to the `PhysicalResourceId` included in the Custom Resource response. If no `PhysicalResourceId` is provided in the response, a random ID will be generated.",
