@@ -288,13 +288,13 @@ func cfnValueToSdk(value interface{}) interface{} {
 	}
 }
 
-// ToStringifiedMap creates a copy of the input map with all primitive values converted to strings.
-func ToStringifiedMap(value map[string]interface{}) map[string]interface{} {
+// ToStringifiedMap creates a copy of the input map with all deeply nested primitive values converted to strings.
+func ToStringifiedMap[K comparable](value map[K]interface{}) map[K]interface{} {
 	if value == nil {
 		return nil
 	}
 
-	result := map[string]interface{}{}
+	result := map[K]interface{}{}
 	for k, v := range value {
 		result[k] = primitivesToString(v)
 	}
@@ -308,15 +308,13 @@ func primitivesToString(value interface{}) interface{} {
 
 	switch reflect.TypeOf(value).Kind() {
 	case reflect.Map:
-		valueMap, ok := value.(map[string]interface{})
-		if !ok {
-			return value
+		mapValue := reflect.MakeMap(reflect.TypeOf(value))
+		iter := reflect.ValueOf(value).MapRange()
+		for iter.Next() {
+			mapValue.SetMapIndex(iter.Key(), reflect.ValueOf(primitivesToString(iter.Value().Interface())))
 		}
-		result := map[string]interface{}{}
-		for k, v := range valueMap {
-			result[k] = primitivesToString(v)
-		}
-		return result
+
+		return mapValue.Interface()
 	case reflect.Slice, reflect.Array:
 		s := reflect.ValueOf(value)
 		result := make([]interface{}, s.Len())

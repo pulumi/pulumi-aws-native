@@ -385,8 +385,8 @@ func TestToStringifiedMap(t *testing.T) {
 			expected: nil,
 		},
 		{
-			name: "Empty map",
-			input: map[string]interface{}{},
+			name:     "Empty map",
+			input:    map[string]interface{}{},
 			expected: map[string]interface{}{},
 		},
 		{
@@ -442,15 +442,15 @@ func TestToStringifiedMap(t *testing.T) {
 					},
 					"anotherKey": true,
 					"arrayOfMaps": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": 2,
-							},
-							map[string]interface{}{
-								"key3": "value3",
-								"key4": 4,
-							},
+						map[string]interface{}{
+							"key1": "value1",
+							"key2": 2,
 						},
+						map[string]interface{}{
+							"key3": "value3",
+							"key4": 4,
+						},
+					},
 				},
 			},
 			expected: map[string]interface{}{
@@ -477,9 +477,45 @@ func TestToStringifiedMap(t *testing.T) {
 				},
 			},
 		},
+		{
+			name: "Map with arbitrary keys and deeply nested structures",
+			input: map[string]interface{}{
+				"level1": map[interface{}]interface{}{
+					123: "numberKey",
+					true: map[string]interface{}{
+						"nestedKey": []interface{}{
+							map[string]interface{}{
+								"key1": "value1",
+								"key2": 2,
+							},
+							3.14,
+							"string",
+						},
+					},
+					"anotherKey": false,
+				},
+			},
+			expected: map[string]interface{}{
+				"level1": map[interface{}]interface{}{
+					123: "numberKey",
+					true: map[string]interface{}{
+						"nestedKey": []interface{}{
+							map[string]interface{}{
+								"key1": "value1",
+								"key2": "2",
+							},
+							"3.14",
+							"string",
+						},
+					},
+					"anotherKey": "false",
+				},
+			},
+		},
 	}
 
 	for _, tt := range tests {
+		tt := tt
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 			actual := ToStringifiedMap(tt.input)
@@ -487,4 +523,3 @@ func TestToStringifiedMap(t *testing.T) {
 		})
 	}
 }
-
