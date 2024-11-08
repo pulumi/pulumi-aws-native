@@ -371,3 +371,155 @@ func TestSanitizeCfnString(t *testing.T) {
 		})
 	}
 }
+
+func TestToStringifiedMap(t *testing.T) {
+	t.Parallel()
+	tests := []struct {
+		name     string
+		input    map[string]interface{}
+		expected map[string]interface{}
+	}{
+		{
+			name:     "Nil input",
+			input:    nil,
+			expected: nil,
+		},
+		{
+			name:     "Empty map",
+			input:    map[string]interface{}{},
+			expected: map[string]interface{}{},
+		},
+		{
+			name: "Map with primitive values",
+			input: map[string]interface{}{
+				"string": "value",
+				"int":    42,
+				"float":  3.14,
+				"bool":   true,
+			},
+			expected: map[string]interface{}{
+				"string": "value",
+				"int":    "42",
+				"float":  "3.14",
+				"bool":   "true",
+			},
+		},
+		{
+			name: "Map with nested map",
+			input: map[string]interface{}{
+				"nested": map[string]interface{}{
+					"key": "value",
+					"num": 123,
+				},
+			},
+			expected: map[string]interface{}{
+				"nested": map[string]interface{}{
+					"key": "value",
+					"num": "123",
+				},
+			},
+		},
+		{
+			name: "Map with array",
+			input: map[string]interface{}{
+				"array": []interface{}{"a", 1, 2.5, false},
+			},
+			expected: map[string]interface{}{
+				"array": []interface{}{"a", "1", "2.5", "false"},
+			},
+		},
+		{
+			name: "Map with mixed nested structures",
+			input: map[string]interface{}{
+				"level1": map[string]interface{}{
+					"level2": []interface{}{
+						map[string]interface{}{
+							"key1": "value1",
+							"key2": 2,
+						},
+						3.14,
+						"string",
+					},
+					"anotherKey": true,
+					"arrayOfMaps": []interface{}{
+						map[string]interface{}{
+							"key1": "value1",
+							"key2": 2,
+						},
+						map[string]interface{}{
+							"key3": "value3",
+							"key4": 4,
+						},
+					},
+				},
+			},
+			expected: map[string]interface{}{
+				"level1": map[string]interface{}{
+					"level2": []interface{}{
+						map[string]interface{}{
+							"key1": "value1",
+							"key2": "2",
+						},
+						"3.14",
+						"string",
+					},
+					"anotherKey": "true",
+					"arrayOfMaps": []interface{}{
+						map[string]interface{}{
+							"key1": "value1",
+							"key2": "2",
+						},
+						map[string]interface{}{
+							"key3": "value3",
+							"key4": "4",
+						},
+					},
+				},
+			},
+		},
+		{
+			name: "Map with arbitrary keys and deeply nested structures",
+			input: map[string]interface{}{
+				"level1": map[interface{}]interface{}{
+					123: "numberKey",
+					true: map[string]interface{}{
+						"nestedKey": []interface{}{
+							map[string]interface{}{
+								"key1": "value1",
+								"key2": 2,
+							},
+							3.14,
+							"string",
+						},
+					},
+					"anotherKey": false,
+				},
+			},
+			expected: map[string]interface{}{
+				"level1": map[interface{}]interface{}{
+					123: "numberKey",
+					true: map[string]interface{}{
+						"nestedKey": []interface{}{
+							map[string]interface{}{
+								"key1": "value1",
+								"key2": "2",
+							},
+							"3.14",
+							"string",
+						},
+					},
+					"anotherKey": "false",
+				},
+			},
+		},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+			actual := ToStringifiedMap(tt.input)
+			assert.Equal(t, tt.expected, actual)
+		})
+	}
+}
