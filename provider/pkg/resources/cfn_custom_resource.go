@@ -242,7 +242,6 @@ func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, randomSeed [
 	var failures []ValidationFailure
 
 	if !lambdaFunctionArnRegex.MatchString(typedInputs.ServiceToken) {
-		// TODO create a GitHub issue for this and link it
 		failures = append(failures, ValidationFailure{
 			Path:   "serviceToken",
 			Reason: "serviceToken must be a valid Lambda function ARN.",
@@ -562,6 +561,7 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 // Read returns the current inputs and outputs of the custom resource because CFN custom resources do not store state.
 // They are just a stateless wrapper around a Lambda function or SNS topic.
 func (c *cfnCustomResource) Read(ctx context.Context, urn urn.URN, id string, oldInputs resource.PropertyMap, oldState resource.PropertyMap) (resource.PropertyMap, resource.PropertyMap, bool, error) {
+	// Assuming that Read without old state is an import operation
 	if len(oldState) == 0 {
 		// We can't support import because CustomResources do not store any state
 		return nil, nil, false, fmt.Errorf("CustomResourceEmulator import not implemented")
@@ -584,7 +584,7 @@ func (c *cfnCustomResource) invokeCustomResource(ctx context.Context, invokeData
 		// presigning is not an API call, it should not fail unless there's issues with the SDK or crypto libs
 		return nil, fmt.Errorf("failed to generate response URL: %w", err)
 	}
-	glog.V(9).Infof("%s created presigned response URL %q for s3://%s/%s", invokeData.loggingLabel, responseUrl, invokeData.bucket, bucketKey)
+	glog.V(9).Infof("%s created presigned response URL for s3://%s/%s", invokeData.loggingLabel, invokeData.bucket, bucketKey)
 
 	event := invokeData.event
 	event.RequestID = requestID
