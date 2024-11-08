@@ -35,7 +35,6 @@ import * as utilities from "../utilities";
  *
  * CloudFormation Custom Resources allow you to write custom provisioning logic for resources that aren't directly available as AWS CloudFormation resource types. Common use cases include:
  *
- * - Managing resources outside of AWS (e.g., GitHub repositories, external APIs)
  * - Implementing complex provisioning logic
  * - Performing custom validations or transformations
  * - Integrating with third-party services

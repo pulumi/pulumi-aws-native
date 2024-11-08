@@ -54,11 +54,14 @@ func TestCustomResourceEmulator(t *testing.T) {
 	test := pulumitest.NewPulumiTest(t, filepath.Join(cwd, "cfn-custom-resource"), options...)
 	test.SetConfig(t, "amiRegion", "us-west-2")
 
+	previewResult := test.Preview(t)
+	t.Logf("#%v", previewResult.ChangeSummary)
+
 	upResult := test.Up(t)
 	t.Logf("#%v", upResult.Summary)
 	crossTest(t, upResult.Outputs)
 
-	previewResult := test.Preview(t)
+	previewResult = test.Preview(t)
 	assertpreview.HasNoChanges(t, previewResult)
 
 	test.SetConfig(t, "amiRegion", "us-east-1")

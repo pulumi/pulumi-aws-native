@@ -32,7 +32,7 @@ const rpa2 = new awsClassic.iam.RolePolicyAttachment("lambdaRolePolicyAttachment
     policyArn: awsClassic.iam.ManagedPolicies.AWSLambdaBasicExecutionRole,
 });
 
-const bucket = new awsClassic.s3.Bucket('custom-resource-emulator', {
+const bucket = new awsClassic.s3.BucketV2('custom-resource-emulator', {
     forceDestroy: true,
 });
 
@@ -46,7 +46,7 @@ const handlerCode = new awsClassic.s3.BucketObjectv2("handler-code", {
 
 // Create the Lambda function for the custom resource
 const lambdaFunction = new awsClassic.lambda.Function("ami-lookup-custom-resource", {
-    runtime: awsClassic.types.enums.lambda.Runtime.NodeJS16dX,
+    runtime: awsClassic.types.enums.lambda.Runtime.NodeJS20dX,
     s3Bucket: bucket.bucket,
     s3Key: handlerCode.key,
     handler: "index.handler",
