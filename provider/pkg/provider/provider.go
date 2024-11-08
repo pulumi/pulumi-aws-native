@@ -113,12 +113,12 @@ type cfnProvider struct {
 
 	pulumiSchema []byte
 
-	cfn *cloudformation.Client
-	ccc client.CloudControlClient
-	ec2 *ec2.Client
-	ssm *ssm.Client
-	sts *sts.Client
-	s3  *s3.Client
+	cfn    *cloudformation.Client
+	ccc    client.CloudControlClient
+	ec2    *ec2.Client
+	ssm    *ssm.Client
+	sts    *sts.Client
+	s3     *s3.Client
 	lambda *lambda.Client
 
 	customResources map[string]resources.CustomResource
@@ -270,15 +270,14 @@ func (p *cfnProvider) DiffConfig(ctx context.Context, req *pulumirpc.DiffRequest
 		return &pulumirpc.DiffResponse{Changes: pulumirpc.DiffResponse_DIFF_NONE}, nil
 	}
 
-	var diffs, replaces []string
+	var diffs []string
 	for _, k := range diff.Keys() {
 		diffs = append(diffs, string(k))
 	}
 
 	return &pulumirpc.DiffResponse{
-		Changes:  pulumirpc.DiffResponse_DIFF_SOME,
-		Diffs:    diffs,
-		Replaces: replaces,
+		Changes: pulumirpc.DiffResponse_DIFF_SOME,
+		Diffs:   diffs,
 	}, nil
 }
 
