@@ -250,7 +250,7 @@ func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, randomSeed [
 	}
 
 	if typedInputs.StackID == nil {
-		// if the stack ID is not provided, we use the project ID as the stack ID
+		// if the stack ID is not provided, we use the pulumi stack ID as the stack ID
 		inputs[resource.PropertyKey("stackId")] = resource.NewStringProperty(urn.Stack().String())
 	}
 
