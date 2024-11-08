@@ -50,3 +50,7 @@ type CloudAPIFunction struct {
 // ExtensionResourceToken is a Pulumi token for the resource to deploy
 // custom third-party CloudFormation types.
 const ExtensionResourceToken = "aws-native:index:ExtensionResource"
+
+// CfnCustomResourceToken is a Pulumi token for the resource to deploy
+// CloudFormation custom resources.
+const CfnCustomResourceToken = "aws-native:cloudformation:CustomResourceEmulator"
