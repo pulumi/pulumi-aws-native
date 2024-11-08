@@ -354,6 +354,7 @@ AWS::EC2::RouteTable
 AWS::EC2::SecurityGroup
 AWS::EC2::SecurityGroupEgress
 AWS::EC2::SecurityGroupIngress
+AWS::EC2::SecurityGroupVpcAssociation
 AWS::EC2::SnapshotBlockPublicAccess
 AWS::EC2::SpotFleet
 AWS::EC2::Subnet
@@ -828,6 +829,7 @@ AWS::RDS::DBParameterGroup
 AWS::RDS::DBProxy
 AWS::RDS::DBProxyEndpoint
 AWS::RDS::DBProxyTargetGroup
+AWS::RDS::DBShardGroup
 AWS::RDS::DBSubnetGroup
 AWS::RDS::EventSubscription
 AWS::RDS::GlobalCluster
@@ -1030,6 +1032,7 @@ AWS::Transfer::Certificate
 AWS::Transfer::Connector
 AWS::Transfer::Profile
 AWS::Transfer::Server
+AWS::Transfer::User
 AWS::Transfer::Workflow
 AWS::VerifiedPermissions::IdentitySource
 AWS::VerifiedPermissions::Policy
@@ -1053,6 +1056,7 @@ AWS::WAFv2::RuleGroup
 AWS::WAFv2::WebACL
 AWS::WAFv2::WebACLAssociation
 AWS::Wisdom::AIAgent
+AWS::Wisdom::AIAgentVersion
 AWS::Wisdom::AIPrompt
 AWS::Wisdom::AIPromptVersion
 AWS::Wisdom::Assistant

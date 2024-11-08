@@ -159,7 +159,7 @@
   "additionalProperties" : false,
   "required" : [ "ScrapeConfiguration", "Source", "Destination" ],
   "readOnlyProperties" : [ "/properties/ScraperId", "/properties/Arn", "/properties/RoleArn" ],
-  "createOnlyProperties" : [ "/properties/ScrapeConfiguration", "/properties/Source", "/properties/Destination", "/properties/Alias" ],
+  "createOnlyProperties" : [ "/properties/Source" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
@@ -176,7 +176,7 @@
       "permissions" : [ "aps:DescribeScraper", "aps:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "aps:DescribeScraper", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource" ]
+      "permissions" : [ "aps:CreateScraper", "aps:DescribeScraper", "aps:UpdateScraper", "aps:DescribeWorkspace", "aps:TagResource", "aps:UntagResource", "aps:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "aps:DeleteScraper", "aps:DescribeScraper", "aps:DescribeWorkspace", "eks:AssociateAccessPolicy", "eks:DescribeCluster", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "iam:DeleteServiceLinkedRole" ]
