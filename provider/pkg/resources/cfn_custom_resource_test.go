@@ -131,6 +131,19 @@ func TestCfnCustomResource_Check(t *testing.T) {
 				})),
 			},
 		},
+		{
+			name: "Unknown inputs",
+			inputs: resource.PropertyMap{
+				"serviceToken":             resource.MakeComputed(resource.NewStringProperty("")),
+				"stackId":                  resource.MakeComputed(resource.NewStringProperty("")),
+				"customResourceProperties": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+			},
+			expectedInputs: resource.PropertyMap{
+				"serviceToken":             resource.MakeComputed(resource.NewStringProperty("")),
+				"stackId":                  resource.MakeComputed(resource.NewStringProperty("")),
+				"customResourceProperties": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
+			},
+		},
 	}
 
 	for _, tt := range tests {
