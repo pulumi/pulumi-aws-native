@@ -84,20 +84,20 @@ async function sendResponse(event, context, responseStatus, responseData) {
  
     console.log("SENDING RESPONSE...\n");
  
-    var request = https.request(options, function(response) {
-        console.log("STATUS: " + response.statusCode);
-        console.log("HEADERS: " + JSON.stringify(response.headers));
-        // Tell AWS Lambda that the function execution is done  
-        context.done();
-    });
+    await new Promise((resolve, reject) => {
+        var request = https.request(options, function(response) {
+            console.log("STATUS: " + response.statusCode);
+            console.log("HEADERS: " + JSON.stringify(response.headers));
+            resolve();
+        });
  
-    request.on("error", function(error) {
-        console.log("sendResponse Error:" + error);
-        // Tell AWS Lambda that the function execution is done  
-        context.done();
+        request.on("error", function(error) {
+            console.log("sendResponse Error:" + error);
+            reject(error);
+        });
+      
+        // write data to request body
+        request.write(responseBody);
+        request.end();
     });
-  
-    // write data to request body
-    request.write(responseBody);
-    request.end();
 }
