@@ -12,6 +12,7 @@ import (
 
 	"github.com/aws/aws-lambda-go/cfn"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/urn"
 	"github.com/stretchr/testify/assert"
@@ -210,6 +211,27 @@ func TestCfnCustomResource_Create(t *testing.T) {
 				"key": "value",
 			},
 		},
+		{
+			name: "Stringify CustomResourceInputs",
+			customResourceData: map[string]interface{}{
+				"prop1": "value1",
+				"prop2": true,
+				"prop3": []interface{}{"a", "b", "c"},
+				"prop4": map[string]interface{}{
+					"nestedProp1": "nestedValue1",
+					"nestedProp2": 42,
+				},
+			},
+			customResourceInputs: map[string]interface{}{
+				"key1": "value1",
+				"key2": 42,
+				"key3": true,
+				"key4": map[string]interface{}{
+					"nestedKey1": "nestedValue1",
+					"nestedKey2": 100,
+				},
+			},
+		},
 	}
 
 	for _, tt := range tests {
@@ -242,7 +264,7 @@ func TestCfnCustomResource_Create(t *testing.T) {
 				ResourceType:       resourceType,
 				LogicalResourceID:  urn.Name(),
 				StackID:            stackID,
-				ResourceProperties: tt.customResourceInputs,
+				ResourceProperties: naming.ToStringifiedMap(tt.customResourceInputs),
 			}
 
 			mockLambdaClient.EXPECT().InvokeAsync(
@@ -615,9 +637,11 @@ func TestCfnCustomResource_Update(t *testing.T) {
 
 			oldResourceProperties := map[string]interface{}{
 				"inputs": "old",
+				"key":    42,
 			}
 			newResourceProperties := map[string]interface{}{
 				"inputs": "new",
+				"key":    42,
 			}
 
 			responseUrl := "https://example.com"
@@ -628,8 +652,8 @@ func TestCfnCustomResource_Update(t *testing.T) {
 				PhysicalResourceID:    physicalResourceID,
 				LogicalResourceID:     urn.Name(),
 				StackID:               stackID,
-				ResourceProperties:    newResourceProperties,
-				OldResourceProperties: oldResourceProperties,
+				ResourceProperties:    naming.ToStringifiedMap(newResourceProperties),
+				OldResourceProperties: naming.ToStringifiedMap(oldResourceProperties),
 			}
 
 			mockLambdaClient.EXPECT().InvokeAsync(
@@ -1227,6 +1251,18 @@ func TestCfnCustomResource_Delete(t *testing.T) {
 				"key": "value",
 			},
 		},
+		{
+			name: "Stringify CustomResourceInputs",
+			customResourceInputs: map[string]interface{}{
+				"key1": "value1",
+				"key2": 42,
+				"key3": true,
+				"key4": map[string]interface{}{
+					"nestedKey1": "nestedValue1",
+					"nestedKey2": 100,
+				},
+			},
+		},
 	}
 
 	for _, tt := range tests {
@@ -1260,7 +1296,7 @@ func TestCfnCustomResource_Delete(t *testing.T) {
 				LogicalResourceID:  urn.Name(),
 				StackID:            stackID,
 				PhysicalResourceID: physicalResourceID,
-				ResourceProperties: tt.customResourceInputs,
+				ResourceProperties: naming.ToStringifiedMap(tt.customResourceInputs),
 			}
 
 			mockLambdaClient.EXPECT().InvokeAsync(
