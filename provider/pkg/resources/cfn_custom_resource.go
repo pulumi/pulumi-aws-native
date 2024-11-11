@@ -255,17 +255,6 @@ func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, randomSeed [
 		inputs[resource.PropertyKey("stackId")] = resource.NewStringProperty(urn.Stack().String())
 	}
 
-	if typedInputs.CustomResourceProperties != nil {
-		stringifiedCustomResourceProperties := naming.ToStringifiedMap(typedInputs.CustomResourceProperties)
-		propertyMap := resource.NewPropertyMapFromMap(stringifiedCustomResourceProperties)
-		propertyValue := resource.NewObjectProperty(propertyMap)
-		if inputs[resource.PropertyKey("customResourceProperties")].ContainsSecrets() {
-			propertyValue = resource.MakeSecret(propertyValue)
-		}
-
-		inputs[resource.PropertyKey("customResourceProperties")] = propertyValue
-	}
-
 	return inputs, failures, nil
 }
 
@@ -315,7 +304,7 @@ func (c *cfnCustomResource) Create(ctx context.Context, urn urn.URN, inputs reso
 		ResourceType:       typedInputs.ResourceType,
 		LogicalResourceID:  urn.Name(),
 		StackID:            *typedInputs.StackID,
-		ResourceProperties: typedInputs.CustomResourceProperties,
+		ResourceProperties: naming.ToStringifiedMap(typedInputs.CustomResourceProperties),
 	}
 
 	response, err := c.invokeCustomResource(ctx, customResourceInvokeData{
@@ -400,7 +389,7 @@ func (c *cfnCustomResource) Delete(ctx context.Context, urn urn.URN, id string, 
 		ResourceType:       typedInputs.ResourceType,
 		LogicalResourceID:  urn.Name(),
 		StackID:            *typedInputs.StackID,
-		ResourceProperties: typedInputs.CustomResourceProperties,
+		ResourceProperties: naming.ToStringifiedMap(typedInputs.CustomResourceProperties),
 	}
 
 	response, err := c.invokeCustomResource(ctx, customResourceInvokeData{
@@ -497,8 +486,8 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 		ResourceType:          newTypedInputs.ResourceType,
 		LogicalResourceID:     urn.Name(),
 		StackID:               *newTypedInputs.StackID,
-		ResourceProperties:    newTypedInputs.CustomResourceProperties,
-		OldResourceProperties: oldTypedInputs.CustomResourceProperties,
+		ResourceProperties:    naming.ToStringifiedMap(newTypedInputs.CustomResourceProperties),
+		OldResourceProperties: naming.ToStringifiedMap(oldTypedInputs.CustomResourceProperties),
 	}
 
 	startTime := c.clock.Now()
@@ -534,7 +523,7 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 			ResourceType:       typedState.ResourceType,
 			LogicalResourceID:  urn.Name(),
 			StackID:            typedState.StackID,
-			ResourceProperties: oldTypedInputs.CustomResourceProperties,
+			ResourceProperties: naming.ToStringifiedMap(oldTypedInputs.CustomResourceProperties),
 		}
 
 		deleteTimeout := DefaultCustomResourceTimeout

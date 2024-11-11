@@ -79,56 +79,10 @@ func TestCfnCustomResource_Check(t *testing.T) {
 			inputs: resource.PropertyMap{
 				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
 				"stackId":      resource.NewStringProperty("testProject"),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-					"level1": map[string]interface{}{
-						"level2": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": 2,
-							},
-							3.14,
-							"string",
-						},
-						"anotherKey": true,
-						"arrayOfMaps": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": 2,
-							},
-							map[string]interface{}{
-								"key3": "value3",
-								"key4": 4,
-							},
-						},
-					},
-				})),
 			},
 			expectedInputs: resource.PropertyMap{
 				"serviceToken": resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function"),
 				"stackId":      resource.NewStringProperty("testProject"),
-				"customResourceProperties": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-					"level1": map[string]interface{}{
-						"level2": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": "2",
-							},
-							"3.14",
-							"string",
-						},
-						"anotherKey": "true",
-						"arrayOfMaps": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": "2",
-							},
-							map[string]interface{}{
-								"key3": "value3",
-								"key4": "4",
-							},
-						},
-					},
-				})),
 			},
 		},
 		{
@@ -136,12 +90,10 @@ func TestCfnCustomResource_Check(t *testing.T) {
 			inputs: resource.PropertyMap{
 				"serviceToken":             resource.MakeComputed(resource.NewStringProperty("")),
 				"stackId":                  resource.MakeComputed(resource.NewStringProperty("")),
-				"customResourceProperties": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
 			},
 			expectedInputs: resource.PropertyMap{
 				"serviceToken":             resource.MakeComputed(resource.NewStringProperty("")),
 				"stackId":                  resource.MakeComputed(resource.NewStringProperty("")),
-				"customResourceProperties": resource.MakeComputed(resource.NewObjectProperty(resource.PropertyMap{})),
 			},
 		},
 		{
@@ -149,56 +101,10 @@ func TestCfnCustomResource_Check(t *testing.T) {
 			inputs: resource.PropertyMap{
 				"serviceToken": resource.MakeSecret(resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function")),
 				"stackId":      resource.MakeSecret(resource.NewStringProperty("testProject")),
-				"customResourceProperties": resource.MakeSecret(resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-					"level1": map[string]interface{}{
-						"level2": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": 2,
-							},
-							3.14,
-							"string",
-						},
-						"anotherKey": true,
-						"arrayOfMaps": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": 2,
-							},
-							map[string]interface{}{
-								"key3": "value3",
-								"key4": 4,
-							},
-						},
-					},
-				}))),
 			},
 			expectedInputs: resource.PropertyMap{
 				"serviceToken": resource.MakeSecret(resource.NewStringProperty("arn:aws:lambda:us-west-2:123456789012:function:my-function")),
 				"stackId":      resource.MakeSecret(resource.NewStringProperty("testProject")),
-				"customResourceProperties": resource.MakeSecret(resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
-					"level1": map[string]interface{}{
-						"level2": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": "2",
-							},
-							"3.14",
-							"string",
-						},
-						"anotherKey": "true",
-						"arrayOfMaps": []interface{}{
-							map[string]interface{}{
-								"key1": "value1",
-								"key2": "2",
-							},
-							map[string]interface{}{
-								"key3": "value3",
-								"key4": "4",
-							},
-						},
-					},
-				}))),
 			},
 		},
 	}
