@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .custom_resource_emulator import *
 from .get_hook_default_version import *
 from .get_hook_type_config import *
 from .get_hook_version import *

@@ -1059,6 +1059,7 @@ _utilities.register(
   "mod": "cloudformation",
   "fqn": "pulumi_aws_native.cloudformation",
   "classes": {
+   "aws-native:cloudformation:CustomResourceEmulator": "CustomResourceEmulator",
    "aws-native:cloudformation:HookDefaultVersion": "HookDefaultVersion",
    "aws-native:cloudformation:HookTypeConfig": "HookTypeConfig",
    "aws-native:cloudformation:HookVersion": "HookVersion",

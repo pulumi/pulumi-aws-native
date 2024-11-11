@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:cloudformation:CustomResourceEmulator":
+		r = &CustomResourceEmulator{}
 	case "aws-native:cloudformation:HookDefaultVersion":
 		r = &HookDefaultVersion{}
 	case "aws-native:cloudformation:HookTypeConfig":

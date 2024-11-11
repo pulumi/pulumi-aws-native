@@ -60,21 +60,21 @@ var _ CustomResource = (*cfnCustomResource)(nil)
 // - Implementing organization-specific infrastructure patterns
 //
 // The Custom Resource implementation (i.e. the Lambda function) is responsible for:
-//    - Processing the request based on the RequestType
-//    - Sending a response to the pre-signed URL. The response should include:
-//      - success/failure status and a reason
-//      - a PhysicalResourceId for the resource
-//    	- optionally return data that can be referenced by other resources
+//   - Processing the request based on the RequestType
+//   - Sending a response to the pre-signed URL. The response should include:
+//   - success/failure status and a reason
+//   - a PhysicalResourceId for the resource
+//   - optionally return data that can be referenced by other resources
 //
 // Example CloudFormation Custom Resource:
-//   Resources:
-//     MyCustomResource:
-//       Type: Custom::MyResource
-//       Properties:
-//         ServiceToken: arn:aws:lambda:region:account:function:name
-//         Property1: value1
-//         Property2: value2
 //
+//	Resources:
+//	  MyCustomResource:
+//	    Type: Custom::MyResource
+//	    Properties:
+//	      ServiceToken: arn:aws:lambda:region:account:function:name
+//	      Property1: value1
+//	      Property2: value2
 //
 // This emulator implements this lifecycle in Pulumi by:
 // - Translating Pulumi resource operations to CloudFormation custom resource requests
@@ -82,18 +82,18 @@ var _ CustomResource = (*cfnCustomResource)(nil)
 // - Handling timeout and error scenarios according to CloudFormation specifications
 //
 // Architecture:
-//   ┌──────────────┐         ┌─────────────┐         ┌──────────────┐
-//   │   Pulumi     │  CRUD   │   Custom    │  AWS    │    Lambda    │
-//   │   Engine     ├────────►│   Resource  ├────────►│   Function   │
-//   │              │         │   Emulator  │         │              │
-//   └──────────────┘         └─────────────┘         └──────────────┘
-//                                 │                         │
-//                                 │                         │
-//                                 │      ┌──────────┐       │
-//                                 └─────►│    S3    │◄──────┘
-//                              Poll for  │  Bucket  │ Response
-//                              Response  └──────────┘
 //
+//	┌──────────────┐         ┌─────────────┐         ┌──────────────┐
+//	│   Pulumi     │  CRUD   │   Custom    │  AWS    │    Lambda    │
+//	│   Engine     ├────────►│   Resource  ├────────►│   Function   │
+//	│              │         │   Emulator  │         │              │
+//	└──────────────┘         └─────────────┘         └──────────────┘
+//	                              │                         │
+//	                              │                         │
+//	                              │      ┌──────────┐       │
+//	                              └─────►│    S3    │◄──────┘
+//	                           Poll for  │  Bucket  │ Response
+//	                           Response  └──────────┘
 func NewCfnCustomResource(providerName string, s3Client client.S3Client, lambdaClient client.LambdaClient) *cfnCustomResource {
 	return &cfnCustomResource{
 		providerName: providerName,
@@ -139,10 +139,10 @@ func (s CfnCustomResourceState) ToPropertyMap() resource.PropertyMap {
 	return resource.NewPropertyMap(s)
 }
 
-func CfnCustomResourceSpec() pschema.ResourceSpec {
+func CfnCustomResourceSpec(description string) pschema.ResourceSpec {
 	return pschema.ResourceSpec{
 		ObjectTypeSpec: pschema.ObjectTypeSpec{
-			Description: "TODO: pulumi/pulumi-cdk#109",
+			Description: description,
 			Properties: map[string]pschema.PropertySpec{
 				"physicalResourceId": {
 					Description: "The name or unique identifier that corresponds to the `PhysicalResourceId` included in the Custom Resource response. If no `PhysicalResourceId` is provided in the response, a random ID will be generated.",
@@ -241,21 +241,18 @@ func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, randomSeed [
 
 	var failures []ValidationFailure
 
-	if !lambdaFunctionArnRegex.MatchString(typedInputs.ServiceToken) {
+	serviceTokenInput, hasServiceToken := inputs[resource.PropertyKey("serviceToken")]
+	if (!hasServiceToken || !serviceTokenInput.ContainsUnknowns()) && !lambdaFunctionArnRegex.MatchString(typedInputs.ServiceToken) {
 		failures = append(failures, ValidationFailure{
 			Path:   "serviceToken",
 			Reason: "serviceToken must be a valid Lambda function ARN.",
 		})
 	}
 
-	if typedInputs.StackID == nil {
+	_, hasStackID := inputs[resource.PropertyKey("stackId")]
+	if !hasStackID && typedInputs.StackID == nil {
 		// if the stack ID is not provided, we use the pulumi stack ID as the stack ID
 		inputs[resource.PropertyKey("stackId")] = resource.NewStringProperty(urn.Stack().String())
-	}
-
-	if typedInputs.CustomResourceProperties != nil {
-		stringifiedCustomResourceProperties := naming.ToStringifiedMap(typedInputs.CustomResourceProperties)
-		inputs[resource.PropertyKey("customResourceProperties")] = resource.PropertyValue{V: resource.NewPropertyMapFromMap(stringifiedCustomResourceProperties)}
 	}
 
 	return inputs, failures, nil
@@ -266,32 +263,33 @@ func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, randomSeed [
 //
 // Creation Flow:
 //
-//   ┌─────────┐   ┌─────────────┐   ┌───────────────┐   ┌──────────┐
-//   │ Create  │   │Generate S3  │   │ Invoke Lambda │   │ Wait for │
-//   │ Request ├──►│Presigned URL├──►│ with CREATE   ├──►│ Response │
-//   └─────────┘   └─────────────┘   │ RequestType   │   └────┬─────┘
-//                                   └───────────────┘        │
-//                                                            ▼
-//                                                    ┌───────────────┐
-//                                                    │Return Physical│
-//                                                    │Resource ID &  │
-//                                                    │Outputs        │
-//                                                    └───────────────┘
+//	┌─────────┐   ┌─────────────┐   ┌───────────────┐   ┌──────────┐
+//	│ Create  │   │Generate S3  │   │ Invoke Lambda │   │ Wait for │
+//	│ Request ├──►│Presigned URL├──►│ with CREATE   ├──►│ Response │
+//	└─────────┘   └─────────────┘   │ RequestType   │   └────┬─────┘
+//	                                └───────────────┘        │
+//	                                                         ▼
+//	                                                 ┌───────────────┐
+//	                                                 │Return Physical│
+//	                                                 │Resource ID &  │
+//	                                                 │Outputs        │
+//	                                                 └───────────────┘
 //
 // The Create operation:
 // 1. Generates a presigned S3 URL for response collection
 // 2. Constructs a CloudFormation CREATE event with:
-//    - Unique RequestID (UUID)
-//    - ResponseURL (presigned S3 URL)
-//    - ResourceType from input
-//    - LogicalResourceId from Pulumi URN
-//    - Custom properties from input
+//   - Unique RequestID (UUID)
+//   - ResponseURL (presigned S3 URL)
+//   - ResourceType from input
+//   - LogicalResourceId from Pulumi URN
+//   - Custom properties from input
+//
 // 3. Invokes the Lambda function asynchronously
 // 4. Waits for response in S3 bucket
 // 5. Processes response:
-//    - On success: Returns PhysicalResourceId and properties
-//    - On failure: Returns error with reason
-//    - Handles `NoEcho` for sensitive data
+//   - On success: Returns PhysicalResourceId and properties
+//   - On failure: Returns error with reason
+//   - Handles `NoEcho` for sensitive data
 func (c *cfnCustomResource) Create(ctx context.Context, urn urn.URN, inputs resource.PropertyMap, timeout time.Duration) (*string, resource.PropertyMap, error) {
 	var typedInputs CfnCustomResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
@@ -306,7 +304,7 @@ func (c *cfnCustomResource) Create(ctx context.Context, urn urn.URN, inputs reso
 		ResourceType:       typedInputs.ResourceType,
 		LogicalResourceID:  urn.Name(),
 		StackID:            *typedInputs.StackID,
-		ResourceProperties: typedInputs.CustomResourceProperties,
+		ResourceProperties: naming.ToStringifiedMap(typedInputs.CustomResourceProperties),
 	}
 
 	response, err := c.invokeCustomResource(ctx, customResourceInvokeData{
@@ -348,27 +346,28 @@ func (c *cfnCustomResource) Create(ctx context.Context, urn urn.URN, inputs reso
 //
 // Delete Flow:
 //
-// ┌─────────┐   ┌─────────────┐   ┌───────────────┐   ┌──────────┐
-// │ Delete  │   │Generate S3  │   │ Invoke Lambda │   │ Wait for │
-// │ Request ├──►│Presigned URL├──►│ with DELETE   ├──►│Response  │
-// └─────────┘   └─────────────┘   │ RequestType   │   └────┬─────┘
-//                                 └───────────────┘        │
-//                                                          ▼
-//                                                  ┌───────────────┐
-//                                                  │Verify Delete  │
-//                                                  │Success        │
-//                                                  └───────────────┘
+//	┌─────────┐   ┌─────────────┐   ┌───────────────┐   ┌──────────┐
+//	│ Delete  │   │Generate S3  │   │ Invoke Lambda │   │ Wait for │
+//	│ Request ├──►│Presigned URL├──►│ with DELETE   ├──►│Response  │
+//	└─────────┘   └─────────────┘   │ RequestType   │   └────┬─────┘
+//	                                └───────────────┘        │
+//	                                                         ▼
+//	                                                 ┌───────────────┐
+//	                                                 │Verify Delete  │
+//	                                                 │Success        │
+//	                                                 └───────────────┘
 //
 // The Delete operation:
 // 1. Generates a presigned S3 URL for response collection
 // 2. Constructs CloudFormation DELETE event with:
-//    - Existing PhysicalResourceId
-//    - Current ResourceProperties
-//    - All standard CloudFormation fields
+//   - Existing PhysicalResourceId
+//   - Current ResourceProperties
+//   - All standard CloudFormation fields
+//
 // 3. Invokes Lambda and waits for response
 // 4. Handles response:
-//    - Success: Completes deletion
-//    - Failure: Returns error with reason from Lambda
+//   - Success: Completes deletion
+//   - Failure: Returns error with reason from Lambda
 func (c *cfnCustomResource) Delete(ctx context.Context, urn urn.URN, id string, inputs, state resource.PropertyMap, timeout time.Duration) error {
 	var typedInputs CfnCustomResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
@@ -390,7 +389,7 @@ func (c *cfnCustomResource) Delete(ctx context.Context, urn urn.URN, id string, 
 		ResourceType:       typedInputs.ResourceType,
 		LogicalResourceID:  urn.Name(),
 		StackID:            *typedInputs.StackID,
-		ResourceProperties: typedInputs.CustomResourceProperties,
+		ResourceProperties: naming.ToStringifiedMap(typedInputs.CustomResourceProperties),
 	}
 
 	response, err := c.invokeCustomResource(ctx, customResourceInvokeData{
@@ -421,42 +420,44 @@ func (c *cfnCustomResource) Delete(ctx context.Context, urn urn.URN, id string, 
 //
 // Update Flow:
 //
-//   ┌─────────┐   ┌─────────────┐   ┌───────────────┐   ┌──────────┐
-//   │ Update  │   │Generate S3  │   │ Invoke Lambda │   │ Wait for │
-//   │ Request ├──►│Presigned URL├──►│ with UPDATE   ├──►│ Response │
-//   └─────────┘   └─────────────┘   │ RequestType   │   └────┬─────┘
-//                                   └───────────────┘        │
-//                                                            ▼
-//                                                    ┌───────────────┐
-//                                                    │Check Physical │
-//                                                    │Resource ID    │
-//                                                    └───────┬───────┘
-//                                                            │
-//                                                            ▼
-//                                                    ┌───────────────┐
-//                                                    │Delete Old     │
-//                                                    │Resource       │
-//                                                    │(if ID changed)│
-//                                                    └───────┬───────┘
-//                                                            │
-//                                                            ▼
-//                                                    ┌───────────────┐
-//                                                    │Return updated │
-//                                                    │Physical       │
-//                                                    │Resource ID &  │
-//                                                    │Outputs        │
-//                                                    └───────────────┘
+//	┌─────────┐   ┌─────────────┐   ┌───────────────┐   ┌──────────┐
+//	│ Update  │   │Generate S3  │   │ Invoke Lambda │   │ Wait for │
+//	│ Request ├──►│Presigned URL├──►│ with UPDATE   ├──►│ Response │
+//	└─────────┘   └─────────────┘   │ RequestType   │   └────┬─────┘
+//	                                └───────────────┘        │
+//	                                                         ▼
+//	                                                 ┌───────────────┐
+//	                                                 │Check Physical │
+//	                                                 │Resource ID    │
+//	                                                 └───────┬───────┘
+//	                                                         │
+//	                                                         ▼
+//	                                                 ┌───────────────┐
+//	                                                 │Delete Old     │
+//	                                                 │Resource       │
+//	                                                 │(if ID changed)│
+//	                                                 └───────┬───────┘
+//	                                                         │
+//	                                                         ▼
+//	                                                 ┌───────────────┐
+//	                                                 │Return updated │
+//	                                                 │Physical       │
+//	                                                 │Resource ID &  │
+//	                                                 │Outputs        │
+//	                                                 └───────────────┘
 //
 // The Update operation:
 // 1. Generates a presigned S3 URL for response collection
 // 2. Constructs a CloudFormation UPDATE event with:
-//    - Existing PhysicalResourceId
-//    - Old and new ResourceProperties
-//    - All standard CloudFormation fields
+//   - Existing PhysicalResourceId
+//   - Old and new ResourceProperties
+//   - All standard CloudFormation fields
+//
 // 3. Invokes Lambda and collects response
 // 4. If PhysicalResourceId changes:
-//    - Initiates cleanup of old resource
-//    - Sends DELETE event for old PhysicalResourceId
+//   - Initiates cleanup of old resource
+//   - Sends DELETE event for old PhysicalResourceId
+//
 // 5. Returns updated properties and new PhysicalResourceId
 func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, inputs, oldInputs, state resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error) {
 	var oldTypedInputs CfnCustomResourceInputs
@@ -485,8 +486,8 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 		ResourceType:          newTypedInputs.ResourceType,
 		LogicalResourceID:     urn.Name(),
 		StackID:               *newTypedInputs.StackID,
-		ResourceProperties:    newTypedInputs.CustomResourceProperties,
-		OldResourceProperties: oldTypedInputs.CustomResourceProperties,
+		ResourceProperties:    naming.ToStringifiedMap(newTypedInputs.CustomResourceProperties),
+		OldResourceProperties: naming.ToStringifiedMap(oldTypedInputs.CustomResourceProperties),
 	}
 
 	startTime := c.clock.Now()
@@ -522,7 +523,7 @@ func (c *cfnCustomResource) Update(ctx context.Context, urn urn.URN, id string, 
 			ResourceType:       typedState.ResourceType,
 			LogicalResourceID:  urn.Name(),
 			StackID:            typedState.StackID,
-			ResourceProperties: oldTypedInputs.CustomResourceProperties,
+			ResourceProperties: naming.ToStringifiedMap(oldTypedInputs.CustomResourceProperties),
 		}
 
 		deleteTimeout := DefaultCustomResourceTimeout

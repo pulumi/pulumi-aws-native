@@ -333,6 +333,7 @@
         "cleanroomsml/getTrainingDataset.ts",
         "cleanroomsml/index.ts",
         "cleanroomsml/trainingDataset.ts",
+        "cloudformation/customResourceEmulator.ts",
         "cloudformation/getHookDefaultVersion.ts",
         "cloudformation/getHookTypeConfig.ts",
         "cloudformation/getHookVersion.ts",
