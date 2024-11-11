@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  * export const customResourceData = customResource.data;
  * ```
  *
+ * A full example of creating a CloudFormation Custom Resource Lambda function and using it in Pulumi can be found [here](https://github.com/pulumi/pulumi-aws-native/tree/master/examples/cfn-custom-resource).
+ *
  * ## About CloudFormation Custom Resources
  *
  * CloudFormation Custom Resources allow you to write custom provisioning logic for resources that aren't directly available as AWS CloudFormation resource types. Common use cases include:
