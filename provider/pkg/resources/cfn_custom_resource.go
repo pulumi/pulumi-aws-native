@@ -257,7 +257,13 @@ func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, randomSeed [
 
 	if typedInputs.CustomResourceProperties != nil {
 		stringifiedCustomResourceProperties := naming.ToStringifiedMap(typedInputs.CustomResourceProperties)
-		inputs[resource.PropertyKey("customResourceProperties")] = resource.PropertyValue{V: resource.NewPropertyMapFromMap(stringifiedCustomResourceProperties)}
+		propertyMap := resource.NewPropertyMapFromMap(stringifiedCustomResourceProperties)
+		propertyValue := resource.NewObjectProperty(propertyMap)
+		if inputs[resource.PropertyKey("customResourceProperties")].ContainsSecrets() {
+			propertyValue = resource.MakeSecret(propertyValue)
+		}
+
+		inputs[resource.PropertyKey("customResourceProperties")] = propertyValue
 	}
 
 	return inputs, failures, nil
