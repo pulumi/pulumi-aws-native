@@ -141,10 +141,20 @@
   "required" : [ "AutoCreateTasks" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotwireless:CreateWirelessGatewayTaskDefinition", "iotwireless:TagResource", "iotwireless:ListTagsForResource", "iam:GetRole", "iam:PassRole" ]
+      "permissions" : [ "iotwireless:CreateWirelessGatewayTaskDefinition", "iotwireless:TagResource", "iam:GetRole", "iam:PassRole" ]
+    },
+    "update" : {
+      "permissions" : [ "iotwireless:GetWirelessGatewayTaskDefinition", "iotwireless:TagResource", "iotwireless:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "iotwireless:GetWirelessGatewayTaskDefinition", "iotwireless:ListTagsForResource" ]
@@ -153,6 +163,13 @@
       "permissions" : [ "iotwireless:DeleteWirelessGatewayTaskDefinition" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "TaskDefinitionType" : {
+            "$ref" : "#/properties/TaskDefinitionType"
+          }
+        }
+      },
       "permissions" : [ "iotwireless:ListWirelessGatewayTaskDefinitions", "iotwireless:ListTagsForResource" ]
     }
   }
