@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWirelessDeviceResult:
-    def __init__(__self__, arn=None, description=None, destination_name=None, id=None, last_uplink_received_at=None, lo_ra_wan=None, name=None, tags=None, thing_arn=None, thing_name=None, type=None):
+    def __init__(__self__, arn=None, description=None, destination_name=None, id=None, last_uplink_received_at=None, lo_ra_wan=None, name=None, positioning=None, tags=None, thing_arn=None, thing_name=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +48,9 @@ class GetWirelessDeviceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if positioning and not isinstance(positioning, str):
+            raise TypeError("Expected argument 'positioning' to be a str")
+        pulumi.set(__self__, "positioning", positioning)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -119,6 +122,14 @@ class GetWirelessDeviceResult:
 
     @property
     @pulumi.getter
+    def positioning(self) -> Optional['WirelessDevicePositioning']:
+        """
+        FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+        """
+        return pulumi.get(self, "positioning")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
@@ -163,6 +174,7 @@ class AwaitableGetWirelessDeviceResult(GetWirelessDeviceResult):
             last_uplink_received_at=self.last_uplink_received_at,
             lo_ra_wan=self.lo_ra_wan,
             name=self.name,
+            positioning=self.positioning,
             tags=self.tags,
             thing_arn=self.thing_arn,
             thing_name=self.thing_name,
@@ -190,6 +202,7 @@ def get_wireless_device(id: Optional[str] = None,
         last_uplink_received_at=pulumi.get(__ret__, 'last_uplink_received_at'),
         lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
         name=pulumi.get(__ret__, 'name'),
+        positioning=pulumi.get(__ret__, 'positioning'),
         tags=pulumi.get(__ret__, 'tags'),
         thing_arn=pulumi.get(__ret__, 'thing_arn'),
         thing_name=pulumi.get(__ret__, 'thing_name'),
@@ -214,6 +227,7 @@ def get_wireless_device_output(id: Optional[pulumi.Input[str]] = None,
         last_uplink_received_at=pulumi.get(__response__, 'last_uplink_received_at'),
         lo_ra_wan=pulumi.get(__response__, 'lo_ra_wan'),
         name=pulumi.get(__response__, 'name'),
+        positioning=pulumi.get(__response__, 'positioning'),
         tags=pulumi.get(__response__, 'tags'),
         thing_arn=pulumi.get(__response__, 'thing_arn'),
         thing_name=pulumi.get(__response__, 'thing_name'),

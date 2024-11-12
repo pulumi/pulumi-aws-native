@@ -83,7 +83,7 @@ export interface GetGlobalTableResult {
      */
     readonly timeToLiveSpecification?: outputs.dynamodb.GlobalTableTimeToLiveSpecification;
     /**
-     * Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+     * Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
      */
     readonly writeOnDemandThroughputSettings?: outputs.dynamodb.GlobalTableWriteOnDemandThroughputSettings;
     /**

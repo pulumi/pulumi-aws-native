@@ -16,12 +16,6 @@ namespace Pulumi.AwsNative.GameLift
     public partial class ContainerGroupDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A collection of container definitions that define the containers in this group.
-        /// </summary>
-        [Output("containerDefinitions")]
-        public Output<ImmutableArray<Outputs.ContainerGroupDefinitionContainerDefinition>> ContainerDefinitions { get; private set; } = null!;
-
-        /// <summary>
         /// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.
         /// </summary>
         [Output("containerGroupDefinitionArn")]
@@ -44,12 +38,6 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Output("operatingSystem")]
         public Output<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionOperatingSystem> OperatingSystem { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies whether the container group includes replica or daemon containers.
-        /// </summary>
-        [Output("schedulingStrategy")]
-        public Output<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionSchedulingStrategy?> SchedulingStrategy { get; private set; } = null!;
 
         /// <summary>
         /// A specific ContainerGroupDefinition version to be updated
@@ -81,18 +69,6 @@ namespace Pulumi.AwsNative.GameLift
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
-        /// <summary>
-        /// The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
-        /// </summary>
-        [Output("totalCpuLimit")]
-        public Output<int> TotalCpuLimit { get; private set; } = null!;
-
-        /// <summary>
-        /// The maximum amount of memory (in MiB) to allocate for this container group.
-        /// </summary>
-        [Output("totalMemoryLimit")]
-        public Output<int> TotalMemoryLimit { get; private set; } = null!;
-
 
         /// <summary>
         /// Create a ContainerGroupDefinition resource with the given unique name, arguments, and options.
@@ -118,12 +94,7 @@ namespace Pulumi.AwsNative.GameLift
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "containerDefinitions[*]",
                     "name",
-                    "operatingSystem",
-                    "schedulingStrategy",
-                    "totalCpuLimit",
-                    "totalMemoryLimit",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,18 +118,6 @@ namespace Pulumi.AwsNative.GameLift
 
     public sealed class ContainerGroupDefinitionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("containerDefinitions", required: true)]
-        private InputList<Inputs.ContainerGroupDefinitionContainerDefinitionArgs>? _containerDefinitions;
-
-        /// <summary>
-        /// A collection of container definitions that define the containers in this group.
-        /// </summary>
-        public InputList<Inputs.ContainerGroupDefinitionContainerDefinitionArgs> ContainerDefinitions
-        {
-            get => _containerDefinitions ?? (_containerDefinitions = new InputList<Inputs.ContainerGroupDefinitionContainerDefinitionArgs>());
-            set => _containerDefinitions = value;
-        }
-
         /// <summary>
         /// A descriptive label for the container group definition.
         /// </summary>
@@ -170,12 +129,6 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("operatingSystem", required: true)]
         public Input<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionOperatingSystem> OperatingSystem { get; set; } = null!;
-
-        /// <summary>
-        /// Specifies whether the container group includes replica or daemon containers.
-        /// </summary>
-        [Input("schedulingStrategy")]
-        public Input<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionSchedulingStrategy>? SchedulingStrategy { get; set; }
 
         /// <summary>
         /// A specific ContainerGroupDefinition version to be updated
@@ -206,18 +159,6 @@ namespace Pulumi.AwsNative.GameLift
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
-        /// </summary>
-        [Input("totalCpuLimit", required: true)]
-        public Input<int> TotalCpuLimit { get; set; } = null!;
-
-        /// <summary>
-        /// The maximum amount of memory (in MiB) to allocate for this container group.
-        /// </summary>
-        [Input("totalMemoryLimit", required: true)]
-        public Input<int> TotalMemoryLimit { get; set; } = null!;
 
         public ContainerGroupDefinitionArgs()
         {

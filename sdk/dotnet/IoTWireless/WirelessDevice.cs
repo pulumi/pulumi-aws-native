@@ -58,6 +58,12 @@ namespace Pulumi.AwsNative.IoTWireless
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+        /// </summary>
+        [Output("positioning")]
+        public Output<Pulumi.AwsNative.IoTWireless.WirelessDevicePositioning?> Positioning { get; private set; } = null!;
+
+        /// <summary>
         /// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         /// </summary>
         [Output("tags")]
@@ -155,6 +161,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+        /// </summary>
+        [Input("positioning")]
+        public Input<Pulumi.AwsNative.IoTWireless.WirelessDevicePositioning>? Positioning { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

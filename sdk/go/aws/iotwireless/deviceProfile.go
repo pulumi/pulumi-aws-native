@@ -35,6 +35,11 @@ func NewDeviceProfile(ctx *pulumi.Context,
 		args = &DeviceProfileArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"loRaWan",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeviceProfile
 	err := ctx.RegisterResource("aws-native:iotwireless:DeviceProfile", name, args, &resource, opts...)

@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Lambda.Inputs
 
         /// <summary>
         /// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+        ///  If the value of the environment variable is a time or a duration, enclose the value in quotes.
         /// </summary>
         public InputMap<string> Variables
         {

@@ -39,6 +39,8 @@ type Application struct {
 	OpsItemSnsTopicArn pulumi.StringPtrOutput `pulumi:"opsItemSnsTopicArn"`
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+	SnsNotificationArn pulumi.StringPtrOutput `pulumi:"snsNotificationArn"`
 	// The tags of Application Insights application.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -111,6 +113,8 @@ type applicationArgs struct {
 	OpsItemSnsTopicArn *string `pulumi:"opsItemSnsTopicArn"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+	SnsNotificationArn *string `pulumi:"snsNotificationArn"`
 	// The tags of Application Insights application.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -137,6 +141,8 @@ type ApplicationArgs struct {
 	OpsItemSnsTopicArn pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+	SnsNotificationArn pulumi.StringPtrInput
 	// The tags of Application Insights application.
 	Tags aws.TagArrayInput
 }
@@ -233,6 +239,11 @@ func (o ApplicationOutput) OpsItemSnsTopicArn() pulumi.StringPtrOutput {
 // The name of the resource group.
 func (o ApplicationOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+func (o ApplicationOutput) SnsNotificationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.SnsNotificationArn }).(pulumi.StringPtrOutput)
 }
 
 // The tags of Application Insights application.

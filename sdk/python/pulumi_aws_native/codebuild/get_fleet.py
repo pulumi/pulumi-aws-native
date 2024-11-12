@@ -26,19 +26,25 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, arn=None, base_capacity=None, compute_type=None, environment_type=None, fleet_service_role=None, fleet_vpc_config=None, image_id=None, name=None, overflow_behavior=None, tags=None):
+    def __init__(__self__, arn=None, base_capacity=None, compute_configuration=None, compute_type=None, environment_type=None, fleet_proxy_configuration=None, fleet_service_role=None, fleet_vpc_config=None, image_id=None, name=None, overflow_behavior=None, scaling_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if base_capacity and not isinstance(base_capacity, int):
             raise TypeError("Expected argument 'base_capacity' to be a int")
         pulumi.set(__self__, "base_capacity", base_capacity)
+        if compute_configuration and not isinstance(compute_configuration, dict):
+            raise TypeError("Expected argument 'compute_configuration' to be a dict")
+        pulumi.set(__self__, "compute_configuration", compute_configuration)
         if compute_type and not isinstance(compute_type, str):
             raise TypeError("Expected argument 'compute_type' to be a str")
         pulumi.set(__self__, "compute_type", compute_type)
         if environment_type and not isinstance(environment_type, str):
             raise TypeError("Expected argument 'environment_type' to be a str")
         pulumi.set(__self__, "environment_type", environment_type)
+        if fleet_proxy_configuration and not isinstance(fleet_proxy_configuration, dict):
+            raise TypeError("Expected argument 'fleet_proxy_configuration' to be a dict")
+        pulumi.set(__self__, "fleet_proxy_configuration", fleet_proxy_configuration)
         if fleet_service_role and not isinstance(fleet_service_role, str):
             raise TypeError("Expected argument 'fleet_service_role' to be a str")
         pulumi.set(__self__, "fleet_service_role", fleet_service_role)
@@ -54,6 +60,9 @@ class GetFleetResult:
         if overflow_behavior and not isinstance(overflow_behavior, str):
             raise TypeError("Expected argument 'overflow_behavior' to be a str")
         pulumi.set(__self__, "overflow_behavior", overflow_behavior)
+        if scaling_configuration and not isinstance(scaling_configuration, dict):
+            raise TypeError("Expected argument 'scaling_configuration' to be a dict")
+        pulumi.set(__self__, "scaling_configuration", scaling_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -73,6 +82,11 @@ class GetFleetResult:
         The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
         """
         return pulumi.get(self, "base_capacity")
+
+    @property
+    @pulumi.getter(name="computeConfiguration")
+    def compute_configuration(self) -> Optional['outputs.FleetComputeConfiguration']:
+        return pulumi.get(self, "compute_configuration")
 
     @property
     @pulumi.getter(name="computeType")
@@ -128,6 +142,11 @@ class GetFleetResult:
         return pulumi.get(self, "environment_type")
 
     @property
+    @pulumi.getter(name="fleetProxyConfiguration")
+    def fleet_proxy_configuration(self) -> Optional['outputs.FleetProxyConfiguration']:
+        return pulumi.get(self, "fleet_proxy_configuration")
+
+    @property
     @pulumi.getter(name="fleetServiceRole")
     def fleet_service_role(self) -> Optional[str]:
         """
@@ -173,6 +192,11 @@ class GetFleetResult:
         return pulumi.get(self, "overflow_behavior")
 
     @property
+    @pulumi.getter(name="scalingConfiguration")
+    def scaling_configuration(self) -> Optional['outputs.FleetScalingConfigurationInput']:
+        return pulumi.get(self, "scaling_configuration")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -191,13 +215,16 @@ class AwaitableGetFleetResult(GetFleetResult):
         return GetFleetResult(
             arn=self.arn,
             base_capacity=self.base_capacity,
+            compute_configuration=self.compute_configuration,
             compute_type=self.compute_type,
             environment_type=self.environment_type,
+            fleet_proxy_configuration=self.fleet_proxy_configuration,
             fleet_service_role=self.fleet_service_role,
             fleet_vpc_config=self.fleet_vpc_config,
             image_id=self.image_id,
             name=self.name,
             overflow_behavior=self.overflow_behavior,
+            scaling_configuration=self.scaling_configuration,
             tags=self.tags)
 
 
@@ -217,13 +244,16 @@ def get_fleet(arn: Optional[str] = None,
     return AwaitableGetFleetResult(
         arn=pulumi.get(__ret__, 'arn'),
         base_capacity=pulumi.get(__ret__, 'base_capacity'),
+        compute_configuration=pulumi.get(__ret__, 'compute_configuration'),
         compute_type=pulumi.get(__ret__, 'compute_type'),
         environment_type=pulumi.get(__ret__, 'environment_type'),
+        fleet_proxy_configuration=pulumi.get(__ret__, 'fleet_proxy_configuration'),
         fleet_service_role=pulumi.get(__ret__, 'fleet_service_role'),
         fleet_vpc_config=pulumi.get(__ret__, 'fleet_vpc_config'),
         image_id=pulumi.get(__ret__, 'image_id'),
         name=pulumi.get(__ret__, 'name'),
         overflow_behavior=pulumi.get(__ret__, 'overflow_behavior'),
+        scaling_configuration=pulumi.get(__ret__, 'scaling_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
@@ -240,11 +270,14 @@ def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetFleetResult(
         arn=pulumi.get(__response__, 'arn'),
         base_capacity=pulumi.get(__response__, 'base_capacity'),
+        compute_configuration=pulumi.get(__response__, 'compute_configuration'),
         compute_type=pulumi.get(__response__, 'compute_type'),
         environment_type=pulumi.get(__response__, 'environment_type'),
+        fleet_proxy_configuration=pulumi.get(__response__, 'fleet_proxy_configuration'),
         fleet_service_role=pulumi.get(__response__, 'fleet_service_role'),
         fleet_vpc_config=pulumi.get(__response__, 'fleet_vpc_config'),
         image_id=pulumi.get(__response__, 'image_id'),
         name=pulumi.get(__response__, 'name'),
         overflow_behavior=pulumi.get(__response__, 'overflow_behavior'),
+        scaling_configuration=pulumi.get(__response__, 'scaling_configuration'),
         tags=pulumi.get(__response__, 'tags')))

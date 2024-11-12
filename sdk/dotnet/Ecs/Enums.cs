@@ -168,6 +168,34 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ServiceAvailabilityZoneRebalancing : IEquatable<ServiceAvailabilityZoneRebalancing>
+    {
+        private readonly string _value;
+
+        private ServiceAvailabilityZoneRebalancing(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceAvailabilityZoneRebalancing Enabled { get; } = new ServiceAvailabilityZoneRebalancing("ENABLED");
+        public static ServiceAvailabilityZoneRebalancing Disabled { get; } = new ServiceAvailabilityZoneRebalancing("DISABLED");
+
+        public static bool operator ==(ServiceAvailabilityZoneRebalancing left, ServiceAvailabilityZoneRebalancing right) => left.Equals(right);
+        public static bool operator !=(ServiceAvailabilityZoneRebalancing left, ServiceAvailabilityZoneRebalancing right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceAvailabilityZoneRebalancing value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceAvailabilityZoneRebalancing other && Equals(other);
+        public bool Equals(ServiceAvailabilityZoneRebalancing other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
     /// </summary>

@@ -10,6 +10,7 @@ __all__ = [
     'CapacityProviderManagedScalingStatus',
     'ClusterCapacityProviderAssociationsCapacityProvider',
     'ClusterCapacityProviderAssociationsCapacityProvider0',
+    'ServiceAvailabilityZoneRebalancing',
     'ServiceAwsVpcConfigurationAssignPublicIp',
     'ServiceDeploymentControllerType',
     'ServiceEbsTagSpecificationPropagateTags',
@@ -71,6 +72,11 @@ class ClusterCapacityProviderAssociationsCapacityProvider0(str, Enum):
     """
     FARGATE = "FARGATE"
     FARGATE_SPOT = "FARGATE_SPOT"
+
+
+class ServiceAvailabilityZoneRebalancing(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class ServiceAwsVpcConfigurationAssignPublicIp(str, Enum):

@@ -135,6 +135,8 @@ class ServiceProfile(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["loRaWan", "name"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ServiceProfile, __self__).__init__(
             'aws-native:iotwireless:ServiceProfile',
             resource_name,

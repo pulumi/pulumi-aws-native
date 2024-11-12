@@ -34,6 +34,10 @@ export interface GetContainerGroupDefinitionResult {
      */
     readonly creationTime?: string;
     /**
+     * The operating system of the container group
+     */
+    readonly operatingSystem?: enums.gamelift.ContainerGroupDefinitionOperatingSystem;
+    /**
      * A specific ContainerGroupDefinition version to be updated
      */
     readonly sourceVersionNumber?: number;

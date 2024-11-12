@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.Ecs
     [AwsNativeResourceType("aws-native:ecs:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        [Output("availabilityZoneRebalancing")]
+        public Output<Pulumi.AwsNative.Ecs.ServiceAvailabilityZoneRebalancing?> AvailabilityZoneRebalancing { get; private set; } = null!;
+
         /// <summary>
         /// The capacity provider strategy to use for the service.
         ///  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -32,7 +35,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<string?> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        /// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         /// </summary>
         [Output("deploymentConfiguration")]
         public Output<Outputs.ServiceDeploymentConfiguration?> DeploymentConfiguration { get; private set; } = null!;
@@ -195,6 +198,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("volumeConfigurations")]
         public Output<ImmutableArray<Outputs.ServiceVolumeConfiguration>> VolumeConfigurations { get; private set; } = null!;
 
+        [Output("vpcLatticeConfigurations")]
+        public Output<ImmutableArray<Outputs.ServiceVpcLatticeConfiguration>> VpcLatticeConfigurations { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Service resource with the given unique name, arguments, and options.
@@ -249,6 +255,9 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("availabilityZoneRebalancing")]
+        public Input<Pulumi.AwsNative.Ecs.ServiceAvailabilityZoneRebalancing>? AvailabilityZoneRebalancing { get; set; }
+
         [Input("capacityProviderStrategy")]
         private InputList<Inputs.ServiceCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
 
@@ -270,7 +279,7 @@ namespace Pulumi.AwsNative.Ecs
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        /// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         /// </summary>
         [Input("deploymentConfiguration")]
         public Input<Inputs.ServiceDeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }
@@ -455,6 +464,14 @@ namespace Pulumi.AwsNative.Ecs
         {
             get => _volumeConfigurations ?? (_volumeConfigurations = new InputList<Inputs.ServiceVolumeConfigurationArgs>());
             set => _volumeConfigurations = value;
+        }
+
+        [Input("vpcLatticeConfigurations")]
+        private InputList<Inputs.ServiceVpcLatticeConfigurationArgs>? _vpcLatticeConfigurations;
+        public InputList<Inputs.ServiceVpcLatticeConfigurationArgs> VpcLatticeConfigurations
+        {
+            get => _vpcLatticeConfigurations ?? (_vpcLatticeConfigurations = new InputList<Inputs.ServiceVpcLatticeConfigurationArgs>());
+            set => _vpcLatticeConfigurations = value;
         }
 
         public ServiceArgs()

@@ -18,6 +18,19 @@ export const AnalysisTemplateAnalysisParameterType = {
     Time: "TIME",
     Timetz: "TIMETZ",
     Varbyte: "VARBYTE",
+    Binary: "BINARY",
+    Byte: "BYTE",
+    Character: "CHARACTER",
+    Double: "DOUBLE",
+    Float: "FLOAT",
+    Int: "INT",
+    Long: "LONG",
+    Numeric: "NUMERIC",
+    Short: "SHORT",
+    String: "STRING",
+    TimestampLtz: "TIMESTAMP_LTZ",
+    TimestampNtz: "TIMESTAMP_NTZ",
+    Tinyint: "TINYINT",
 } as const;
 
 /**
@@ -33,6 +46,13 @@ export const AnalysisTemplateFormat = {
  * The format of the analysis template.
  */
 export type AnalysisTemplateFormat = (typeof AnalysisTemplateFormat)[keyof typeof AnalysisTemplateFormat];
+
+export const CollaborationAnalyticsEngine = {
+    CleanRoomsSql: "CLEAN_ROOMS_SQL",
+    Spark: "SPARK",
+} as const;
+
+export type CollaborationAnalyticsEngine = (typeof CollaborationAnalyticsEngine)[keyof typeof CollaborationAnalyticsEngine];
 
 export const CollaborationMemberAbility = {
     CanQuery: "CAN_QUERY",

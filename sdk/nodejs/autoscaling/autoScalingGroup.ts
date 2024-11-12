@@ -46,6 +46,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      *   You cannot use a colon (:) in the name.
      */
     public readonly autoScalingGroupName!: pulumi.Output<string | undefined>;
+    /**
+     * The instance capacity distribution across Availability Zones.
+     */
     public readonly availabilityZoneDistribution!: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution | undefined>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
@@ -288,6 +291,9 @@ export interface AutoScalingGroupArgs {
      *   You cannot use a colon (:) in the name.
      */
     autoScalingGroupName?: pulumi.Input<string>;
+    /**
+     * The instance capacity distribution across Availability Zones.
+     */
     availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.

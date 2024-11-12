@@ -52,7 +52,7 @@ export class NetworkAnalyzerConfiguration extends pulumi.CustomResource {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Trace content for your wireless gateway and wireless device resources
      */
@@ -94,7 +94,7 @@ export class NetworkAnalyzerConfiguration extends pulumi.CustomResource {
             resourceInputs["wirelessGateways"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "tags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(NetworkAnalyzerConfiguration.__pulumiType, name, resourceInputs, opts);
     }
@@ -115,7 +115,7 @@ export interface NetworkAnalyzerConfigurationArgs {
     /**
      * An array of key-value pairs to apply to this resource.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Trace content for your wireless gateway and wireless device resources
      */

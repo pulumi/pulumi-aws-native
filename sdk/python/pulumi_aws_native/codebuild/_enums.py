@@ -5,10 +5,21 @@
 from enum import Enum
 
 __all__ = [
+    'FleetComputeConfigurationmachineType',
     'FleetComputeType',
     'FleetEnvironmentType',
     'FleetOverflowBehavior',
+    'FleetProxyConfigurationDefaultBehavior',
+    'FleetProxyRuleEffect',
+    'FleetProxyRuleType',
+    'FleetScalingConfigurationInputScalingType',
+    'FleetTargetTrackingScalingConfigurationMetricType',
 ]
+
+
+class FleetComputeConfigurationmachineType(str, Enum):
+    GENERAL = "GENERAL"
+    NVME = "NVME"
 
 
 class FleetComputeType(str, Enum):
@@ -48,6 +59,7 @@ class FleetComputeType(str, Enum):
     BUILD_GENERAL1_LARGE = "BUILD_GENERAL1_LARGE"
     BUILD_GENERAL1_XLARGE = "BUILD_GENERAL1_XLARGE"
     BUILD_GENERAL12XLARGE = "BUILD_GENERAL1_2XLARGE"
+    ATTRIBUTE_BASED_COMPUTE = "ATTRIBUTE_BASED_COMPUTE"
 
 
 class FleetEnvironmentType(str, Enum):
@@ -82,3 +94,26 @@ class FleetOverflowBehavior(str, Enum):
     """
     QUEUE = "QUEUE"
     ON_DEMAND = "ON_DEMAND"
+
+
+class FleetProxyConfigurationDefaultBehavior(str, Enum):
+    ALLOW_ALL = "ALLOW_ALL"
+    DENY_ALL = "DENY_ALL"
+
+
+class FleetProxyRuleEffect(str, Enum):
+    ALLOW = "ALLOW"
+    DENY = "DENY"
+
+
+class FleetProxyRuleType(str, Enum):
+    DOMAIN = "DOMAIN"
+    IP = "IP"
+
+
+class FleetScalingConfigurationInputScalingType(str, Enum):
+    TARGET_TRACKING_SCALING = "TARGET_TRACKING_SCALING"
+
+
+class FleetTargetTrackingScalingConfigurationMetricType(str, Enum):
+    FLEET_UTILIZATION_RATE = "FLEET_UTILIZATION_RATE"

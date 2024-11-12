@@ -688,6 +688,171 @@ const (
 	ClusterCapacityProviderAssociationsCapacityProvider0FargateSpot = ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE_SPOT")
 )
 
+type ServiceAvailabilityZoneRebalancing string
+
+const (
+	ServiceAvailabilityZoneRebalancingEnabled  = ServiceAvailabilityZoneRebalancing("ENABLED")
+	ServiceAvailabilityZoneRebalancingDisabled = ServiceAvailabilityZoneRebalancing("DISABLED")
+)
+
+func (ServiceAvailabilityZoneRebalancing) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAvailabilityZoneRebalancing)(nil)).Elem()
+}
+
+func (e ServiceAvailabilityZoneRebalancing) ToServiceAvailabilityZoneRebalancingOutput() ServiceAvailabilityZoneRebalancingOutput {
+	return pulumi.ToOutput(e).(ServiceAvailabilityZoneRebalancingOutput)
+}
+
+func (e ServiceAvailabilityZoneRebalancing) ToServiceAvailabilityZoneRebalancingOutputWithContext(ctx context.Context) ServiceAvailabilityZoneRebalancingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceAvailabilityZoneRebalancingOutput)
+}
+
+func (e ServiceAvailabilityZoneRebalancing) ToServiceAvailabilityZoneRebalancingPtrOutput() ServiceAvailabilityZoneRebalancingPtrOutput {
+	return e.ToServiceAvailabilityZoneRebalancingPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceAvailabilityZoneRebalancing) ToServiceAvailabilityZoneRebalancingPtrOutputWithContext(ctx context.Context) ServiceAvailabilityZoneRebalancingPtrOutput {
+	return ServiceAvailabilityZoneRebalancing(e).ToServiceAvailabilityZoneRebalancingOutputWithContext(ctx).ToServiceAvailabilityZoneRebalancingPtrOutputWithContext(ctx)
+}
+
+func (e ServiceAvailabilityZoneRebalancing) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceAvailabilityZoneRebalancing) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceAvailabilityZoneRebalancing) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceAvailabilityZoneRebalancing) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceAvailabilityZoneRebalancingOutput struct{ *pulumi.OutputState }
+
+func (ServiceAvailabilityZoneRebalancingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAvailabilityZoneRebalancing)(nil)).Elem()
+}
+
+func (o ServiceAvailabilityZoneRebalancingOutput) ToServiceAvailabilityZoneRebalancingOutput() ServiceAvailabilityZoneRebalancingOutput {
+	return o
+}
+
+func (o ServiceAvailabilityZoneRebalancingOutput) ToServiceAvailabilityZoneRebalancingOutputWithContext(ctx context.Context) ServiceAvailabilityZoneRebalancingOutput {
+	return o
+}
+
+func (o ServiceAvailabilityZoneRebalancingOutput) ToServiceAvailabilityZoneRebalancingPtrOutput() ServiceAvailabilityZoneRebalancingPtrOutput {
+	return o.ToServiceAvailabilityZoneRebalancingPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAvailabilityZoneRebalancingOutput) ToServiceAvailabilityZoneRebalancingPtrOutputWithContext(ctx context.Context) ServiceAvailabilityZoneRebalancingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceAvailabilityZoneRebalancing) *ServiceAvailabilityZoneRebalancing {
+		return &v
+	}).(ServiceAvailabilityZoneRebalancingPtrOutput)
+}
+
+func (o ServiceAvailabilityZoneRebalancingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceAvailabilityZoneRebalancingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceAvailabilityZoneRebalancing) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceAvailabilityZoneRebalancingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAvailabilityZoneRebalancingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceAvailabilityZoneRebalancing) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceAvailabilityZoneRebalancingPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceAvailabilityZoneRebalancingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceAvailabilityZoneRebalancing)(nil)).Elem()
+}
+
+func (o ServiceAvailabilityZoneRebalancingPtrOutput) ToServiceAvailabilityZoneRebalancingPtrOutput() ServiceAvailabilityZoneRebalancingPtrOutput {
+	return o
+}
+
+func (o ServiceAvailabilityZoneRebalancingPtrOutput) ToServiceAvailabilityZoneRebalancingPtrOutputWithContext(ctx context.Context) ServiceAvailabilityZoneRebalancingPtrOutput {
+	return o
+}
+
+func (o ServiceAvailabilityZoneRebalancingPtrOutput) Elem() ServiceAvailabilityZoneRebalancingOutput {
+	return o.ApplyT(func(v *ServiceAvailabilityZoneRebalancing) ServiceAvailabilityZoneRebalancing {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceAvailabilityZoneRebalancing
+		return ret
+	}).(ServiceAvailabilityZoneRebalancingOutput)
+}
+
+func (o ServiceAvailabilityZoneRebalancingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceAvailabilityZoneRebalancingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceAvailabilityZoneRebalancing) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceAvailabilityZoneRebalancingInput is an input type that accepts values of the ServiceAvailabilityZoneRebalancing enum
+// A concrete instance of `ServiceAvailabilityZoneRebalancingInput` can be one of the following:
+//
+//	ServiceAvailabilityZoneRebalancingEnabled
+//	ServiceAvailabilityZoneRebalancingDisabled
+type ServiceAvailabilityZoneRebalancingInput interface {
+	pulumi.Input
+
+	ToServiceAvailabilityZoneRebalancingOutput() ServiceAvailabilityZoneRebalancingOutput
+	ToServiceAvailabilityZoneRebalancingOutputWithContext(context.Context) ServiceAvailabilityZoneRebalancingOutput
+}
+
+var serviceAvailabilityZoneRebalancingPtrType = reflect.TypeOf((**ServiceAvailabilityZoneRebalancing)(nil)).Elem()
+
+type ServiceAvailabilityZoneRebalancingPtrInput interface {
+	pulumi.Input
+
+	ToServiceAvailabilityZoneRebalancingPtrOutput() ServiceAvailabilityZoneRebalancingPtrOutput
+	ToServiceAvailabilityZoneRebalancingPtrOutputWithContext(context.Context) ServiceAvailabilityZoneRebalancingPtrOutput
+}
+
+type serviceAvailabilityZoneRebalancingPtr string
+
+func ServiceAvailabilityZoneRebalancingPtr(v string) ServiceAvailabilityZoneRebalancingPtrInput {
+	return (*serviceAvailabilityZoneRebalancingPtr)(&v)
+}
+
+func (*serviceAvailabilityZoneRebalancingPtr) ElementType() reflect.Type {
+	return serviceAvailabilityZoneRebalancingPtrType
+}
+
+func (in *serviceAvailabilityZoneRebalancingPtr) ToServiceAvailabilityZoneRebalancingPtrOutput() ServiceAvailabilityZoneRebalancingPtrOutput {
+	return pulumi.ToOutput(in).(ServiceAvailabilityZoneRebalancingPtrOutput)
+}
+
+func (in *serviceAvailabilityZoneRebalancingPtr) ToServiceAvailabilityZoneRebalancingPtrOutputWithContext(ctx context.Context) ServiceAvailabilityZoneRebalancingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceAvailabilityZoneRebalancingPtrOutput)
+}
+
 // Whether the task's elastic network interface receives a public IP address. The default value is “DISABLED“.
 type ServiceAwsVpcConfigurationAssignPublicIp string
 
@@ -3043,6 +3208,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderManagedScalingStatusPtrInput)(nil)).Elem(), CapacityProviderManagedScalingStatus("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCapacityProviderAssociationsCapacityProviderPtrInput)(nil)).Elem(), ClusterCapacityProviderAssociationsCapacityProvider("FARGATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAvailabilityZoneRebalancingInput)(nil)).Elem(), ServiceAvailabilityZoneRebalancing("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAvailabilityZoneRebalancingPtrInput)(nil)).Elem(), ServiceAvailabilityZoneRebalancing("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAwsVpcConfigurationAssignPublicIpPtrInput)(nil)).Elem(), ServiceAwsVpcConfigurationAssignPublicIp("DISABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypeInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
@@ -3079,6 +3246,8 @@ func init() {
 	pulumi.RegisterOutputType(CapacityProviderManagedScalingStatusPtrOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderOutput{})
 	pulumi.RegisterOutputType(ClusterCapacityProviderAssociationsCapacityProviderPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAvailabilityZoneRebalancingOutput{})
+	pulumi.RegisterOutputType(ServiceAvailabilityZoneRebalancingPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpOutput{})
 	pulumi.RegisterOutputType(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypeOutput{})

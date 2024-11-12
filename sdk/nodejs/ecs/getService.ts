@@ -32,6 +32,7 @@ export interface GetServiceArgs {
 }
 
 export interface GetServiceResult {
+    readonly availabilityZoneRebalancing?: enums.ecs.ServiceAvailabilityZoneRebalancing;
     /**
      * The capacity provider strategy to use for the service.
      *  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -39,7 +40,7 @@ export interface GetServiceResult {
      */
     readonly capacityProviderStrategy?: outputs.ecs.ServiceCapacityProviderStrategyItem[];
     /**
-     * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+     * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
      */
     readonly deploymentConfiguration?: outputs.ecs.ServiceDeploymentConfiguration;
     /**
@@ -120,6 +121,7 @@ export interface GetServiceResult {
      *  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
      */
     readonly taskDefinition?: string;
+    readonly vpcLatticeConfigurations?: outputs.ecs.ServiceVpcLatticeConfiguration[];
 }
 /**
  * The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.

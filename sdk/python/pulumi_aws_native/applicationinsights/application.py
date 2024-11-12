@@ -34,6 +34,7 @@ class ApplicationArgs:
                  log_pattern_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]]] = None,
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
+                 sns_notification_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
@@ -47,6 +48,7 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationLogPatternSetArgs']]] log_pattern_sets: The log pattern sets.
         :param pulumi.Input[bool] ops_center_enabled: When set to true, creates opsItems for any problems detected on an application.
         :param pulumi.Input[str] ops_item_sns_topic_arn: The SNS topic provided to Application Insights that is associated to the created opsItem.
+        :param pulumi.Input[str] sns_notification_arn: Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of Application Insights application.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -68,6 +70,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "ops_center_enabled", ops_center_enabled)
         if ops_item_sns_topic_arn is not None:
             pulumi.set(__self__, "ops_item_sns_topic_arn", ops_item_sns_topic_arn)
+        if sns_notification_arn is not None:
+            pulumi.set(__self__, "sns_notification_arn", sns_notification_arn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -192,6 +196,18 @@ class ApplicationArgs:
         pulumi.set(self, "ops_item_sns_topic_arn", value)
 
     @property
+    @pulumi.getter(name="snsNotificationArn")
+    def sns_notification_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+        """
+        return pulumi.get(self, "sns_notification_arn")
+
+    @sns_notification_arn.setter
+    def sns_notification_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sns_notification_arn", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -219,6 +235,7 @@ class Application(pulumi.CustomResource):
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sns_notification_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -236,6 +253,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[bool] ops_center_enabled: When set to true, creates opsItems for any problems detected on an application.
         :param pulumi.Input[str] ops_item_sns_topic_arn: The SNS topic provided to Application Insights that is associated to the created opsItem.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] sns_notification_arn: Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of Application Insights application.
         """
         ...
@@ -272,6 +290,7 @@ class Application(pulumi.CustomResource):
                  ops_center_enabled: Optional[pulumi.Input[bool]] = None,
                  ops_item_sns_topic_arn: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sns_notification_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -294,6 +313,7 @@ class Application(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sns_notification_arn"] = sns_notification_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["groupingType", "resourceGroupName"])
@@ -331,6 +351,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["ops_center_enabled"] = None
         __props__.__dict__["ops_item_sns_topic_arn"] = None
         __props__.__dict__["resource_group_name"] = None
+        __props__.__dict__["sns_notification_arn"] = None
         __props__.__dict__["tags"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
 
@@ -421,6 +442,14 @@ class Application(pulumi.CustomResource):
         The name of the resource group.
         """
         return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="snsNotificationArn")
+    def sns_notification_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+        """
+        return pulumi.get(self, "sns_notification_arn")
 
     @property
     @pulumi.getter

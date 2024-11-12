@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.Ecs
     [OutputType]
     public sealed class GetServiceResult
     {
+        public readonly Pulumi.AwsNative.Ecs.ServiceAvailabilityZoneRebalancing? AvailabilityZoneRebalancing;
         /// <summary>
         /// The capacity provider strategy to use for the service.
         ///  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -80,7 +81,7 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem> CapacityProviderStrategy;
         /// <summary>
-        /// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        /// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         /// </summary>
         public readonly Outputs.ServiceDeploymentConfiguration? DeploymentConfiguration;
         /// <summary>
@@ -161,9 +162,12 @@ namespace Pulumi.AwsNative.Ecs
         ///  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
         /// </summary>
         public readonly string? TaskDefinition;
+        public readonly ImmutableArray<Outputs.ServiceVpcLatticeConfiguration> VpcLatticeConfigurations;
 
         [OutputConstructor]
         private GetServiceResult(
+            Pulumi.AwsNative.Ecs.ServiceAvailabilityZoneRebalancing? availabilityZoneRebalancing,
+
             ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem> capacityProviderStrategy,
 
             Outputs.ServiceDeploymentConfiguration? deploymentConfiguration,
@@ -196,8 +200,11 @@ namespace Pulumi.AwsNative.Ecs
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
-            string? taskDefinition)
+            string? taskDefinition,
+
+            ImmutableArray<Outputs.ServiceVpcLatticeConfiguration> vpcLatticeConfigurations)
         {
+            AvailabilityZoneRebalancing = availabilityZoneRebalancing;
             CapacityProviderStrategy = capacityProviderStrategy;
             DeploymentConfiguration = deploymentConfiguration;
             DesiredCount = desiredCount;
@@ -215,6 +222,7 @@ namespace Pulumi.AwsNative.Ecs
             ServiceRegistries = serviceRegistries;
             Tags = tags;
             TaskDefinition = taskDefinition;
+            VpcLatticeConfigurations = vpcLatticeConfigurations;
         }
     }
 }

@@ -23,7 +23,8 @@ type AutoScalingGroup struct {
 	// The name of the Auto Scaling group. This name must be unique per Region per account.
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
-	AutoScalingGroupName         pulumi.StringPtrOutput                                `pulumi:"autoScalingGroupName"`
+	AutoScalingGroupName pulumi.StringPtrOutput `pulumi:"autoScalingGroupName"`
+	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution AutoScalingGroupAvailabilityZoneDistributionPtrOutput `pulumi:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
@@ -163,7 +164,8 @@ type autoScalingGroupArgs struct {
 	// The name of the Auto Scaling group. This name must be unique per Region per account.
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
-	AutoScalingGroupName         *string                                       `pulumi:"autoScalingGroupName"`
+	AutoScalingGroupName *string `pulumi:"autoScalingGroupName"`
+	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -254,7 +256,8 @@ type AutoScalingGroupArgs struct {
 	// The name of the Auto Scaling group. This name must be unique per Region per account.
 	//  The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
 	//   You cannot use a colon (:) in the name.
-	AutoScalingGroupName         pulumi.StringPtrInput
+	AutoScalingGroupName pulumi.StringPtrInput
+	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution AutoScalingGroupAvailabilityZoneDistributionPtrInput
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayInput
@@ -385,6 +388,7 @@ func (o AutoScalingGroupOutput) AutoScalingGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.AutoScalingGroupName }).(pulumi.StringPtrOutput)
 }
 
+// The instance capacity distribution across Availability Zones.
 func (o AutoScalingGroupOutput) AvailabilityZoneDistribution() AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
 		return v.AvailabilityZoneDistribution

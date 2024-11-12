@@ -30,6 +30,7 @@ class WirelessDeviceArgs:
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input['WirelessDeviceLoRaWanDeviceArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 positioning: Optional[pulumi.Input['WirelessDevicePositioning']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -40,6 +41,7 @@ class WirelessDeviceArgs:
         :param pulumi.Input[str] last_uplink_received_at: The date and time when the most recent uplink was received.
         :param pulumi.Input['WirelessDeviceLoRaWanDeviceArgs'] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         :param pulumi.Input[str] name: Wireless device name
+        :param pulumi.Input['WirelessDevicePositioning'] positioning: FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         :param pulumi.Input[str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
         """
@@ -53,6 +55,8 @@ class WirelessDeviceArgs:
             pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if positioning is not None:
+            pulumi.set(__self__, "positioning", positioning)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if thing_arn is not None:
@@ -132,6 +136,18 @@ class WirelessDeviceArgs:
 
     @property
     @pulumi.getter
+    def positioning(self) -> Optional[pulumi.Input['WirelessDevicePositioning']]:
+        """
+        FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+        """
+        return pulumi.get(self, "positioning")
+
+    @positioning.setter
+    def positioning(self, value: Optional[pulumi.Input['WirelessDevicePositioning']]):
+        pulumi.set(self, "positioning", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
@@ -165,6 +181,7 @@ class WirelessDevice(pulumi.CustomResource):
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 positioning: Optional[pulumi.Input['WirelessDevicePositioning']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input['WirelessDeviceType']] = None,
@@ -179,6 +196,7 @@ class WirelessDevice(pulumi.CustomResource):
         :param pulumi.Input[str] last_uplink_received_at: The date and time when the most recent uplink was received.
         :param pulumi.Input[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         :param pulumi.Input[str] name: Wireless device name
+        :param pulumi.Input['WirelessDevicePositioning'] positioning: FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         :param pulumi.Input[str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
         :param pulumi.Input['WirelessDeviceType'] type: Wireless device type, currently only Sidewalk and LoRa
@@ -212,6 +230,7 @@ class WirelessDevice(pulumi.CustomResource):
                  last_uplink_received_at: Optional[pulumi.Input[str]] = None,
                  lo_ra_wan: Optional[pulumi.Input[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 positioning: Optional[pulumi.Input['WirelessDevicePositioning']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  thing_arn: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input['WirelessDeviceType']] = None,
@@ -231,6 +250,7 @@ class WirelessDevice(pulumi.CustomResource):
             __props__.__dict__["last_uplink_received_at"] = last_uplink_received_at
             __props__.__dict__["lo_ra_wan"] = lo_ra_wan
             __props__.__dict__["name"] = name
+            __props__.__dict__["positioning"] = positioning
             __props__.__dict__["tags"] = tags
             __props__.__dict__["thing_arn"] = thing_arn
             if type is None and not opts.urn:
@@ -268,6 +288,7 @@ class WirelessDevice(pulumi.CustomResource):
         __props__.__dict__["last_uplink_received_at"] = None
         __props__.__dict__["lo_ra_wan"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["positioning"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["thing_arn"] = None
         __props__.__dict__["thing_name"] = None
@@ -329,6 +350,14 @@ class WirelessDevice(pulumi.CustomResource):
         Wireless device name
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def positioning(self) -> pulumi.Output[Optional['WirelessDevicePositioning']]:
+        """
+        FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+        """
+        return pulumi.get(self, "positioning")
 
     @property
     @pulumi.getter

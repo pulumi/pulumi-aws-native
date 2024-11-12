@@ -2,12 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const FleetComputeConfigurationmachineType = {
+    General: "GENERAL",
+    Nvme: "NVME",
+} as const;
+
+export type FleetComputeConfigurationmachineType = (typeof FleetComputeConfigurationmachineType)[keyof typeof FleetComputeConfigurationmachineType];
+
 export const FleetComputeType = {
     BuildGeneral1Small: "BUILD_GENERAL1_SMALL",
     BuildGeneral1Medium: "BUILD_GENERAL1_MEDIUM",
     BuildGeneral1Large: "BUILD_GENERAL1_LARGE",
     BuildGeneral1Xlarge: "BUILD_GENERAL1_XLARGE",
     BuildGeneral12xlarge: "BUILD_GENERAL1_2XLARGE",
+    AttributeBasedCompute: "ATTRIBUTE_BASED_COMPUTE",
 } as const;
 
 /**
@@ -80,3 +88,36 @@ export const FleetOverflowBehavior = {
  * > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
  */
 export type FleetOverflowBehavior = (typeof FleetOverflowBehavior)[keyof typeof FleetOverflowBehavior];
+
+export const FleetProxyConfigurationDefaultBehavior = {
+    AllowAll: "ALLOW_ALL",
+    DenyAll: "DENY_ALL",
+} as const;
+
+export type FleetProxyConfigurationDefaultBehavior = (typeof FleetProxyConfigurationDefaultBehavior)[keyof typeof FleetProxyConfigurationDefaultBehavior];
+
+export const FleetProxyRuleEffect = {
+    Allow: "ALLOW",
+    Deny: "DENY",
+} as const;
+
+export type FleetProxyRuleEffect = (typeof FleetProxyRuleEffect)[keyof typeof FleetProxyRuleEffect];
+
+export const FleetProxyRuleType = {
+    Domain: "DOMAIN",
+    Ip: "IP",
+} as const;
+
+export type FleetProxyRuleType = (typeof FleetProxyRuleType)[keyof typeof FleetProxyRuleType];
+
+export const FleetScalingConfigurationInputScalingType = {
+    TargetTrackingScaling: "TARGET_TRACKING_SCALING",
+} as const;
+
+export type FleetScalingConfigurationInputScalingType = (typeof FleetScalingConfigurationInputScalingType)[keyof typeof FleetScalingConfigurationInputScalingType];
+
+export const FleetTargetTrackingScalingConfigurationMetricType = {
+    FleetUtilizationRate: "FLEET_UTILIZATION_RATE",
+} as const;
+
+export type FleetTargetTrackingScalingConfigurationMetricType = (typeof FleetTargetTrackingScalingConfigurationMetricType)[keyof typeof FleetTargetTrackingScalingConfigurationMetricType];

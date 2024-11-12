@@ -26,6 +26,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("autoScalingGroupName")]
         public Output<string?> AutoScalingGroupName { get; private set; } = null!;
 
+        /// <summary>
+        /// The instance capacity distribution across Availability Zones.
+        /// </summary>
         [Output("availabilityZoneDistribution")]
         public Output<Outputs.AutoScalingGroupAvailabilityZoneDistribution?> AvailabilityZoneDistribution { get; private set; } = null!;
 
@@ -287,6 +290,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Input("autoScalingGroupName")]
         public Input<string>? AutoScalingGroupName { get; set; }
 
+        /// <summary>
+        /// The instance capacity distribution across Availability Zones.
+        /// </summary>
         [Input("availabilityZoneDistribution")]
         public Input<Inputs.AutoScalingGroupAvailabilityZoneDistributionArgs>? AvailabilityZoneDistribution { get; set; }
 

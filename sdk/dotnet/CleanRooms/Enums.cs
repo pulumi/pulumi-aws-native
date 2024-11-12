@@ -35,6 +35,19 @@ namespace Pulumi.AwsNative.CleanRooms
         public static AnalysisTemplateAnalysisParameterType Time { get; } = new AnalysisTemplateAnalysisParameterType("TIME");
         public static AnalysisTemplateAnalysisParameterType Timetz { get; } = new AnalysisTemplateAnalysisParameterType("TIMETZ");
         public static AnalysisTemplateAnalysisParameterType Varbyte { get; } = new AnalysisTemplateAnalysisParameterType("VARBYTE");
+        public static AnalysisTemplateAnalysisParameterType Binary { get; } = new AnalysisTemplateAnalysisParameterType("BINARY");
+        public static AnalysisTemplateAnalysisParameterType Byte { get; } = new AnalysisTemplateAnalysisParameterType("BYTE");
+        public static AnalysisTemplateAnalysisParameterType Character { get; } = new AnalysisTemplateAnalysisParameterType("CHARACTER");
+        public static AnalysisTemplateAnalysisParameterType Double { get; } = new AnalysisTemplateAnalysisParameterType("DOUBLE");
+        public static AnalysisTemplateAnalysisParameterType Float { get; } = new AnalysisTemplateAnalysisParameterType("FLOAT");
+        public static AnalysisTemplateAnalysisParameterType Int { get; } = new AnalysisTemplateAnalysisParameterType("INT");
+        public static AnalysisTemplateAnalysisParameterType Long { get; } = new AnalysisTemplateAnalysisParameterType("LONG");
+        public static AnalysisTemplateAnalysisParameterType Numeric { get; } = new AnalysisTemplateAnalysisParameterType("NUMERIC");
+        public static AnalysisTemplateAnalysisParameterType Short { get; } = new AnalysisTemplateAnalysisParameterType("SHORT");
+        public static AnalysisTemplateAnalysisParameterType String { get; } = new AnalysisTemplateAnalysisParameterType("STRING");
+        public static AnalysisTemplateAnalysisParameterType TimestampLtz { get; } = new AnalysisTemplateAnalysisParameterType("TIMESTAMP_LTZ");
+        public static AnalysisTemplateAnalysisParameterType TimestampNtz { get; } = new AnalysisTemplateAnalysisParameterType("TIMESTAMP_NTZ");
+        public static AnalysisTemplateAnalysisParameterType Tinyint { get; } = new AnalysisTemplateAnalysisParameterType("TINYINT");
 
         public static bool operator ==(AnalysisTemplateAnalysisParameterType left, AnalysisTemplateAnalysisParameterType right) => left.Equals(right);
         public static bool operator !=(AnalysisTemplateAnalysisParameterType left, AnalysisTemplateAnalysisParameterType right) => !left.Equals(right);
@@ -74,6 +87,34 @@ namespace Pulumi.AwsNative.CleanRooms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisTemplateFormat other && Equals(other);
         public bool Equals(AnalysisTemplateFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct CollaborationAnalyticsEngine : IEquatable<CollaborationAnalyticsEngine>
+    {
+        private readonly string _value;
+
+        private CollaborationAnalyticsEngine(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollaborationAnalyticsEngine CleanRoomsSql { get; } = new CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL");
+        public static CollaborationAnalyticsEngine Spark { get; } = new CollaborationAnalyticsEngine("SPARK");
+
+        public static bool operator ==(CollaborationAnalyticsEngine left, CollaborationAnalyticsEngine right) => left.Equals(right);
+        public static bool operator !=(CollaborationAnalyticsEngine left, CollaborationAnalyticsEngine right) => !left.Equals(right);
+
+        public static explicit operator string(CollaborationAnalyticsEngine value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollaborationAnalyticsEngine other && Equals(other);
+        public bool Equals(CollaborationAnalyticsEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

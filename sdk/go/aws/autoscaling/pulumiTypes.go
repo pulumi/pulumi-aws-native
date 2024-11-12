@@ -332,6 +332,10 @@ func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.
 }
 
 type AutoScalingGroupAvailabilityZoneDistribution struct {
+	// If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
+	//
+	// - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+	// - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
 	CapacityDistributionStrategy *AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy `pulumi:"capacityDistributionStrategy"`
 }
 
@@ -347,6 +351,10 @@ type AutoScalingGroupAvailabilityZoneDistributionInput interface {
 }
 
 type AutoScalingGroupAvailabilityZoneDistributionArgs struct {
+	// If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
+	//
+	// - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+	// - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
 	CapacityDistributionStrategy AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrInput `pulumi:"capacityDistributionStrategy"`
 }
 
@@ -427,6 +435,10 @@ func (o AutoScalingGroupAvailabilityZoneDistributionOutput) ToAutoScalingGroupAv
 	}).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
 }
 
+// If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
+//
+// - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+// - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
 func (o AutoScalingGroupAvailabilityZoneDistributionOutput) CapacityDistributionStrategy() AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupAvailabilityZoneDistribution) *AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy {
 		return v.CapacityDistributionStrategy
@@ -457,6 +469,10 @@ func (o AutoScalingGroupAvailabilityZoneDistributionPtrOutput) Elem() AutoScalin
 	}).(AutoScalingGroupAvailabilityZoneDistributionOutput)
 }
 
+// If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
+//
+// - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+// - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
 func (o AutoScalingGroupAvailabilityZoneDistributionPtrOutput) CapacityDistributionStrategy() AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneDistribution) *AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy {
 		if v == nil {

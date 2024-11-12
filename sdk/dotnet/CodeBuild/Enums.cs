@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.CodeBuild
 {
+    [EnumType]
+    public readonly struct FleetComputeConfigurationmachineType : IEquatable<FleetComputeConfigurationmachineType>
+    {
+        private readonly string _value;
+
+        private FleetComputeConfigurationmachineType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetComputeConfigurationmachineType General { get; } = new FleetComputeConfigurationmachineType("GENERAL");
+        public static FleetComputeConfigurationmachineType Nvme { get; } = new FleetComputeConfigurationmachineType("NVME");
+
+        public static bool operator ==(FleetComputeConfigurationmachineType left, FleetComputeConfigurationmachineType right) => left.Equals(right);
+        public static bool operator !=(FleetComputeConfigurationmachineType left, FleetComputeConfigurationmachineType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetComputeConfigurationmachineType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetComputeConfigurationmachineType other && Equals(other);
+        public bool Equals(FleetComputeConfigurationmachineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Information about the compute resources the compute fleet uses. Available values include:
     /// 
@@ -53,6 +81,7 @@ namespace Pulumi.AwsNative.CodeBuild
         public static FleetComputeType BuildGeneral1Large { get; } = new FleetComputeType("BUILD_GENERAL1_LARGE");
         public static FleetComputeType BuildGeneral1Xlarge { get; } = new FleetComputeType("BUILD_GENERAL1_XLARGE");
         public static FleetComputeType BuildGeneral12xlarge { get; } = new FleetComputeType("BUILD_GENERAL1_2XLARGE");
+        public static FleetComputeType AttributeBasedCompute { get; } = new FleetComputeType("ATTRIBUTE_BASED_COMPUTE");
 
         public static bool operator ==(FleetComputeType left, FleetComputeType right) => left.Equals(right);
         public static bool operator !=(FleetComputeType left, FleetComputeType right) => !left.Equals(right);
@@ -142,6 +171,144 @@ namespace Pulumi.AwsNative.CodeBuild
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FleetOverflowBehavior other && Equals(other);
         public bool Equals(FleetOverflowBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FleetProxyConfigurationDefaultBehavior : IEquatable<FleetProxyConfigurationDefaultBehavior>
+    {
+        private readonly string _value;
+
+        private FleetProxyConfigurationDefaultBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetProxyConfigurationDefaultBehavior AllowAll { get; } = new FleetProxyConfigurationDefaultBehavior("ALLOW_ALL");
+        public static FleetProxyConfigurationDefaultBehavior DenyAll { get; } = new FleetProxyConfigurationDefaultBehavior("DENY_ALL");
+
+        public static bool operator ==(FleetProxyConfigurationDefaultBehavior left, FleetProxyConfigurationDefaultBehavior right) => left.Equals(right);
+        public static bool operator !=(FleetProxyConfigurationDefaultBehavior left, FleetProxyConfigurationDefaultBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(FleetProxyConfigurationDefaultBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetProxyConfigurationDefaultBehavior other && Equals(other);
+        public bool Equals(FleetProxyConfigurationDefaultBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FleetProxyRuleEffect : IEquatable<FleetProxyRuleEffect>
+    {
+        private readonly string _value;
+
+        private FleetProxyRuleEffect(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetProxyRuleEffect Allow { get; } = new FleetProxyRuleEffect("ALLOW");
+        public static FleetProxyRuleEffect Deny { get; } = new FleetProxyRuleEffect("DENY");
+
+        public static bool operator ==(FleetProxyRuleEffect left, FleetProxyRuleEffect right) => left.Equals(right);
+        public static bool operator !=(FleetProxyRuleEffect left, FleetProxyRuleEffect right) => !left.Equals(right);
+
+        public static explicit operator string(FleetProxyRuleEffect value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetProxyRuleEffect other && Equals(other);
+        public bool Equals(FleetProxyRuleEffect other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FleetProxyRuleType : IEquatable<FleetProxyRuleType>
+    {
+        private readonly string _value;
+
+        private FleetProxyRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetProxyRuleType Domain { get; } = new FleetProxyRuleType("DOMAIN");
+        public static FleetProxyRuleType Ip { get; } = new FleetProxyRuleType("IP");
+
+        public static bool operator ==(FleetProxyRuleType left, FleetProxyRuleType right) => left.Equals(right);
+        public static bool operator !=(FleetProxyRuleType left, FleetProxyRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetProxyRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetProxyRuleType other && Equals(other);
+        public bool Equals(FleetProxyRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FleetScalingConfigurationInputScalingType : IEquatable<FleetScalingConfigurationInputScalingType>
+    {
+        private readonly string _value;
+
+        private FleetScalingConfigurationInputScalingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetScalingConfigurationInputScalingType TargetTrackingScaling { get; } = new FleetScalingConfigurationInputScalingType("TARGET_TRACKING_SCALING");
+
+        public static bool operator ==(FleetScalingConfigurationInputScalingType left, FleetScalingConfigurationInputScalingType right) => left.Equals(right);
+        public static bool operator !=(FleetScalingConfigurationInputScalingType left, FleetScalingConfigurationInputScalingType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetScalingConfigurationInputScalingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetScalingConfigurationInputScalingType other && Equals(other);
+        public bool Equals(FleetScalingConfigurationInputScalingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FleetTargetTrackingScalingConfigurationMetricType : IEquatable<FleetTargetTrackingScalingConfigurationMetricType>
+    {
+        private readonly string _value;
+
+        private FleetTargetTrackingScalingConfigurationMetricType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetTargetTrackingScalingConfigurationMetricType FleetUtilizationRate { get; } = new FleetTargetTrackingScalingConfigurationMetricType("FLEET_UTILIZATION_RATE");
+
+        public static bool operator ==(FleetTargetTrackingScalingConfigurationMetricType left, FleetTargetTrackingScalingConfigurationMetricType right) => left.Equals(right);
+        public static bool operator !=(FleetTargetTrackingScalingConfigurationMetricType left, FleetTargetTrackingScalingConfigurationMetricType right) => !left.Equals(right);
+
+        public static explicit operator string(FleetTargetTrackingScalingConfigurationMetricType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetTargetTrackingScalingConfigurationMetricType other && Equals(other);
+        public bool Equals(FleetTargetTrackingScalingConfigurationMetricType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

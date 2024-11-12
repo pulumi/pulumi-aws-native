@@ -58,6 +58,13 @@ export const ClusterCapacityProviderAssociationsCapacityProvider0 = {
  */
 export type ClusterCapacityProviderAssociationsCapacityProvider0 = (typeof ClusterCapacityProviderAssociationsCapacityProvider0)[keyof typeof ClusterCapacityProviderAssociationsCapacityProvider0];
 
+export const ServiceAvailabilityZoneRebalancing = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type ServiceAvailabilityZoneRebalancing = (typeof ServiceAvailabilityZoneRebalancing)[keyof typeof ServiceAvailabilityZoneRebalancing];
+
 export const ServiceAwsVpcConfigurationAssignPublicIp = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

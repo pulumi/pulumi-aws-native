@@ -43,6 +43,8 @@ type LookupWirelessDeviceResult struct {
 	LoRaWan *WirelessDeviceLoRaWanDevice `pulumi:"loRaWan"`
 	// Wireless device name
 	Name *string `pulumi:"name"`
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+	Positioning *WirelessDevicePositioning `pulumi:"positioning"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Thing arn. Passed into update to associate Thing with Wireless device.
@@ -128,6 +130,11 @@ func (o LookupWirelessDeviceResultOutput) LoRaWan() WirelessDeviceLoRaWanDeviceP
 // Wireless device name
 func (o LookupWirelessDeviceResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWirelessDeviceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+func (o LookupWirelessDeviceResultOutput) Positioning() WirelessDevicePositioningPtrOutput {
+	return o.ApplyT(func(v LookupWirelessDeviceResult) *WirelessDevicePositioning { return v.Positioning }).(WirelessDevicePositioningPtrOutput)
 }
 
 // A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.

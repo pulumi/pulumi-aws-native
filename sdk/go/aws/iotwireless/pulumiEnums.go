@@ -674,6 +674,342 @@ func (in *taskDefinitionTypePtr) ToTaskDefinitionTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionTypePtrOutput)
 }
 
+// Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+type WirelessDeviceApplicationType string
+
+const (
+	WirelessDeviceApplicationTypeSemtechGeolocation = WirelessDeviceApplicationType("SemtechGeolocation")
+	WirelessDeviceApplicationTypeSemtechGnss        = WirelessDeviceApplicationType("SemtechGNSS")
+	WirelessDeviceApplicationTypeSemtechGnssng      = WirelessDeviceApplicationType("SemtechGNSSNG")
+	WirelessDeviceApplicationTypeSemtechWiFi        = WirelessDeviceApplicationType("SemtechWiFi")
+)
+
+func (WirelessDeviceApplicationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceApplicationType)(nil)).Elem()
+}
+
+func (e WirelessDeviceApplicationType) ToWirelessDeviceApplicationTypeOutput() WirelessDeviceApplicationTypeOutput {
+	return pulumi.ToOutput(e).(WirelessDeviceApplicationTypeOutput)
+}
+
+func (e WirelessDeviceApplicationType) ToWirelessDeviceApplicationTypeOutputWithContext(ctx context.Context) WirelessDeviceApplicationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WirelessDeviceApplicationTypeOutput)
+}
+
+func (e WirelessDeviceApplicationType) ToWirelessDeviceApplicationTypePtrOutput() WirelessDeviceApplicationTypePtrOutput {
+	return e.ToWirelessDeviceApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (e WirelessDeviceApplicationType) ToWirelessDeviceApplicationTypePtrOutputWithContext(ctx context.Context) WirelessDeviceApplicationTypePtrOutput {
+	return WirelessDeviceApplicationType(e).ToWirelessDeviceApplicationTypeOutputWithContext(ctx).ToWirelessDeviceApplicationTypePtrOutputWithContext(ctx)
+}
+
+func (e WirelessDeviceApplicationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WirelessDeviceApplicationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WirelessDeviceApplicationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WirelessDeviceApplicationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WirelessDeviceApplicationTypeOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceApplicationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceApplicationType)(nil)).Elem()
+}
+
+func (o WirelessDeviceApplicationTypeOutput) ToWirelessDeviceApplicationTypeOutput() WirelessDeviceApplicationTypeOutput {
+	return o
+}
+
+func (o WirelessDeviceApplicationTypeOutput) ToWirelessDeviceApplicationTypeOutputWithContext(ctx context.Context) WirelessDeviceApplicationTypeOutput {
+	return o
+}
+
+func (o WirelessDeviceApplicationTypeOutput) ToWirelessDeviceApplicationTypePtrOutput() WirelessDeviceApplicationTypePtrOutput {
+	return o.ToWirelessDeviceApplicationTypePtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceApplicationTypeOutput) ToWirelessDeviceApplicationTypePtrOutputWithContext(ctx context.Context) WirelessDeviceApplicationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDeviceApplicationType) *WirelessDeviceApplicationType {
+		return &v
+	}).(WirelessDeviceApplicationTypePtrOutput)
+}
+
+func (o WirelessDeviceApplicationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceApplicationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WirelessDeviceApplicationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WirelessDeviceApplicationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceApplicationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WirelessDeviceApplicationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WirelessDeviceApplicationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceApplicationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WirelessDeviceApplicationType)(nil)).Elem()
+}
+
+func (o WirelessDeviceApplicationTypePtrOutput) ToWirelessDeviceApplicationTypePtrOutput() WirelessDeviceApplicationTypePtrOutput {
+	return o
+}
+
+func (o WirelessDeviceApplicationTypePtrOutput) ToWirelessDeviceApplicationTypePtrOutputWithContext(ctx context.Context) WirelessDeviceApplicationTypePtrOutput {
+	return o
+}
+
+func (o WirelessDeviceApplicationTypePtrOutput) Elem() WirelessDeviceApplicationTypeOutput {
+	return o.ApplyT(func(v *WirelessDeviceApplicationType) WirelessDeviceApplicationType {
+		if v != nil {
+			return *v
+		}
+		var ret WirelessDeviceApplicationType
+		return ret
+	}).(WirelessDeviceApplicationTypeOutput)
+}
+
+func (o WirelessDeviceApplicationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceApplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WirelessDeviceApplicationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WirelessDeviceApplicationTypeInput is an input type that accepts values of the WirelessDeviceApplicationType enum
+// A concrete instance of `WirelessDeviceApplicationTypeInput` can be one of the following:
+//
+//	WirelessDeviceApplicationTypeSemtechGeolocation
+//	WirelessDeviceApplicationTypeSemtechGnss
+//	WirelessDeviceApplicationTypeSemtechGnssng
+//	WirelessDeviceApplicationTypeSemtechWiFi
+type WirelessDeviceApplicationTypeInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceApplicationTypeOutput() WirelessDeviceApplicationTypeOutput
+	ToWirelessDeviceApplicationTypeOutputWithContext(context.Context) WirelessDeviceApplicationTypeOutput
+}
+
+var wirelessDeviceApplicationTypePtrType = reflect.TypeOf((**WirelessDeviceApplicationType)(nil)).Elem()
+
+type WirelessDeviceApplicationTypePtrInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceApplicationTypePtrOutput() WirelessDeviceApplicationTypePtrOutput
+	ToWirelessDeviceApplicationTypePtrOutputWithContext(context.Context) WirelessDeviceApplicationTypePtrOutput
+}
+
+type wirelessDeviceApplicationTypePtr string
+
+func WirelessDeviceApplicationTypePtr(v string) WirelessDeviceApplicationTypePtrInput {
+	return (*wirelessDeviceApplicationTypePtr)(&v)
+}
+
+func (*wirelessDeviceApplicationTypePtr) ElementType() reflect.Type {
+	return wirelessDeviceApplicationTypePtrType
+}
+
+func (in *wirelessDeviceApplicationTypePtr) ToWirelessDeviceApplicationTypePtrOutput() WirelessDeviceApplicationTypePtrOutput {
+	return pulumi.ToOutput(in).(WirelessDeviceApplicationTypePtrOutput)
+}
+
+func (in *wirelessDeviceApplicationTypePtr) ToWirelessDeviceApplicationTypePtrOutputWithContext(ctx context.Context) WirelessDeviceApplicationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WirelessDeviceApplicationTypePtrOutput)
+}
+
+// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+type WirelessDevicePositioning string
+
+const (
+	WirelessDevicePositioningEnabled  = WirelessDevicePositioning("Enabled")
+	WirelessDevicePositioningDisabled = WirelessDevicePositioning("Disabled")
+)
+
+func (WirelessDevicePositioning) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDevicePositioning)(nil)).Elem()
+}
+
+func (e WirelessDevicePositioning) ToWirelessDevicePositioningOutput() WirelessDevicePositioningOutput {
+	return pulumi.ToOutput(e).(WirelessDevicePositioningOutput)
+}
+
+func (e WirelessDevicePositioning) ToWirelessDevicePositioningOutputWithContext(ctx context.Context) WirelessDevicePositioningOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WirelessDevicePositioningOutput)
+}
+
+func (e WirelessDevicePositioning) ToWirelessDevicePositioningPtrOutput() WirelessDevicePositioningPtrOutput {
+	return e.ToWirelessDevicePositioningPtrOutputWithContext(context.Background())
+}
+
+func (e WirelessDevicePositioning) ToWirelessDevicePositioningPtrOutputWithContext(ctx context.Context) WirelessDevicePositioningPtrOutput {
+	return WirelessDevicePositioning(e).ToWirelessDevicePositioningOutputWithContext(ctx).ToWirelessDevicePositioningPtrOutputWithContext(ctx)
+}
+
+func (e WirelessDevicePositioning) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WirelessDevicePositioning) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WirelessDevicePositioning) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WirelessDevicePositioning) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WirelessDevicePositioningOutput struct{ *pulumi.OutputState }
+
+func (WirelessDevicePositioningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDevicePositioning)(nil)).Elem()
+}
+
+func (o WirelessDevicePositioningOutput) ToWirelessDevicePositioningOutput() WirelessDevicePositioningOutput {
+	return o
+}
+
+func (o WirelessDevicePositioningOutput) ToWirelessDevicePositioningOutputWithContext(ctx context.Context) WirelessDevicePositioningOutput {
+	return o
+}
+
+func (o WirelessDevicePositioningOutput) ToWirelessDevicePositioningPtrOutput() WirelessDevicePositioningPtrOutput {
+	return o.ToWirelessDevicePositioningPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDevicePositioningOutput) ToWirelessDevicePositioningPtrOutputWithContext(ctx context.Context) WirelessDevicePositioningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDevicePositioning) *WirelessDevicePositioning {
+		return &v
+	}).(WirelessDevicePositioningPtrOutput)
+}
+
+func (o WirelessDevicePositioningOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WirelessDevicePositioningOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WirelessDevicePositioning) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WirelessDevicePositioningOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDevicePositioningOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WirelessDevicePositioning) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WirelessDevicePositioningPtrOutput struct{ *pulumi.OutputState }
+
+func (WirelessDevicePositioningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WirelessDevicePositioning)(nil)).Elem()
+}
+
+func (o WirelessDevicePositioningPtrOutput) ToWirelessDevicePositioningPtrOutput() WirelessDevicePositioningPtrOutput {
+	return o
+}
+
+func (o WirelessDevicePositioningPtrOutput) ToWirelessDevicePositioningPtrOutputWithContext(ctx context.Context) WirelessDevicePositioningPtrOutput {
+	return o
+}
+
+func (o WirelessDevicePositioningPtrOutput) Elem() WirelessDevicePositioningOutput {
+	return o.ApplyT(func(v *WirelessDevicePositioning) WirelessDevicePositioning {
+		if v != nil {
+			return *v
+		}
+		var ret WirelessDevicePositioning
+		return ret
+	}).(WirelessDevicePositioningOutput)
+}
+
+func (o WirelessDevicePositioningPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDevicePositioningPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WirelessDevicePositioning) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WirelessDevicePositioningInput is an input type that accepts values of the WirelessDevicePositioning enum
+// A concrete instance of `WirelessDevicePositioningInput` can be one of the following:
+//
+//	WirelessDevicePositioningEnabled
+//	WirelessDevicePositioningDisabled
+type WirelessDevicePositioningInput interface {
+	pulumi.Input
+
+	ToWirelessDevicePositioningOutput() WirelessDevicePositioningOutput
+	ToWirelessDevicePositioningOutputWithContext(context.Context) WirelessDevicePositioningOutput
+}
+
+var wirelessDevicePositioningPtrType = reflect.TypeOf((**WirelessDevicePositioning)(nil)).Elem()
+
+type WirelessDevicePositioningPtrInput interface {
+	pulumi.Input
+
+	ToWirelessDevicePositioningPtrOutput() WirelessDevicePositioningPtrOutput
+	ToWirelessDevicePositioningPtrOutputWithContext(context.Context) WirelessDevicePositioningPtrOutput
+}
+
+type wirelessDevicePositioningPtr string
+
+func WirelessDevicePositioningPtr(v string) WirelessDevicePositioningPtrInput {
+	return (*wirelessDevicePositioningPtr)(&v)
+}
+
+func (*wirelessDevicePositioningPtr) ElementType() reflect.Type {
+	return wirelessDevicePositioningPtrType
+}
+
+func (in *wirelessDevicePositioningPtr) ToWirelessDevicePositioningPtrOutput() WirelessDevicePositioningPtrOutput {
+	return pulumi.ToOutput(in).(WirelessDevicePositioningPtrOutput)
+}
+
+func (in *wirelessDevicePositioningPtr) ToWirelessDevicePositioningPtrOutputWithContext(ctx context.Context) WirelessDevicePositioningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WirelessDevicePositioningPtrOutput)
+}
+
 // Wireless device type, currently only Sidewalk and LoRa
 type WirelessDeviceType string
 
@@ -849,6 +1185,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrInput)(nil)).Elem(), NetworkAnalyzerConfigurationWirelessDeviceFrameInfo("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTypeInput)(nil)).Elem(), TaskDefinitionType("UPDATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionTypePtrInput)(nil)).Elem(), TaskDefinitionType("UPDATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceApplicationTypeInput)(nil)).Elem(), WirelessDeviceApplicationType("SemtechGeolocation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceApplicationTypePtrInput)(nil)).Elem(), WirelessDeviceApplicationType("SemtechGeolocation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDevicePositioningInput)(nil)).Elem(), WirelessDevicePositioning("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDevicePositioningPtrInput)(nil)).Elem(), WirelessDevicePositioning("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTypeInput)(nil)).Elem(), WirelessDeviceType("Sidewalk"))
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceTypePtrInput)(nil)).Elem(), WirelessDeviceType("Sidewalk"))
 	pulumi.RegisterOutputType(DestinationExpressionTypeOutput{})
@@ -859,6 +1199,10 @@ func init() {
 	pulumi.RegisterOutputType(NetworkAnalyzerConfigurationWirelessDeviceFrameInfoPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionTypePtrOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceApplicationTypeOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceApplicationTypePtrOutput{})
+	pulumi.RegisterOutputType(WirelessDevicePositioningOutput{})
+	pulumi.RegisterOutputType(WirelessDevicePositioningPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTypeOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceTypePtrOutput{})
 }

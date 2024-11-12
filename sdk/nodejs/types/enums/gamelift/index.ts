@@ -25,28 +25,6 @@ export const BuildOperatingSystem = {
  */
 export type BuildOperatingSystem = (typeof BuildOperatingSystem)[keyof typeof BuildOperatingSystem];
 
-export const ContainerGroupDefinitionContainerDependencyCondition = {
-    Start: "START",
-    Complete: "COMPLETE",
-    Success: "SUCCESS",
-    Healthy: "HEALTHY",
-} as const;
-
-/**
- * The type of dependency.
- */
-export type ContainerGroupDefinitionContainerDependencyCondition = (typeof ContainerGroupDefinitionContainerDependencyCondition)[keyof typeof ContainerGroupDefinitionContainerDependencyCondition];
-
-export const ContainerGroupDefinitionContainerPortRangeProtocol = {
-    Tcp: "TCP",
-    Udp: "UDP",
-} as const;
-
-/**
- * Defines the protocol of these ports.
- */
-export type ContainerGroupDefinitionContainerPortRangeProtocol = (typeof ContainerGroupDefinitionContainerPortRangeProtocol)[keyof typeof ContainerGroupDefinitionContainerPortRangeProtocol];
-
 export const ContainerGroupDefinitionOperatingSystem = {
     AmazonLinux2023: "AMAZON_LINUX_2023",
 } as const;
@@ -55,16 +33,6 @@ export const ContainerGroupDefinitionOperatingSystem = {
  * The operating system of the container group
  */
 export type ContainerGroupDefinitionOperatingSystem = (typeof ContainerGroupDefinitionOperatingSystem)[keyof typeof ContainerGroupDefinitionOperatingSystem];
-
-export const ContainerGroupDefinitionSchedulingStrategy = {
-    Replica: "REPLICA",
-    Daemon: "DAEMON",
-} as const;
-
-/**
- * Specifies whether the container group includes replica or daemon containers.
- */
-export type ContainerGroupDefinitionSchedulingStrategy = (typeof ContainerGroupDefinitionSchedulingStrategy)[keyof typeof ContainerGroupDefinitionSchedulingStrategy];
 
 export const ContainerGroupDefinitionStatus = {
     Ready: "READY",
@@ -105,7 +73,6 @@ export type FleetCertificateConfigurationCertificateType = (typeof FleetCertific
 export const FleetComputeType = {
     Ec2: "EC2",
     Anywhere: "ANYWHERE",
-    Container: "CONTAINER",
 } as const;
 
 /**

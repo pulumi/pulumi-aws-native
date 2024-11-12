@@ -3286,7 +3286,7 @@ func (o ServiceDeploymentCircuitBreakerPtrOutput) Rollback() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfiguration struct {
 	// Information about the CloudWatch alarms.
 	Alarms *ServiceDeploymentAlarms `pulumi:"alarms"`
@@ -3327,7 +3327,7 @@ type ServiceDeploymentConfigurationInput interface {
 	ToServiceDeploymentConfigurationOutputWithContext(context.Context) ServiceDeploymentConfigurationOutput
 }
 
-// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfigurationArgs struct {
 	// Information about the CloudWatch alarms.
 	Alarms ServiceDeploymentAlarmsPtrInput `pulumi:"alarms"`
@@ -3410,7 +3410,7 @@ func (i *serviceDeploymentConfigurationPtrType) ToServiceDeploymentConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentConfigurationPtrOutput)
 }
 
-// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+// Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
 type ServiceDeploymentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentConfigurationOutput) ElementType() reflect.Type {
@@ -3844,7 +3844,7 @@ type ServiceLoadBalancer struct {
 	ContainerName *string `pulumi:"containerName"`
 	// The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
 	ContainerPort *int `pulumi:"containerPort"`
-	// The name of the load balancer to associate with the service or task set.
+	// The name of the load balancer to associate with the Amazon ECS service or task set.
 	//  If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 	LoadBalancerName *string `pulumi:"loadBalancerName"`
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
@@ -3876,7 +3876,7 @@ type ServiceLoadBalancerArgs struct {
 	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
 	// The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
 	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
-	// The name of the load balancer to associate with the service or task set.
+	// The name of the load balancer to associate with the Amazon ECS service or task set.
 	//  If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
 	// The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
@@ -3954,7 +3954,7 @@ func (o ServiceLoadBalancerOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ServiceLoadBalancer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
 
-// The name of the load balancer to associate with the service or task set.
+// The name of the load balancer to associate with the Amazon ECS service or task set.
 //
 //	If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
 func (o ServiceLoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
@@ -5739,6 +5739,112 @@ func (o ServiceVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceV
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceVolumeConfiguration {
 		return vs[0].([]ServiceVolumeConfiguration)[vs[1].(int)]
 	}).(ServiceVolumeConfigurationOutput)
+}
+
+type ServiceVpcLatticeConfiguration struct {
+	PortName       string `pulumi:"portName"`
+	RoleArn        string `pulumi:"roleArn"`
+	TargetGroupArn string `pulumi:"targetGroupArn"`
+}
+
+// ServiceVpcLatticeConfigurationInput is an input type that accepts ServiceVpcLatticeConfigurationArgs and ServiceVpcLatticeConfigurationOutput values.
+// You can construct a concrete instance of `ServiceVpcLatticeConfigurationInput` via:
+//
+//	ServiceVpcLatticeConfigurationArgs{...}
+type ServiceVpcLatticeConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceVpcLatticeConfigurationOutput() ServiceVpcLatticeConfigurationOutput
+	ToServiceVpcLatticeConfigurationOutputWithContext(context.Context) ServiceVpcLatticeConfigurationOutput
+}
+
+type ServiceVpcLatticeConfigurationArgs struct {
+	PortName       pulumi.StringInput `pulumi:"portName"`
+	RoleArn        pulumi.StringInput `pulumi:"roleArn"`
+	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
+}
+
+func (ServiceVpcLatticeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVpcLatticeConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVpcLatticeConfigurationArgs) ToServiceVpcLatticeConfigurationOutput() ServiceVpcLatticeConfigurationOutput {
+	return i.ToServiceVpcLatticeConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceVpcLatticeConfigurationArgs) ToServiceVpcLatticeConfigurationOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeConfigurationOutput)
+}
+
+// ServiceVpcLatticeConfigurationArrayInput is an input type that accepts ServiceVpcLatticeConfigurationArray and ServiceVpcLatticeConfigurationArrayOutput values.
+// You can construct a concrete instance of `ServiceVpcLatticeConfigurationArrayInput` via:
+//
+//	ServiceVpcLatticeConfigurationArray{ ServiceVpcLatticeConfigurationArgs{...} }
+type ServiceVpcLatticeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToServiceVpcLatticeConfigurationArrayOutput() ServiceVpcLatticeConfigurationArrayOutput
+	ToServiceVpcLatticeConfigurationArrayOutputWithContext(context.Context) ServiceVpcLatticeConfigurationArrayOutput
+}
+
+type ServiceVpcLatticeConfigurationArray []ServiceVpcLatticeConfigurationInput
+
+func (ServiceVpcLatticeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceVpcLatticeConfiguration)(nil)).Elem()
+}
+
+func (i ServiceVpcLatticeConfigurationArray) ToServiceVpcLatticeConfigurationArrayOutput() ServiceVpcLatticeConfigurationArrayOutput {
+	return i.ToServiceVpcLatticeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceVpcLatticeConfigurationArray) ToServiceVpcLatticeConfigurationArrayOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeConfigurationArrayOutput)
+}
+
+type ServiceVpcLatticeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceVpcLatticeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceVpcLatticeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVpcLatticeConfigurationOutput) ToServiceVpcLatticeConfigurationOutput() ServiceVpcLatticeConfigurationOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeConfigurationOutput) ToServiceVpcLatticeConfigurationOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeConfigurationOutput) PortName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.PortName }).(pulumi.StringOutput)
+}
+
+func (o ServiceVpcLatticeConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o ServiceVpcLatticeConfigurationOutput) TargetGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.TargetGroupArn }).(pulumi.StringOutput)
+}
+
+type ServiceVpcLatticeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceVpcLatticeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceVpcLatticeConfiguration)(nil)).Elem()
+}
+
+func (o ServiceVpcLatticeConfigurationArrayOutput) ToServiceVpcLatticeConfigurationArrayOutput() ServiceVpcLatticeConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeConfigurationArrayOutput) ToServiceVpcLatticeConfigurationArrayOutputWithContext(ctx context.Context) ServiceVpcLatticeConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceVpcLatticeConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceVpcLatticeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceVpcLatticeConfiguration {
+		return vs[0].([]ServiceVpcLatticeConfiguration)[vs[1].(int)]
+	}).(ServiceVpcLatticeConfigurationOutput)
 }
 
 // The authorization configuration details for the Amazon EFS file system.
@@ -12662,6 +12768,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceTimeoutConfigurationPtrInput)(nil)).Elem(), ServiceTimeoutConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationInput)(nil)).Elem(), ServiceVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVolumeConfigurationArrayInput)(nil)).Elem(), ServiceVolumeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeConfigurationInput)(nil)).Elem(), ServiceVpcLatticeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceVpcLatticeConfigurationArrayInput)(nil)).Elem(), ServiceVpcLatticeConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigPtrInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionContainerDefinitionInput)(nil)).Elem(), TaskDefinitionContainerDefinitionArgs{})
@@ -12806,6 +12914,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceTimeoutConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceVolumeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ServiceVpcLatticeConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceVpcLatticeConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionContainerDefinitionOutput{})

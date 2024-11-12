@@ -58,14 +58,6 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly computeType!: pulumi.Output<enums.gamelift.FleetComputeType | undefined>;
     /**
-     * *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
-     *
-     * Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
-     *
-     * *Used with:* `CreateFleet`
-     */
-    public readonly containerGroupsConfiguration!: pulumi.Output<outputs.gamelift.FleetContainerGroupsConfiguration | undefined>;
-    /**
      * A human-readable description of a fleet.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -178,7 +170,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["buildId"] = args ? args.buildId : undefined;
             resourceInputs["certificateConfiguration"] = args ? args.certificateConfiguration : undefined;
             resourceInputs["computeType"] = args ? args.computeType : undefined;
-            resourceInputs["containerGroupsConfiguration"] = args ? args.containerGroupsConfiguration : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["desiredEc2Instances"] = args ? args.desiredEc2Instances : undefined;
             resourceInputs["ec2InboundPermissions"] = args ? args.ec2InboundPermissions : undefined;
@@ -208,7 +199,6 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["buildId"] = undefined /*out*/;
             resourceInputs["certificateConfiguration"] = undefined /*out*/;
             resourceInputs["computeType"] = undefined /*out*/;
-            resourceInputs["containerGroupsConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["desiredEc2Instances"] = undefined /*out*/;
             resourceInputs["ec2InboundPermissions"] = undefined /*out*/;
@@ -234,7 +224,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["serverLaunchPath"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["applyCapacity", "buildId", "certificateConfiguration", "computeType", "containerGroupsConfiguration", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
+        const replaceOnChanges = { replaceOnChanges: ["applyCapacity", "buildId", "certificateConfiguration", "computeType", "ec2InstanceType", "fleetType", "instanceRoleArn", "instanceRoleCredentialsProvider", "logPaths[*]", "peerVpcAwsAccountId", "peerVpcId", "scriptId", "serverLaunchParameters", "serverLaunchPath"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
@@ -264,14 +254,6 @@ export interface FleetArgs {
      * ComputeType to differentiate EC2 hardware managed by GameLift and Anywhere hardware managed by the customer.
      */
     computeType?: pulumi.Input<enums.gamelift.FleetComputeType>;
-    /**
-     * *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
-     *
-     * Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
-     *
-     * *Used with:* `CreateFleet`
-     */
-    containerGroupsConfiguration?: pulumi.Input<inputs.gamelift.FleetContainerGroupsConfigurationArgs>;
     /**
      * A human-readable description of a fleet.
      */

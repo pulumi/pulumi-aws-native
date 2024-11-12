@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
         /// </summary>
         public readonly int? BaseCapacity;
+        public readonly Outputs.FleetComputeConfiguration? ComputeConfiguration;
         /// <summary>
         /// Information about the compute resources the compute fleet uses. Available values include:
         /// 
@@ -110,6 +111,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetEnvironmentType? EnvironmentType;
+        public readonly Outputs.FleetProxyConfiguration? FleetProxyConfiguration;
         /// <summary>
         /// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
         /// </summary>
@@ -135,6 +137,7 @@ namespace Pulumi.AwsNative.CodeBuild
         /// &gt; If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
         /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior? OverflowBehavior;
+        public readonly Outputs.FleetScalingConfigurationInput? ScalingConfiguration;
         /// <summary>
         /// A list of tag key and value pairs associated with this compute fleet.
         /// 
@@ -148,9 +151,13 @@ namespace Pulumi.AwsNative.CodeBuild
 
             int? baseCapacity,
 
+            Outputs.FleetComputeConfiguration? computeConfiguration,
+
             Pulumi.AwsNative.CodeBuild.FleetComputeType? computeType,
 
             Pulumi.AwsNative.CodeBuild.FleetEnvironmentType? environmentType,
+
+            Outputs.FleetProxyConfiguration? fleetProxyConfiguration,
 
             string? fleetServiceRole,
 
@@ -162,17 +169,22 @@ namespace Pulumi.AwsNative.CodeBuild
 
             Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior? overflowBehavior,
 
+            Outputs.FleetScalingConfigurationInput? scalingConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
             BaseCapacity = baseCapacity;
+            ComputeConfiguration = computeConfiguration;
             ComputeType = computeType;
             EnvironmentType = environmentType;
+            FleetProxyConfiguration = fleetProxyConfiguration;
             FleetServiceRole = fleetServiceRole;
             FleetVpcConfig = fleetVpcConfig;
             ImageId = imageId;
             Name = name;
             OverflowBehavior = overflowBehavior;
+            ScalingConfiguration = scalingConfiguration;
             Tags = tags;
         }
     }

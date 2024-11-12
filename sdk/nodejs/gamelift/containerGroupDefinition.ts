@@ -38,10 +38,6 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * A collection of container definitions that define the containers in this group.
-     */
-    public readonly containerDefinitions!: pulumi.Output<outputs.gamelift.ContainerGroupDefinitionContainerDefinition[]>;
-    /**
      * The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.
      */
     public /*out*/ readonly containerGroupDefinitionArn!: pulumi.Output<string>;
@@ -57,10 +53,6 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
      * The operating system of the container group
      */
     public readonly operatingSystem!: pulumi.Output<enums.gamelift.ContainerGroupDefinitionOperatingSystem>;
-    /**
-     * Specifies whether the container group includes replica or daemon containers.
-     */
-    public readonly schedulingStrategy!: pulumi.Output<enums.gamelift.ContainerGroupDefinitionSchedulingStrategy | undefined>;
     /**
      * A specific ContainerGroupDefinition version to be updated
      */
@@ -81,14 +73,6 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
-    /**
-     * The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
-     */
-    public readonly totalCpuLimit!: pulumi.Output<number>;
-    /**
-     * The maximum amount of memory (in MiB) to allocate for this container group.
-     */
-    public readonly totalMemoryLimit!: pulumi.Output<number>;
 
     /**
      * Create a ContainerGroupDefinition resource with the given unique name, arguments, and options.
@@ -101,48 +85,31 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containerDefinitions === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'containerDefinitions'");
-            }
             if ((!args || args.operatingSystem === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operatingSystem'");
             }
-            if ((!args || args.totalCpuLimit === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'totalCpuLimit'");
-            }
-            if ((!args || args.totalMemoryLimit === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'totalMemoryLimit'");
-            }
-            resourceInputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
             resourceInputs["sourceVersionNumber"] = args ? args.sourceVersionNumber : undefined;
             resourceInputs["supportContainerDefinitions"] = args ? args.supportContainerDefinitions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["totalCpuLimit"] = args ? args.totalCpuLimit : undefined;
-            resourceInputs["totalMemoryLimit"] = args ? args.totalMemoryLimit : undefined;
             resourceInputs["containerGroupDefinitionArn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
         } else {
-            resourceInputs["containerDefinitions"] = undefined /*out*/;
             resourceInputs["containerGroupDefinitionArn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatingSystem"] = undefined /*out*/;
-            resourceInputs["schedulingStrategy"] = undefined /*out*/;
             resourceInputs["sourceVersionNumber"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
             resourceInputs["supportContainerDefinitions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["totalCpuLimit"] = undefined /*out*/;
-            resourceInputs["totalMemoryLimit"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["containerDefinitions[*]", "name", "operatingSystem", "schedulingStrategy", "totalCpuLimit", "totalMemoryLimit"] };
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ContainerGroupDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -153,10 +120,6 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
  */
 export interface ContainerGroupDefinitionArgs {
     /**
-     * A collection of container definitions that define the containers in this group.
-     */
-    containerDefinitions: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerGroupDefinitionContainerDefinitionArgs>[]>;
-    /**
      * A descriptive label for the container group definition.
      */
     name?: pulumi.Input<string>;
@@ -164,10 +127,6 @@ export interface ContainerGroupDefinitionArgs {
      * The operating system of the container group
      */
     operatingSystem: pulumi.Input<enums.gamelift.ContainerGroupDefinitionOperatingSystem>;
-    /**
-     * Specifies whether the container group includes replica or daemon containers.
-     */
-    schedulingStrategy?: pulumi.Input<enums.gamelift.ContainerGroupDefinitionSchedulingStrategy>;
     /**
      * A specific ContainerGroupDefinition version to be updated
      */
@@ -180,12 +139,4 @@ export interface ContainerGroupDefinitionArgs {
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
-    /**
-     * The maximum number of CPU units reserved for this container group. The value is expressed as an integer amount of CPU units. (1 vCPU is equal to 1024 CPU units.)
-     */
-    totalCpuLimit: pulumi.Input<number>;
-    /**
-     * The maximum amount of memory (in MiB) to allocate for this container group.
-     */
-    totalMemoryLimit: pulumi.Input<number>;
 }

@@ -16,16 +16,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceStarburstParameters
     {
+        /// <summary>
+        /// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType? AuthenticationType;
         /// <summary>
         /// &lt;p&gt;The catalog name for the Starburst data source.&lt;/p&gt;
         /// </summary>
         public readonly string Catalog;
+        /// <summary>
+        /// The database access control role.
+        /// </summary>
         public readonly string? DatabaseAccessControlRole;
         /// <summary>
         /// &lt;p&gt;The host name of the Starburst data source.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
+        /// <summary>
+        /// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
+        /// </summary>
         public readonly Outputs.DataSourceOAuthParameters? OAuthParameters;
         /// <summary>
         /// &lt;p&gt;The port for the Starburst data source.&lt;/p&gt;

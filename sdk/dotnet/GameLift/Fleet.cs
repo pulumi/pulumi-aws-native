@@ -46,16 +46,6 @@ namespace Pulumi.AwsNative.GameLift
         public Output<Pulumi.AwsNative.GameLift.FleetComputeType?> ComputeType { get; private set; } = null!;
 
         /// <summary>
-        /// *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
-        /// 
-        /// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
-        /// 
-        /// *Used with:* `CreateFleet`
-        /// </summary>
-        [Output("containerGroupsConfiguration")]
-        public Output<Outputs.FleetContainerGroupsConfiguration?> ContainerGroupsConfiguration { get; private set; } = null!;
-
-        /// <summary>
         /// A human-readable description of a fleet.
         /// </summary>
         [Output("description")]
@@ -226,7 +216,6 @@ namespace Pulumi.AwsNative.GameLift
                     "buildId",
                     "certificateConfiguration",
                     "computeType",
-                    "containerGroupsConfiguration",
                     "ec2InstanceType",
                     "fleetType",
                     "instanceRoleArn",
@@ -289,16 +278,6 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         [Input("computeType")]
         public Input<Pulumi.AwsNative.GameLift.FleetComputeType>? ComputeType { get; set; }
-
-        /// <summary>
-        /// *This data type is currently not available. It is under improvement as we respond to customer feedback from the Containers public preview.*
-        /// 
-        /// Configuration details for a set of container groups, for use when creating a fleet with compute type `CONTAINER` .
-        /// 
-        /// *Used with:* `CreateFleet`
-        /// </summary>
-        [Input("containerGroupsConfiguration")]
-        public Input<Inputs.FleetContainerGroupsConfigurationArgs>? ContainerGroupsConfiguration { get; set; }
 
         /// <summary>
         /// A human-readable description of a fleet.

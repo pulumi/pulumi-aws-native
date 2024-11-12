@@ -19,13 +19,14 @@ import (
 type Service struct {
 	pulumi.CustomResourceState
 
+	AvailabilityZoneRebalancing ServiceAvailabilityZoneRebalancingPtrOutput `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
 	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
 	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayOutput `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
-	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration ServiceDeploymentConfigurationPtrOutput `pulumi:"deploymentConfiguration"`
 	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
 	DeploymentController ServiceDeploymentControllerPtrOutput `pulumi:"deploymentController"`
@@ -96,7 +97,8 @@ type Service struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
-	VolumeConfigurations ServiceVolumeConfigurationArrayOutput `pulumi:"volumeConfigurations"`
+	VolumeConfigurations     ServiceVolumeConfigurationArrayOutput     `pulumi:"volumeConfigurations"`
+	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayOutput `pulumi:"vpcLatticeConfigurations"`
 }
 
 // NewService registers a new resource with the given unique name, arguments, and options.
@@ -148,13 +150,14 @@ func (ServiceState) ElementType() reflect.Type {
 }
 
 type serviceArgs struct {
+	AvailabilityZoneRebalancing *ServiceAvailabilityZoneRebalancing `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
 	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
 	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster *string `pulumi:"cluster"`
-	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
 	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
 	DeploymentController *ServiceDeploymentController `pulumi:"deploymentController"`
@@ -221,18 +224,20 @@ type serviceArgs struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition *string `pulumi:"taskDefinition"`
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
-	VolumeConfigurations []ServiceVolumeConfiguration `pulumi:"volumeConfigurations"`
+	VolumeConfigurations     []ServiceVolumeConfiguration     `pulumi:"volumeConfigurations"`
+	VpcLatticeConfigurations []ServiceVpcLatticeConfiguration `pulumi:"vpcLatticeConfigurations"`
 }
 
 // The set of arguments for constructing a Service resource.
 type ServiceArgs struct {
+	AvailabilityZoneRebalancing ServiceAvailabilityZoneRebalancingPtrInput
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
 	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
 	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringPtrInput
-	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration ServiceDeploymentConfigurationPtrInput
 	// The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
 	DeploymentController ServiceDeploymentControllerPtrInput
@@ -299,7 +304,8 @@ type ServiceArgs struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition pulumi.StringPtrInput
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
-	VolumeConfigurations ServiceVolumeConfigurationArrayInput
+	VolumeConfigurations     ServiceVolumeConfigurationArrayInput
+	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -339,6 +345,10 @@ func (o ServiceOutput) ToServiceOutputWithContext(ctx context.Context) ServiceOu
 	return o
 }
 
+func (o ServiceOutput) AvailabilityZoneRebalancing() ServiceAvailabilityZoneRebalancingPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceAvailabilityZoneRebalancingPtrOutput { return v.AvailabilityZoneRebalancing }).(ServiceAvailabilityZoneRebalancingPtrOutput)
+}
+
 // The capacity provider strategy to use for the service.
 //
 //	If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -352,7 +362,7 @@ func (o ServiceOutput) Cluster() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.Cluster }).(pulumi.StringPtrOutput)
 }
 
-// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 func (o ServiceOutput) DeploymentConfiguration() ServiceDeploymentConfigurationPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDeploymentConfigurationPtrOutput { return v.DeploymentConfiguration }).(ServiceDeploymentConfigurationPtrOutput)
 }
@@ -502,6 +512,10 @@ func (o ServiceOutput) TaskDefinition() pulumi.StringPtrOutput {
 // The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
 func (o ServiceOutput) VolumeConfigurations() ServiceVolumeConfigurationArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceVolumeConfigurationArrayOutput { return v.VolumeConfigurations }).(ServiceVolumeConfigurationArrayOutput)
+}
+
+func (o ServiceOutput) VpcLatticeConfigurations() ServiceVpcLatticeConfigurationArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceVpcLatticeConfigurationArrayOutput { return v.VpcLatticeConfigurations }).(ServiceVpcLatticeConfigurationArrayOutput)
 }
 
 func init() {

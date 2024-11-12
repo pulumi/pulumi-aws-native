@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FleetComputeConfigurationmachineType string
+
+const (
+	FleetComputeConfigurationmachineTypeGeneral = FleetComputeConfigurationmachineType("GENERAL")
+	FleetComputeConfigurationmachineTypeNvme    = FleetComputeConfigurationmachineType("NVME")
+)
+
+func (FleetComputeConfigurationmachineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetComputeConfigurationmachineType)(nil)).Elem()
+}
+
+func (e FleetComputeConfigurationmachineType) ToFleetComputeConfigurationmachineTypeOutput() FleetComputeConfigurationmachineTypeOutput {
+	return pulumi.ToOutput(e).(FleetComputeConfigurationmachineTypeOutput)
+}
+
+func (e FleetComputeConfigurationmachineType) ToFleetComputeConfigurationmachineTypeOutputWithContext(ctx context.Context) FleetComputeConfigurationmachineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetComputeConfigurationmachineTypeOutput)
+}
+
+func (e FleetComputeConfigurationmachineType) ToFleetComputeConfigurationmachineTypePtrOutput() FleetComputeConfigurationmachineTypePtrOutput {
+	return e.ToFleetComputeConfigurationmachineTypePtrOutputWithContext(context.Background())
+}
+
+func (e FleetComputeConfigurationmachineType) ToFleetComputeConfigurationmachineTypePtrOutputWithContext(ctx context.Context) FleetComputeConfigurationmachineTypePtrOutput {
+	return FleetComputeConfigurationmachineType(e).ToFleetComputeConfigurationmachineTypeOutputWithContext(ctx).ToFleetComputeConfigurationmachineTypePtrOutputWithContext(ctx)
+}
+
+func (e FleetComputeConfigurationmachineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetComputeConfigurationmachineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetComputeConfigurationmachineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetComputeConfigurationmachineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetComputeConfigurationmachineTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetComputeConfigurationmachineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetComputeConfigurationmachineType)(nil)).Elem()
+}
+
+func (o FleetComputeConfigurationmachineTypeOutput) ToFleetComputeConfigurationmachineTypeOutput() FleetComputeConfigurationmachineTypeOutput {
+	return o
+}
+
+func (o FleetComputeConfigurationmachineTypeOutput) ToFleetComputeConfigurationmachineTypeOutputWithContext(ctx context.Context) FleetComputeConfigurationmachineTypeOutput {
+	return o
+}
+
+func (o FleetComputeConfigurationmachineTypeOutput) ToFleetComputeConfigurationmachineTypePtrOutput() FleetComputeConfigurationmachineTypePtrOutput {
+	return o.ToFleetComputeConfigurationmachineTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetComputeConfigurationmachineTypeOutput) ToFleetComputeConfigurationmachineTypePtrOutputWithContext(ctx context.Context) FleetComputeConfigurationmachineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetComputeConfigurationmachineType) *FleetComputeConfigurationmachineType {
+		return &v
+	}).(FleetComputeConfigurationmachineTypePtrOutput)
+}
+
+func (o FleetComputeConfigurationmachineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetComputeConfigurationmachineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetComputeConfigurationmachineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetComputeConfigurationmachineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetComputeConfigurationmachineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetComputeConfigurationmachineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetComputeConfigurationmachineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetComputeConfigurationmachineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetComputeConfigurationmachineType)(nil)).Elem()
+}
+
+func (o FleetComputeConfigurationmachineTypePtrOutput) ToFleetComputeConfigurationmachineTypePtrOutput() FleetComputeConfigurationmachineTypePtrOutput {
+	return o
+}
+
+func (o FleetComputeConfigurationmachineTypePtrOutput) ToFleetComputeConfigurationmachineTypePtrOutputWithContext(ctx context.Context) FleetComputeConfigurationmachineTypePtrOutput {
+	return o
+}
+
+func (o FleetComputeConfigurationmachineTypePtrOutput) Elem() FleetComputeConfigurationmachineTypeOutput {
+	return o.ApplyT(func(v *FleetComputeConfigurationmachineType) FleetComputeConfigurationmachineType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetComputeConfigurationmachineType
+		return ret
+	}).(FleetComputeConfigurationmachineTypeOutput)
+}
+
+func (o FleetComputeConfigurationmachineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetComputeConfigurationmachineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetComputeConfigurationmachineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetComputeConfigurationmachineTypeInput is an input type that accepts values of the FleetComputeConfigurationmachineType enum
+// A concrete instance of `FleetComputeConfigurationmachineTypeInput` can be one of the following:
+//
+//	FleetComputeConfigurationmachineTypeGeneral
+//	FleetComputeConfigurationmachineTypeNvme
+type FleetComputeConfigurationmachineTypeInput interface {
+	pulumi.Input
+
+	ToFleetComputeConfigurationmachineTypeOutput() FleetComputeConfigurationmachineTypeOutput
+	ToFleetComputeConfigurationmachineTypeOutputWithContext(context.Context) FleetComputeConfigurationmachineTypeOutput
+}
+
+var fleetComputeConfigurationmachineTypePtrType = reflect.TypeOf((**FleetComputeConfigurationmachineType)(nil)).Elem()
+
+type FleetComputeConfigurationmachineTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetComputeConfigurationmachineTypePtrOutput() FleetComputeConfigurationmachineTypePtrOutput
+	ToFleetComputeConfigurationmachineTypePtrOutputWithContext(context.Context) FleetComputeConfigurationmachineTypePtrOutput
+}
+
+type fleetComputeConfigurationmachineTypePtr string
+
+func FleetComputeConfigurationmachineTypePtr(v string) FleetComputeConfigurationmachineTypePtrInput {
+	return (*fleetComputeConfigurationmachineTypePtr)(&v)
+}
+
+func (*fleetComputeConfigurationmachineTypePtr) ElementType() reflect.Type {
+	return fleetComputeConfigurationmachineTypePtrType
+}
+
+func (in *fleetComputeConfigurationmachineTypePtr) ToFleetComputeConfigurationmachineTypePtrOutput() FleetComputeConfigurationmachineTypePtrOutput {
+	return pulumi.ToOutput(in).(FleetComputeConfigurationmachineTypePtrOutput)
+}
+
+func (in *fleetComputeConfigurationmachineTypePtr) ToFleetComputeConfigurationmachineTypePtrOutputWithContext(ctx context.Context) FleetComputeConfigurationmachineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetComputeConfigurationmachineTypePtrOutput)
+}
+
 // Information about the compute resources the compute fleet uses. Available values include:
 //
 // - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
@@ -42,11 +207,12 @@ import (
 type FleetComputeType string
 
 const (
-	FleetComputeTypeBuildGeneral1Small   = FleetComputeType("BUILD_GENERAL1_SMALL")
-	FleetComputeTypeBuildGeneral1Medium  = FleetComputeType("BUILD_GENERAL1_MEDIUM")
-	FleetComputeTypeBuildGeneral1Large   = FleetComputeType("BUILD_GENERAL1_LARGE")
-	FleetComputeTypeBuildGeneral1Xlarge  = FleetComputeType("BUILD_GENERAL1_XLARGE")
-	FleetComputeTypeBuildGeneral12xlarge = FleetComputeType("BUILD_GENERAL1_2XLARGE")
+	FleetComputeTypeBuildGeneral1Small    = FleetComputeType("BUILD_GENERAL1_SMALL")
+	FleetComputeTypeBuildGeneral1Medium   = FleetComputeType("BUILD_GENERAL1_MEDIUM")
+	FleetComputeTypeBuildGeneral1Large    = FleetComputeType("BUILD_GENERAL1_LARGE")
+	FleetComputeTypeBuildGeneral1Xlarge   = FleetComputeType("BUILD_GENERAL1_XLARGE")
+	FleetComputeTypeBuildGeneral12xlarge  = FleetComputeType("BUILD_GENERAL1_2XLARGE")
+	FleetComputeTypeAttributeBasedCompute = FleetComputeType("ATTRIBUTE_BASED_COMPUTE")
 )
 
 func (FleetComputeType) ElementType() reflect.Type {
@@ -176,6 +342,7 @@ func (o FleetComputeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //	FleetComputeTypeBuildGeneral1Large
 //	FleetComputeTypeBuildGeneral1Xlarge
 //	FleetComputeTypeBuildGeneral12xlarge
+//	FleetComputeTypeAttributeBasedCompute
 type FleetComputeTypeInput interface {
 	pulumi.Input
 
@@ -564,17 +731,862 @@ func (in *fleetOverflowBehaviorPtr) ToFleetOverflowBehaviorPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(FleetOverflowBehaviorPtrOutput)
 }
 
+type FleetProxyConfigurationDefaultBehavior string
+
+const (
+	FleetProxyConfigurationDefaultBehaviorAllowAll = FleetProxyConfigurationDefaultBehavior("ALLOW_ALL")
+	FleetProxyConfigurationDefaultBehaviorDenyAll  = FleetProxyConfigurationDefaultBehavior("DENY_ALL")
+)
+
+func (FleetProxyConfigurationDefaultBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetProxyConfigurationDefaultBehavior)(nil)).Elem()
+}
+
+func (e FleetProxyConfigurationDefaultBehavior) ToFleetProxyConfigurationDefaultBehaviorOutput() FleetProxyConfigurationDefaultBehaviorOutput {
+	return pulumi.ToOutput(e).(FleetProxyConfigurationDefaultBehaviorOutput)
+}
+
+func (e FleetProxyConfigurationDefaultBehavior) ToFleetProxyConfigurationDefaultBehaviorOutputWithContext(ctx context.Context) FleetProxyConfigurationDefaultBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetProxyConfigurationDefaultBehaviorOutput)
+}
+
+func (e FleetProxyConfigurationDefaultBehavior) ToFleetProxyConfigurationDefaultBehaviorPtrOutput() FleetProxyConfigurationDefaultBehaviorPtrOutput {
+	return e.ToFleetProxyConfigurationDefaultBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e FleetProxyConfigurationDefaultBehavior) ToFleetProxyConfigurationDefaultBehaviorPtrOutputWithContext(ctx context.Context) FleetProxyConfigurationDefaultBehaviorPtrOutput {
+	return FleetProxyConfigurationDefaultBehavior(e).ToFleetProxyConfigurationDefaultBehaviorOutputWithContext(ctx).ToFleetProxyConfigurationDefaultBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e FleetProxyConfigurationDefaultBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetProxyConfigurationDefaultBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetProxyConfigurationDefaultBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetProxyConfigurationDefaultBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetProxyConfigurationDefaultBehaviorOutput struct{ *pulumi.OutputState }
+
+func (FleetProxyConfigurationDefaultBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetProxyConfigurationDefaultBehavior)(nil)).Elem()
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorOutput) ToFleetProxyConfigurationDefaultBehaviorOutput() FleetProxyConfigurationDefaultBehaviorOutput {
+	return o
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorOutput) ToFleetProxyConfigurationDefaultBehaviorOutputWithContext(ctx context.Context) FleetProxyConfigurationDefaultBehaviorOutput {
+	return o
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorOutput) ToFleetProxyConfigurationDefaultBehaviorPtrOutput() FleetProxyConfigurationDefaultBehaviorPtrOutput {
+	return o.ToFleetProxyConfigurationDefaultBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorOutput) ToFleetProxyConfigurationDefaultBehaviorPtrOutputWithContext(ctx context.Context) FleetProxyConfigurationDefaultBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetProxyConfigurationDefaultBehavior) *FleetProxyConfigurationDefaultBehavior {
+		return &v
+	}).(FleetProxyConfigurationDefaultBehaviorPtrOutput)
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetProxyConfigurationDefaultBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetProxyConfigurationDefaultBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetProxyConfigurationDefaultBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetProxyConfigurationDefaultBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetProxyConfigurationDefaultBehavior)(nil)).Elem()
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorPtrOutput) ToFleetProxyConfigurationDefaultBehaviorPtrOutput() FleetProxyConfigurationDefaultBehaviorPtrOutput {
+	return o
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorPtrOutput) ToFleetProxyConfigurationDefaultBehaviorPtrOutputWithContext(ctx context.Context) FleetProxyConfigurationDefaultBehaviorPtrOutput {
+	return o
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorPtrOutput) Elem() FleetProxyConfigurationDefaultBehaviorOutput {
+	return o.ApplyT(func(v *FleetProxyConfigurationDefaultBehavior) FleetProxyConfigurationDefaultBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret FleetProxyConfigurationDefaultBehavior
+		return ret
+	}).(FleetProxyConfigurationDefaultBehaviorOutput)
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyConfigurationDefaultBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetProxyConfigurationDefaultBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetProxyConfigurationDefaultBehaviorInput is an input type that accepts values of the FleetProxyConfigurationDefaultBehavior enum
+// A concrete instance of `FleetProxyConfigurationDefaultBehaviorInput` can be one of the following:
+//
+//	FleetProxyConfigurationDefaultBehaviorAllowAll
+//	FleetProxyConfigurationDefaultBehaviorDenyAll
+type FleetProxyConfigurationDefaultBehaviorInput interface {
+	pulumi.Input
+
+	ToFleetProxyConfigurationDefaultBehaviorOutput() FleetProxyConfigurationDefaultBehaviorOutput
+	ToFleetProxyConfigurationDefaultBehaviorOutputWithContext(context.Context) FleetProxyConfigurationDefaultBehaviorOutput
+}
+
+var fleetProxyConfigurationDefaultBehaviorPtrType = reflect.TypeOf((**FleetProxyConfigurationDefaultBehavior)(nil)).Elem()
+
+type FleetProxyConfigurationDefaultBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToFleetProxyConfigurationDefaultBehaviorPtrOutput() FleetProxyConfigurationDefaultBehaviorPtrOutput
+	ToFleetProxyConfigurationDefaultBehaviorPtrOutputWithContext(context.Context) FleetProxyConfigurationDefaultBehaviorPtrOutput
+}
+
+type fleetProxyConfigurationDefaultBehaviorPtr string
+
+func FleetProxyConfigurationDefaultBehaviorPtr(v string) FleetProxyConfigurationDefaultBehaviorPtrInput {
+	return (*fleetProxyConfigurationDefaultBehaviorPtr)(&v)
+}
+
+func (*fleetProxyConfigurationDefaultBehaviorPtr) ElementType() reflect.Type {
+	return fleetProxyConfigurationDefaultBehaviorPtrType
+}
+
+func (in *fleetProxyConfigurationDefaultBehaviorPtr) ToFleetProxyConfigurationDefaultBehaviorPtrOutput() FleetProxyConfigurationDefaultBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(FleetProxyConfigurationDefaultBehaviorPtrOutput)
+}
+
+func (in *fleetProxyConfigurationDefaultBehaviorPtr) ToFleetProxyConfigurationDefaultBehaviorPtrOutputWithContext(ctx context.Context) FleetProxyConfigurationDefaultBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetProxyConfigurationDefaultBehaviorPtrOutput)
+}
+
+type FleetProxyRuleEffect string
+
+const (
+	FleetProxyRuleEffectAllow = FleetProxyRuleEffect("ALLOW")
+	FleetProxyRuleEffectDeny  = FleetProxyRuleEffect("DENY")
+)
+
+func (FleetProxyRuleEffect) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetProxyRuleEffect)(nil)).Elem()
+}
+
+func (e FleetProxyRuleEffect) ToFleetProxyRuleEffectOutput() FleetProxyRuleEffectOutput {
+	return pulumi.ToOutput(e).(FleetProxyRuleEffectOutput)
+}
+
+func (e FleetProxyRuleEffect) ToFleetProxyRuleEffectOutputWithContext(ctx context.Context) FleetProxyRuleEffectOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetProxyRuleEffectOutput)
+}
+
+func (e FleetProxyRuleEffect) ToFleetProxyRuleEffectPtrOutput() FleetProxyRuleEffectPtrOutput {
+	return e.ToFleetProxyRuleEffectPtrOutputWithContext(context.Background())
+}
+
+func (e FleetProxyRuleEffect) ToFleetProxyRuleEffectPtrOutputWithContext(ctx context.Context) FleetProxyRuleEffectPtrOutput {
+	return FleetProxyRuleEffect(e).ToFleetProxyRuleEffectOutputWithContext(ctx).ToFleetProxyRuleEffectPtrOutputWithContext(ctx)
+}
+
+func (e FleetProxyRuleEffect) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetProxyRuleEffect) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetProxyRuleEffect) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetProxyRuleEffect) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetProxyRuleEffectOutput struct{ *pulumi.OutputState }
+
+func (FleetProxyRuleEffectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetProxyRuleEffect)(nil)).Elem()
+}
+
+func (o FleetProxyRuleEffectOutput) ToFleetProxyRuleEffectOutput() FleetProxyRuleEffectOutput {
+	return o
+}
+
+func (o FleetProxyRuleEffectOutput) ToFleetProxyRuleEffectOutputWithContext(ctx context.Context) FleetProxyRuleEffectOutput {
+	return o
+}
+
+func (o FleetProxyRuleEffectOutput) ToFleetProxyRuleEffectPtrOutput() FleetProxyRuleEffectPtrOutput {
+	return o.ToFleetProxyRuleEffectPtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyRuleEffectOutput) ToFleetProxyRuleEffectPtrOutputWithContext(ctx context.Context) FleetProxyRuleEffectPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetProxyRuleEffect) *FleetProxyRuleEffect {
+		return &v
+	}).(FleetProxyRuleEffectPtrOutput)
+}
+
+func (o FleetProxyRuleEffectOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetProxyRuleEffectOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetProxyRuleEffect) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetProxyRuleEffectOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyRuleEffectOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetProxyRuleEffect) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetProxyRuleEffectPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetProxyRuleEffectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetProxyRuleEffect)(nil)).Elem()
+}
+
+func (o FleetProxyRuleEffectPtrOutput) ToFleetProxyRuleEffectPtrOutput() FleetProxyRuleEffectPtrOutput {
+	return o
+}
+
+func (o FleetProxyRuleEffectPtrOutput) ToFleetProxyRuleEffectPtrOutputWithContext(ctx context.Context) FleetProxyRuleEffectPtrOutput {
+	return o
+}
+
+func (o FleetProxyRuleEffectPtrOutput) Elem() FleetProxyRuleEffectOutput {
+	return o.ApplyT(func(v *FleetProxyRuleEffect) FleetProxyRuleEffect {
+		if v != nil {
+			return *v
+		}
+		var ret FleetProxyRuleEffect
+		return ret
+	}).(FleetProxyRuleEffectOutput)
+}
+
+func (o FleetProxyRuleEffectPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyRuleEffectPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetProxyRuleEffect) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetProxyRuleEffectInput is an input type that accepts values of the FleetProxyRuleEffect enum
+// A concrete instance of `FleetProxyRuleEffectInput` can be one of the following:
+//
+//	FleetProxyRuleEffectAllow
+//	FleetProxyRuleEffectDeny
+type FleetProxyRuleEffectInput interface {
+	pulumi.Input
+
+	ToFleetProxyRuleEffectOutput() FleetProxyRuleEffectOutput
+	ToFleetProxyRuleEffectOutputWithContext(context.Context) FleetProxyRuleEffectOutput
+}
+
+var fleetProxyRuleEffectPtrType = reflect.TypeOf((**FleetProxyRuleEffect)(nil)).Elem()
+
+type FleetProxyRuleEffectPtrInput interface {
+	pulumi.Input
+
+	ToFleetProxyRuleEffectPtrOutput() FleetProxyRuleEffectPtrOutput
+	ToFleetProxyRuleEffectPtrOutputWithContext(context.Context) FleetProxyRuleEffectPtrOutput
+}
+
+type fleetProxyRuleEffectPtr string
+
+func FleetProxyRuleEffectPtr(v string) FleetProxyRuleEffectPtrInput {
+	return (*fleetProxyRuleEffectPtr)(&v)
+}
+
+func (*fleetProxyRuleEffectPtr) ElementType() reflect.Type {
+	return fleetProxyRuleEffectPtrType
+}
+
+func (in *fleetProxyRuleEffectPtr) ToFleetProxyRuleEffectPtrOutput() FleetProxyRuleEffectPtrOutput {
+	return pulumi.ToOutput(in).(FleetProxyRuleEffectPtrOutput)
+}
+
+func (in *fleetProxyRuleEffectPtr) ToFleetProxyRuleEffectPtrOutputWithContext(ctx context.Context) FleetProxyRuleEffectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetProxyRuleEffectPtrOutput)
+}
+
+type FleetProxyRuleType string
+
+const (
+	FleetProxyRuleTypeDomain = FleetProxyRuleType("DOMAIN")
+	FleetProxyRuleTypeIp     = FleetProxyRuleType("IP")
+)
+
+func (FleetProxyRuleType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetProxyRuleType)(nil)).Elem()
+}
+
+func (e FleetProxyRuleType) ToFleetProxyRuleTypeOutput() FleetProxyRuleTypeOutput {
+	return pulumi.ToOutput(e).(FleetProxyRuleTypeOutput)
+}
+
+func (e FleetProxyRuleType) ToFleetProxyRuleTypeOutputWithContext(ctx context.Context) FleetProxyRuleTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetProxyRuleTypeOutput)
+}
+
+func (e FleetProxyRuleType) ToFleetProxyRuleTypePtrOutput() FleetProxyRuleTypePtrOutput {
+	return e.ToFleetProxyRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (e FleetProxyRuleType) ToFleetProxyRuleTypePtrOutputWithContext(ctx context.Context) FleetProxyRuleTypePtrOutput {
+	return FleetProxyRuleType(e).ToFleetProxyRuleTypeOutputWithContext(ctx).ToFleetProxyRuleTypePtrOutputWithContext(ctx)
+}
+
+func (e FleetProxyRuleType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetProxyRuleType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetProxyRuleType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetProxyRuleType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetProxyRuleTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetProxyRuleTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetProxyRuleType)(nil)).Elem()
+}
+
+func (o FleetProxyRuleTypeOutput) ToFleetProxyRuleTypeOutput() FleetProxyRuleTypeOutput {
+	return o
+}
+
+func (o FleetProxyRuleTypeOutput) ToFleetProxyRuleTypeOutputWithContext(ctx context.Context) FleetProxyRuleTypeOutput {
+	return o
+}
+
+func (o FleetProxyRuleTypeOutput) ToFleetProxyRuleTypePtrOutput() FleetProxyRuleTypePtrOutput {
+	return o.ToFleetProxyRuleTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyRuleTypeOutput) ToFleetProxyRuleTypePtrOutputWithContext(ctx context.Context) FleetProxyRuleTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetProxyRuleType) *FleetProxyRuleType {
+		return &v
+	}).(FleetProxyRuleTypePtrOutput)
+}
+
+func (o FleetProxyRuleTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetProxyRuleTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetProxyRuleType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetProxyRuleTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyRuleTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetProxyRuleType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetProxyRuleTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetProxyRuleTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetProxyRuleType)(nil)).Elem()
+}
+
+func (o FleetProxyRuleTypePtrOutput) ToFleetProxyRuleTypePtrOutput() FleetProxyRuleTypePtrOutput {
+	return o
+}
+
+func (o FleetProxyRuleTypePtrOutput) ToFleetProxyRuleTypePtrOutputWithContext(ctx context.Context) FleetProxyRuleTypePtrOutput {
+	return o
+}
+
+func (o FleetProxyRuleTypePtrOutput) Elem() FleetProxyRuleTypeOutput {
+	return o.ApplyT(func(v *FleetProxyRuleType) FleetProxyRuleType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetProxyRuleType
+		return ret
+	}).(FleetProxyRuleTypeOutput)
+}
+
+func (o FleetProxyRuleTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetProxyRuleTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetProxyRuleType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetProxyRuleTypeInput is an input type that accepts values of the FleetProxyRuleType enum
+// A concrete instance of `FleetProxyRuleTypeInput` can be one of the following:
+//
+//	FleetProxyRuleTypeDomain
+//	FleetProxyRuleTypeIp
+type FleetProxyRuleTypeInput interface {
+	pulumi.Input
+
+	ToFleetProxyRuleTypeOutput() FleetProxyRuleTypeOutput
+	ToFleetProxyRuleTypeOutputWithContext(context.Context) FleetProxyRuleTypeOutput
+}
+
+var fleetProxyRuleTypePtrType = reflect.TypeOf((**FleetProxyRuleType)(nil)).Elem()
+
+type FleetProxyRuleTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetProxyRuleTypePtrOutput() FleetProxyRuleTypePtrOutput
+	ToFleetProxyRuleTypePtrOutputWithContext(context.Context) FleetProxyRuleTypePtrOutput
+}
+
+type fleetProxyRuleTypePtr string
+
+func FleetProxyRuleTypePtr(v string) FleetProxyRuleTypePtrInput {
+	return (*fleetProxyRuleTypePtr)(&v)
+}
+
+func (*fleetProxyRuleTypePtr) ElementType() reflect.Type {
+	return fleetProxyRuleTypePtrType
+}
+
+func (in *fleetProxyRuleTypePtr) ToFleetProxyRuleTypePtrOutput() FleetProxyRuleTypePtrOutput {
+	return pulumi.ToOutput(in).(FleetProxyRuleTypePtrOutput)
+}
+
+func (in *fleetProxyRuleTypePtr) ToFleetProxyRuleTypePtrOutputWithContext(ctx context.Context) FleetProxyRuleTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetProxyRuleTypePtrOutput)
+}
+
+type FleetScalingConfigurationInputScalingType string
+
+const (
+	FleetScalingConfigurationInputScalingTypeTargetTrackingScaling = FleetScalingConfigurationInputScalingType("TARGET_TRACKING_SCALING")
+)
+
+func (FleetScalingConfigurationInputScalingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingConfigurationInputScalingType)(nil)).Elem()
+}
+
+func (e FleetScalingConfigurationInputScalingType) ToFleetScalingConfigurationInputScalingTypeOutput() FleetScalingConfigurationInputScalingTypeOutput {
+	return pulumi.ToOutput(e).(FleetScalingConfigurationInputScalingTypeOutput)
+}
+
+func (e FleetScalingConfigurationInputScalingType) ToFleetScalingConfigurationInputScalingTypeOutputWithContext(ctx context.Context) FleetScalingConfigurationInputScalingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetScalingConfigurationInputScalingTypeOutput)
+}
+
+func (e FleetScalingConfigurationInputScalingType) ToFleetScalingConfigurationInputScalingTypePtrOutput() FleetScalingConfigurationInputScalingTypePtrOutput {
+	return e.ToFleetScalingConfigurationInputScalingTypePtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingConfigurationInputScalingType) ToFleetScalingConfigurationInputScalingTypePtrOutputWithContext(ctx context.Context) FleetScalingConfigurationInputScalingTypePtrOutput {
+	return FleetScalingConfigurationInputScalingType(e).ToFleetScalingConfigurationInputScalingTypeOutputWithContext(ctx).ToFleetScalingConfigurationInputScalingTypePtrOutputWithContext(ctx)
+}
+
+func (e FleetScalingConfigurationInputScalingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingConfigurationInputScalingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetScalingConfigurationInputScalingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetScalingConfigurationInputScalingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetScalingConfigurationInputScalingTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingConfigurationInputScalingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetScalingConfigurationInputScalingType)(nil)).Elem()
+}
+
+func (o FleetScalingConfigurationInputScalingTypeOutput) ToFleetScalingConfigurationInputScalingTypeOutput() FleetScalingConfigurationInputScalingTypeOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationInputScalingTypeOutput) ToFleetScalingConfigurationInputScalingTypeOutputWithContext(ctx context.Context) FleetScalingConfigurationInputScalingTypeOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationInputScalingTypeOutput) ToFleetScalingConfigurationInputScalingTypePtrOutput() FleetScalingConfigurationInputScalingTypePtrOutput {
+	return o.ToFleetScalingConfigurationInputScalingTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingConfigurationInputScalingTypeOutput) ToFleetScalingConfigurationInputScalingTypePtrOutputWithContext(ctx context.Context) FleetScalingConfigurationInputScalingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetScalingConfigurationInputScalingType) *FleetScalingConfigurationInputScalingType {
+		return &v
+	}).(FleetScalingConfigurationInputScalingTypePtrOutput)
+}
+
+func (o FleetScalingConfigurationInputScalingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetScalingConfigurationInputScalingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingConfigurationInputScalingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetScalingConfigurationInputScalingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingConfigurationInputScalingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetScalingConfigurationInputScalingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetScalingConfigurationInputScalingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetScalingConfigurationInputScalingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetScalingConfigurationInputScalingType)(nil)).Elem()
+}
+
+func (o FleetScalingConfigurationInputScalingTypePtrOutput) ToFleetScalingConfigurationInputScalingTypePtrOutput() FleetScalingConfigurationInputScalingTypePtrOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationInputScalingTypePtrOutput) ToFleetScalingConfigurationInputScalingTypePtrOutputWithContext(ctx context.Context) FleetScalingConfigurationInputScalingTypePtrOutput {
+	return o
+}
+
+func (o FleetScalingConfigurationInputScalingTypePtrOutput) Elem() FleetScalingConfigurationInputScalingTypeOutput {
+	return o.ApplyT(func(v *FleetScalingConfigurationInputScalingType) FleetScalingConfigurationInputScalingType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetScalingConfigurationInputScalingType
+		return ret
+	}).(FleetScalingConfigurationInputScalingTypeOutput)
+}
+
+func (o FleetScalingConfigurationInputScalingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetScalingConfigurationInputScalingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetScalingConfigurationInputScalingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetScalingConfigurationInputScalingTypeInput is an input type that accepts values of the FleetScalingConfigurationInputScalingType enum
+// A concrete instance of `FleetScalingConfigurationInputScalingTypeInput` can be one of the following:
+//
+//	FleetScalingConfigurationInputScalingTypeTargetTrackingScaling
+type FleetScalingConfigurationInputScalingTypeInput interface {
+	pulumi.Input
+
+	ToFleetScalingConfigurationInputScalingTypeOutput() FleetScalingConfigurationInputScalingTypeOutput
+	ToFleetScalingConfigurationInputScalingTypeOutputWithContext(context.Context) FleetScalingConfigurationInputScalingTypeOutput
+}
+
+var fleetScalingConfigurationInputScalingTypePtrType = reflect.TypeOf((**FleetScalingConfigurationInputScalingType)(nil)).Elem()
+
+type FleetScalingConfigurationInputScalingTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetScalingConfigurationInputScalingTypePtrOutput() FleetScalingConfigurationInputScalingTypePtrOutput
+	ToFleetScalingConfigurationInputScalingTypePtrOutputWithContext(context.Context) FleetScalingConfigurationInputScalingTypePtrOutput
+}
+
+type fleetScalingConfigurationInputScalingTypePtr string
+
+func FleetScalingConfigurationInputScalingTypePtr(v string) FleetScalingConfigurationInputScalingTypePtrInput {
+	return (*fleetScalingConfigurationInputScalingTypePtr)(&v)
+}
+
+func (*fleetScalingConfigurationInputScalingTypePtr) ElementType() reflect.Type {
+	return fleetScalingConfigurationInputScalingTypePtrType
+}
+
+func (in *fleetScalingConfigurationInputScalingTypePtr) ToFleetScalingConfigurationInputScalingTypePtrOutput() FleetScalingConfigurationInputScalingTypePtrOutput {
+	return pulumi.ToOutput(in).(FleetScalingConfigurationInputScalingTypePtrOutput)
+}
+
+func (in *fleetScalingConfigurationInputScalingTypePtr) ToFleetScalingConfigurationInputScalingTypePtrOutputWithContext(ctx context.Context) FleetScalingConfigurationInputScalingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingConfigurationInputScalingTypePtrOutput)
+}
+
+type FleetTargetTrackingScalingConfigurationMetricType string
+
+const (
+	FleetTargetTrackingScalingConfigurationMetricTypeFleetUtilizationRate = FleetTargetTrackingScalingConfigurationMetricType("FLEET_UTILIZATION_RATE")
+)
+
+func (FleetTargetTrackingScalingConfigurationMetricType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTargetTrackingScalingConfigurationMetricType)(nil)).Elem()
+}
+
+func (e FleetTargetTrackingScalingConfigurationMetricType) ToFleetTargetTrackingScalingConfigurationMetricTypeOutput() FleetTargetTrackingScalingConfigurationMetricTypeOutput {
+	return pulumi.ToOutput(e).(FleetTargetTrackingScalingConfigurationMetricTypeOutput)
+}
+
+func (e FleetTargetTrackingScalingConfigurationMetricType) ToFleetTargetTrackingScalingConfigurationMetricTypeOutputWithContext(ctx context.Context) FleetTargetTrackingScalingConfigurationMetricTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetTargetTrackingScalingConfigurationMetricTypeOutput)
+}
+
+func (e FleetTargetTrackingScalingConfigurationMetricType) ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutput() FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
+	return e.ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutputWithContext(context.Background())
+}
+
+func (e FleetTargetTrackingScalingConfigurationMetricType) ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutputWithContext(ctx context.Context) FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
+	return FleetTargetTrackingScalingConfigurationMetricType(e).ToFleetTargetTrackingScalingConfigurationMetricTypeOutputWithContext(ctx).ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutputWithContext(ctx)
+}
+
+func (e FleetTargetTrackingScalingConfigurationMetricType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetTargetTrackingScalingConfigurationMetricType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetTargetTrackingScalingConfigurationMetricType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetTargetTrackingScalingConfigurationMetricType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetTargetTrackingScalingConfigurationMetricTypeOutput struct{ *pulumi.OutputState }
+
+func (FleetTargetTrackingScalingConfigurationMetricTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetTargetTrackingScalingConfigurationMetricType)(nil)).Elem()
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypeOutput) ToFleetTargetTrackingScalingConfigurationMetricTypeOutput() FleetTargetTrackingScalingConfigurationMetricTypeOutput {
+	return o
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypeOutput) ToFleetTargetTrackingScalingConfigurationMetricTypeOutputWithContext(ctx context.Context) FleetTargetTrackingScalingConfigurationMetricTypeOutput {
+	return o
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypeOutput) ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutput() FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
+	return o.ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutputWithContext(context.Background())
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypeOutput) ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutputWithContext(ctx context.Context) FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetTargetTrackingScalingConfigurationMetricType) *FleetTargetTrackingScalingConfigurationMetricType {
+		return &v
+	}).(FleetTargetTrackingScalingConfigurationMetricTypePtrOutput)
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetTargetTrackingScalingConfigurationMetricType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetTargetTrackingScalingConfigurationMetricType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetTargetTrackingScalingConfigurationMetricTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetTargetTrackingScalingConfigurationMetricTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetTargetTrackingScalingConfigurationMetricType)(nil)).Elem()
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypePtrOutput) ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutput() FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
+	return o
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypePtrOutput) ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutputWithContext(ctx context.Context) FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
+	return o
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypePtrOutput) Elem() FleetTargetTrackingScalingConfigurationMetricTypeOutput {
+	return o.ApplyT(func(v *FleetTargetTrackingScalingConfigurationMetricType) FleetTargetTrackingScalingConfigurationMetricType {
+		if v != nil {
+			return *v
+		}
+		var ret FleetTargetTrackingScalingConfigurationMetricType
+		return ret
+	}).(FleetTargetTrackingScalingConfigurationMetricTypeOutput)
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetTargetTrackingScalingConfigurationMetricTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetTargetTrackingScalingConfigurationMetricType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetTargetTrackingScalingConfigurationMetricTypeInput is an input type that accepts values of the FleetTargetTrackingScalingConfigurationMetricType enum
+// A concrete instance of `FleetTargetTrackingScalingConfigurationMetricTypeInput` can be one of the following:
+//
+//	FleetTargetTrackingScalingConfigurationMetricTypeFleetUtilizationRate
+type FleetTargetTrackingScalingConfigurationMetricTypeInput interface {
+	pulumi.Input
+
+	ToFleetTargetTrackingScalingConfigurationMetricTypeOutput() FleetTargetTrackingScalingConfigurationMetricTypeOutput
+	ToFleetTargetTrackingScalingConfigurationMetricTypeOutputWithContext(context.Context) FleetTargetTrackingScalingConfigurationMetricTypeOutput
+}
+
+var fleetTargetTrackingScalingConfigurationMetricTypePtrType = reflect.TypeOf((**FleetTargetTrackingScalingConfigurationMetricType)(nil)).Elem()
+
+type FleetTargetTrackingScalingConfigurationMetricTypePtrInput interface {
+	pulumi.Input
+
+	ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutput() FleetTargetTrackingScalingConfigurationMetricTypePtrOutput
+	ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutputWithContext(context.Context) FleetTargetTrackingScalingConfigurationMetricTypePtrOutput
+}
+
+type fleetTargetTrackingScalingConfigurationMetricTypePtr string
+
+func FleetTargetTrackingScalingConfigurationMetricTypePtr(v string) FleetTargetTrackingScalingConfigurationMetricTypePtrInput {
+	return (*fleetTargetTrackingScalingConfigurationMetricTypePtr)(&v)
+}
+
+func (*fleetTargetTrackingScalingConfigurationMetricTypePtr) ElementType() reflect.Type {
+	return fleetTargetTrackingScalingConfigurationMetricTypePtrType
+}
+
+func (in *fleetTargetTrackingScalingConfigurationMetricTypePtr) ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutput() FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
+	return pulumi.ToOutput(in).(FleetTargetTrackingScalingConfigurationMetricTypePtrOutput)
+}
+
+func (in *fleetTargetTrackingScalingConfigurationMetricTypePtr) ToFleetTargetTrackingScalingConfigurationMetricTypePtrOutputWithContext(ctx context.Context) FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetTargetTrackingScalingConfigurationMetricTypePtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationmachineTypeInput)(nil)).Elem(), FleetComputeConfigurationmachineType("GENERAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationmachineTypePtrInput)(nil)).Elem(), FleetComputeConfigurationmachineType("GENERAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypeInput)(nil)).Elem(), FleetComputeType("BUILD_GENERAL1_SMALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeTypePtrInput)(nil)).Elem(), FleetComputeType("BUILD_GENERAL1_SMALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEnvironmentTypeInput)(nil)).Elem(), FleetEnvironmentType("WINDOWS_SERVER_2019_CONTAINER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEnvironmentTypePtrInput)(nil)).Elem(), FleetEnvironmentType("WINDOWS_SERVER_2019_CONTAINER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetOverflowBehaviorInput)(nil)).Elem(), FleetOverflowBehavior("QUEUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetOverflowBehaviorPtrInput)(nil)).Elem(), FleetOverflowBehavior("QUEUE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetProxyConfigurationDefaultBehaviorInput)(nil)).Elem(), FleetProxyConfigurationDefaultBehavior("ALLOW_ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetProxyConfigurationDefaultBehaviorPtrInput)(nil)).Elem(), FleetProxyConfigurationDefaultBehavior("ALLOW_ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetProxyRuleEffectInput)(nil)).Elem(), FleetProxyRuleEffect("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetProxyRuleEffectPtrInput)(nil)).Elem(), FleetProxyRuleEffect("ALLOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetProxyRuleTypeInput)(nil)).Elem(), FleetProxyRuleType("DOMAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetProxyRuleTypePtrInput)(nil)).Elem(), FleetProxyRuleType("DOMAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationInputScalingTypeInput)(nil)).Elem(), FleetScalingConfigurationInputScalingType("TARGET_TRACKING_SCALING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetScalingConfigurationInputScalingTypePtrInput)(nil)).Elem(), FleetScalingConfigurationInputScalingType("TARGET_TRACKING_SCALING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetTrackingScalingConfigurationMetricTypeInput)(nil)).Elem(), FleetTargetTrackingScalingConfigurationMetricType("FLEET_UTILIZATION_RATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetTrackingScalingConfigurationMetricTypePtrInput)(nil)).Elem(), FleetTargetTrackingScalingConfigurationMetricType("FLEET_UTILIZATION_RATE"))
+	pulumi.RegisterOutputType(FleetComputeConfigurationmachineTypeOutput{})
+	pulumi.RegisterOutputType(FleetComputeConfigurationmachineTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeTypeOutput{})
 	pulumi.RegisterOutputType(FleetComputeTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetEnvironmentTypeOutput{})
 	pulumi.RegisterOutputType(FleetEnvironmentTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetOverflowBehaviorOutput{})
 	pulumi.RegisterOutputType(FleetOverflowBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(FleetProxyConfigurationDefaultBehaviorOutput{})
+	pulumi.RegisterOutputType(FleetProxyConfigurationDefaultBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(FleetProxyRuleEffectOutput{})
+	pulumi.RegisterOutputType(FleetProxyRuleEffectPtrOutput{})
+	pulumi.RegisterOutputType(FleetProxyRuleTypeOutput{})
+	pulumi.RegisterOutputType(FleetProxyRuleTypePtrOutput{})
+	pulumi.RegisterOutputType(FleetScalingConfigurationInputScalingTypeOutput{})
+	pulumi.RegisterOutputType(FleetScalingConfigurationInputScalingTypePtrOutput{})
+	pulumi.RegisterOutputType(FleetTargetTrackingScalingConfigurationMetricTypeOutput{})
+	pulumi.RegisterOutputType(FleetTargetTrackingScalingConfigurationMetricTypePtrOutput{})
 }

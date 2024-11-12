@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("baseCapacity")]
         public Output<int?> BaseCapacity { get; private set; } = null!;
 
+        [Output("computeConfiguration")]
+        public Output<Outputs.FleetComputeConfiguration?> ComputeConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Information about the compute resources the compute fleet uses. Available values include:
         /// 
@@ -76,6 +79,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("environmentType")]
         public Output<Pulumi.AwsNative.CodeBuild.FleetEnvironmentType?> EnvironmentType { get; private set; } = null!;
 
+        [Output("fleetProxyConfiguration")]
+        public Output<Outputs.FleetProxyConfiguration?> FleetProxyConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
         /// </summary>
@@ -110,6 +116,9 @@ namespace Pulumi.AwsNative.CodeBuild
         /// </summary>
         [Output("overflowBehavior")]
         public Output<Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior?> OverflowBehavior { get; private set; } = null!;
+
+        [Output("scalingConfiguration")]
+        public Output<Outputs.FleetScalingConfigurationInput?> ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// A list of tag key and value pairs associated with this compute fleet.
@@ -170,6 +179,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("baseCapacity")]
         public Input<int>? BaseCapacity { get; set; }
 
+        [Input("computeConfiguration")]
+        public Input<Inputs.FleetComputeConfigurationArgs>? ComputeConfiguration { get; set; }
+
         /// <summary>
         /// Information about the compute resources the compute fleet uses. Available values include:
         /// 
@@ -219,6 +231,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("environmentType")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetEnvironmentType>? EnvironmentType { get; set; }
 
+        [Input("fleetProxyConfiguration")]
+        public Input<Inputs.FleetProxyConfigurationArgs>? FleetProxyConfiguration { get; set; }
+
         /// <summary>
         /// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
         /// </summary>
@@ -253,6 +268,9 @@ namespace Pulumi.AwsNative.CodeBuild
         /// </summary>
         [Input("overflowBehavior")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior>? OverflowBehavior { get; set; }
+
+        [Input("scalingConfiguration")]
+        public Input<Inputs.FleetScalingConfigurationInputArgs>? ScalingConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

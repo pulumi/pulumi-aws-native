@@ -16,11 +16,253 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'FleetComputeConfigurationArgs',
+    'FleetComputeConfigurationArgsDict',
+    'FleetProxyConfigurationArgs',
+    'FleetProxyConfigurationArgsDict',
+    'FleetProxyRuleArgs',
+    'FleetProxyRuleArgsDict',
+    'FleetScalingConfigurationInputArgs',
+    'FleetScalingConfigurationInputArgsDict',
+    'FleetTargetTrackingScalingConfigurationArgs',
+    'FleetTargetTrackingScalingConfigurationArgsDict',
     'FleetVpcConfigArgs',
     'FleetVpcConfigArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class FleetComputeConfigurationArgsDict(TypedDict):
+        disk: NotRequired[pulumi.Input[int]]
+        machine_type: NotRequired[pulumi.Input['FleetComputeConfigurationmachineType']]
+        memory: NotRequired[pulumi.Input[int]]
+        v_cpu: NotRequired[pulumi.Input[int]]
+elif False:
+    FleetComputeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetComputeConfigurationArgs:
+    def __init__(__self__, *,
+                 disk: Optional[pulumi.Input[int]] = None,
+                 machine_type: Optional[pulumi.Input['FleetComputeConfigurationmachineType']] = None,
+                 memory: Optional[pulumi.Input[int]] = None,
+                 v_cpu: Optional[pulumi.Input[int]] = None):
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if machine_type is not None:
+            pulumi.set(__self__, "machine_type", machine_type)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if v_cpu is not None:
+            pulumi.set(__self__, "v_cpu", v_cpu)
+
+    @property
+    @pulumi.getter
+    def disk(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "disk")
+
+    @disk.setter
+    def disk(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk", value)
+
+    @property
+    @pulumi.getter(name="machineType")
+    def machine_type(self) -> Optional[pulumi.Input['FleetComputeConfigurationmachineType']]:
+        return pulumi.get(self, "machine_type")
+
+    @machine_type.setter
+    def machine_type(self, value: Optional[pulumi.Input['FleetComputeConfigurationmachineType']]):
+        pulumi.set(self, "machine_type", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "memory", value)
+
+    @property
+    @pulumi.getter(name="vCpu")
+    def v_cpu(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "v_cpu")
+
+    @v_cpu.setter
+    def v_cpu(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "v_cpu", value)
+
+
+if not MYPY:
+    class FleetProxyConfigurationArgsDict(TypedDict):
+        default_behavior: NotRequired[pulumi.Input['FleetProxyConfigurationDefaultBehavior']]
+        ordered_proxy_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgsDict']]]]
+elif False:
+    FleetProxyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetProxyConfigurationArgs:
+    def __init__(__self__, *,
+                 default_behavior: Optional[pulumi.Input['FleetProxyConfigurationDefaultBehavior']] = None,
+                 ordered_proxy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgs']]]] = None):
+        if default_behavior is not None:
+            pulumi.set(__self__, "default_behavior", default_behavior)
+        if ordered_proxy_rules is not None:
+            pulumi.set(__self__, "ordered_proxy_rules", ordered_proxy_rules)
+
+    @property
+    @pulumi.getter(name="defaultBehavior")
+    def default_behavior(self) -> Optional[pulumi.Input['FleetProxyConfigurationDefaultBehavior']]:
+        return pulumi.get(self, "default_behavior")
+
+    @default_behavior.setter
+    def default_behavior(self, value: Optional[pulumi.Input['FleetProxyConfigurationDefaultBehavior']]):
+        pulumi.set(self, "default_behavior", value)
+
+    @property
+    @pulumi.getter(name="orderedProxyRules")
+    def ordered_proxy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgs']]]]:
+        return pulumi.get(self, "ordered_proxy_rules")
+
+    @ordered_proxy_rules.setter
+    def ordered_proxy_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetProxyRuleArgs']]]]):
+        pulumi.set(self, "ordered_proxy_rules", value)
+
+
+if not MYPY:
+    class FleetProxyRuleArgsDict(TypedDict):
+        effect: NotRequired[pulumi.Input['FleetProxyRuleEffect']]
+        entities: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        type: NotRequired[pulumi.Input['FleetProxyRuleType']]
+elif False:
+    FleetProxyRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetProxyRuleArgs:
+    def __init__(__self__, *,
+                 effect: Optional[pulumi.Input['FleetProxyRuleEffect']] = None,
+                 entities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 type: Optional[pulumi.Input['FleetProxyRuleType']] = None):
+        if effect is not None:
+            pulumi.set(__self__, "effect", effect)
+        if entities is not None:
+            pulumi.set(__self__, "entities", entities)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def effect(self) -> Optional[pulumi.Input['FleetProxyRuleEffect']]:
+        return pulumi.get(self, "effect")
+
+    @effect.setter
+    def effect(self, value: Optional[pulumi.Input['FleetProxyRuleEffect']]):
+        pulumi.set(self, "effect", value)
+
+    @property
+    @pulumi.getter
+    def entities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "entities")
+
+    @entities.setter
+    def entities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "entities", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['FleetProxyRuleType']]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['FleetProxyRuleType']]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class FleetScalingConfigurationInputArgsDict(TypedDict):
+        max_capacity: NotRequired[pulumi.Input[int]]
+        scaling_type: NotRequired[pulumi.Input['FleetScalingConfigurationInputScalingType']]
+        target_tracking_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgsDict']]]]
+elif False:
+    FleetScalingConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetScalingConfigurationInputArgs:
+    def __init__(__self__, *,
+                 max_capacity: Optional[pulumi.Input[int]] = None,
+                 scaling_type: Optional[pulumi.Input['FleetScalingConfigurationInputScalingType']] = None,
+                 target_tracking_scaling_configs: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]] = None):
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+        if scaling_type is not None:
+            pulumi.set(__self__, "scaling_type", scaling_type)
+        if target_tracking_scaling_configs is not None:
+            pulumi.set(__self__, "target_tracking_scaling_configs", target_tracking_scaling_configs)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
+    @pulumi.getter(name="scalingType")
+    def scaling_type(self) -> Optional[pulumi.Input['FleetScalingConfigurationInputScalingType']]:
+        return pulumi.get(self, "scaling_type")
+
+    @scaling_type.setter
+    def scaling_type(self, value: Optional[pulumi.Input['FleetScalingConfigurationInputScalingType']]):
+        pulumi.set(self, "scaling_type", value)
+
+    @property
+    @pulumi.getter(name="targetTrackingScalingConfigs")
+    def target_tracking_scaling_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]]:
+        return pulumi.get(self, "target_tracking_scaling_configs")
+
+    @target_tracking_scaling_configs.setter
+    def target_tracking_scaling_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetTargetTrackingScalingConfigurationArgs']]]]):
+        pulumi.set(self, "target_tracking_scaling_configs", value)
+
+
+if not MYPY:
+    class FleetTargetTrackingScalingConfigurationArgsDict(TypedDict):
+        metric_type: NotRequired[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']]
+        target_value: NotRequired[pulumi.Input[float]]
+elif False:
+    FleetTargetTrackingScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetTargetTrackingScalingConfigurationArgs:
+    def __init__(__self__, *,
+                 metric_type: Optional[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']] = None,
+                 target_value: Optional[pulumi.Input[float]] = None):
+        if metric_type is not None:
+            pulumi.set(__self__, "metric_type", metric_type)
+        if target_value is not None:
+            pulumi.set(__self__, "target_value", target_value)
+
+    @property
+    @pulumi.getter(name="metricType")
+    def metric_type(self) -> Optional[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']]:
+        return pulumi.get(self, "metric_type")
+
+    @metric_type.setter
+    def metric_type(self, value: Optional[pulumi.Input['FleetTargetTrackingScalingConfigurationMetricType']]):
+        pulumi.set(self, "metric_type", value)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "target_value", value)
+
 
 if not MYPY:
     class FleetVpcConfigArgsDict(TypedDict):

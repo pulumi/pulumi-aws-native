@@ -90,6 +90,9 @@ namespace Pulumi.AwsNative.CleanRooms
         /// The name of this ID namespace association.
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

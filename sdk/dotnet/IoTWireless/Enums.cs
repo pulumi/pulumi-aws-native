@@ -127,6 +127,70 @@ namespace Pulumi.AwsNative.IoTWireless
     }
 
     /// <summary>
+    /// Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+    /// </summary>
+    [EnumType]
+    public readonly struct WirelessDeviceApplicationType : IEquatable<WirelessDeviceApplicationType>
+    {
+        private readonly string _value;
+
+        private WirelessDeviceApplicationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WirelessDeviceApplicationType SemtechGeolocation { get; } = new WirelessDeviceApplicationType("SemtechGeolocation");
+        public static WirelessDeviceApplicationType SemtechGnss { get; } = new WirelessDeviceApplicationType("SemtechGNSS");
+        public static WirelessDeviceApplicationType SemtechGnssng { get; } = new WirelessDeviceApplicationType("SemtechGNSSNG");
+        public static WirelessDeviceApplicationType SemtechWiFi { get; } = new WirelessDeviceApplicationType("SemtechWiFi");
+
+        public static bool operator ==(WirelessDeviceApplicationType left, WirelessDeviceApplicationType right) => left.Equals(right);
+        public static bool operator !=(WirelessDeviceApplicationType left, WirelessDeviceApplicationType right) => !left.Equals(right);
+
+        public static explicit operator string(WirelessDeviceApplicationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WirelessDeviceApplicationType other && Equals(other);
+        public bool Equals(WirelessDeviceApplicationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+    /// </summary>
+    [EnumType]
+    public readonly struct WirelessDevicePositioning : IEquatable<WirelessDevicePositioning>
+    {
+        private readonly string _value;
+
+        private WirelessDevicePositioning(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WirelessDevicePositioning Enabled { get; } = new WirelessDevicePositioning("Enabled");
+        public static WirelessDevicePositioning Disabled { get; } = new WirelessDevicePositioning("Disabled");
+
+        public static bool operator ==(WirelessDevicePositioning left, WirelessDevicePositioning right) => left.Equals(right);
+        public static bool operator !=(WirelessDevicePositioning left, WirelessDevicePositioning right) => !left.Equals(right);
+
+        public static explicit operator string(WirelessDevicePositioning value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WirelessDevicePositioning other && Equals(other);
+        public bool Equals(WirelessDevicePositioning other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Wireless device type, currently only Sidewalk and LoRa
     /// </summary>
     [EnumType]

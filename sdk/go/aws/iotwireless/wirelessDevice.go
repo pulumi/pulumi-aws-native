@@ -31,6 +31,8 @@ type WirelessDevice struct {
 	LoRaWan WirelessDeviceLoRaWanDevicePtrOutput `pulumi:"loRaWan"`
 	// Wireless device name
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+	Positioning WirelessDevicePositioningPtrOutput `pulumi:"positioning"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Thing arn. Passed into update to associate Thing with Wireless device.
@@ -97,6 +99,8 @@ type wirelessDeviceArgs struct {
 	LoRaWan *WirelessDeviceLoRaWanDevice `pulumi:"loRaWan"`
 	// Wireless device name
 	Name *string `pulumi:"name"`
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+	Positioning *WirelessDevicePositioning `pulumi:"positioning"`
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Thing arn. Passed into update to associate Thing with Wireless device.
@@ -117,6 +121,8 @@ type WirelessDeviceArgs struct {
 	LoRaWan WirelessDeviceLoRaWanDevicePtrInput
 	// Wireless device name
 	Name pulumi.StringPtrInput
+	// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+	Positioning WirelessDevicePositioningPtrInput
 	// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
 	Tags aws.TagArrayInput
 	// Thing arn. Passed into update to associate Thing with Wireless device.
@@ -195,6 +201,11 @@ func (o WirelessDeviceOutput) LoRaWan() WirelessDeviceLoRaWanDevicePtrOutput {
 // Wireless device name
 func (o WirelessDeviceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WirelessDevice) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+func (o WirelessDeviceOutput) Positioning() WirelessDevicePositioningPtrOutput {
+	return o.ApplyT(func(v *WirelessDevice) WirelessDevicePositioningPtrOutput { return v.Positioning }).(WirelessDevicePositioningPtrOutput)
 }
 
 // A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.

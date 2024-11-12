@@ -34,14 +34,6 @@ export interface GetDeviceProfileResult {
      */
     readonly id?: string;
     /**
-     * LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
-     */
-    readonly loRaWan?: outputs.iotwireless.DeviceProfileLoRaWanDeviceProfile;
-    /**
-     * Name of service profile
-     */
-    readonly name?: string;
-    /**
      * A list of key-value pairs that contain metadata for the device profile.
      */
     readonly tags?: outputs.Tag[];

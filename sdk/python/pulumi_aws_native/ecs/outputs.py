@@ -50,6 +50,7 @@ __all__ = [
     'ServiceTag',
     'ServiceTimeoutConfiguration',
     'ServiceVolumeConfiguration',
+    'ServiceVpcLatticeConfiguration',
     'TaskDefinitionAuthorizationConfig',
     'TaskDefinitionContainerDefinition',
     'TaskDefinitionContainerDependency',
@@ -1378,7 +1379,7 @@ class ServiceDeploymentCircuitBreaker(dict):
 @pulumi.output_type
 class ServiceDeploymentConfiguration(dict):
     """
-    Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+    Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1407,7 +1408,7 @@ class ServiceDeploymentConfiguration(dict):
                  maximum_percent: Optional[int] = None,
                  minimum_healthy_percent: Optional[int] = None):
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
         :param 'ServiceDeploymentAlarms' alarms: Information about the CloudWatch alarms.
         :param 'ServiceDeploymentCircuitBreaker' deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -1629,7 +1630,7 @@ class ServiceLoadBalancer(dict):
         :param str container_name: The name of the container (as it appears in a container definition) to associate with the load balancer.
                 You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
         :param int container_port: The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
-        :param str load_balancer_name: The name of the load balancer to associate with the service or task set.
+        :param str load_balancer_name: The name of the load balancer to associate with the Amazon ECS service or task set.
                 If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         :param str target_group_arn: The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
                 A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. 
@@ -1667,7 +1668,7 @@ class ServiceLoadBalancer(dict):
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[str]:
         """
-        The name of the load balancer to associate with the service or task set.
+        The name of the load balancer to associate with the Amazon ECS service or task set.
          If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         """
         return pulumi.get(self, "load_balancer_name")
@@ -2422,6 +2423,53 @@ class ServiceVolumeConfiguration(dict):
         The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. The Amazon EBS volumes are visible in your account in the Amazon EC2 console once they are created.
         """
         return pulumi.get(self, "managed_ebs_volume")
+
+
+@pulumi.output_type
+class ServiceVpcLatticeConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portName":
+            suggest = "port_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceVpcLatticeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceVpcLatticeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceVpcLatticeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port_name: str,
+                 role_arn: str,
+                 target_group_arn: str):
+        pulumi.set(__self__, "port_name", port_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "target_group_arn", target_group_arn)
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> str:
+        return pulumi.get(self, "port_name")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="targetGroupArn")
+    def target_group_arn(self) -> str:
+        return pulumi.get(self, "target_group_arn")
 
 
 @pulumi.output_type

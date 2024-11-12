@@ -35,6 +35,11 @@ func NewServiceProfile(ctx *pulumi.Context,
 		args = &ServiceProfileArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"loRaWan",
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceProfile
 	err := ctx.RegisterResource("aws-native:iotwireless:ServiceProfile", name, args, &resource, opts...)

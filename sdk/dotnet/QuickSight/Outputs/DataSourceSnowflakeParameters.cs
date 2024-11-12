@@ -16,16 +16,25 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceSnowflakeParameters
     {
+        /// <summary>
+        /// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DataSourceAuthenticationType? AuthenticationType;
         /// <summary>
         /// &lt;p&gt;Database.&lt;/p&gt;
         /// </summary>
         public readonly string Database;
+        /// <summary>
+        /// The database access control role.
+        /// </summary>
         public readonly string? DatabaseAccessControlRole;
         /// <summary>
         /// &lt;p&gt;Host.&lt;/p&gt;
         /// </summary>
         public readonly string Host;
+        /// <summary>
+        /// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
+        /// </summary>
         public readonly Outputs.DataSourceOAuthParameters? OAuthParameters;
         /// <summary>
         /// &lt;p&gt;Warehouse.&lt;/p&gt;

@@ -120,6 +120,9 @@ class GetAutoScalingGroupResult:
     @property
     @pulumi.getter(name="availabilityZoneDistribution")
     def availability_zone_distribution(self) -> Optional['outputs.AutoScalingGroupAvailabilityZoneDistribution']:
+        """
+        The instance capacity distribution across Availability Zones.
+        """
         return pulumi.get(self, "availability_zone_distribution")
 
     @property

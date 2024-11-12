@@ -94,23 +94,24 @@
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
-    "tagUpdatable" : false,
+    "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
   },
   "required" : [ "Name" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Tags" ],
+  "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotwireless:CreateNetworkAnalyzerConfiguration", "iotwireless:TagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iotwireless:CreateNetworkAnalyzerConfiguration", "iotwireless:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iotwireless:GetNetworkAnalyzerConfiguration", "iotwireless:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotwireless:UpdateNetworkAnalyzerConfiguration", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iotwireless:UpdateNetworkAnalyzerConfiguration", "iotwireless:GetNetworkAnalyzerConfiguration", "iotwireless:TagResource", "iotwireless:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "iotwireless:DeleteNetworkAnalyzerConfiguration" ]

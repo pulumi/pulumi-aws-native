@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetContainerGroupDefinitionResult:
-    def __init__(__self__, container_group_definition_arn=None, creation_time=None, source_version_number=None, status=None, status_reason=None, support_container_definitions=None, tags=None):
+    def __init__(__self__, container_group_definition_arn=None, creation_time=None, operating_system=None, source_version_number=None, status=None, status_reason=None, support_container_definitions=None, tags=None):
         if container_group_definition_arn and not isinstance(container_group_definition_arn, str):
             raise TypeError("Expected argument 'container_group_definition_arn' to be a str")
         pulumi.set(__self__, "container_group_definition_arn", container_group_definition_arn)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if operating_system and not isinstance(operating_system, str):
+            raise TypeError("Expected argument 'operating_system' to be a str")
+        pulumi.set(__self__, "operating_system", operating_system)
         if source_version_number and not isinstance(source_version_number, int):
             raise TypeError("Expected argument 'source_version_number' to be a int")
         pulumi.set(__self__, "source_version_number", source_version_number)
@@ -63,6 +66,14 @@ class GetContainerGroupDefinitionResult:
         A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="operatingSystem")
+    def operating_system(self) -> Optional['ContainerGroupDefinitionOperatingSystem']:
+        """
+        The operating system of the container group
+        """
+        return pulumi.get(self, "operating_system")
 
     @property
     @pulumi.getter(name="sourceVersionNumber")
@@ -113,6 +124,7 @@ class AwaitableGetContainerGroupDefinitionResult(GetContainerGroupDefinitionResu
         return GetContainerGroupDefinitionResult(
             container_group_definition_arn=self.container_group_definition_arn,
             creation_time=self.creation_time,
+            operating_system=self.operating_system,
             source_version_number=self.source_version_number,
             status=self.status,
             status_reason=self.status_reason,
@@ -136,6 +148,7 @@ def get_container_group_definition(name: Optional[str] = None,
     return AwaitableGetContainerGroupDefinitionResult(
         container_group_definition_arn=pulumi.get(__ret__, 'container_group_definition_arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
+        operating_system=pulumi.get(__ret__, 'operating_system'),
         source_version_number=pulumi.get(__ret__, 'source_version_number'),
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
@@ -156,6 +169,7 @@ def get_container_group_definition_output(name: Optional[pulumi.Input[str]] = No
     return __ret__.apply(lambda __response__: GetContainerGroupDefinitionResult(
         container_group_definition_arn=pulumi.get(__response__, 'container_group_definition_arn'),
         creation_time=pulumi.get(__response__, 'creation_time'),
+        operating_system=pulumi.get(__response__, 'operating_system'),
         source_version_number=pulumi.get(__response__, 'source_version_number'),
         status=pulumi.get(__response__, 'status'),
         status_reason=pulumi.get(__response__, 'status_reason'),

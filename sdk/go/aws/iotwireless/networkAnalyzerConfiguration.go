@@ -23,7 +23,7 @@ type NetworkAnalyzerConfiguration struct {
 	// Name of the network analyzer configuration
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Trace content for your wireless gateway and wireless device resources
 	TraceContent TraceContentPropertiesPtrOutput `pulumi:"traceContent"`
 	// List of wireless gateway resources that have been added to the network analyzer configuration
@@ -41,7 +41,6 @@ func NewNetworkAnalyzerConfiguration(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"name",
-		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -82,7 +81,7 @@ type networkAnalyzerConfigurationArgs struct {
 	// Name of the network analyzer configuration
 	Name *string `pulumi:"name"`
 	// An array of key-value pairs to apply to this resource.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags []aws.Tag `pulumi:"tags"`
 	// Trace content for your wireless gateway and wireless device resources
 	TraceContent *TraceContentProperties `pulumi:"traceContent"`
 	// List of wireless gateway resources that have been added to the network analyzer configuration
@@ -98,7 +97,7 @@ type NetworkAnalyzerConfigurationArgs struct {
 	// Name of the network analyzer configuration
 	Name pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags aws.TagArrayInput
 	// Trace content for your wireless gateway and wireless device resources
 	TraceContent TraceContentPropertiesPtrInput
 	// List of wireless gateway resources that have been added to the network analyzer configuration
@@ -160,8 +159,8 @@ func (o NetworkAnalyzerConfigurationOutput) Name() pulumi.StringOutput {
 }
 
 // An array of key-value pairs to apply to this resource.
-func (o NetworkAnalyzerConfigurationOutput) Tags() aws.CreateOnlyTagArrayOutput {
-	return o.ApplyT(func(v *NetworkAnalyzerConfiguration) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+func (o NetworkAnalyzerConfigurationOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *NetworkAnalyzerConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Trace content for your wireless gateway and wireless device resources

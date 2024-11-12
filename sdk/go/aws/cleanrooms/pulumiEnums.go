@@ -29,6 +29,19 @@ const (
 	AnalysisTemplateAnalysisParameterTypeTime            = AnalysisTemplateAnalysisParameterType("TIME")
 	AnalysisTemplateAnalysisParameterTypeTimetz          = AnalysisTemplateAnalysisParameterType("TIMETZ")
 	AnalysisTemplateAnalysisParameterTypeVarbyte         = AnalysisTemplateAnalysisParameterType("VARBYTE")
+	AnalysisTemplateAnalysisParameterTypeBinary          = AnalysisTemplateAnalysisParameterType("BINARY")
+	AnalysisTemplateAnalysisParameterTypeByte            = AnalysisTemplateAnalysisParameterType("BYTE")
+	AnalysisTemplateAnalysisParameterTypeCharacter       = AnalysisTemplateAnalysisParameterType("CHARACTER")
+	AnalysisTemplateAnalysisParameterTypeDouble          = AnalysisTemplateAnalysisParameterType("DOUBLE")
+	AnalysisTemplateAnalysisParameterTypeFloat           = AnalysisTemplateAnalysisParameterType("FLOAT")
+	AnalysisTemplateAnalysisParameterTypeInt             = AnalysisTemplateAnalysisParameterType("INT")
+	AnalysisTemplateAnalysisParameterTypeLong            = AnalysisTemplateAnalysisParameterType("LONG")
+	AnalysisTemplateAnalysisParameterTypeNumeric         = AnalysisTemplateAnalysisParameterType("NUMERIC")
+	AnalysisTemplateAnalysisParameterTypeShort           = AnalysisTemplateAnalysisParameterType("SHORT")
+	AnalysisTemplateAnalysisParameterTypeString          = AnalysisTemplateAnalysisParameterType("STRING")
+	AnalysisTemplateAnalysisParameterTypeTimestampLtz    = AnalysisTemplateAnalysisParameterType("TIMESTAMP_LTZ")
+	AnalysisTemplateAnalysisParameterTypeTimestampNtz    = AnalysisTemplateAnalysisParameterType("TIMESTAMP_NTZ")
+	AnalysisTemplateAnalysisParameterTypeTinyint         = AnalysisTemplateAnalysisParameterType("TINYINT")
 )
 
 func (AnalysisTemplateAnalysisParameterType) ElementType() reflect.Type {
@@ -168,6 +181,19 @@ func (o AnalysisTemplateAnalysisParameterTypePtrOutput) ToStringPtrOutputWithCon
 //	AnalysisTemplateAnalysisParameterTypeTime
 //	AnalysisTemplateAnalysisParameterTypeTimetz
 //	AnalysisTemplateAnalysisParameterTypeVarbyte
+//	AnalysisTemplateAnalysisParameterTypeBinary
+//	AnalysisTemplateAnalysisParameterTypeByte
+//	AnalysisTemplateAnalysisParameterTypeCharacter
+//	AnalysisTemplateAnalysisParameterTypeDouble
+//	AnalysisTemplateAnalysisParameterTypeFloat
+//	AnalysisTemplateAnalysisParameterTypeInt
+//	AnalysisTemplateAnalysisParameterTypeLong
+//	AnalysisTemplateAnalysisParameterTypeNumeric
+//	AnalysisTemplateAnalysisParameterTypeShort
+//	AnalysisTemplateAnalysisParameterTypeString
+//	AnalysisTemplateAnalysisParameterTypeTimestampLtz
+//	AnalysisTemplateAnalysisParameterTypeTimestampNtz
+//	AnalysisTemplateAnalysisParameterTypeTinyint
 type AnalysisTemplateAnalysisParameterTypeInput interface {
 	pulumi.Input
 
@@ -364,6 +390,171 @@ func (in *analysisTemplateFormatPtr) ToAnalysisTemplateFormatPtrOutput() Analysi
 
 func (in *analysisTemplateFormatPtr) ToAnalysisTemplateFormatPtrOutputWithContext(ctx context.Context) AnalysisTemplateFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisTemplateFormatPtrOutput)
+}
+
+type CollaborationAnalyticsEngine string
+
+const (
+	CollaborationAnalyticsEngineCleanRoomsSql = CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL")
+	CollaborationAnalyticsEngineSpark         = CollaborationAnalyticsEngine("SPARK")
+)
+
+func (CollaborationAnalyticsEngine) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationAnalyticsEngine)(nil)).Elem()
+}
+
+func (e CollaborationAnalyticsEngine) ToCollaborationAnalyticsEngineOutput() CollaborationAnalyticsEngineOutput {
+	return pulumi.ToOutput(e).(CollaborationAnalyticsEngineOutput)
+}
+
+func (e CollaborationAnalyticsEngine) ToCollaborationAnalyticsEngineOutputWithContext(ctx context.Context) CollaborationAnalyticsEngineOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollaborationAnalyticsEngineOutput)
+}
+
+func (e CollaborationAnalyticsEngine) ToCollaborationAnalyticsEnginePtrOutput() CollaborationAnalyticsEnginePtrOutput {
+	return e.ToCollaborationAnalyticsEnginePtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationAnalyticsEngine) ToCollaborationAnalyticsEnginePtrOutputWithContext(ctx context.Context) CollaborationAnalyticsEnginePtrOutput {
+	return CollaborationAnalyticsEngine(e).ToCollaborationAnalyticsEngineOutputWithContext(ctx).ToCollaborationAnalyticsEnginePtrOutputWithContext(ctx)
+}
+
+func (e CollaborationAnalyticsEngine) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationAnalyticsEngine) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationAnalyticsEngine) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationAnalyticsEngine) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollaborationAnalyticsEngineOutput struct{ *pulumi.OutputState }
+
+func (CollaborationAnalyticsEngineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationAnalyticsEngine)(nil)).Elem()
+}
+
+func (o CollaborationAnalyticsEngineOutput) ToCollaborationAnalyticsEngineOutput() CollaborationAnalyticsEngineOutput {
+	return o
+}
+
+func (o CollaborationAnalyticsEngineOutput) ToCollaborationAnalyticsEngineOutputWithContext(ctx context.Context) CollaborationAnalyticsEngineOutput {
+	return o
+}
+
+func (o CollaborationAnalyticsEngineOutput) ToCollaborationAnalyticsEnginePtrOutput() CollaborationAnalyticsEnginePtrOutput {
+	return o.ToCollaborationAnalyticsEnginePtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationAnalyticsEngineOutput) ToCollaborationAnalyticsEnginePtrOutputWithContext(ctx context.Context) CollaborationAnalyticsEnginePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationAnalyticsEngine) *CollaborationAnalyticsEngine {
+		return &v
+	}).(CollaborationAnalyticsEnginePtrOutput)
+}
+
+func (o CollaborationAnalyticsEngineOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollaborationAnalyticsEngineOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationAnalyticsEngine) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollaborationAnalyticsEngineOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationAnalyticsEngineOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationAnalyticsEngine) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollaborationAnalyticsEnginePtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationAnalyticsEnginePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationAnalyticsEngine)(nil)).Elem()
+}
+
+func (o CollaborationAnalyticsEnginePtrOutput) ToCollaborationAnalyticsEnginePtrOutput() CollaborationAnalyticsEnginePtrOutput {
+	return o
+}
+
+func (o CollaborationAnalyticsEnginePtrOutput) ToCollaborationAnalyticsEnginePtrOutputWithContext(ctx context.Context) CollaborationAnalyticsEnginePtrOutput {
+	return o
+}
+
+func (o CollaborationAnalyticsEnginePtrOutput) Elem() CollaborationAnalyticsEngineOutput {
+	return o.ApplyT(func(v *CollaborationAnalyticsEngine) CollaborationAnalyticsEngine {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationAnalyticsEngine
+		return ret
+	}).(CollaborationAnalyticsEngineOutput)
+}
+
+func (o CollaborationAnalyticsEnginePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationAnalyticsEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollaborationAnalyticsEngine) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollaborationAnalyticsEngineInput is an input type that accepts values of the CollaborationAnalyticsEngine enum
+// A concrete instance of `CollaborationAnalyticsEngineInput` can be one of the following:
+//
+//	CollaborationAnalyticsEngineCleanRoomsSql
+//	CollaborationAnalyticsEngineSpark
+type CollaborationAnalyticsEngineInput interface {
+	pulumi.Input
+
+	ToCollaborationAnalyticsEngineOutput() CollaborationAnalyticsEngineOutput
+	ToCollaborationAnalyticsEngineOutputWithContext(context.Context) CollaborationAnalyticsEngineOutput
+}
+
+var collaborationAnalyticsEnginePtrType = reflect.TypeOf((**CollaborationAnalyticsEngine)(nil)).Elem()
+
+type CollaborationAnalyticsEnginePtrInput interface {
+	pulumi.Input
+
+	ToCollaborationAnalyticsEnginePtrOutput() CollaborationAnalyticsEnginePtrOutput
+	ToCollaborationAnalyticsEnginePtrOutputWithContext(context.Context) CollaborationAnalyticsEnginePtrOutput
+}
+
+type collaborationAnalyticsEnginePtr string
+
+func CollaborationAnalyticsEnginePtr(v string) CollaborationAnalyticsEnginePtrInput {
+	return (*collaborationAnalyticsEnginePtr)(&v)
+}
+
+func (*collaborationAnalyticsEnginePtr) ElementType() reflect.Type {
+	return collaborationAnalyticsEnginePtrType
+}
+
+func (in *collaborationAnalyticsEnginePtr) ToCollaborationAnalyticsEnginePtrOutput() CollaborationAnalyticsEnginePtrOutput {
+	return pulumi.ToOutput(in).(CollaborationAnalyticsEnginePtrOutput)
+}
+
+func (in *collaborationAnalyticsEnginePtr) ToCollaborationAnalyticsEnginePtrOutputWithContext(ctx context.Context) CollaborationAnalyticsEnginePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollaborationAnalyticsEnginePtrOutput)
 }
 
 type CollaborationMemberAbility string
@@ -3215,6 +3406,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateAnalysisParameterTypePtrInput)(nil)).Elem(), AnalysisTemplateAnalysisParameterType("SMALLINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatPtrInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAnalyticsEngineInput)(nil)).Elem(), CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAnalyticsEnginePtrInput)(nil)).Elem(), CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityInput)(nil)).Elem(), CollaborationMemberAbility("CAN_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityPtrInput)(nil)).Elem(), CollaborationMemberAbility("CAN_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityArrayInput)(nil)).Elem(), CollaborationMemberAbilityArray{})
@@ -3252,6 +3445,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTemplateAnalysisParameterTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateFormatOutput{})
 	pulumi.RegisterOutputType(AnalysisTemplateFormatPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationAnalyticsEngineOutput{})
+	pulumi.RegisterOutputType(CollaborationAnalyticsEnginePtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityArrayOutput{})

@@ -2588,6 +2588,261 @@ func (o WirelessDeviceAbpV11PtrOutput) SessionKeys() WirelessDeviceSessionKeysAb
 	}).(WirelessDeviceSessionKeysAbpV11PtrOutput)
 }
 
+// LoRaWAN application configuration, which can be used to perform geolocation.
+type WirelessDeviceApplication struct {
+	// The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+	DestinationName *string `pulumi:"destinationName"`
+	// The Fport value.
+	FPort *int `pulumi:"fPort"`
+	// Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+	Type *WirelessDeviceApplicationType `pulumi:"type"`
+}
+
+// WirelessDeviceApplicationInput is an input type that accepts WirelessDeviceApplicationArgs and WirelessDeviceApplicationOutput values.
+// You can construct a concrete instance of `WirelessDeviceApplicationInput` via:
+//
+//	WirelessDeviceApplicationArgs{...}
+type WirelessDeviceApplicationInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceApplicationOutput() WirelessDeviceApplicationOutput
+	ToWirelessDeviceApplicationOutputWithContext(context.Context) WirelessDeviceApplicationOutput
+}
+
+// LoRaWAN application configuration, which can be used to perform geolocation.
+type WirelessDeviceApplicationArgs struct {
+	// The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+	DestinationName pulumi.StringPtrInput `pulumi:"destinationName"`
+	// The Fport value.
+	FPort pulumi.IntPtrInput `pulumi:"fPort"`
+	// Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+	Type WirelessDeviceApplicationTypePtrInput `pulumi:"type"`
+}
+
+func (WirelessDeviceApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceApplication)(nil)).Elem()
+}
+
+func (i WirelessDeviceApplicationArgs) ToWirelessDeviceApplicationOutput() WirelessDeviceApplicationOutput {
+	return i.ToWirelessDeviceApplicationOutputWithContext(context.Background())
+}
+
+func (i WirelessDeviceApplicationArgs) ToWirelessDeviceApplicationOutputWithContext(ctx context.Context) WirelessDeviceApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceApplicationOutput)
+}
+
+// WirelessDeviceApplicationArrayInput is an input type that accepts WirelessDeviceApplicationArray and WirelessDeviceApplicationArrayOutput values.
+// You can construct a concrete instance of `WirelessDeviceApplicationArrayInput` via:
+//
+//	WirelessDeviceApplicationArray{ WirelessDeviceApplicationArgs{...} }
+type WirelessDeviceApplicationArrayInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceApplicationArrayOutput() WirelessDeviceApplicationArrayOutput
+	ToWirelessDeviceApplicationArrayOutputWithContext(context.Context) WirelessDeviceApplicationArrayOutput
+}
+
+type WirelessDeviceApplicationArray []WirelessDeviceApplicationInput
+
+func (WirelessDeviceApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WirelessDeviceApplication)(nil)).Elem()
+}
+
+func (i WirelessDeviceApplicationArray) ToWirelessDeviceApplicationArrayOutput() WirelessDeviceApplicationArrayOutput {
+	return i.ToWirelessDeviceApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i WirelessDeviceApplicationArray) ToWirelessDeviceApplicationArrayOutputWithContext(ctx context.Context) WirelessDeviceApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceApplicationArrayOutput)
+}
+
+// LoRaWAN application configuration, which can be used to perform geolocation.
+type WirelessDeviceApplicationOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceApplication)(nil)).Elem()
+}
+
+func (o WirelessDeviceApplicationOutput) ToWirelessDeviceApplicationOutput() WirelessDeviceApplicationOutput {
+	return o
+}
+
+func (o WirelessDeviceApplicationOutput) ToWirelessDeviceApplicationOutputWithContext(ctx context.Context) WirelessDeviceApplicationOutput {
+	return o
+}
+
+// The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+func (o WirelessDeviceApplicationOutput) DestinationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceApplication) *string { return v.DestinationName }).(pulumi.StringPtrOutput)
+}
+
+// The Fport value.
+func (o WirelessDeviceApplicationOutput) FPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceApplication) *int { return v.FPort }).(pulumi.IntPtrOutput)
+}
+
+// Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+func (o WirelessDeviceApplicationOutput) Type() WirelessDeviceApplicationTypePtrOutput {
+	return o.ApplyT(func(v WirelessDeviceApplication) *WirelessDeviceApplicationType { return v.Type }).(WirelessDeviceApplicationTypePtrOutput)
+}
+
+type WirelessDeviceApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WirelessDeviceApplication)(nil)).Elem()
+}
+
+func (o WirelessDeviceApplicationArrayOutput) ToWirelessDeviceApplicationArrayOutput() WirelessDeviceApplicationArrayOutput {
+	return o
+}
+
+func (o WirelessDeviceApplicationArrayOutput) ToWirelessDeviceApplicationArrayOutputWithContext(ctx context.Context) WirelessDeviceApplicationArrayOutput {
+	return o
+}
+
+func (o WirelessDeviceApplicationArrayOutput) Index(i pulumi.IntInput) WirelessDeviceApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WirelessDeviceApplication {
+		return vs[0].([]WirelessDeviceApplication)[vs[1].(int)]
+	}).(WirelessDeviceApplicationOutput)
+}
+
+type WirelessDeviceFPorts struct {
+	// A list of optional LoRaWAN application information, which can be used for geolocation.
+	Applications []WirelessDeviceApplication `pulumi:"applications"`
+}
+
+// WirelessDeviceFPortsInput is an input type that accepts WirelessDeviceFPortsArgs and WirelessDeviceFPortsOutput values.
+// You can construct a concrete instance of `WirelessDeviceFPortsInput` via:
+//
+//	WirelessDeviceFPortsArgs{...}
+type WirelessDeviceFPortsInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceFPortsOutput() WirelessDeviceFPortsOutput
+	ToWirelessDeviceFPortsOutputWithContext(context.Context) WirelessDeviceFPortsOutput
+}
+
+type WirelessDeviceFPortsArgs struct {
+	// A list of optional LoRaWAN application information, which can be used for geolocation.
+	Applications WirelessDeviceApplicationArrayInput `pulumi:"applications"`
+}
+
+func (WirelessDeviceFPortsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceFPorts)(nil)).Elem()
+}
+
+func (i WirelessDeviceFPortsArgs) ToWirelessDeviceFPortsOutput() WirelessDeviceFPortsOutput {
+	return i.ToWirelessDeviceFPortsOutputWithContext(context.Background())
+}
+
+func (i WirelessDeviceFPortsArgs) ToWirelessDeviceFPortsOutputWithContext(ctx context.Context) WirelessDeviceFPortsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceFPortsOutput)
+}
+
+func (i WirelessDeviceFPortsArgs) ToWirelessDeviceFPortsPtrOutput() WirelessDeviceFPortsPtrOutput {
+	return i.ToWirelessDeviceFPortsPtrOutputWithContext(context.Background())
+}
+
+func (i WirelessDeviceFPortsArgs) ToWirelessDeviceFPortsPtrOutputWithContext(ctx context.Context) WirelessDeviceFPortsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceFPortsOutput).ToWirelessDeviceFPortsPtrOutputWithContext(ctx)
+}
+
+// WirelessDeviceFPortsPtrInput is an input type that accepts WirelessDeviceFPortsArgs, WirelessDeviceFPortsPtr and WirelessDeviceFPortsPtrOutput values.
+// You can construct a concrete instance of `WirelessDeviceFPortsPtrInput` via:
+//
+//	        WirelessDeviceFPortsArgs{...}
+//
+//	or:
+//
+//	        nil
+type WirelessDeviceFPortsPtrInput interface {
+	pulumi.Input
+
+	ToWirelessDeviceFPortsPtrOutput() WirelessDeviceFPortsPtrOutput
+	ToWirelessDeviceFPortsPtrOutputWithContext(context.Context) WirelessDeviceFPortsPtrOutput
+}
+
+type wirelessDeviceFPortsPtrType WirelessDeviceFPortsArgs
+
+func WirelessDeviceFPortsPtr(v *WirelessDeviceFPortsArgs) WirelessDeviceFPortsPtrInput {
+	return (*wirelessDeviceFPortsPtrType)(v)
+}
+
+func (*wirelessDeviceFPortsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WirelessDeviceFPorts)(nil)).Elem()
+}
+
+func (i *wirelessDeviceFPortsPtrType) ToWirelessDeviceFPortsPtrOutput() WirelessDeviceFPortsPtrOutput {
+	return i.ToWirelessDeviceFPortsPtrOutputWithContext(context.Background())
+}
+
+func (i *wirelessDeviceFPortsPtrType) ToWirelessDeviceFPortsPtrOutputWithContext(ctx context.Context) WirelessDeviceFPortsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WirelessDeviceFPortsPtrOutput)
+}
+
+type WirelessDeviceFPortsOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceFPortsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WirelessDeviceFPorts)(nil)).Elem()
+}
+
+func (o WirelessDeviceFPortsOutput) ToWirelessDeviceFPortsOutput() WirelessDeviceFPortsOutput {
+	return o
+}
+
+func (o WirelessDeviceFPortsOutput) ToWirelessDeviceFPortsOutputWithContext(ctx context.Context) WirelessDeviceFPortsOutput {
+	return o
+}
+
+func (o WirelessDeviceFPortsOutput) ToWirelessDeviceFPortsPtrOutput() WirelessDeviceFPortsPtrOutput {
+	return o.ToWirelessDeviceFPortsPtrOutputWithContext(context.Background())
+}
+
+func (o WirelessDeviceFPortsOutput) ToWirelessDeviceFPortsPtrOutputWithContext(ctx context.Context) WirelessDeviceFPortsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WirelessDeviceFPorts) *WirelessDeviceFPorts {
+		return &v
+	}).(WirelessDeviceFPortsPtrOutput)
+}
+
+// A list of optional LoRaWAN application information, which can be used for geolocation.
+func (o WirelessDeviceFPortsOutput) Applications() WirelessDeviceApplicationArrayOutput {
+	return o.ApplyT(func(v WirelessDeviceFPorts) []WirelessDeviceApplication { return v.Applications }).(WirelessDeviceApplicationArrayOutput)
+}
+
+type WirelessDeviceFPortsPtrOutput struct{ *pulumi.OutputState }
+
+func (WirelessDeviceFPortsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WirelessDeviceFPorts)(nil)).Elem()
+}
+
+func (o WirelessDeviceFPortsPtrOutput) ToWirelessDeviceFPortsPtrOutput() WirelessDeviceFPortsPtrOutput {
+	return o
+}
+
+func (o WirelessDeviceFPortsPtrOutput) ToWirelessDeviceFPortsPtrOutputWithContext(ctx context.Context) WirelessDeviceFPortsPtrOutput {
+	return o
+}
+
+func (o WirelessDeviceFPortsPtrOutput) Elem() WirelessDeviceFPortsOutput {
+	return o.ApplyT(func(v *WirelessDeviceFPorts) WirelessDeviceFPorts {
+		if v != nil {
+			return *v
+		}
+		var ret WirelessDeviceFPorts
+		return ret
+	}).(WirelessDeviceFPortsOutput)
+}
+
+// A list of optional LoRaWAN application information, which can be used for geolocation.
+func (o WirelessDeviceFPortsPtrOutput) Applications() WirelessDeviceApplicationArrayOutput {
+	return o.ApplyT(func(v *WirelessDeviceFPorts) []WirelessDeviceApplication {
+		if v == nil {
+			return nil
+		}
+		return v.Applications
+	}).(WirelessDeviceApplicationArrayOutput)
+}
+
 type WirelessDeviceLoRaWanDevice struct {
 	// ABP device object for LoRaWAN specification v1.0.x.
 	AbpV10x *WirelessDeviceAbpV10x `pulumi:"abpV10x"`
@@ -2597,6 +2852,8 @@ type WirelessDeviceLoRaWanDevice struct {
 	DevEui *string `pulumi:"devEui"`
 	// The ID of the device profile for the new wireless device.
 	DeviceProfileId *string `pulumi:"deviceProfileId"`
+	// List of FPort assigned for different LoRaWAN application packages to use.
+	FPorts *WirelessDeviceFPorts `pulumi:"fPorts"`
 	// OTAA device object for create APIs for v1.0.x
 	OtaaV10x *WirelessDeviceOtaaV10x `pulumi:"otaaV10x"`
 	// OTAA device object for v1.1 for create APIs.
@@ -2625,6 +2882,8 @@ type WirelessDeviceLoRaWanDeviceArgs struct {
 	DevEui pulumi.StringPtrInput `pulumi:"devEui"`
 	// The ID of the device profile for the new wireless device.
 	DeviceProfileId pulumi.StringPtrInput `pulumi:"deviceProfileId"`
+	// List of FPort assigned for different LoRaWAN application packages to use.
+	FPorts WirelessDeviceFPortsPtrInput `pulumi:"fPorts"`
 	// OTAA device object for create APIs for v1.0.x
 	OtaaV10x WirelessDeviceOtaaV10xPtrInput `pulumi:"otaaV10x"`
 	// OTAA device object for v1.1 for create APIs.
@@ -2730,6 +2989,11 @@ func (o WirelessDeviceLoRaWanDeviceOutput) DeviceProfileId() pulumi.StringPtrOut
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *string { return v.DeviceProfileId }).(pulumi.StringPtrOutput)
 }
 
+// List of FPort assigned for different LoRaWAN application packages to use.
+func (o WirelessDeviceLoRaWanDeviceOutput) FPorts() WirelessDeviceFPortsPtrOutput {
+	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceFPorts { return v.FPorts }).(WirelessDeviceFPortsPtrOutput)
+}
+
 // OTAA device object for create APIs for v1.0.x
 func (o WirelessDeviceLoRaWanDeviceOutput) OtaaV10x() WirelessDeviceOtaaV10xPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceOtaaV10x { return v.OtaaV10x }).(WirelessDeviceOtaaV10xPtrOutput)
@@ -2807,6 +3071,16 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) DeviceProfileId() pulumi.StringPtr
 		}
 		return v.DeviceProfileId
 	}).(pulumi.StringPtrOutput)
+}
+
+// List of FPort assigned for different LoRaWAN application packages to use.
+func (o WirelessDeviceLoRaWanDevicePtrOutput) FPorts() WirelessDeviceFPortsPtrOutput {
+	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceFPorts {
+		if v == nil {
+			return nil
+		}
+		return v.FPorts
+	}).(WirelessDeviceFPortsPtrOutput)
 }
 
 // OTAA device object for create APIs for v1.0.x
@@ -3660,6 +3934,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV10xPtrInput)(nil)).Elem(), WirelessDeviceAbpV10xArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV11Input)(nil)).Elem(), WirelessDeviceAbpV11Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceAbpV11PtrInput)(nil)).Elem(), WirelessDeviceAbpV11Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceApplicationInput)(nil)).Elem(), WirelessDeviceApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceApplicationArrayInput)(nil)).Elem(), WirelessDeviceApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceFPortsInput)(nil)).Elem(), WirelessDeviceFPortsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceFPortsPtrInput)(nil)).Elem(), WirelessDeviceFPortsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWanDeviceInput)(nil)).Elem(), WirelessDeviceLoRaWanDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceLoRaWanDevicePtrInput)(nil)).Elem(), WirelessDeviceLoRaWanDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WirelessDeviceOtaaV10xInput)(nil)).Elem(), WirelessDeviceOtaaV10xArgs{})
@@ -3693,6 +3971,10 @@ func init() {
 	pulumi.RegisterOutputType(WirelessDeviceAbpV10xPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV11Output{})
 	pulumi.RegisterOutputType(WirelessDeviceAbpV11PtrOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceApplicationOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceApplicationArrayOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceFPortsOutput{})
+	pulumi.RegisterOutputType(WirelessDeviceFPortsPtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceLoRaWanDeviceOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceLoRaWanDevicePtrOutput{})
 	pulumi.RegisterOutputType(WirelessDeviceOtaaV10xOutput{})

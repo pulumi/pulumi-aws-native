@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.CleanRooms
     public partial class Collaboration : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The analytics engine for the collaboration.
+        /// </summary>
+        [Output("analyticsEngine")]
+        public Output<Pulumi.AwsNative.CleanRooms.CollaborationAnalyticsEngine?> AnalyticsEngine { get; private set; } = null!;
+
+        /// <summary>
         /// Returns the Amazon Resource Name (ARN) of the specified collaboration.
         /// 
         /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
@@ -112,6 +118,7 @@ namespace Pulumi.AwsNative.CleanRooms
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "analyticsEngine",
                     "creatorDisplayName",
                     "creatorMemberAbilities[*]",
                     "creatorPaymentConfiguration",
@@ -141,6 +148,12 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class CollaborationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The analytics engine for the collaboration.
+        /// </summary>
+        [Input("analyticsEngine")]
+        public Input<Pulumi.AwsNative.CleanRooms.CollaborationAnalyticsEngine>? AnalyticsEngine { get; set; }
+
         /// <summary>
         /// A display name of the collaboration creator.
         /// </summary>

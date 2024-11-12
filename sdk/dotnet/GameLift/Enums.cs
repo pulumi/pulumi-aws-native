@@ -73,70 +73,6 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
-    /// The type of dependency.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContainerGroupDefinitionContainerDependencyCondition : IEquatable<ContainerGroupDefinitionContainerDependencyCondition>
-    {
-        private readonly string _value;
-
-        private ContainerGroupDefinitionContainerDependencyCondition(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContainerGroupDefinitionContainerDependencyCondition Start { get; } = new ContainerGroupDefinitionContainerDependencyCondition("START");
-        public static ContainerGroupDefinitionContainerDependencyCondition Complete { get; } = new ContainerGroupDefinitionContainerDependencyCondition("COMPLETE");
-        public static ContainerGroupDefinitionContainerDependencyCondition Success { get; } = new ContainerGroupDefinitionContainerDependencyCondition("SUCCESS");
-        public static ContainerGroupDefinitionContainerDependencyCondition Healthy { get; } = new ContainerGroupDefinitionContainerDependencyCondition("HEALTHY");
-
-        public static bool operator ==(ContainerGroupDefinitionContainerDependencyCondition left, ContainerGroupDefinitionContainerDependencyCondition right) => left.Equals(right);
-        public static bool operator !=(ContainerGroupDefinitionContainerDependencyCondition left, ContainerGroupDefinitionContainerDependencyCondition right) => !left.Equals(right);
-
-        public static explicit operator string(ContainerGroupDefinitionContainerDependencyCondition value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionContainerDependencyCondition other && Equals(other);
-        public bool Equals(ContainerGroupDefinitionContainerDependencyCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Defines the protocol of these ports.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContainerGroupDefinitionContainerPortRangeProtocol : IEquatable<ContainerGroupDefinitionContainerPortRangeProtocol>
-    {
-        private readonly string _value;
-
-        private ContainerGroupDefinitionContainerPortRangeProtocol(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContainerGroupDefinitionContainerPortRangeProtocol Tcp { get; } = new ContainerGroupDefinitionContainerPortRangeProtocol("TCP");
-        public static ContainerGroupDefinitionContainerPortRangeProtocol Udp { get; } = new ContainerGroupDefinitionContainerPortRangeProtocol("UDP");
-
-        public static bool operator ==(ContainerGroupDefinitionContainerPortRangeProtocol left, ContainerGroupDefinitionContainerPortRangeProtocol right) => left.Equals(right);
-        public static bool operator !=(ContainerGroupDefinitionContainerPortRangeProtocol left, ContainerGroupDefinitionContainerPortRangeProtocol right) => !left.Equals(right);
-
-        public static explicit operator string(ContainerGroupDefinitionContainerPortRangeProtocol value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionContainerPortRangeProtocol other && Equals(other);
-        public bool Equals(ContainerGroupDefinitionContainerPortRangeProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The operating system of the container group
     /// </summary>
     [EnumType]
@@ -159,37 +95,6 @@ namespace Pulumi.AwsNative.GameLift
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ContainerGroupDefinitionOperatingSystem other && Equals(other);
         public bool Equals(ContainerGroupDefinitionOperatingSystem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies whether the container group includes replica or daemon containers.
-    /// </summary>
-    [EnumType]
-    public readonly struct ContainerGroupDefinitionSchedulingStrategy : IEquatable<ContainerGroupDefinitionSchedulingStrategy>
-    {
-        private readonly string _value;
-
-        private ContainerGroupDefinitionSchedulingStrategy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ContainerGroupDefinitionSchedulingStrategy Replica { get; } = new ContainerGroupDefinitionSchedulingStrategy("REPLICA");
-        public static ContainerGroupDefinitionSchedulingStrategy Daemon { get; } = new ContainerGroupDefinitionSchedulingStrategy("DAEMON");
-
-        public static bool operator ==(ContainerGroupDefinitionSchedulingStrategy left, ContainerGroupDefinitionSchedulingStrategy right) => left.Equals(right);
-        public static bool operator !=(ContainerGroupDefinitionSchedulingStrategy left, ContainerGroupDefinitionSchedulingStrategy right) => !left.Equals(right);
-
-        public static explicit operator string(ContainerGroupDefinitionSchedulingStrategy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionSchedulingStrategy other && Equals(other);
-        public bool Equals(ContainerGroupDefinitionSchedulingStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -311,7 +216,6 @@ namespace Pulumi.AwsNative.GameLift
 
         public static FleetComputeType Ec2 { get; } = new FleetComputeType("EC2");
         public static FleetComputeType Anywhere { get; } = new FleetComputeType("ANYWHERE");
-        public static FleetComputeType Container { get; } = new FleetComputeType("CONTAINER");
 
         public static bool operator ==(FleetComputeType left, FleetComputeType right) => left.Equals(right);
         public static bool operator !=(FleetComputeType left, FleetComputeType right) => !left.Equals(right);

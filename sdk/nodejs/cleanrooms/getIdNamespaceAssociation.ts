@@ -54,6 +54,9 @@ export interface GetIdNamespaceAssociationResult {
      * The name of this ID namespace association.
      */
     readonly name?: string;
+    /**
+     * An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

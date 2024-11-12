@@ -107,7 +107,7 @@ export class GlobalTable extends pulumi.CustomResource {
      */
     public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableTimeToLiveSpecification | undefined>;
     /**
-     * Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+     * Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
      */
     public readonly writeOnDemandThroughputSettings!: pulumi.Output<outputs.dynamodb.GlobalTableWriteOnDemandThroughputSettings | undefined>;
     /**
@@ -234,7 +234,7 @@ export interface GlobalTableArgs {
      */
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableTimeToLiveSpecificationArgs>;
     /**
-     * Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+     * Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
      */
     writeOnDemandThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableWriteOnDemandThroughputSettingsArgs>;
     /**

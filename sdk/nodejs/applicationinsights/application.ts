@@ -82,6 +82,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+     */
+    public readonly snsNotificationArn!: pulumi.Output<string | undefined>;
+    /**
      * The tags of Application Insights application.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -110,6 +114,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["opsCenterEnabled"] = args ? args.opsCenterEnabled : undefined;
             resourceInputs["opsItemSnsTopicArn"] = args ? args.opsItemSnsTopicArn : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["snsNotificationArn"] = args ? args.snsNotificationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationArn"] = undefined /*out*/;
         } else {
@@ -124,6 +129,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["opsCenterEnabled"] = undefined /*out*/;
             resourceInputs["opsItemSnsTopicArn"] = undefined /*out*/;
             resourceInputs["resourceGroupName"] = undefined /*out*/;
+            resourceInputs["snsNotificationArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -177,6 +183,10 @@ export interface ApplicationArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+     */
+    snsNotificationArn?: pulumi.Input<string>;
     /**
      * The tags of Application Insights application.
      */

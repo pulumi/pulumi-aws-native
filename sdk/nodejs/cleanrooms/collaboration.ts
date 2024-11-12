@@ -38,6 +38,10 @@ export class Collaboration extends pulumi.CustomResource {
     }
 
     /**
+     * The analytics engine for the collaboration.
+     */
+    public readonly analyticsEngine!: pulumi.Output<enums.cleanrooms.CollaborationAnalyticsEngine | undefined>;
+    /**
      * Returns the Amazon Resource Name (ARN) of the specified collaboration.
      *
      * Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
@@ -114,6 +118,7 @@ export class Collaboration extends pulumi.CustomResource {
             if ((!args || args.queryLogStatus === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryLogStatus'");
             }
+            resourceInputs["analyticsEngine"] = args ? args.analyticsEngine : undefined;
             resourceInputs["creatorDisplayName"] = args ? args.creatorDisplayName : undefined;
             resourceInputs["creatorMemberAbilities"] = args ? args.creatorMemberAbilities : undefined;
             resourceInputs["creatorPaymentConfiguration"] = args ? args.creatorPaymentConfiguration : undefined;
@@ -126,6 +131,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
         } else {
+            resourceInputs["analyticsEngine"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collaborationIdentifier"] = undefined /*out*/;
             resourceInputs["creatorDisplayName"] = undefined /*out*/;
@@ -139,7 +145,7 @@ export class Collaboration extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["creatorDisplayName", "creatorMemberAbilities[*]", "creatorPaymentConfiguration", "dataEncryptionMetadata", "members[*]", "queryLogStatus"] };
+        const replaceOnChanges = { replaceOnChanges: ["analyticsEngine", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorPaymentConfiguration", "dataEncryptionMetadata", "members[*]", "queryLogStatus"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Collaboration.__pulumiType, name, resourceInputs, opts);
     }
@@ -149,6 +155,10 @@ export class Collaboration extends pulumi.CustomResource {
  * The set of arguments for constructing a Collaboration resource.
  */
 export interface CollaborationArgs {
+    /**
+     * The analytics engine for the collaboration.
+     */
+    analyticsEngine?: pulumi.Input<enums.cleanrooms.CollaborationAnalyticsEngine>;
     /**
      * A display name of the collaboration creator.
      */

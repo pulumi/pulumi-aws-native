@@ -36,7 +36,8 @@ type IdNamespaceAssociation struct {
 	MembershipIdentifier pulumi.StringOutput `pulumi:"membershipIdentifier"`
 	// The name of this ID namespace association.
 	Name pulumi.StringOutput `pulumi:"name"`
-	Tags aws.TagArrayOutput  `pulumi:"tags"`
+	// An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewIdNamespaceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -99,7 +100,8 @@ type idNamespaceAssociationArgs struct {
 	// The unique identifier of the membership that contains the ID namespace association.
 	MembershipIdentifier string `pulumi:"membershipIdentifier"`
 	// The name of this ID namespace association.
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -115,6 +117,7 @@ type IdNamespaceAssociationArgs struct {
 	MembershipIdentifier pulumi.StringInput
 	// The name of this ID namespace association.
 	Name pulumi.StringPtrInput
+	// An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
 	Tags aws.TagArrayInput
 }
 
@@ -213,6 +216,7 @@ func (o IdNamespaceAssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdNamespaceAssociation) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
 func (o IdNamespaceAssociationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *IdNamespaceAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

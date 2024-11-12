@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AnalysisTemplateAnalysisParameterType',
     'AnalysisTemplateFormat',
+    'CollaborationAnalyticsEngine',
     'CollaborationMemberAbility',
     'CollaborationQueryLogStatus',
     'ConfiguredTableAdditionalAnalyses',
@@ -46,6 +47,19 @@ class AnalysisTemplateAnalysisParameterType(str, Enum):
     TIME = "TIME"
     TIMETZ = "TIMETZ"
     VARBYTE = "VARBYTE"
+    BINARY = "BINARY"
+    BYTE = "BYTE"
+    CHARACTER = "CHARACTER"
+    DOUBLE = "DOUBLE"
+    FLOAT = "FLOAT"
+    INT = "INT"
+    LONG = "LONG"
+    NUMERIC = "NUMERIC"
+    SHORT = "SHORT"
+    STRING = "STRING"
+    TIMESTAMP_LTZ = "TIMESTAMP_LTZ"
+    TIMESTAMP_NTZ = "TIMESTAMP_NTZ"
+    TINYINT = "TINYINT"
 
 
 class AnalysisTemplateFormat(str, Enum):
@@ -53,6 +67,11 @@ class AnalysisTemplateFormat(str, Enum):
     The format of the analysis template.
     """
     SQL = "SQL"
+
+
+class CollaborationAnalyticsEngine(str, Enum):
+    CLEAN_ROOMS_SQL = "CLEAN_ROOMS_SQL"
+    SPARK = "SPARK"
 
 
 class CollaborationMemberAbility(str, Enum):

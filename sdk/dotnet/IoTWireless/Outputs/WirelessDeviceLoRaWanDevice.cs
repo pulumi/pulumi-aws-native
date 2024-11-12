@@ -30,6 +30,10 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
         /// </summary>
         public readonly string? DeviceProfileId;
         /// <summary>
+        /// List of FPort assigned for different LoRaWAN application packages to use.
+        /// </summary>
+        public readonly Outputs.WirelessDeviceFPorts? FPorts;
+        /// <summary>
         /// OTAA device object for create APIs for v1.0.x
         /// </summary>
         public readonly Outputs.WirelessDeviceOtaaV10x? OtaaV10x;
@@ -52,6 +56,8 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
 
             string? deviceProfileId,
 
+            Outputs.WirelessDeviceFPorts? fPorts,
+
             Outputs.WirelessDeviceOtaaV10x? otaaV10x,
 
             Outputs.WirelessDeviceOtaaV11? otaaV11,
@@ -62,6 +68,7 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
             AbpV11 = abpV11;
             DevEui = devEui;
             DeviceProfileId = deviceProfileId;
+            FPorts = fPorts;
             OtaaV10x = otaaV10x;
             OtaaV11 = otaaV11;
             ServiceProfileId = serviceProfileId;

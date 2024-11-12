@@ -82,6 +82,8 @@ export class ServiceProfile extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["loRaWan", "name"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceProfile.__pulumiType, name, resourceInputs, opts);
     }
 }

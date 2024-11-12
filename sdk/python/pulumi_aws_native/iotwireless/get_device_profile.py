@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -25,19 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeviceProfileResult:
-    def __init__(__self__, arn=None, id=None, lo_ra_wan=None, name=None, tags=None):
+    def __init__(__self__, arn=None, id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if lo_ra_wan and not isinstance(lo_ra_wan, dict):
-            raise TypeError("Expected argument 'lo_ra_wan' to be a dict")
-        pulumi.set(__self__, "lo_ra_wan", lo_ra_wan)
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        pulumi.set(__self__, "name", name)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -59,22 +52,6 @@ class GetDeviceProfileResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="loRaWan")
-    def lo_ra_wan(self) -> Optional['outputs.DeviceProfileLoRaWanDeviceProfile']:
-        """
-        LoRaWANDeviceProfile supports all LoRa specific attributes for service profile for CreateDeviceProfile operation
-        """
-        return pulumi.get(self, "lo_ra_wan")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        Name of service profile
-        """
-        return pulumi.get(self, "name")
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -91,8 +68,6 @@ class AwaitableGetDeviceProfileResult(GetDeviceProfileResult):
         return GetDeviceProfileResult(
             arn=self.arn,
             id=self.id,
-            lo_ra_wan=self.lo_ra_wan,
-            name=self.name,
             tags=self.tags)
 
 
@@ -112,8 +87,6 @@ def get_device_profile(id: Optional[str] = None,
     return AwaitableGetDeviceProfileResult(
         arn=pulumi.get(__ret__, 'arn'),
         id=pulumi.get(__ret__, 'id'),
-        lo_ra_wan=pulumi.get(__ret__, 'lo_ra_wan'),
-        name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_device_profile_output(id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceProfileResult]:
@@ -130,6 +103,4 @@ def get_device_profile_output(id: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetDeviceProfileResult(
         arn=pulumi.get(__response__, 'arn'),
         id=pulumi.get(__response__, 'id'),
-        lo_ra_wan=pulumi.get(__response__, 'lo_ra_wan'),
-        name=pulumi.get(__response__, 'name'),
         tags=pulumi.get(__response__, 'tags')))

@@ -494,7 +494,7 @@ type GlobalTableGlobalSecondaryIndex struct {
 	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection GlobalTableProjection `pulumi:"projection"`
-	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
 	// Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
@@ -525,7 +525,7 @@ type GlobalTableGlobalSecondaryIndexArgs struct {
 	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection GlobalTableProjectionInput `pulumi:"projection"`
-	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrInput `pulumi:"writeOnDemandThroughputSettings"`
 	// Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput `pulumi:"writeProvisionedThroughputSettings"`
@@ -604,7 +604,7 @@ func (o GlobalTableGlobalSecondaryIndexOutput) Projection() GlobalTableProjectio
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
 }
 
-// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 func (o GlobalTableGlobalSecondaryIndexOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableWriteOnDemandThroughputSettings {
 		return v.WriteOnDemandThroughputSettings
@@ -1581,7 +1581,7 @@ type GlobalTableReplicaGlobalSecondaryIndexSpecification struct {
 	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
-	// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 	ReadOnDemandThroughputSettings *GlobalTableReadOnDemandThroughputSettings `pulumi:"readOnDemandThroughputSettings"`
 	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
@@ -1603,7 +1603,7 @@ type GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs struct {
 	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 	ReadOnDemandThroughputSettings GlobalTableReadOnDemandThroughputSettingsPtrInput `pulumi:"readOnDemandThroughputSettings"`
 	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
@@ -1672,7 +1672,7 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) IndexName() p
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+// Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableReadOnDemandThroughputSettings {
 		return v.ReadOnDemandThroughputSettings

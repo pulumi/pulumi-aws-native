@@ -13,9 +13,18 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DataSourceOAuthParameters
     {
+        /// <summary>
+        /// The resource uri of the identity provider.
+        /// </summary>
         public readonly string? IdentityProviderResourceUri;
         public readonly Outputs.DataSourceVpcConnectionProperties? IdentityProviderVpcConnectionProperties;
+        /// <summary>
+        /// The OAuth scope.
+        /// </summary>
         public readonly string? OAuthScope;
+        /// <summary>
+        /// The token endpoint URL of the identity provider.
+        /// </summary>
         public readonly string TokenProviderUrl;
 
         [OutputConstructor]

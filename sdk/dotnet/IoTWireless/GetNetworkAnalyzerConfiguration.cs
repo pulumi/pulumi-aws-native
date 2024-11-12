@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Trace content for your wireless gateway and wireless device resources
         /// </summary>
         public readonly Outputs.TraceContentProperties? TraceContent;
@@ -84,6 +88,8 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? description,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.TraceContentProperties? traceContent,
 
             ImmutableArray<string> wirelessDevices,
@@ -92,6 +98,7 @@ namespace Pulumi.AwsNative.IoTWireless
         {
             Arn = arn;
             Description = description;
+            Tags = tags;
             TraceContent = traceContent;
             WirelessDevices = wirelessDevices;
             WirelessGateways = wirelessGateways;

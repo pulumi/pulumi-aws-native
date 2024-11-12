@@ -54,6 +54,10 @@ export interface GetWirelessDeviceResult {
      */
     readonly name?: string;
     /**
+     * FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+     */
+    readonly positioning?: enums.iotwireless.WirelessDevicePositioning;
+    /**
      * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
      */
     readonly tags?: outputs.Tag[];

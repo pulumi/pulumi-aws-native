@@ -44,7 +44,8 @@ type LookupIdNamespaceAssociationResult struct {
 	// The Amazon Resource Name (ARN) of the membership resource for this ID namespace association.
 	MembershipArn *string `pulumi:"membershipArn"`
 	// The name of this ID namespace association.
-	Name *string   `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -137,6 +138,7 @@ func (o LookupIdNamespaceAssociationResultOutput) Name() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupIdNamespaceAssociationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
 func (o LookupIdNamespaceAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIdNamespaceAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

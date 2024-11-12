@@ -66,6 +66,10 @@ export class WirelessDevice extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+     */
+    public readonly positioning!: pulumi.Output<enums.iotwireless.WirelessDevicePositioning | undefined>;
+    /**
      * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -104,6 +108,7 @@ export class WirelessDevice extends pulumi.CustomResource {
             resourceInputs["lastUplinkReceivedAt"] = args ? args.lastUplinkReceivedAt : undefined;
             resourceInputs["loRaWan"] = args ? args.loRaWan : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["positioning"] = args ? args.positioning : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["thingArn"] = args ? args.thingArn : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -118,6 +123,7 @@ export class WirelessDevice extends pulumi.CustomResource {
             resourceInputs["lastUplinkReceivedAt"] = undefined /*out*/;
             resourceInputs["loRaWan"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["positioning"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["thingArn"] = undefined /*out*/;
             resourceInputs["thingName"] = undefined /*out*/;
@@ -152,6 +158,10 @@ export interface WirelessDeviceArgs {
      * Wireless device name
      */
     name?: pulumi.Input<string>;
+    /**
+     * FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+     */
+    positioning?: pulumi.Input<enums.iotwireless.WirelessDevicePositioning>;
     /**
      * A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
      */

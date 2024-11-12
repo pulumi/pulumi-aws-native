@@ -9447,10 +9447,13 @@ func (o DataSourceMySqlParametersPtrOutput) Port() pulumi.Float64PtrOutput {
 }
 
 type DataSourceOAuthParameters struct {
+	// The resource uri of the identity provider.
 	IdentityProviderResourceUri             *string                            `pulumi:"identityProviderResourceUri"`
 	IdentityProviderVpcConnectionProperties *DataSourceVpcConnectionProperties `pulumi:"identityProviderVpcConnectionProperties"`
-	OAuthScope                              *string                            `pulumi:"oAuthScope"`
-	TokenProviderUrl                        string                             `pulumi:"tokenProviderUrl"`
+	// The OAuth scope.
+	OAuthScope *string `pulumi:"oAuthScope"`
+	// The token endpoint URL of the identity provider.
+	TokenProviderUrl string `pulumi:"tokenProviderUrl"`
 }
 
 // DataSourceOAuthParametersInput is an input type that accepts DataSourceOAuthParametersArgs and DataSourceOAuthParametersOutput values.
@@ -9465,10 +9468,13 @@ type DataSourceOAuthParametersInput interface {
 }
 
 type DataSourceOAuthParametersArgs struct {
+	// The resource uri of the identity provider.
 	IdentityProviderResourceUri             pulumi.StringPtrInput                     `pulumi:"identityProviderResourceUri"`
 	IdentityProviderVpcConnectionProperties DataSourceVpcConnectionPropertiesPtrInput `pulumi:"identityProviderVpcConnectionProperties"`
-	OAuthScope                              pulumi.StringPtrInput                     `pulumi:"oAuthScope"`
-	TokenProviderUrl                        pulumi.StringInput                        `pulumi:"tokenProviderUrl"`
+	// The OAuth scope.
+	OAuthScope pulumi.StringPtrInput `pulumi:"oAuthScope"`
+	// The token endpoint URL of the identity provider.
+	TokenProviderUrl pulumi.StringInput `pulumi:"tokenProviderUrl"`
 }
 
 func (DataSourceOAuthParametersArgs) ElementType() reflect.Type {
@@ -9548,6 +9554,7 @@ func (o DataSourceOAuthParametersOutput) ToDataSourceOAuthParametersPtrOutputWit
 	}).(DataSourceOAuthParametersPtrOutput)
 }
 
+// The resource uri of the identity provider.
 func (o DataSourceOAuthParametersOutput) IdentityProviderResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceOAuthParameters) *string { return v.IdentityProviderResourceUri }).(pulumi.StringPtrOutput)
 }
@@ -9558,10 +9565,12 @@ func (o DataSourceOAuthParametersOutput) IdentityProviderVpcConnectionProperties
 	}).(DataSourceVpcConnectionPropertiesPtrOutput)
 }
 
+// The OAuth scope.
 func (o DataSourceOAuthParametersOutput) OAuthScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceOAuthParameters) *string { return v.OAuthScope }).(pulumi.StringPtrOutput)
 }
 
+// The token endpoint URL of the identity provider.
 func (o DataSourceOAuthParametersOutput) TokenProviderUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceOAuthParameters) string { return v.TokenProviderUrl }).(pulumi.StringOutput)
 }
@@ -9590,6 +9599,7 @@ func (o DataSourceOAuthParametersPtrOutput) Elem() DataSourceOAuthParametersOutp
 	}).(DataSourceOAuthParametersOutput)
 }
 
+// The resource uri of the identity provider.
 func (o DataSourceOAuthParametersPtrOutput) IdentityProviderResourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOAuthParameters) *string {
 		if v == nil {
@@ -9608,6 +9618,7 @@ func (o DataSourceOAuthParametersPtrOutput) IdentityProviderVpcConnectionPropert
 	}).(DataSourceVpcConnectionPropertiesPtrOutput)
 }
 
+// The OAuth scope.
 func (o DataSourceOAuthParametersPtrOutput) OAuthScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOAuthParameters) *string {
 		if v == nil {
@@ -9617,6 +9628,7 @@ func (o DataSourceOAuthParametersPtrOutput) OAuthScope() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The token endpoint URL of the identity provider.
 func (o DataSourceOAuthParametersPtrOutput) TokenProviderUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceOAuthParameters) *string {
 		if v == nil {
@@ -11662,12 +11674,15 @@ func (o DataSourceS3ParametersPtrOutput) RoleArn() pulumi.StringPtrOutput {
 
 // <p>The parameters for Snowflake.</p>
 type DataSourceSnowflakeParameters struct {
+	// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
 	AuthenticationType *DataSourceAuthenticationType `pulumi:"authenticationType"`
 	// <p>Database.</p>
-	Database                  string  `pulumi:"database"`
+	Database string `pulumi:"database"`
+	// The database access control role.
 	DatabaseAccessControlRole *string `pulumi:"databaseAccessControlRole"`
 	// <p>Host.</p>
-	Host            string                     `pulumi:"host"`
+	Host string `pulumi:"host"`
+	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
 	OAuthParameters *DataSourceOAuthParameters `pulumi:"oAuthParameters"`
 	// <p>Warehouse.</p>
 	Warehouse string `pulumi:"warehouse"`
@@ -11686,12 +11701,15 @@ type DataSourceSnowflakeParametersInput interface {
 
 // <p>The parameters for Snowflake.</p>
 type DataSourceSnowflakeParametersArgs struct {
+	// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
 	AuthenticationType DataSourceAuthenticationTypePtrInput `pulumi:"authenticationType"`
 	// <p>Database.</p>
-	Database                  pulumi.StringInput    `pulumi:"database"`
+	Database pulumi.StringInput `pulumi:"database"`
+	// The database access control role.
 	DatabaseAccessControlRole pulumi.StringPtrInput `pulumi:"databaseAccessControlRole"`
 	// <p>Host.</p>
-	Host            pulumi.StringInput                `pulumi:"host"`
+	Host pulumi.StringInput `pulumi:"host"`
+	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
 	OAuthParameters DataSourceOAuthParametersPtrInput `pulumi:"oAuthParameters"`
 	// <p>Warehouse.</p>
 	Warehouse pulumi.StringInput `pulumi:"warehouse"`
@@ -11775,6 +11793,7 @@ func (o DataSourceSnowflakeParametersOutput) ToDataSourceSnowflakeParametersPtrO
 	}).(DataSourceSnowflakeParametersPtrOutput)
 }
 
+// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
 func (o DataSourceSnowflakeParametersOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) *DataSourceAuthenticationType { return v.AuthenticationType }).(DataSourceAuthenticationTypePtrOutput)
 }
@@ -11784,6 +11803,7 @@ func (o DataSourceSnowflakeParametersOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) string { return v.Database }).(pulumi.StringOutput)
 }
 
+// The database access control role.
 func (o DataSourceSnowflakeParametersOutput) DatabaseAccessControlRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) *string { return v.DatabaseAccessControlRole }).(pulumi.StringPtrOutput)
 }
@@ -11793,6 +11813,7 @@ func (o DataSourceSnowflakeParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
+// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
 func (o DataSourceSnowflakeParametersOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceSnowflakeParameters) *DataSourceOAuthParameters { return v.OAuthParameters }).(DataSourceOAuthParametersPtrOutput)
 }
@@ -11826,6 +11847,7 @@ func (o DataSourceSnowflakeParametersPtrOutput) Elem() DataSourceSnowflakeParame
 	}).(DataSourceSnowflakeParametersOutput)
 }
 
+// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
 func (o DataSourceSnowflakeParametersPtrOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *DataSourceAuthenticationType {
 		if v == nil {
@@ -11845,6 +11867,7 @@ func (o DataSourceSnowflakeParametersPtrOutput) Database() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The database access control role.
 func (o DataSourceSnowflakeParametersPtrOutput) DatabaseAccessControlRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *string {
 		if v == nil {
@@ -11864,6 +11887,7 @@ func (o DataSourceSnowflakeParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Snowflake.
 func (o DataSourceSnowflakeParametersPtrOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceSnowflakeParameters) *DataSourceOAuthParameters {
 		if v == nil {
@@ -12368,12 +12392,15 @@ func (o DataSourceSslPropertiesPtrOutput) DisableSsl() pulumi.BoolPtrOutput {
 
 // <p>The parameters that are required to connect to a Starburst data source.</p>
 type DataSourceStarburstParameters struct {
+	// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
 	AuthenticationType *DataSourceAuthenticationType `pulumi:"authenticationType"`
 	// <p>The catalog name for the Starburst data source.</p>
-	Catalog                   string  `pulumi:"catalog"`
+	Catalog string `pulumi:"catalog"`
+	// The database access control role.
 	DatabaseAccessControlRole *string `pulumi:"databaseAccessControlRole"`
 	// <p>The host name of the Starburst data source.</p>
-	Host            string                     `pulumi:"host"`
+	Host string `pulumi:"host"`
+	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
 	OAuthParameters *DataSourceOAuthParameters `pulumi:"oAuthParameters"`
 	// <p>The port for the Starburst data source.</p>
 	Port float64 `pulumi:"port"`
@@ -12394,12 +12421,15 @@ type DataSourceStarburstParametersInput interface {
 
 // <p>The parameters that are required to connect to a Starburst data source.</p>
 type DataSourceStarburstParametersArgs struct {
+	// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
 	AuthenticationType DataSourceAuthenticationTypePtrInput `pulumi:"authenticationType"`
 	// <p>The catalog name for the Starburst data source.</p>
-	Catalog                   pulumi.StringInput    `pulumi:"catalog"`
+	Catalog pulumi.StringInput `pulumi:"catalog"`
+	// The database access control role.
 	DatabaseAccessControlRole pulumi.StringPtrInput `pulumi:"databaseAccessControlRole"`
 	// <p>The host name of the Starburst data source.</p>
-	Host            pulumi.StringInput                `pulumi:"host"`
+	Host pulumi.StringInput `pulumi:"host"`
+	// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
 	OAuthParameters DataSourceOAuthParametersPtrInput `pulumi:"oAuthParameters"`
 	// <p>The port for the Starburst data source.</p>
 	Port pulumi.Float64Input `pulumi:"port"`
@@ -12485,6 +12515,7 @@ func (o DataSourceStarburstParametersOutput) ToDataSourceStarburstParametersPtrO
 	}).(DataSourceStarburstParametersPtrOutput)
 }
 
+// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
 func (o DataSourceStarburstParametersOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) *DataSourceAuthenticationType { return v.AuthenticationType }).(DataSourceAuthenticationTypePtrOutput)
 }
@@ -12494,6 +12525,7 @@ func (o DataSourceStarburstParametersOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) string { return v.Catalog }).(pulumi.StringOutput)
 }
 
+// The database access control role.
 func (o DataSourceStarburstParametersOutput) DatabaseAccessControlRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) *string { return v.DatabaseAccessControlRole }).(pulumi.StringPtrOutput)
 }
@@ -12503,6 +12535,7 @@ func (o DataSourceStarburstParametersOutput) Host() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) string { return v.Host }).(pulumi.StringOutput)
 }
 
+// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
 func (o DataSourceStarburstParametersOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceStarburstParameters) *DataSourceOAuthParameters { return v.OAuthParameters }).(DataSourceOAuthParametersPtrOutput)
 }
@@ -12541,6 +12574,7 @@ func (o DataSourceStarburstParametersPtrOutput) Elem() DataSourceStarburstParame
 	}).(DataSourceStarburstParametersOutput)
 }
 
+// The authentication type that you want to use for your connection. This parameter accepts OAuth and non-OAuth authentication types.
 func (o DataSourceStarburstParametersPtrOutput) AuthenticationType() DataSourceAuthenticationTypePtrOutput {
 	return o.ApplyT(func(v *DataSourceStarburstParameters) *DataSourceAuthenticationType {
 		if v == nil {
@@ -12560,6 +12594,7 @@ func (o DataSourceStarburstParametersPtrOutput) Catalog() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+// The database access control role.
 func (o DataSourceStarburstParametersPtrOutput) DatabaseAccessControlRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSourceStarburstParameters) *string {
 		if v == nil {
@@ -12579,6 +12614,7 @@ func (o DataSourceStarburstParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object that contains information needed to create a data source connection between an Amazon QuickSight account and Starburst.
 func (o DataSourceStarburstParametersPtrOutput) OAuthParameters() DataSourceOAuthParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceStarburstParameters) *DataSourceOAuthParameters {
 		if v == nil {

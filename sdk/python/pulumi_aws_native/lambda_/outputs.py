@@ -942,6 +942,7 @@ class FunctionEnvironment(dict):
         """
         A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
         :param Mapping[str, str] variables: Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+                If the value of the environment variable is a time or a duration, enclose the value in quotes.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
@@ -951,6 +952,7 @@ class FunctionEnvironment(dict):
     def variables(self) -> Optional[Mapping[str, str]]:
         """
         Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+         If the value of the environment variable is a time or a duration, enclose the value in quotes.
         """
         return pulumi.get(self, "variables")
 

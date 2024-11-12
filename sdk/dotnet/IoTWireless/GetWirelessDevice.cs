@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+        /// </summary>
+        public readonly Pulumi.AwsNative.IoTWireless.WirelessDevicePositioning? Positioning;
+        /// <summary>
         /// A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -118,6 +122,8 @@ namespace Pulumi.AwsNative.IoTWireless
 
             string? name,
 
+            Pulumi.AwsNative.IoTWireless.WirelessDevicePositioning? positioning,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? thingArn,
@@ -133,6 +139,7 @@ namespace Pulumi.AwsNative.IoTWireless
             LastUplinkReceivedAt = lastUplinkReceivedAt;
             LoRaWan = loRaWan;
             Name = name;
+            Positioning = positioning;
             Tags = tags;
             ThingArn = thingArn;
             ThingName = thingName;

@@ -38,6 +38,10 @@ __all__ = [
     'WirelessDeviceAbpV10xArgsDict',
     'WirelessDeviceAbpV11Args',
     'WirelessDeviceAbpV11ArgsDict',
+    'WirelessDeviceApplicationArgs',
+    'WirelessDeviceApplicationArgsDict',
+    'WirelessDeviceFPortsArgs',
+    'WirelessDeviceFPortsArgsDict',
     'WirelessDeviceLoRaWanDeviceArgs',
     'WirelessDeviceLoRaWanDeviceArgsDict',
     'WirelessDeviceOtaaV10xArgs',
@@ -1526,6 +1530,114 @@ class WirelessDeviceAbpV11Args:
 
 
 if not MYPY:
+    class WirelessDeviceApplicationArgsDict(TypedDict):
+        """
+        LoRaWAN application configuration, which can be used to perform geolocation.
+        """
+        destination_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+        """
+        f_port: NotRequired[pulumi.Input[int]]
+        """
+        The Fport value.
+        """
+        type: NotRequired[pulumi.Input['WirelessDeviceApplicationType']]
+        """
+        Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+        """
+elif False:
+    WirelessDeviceApplicationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WirelessDeviceApplicationArgs:
+    def __init__(__self__, *,
+                 destination_name: Optional[pulumi.Input[str]] = None,
+                 f_port: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input['WirelessDeviceApplicationType']] = None):
+        """
+        LoRaWAN application configuration, which can be used to perform geolocation.
+        :param pulumi.Input[str] destination_name: The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+        :param pulumi.Input[int] f_port: The Fport value.
+        :param pulumi.Input['WirelessDeviceApplicationType'] type: Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+        """
+        if destination_name is not None:
+            pulumi.set(__self__, "destination_name", destination_name)
+        if f_port is not None:
+            pulumi.set(__self__, "f_port", f_port)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="destinationName")
+    def destination_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the position data destination that describes the AWS IoT rule that processes the device's position data for use by AWS IoT Core for LoRaWAN.
+        """
+        return pulumi.get(self, "destination_name")
+
+    @destination_name.setter
+    def destination_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_name", value)
+
+    @property
+    @pulumi.getter(name="fPort")
+    def f_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Fport value.
+        """
+        return pulumi.get(self, "f_port")
+
+    @f_port.setter
+    def f_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "f_port", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['WirelessDeviceApplicationType']]:
+        """
+        Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['WirelessDeviceApplicationType']]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class WirelessDeviceFPortsArgsDict(TypedDict):
+        applications: NotRequired[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgsDict']]]]
+        """
+        A list of optional LoRaWAN application information, which can be used for geolocation.
+        """
+elif False:
+    WirelessDeviceFPortsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WirelessDeviceFPortsArgs:
+    def __init__(__self__, *,
+                 applications: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]] applications: A list of optional LoRaWAN application information, which can be used for geolocation.
+        """
+        if applications is not None:
+            pulumi.set(__self__, "applications", applications)
+
+    @property
+    @pulumi.getter
+    def applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]]:
+        """
+        A list of optional LoRaWAN application information, which can be used for geolocation.
+        """
+        return pulumi.get(self, "applications")
+
+    @applications.setter
+    def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WirelessDeviceApplicationArgs']]]]):
+        pulumi.set(self, "applications", value)
+
+
+if not MYPY:
     class WirelessDeviceLoRaWanDeviceArgsDict(TypedDict):
         abp_v10x: NotRequired[pulumi.Input['WirelessDeviceAbpV10xArgsDict']]
         """
@@ -1542,6 +1654,10 @@ if not MYPY:
         device_profile_id: NotRequired[pulumi.Input[str]]
         """
         The ID of the device profile for the new wireless device.
+        """
+        f_ports: NotRequired[pulumi.Input['WirelessDeviceFPortsArgsDict']]
+        """
+        List of FPort assigned for different LoRaWAN application packages to use.
         """
         otaa_v10x: NotRequired[pulumi.Input['WirelessDeviceOtaaV10xArgsDict']]
         """
@@ -1565,6 +1681,7 @@ class WirelessDeviceLoRaWanDeviceArgs:
                  abp_v11: Optional[pulumi.Input['WirelessDeviceAbpV11Args']] = None,
                  dev_eui: Optional[pulumi.Input[str]] = None,
                  device_profile_id: Optional[pulumi.Input[str]] = None,
+                 f_ports: Optional[pulumi.Input['WirelessDeviceFPortsArgs']] = None,
                  otaa_v10x: Optional[pulumi.Input['WirelessDeviceOtaaV10xArgs']] = None,
                  otaa_v11: Optional[pulumi.Input['WirelessDeviceOtaaV11Args']] = None,
                  service_profile_id: Optional[pulumi.Input[str]] = None):
@@ -1573,6 +1690,7 @@ class WirelessDeviceLoRaWanDeviceArgs:
         :param pulumi.Input['WirelessDeviceAbpV11Args'] abp_v11: ABP device object for create APIs for v1.1.
         :param pulumi.Input[str] dev_eui: The DevEUI value.
         :param pulumi.Input[str] device_profile_id: The ID of the device profile for the new wireless device.
+        :param pulumi.Input['WirelessDeviceFPortsArgs'] f_ports: List of FPort assigned for different LoRaWAN application packages to use.
         :param pulumi.Input['WirelessDeviceOtaaV10xArgs'] otaa_v10x: OTAA device object for create APIs for v1.0.x
         :param pulumi.Input['WirelessDeviceOtaaV11Args'] otaa_v11: OTAA device object for v1.1 for create APIs.
         :param pulumi.Input[str] service_profile_id: The ID of the service profile.
@@ -1585,6 +1703,8 @@ class WirelessDeviceLoRaWanDeviceArgs:
             pulumi.set(__self__, "dev_eui", dev_eui)
         if device_profile_id is not None:
             pulumi.set(__self__, "device_profile_id", device_profile_id)
+        if f_ports is not None:
+            pulumi.set(__self__, "f_ports", f_ports)
         if otaa_v10x is not None:
             pulumi.set(__self__, "otaa_v10x", otaa_v10x)
         if otaa_v11 is not None:
@@ -1639,6 +1759,18 @@ class WirelessDeviceLoRaWanDeviceArgs:
     @device_profile_id.setter
     def device_profile_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "device_profile_id", value)
+
+    @property
+    @pulumi.getter(name="fPorts")
+    def f_ports(self) -> Optional[pulumi.Input['WirelessDeviceFPortsArgs']]:
+        """
+        List of FPort assigned for different LoRaWAN application packages to use.
+        """
+        return pulumi.get(self, "f_ports")
+
+    @f_ports.setter
+    def f_ports(self, value: Optional[pulumi.Input['WirelessDeviceFPortsArgs']]):
+        pulumi.set(self, "f_ports", value)
 
     @property
     @pulumi.getter(name="otaaV10x")

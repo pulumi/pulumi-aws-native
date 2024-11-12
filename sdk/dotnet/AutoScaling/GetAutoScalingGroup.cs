@@ -67,6 +67,9 @@ namespace Pulumi.AwsNative.AutoScaling
     [OutputType]
     public sealed class GetAutoScalingGroupResult
     {
+        /// <summary>
+        /// The instance capacity distribution across Availability Zones.
+        /// </summary>
         public readonly Outputs.AutoScalingGroupAvailabilityZoneDistribution? AvailabilityZoneDistribution;
         /// <summary>
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.

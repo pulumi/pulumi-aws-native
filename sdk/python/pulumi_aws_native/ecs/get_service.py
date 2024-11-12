@@ -26,7 +26,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceResult:
-    def __init__(__self__, capacity_provider_strategy=None, deployment_configuration=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, health_check_grace_period_seconds=None, load_balancers=None, name=None, network_configuration=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, service_arn=None, service_registries=None, tags=None, task_definition=None):
+    def __init__(__self__, availability_zone_rebalancing=None, capacity_provider_strategy=None, deployment_configuration=None, desired_count=None, enable_ecs_managed_tags=None, enable_execute_command=None, health_check_grace_period_seconds=None, load_balancers=None, name=None, network_configuration=None, placement_constraints=None, placement_strategies=None, platform_version=None, propagate_tags=None, service_arn=None, service_registries=None, tags=None, task_definition=None, vpc_lattice_configurations=None):
+        if availability_zone_rebalancing and not isinstance(availability_zone_rebalancing, str):
+            raise TypeError("Expected argument 'availability_zone_rebalancing' to be a str")
+        pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
         if capacity_provider_strategy and not isinstance(capacity_provider_strategy, list):
             raise TypeError("Expected argument 'capacity_provider_strategy' to be a list")
         pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
@@ -78,6 +81,14 @@ class GetServiceResult:
         if task_definition and not isinstance(task_definition, str):
             raise TypeError("Expected argument 'task_definition' to be a str")
         pulumi.set(__self__, "task_definition", task_definition)
+        if vpc_lattice_configurations and not isinstance(vpc_lattice_configurations, list):
+            raise TypeError("Expected argument 'vpc_lattice_configurations' to be a list")
+        pulumi.set(__self__, "vpc_lattice_configurations", vpc_lattice_configurations)
+
+    @property
+    @pulumi.getter(name="availabilityZoneRebalancing")
+    def availability_zone_rebalancing(self) -> Optional['ServiceAvailabilityZoneRebalancing']:
+        return pulumi.get(self, "availability_zone_rebalancing")
 
     @property
     @pulumi.getter(name="capacityProviderStrategy")
@@ -93,7 +104,7 @@ class GetServiceResult:
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional['outputs.ServiceDeploymentConfiguration']:
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         """
         return pulumi.get(self, "deployment_configuration")
 
@@ -235,6 +246,11 @@ class GetServiceResult:
         """
         return pulumi.get(self, "task_definition")
 
+    @property
+    @pulumi.getter(name="vpcLatticeConfigurations")
+    def vpc_lattice_configurations(self) -> Optional[Sequence['outputs.ServiceVpcLatticeConfiguration']]:
+        return pulumi.get(self, "vpc_lattice_configurations")
+
 
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
@@ -242,6 +258,7 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            availability_zone_rebalancing=self.availability_zone_rebalancing,
             capacity_provider_strategy=self.capacity_provider_strategy,
             deployment_configuration=self.deployment_configuration,
             desired_count=self.desired_count,
@@ -258,7 +275,8 @@ class AwaitableGetServiceResult(GetServiceResult):
             service_arn=self.service_arn,
             service_registries=self.service_registries,
             tags=self.tags,
-            task_definition=self.task_definition)
+            task_definition=self.task_definition,
+            vpc_lattice_configurations=self.vpc_lattice_configurations)
 
 
 def get_service(cluster: Optional[str] = None,
@@ -280,6 +298,7 @@ def get_service(cluster: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:ecs:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
+        availability_zone_rebalancing=pulumi.get(__ret__, 'availability_zone_rebalancing'),
         capacity_provider_strategy=pulumi.get(__ret__, 'capacity_provider_strategy'),
         deployment_configuration=pulumi.get(__ret__, 'deployment_configuration'),
         desired_count=pulumi.get(__ret__, 'desired_count'),
@@ -296,7 +315,8 @@ def get_service(cluster: Optional[str] = None,
         service_arn=pulumi.get(__ret__, 'service_arn'),
         service_registries=pulumi.get(__ret__, 'service_registries'),
         tags=pulumi.get(__ret__, 'tags'),
-        task_definition=pulumi.get(__ret__, 'task_definition'))
+        task_definition=pulumi.get(__ret__, 'task_definition'),
+        vpc_lattice_configurations=pulumi.get(__ret__, 'vpc_lattice_configurations'))
 def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
                        service_arn: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
@@ -315,6 +335,7 @@ def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
+        availability_zone_rebalancing=pulumi.get(__response__, 'availability_zone_rebalancing'),
         capacity_provider_strategy=pulumi.get(__response__, 'capacity_provider_strategy'),
         deployment_configuration=pulumi.get(__response__, 'deployment_configuration'),
         desired_count=pulumi.get(__response__, 'desired_count'),
@@ -331,4 +352,5 @@ def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
         service_arn=pulumi.get(__response__, 'service_arn'),
         service_registries=pulumi.get(__response__, 'service_registries'),
         tags=pulumi.get(__response__, 'tags'),
-        task_definition=pulumi.get(__response__, 'task_definition')))
+        task_definition=pulumi.get(__response__, 'task_definition'),
+        vpc_lattice_configurations=pulumi.get(__response__, 'vpc_lattice_configurations')))

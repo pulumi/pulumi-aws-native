@@ -33,6 +33,8 @@ type LookupContainerGroupDefinitionResult struct {
 	ContainerGroupDefinitionArn *string `pulumi:"containerGroupDefinitionArn"`
 	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 	CreationTime *string `pulumi:"creationTime"`
+	// The operating system of the container group
+	OperatingSystem *ContainerGroupDefinitionOperatingSystem `pulumi:"operatingSystem"`
 	// A specific ContainerGroupDefinition version to be updated
 	SourceVersionNumber *int `pulumi:"sourceVersionNumber"`
 	// A string indicating ContainerGroupDefinition status.
@@ -95,6 +97,13 @@ func (o LookupContainerGroupDefinitionResultOutput) ContainerGroupDefinitionArn(
 // A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
 func (o LookupContainerGroupDefinitionResultOutput) CreationTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
+}
+
+// The operating system of the container group
+func (o LookupContainerGroupDefinitionResultOutput) OperatingSystem() ContainerGroupDefinitionOperatingSystemPtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *ContainerGroupDefinitionOperatingSystem {
+		return v.OperatingSystem
+	}).(ContainerGroupDefinitionOperatingSystemPtrOutput)
 }
 
 // A specific ContainerGroupDefinition version to be updated

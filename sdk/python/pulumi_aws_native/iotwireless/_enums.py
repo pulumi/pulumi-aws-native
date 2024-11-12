@@ -9,6 +9,8 @@ __all__ = [
     'NetworkAnalyzerConfigurationLogLevel',
     'NetworkAnalyzerConfigurationWirelessDeviceFrameInfo',
     'TaskDefinitionType',
+    'WirelessDeviceApplicationType',
+    'WirelessDevicePositioning',
     'WirelessDeviceType',
 ]
 
@@ -38,6 +40,24 @@ class TaskDefinitionType(str, Enum):
     A filter to list only the wireless gateway task definitions that use this task definition type
     """
     UPDATE = "UPDATE"
+
+
+class WirelessDeviceApplicationType(str, Enum):
+    """
+    Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+    """
+    SEMTECH_GEOLOCATION = "SemtechGeolocation"
+    SEMTECH_GNSS = "SemtechGNSS"
+    SEMTECH_GNSSNG = "SemtechGNSSNG"
+    SEMTECH_WI_FI = "SemtechWiFi"
+
+
+class WirelessDevicePositioning(str, Enum):
+    """
+    FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class WirelessDeviceType(str, Enum):

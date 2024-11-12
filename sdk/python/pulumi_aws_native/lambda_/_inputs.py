@@ -1082,6 +1082,7 @@ if not MYPY:
         variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+         If the value of the environment variable is a time or a duration, enclose the value in quotes.
         """
 elif False:
     FunctionEnvironmentArgsDict: TypeAlias = Mapping[str, Any]
@@ -1093,6 +1094,7 @@ class FunctionEnvironmentArgs:
         """
         A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+                If the value of the environment variable is a time or a duration, enclose the value in quotes.
         """
         if variables is not None:
             pulumi.set(__self__, "variables", variables)
@@ -1102,6 +1104,7 @@ class FunctionEnvironmentArgs:
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+         If the value of the environment variable is a time or a duration, enclose the value in quotes.
         """
         return pulumi.get(self, "variables")
 

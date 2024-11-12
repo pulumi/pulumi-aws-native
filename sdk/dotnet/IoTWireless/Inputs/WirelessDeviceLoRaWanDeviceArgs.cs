@@ -37,6 +37,12 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public Input<string>? DeviceProfileId { get; set; }
 
         /// <summary>
+        /// List of FPort assigned for different LoRaWAN application packages to use.
+        /// </summary>
+        [Input("fPorts")]
+        public Input<Inputs.WirelessDeviceFPortsArgs>? FPorts { get; set; }
+
+        /// <summary>
         /// OTAA device object for create APIs for v1.0.x
         /// </summary>
         [Input("otaaV10x")]

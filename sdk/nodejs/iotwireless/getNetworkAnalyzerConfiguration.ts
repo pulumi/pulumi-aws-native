@@ -34,6 +34,10 @@ export interface GetNetworkAnalyzerConfigurationResult {
      */
     readonly description?: string;
     /**
+     * An array of key-value pairs to apply to this resource.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * Trace content for your wireless gateway and wireless device resources
      */
     readonly traceContent?: outputs.iotwireless.TraceContentProperties;

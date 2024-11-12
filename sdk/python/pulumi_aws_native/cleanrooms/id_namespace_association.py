@@ -37,6 +37,7 @@ class IdNamespaceAssociationArgs:
         :param pulumi.Input[str] description: The description of the ID namespace association.
         :param pulumi.Input['IdNamespaceAssociationIdMappingConfigArgs'] id_mapping_config: The configuration settings for the ID mapping table.
         :param pulumi.Input[str] name: The name of this ID namespace association.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
         """
         pulumi.set(__self__, "input_reference_config", input_reference_config)
         pulumi.set(__self__, "membership_identifier", membership_identifier)
@@ -112,6 +113,9 @@ class IdNamespaceAssociationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -141,6 +145,7 @@ class IdNamespaceAssociation(pulumi.CustomResource):
         :param pulumi.Input[Union['IdNamespaceAssociationInputReferenceConfigArgs', 'IdNamespaceAssociationInputReferenceConfigArgsDict']] input_reference_config: The input reference configuration for the ID namespace association.
         :param pulumi.Input[str] membership_identifier: The unique identifier of the membership that contains the ID namespace association.
         :param pulumi.Input[str] name: The name of this ID namespace association.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
         """
         ...
     @overload
@@ -317,5 +322,8 @@ class IdNamespaceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An optional label that you can assign to a resource when you create it. Each tag consists of a key and an optional value, both of which you define. When you use tagging, you can also use tag-based access control in IAM policies to control access to this resource.
+        """
         return pulumi.get(self, "tags")
 

@@ -65,7 +65,9 @@ type CapacityReservation struct {
 	Tenancy pulumi.StringPtrOutput `pulumi:"tenancy"`
 	// Returns the total number of instances for which the Capacity Reservation reserves capacity. For example: `15` .
 	TotalInstanceCount pulumi.IntOutput `pulumi:"totalInstanceCount"`
-	// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+	// The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
+	//
+	// You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
 	UnusedReservationBillingOwnerId pulumi.StringPtrOutput `pulumi:"unusedReservationBillingOwnerId"`
 }
 
@@ -176,7 +178,9 @@ type capacityReservationArgs struct {
 	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
 	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
 	Tenancy *string `pulumi:"tenancy"`
-	// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+	// The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
+	//
+	// You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
 	UnusedReservationBillingOwnerId *string `pulumi:"unusedReservationBillingOwnerId"`
 }
 
@@ -225,7 +229,9 @@ type CapacityReservationArgs struct {
 	// - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
 	// - `dedicated` - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account .
 	Tenancy pulumi.StringPtrInput
-	// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+	// The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
+	//
+	// You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
 	UnusedReservationBillingOwnerId pulumi.StringPtrInput
 }
 
@@ -365,7 +371,9 @@ func (o CapacityReservationOutput) TotalInstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.TotalInstanceCount }).(pulumi.IntOutput)
 }
 
-// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+// The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
+//
+// You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
 func (o CapacityReservationOutput) UnusedReservationBillingOwnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.UnusedReservationBillingOwnerId }).(pulumi.StringPtrOutput)
 }

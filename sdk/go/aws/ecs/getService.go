@@ -34,11 +34,12 @@ type LookupServiceArgs struct {
 }
 
 type LookupServiceResult struct {
+	AvailabilityZoneRebalancing *ServiceAvailabilityZoneRebalancing `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
 	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
 	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
-	// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+	// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 	DeploymentConfiguration *ServiceDeploymentConfiguration `pulumi:"deploymentConfiguration"`
 	// The number of instantiations of the specified task definition to place and keep running in your service.
 	//  For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
@@ -87,7 +88,8 @@ type LookupServiceResult struct {
 	// The ``family`` and ``revision`` (``family:revision``) or full ARN of the task definition to run in your service. If a ``revision`` isn't specified, the latest ``ACTIVE`` revision is used.
 	//  A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
-	TaskDefinition *string `pulumi:"taskDefinition"`
+	TaskDefinition           *string                          `pulumi:"taskDefinition"`
+	VpcLatticeConfigurations []ServiceVpcLatticeConfiguration `pulumi:"vpcLatticeConfigurations"`
 }
 
 func LookupServiceOutput(ctx *pulumi.Context, args LookupServiceOutputArgs, opts ...pulumi.InvokeOption) LookupServiceResultOutput {
@@ -134,6 +136,10 @@ func (o LookupServiceResultOutput) ToLookupServiceResultOutputWithContext(ctx co
 	return o
 }
 
+func (o LookupServiceResultOutput) AvailabilityZoneRebalancing() ServiceAvailabilityZoneRebalancingPtrOutput {
+	return o.ApplyT(func(v LookupServiceResult) *ServiceAvailabilityZoneRebalancing { return v.AvailabilityZoneRebalancing }).(ServiceAvailabilityZoneRebalancingPtrOutput)
+}
+
 // The capacity provider strategy to use for the service.
 //
 //	If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -142,7 +148,7 @@ func (o LookupServiceResultOutput) CapacityProviderStrategy() ServiceCapacityPro
 	return o.ApplyT(func(v LookupServiceResult) []ServiceCapacityProviderStrategyItem { return v.CapacityProviderStrategy }).(ServiceCapacityProviderStrategyItemArrayOutput)
 }
 
-// Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+// Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
 func (o LookupServiceResultOutput) DeploymentConfiguration() ServiceDeploymentConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceDeploymentConfiguration { return v.DeploymentConfiguration }).(ServiceDeploymentConfigurationPtrOutput)
 }
@@ -245,6 +251,10 @@ func (o LookupServiceResultOutput) Tags() aws.TagArrayOutput {
 //	For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 func (o LookupServiceResultOutput) TaskDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.TaskDefinition }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupServiceResultOutput) VpcLatticeConfigurations() ServiceVpcLatticeConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupServiceResult) []ServiceVpcLatticeConfiguration { return v.VpcLatticeConfigurations }).(ServiceVpcLatticeConfigurationArrayOutput)
 }
 
 func init() {

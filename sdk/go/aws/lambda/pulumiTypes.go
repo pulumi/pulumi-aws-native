@@ -2892,6 +2892,7 @@ func (o FunctionDeadLetterConfigPtrOutput) TargetArn() pulumi.StringPtrOutput {
 // A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 type FunctionEnvironment struct {
 	// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+	//  If the value of the environment variable is a time or a duration, enclose the value in quotes.
 	Variables map[string]string `pulumi:"variables"`
 }
 
@@ -2909,6 +2910,7 @@ type FunctionEnvironmentInput interface {
 // A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration.
 type FunctionEnvironmentArgs struct {
 	// Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+	//  If the value of the environment variable is a time or a duration, enclose the value in quotes.
 	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
@@ -2991,6 +2993,8 @@ func (o FunctionEnvironmentOutput) ToFunctionEnvironmentPtrOutputWithContext(ctx
 }
 
 // Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+//
+//	If the value of the environment variable is a time or a duration, enclose the value in quotes.
 func (o FunctionEnvironmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionEnvironment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
@@ -3020,6 +3024,8 @@ func (o FunctionEnvironmentPtrOutput) Elem() FunctionEnvironmentOutput {
 }
 
 // Environment variable key-value pairs. For more information, see [Using Lambda environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html).
+//
+//	If the value of the environment variable is a time or a duration, enclose the value in quotes.
 func (o FunctionEnvironmentPtrOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FunctionEnvironment) map[string]string {
 		if v == nil {
@@ -4065,6 +4071,7 @@ func (o FunctionSnapStartResponsePtrOutput) OptimizationStatus() FunctionSnapSta
 	}).(FunctionSnapStartResponseOptimizationStatusPtrOutput)
 }
 
+// A [tag](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 type FunctionTag struct {
 	// The key for this tag.
 	Key string `pulumi:"key"`

@@ -17,6 +17,8 @@ import (
 type Collaboration struct {
 	pulumi.CustomResourceState
 
+	// The analytics engine for the collaboration.
+	AnalyticsEngine CollaborationAnalyticsEnginePtrOutput `pulumi:"analyticsEngine"`
 	// Returns the Amazon Resource Name (ARN) of the specified collaboration.
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:collaboration/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
@@ -70,6 +72,7 @@ func NewCollaboration(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'QueryLogStatus'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"analyticsEngine",
 		"creatorDisplayName",
 		"creatorMemberAbilities[*]",
 		"creatorPaymentConfiguration",
@@ -111,6 +114,8 @@ func (CollaborationState) ElementType() reflect.Type {
 }
 
 type collaborationArgs struct {
+	// The analytics engine for the collaboration.
+	AnalyticsEngine *CollaborationAnalyticsEngine `pulumi:"analyticsEngine"`
 	// A display name of the collaboration creator.
 	CreatorDisplayName string `pulumi:"creatorDisplayName"`
 	// The abilities granted to the collaboration creator.
@@ -135,6 +140,8 @@ type collaborationArgs struct {
 
 // The set of arguments for constructing a Collaboration resource.
 type CollaborationArgs struct {
+	// The analytics engine for the collaboration.
+	AnalyticsEngine CollaborationAnalyticsEnginePtrInput
 	// A display name of the collaboration creator.
 	CreatorDisplayName pulumi.StringInput
 	// The abilities granted to the collaboration creator.
@@ -192,6 +199,11 @@ func (o CollaborationOutput) ToCollaborationOutput() CollaborationOutput {
 
 func (o CollaborationOutput) ToCollaborationOutputWithContext(ctx context.Context) CollaborationOutput {
 	return o
+}
+
+// The analytics engine for the collaboration.
+func (o CollaborationOutput) AnalyticsEngine() CollaborationAnalyticsEnginePtrOutput {
+	return o.ApplyT(func(v *Collaboration) CollaborationAnalyticsEnginePtrOutput { return v.AnalyticsEngine }).(CollaborationAnalyticsEnginePtrOutput)
 }
 
 // Returns the Amazon Resource Name (ARN) of the specified collaboration.

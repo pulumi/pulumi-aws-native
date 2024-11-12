@@ -12,15 +12,24 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DataSourceOAuthParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The resource uri of the identity provider.
+        /// </summary>
         [Input("identityProviderResourceUri")]
         public Input<string>? IdentityProviderResourceUri { get; set; }
 
         [Input("identityProviderVpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? IdentityProviderVpcConnectionProperties { get; set; }
 
+        /// <summary>
+        /// The OAuth scope.
+        /// </summary>
         [Input("oAuthScope")]
         public Input<string>? OAuthScope { get; set; }
 
+        /// <summary>
+        /// The token endpoint URL of the identity provider.
+        /// </summary>
         [Input("tokenProviderUrl", required: true)]
         public Input<string> TokenProviderUrl { get; set; } = null!;
 

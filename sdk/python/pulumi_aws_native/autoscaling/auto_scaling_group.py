@@ -62,6 +62,7 @@ class AutoScalingGroupArgs:
         :param pulumi.Input[str] auto_scaling_group_name: The name of the Auto Scaling group. This name must be unique per Region per account.
                 The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
                  You cannot use a colon (:) in the name.
+        :param pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs'] availability_zone_distribution: The instance capacity distribution across Availability Zones.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[str] context: Reserved.
@@ -217,6 +218,9 @@ class AutoScalingGroupArgs:
     @property
     @pulumi.getter(name="availabilityZoneDistribution")
     def availability_zone_distribution(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']]:
+        """
+        The instance capacity distribution across Availability Zones.
+        """
         return pulumi.get(self, "availability_zone_distribution")
 
     @availability_zone_distribution.setter
@@ -628,6 +632,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         :param pulumi.Input[str] auto_scaling_group_name: The name of the Auto Scaling group. This name must be unique per Region per account.
                 The name can contain any ASCII character 33 to 126 including most punctuation characters, digits, and upper and lowercased letters.
                  You cannot use a colon (:) in the name.
+        :param pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']] availability_zone_distribution: The instance capacity distribution across Availability Zones.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
         :param pulumi.Input[str] context: Reserved.
@@ -856,6 +861,9 @@ class AutoScalingGroup(pulumi.CustomResource):
     @property
     @pulumi.getter(name="availabilityZoneDistribution")
     def availability_zone_distribution(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupAvailabilityZoneDistribution']]:
+        """
+        The instance capacity distribution across Availability Zones.
+        """
         return pulumi.get(self, "availability_zone_distribution")
 
     @property

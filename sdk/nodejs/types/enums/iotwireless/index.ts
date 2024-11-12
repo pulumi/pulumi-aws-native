@@ -37,6 +37,28 @@ export const TaskDefinitionType = {
  */
 export type TaskDefinitionType = (typeof TaskDefinitionType)[keyof typeof TaskDefinitionType];
 
+export const WirelessDeviceApplicationType = {
+    SemtechGeolocation: "SemtechGeolocation",
+    SemtechGnss: "SemtechGNSS",
+    SemtechGnssng: "SemtechGNSSNG",
+    SemtechWiFi: "SemtechWiFi",
+} as const;
+
+/**
+ * Application type, which can be specified to obtain real-time position information of your LoRaWAN device.
+ */
+export type WirelessDeviceApplicationType = (typeof WirelessDeviceApplicationType)[keyof typeof WirelessDeviceApplicationType];
+
+export const WirelessDevicePositioning = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
+ */
+export type WirelessDevicePositioning = (typeof WirelessDevicePositioning)[keyof typeof WirelessDevicePositioning];
+
 export const WirelessDeviceType = {
     Sidewalk: "Sidewalk",
     LoRaWan: "LoRaWAN",

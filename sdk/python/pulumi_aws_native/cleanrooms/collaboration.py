@@ -29,6 +29,7 @@ class CollaborationArgs:
                  description: pulumi.Input[str],
                  members: pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]],
                  query_log_status: pulumi.Input['CollaborationQueryLogStatus'],
+                 analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
                  creator_payment_configuration: Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']] = None,
                  data_encryption_metadata: Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class CollaborationArgs:
         :param pulumi.Input[str] description: A description of the collaboration provided by the collaboration owner.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
+        :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
         :param pulumi.Input['CollaborationPaymentConfigurationArgs'] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
         :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
         :param pulumi.Input[str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
@@ -52,6 +54,8 @@ class CollaborationArgs:
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "members", members)
         pulumi.set(__self__, "query_log_status", query_log_status)
+        if analytics_engine is not None:
+            pulumi.set(__self__, "analytics_engine", analytics_engine)
         if creator_payment_configuration is not None:
             pulumi.set(__self__, "creator_payment_configuration", creator_payment_configuration)
         if data_encryption_metadata is not None:
@@ -124,6 +128,18 @@ class CollaborationArgs:
         pulumi.set(self, "query_log_status", value)
 
     @property
+    @pulumi.getter(name="analyticsEngine")
+    def analytics_engine(self) -> Optional[pulumi.Input['CollaborationAnalyticsEngine']]:
+        """
+        The analytics engine for the collaboration.
+        """
+        return pulumi.get(self, "analytics_engine")
+
+    @analytics_engine.setter
+    def analytics_engine(self, value: Optional[pulumi.Input['CollaborationAnalyticsEngine']]):
+        pulumi.set(self, "analytics_engine", value)
+
+    @property
     @pulumi.getter(name="creatorPaymentConfiguration")
     def creator_payment_configuration(self) -> Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]:
         """
@@ -177,6 +193,7 @@ class Collaboration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
                  creator_display_name: Optional[pulumi.Input[str]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
                  creator_payment_configuration: Optional[pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']]] = None,
@@ -192,6 +209,7 @@ class Collaboration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['CollaborationAnalyticsEngine'] analytics_engine: The analytics engine for the collaboration.
         :param pulumi.Input[str] creator_display_name: A display name of the collaboration creator.
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
                
@@ -228,6 +246,7 @@ class Collaboration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 analytics_engine: Optional[pulumi.Input['CollaborationAnalyticsEngine']] = None,
                  creator_display_name: Optional[pulumi.Input[str]] = None,
                  creator_member_abilities: Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
                  creator_payment_configuration: Optional[pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']]] = None,
@@ -246,6 +265,7 @@ class Collaboration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CollaborationArgs.__new__(CollaborationArgs)
 
+            __props__.__dict__["analytics_engine"] = analytics_engine
             if creator_display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'creator_display_name'")
             __props__.__dict__["creator_display_name"] = creator_display_name
@@ -267,7 +287,7 @@ class Collaboration(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["collaboration_identifier"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["creatorDisplayName", "creatorMemberAbilities[*]", "creatorPaymentConfiguration", "dataEncryptionMetadata", "members[*]", "queryLogStatus"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["analyticsEngine", "creatorDisplayName", "creatorMemberAbilities[*]", "creatorPaymentConfiguration", "dataEncryptionMetadata", "members[*]", "queryLogStatus"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Collaboration, __self__).__init__(
             'aws-native:cleanrooms:Collaboration',
@@ -291,6 +311,7 @@ class Collaboration(pulumi.CustomResource):
 
         __props__ = CollaborationArgs.__new__(CollaborationArgs)
 
+        __props__.__dict__["analytics_engine"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["collaboration_identifier"] = None
         __props__.__dict__["creator_display_name"] = None
@@ -303,6 +324,14 @@ class Collaboration(pulumi.CustomResource):
         __props__.__dict__["query_log_status"] = None
         __props__.__dict__["tags"] = None
         return Collaboration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="analyticsEngine")
+    def analytics_engine(self) -> pulumi.Output[Optional['CollaborationAnalyticsEngine']]:
+        """
+        The analytics engine for the collaboration.
+        """
+        return pulumi.get(self, "analytics_engine")
 
     @property
     @pulumi.getter

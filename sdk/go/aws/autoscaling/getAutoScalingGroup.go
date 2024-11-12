@@ -34,6 +34,7 @@ type LookupAutoScalingGroupArgs struct {
 }
 
 type LookupAutoScalingGroupResult struct {
+	// The instance capacity distribution across Availability Zones.
 	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -160,6 +161,7 @@ func (o LookupAutoScalingGroupResultOutput) ToLookupAutoScalingGroupResultOutput
 	return o
 }
 
+// The instance capacity distribution across Availability Zones.
 func (o LookupAutoScalingGroupResultOutput) AvailabilityZoneDistribution() AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupAvailabilityZoneDistribution {
 		return v.AvailabilityZoneDistribution

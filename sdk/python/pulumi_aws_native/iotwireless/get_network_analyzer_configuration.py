@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetNetworkAnalyzerConfigurationResult:
-    def __init__(__self__, arn=None, description=None, trace_content=None, wireless_devices=None, wireless_gateways=None):
+    def __init__(__self__, arn=None, description=None, tags=None, trace_content=None, wireless_devices=None, wireless_gateways=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if trace_content and not isinstance(trace_content, dict):
             raise TypeError("Expected argument 'trace_content' to be a dict")
         pulumi.set(__self__, "trace_content", trace_content)
@@ -57,6 +61,14 @@ class GetNetworkAnalyzerConfigurationResult:
         The description of the new resource
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="traceContent")
@@ -91,6 +103,7 @@ class AwaitableGetNetworkAnalyzerConfigurationResult(GetNetworkAnalyzerConfigura
         return GetNetworkAnalyzerConfigurationResult(
             arn=self.arn,
             description=self.description,
+            tags=self.tags,
             trace_content=self.trace_content,
             wireless_devices=self.wireless_devices,
             wireless_gateways=self.wireless_gateways)
@@ -112,6 +125,7 @@ def get_network_analyzer_configuration(name: Optional[str] = None,
     return AwaitableGetNetworkAnalyzerConfigurationResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
+        tags=pulumi.get(__ret__, 'tags'),
         trace_content=pulumi.get(__ret__, 'trace_content'),
         wireless_devices=pulumi.get(__ret__, 'wireless_devices'),
         wireless_gateways=pulumi.get(__ret__, 'wireless_gateways'))
@@ -130,6 +144,7 @@ def get_network_analyzer_configuration_output(name: Optional[pulumi.Input[str]] 
     return __ret__.apply(lambda __response__: GetNetworkAnalyzerConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
+        tags=pulumi.get(__response__, 'tags'),
         trace_content=pulumi.get(__response__, 'trace_content'),
         wireless_devices=pulumi.get(__response__, 'wireless_devices'),
         wireless_gateways=pulumi.get(__response__, 'wireless_gateways')))

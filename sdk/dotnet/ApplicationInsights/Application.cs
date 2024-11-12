@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+        /// </summary>
+        [Output("snsNotificationArn")]
+        public Output<string?> SnsNotificationArn { get; private set; } = null!;
+
+        /// <summary>
         /// The tags of Application Insights application.
         /// </summary>
         [Output("tags")]
@@ -214,6 +220,12 @@ namespace Pulumi.AwsNative.ApplicationInsights
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.
+        /// </summary>
+        [Input("snsNotificationArn")]
+        public Input<string>? SnsNotificationArn { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

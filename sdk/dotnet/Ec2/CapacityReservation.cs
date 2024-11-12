@@ -129,7 +129,9 @@ namespace Pulumi.AwsNative.Ec2
         public Output<int> TotalInstanceCount { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+        /// The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
+        /// 
+        /// You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
         /// </summary>
         [Output("unusedReservationBillingOwnerId")]
         public Output<string?> UnusedReservationBillingOwnerId { get; private set; } = null!;
@@ -293,7 +295,9 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? Tenancy { get; set; }
 
         /// <summary>
-        /// The ID of the AWS account to which billing of the unused capacity of the Capacity Reservation is assigned.
+        /// The ID of the AWS account to which to assign billing of the unused capacity of the Capacity Reservation. A request will be sent to the specified account. That account must accept the request for the billing to be assigned to their account. For more information, see [Billing assignment for shared Amazon EC2 Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html) .
+        /// 
+        /// You can assign billing only for shared Capacity Reservations. To share a Capacity Reservation, you must add it to a resource share. For more information, see [AWS::RAM::ResourceShare](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html) .
         /// </summary>
         [Input("unusedReservationBillingOwnerId")]
         public Input<string>? UnusedReservationBillingOwnerId { get; set; }

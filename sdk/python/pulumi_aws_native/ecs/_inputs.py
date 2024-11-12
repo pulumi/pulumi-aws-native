@@ -82,6 +82,8 @@ __all__ = [
     'ServiceTimeoutConfigurationArgsDict',
     'ServiceVolumeConfigurationArgs',
     'ServiceVolumeConfigurationArgsDict',
+    'ServiceVpcLatticeConfigurationArgs',
+    'ServiceVpcLatticeConfigurationArgsDict',
     'TaskDefinitionAuthorizationConfigArgs',
     'TaskDefinitionAuthorizationConfigArgsDict',
     'TaskDefinitionContainerDefinitionArgs',
@@ -1728,7 +1730,7 @@ class ServiceDeploymentCircuitBreakerArgs:
 if not MYPY:
     class ServiceDeploymentConfigurationArgsDict(TypedDict):
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
         """
         alarms: NotRequired[pulumi.Input['ServiceDeploymentAlarmsArgsDict']]
         """
@@ -1775,7 +1777,7 @@ class ServiceDeploymentConfigurationArgs:
                  maximum_percent: Optional[pulumi.Input[int]] = None,
                  minimum_healthy_percent: Optional[pulumi.Input[int]] = None):
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        Optional deployment parameters that control how many tasks run during a deployment and the ordering of stopping and starting tasks.
         :param pulumi.Input['ServiceDeploymentAlarmsArgs'] alarms: Information about the CloudWatch alarms.
         :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
                  The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
@@ -2016,7 +2018,7 @@ if not MYPY:
         """
         load_balancer_name: NotRequired[pulumi.Input[str]]
         """
-        The name of the load balancer to associate with the service or task set.
+        The name of the load balancer to associate with the Amazon ECS service or task set.
          If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         """
         target_group_arn: NotRequired[pulumi.Input[str]]
@@ -2044,7 +2046,7 @@ class ServiceLoadBalancerArgs:
         :param pulumi.Input[str] container_name: The name of the container (as it appears in a container definition) to associate with the load balancer.
                 You need to specify the container name when configuring the target group for an Amazon ECS load balancer.
         :param pulumi.Input[int] container_port: The port on the container to associate with the load balancer. This port must correspond to a ``containerPort`` in the task definition the tasks in the service are using. For tasks that use the EC2 launch type, the container instance they're launched on must allow ingress traffic on the ``hostPort`` of the port mapping.
-        :param pulumi.Input[str] load_balancer_name: The name of the load balancer to associate with the service or task set.
+        :param pulumi.Input[str] load_balancer_name: The name of the load balancer to associate with the Amazon ECS service or task set.
                 If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         :param pulumi.Input[str] target_group_arn: The full Amazon Resource Name (ARN) of the Elastic Load Balancing target group or groups associated with a service or task set.
                 A target group ARN is only specified when using an Application Load Balancer or Network Load Balancer. 
@@ -2090,7 +2092,7 @@ class ServiceLoadBalancerArgs:
     @pulumi.getter(name="loadBalancerName")
     def load_balancer_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the load balancer to associate with the service or task set.
+        The name of the load balancer to associate with the Amazon ECS service or task set.
          If you are using an Application Load Balancer or a Network Load Balancer the load balancer name parameter should be omitted.
         """
         return pulumi.get(self, "load_balancer_name")
@@ -3047,6 +3049,52 @@ class ServiceVolumeConfigurationArgs:
     @managed_ebs_volume.setter
     def managed_ebs_volume(self, value: Optional[pulumi.Input['ServiceManagedEbsVolumeConfigurationArgs']]):
         pulumi.set(self, "managed_ebs_volume", value)
+
+
+if not MYPY:
+    class ServiceVpcLatticeConfigurationArgsDict(TypedDict):
+        port_name: pulumi.Input[str]
+        role_arn: pulumi.Input[str]
+        target_group_arn: pulumi.Input[str]
+elif False:
+    ServiceVpcLatticeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceVpcLatticeConfigurationArgs:
+    def __init__(__self__, *,
+                 port_name: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 target_group_arn: pulumi.Input[str]):
+        pulumi.set(__self__, "port_name", port_name)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "target_group_arn", target_group_arn)
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "port_name")
+
+    @port_name.setter
+    def port_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "port_name", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="targetGroupArn")
+    def target_group_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "target_group_arn")
+
+    @target_group_arn.setter
+    def target_group_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_group_arn", value)
 
 
 if not MYPY:

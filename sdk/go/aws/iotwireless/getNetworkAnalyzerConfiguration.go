@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -32,6 +33,8 @@ type LookupNetworkAnalyzerConfigurationResult struct {
 	Arn *string `pulumi:"arn"`
 	// The description of the new resource
 	Description *string `pulumi:"description"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Trace content for your wireless gateway and wireless device resources
 	TraceContent *TraceContentProperties `pulumi:"traceContent"`
 	// List of wireless gateway resources that have been added to the network analyzer configuration
@@ -90,6 +93,11 @@ func (o LookupNetworkAnalyzerConfigurationResultOutput) Arn() pulumi.StringPtrOu
 // The description of the new resource
 func (o LookupNetworkAnalyzerConfigurationResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkAnalyzerConfigurationResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An array of key-value pairs to apply to this resource.
+func (o LookupNetworkAnalyzerConfigurationResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupNetworkAnalyzerConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Trace content for your wireless gateway and wireless device resources

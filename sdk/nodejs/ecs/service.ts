@@ -39,6 +39,7 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
+    public readonly availabilityZoneRebalancing!: pulumi.Output<enums.ecs.ServiceAvailabilityZoneRebalancing | undefined>;
     /**
      * The capacity provider strategy to use for the service.
      *  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -50,7 +51,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly cluster!: pulumi.Output<string | undefined>;
     /**
-     * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+     * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
      */
     public readonly deploymentConfiguration!: pulumi.Output<outputs.ecs.ServiceDeploymentConfiguration | undefined>;
     /**
@@ -167,6 +168,7 @@ export class Service extends pulumi.CustomResource {
      * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
      */
     public readonly volumeConfigurations!: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration[] | undefined>;
+    public readonly vpcLatticeConfigurations!: pulumi.Output<outputs.ecs.ServiceVpcLatticeConfiguration[] | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -179,6 +181,7 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["availabilityZoneRebalancing"] = args ? args.availabilityZoneRebalancing : undefined;
             resourceInputs["capacityProviderStrategy"] = args ? args.capacityProviderStrategy : undefined;
             resourceInputs["cluster"] = args ? args.cluster : undefined;
             resourceInputs["deploymentConfiguration"] = args ? args.deploymentConfiguration : undefined;
@@ -202,9 +205,11 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
             resourceInputs["volumeConfigurations"] = args ? args.volumeConfigurations : undefined;
+            resourceInputs["vpcLatticeConfigurations"] = args ? args.vpcLatticeConfigurations : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["serviceArn"] = undefined /*out*/;
         } else {
+            resourceInputs["availabilityZoneRebalancing"] = undefined /*out*/;
             resourceInputs["capacityProviderStrategy"] = undefined /*out*/;
             resourceInputs["cluster"] = undefined /*out*/;
             resourceInputs["deploymentConfiguration"] = undefined /*out*/;
@@ -230,6 +235,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["taskDefinition"] = undefined /*out*/;
             resourceInputs["volumeConfigurations"] = undefined /*out*/;
+            resourceInputs["vpcLatticeConfigurations"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["cluster", "deploymentController", "launchType", "role", "schedulingStrategy", "serviceName"] };
@@ -242,6 +248,7 @@ export class Service extends pulumi.CustomResource {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    availabilityZoneRebalancing?: pulumi.Input<enums.ecs.ServiceAvailabilityZoneRebalancing>;
     /**
      * The capacity provider strategy to use for the service.
      *  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
@@ -253,7 +260,7 @@ export interface ServiceArgs {
      */
     cluster?: pulumi.Input<string>;
     /**
-     * Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+     * Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
      */
     deploymentConfiguration?: pulumi.Input<inputs.ecs.ServiceDeploymentConfigurationArgs>;
     /**
@@ -362,4 +369,5 @@ export interface ServiceArgs {
      * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
      */
     volumeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVolumeConfigurationArgs>[]>;
+    vpcLatticeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVpcLatticeConfigurationArgs>[]>;
 }

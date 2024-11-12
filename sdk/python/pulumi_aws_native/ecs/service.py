@@ -24,6 +24,7 @@ __all__ = ['ServiceArgs', 'Service']
 @pulumi.input_type
 class ServiceArgs:
     def __init__(__self__, *,
+                 availability_zone_rebalancing: Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']] = None,
                  capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_configuration: Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']] = None,
@@ -46,14 +47,15 @@ class ServiceArgs:
                  service_registries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceRegistryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
-                 volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]] = None):
+                 volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]] = None,
+                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: The capacity provider strategy to use for the service.
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
                 A capacity provider strategy may contain a maximum of 6 capacity providers.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        :param pulumi.Input['ServiceDeploymentConfigurationArgs'] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
         :param pulumi.Input[int] desired_count: The number of instantiations of the specified task definition to place and keep running in your service.
                 For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
@@ -101,6 +103,8 @@ class ServiceArgs:
                 For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
         :param pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]] volume_configurations: The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
         """
+        if availability_zone_rebalancing is not None:
+            pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
         if capacity_provider_strategy is not None:
             pulumi.set(__self__, "capacity_provider_strategy", capacity_provider_strategy)
         if cluster is not None:
@@ -147,6 +151,17 @@ class ServiceArgs:
             pulumi.set(__self__, "task_definition", task_definition)
         if volume_configurations is not None:
             pulumi.set(__self__, "volume_configurations", volume_configurations)
+        if vpc_lattice_configurations is not None:
+            pulumi.set(__self__, "vpc_lattice_configurations", vpc_lattice_configurations)
+
+    @property
+    @pulumi.getter(name="availabilityZoneRebalancing")
+    def availability_zone_rebalancing(self) -> Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']]:
+        return pulumi.get(self, "availability_zone_rebalancing")
+
+    @availability_zone_rebalancing.setter
+    def availability_zone_rebalancing(self, value: Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']]):
+        pulumi.set(self, "availability_zone_rebalancing", value)
 
     @property
     @pulumi.getter(name="capacityProviderStrategy")
@@ -178,7 +193,7 @@ class ServiceArgs:
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional[pulumi.Input['ServiceDeploymentConfigurationArgs']]:
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         """
         return pulumi.get(self, "deployment_configuration")
 
@@ -452,12 +467,22 @@ class ServiceArgs:
     def volume_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]]]):
         pulumi.set(self, "volume_configurations", value)
 
+    @property
+    @pulumi.getter(name="vpcLatticeConfigurations")
+    def vpc_lattice_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]:
+        return pulumi.get(self, "vpc_lattice_configurations")
+
+    @vpc_lattice_configurations.setter
+    def vpc_lattice_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]):
+        pulumi.set(self, "vpc_lattice_configurations", value)
+
 
 class Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone_rebalancing: Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']] = None,
                  capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_configuration: Optional[pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
@@ -481,6 +506,7 @@ class Service(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]]] = None,
+                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
@@ -493,7 +519,7 @@ class Service(pulumi.CustomResource):
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
                 A capacity provider strategy may contain a maximum of 6 capacity providers.
         :param pulumi.Input[str] cluster: The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
-        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        :param pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']] deployment_configuration: Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         :param pulumi.Input[Union['ServiceDeploymentControllerArgs', 'ServiceDeploymentControllerArgsDict']] deployment_controller: The deployment controller to use for the service. If no deployment controller is specified, the default value of ``ECS`` is used.
         :param pulumi.Input[int] desired_count: The number of instantiations of the specified task definition to place and keep running in your service.
                 For new services, if a desired count is not specified, a default value of ``1`` is used. When using the ``DAEMON`` scheduling strategy, the desired count is not required.
@@ -567,6 +593,7 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability_zone_rebalancing: Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']] = None,
                  capacity_provider_strategy: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  deployment_configuration: Optional[pulumi.Input[Union['ServiceDeploymentConfigurationArgs', 'ServiceDeploymentConfigurationArgsDict']]] = None,
@@ -590,6 +617,7 @@ class Service(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  volume_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]]] = None,
+                 vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -599,6 +627,7 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            __props__.__dict__["availability_zone_rebalancing"] = availability_zone_rebalancing
             __props__.__dict__["capacity_provider_strategy"] = capacity_provider_strategy
             __props__.__dict__["cluster"] = cluster
             __props__.__dict__["deployment_configuration"] = deployment_configuration
@@ -622,6 +651,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_definition"] = task_definition
             __props__.__dict__["volume_configurations"] = volume_configurations
+            __props__.__dict__["vpc_lattice_configurations"] = vpc_lattice_configurations
             __props__.__dict__["name"] = None
             __props__.__dict__["service_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["cluster", "deploymentController", "launchType", "role", "schedulingStrategy", "serviceName"])
@@ -648,6 +678,7 @@ class Service(pulumi.CustomResource):
 
         __props__ = ServiceArgs.__new__(ServiceArgs)
 
+        __props__.__dict__["availability_zone_rebalancing"] = None
         __props__.__dict__["capacity_provider_strategy"] = None
         __props__.__dict__["cluster"] = None
         __props__.__dict__["deployment_configuration"] = None
@@ -673,7 +704,13 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["task_definition"] = None
         __props__.__dict__["volume_configurations"] = None
+        __props__.__dict__["vpc_lattice_configurations"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="availabilityZoneRebalancing")
+    def availability_zone_rebalancing(self) -> pulumi.Output[Optional['ServiceAvailabilityZoneRebalancing']]:
+        return pulumi.get(self, "availability_zone_rebalancing")
 
     @property
     @pulumi.getter(name="capacityProviderStrategy")
@@ -697,7 +734,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> pulumi.Output[Optional['outputs.ServiceDeploymentConfiguration']]:
         """
-        Optional deployment parameters that control how many tasks run during the deployment and the failure detection methods.
+        Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.
         """
         return pulumi.get(self, "deployment_configuration")
 
@@ -902,4 +939,9 @@ class Service(pulumi.CustomResource):
         The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
         """
         return pulumi.get(self, "volume_configurations")
+
+    @property
+    @pulumi.getter(name="vpcLatticeConfigurations")
+    def vpc_lattice_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceVpcLatticeConfiguration']]]:
+        return pulumi.get(self, "vpc_lattice_configurations")
 

@@ -223,6 +223,12 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs:
 if not MYPY:
     class AutoScalingGroupAvailabilityZoneDistributionArgsDict(TypedDict):
         capacity_distribution_strategy: NotRequired[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']]
+        """
+        If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
+
+        - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+        - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+        """
 elif False:
     AutoScalingGroupAvailabilityZoneDistributionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -230,12 +236,24 @@ elif False:
 class AutoScalingGroupAvailabilityZoneDistributionArgs:
     def __init__(__self__, *,
                  capacity_distribution_strategy: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']] = None):
+        """
+        :param pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy'] capacity_distribution_strategy: If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
+               
+               - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+               - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+        """
         if capacity_distribution_strategy is not None:
             pulumi.set(__self__, "capacity_distribution_strategy", capacity_distribution_strategy)
 
     @property
     @pulumi.getter(name="capacityDistributionStrategy")
     def capacity_distribution_strategy(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']]:
+        """
+        If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
+
+        - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+        - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+        """
         return pulumi.get(self, "capacity_distribution_strategy")
 
     @capacity_distribution_strategy.setter

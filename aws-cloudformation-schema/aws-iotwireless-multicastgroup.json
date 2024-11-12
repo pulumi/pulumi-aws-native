@@ -2,7 +2,14 @@
   "typeName" : "AWS::IoTWireless::MulticastGroup",
   "description" : "Create and manage Multicast groups.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+  },
   "definitions" : {
     "Tag" : {
       "type" : "object",
@@ -103,13 +110,13 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotwireless:CreateMulticastGroup", "iotwireless:TagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iotwireless:CreateMulticastGroup", "iotwireless:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iotwireless:GetMulticastGroup", "iotwireless:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotwireless:UpdateMulticastGroup", "iotwireless:UntagResource", "iotwireless:ListTagsForResource", "iotwireless:AssociateWirelessDeviceWithMulticastGroup", "iotwireless:DisassociateWirelessDeviceFromMulticastGroup" ]
+      "permissions" : [ "iotwireless:UpdateMulticastGroup", "iotwireless:GetMulticastGroup", "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:AssociateWirelessDeviceWithMulticastGroup", "iotwireless:DisassociateWirelessDeviceFromMulticastGroup" ]
     },
     "delete" : {
       "permissions" : [ "iotwireless:DeleteMulticastGroup" ]
