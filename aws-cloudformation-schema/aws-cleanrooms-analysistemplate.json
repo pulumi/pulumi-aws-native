@@ -19,7 +19,7 @@
         },
         "Type" : {
           "type" : "string",
-          "enum" : [ "SMALLINT", "INTEGER", "BIGINT", "DECIMAL", "REAL", "DOUBLE_PRECISION", "BOOLEAN", "CHAR", "VARCHAR", "DATE", "TIMESTAMP", "TIMESTAMPTZ", "TIME", "TIMETZ", "VARBYTE" ]
+          "enum" : [ "SMALLINT", "INTEGER", "BIGINT", "DECIMAL", "REAL", "DOUBLE_PRECISION", "BOOLEAN", "CHAR", "VARCHAR", "DATE", "TIMESTAMP", "TIMESTAMPTZ", "TIME", "TIMETZ", "VARBYTE", "BINARY", "BYTE", "CHARACTER", "DOUBLE", "FLOAT", "INT", "LONG", "NUMERIC", "SHORT", "STRING", "TIMESTAMP_LTZ", "TIMESTAMP_NTZ", "TINYINT" ]
         }
       },
       "required" : [ "Name", "Type" ]

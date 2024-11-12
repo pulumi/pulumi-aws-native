@@ -100,6 +100,14 @@
   "createOnlyProperties" : [ "/properties/ContainerProvider", "/properties/Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Id" ],
   "primaryIdentifier" : [ "/properties/Id" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "emr-containers:TagResource", "emr-containers:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "emr-containers:CreateVirtualCluster", "emr-containers:TagResource", "iam:CreateServiceLinkedRole" ]
@@ -108,7 +116,7 @@
       "permissions" : [ "emr-containers:DescribeVirtualCluster" ]
     },
     "delete" : {
-      "permissions" : [ "emr-containers:DeleteVirtualCluster" ]
+      "permissions" : [ "emr-containers:DeleteVirtualCluster", "emr-containers:DescribeVirtualCluster" ]
     },
     "list" : {
       "permissions" : [ "emr-containers:ListVirtualClusters" ]

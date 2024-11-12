@@ -29,6 +29,13 @@
       "maxLength" : 300,
       "pattern" : "^arn:aws(-[\\w]+)*:[\\w\\d-]+:([\\w\\d-]*)?:[\\w\\d_-]*([:/].+)*$"
     },
+    "SNSNotificationArn" : {
+      "description" : "Application Insights sends notifications to this SNS topic whenever there is a problem update in the associated application.",
+      "type" : "string",
+      "minLength" : 20,
+      "maxLength" : 300,
+      "pattern" : "^arn:aws(-[\\w]+)*:[\\w\\d-]+:([\\w\\d-]*)?:[\\w\\d_-]*([:/].+)*$"
+    },
     "Tags" : {
       "description" : "The tags of Application Insights application.",
       "type" : "array",
@@ -605,7 +612,7 @@
   "required" : [ "ResourceGroupName" ],
   "primaryIdentifier" : [ "/properties/ApplicationARN" ],
   "readOnlyProperties" : [ "/properties/ApplicationARN" ],
-  "writeOnlyProperties" : [ "/properties/ComponentMonitoringSettings", "/properties/LogPatternSets", "/properties/CustomComponents", "/properties/GroupingType", "/properties/OpsItemSNSTopicArn", "/properties/AttachMissingPermission" ],
+  "writeOnlyProperties" : [ "/properties/ComponentMonitoringSettings", "/properties/LogPatternSets", "/properties/CustomComponents", "/properties/GroupingType", "/properties/OpsItemSNSTopicArn", "/properties/SNSNotificationArn", "/properties/AttachMissingPermission" ],
   "createOnlyProperties" : [ "/properties/ResourceGroupName", "/properties/GroupingType" ],
   "handlers" : {
     "create" : {

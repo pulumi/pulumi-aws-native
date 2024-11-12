@@ -2,7 +2,14 @@
   "typeName" : "AWS::IoTWireless::FuotaTask",
   "description" : "Create and manage FUOTA tasks.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+  },
   "definitions" : {
     "Tag" : {
       "type" : "object",
@@ -116,13 +123,13 @@
   "primaryIdentifier" : [ "/properties/Id" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotwireless:CreateFuotaTask", "iotwireless:TagResource", "iotwireless:ListTagsForResource", "iam:GetRole", "iam:PassRole" ]
+      "permissions" : [ "iotwireless:CreateFuotaTask", "iotwireless:TagResource", "iam:GetRole", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "iotwireless:GetFuotaTask", "iotwireless:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iam:PassRole", "iotwireless:UpdateFuotaTask", "iotwireless:UntagResource", "iotwireless:ListTagsForResource", "iotwireless:AssociateMulticastGroupWithFuotaTask", "iotwireless:DisassociateMulticastGroupFromFuotaTask", "iotwireless:AssociateWirelessDeviceWithFuotaTask", "iotwireless:DisassociateWirelessDeviceFromFuotaTask" ]
+      "permissions" : [ "iam:PassRole", "iotwireless:UpdateFuotaTask", "iotwireless:GetFuotaTask", "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:AssociateMulticastGroupWithFuotaTask", "iotwireless:DisassociateMulticastGroupFromFuotaTask", "iotwireless:AssociateWirelessDeviceWithFuotaTask", "iotwireless:DisassociateWirelessDeviceFromFuotaTask" ]
     },
     "delete" : {
       "permissions" : [ "iotwireless:DeleteFuotaTask" ]

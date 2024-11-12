@@ -184,11 +184,18 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : true,
   "required" : [ "DatastoreTypeVersion" ],
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/DatastoreArn", "/properties/DatastoreEndpoint", "/properties/DatastoreId", "/properties/DatastoreStatus" ],
   "primaryIdentifier" : [ "/properties/DatastoreId" ],
   "createOnlyProperties" : [ "/properties/DatastoreName", "/properties/DatastoreTypeVersion", "/properties/PreloadDataConfig", "/properties/SseConfiguration", "/properties/IdentityProviderConfiguration" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "healthlake:UntagResource", "healthlake:TagResource", "healthlake:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "healthlake:CreateFHIRDatastore", "healthlake:DescribeFHIRDatastore", "iam:PassRole", "kms:DescribeKey", "kms:CreateGrant", "kms:GenerateDataKey", "kms:Decrypt", "iam:GetRole", "iam:CreateServiceLinkedRole", "ram:GetResourceShareInvitations", "ram:AcceptResourceShareInvitation", "glue:CreateDatabase", "glue:DeleteDatabase", "lambda:InvokeFunction", "healthlake:TagResource", "healthlake:UntagResource", "healthlake:ListTagsForResource" ]

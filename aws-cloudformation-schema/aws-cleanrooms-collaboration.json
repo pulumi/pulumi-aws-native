@@ -3,6 +3,10 @@
   "description" : "Represents a collaboration between AWS accounts that allows for secure data collaboration",
   "documentationUrl" : "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-collaboration.html",
   "definitions" : {
+    "AnalyticsEngine" : {
+      "type" : "string",
+      "enum" : [ "CLEAN_ROOMS_SQL", "SPARK" ]
+    },
     "CollaborationQueryLogStatus" : {
       "type" : "string",
       "enum" : [ "ENABLED", "DISABLED" ]
@@ -161,13 +165,16 @@
     "QueryLogStatus" : {
       "$ref" : "#/definitions/CollaborationQueryLogStatus"
     },
+    "AnalyticsEngine" : {
+      "$ref" : "#/definitions/AnalyticsEngine"
+    },
     "CreatorPaymentConfiguration" : {
       "$ref" : "#/definitions/PaymentConfiguration"
     }
   },
   "required" : [ "CreatorDisplayName", "CreatorMemberAbilities", "Members", "Name", "Description", "QueryLogStatus" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CollaborationIdentifier" ],
-  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration" ],
+  "createOnlyProperties" : [ "/properties/CreatorDisplayName", "/properties/CreatorMemberAbilities", "/properties/DataEncryptionMetadata", "/properties/QueryLogStatus", "/properties/Members", "/properties/CreatorPaymentConfiguration", "/properties/AnalyticsEngine" ],
   "primaryIdentifier" : [ "/properties/CollaborationIdentifier" ],
   "tagging" : {
     "taggable" : true,

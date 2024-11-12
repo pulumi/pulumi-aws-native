@@ -150,11 +150,22 @@
   "additionalProperties" : false,
   "required" : [ ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Id" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/LoRaWAN" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotwireless:CreateDeviceProfile", "iotwireless:TagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iotwireless:CreateDeviceProfile", "iotwireless:TagResource" ]
+    },
+    "update" : {
+      "permissions" : [ "iotwireless:GetDeviceProfile", "iotwireless:TagResource", "iotwireless:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "iotwireless:GetDeviceProfile", "iotwireless:ListTagsForResource" ]
