@@ -30,6 +30,12 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
         [Input("resultFormat", required: true)]
         public Input<Pulumi.AwsNative.CleanRooms.MembershipResultFormat> ResultFormat { get; set; } = null!;
 
+        /// <summary>
+        /// Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+        /// </summary>
+        [Input("singleFileOutput")]
+        public Input<bool>? SingleFileOutput { get; set; }
+
         public MembershipProtectedQueryS3OutputConfigurationArgs()
         {
         }

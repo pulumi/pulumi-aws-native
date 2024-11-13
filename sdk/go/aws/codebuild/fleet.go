@@ -19,7 +19,8 @@ type Fleet struct {
 	// The ARN of the compute fleet.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
-	BaseCapacity         pulumi.IntPtrOutput                `pulumi:"baseCapacity"`
+	BaseCapacity pulumi.IntPtrOutput `pulumi:"baseCapacity"`
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
 	ComputeConfiguration FleetComputeConfigurationPtrOutput `pulumi:"computeConfiguration"`
 	// Information about the compute resources the compute fleet uses. Available values include:
 	//
@@ -61,7 +62,8 @@ type Fleet struct {
 	// - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-	EnvironmentType         FleetEnvironmentTypePtrOutput    `pulumi:"environmentType"`
+	EnvironmentType FleetEnvironmentTypePtrOutput `pulumi:"environmentType"`
+	// Information about the proxy configurations that apply network access control to your reserved capacity instances.
 	FleetProxyConfiguration FleetProxyConfigurationPtrOutput `pulumi:"fleetProxyConfiguration"`
 	// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
 	FleetServiceRole pulumi.StringPtrOutput `pulumi:"fleetServiceRole"`
@@ -77,7 +79,8 @@ type Fleet struct {
 	// - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
 	//
 	// > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
-	OverflowBehavior     FleetOverflowBehaviorPtrOutput          `pulumi:"overflowBehavior"`
+	OverflowBehavior FleetOverflowBehaviorPtrOutput `pulumi:"overflowBehavior"`
+	// The scaling configuration of the compute fleet.
 	ScalingConfiguration FleetScalingConfigurationInputPtrOutput `pulumi:"scalingConfiguration"`
 	// A list of tag key and value pairs associated with this compute fleet.
 	//
@@ -126,7 +129,8 @@ func (FleetState) ElementType() reflect.Type {
 
 type fleetArgs struct {
 	// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
-	BaseCapacity         *int                       `pulumi:"baseCapacity"`
+	BaseCapacity *int `pulumi:"baseCapacity"`
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
 	ComputeConfiguration *FleetComputeConfiguration `pulumi:"computeConfiguration"`
 	// Information about the compute resources the compute fleet uses. Available values include:
 	//
@@ -168,7 +172,8 @@ type fleetArgs struct {
 	// - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-	EnvironmentType         *FleetEnvironmentType    `pulumi:"environmentType"`
+	EnvironmentType *FleetEnvironmentType `pulumi:"environmentType"`
+	// Information about the proxy configurations that apply network access control to your reserved capacity instances.
 	FleetProxyConfiguration *FleetProxyConfiguration `pulumi:"fleetProxyConfiguration"`
 	// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
 	FleetServiceRole *string `pulumi:"fleetServiceRole"`
@@ -184,7 +189,8 @@ type fleetArgs struct {
 	// - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
 	//
 	// > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
-	OverflowBehavior     *FleetOverflowBehavior          `pulumi:"overflowBehavior"`
+	OverflowBehavior *FleetOverflowBehavior `pulumi:"overflowBehavior"`
+	// The scaling configuration of the compute fleet.
 	ScalingConfiguration *FleetScalingConfigurationInput `pulumi:"scalingConfiguration"`
 	// A list of tag key and value pairs associated with this compute fleet.
 	//
@@ -195,7 +201,8 @@ type fleetArgs struct {
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
 	// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
-	BaseCapacity         pulumi.IntPtrInput
+	BaseCapacity pulumi.IntPtrInput
+	// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
 	ComputeConfiguration FleetComputeConfigurationPtrInput
 	// Information about the compute resources the compute fleet uses. Available values include:
 	//
@@ -237,7 +244,8 @@ type FleetArgs struct {
 	// - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
 	//
 	// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-	EnvironmentType         FleetEnvironmentTypePtrInput
+	EnvironmentType FleetEnvironmentTypePtrInput
+	// Information about the proxy configurations that apply network access control to your reserved capacity instances.
 	FleetProxyConfiguration FleetProxyConfigurationPtrInput
 	// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
 	FleetServiceRole pulumi.StringPtrInput
@@ -253,7 +261,8 @@ type FleetArgs struct {
 	// - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
 	//
 	// > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
-	OverflowBehavior     FleetOverflowBehaviorPtrInput
+	OverflowBehavior FleetOverflowBehaviorPtrInput
+	// The scaling configuration of the compute fleet.
 	ScalingConfiguration FleetScalingConfigurationInputPtrInput
 	// A list of tag key and value pairs associated with this compute fleet.
 	//
@@ -308,6 +317,7 @@ func (o FleetOutput) BaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.IntPtrOutput { return v.BaseCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
 func (o FleetOutput) ComputeConfiguration() FleetComputeConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetComputeConfigurationPtrOutput { return v.ComputeConfiguration }).(FleetComputeConfigurationPtrOutput)
 }
@@ -359,6 +369,7 @@ func (o FleetOutput) EnvironmentType() FleetEnvironmentTypePtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetEnvironmentTypePtrOutput { return v.EnvironmentType }).(FleetEnvironmentTypePtrOutput)
 }
 
+// Information about the proxy configurations that apply network access control to your reserved capacity instances.
 func (o FleetOutput) FleetProxyConfiguration() FleetProxyConfigurationPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetProxyConfigurationPtrOutput { return v.FleetProxyConfiguration }).(FleetProxyConfigurationPtrOutput)
 }
@@ -393,6 +404,7 @@ func (o FleetOutput) OverflowBehavior() FleetOverflowBehaviorPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetOverflowBehaviorPtrOutput { return v.OverflowBehavior }).(FleetOverflowBehaviorPtrOutput)
 }
 
+// The scaling configuration of the compute fleet.
 func (o FleetOutput) ScalingConfiguration() FleetScalingConfigurationInputPtrOutput {
 	return o.ApplyT(func(v *Fleet) FleetScalingConfigurationInputPtrOutput { return v.ScalingConfiguration }).(FleetScalingConfigurationInputPtrOutput)
 }

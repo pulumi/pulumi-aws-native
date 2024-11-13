@@ -39,6 +39,7 @@ class FleetArgs:
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
+        :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
         :param pulumi.Input['FleetComputeType'] compute_type: Information about the compute resources the compute fleet uses. Available values include:
                
                - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
@@ -78,6 +79,7 @@ class FleetArgs:
                - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+        :param pulumi.Input['FleetProxyConfigurationArgs'] fleet_proxy_configuration: Information about the proxy configurations that apply network access control to your reserved capacity instances.
         :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
         :param pulumi.Input['FleetVpcConfigArgs'] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
         :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
@@ -88,6 +90,7 @@ class FleetArgs:
                - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
                
                > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+        :param pulumi.Input['FleetScalingConfigurationInputArgs'] scaling_configuration: The scaling configuration of the compute fleet.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tag key and value pairs associated with this compute fleet.
                
                These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
@@ -132,6 +135,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> Optional[pulumi.Input['FleetComputeConfigurationArgs']]:
+        """
+        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        """
         return pulumi.get(self, "compute_configuration")
 
     @compute_configuration.setter
@@ -202,6 +208,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="fleetProxyConfiguration")
     def fleet_proxy_configuration(self) -> Optional[pulumi.Input['FleetProxyConfigurationArgs']]:
+        """
+        Information about the proxy configurations that apply network access control to your reserved capacity instances.
+        """
         return pulumi.get(self, "fleet_proxy_configuration")
 
     @fleet_proxy_configuration.setter
@@ -276,6 +285,9 @@ class FleetArgs:
     @property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> Optional[pulumi.Input['FleetScalingConfigurationInputArgs']]:
+        """
+        The scaling configuration of the compute fleet.
+        """
         return pulumi.get(self, "scaling_configuration")
 
     @scaling_configuration.setter
@@ -321,6 +333,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
+        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
         :param pulumi.Input['FleetComputeType'] compute_type: Information about the compute resources the compute fleet uses. Available values include:
                
                - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
@@ -360,6 +373,7 @@ class Fleet(pulumi.CustomResource):
                - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
+        :param pulumi.Input[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict']] fleet_proxy_configuration: Information about the proxy configurations that apply network access control to your reserved capacity instances.
         :param pulumi.Input[str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
         :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
         :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
@@ -370,6 +384,7 @@ class Fleet(pulumi.CustomResource):
                - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
                
                > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
+        :param pulumi.Input[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict']] scaling_configuration: The scaling configuration of the compute fleet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tag key and value pairs associated with this compute fleet.
                
                These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
@@ -488,6 +503,9 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> pulumi.Output[Optional['outputs.FleetComputeConfiguration']]:
+        """
+        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        """
         return pulumi.get(self, "compute_configuration")
 
     @property
@@ -546,6 +564,9 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fleetProxyConfiguration")
     def fleet_proxy_configuration(self) -> pulumi.Output[Optional['outputs.FleetProxyConfiguration']]:
+        """
+        Information about the proxy configurations that apply network access control to your reserved capacity instances.
+        """
         return pulumi.get(self, "fleet_proxy_configuration")
 
     @property
@@ -596,6 +617,9 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> pulumi.Output[Optional['outputs.FleetScalingConfigurationInput']]:
+        """
+        The scaling configuration of the compute fleet.
+        """
         return pulumi.get(self, "scaling_configuration")
 
     @property

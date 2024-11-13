@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
 
     public sealed class FleetComputeConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The amount of disk space of the instance type included in your fleet.
+        /// </summary>
         [Input("disk")]
         public Input<int>? Disk { get; set; }
 
+        /// <summary>
+        /// The machine type of the instance type included in your fleet.
+        /// </summary>
         [Input("machineType")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetComputeConfigurationmachineType>? MachineType { get; set; }
 
+        /// <summary>
+        /// The amount of memory of the instance type included in your fleet.
+        /// </summary>
         [Input("memory")]
         public Input<int>? Memory { get; set; }
 
+        /// <summary>
+        /// The number of vCPUs of the instance type included in your fleet.
+        /// </summary>
         [Input("vCpu")]
         public Input<int>? VCpu { get; set; }
 

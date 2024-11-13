@@ -1097,7 +1097,8 @@ type ComputeEnvironmentLaunchTemplateSpecification struct {
 	// The ID of the launch template.
 	LaunchTemplateId *string `pulumi:"launchTemplateId"`
 	// The name of the launch template.
-	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	LaunchTemplateName *string                                                 `pulumi:"launchTemplateName"`
+	Overrides          []ComputeEnvironmentLaunchTemplateSpecificationOverride `pulumi:"overrides"`
 	// The version number of the launch template, `$Latest` , or `$Default` .
 	//
 	// If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
@@ -1123,7 +1124,8 @@ type ComputeEnvironmentLaunchTemplateSpecificationArgs struct {
 	// The ID of the launch template.
 	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	// The name of the launch template.
-	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	LaunchTemplateName pulumi.StringPtrInput                                           `pulumi:"launchTemplateName"`
+	Overrides          ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput `pulumi:"overrides"`
 	// The version number of the launch template, `$Latest` , or `$Default` .
 	//
 	// If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
@@ -1221,6 +1223,12 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) LaunchTemplateName(
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecification) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
+func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) Overrides() ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput {
+	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecification) []ComputeEnvironmentLaunchTemplateSpecificationOverride {
+		return v.Overrides
+	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
+}
+
 // The version number of the launch template, `$Latest` , or `$Default` .
 //
 // If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
@@ -1276,6 +1284,15 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) LaunchTemplateNa
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Overrides() ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentLaunchTemplateSpecification) []ComputeEnvironmentLaunchTemplateSpecificationOverride {
+		if v == nil {
+			return nil
+		}
+		return v.Overrides
+	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
+}
+
 // The version number of the launch template, `$Latest` , or `$Default` .
 //
 // If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
@@ -1290,6 +1307,118 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Version() pulumi
 		}
 		return v.Version
 	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationOverride struct {
+	LaunchTemplateId    *string  `pulumi:"launchTemplateId"`
+	LaunchTemplateName  *string  `pulumi:"launchTemplateName"`
+	TargetInstanceTypes []string `pulumi:"targetInstanceTypes"`
+	Version             *string  `pulumi:"version"`
+}
+
+// ComputeEnvironmentLaunchTemplateSpecificationOverrideInput is an input type that accepts ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs and ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentLaunchTemplateSpecificationOverrideInput` via:
+//
+//	ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs{...}
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentLaunchTemplateSpecificationOverrideOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput
+	ToComputeEnvironmentLaunchTemplateSpecificationOverrideOutputWithContext(context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs struct {
+	LaunchTemplateId    pulumi.StringPtrInput   `pulumi:"launchTemplateId"`
+	LaunchTemplateName  pulumi.StringPtrInput   `pulumi:"launchTemplateName"`
+	TargetInstanceTypes pulumi.StringArrayInput `pulumi:"targetInstanceTypes"`
+	Version             pulumi.StringPtrInput   `pulumi:"version"`
+}
+
+func (ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverride)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs) ToComputeEnvironmentLaunchTemplateSpecificationOverrideOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput {
+	return i.ToComputeEnvironmentLaunchTemplateSpecificationOverrideOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs) ToComputeEnvironmentLaunchTemplateSpecificationOverrideOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput)
+}
+
+// ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput is an input type that accepts ComputeEnvironmentLaunchTemplateSpecificationOverrideArray and ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput` via:
+//
+//	ComputeEnvironmentLaunchTemplateSpecificationOverrideArray{ ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs{...} }
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput
+	ToComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutputWithContext(context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideArray []ComputeEnvironmentLaunchTemplateSpecificationOverrideInput
+
+func (ComputeEnvironmentLaunchTemplateSpecificationOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeEnvironmentLaunchTemplateSpecificationOverride)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentLaunchTemplateSpecificationOverrideArray) ToComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput {
+	return i.ToComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentLaunchTemplateSpecificationOverrideArray) ToComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverride)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) TargetInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) []string { return v.TargetInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputeEnvironmentLaunchTemplateSpecificationOverride)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput() ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput) ToComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutputWithContext(ctx context.Context) ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput {
+	return o
+}
+
+func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput) Index(i pulumi.IntInput) ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputeEnvironmentLaunchTemplateSpecificationOverride {
+		return vs[0].([]ComputeEnvironmentLaunchTemplateSpecificationOverride)[vs[1].(int)]
+	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput)
 }
 
 type ComputeEnvironmentUpdatePolicy struct {
@@ -9217,6 +9346,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEksConfigurationPtrInput)(nil)).Elem(), ComputeEnvironmentEksConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationPtrInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentUpdatePolicyInput)(nil)).Elem(), ComputeEnvironmentUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentUpdatePolicyPtrInput)(nil)).Elem(), ComputeEnvironmentUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionAuthorizationConfigInput)(nil)).Elem(), JobDefinitionAuthorizationConfigArgs{})
@@ -9317,6 +9448,8 @@ func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentEksConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentUpdatePolicyOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionAuthorizationConfigOutput{})

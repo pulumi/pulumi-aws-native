@@ -15,21 +15,33 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:AiAgentVersion")]
     public partial class AiAgentVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AI agent.
+        /// </summary>
         [Output("aiAgentArn")]
         public Output<string> AiAgentArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the AI Agent.
+        /// </summary>
         [Output("aiAgentId")]
         public Output<string> AiAgentId { get; private set; } = null!;
 
         [Output("aiAgentVersionId")]
         public Output<string> AiAgentVersionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        /// </summary>
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
 
         [Output("assistantId")]
         public Output<string> AssistantId { get; private set; } = null!;
 
+        /// <summary>
+        /// The time the AI Agent version was last modified in seconds.
+        /// </summary>
         [Output("modifiedTimeSeconds")]
         public Output<double?> ModifiedTimeSeconds { get; private set; } = null!;
 
@@ -90,12 +102,18 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class AiAgentVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the AI Agent.
+        /// </summary>
         [Input("aiAgentId", required: true)]
         public Input<string> AiAgentId { get; set; } = null!;
 
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
+        /// <summary>
+        /// The time the AI Agent version was last modified in seconds.
+        /// </summary>
         [Input("modifiedTimeSeconds")]
         public Input<double>? ModifiedTimeSeconds { get; set; }
 

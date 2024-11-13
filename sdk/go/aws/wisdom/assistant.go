@@ -19,13 +19,17 @@ type Assistant struct {
 
 	// The Amazon Resource Name (ARN) of the assistant.
 	AssistantArn pulumi.StringOutput `pulumi:"assistantArn"`
-	// The ID of the Wisdom assistant.
+	// The identifier of the Amazon Q in Connect assistant.
 	AssistantId pulumi.StringOutput `pulumi:"assistantId"`
-	// The description of the assistant.
+	// The description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the assistant.
+	// The name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+	// The configuration information for the customer managed key used for encryption.
+	//
+	// This KMS key must have a policy that allows `kms:CreateGrant` , `kms:DescribeKey` , `kms:Decrypt` , and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+	//
+	// For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html) .
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
@@ -84,11 +88,15 @@ func (AssistantState) ElementType() reflect.Type {
 }
 
 type assistantArgs struct {
-	// The description of the assistant.
+	// The description.
 	Description *string `pulumi:"description"`
-	// The name of the assistant.
+	// The name.
 	Name *string `pulumi:"name"`
-	// The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+	// The configuration information for the customer managed key used for encryption.
+	//
+	// This KMS key must have a policy that allows `kms:CreateGrant` , `kms:DescribeKey` , `kms:Decrypt` , and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+	//
+	// For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html) .
 	ServerSideEncryptionConfiguration *AssistantServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -98,11 +106,15 @@ type assistantArgs struct {
 
 // The set of arguments for constructing a Assistant resource.
 type AssistantArgs struct {
-	// The description of the assistant.
+	// The description.
 	Description pulumi.StringPtrInput
-	// The name of the assistant.
+	// The name.
 	Name pulumi.StringPtrInput
-	// The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+	// The configuration information for the customer managed key used for encryption.
+	//
+	// This KMS key must have a policy that allows `kms:CreateGrant` , `kms:DescribeKey` , `kms:Decrypt` , and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+	//
+	// For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html) .
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrInput
 	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayInput
@@ -152,22 +164,26 @@ func (o AssistantOutput) AssistantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
 }
 
-// The ID of the Wisdom assistant.
+// The identifier of the Amazon Q in Connect assistant.
 func (o AssistantOutput) AssistantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.AssistantId }).(pulumi.StringOutput)
 }
 
-// The description of the assistant.
+// The description.
 func (o AssistantOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the assistant.
+// The name.
 func (o AssistantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+// The configuration information for the customer managed key used for encryption.
+//
+// This KMS key must have a policy that allows `kms:CreateGrant` , `kms:DescribeKey` , `kms:Decrypt` , and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+//
+// For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html) .
 func (o AssistantOutput) ServerSideEncryptionConfiguration() AssistantServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Assistant) AssistantServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration

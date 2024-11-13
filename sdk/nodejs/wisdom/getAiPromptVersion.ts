@@ -17,7 +17,13 @@ export function getAiPromptVersion(args: GetAiPromptVersionArgs, opts?: pulumi.I
 }
 
 export interface GetAiPromptVersionArgs {
+    /**
+     * The identifier of the Amazon Q in Connect AI prompt.
+     */
     aiPromptId: string;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: string;
     /**
      * The version number for this AI Prompt version.
@@ -28,6 +34,9 @@ export interface GetAiPromptVersionArgs {
 export interface GetAiPromptVersionResult {
     readonly aiPromptArn?: string;
     readonly aiPromptVersionId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+     */
     readonly assistantArn?: string;
     /**
      * The version number for this AI Prompt version.
@@ -47,7 +56,13 @@ export function getAiPromptVersionOutput(args: GetAiPromptVersionOutputArgs, opt
 }
 
 export interface GetAiPromptVersionOutputArgs {
+    /**
+     * The identifier of the Amazon Q in Connect AI prompt.
+     */
     aiPromptId: pulumi.Input<string>;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: pulumi.Input<string>;
     /**
      * The version number for this AI Prompt version.

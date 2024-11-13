@@ -24,6 +24,14 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("launchTemplateName")]
         public Input<string>? LaunchTemplateName { get; set; }
 
+        [Input("overrides")]
+        private InputList<Inputs.ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs>? _overrides;
+        public InputList<Inputs.ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs> Overrides
+        {
+            get => _overrides ?? (_overrides = new InputList<Inputs.ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs>());
+            set => _overrides = value;
+        }
+
         /// <summary>
         /// The version number of the launch template, `$Latest` , or `$Default` .
         /// 

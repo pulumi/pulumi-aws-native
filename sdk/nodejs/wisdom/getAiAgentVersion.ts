@@ -17,6 +17,9 @@ export function getAiAgentVersion(args: GetAiAgentVersionArgs, opts?: pulumi.Inv
 }
 
 export interface GetAiAgentVersionArgs {
+    /**
+     * The identifier of the AI Agent.
+     */
     aiAgentId: string;
     assistantId: string;
     /**
@@ -26,8 +29,14 @@ export interface GetAiAgentVersionArgs {
 }
 
 export interface GetAiAgentVersionResult {
+    /**
+     * The Amazon Resource Name (ARN) of the AI agent.
+     */
     readonly aiAgentArn?: string;
     readonly aiAgentVersionId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+     */
     readonly assistantArn?: string;
     /**
      * The version number for this AI Agent version.
@@ -47,6 +56,9 @@ export function getAiAgentVersionOutput(args: GetAiAgentVersionOutputArgs, opts?
 }
 
 export interface GetAiAgentVersionOutputArgs {
+    /**
+     * The identifier of the AI Agent.
+     */
     aiAgentId: pulumi.Input<string>;
     assistantId: pulumi.Input<string>;
     /**

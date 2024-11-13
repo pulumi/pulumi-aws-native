@@ -1861,6 +1861,7 @@ const (
 	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemIntel             = Ec2FleetInstanceRequirementsRequestCpuManufacturersItem("intel")
 	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemAmd               = Ec2FleetInstanceRequirementsRequestCpuManufacturersItem("amd")
 	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemAmazonWebServices = Ec2FleetInstanceRequirementsRequestCpuManufacturersItem("amazon-web-services")
+	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemApple             = Ec2FleetInstanceRequirementsRequestCpuManufacturersItem("apple")
 )
 
 func (Ec2FleetInstanceRequirementsRequestCpuManufacturersItem) ElementType() reflect.Type {
@@ -1988,6 +1989,7 @@ func (o Ec2FleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStri
 //	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemIntel
 //	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemAmd
 //	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemAmazonWebServices
+//	Ec2FleetInstanceRequirementsRequestCpuManufacturersItemApple
 type Ec2FleetInstanceRequirementsRequestCpuManufacturersItemInput interface {
 	pulumi.Input
 

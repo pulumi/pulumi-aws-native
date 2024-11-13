@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         /// Intended file format of the result.
         /// </summary>
         public readonly Pulumi.AwsNative.CleanRooms.MembershipResultFormat ResultFormat;
+        /// <summary>
+        /// Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+        /// </summary>
+        public readonly bool? SingleFileOutput;
 
         [OutputConstructor]
         private MembershipProtectedQueryS3OutputConfiguration(
@@ -32,11 +36,14 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
             string? keyPrefix,
 
-            Pulumi.AwsNative.CleanRooms.MembershipResultFormat resultFormat)
+            Pulumi.AwsNative.CleanRooms.MembershipResultFormat resultFormat,
+
+            bool? singleFileOutput)
         {
             Bucket = bucket;
             KeyPrefix = keyPrefix;
             ResultFormat = resultFormat;
+            SingleFileOutput = singleFileOutput;
         }
     }
 }

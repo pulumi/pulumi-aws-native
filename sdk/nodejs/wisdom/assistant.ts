@@ -42,19 +42,23 @@ export class Assistant extends pulumi.CustomResource {
      */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
     /**
-     * The ID of the Wisdom assistant.
+     * The identifier of the Amazon Q in Connect assistant.
      */
     public /*out*/ readonly assistantId!: pulumi.Output<string>;
     /**
-     * The description of the assistant.
+     * The description.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The name of the assistant.
+     * The name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+     * The configuration information for the customer managed key used for encryption.
+     *
+     * This KMS key must have a policy that allows `kms:CreateGrant` , `kms:DescribeKey` , `kms:Decrypt` , and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+     *
+     * For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html) .
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.wisdom.AssistantServerSideEncryptionConfiguration | undefined>;
     /**
@@ -108,15 +112,19 @@ export class Assistant extends pulumi.CustomResource {
  */
 export interface AssistantArgs {
     /**
-     * The description of the assistant.
+     * The description.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the assistant.
+     * The name.
      */
     name?: pulumi.Input<string>;
     /**
-     * The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
+     * The configuration information for the customer managed key used for encryption.
+     *
+     * This KMS key must have a policy that allows `kms:CreateGrant` , `kms:DescribeKey` , `kms:Decrypt` , and `kms:GenerateDataKey*` permissions to the IAM identity using the key to invoke Amazon Q in Connect. To use Amazon Q in Connect with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal.
+     *
+     * For more information about setting up a customer managed key for Amazon Q in Connect, see [Enable Amazon Q in Connect for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html) .
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.wisdom.AssistantServerSideEncryptionConfigurationArgs>;
     /**

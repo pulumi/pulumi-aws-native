@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
 
     public sealed class FleetTargetTrackingScalingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The metric type to determine auto-scaling.
+        /// </summary>
         [Input("metricType")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetTargetTrackingScalingConfigurationMetricType>? MetricType { get; set; }
 
+        /// <summary>
+        /// The value of `metricType` when to start scaling.
+        /// </summary>
         [Input("targetValue")]
         public Input<double>? TargetValue { get; set; }
 

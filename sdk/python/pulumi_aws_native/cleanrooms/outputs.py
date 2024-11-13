@@ -1475,6 +1475,8 @@ class MembershipProtectedQueryS3OutputConfiguration(dict):
             suggest = "result_format"
         elif key == "keyPrefix":
             suggest = "key_prefix"
+        elif key == "singleFileOutput":
+            suggest = "single_file_output"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MembershipProtectedQueryS3OutputConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1490,16 +1492,20 @@ class MembershipProtectedQueryS3OutputConfiguration(dict):
     def __init__(__self__, *,
                  bucket: str,
                  result_format: 'MembershipResultFormat',
-                 key_prefix: Optional[str] = None):
+                 key_prefix: Optional[str] = None,
+                 single_file_output: Optional[bool] = None):
         """
         :param str bucket: The S3 bucket to unload the protected query results.
         :param 'MembershipResultFormat' result_format: Intended file format of the result.
         :param str key_prefix: The S3 prefix to unload the protected query results.
+        :param bool single_file_output: Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "result_format", result_format)
         if key_prefix is not None:
             pulumi.set(__self__, "key_prefix", key_prefix)
+        if single_file_output is not None:
+            pulumi.set(__self__, "single_file_output", single_file_output)
 
     @property
     @pulumi.getter
@@ -1524,6 +1530,14 @@ class MembershipProtectedQueryS3OutputConfiguration(dict):
         The S3 prefix to unload the protected query results.
         """
         return pulumi.get(self, "key_prefix")
+
+    @property
+    @pulumi.getter(name="singleFileOutput")
+    def single_file_output(self) -> Optional[bool]:
+        """
+        Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+        """
+        return pulumi.get(self, "single_file_output")
 
 
 @pulumi.output_type

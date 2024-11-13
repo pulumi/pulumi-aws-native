@@ -86,6 +86,9 @@ class GetFleetResult:
     @property
     @pulumi.getter(name="computeConfiguration")
     def compute_configuration(self) -> Optional['outputs.FleetComputeConfiguration']:
+        """
+        The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        """
         return pulumi.get(self, "compute_configuration")
 
     @property
@@ -144,6 +147,9 @@ class GetFleetResult:
     @property
     @pulumi.getter(name="fleetProxyConfiguration")
     def fleet_proxy_configuration(self) -> Optional['outputs.FleetProxyConfiguration']:
+        """
+        Information about the proxy configurations that apply network access control to your reserved capacity instances.
+        """
         return pulumi.get(self, "fleet_proxy_configuration")
 
     @property
@@ -194,6 +200,9 @@ class GetFleetResult:
     @property
     @pulumi.getter(name="scalingConfiguration")
     def scaling_configuration(self) -> Optional['outputs.FleetScalingConfigurationInput']:
+        """
+        The scaling configuration of the compute fleet.
+        """
         return pulumi.get(self, "scaling_configuration")
 
     @property

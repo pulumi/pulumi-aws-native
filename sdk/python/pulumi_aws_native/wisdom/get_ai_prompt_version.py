@@ -50,6 +50,9 @@ class GetAiPromptVersionResult:
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
@@ -81,6 +84,8 @@ def get_ai_prompt_version(ai_prompt_id: Optional[str] = None,
     Definition of AWS::Wisdom::AIPromptVersion Resource Type
 
 
+    :param str ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
+    :param str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
     :param float version_number: The version number for this AI Prompt version.
     """
     __args__ = dict()
@@ -103,6 +108,8 @@ def get_ai_prompt_version_output(ai_prompt_id: Optional[pulumi.Input[str]] = Non
     Definition of AWS::Wisdom::AIPromptVersion Resource Type
 
 
+    :param str ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
+    :param str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
     :param float version_number: The version number for this AI Prompt version.
     """
     __args__ = dict()

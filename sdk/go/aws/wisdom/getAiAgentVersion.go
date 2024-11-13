@@ -23,6 +23,7 @@ func LookupAiAgentVersion(ctx *pulumi.Context, args *LookupAiAgentVersionArgs, o
 }
 
 type LookupAiAgentVersionArgs struct {
+	// The identifier of the AI Agent.
 	AiAgentId   string `pulumi:"aiAgentId"`
 	AssistantId string `pulumi:"assistantId"`
 	// The version number for this AI Agent version.
@@ -30,9 +31,11 @@ type LookupAiAgentVersionArgs struct {
 }
 
 type LookupAiAgentVersionResult struct {
+	// The Amazon Resource Name (ARN) of the AI agent.
 	AiAgentArn       *string `pulumi:"aiAgentArn"`
 	AiAgentVersionId *string `pulumi:"aiAgentVersionId"`
-	AssistantArn     *string `pulumi:"assistantArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+	AssistantArn *string `pulumi:"assistantArn"`
 	// The version number for this AI Agent version.
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
@@ -57,6 +60,7 @@ func LookupAiAgentVersionOutput(ctx *pulumi.Context, args LookupAiAgentVersionOu
 }
 
 type LookupAiAgentVersionOutputArgs struct {
+	// The identifier of the AI Agent.
 	AiAgentId   pulumi.StringInput `pulumi:"aiAgentId"`
 	AssistantId pulumi.StringInput `pulumi:"assistantId"`
 	// The version number for this AI Agent version.
@@ -81,6 +85,7 @@ func (o LookupAiAgentVersionResultOutput) ToLookupAiAgentVersionResultOutputWith
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AI agent.
 func (o LookupAiAgentVersionResultOutput) AiAgentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentVersionResult) *string { return v.AiAgentArn }).(pulumi.StringPtrOutput)
 }
@@ -89,6 +94,7 @@ func (o LookupAiAgentVersionResultOutput) AiAgentVersionId() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupAiAgentVersionResult) *string { return v.AiAgentVersionId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o LookupAiAgentVersionResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentVersionResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }

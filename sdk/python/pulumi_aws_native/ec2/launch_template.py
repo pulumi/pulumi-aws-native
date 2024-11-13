@@ -31,7 +31,7 @@ class LaunchTemplateArgs:
         :param pulumi.Input['LaunchTemplateDataArgs'] launch_template_data: The information for the launch template.
         :param pulumi.Input[str] launch_template_name: A name for the launch template.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]] tag_specifications: The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
-                To specify the tags for resources that are created during instance launch, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
+                To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
         :param pulumi.Input[str] version_description: A description for the first version of the launch template.
         """
         pulumi.set(__self__, "launch_template_data", launch_template_data)
@@ -71,7 +71,7 @@ class LaunchTemplateArgs:
     def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateTagSpecificationArgs']]]]:
         """
         The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
-         To specify the tags for resources that are created during instance launch, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
+         To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
         """
         return pulumi.get(self, "tag_specifications")
 
@@ -116,7 +116,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[Union['LaunchTemplateDataArgs', 'LaunchTemplateDataArgsDict']] launch_template_data: The information for the launch template.
         :param pulumi.Input[str] launch_template_name: A name for the launch template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateTagSpecificationArgs', 'LaunchTemplateTagSpecificationArgsDict']]]] tag_specifications: The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
-                To specify the tags for resources that are created during instance launch, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
+                To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
         :param pulumi.Input[str] version_description: A description for the first version of the launch template.
         """
         ...
@@ -251,7 +251,7 @@ class LaunchTemplate(pulumi.CustomResource):
     def tag_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchTemplateTagSpecification']]]:
         """
         The tags to apply to the launch template on creation. To tag the launch template, the resource type must be ``launch-template``.
-         To specify the tags for resources that are created during instance launch, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
+         To specify the tags for the resources that are created when an instance is launched, you must use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications).
         """
         return pulumi.get(self, "tag_specifications")
 

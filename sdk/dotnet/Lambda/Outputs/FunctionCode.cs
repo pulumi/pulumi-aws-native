@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// For versioned objects, the version of the deployment package object to use.
         /// </summary>
         public readonly string? S3ObjectVersion;
+        /// <summary>
+        /// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [AWS owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) .
+        /// </summary>
         public readonly string? SourceKmsKeyArn;
         /// <summary>
         /// (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.

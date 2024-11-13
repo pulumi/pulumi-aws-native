@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
     [OutputType]
     public sealed class FleetScalingConfigurationInput
     {
+        /// <summary>
+        /// The maximum number of instances in the ﬂeet when auto-scaling.
+        /// </summary>
         public readonly int? MaxCapacity;
+        /// <summary>
+        /// The scaling type for a compute fleet.
+        /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetScalingConfigurationInputScalingType? ScalingType;
+        /// <summary>
+        /// A list of `TargetTrackingScalingConfiguration` objects.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FleetTargetTrackingScalingConfiguration> TargetTrackingScalingConfigs;
 
         [OutputConstructor]

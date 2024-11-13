@@ -24,6 +24,9 @@ class AiPromptVersionArgs:
                  modified_time_seconds: Optional[pulumi.Input[float]] = None):
         """
         The set of arguments for constructing a AiPromptVersion resource.
+        :param pulumi.Input[str] ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
+        :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        :param pulumi.Input[float] modified_time_seconds: The time the AI Prompt version was last modified in seconds.
         """
         pulumi.set(__self__, "ai_prompt_id", ai_prompt_id)
         pulumi.set(__self__, "assistant_id", assistant_id)
@@ -33,6 +36,9 @@ class AiPromptVersionArgs:
     @property
     @pulumi.getter(name="aiPromptId")
     def ai_prompt_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Q in Connect AI prompt.
+        """
         return pulumi.get(self, "ai_prompt_id")
 
     @ai_prompt_id.setter
@@ -42,6 +48,9 @@ class AiPromptVersionArgs:
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        """
         return pulumi.get(self, "assistant_id")
 
     @assistant_id.setter
@@ -51,6 +60,9 @@ class AiPromptVersionArgs:
     @property
     @pulumi.getter(name="modifiedTimeSeconds")
     def modified_time_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The time the AI Prompt version was last modified in seconds.
+        """
         return pulumi.get(self, "modified_time_seconds")
 
     @modified_time_seconds.setter
@@ -72,6 +84,9 @@ class AiPromptVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ai_prompt_id: The identifier of the Amazon Q in Connect AI prompt.
+        :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        :param pulumi.Input[float] modified_time_seconds: The time the AI Prompt version was last modified in seconds.
         """
         ...
     @overload
@@ -161,6 +176,9 @@ class AiPromptVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aiPromptId")
     def ai_prompt_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q in Connect AI prompt.
+        """
         return pulumi.get(self, "ai_prompt_id")
 
     @property
@@ -171,16 +189,25 @@ class AiPromptVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        """
         return pulumi.get(self, "assistant_id")
 
     @property
     @pulumi.getter(name="modifiedTimeSeconds")
     def modified_time_seconds(self) -> pulumi.Output[Optional[float]]:
+        """
+        The time the AI Prompt version was last modified in seconds.
+        """
         return pulumi.get(self, "modified_time_seconds")
 
     @property

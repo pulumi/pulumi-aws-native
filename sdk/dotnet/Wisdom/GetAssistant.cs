@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Wisdom
     public sealed class GetAssistantArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Wisdom assistant.
+        /// The identifier of the Amazon Q in Connect assistant.
         /// </summary>
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Wisdom
     public sealed class GetAssistantInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID of the Wisdom assistant.
+        /// The identifier of the Amazon Q in Connect assistant.
         /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         public readonly string? AssistantArn;
         /// <summary>
-        /// The ID of the Wisdom assistant.
+        /// The identifier of the Amazon Q in Connect assistant.
         /// </summary>
         public readonly string? AssistantId;
 

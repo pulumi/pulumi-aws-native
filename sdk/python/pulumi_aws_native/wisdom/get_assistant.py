@@ -43,7 +43,7 @@ class GetAssistantResult:
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> Optional[str]:
         """
-        The ID of the Wisdom assistant.
+        The identifier of the Amazon Q in Connect assistant.
         """
         return pulumi.get(self, "assistant_id")
 
@@ -64,7 +64,7 @@ def get_assistant(assistant_id: Optional[str] = None,
     Definition of AWS::Wisdom::Assistant Resource Type
 
 
-    :param str assistant_id: The ID of the Wisdom assistant.
+    :param str assistant_id: The identifier of the Amazon Q in Connect assistant.
     """
     __args__ = dict()
     __args__['assistantId'] = assistant_id
@@ -80,7 +80,7 @@ def get_assistant_output(assistant_id: Optional[pulumi.Input[str]] = None,
     Definition of AWS::Wisdom::Assistant Resource Type
 
 
-    :param str assistant_id: The ID of the Wisdom assistant.
+    :param str assistant_id: The identifier of the Amazon Q in Connect assistant.
     """
     __args__ = dict()
     __args__['assistantId'] = assistant_id

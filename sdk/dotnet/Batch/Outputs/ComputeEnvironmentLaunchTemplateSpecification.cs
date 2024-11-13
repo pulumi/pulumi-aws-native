@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// The name of the launch template.
         /// </summary>
         public readonly string? LaunchTemplateName;
+        public readonly ImmutableArray<Outputs.ComputeEnvironmentLaunchTemplateSpecificationOverride> Overrides;
         /// <summary>
         /// The version number of the launch template, `$Latest` , or `$Default` .
         /// 
@@ -38,10 +39,13 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             string? launchTemplateName,
 
+            ImmutableArray<Outputs.ComputeEnvironmentLaunchTemplateSpecificationOverride> overrides,
+
             string? version)
         {
             LaunchTemplateId = launchTemplateId;
             LaunchTemplateName = launchTemplateName;
+            Overrides = overrides;
             Version = version;
         }
     }

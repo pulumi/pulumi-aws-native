@@ -51,6 +51,12 @@ class FleetComputeConfiguration(dict):
                  machine_type: Optional['FleetComputeConfigurationmachineType'] = None,
                  memory: Optional[int] = None,
                  v_cpu: Optional[int] = None):
+        """
+        :param int disk: The amount of disk space of the instance type included in your fleet.
+        :param 'FleetComputeConfigurationmachineType' machine_type: The machine type of the instance type included in your fleet.
+        :param int memory: The amount of memory of the instance type included in your fleet.
+        :param int v_cpu: The number of vCPUs of the instance type included in your fleet.
+        """
         if disk is not None:
             pulumi.set(__self__, "disk", disk)
         if machine_type is not None:
@@ -63,21 +69,33 @@ class FleetComputeConfiguration(dict):
     @property
     @pulumi.getter
     def disk(self) -> Optional[int]:
+        """
+        The amount of disk space of the instance type included in your fleet.
+        """
         return pulumi.get(self, "disk")
 
     @property
     @pulumi.getter(name="machineType")
     def machine_type(self) -> Optional['FleetComputeConfigurationmachineType']:
+        """
+        The machine type of the instance type included in your fleet.
+        """
         return pulumi.get(self, "machine_type")
 
     @property
     @pulumi.getter
     def memory(self) -> Optional[int]:
+        """
+        The amount of memory of the instance type included in your fleet.
+        """
         return pulumi.get(self, "memory")
 
     @property
     @pulumi.getter(name="vCpu")
     def v_cpu(self) -> Optional[int]:
+        """
+        The number of vCPUs of the instance type included in your fleet.
+        """
         return pulumi.get(self, "v_cpu")
 
 
@@ -105,6 +123,10 @@ class FleetProxyConfiguration(dict):
     def __init__(__self__, *,
                  default_behavior: Optional['FleetProxyConfigurationDefaultBehavior'] = None,
                  ordered_proxy_rules: Optional[Sequence['outputs.FleetProxyRule']] = None):
+        """
+        :param 'FleetProxyConfigurationDefaultBehavior' default_behavior: The default behavior of outgoing traffic.
+        :param Sequence['FleetProxyRule'] ordered_proxy_rules: An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
+        """
         if default_behavior is not None:
             pulumi.set(__self__, "default_behavior", default_behavior)
         if ordered_proxy_rules is not None:
@@ -113,11 +135,17 @@ class FleetProxyConfiguration(dict):
     @property
     @pulumi.getter(name="defaultBehavior")
     def default_behavior(self) -> Optional['FleetProxyConfigurationDefaultBehavior']:
+        """
+        The default behavior of outgoing traffic.
+        """
         return pulumi.get(self, "default_behavior")
 
     @property
     @pulumi.getter(name="orderedProxyRules")
     def ordered_proxy_rules(self) -> Optional[Sequence['outputs.FleetProxyRule']]:
+        """
+        An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
+        """
         return pulumi.get(self, "ordered_proxy_rules")
 
 
@@ -127,6 +155,11 @@ class FleetProxyRule(dict):
                  effect: Optional['FleetProxyRuleEffect'] = None,
                  entities: Optional[Sequence[str]] = None,
                  type: Optional['FleetProxyRuleType'] = None):
+        """
+        :param 'FleetProxyRuleEffect' effect: The behavior of the proxy rule.
+        :param Sequence[str] entities: The destination of the proxy rule.
+        :param 'FleetProxyRuleType' type: The type of proxy rule.
+        """
         if effect is not None:
             pulumi.set(__self__, "effect", effect)
         if entities is not None:
@@ -137,16 +170,25 @@ class FleetProxyRule(dict):
     @property
     @pulumi.getter
     def effect(self) -> Optional['FleetProxyRuleEffect']:
+        """
+        The behavior of the proxy rule.
+        """
         return pulumi.get(self, "effect")
 
     @property
     @pulumi.getter
     def entities(self) -> Optional[Sequence[str]]:
+        """
+        The destination of the proxy rule.
+        """
         return pulumi.get(self, "entities")
 
     @property
     @pulumi.getter
     def type(self) -> Optional['FleetProxyRuleType']:
+        """
+        The type of proxy rule.
+        """
         return pulumi.get(self, "type")
 
 
@@ -177,6 +219,11 @@ class FleetScalingConfigurationInput(dict):
                  max_capacity: Optional[int] = None,
                  scaling_type: Optional['FleetScalingConfigurationInputScalingType'] = None,
                  target_tracking_scaling_configs: Optional[Sequence['outputs.FleetTargetTrackingScalingConfiguration']] = None):
+        """
+        :param int max_capacity: The maximum number of instances in the ﬂeet when auto-scaling.
+        :param 'FleetScalingConfigurationInputScalingType' scaling_type: The scaling type for a compute fleet.
+        :param Sequence['FleetTargetTrackingScalingConfiguration'] target_tracking_scaling_configs: A list of `TargetTrackingScalingConfiguration` objects.
+        """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
         if scaling_type is not None:
@@ -187,16 +234,25 @@ class FleetScalingConfigurationInput(dict):
     @property
     @pulumi.getter(name="maxCapacity")
     def max_capacity(self) -> Optional[int]:
+        """
+        The maximum number of instances in the ﬂeet when auto-scaling.
+        """
         return pulumi.get(self, "max_capacity")
 
     @property
     @pulumi.getter(name="scalingType")
     def scaling_type(self) -> Optional['FleetScalingConfigurationInputScalingType']:
+        """
+        The scaling type for a compute fleet.
+        """
         return pulumi.get(self, "scaling_type")
 
     @property
     @pulumi.getter(name="targetTrackingScalingConfigs")
     def target_tracking_scaling_configs(self) -> Optional[Sequence['outputs.FleetTargetTrackingScalingConfiguration']]:
+        """
+        A list of `TargetTrackingScalingConfiguration` objects.
+        """
         return pulumi.get(self, "target_tracking_scaling_configs")
 
 
@@ -224,6 +280,10 @@ class FleetTargetTrackingScalingConfiguration(dict):
     def __init__(__self__, *,
                  metric_type: Optional['FleetTargetTrackingScalingConfigurationMetricType'] = None,
                  target_value: Optional[float] = None):
+        """
+        :param 'FleetTargetTrackingScalingConfigurationMetricType' metric_type: The metric type to determine auto-scaling.
+        :param float target_value: The value of `metricType` when to start scaling.
+        """
         if metric_type is not None:
             pulumi.set(__self__, "metric_type", metric_type)
         if target_value is not None:
@@ -232,11 +292,17 @@ class FleetTargetTrackingScalingConfiguration(dict):
     @property
     @pulumi.getter(name="metricType")
     def metric_type(self) -> Optional['FleetTargetTrackingScalingConfigurationMetricType']:
+        """
+        The metric type to determine auto-scaling.
+        """
         return pulumi.get(self, "metric_type")
 
     @property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> Optional[float]:
+        """
+        The value of `metricType` when to start scaling.
+        """
         return pulumi.get(self, "target_value")
 
 

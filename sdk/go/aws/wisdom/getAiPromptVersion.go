@@ -23,7 +23,9 @@ func LookupAiPromptVersion(ctx *pulumi.Context, args *LookupAiPromptVersionArgs,
 }
 
 type LookupAiPromptVersionArgs struct {
-	AiPromptId  string `pulumi:"aiPromptId"`
+	// The identifier of the Amazon Q in Connect AI prompt.
+	AiPromptId string `pulumi:"aiPromptId"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId string `pulumi:"assistantId"`
 	// The version number for this AI Prompt version.
 	VersionNumber float64 `pulumi:"versionNumber"`
@@ -32,7 +34,8 @@ type LookupAiPromptVersionArgs struct {
 type LookupAiPromptVersionResult struct {
 	AiPromptArn       *string `pulumi:"aiPromptArn"`
 	AiPromptVersionId *string `pulumi:"aiPromptVersionId"`
-	AssistantArn      *string `pulumi:"assistantArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+	AssistantArn *string `pulumi:"assistantArn"`
 	// The version number for this AI Prompt version.
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
@@ -57,7 +60,9 @@ func LookupAiPromptVersionOutput(ctx *pulumi.Context, args LookupAiPromptVersion
 }
 
 type LookupAiPromptVersionOutputArgs struct {
-	AiPromptId  pulumi.StringInput `pulumi:"aiPromptId"`
+	// The identifier of the Amazon Q in Connect AI prompt.
+	AiPromptId pulumi.StringInput `pulumi:"aiPromptId"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId pulumi.StringInput `pulumi:"assistantId"`
 	// The version number for this AI Prompt version.
 	VersionNumber pulumi.Float64Input `pulumi:"versionNumber"`
@@ -89,6 +94,7 @@ func (o LookupAiPromptVersionResultOutput) AiPromptVersionId() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupAiPromptVersionResult) *string { return v.AiPromptVersionId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o LookupAiPromptVersionResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiPromptVersionResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }

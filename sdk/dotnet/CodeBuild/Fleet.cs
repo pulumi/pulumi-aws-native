@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("baseCapacity")]
         public Output<int?> BaseCapacity { get; private set; } = null!;
 
+        /// <summary>
+        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        /// </summary>
         [Output("computeConfiguration")]
         public Output<Outputs.FleetComputeConfiguration?> ComputeConfiguration { get; private set; } = null!;
 
@@ -79,6 +82,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("environmentType")]
         public Output<Pulumi.AwsNative.CodeBuild.FleetEnvironmentType?> EnvironmentType { get; private set; } = null!;
 
+        /// <summary>
+        /// Information about the proxy configurations that apply network access control to your reserved capacity instances.
+        /// </summary>
         [Output("fleetProxyConfiguration")]
         public Output<Outputs.FleetProxyConfiguration?> FleetProxyConfiguration { get; private set; } = null!;
 
@@ -117,6 +123,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Output("overflowBehavior")]
         public Output<Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior?> OverflowBehavior { get; private set; } = null!;
 
+        /// <summary>
+        /// The scaling configuration of the compute fleet.
+        /// </summary>
         [Output("scalingConfiguration")]
         public Output<Outputs.FleetScalingConfigurationInput?> ScalingConfiguration { get; private set; } = null!;
 
@@ -179,6 +188,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("baseCapacity")]
         public Input<int>? BaseCapacity { get; set; }
 
+        /// <summary>
+        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        /// </summary>
         [Input("computeConfiguration")]
         public Input<Inputs.FleetComputeConfigurationArgs>? ComputeConfiguration { get; set; }
 
@@ -231,6 +243,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("environmentType")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetEnvironmentType>? EnvironmentType { get; set; }
 
+        /// <summary>
+        /// Information about the proxy configurations that apply network access control to your reserved capacity instances.
+        /// </summary>
         [Input("fleetProxyConfiguration")]
         public Input<Inputs.FleetProxyConfigurationArgs>? FleetProxyConfiguration { get; set; }
 
@@ -269,6 +284,9 @@ namespace Pulumi.AwsNative.CodeBuild
         [Input("overflowBehavior")]
         public Input<Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior>? OverflowBehavior { get; set; }
 
+        /// <summary>
+        /// The scaling configuration of the compute fleet.
+        /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.FleetScalingConfigurationInputArgs>? ScalingConfiguration { get; set; }
 

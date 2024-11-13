@@ -18,6 +18,9 @@ __all__ = [
 
 
 class FleetComputeConfigurationmachineType(str, Enum):
+    """
+    The machine type of the instance type included in your fleet.
+    """
     GENERAL = "GENERAL"
     NVME = "NVME"
 
@@ -97,23 +100,38 @@ class FleetOverflowBehavior(str, Enum):
 
 
 class FleetProxyConfigurationDefaultBehavior(str, Enum):
+    """
+    The default behavior of outgoing traffic.
+    """
     ALLOW_ALL = "ALLOW_ALL"
     DENY_ALL = "DENY_ALL"
 
 
 class FleetProxyRuleEffect(str, Enum):
+    """
+    The behavior of the proxy rule.
+    """
     ALLOW = "ALLOW"
     DENY = "DENY"
 
 
 class FleetProxyRuleType(str, Enum):
+    """
+    The type of proxy rule.
+    """
     DOMAIN = "DOMAIN"
     IP = "IP"
 
 
 class FleetScalingConfigurationInputScalingType(str, Enum):
+    """
+    The scaling type for a compute fleet.
+    """
     TARGET_TRACKING_SCALING = "TARGET_TRACKING_SCALING"
 
 
 class FleetTargetTrackingScalingConfigurationMetricType(str, Enum):
+    """
+    The metric type to determine auto-scaling.
+    """
     FLEET_UTILIZATION_RATE = "FLEET_UTILIZATION_RATE"

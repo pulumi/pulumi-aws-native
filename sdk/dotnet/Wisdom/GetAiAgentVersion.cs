@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiAgentVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the AI Agent.
+        /// </summary>
         [Input("aiAgentId", required: true)]
         public string AiAgentId { get; set; } = null!;
 
@@ -47,6 +50,9 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiAgentVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the AI Agent.
+        /// </summary>
         [Input("aiAgentId", required: true)]
         public Input<string> AiAgentId { get; set; } = null!;
 
@@ -69,8 +75,14 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetAiAgentVersionResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AI agent.
+        /// </summary>
         public readonly string? AiAgentArn;
         public readonly string? AiAgentVersionId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        /// </summary>
         public readonly string? AssistantArn;
         /// <summary>
         /// The version number for this AI Agent version.

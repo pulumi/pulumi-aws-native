@@ -35,10 +35,22 @@ export class AiPromptVersion extends pulumi.CustomResource {
     }
 
     public /*out*/ readonly aiPromptArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon Q in Connect AI prompt.
+     */
     public readonly aiPromptId!: pulumi.Output<string>;
     public /*out*/ readonly aiPromptVersionId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     public readonly assistantId!: pulumi.Output<string>;
+    /**
+     * The time the AI Prompt version was last modified in seconds.
+     */
     public readonly modifiedTimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * The version number for this AI Prompt version.
@@ -89,7 +101,16 @@ export class AiPromptVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a AiPromptVersion resource.
  */
 export interface AiPromptVersionArgs {
+    /**
+     * The identifier of the Amazon Q in Connect AI prompt.
+     */
     aiPromptId: pulumi.Input<string>;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: pulumi.Input<string>;
+    /**
+     * The time the AI Prompt version was last modified in seconds.
+     */
     modifiedTimeSeconds?: pulumi.Input<number>;
 }

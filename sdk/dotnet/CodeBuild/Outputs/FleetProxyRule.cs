@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
     [OutputType]
     public sealed class FleetProxyRule
     {
+        /// <summary>
+        /// The behavior of the proxy rule.
+        /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetProxyRuleEffect? Effect;
+        /// <summary>
+        /// The destination of the proxy rule.
+        /// </summary>
         public readonly ImmutableArray<string> Entities;
+        /// <summary>
+        /// The type of proxy rule.
+        /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetProxyRuleType? Type;
 
         [OutputConstructor]

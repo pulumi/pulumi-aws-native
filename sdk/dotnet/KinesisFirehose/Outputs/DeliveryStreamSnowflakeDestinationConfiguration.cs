@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         public readonly Outputs.DeliveryStreamSnowflakeBufferingHints? BufferingHints;
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         /// <summary>
-        /// The name of the record content column
+        /// The name of the record content column.
         /// </summary>
         public readonly string? ContentColumnName;
         /// <summary>
@@ -39,7 +39,15 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly string? KeyPassphrase;
         /// <summary>
-        /// The name of the record metadata column
+        /// Specify a column name in the table, where the metadata information has to be loaded. When you enable this field, you will see the following column in the snowflake table, which differs based on the source type.
+        /// 
+        /// For Direct PUT as source
+        /// 
+        /// `{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }`
+        /// 
+        /// For Kinesis Data Stream as source
+        /// 
+        /// `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
         /// </summary>
         public readonly string? MetaDataColumnName;
         /// <summary>

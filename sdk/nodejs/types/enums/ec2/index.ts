@@ -137,6 +137,7 @@ export const Ec2FleetInstanceRequirementsRequestCpuManufacturersItem = {
     Intel: "intel",
     Amd: "amd",
     AmazonWebServices: "amazon-web-services",
+    Apple: "apple",
 } as const;
 
 export type Ec2FleetInstanceRequirementsRequestCpuManufacturersItem = (typeof Ec2FleetInstanceRequirementsRequestCpuManufacturersItem)[keyof typeof Ec2FleetInstanceRequirementsRequestCpuManufacturersItem];

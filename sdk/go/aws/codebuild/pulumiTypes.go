@@ -14,10 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type FleetComputeConfiguration struct {
-	Disk        *int                                  `pulumi:"disk"`
+	// The amount of disk space of the instance type included in your fleet.
+	Disk *int `pulumi:"disk"`
+	// The machine type of the instance type included in your fleet.
 	MachineType *FleetComputeConfigurationmachineType `pulumi:"machineType"`
-	Memory      *int                                  `pulumi:"memory"`
-	VCpu        *int                                  `pulumi:"vCpu"`
+	// The amount of memory of the instance type included in your fleet.
+	Memory *int `pulumi:"memory"`
+	// The number of vCPUs of the instance type included in your fleet.
+	VCpu *int `pulumi:"vCpu"`
 }
 
 // FleetComputeConfigurationInput is an input type that accepts FleetComputeConfigurationArgs and FleetComputeConfigurationOutput values.
@@ -32,10 +36,14 @@ type FleetComputeConfigurationInput interface {
 }
 
 type FleetComputeConfigurationArgs struct {
-	Disk        pulumi.IntPtrInput                           `pulumi:"disk"`
+	// The amount of disk space of the instance type included in your fleet.
+	Disk pulumi.IntPtrInput `pulumi:"disk"`
+	// The machine type of the instance type included in your fleet.
 	MachineType FleetComputeConfigurationmachineTypePtrInput `pulumi:"machineType"`
-	Memory      pulumi.IntPtrInput                           `pulumi:"memory"`
-	VCpu        pulumi.IntPtrInput                           `pulumi:"vCpu"`
+	// The amount of memory of the instance type included in your fleet.
+	Memory pulumi.IntPtrInput `pulumi:"memory"`
+	// The number of vCPUs of the instance type included in your fleet.
+	VCpu pulumi.IntPtrInput `pulumi:"vCpu"`
 }
 
 func (FleetComputeConfigurationArgs) ElementType() reflect.Type {
@@ -115,18 +123,22 @@ func (o FleetComputeConfigurationOutput) ToFleetComputeConfigurationPtrOutputWit
 	}).(FleetComputeConfigurationPtrOutput)
 }
 
+// The amount of disk space of the instance type included in your fleet.
 func (o FleetComputeConfigurationOutput) Disk() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Disk }).(pulumi.IntPtrOutput)
 }
 
+// The machine type of the instance type included in your fleet.
 func (o FleetComputeConfigurationOutput) MachineType() FleetComputeConfigurationmachineTypePtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *FleetComputeConfigurationmachineType { return v.MachineType }).(FleetComputeConfigurationmachineTypePtrOutput)
 }
 
+// The amount of memory of the instance type included in your fleet.
 func (o FleetComputeConfigurationOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.Memory }).(pulumi.IntPtrOutput)
 }
 
+// The number of vCPUs of the instance type included in your fleet.
 func (o FleetComputeConfigurationOutput) VCpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeConfiguration) *int { return v.VCpu }).(pulumi.IntPtrOutput)
 }
@@ -155,6 +167,7 @@ func (o FleetComputeConfigurationPtrOutput) Elem() FleetComputeConfigurationOutp
 	}).(FleetComputeConfigurationOutput)
 }
 
+// The amount of disk space of the instance type included in your fleet.
 func (o FleetComputeConfigurationPtrOutput) Disk() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeConfiguration) *int {
 		if v == nil {
@@ -164,6 +177,7 @@ func (o FleetComputeConfigurationPtrOutput) Disk() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The machine type of the instance type included in your fleet.
 func (o FleetComputeConfigurationPtrOutput) MachineType() FleetComputeConfigurationmachineTypePtrOutput {
 	return o.ApplyT(func(v *FleetComputeConfiguration) *FleetComputeConfigurationmachineType {
 		if v == nil {
@@ -173,6 +187,7 @@ func (o FleetComputeConfigurationPtrOutput) MachineType() FleetComputeConfigurat
 	}).(FleetComputeConfigurationmachineTypePtrOutput)
 }
 
+// The amount of memory of the instance type included in your fleet.
 func (o FleetComputeConfigurationPtrOutput) Memory() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeConfiguration) *int {
 		if v == nil {
@@ -182,6 +197,7 @@ func (o FleetComputeConfigurationPtrOutput) Memory() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The number of vCPUs of the instance type included in your fleet.
 func (o FleetComputeConfigurationPtrOutput) VCpu() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetComputeConfiguration) *int {
 		if v == nil {
@@ -192,8 +208,10 @@ func (o FleetComputeConfigurationPtrOutput) VCpu() pulumi.IntPtrOutput {
 }
 
 type FleetProxyConfiguration struct {
-	DefaultBehavior   *FleetProxyConfigurationDefaultBehavior `pulumi:"defaultBehavior"`
-	OrderedProxyRules []FleetProxyRule                        `pulumi:"orderedProxyRules"`
+	// The default behavior of outgoing traffic.
+	DefaultBehavior *FleetProxyConfigurationDefaultBehavior `pulumi:"defaultBehavior"`
+	// An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
+	OrderedProxyRules []FleetProxyRule `pulumi:"orderedProxyRules"`
 }
 
 // FleetProxyConfigurationInput is an input type that accepts FleetProxyConfigurationArgs and FleetProxyConfigurationOutput values.
@@ -208,8 +226,10 @@ type FleetProxyConfigurationInput interface {
 }
 
 type FleetProxyConfigurationArgs struct {
-	DefaultBehavior   FleetProxyConfigurationDefaultBehaviorPtrInput `pulumi:"defaultBehavior"`
-	OrderedProxyRules FleetProxyRuleArrayInput                       `pulumi:"orderedProxyRules"`
+	// The default behavior of outgoing traffic.
+	DefaultBehavior FleetProxyConfigurationDefaultBehaviorPtrInput `pulumi:"defaultBehavior"`
+	// An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
+	OrderedProxyRules FleetProxyRuleArrayInput `pulumi:"orderedProxyRules"`
 }
 
 func (FleetProxyConfigurationArgs) ElementType() reflect.Type {
@@ -289,10 +309,12 @@ func (o FleetProxyConfigurationOutput) ToFleetProxyConfigurationPtrOutputWithCon
 	}).(FleetProxyConfigurationPtrOutput)
 }
 
+// The default behavior of outgoing traffic.
 func (o FleetProxyConfigurationOutput) DefaultBehavior() FleetProxyConfigurationDefaultBehaviorPtrOutput {
 	return o.ApplyT(func(v FleetProxyConfiguration) *FleetProxyConfigurationDefaultBehavior { return v.DefaultBehavior }).(FleetProxyConfigurationDefaultBehaviorPtrOutput)
 }
 
+// An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
 func (o FleetProxyConfigurationOutput) OrderedProxyRules() FleetProxyRuleArrayOutput {
 	return o.ApplyT(func(v FleetProxyConfiguration) []FleetProxyRule { return v.OrderedProxyRules }).(FleetProxyRuleArrayOutput)
 }
@@ -321,6 +343,7 @@ func (o FleetProxyConfigurationPtrOutput) Elem() FleetProxyConfigurationOutput {
 	}).(FleetProxyConfigurationOutput)
 }
 
+// The default behavior of outgoing traffic.
 func (o FleetProxyConfigurationPtrOutput) DefaultBehavior() FleetProxyConfigurationDefaultBehaviorPtrOutput {
 	return o.ApplyT(func(v *FleetProxyConfiguration) *FleetProxyConfigurationDefaultBehavior {
 		if v == nil {
@@ -330,6 +353,7 @@ func (o FleetProxyConfigurationPtrOutput) DefaultBehavior() FleetProxyConfigurat
 	}).(FleetProxyConfigurationDefaultBehaviorPtrOutput)
 }
 
+// An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
 func (o FleetProxyConfigurationPtrOutput) OrderedProxyRules() FleetProxyRuleArrayOutput {
 	return o.ApplyT(func(v *FleetProxyConfiguration) []FleetProxyRule {
 		if v == nil {
@@ -340,9 +364,12 @@ func (o FleetProxyConfigurationPtrOutput) OrderedProxyRules() FleetProxyRuleArra
 }
 
 type FleetProxyRule struct {
-	Effect   *FleetProxyRuleEffect `pulumi:"effect"`
-	Entities []string              `pulumi:"entities"`
-	Type     *FleetProxyRuleType   `pulumi:"type"`
+	// The behavior of the proxy rule.
+	Effect *FleetProxyRuleEffect `pulumi:"effect"`
+	// The destination of the proxy rule.
+	Entities []string `pulumi:"entities"`
+	// The type of proxy rule.
+	Type *FleetProxyRuleType `pulumi:"type"`
 }
 
 // FleetProxyRuleInput is an input type that accepts FleetProxyRuleArgs and FleetProxyRuleOutput values.
@@ -357,9 +384,12 @@ type FleetProxyRuleInput interface {
 }
 
 type FleetProxyRuleArgs struct {
-	Effect   FleetProxyRuleEffectPtrInput `pulumi:"effect"`
-	Entities pulumi.StringArrayInput      `pulumi:"entities"`
-	Type     FleetProxyRuleTypePtrInput   `pulumi:"type"`
+	// The behavior of the proxy rule.
+	Effect FleetProxyRuleEffectPtrInput `pulumi:"effect"`
+	// The destination of the proxy rule.
+	Entities pulumi.StringArrayInput `pulumi:"entities"`
+	// The type of proxy rule.
+	Type FleetProxyRuleTypePtrInput `pulumi:"type"`
 }
 
 func (FleetProxyRuleArgs) ElementType() reflect.Type {
@@ -413,14 +443,17 @@ func (o FleetProxyRuleOutput) ToFleetProxyRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
+// The behavior of the proxy rule.
 func (o FleetProxyRuleOutput) Effect() FleetProxyRuleEffectPtrOutput {
 	return o.ApplyT(func(v FleetProxyRule) *FleetProxyRuleEffect { return v.Effect }).(FleetProxyRuleEffectPtrOutput)
 }
 
+// The destination of the proxy rule.
 func (o FleetProxyRuleOutput) Entities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FleetProxyRule) []string { return v.Entities }).(pulumi.StringArrayOutput)
 }
 
+// The type of proxy rule.
 func (o FleetProxyRuleOutput) Type() FleetProxyRuleTypePtrOutput {
 	return o.ApplyT(func(v FleetProxyRule) *FleetProxyRuleType { return v.Type }).(FleetProxyRuleTypePtrOutput)
 }
@@ -446,9 +479,12 @@ func (o FleetProxyRuleArrayOutput) Index(i pulumi.IntInput) FleetProxyRuleOutput
 }
 
 type FleetScalingConfigurationInput struct {
-	MaxCapacity                  *int                                       `pulumi:"maxCapacity"`
-	ScalingType                  *FleetScalingConfigurationInputScalingType `pulumi:"scalingType"`
-	TargetTrackingScalingConfigs []FleetTargetTrackingScalingConfiguration  `pulumi:"targetTrackingScalingConfigs"`
+	// The maximum number of instances in the ﬂeet when auto-scaling.
+	MaxCapacity *int `pulumi:"maxCapacity"`
+	// The scaling type for a compute fleet.
+	ScalingType *FleetScalingConfigurationInputScalingType `pulumi:"scalingType"`
+	// A list of `TargetTrackingScalingConfiguration` objects.
+	TargetTrackingScalingConfigs []FleetTargetTrackingScalingConfiguration `pulumi:"targetTrackingScalingConfigs"`
 }
 
 // FleetScalingConfigurationInputInput is an input type that accepts FleetScalingConfigurationInputArgs and FleetScalingConfigurationInputOutput values.
@@ -463,8 +499,11 @@ type FleetScalingConfigurationInputInput interface {
 }
 
 type FleetScalingConfigurationInputArgs struct {
-	MaxCapacity                  pulumi.IntPtrInput                                `pulumi:"maxCapacity"`
-	ScalingType                  FleetScalingConfigurationInputScalingTypePtrInput `pulumi:"scalingType"`
+	// The maximum number of instances in the ﬂeet when auto-scaling.
+	MaxCapacity pulumi.IntPtrInput `pulumi:"maxCapacity"`
+	// The scaling type for a compute fleet.
+	ScalingType FleetScalingConfigurationInputScalingTypePtrInput `pulumi:"scalingType"`
+	// A list of `TargetTrackingScalingConfiguration` objects.
 	TargetTrackingScalingConfigs FleetTargetTrackingScalingConfigurationArrayInput `pulumi:"targetTrackingScalingConfigs"`
 }
 
@@ -545,16 +584,19 @@ func (o FleetScalingConfigurationInputOutput) ToFleetScalingConfigurationInputPt
 	}).(FleetScalingConfigurationInputPtrOutput)
 }
 
+// The maximum number of instances in the ﬂeet when auto-scaling.
 func (o FleetScalingConfigurationInputOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetScalingConfigurationInput) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
 }
 
+// The scaling type for a compute fleet.
 func (o FleetScalingConfigurationInputOutput) ScalingType() FleetScalingConfigurationInputScalingTypePtrOutput {
 	return o.ApplyT(func(v FleetScalingConfigurationInput) *FleetScalingConfigurationInputScalingType {
 		return v.ScalingType
 	}).(FleetScalingConfigurationInputScalingTypePtrOutput)
 }
 
+// A list of `TargetTrackingScalingConfiguration` objects.
 func (o FleetScalingConfigurationInputOutput) TargetTrackingScalingConfigs() FleetTargetTrackingScalingConfigurationArrayOutput {
 	return o.ApplyT(func(v FleetScalingConfigurationInput) []FleetTargetTrackingScalingConfiguration {
 		return v.TargetTrackingScalingConfigs
@@ -585,6 +627,7 @@ func (o FleetScalingConfigurationInputPtrOutput) Elem() FleetScalingConfiguratio
 	}).(FleetScalingConfigurationInputOutput)
 }
 
+// The maximum number of instances in the ﬂeet when auto-scaling.
 func (o FleetScalingConfigurationInputPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FleetScalingConfigurationInput) *int {
 		if v == nil {
@@ -594,6 +637,7 @@ func (o FleetScalingConfigurationInputPtrOutput) MaxCapacity() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+// The scaling type for a compute fleet.
 func (o FleetScalingConfigurationInputPtrOutput) ScalingType() FleetScalingConfigurationInputScalingTypePtrOutput {
 	return o.ApplyT(func(v *FleetScalingConfigurationInput) *FleetScalingConfigurationInputScalingType {
 		if v == nil {
@@ -603,6 +647,7 @@ func (o FleetScalingConfigurationInputPtrOutput) ScalingType() FleetScalingConfi
 	}).(FleetScalingConfigurationInputScalingTypePtrOutput)
 }
 
+// A list of `TargetTrackingScalingConfiguration` objects.
 func (o FleetScalingConfigurationInputPtrOutput) TargetTrackingScalingConfigs() FleetTargetTrackingScalingConfigurationArrayOutput {
 	return o.ApplyT(func(v *FleetScalingConfigurationInput) []FleetTargetTrackingScalingConfiguration {
 		if v == nil {
@@ -620,8 +665,10 @@ type FleetTag struct {
 }
 
 type FleetTargetTrackingScalingConfiguration struct {
-	MetricType  *FleetTargetTrackingScalingConfigurationMetricType `pulumi:"metricType"`
-	TargetValue *float64                                           `pulumi:"targetValue"`
+	// The metric type to determine auto-scaling.
+	MetricType *FleetTargetTrackingScalingConfigurationMetricType `pulumi:"metricType"`
+	// The value of `metricType` when to start scaling.
+	TargetValue *float64 `pulumi:"targetValue"`
 }
 
 // FleetTargetTrackingScalingConfigurationInput is an input type that accepts FleetTargetTrackingScalingConfigurationArgs and FleetTargetTrackingScalingConfigurationOutput values.
@@ -636,8 +683,10 @@ type FleetTargetTrackingScalingConfigurationInput interface {
 }
 
 type FleetTargetTrackingScalingConfigurationArgs struct {
-	MetricType  FleetTargetTrackingScalingConfigurationMetricTypePtrInput `pulumi:"metricType"`
-	TargetValue pulumi.Float64PtrInput                                    `pulumi:"targetValue"`
+	// The metric type to determine auto-scaling.
+	MetricType FleetTargetTrackingScalingConfigurationMetricTypePtrInput `pulumi:"metricType"`
+	// The value of `metricType` when to start scaling.
+	TargetValue pulumi.Float64PtrInput `pulumi:"targetValue"`
 }
 
 func (FleetTargetTrackingScalingConfigurationArgs) ElementType() reflect.Type {
@@ -691,12 +740,14 @@ func (o FleetTargetTrackingScalingConfigurationOutput) ToFleetTargetTrackingScal
 	return o
 }
 
+// The metric type to determine auto-scaling.
 func (o FleetTargetTrackingScalingConfigurationOutput) MetricType() FleetTargetTrackingScalingConfigurationMetricTypePtrOutput {
 	return o.ApplyT(func(v FleetTargetTrackingScalingConfiguration) *FleetTargetTrackingScalingConfigurationMetricType {
 		return v.MetricType
 	}).(FleetTargetTrackingScalingConfigurationMetricTypePtrOutput)
 }
 
+// The value of `metricType` when to start scaling.
 func (o FleetTargetTrackingScalingConfigurationOutput) TargetValue() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v FleetTargetTrackingScalingConfiguration) *float64 { return v.TargetValue }).(pulumi.Float64PtrOutput)
 }

@@ -22,6 +22,8 @@ __all__ = [
     'ComputeEnvironmentEc2ConfigurationObjectArgsDict',
     'ComputeEnvironmentEksConfigurationArgs',
     'ComputeEnvironmentEksConfigurationArgsDict',
+    'ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs',
+    'ComputeEnvironmentLaunchTemplateSpecificationOverrideArgsDict',
     'ComputeEnvironmentLaunchTemplateSpecificationArgs',
     'ComputeEnvironmentLaunchTemplateSpecificationArgsDict',
     'ComputeEnvironmentUpdatePolicyArgs',
@@ -881,6 +883,68 @@ class ComputeEnvironmentEksConfigurationArgs:
 
 
 if not MYPY:
+    class ComputeEnvironmentLaunchTemplateSpecificationOverrideArgsDict(TypedDict):
+        launch_template_id: NotRequired[pulumi.Input[str]]
+        launch_template_name: NotRequired[pulumi.Input[str]]
+        target_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        version: NotRequired[pulumi.Input[str]]
+elif False:
+    ComputeEnvironmentLaunchTemplateSpecificationOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs:
+    def __init__(__self__, *,
+                 launch_template_id: Optional[pulumi.Input[str]] = None,
+                 launch_template_name: Optional[pulumi.Input[str]] = None,
+                 target_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if target_instance_types is not None:
+            pulumi.set(__self__, "target_instance_types", target_instance_types)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "launch_template_id")
+
+    @launch_template_id.setter
+    def launch_template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_id", value)
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "launch_template_name")
+
+    @launch_template_name.setter
+    def launch_template_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "launch_template_name", value)
+
+    @property
+    @pulumi.getter(name="targetInstanceTypes")
+    def target_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "target_instance_types")
+
+    @target_instance_types.setter
+    def target_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "target_instance_types", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
     class ComputeEnvironmentLaunchTemplateSpecificationArgsDict(TypedDict):
         launch_template_id: NotRequired[pulumi.Input[str]]
         """
@@ -890,6 +954,7 @@ if not MYPY:
         """
         The name of the launch template.
         """
+        overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideArgsDict']]]]
         version: NotRequired[pulumi.Input[str]]
         """
         The version number of the launch template, `$Latest` , or `$Default` .
@@ -908,6 +973,7 @@ class ComputeEnvironmentLaunchTemplateSpecificationArgs:
     def __init__(__self__, *,
                  launch_template_id: Optional[pulumi.Input[str]] = None,
                  launch_template_name: Optional[pulumi.Input[str]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] launch_template_id: The ID of the launch template.
@@ -924,6 +990,8 @@ class ComputeEnvironmentLaunchTemplateSpecificationArgs:
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
             pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -950,6 +1018,15 @@ class ComputeEnvironmentLaunchTemplateSpecificationArgs:
     @launch_template_name.setter
     def launch_template_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "launch_template_name", value)
+
+    @property
+    @pulumi.getter
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs']]]]:
+        return pulumi.get(self, "overrides")
+
+    @overrides.setter
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs']]]]):
+        pulumi.set(self, "overrides", value)
 
     @property
     @pulumi.getter

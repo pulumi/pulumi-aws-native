@@ -3437,6 +3437,8 @@ type MembershipProtectedQueryS3OutputConfiguration struct {
 	KeyPrefix *string `pulumi:"keyPrefix"`
 	// Intended file format of the result.
 	ResultFormat MembershipResultFormat `pulumi:"resultFormat"`
+	// Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+	SingleFileOutput *bool `pulumi:"singleFileOutput"`
 }
 
 // MembershipProtectedQueryS3OutputConfigurationInput is an input type that accepts MembershipProtectedQueryS3OutputConfigurationArgs and MembershipProtectedQueryS3OutputConfigurationOutput values.
@@ -3457,6 +3459,8 @@ type MembershipProtectedQueryS3OutputConfigurationArgs struct {
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
 	// Intended file format of the result.
 	ResultFormat MembershipResultFormatInput `pulumi:"resultFormat"`
+	// Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+	SingleFileOutput pulumi.BoolPtrInput `pulumi:"singleFileOutput"`
 }
 
 func (MembershipProtectedQueryS3OutputConfigurationArgs) ElementType() reflect.Type {
@@ -3551,6 +3555,11 @@ func (o MembershipProtectedQueryS3OutputConfigurationOutput) ResultFormat() Memb
 	return o.ApplyT(func(v MembershipProtectedQueryS3OutputConfiguration) MembershipResultFormat { return v.ResultFormat }).(MembershipResultFormatOutput)
 }
 
+// Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+func (o MembershipProtectedQueryS3OutputConfigurationOutput) SingleFileOutput() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MembershipProtectedQueryS3OutputConfiguration) *bool { return v.SingleFileOutput }).(pulumi.BoolPtrOutput)
+}
+
 type MembershipProtectedQueryS3OutputConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (MembershipProtectedQueryS3OutputConfigurationPtrOutput) ElementType() reflect.Type {
@@ -3603,6 +3612,16 @@ func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) ResultFormat() M
 		}
 		return &v.ResultFormat
 	}).(MembershipResultFormatPtrOutput)
+}
+
+// Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+func (o MembershipProtectedQueryS3OutputConfigurationPtrOutput) SingleFileOutput() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MembershipProtectedQueryS3OutputConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SingleFileOutput
+	}).(pulumi.BoolPtrOutput)
 }
 
 type MembershipQueryComputePaymentConfig struct {

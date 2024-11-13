@@ -7,6 +7,9 @@ export const FleetComputeConfigurationmachineType = {
     Nvme: "NVME",
 } as const;
 
+/**
+ * The machine type of the instance type included in your fleet.
+ */
 export type FleetComputeConfigurationmachineType = (typeof FleetComputeConfigurationmachineType)[keyof typeof FleetComputeConfigurationmachineType];
 
 export const FleetComputeType = {
@@ -94,6 +97,9 @@ export const FleetProxyConfigurationDefaultBehavior = {
     DenyAll: "DENY_ALL",
 } as const;
 
+/**
+ * The default behavior of outgoing traffic.
+ */
 export type FleetProxyConfigurationDefaultBehavior = (typeof FleetProxyConfigurationDefaultBehavior)[keyof typeof FleetProxyConfigurationDefaultBehavior];
 
 export const FleetProxyRuleEffect = {
@@ -101,6 +107,9 @@ export const FleetProxyRuleEffect = {
     Deny: "DENY",
 } as const;
 
+/**
+ * The behavior of the proxy rule.
+ */
 export type FleetProxyRuleEffect = (typeof FleetProxyRuleEffect)[keyof typeof FleetProxyRuleEffect];
 
 export const FleetProxyRuleType = {
@@ -108,16 +117,25 @@ export const FleetProxyRuleType = {
     Ip: "IP",
 } as const;
 
+/**
+ * The type of proxy rule.
+ */
 export type FleetProxyRuleType = (typeof FleetProxyRuleType)[keyof typeof FleetProxyRuleType];
 
 export const FleetScalingConfigurationInputScalingType = {
     TargetTrackingScaling: "TARGET_TRACKING_SCALING",
 } as const;
 
+/**
+ * The scaling type for a compute fleet.
+ */
 export type FleetScalingConfigurationInputScalingType = (typeof FleetScalingConfigurationInputScalingType)[keyof typeof FleetScalingConfigurationInputScalingType];
 
 export const FleetTargetTrackingScalingConfigurationMetricType = {
     FleetUtilizationRate: "FLEET_UTILIZATION_RATE",
 } as const;
 
+/**
+ * The metric type to determine auto-scaling.
+ */
 export type FleetTargetTrackingScalingConfigurationMetricType = (typeof FleetTargetTrackingScalingConfigurationMetricType)[keyof typeof FleetTargetTrackingScalingConfigurationMetricType];

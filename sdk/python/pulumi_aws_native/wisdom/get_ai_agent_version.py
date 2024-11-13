@@ -40,6 +40,9 @@ class GetAiAgentVersionResult:
     @property
     @pulumi.getter(name="aiAgentArn")
     def ai_agent_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AI agent.
+        """
         return pulumi.get(self, "ai_agent_arn")
 
     @property
@@ -50,6 +53,9 @@ class GetAiAgentVersionResult:
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
@@ -81,6 +87,7 @@ def get_ai_agent_version(ai_agent_id: Optional[str] = None,
     Definition of AWS::Wisdom::AIAgentVersion Resource Type
 
 
+    :param str ai_agent_id: The identifier of the AI Agent.
     :param float version_number: The version number for this AI Agent version.
     """
     __args__ = dict()
@@ -103,6 +110,7 @@ def get_ai_agent_version_output(ai_agent_id: Optional[pulumi.Input[str]] = None,
     Definition of AWS::Wisdom::AIAgentVersion Resource Type
 
 
+    :param str ai_agent_id: The identifier of the AI Agent.
     :param float version_number: The version number for this AI Agent version.
     """
     __args__ = dict()

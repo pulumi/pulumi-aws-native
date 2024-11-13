@@ -3498,7 +3498,7 @@ class DeliveryStreamSerializer(dict):
                  parquet_ser_de: Optional['outputs.DeliveryStreamParquetSerDe'] = None):
         """
         :param 'DeliveryStreamOrcSerDe' orc_ser_de: A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
-        :param 'DeliveryStreamParquetSerDe' parquet_ser_de: A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+        :param 'DeliveryStreamParquetSerDe' parquet_ser_de: A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/contribution-guidelines/) .
         """
         if orc_ser_de is not None:
             pulumi.set(__self__, "orc_ser_de", orc_ser_de)
@@ -3517,7 +3517,7 @@ class DeliveryStreamSerializer(dict):
     @pulumi.getter(name="parquetSerDe")
     def parquet_ser_de(self) -> Optional['outputs.DeliveryStreamParquetSerDe']:
         """
-        A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+        A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/contribution-guidelines/) .
         """
         return pulumi.get(self, "parquet_ser_de")
 
@@ -3649,10 +3649,18 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
         :param str schema: Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
         :param str table: All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
         :param 'DeliveryStreamSnowflakeBufferingHints' buffering_hints: Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
-        :param str content_column_name: The name of the record content column
+        :param str content_column_name: The name of the record content column.
         :param 'DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption' data_loading_option: Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
         :param str key_passphrase: Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-        :param str meta_data_column_name: The name of the record metadata column
+        :param str meta_data_column_name: Specify a column name in the table, where the metadata information has to be loaded. When you enable this field, you will see the following column in the snowflake table, which differs based on the source type.
+               
+               For Direct PUT as source
+               
+               `{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }`
+               
+               For Kinesis Data Stream as source
+               
+               `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
         :param str private_key: The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         :param 'DeliveryStreamProcessingConfiguration' processing_configuration: Specifies configuration for Snowflake.
         :param 'DeliveryStreamSnowflakeRetryOptions' retry_options: The time period where Firehose will retry sending data to the chosen HTTP endpoint.
@@ -3759,7 +3767,7 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
     @pulumi.getter(name="contentColumnName")
     def content_column_name(self) -> Optional[str]:
         """
-        The name of the record content column
+        The name of the record content column.
         """
         return pulumi.get(self, "content_column_name")
 
@@ -3783,7 +3791,15 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
     @pulumi.getter(name="metaDataColumnName")
     def meta_data_column_name(self) -> Optional[str]:
         """
-        The name of the record metadata column
+        Specify a column name in the table, where the metadata information has to be loaded. When you enable this field, you will see the following column in the snowflake table, which differs based on the source type.
+
+        For Direct PUT as source
+
+        `{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }`
+
+        For Kinesis Data Stream as source
+
+        `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
         """
         return pulumi.get(self, "meta_data_column_name")
 

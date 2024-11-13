@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         [Input("s3ObjectVersion")]
         public Input<string>? S3ObjectVersion { get; set; }
 
+        /// <summary>
+        /// The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [AWS owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) .
+        /// </summary>
         [Input("sourceKmsKeyArn")]
         public Input<string>? SourceKmsKeyArn { get; set; }
 

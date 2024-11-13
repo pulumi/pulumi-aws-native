@@ -193,6 +193,7 @@ class Ec2FleetInstanceRequirementsRequestCpuManufacturersItem(str, Enum):
     INTEL = "intel"
     AMD = "amd"
     AMAZON_WEB_SERVICES = "amazon-web-services"
+    APPLE = "apple"
 
 
 class Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem(str, Enum):

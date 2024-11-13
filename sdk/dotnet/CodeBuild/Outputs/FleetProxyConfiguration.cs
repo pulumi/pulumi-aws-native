@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
     [OutputType]
     public sealed class FleetProxyConfiguration
     {
+        /// <summary>
+        /// The default behavior of outgoing traffic.
+        /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetProxyConfigurationDefaultBehavior? DefaultBehavior;
+        /// <summary>
+        /// An array of `FleetProxyRule` objects that represent the specified destination domains or IPs to allow or deny network access control to.
+        /// </summary>
         public readonly ImmutableArray<Outputs.FleetProxyRule> OrderedProxyRules;
 
         [OutputConstructor]

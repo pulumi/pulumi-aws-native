@@ -21,6 +21,7 @@ __all__ = [
     'ComputeEnvironmentEc2ConfigurationObject',
     'ComputeEnvironmentEksConfiguration',
     'ComputeEnvironmentLaunchTemplateSpecification',
+    'ComputeEnvironmentLaunchTemplateSpecificationOverride',
     'ComputeEnvironmentUpdatePolicy',
     'JobDefinitionAuthorizationConfig',
     'JobDefinitionContainerProperties',
@@ -649,6 +650,7 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
     def __init__(__self__, *,
                  launch_template_id: Optional[str] = None,
                  launch_template_name: Optional[str] = None,
+                 overrides: Optional[Sequence['outputs.ComputeEnvironmentLaunchTemplateSpecificationOverride']] = None,
                  version: Optional[str] = None):
         """
         :param str launch_template_id: The ID of the launch template.
@@ -665,6 +667,8 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
             pulumi.set(__self__, "launch_template_id", launch_template_id)
         if launch_template_name is not None:
             pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -686,6 +690,11 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
 
     @property
     @pulumi.getter
+    def overrides(self) -> Optional[Sequence['outputs.ComputeEnvironmentLaunchTemplateSpecificationOverride']]:
+        return pulumi.get(self, "overrides")
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[str]:
         """
         The version number of the launch template, `$Latest` , or `$Default` .
@@ -696,6 +705,64 @@ class ComputeEnvironmentLaunchTemplateSpecification(dict):
 
         Default: `$Default` .
         """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class ComputeEnvironmentLaunchTemplateSpecificationOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateId":
+            suggest = "launch_template_id"
+        elif key == "launchTemplateName":
+            suggest = "launch_template_name"
+        elif key == "targetInstanceTypes":
+            suggest = "target_instance_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentLaunchTemplateSpecificationOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentLaunchTemplateSpecificationOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentLaunchTemplateSpecificationOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 launch_template_id: Optional[str] = None,
+                 launch_template_name: Optional[str] = None,
+                 target_instance_types: Optional[Sequence[str]] = None,
+                 version: Optional[str] = None):
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if target_instance_types is not None:
+            pulumi.set(__self__, "target_instance_types", target_instance_types)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> Optional[str]:
+        return pulumi.get(self, "launch_template_id")
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> Optional[str]:
+        return pulumi.get(self, "launch_template_name")
+
+    @property
+    @pulumi.getter(name="targetInstanceTypes")
+    def target_instance_types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "target_instance_types")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
         return pulumi.get(self, "version")
 
 

@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The machine type of the instance type included in your fleet.
 type FleetComputeConfigurationmachineType string
 
 const (
@@ -731,6 +732,7 @@ func (in *fleetOverflowBehaviorPtr) ToFleetOverflowBehaviorPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(FleetOverflowBehaviorPtrOutput)
 }
 
+// The default behavior of outgoing traffic.
 type FleetProxyConfigurationDefaultBehavior string
 
 const (
@@ -896,6 +898,7 @@ func (in *fleetProxyConfigurationDefaultBehaviorPtr) ToFleetProxyConfigurationDe
 	return pulumi.ToOutputWithContext(ctx, in).(FleetProxyConfigurationDefaultBehaviorPtrOutput)
 }
 
+// The behavior of the proxy rule.
 type FleetProxyRuleEffect string
 
 const (
@@ -1061,6 +1064,7 @@ func (in *fleetProxyRuleEffectPtr) ToFleetProxyRuleEffectPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(FleetProxyRuleEffectPtrOutput)
 }
 
+// The type of proxy rule.
 type FleetProxyRuleType string
 
 const (
@@ -1226,6 +1230,7 @@ func (in *fleetProxyRuleTypePtr) ToFleetProxyRuleTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FleetProxyRuleTypePtrOutput)
 }
 
+// The scaling type for a compute fleet.
 type FleetScalingConfigurationInputScalingType string
 
 const (
@@ -1389,6 +1394,7 @@ func (in *fleetScalingConfigurationInputScalingTypePtr) ToFleetScalingConfigurat
 	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingConfigurationInputScalingTypePtrOutput)
 }
 
+// The metric type to determine auto-scaling.
 type FleetTargetTrackingScalingConfigurationMetricType string
 
 const (

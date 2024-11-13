@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiPromptVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect AI prompt.
+        /// </summary>
         [Input("aiPromptId", required: true)]
         public string AiPromptId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiPromptVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect AI prompt.
+        /// </summary>
         [Input("aiPromptId", required: true)]
         public Input<string> AiPromptId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
@@ -71,6 +83,9 @@ namespace Pulumi.AwsNative.Wisdom
     {
         public readonly string? AiPromptArn;
         public readonly string? AiPromptVersionId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        /// </summary>
         public readonly string? AssistantArn;
         /// <summary>
         /// The version number for this AI Prompt version.

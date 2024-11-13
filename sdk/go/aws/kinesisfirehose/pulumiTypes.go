@@ -8778,7 +8778,7 @@ func (o DeliveryStreamSecretsManagerConfigurationPtrOutput) SecretArn() pulumi.S
 type DeliveryStreamSerializer struct {
 	// A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
 	OrcSerDe *DeliveryStreamOrcSerDe `pulumi:"orcSerDe"`
-	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/contribution-guidelines/) .
 	ParquetSerDe *DeliveryStreamParquetSerDe `pulumi:"parquetSerDe"`
 }
 
@@ -8796,7 +8796,7 @@ type DeliveryStreamSerializerInput interface {
 type DeliveryStreamSerializerArgs struct {
 	// A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
 	OrcSerDe DeliveryStreamOrcSerDePtrInput `pulumi:"orcSerDe"`
-	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/contribution-guidelines/) .
 	ParquetSerDe DeliveryStreamParquetSerDePtrInput `pulumi:"parquetSerDe"`
 }
 
@@ -8882,7 +8882,7 @@ func (o DeliveryStreamSerializerOutput) OrcSerDe() DeliveryStreamOrcSerDePtrOutp
 	return o.ApplyT(func(v DeliveryStreamSerializer) *DeliveryStreamOrcSerDe { return v.OrcSerDe }).(DeliveryStreamOrcSerDePtrOutput)
 }
 
-// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/contribution-guidelines/) .
 func (o DeliveryStreamSerializerOutput) ParquetSerDe() DeliveryStreamParquetSerDePtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSerializer) *DeliveryStreamParquetSerDe { return v.ParquetSerDe }).(DeliveryStreamParquetSerDePtrOutput)
 }
@@ -8921,7 +8921,7 @@ func (o DeliveryStreamSerializerPtrOutput) OrcSerDe() DeliveryStreamOrcSerDePtrO
 	}).(DeliveryStreamOrcSerDePtrOutput)
 }
 
-// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
+// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/contribution-guidelines/) .
 func (o DeliveryStreamSerializerPtrOutput) ParquetSerDe() DeliveryStreamParquetSerDePtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSerializer) *DeliveryStreamParquetSerDe {
 		if v == nil {
@@ -9093,7 +9093,7 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	// Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
 	BufferingHints           *DeliveryStreamSnowflakeBufferingHints  `pulumi:"bufferingHints"`
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
-	// The name of the record content column
+	// The name of the record content column.
 	ContentColumnName *string `pulumi:"contentColumnName"`
 	// Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
 	DataLoadingOption *DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption `pulumi:"dataLoadingOption"`
@@ -9101,7 +9101,15 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	Database string `pulumi:"database"`
 	// Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
 	KeyPassphrase *string `pulumi:"keyPassphrase"`
-	// The name of the record metadata column
+	// Specify a column name in the table, where the metadata information has to be loaded. When you enable this field, you will see the following column in the snowflake table, which differs based on the source type.
+	//
+	// For Direct PUT as source
+	//
+	// `{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }`
+	//
+	// For Kinesis Data Stream as source
+	//
+	// `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
 	MetaDataColumnName *string `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
 	PrivateKey *string `pulumi:"privateKey"`
@@ -9145,7 +9153,7 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	// Describes the buffering to perform before delivering data to the Snowflake destination. If you do not specify any value, Firehose uses the default values.
 	BufferingHints           DeliveryStreamSnowflakeBufferingHintsPtrInput  `pulumi:"bufferingHints"`
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
-	// The name of the record content column
+	// The name of the record content column.
 	ContentColumnName pulumi.StringPtrInput `pulumi:"contentColumnName"`
 	// Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
 	DataLoadingOption DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOptionPtrInput `pulumi:"dataLoadingOption"`
@@ -9153,7 +9161,15 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	Database pulumi.StringInput `pulumi:"database"`
 	// Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
 	KeyPassphrase pulumi.StringPtrInput `pulumi:"keyPassphrase"`
-	// The name of the record metadata column
+	// Specify a column name in the table, where the metadata information has to be loaded. When you enable this field, you will see the following column in the snowflake table, which differs based on the source type.
+	//
+	// For Direct PUT as source
+	//
+	// `{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }`
+	//
+	// For Kinesis Data Stream as source
+	//
+	// `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
 	MetaDataColumnName pulumi.StringPtrInput `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
 	PrivateKey pulumi.StringPtrInput `pulumi:"privateKey"`
@@ -9275,7 +9291,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) CloudWatchLogging
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
-// The name of the record content column
+// The name of the record content column.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ContentColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.ContentColumnName }).(pulumi.StringPtrOutput)
 }
@@ -9297,7 +9313,15 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) KeyPassphrase() p
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.KeyPassphrase }).(pulumi.StringPtrOutput)
 }
 
-// The name of the record metadata column
+// Specify a column name in the table, where the metadata information has to be loaded. When you enable this field, you will see the following column in the snowflake table, which differs based on the source type.
+//
+// # For Direct PUT as source
+//
+// `{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }`
+//
+// # For Kinesis Data Stream as source
+//
+// `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) MetaDataColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *string { return v.MetaDataColumnName }).(pulumi.StringPtrOutput)
 }
@@ -9428,7 +9452,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) CloudWatchLogg
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
-// The name of the record content column
+// The name of the record content column.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ContentColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
 		if v == nil {
@@ -9468,7 +9492,15 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) KeyPassphrase(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the record metadata column
+// Specify a column name in the table, where the metadata information has to be loaded. When you enable this field, you will see the following column in the snowflake table, which differs based on the source type.
+//
+// # For Direct PUT as source
+//
+// `{ "firehoseDeliveryStreamName" : "streamname", "IngestionTime" : "timestamp" }`
+//
+// # For Kinesis Data Stream as source
+//
+// `"kinesisStreamName" : "streamname", "kinesisShardId" : "Id", "kinesisPartitionKey" : "key", "kinesisSequenceNumber" : "1234", "subsequenceNumber" : "2334", "IngestionTime" : "timestamp" }`
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) MetaDataColumnName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *string {
 		if v == nil {

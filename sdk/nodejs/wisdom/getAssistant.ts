@@ -16,7 +16,7 @@ export function getAssistant(args: GetAssistantArgs, opts?: pulumi.InvokeOptions
 
 export interface GetAssistantArgs {
     /**
-     * The ID of the Wisdom assistant.
+     * The identifier of the Amazon Q in Connect assistant.
      */
     assistantId: string;
 }
@@ -27,7 +27,7 @@ export interface GetAssistantResult {
      */
     readonly assistantArn?: string;
     /**
-     * The ID of the Wisdom assistant.
+     * The identifier of the Amazon Q in Connect assistant.
      */
     readonly assistantId?: string;
 }
@@ -43,7 +43,7 @@ export function getAssistantOutput(args: GetAssistantOutputArgs, opts?: pulumi.I
 
 export interface GetAssistantOutputArgs {
     /**
-     * The ID of the Wisdom assistant.
+     * The identifier of the Amazon Q in Connect assistant.
      */
     assistantId: pulumi.Input<string>;
 }

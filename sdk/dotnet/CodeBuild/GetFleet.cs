@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.CodeBuild
         /// The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
         /// </summary>
         public readonly int? BaseCapacity;
+        /// <summary>
+        /// The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+        /// </summary>
         public readonly Outputs.FleetComputeConfiguration? ComputeConfiguration;
         /// <summary>
         /// Information about the compute resources the compute fleet uses. Available values include:
@@ -111,6 +114,9 @@ namespace Pulumi.AwsNative.CodeBuild
         /// For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetEnvironmentType? EnvironmentType;
+        /// <summary>
+        /// Information about the proxy configurations that apply network access control to your reserved capacity instances.
+        /// </summary>
         public readonly Outputs.FleetProxyConfiguration? FleetProxyConfiguration;
         /// <summary>
         /// The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
@@ -137,6 +143,9 @@ namespace Pulumi.AwsNative.CodeBuild
         /// &gt; If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
         /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior? OverflowBehavior;
+        /// <summary>
+        /// The scaling configuration of the compute fleet.
+        /// </summary>
         public readonly Outputs.FleetScalingConfigurationInput? ScalingConfiguration;
         /// <summary>
         /// A list of tag key and value pairs associated with this compute fleet.

@@ -1584,6 +1584,10 @@ if not MYPY:
         """
         The S3 prefix to unload the protected query results.
         """
+        single_file_output: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+        """
 elif False:
     MembershipProtectedQueryS3OutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1592,16 +1596,20 @@ class MembershipProtectedQueryS3OutputConfigurationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  result_format: pulumi.Input['MembershipResultFormat'],
-                 key_prefix: Optional[pulumi.Input[str]] = None):
+                 key_prefix: Optional[pulumi.Input[str]] = None,
+                 single_file_output: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] bucket: The S3 bucket to unload the protected query results.
         :param pulumi.Input['MembershipResultFormat'] result_format: Intended file format of the result.
         :param pulumi.Input[str] key_prefix: The S3 prefix to unload the protected query results.
+        :param pulumi.Input[bool] single_file_output: Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "result_format", result_format)
         if key_prefix is not None:
             pulumi.set(__self__, "key_prefix", key_prefix)
+        if single_file_output is not None:
+            pulumi.set(__self__, "single_file_output", single_file_output)
 
     @property
     @pulumi.getter
@@ -1638,6 +1646,18 @@ class MembershipProtectedQueryS3OutputConfigurationArgs:
     @key_prefix.setter
     def key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_prefix", value)
+
+    @property
+    @pulumi.getter(name="singleFileOutput")
+    def single_file_output(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether files should be output as a single file ( `TRUE` ) or output as multiple files ( `FALSE` ). This parameter is only supported for analyses with the Spark analytics engine.
+        """
+        return pulumi.get(self, "single_file_output")
+
+    @single_file_output.setter
+    def single_file_output(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "single_file_output", value)
 
 
 if not MYPY:

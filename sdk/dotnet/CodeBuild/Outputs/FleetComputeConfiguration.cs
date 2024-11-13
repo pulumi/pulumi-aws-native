@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
     [OutputType]
     public sealed class FleetComputeConfiguration
     {
+        /// <summary>
+        /// The amount of disk space of the instance type included in your fleet.
+        /// </summary>
         public readonly int? Disk;
+        /// <summary>
+        /// The machine type of the instance type included in your fleet.
+        /// </summary>
         public readonly Pulumi.AwsNative.CodeBuild.FleetComputeConfigurationmachineType? MachineType;
+        /// <summary>
+        /// The amount of memory of the instance type included in your fleet.
+        /// </summary>
         public readonly int? Memory;
+        /// <summary>
+        /// The number of vCPUs of the instance type included in your fleet.
+        /// </summary>
         public readonly int? VCpu;
 
         [OutputConstructor]

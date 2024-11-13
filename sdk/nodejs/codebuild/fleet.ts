@@ -45,6 +45,9 @@ export class Fleet extends pulumi.CustomResource {
      * The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
      */
     public readonly baseCapacity!: pulumi.Output<number | undefined>;
+    /**
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+     */
     public readonly computeConfiguration!: pulumi.Output<outputs.codebuild.FleetComputeConfiguration | undefined>;
     /**
      * Information about the compute resources the compute fleet uses. Available values include:
@@ -91,6 +94,9 @@ export class Fleet extends pulumi.CustomResource {
      * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
      */
     public readonly environmentType!: pulumi.Output<enums.codebuild.FleetEnvironmentType | undefined>;
+    /**
+     * Information about the proxy configurations that apply network access control to your reserved capacity instances.
+     */
     public readonly fleetProxyConfiguration!: pulumi.Output<outputs.codebuild.FleetProxyConfiguration | undefined>;
     /**
      * The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
@@ -117,6 +123,9 @@ export class Fleet extends pulumi.CustomResource {
      * > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
      */
     public readonly overflowBehavior!: pulumi.Output<enums.codebuild.FleetOverflowBehavior | undefined>;
+    /**
+     * The scaling configuration of the compute fleet.
+     */
     public readonly scalingConfiguration!: pulumi.Output<outputs.codebuild.FleetScalingConfigurationInput | undefined>;
     /**
      * A list of tag key and value pairs associated with this compute fleet.
@@ -177,6 +186,9 @@ export interface FleetArgs {
      * The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
      */
     baseCapacity?: pulumi.Input<number>;
+    /**
+     * The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` .
+     */
     computeConfiguration?: pulumi.Input<inputs.codebuild.FleetComputeConfigurationArgs>;
     /**
      * Information about the compute resources the compute fleet uses. Available values include:
@@ -223,6 +235,9 @@ export interface FleetArgs {
      * For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
      */
     environmentType?: pulumi.Input<enums.codebuild.FleetEnvironmentType>;
+    /**
+     * Information about the proxy configurations that apply network access control to your reserved capacity instances.
+     */
     fleetProxyConfiguration?: pulumi.Input<inputs.codebuild.FleetProxyConfigurationArgs>;
     /**
      * The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
@@ -249,6 +264,9 @@ export interface FleetArgs {
      * > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
      */
     overflowBehavior?: pulumi.Input<enums.codebuild.FleetOverflowBehavior>;
+    /**
+     * The scaling configuration of the compute fleet.
+     */
     scalingConfiguration?: pulumi.Input<inputs.codebuild.FleetScalingConfigurationInputArgs>;
     /**
      * A list of tag key and value pairs associated with this compute fleet.

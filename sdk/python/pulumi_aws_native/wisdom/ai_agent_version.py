@@ -24,6 +24,8 @@ class AiAgentVersionArgs:
                  modified_time_seconds: Optional[pulumi.Input[float]] = None):
         """
         The set of arguments for constructing a AiAgentVersion resource.
+        :param pulumi.Input[str] ai_agent_id: The identifier of the AI Agent.
+        :param pulumi.Input[float] modified_time_seconds: The time the AI Agent version was last modified in seconds.
         """
         pulumi.set(__self__, "ai_agent_id", ai_agent_id)
         pulumi.set(__self__, "assistant_id", assistant_id)
@@ -33,6 +35,9 @@ class AiAgentVersionArgs:
     @property
     @pulumi.getter(name="aiAgentId")
     def ai_agent_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the AI Agent.
+        """
         return pulumi.get(self, "ai_agent_id")
 
     @ai_agent_id.setter
@@ -51,6 +56,9 @@ class AiAgentVersionArgs:
     @property
     @pulumi.getter(name="modifiedTimeSeconds")
     def modified_time_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The time the AI Agent version was last modified in seconds.
+        """
         return pulumi.get(self, "modified_time_seconds")
 
     @modified_time_seconds.setter
@@ -72,6 +80,8 @@ class AiAgentVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ai_agent_id: The identifier of the AI Agent.
+        :param pulumi.Input[float] modified_time_seconds: The time the AI Agent version was last modified in seconds.
         """
         ...
     @overload
@@ -156,11 +166,17 @@ class AiAgentVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aiAgentArn")
     def ai_agent_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AI agent.
+        """
         return pulumi.get(self, "ai_agent_arn")
 
     @property
     @pulumi.getter(name="aiAgentId")
     def ai_agent_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the AI Agent.
+        """
         return pulumi.get(self, "ai_agent_id")
 
     @property
@@ -171,6 +187,9 @@ class AiAgentVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
@@ -181,6 +200,9 @@ class AiAgentVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="modifiedTimeSeconds")
     def modified_time_seconds(self) -> pulumi.Output[Optional[float]]:
+        """
+        The time the AI Agent version was last modified in seconds.
+        """
         return pulumi.get(self, "modified_time_seconds")
 
     @property

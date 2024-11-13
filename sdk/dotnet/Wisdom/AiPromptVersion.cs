@@ -18,18 +18,30 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("aiPromptArn")]
         public Output<string> AiPromptArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect AI prompt.
+        /// </summary>
         [Output("aiPromptId")]
         public Output<string> AiPromptId { get; private set; } = null!;
 
         [Output("aiPromptVersionId")]
         public Output<string> AiPromptVersionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        /// </summary>
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Output("assistantId")]
         public Output<string> AssistantId { get; private set; } = null!;
 
+        /// <summary>
+        /// The time the AI Prompt version was last modified in seconds.
+        /// </summary>
         [Output("modifiedTimeSeconds")]
         public Output<double?> ModifiedTimeSeconds { get; private set; } = null!;
 
@@ -90,12 +102,21 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class AiPromptVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect AI prompt.
+        /// </summary>
         [Input("aiPromptId", required: true)]
         public Input<string> AiPromptId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
+        /// <summary>
+        /// The time the AI Prompt version was last modified in seconds.
+        /// </summary>
         [Input("modifiedTimeSeconds")]
         public Input<double>? ModifiedTimeSeconds { get; set; }
 

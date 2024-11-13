@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.CodeBuild
 {
+    /// <summary>
+    /// The machine type of the instance type included in your fleet.
+    /// </summary>
     [EnumType]
     public readonly struct FleetComputeConfigurationmachineType : IEquatable<FleetComputeConfigurationmachineType>
     {
@@ -178,6 +181,9 @@ namespace Pulumi.AwsNative.CodeBuild
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The default behavior of outgoing traffic.
+    /// </summary>
     [EnumType]
     public readonly struct FleetProxyConfigurationDefaultBehavior : IEquatable<FleetProxyConfigurationDefaultBehavior>
     {
@@ -206,6 +212,9 @@ namespace Pulumi.AwsNative.CodeBuild
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The behavior of the proxy rule.
+    /// </summary>
     [EnumType]
     public readonly struct FleetProxyRuleEffect : IEquatable<FleetProxyRuleEffect>
     {
@@ -234,6 +243,9 @@ namespace Pulumi.AwsNative.CodeBuild
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of proxy rule.
+    /// </summary>
     [EnumType]
     public readonly struct FleetProxyRuleType : IEquatable<FleetProxyRuleType>
     {
@@ -262,6 +274,9 @@ namespace Pulumi.AwsNative.CodeBuild
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The scaling type for a compute fleet.
+    /// </summary>
     [EnumType]
     public readonly struct FleetScalingConfigurationInputScalingType : IEquatable<FleetScalingConfigurationInputScalingType>
     {
@@ -289,6 +304,9 @@ namespace Pulumi.AwsNative.CodeBuild
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The metric type to determine auto-scaling.
+    /// </summary>
     [EnumType]
     public readonly struct FleetTargetTrackingScalingConfigurationMetricType : IEquatable<FleetTargetTrackingScalingConfigurationMetricType>
     {

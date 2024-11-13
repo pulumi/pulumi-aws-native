@@ -924,6 +924,9 @@ if not MYPY:
         For versioned objects, the version of the deployment package object to use.
         """
         source_kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [AWS owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) .
+        """
         zip_file: NotRequired[pulumi.Input[str]]
         """
         (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
@@ -949,6 +952,7 @@ class FunctionCodeArgs:
         :param pulumi.Input[str] s3_bucket: An Amazon S3 bucket in the same AWS-Region as your function. The bucket can be in a different AWS-account.
         :param pulumi.Input[str] s3_key: The Amazon S3 key of the deployment package.
         :param pulumi.Input[str] s3_object_version: For versioned objects, the version of the deployment package object to use.
+        :param pulumi.Input[str] source_kms_key_arn: The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [AWS owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) .
         :param pulumi.Input[str] zip_file: (Node.js and Python) The source code of your Lambda function. If you include your function source inline with this parameter, CFN places it in a file named ``index`` and zips it to create a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html). This zip file cannot exceed 4MB. For the ``Handler`` property, the first part of the handler identifier must be ``index``. For example, ``index.handler``.
                  For JSON, you must escape quotes and special characters such as newline (``\\n``) with a backslash.
                 If you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module ([cfn-response](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-lambda-function-code-cfnresponsemodule.html)) that simplifies sending responses. See [Using Lambda with CloudFormation](https://docs.aws.amazon.com/lambda/latest/dg/services-cloudformation.html) for details.
@@ -1017,6 +1021,9 @@ class FunctionCodeArgs:
     @property
     @pulumi.getter(name="sourceKmsKeyArn")
     def source_kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the AWS Key Management Service ( AWS KMS ) customer managed key that's used to encrypt your function's .zip deployment package. If you don't provide a customer managed key, Lambda uses an [AWS owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) .
+        """
         return pulumi.get(self, "source_kms_key_arn")
 
     @source_kms_key_arn.setter
