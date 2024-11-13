@@ -12906,13 +12906,15 @@
     "cfTypeName": "AWS::Wisdom::AIAgentVersion",
     "properties": {
       "aiAgentId": {
-        "type": "string"
+        "type": "string",
+        "description": "The identifier of the AI Agent."
       },
       "assistantId": {
         "type": "string"
       },
       "modifiedTimeSeconds": {
-        "type": "number"
+        "type": "number",
+        "description": "The time the AI Agent version was last modified in seconds."
       }
     }
   },
@@ -12920,13 +12922,16 @@
     "cfTypeName": "AWS::Wisdom::AIPromptVersion",
     "properties": {
       "aiPromptId": {
-        "type": "string"
+        "type": "string",
+        "description": "The identifier of the Amazon Q in Connect AI prompt."
       },
       "assistantId": {
-        "type": "string"
+        "type": "string",
+        "description": "The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN."
       },
       "modifiedTimeSeconds": {
-        "type": "number"
+        "type": "number",
+        "description": "The time the AI Prompt version was last modified in seconds."
       }
     }
   },

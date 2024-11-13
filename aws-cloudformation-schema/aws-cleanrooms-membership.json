@@ -45,6 +45,9 @@
         },
         "KeyPrefix" : {
           "type" : "string"
+        },
+        "SingleFileOutput" : {
+          "type" : "boolean"
         }
       },
       "required" : [ "ResultFormat", "Bucket" ]
