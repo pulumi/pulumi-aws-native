@@ -202,7 +202,7 @@ func (c *clientImpl) getResourceRetryNotFound(
 }
 
 func (*clientImpl) getResourceRetryNotFoundRetrySettings() (int, *retry.ExponentialJitterBackoff) {
-	retryBackoff := retry.NewExponentialJitterBackoff(3 * time.Second)
-	maxAttempts := 3
+	retryBackoff := retry.NewExponentialJitterBackoff(5 * time.Second)
+	maxAttempts := 5
 	return maxAttempts, retryBackoff
 }
