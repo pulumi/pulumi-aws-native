@@ -5,6 +5,7 @@
 package examples
 
 import (
+	"bytes"
 	"path/filepath"
 	"testing"
 
@@ -135,6 +136,21 @@ func TestNamingConventions(t *testing.T) {
 				if standardName[len(standardName)-5:] == ".fifo" {
 					t.Errorf("Expected standard queue name to not end with '.fifo', got '%s'", standardName)
 				}
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAutoNamingOverlay(t *testing.T) {
+	var buf bytes.Buffer
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:           filepath.Join(getCwd(t), "autonaming-overlay"),
+			Stderr:        &buf,
+			ExpectFailure: true,
+			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+				assert.Contains(t, buf.String(), "is too large to fix max length constraint of 64")
 			},
 		})
 

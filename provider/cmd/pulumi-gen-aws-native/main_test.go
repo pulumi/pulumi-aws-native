@@ -19,6 +19,7 @@ import (
 	"os"
 	"testing"
 
+	jsschema "github.com/pulumi/jsschema"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -51,6 +52,85 @@ func TestCleanDir(t *testing.T) {
 	if assert.Nil(err) {
 		assertExistsAndEmpty(t, dir)
 	}
+}
+
+func Test_mergeAutoNaming(t *testing.T) {
+	t.Run("overlay overwrites", func(t *testing.T) {
+		schema := &jsschema.Schema{
+			Extras: map[string]interface{}{
+				"typeName": "AWS::IAM::Role",
+			},
+			Properties: map[string]*jsschema.Schema{
+				"RoleName": {},
+			},
+		}
+
+		overlay := map[string]AutoNamingOverlay{
+			"AWS::IAM::Role": {
+				"RoleName": {
+					MaxLength: 64,
+					MinLength: 1,
+				},
+			},
+		}
+
+		mergeAutoNaming(schema, overlay)
+
+		assert.Equal(t, &jsschema.Schema{
+			MaxLength: jsschema.Integer{Val: 64},
+			MinLength: jsschema.Integer{Val: 1},
+		}, schema.Properties["RoleName"])
+	})
+
+	t.Run("overlay does not overwrite", func(t *testing.T) {
+		schema := &jsschema.Schema{
+			Extras: map[string]interface{}{
+				"typeName": "AWS::IAM::Role",
+			},
+			Properties: map[string]*jsschema.Schema{
+				"RoleName": {
+					MaxLength: jsschema.Integer{Val: 100},
+					MinLength: jsschema.Integer{Val: 4},
+				},
+			},
+		}
+
+		overlay := map[string]AutoNamingOverlay{
+			"AWS::IAM::Role": {
+				"RoleName": {
+					MaxLength: 64,
+					MinLength: 1,
+				},
+			},
+		}
+
+		mergeAutoNaming(schema, overlay)
+
+		assert.Equal(t, &jsschema.Schema{
+			MaxLength: jsschema.Integer{Val: 100},
+			MinLength: jsschema.Integer{Val: 4},
+		}, schema.Properties["RoleName"])
+	})
+
+	t.Run("overlay not found", func(t *testing.T) {
+		schema := &jsschema.Schema{
+			Extras: map[string]interface{}{
+				"typeName": "AWS::IAM::Role",
+			},
+			Properties: map[string]*jsschema.Schema{
+				"RoleName": {},
+			},
+		}
+
+		overlay := map[string]AutoNamingOverlay{}
+
+		mergeAutoNaming(schema, overlay)
+
+		assert.Equal(t, &jsschema.Schema{
+			MaxLength: jsschema.Integer{Val: 0},
+			MinLength: jsschema.Integer{Val: 0},
+		}, schema.Properties["RoleName"])
+	})
 }
 
 func assertExistsAndEmpty(t *testing.T, path string) bool {
