@@ -9,7 +9,7 @@
     "AWS::Lambda::Function": {
       "FunctionName": {
         "minLength": 1,
-        "maxLength": 140
+        "maxLength": 64
       }
     }, 
     "AWS::Lambda::Alias": {
