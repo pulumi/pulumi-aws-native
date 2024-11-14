@@ -25,9 +25,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionCacheBehavior> CacheBehaviors;
         /// <summary>
-        /// An alias for the CloudFront distribution's domain name.
-        /// 
-        /// &gt; This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+        /// An alias for the CF distribution's domain name.
+        ///   This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         /// </summary>
         public readonly ImmutableArray<string> Cnames;
         /// <summary>
@@ -47,9 +46,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionCustomErrorResponse> CustomErrorResponses;
         /// <summary>
-        /// The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
-        /// 
-        /// &gt; This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        /// The user-defined HTTP server that serves as the origin for content that CF distributes.
+        ///   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         /// </summary>
         public readonly Outputs.DistributionLegacyCustomOrigin? CustomOrigin;
         /// <summary>
@@ -70,7 +68,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
+        /// (Optional) Specify the HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
         ///  For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
         ///  For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
         /// </summary>
@@ -93,10 +91,12 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly Outputs.DistributionLogging? Logging;
         /// <summary>
         /// A complex type that contains information about origin groups for this distribution.
+        ///  Specify a value for either the ``Origins`` or ``OriginGroups`` property.
         /// </summary>
         public readonly Outputs.DistributionOriginGroups? OriginGroups;
         /// <summary>
         /// A complex type that contains information about origins for this distribution.
+        ///  Specify a value for either the ``Origins`` or ``OriginGroups`` property.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionOrigin> Origins;
         /// <summary>
@@ -110,9 +110,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionRestrictions? Restrictions;
         /// <summary>
-        /// The origin as an Amazon S3 bucket.
-        /// 
-        /// &gt; This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        /// The origin as an S3 bucket.
+        ///   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         /// </summary>
         public readonly Outputs.DistributionLegacyS3Origin? S3Origin;
         /// <summary>
@@ -124,7 +123,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionViewerCertificate? ViewerCertificate;
         /// <summary>
-        /// A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
+        /// A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
         ///   WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
         /// </summary>
         public readonly string? WebAclId;

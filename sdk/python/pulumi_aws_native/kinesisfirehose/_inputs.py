@@ -40,6 +40,18 @@ __all__ = [
     'DeliveryStreamCopyCommandArgsDict',
     'DeliveryStreamDataFormatConversionConfigurationArgs',
     'DeliveryStreamDataFormatConversionConfigurationArgsDict',
+    'DeliveryStreamDatabaseColumnsArgs',
+    'DeliveryStreamDatabaseColumnsArgsDict',
+    'DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs',
+    'DeliveryStreamDatabaseSourceAuthenticationConfigurationArgsDict',
+    'DeliveryStreamDatabaseSourceConfigurationArgs',
+    'DeliveryStreamDatabaseSourceConfigurationArgsDict',
+    'DeliveryStreamDatabaseSourceVpcConfigurationArgs',
+    'DeliveryStreamDatabaseSourceVpcConfigurationArgsDict',
+    'DeliveryStreamDatabaseTablesArgs',
+    'DeliveryStreamDatabaseTablesArgsDict',
+    'DeliveryStreamDatabasesArgs',
+    'DeliveryStreamDatabasesArgsDict',
     'DeliveryStreamDeserializerArgs',
     'DeliveryStreamDeserializerArgsDict',
     'DeliveryStreamDestinationTableConfigurationArgs',
@@ -1153,6 +1165,329 @@ class DeliveryStreamDataFormatConversionConfigurationArgs:
     @schema_configuration.setter
     def schema_configuration(self, value: Optional[pulumi.Input['DeliveryStreamSchemaConfigurationArgs']]):
         pulumi.set(self, "schema_configuration", value)
+
+
+if not MYPY:
+    class DeliveryStreamDatabaseColumnsArgsDict(TypedDict):
+        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DeliveryStreamDatabaseColumnsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamDatabaseColumnsArgs:
+    def __init__(__self__, *,
+                 exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exclude")
+
+    @exclude.setter
+    def exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude", value)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include", value)
+
+
+if not MYPY:
+    class DeliveryStreamDatabaseSourceAuthenticationConfigurationArgsDict(TypedDict):
+        secrets_manager_configuration: pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgsDict']
+elif False:
+    DeliveryStreamDatabaseSourceAuthenticationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs:
+    def __init__(__self__, *,
+                 secrets_manager_configuration: pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']):
+        pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
+
+    @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']:
+        return pulumi.get(self, "secrets_manager_configuration")
+
+    @secrets_manager_configuration.setter
+    def secrets_manager_configuration(self, value: pulumi.Input['DeliveryStreamSecretsManagerConfigurationArgs']):
+        pulumi.set(self, "secrets_manager_configuration", value)
+
+
+if not MYPY:
+    class DeliveryStreamDatabaseSourceConfigurationArgsDict(TypedDict):
+        database_source_authentication_configuration: pulumi.Input['DeliveryStreamDatabaseSourceAuthenticationConfigurationArgsDict']
+        database_source_vpc_configuration: pulumi.Input['DeliveryStreamDatabaseSourceVpcConfigurationArgsDict']
+        databases: pulumi.Input['DeliveryStreamDatabasesArgsDict']
+        endpoint: pulumi.Input[str]
+        port: pulumi.Input[int]
+        snapshot_watermark_table: pulumi.Input[str]
+        tables: pulumi.Input['DeliveryStreamDatabaseTablesArgsDict']
+        type: pulumi.Input['DeliveryStreamDatabaseSourceConfigurationType']
+        columns: NotRequired[pulumi.Input['DeliveryStreamDatabaseColumnsArgsDict']]
+        digest: NotRequired[pulumi.Input[str]]
+        public_certificate: NotRequired[pulumi.Input[str]]
+        ssl_mode: NotRequired[pulumi.Input['DeliveryStreamDatabaseSourceConfigurationSslMode']]
+        surrogate_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DeliveryStreamDatabaseSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamDatabaseSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 database_source_authentication_configuration: pulumi.Input['DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs'],
+                 database_source_vpc_configuration: pulumi.Input['DeliveryStreamDatabaseSourceVpcConfigurationArgs'],
+                 databases: pulumi.Input['DeliveryStreamDatabasesArgs'],
+                 endpoint: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 snapshot_watermark_table: pulumi.Input[str],
+                 tables: pulumi.Input['DeliveryStreamDatabaseTablesArgs'],
+                 type: pulumi.Input['DeliveryStreamDatabaseSourceConfigurationType'],
+                 columns: Optional[pulumi.Input['DeliveryStreamDatabaseColumnsArgs']] = None,
+                 digest: Optional[pulumi.Input[str]] = None,
+                 public_certificate: Optional[pulumi.Input[str]] = None,
+                 ssl_mode: Optional[pulumi.Input['DeliveryStreamDatabaseSourceConfigurationSslMode']] = None,
+                 surrogate_keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "database_source_authentication_configuration", database_source_authentication_configuration)
+        pulumi.set(__self__, "database_source_vpc_configuration", database_source_vpc_configuration)
+        pulumi.set(__self__, "databases", databases)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "snapshot_watermark_table", snapshot_watermark_table)
+        pulumi.set(__self__, "tables", tables)
+        pulumi.set(__self__, "type", type)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if public_certificate is not None:
+            pulumi.set(__self__, "public_certificate", public_certificate)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if surrogate_keys is not None:
+            pulumi.set(__self__, "surrogate_keys", surrogate_keys)
+
+    @property
+    @pulumi.getter(name="databaseSourceAuthenticationConfiguration")
+    def database_source_authentication_configuration(self) -> pulumi.Input['DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs']:
+        return pulumi.get(self, "database_source_authentication_configuration")
+
+    @database_source_authentication_configuration.setter
+    def database_source_authentication_configuration(self, value: pulumi.Input['DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs']):
+        pulumi.set(self, "database_source_authentication_configuration", value)
+
+    @property
+    @pulumi.getter(name="databaseSourceVpcConfiguration")
+    def database_source_vpc_configuration(self) -> pulumi.Input['DeliveryStreamDatabaseSourceVpcConfigurationArgs']:
+        return pulumi.get(self, "database_source_vpc_configuration")
+
+    @database_source_vpc_configuration.setter
+    def database_source_vpc_configuration(self, value: pulumi.Input['DeliveryStreamDatabaseSourceVpcConfigurationArgs']):
+        pulumi.set(self, "database_source_vpc_configuration", value)
+
+    @property
+    @pulumi.getter
+    def databases(self) -> pulumi.Input['DeliveryStreamDatabasesArgs']:
+        return pulumi.get(self, "databases")
+
+    @databases.setter
+    def databases(self, value: pulumi.Input['DeliveryStreamDatabasesArgs']):
+        pulumi.set(self, "databases", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="snapshotWatermarkTable")
+    def snapshot_watermark_table(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "snapshot_watermark_table")
+
+    @snapshot_watermark_table.setter
+    def snapshot_watermark_table(self, value: pulumi.Input[str]):
+        pulumi.set(self, "snapshot_watermark_table", value)
+
+    @property
+    @pulumi.getter
+    def tables(self) -> pulumi.Input['DeliveryStreamDatabaseTablesArgs']:
+        return pulumi.get(self, "tables")
+
+    @tables.setter
+    def tables(self, value: pulumi.Input['DeliveryStreamDatabaseTablesArgs']):
+        pulumi.set(self, "tables", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['DeliveryStreamDatabaseSourceConfigurationType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['DeliveryStreamDatabaseSourceConfigurationType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input['DeliveryStreamDatabaseColumnsArgs']]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input['DeliveryStreamDatabaseColumnsArgs']]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "digest")
+
+    @digest.setter
+    def digest(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "digest", value)
+
+    @property
+    @pulumi.getter(name="publicCertificate")
+    def public_certificate(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "public_certificate")
+
+    @public_certificate.setter
+    def public_certificate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_certificate", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[pulumi.Input['DeliveryStreamDatabaseSourceConfigurationSslMode']]:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: Optional[pulumi.Input['DeliveryStreamDatabaseSourceConfigurationSslMode']]):
+        pulumi.set(self, "ssl_mode", value)
+
+    @property
+    @pulumi.getter(name="surrogateKeys")
+    def surrogate_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "surrogate_keys")
+
+    @surrogate_keys.setter
+    def surrogate_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "surrogate_keys", value)
+
+
+if not MYPY:
+    class DeliveryStreamDatabaseSourceVpcConfigurationArgsDict(TypedDict):
+        vpc_endpoint_service_name: pulumi.Input[str]
+elif False:
+    DeliveryStreamDatabaseSourceVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamDatabaseSourceVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 vpc_endpoint_service_name: pulumi.Input[str]):
+        pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "vpc_endpoint_service_name")
+
+    @vpc_endpoint_service_name.setter
+    def vpc_endpoint_service_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_endpoint_service_name", value)
+
+
+if not MYPY:
+    class DeliveryStreamDatabaseTablesArgsDict(TypedDict):
+        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DeliveryStreamDatabaseTablesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamDatabaseTablesArgs:
+    def __init__(__self__, *,
+                 exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exclude")
+
+    @exclude.setter
+    def exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude", value)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include", value)
+
+
+if not MYPY:
+    class DeliveryStreamDatabasesArgsDict(TypedDict):
+        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DeliveryStreamDatabasesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeliveryStreamDatabasesArgs:
+    def __init__(__self__, *,
+                 exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exclude")
+
+    @exclude.setter
+    def exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude", value)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include", value)
 
 
 if not MYPY:

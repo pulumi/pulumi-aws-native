@@ -10,6 +10,575 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Target actions are the type of operation hooks will be executed at.
+type GuardHookAction string
+
+const (
+	GuardHookActionCreate = GuardHookAction("CREATE")
+	GuardHookActionUpdate = GuardHookAction("UPDATE")
+	GuardHookActionDelete = GuardHookAction("DELETE")
+)
+
+// Attribute to specify CloudFormation behavior on hook failure.
+type GuardHookFailureMode string
+
+const (
+	GuardHookFailureModeFail = GuardHookFailureMode("FAIL")
+	GuardHookFailureModeWarn = GuardHookFailureMode("WARN")
+)
+
+func (GuardHookFailureMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardHookFailureMode)(nil)).Elem()
+}
+
+func (e GuardHookFailureMode) ToGuardHookFailureModeOutput() GuardHookFailureModeOutput {
+	return pulumi.ToOutput(e).(GuardHookFailureModeOutput)
+}
+
+func (e GuardHookFailureMode) ToGuardHookFailureModeOutputWithContext(ctx context.Context) GuardHookFailureModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardHookFailureModeOutput)
+}
+
+func (e GuardHookFailureMode) ToGuardHookFailureModePtrOutput() GuardHookFailureModePtrOutput {
+	return e.ToGuardHookFailureModePtrOutputWithContext(context.Background())
+}
+
+func (e GuardHookFailureMode) ToGuardHookFailureModePtrOutputWithContext(ctx context.Context) GuardHookFailureModePtrOutput {
+	return GuardHookFailureMode(e).ToGuardHookFailureModeOutputWithContext(ctx).ToGuardHookFailureModePtrOutputWithContext(ctx)
+}
+
+func (e GuardHookFailureMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardHookFailureMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardHookFailureMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardHookFailureMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardHookFailureModeOutput struct{ *pulumi.OutputState }
+
+func (GuardHookFailureModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardHookFailureMode)(nil)).Elem()
+}
+
+func (o GuardHookFailureModeOutput) ToGuardHookFailureModeOutput() GuardHookFailureModeOutput {
+	return o
+}
+
+func (o GuardHookFailureModeOutput) ToGuardHookFailureModeOutputWithContext(ctx context.Context) GuardHookFailureModeOutput {
+	return o
+}
+
+func (o GuardHookFailureModeOutput) ToGuardHookFailureModePtrOutput() GuardHookFailureModePtrOutput {
+	return o.ToGuardHookFailureModePtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookFailureModeOutput) ToGuardHookFailureModePtrOutputWithContext(ctx context.Context) GuardHookFailureModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardHookFailureMode) *GuardHookFailureMode {
+		return &v
+	}).(GuardHookFailureModePtrOutput)
+}
+
+func (o GuardHookFailureModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardHookFailureModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardHookFailureMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardHookFailureModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookFailureModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardHookFailureMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardHookFailureModePtrOutput struct{ *pulumi.OutputState }
+
+func (GuardHookFailureModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardHookFailureMode)(nil)).Elem()
+}
+
+func (o GuardHookFailureModePtrOutput) ToGuardHookFailureModePtrOutput() GuardHookFailureModePtrOutput {
+	return o
+}
+
+func (o GuardHookFailureModePtrOutput) ToGuardHookFailureModePtrOutputWithContext(ctx context.Context) GuardHookFailureModePtrOutput {
+	return o
+}
+
+func (o GuardHookFailureModePtrOutput) Elem() GuardHookFailureModeOutput {
+	return o.ApplyT(func(v *GuardHookFailureMode) GuardHookFailureMode {
+		if v != nil {
+			return *v
+		}
+		var ret GuardHookFailureMode
+		return ret
+	}).(GuardHookFailureModeOutput)
+}
+
+func (o GuardHookFailureModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookFailureModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardHookFailureMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardHookFailureModeInput is an input type that accepts values of the GuardHookFailureMode enum
+// A concrete instance of `GuardHookFailureModeInput` can be one of the following:
+//
+//	GuardHookFailureModeFail
+//	GuardHookFailureModeWarn
+type GuardHookFailureModeInput interface {
+	pulumi.Input
+
+	ToGuardHookFailureModeOutput() GuardHookFailureModeOutput
+	ToGuardHookFailureModeOutputWithContext(context.Context) GuardHookFailureModeOutput
+}
+
+var guardHookFailureModePtrType = reflect.TypeOf((**GuardHookFailureMode)(nil)).Elem()
+
+type GuardHookFailureModePtrInput interface {
+	pulumi.Input
+
+	ToGuardHookFailureModePtrOutput() GuardHookFailureModePtrOutput
+	ToGuardHookFailureModePtrOutputWithContext(context.Context) GuardHookFailureModePtrOutput
+}
+
+type guardHookFailureModePtr string
+
+func GuardHookFailureModePtr(v string) GuardHookFailureModePtrInput {
+	return (*guardHookFailureModePtr)(&v)
+}
+
+func (*guardHookFailureModePtr) ElementType() reflect.Type {
+	return guardHookFailureModePtrType
+}
+
+func (in *guardHookFailureModePtr) ToGuardHookFailureModePtrOutput() GuardHookFailureModePtrOutput {
+	return pulumi.ToOutput(in).(GuardHookFailureModePtrOutput)
+}
+
+func (in *guardHookFailureModePtr) ToGuardHookFailureModePtrOutputWithContext(ctx context.Context) GuardHookFailureModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardHookFailureModePtrOutput)
+}
+
+// Attribute to specify which stacks this hook applies to or should get invoked for
+type GuardHookHookStatus string
+
+const (
+	GuardHookHookStatusEnabled  = GuardHookHookStatus("ENABLED")
+	GuardHookHookStatusDisabled = GuardHookHookStatus("DISABLED")
+)
+
+func (GuardHookHookStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardHookHookStatus)(nil)).Elem()
+}
+
+func (e GuardHookHookStatus) ToGuardHookHookStatusOutput() GuardHookHookStatusOutput {
+	return pulumi.ToOutput(e).(GuardHookHookStatusOutput)
+}
+
+func (e GuardHookHookStatus) ToGuardHookHookStatusOutputWithContext(ctx context.Context) GuardHookHookStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardHookHookStatusOutput)
+}
+
+func (e GuardHookHookStatus) ToGuardHookHookStatusPtrOutput() GuardHookHookStatusPtrOutput {
+	return e.ToGuardHookHookStatusPtrOutputWithContext(context.Background())
+}
+
+func (e GuardHookHookStatus) ToGuardHookHookStatusPtrOutputWithContext(ctx context.Context) GuardHookHookStatusPtrOutput {
+	return GuardHookHookStatus(e).ToGuardHookHookStatusOutputWithContext(ctx).ToGuardHookHookStatusPtrOutputWithContext(ctx)
+}
+
+func (e GuardHookHookStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardHookHookStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardHookHookStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardHookHookStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardHookHookStatusOutput struct{ *pulumi.OutputState }
+
+func (GuardHookHookStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardHookHookStatus)(nil)).Elem()
+}
+
+func (o GuardHookHookStatusOutput) ToGuardHookHookStatusOutput() GuardHookHookStatusOutput {
+	return o
+}
+
+func (o GuardHookHookStatusOutput) ToGuardHookHookStatusOutputWithContext(ctx context.Context) GuardHookHookStatusOutput {
+	return o
+}
+
+func (o GuardHookHookStatusOutput) ToGuardHookHookStatusPtrOutput() GuardHookHookStatusPtrOutput {
+	return o.ToGuardHookHookStatusPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookHookStatusOutput) ToGuardHookHookStatusPtrOutputWithContext(ctx context.Context) GuardHookHookStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardHookHookStatus) *GuardHookHookStatus {
+		return &v
+	}).(GuardHookHookStatusPtrOutput)
+}
+
+func (o GuardHookHookStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardHookHookStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardHookHookStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardHookHookStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookHookStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardHookHookStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardHookHookStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardHookHookStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardHookHookStatus)(nil)).Elem()
+}
+
+func (o GuardHookHookStatusPtrOutput) ToGuardHookHookStatusPtrOutput() GuardHookHookStatusPtrOutput {
+	return o
+}
+
+func (o GuardHookHookStatusPtrOutput) ToGuardHookHookStatusPtrOutputWithContext(ctx context.Context) GuardHookHookStatusPtrOutput {
+	return o
+}
+
+func (o GuardHookHookStatusPtrOutput) Elem() GuardHookHookStatusOutput {
+	return o.ApplyT(func(v *GuardHookHookStatus) GuardHookHookStatus {
+		if v != nil {
+			return *v
+		}
+		var ret GuardHookHookStatus
+		return ret
+	}).(GuardHookHookStatusOutput)
+}
+
+func (o GuardHookHookStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookHookStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardHookHookStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardHookHookStatusInput is an input type that accepts values of the GuardHookHookStatus enum
+// A concrete instance of `GuardHookHookStatusInput` can be one of the following:
+//
+//	GuardHookHookStatusEnabled
+//	GuardHookHookStatusDisabled
+type GuardHookHookStatusInput interface {
+	pulumi.Input
+
+	ToGuardHookHookStatusOutput() GuardHookHookStatusOutput
+	ToGuardHookHookStatusOutputWithContext(context.Context) GuardHookHookStatusOutput
+}
+
+var guardHookHookStatusPtrType = reflect.TypeOf((**GuardHookHookStatus)(nil)).Elem()
+
+type GuardHookHookStatusPtrInput interface {
+	pulumi.Input
+
+	ToGuardHookHookStatusPtrOutput() GuardHookHookStatusPtrOutput
+	ToGuardHookHookStatusPtrOutputWithContext(context.Context) GuardHookHookStatusPtrOutput
+}
+
+type guardHookHookStatusPtr string
+
+func GuardHookHookStatusPtr(v string) GuardHookHookStatusPtrInput {
+	return (*guardHookHookStatusPtr)(&v)
+}
+
+func (*guardHookHookStatusPtr) ElementType() reflect.Type {
+	return guardHookHookStatusPtrType
+}
+
+func (in *guardHookHookStatusPtr) ToGuardHookHookStatusPtrOutput() GuardHookHookStatusPtrOutput {
+	return pulumi.ToOutput(in).(GuardHookHookStatusPtrOutput)
+}
+
+func (in *guardHookHookStatusPtr) ToGuardHookHookStatusPtrOutputWithContext(ctx context.Context) GuardHookHookStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardHookHookStatusPtrOutput)
+}
+
+// Invocation points are the point in provisioning workflow where hooks will be executed.
+type GuardHookInvocationPoint string
+
+const (
+	GuardHookInvocationPointPreProvision = GuardHookInvocationPoint("PRE_PROVISION")
+)
+
+// Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+type GuardHookStackFiltersPropertiesFilteringCriteria string
+
+const (
+	GuardHookStackFiltersPropertiesFilteringCriteriaAll = GuardHookStackFiltersPropertiesFilteringCriteria("ALL")
+	GuardHookStackFiltersPropertiesFilteringCriteriaAny = GuardHookStackFiltersPropertiesFilteringCriteria("ANY")
+)
+
+// Which operations should this Hook run against? Resource changes, stacks or change sets.
+type GuardHookTargetOperation string
+
+const (
+	GuardHookTargetOperationResource  = GuardHookTargetOperation("RESOURCE")
+	GuardHookTargetOperationStack     = GuardHookTargetOperation("STACK")
+	GuardHookTargetOperationChangeSet = GuardHookTargetOperation("CHANGE_SET")
+)
+
+func (GuardHookTargetOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardHookTargetOperation)(nil)).Elem()
+}
+
+func (e GuardHookTargetOperation) ToGuardHookTargetOperationOutput() GuardHookTargetOperationOutput {
+	return pulumi.ToOutput(e).(GuardHookTargetOperationOutput)
+}
+
+func (e GuardHookTargetOperation) ToGuardHookTargetOperationOutputWithContext(ctx context.Context) GuardHookTargetOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GuardHookTargetOperationOutput)
+}
+
+func (e GuardHookTargetOperation) ToGuardHookTargetOperationPtrOutput() GuardHookTargetOperationPtrOutput {
+	return e.ToGuardHookTargetOperationPtrOutputWithContext(context.Background())
+}
+
+func (e GuardHookTargetOperation) ToGuardHookTargetOperationPtrOutputWithContext(ctx context.Context) GuardHookTargetOperationPtrOutput {
+	return GuardHookTargetOperation(e).ToGuardHookTargetOperationOutputWithContext(ctx).ToGuardHookTargetOperationPtrOutputWithContext(ctx)
+}
+
+func (e GuardHookTargetOperation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardHookTargetOperation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GuardHookTargetOperation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GuardHookTargetOperation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GuardHookTargetOperationOutput struct{ *pulumi.OutputState }
+
+func (GuardHookTargetOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardHookTargetOperation)(nil)).Elem()
+}
+
+func (o GuardHookTargetOperationOutput) ToGuardHookTargetOperationOutput() GuardHookTargetOperationOutput {
+	return o
+}
+
+func (o GuardHookTargetOperationOutput) ToGuardHookTargetOperationOutputWithContext(ctx context.Context) GuardHookTargetOperationOutput {
+	return o
+}
+
+func (o GuardHookTargetOperationOutput) ToGuardHookTargetOperationPtrOutput() GuardHookTargetOperationPtrOutput {
+	return o.ToGuardHookTargetOperationPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookTargetOperationOutput) ToGuardHookTargetOperationPtrOutputWithContext(ctx context.Context) GuardHookTargetOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardHookTargetOperation) *GuardHookTargetOperation {
+		return &v
+	}).(GuardHookTargetOperationPtrOutput)
+}
+
+func (o GuardHookTargetOperationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GuardHookTargetOperationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardHookTargetOperation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GuardHookTargetOperationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookTargetOperationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GuardHookTargetOperation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GuardHookTargetOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardHookTargetOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardHookTargetOperation)(nil)).Elem()
+}
+
+func (o GuardHookTargetOperationPtrOutput) ToGuardHookTargetOperationPtrOutput() GuardHookTargetOperationPtrOutput {
+	return o
+}
+
+func (o GuardHookTargetOperationPtrOutput) ToGuardHookTargetOperationPtrOutputWithContext(ctx context.Context) GuardHookTargetOperationPtrOutput {
+	return o
+}
+
+func (o GuardHookTargetOperationPtrOutput) Elem() GuardHookTargetOperationOutput {
+	return o.ApplyT(func(v *GuardHookTargetOperation) GuardHookTargetOperation {
+		if v != nil {
+			return *v
+		}
+		var ret GuardHookTargetOperation
+		return ret
+	}).(GuardHookTargetOperationOutput)
+}
+
+func (o GuardHookTargetOperationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookTargetOperationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GuardHookTargetOperation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GuardHookTargetOperationInput is an input type that accepts values of the GuardHookTargetOperation enum
+// A concrete instance of `GuardHookTargetOperationInput` can be one of the following:
+//
+//	GuardHookTargetOperationResource
+//	GuardHookTargetOperationStack
+//	GuardHookTargetOperationChangeSet
+type GuardHookTargetOperationInput interface {
+	pulumi.Input
+
+	ToGuardHookTargetOperationOutput() GuardHookTargetOperationOutput
+	ToGuardHookTargetOperationOutputWithContext(context.Context) GuardHookTargetOperationOutput
+}
+
+var guardHookTargetOperationPtrType = reflect.TypeOf((**GuardHookTargetOperation)(nil)).Elem()
+
+type GuardHookTargetOperationPtrInput interface {
+	pulumi.Input
+
+	ToGuardHookTargetOperationPtrOutput() GuardHookTargetOperationPtrOutput
+	ToGuardHookTargetOperationPtrOutputWithContext(context.Context) GuardHookTargetOperationPtrOutput
+}
+
+type guardHookTargetOperationPtr string
+
+func GuardHookTargetOperationPtr(v string) GuardHookTargetOperationPtrInput {
+	return (*guardHookTargetOperationPtr)(&v)
+}
+
+func (*guardHookTargetOperationPtr) ElementType() reflect.Type {
+	return guardHookTargetOperationPtrType
+}
+
+func (in *guardHookTargetOperationPtr) ToGuardHookTargetOperationPtrOutput() GuardHookTargetOperationPtrOutput {
+	return pulumi.ToOutput(in).(GuardHookTargetOperationPtrOutput)
+}
+
+func (in *guardHookTargetOperationPtr) ToGuardHookTargetOperationPtrOutputWithContext(ctx context.Context) GuardHookTargetOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GuardHookTargetOperationPtrOutput)
+}
+
+// GuardHookTargetOperationArrayInput is an input type that accepts GuardHookTargetOperationArray and GuardHookTargetOperationArrayOutput values.
+// You can construct a concrete instance of `GuardHookTargetOperationArrayInput` via:
+//
+//	GuardHookTargetOperationArray{ GuardHookTargetOperationArgs{...} }
+type GuardHookTargetOperationArrayInput interface {
+	pulumi.Input
+
+	ToGuardHookTargetOperationArrayOutput() GuardHookTargetOperationArrayOutput
+	ToGuardHookTargetOperationArrayOutputWithContext(context.Context) GuardHookTargetOperationArrayOutput
+}
+
+type GuardHookTargetOperationArray []GuardHookTargetOperation
+
+func (GuardHookTargetOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardHookTargetOperation)(nil)).Elem()
+}
+
+func (i GuardHookTargetOperationArray) ToGuardHookTargetOperationArrayOutput() GuardHookTargetOperationArrayOutput {
+	return i.ToGuardHookTargetOperationArrayOutputWithContext(context.Background())
+}
+
+func (i GuardHookTargetOperationArray) ToGuardHookTargetOperationArrayOutputWithContext(ctx context.Context) GuardHookTargetOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardHookTargetOperationArrayOutput)
+}
+
+type GuardHookTargetOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (GuardHookTargetOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GuardHookTargetOperation)(nil)).Elem()
+}
+
+func (o GuardHookTargetOperationArrayOutput) ToGuardHookTargetOperationArrayOutput() GuardHookTargetOperationArrayOutput {
+	return o
+}
+
+func (o GuardHookTargetOperationArrayOutput) ToGuardHookTargetOperationArrayOutputWithContext(ctx context.Context) GuardHookTargetOperationArrayOutput {
+	return o
+}
+
+func (o GuardHookTargetOperationArrayOutput) Index(i pulumi.IntInput) GuardHookTargetOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GuardHookTargetOperation {
+		return vs[0].([]GuardHookTargetOperation)[vs[1].(int)]
+	}).(GuardHookTargetOperationOutput)
+}
+
 // An alias by which to refer to this extension configuration data.
 type HookTypeConfigConfigurationAlias string
 
@@ -269,6 +838,1139 @@ func (o HookVersionVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+// Target actions are the type of operation hooks will be executed at.
+type LambdaHookAction string
+
+const (
+	LambdaHookActionCreate = LambdaHookAction("CREATE")
+	LambdaHookActionUpdate = LambdaHookAction("UPDATE")
+	LambdaHookActionDelete = LambdaHookAction("DELETE")
+)
+
+func (LambdaHookAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookAction)(nil)).Elem()
+}
+
+func (e LambdaHookAction) ToLambdaHookActionOutput() LambdaHookActionOutput {
+	return pulumi.ToOutput(e).(LambdaHookActionOutput)
+}
+
+func (e LambdaHookAction) ToLambdaHookActionOutputWithContext(ctx context.Context) LambdaHookActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LambdaHookActionOutput)
+}
+
+func (e LambdaHookAction) ToLambdaHookActionPtrOutput() LambdaHookActionPtrOutput {
+	return e.ToLambdaHookActionPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookAction) ToLambdaHookActionPtrOutputWithContext(ctx context.Context) LambdaHookActionPtrOutput {
+	return LambdaHookAction(e).ToLambdaHookActionOutputWithContext(ctx).ToLambdaHookActionPtrOutputWithContext(ctx)
+}
+
+func (e LambdaHookAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LambdaHookActionOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookAction)(nil)).Elem()
+}
+
+func (o LambdaHookActionOutput) ToLambdaHookActionOutput() LambdaHookActionOutput {
+	return o
+}
+
+func (o LambdaHookActionOutput) ToLambdaHookActionOutputWithContext(ctx context.Context) LambdaHookActionOutput {
+	return o
+}
+
+func (o LambdaHookActionOutput) ToLambdaHookActionPtrOutput() LambdaHookActionPtrOutput {
+	return o.ToLambdaHookActionPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookActionOutput) ToLambdaHookActionPtrOutputWithContext(ctx context.Context) LambdaHookActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LambdaHookAction) *LambdaHookAction {
+		return &v
+	}).(LambdaHookActionPtrOutput)
+}
+
+func (o LambdaHookActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LambdaHookActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LambdaHookActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LambdaHookActionPtrOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LambdaHookAction)(nil)).Elem()
+}
+
+func (o LambdaHookActionPtrOutput) ToLambdaHookActionPtrOutput() LambdaHookActionPtrOutput {
+	return o
+}
+
+func (o LambdaHookActionPtrOutput) ToLambdaHookActionPtrOutputWithContext(ctx context.Context) LambdaHookActionPtrOutput {
+	return o
+}
+
+func (o LambdaHookActionPtrOutput) Elem() LambdaHookActionOutput {
+	return o.ApplyT(func(v *LambdaHookAction) LambdaHookAction {
+		if v != nil {
+			return *v
+		}
+		var ret LambdaHookAction
+		return ret
+	}).(LambdaHookActionOutput)
+}
+
+func (o LambdaHookActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LambdaHookAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LambdaHookActionInput is an input type that accepts values of the LambdaHookAction enum
+// A concrete instance of `LambdaHookActionInput` can be one of the following:
+//
+//	LambdaHookActionCreate
+//	LambdaHookActionUpdate
+//	LambdaHookActionDelete
+type LambdaHookActionInput interface {
+	pulumi.Input
+
+	ToLambdaHookActionOutput() LambdaHookActionOutput
+	ToLambdaHookActionOutputWithContext(context.Context) LambdaHookActionOutput
+}
+
+var lambdaHookActionPtrType = reflect.TypeOf((**LambdaHookAction)(nil)).Elem()
+
+type LambdaHookActionPtrInput interface {
+	pulumi.Input
+
+	ToLambdaHookActionPtrOutput() LambdaHookActionPtrOutput
+	ToLambdaHookActionPtrOutputWithContext(context.Context) LambdaHookActionPtrOutput
+}
+
+type lambdaHookActionPtr string
+
+func LambdaHookActionPtr(v string) LambdaHookActionPtrInput {
+	return (*lambdaHookActionPtr)(&v)
+}
+
+func (*lambdaHookActionPtr) ElementType() reflect.Type {
+	return lambdaHookActionPtrType
+}
+
+func (in *lambdaHookActionPtr) ToLambdaHookActionPtrOutput() LambdaHookActionPtrOutput {
+	return pulumi.ToOutput(in).(LambdaHookActionPtrOutput)
+}
+
+func (in *lambdaHookActionPtr) ToLambdaHookActionPtrOutputWithContext(ctx context.Context) LambdaHookActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LambdaHookActionPtrOutput)
+}
+
+// LambdaHookActionArrayInput is an input type that accepts LambdaHookActionArray and LambdaHookActionArrayOutput values.
+// You can construct a concrete instance of `LambdaHookActionArrayInput` via:
+//
+//	LambdaHookActionArray{ LambdaHookActionArgs{...} }
+type LambdaHookActionArrayInput interface {
+	pulumi.Input
+
+	ToLambdaHookActionArrayOutput() LambdaHookActionArrayOutput
+	ToLambdaHookActionArrayOutputWithContext(context.Context) LambdaHookActionArrayOutput
+}
+
+type LambdaHookActionArray []LambdaHookAction
+
+func (LambdaHookActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LambdaHookAction)(nil)).Elem()
+}
+
+func (i LambdaHookActionArray) ToLambdaHookActionArrayOutput() LambdaHookActionArrayOutput {
+	return i.ToLambdaHookActionArrayOutputWithContext(context.Background())
+}
+
+func (i LambdaHookActionArray) ToLambdaHookActionArrayOutputWithContext(ctx context.Context) LambdaHookActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LambdaHookActionArrayOutput)
+}
+
+type LambdaHookActionArrayOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LambdaHookAction)(nil)).Elem()
+}
+
+func (o LambdaHookActionArrayOutput) ToLambdaHookActionArrayOutput() LambdaHookActionArrayOutput {
+	return o
+}
+
+func (o LambdaHookActionArrayOutput) ToLambdaHookActionArrayOutputWithContext(ctx context.Context) LambdaHookActionArrayOutput {
+	return o
+}
+
+func (o LambdaHookActionArrayOutput) Index(i pulumi.IntInput) LambdaHookActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LambdaHookAction {
+		return vs[0].([]LambdaHookAction)[vs[1].(int)]
+	}).(LambdaHookActionOutput)
+}
+
+// Attribute to specify CloudFormation behavior on hook failure.
+type LambdaHookFailureMode string
+
+const (
+	LambdaHookFailureModeFail = LambdaHookFailureMode("FAIL")
+	LambdaHookFailureModeWarn = LambdaHookFailureMode("WARN")
+)
+
+func (LambdaHookFailureMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookFailureMode)(nil)).Elem()
+}
+
+func (e LambdaHookFailureMode) ToLambdaHookFailureModeOutput() LambdaHookFailureModeOutput {
+	return pulumi.ToOutput(e).(LambdaHookFailureModeOutput)
+}
+
+func (e LambdaHookFailureMode) ToLambdaHookFailureModeOutputWithContext(ctx context.Context) LambdaHookFailureModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LambdaHookFailureModeOutput)
+}
+
+func (e LambdaHookFailureMode) ToLambdaHookFailureModePtrOutput() LambdaHookFailureModePtrOutput {
+	return e.ToLambdaHookFailureModePtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookFailureMode) ToLambdaHookFailureModePtrOutputWithContext(ctx context.Context) LambdaHookFailureModePtrOutput {
+	return LambdaHookFailureMode(e).ToLambdaHookFailureModeOutputWithContext(ctx).ToLambdaHookFailureModePtrOutputWithContext(ctx)
+}
+
+func (e LambdaHookFailureMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookFailureMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookFailureMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookFailureMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LambdaHookFailureModeOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookFailureModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookFailureMode)(nil)).Elem()
+}
+
+func (o LambdaHookFailureModeOutput) ToLambdaHookFailureModeOutput() LambdaHookFailureModeOutput {
+	return o
+}
+
+func (o LambdaHookFailureModeOutput) ToLambdaHookFailureModeOutputWithContext(ctx context.Context) LambdaHookFailureModeOutput {
+	return o
+}
+
+func (o LambdaHookFailureModeOutput) ToLambdaHookFailureModePtrOutput() LambdaHookFailureModePtrOutput {
+	return o.ToLambdaHookFailureModePtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookFailureModeOutput) ToLambdaHookFailureModePtrOutputWithContext(ctx context.Context) LambdaHookFailureModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LambdaHookFailureMode) *LambdaHookFailureMode {
+		return &v
+	}).(LambdaHookFailureModePtrOutput)
+}
+
+func (o LambdaHookFailureModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LambdaHookFailureModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookFailureMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LambdaHookFailureModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookFailureModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookFailureMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LambdaHookFailureModePtrOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookFailureModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LambdaHookFailureMode)(nil)).Elem()
+}
+
+func (o LambdaHookFailureModePtrOutput) ToLambdaHookFailureModePtrOutput() LambdaHookFailureModePtrOutput {
+	return o
+}
+
+func (o LambdaHookFailureModePtrOutput) ToLambdaHookFailureModePtrOutputWithContext(ctx context.Context) LambdaHookFailureModePtrOutput {
+	return o
+}
+
+func (o LambdaHookFailureModePtrOutput) Elem() LambdaHookFailureModeOutput {
+	return o.ApplyT(func(v *LambdaHookFailureMode) LambdaHookFailureMode {
+		if v != nil {
+			return *v
+		}
+		var ret LambdaHookFailureMode
+		return ret
+	}).(LambdaHookFailureModeOutput)
+}
+
+func (o LambdaHookFailureModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookFailureModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LambdaHookFailureMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LambdaHookFailureModeInput is an input type that accepts values of the LambdaHookFailureMode enum
+// A concrete instance of `LambdaHookFailureModeInput` can be one of the following:
+//
+//	LambdaHookFailureModeFail
+//	LambdaHookFailureModeWarn
+type LambdaHookFailureModeInput interface {
+	pulumi.Input
+
+	ToLambdaHookFailureModeOutput() LambdaHookFailureModeOutput
+	ToLambdaHookFailureModeOutputWithContext(context.Context) LambdaHookFailureModeOutput
+}
+
+var lambdaHookFailureModePtrType = reflect.TypeOf((**LambdaHookFailureMode)(nil)).Elem()
+
+type LambdaHookFailureModePtrInput interface {
+	pulumi.Input
+
+	ToLambdaHookFailureModePtrOutput() LambdaHookFailureModePtrOutput
+	ToLambdaHookFailureModePtrOutputWithContext(context.Context) LambdaHookFailureModePtrOutput
+}
+
+type lambdaHookFailureModePtr string
+
+func LambdaHookFailureModePtr(v string) LambdaHookFailureModePtrInput {
+	return (*lambdaHookFailureModePtr)(&v)
+}
+
+func (*lambdaHookFailureModePtr) ElementType() reflect.Type {
+	return lambdaHookFailureModePtrType
+}
+
+func (in *lambdaHookFailureModePtr) ToLambdaHookFailureModePtrOutput() LambdaHookFailureModePtrOutput {
+	return pulumi.ToOutput(in).(LambdaHookFailureModePtrOutput)
+}
+
+func (in *lambdaHookFailureModePtr) ToLambdaHookFailureModePtrOutputWithContext(ctx context.Context) LambdaHookFailureModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LambdaHookFailureModePtrOutput)
+}
+
+// Attribute to specify which stacks this hook applies to or should get invoked for
+type LambdaHookHookStatus string
+
+const (
+	LambdaHookHookStatusEnabled  = LambdaHookHookStatus("ENABLED")
+	LambdaHookHookStatusDisabled = LambdaHookHookStatus("DISABLED")
+)
+
+func (LambdaHookHookStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookHookStatus)(nil)).Elem()
+}
+
+func (e LambdaHookHookStatus) ToLambdaHookHookStatusOutput() LambdaHookHookStatusOutput {
+	return pulumi.ToOutput(e).(LambdaHookHookStatusOutput)
+}
+
+func (e LambdaHookHookStatus) ToLambdaHookHookStatusOutputWithContext(ctx context.Context) LambdaHookHookStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LambdaHookHookStatusOutput)
+}
+
+func (e LambdaHookHookStatus) ToLambdaHookHookStatusPtrOutput() LambdaHookHookStatusPtrOutput {
+	return e.ToLambdaHookHookStatusPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookHookStatus) ToLambdaHookHookStatusPtrOutputWithContext(ctx context.Context) LambdaHookHookStatusPtrOutput {
+	return LambdaHookHookStatus(e).ToLambdaHookHookStatusOutputWithContext(ctx).ToLambdaHookHookStatusPtrOutputWithContext(ctx)
+}
+
+func (e LambdaHookHookStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookHookStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookHookStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookHookStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LambdaHookHookStatusOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookHookStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookHookStatus)(nil)).Elem()
+}
+
+func (o LambdaHookHookStatusOutput) ToLambdaHookHookStatusOutput() LambdaHookHookStatusOutput {
+	return o
+}
+
+func (o LambdaHookHookStatusOutput) ToLambdaHookHookStatusOutputWithContext(ctx context.Context) LambdaHookHookStatusOutput {
+	return o
+}
+
+func (o LambdaHookHookStatusOutput) ToLambdaHookHookStatusPtrOutput() LambdaHookHookStatusPtrOutput {
+	return o.ToLambdaHookHookStatusPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookHookStatusOutput) ToLambdaHookHookStatusPtrOutputWithContext(ctx context.Context) LambdaHookHookStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LambdaHookHookStatus) *LambdaHookHookStatus {
+		return &v
+	}).(LambdaHookHookStatusPtrOutput)
+}
+
+func (o LambdaHookHookStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LambdaHookHookStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookHookStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LambdaHookHookStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookHookStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookHookStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LambdaHookHookStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookHookStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LambdaHookHookStatus)(nil)).Elem()
+}
+
+func (o LambdaHookHookStatusPtrOutput) ToLambdaHookHookStatusPtrOutput() LambdaHookHookStatusPtrOutput {
+	return o
+}
+
+func (o LambdaHookHookStatusPtrOutput) ToLambdaHookHookStatusPtrOutputWithContext(ctx context.Context) LambdaHookHookStatusPtrOutput {
+	return o
+}
+
+func (o LambdaHookHookStatusPtrOutput) Elem() LambdaHookHookStatusOutput {
+	return o.ApplyT(func(v *LambdaHookHookStatus) LambdaHookHookStatus {
+		if v != nil {
+			return *v
+		}
+		var ret LambdaHookHookStatus
+		return ret
+	}).(LambdaHookHookStatusOutput)
+}
+
+func (o LambdaHookHookStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookHookStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LambdaHookHookStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LambdaHookHookStatusInput is an input type that accepts values of the LambdaHookHookStatus enum
+// A concrete instance of `LambdaHookHookStatusInput` can be one of the following:
+//
+//	LambdaHookHookStatusEnabled
+//	LambdaHookHookStatusDisabled
+type LambdaHookHookStatusInput interface {
+	pulumi.Input
+
+	ToLambdaHookHookStatusOutput() LambdaHookHookStatusOutput
+	ToLambdaHookHookStatusOutputWithContext(context.Context) LambdaHookHookStatusOutput
+}
+
+var lambdaHookHookStatusPtrType = reflect.TypeOf((**LambdaHookHookStatus)(nil)).Elem()
+
+type LambdaHookHookStatusPtrInput interface {
+	pulumi.Input
+
+	ToLambdaHookHookStatusPtrOutput() LambdaHookHookStatusPtrOutput
+	ToLambdaHookHookStatusPtrOutputWithContext(context.Context) LambdaHookHookStatusPtrOutput
+}
+
+type lambdaHookHookStatusPtr string
+
+func LambdaHookHookStatusPtr(v string) LambdaHookHookStatusPtrInput {
+	return (*lambdaHookHookStatusPtr)(&v)
+}
+
+func (*lambdaHookHookStatusPtr) ElementType() reflect.Type {
+	return lambdaHookHookStatusPtrType
+}
+
+func (in *lambdaHookHookStatusPtr) ToLambdaHookHookStatusPtrOutput() LambdaHookHookStatusPtrOutput {
+	return pulumi.ToOutput(in).(LambdaHookHookStatusPtrOutput)
+}
+
+func (in *lambdaHookHookStatusPtr) ToLambdaHookHookStatusPtrOutputWithContext(ctx context.Context) LambdaHookHookStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LambdaHookHookStatusPtrOutput)
+}
+
+// Invocation points are the point in provisioning workflow where hooks will be executed.
+type LambdaHookInvocationPoint string
+
+const (
+	LambdaHookInvocationPointPreProvision = LambdaHookInvocationPoint("PRE_PROVISION")
+)
+
+func (LambdaHookInvocationPoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookInvocationPoint)(nil)).Elem()
+}
+
+func (e LambdaHookInvocationPoint) ToLambdaHookInvocationPointOutput() LambdaHookInvocationPointOutput {
+	return pulumi.ToOutput(e).(LambdaHookInvocationPointOutput)
+}
+
+func (e LambdaHookInvocationPoint) ToLambdaHookInvocationPointOutputWithContext(ctx context.Context) LambdaHookInvocationPointOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LambdaHookInvocationPointOutput)
+}
+
+func (e LambdaHookInvocationPoint) ToLambdaHookInvocationPointPtrOutput() LambdaHookInvocationPointPtrOutput {
+	return e.ToLambdaHookInvocationPointPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookInvocationPoint) ToLambdaHookInvocationPointPtrOutputWithContext(ctx context.Context) LambdaHookInvocationPointPtrOutput {
+	return LambdaHookInvocationPoint(e).ToLambdaHookInvocationPointOutputWithContext(ctx).ToLambdaHookInvocationPointPtrOutputWithContext(ctx)
+}
+
+func (e LambdaHookInvocationPoint) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookInvocationPoint) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookInvocationPoint) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookInvocationPoint) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LambdaHookInvocationPointOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookInvocationPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookInvocationPoint)(nil)).Elem()
+}
+
+func (o LambdaHookInvocationPointOutput) ToLambdaHookInvocationPointOutput() LambdaHookInvocationPointOutput {
+	return o
+}
+
+func (o LambdaHookInvocationPointOutput) ToLambdaHookInvocationPointOutputWithContext(ctx context.Context) LambdaHookInvocationPointOutput {
+	return o
+}
+
+func (o LambdaHookInvocationPointOutput) ToLambdaHookInvocationPointPtrOutput() LambdaHookInvocationPointPtrOutput {
+	return o.ToLambdaHookInvocationPointPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookInvocationPointOutput) ToLambdaHookInvocationPointPtrOutputWithContext(ctx context.Context) LambdaHookInvocationPointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LambdaHookInvocationPoint) *LambdaHookInvocationPoint {
+		return &v
+	}).(LambdaHookInvocationPointPtrOutput)
+}
+
+func (o LambdaHookInvocationPointOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LambdaHookInvocationPointOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookInvocationPoint) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LambdaHookInvocationPointOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookInvocationPointOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookInvocationPoint) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LambdaHookInvocationPointPtrOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookInvocationPointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LambdaHookInvocationPoint)(nil)).Elem()
+}
+
+func (o LambdaHookInvocationPointPtrOutput) ToLambdaHookInvocationPointPtrOutput() LambdaHookInvocationPointPtrOutput {
+	return o
+}
+
+func (o LambdaHookInvocationPointPtrOutput) ToLambdaHookInvocationPointPtrOutputWithContext(ctx context.Context) LambdaHookInvocationPointPtrOutput {
+	return o
+}
+
+func (o LambdaHookInvocationPointPtrOutput) Elem() LambdaHookInvocationPointOutput {
+	return o.ApplyT(func(v *LambdaHookInvocationPoint) LambdaHookInvocationPoint {
+		if v != nil {
+			return *v
+		}
+		var ret LambdaHookInvocationPoint
+		return ret
+	}).(LambdaHookInvocationPointOutput)
+}
+
+func (o LambdaHookInvocationPointPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookInvocationPointPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LambdaHookInvocationPoint) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LambdaHookInvocationPointInput is an input type that accepts values of the LambdaHookInvocationPoint enum
+// A concrete instance of `LambdaHookInvocationPointInput` can be one of the following:
+//
+//	LambdaHookInvocationPointPreProvision
+type LambdaHookInvocationPointInput interface {
+	pulumi.Input
+
+	ToLambdaHookInvocationPointOutput() LambdaHookInvocationPointOutput
+	ToLambdaHookInvocationPointOutputWithContext(context.Context) LambdaHookInvocationPointOutput
+}
+
+var lambdaHookInvocationPointPtrType = reflect.TypeOf((**LambdaHookInvocationPoint)(nil)).Elem()
+
+type LambdaHookInvocationPointPtrInput interface {
+	pulumi.Input
+
+	ToLambdaHookInvocationPointPtrOutput() LambdaHookInvocationPointPtrOutput
+	ToLambdaHookInvocationPointPtrOutputWithContext(context.Context) LambdaHookInvocationPointPtrOutput
+}
+
+type lambdaHookInvocationPointPtr string
+
+func LambdaHookInvocationPointPtr(v string) LambdaHookInvocationPointPtrInput {
+	return (*lambdaHookInvocationPointPtr)(&v)
+}
+
+func (*lambdaHookInvocationPointPtr) ElementType() reflect.Type {
+	return lambdaHookInvocationPointPtrType
+}
+
+func (in *lambdaHookInvocationPointPtr) ToLambdaHookInvocationPointPtrOutput() LambdaHookInvocationPointPtrOutput {
+	return pulumi.ToOutput(in).(LambdaHookInvocationPointPtrOutput)
+}
+
+func (in *lambdaHookInvocationPointPtr) ToLambdaHookInvocationPointPtrOutputWithContext(ctx context.Context) LambdaHookInvocationPointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LambdaHookInvocationPointPtrOutput)
+}
+
+// LambdaHookInvocationPointArrayInput is an input type that accepts LambdaHookInvocationPointArray and LambdaHookInvocationPointArrayOutput values.
+// You can construct a concrete instance of `LambdaHookInvocationPointArrayInput` via:
+//
+//	LambdaHookInvocationPointArray{ LambdaHookInvocationPointArgs{...} }
+type LambdaHookInvocationPointArrayInput interface {
+	pulumi.Input
+
+	ToLambdaHookInvocationPointArrayOutput() LambdaHookInvocationPointArrayOutput
+	ToLambdaHookInvocationPointArrayOutputWithContext(context.Context) LambdaHookInvocationPointArrayOutput
+}
+
+type LambdaHookInvocationPointArray []LambdaHookInvocationPoint
+
+func (LambdaHookInvocationPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LambdaHookInvocationPoint)(nil)).Elem()
+}
+
+func (i LambdaHookInvocationPointArray) ToLambdaHookInvocationPointArrayOutput() LambdaHookInvocationPointArrayOutput {
+	return i.ToLambdaHookInvocationPointArrayOutputWithContext(context.Background())
+}
+
+func (i LambdaHookInvocationPointArray) ToLambdaHookInvocationPointArrayOutputWithContext(ctx context.Context) LambdaHookInvocationPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LambdaHookInvocationPointArrayOutput)
+}
+
+type LambdaHookInvocationPointArrayOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookInvocationPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LambdaHookInvocationPoint)(nil)).Elem()
+}
+
+func (o LambdaHookInvocationPointArrayOutput) ToLambdaHookInvocationPointArrayOutput() LambdaHookInvocationPointArrayOutput {
+	return o
+}
+
+func (o LambdaHookInvocationPointArrayOutput) ToLambdaHookInvocationPointArrayOutputWithContext(ctx context.Context) LambdaHookInvocationPointArrayOutput {
+	return o
+}
+
+func (o LambdaHookInvocationPointArrayOutput) Index(i pulumi.IntInput) LambdaHookInvocationPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LambdaHookInvocationPoint {
+		return vs[0].([]LambdaHookInvocationPoint)[vs[1].(int)]
+	}).(LambdaHookInvocationPointOutput)
+}
+
+// Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+type LambdaHookStackFiltersPropertiesFilteringCriteria string
+
+const (
+	LambdaHookStackFiltersPropertiesFilteringCriteriaAll = LambdaHookStackFiltersPropertiesFilteringCriteria("ALL")
+	LambdaHookStackFiltersPropertiesFilteringCriteriaAny = LambdaHookStackFiltersPropertiesFilteringCriteria("ANY")
+)
+
+func (LambdaHookStackFiltersPropertiesFilteringCriteria) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookStackFiltersPropertiesFilteringCriteria)(nil)).Elem()
+}
+
+func (e LambdaHookStackFiltersPropertiesFilteringCriteria) ToLambdaHookStackFiltersPropertiesFilteringCriteriaOutput() LambdaHookStackFiltersPropertiesFilteringCriteriaOutput {
+	return pulumi.ToOutput(e).(LambdaHookStackFiltersPropertiesFilteringCriteriaOutput)
+}
+
+func (e LambdaHookStackFiltersPropertiesFilteringCriteria) ToLambdaHookStackFiltersPropertiesFilteringCriteriaOutputWithContext(ctx context.Context) LambdaHookStackFiltersPropertiesFilteringCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LambdaHookStackFiltersPropertiesFilteringCriteriaOutput)
+}
+
+func (e LambdaHookStackFiltersPropertiesFilteringCriteria) ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput() LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return e.ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookStackFiltersPropertiesFilteringCriteria) ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutputWithContext(ctx context.Context) LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return LambdaHookStackFiltersPropertiesFilteringCriteria(e).ToLambdaHookStackFiltersPropertiesFilteringCriteriaOutputWithContext(ctx).ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutputWithContext(ctx)
+}
+
+func (e LambdaHookStackFiltersPropertiesFilteringCriteria) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookStackFiltersPropertiesFilteringCriteria) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookStackFiltersPropertiesFilteringCriteria) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookStackFiltersPropertiesFilteringCriteria) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LambdaHookStackFiltersPropertiesFilteringCriteriaOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookStackFiltersPropertiesFilteringCriteria)(nil)).Elem()
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ToLambdaHookStackFiltersPropertiesFilteringCriteriaOutput() LambdaHookStackFiltersPropertiesFilteringCriteriaOutput {
+	return o
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ToLambdaHookStackFiltersPropertiesFilteringCriteriaOutputWithContext(ctx context.Context) LambdaHookStackFiltersPropertiesFilteringCriteriaOutput {
+	return o
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput() LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return o.ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutputWithContext(ctx context.Context) LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LambdaHookStackFiltersPropertiesFilteringCriteria) *LambdaHookStackFiltersPropertiesFilteringCriteria {
+		return &v
+	}).(LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput)
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookStackFiltersPropertiesFilteringCriteria) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookStackFiltersPropertiesFilteringCriteria) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LambdaHookStackFiltersPropertiesFilteringCriteria)(nil)).Elem()
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput) ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput() LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return o
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput) ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutputWithContext(ctx context.Context) LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return o
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput) Elem() LambdaHookStackFiltersPropertiesFilteringCriteriaOutput {
+	return o.ApplyT(func(v *LambdaHookStackFiltersPropertiesFilteringCriteria) LambdaHookStackFiltersPropertiesFilteringCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret LambdaHookStackFiltersPropertiesFilteringCriteria
+		return ret
+	}).(LambdaHookStackFiltersPropertiesFilteringCriteriaOutput)
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LambdaHookStackFiltersPropertiesFilteringCriteria) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LambdaHookStackFiltersPropertiesFilteringCriteriaInput is an input type that accepts values of the LambdaHookStackFiltersPropertiesFilteringCriteria enum
+// A concrete instance of `LambdaHookStackFiltersPropertiesFilteringCriteriaInput` can be one of the following:
+//
+//	LambdaHookStackFiltersPropertiesFilteringCriteriaAll
+//	LambdaHookStackFiltersPropertiesFilteringCriteriaAny
+type LambdaHookStackFiltersPropertiesFilteringCriteriaInput interface {
+	pulumi.Input
+
+	ToLambdaHookStackFiltersPropertiesFilteringCriteriaOutput() LambdaHookStackFiltersPropertiesFilteringCriteriaOutput
+	ToLambdaHookStackFiltersPropertiesFilteringCriteriaOutputWithContext(context.Context) LambdaHookStackFiltersPropertiesFilteringCriteriaOutput
+}
+
+var lambdaHookStackFiltersPropertiesFilteringCriteriaPtrType = reflect.TypeOf((**LambdaHookStackFiltersPropertiesFilteringCriteria)(nil)).Elem()
+
+type LambdaHookStackFiltersPropertiesFilteringCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput() LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput
+	ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutputWithContext(context.Context) LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput
+}
+
+type lambdaHookStackFiltersPropertiesFilteringCriteriaPtr string
+
+func LambdaHookStackFiltersPropertiesFilteringCriteriaPtr(v string) LambdaHookStackFiltersPropertiesFilteringCriteriaPtrInput {
+	return (*lambdaHookStackFiltersPropertiesFilteringCriteriaPtr)(&v)
+}
+
+func (*lambdaHookStackFiltersPropertiesFilteringCriteriaPtr) ElementType() reflect.Type {
+	return lambdaHookStackFiltersPropertiesFilteringCriteriaPtrType
+}
+
+func (in *lambdaHookStackFiltersPropertiesFilteringCriteriaPtr) ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput() LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return pulumi.ToOutput(in).(LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput)
+}
+
+func (in *lambdaHookStackFiltersPropertiesFilteringCriteriaPtr) ToLambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutputWithContext(ctx context.Context) LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput)
+}
+
+// Which operations should this Hook run against? Resource changes, stacks or change sets.
+type LambdaHookTargetOperation string
+
+const (
+	LambdaHookTargetOperationResource  = LambdaHookTargetOperation("RESOURCE")
+	LambdaHookTargetOperationStack     = LambdaHookTargetOperation("STACK")
+	LambdaHookTargetOperationChangeSet = LambdaHookTargetOperation("CHANGE_SET")
+)
+
+func (LambdaHookTargetOperation) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookTargetOperation)(nil)).Elem()
+}
+
+func (e LambdaHookTargetOperation) ToLambdaHookTargetOperationOutput() LambdaHookTargetOperationOutput {
+	return pulumi.ToOutput(e).(LambdaHookTargetOperationOutput)
+}
+
+func (e LambdaHookTargetOperation) ToLambdaHookTargetOperationOutputWithContext(ctx context.Context) LambdaHookTargetOperationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(LambdaHookTargetOperationOutput)
+}
+
+func (e LambdaHookTargetOperation) ToLambdaHookTargetOperationPtrOutput() LambdaHookTargetOperationPtrOutput {
+	return e.ToLambdaHookTargetOperationPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookTargetOperation) ToLambdaHookTargetOperationPtrOutputWithContext(ctx context.Context) LambdaHookTargetOperationPtrOutput {
+	return LambdaHookTargetOperation(e).ToLambdaHookTargetOperationOutputWithContext(ctx).ToLambdaHookTargetOperationPtrOutputWithContext(ctx)
+}
+
+func (e LambdaHookTargetOperation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookTargetOperation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e LambdaHookTargetOperation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e LambdaHookTargetOperation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type LambdaHookTargetOperationOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookTargetOperationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookTargetOperation)(nil)).Elem()
+}
+
+func (o LambdaHookTargetOperationOutput) ToLambdaHookTargetOperationOutput() LambdaHookTargetOperationOutput {
+	return o
+}
+
+func (o LambdaHookTargetOperationOutput) ToLambdaHookTargetOperationOutputWithContext(ctx context.Context) LambdaHookTargetOperationOutput {
+	return o
+}
+
+func (o LambdaHookTargetOperationOutput) ToLambdaHookTargetOperationPtrOutput() LambdaHookTargetOperationPtrOutput {
+	return o.ToLambdaHookTargetOperationPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookTargetOperationOutput) ToLambdaHookTargetOperationPtrOutputWithContext(ctx context.Context) LambdaHookTargetOperationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LambdaHookTargetOperation) *LambdaHookTargetOperation {
+		return &v
+	}).(LambdaHookTargetOperationPtrOutput)
+}
+
+func (o LambdaHookTargetOperationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o LambdaHookTargetOperationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookTargetOperation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o LambdaHookTargetOperationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookTargetOperationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e LambdaHookTargetOperation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type LambdaHookTargetOperationPtrOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookTargetOperationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LambdaHookTargetOperation)(nil)).Elem()
+}
+
+func (o LambdaHookTargetOperationPtrOutput) ToLambdaHookTargetOperationPtrOutput() LambdaHookTargetOperationPtrOutput {
+	return o
+}
+
+func (o LambdaHookTargetOperationPtrOutput) ToLambdaHookTargetOperationPtrOutputWithContext(ctx context.Context) LambdaHookTargetOperationPtrOutput {
+	return o
+}
+
+func (o LambdaHookTargetOperationPtrOutput) Elem() LambdaHookTargetOperationOutput {
+	return o.ApplyT(func(v *LambdaHookTargetOperation) LambdaHookTargetOperation {
+		if v != nil {
+			return *v
+		}
+		var ret LambdaHookTargetOperation
+		return ret
+	}).(LambdaHookTargetOperationOutput)
+}
+
+func (o LambdaHookTargetOperationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o LambdaHookTargetOperationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *LambdaHookTargetOperation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// LambdaHookTargetOperationInput is an input type that accepts values of the LambdaHookTargetOperation enum
+// A concrete instance of `LambdaHookTargetOperationInput` can be one of the following:
+//
+//	LambdaHookTargetOperationResource
+//	LambdaHookTargetOperationStack
+//	LambdaHookTargetOperationChangeSet
+type LambdaHookTargetOperationInput interface {
+	pulumi.Input
+
+	ToLambdaHookTargetOperationOutput() LambdaHookTargetOperationOutput
+	ToLambdaHookTargetOperationOutputWithContext(context.Context) LambdaHookTargetOperationOutput
+}
+
+var lambdaHookTargetOperationPtrType = reflect.TypeOf((**LambdaHookTargetOperation)(nil)).Elem()
+
+type LambdaHookTargetOperationPtrInput interface {
+	pulumi.Input
+
+	ToLambdaHookTargetOperationPtrOutput() LambdaHookTargetOperationPtrOutput
+	ToLambdaHookTargetOperationPtrOutputWithContext(context.Context) LambdaHookTargetOperationPtrOutput
+}
+
+type lambdaHookTargetOperationPtr string
+
+func LambdaHookTargetOperationPtr(v string) LambdaHookTargetOperationPtrInput {
+	return (*lambdaHookTargetOperationPtr)(&v)
+}
+
+func (*lambdaHookTargetOperationPtr) ElementType() reflect.Type {
+	return lambdaHookTargetOperationPtrType
+}
+
+func (in *lambdaHookTargetOperationPtr) ToLambdaHookTargetOperationPtrOutput() LambdaHookTargetOperationPtrOutput {
+	return pulumi.ToOutput(in).(LambdaHookTargetOperationPtrOutput)
+}
+
+func (in *lambdaHookTargetOperationPtr) ToLambdaHookTargetOperationPtrOutputWithContext(ctx context.Context) LambdaHookTargetOperationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(LambdaHookTargetOperationPtrOutput)
+}
+
+// LambdaHookTargetOperationArrayInput is an input type that accepts LambdaHookTargetOperationArray and LambdaHookTargetOperationArrayOutput values.
+// You can construct a concrete instance of `LambdaHookTargetOperationArrayInput` via:
+//
+//	LambdaHookTargetOperationArray{ LambdaHookTargetOperationArgs{...} }
+type LambdaHookTargetOperationArrayInput interface {
+	pulumi.Input
+
+	ToLambdaHookTargetOperationArrayOutput() LambdaHookTargetOperationArrayOutput
+	ToLambdaHookTargetOperationArrayOutputWithContext(context.Context) LambdaHookTargetOperationArrayOutput
+}
+
+type LambdaHookTargetOperationArray []LambdaHookTargetOperation
+
+func (LambdaHookTargetOperationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LambdaHookTargetOperation)(nil)).Elem()
+}
+
+func (i LambdaHookTargetOperationArray) ToLambdaHookTargetOperationArrayOutput() LambdaHookTargetOperationArrayOutput {
+	return i.ToLambdaHookTargetOperationArrayOutputWithContext(context.Background())
+}
+
+func (i LambdaHookTargetOperationArray) ToLambdaHookTargetOperationArrayOutputWithContext(ctx context.Context) LambdaHookTargetOperationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LambdaHookTargetOperationArrayOutput)
+}
+
+type LambdaHookTargetOperationArrayOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookTargetOperationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LambdaHookTargetOperation)(nil)).Elem()
+}
+
+func (o LambdaHookTargetOperationArrayOutput) ToLambdaHookTargetOperationArrayOutput() LambdaHookTargetOperationArrayOutput {
+	return o
+}
+
+func (o LambdaHookTargetOperationArrayOutput) ToLambdaHookTargetOperationArrayOutputWithContext(ctx context.Context) LambdaHookTargetOperationArrayOutput {
+	return o
+}
+
+func (o LambdaHookTargetOperationArrayOutput) Index(i pulumi.IntInput) LambdaHookTargetOperationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LambdaHookTargetOperation {
+		return vs[0].([]LambdaHookTargetOperation)[vs[1].(int)]
+	}).(LambdaHookTargetOperationOutput)
 }
 
 // The scope at which the type is visible and usable in CloudFormation operations.
@@ -2610,8 +4312,30 @@ func (in *typeActivationVersionBumpPtr) ToTypeActivationVersionBumpPtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookFailureModeInput)(nil)).Elem(), GuardHookFailureMode("FAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookFailureModePtrInput)(nil)).Elem(), GuardHookFailureMode("FAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookHookStatusInput)(nil)).Elem(), GuardHookHookStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookHookStatusPtrInput)(nil)).Elem(), GuardHookHookStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookTargetOperationInput)(nil)).Elem(), GuardHookTargetOperation("RESOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookTargetOperationPtrInput)(nil)).Elem(), GuardHookTargetOperation("RESOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookTargetOperationArrayInput)(nil)).Elem(), GuardHookTargetOperationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HookTypeConfigConfigurationAliasInput)(nil)).Elem(), HookTypeConfigConfigurationAlias("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HookTypeConfigConfigurationAliasPtrInput)(nil)).Elem(), HookTypeConfigConfigurationAlias("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookActionInput)(nil)).Elem(), LambdaHookAction("CREATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookActionPtrInput)(nil)).Elem(), LambdaHookAction("CREATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookActionArrayInput)(nil)).Elem(), LambdaHookActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookFailureModeInput)(nil)).Elem(), LambdaHookFailureMode("FAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookFailureModePtrInput)(nil)).Elem(), LambdaHookFailureMode("FAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookHookStatusInput)(nil)).Elem(), LambdaHookHookStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookHookStatusPtrInput)(nil)).Elem(), LambdaHookHookStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookInvocationPointInput)(nil)).Elem(), LambdaHookInvocationPoint("PRE_PROVISION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookInvocationPointPtrInput)(nil)).Elem(), LambdaHookInvocationPoint("PRE_PROVISION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookInvocationPointArrayInput)(nil)).Elem(), LambdaHookInvocationPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookStackFiltersPropertiesFilteringCriteriaInput)(nil)).Elem(), LambdaHookStackFiltersPropertiesFilteringCriteria("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookStackFiltersPropertiesFilteringCriteriaPtrInput)(nil)).Elem(), LambdaHookStackFiltersPropertiesFilteringCriteria("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookTargetOperationInput)(nil)).Elem(), LambdaHookTargetOperation("RESOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookTargetOperationPtrInput)(nil)).Elem(), LambdaHookTargetOperation("RESOURCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookTargetOperationArrayInput)(nil)).Elem(), LambdaHookTargetOperationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionTypeInput)(nil)).Elem(), PublicTypeVersionType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PublicTypeVersionTypePtrInput)(nil)).Elem(), PublicTypeVersionType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StackCapabilitiesItemInput)(nil)).Elem(), StackCapabilitiesItem("CAPABILITY_IAM"))
@@ -2634,10 +4358,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationTypePtrInput)(nil)).Elem(), TypeActivationType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationVersionBumpInput)(nil)).Elem(), TypeActivationVersionBump("MAJOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationVersionBumpPtrInput)(nil)).Elem(), TypeActivationVersionBump("MAJOR"))
+	pulumi.RegisterOutputType(GuardHookFailureModeOutput{})
+	pulumi.RegisterOutputType(GuardHookFailureModePtrOutput{})
+	pulumi.RegisterOutputType(GuardHookHookStatusOutput{})
+	pulumi.RegisterOutputType(GuardHookHookStatusPtrOutput{})
+	pulumi.RegisterOutputType(GuardHookTargetOperationOutput{})
+	pulumi.RegisterOutputType(GuardHookTargetOperationPtrOutput{})
+	pulumi.RegisterOutputType(GuardHookTargetOperationArrayOutput{})
 	pulumi.RegisterOutputType(HookTypeConfigConfigurationAliasOutput{})
 	pulumi.RegisterOutputType(HookTypeConfigConfigurationAliasPtrOutput{})
 	pulumi.RegisterOutputType(HookVersionVisibilityOutput{})
 	pulumi.RegisterOutputType(HookVersionVisibilityPtrOutput{})
+	pulumi.RegisterOutputType(LambdaHookActionOutput{})
+	pulumi.RegisterOutputType(LambdaHookActionPtrOutput{})
+	pulumi.RegisterOutputType(LambdaHookActionArrayOutput{})
+	pulumi.RegisterOutputType(LambdaHookFailureModeOutput{})
+	pulumi.RegisterOutputType(LambdaHookFailureModePtrOutput{})
+	pulumi.RegisterOutputType(LambdaHookHookStatusOutput{})
+	pulumi.RegisterOutputType(LambdaHookHookStatusPtrOutput{})
+	pulumi.RegisterOutputType(LambdaHookInvocationPointOutput{})
+	pulumi.RegisterOutputType(LambdaHookInvocationPointPtrOutput{})
+	pulumi.RegisterOutputType(LambdaHookInvocationPointArrayOutput{})
+	pulumi.RegisterOutputType(LambdaHookStackFiltersPropertiesFilteringCriteriaOutput{})
+	pulumi.RegisterOutputType(LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(LambdaHookTargetOperationOutput{})
+	pulumi.RegisterOutputType(LambdaHookTargetOperationPtrOutput{})
+	pulumi.RegisterOutputType(LambdaHookTargetOperationArrayOutput{})
 	pulumi.RegisterOutputType(ModuleVersionVisibilityOutput{})
 	pulumi.RegisterOutputType(ModuleVersionVisibilityPtrOutput{})
 	pulumi.RegisterOutputType(PublicTypeVersionTypeOutput{})

@@ -8,12 +8,14 @@ import typing
 from ._enums import *
 from .alias import *
 from .build import *
+from .container_fleet import *
 from .container_group_definition import *
 from .fleet import *
 from .game_server_group import *
 from .game_session_queue import *
 from .get_alias import *
 from .get_build import *
+from .get_container_fleet import *
 from .get_container_group_definition import *
 from .get_fleet import *
 from .get_game_server_group import *

@@ -59,8 +59,7 @@ class GetRealtimeLogConfigResult:
     def fields(self) -> Optional[Sequence[str]]:
         """
         A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-
-        For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+         For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "fields")
 
@@ -88,7 +87,7 @@ class AwaitableGetRealtimeLogConfigResult(GetRealtimeLogConfigResult):
 def get_realtime_log_config(arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRealtimeLogConfigResult:
     """
-    Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+    A real-time log configuration.
 
 
     :param str arn: The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
@@ -106,7 +105,7 @@ def get_realtime_log_config(arn: Optional[str] = None,
 def get_realtime_log_config_output(arn: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRealtimeLogConfigResult]:
     """
-    Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+    A real-time log configuration.
 
 
     :param str arn: The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .

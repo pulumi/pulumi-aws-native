@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::PublicKey
+// A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
 func LookupPublicKey(ctx *pulumi.Context, args *LookupPublicKeyArgs, opts ...pulumi.InvokeOption) (*LookupPublicKeyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPublicKeyResult
@@ -32,7 +32,7 @@ type LookupPublicKeyResult struct {
 	CreatedTime *string `pulumi:"createdTime"`
 	// The identifier of the public key.
 	Id *string `pulumi:"id"`
-	// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+	// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
 	PublicKeyConfig *PublicKeyConfig `pulumi:"publicKeyConfig"`
 }
 
@@ -88,7 +88,7 @@ func (o LookupPublicKeyResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPublicKeyResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
 func (o LookupPublicKeyResultOutput) PublicKeyConfig() PublicKeyConfigPtrOutput {
 	return o.ApplyT(func(v LookupPublicKeyResult) *PublicKeyConfig { return v.PublicKeyConfig }).(PublicKeyConfigPtrOutput)
 }

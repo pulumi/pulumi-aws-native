@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+    /// </summary>
     [OutputType]
     public sealed class MonitoringSubscription
     {

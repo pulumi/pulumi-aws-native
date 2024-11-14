@@ -134,6 +134,62 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DeliveryStreamDatabaseSourceConfigurationSslMode : IEquatable<DeliveryStreamDatabaseSourceConfigurationSslMode>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamDatabaseSourceConfigurationSslMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamDatabaseSourceConfigurationSslMode Disabled { get; } = new DeliveryStreamDatabaseSourceConfigurationSslMode("Disabled");
+        public static DeliveryStreamDatabaseSourceConfigurationSslMode Enabled { get; } = new DeliveryStreamDatabaseSourceConfigurationSslMode("Enabled");
+
+        public static bool operator ==(DeliveryStreamDatabaseSourceConfigurationSslMode left, DeliveryStreamDatabaseSourceConfigurationSslMode right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamDatabaseSourceConfigurationSslMode left, DeliveryStreamDatabaseSourceConfigurationSslMode right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamDatabaseSourceConfigurationSslMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamDatabaseSourceConfigurationSslMode other && Equals(other);
+        public bool Equals(DeliveryStreamDatabaseSourceConfigurationSslMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DeliveryStreamDatabaseSourceConfigurationType : IEquatable<DeliveryStreamDatabaseSourceConfigurationType>
+    {
+        private readonly string _value;
+
+        private DeliveryStreamDatabaseSourceConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeliveryStreamDatabaseSourceConfigurationType MySql { get; } = new DeliveryStreamDatabaseSourceConfigurationType("MySQL");
+        public static DeliveryStreamDatabaseSourceConfigurationType PostgreSql { get; } = new DeliveryStreamDatabaseSourceConfigurationType("PostgreSQL");
+
+        public static bool operator ==(DeliveryStreamDatabaseSourceConfigurationType left, DeliveryStreamDatabaseSourceConfigurationType right) => left.Equals(right);
+        public static bool operator !=(DeliveryStreamDatabaseSourceConfigurationType left, DeliveryStreamDatabaseSourceConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(DeliveryStreamDatabaseSourceConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeliveryStreamDatabaseSourceConfigurationType other && Equals(other);
+        public bool Equals(DeliveryStreamDatabaseSourceConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// When the `FIREHOSE_DEFAULT` option is chosen, Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.
     /// 
@@ -634,6 +690,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static DeliveryStreamType DatabaseAsSource { get; } = new DeliveryStreamType("DatabaseAsSource");
         public static DeliveryStreamType DirectPut { get; } = new DeliveryStreamType("DirectPut");
         public static DeliveryStreamType KinesisStreamAsSource { get; } = new DeliveryStreamType("KinesisStreamAsSource");
         public static DeliveryStreamType MskasSource { get; } = new DeliveryStreamType("MSKAsSource");

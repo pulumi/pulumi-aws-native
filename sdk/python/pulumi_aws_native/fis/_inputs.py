@@ -18,8 +18,18 @@ from ._enums import *
 __all__ = [
     'ExperimentTemplateActionArgs',
     'ExperimentTemplateActionArgsDict',
+    'ExperimentTemplateCloudWatchDashboardArgs',
+    'ExperimentTemplateCloudWatchDashboardArgsDict',
     'ExperimentTemplateExperimentOptionsArgs',
     'ExperimentTemplateExperimentOptionsArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs',
+    'ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs',
+    'ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs',
+    'ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict',
+    'ExperimentTemplateExperimentReportConfigurationArgs',
+    'ExperimentTemplateExperimentReportConfigurationArgsDict',
     'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs',
     'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgsDict',
     'ExperimentTemplateLogConfigurationS3ConfigurationPropertiesArgs',
@@ -152,6 +162,28 @@ class ExperimentTemplateActionArgs:
 
 
 if not MYPY:
+    class ExperimentTemplateCloudWatchDashboardArgsDict(TypedDict):
+        dashboard_identifier: pulumi.Input[str]
+elif False:
+    ExperimentTemplateCloudWatchDashboardArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateCloudWatchDashboardArgs:
+    def __init__(__self__, *,
+                 dashboard_identifier: pulumi.Input[str]):
+        pulumi.set(__self__, "dashboard_identifier", dashboard_identifier)
+
+    @property
+    @pulumi.getter(name="dashboardIdentifier")
+    def dashboard_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "dashboard_identifier")
+
+    @dashboard_identifier.setter
+    def dashboard_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "dashboard_identifier", value)
+
+
+if not MYPY:
     class ExperimentTemplateExperimentOptionsArgsDict(TypedDict):
         account_targeting: NotRequired[pulumi.Input['ExperimentTemplateExperimentOptionsAccountTargeting']]
         """
@@ -201,6 +233,146 @@ class ExperimentTemplateExperimentOptionsArgs:
     @empty_target_resolution_mode.setter
     def empty_target_resolution_mode(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentOptionsEmptyTargetResolutionMode']]):
         pulumi.set(self, "empty_target_resolution_mode", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict(TypedDict):
+        cloud_watch_dashboards: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateCloudWatchDashboardArgsDict']]]]
+elif False:
+    ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs:
+    def __init__(__self__, *,
+                 cloud_watch_dashboards: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateCloudWatchDashboardArgs']]]] = None):
+        if cloud_watch_dashboards is not None:
+            pulumi.set(__self__, "cloud_watch_dashboards", cloud_watch_dashboards)
+
+    @property
+    @pulumi.getter(name="cloudWatchDashboards")
+    def cloud_watch_dashboards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateCloudWatchDashboardArgs']]]]:
+        return pulumi.get(self, "cloud_watch_dashboards")
+
+    @cloud_watch_dashboards.setter
+    def cloud_watch_dashboards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateCloudWatchDashboardArgs']]]]):
+        pulumi.set(self, "cloud_watch_dashboards", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict(TypedDict):
+        bucket_name: pulumi.Input[str]
+        prefix: NotRequired[pulumi.Input[str]]
+elif False:
+    ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 bucket_name: pulumi.Input[str],
+                 prefix: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket_name", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict(TypedDict):
+        experiment_report_s3_configuration: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict']
+elif False:
+    ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs:
+    def __init__(__self__, *,
+                 experiment_report_s3_configuration: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs']):
+        pulumi.set(__self__, "experiment_report_s3_configuration", experiment_report_s3_configuration)
+
+    @property
+    @pulumi.getter(name="experimentReportS3Configuration")
+    def experiment_report_s3_configuration(self) -> pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs']:
+        return pulumi.get(self, "experiment_report_s3_configuration")
+
+    @experiment_report_s3_configuration.setter
+    def experiment_report_s3_configuration(self, value: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs']):
+        pulumi.set(self, "experiment_report_s3_configuration", value)
+
+
+if not MYPY:
+    class ExperimentTemplateExperimentReportConfigurationArgsDict(TypedDict):
+        data_sources: pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict']
+        outputs: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict']
+        post_experiment_duration: NotRequired[pulumi.Input[str]]
+        pre_experiment_duration: NotRequired[pulumi.Input[str]]
+elif False:
+    ExperimentTemplateExperimentReportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExperimentTemplateExperimentReportConfigurationArgs:
+    def __init__(__self__, *,
+                 data_sources: pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs'],
+                 outputs: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs'],
+                 post_experiment_duration: Optional[pulumi.Input[str]] = None,
+                 pre_experiment_duration: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "data_sources", data_sources)
+        pulumi.set(__self__, "outputs", outputs)
+        if post_experiment_duration is not None:
+            pulumi.set(__self__, "post_experiment_duration", post_experiment_duration)
+        if pre_experiment_duration is not None:
+            pulumi.set(__self__, "pre_experiment_duration", pre_experiment_duration)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs']:
+        return pulumi.get(self, "data_sources")
+
+    @data_sources.setter
+    def data_sources(self, value: pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs']):
+        pulumi.set(self, "data_sources", value)
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs']:
+        return pulumi.get(self, "outputs")
+
+    @outputs.setter
+    def outputs(self, value: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs']):
+        pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter(name="postExperimentDuration")
+    def post_experiment_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "post_experiment_duration")
+
+    @post_experiment_duration.setter
+    def post_experiment_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "post_experiment_duration", value)
+
+    @property
+    @pulumi.getter(name="preExperimentDuration")
+    def pre_experiment_duration(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pre_experiment_duration")
+
+    @pre_experiment_duration.setter
+    def pre_experiment_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pre_experiment_duration", value)
 
 
 if not MYPY:

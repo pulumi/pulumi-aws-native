@@ -10,17 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// Determines whether CloudFront includes the ``X-Frame-Options`` HTTP response header and the header's value.
+    ///  For more information about the ``X-Frame-Options`` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+    /// </summary>
     [OutputType]
     public sealed class ResponseHeadersPolicyFrameOptions
     {
         /// <summary>
-        /// The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
-        /// 
-        /// For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+        /// The value of the ``X-Frame-Options`` HTTP response header. Valid values are ``DENY`` and ``SAMEORIGIN``.
+        ///  For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
         /// </summary>
         public readonly string FrameOption;
         /// <summary>
-        /// A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        /// A Boolean that determines whether CloudFront overrides the ``X-Frame-Options`` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         public readonly bool Override;
 

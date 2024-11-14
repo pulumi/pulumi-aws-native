@@ -10,11 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A list of HTTP header names that CloudFront includes as values for the ``Access-Control-Allow-Headers`` HTTP response header.
+    ///  For more information about the ``Access-Control-Allow-Headers`` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
+    /// </summary>
     [OutputType]
     public sealed class ResponseHeadersPolicyAccessControlAllowHeaders
     {
         /// <summary>
-        /// The list of HTTP header names. You can specify `*` to allow all headers.
+        /// The list of HTTP header names. You can specify ``*`` to allow all headers.
         /// </summary>
         public readonly ImmutableArray<string> Items;
 

@@ -8326,6 +8326,7 @@ const (
 	SpotFleetInstanceRequirementsRequestCpuManufacturersItemIntel             = SpotFleetInstanceRequirementsRequestCpuManufacturersItem("intel")
 	SpotFleetInstanceRequirementsRequestCpuManufacturersItemAmd               = SpotFleetInstanceRequirementsRequestCpuManufacturersItem("amd")
 	SpotFleetInstanceRequirementsRequestCpuManufacturersItemAmazonWebServices = SpotFleetInstanceRequirementsRequestCpuManufacturersItem("amazon-web-services")
+	SpotFleetInstanceRequirementsRequestCpuManufacturersItemApple             = SpotFleetInstanceRequirementsRequestCpuManufacturersItem("apple")
 )
 
 func (SpotFleetInstanceRequirementsRequestCpuManufacturersItem) ElementType() reflect.Type {
@@ -8453,6 +8454,7 @@ func (o SpotFleetInstanceRequirementsRequestCpuManufacturersItemPtrOutput) ToStr
 //	SpotFleetInstanceRequirementsRequestCpuManufacturersItemIntel
 //	SpotFleetInstanceRequirementsRequestCpuManufacturersItemAmd
 //	SpotFleetInstanceRequirementsRequestCpuManufacturersItemAmazonWebServices
+//	SpotFleetInstanceRequirementsRequestCpuManufacturersItemApple
 type SpotFleetInstanceRequirementsRequestCpuManufacturersItemInput interface {
 	pulumi.Input
 

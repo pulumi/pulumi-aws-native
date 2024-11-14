@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// The key value store association.
+    /// </summary>
     public sealed class FunctionKeyValueStoreAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

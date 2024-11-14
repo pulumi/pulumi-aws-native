@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// The key value store association.
+    /// </summary>
     [OutputType]
     public sealed class FunctionKeyValueStoreAssociation
     {

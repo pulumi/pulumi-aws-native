@@ -168,6 +168,13 @@ export const TaskDefinitionAuthorizationConfigIam = {
  */
 export type TaskDefinitionAuthorizationConfigIam = (typeof TaskDefinitionAuthorizationConfigIam)[keyof typeof TaskDefinitionAuthorizationConfigIam];
 
+export const TaskDefinitionContainerDefinitionVersionConsistency = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+export type TaskDefinitionContainerDefinitionVersionConsistency = (typeof TaskDefinitionContainerDefinitionVersionConsistency)[keyof typeof TaskDefinitionContainerDefinitionVersionConsistency];
+
 export const TaskDefinitionEfsVolumeConfigurationTransitEncryption = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

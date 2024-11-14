@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// Contains metadata about a CloudFront function.
+    /// </summary>
     [OutputType]
     public sealed class FunctionMetadata
     {

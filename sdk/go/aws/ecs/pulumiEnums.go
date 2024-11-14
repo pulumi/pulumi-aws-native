@@ -2365,6 +2365,171 @@ func (in *taskDefinitionAuthorizationConfigIamPtr) ToTaskDefinitionAuthorization
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
+type TaskDefinitionContainerDefinitionVersionConsistency string
+
+const (
+	TaskDefinitionContainerDefinitionVersionConsistencyEnabled  = TaskDefinitionContainerDefinitionVersionConsistency("enabled")
+	TaskDefinitionContainerDefinitionVersionConsistencyDisabled = TaskDefinitionContainerDefinitionVersionConsistency("disabled")
+)
+
+func (TaskDefinitionContainerDefinitionVersionConsistency) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionContainerDefinitionVersionConsistency)(nil)).Elem()
+}
+
+func (e TaskDefinitionContainerDefinitionVersionConsistency) ToTaskDefinitionContainerDefinitionVersionConsistencyOutput() TaskDefinitionContainerDefinitionVersionConsistencyOutput {
+	return pulumi.ToOutput(e).(TaskDefinitionContainerDefinitionVersionConsistencyOutput)
+}
+
+func (e TaskDefinitionContainerDefinitionVersionConsistency) ToTaskDefinitionContainerDefinitionVersionConsistencyOutputWithContext(ctx context.Context) TaskDefinitionContainerDefinitionVersionConsistencyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskDefinitionContainerDefinitionVersionConsistencyOutput)
+}
+
+func (e TaskDefinitionContainerDefinitionVersionConsistency) ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutput() TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
+	return e.ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutputWithContext(context.Background())
+}
+
+func (e TaskDefinitionContainerDefinitionVersionConsistency) ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutputWithContext(ctx context.Context) TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
+	return TaskDefinitionContainerDefinitionVersionConsistency(e).ToTaskDefinitionContainerDefinitionVersionConsistencyOutputWithContext(ctx).ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutputWithContext(ctx)
+}
+
+func (e TaskDefinitionContainerDefinitionVersionConsistency) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskDefinitionContainerDefinitionVersionConsistency) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskDefinitionContainerDefinitionVersionConsistency) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskDefinitionContainerDefinitionVersionConsistency) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskDefinitionContainerDefinitionVersionConsistencyOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionContainerDefinitionVersionConsistencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionContainerDefinitionVersionConsistency)(nil)).Elem()
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyOutput) ToTaskDefinitionContainerDefinitionVersionConsistencyOutput() TaskDefinitionContainerDefinitionVersionConsistencyOutput {
+	return o
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyOutput) ToTaskDefinitionContainerDefinitionVersionConsistencyOutputWithContext(ctx context.Context) TaskDefinitionContainerDefinitionVersionConsistencyOutput {
+	return o
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyOutput) ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutput() TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
+	return o.ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyOutput) ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutputWithContext(ctx context.Context) TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionContainerDefinitionVersionConsistency) *TaskDefinitionContainerDefinitionVersionConsistency {
+		return &v
+	}).(TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput)
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionContainerDefinitionVersionConsistency) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskDefinitionContainerDefinitionVersionConsistency) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionContainerDefinitionVersionConsistency)(nil)).Elem()
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput) ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutput() TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput) ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutputWithContext(ctx context.Context) TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput) Elem() TaskDefinitionContainerDefinitionVersionConsistencyOutput {
+	return o.ApplyT(func(v *TaskDefinitionContainerDefinitionVersionConsistency) TaskDefinitionContainerDefinitionVersionConsistency {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionContainerDefinitionVersionConsistency
+		return ret
+	}).(TaskDefinitionContainerDefinitionVersionConsistencyOutput)
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskDefinitionContainerDefinitionVersionConsistency) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskDefinitionContainerDefinitionVersionConsistencyInput is an input type that accepts values of the TaskDefinitionContainerDefinitionVersionConsistency enum
+// A concrete instance of `TaskDefinitionContainerDefinitionVersionConsistencyInput` can be one of the following:
+//
+//	TaskDefinitionContainerDefinitionVersionConsistencyEnabled
+//	TaskDefinitionContainerDefinitionVersionConsistencyDisabled
+type TaskDefinitionContainerDefinitionVersionConsistencyInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionContainerDefinitionVersionConsistencyOutput() TaskDefinitionContainerDefinitionVersionConsistencyOutput
+	ToTaskDefinitionContainerDefinitionVersionConsistencyOutputWithContext(context.Context) TaskDefinitionContainerDefinitionVersionConsistencyOutput
+}
+
+var taskDefinitionContainerDefinitionVersionConsistencyPtrType = reflect.TypeOf((**TaskDefinitionContainerDefinitionVersionConsistency)(nil)).Elem()
+
+type TaskDefinitionContainerDefinitionVersionConsistencyPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutput() TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput
+	ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutputWithContext(context.Context) TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput
+}
+
+type taskDefinitionContainerDefinitionVersionConsistencyPtr string
+
+func TaskDefinitionContainerDefinitionVersionConsistencyPtr(v string) TaskDefinitionContainerDefinitionVersionConsistencyPtrInput {
+	return (*taskDefinitionContainerDefinitionVersionConsistencyPtr)(&v)
+}
+
+func (*taskDefinitionContainerDefinitionVersionConsistencyPtr) ElementType() reflect.Type {
+	return taskDefinitionContainerDefinitionVersionConsistencyPtrType
+}
+
+func (in *taskDefinitionContainerDefinitionVersionConsistencyPtr) ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutput() TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
+	return pulumi.ToOutput(in).(TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput)
+}
+
+func (in *taskDefinitionContainerDefinitionVersionConsistencyPtr) ToTaskDefinitionContainerDefinitionVersionConsistencyPtrOutputWithContext(ctx context.Context) TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput)
+}
+
 // Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be turned on if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of “DISABLED“ is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide*.
 type TaskDefinitionEfsVolumeConfigurationTransitEncryption string
 
@@ -3228,6 +3393,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSchedulingStrategyPtrInput)(nil)).Elem(), ServiceSchedulingStrategy("DAEMON"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigIamInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigIam("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionAuthorizationConfigIamPtrInput)(nil)).Elem(), TaskDefinitionAuthorizationConfigIam("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionContainerDefinitionVersionConsistencyInput)(nil)).Elem(), TaskDefinitionContainerDefinitionVersionConsistency("enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionContainerDefinitionVersionConsistencyPtrInput)(nil)).Elem(), TaskDefinitionContainerDefinitionVersionConsistency("enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationTransitEncryptionInput)(nil)).Elem(), TaskDefinitionEfsVolumeConfigurationTransitEncryption("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrInput)(nil)).Elem(), TaskDefinitionEfsVolumeConfigurationTransitEncryption("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPortMappingAppProtocolInput)(nil)).Elem(), TaskDefinitionPortMappingAppProtocol("http"))
@@ -3266,6 +3433,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceSchedulingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigIamOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionAuthorizationConfigIamPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionContainerDefinitionVersionConsistencyOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEfsVolumeConfigurationTransitEncryptionOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionEfsVolumeConfigurationTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPortMappingAppProtocolOutput{})

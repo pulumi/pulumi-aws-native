@@ -83,6 +83,7 @@ namespace Pulumi.AwsNative.Ecr
 
         public static RepositoryCreationTemplateEncryptionType Aes256 { get; } = new RepositoryCreationTemplateEncryptionType("AES256");
         public static RepositoryCreationTemplateEncryptionType Kms { get; } = new RepositoryCreationTemplateEncryptionType("KMS");
+        public static RepositoryCreationTemplateEncryptionType KmsDsse { get; } = new RepositoryCreationTemplateEncryptionType("KMS_DSSE");
 
         public static bool operator ==(RepositoryCreationTemplateEncryptionType left, RepositoryCreationTemplateEncryptionType right) => left.Equals(right);
         public static bool operator !=(RepositoryCreationTemplateEncryptionType left, RepositoryCreationTemplateEncryptionType right) => !left.Equals(right);

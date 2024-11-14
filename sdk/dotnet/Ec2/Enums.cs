@@ -1672,6 +1672,7 @@ namespace Pulumi.AwsNative.Ec2
         public static SpotFleetInstanceRequirementsRequestCpuManufacturersItem Intel { get; } = new SpotFleetInstanceRequirementsRequestCpuManufacturersItem("intel");
         public static SpotFleetInstanceRequirementsRequestCpuManufacturersItem Amd { get; } = new SpotFleetInstanceRequirementsRequestCpuManufacturersItem("amd");
         public static SpotFleetInstanceRequirementsRequestCpuManufacturersItem AmazonWebServices { get; } = new SpotFleetInstanceRequirementsRequestCpuManufacturersItem("amazon-web-services");
+        public static SpotFleetInstanceRequirementsRequestCpuManufacturersItem Apple { get; } = new SpotFleetInstanceRequirementsRequestCpuManufacturersItem("apple");
 
         public static bool operator ==(SpotFleetInstanceRequirementsRequestCpuManufacturersItem left, SpotFleetInstanceRequirementsRequestCpuManufacturersItem right) => left.Equals(right);
         public static bool operator !=(SpotFleetInstanceRequirementsRequestCpuManufacturersItem left, SpotFleetInstanceRequirementsRequestCpuManufacturersItem right) => !left.Equals(right);

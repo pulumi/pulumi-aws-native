@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Alias{}
 	case "aws-native:gamelift:Build":
 		r = &Build{}
+	case "aws-native:gamelift:ContainerFleet":
+		r = &ContainerFleet{}
 	case "aws-native:gamelift:ContainerGroupDefinition":
 		r = &ContainerGroupDefinition{}
 	case "aws-native:gamelift:Fleet":

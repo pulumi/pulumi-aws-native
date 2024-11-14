@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     public sealed class TaskDefinitionUlimitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The hard limit for the ``ulimit`` type.
+        /// The hard limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
         /// </summary>
         [Input("hardLimit", required: true)]
         public Input<int> HardLimit { get; set; } = null!;
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The soft limit for the ``ulimit`` type.
+        /// The soft limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
         /// </summary>
         [Input("softLimit", required: true)]
         public Input<int> SoftLimit { get; set; } = null!;

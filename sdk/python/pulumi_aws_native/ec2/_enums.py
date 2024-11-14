@@ -607,6 +607,7 @@ class SpotFleetInstanceRequirementsRequestCpuManufacturersItem(str, Enum):
     INTEL = "intel"
     AMD = "amd"
     AMAZON_WEB_SERVICES = "amazon-web-services"
+    APPLE = "apple"
 
 
 class SpotFleetInstanceRequirementsRequestInstanceGenerationsItem(str, Enum):

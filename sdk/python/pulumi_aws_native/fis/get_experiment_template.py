@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetExperimentTemplateResult:
-    def __init__(__self__, actions=None, description=None, experiment_options=None, id=None, log_configuration=None, role_arn=None, stop_conditions=None, targets=None):
+    def __init__(__self__, actions=None, description=None, experiment_options=None, experiment_report_configuration=None, id=None, log_configuration=None, role_arn=None, stop_conditions=None, targets=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -35,6 +35,9 @@ class GetExperimentTemplateResult:
         if experiment_options and not isinstance(experiment_options, dict):
             raise TypeError("Expected argument 'experiment_options' to be a dict")
         pulumi.set(__self__, "experiment_options", experiment_options)
+        if experiment_report_configuration and not isinstance(experiment_report_configuration, dict):
+            raise TypeError("Expected argument 'experiment_report_configuration' to be a dict")
+        pulumi.set(__self__, "experiment_report_configuration", experiment_report_configuration)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -74,6 +77,11 @@ class GetExperimentTemplateResult:
         The experiment options for an experiment template.
         """
         return pulumi.get(self, "experiment_options")
+
+    @property
+    @pulumi.getter(name="experimentReportConfiguration")
+    def experiment_report_configuration(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfiguration']:
+        return pulumi.get(self, "experiment_report_configuration")
 
     @property
     @pulumi.getter
@@ -125,6 +133,7 @@ class AwaitableGetExperimentTemplateResult(GetExperimentTemplateResult):
             actions=self.actions,
             description=self.description,
             experiment_options=self.experiment_options,
+            experiment_report_configuration=self.experiment_report_configuration,
             id=self.id,
             log_configuration=self.log_configuration,
             role_arn=self.role_arn,
@@ -149,6 +158,7 @@ def get_experiment_template(id: Optional[str] = None,
         actions=pulumi.get(__ret__, 'actions'),
         description=pulumi.get(__ret__, 'description'),
         experiment_options=pulumi.get(__ret__, 'experiment_options'),
+        experiment_report_configuration=pulumi.get(__ret__, 'experiment_report_configuration'),
         id=pulumi.get(__ret__, 'id'),
         log_configuration=pulumi.get(__ret__, 'log_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
@@ -170,6 +180,7 @@ def get_experiment_template_output(id: Optional[pulumi.Input[str]] = None,
         actions=pulumi.get(__response__, 'actions'),
         description=pulumi.get(__response__, 'description'),
         experiment_options=pulumi.get(__response__, 'experiment_options'),
+        experiment_report_configuration=pulumi.get(__response__, 'experiment_report_configuration'),
         id=pulumi.get(__response__, 'id'),
         log_configuration=pulumi.get(__response__, 'log_configuration'),
         role_arn=pulumi.get(__response__, 'role_arn'),

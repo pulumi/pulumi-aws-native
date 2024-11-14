@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+    /// </summary>
     [OutputType]
     public sealed class ContinuousDeploymentPolicySingleWeightConfig
     {

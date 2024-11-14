@@ -10,28 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+    ///   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+    /// </summary>
     public sealed class DistributionLegacyCustomOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain name assigned to your CloudFront distribution.
+        /// The domain name assigned to your CF distribution.
         /// </summary>
         [Input("dnsName", required: true)]
         public Input<string> DnsName { get; set; } = null!;
 
         /// <summary>
-        /// The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+        /// The HTTP port that CF uses to connect to the origin. Specify the HTTP port that the origin listens on.
         /// </summary>
         [Input("httpPort")]
         public Input<int>? HttpPort { get; set; }
 
         /// <summary>
-        /// The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+        /// The HTTPS port that CF uses to connect to the origin. Specify the HTTPS port that the origin listens on.
         /// </summary>
         [Input("httpsPort")]
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+        /// Specifies the protocol (HTTP or HTTPS) that CF uses to connect to the origin.
         /// </summary>
         [Input("originProtocolPolicy", required: true)]
         public Input<string> OriginProtocolPolicy { get; set; } = null!;
@@ -40,9 +44,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         private InputList<string>? _originSslProtocols;
 
         /// <summary>
-        /// The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
-        /// 
-        /// For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+        /// The minimum SSL/TLS protocol version that CF uses when communicating with your origin server over HTTPs.
+        ///  For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Developer Guide*.
         /// </summary>
         public InputList<string> OriginSslProtocols
         {

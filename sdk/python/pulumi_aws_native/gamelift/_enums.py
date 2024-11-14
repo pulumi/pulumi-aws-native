@@ -7,6 +7,22 @@ from enum import Enum
 __all__ = [
     'AliasRoutingStrategyType',
     'BuildOperatingSystem',
+    'ContainerFleetBillingType',
+    'ContainerFleetDeploymentConfigurationImpairmentStrategy',
+    'ContainerFleetDeploymentConfigurationProtectionStrategy',
+    'ContainerFleetIpPermissionProtocol',
+    'ContainerFleetLogDestination',
+    'ContainerFleetNewGameSessionProtectionPolicy',
+    'ContainerFleetScalingPolicyComparisonOperator',
+    'ContainerFleetScalingPolicyMetricName',
+    'ContainerFleetScalingPolicyPolicyType',
+    'ContainerFleetScalingPolicyScalingAdjustmentType',
+    'ContainerFleetStatus',
+    'ContainerFleetStoppedActionsItem',
+    'ContainerGroupDefinitionContainerDependencyCondition',
+    'ContainerGroupDefinitionContainerGroupType',
+    'ContainerGroupDefinitionContainerMountPointAccessLevel',
+    'ContainerGroupDefinitionContainerPortRangeProtocol',
     'ContainerGroupDefinitionOperatingSystem',
     'ContainerGroupDefinitionStatus',
     'FleetApplyCapacity',
@@ -50,6 +66,151 @@ class BuildOperatingSystem(str, Enum):
     WINDOWS2016 = "WINDOWS_2016"
 
 
+class ContainerFleetBillingType(str, Enum):
+    """
+    Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+    """
+    ON_DEMAND = "ON_DEMAND"
+    SPOT = "SPOT"
+
+
+class ContainerFleetDeploymentConfigurationImpairmentStrategy(str, Enum):
+    """
+    The strategy to apply in case of impairment; defaults to MAINTAIN.
+    """
+    MAINTAIN = "MAINTAIN"
+    ROLLBACK = "ROLLBACK"
+
+
+class ContainerFleetDeploymentConfigurationProtectionStrategy(str, Enum):
+    """
+    The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+    """
+    WITH_PROTECTION = "WITH_PROTECTION"
+    IGNORE_PROTECTION = "IGNORE_PROTECTION"
+
+
+class ContainerFleetIpPermissionProtocol(str, Enum):
+    """
+    The network communication protocol used by the fleet.
+    """
+    TCP = "TCP"
+    UDP = "UDP"
+
+
+class ContainerFleetLogDestination(str, Enum):
+    """
+    Configures the service that provides logs.
+    """
+    NONE = "NONE"
+    CLOUDWATCH = "CLOUDWATCH"
+    S3 = "S3"
+
+
+class ContainerFleetNewGameSessionProtectionPolicy(str, Enum):
+    """
+    A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+    """
+    FULL_PROTECTION = "FullProtection"
+    NO_PROTECTION = "NoProtection"
+
+
+class ContainerFleetScalingPolicyComparisonOperator(str, Enum):
+    """
+    Comparison operator to use when measuring a metric against the threshold value.
+    """
+    GREATER_THAN_OR_EQUAL_TO_THRESHOLD = "GreaterThanOrEqualToThreshold"
+    GREATER_THAN_THRESHOLD = "GreaterThanThreshold"
+    LESS_THAN_THRESHOLD = "LessThanThreshold"
+    LESS_THAN_OR_EQUAL_TO_THRESHOLD = "LessThanOrEqualToThreshold"
+
+
+class ContainerFleetScalingPolicyMetricName(str, Enum):
+    """
+    Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    """
+    ACTIVATING_GAME_SESSIONS = "ActivatingGameSessions"
+    ACTIVE_GAME_SESSIONS = "ActiveGameSessions"
+    ACTIVE_INSTANCES = "ActiveInstances"
+    AVAILABLE_GAME_SESSIONS = "AvailableGameSessions"
+    AVAILABLE_PLAYER_SESSIONS = "AvailablePlayerSessions"
+    CURRENT_PLAYER_SESSIONS = "CurrentPlayerSessions"
+    IDLE_INSTANCES = "IdleInstances"
+    PERCENT_AVAILABLE_GAME_SESSIONS = "PercentAvailableGameSessions"
+    PERCENT_IDLE_INSTANCES = "PercentIdleInstances"
+    QUEUE_DEPTH = "QueueDepth"
+    WAIT_TIME = "WaitTime"
+    CONCURRENT_ACTIVATABLE_GAME_SESSIONS = "ConcurrentActivatableGameSessions"
+
+
+class ContainerFleetScalingPolicyPolicyType(str, Enum):
+    """
+    The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+    """
+    RULE_BASED = "RuleBased"
+    TARGET_BASED = "TargetBased"
+
+
+class ContainerFleetScalingPolicyScalingAdjustmentType(str, Enum):
+    """
+    The type of adjustment to make to a fleet's instance count.
+    """
+    CHANGE_IN_CAPACITY = "ChangeInCapacity"
+    EXACT_CAPACITY = "ExactCapacity"
+    PERCENT_CHANGE_IN_CAPACITY = "PercentChangeInCapacity"
+
+
+class ContainerFleetStatus(str, Enum):
+    """
+    The current status of the container fleet.
+    """
+    PENDING = "PENDING"
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    ACTIVATING = "ACTIVATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+
+
+class ContainerFleetStoppedActionsItem(str, Enum):
+    AUTO_SCALING = "AUTO_SCALING"
+
+
+class ContainerGroupDefinitionContainerDependencyCondition(str, Enum):
+    """
+    The type of dependency.
+    """
+    START = "START"
+    COMPLETE = "COMPLETE"
+    SUCCESS = "SUCCESS"
+    HEALTHY = "HEALTHY"
+
+
+class ContainerGroupDefinitionContainerGroupType(str, Enum):
+    """
+    The scope of the container group
+    """
+    GAME_SERVER = "GAME_SERVER"
+    PER_INSTANCE = "PER_INSTANCE"
+
+
+class ContainerGroupDefinitionContainerMountPointAccessLevel(str, Enum):
+    """
+    The access permissions for the mounted path.
+    """
+    READ_ONLY = "READ_ONLY"
+    READ_AND_WRITE = "READ_AND_WRITE"
+
+
+class ContainerGroupDefinitionContainerPortRangeProtocol(str, Enum):
+    """
+    Defines the protocol of these ports.
+    """
+    TCP = "TCP"
+    UDP = "UDP"
+
+
 class ContainerGroupDefinitionOperatingSystem(str, Enum):
     """
     The operating system of the container group
@@ -80,8 +241,8 @@ class FleetCertificateConfigurationCertificateType(str, Enum):
 
     Valid values include:
 
-    - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-    - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+    - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+    - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
     """
     DISABLED = "DISABLED"
     GENERATED = "GENERATED"

@@ -70,7 +70,6 @@ namespace Pulumi.AwsNative.Connect
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "versionDescription",
                     "viewArn",
                     "viewContentSha256",
                 },

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+    /// </summary>
     public sealed class ResponseHeadersPolicyRemoveHeadersConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("items", required: true)]

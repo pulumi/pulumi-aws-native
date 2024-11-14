@@ -8,6 +8,193 @@ using Pulumi;
 namespace Pulumi.AwsNative.CloudFormation
 {
     /// <summary>
+    /// Target actions are the type of operation hooks will be executed at.
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardHookAction : IEquatable<GuardHookAction>
+    {
+        private readonly string _value;
+
+        private GuardHookAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardHookAction Create { get; } = new GuardHookAction("CREATE");
+        public static GuardHookAction Update { get; } = new GuardHookAction("UPDATE");
+        public static GuardHookAction Delete { get; } = new GuardHookAction("DELETE");
+
+        public static bool operator ==(GuardHookAction left, GuardHookAction right) => left.Equals(right);
+        public static bool operator !=(GuardHookAction left, GuardHookAction right) => !left.Equals(right);
+
+        public static explicit operator string(GuardHookAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardHookAction other && Equals(other);
+        public bool Equals(GuardHookAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Attribute to specify CloudFormation behavior on hook failure.
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardHookFailureMode : IEquatable<GuardHookFailureMode>
+    {
+        private readonly string _value;
+
+        private GuardHookFailureMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardHookFailureMode Fail { get; } = new GuardHookFailureMode("FAIL");
+        public static GuardHookFailureMode Warn { get; } = new GuardHookFailureMode("WARN");
+
+        public static bool operator ==(GuardHookFailureMode left, GuardHookFailureMode right) => left.Equals(right);
+        public static bool operator !=(GuardHookFailureMode left, GuardHookFailureMode right) => !left.Equals(right);
+
+        public static explicit operator string(GuardHookFailureMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardHookFailureMode other && Equals(other);
+        public bool Equals(GuardHookFailureMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Attribute to specify which stacks this hook applies to or should get invoked for
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardHookHookStatus : IEquatable<GuardHookHookStatus>
+    {
+        private readonly string _value;
+
+        private GuardHookHookStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardHookHookStatus Enabled { get; } = new GuardHookHookStatus("ENABLED");
+        public static GuardHookHookStatus Disabled { get; } = new GuardHookHookStatus("DISABLED");
+
+        public static bool operator ==(GuardHookHookStatus left, GuardHookHookStatus right) => left.Equals(right);
+        public static bool operator !=(GuardHookHookStatus left, GuardHookHookStatus right) => !left.Equals(right);
+
+        public static explicit operator string(GuardHookHookStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardHookHookStatus other && Equals(other);
+        public bool Equals(GuardHookHookStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Invocation points are the point in provisioning workflow where hooks will be executed.
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardHookInvocationPoint : IEquatable<GuardHookInvocationPoint>
+    {
+        private readonly string _value;
+
+        private GuardHookInvocationPoint(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardHookInvocationPoint PreProvision { get; } = new GuardHookInvocationPoint("PRE_PROVISION");
+
+        public static bool operator ==(GuardHookInvocationPoint left, GuardHookInvocationPoint right) => left.Equals(right);
+        public static bool operator !=(GuardHookInvocationPoint left, GuardHookInvocationPoint right) => !left.Equals(right);
+
+        public static explicit operator string(GuardHookInvocationPoint value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardHookInvocationPoint other && Equals(other);
+        public bool Equals(GuardHookInvocationPoint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardHookStackFiltersPropertiesFilteringCriteria : IEquatable<GuardHookStackFiltersPropertiesFilteringCriteria>
+    {
+        private readonly string _value;
+
+        private GuardHookStackFiltersPropertiesFilteringCriteria(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardHookStackFiltersPropertiesFilteringCriteria All { get; } = new GuardHookStackFiltersPropertiesFilteringCriteria("ALL");
+        public static GuardHookStackFiltersPropertiesFilteringCriteria Any { get; } = new GuardHookStackFiltersPropertiesFilteringCriteria("ANY");
+
+        public static bool operator ==(GuardHookStackFiltersPropertiesFilteringCriteria left, GuardHookStackFiltersPropertiesFilteringCriteria right) => left.Equals(right);
+        public static bool operator !=(GuardHookStackFiltersPropertiesFilteringCriteria left, GuardHookStackFiltersPropertiesFilteringCriteria right) => !left.Equals(right);
+
+        public static explicit operator string(GuardHookStackFiltersPropertiesFilteringCriteria value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardHookStackFiltersPropertiesFilteringCriteria other && Equals(other);
+        public bool Equals(GuardHookStackFiltersPropertiesFilteringCriteria other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Which operations should this Hook run against? Resource changes, stacks or change sets.
+    /// </summary>
+    [EnumType]
+    public readonly struct GuardHookTargetOperation : IEquatable<GuardHookTargetOperation>
+    {
+        private readonly string _value;
+
+        private GuardHookTargetOperation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GuardHookTargetOperation Resource { get; } = new GuardHookTargetOperation("RESOURCE");
+        public static GuardHookTargetOperation Stack { get; } = new GuardHookTargetOperation("STACK");
+        public static GuardHookTargetOperation ChangeSet { get; } = new GuardHookTargetOperation("CHANGE_SET");
+
+        public static bool operator ==(GuardHookTargetOperation left, GuardHookTargetOperation right) => left.Equals(right);
+        public static bool operator !=(GuardHookTargetOperation left, GuardHookTargetOperation right) => !left.Equals(right);
+
+        public static explicit operator string(GuardHookTargetOperation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GuardHookTargetOperation other && Equals(other);
+        public bool Equals(GuardHookTargetOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// An alias by which to refer to this extension configuration data.
     /// </summary>
     [EnumType]
@@ -67,6 +254,193 @@ namespace Pulumi.AwsNative.CloudFormation
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HookVersionVisibility other && Equals(other);
         public bool Equals(HookVersionVisibility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Target actions are the type of operation hooks will be executed at.
+    /// </summary>
+    [EnumType]
+    public readonly struct LambdaHookAction : IEquatable<LambdaHookAction>
+    {
+        private readonly string _value;
+
+        private LambdaHookAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LambdaHookAction Create { get; } = new LambdaHookAction("CREATE");
+        public static LambdaHookAction Update { get; } = new LambdaHookAction("UPDATE");
+        public static LambdaHookAction Delete { get; } = new LambdaHookAction("DELETE");
+
+        public static bool operator ==(LambdaHookAction left, LambdaHookAction right) => left.Equals(right);
+        public static bool operator !=(LambdaHookAction left, LambdaHookAction right) => !left.Equals(right);
+
+        public static explicit operator string(LambdaHookAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LambdaHookAction other && Equals(other);
+        public bool Equals(LambdaHookAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Attribute to specify CloudFormation behavior on hook failure.
+    /// </summary>
+    [EnumType]
+    public readonly struct LambdaHookFailureMode : IEquatable<LambdaHookFailureMode>
+    {
+        private readonly string _value;
+
+        private LambdaHookFailureMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LambdaHookFailureMode Fail { get; } = new LambdaHookFailureMode("FAIL");
+        public static LambdaHookFailureMode Warn { get; } = new LambdaHookFailureMode("WARN");
+
+        public static bool operator ==(LambdaHookFailureMode left, LambdaHookFailureMode right) => left.Equals(right);
+        public static bool operator !=(LambdaHookFailureMode left, LambdaHookFailureMode right) => !left.Equals(right);
+
+        public static explicit operator string(LambdaHookFailureMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LambdaHookFailureMode other && Equals(other);
+        public bool Equals(LambdaHookFailureMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Attribute to specify which stacks this hook applies to or should get invoked for
+    /// </summary>
+    [EnumType]
+    public readonly struct LambdaHookHookStatus : IEquatable<LambdaHookHookStatus>
+    {
+        private readonly string _value;
+
+        private LambdaHookHookStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LambdaHookHookStatus Enabled { get; } = new LambdaHookHookStatus("ENABLED");
+        public static LambdaHookHookStatus Disabled { get; } = new LambdaHookHookStatus("DISABLED");
+
+        public static bool operator ==(LambdaHookHookStatus left, LambdaHookHookStatus right) => left.Equals(right);
+        public static bool operator !=(LambdaHookHookStatus left, LambdaHookHookStatus right) => !left.Equals(right);
+
+        public static explicit operator string(LambdaHookHookStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LambdaHookHookStatus other && Equals(other);
+        public bool Equals(LambdaHookHookStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Invocation points are the point in provisioning workflow where hooks will be executed.
+    /// </summary>
+    [EnumType]
+    public readonly struct LambdaHookInvocationPoint : IEquatable<LambdaHookInvocationPoint>
+    {
+        private readonly string _value;
+
+        private LambdaHookInvocationPoint(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LambdaHookInvocationPoint PreProvision { get; } = new LambdaHookInvocationPoint("PRE_PROVISION");
+
+        public static bool operator ==(LambdaHookInvocationPoint left, LambdaHookInvocationPoint right) => left.Equals(right);
+        public static bool operator !=(LambdaHookInvocationPoint left, LambdaHookInvocationPoint right) => !left.Equals(right);
+
+        public static explicit operator string(LambdaHookInvocationPoint value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LambdaHookInvocationPoint other && Equals(other);
+        public bool Equals(LambdaHookInvocationPoint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+    /// </summary>
+    [EnumType]
+    public readonly struct LambdaHookStackFiltersPropertiesFilteringCriteria : IEquatable<LambdaHookStackFiltersPropertiesFilteringCriteria>
+    {
+        private readonly string _value;
+
+        private LambdaHookStackFiltersPropertiesFilteringCriteria(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LambdaHookStackFiltersPropertiesFilteringCriteria All { get; } = new LambdaHookStackFiltersPropertiesFilteringCriteria("ALL");
+        public static LambdaHookStackFiltersPropertiesFilteringCriteria Any { get; } = new LambdaHookStackFiltersPropertiesFilteringCriteria("ANY");
+
+        public static bool operator ==(LambdaHookStackFiltersPropertiesFilteringCriteria left, LambdaHookStackFiltersPropertiesFilteringCriteria right) => left.Equals(right);
+        public static bool operator !=(LambdaHookStackFiltersPropertiesFilteringCriteria left, LambdaHookStackFiltersPropertiesFilteringCriteria right) => !left.Equals(right);
+
+        public static explicit operator string(LambdaHookStackFiltersPropertiesFilteringCriteria value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LambdaHookStackFiltersPropertiesFilteringCriteria other && Equals(other);
+        public bool Equals(LambdaHookStackFiltersPropertiesFilteringCriteria other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Which operations should this Hook run against? Resource changes, stacks or change sets.
+    /// </summary>
+    [EnumType]
+    public readonly struct LambdaHookTargetOperation : IEquatable<LambdaHookTargetOperation>
+    {
+        private readonly string _value;
+
+        private LambdaHookTargetOperation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LambdaHookTargetOperation Resource { get; } = new LambdaHookTargetOperation("RESOURCE");
+        public static LambdaHookTargetOperation Stack { get; } = new LambdaHookTargetOperation("STACK");
+        public static LambdaHookTargetOperation ChangeSet { get; } = new LambdaHookTargetOperation("CHANGE_SET");
+
+        public static bool operator ==(LambdaHookTargetOperation left, LambdaHookTargetOperation right) => left.Equals(right);
+        public static bool operator !=(LambdaHookTargetOperation left, LambdaHookTargetOperation right) => !left.Equals(right);
+
+        public static explicit operator string(LambdaHookTargetOperation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LambdaHookTargetOperation other && Equals(other);
+        public bool Equals(LambdaHookTargetOperation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

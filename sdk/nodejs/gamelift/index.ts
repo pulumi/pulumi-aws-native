@@ -15,6 +15,11 @@ export type Build = import("./build").Build;
 export const Build: typeof import("./build").Build = null as any;
 utilities.lazyLoad(exports, ["Build"], () => require("./build"));
 
+export { ContainerFleetArgs } from "./containerFleet";
+export type ContainerFleet = import("./containerFleet").ContainerFleet;
+export const ContainerFleet: typeof import("./containerFleet").ContainerFleet = null as any;
+utilities.lazyLoad(exports, ["ContainerFleet"], () => require("./containerFleet"));
+
 export { ContainerGroupDefinitionArgs } from "./containerGroupDefinition";
 export type ContainerGroupDefinition = import("./containerGroupDefinition").ContainerGroupDefinition;
 export const ContainerGroupDefinition: typeof import("./containerGroupDefinition").ContainerGroupDefinition = null as any;
@@ -44,6 +49,11 @@ export { GetBuildArgs, GetBuildResult, GetBuildOutputArgs } from "./getBuild";
 export const getBuild: typeof import("./getBuild").getBuild = null as any;
 export const getBuildOutput: typeof import("./getBuild").getBuildOutput = null as any;
 utilities.lazyLoad(exports, ["getBuild","getBuildOutput"], () => require("./getBuild"));
+
+export { GetContainerFleetArgs, GetContainerFleetResult, GetContainerFleetOutputArgs } from "./getContainerFleet";
+export const getContainerFleet: typeof import("./getContainerFleet").getContainerFleet = null as any;
+export const getContainerFleetOutput: typeof import("./getContainerFleet").getContainerFleetOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerFleet","getContainerFleetOutput"], () => require("./getContainerFleet"));
 
 export { GetContainerGroupDefinitionArgs, GetContainerGroupDefinitionResult, GetContainerGroupDefinitionOutputArgs } from "./getContainerGroupDefinition";
 export const getContainerGroupDefinition: typeof import("./getContainerGroupDefinition").getContainerGroupDefinition = null as any;
@@ -117,6 +127,8 @@ const _module = {
                 return new Alias(name, <any>undefined, { urn })
             case "aws-native:gamelift:Build":
                 return new Build(name, <any>undefined, { urn })
+            case "aws-native:gamelift:ContainerFleet":
+                return new ContainerFleet(name, <any>undefined, { urn })
             case "aws-native:gamelift:ContainerGroupDefinition":
                 return new ContainerGroupDefinition(name, <any>undefined, { urn })
             case "aws-native:gamelift:Fleet":

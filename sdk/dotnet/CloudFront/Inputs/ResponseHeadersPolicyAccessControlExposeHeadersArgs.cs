@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A list of HTTP headers that CloudFront includes as values for the ``Access-Control-Expose-Headers`` HTTP response header.
+    ///  For more information about the ``Access-Control-Expose-Headers`` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
+    /// </summary>
     public sealed class ResponseHeadersPolicyAccessControlExposeHeadersArgs : global::Pulumi.ResourceArgs
     {
         [Input("items", required: true)]
         private InputList<string>? _items;
 
         /// <summary>
-        /// The list of HTTP headers. You can specify `*` to expose all headers.
+        /// The list of HTTP headers. You can specify ``*`` to expose all headers.
         /// </summary>
         public InputList<string> Items
         {

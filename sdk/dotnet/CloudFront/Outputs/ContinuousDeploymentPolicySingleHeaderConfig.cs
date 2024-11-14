@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// Determines which HTTP requests are sent to the staging distribution.
+    /// </summary>
     [OutputType]
     public sealed class ContinuousDeploymentPolicySingleHeaderConfig
     {
         /// <summary>
-        /// The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix `aws-cf-cd-` .
+        /// The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix ``aws-cf-cd-``.
         /// </summary>
         public readonly string Header;
         /// <summary>

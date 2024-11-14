@@ -20,6 +20,7 @@ __all__ = [
     'ServicePropagateTags',
     'ServiceSchedulingStrategy',
     'TaskDefinitionAuthorizationConfigIam',
+    'TaskDefinitionContainerDefinitionVersionConsistency',
     'TaskDefinitionEfsVolumeConfigurationTransitEncryption',
     'TaskDefinitionPortMappingAppProtocol',
     'TaskSetAwsVpcConfigurationAssignPublicIp',
@@ -162,6 +163,11 @@ class TaskDefinitionAuthorizationConfigIam(str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class TaskDefinitionContainerDefinitionVersionConsistency(str, Enum):
+    ENABLED = "enabled"
+    DISABLED = "disabled"
 
 
 class TaskDefinitionEfsVolumeConfigurationTransitEncryption(str, Enum):

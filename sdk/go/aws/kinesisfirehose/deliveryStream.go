@@ -21,7 +21,8 @@ type DeliveryStream struct {
 	// The destination in Amazon OpenSearch Service. You can specify only one destination.
 	AmazonopensearchserviceDestinationConfiguration DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput `pulumi:"amazonopensearchserviceDestinationConfiguration"`
 	// The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                         pulumi.StringOutput                                `pulumi:"arn"`
+	DatabaseSourceConfiguration DeliveryStreamDatabaseSourceConfigurationPtrOutput `pulumi:"databaseSourceConfiguration"`
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput DeliveryStreamEncryptionConfigurationInputTypePtrOutput `pulumi:"deliveryStreamEncryptionConfigurationInput"`
 	// The name of the Firehose stream.
@@ -91,6 +92,7 @@ func NewDeliveryStream(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration",
 		"amazonopensearchserviceDestinationConfiguration.vpcConfiguration",
+		"databaseSourceConfiguration",
 		"deliveryStreamName",
 		"deliveryStreamType",
 		"elasticsearchDestinationConfiguration.vpcConfiguration",
@@ -137,6 +139,7 @@ type deliveryStreamArgs struct {
 	AmazonOpenSearchServerlessDestinationConfiguration *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration `pulumi:"amazonOpenSearchServerlessDestinationConfiguration"`
 	// The destination in Amazon OpenSearch Service. You can specify only one destination.
 	AmazonopensearchserviceDestinationConfiguration *DeliveryStreamAmazonopensearchserviceDestinationConfiguration `pulumi:"amazonopensearchserviceDestinationConfiguration"`
+	DatabaseSourceConfiguration                     *DeliveryStreamDatabaseSourceConfiguration                     `pulumi:"databaseSourceConfiguration"`
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput *DeliveryStreamEncryptionConfigurationInputType `pulumi:"deliveryStreamEncryptionConfigurationInput"`
 	// The name of the Firehose stream.
@@ -202,6 +205,7 @@ type DeliveryStreamArgs struct {
 	AmazonOpenSearchServerlessDestinationConfiguration DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrInput
 	// The destination in Amazon OpenSearch Service. You can specify only one destination.
 	AmazonopensearchserviceDestinationConfiguration DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrInput
+	DatabaseSourceConfiguration                     DeliveryStreamDatabaseSourceConfigurationPtrInput
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput DeliveryStreamEncryptionConfigurationInputTypePtrInput
 	// The name of the Firehose stream.
@@ -315,6 +319,12 @@ func (o DeliveryStreamOutput) AmazonopensearchserviceDestinationConfiguration() 
 // The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
 func (o DeliveryStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliveryStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamOutput) DatabaseSourceConfiguration() DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+		return v.DatabaseSourceConfiguration
+	}).(DeliveryStreamDatabaseSourceConfigurationPtrOutput)
 }
 
 // Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).

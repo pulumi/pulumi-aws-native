@@ -32,7 +32,8 @@ type LookupContainerGroupDefinitionResult struct {
 	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.
 	ContainerGroupDefinitionArn *string `pulumi:"containerGroupDefinitionArn"`
 	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime *string `pulumi:"creationTime"`
+	CreationTime                  *string                                                `pulumi:"creationTime"`
+	GameServerContainerDefinition *ContainerGroupDefinitionGameServerContainerDefinition `pulumi:"gameServerContainerDefinition"`
 	// The operating system of the container group
 	OperatingSystem *ContainerGroupDefinitionOperatingSystem `pulumi:"operatingSystem"`
 	// A specific ContainerGroupDefinition version to be updated
@@ -42,9 +43,17 @@ type LookupContainerGroupDefinitionResult struct {
 	// A string indicating the reason for ContainerGroupDefinition status.
 	StatusReason *string `pulumi:"statusReason"`
 	// A collection of support container definitions that define the containers in this group.
-	SupportContainerDefinitions []interface{} `pulumi:"supportContainerDefinitions"`
+	SupportContainerDefinitions []ContainerGroupDefinitionSupportContainerDefinition `pulumi:"supportContainerDefinitions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The total memory limit of container groups following this definition in MiB
+	TotalMemoryLimitMebibytes *int `pulumi:"totalMemoryLimitMebibytes"`
+	// The total amount of virtual CPUs on the container group definition
+	TotalVcpuLimit *float64 `pulumi:"totalVcpuLimit"`
+	// The description of this version
+	VersionDescription *string `pulumi:"versionDescription"`
+	// The version of this ContainerGroupDefinition
+	VersionNumber *int `pulumi:"versionNumber"`
 }
 
 func LookupContainerGroupDefinitionOutput(ctx *pulumi.Context, args LookupContainerGroupDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupContainerGroupDefinitionResultOutput {
@@ -99,6 +108,12 @@ func (o LookupContainerGroupDefinitionResultOutput) CreationTime() pulumi.String
 	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupContainerGroupDefinitionResultOutput) GameServerContainerDefinition() ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *ContainerGroupDefinitionGameServerContainerDefinition {
+		return v.GameServerContainerDefinition
+	}).(ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput)
+}
+
 // The operating system of the container group
 func (o LookupContainerGroupDefinitionResultOutput) OperatingSystem() ContainerGroupDefinitionOperatingSystemPtrOutput {
 	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *ContainerGroupDefinitionOperatingSystem {
@@ -122,13 +137,35 @@ func (o LookupContainerGroupDefinitionResultOutput) StatusReason() pulumi.String
 }
 
 // A collection of support container definitions that define the containers in this group.
-func (o LookupContainerGroupDefinitionResultOutput) SupportContainerDefinitions() pulumi.ArrayOutput {
-	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) []interface{} { return v.SupportContainerDefinitions }).(pulumi.ArrayOutput)
+func (o LookupContainerGroupDefinitionResultOutput) SupportContainerDefinitions() ContainerGroupDefinitionSupportContainerDefinitionArrayOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) []ContainerGroupDefinitionSupportContainerDefinition {
+		return v.SupportContainerDefinitions
+	}).(ContainerGroupDefinitionSupportContainerDefinitionArrayOutput)
 }
 
 // An array of key-value pairs to apply to this resource.
 func (o LookupContainerGroupDefinitionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The total memory limit of container groups following this definition in MiB
+func (o LookupContainerGroupDefinitionResultOutput) TotalMemoryLimitMebibytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *int { return v.TotalMemoryLimitMebibytes }).(pulumi.IntPtrOutput)
+}
+
+// The total amount of virtual CPUs on the container group definition
+func (o LookupContainerGroupDefinitionResultOutput) TotalVcpuLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *float64 { return v.TotalVcpuLimit }).(pulumi.Float64PtrOutput)
+}
+
+// The description of this version
+func (o LookupContainerGroupDefinitionResultOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *string { return v.VersionDescription }).(pulumi.StringPtrOutput)
+}
+
+// The version of this ContainerGroupDefinition
+func (o LookupContainerGroupDefinitionResultOutput) VersionNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *int { return v.VersionNumber }).(pulumi.IntPtrOutput)
 }
 
 func init() {

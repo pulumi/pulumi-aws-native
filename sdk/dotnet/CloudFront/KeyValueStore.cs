@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFront::KeyValueStore
+    /// The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:KeyValueStore")]
     public partial class KeyValueStore : global::Pulumi.CustomResource

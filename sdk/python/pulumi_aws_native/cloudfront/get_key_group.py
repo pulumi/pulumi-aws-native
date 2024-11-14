@@ -74,7 +74,8 @@ class AwaitableGetKeyGroupResult(GetKeyGroupResult):
 def get_key_group(id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyGroupResult:
     """
-    Resource Type definition for AWS::CloudFront::KeyGroup
+    A key group.
+     A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
 
 
     :param str id: The identifier for the key group.
@@ -91,7 +92,8 @@ def get_key_group(id: Optional[str] = None,
 def get_key_group_output(id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyGroupResult]:
     """
-    Resource Type definition for AWS::CloudFront::KeyGroup
+    A key group.
+     A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
 
 
     :param str id: The identifier for the key group.

@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ContainerGroupDefinitionArgs', 'ContainerGroupDefinition']
 
@@ -23,19 +25,34 @@ __all__ = ['ContainerGroupDefinitionArgs', 'ContainerGroupDefinition']
 class ContainerGroupDefinitionArgs:
     def __init__(__self__, *,
                  operating_system: pulumi.Input['ContainerGroupDefinitionOperatingSystem'],
+                 total_memory_limit_mebibytes: pulumi.Input[int],
+                 total_vcpu_limit: pulumi.Input[float],
+                 container_group_type: Optional[pulumi.Input['ContainerGroupDefinitionContainerGroupType']] = None,
+                 game_server_container_definition: Optional[pulumi.Input['ContainerGroupDefinitionGameServerContainerDefinitionArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_version_number: Optional[pulumi.Input[int]] = None,
-                 support_container_definitions: Optional[pulumi.Input[Sequence[Any]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 support_container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionSupportContainerDefinitionArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 version_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContainerGroupDefinition resource.
         :param pulumi.Input['ContainerGroupDefinitionOperatingSystem'] operating_system: The operating system of the container group
+        :param pulumi.Input[int] total_memory_limit_mebibytes: The total memory limit of container groups following this definition in MiB
+        :param pulumi.Input[float] total_vcpu_limit: The total amount of virtual CPUs on the container group definition
+        :param pulumi.Input['ContainerGroupDefinitionContainerGroupType'] container_group_type: The scope of the container group
         :param pulumi.Input[str] name: A descriptive label for the container group definition.
         :param pulumi.Input[int] source_version_number: A specific ContainerGroupDefinition version to be updated
-        :param pulumi.Input[Sequence[Any]] support_container_definitions: A collection of support container definitions that define the containers in this group.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionSupportContainerDefinitionArgs']]] support_container_definitions: A collection of support container definitions that define the containers in this group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[str] version_description: The description of this version
         """
         pulumi.set(__self__, "operating_system", operating_system)
+        pulumi.set(__self__, "total_memory_limit_mebibytes", total_memory_limit_mebibytes)
+        pulumi.set(__self__, "total_vcpu_limit", total_vcpu_limit)
+        if container_group_type is not None:
+            pulumi.set(__self__, "container_group_type", container_group_type)
+        if game_server_container_definition is not None:
+            pulumi.set(__self__, "game_server_container_definition", game_server_container_definition)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if source_version_number is not None:
@@ -44,6 +61,8 @@ class ContainerGroupDefinitionArgs:
             pulumi.set(__self__, "support_container_definitions", support_container_definitions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if version_description is not None:
+            pulumi.set(__self__, "version_description", version_description)
 
     @property
     @pulumi.getter(name="operatingSystem")
@@ -56,6 +75,51 @@ class ContainerGroupDefinitionArgs:
     @operating_system.setter
     def operating_system(self, value: pulumi.Input['ContainerGroupDefinitionOperatingSystem']):
         pulumi.set(self, "operating_system", value)
+
+    @property
+    @pulumi.getter(name="totalMemoryLimitMebibytes")
+    def total_memory_limit_mebibytes(self) -> pulumi.Input[int]:
+        """
+        The total memory limit of container groups following this definition in MiB
+        """
+        return pulumi.get(self, "total_memory_limit_mebibytes")
+
+    @total_memory_limit_mebibytes.setter
+    def total_memory_limit_mebibytes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "total_memory_limit_mebibytes", value)
+
+    @property
+    @pulumi.getter(name="totalVcpuLimit")
+    def total_vcpu_limit(self) -> pulumi.Input[float]:
+        """
+        The total amount of virtual CPUs on the container group definition
+        """
+        return pulumi.get(self, "total_vcpu_limit")
+
+    @total_vcpu_limit.setter
+    def total_vcpu_limit(self, value: pulumi.Input[float]):
+        pulumi.set(self, "total_vcpu_limit", value)
+
+    @property
+    @pulumi.getter(name="containerGroupType")
+    def container_group_type(self) -> Optional[pulumi.Input['ContainerGroupDefinitionContainerGroupType']]:
+        """
+        The scope of the container group
+        """
+        return pulumi.get(self, "container_group_type")
+
+    @container_group_type.setter
+    def container_group_type(self, value: Optional[pulumi.Input['ContainerGroupDefinitionContainerGroupType']]):
+        pulumi.set(self, "container_group_type", value)
+
+    @property
+    @pulumi.getter(name="gameServerContainerDefinition")
+    def game_server_container_definition(self) -> Optional[pulumi.Input['ContainerGroupDefinitionGameServerContainerDefinitionArgs']]:
+        return pulumi.get(self, "game_server_container_definition")
+
+    @game_server_container_definition.setter
+    def game_server_container_definition(self, value: Optional[pulumi.Input['ContainerGroupDefinitionGameServerContainerDefinitionArgs']]):
+        pulumi.set(self, "game_server_container_definition", value)
 
     @property
     @pulumi.getter
@@ -83,14 +147,14 @@ class ContainerGroupDefinitionArgs:
 
     @property
     @pulumi.getter(name="supportContainerDefinitions")
-    def support_container_definitions(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def support_container_definitions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionSupportContainerDefinitionArgs']]]]:
         """
         A collection of support container definitions that define the containers in this group.
         """
         return pulumi.get(self, "support_container_definitions")
 
     @support_container_definitions.setter
-    def support_container_definitions(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def support_container_definitions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionSupportContainerDefinitionArgs']]]]):
         pulumi.set(self, "support_container_definitions", value)
 
     @property
@@ -105,28 +169,49 @@ class ContainerGroupDefinitionArgs:
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of this version
+        """
+        return pulumi.get(self, "version_description")
+
+    @version_description.setter
+    def version_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_description", value)
+
 
 class ContainerGroupDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 container_group_type: Optional[pulumi.Input['ContainerGroupDefinitionContainerGroupType']] = None,
+                 game_server_container_definition: Optional[pulumi.Input[Union['ContainerGroupDefinitionGameServerContainerDefinitionArgs', 'ContainerGroupDefinitionGameServerContainerDefinitionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['ContainerGroupDefinitionOperatingSystem']] = None,
                  source_version_number: Optional[pulumi.Input[int]] = None,
-                 support_container_definitions: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 support_container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupDefinitionSupportContainerDefinitionArgs', 'ContainerGroupDefinitionSupportContainerDefinitionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 total_memory_limit_mebibytes: Optional[pulumi.Input[int]] = None,
+                 total_vcpu_limit: Optional[pulumi.Input[float]] = None,
+                 version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['ContainerGroupDefinitionContainerGroupType'] container_group_type: The scope of the container group
         :param pulumi.Input[str] name: A descriptive label for the container group definition.
         :param pulumi.Input['ContainerGroupDefinitionOperatingSystem'] operating_system: The operating system of the container group
         :param pulumi.Input[int] source_version_number: A specific ContainerGroupDefinition version to be updated
-        :param pulumi.Input[Sequence[Any]] support_container_definitions: A collection of support container definitions that define the containers in this group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupDefinitionSupportContainerDefinitionArgs', 'ContainerGroupDefinitionSupportContainerDefinitionArgsDict']]]] support_container_definitions: A collection of support container definitions that define the containers in this group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[int] total_memory_limit_mebibytes: The total memory limit of container groups following this definition in MiB
+        :param pulumi.Input[float] total_vcpu_limit: The total amount of virtual CPUs on the container group definition
+        :param pulumi.Input[str] version_description: The description of this version
         """
         ...
     @overload
@@ -152,11 +237,16 @@ class ContainerGroupDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 container_group_type: Optional[pulumi.Input['ContainerGroupDefinitionContainerGroupType']] = None,
+                 game_server_container_definition: Optional[pulumi.Input[Union['ContainerGroupDefinitionGameServerContainerDefinitionArgs', 'ContainerGroupDefinitionGameServerContainerDefinitionArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input['ContainerGroupDefinitionOperatingSystem']] = None,
                  source_version_number: Optional[pulumi.Input[int]] = None,
-                 support_container_definitions: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 support_container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ContainerGroupDefinitionSupportContainerDefinitionArgs', 'ContainerGroupDefinitionSupportContainerDefinitionArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 total_memory_limit_mebibytes: Optional[pulumi.Input[int]] = None,
+                 total_vcpu_limit: Optional[pulumi.Input[float]] = None,
+                 version_description: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -166,6 +256,8 @@ class ContainerGroupDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerGroupDefinitionArgs.__new__(ContainerGroupDefinitionArgs)
 
+            __props__.__dict__["container_group_type"] = container_group_type
+            __props__.__dict__["game_server_container_definition"] = game_server_container_definition
             __props__.__dict__["name"] = name
             if operating_system is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_system'")
@@ -173,11 +265,19 @@ class ContainerGroupDefinition(pulumi.CustomResource):
             __props__.__dict__["source_version_number"] = source_version_number
             __props__.__dict__["support_container_definitions"] = support_container_definitions
             __props__.__dict__["tags"] = tags
+            if total_memory_limit_mebibytes is None and not opts.urn:
+                raise TypeError("Missing required property 'total_memory_limit_mebibytes'")
+            __props__.__dict__["total_memory_limit_mebibytes"] = total_memory_limit_mebibytes
+            if total_vcpu_limit is None and not opts.urn:
+                raise TypeError("Missing required property 'total_vcpu_limit'")
+            __props__.__dict__["total_vcpu_limit"] = total_vcpu_limit
+            __props__.__dict__["version_description"] = version_description
             __props__.__dict__["container_group_definition_arn"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_reason"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+            __props__.__dict__["version_number"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerGroupType", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ContainerGroupDefinition, __self__).__init__(
             'aws-native:gamelift:ContainerGroupDefinition',
@@ -202,7 +302,9 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         __props__ = ContainerGroupDefinitionArgs.__new__(ContainerGroupDefinitionArgs)
 
         __props__.__dict__["container_group_definition_arn"] = None
+        __props__.__dict__["container_group_type"] = None
         __props__.__dict__["creation_time"] = None
+        __props__.__dict__["game_server_container_definition"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operating_system"] = None
         __props__.__dict__["source_version_number"] = None
@@ -210,6 +312,10 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         __props__.__dict__["status_reason"] = None
         __props__.__dict__["support_container_definitions"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["total_memory_limit_mebibytes"] = None
+        __props__.__dict__["total_vcpu_limit"] = None
+        __props__.__dict__["version_description"] = None
+        __props__.__dict__["version_number"] = None
         return ContainerGroupDefinition(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -221,12 +327,25 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         return pulumi.get(self, "container_group_definition_arn")
 
     @property
+    @pulumi.getter(name="containerGroupType")
+    def container_group_type(self) -> pulumi.Output[Optional['ContainerGroupDefinitionContainerGroupType']]:
+        """
+        The scope of the container group
+        """
+        return pulumi.get(self, "container_group_type")
+
+    @property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[str]:
         """
         A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="gameServerContainerDefinition")
+    def game_server_container_definition(self) -> pulumi.Output[Optional['outputs.ContainerGroupDefinitionGameServerContainerDefinition']]:
+        return pulumi.get(self, "game_server_container_definition")
 
     @property
     @pulumi.getter
@@ -270,7 +389,7 @@ class ContainerGroupDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="supportContainerDefinitions")
-    def support_container_definitions(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+    def support_container_definitions(self) -> pulumi.Output[Optional[Sequence['outputs.ContainerGroupDefinitionSupportContainerDefinition']]]:
         """
         A collection of support container definitions that define the containers in this group.
         """
@@ -283,4 +402,36 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         An array of key-value pairs to apply to this resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="totalMemoryLimitMebibytes")
+    def total_memory_limit_mebibytes(self) -> pulumi.Output[int]:
+        """
+        The total memory limit of container groups following this definition in MiB
+        """
+        return pulumi.get(self, "total_memory_limit_mebibytes")
+
+    @property
+    @pulumi.getter(name="totalVcpuLimit")
+    def total_vcpu_limit(self) -> pulumi.Output[float]:
+        """
+        The total amount of virtual CPUs on the container group definition
+        """
+        return pulumi.get(self, "total_vcpu_limit")
+
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of this version
+        """
+        return pulumi.get(self, "version_description")
+
+    @property
+    @pulumi.getter(name="versionNumber")
+    def version_number(self) -> pulumi.Output[int]:
+        """
+        The version of this ContainerGroupDefinition
+        """
+        return pulumi.get(self, "version_number")
 

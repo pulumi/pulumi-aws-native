@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetMonitoringSubscription
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::MonitoringSubscription
+        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         /// </summary>
         public static Task<GetMonitoringSubscriptionResult> InvokeAsync(GetMonitoringSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitoringSubscriptionResult>("aws-native:cloudfront:getMonitoringSubscription", args ?? new GetMonitoringSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::MonitoringSubscription
+        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         /// </summary>
         public static Output<GetMonitoringSubscriptionResult> Invoke(GetMonitoringSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringSubscriptionResult>("aws-native:cloudfront:getMonitoringSubscription", args ?? new GetMonitoringSubscriptionInvokeArgs(), options.WithDefaults());

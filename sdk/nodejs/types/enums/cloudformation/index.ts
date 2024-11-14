@@ -2,6 +2,67 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const GuardHookAction = {
+    Create: "CREATE",
+    Update: "UPDATE",
+    Delete: "DELETE",
+} as const;
+
+/**
+ * Target actions are the type of operation hooks will be executed at.
+ */
+export type GuardHookAction = (typeof GuardHookAction)[keyof typeof GuardHookAction];
+
+export const GuardHookFailureMode = {
+    Fail: "FAIL",
+    Warn: "WARN",
+} as const;
+
+/**
+ * Attribute to specify CloudFormation behavior on hook failure.
+ */
+export type GuardHookFailureMode = (typeof GuardHookFailureMode)[keyof typeof GuardHookFailureMode];
+
+export const GuardHookHookStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Attribute to specify which stacks this hook applies to or should get invoked for
+ */
+export type GuardHookHookStatus = (typeof GuardHookHookStatus)[keyof typeof GuardHookHookStatus];
+
+export const GuardHookInvocationPoint = {
+    PreProvision: "PRE_PROVISION",
+} as const;
+
+/**
+ * Invocation points are the point in provisioning workflow where hooks will be executed.
+ */
+export type GuardHookInvocationPoint = (typeof GuardHookInvocationPoint)[keyof typeof GuardHookInvocationPoint];
+
+export const GuardHookStackFiltersPropertiesFilteringCriteria = {
+    All: "ALL",
+    Any: "ANY",
+} as const;
+
+/**
+ * Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+ */
+export type GuardHookStackFiltersPropertiesFilteringCriteria = (typeof GuardHookStackFiltersPropertiesFilteringCriteria)[keyof typeof GuardHookStackFiltersPropertiesFilteringCriteria];
+
+export const GuardHookTargetOperation = {
+    Resource: "RESOURCE",
+    Stack: "STACK",
+    ChangeSet: "CHANGE_SET",
+} as const;
+
+/**
+ * Which operations should this Hook run against? Resource changes, stacks or change sets.
+ */
+export type GuardHookTargetOperation = (typeof GuardHookTargetOperation)[keyof typeof GuardHookTargetOperation];
+
 export const HookTypeConfigConfigurationAlias = {
     Default: "default",
 } as const;
@@ -26,6 +87,67 @@ export const HookVersionVisibility = {
  * PUBLIC: The type is publically visible and usable within any Amazon account.
  */
 export type HookVersionVisibility = (typeof HookVersionVisibility)[keyof typeof HookVersionVisibility];
+
+export const LambdaHookAction = {
+    Create: "CREATE",
+    Update: "UPDATE",
+    Delete: "DELETE",
+} as const;
+
+/**
+ * Target actions are the type of operation hooks will be executed at.
+ */
+export type LambdaHookAction = (typeof LambdaHookAction)[keyof typeof LambdaHookAction];
+
+export const LambdaHookFailureMode = {
+    Fail: "FAIL",
+    Warn: "WARN",
+} as const;
+
+/**
+ * Attribute to specify CloudFormation behavior on hook failure.
+ */
+export type LambdaHookFailureMode = (typeof LambdaHookFailureMode)[keyof typeof LambdaHookFailureMode];
+
+export const LambdaHookHookStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Attribute to specify which stacks this hook applies to or should get invoked for
+ */
+export type LambdaHookHookStatus = (typeof LambdaHookHookStatus)[keyof typeof LambdaHookHookStatus];
+
+export const LambdaHookInvocationPoint = {
+    PreProvision: "PRE_PROVISION",
+} as const;
+
+/**
+ * Invocation points are the point in provisioning workflow where hooks will be executed.
+ */
+export type LambdaHookInvocationPoint = (typeof LambdaHookInvocationPoint)[keyof typeof LambdaHookInvocationPoint];
+
+export const LambdaHookStackFiltersPropertiesFilteringCriteria = {
+    All: "ALL",
+    Any: "ANY",
+} as const;
+
+/**
+ * Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+ */
+export type LambdaHookStackFiltersPropertiesFilteringCriteria = (typeof LambdaHookStackFiltersPropertiesFilteringCriteria)[keyof typeof LambdaHookStackFiltersPropertiesFilteringCriteria];
+
+export const LambdaHookTargetOperation = {
+    Resource: "RESOURCE",
+    Stack: "STACK",
+    ChangeSet: "CHANGE_SET",
+} as const;
+
+/**
+ * Which operations should this Hook run against? Resource changes, stacks or change sets.
+ */
+export type LambdaHookTargetOperation = (typeof LambdaHookTargetOperation)[keyof typeof LambdaHookTargetOperation];
 
 export const ModuleVersionVisibility = {
     Private: "PRIVATE",

@@ -121,6 +121,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      * The experiment options for an experiment template.
      */
     public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
+    public readonly experimentReportConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
      * The configuration for experiment logging.
      */
@@ -171,6 +172,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["experimentOptions"] = args ? args.experimentOptions : undefined;
+            resourceInputs["experimentReportConfiguration"] = args ? args.experimentReportConfiguration : undefined;
             resourceInputs["logConfiguration"] = args ? args.logConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stopConditions"] = args ? args.stopConditions : undefined;
@@ -182,6 +184,7 @@ export class ExperimentTemplate extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["experimentOptions"] = undefined /*out*/;
+            resourceInputs["experimentReportConfiguration"] = undefined /*out*/;
             resourceInputs["logConfiguration"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["stopConditions"] = undefined /*out*/;
@@ -211,6 +214,7 @@ export interface ExperimentTemplateArgs {
      * The experiment options for an experiment template.
      */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptionsArgs>;
+    experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfigurationArgs>;
     /**
      * The configuration for experiment logging.
      */

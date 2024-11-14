@@ -86,16 +86,23 @@
   "required" : [ "LoRaWAN" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotwireless:TagResource", "iotwireless:UntagResource", "iotwireless:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
-      "permissions" : [ "iotwireless:CreateWirelessGateway", "iotwireless:TagResource", "iotwireless:ListTagsForResource" ]
+      "permissions" : [ "iotwireless:CreateWirelessGateway", "iotwireless:TagResource" ]
     },
     "read" : {
       "permissions" : [ "iotwireless:GetWirelessGateway", "iotwireless:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iotwireless:UpdateWirelessGateway", "iotwireless:UntagResource", "iotwireless:ListTagsForResource", "iotwireless:AssociateWirelessGatewayWithThing" ]
+      "permissions" : [ "iotwireless:GetWirelessGateway", "iotwireless:UpdateWirelessGateway", "iotwireless:AssociateWirelessGatewayWithThing", "iotwireless:TagResource", "iotwireless:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "iotwireless:DeleteWirelessGateway", "iotwireless:DisassociateWirelessGatewayFromThing" ]

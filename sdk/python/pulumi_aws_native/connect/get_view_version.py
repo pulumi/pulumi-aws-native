@@ -23,10 +23,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetViewVersionResult:
-    def __init__(__self__, version=None, view_version_arn=None):
+    def __init__(__self__, version=None, version_description=None, view_version_arn=None):
         if version and not isinstance(version, int):
             raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
+        if version_description and not isinstance(version_description, str):
+            raise TypeError("Expected argument 'version_description' to be a str")
+        pulumi.set(__self__, "version_description", version_description)
         if view_version_arn and not isinstance(view_version_arn, str):
             raise TypeError("Expected argument 'view_version_arn' to be a str")
         pulumi.set(__self__, "view_version_arn", view_version_arn)
@@ -38,6 +41,14 @@ class GetViewVersionResult:
         The version of the view.
         """
         return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> Optional[str]:
+        """
+        The description for the view version.
+        """
+        return pulumi.get(self, "version_description")
 
     @property
     @pulumi.getter(name="viewVersionArn")
@@ -55,6 +66,7 @@ class AwaitableGetViewVersionResult(GetViewVersionResult):
             yield self
         return GetViewVersionResult(
             version=self.version,
+            version_description=self.version_description,
             view_version_arn=self.view_version_arn)
 
 
@@ -73,6 +85,7 @@ def get_view_version(view_version_arn: Optional[str] = None,
 
     return AwaitableGetViewVersionResult(
         version=pulumi.get(__ret__, 'version'),
+        version_description=pulumi.get(__ret__, 'version_description'),
         view_version_arn=pulumi.get(__ret__, 'view_version_arn'))
 def get_view_version_output(view_version_arn: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewVersionResult]:
@@ -88,4 +101,5 @@ def get_view_version_output(view_version_arn: Optional[pulumi.Input[str]] = None
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getViewVersion', __args__, opts=opts, typ=GetViewVersionResult)
     return __ret__.apply(lambda __response__: GetViewVersionResult(
         version=pulumi.get(__response__, 'version'),
+        version_description=pulumi.get(__response__, 'version_description'),
         view_version_arn=pulumi.get(__response__, 'view_version_arn')))

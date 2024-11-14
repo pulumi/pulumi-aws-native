@@ -51,7 +51,7 @@ class AwaitableGetMonitoringSubscriptionResult(GetMonitoringSubscriptionResult):
 def get_monitoring_subscription(distribution_id: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitoringSubscriptionResult:
     """
-    Resource Type definition for AWS::CloudFront::MonitoringSubscription
+    A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 
 
     :param str distribution_id: The ID of the distribution that you are enabling metrics for.
@@ -66,7 +66,7 @@ def get_monitoring_subscription(distribution_id: Optional[str] = None,
 def get_monitoring_subscription_output(distribution_id: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringSubscriptionResult]:
     """
-    Resource Type definition for AWS::CloudFront::MonitoringSubscription
+    A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 
 
     :param str distribution_id: The ID of the distribution that you are enabling metrics for.

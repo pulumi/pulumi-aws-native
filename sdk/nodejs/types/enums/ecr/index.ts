@@ -24,6 +24,7 @@ export type RepositoryCreationTemplateAppliedForItem = (typeof RepositoryCreatio
 export const RepositoryCreationTemplateEncryptionType = {
     Aes256: "AES256",
     Kms: "KMS",
+    KmsDsse: "KMS_DSSE",
 } as const;
 
 /**

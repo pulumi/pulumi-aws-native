@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// The traffic configuration of your continuous deployment.
+    /// </summary>
     public sealed class ContinuousDeploymentPolicyTrafficConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

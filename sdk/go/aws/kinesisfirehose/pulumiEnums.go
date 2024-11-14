@@ -680,6 +680,336 @@ func (in *deliveryStreamAuthenticationConfigurationConnectivityPtr) ToDeliverySt
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput)
 }
 
+type DeliveryStreamDatabaseSourceConfigurationSslMode string
+
+const (
+	DeliveryStreamDatabaseSourceConfigurationSslModeDisabled = DeliveryStreamDatabaseSourceConfigurationSslMode("Disabled")
+	DeliveryStreamDatabaseSourceConfigurationSslModeEnabled  = DeliveryStreamDatabaseSourceConfigurationSslMode("Enabled")
+)
+
+func (DeliveryStreamDatabaseSourceConfigurationSslMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationSslMode)(nil)).Elem()
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationSslMode) ToDeliveryStreamDatabaseSourceConfigurationSslModeOutput() DeliveryStreamDatabaseSourceConfigurationSslModeOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamDatabaseSourceConfigurationSslModeOutput)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationSslMode) ToDeliveryStreamDatabaseSourceConfigurationSslModeOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationSslModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamDatabaseSourceConfigurationSslModeOutput)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationSslMode) ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutput() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return e.ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationSslMode) ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return DeliveryStreamDatabaseSourceConfigurationSslMode(e).ToDeliveryStreamDatabaseSourceConfigurationSslModeOutputWithContext(ctx).ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationSslMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationSslMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationSslMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationSslMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamDatabaseSourceConfigurationSslModeOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationSslMode)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ToDeliveryStreamDatabaseSourceConfigurationSslModeOutput() DeliveryStreamDatabaseSourceConfigurationSslModeOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ToDeliveryStreamDatabaseSourceConfigurationSslModeOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationSslModeOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutput() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return o.ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDatabaseSourceConfigurationSslMode) *DeliveryStreamDatabaseSourceConfigurationSslMode {
+		return &v
+	}).(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDatabaseSourceConfigurationSslMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDatabaseSourceConfigurationSslMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseSourceConfigurationSslMode)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput) ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutput() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput) ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput) Elem() DeliveryStreamDatabaseSourceConfigurationSslModeOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfigurationSslMode) DeliveryStreamDatabaseSourceConfigurationSslMode {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDatabaseSourceConfigurationSslMode
+		return ret
+	}).(DeliveryStreamDatabaseSourceConfigurationSslModeOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamDatabaseSourceConfigurationSslMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamDatabaseSourceConfigurationSslModeInput is an input type that accepts values of the DeliveryStreamDatabaseSourceConfigurationSslMode enum
+// A concrete instance of `DeliveryStreamDatabaseSourceConfigurationSslModeInput` can be one of the following:
+//
+//	DeliveryStreamDatabaseSourceConfigurationSslModeDisabled
+//	DeliveryStreamDatabaseSourceConfigurationSslModeEnabled
+type DeliveryStreamDatabaseSourceConfigurationSslModeInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceConfigurationSslModeOutput() DeliveryStreamDatabaseSourceConfigurationSslModeOutput
+	ToDeliveryStreamDatabaseSourceConfigurationSslModeOutputWithContext(context.Context) DeliveryStreamDatabaseSourceConfigurationSslModeOutput
+}
+
+var deliveryStreamDatabaseSourceConfigurationSslModePtrType = reflect.TypeOf((**DeliveryStreamDatabaseSourceConfigurationSslMode)(nil)).Elem()
+
+type DeliveryStreamDatabaseSourceConfigurationSslModePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutput() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput
+	ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutputWithContext(context.Context) DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput
+}
+
+type deliveryStreamDatabaseSourceConfigurationSslModePtr string
+
+func DeliveryStreamDatabaseSourceConfigurationSslModePtr(v string) DeliveryStreamDatabaseSourceConfigurationSslModePtrInput {
+	return (*deliveryStreamDatabaseSourceConfigurationSslModePtr)(&v)
+}
+
+func (*deliveryStreamDatabaseSourceConfigurationSslModePtr) ElementType() reflect.Type {
+	return deliveryStreamDatabaseSourceConfigurationSslModePtrType
+}
+
+func (in *deliveryStreamDatabaseSourceConfigurationSslModePtr) ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutput() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput)
+}
+
+func (in *deliveryStreamDatabaseSourceConfigurationSslModePtr) ToDeliveryStreamDatabaseSourceConfigurationSslModePtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput)
+}
+
+type DeliveryStreamDatabaseSourceConfigurationType string
+
+const (
+	DeliveryStreamDatabaseSourceConfigurationTypeMySql      = DeliveryStreamDatabaseSourceConfigurationType("MySQL")
+	DeliveryStreamDatabaseSourceConfigurationTypePostgreSql = DeliveryStreamDatabaseSourceConfigurationType("PostgreSQL")
+)
+
+func (DeliveryStreamDatabaseSourceConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationType)(nil)).Elem()
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationType) ToDeliveryStreamDatabaseSourceConfigurationTypeOutput() DeliveryStreamDatabaseSourceConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(DeliveryStreamDatabaseSourceConfigurationTypeOutput)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationType) ToDeliveryStreamDatabaseSourceConfigurationTypeOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DeliveryStreamDatabaseSourceConfigurationTypeOutput)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationType) ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutput() DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return e.ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationType) ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return DeliveryStreamDatabaseSourceConfigurationType(e).ToDeliveryStreamDatabaseSourceConfigurationTypeOutputWithContext(ctx).ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DeliveryStreamDatabaseSourceConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DeliveryStreamDatabaseSourceConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationType)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypeOutput) ToDeliveryStreamDatabaseSourceConfigurationTypeOutput() DeliveryStreamDatabaseSourceConfigurationTypeOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypeOutput) ToDeliveryStreamDatabaseSourceConfigurationTypeOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationTypeOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypeOutput) ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutput() DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return o.ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypeOutput) ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDatabaseSourceConfigurationType) *DeliveryStreamDatabaseSourceConfigurationType {
+		return &v
+	}).(DeliveryStreamDatabaseSourceConfigurationTypePtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDatabaseSourceConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DeliveryStreamDatabaseSourceConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamDatabaseSourceConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseSourceConfigurationType)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypePtrOutput) ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutput() DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypePtrOutput) ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypePtrOutput) Elem() DeliveryStreamDatabaseSourceConfigurationTypeOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfigurationType) DeliveryStreamDatabaseSourceConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDatabaseSourceConfigurationType
+		return ret
+	}).(DeliveryStreamDatabaseSourceConfigurationTypeOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DeliveryStreamDatabaseSourceConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DeliveryStreamDatabaseSourceConfigurationTypeInput is an input type that accepts values of the DeliveryStreamDatabaseSourceConfigurationType enum
+// A concrete instance of `DeliveryStreamDatabaseSourceConfigurationTypeInput` can be one of the following:
+//
+//	DeliveryStreamDatabaseSourceConfigurationTypeMySql
+//	DeliveryStreamDatabaseSourceConfigurationTypePostgreSql
+type DeliveryStreamDatabaseSourceConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceConfigurationTypeOutput() DeliveryStreamDatabaseSourceConfigurationTypeOutput
+	ToDeliveryStreamDatabaseSourceConfigurationTypeOutputWithContext(context.Context) DeliveryStreamDatabaseSourceConfigurationTypeOutput
+}
+
+var deliveryStreamDatabaseSourceConfigurationTypePtrType = reflect.TypeOf((**DeliveryStreamDatabaseSourceConfigurationType)(nil)).Elem()
+
+type DeliveryStreamDatabaseSourceConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutput() DeliveryStreamDatabaseSourceConfigurationTypePtrOutput
+	ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutputWithContext(context.Context) DeliveryStreamDatabaseSourceConfigurationTypePtrOutput
+}
+
+type deliveryStreamDatabaseSourceConfigurationTypePtr string
+
+func DeliveryStreamDatabaseSourceConfigurationTypePtr(v string) DeliveryStreamDatabaseSourceConfigurationTypePtrInput {
+	return (*deliveryStreamDatabaseSourceConfigurationTypePtr)(&v)
+}
+
+func (*deliveryStreamDatabaseSourceConfigurationTypePtr) ElementType() reflect.Type {
+	return deliveryStreamDatabaseSourceConfigurationTypePtrType
+}
+
+func (in *deliveryStreamDatabaseSourceConfigurationTypePtr) ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutput() DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(DeliveryStreamDatabaseSourceConfigurationTypePtrOutput)
+}
+
+func (in *deliveryStreamDatabaseSourceConfigurationTypePtr) ToDeliveryStreamDatabaseSourceConfigurationTypePtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDatabaseSourceConfigurationTypePtrOutput)
+}
+
 // When the `FIREHOSE_DEFAULT` option is chosen, Firehose generates a unique document ID for each record based on a unique internal identifier. The generated document ID is stable across multiple delivery attempts, which helps prevent the same record from being indexed multiple times with different document IDs.
 //
 // When the `NO_DOCUMENT_ID` option is chosen, Firehose does not include any document IDs in the requests it sends to the Amazon OpenSearch Service. This causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple delivery attempts, this may cause the same record to be indexed more than once with different document IDs. This option enables write-heavy operations, such as the ingestion of logs and observability data, to consume less resources in the Amazon OpenSearch Service domain, resulting in improved performance.
@@ -3209,6 +3539,7 @@ func (in *deliveryStreamSplunkDestinationConfigurationHecEndpointTypePtr) ToDeli
 type DeliveryStreamType string
 
 const (
+	DeliveryStreamTypeDatabaseAsSource      = DeliveryStreamType("DatabaseAsSource")
 	DeliveryStreamTypeDirectPut             = DeliveryStreamType("DirectPut")
 	DeliveryStreamTypeKinesisStreamAsSource = DeliveryStreamType("KinesisStreamAsSource")
 	DeliveryStreamTypeMskasSource           = DeliveryStreamType("MSKAsSource")
@@ -3336,6 +3667,7 @@ func (o DeliveryStreamTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // DeliveryStreamTypeInput is an input type that accepts values of the DeliveryStreamType enum
 // A concrete instance of `DeliveryStreamTypeInput` can be one of the following:
 //
+//	DeliveryStreamTypeDatabaseAsSource
 //	DeliveryStreamTypeDirectPut
 //	DeliveryStreamTypeKinesisStreamAsSource
 //	DeliveryStreamTypeMskasSource
@@ -3382,6 +3714,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrInput)(nil)).Elem(), DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode("FailedDocumentsOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAuthenticationConfigurationConnectivityInput)(nil)).Elem(), DeliveryStreamAuthenticationConfigurationConnectivity("PUBLIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamAuthenticationConfigurationConnectivityPtrInput)(nil)).Elem(), DeliveryStreamAuthenticationConfigurationConnectivity("PUBLIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationSslModeInput)(nil)).Elem(), DeliveryStreamDatabaseSourceConfigurationSslMode("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationSslModePtrInput)(nil)).Elem(), DeliveryStreamDatabaseSourceConfigurationSslMode("Disabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationTypeInput)(nil)).Elem(), DeliveryStreamDatabaseSourceConfigurationType("MySQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationTypePtrInput)(nil)).Elem(), DeliveryStreamDatabaseSourceConfigurationType("MySQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat("FIREHOSE_DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrInput)(nil)).Elem(), DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat("FIREHOSE_DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodInput)(nil)).Elem(), DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod("NoRotation"))
@@ -3412,8 +3748,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput)(nil)).Elem(), DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode("FailedDataOnly"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Raw"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamSplunkDestinationConfigurationHecEndpointTypePtrInput)(nil)).Elem(), DeliveryStreamSplunkDestinationConfigurationHecEndpointType("Raw"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypeInput)(nil)).Elem(), DeliveryStreamType("DirectPut"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypePtrInput)(nil)).Elem(), DeliveryStreamType("DirectPut"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypeInput)(nil)).Elem(), DeliveryStreamType("DatabaseAsSource"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamTypePtrInput)(nil)).Elem(), DeliveryStreamType("DatabaseAsSource"))
 	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModeOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodOutput{})
@@ -3422,6 +3758,10 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAuthenticationConfigurationConnectivityOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceConfigurationSslModeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormatPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodOutput{})

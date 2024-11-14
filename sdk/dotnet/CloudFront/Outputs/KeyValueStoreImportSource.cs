@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// The import source for the key value store.
+    /// </summary>
     [OutputType]
     public sealed class KeyValueStoreImportSource
     {

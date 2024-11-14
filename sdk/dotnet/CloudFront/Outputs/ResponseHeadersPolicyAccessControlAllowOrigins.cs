@@ -10,11 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A list of origins (domain names) that CloudFront can use as the value for the ``Access-Control-Allow-Origin`` HTTP response header.
+    ///  For more information about the ``Access-Control-Allow-Origin`` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+    /// </summary>
     [OutputType]
     public sealed class ResponseHeadersPolicyAccessControlAllowOrigins
     {
         /// <summary>
-        /// The list of origins (domain names). You can specify `*` to allow all origins.
+        /// The list of origins (domain names). You can specify ``*`` to allow all origins.
         /// </summary>
         public readonly ImmutableArray<string> Items;
 

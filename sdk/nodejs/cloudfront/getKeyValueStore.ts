@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::KeyValueStore
+ * The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
  */
 export function getKeyValueStore(args: GetKeyValueStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyValueStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,7 +40,7 @@ export interface GetKeyValueStoreResult {
     readonly status?: string;
 }
 /**
- * Resource Type definition for AWS::CloudFront::KeyValueStore
+ * The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
  */
 export function getKeyValueStoreOutput(args: GetKeyValueStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

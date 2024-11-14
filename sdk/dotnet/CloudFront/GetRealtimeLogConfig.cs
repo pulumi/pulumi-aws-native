@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetRealtimeLogConfig
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+        /// A real-time log configuration.
         /// </summary>
         public static Task<GetRealtimeLogConfigResult> InvokeAsync(GetRealtimeLogConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRealtimeLogConfigResult>("aws-native:cloudfront:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+        /// A real-time log configuration.
         /// </summary>
         public static Output<GetRealtimeLogConfigResult> Invoke(GetRealtimeLogConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealtimeLogConfigResult>("aws-native:cloudfront:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigInvokeArgs(), options.WithDefaults());
@@ -67,8 +67,7 @@ namespace Pulumi.AwsNative.CloudFront
         public readonly ImmutableArray<Outputs.RealtimeLogConfigEndPoint> EndPoints;
         /// <summary>
         /// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-        /// 
-        /// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+        ///  For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public readonly ImmutableArray<string> Fields;
         /// <summary>

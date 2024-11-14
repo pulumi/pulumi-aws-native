@@ -5,8 +5,20 @@
 from enum import Enum
 
 __all__ = [
+    'GuardHookAction',
+    'GuardHookFailureMode',
+    'GuardHookHookStatus',
+    'GuardHookInvocationPoint',
+    'GuardHookStackFiltersPropertiesFilteringCriteria',
+    'GuardHookTargetOperation',
     'HookTypeConfigConfigurationAlias',
     'HookVersionVisibility',
+    'LambdaHookAction',
+    'LambdaHookFailureMode',
+    'LambdaHookHookStatus',
+    'LambdaHookInvocationPoint',
+    'LambdaHookStackFiltersPropertiesFilteringCriteria',
+    'LambdaHookTargetOperation',
     'ModuleVersionVisibility',
     'PublicTypeVersionType',
     'PublisherIdentityProvider',
@@ -24,6 +36,55 @@ __all__ = [
     'TypeActivationType',
     'TypeActivationVersionBump',
 ]
+
+
+class GuardHookAction(str, Enum):
+    """
+    Target actions are the type of operation hooks will be executed at.
+    """
+    CREATE = "CREATE"
+    UPDATE = "UPDATE"
+    DELETE = "DELETE"
+
+
+class GuardHookFailureMode(str, Enum):
+    """
+    Attribute to specify CloudFormation behavior on hook failure.
+    """
+    FAIL = "FAIL"
+    WARN = "WARN"
+
+
+class GuardHookHookStatus(str, Enum):
+    """
+    Attribute to specify which stacks this hook applies to or should get invoked for
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class GuardHookInvocationPoint(str, Enum):
+    """
+    Invocation points are the point in provisioning workflow where hooks will be executed.
+    """
+    PRE_PROVISION = "PRE_PROVISION"
+
+
+class GuardHookStackFiltersPropertiesFilteringCriteria(str, Enum):
+    """
+    Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+    """
+    ALL = "ALL"
+    ANY = "ANY"
+
+
+class GuardHookTargetOperation(str, Enum):
+    """
+    Which operations should this Hook run against? Resource changes, stacks or change sets.
+    """
+    RESOURCE = "RESOURCE"
+    STACK = "STACK"
+    CHANGE_SET = "CHANGE_SET"
 
 
 class HookTypeConfigConfigurationAlias(str, Enum):
@@ -45,6 +106,55 @@ class HookVersionVisibility(str, Enum):
     """
     PUBLIC = "PUBLIC"
     PRIVATE = "PRIVATE"
+
+
+class LambdaHookAction(str, Enum):
+    """
+    Target actions are the type of operation hooks will be executed at.
+    """
+    CREATE = "CREATE"
+    UPDATE = "UPDATE"
+    DELETE = "DELETE"
+
+
+class LambdaHookFailureMode(str, Enum):
+    """
+    Attribute to specify CloudFormation behavior on hook failure.
+    """
+    FAIL = "FAIL"
+    WARN = "WARN"
+
+
+class LambdaHookHookStatus(str, Enum):
+    """
+    Attribute to specify which stacks this hook applies to or should get invoked for
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class LambdaHookInvocationPoint(str, Enum):
+    """
+    Invocation points are the point in provisioning workflow where hooks will be executed.
+    """
+    PRE_PROVISION = "PRE_PROVISION"
+
+
+class LambdaHookStackFiltersPropertiesFilteringCriteria(str, Enum):
+    """
+    Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+    """
+    ALL = "ALL"
+    ANY = "ANY"
+
+
+class LambdaHookTargetOperation(str, Enum):
+    """
+    Which operations should this Hook run against? Resource changes, stacks or change sets.
+    """
+    RESOURCE = "RESOURCE"
+    STACK = "STACK"
+    CHANGE_SET = "CHANGE_SET"
 
 
 class ModuleVersionVisibility(str, Enum):

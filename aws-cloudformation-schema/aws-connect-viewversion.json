@@ -74,5 +74,5 @@
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/ViewVersionArn" ],
   "readOnlyProperties" : [ "/properties/ViewVersionArn", "/properties/Version" ],
-  "createOnlyProperties" : [ "/properties/ViewArn", "/properties/VersionDescription", "/properties/ViewContentSha256" ]
+  "createOnlyProperties" : [ "/properties/ViewArn", "/properties/ViewContentSha256" ]
 }

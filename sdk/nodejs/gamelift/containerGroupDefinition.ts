@@ -42,9 +42,14 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly containerGroupDefinitionArn!: pulumi.Output<string>;
     /**
+     * The scope of the container group
+     */
+    public readonly containerGroupType!: pulumi.Output<enums.gamelift.ContainerGroupDefinitionContainerGroupType | undefined>;
+    /**
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    public readonly gameServerContainerDefinition!: pulumi.Output<outputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinition | undefined>;
     /**
      * A descriptive label for the container group definition.
      */
@@ -68,11 +73,27 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
     /**
      * A collection of support container definitions that define the containers in this group.
      */
-    public readonly supportContainerDefinitions!: pulumi.Output<any[] | undefined>;
+    public readonly supportContainerDefinitions!: pulumi.Output<outputs.gamelift.ContainerGroupDefinitionSupportContainerDefinition[] | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The total memory limit of container groups following this definition in MiB
+     */
+    public readonly totalMemoryLimitMebibytes!: pulumi.Output<number>;
+    /**
+     * The total amount of virtual CPUs on the container group definition
+     */
+    public readonly totalVcpuLimit!: pulumi.Output<number>;
+    /**
+     * The description of this version
+     */
+    public readonly versionDescription!: pulumi.Output<string | undefined>;
+    /**
+     * The version of this ContainerGroupDefinition
+     */
+    public /*out*/ readonly versionNumber!: pulumi.Output<number>;
 
     /**
      * Create a ContainerGroupDefinition resource with the given unique name, arguments, and options.
@@ -88,18 +109,32 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
             if ((!args || args.operatingSystem === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operatingSystem'");
             }
+            if ((!args || args.totalMemoryLimitMebibytes === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'totalMemoryLimitMebibytes'");
+            }
+            if ((!args || args.totalVcpuLimit === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'totalVcpuLimit'");
+            }
+            resourceInputs["containerGroupType"] = args ? args.containerGroupType : undefined;
+            resourceInputs["gameServerContainerDefinition"] = args ? args.gameServerContainerDefinition : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
             resourceInputs["sourceVersionNumber"] = args ? args.sourceVersionNumber : undefined;
             resourceInputs["supportContainerDefinitions"] = args ? args.supportContainerDefinitions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["totalMemoryLimitMebibytes"] = args ? args.totalMemoryLimitMebibytes : undefined;
+            resourceInputs["totalVcpuLimit"] = args ? args.totalVcpuLimit : undefined;
+            resourceInputs["versionDescription"] = args ? args.versionDescription : undefined;
             resourceInputs["containerGroupDefinitionArn"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
+            resourceInputs["versionNumber"] = undefined /*out*/;
         } else {
             resourceInputs["containerGroupDefinitionArn"] = undefined /*out*/;
+            resourceInputs["containerGroupType"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
+            resourceInputs["gameServerContainerDefinition"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operatingSystem"] = undefined /*out*/;
             resourceInputs["sourceVersionNumber"] = undefined /*out*/;
@@ -107,9 +142,13 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
             resourceInputs["statusReason"] = undefined /*out*/;
             resourceInputs["supportContainerDefinitions"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["totalMemoryLimitMebibytes"] = undefined /*out*/;
+            resourceInputs["totalVcpuLimit"] = undefined /*out*/;
+            resourceInputs["versionDescription"] = undefined /*out*/;
+            resourceInputs["versionNumber"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["containerGroupType", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ContainerGroupDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,6 +158,11 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
  * The set of arguments for constructing a ContainerGroupDefinition resource.
  */
 export interface ContainerGroupDefinitionArgs {
+    /**
+     * The scope of the container group
+     */
+    containerGroupType?: pulumi.Input<enums.gamelift.ContainerGroupDefinitionContainerGroupType>;
+    gameServerContainerDefinition?: pulumi.Input<inputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinitionArgs>;
     /**
      * A descriptive label for the container group definition.
      */
@@ -134,9 +178,21 @@ export interface ContainerGroupDefinitionArgs {
     /**
      * A collection of support container definitions that define the containers in this group.
      */
-    supportContainerDefinitions?: pulumi.Input<any[]>;
+    supportContainerDefinitions?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerGroupDefinitionSupportContainerDefinitionArgs>[]>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The total memory limit of container groups following this definition in MiB
+     */
+    totalMemoryLimitMebibytes: pulumi.Input<number>;
+    /**
+     * The total amount of virtual CPUs on the container group definition
+     */
+    totalVcpuLimit: pulumi.Input<number>;
+    /**
+     * The description of this version
+     */
+    versionDescription?: pulumi.Input<string>;
 }

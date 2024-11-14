@@ -66,7 +66,7 @@ class MonitoringSubscription(pulumi.CustomResource):
                  monitoring_subscription: Optional[pulumi.Input[Union['MonitoringSubscriptionArgs', 'MonitoringSubscriptionArgsDict']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::MonitoringSubscription
+        A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -80,7 +80,7 @@ class MonitoringSubscription(pulumi.CustomResource):
                  args: MonitoringSubscriptionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::MonitoringSubscription
+        A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 
         :param str resource_name: The name of the resource.
         :param MonitoringSubscriptionInitArgs args: The arguments to use to populate this resource's properties.

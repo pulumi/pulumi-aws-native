@@ -35,6 +35,7 @@ class RepositoryCreationTemplateEncryptionType(str, Enum):
     """
     AES256 = "AES256"
     KMS = "KMS"
+    KMS_DSSE = "KMS_DSSE"
 
 
 class RepositoryCreationTemplateImageTagMutability(str, Enum):

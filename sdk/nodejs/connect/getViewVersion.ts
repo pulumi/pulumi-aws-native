@@ -27,6 +27,10 @@ export interface GetViewVersionResult {
      */
     readonly version?: number;
     /**
+     * The description for the view version.
+     */
+    readonly versionDescription?: string;
+    /**
      * The Amazon Resource Name (ARN) of the created view version.
      */
     readonly viewVersionArn?: string;

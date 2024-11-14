@@ -19,6 +19,24 @@ from ._enums import *
 __all__ = [
     'AliasRoutingStrategy',
     'BuildStorageLocation',
+    'ContainerFleetConnectionPortRange',
+    'ContainerFleetDeploymentConfiguration',
+    'ContainerFleetDeploymentDetails',
+    'ContainerFleetGameSessionCreationLimitPolicy',
+    'ContainerFleetIpPermission',
+    'ContainerFleetLocationCapacity',
+    'ContainerFleetLocationConfiguration',
+    'ContainerFleetLogConfiguration',
+    'ContainerFleetScalingPolicy',
+    'ContainerFleetTargetConfiguration',
+    'ContainerGroupDefinitionContainerDependency',
+    'ContainerGroupDefinitionContainerEnvironment',
+    'ContainerGroupDefinitionContainerHealthCheck',
+    'ContainerGroupDefinitionContainerMountPoint',
+    'ContainerGroupDefinitionContainerPortRange',
+    'ContainerGroupDefinitionGameServerContainerDefinition',
+    'ContainerGroupDefinitionPortConfiguration',
+    'ContainerGroupDefinitionSupportContainerDefinition',
     'FleetAnywhereConfiguration',
     'FleetCertificateConfiguration',
     'FleetIpPermission',
@@ -172,6 +190,1301 @@ class BuildStorageLocation(dict):
 
 
 @pulumi.output_type
+class ContainerFleetConnectionPortRange(dict):
+    """
+    Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetConnectionPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetConnectionPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetConnectionPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 to_port: int):
+        """
+        Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+        :param int from_port: A starting value for a range of allowed port numbers.
+        :param int to_port: An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        """
+        A starting value for a range of allowed port numbers.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        """
+        An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class ContainerFleetDeploymentConfiguration(dict):
+    """
+    Provides details about how to drain old tasks and replace them with new updated tasks.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "impairmentStrategy":
+            suggest = "impairment_strategy"
+        elif key == "minimumHealthyPercentage":
+            suggest = "minimum_healthy_percentage"
+        elif key == "protectionStrategy":
+            suggest = "protection_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetDeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetDeploymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetDeploymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 impairment_strategy: Optional['ContainerFleetDeploymentConfigurationImpairmentStrategy'] = None,
+                 minimum_healthy_percentage: Optional[int] = None,
+                 protection_strategy: Optional['ContainerFleetDeploymentConfigurationProtectionStrategy'] = None):
+        """
+        Provides details about how to drain old tasks and replace them with new updated tasks.
+        :param 'ContainerFleetDeploymentConfigurationImpairmentStrategy' impairment_strategy: The strategy to apply in case of impairment; defaults to MAINTAIN.
+        :param int minimum_healthy_percentage: The minimum percentage of healthy required; defaults to 75.
+        :param 'ContainerFleetDeploymentConfigurationProtectionStrategy' protection_strategy: The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+        """
+        if impairment_strategy is not None:
+            pulumi.set(__self__, "impairment_strategy", impairment_strategy)
+        if minimum_healthy_percentage is not None:
+            pulumi.set(__self__, "minimum_healthy_percentage", minimum_healthy_percentage)
+        if protection_strategy is not None:
+            pulumi.set(__self__, "protection_strategy", protection_strategy)
+
+    @property
+    @pulumi.getter(name="impairmentStrategy")
+    def impairment_strategy(self) -> Optional['ContainerFleetDeploymentConfigurationImpairmentStrategy']:
+        """
+        The strategy to apply in case of impairment; defaults to MAINTAIN.
+        """
+        return pulumi.get(self, "impairment_strategy")
+
+    @property
+    @pulumi.getter(name="minimumHealthyPercentage")
+    def minimum_healthy_percentage(self) -> Optional[int]:
+        """
+        The minimum percentage of healthy required; defaults to 75.
+        """
+        return pulumi.get(self, "minimum_healthy_percentage")
+
+    @property
+    @pulumi.getter(name="protectionStrategy")
+    def protection_strategy(self) -> Optional['ContainerFleetDeploymentConfigurationProtectionStrategy']:
+        """
+        The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+        """
+        return pulumi.get(self, "protection_strategy")
+
+
+@pulumi.output_type
+class ContainerFleetDeploymentDetails(dict):
+    """
+    Provides information about the last deployment ID and its status.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "latestDeploymentId":
+            suggest = "latest_deployment_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetDeploymentDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetDeploymentDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetDeploymentDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 latest_deployment_id: Optional[str] = None):
+        """
+        Provides information about the last deployment ID and its status.
+        :param str latest_deployment_id: The ID of the last deployment on the container fleet. This field will be empty if the container fleet does not have a ContainerGroupDefinition attached.
+        """
+        if latest_deployment_id is not None:
+            pulumi.set(__self__, "latest_deployment_id", latest_deployment_id)
+
+    @property
+    @pulumi.getter(name="latestDeploymentId")
+    def latest_deployment_id(self) -> Optional[str]:
+        """
+        The ID of the last deployment on the container fleet. This field will be empty if the container fleet does not have a ContainerGroupDefinition attached.
+        """
+        return pulumi.get(self, "latest_deployment_id")
+
+
+@pulumi.output_type
+class ContainerFleetGameSessionCreationLimitPolicy(dict):
+    """
+    A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+
+    The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "newGameSessionsPerCreator":
+            suggest = "new_game_sessions_per_creator"
+        elif key == "policyPeriodInMinutes":
+            suggest = "policy_period_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetGameSessionCreationLimitPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetGameSessionCreationLimitPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetGameSessionCreationLimitPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 new_game_sessions_per_creator: Optional[int] = None,
+                 policy_period_in_minutes: Optional[int] = None):
+        """
+        A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+
+        The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+        :param int new_game_sessions_per_creator: The maximum number of game sessions that an individual can create during the policy period.
+        :param int policy_period_in_minutes: The time span used in evaluating the resource creation limit policy.
+        """
+        if new_game_sessions_per_creator is not None:
+            pulumi.set(__self__, "new_game_sessions_per_creator", new_game_sessions_per_creator)
+        if policy_period_in_minutes is not None:
+            pulumi.set(__self__, "policy_period_in_minutes", policy_period_in_minutes)
+
+    @property
+    @pulumi.getter(name="newGameSessionsPerCreator")
+    def new_game_sessions_per_creator(self) -> Optional[int]:
+        """
+        The maximum number of game sessions that an individual can create during the policy period.
+        """
+        return pulumi.get(self, "new_game_sessions_per_creator")
+
+    @property
+    @pulumi.getter(name="policyPeriodInMinutes")
+    def policy_period_in_minutes(self) -> Optional[int]:
+        """
+        The time span used in evaluating the resource creation limit policy.
+        """
+        return pulumi.get(self, "policy_period_in_minutes")
+
+
+@pulumi.output_type
+class ContainerFleetIpPermission(dict):
+    """
+    A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "ipRange":
+            suggest = "ip_range"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetIpPermission. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetIpPermission.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetIpPermission.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 ip_range: str,
+                 protocol: 'ContainerFleetIpPermissionProtocol',
+                 to_port: int):
+        """
+        A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+        :param int from_port: A starting value for a range of allowed port numbers.
+        :param str ip_range: A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
+        :param 'ContainerFleetIpPermissionProtocol' protocol: The network communication protocol used by the fleet.
+        :param int to_port: An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "ip_range", ip_range)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        """
+        A starting value for a range of allowed port numbers.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter(name="ipRange")
+    def ip_range(self) -> str:
+        """
+        A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
+        """
+        return pulumi.get(self, "ip_range")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> 'ContainerFleetIpPermissionProtocol':
+        """
+        The network communication protocol used by the fleet.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        """
+        An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class ContainerFleetLocationCapacity(dict):
+    """
+    Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredEc2Instances":
+            suggest = "desired_ec2_instances"
+        elif key == "maxSize":
+            suggest = "max_size"
+        elif key == "minSize":
+            suggest = "min_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetLocationCapacity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetLocationCapacity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetLocationCapacity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_ec2_instances: int,
+                 max_size: int,
+                 min_size: int):
+        """
+        Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+        :param int desired_ec2_instances: The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        :param int max_size: The maximum value that is allowed for the fleet's instance count for a location.
+        :param int min_size: The minimum value allowed for the fleet's instance count for a location.
+        """
+        pulumi.set(__self__, "desired_ec2_instances", desired_ec2_instances)
+        pulumi.set(__self__, "max_size", max_size)
+        pulumi.set(__self__, "min_size", min_size)
+
+    @property
+    @pulumi.getter(name="desiredEc2Instances")
+    def desired_ec2_instances(self) -> int:
+        """
+        The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+        """
+        return pulumi.get(self, "desired_ec2_instances")
+
+    @property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> int:
+        """
+        The maximum value that is allowed for the fleet's instance count for a location.
+        """
+        return pulumi.get(self, "max_size")
+
+    @property
+    @pulumi.getter(name="minSize")
+    def min_size(self) -> int:
+        """
+        The minimum value allowed for the fleet's instance count for a location.
+        """
+        return pulumi.get(self, "min_size")
+
+
+@pulumi.output_type
+class ContainerFleetLocationConfiguration(dict):
+    """
+    A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "locationCapacity":
+            suggest = "location_capacity"
+        elif key == "stoppedActions":
+            suggest = "stopped_actions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetLocationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetLocationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetLocationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: str,
+                 location_capacity: Optional['outputs.ContainerFleetLocationCapacity'] = None,
+                 stopped_actions: Optional[Sequence['ContainerFleetStoppedActionsItem']] = None):
+        """
+        A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+        """
+        pulumi.set(__self__, "location", location)
+        if location_capacity is not None:
+            pulumi.set(__self__, "location_capacity", location_capacity)
+        if stopped_actions is not None:
+            pulumi.set(__self__, "stopped_actions", stopped_actions)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="locationCapacity")
+    def location_capacity(self) -> Optional['outputs.ContainerFleetLocationCapacity']:
+        return pulumi.get(self, "location_capacity")
+
+    @property
+    @pulumi.getter(name="stoppedActions")
+    def stopped_actions(self) -> Optional[Sequence['ContainerFleetStoppedActionsItem']]:
+        return pulumi.get(self, "stopped_actions")
+
+
+@pulumi.output_type
+class ContainerFleetLogConfiguration(dict):
+    """
+    A policy the location and provider of logs from the fleet.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDestination":
+            suggest = "log_destination"
+        elif key == "s3BucketName":
+            suggest = "s3_bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_destination: Optional['ContainerFleetLogDestination'] = None,
+                 s3_bucket_name: Optional[str] = None):
+        """
+        A policy the location and provider of logs from the fleet.
+        :param str s3_bucket_name: The name of the S3 bucket to pull logs from if S3 is the LogDestination
+        """
+        if log_destination is not None:
+            pulumi.set(__self__, "log_destination", log_destination)
+        if s3_bucket_name is not None:
+            pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
+
+    @property
+    @pulumi.getter(name="logDestination")
+    def log_destination(self) -> Optional['ContainerFleetLogDestination']:
+        return pulumi.get(self, "log_destination")
+
+    @property
+    @pulumi.getter(name="s3BucketName")
+    def s3_bucket_name(self) -> Optional[str]:
+        """
+        The name of the S3 bucket to pull logs from if S3 is the LogDestination
+        """
+        return pulumi.get(self, "s3_bucket_name")
+
+
+@pulumi.output_type
+class ContainerFleetScalingPolicy(dict):
+    """
+    Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+        elif key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "evaluationPeriods":
+            suggest = "evaluation_periods"
+        elif key == "policyType":
+            suggest = "policy_type"
+        elif key == "scalingAdjustment":
+            suggest = "scaling_adjustment"
+        elif key == "scalingAdjustmentType":
+            suggest = "scaling_adjustment_type"
+        elif key == "targetConfiguration":
+            suggest = "target_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetScalingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetScalingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetScalingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_name: 'ContainerFleetScalingPolicyMetricName',
+                 name: str,
+                 comparison_operator: Optional['ContainerFleetScalingPolicyComparisonOperator'] = None,
+                 evaluation_periods: Optional[int] = None,
+                 policy_type: Optional['ContainerFleetScalingPolicyPolicyType'] = None,
+                 scaling_adjustment: Optional[int] = None,
+                 scaling_adjustment_type: Optional['ContainerFleetScalingPolicyScalingAdjustmentType'] = None,
+                 target_configuration: Optional['outputs.ContainerFleetTargetConfiguration'] = None,
+                 threshold: Optional[float] = None):
+        """
+        Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+        :param 'ContainerFleetScalingPolicyMetricName' metric_name: Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+        :param str name: A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+        :param 'ContainerFleetScalingPolicyComparisonOperator' comparison_operator: Comparison operator to use when measuring a metric against the threshold value.
+        :param int evaluation_periods: Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+        :param 'ContainerFleetScalingPolicyPolicyType' policy_type: The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+        :param int scaling_adjustment: Amount of adjustment to make, based on the scaling adjustment type.
+        :param 'ContainerFleetScalingPolicyScalingAdjustmentType' scaling_adjustment_type: The type of adjustment to make to a fleet's instance count.
+        :param 'ContainerFleetTargetConfiguration' target_configuration: An object that contains settings for a target-based scaling policy.
+        :param float threshold: Metric value used to trigger a scaling event.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "name", name)
+        if comparison_operator is not None:
+            pulumi.set(__self__, "comparison_operator", comparison_operator)
+        if evaluation_periods is not None:
+            pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if scaling_adjustment is not None:
+            pulumi.set(__self__, "scaling_adjustment", scaling_adjustment)
+        if scaling_adjustment_type is not None:
+            pulumi.set(__self__, "scaling_adjustment_type", scaling_adjustment_type)
+        if target_configuration is not None:
+            pulumi.set(__self__, "target_configuration", target_configuration)
+        if threshold is not None:
+            pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> 'ContainerFleetScalingPolicyMetricName':
+        """
+        Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> Optional['ContainerFleetScalingPolicyComparisonOperator']:
+        """
+        Comparison operator to use when measuring a metric against the threshold value.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @property
+    @pulumi.getter(name="evaluationPeriods")
+    def evaluation_periods(self) -> Optional[int]:
+        """
+        Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+        """
+        return pulumi.get(self, "evaluation_periods")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional['ContainerFleetScalingPolicyPolicyType']:
+        """
+        The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="scalingAdjustment")
+    def scaling_adjustment(self) -> Optional[int]:
+        """
+        Amount of adjustment to make, based on the scaling adjustment type.
+        """
+        return pulumi.get(self, "scaling_adjustment")
+
+    @property
+    @pulumi.getter(name="scalingAdjustmentType")
+    def scaling_adjustment_type(self) -> Optional['ContainerFleetScalingPolicyScalingAdjustmentType']:
+        """
+        The type of adjustment to make to a fleet's instance count.
+        """
+        return pulumi.get(self, "scaling_adjustment_type")
+
+    @property
+    @pulumi.getter(name="targetConfiguration")
+    def target_configuration(self) -> Optional['outputs.ContainerFleetTargetConfiguration']:
+        """
+        An object that contains settings for a target-based scaling policy.
+        """
+        return pulumi.get(self, "target_configuration")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> Optional[float]:
+        """
+        Metric value used to trigger a scaling event.
+        """
+        return pulumi.get(self, "threshold")
+
+
+@pulumi.output_type
+class ContainerFleetTargetConfiguration(dict):
+    """
+    Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetValue":
+            suggest = "target_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerFleetTargetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerFleetTargetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerFleetTargetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_value: float):
+        """
+        Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+        :param float target_value: Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+        """
+        pulumi.set(__self__, "target_value", target_value)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> float:
+        """
+        Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+        """
+        return pulumi.get(self, "target_value")
+
+
+@pulumi.output_type
+class ContainerGroupDefinitionContainerDependency(dict):
+    """
+    A dependency that impacts a container's startup and shutdown.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupDefinitionContainerDependency. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupDefinitionContainerDependency.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupDefinitionContainerDependency.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: 'ContainerGroupDefinitionContainerDependencyCondition',
+                 container_name: str):
+        """
+        A dependency that impacts a container's startup and shutdown.
+        :param 'ContainerGroupDefinitionContainerDependencyCondition' condition: The type of dependency.
+        :param str container_name: A descriptive label for the container definition. The container being defined depends on this container's condition.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "container_name", container_name)
+
+    @property
+    @pulumi.getter
+    def condition(self) -> 'ContainerGroupDefinitionContainerDependencyCondition':
+        """
+        The type of dependency.
+        """
+        return pulumi.get(self, "condition")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        A descriptive label for the container definition. The container being defined depends on this container's condition.
+        """
+        return pulumi.get(self, "container_name")
+
+
+@pulumi.output_type
+class ContainerGroupDefinitionContainerEnvironment(dict):
+    """
+    An environment variable to set inside a container, in the form of a key-value pair.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        An environment variable to set inside a container, in the form of a key-value pair.
+        :param str name: The environment variable name.
+        :param str value: The environment variable value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The environment variable name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The environment variable value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ContainerGroupDefinitionContainerHealthCheck(dict):
+    """
+    Specifies how the process manager checks the health of containers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startPeriod":
+            suggest = "start_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupDefinitionContainerHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupDefinitionContainerHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupDefinitionContainerHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 command: Sequence[str],
+                 interval: Optional[int] = None,
+                 retries: Optional[int] = None,
+                 start_period: Optional[int] = None,
+                 timeout: Optional[int] = None):
+        """
+        Specifies how the process manager checks the health of containers.
+        :param Sequence[str] command: A string array representing the command that the container runs to determine if it is healthy.
+        :param int interval: How often (in seconds) the health is checked.
+        :param int retries: How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+        :param int start_period: The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+        :param int timeout: How many seconds the process manager allows the command to run before canceling it.
+        """
+        pulumi.set(__self__, "command", command)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if retries is not None:
+            pulumi.set(__self__, "retries", retries)
+        if start_period is not None:
+            pulumi.set(__self__, "start_period", start_period)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Sequence[str]:
+        """
+        A string array representing the command that the container runs to determine if it is healthy.
+        """
+        return pulumi.get(self, "command")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        How often (in seconds) the health is checked.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def retries(self) -> Optional[int]:
+        """
+        How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+        """
+        return pulumi.get(self, "retries")
+
+    @property
+    @pulumi.getter(name="startPeriod")
+    def start_period(self) -> Optional[int]:
+        """
+        The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+        """
+        return pulumi.get(self, "start_period")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        How many seconds the process manager allows the command to run before canceling it.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class ContainerGroupDefinitionContainerMountPoint(dict):
+    """
+    Defines the mount point configuration within a container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instancePath":
+            suggest = "instance_path"
+        elif key == "accessLevel":
+            suggest = "access_level"
+        elif key == "containerPath":
+            suggest = "container_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupDefinitionContainerMountPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupDefinitionContainerMountPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupDefinitionContainerMountPoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_path: str,
+                 access_level: Optional['ContainerGroupDefinitionContainerMountPointAccessLevel'] = None,
+                 container_path: Optional[str] = None):
+        """
+        Defines the mount point configuration within a container.
+        :param str instance_path: The path on the host that will be mounted in the container.
+        :param 'ContainerGroupDefinitionContainerMountPointAccessLevel' access_level: The access permissions for the mounted path.
+        :param str container_path: The path inside the container where the mount is accessible.
+        """
+        pulumi.set(__self__, "instance_path", instance_path)
+        if access_level is not None:
+            pulumi.set(__self__, "access_level", access_level)
+        if container_path is not None:
+            pulumi.set(__self__, "container_path", container_path)
+
+    @property
+    @pulumi.getter(name="instancePath")
+    def instance_path(self) -> str:
+        """
+        The path on the host that will be mounted in the container.
+        """
+        return pulumi.get(self, "instance_path")
+
+    @property
+    @pulumi.getter(name="accessLevel")
+    def access_level(self) -> Optional['ContainerGroupDefinitionContainerMountPointAccessLevel']:
+        """
+        The access permissions for the mounted path.
+        """
+        return pulumi.get(self, "access_level")
+
+    @property
+    @pulumi.getter(name="containerPath")
+    def container_path(self) -> Optional[str]:
+        """
+        The path inside the container where the mount is accessible.
+        """
+        return pulumi.get(self, "container_path")
+
+
+@pulumi.output_type
+class ContainerGroupDefinitionContainerPortRange(dict):
+    """
+    A set of one or more port numbers that can be opened on the container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromPort":
+            suggest = "from_port"
+        elif key == "toPort":
+            suggest = "to_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupDefinitionContainerPortRange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupDefinitionContainerPortRange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupDefinitionContainerPortRange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_port: int,
+                 protocol: 'ContainerGroupDefinitionContainerPortRangeProtocol',
+                 to_port: int):
+        """
+        A set of one or more port numbers that can be opened on the container.
+        :param int from_port: A starting value for the range of allowed port numbers.
+        :param 'ContainerGroupDefinitionContainerPortRangeProtocol' protocol: Defines the protocol of these ports.
+        :param int to_port: An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+        """
+        pulumi.set(__self__, "from_port", from_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "to_port", to_port)
+
+    @property
+    @pulumi.getter(name="fromPort")
+    def from_port(self) -> int:
+        """
+        A starting value for the range of allowed port numbers.
+        """
+        return pulumi.get(self, "from_port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> 'ContainerGroupDefinitionContainerPortRangeProtocol':
+        """
+        Defines the protocol of these ports.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="toPort")
+    def to_port(self) -> int:
+        """
+        An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+        """
+        return pulumi.get(self, "to_port")
+
+
+@pulumi.output_type
+class ContainerGroupDefinitionGameServerContainerDefinition(dict):
+    """
+    Specifies the information required to run game servers with this container group
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "imageUri":
+            suggest = "image_uri"
+        elif key == "serverSdkVersion":
+            suggest = "server_sdk_version"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "environmentOverride":
+            suggest = "environment_override"
+        elif key == "mountPoints":
+            suggest = "mount_points"
+        elif key == "portConfiguration":
+            suggest = "port_configuration"
+        elif key == "resolvedImageDigest":
+            suggest = "resolved_image_digest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupDefinitionGameServerContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupDefinitionGameServerContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupDefinitionGameServerContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 image_uri: str,
+                 server_sdk_version: str,
+                 depends_on: Optional[Sequence['outputs.ContainerGroupDefinitionContainerDependency']] = None,
+                 environment_override: Optional[Sequence['outputs.ContainerGroupDefinitionContainerEnvironment']] = None,
+                 mount_points: Optional[Sequence['outputs.ContainerGroupDefinitionContainerMountPoint']] = None,
+                 port_configuration: Optional['outputs.ContainerGroupDefinitionPortConfiguration'] = None,
+                 resolved_image_digest: Optional[str] = None):
+        """
+        Specifies the information required to run game servers with this container group
+        :param str container_name: A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+        :param str image_uri: Specifies the image URI of this container.
+        :param str server_sdk_version: The version of the server SDK used in this container group
+        :param Sequence['ContainerGroupDefinitionContainerDependency'] depends_on: A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+        :param Sequence['ContainerGroupDefinitionContainerEnvironment'] environment_override: The environment variables to pass to a container.
+        :param Sequence['ContainerGroupDefinitionContainerMountPoint'] mount_points: A list of mount point configurations to be used in a container.
+        :param 'ContainerGroupDefinitionPortConfiguration' port_configuration: Defines the ports on the container.
+        :param str resolved_image_digest: The digest of the container image.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "image_uri", image_uri)
+        pulumi.set(__self__, "server_sdk_version", server_sdk_version)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if environment_override is not None:
+            pulumi.set(__self__, "environment_override", environment_override)
+        if mount_points is not None:
+            pulumi.set(__self__, "mount_points", mount_points)
+        if port_configuration is not None:
+            pulumi.set(__self__, "port_configuration", port_configuration)
+        if resolved_image_digest is not None:
+            pulumi.set(__self__, "resolved_image_digest", resolved_image_digest)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> str:
+        """
+        Specifies the image URI of this container.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @property
+    @pulumi.getter(name="serverSdkVersion")
+    def server_sdk_version(self) -> str:
+        """
+        The version of the server SDK used in this container group
+        """
+        return pulumi.get(self, "server_sdk_version")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.ContainerGroupDefinitionContainerDependency']]:
+        """
+        A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter(name="environmentOverride")
+    def environment_override(self) -> Optional[Sequence['outputs.ContainerGroupDefinitionContainerEnvironment']]:
+        """
+        The environment variables to pass to a container.
+        """
+        return pulumi.get(self, "environment_override")
+
+    @property
+    @pulumi.getter(name="mountPoints")
+    def mount_points(self) -> Optional[Sequence['outputs.ContainerGroupDefinitionContainerMountPoint']]:
+        """
+        A list of mount point configurations to be used in a container.
+        """
+        return pulumi.get(self, "mount_points")
+
+    @property
+    @pulumi.getter(name="portConfiguration")
+    def port_configuration(self) -> Optional['outputs.ContainerGroupDefinitionPortConfiguration']:
+        """
+        Defines the ports on the container.
+        """
+        return pulumi.get(self, "port_configuration")
+
+    @property
+    @pulumi.getter(name="resolvedImageDigest")
+    def resolved_image_digest(self) -> Optional[str]:
+        """
+        The digest of the container image.
+        """
+        return pulumi.get(self, "resolved_image_digest")
+
+
+@pulumi.output_type
+class ContainerGroupDefinitionPortConfiguration(dict):
+    """
+    Defines the ports on a container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPortRanges":
+            suggest = "container_port_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupDefinitionPortConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupDefinitionPortConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupDefinitionPortConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_port_ranges: Sequence['outputs.ContainerGroupDefinitionContainerPortRange']):
+        """
+        Defines the ports on a container.
+        :param Sequence['ContainerGroupDefinitionContainerPortRange'] container_port_ranges: Specifies one or more ranges of ports on a container.
+        """
+        pulumi.set(__self__, "container_port_ranges", container_port_ranges)
+
+    @property
+    @pulumi.getter(name="containerPortRanges")
+    def container_port_ranges(self) -> Sequence['outputs.ContainerGroupDefinitionContainerPortRange']:
+        """
+        Specifies one or more ranges of ports on a container.
+        """
+        return pulumi.get(self, "container_port_ranges")
+
+
+@pulumi.output_type
+class ContainerGroupDefinitionSupportContainerDefinition(dict):
+    """
+    Supports the function of the main container group
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "imageUri":
+            suggest = "image_uri"
+        elif key == "dependsOn":
+            suggest = "depends_on"
+        elif key == "environmentOverride":
+            suggest = "environment_override"
+        elif key == "healthCheck":
+            suggest = "health_check"
+        elif key == "memoryHardLimitMebibytes":
+            suggest = "memory_hard_limit_mebibytes"
+        elif key == "mountPoints":
+            suggest = "mount_points"
+        elif key == "portConfiguration":
+            suggest = "port_configuration"
+        elif key == "resolvedImageDigest":
+            suggest = "resolved_image_digest"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupDefinitionSupportContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupDefinitionSupportContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupDefinitionSupportContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 image_uri: str,
+                 depends_on: Optional[Sequence['outputs.ContainerGroupDefinitionContainerDependency']] = None,
+                 environment_override: Optional[Sequence['outputs.ContainerGroupDefinitionContainerEnvironment']] = None,
+                 essential: Optional[bool] = None,
+                 health_check: Optional['outputs.ContainerGroupDefinitionContainerHealthCheck'] = None,
+                 memory_hard_limit_mebibytes: Optional[int] = None,
+                 mount_points: Optional[Sequence['outputs.ContainerGroupDefinitionContainerMountPoint']] = None,
+                 port_configuration: Optional['outputs.ContainerGroupDefinitionPortConfiguration'] = None,
+                 resolved_image_digest: Optional[str] = None,
+                 vcpu: Optional[float] = None):
+        """
+        Supports the function of the main container group
+        :param str container_name: A descriptive label for the container definition.
+        :param str image_uri: Specifies the image URI of this container.
+        :param Sequence['ContainerGroupDefinitionContainerDependency'] depends_on: A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+        :param Sequence['ContainerGroupDefinitionContainerEnvironment'] environment_override: The environment variables to pass to a container.
+        :param bool essential: Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+        :param 'ContainerGroupDefinitionContainerHealthCheck' health_check: Specifies how the health of the containers will be checked.
+        :param int memory_hard_limit_mebibytes: The total memory limit of container groups following this definition in MiB
+        :param Sequence['ContainerGroupDefinitionContainerMountPoint'] mount_points: A list of mount point configurations to be used in a container.
+        :param 'ContainerGroupDefinitionPortConfiguration' port_configuration: Defines the ports on the container.
+        :param str resolved_image_digest: The digest of the container image.
+        :param float vcpu: The number of virtual CPUs to give to the support group
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "image_uri", image_uri)
+        if depends_on is not None:
+            pulumi.set(__self__, "depends_on", depends_on)
+        if environment_override is not None:
+            pulumi.set(__self__, "environment_override", environment_override)
+        if essential is not None:
+            pulumi.set(__self__, "essential", essential)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+        if memory_hard_limit_mebibytes is not None:
+            pulumi.set(__self__, "memory_hard_limit_mebibytes", memory_hard_limit_mebibytes)
+        if mount_points is not None:
+            pulumi.set(__self__, "mount_points", mount_points)
+        if port_configuration is not None:
+            pulumi.set(__self__, "port_configuration", port_configuration)
+        if resolved_image_digest is not None:
+            pulumi.set(__self__, "resolved_image_digest", resolved_image_digest)
+        if vcpu is not None:
+            pulumi.set(__self__, "vcpu", vcpu)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        A descriptive label for the container definition.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> str:
+        """
+        Specifies the image URI of this container.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @property
+    @pulumi.getter(name="dependsOn")
+    def depends_on(self) -> Optional[Sequence['outputs.ContainerGroupDefinitionContainerDependency']]:
+        """
+        A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+        """
+        return pulumi.get(self, "depends_on")
+
+    @property
+    @pulumi.getter(name="environmentOverride")
+    def environment_override(self) -> Optional[Sequence['outputs.ContainerGroupDefinitionContainerEnvironment']]:
+        """
+        The environment variables to pass to a container.
+        """
+        return pulumi.get(self, "environment_override")
+
+    @property
+    @pulumi.getter
+    def essential(self) -> Optional[bool]:
+        """
+        Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+        """
+        return pulumi.get(self, "essential")
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional['outputs.ContainerGroupDefinitionContainerHealthCheck']:
+        """
+        Specifies how the health of the containers will be checked.
+        """
+        return pulumi.get(self, "health_check")
+
+    @property
+    @pulumi.getter(name="memoryHardLimitMebibytes")
+    def memory_hard_limit_mebibytes(self) -> Optional[int]:
+        """
+        The total memory limit of container groups following this definition in MiB
+        """
+        return pulumi.get(self, "memory_hard_limit_mebibytes")
+
+    @property
+    @pulumi.getter(name="mountPoints")
+    def mount_points(self) -> Optional[Sequence['outputs.ContainerGroupDefinitionContainerMountPoint']]:
+        """
+        A list of mount point configurations to be used in a container.
+        """
+        return pulumi.get(self, "mount_points")
+
+    @property
+    @pulumi.getter(name="portConfiguration")
+    def port_configuration(self) -> Optional['outputs.ContainerGroupDefinitionPortConfiguration']:
+        """
+        Defines the ports on the container.
+        """
+        return pulumi.get(self, "port_configuration")
+
+    @property
+    @pulumi.getter(name="resolvedImageDigest")
+    def resolved_image_digest(self) -> Optional[str]:
+        """
+        The digest of the container image.
+        """
+        return pulumi.get(self, "resolved_image_digest")
+
+    @property
+    @pulumi.getter
+    def vcpu(self) -> Optional[float]:
+        """
+        The number of virtual CPUs to give to the support group
+        """
+        return pulumi.get(self, "vcpu")
+
+
+@pulumi.output_type
 class FleetAnywhereConfiguration(dict):
     """
     Configuration for Anywhere fleet.
@@ -223,8 +1536,8 @@ class FleetCertificateConfiguration(dict):
                
                Valid values include:
                
-               - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-               - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+               - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+               - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
 
@@ -236,8 +1549,8 @@ class FleetCertificateConfiguration(dict):
 
         Valid values include:
 
-        - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-        - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+        - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+        - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
         """
         return pulumi.get(self, "certificate_type")
 
@@ -411,7 +1724,7 @@ class FleetLocationConfiguration(dict):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
         :param str location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
-        :param 'FleetLocationCapacity' location_capacity: Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+        :param 'FleetLocationCapacity' location_capacity: Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
                
                *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
         """
@@ -431,7 +1744,7 @@ class FleetLocationConfiguration(dict):
     @pulumi.getter(name="locationCapacity")
     def location_capacity(self) -> Optional['outputs.FleetLocationCapacity']:
         """
-        Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+        Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 
         *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
         """

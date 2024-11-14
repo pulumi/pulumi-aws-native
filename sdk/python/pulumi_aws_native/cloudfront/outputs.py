@@ -92,6 +92,14 @@ __all__ = [
 
 @pulumi.output_type
 class CachePolicyConfig(dict):
+    """
+    A cache policy configuration.
+     This configuration determines the following:
+      +  The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+      +  The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+      
+     The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -123,13 +131,17 @@ class CachePolicyConfig(dict):
                  parameters_in_cache_key_and_forwarded_to_origin: 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin',
                  comment: Optional[str] = None):
         """
-        :param float default_ttl: The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-               
-               The default value for this field is 86400 seconds (one day). If the value of `MinTTL` is more than 86400 seconds, then the default value for this field is the same as the value of `MinTTL` .
-        :param float max_ttl: The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-               
-               The default value for this field is 31536000 seconds (one year). If the value of `MinTTL` or `DefaultTTL` is more than 31536000 seconds, then the default value for this field is the same as the value of `DefaultTTL` .
-        :param float min_ttl: The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+        A cache policy configuration.
+         This configuration determines the following:
+          +  The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+          +  The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.
+          
+         The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
+        :param float default_ttl: The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send ``Cache-Control`` or ``Expires`` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+                The default value for this field is 86400 seconds (one day). If the value of ``MinTTL`` is more than 86400 seconds, then the default value for this field is the same as the value of ``MinTTL``.
+        :param float max_ttl: The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends ``Cache-Control`` or ``Expires`` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+                The default value for this field is 31536000 seconds (one year). If the value of ``MinTTL`` or ``DefaultTTL`` is more than 31536000 seconds, then the default value for this field is the same as the value of ``DefaultTTL``.
+        :param float min_ttl: The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
         :param str name: A unique name to identify the cache policy.
         :param 'CachePolicyParametersInCacheKeyAndForwardedToOrigin' parameters_in_cache_key_and_forwarded_to_origin: The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are also included in requests that CloudFront sends to the origin.
         :param str comment: A comment to describe the cache policy. The comment cannot be longer than 128 characters.
@@ -146,9 +158,8 @@ class CachePolicyConfig(dict):
     @pulumi.getter(name="defaultTtl")
     def default_ttl(self) -> float:
         """
-        The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-
-        The default value for this field is 86400 seconds (one day). If the value of `MinTTL` is more than 86400 seconds, then the default value for this field is the same as the value of `MinTTL` .
+        The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value as the object's time to live (TTL) only when the origin does *not* send ``Cache-Control`` or ``Expires`` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+         The default value for this field is 86400 seconds (one day). If the value of ``MinTTL`` is more than 86400 seconds, then the default value for this field is the same as the value of ``MinTTL``.
         """
         return pulumi.get(self, "default_ttl")
 
@@ -156,9 +167,8 @@ class CachePolicyConfig(dict):
     @pulumi.getter(name="maxTtl")
     def max_ttl(self) -> float:
         """
-        The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends `Cache-Control` or `Expires` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
-
-        The default value for this field is 31536000 seconds (one year). If the value of `MinTTL` or `DefaultTTL` is more than 31536000 seconds, then the default value for this field is the same as the value of `DefaultTTL` .
+        The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. CloudFront uses this value only when the origin sends ``Cache-Control`` or ``Expires`` headers with the object. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
+         The default value for this field is 31536000 seconds (one year). If the value of ``MinTTL`` or ``DefaultTTL`` is more than 31536000 seconds, then the default value for this field is the same as the value of ``DefaultTTL``.
         """
         return pulumi.get(self, "max_ttl")
 
@@ -166,7 +176,7 @@ class CachePolicyConfig(dict):
     @pulumi.getter(name="minTtl")
     def min_ttl(self) -> float:
         """
-        The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
+        The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "min_ttl")
 
@@ -197,6 +207,9 @@ class CachePolicyConfig(dict):
 
 @pulumi.output_type
 class CachePolicyCookiesConfig(dict):
+    """
+    An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -218,12 +231,12 @@ class CachePolicyCookiesConfig(dict):
                  cookie_behavior: str,
                  cookies: Optional[Sequence[str]] = None):
         """
+        An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
         :param str cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-               
-               - `none` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in an `OriginRequestPolicy` *are* included in origin requests.
-               - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in the cache key and in requests that CloudFront sends to the origin.
-               - `allExcept` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** for those that are listed in the `CookieNames` type, which are not included.
-               - `all` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+                 +   ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
+                 +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+                 +   ``allExcept`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* for those that are listed in the ``CookieNames`` type, which are not included.
+                 +   ``all`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         :param Sequence[str] cookies: Contains a list of cookie names.
         """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
@@ -235,11 +248,10 @@ class CachePolicyCookiesConfig(dict):
     def cookie_behavior(self) -> str:
         """
         Determines whether any cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-
-        - `none` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in an `OriginRequestPolicy` *are* included in origin requests.
-        - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in the cache key and in requests that CloudFront sends to the origin.
-        - `allExcept` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** for those that are listed in the `CookieNames` type, which are not included.
-        - `all` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+          +   ``none`` – No cookies in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
+          +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +   ``allExcept`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* for those that are listed in the ``CookieNames`` type, which are not included.
+          +   ``all`` – All cookies in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "cookie_behavior")
 
@@ -254,6 +266,9 @@ class CachePolicyCookiesConfig(dict):
 
 @pulumi.output_type
 class CachePolicyHeadersConfig(dict):
+    """
+    An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -275,10 +290,10 @@ class CachePolicyHeadersConfig(dict):
                  header_behavior: str,
                  headers: Optional[Sequence[str]] = None):
         """
+        An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
         :param str header_behavior: Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-               
-               - `none` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in an `OriginRequestPolicy` *are* included in origin requests.
-               - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in the cache key and in requests that CloudFront sends to the origin.
+                 +   ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
+                 +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
         :param Sequence[str] headers: Contains a list of HTTP header names.
         """
         pulumi.set(__self__, "header_behavior", header_behavior)
@@ -290,9 +305,8 @@ class CachePolicyHeadersConfig(dict):
     def header_behavior(self) -> str:
         """
         Determines whether any HTTP headers are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-
-        - `none` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in an `OriginRequestPolicy` *are* included in origin requests.
-        - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +   ``none`` – No HTTP headers are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
+          +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in the cache key and in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "header_behavior")
 
@@ -307,6 +321,10 @@ class CachePolicyHeadersConfig(dict):
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
+    """
+    This object determines the values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+     The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -339,35 +357,29 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
                  query_strings_config: 'outputs.CachePolicyQueryStringsConfig',
                  enable_accept_encoding_brotli: Optional[bool] = None):
         """
+        This object determines the values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
+         The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
         :param 'CachePolicyCookiesConfig' cookies_config: An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and in requests that CloudFront sends to the origin.
-        :param bool enable_accept_encoding_gzip: A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-               
-               This field is related to the `EnableAcceptEncodingBrotli` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
-               
-               - Normalizes the value of the viewer's `Accept-Encoding` header
-               - Includes the normalized header in the cache key
-               - Includes the normalized header in the request to the origin, if a request is necessary
-               
-               For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
-               
-               If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
-               
-               If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
+        :param bool enable_accept_encoding_gzip: A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+                This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+                 +  Normalizes the value of the viewer's ``Accept-Encoding`` header
+                 +  Includes the normalized header in the cache key
+                 +  Includes the normalized header in the request to the origin, if a request is necessary
+                 
+                For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide*.
+                If you set this value to ``true``, and this cache behavior also has an origin request policy attached, do not include the ``Accept-Encoding`` header in the origin request policy. CloudFront always includes the ``Accept-Encoding`` header in origin requests when the value of this field is ``true``, so including this header in an origin request policy has no effect.
+                If both of these fields are ``false``, then CloudFront treats the ``Accept-Encoding`` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add ``Accept-Encoding`` to the headers whitelist like any other HTTP header.
         :param 'CachePolicyHeadersConfig' headers_config: An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and in requests that CloudFront sends to the origin.
         :param 'CachePolicyQueryStringsConfig' query_strings_config: An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
-        :param bool enable_accept_encoding_brotli: A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-               
-               This field is related to the `EnableAcceptEncodingGzip` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
-               
-               - Normalizes the value of the viewer's `Accept-Encoding` header
-               - Includes the normalized header in the cache key
-               - Includes the normalized header in the request to the origin, if a request is necessary
-               
-               For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
-               
-               If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
-               
-               If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
+        :param bool enable_accept_encoding_brotli: A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+                This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+                 +  Normalizes the value of the viewer's ``Accept-Encoding`` header
+                 +  Includes the normalized header in the cache key
+                 +  Includes the normalized header in the request to the origin, if a request is necessary
+                 
+                For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide*.
+                If you set this value to ``true``, and this cache behavior also has an origin request policy attached, do not include the ``Accept-Encoding`` header in the origin request policy. CloudFront always includes the ``Accept-Encoding`` header in origin requests when the value of this field is ``true``, so including this header in an origin request policy has no effect.
+                If both of these fields are ``false``, then CloudFront treats the ``Accept-Encoding`` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add ``Accept-Encoding`` to the headers whitelist like any other HTTP header.
         """
         pulumi.set(__self__, "cookies_config", cookies_config)
         pulumi.set(__self__, "enable_accept_encoding_gzip", enable_accept_encoding_gzip)
@@ -388,19 +400,15 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @pulumi.getter(name="enableAcceptEncodingGzip")
     def enable_accept_encoding_gzip(self) -> bool:
         """
-        A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-
-        This field is related to the `EnableAcceptEncodingBrotli` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
-
-        - Normalizes the value of the viewer's `Accept-Encoding` header
-        - Includes the normalized header in the cache key
-        - Includes the normalized header in the request to the origin, if a request is necessary
-
-        For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
-
-        If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
-
-        If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
+        A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         This field is related to the ``EnableAcceptEncodingBrotli`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+          +  Normalizes the value of the viewer's ``Accept-Encoding`` header
+          +  Includes the normalized header in the cache key
+          +  Includes the normalized header in the request to the origin, if a request is necessary
+          
+         For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide*.
+         If you set this value to ``true``, and this cache behavior also has an origin request policy attached, do not include the ``Accept-Encoding`` header in the origin request policy. CloudFront always includes the ``Accept-Encoding`` header in origin requests when the value of this field is ``true``, so including this header in an origin request policy has no effect.
+         If both of these fields are ``false``, then CloudFront treats the ``Accept-Encoding`` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add ``Accept-Encoding`` to the headers whitelist like any other HTTP header.
         """
         return pulumi.get(self, "enable_accept_encoding_gzip")
 
@@ -424,25 +432,24 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @pulumi.getter(name="enableAcceptEncodingBrotli")
     def enable_accept_encoding_brotli(self) -> Optional[bool]:
         """
-        A flag that can affect whether the `Accept-Encoding` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-
-        This field is related to the `EnableAcceptEncodingGzip` field. If one or both of these fields is `true` *and* the viewer request includes the `Accept-Encoding` header, then CloudFront does the following:
-
-        - Normalizes the value of the viewer's `Accept-Encoding` header
-        - Includes the normalized header in the cache key
-        - Includes the normalized header in the request to the origin, if a request is necessary
-
-        For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide* .
-
-        If you set this value to `true` , and this cache behavior also has an origin request policy attached, do not include the `Accept-Encoding` header in the origin request policy. CloudFront always includes the `Accept-Encoding` header in origin requests when the value of this field is `true` , so including this header in an origin request policy has no effect.
-
-        If both of these fields are `false` , then CloudFront treats the `Accept-Encoding` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add `Accept-Encoding` to the headers whitelist like any other HTTP header.
+        A flag that can affect whether the ``Accept-Encoding`` HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
+         This field is related to the ``EnableAcceptEncodingGzip`` field. If one or both of these fields is ``true`` *and* the viewer request includes the ``Accept-Encoding`` header, then CloudFront does the following:
+          +  Normalizes the value of the viewer's ``Accept-Encoding`` header
+          +  Includes the normalized header in the cache key
+          +  Includes the normalized header in the request to the origin, if a request is necessary
+          
+         For more information, see [Compression support](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects) in the *Amazon CloudFront Developer Guide*.
+         If you set this value to ``true``, and this cache behavior also has an origin request policy attached, do not include the ``Accept-Encoding`` header in the origin request policy. CloudFront always includes the ``Accept-Encoding`` header in origin requests when the value of this field is ``true``, so including this header in an origin request policy has no effect.
+         If both of these fields are ``false``, then CloudFront treats the ``Accept-Encoding`` header the same as any other HTTP header in the viewer request. By default, it's not included in the cache key and it's not included in origin requests. In this case, you can manually add ``Accept-Encoding`` to the headers whitelist like any other HTTP header.
         """
         return pulumi.get(self, "enable_accept_encoding_brotli")
 
 
 @pulumi.output_type
 class CachePolicyQueryStringsConfig(dict):
+    """
+    An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -466,12 +473,12 @@ class CachePolicyQueryStringsConfig(dict):
                  query_string_behavior: str,
                  query_strings: Optional[Sequence[str]] = None):
         """
+        An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and in requests that CloudFront sends to the origin.
         :param str query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-               
-               - `none` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in an `OriginRequestPolicy` *are* included in origin requests.
-               - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and in requests that CloudFront sends to the origin.
-               - `allExcept` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** those that are listed in the `QueryStringNames` type, which are not included.
-               - `all` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+                 +   ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
+                 +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+                 +   ``allExcept`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* those that are listed in the ``QueryStringNames`` type, which are not included.
+                 +   ``all`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         :param Sequence[str] query_strings: Contains a list of query string names.
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
@@ -483,11 +490,10 @@ class CachePolicyQueryStringsConfig(dict):
     def query_string_behavior(self) -> str:
         """
         Determines whether any URL query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin. Valid values are:
-
-        - `none` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in an `OriginRequestPolicy` *are* included in origin requests.
-        - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in the cache key and in requests that CloudFront sends to the origin.
-        - `allExcept` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, **except** those that are listed in the `QueryStringNames` type, which are not included.
-        - `all` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
+          +   ``none`` – No query strings in viewer requests are included in the cache key or in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in an ``OriginRequestPolicy`` *are* included in origin requests.
+          +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in the cache key and in requests that CloudFront sends to the origin.
+          +   ``allExcept`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin, *except* those that are listed in the ``QueryStringNames`` type, which are not included.
+          +   ``all`` – All query strings in viewer requests are included in the cache key and in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "query_string_behavior")
 
@@ -502,9 +508,13 @@ class CachePolicyQueryStringsConfig(dict):
 
 @pulumi.output_type
 class CloudFrontOriginAccessIdentityConfig(dict):
+    """
+    Origin access identity configuration. Send a ``GET`` request to the ``/CloudFront API version/CloudFront/identity ID/config`` resource.
+    """
     def __init__(__self__, *,
                  comment: str):
         """
+        Origin access identity configuration. Send a ``GET`` request to the ``/CloudFront API version/CloudFront/identity ID/config`` resource.
         :param str comment: A comment to describe the origin access identity. The comment cannot be longer than 128 characters.
         """
         pulumi.set(__self__, "comment", comment)
@@ -520,6 +530,9 @@ class CloudFrontOriginAccessIdentityConfig(dict):
 
 @pulumi.output_type
 class ContinuousDeploymentPolicyConfig(dict):
+    """
+    Contains the configuration for a continuous deployment policy.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -551,8 +564,9 @@ class ContinuousDeploymentPolicyConfig(dict):
                  traffic_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfig'] = None,
                  type: Optional['ContinuousDeploymentPolicyConfigType'] = None):
         """
-        :param bool enabled: A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is `true` , this policy is enabled and in effect. When this value is `false` , this policy is not enabled and has no effect.
-        :param Sequence[str] staging_distribution_dns_names: The CloudFront domain name of the staging distribution. For example: `d111111abcdef8.cloudfront.net` .
+        Contains the configuration for a continuous deployment policy.
+        :param bool enabled: A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is ``true``, this policy is enabled and in effect. When this value is ``false``, this policy is not enabled and has no effect.
+        :param Sequence[str] staging_distribution_dns_names: The CloudFront domain name of the staging distribution. For example: ``d111111abcdef8.cloudfront.net``.
         :param 'ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties' single_header_policy_config: This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
         :param 'ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties' single_weight_policy_config: This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
         :param 'ContinuousDeploymentPolicyTrafficConfig' traffic_config: Contains the parameters for routing production traffic from your primary to staging distributions.
@@ -573,7 +587,7 @@ class ContinuousDeploymentPolicyConfig(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is `true` , this policy is enabled and in effect. When this value is `false` , this policy is not enabled and has no effect.
+        A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is ``true``, this policy is enabled and in effect. When this value is ``false``, this policy is not enabled and has no effect.
         """
         return pulumi.get(self, "enabled")
 
@@ -581,7 +595,7 @@ class ContinuousDeploymentPolicyConfig(dict):
     @pulumi.getter(name="stagingDistributionDnsNames")
     def staging_distribution_dns_names(self) -> Sequence[str]:
         """
-        The CloudFront domain name of the staging distribution. For example: `d111111abcdef8.cloudfront.net` .
+        The CloudFront domain name of the staging distribution. For example: ``d111111abcdef8.cloudfront.net``.
         """
         return pulumi.get(self, "staging_distribution_dns_names")
 
@@ -688,6 +702,9 @@ class ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties(dict):
 
 @pulumi.output_type
 class ContinuousDeploymentPolicySessionStickinessConfig(dict):
+    """
+    Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -711,6 +728,7 @@ class ContinuousDeploymentPolicySessionStickinessConfig(dict):
                  idle_ttl: int,
                  maximum_ttl: int):
         """
+        Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
         :param int idle_ttl: The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).
         :param int maximum_ttl: The maximum amount of time to consider requests from the viewer as being part of the same session. Allowed values are 300–3600 seconds (5–60 minutes).
         """
@@ -736,11 +754,15 @@ class ContinuousDeploymentPolicySessionStickinessConfig(dict):
 
 @pulumi.output_type
 class ContinuousDeploymentPolicySingleHeaderConfig(dict):
+    """
+    Determines which HTTP requests are sent to the staging distribution.
+    """
     def __init__(__self__, *,
                  header: str,
                  value: str):
         """
-        :param str header: The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix `aws-cf-cd-` .
+        Determines which HTTP requests are sent to the staging distribution.
+        :param str header: The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix ``aws-cf-cd-``.
         :param str value: The request header value.
         """
         pulumi.set(__self__, "header", header)
@@ -750,7 +772,7 @@ class ContinuousDeploymentPolicySingleHeaderConfig(dict):
     @pulumi.getter
     def header(self) -> str:
         """
-        The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix `aws-cf-cd-` .
+        The request header name that you want CloudFront to send to your staging distribution. The header must contain the prefix ``aws-cf-cd-``.
         """
         return pulumi.get(self, "header")
 
@@ -765,6 +787,9 @@ class ContinuousDeploymentPolicySingleHeaderConfig(dict):
 
 @pulumi.output_type
 class ContinuousDeploymentPolicySingleWeightConfig(dict):
+    """
+    This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -786,6 +811,7 @@ class ContinuousDeploymentPolicySingleWeightConfig(dict):
                  weight: float,
                  session_stickiness_config: Optional['outputs.ContinuousDeploymentPolicySessionStickinessConfig'] = None):
         """
+        This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
         :param float weight: The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.
         :param 'ContinuousDeploymentPolicySessionStickinessConfig' session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
         """
@@ -812,6 +838,9 @@ class ContinuousDeploymentPolicySingleWeightConfig(dict):
 
 @pulumi.output_type
 class ContinuousDeploymentPolicyTrafficConfig(dict):
+    """
+    The traffic configuration of your continuous deployment.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -836,6 +865,7 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
                  single_header_config: Optional['outputs.ContinuousDeploymentPolicySingleHeaderConfig'] = None,
                  single_weight_config: Optional['outputs.ContinuousDeploymentPolicySingleWeightConfig'] = None):
         """
+        The traffic configuration of your continuous deployment.
         :param 'ContinuousDeploymentPolicyTrafficConfigType' type: The type of traffic configuration.
         :param 'ContinuousDeploymentPolicySingleHeaderConfig' single_header_config: Determines which HTTP requests are sent to the staging distribution.
         :param 'ContinuousDeploymentPolicySingleWeightConfig' single_weight_config: Contains the percentage of traffic to send to the staging distribution.
@@ -877,7 +907,7 @@ class DistributionCacheBehavior(dict):
     A complex type that describes how CloudFront processes requests.
      You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
      For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
-     If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element because this is invalid.
+     If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't specify an empty individual ``CacheBehavior`` element, because this is invalid. For more information, see [CacheBehaviors](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html). 
      To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
      To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
      For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
@@ -960,7 +990,7 @@ class DistributionCacheBehavior(dict):
         A complex type that describes how CloudFront processes requests.
          You must create at least as many cache behaviors (including the default cache behavior) as you have origins if you want CloudFront to serve objects from all of the origins. Each cache behavior specifies the one origin from which you want CloudFront to get objects. If you have two origins and only the default cache behavior, the default cache behavior will cause CloudFront to get objects from one of the origins, but the other origin is never used.
          For the current quota (formerly known as limit) on the number of cache behaviors that you can add to a distribution, see [Quotas](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html) in the *Amazon CloudFront Developer Guide*.
-         If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't include an empty ``CacheBehavior`` element because this is invalid.
+         If you don't want to specify any cache behaviors, include only an empty ``CacheBehaviors`` element. Don't specify an empty individual ``CacheBehavior`` element, because this is invalid. For more information, see [CacheBehaviors](https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CacheBehaviors.html). 
          To delete all cache behaviors in an existing distribution, update the distribution configuration and include only an empty ``CacheBehaviors`` element.
          To add, change, or remove one or more cache behaviors, update the distribution configuration and specify all of the cache behaviors that you want to include in the updated distribution.
          For more information about cache behaviors, see [Cache Behavior Settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesCacheBehavior) in the *Amazon CloudFront Developer Guide*.
@@ -1318,9 +1348,8 @@ class DistributionConfig(dict):
         :param bool enabled: From this field, you can enable or disable the selected distribution.
         :param Sequence[str] aliases: A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
         :param Sequence['DistributionCacheBehavior'] cache_behaviors: A complex type that contains zero or more ``CacheBehavior`` elements.
-        :param Sequence[str] cnames: An alias for the CloudFront distribution's domain name.
-               
-               > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+        :param Sequence[str] cnames: An alias for the CF distribution's domain name.
+                 This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         :param str comment: A comment to describe the distribution. The comment cannot be longer than 128 characters.
         :param str continuous_deployment_policy_id: The identifier of a continuous deployment policy. For more information, see ``CreateContinuousDeploymentPolicy``.
         :param Sequence['DistributionCustomErrorResponse'] custom_error_responses: A complex type that controls the following:
@@ -1328,16 +1357,15 @@ class DistributionConfig(dict):
                  +  How long CloudFront caches HTTP status codes in the 4xx and 5xx range.
                  
                 For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
-        :param 'DistributionLegacyCustomOrigin' custom_origin: The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
-               
-               > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        :param 'DistributionLegacyCustomOrigin' custom_origin: The user-defined HTTP server that serves as the origin for content that CF distributes.
+                 This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         :param str default_root_object: The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
                 Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
                 If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
                 To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
                 To replace the default root object, update the distribution configuration and specify the new object.
                 For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
-        :param str http_version: (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
+        :param str http_version: (Optional) Specify the HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
                 For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
                 For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
         :param bool ipv6_enabled: If you want CloudFront to respond to IPv6 DNS requests with an IPv6 address for your distribution, specify ``true``. If you specify ``false``, CloudFront responds to IPv6 DNS requests with the DNS response code ``NOERROR`` and with no IP addresses. This allows viewers to submit a second request, for an IPv4 address for your distribution.
@@ -1351,17 +1379,18 @@ class DistributionConfig(dict):
         :param 'DistributionLogging' logging: A complex type that controls whether access logs are written for the distribution.
                 For more information about logging, see [Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide*.
         :param 'DistributionOriginGroups' origin_groups: A complex type that contains information about origin groups for this distribution.
+                Specify a value for either the ``Origins`` or ``OriginGroups`` property.
         :param Sequence['DistributionOrigin'] origins: A complex type that contains information about origins for this distribution.
+                Specify a value for either the ``Origins`` or ``OriginGroups`` property.
         :param str price_class: The price class that corresponds with the maximum price that you want to pay for CloudFront service. If you specify ``PriceClass_All``, CloudFront responds to requests for your objects from all CloudFront edge locations.
                 If you specify a price class other than ``PriceClass_All``, CloudFront serves your objects from the CloudFront edge location that has the lowest latency among the edge locations in your price class. Viewers who are in or near regions that are excluded from your specified price class may encounter slower performance.
                 For more information about price classes, see [Choosing the Price Class for a CloudFront Distribution](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PriceClass.html) in the *Amazon CloudFront Developer Guide*. For information about CloudFront pricing, including how price classes (such as Price Class 100) map to CloudFront regions, see [Amazon CloudFront Pricing](https://docs.aws.amazon.com/cloudfront/pricing/).
         :param 'DistributionRestrictions' restrictions: A complex type that identifies ways in which you want to restrict distribution of your content.
-        :param 'DistributionLegacyS3Origin' s3_origin: The origin as an Amazon S3 bucket.
-               
-               > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        :param 'DistributionLegacyS3Origin' s3_origin: The origin as an S3 bucket.
+                 This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         :param bool staging: A Boolean that indicates whether this is a staging distribution. When this value is ``true``, this is a staging distribution. When this value is ``false``, this is not a staging distribution.
         :param 'DistributionViewerCertificate' viewer_certificate: A complex type that determines the distribution's SSL/TLS configuration for communicating with viewers.
-        :param str web_acl_id: A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
+        :param str web_acl_id: A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
                  WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
         """
         pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
@@ -1441,9 +1470,8 @@ class DistributionConfig(dict):
     @pulumi.getter
     def cnames(self) -> Optional[Sequence[str]]:
         """
-        An alias for the CloudFront distribution's domain name.
-
-        > This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
+        An alias for the CF distribution's domain name.
+          This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
         """
         return pulumi.get(self, "cnames")
 
@@ -1479,9 +1507,8 @@ class DistributionConfig(dict):
     @pulumi.getter(name="customOrigin")
     def custom_origin(self) -> Optional['outputs.DistributionLegacyCustomOrigin']:
         """
-        The user-defined HTTP server that serves as the origin for content that CloudFront distributes.
-
-        > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        The user-defined HTTP server that serves as the origin for content that CF distributes.
+          This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         """
         return pulumi.get(self, "custom_origin")
 
@@ -1502,7 +1529,7 @@ class DistributionConfig(dict):
     @pulumi.getter(name="httpVersion")
     def http_version(self) -> Optional[str]:
         """
-        (Optional) Specify the maximum HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
+        (Optional) Specify the HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
          For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
          For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
         """
@@ -1537,6 +1564,7 @@ class DistributionConfig(dict):
     def origin_groups(self) -> Optional['outputs.DistributionOriginGroups']:
         """
         A complex type that contains information about origin groups for this distribution.
+         Specify a value for either the ``Origins`` or ``OriginGroups`` property.
         """
         return pulumi.get(self, "origin_groups")
 
@@ -1545,6 +1573,7 @@ class DistributionConfig(dict):
     def origins(self) -> Optional[Sequence['outputs.DistributionOrigin']]:
         """
         A complex type that contains information about origins for this distribution.
+         Specify a value for either the ``Origins`` or ``OriginGroups`` property.
         """
         return pulumi.get(self, "origins")
 
@@ -1570,9 +1599,8 @@ class DistributionConfig(dict):
     @pulumi.getter(name="s3Origin")
     def s3_origin(self) -> Optional['outputs.DistributionLegacyS3Origin']:
         """
-        The origin as an Amazon S3 bucket.
-
-        > This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        The origin as an S3 bucket.
+          This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
         """
         return pulumi.get(self, "s3_origin")
 
@@ -1596,7 +1624,7 @@ class DistributionConfig(dict):
     @pulumi.getter(name="webAclId")
     def web_acl_id(self) -> Optional[str]:
         """
-        A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``473e64fd-f30b-4765-81a0-62ad96dd167a``.
+        A unique identifier that specifies the WAF web ACL, if any, to associate with this distribution. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example ``arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``. To specify a web ACL created using WAF Classic, use the ACL ID, for example ``a1b2c3d4-5678-90ab-cdef-EXAMPLE11111``.
           WAF is a web application firewall that lets you monitor the HTTP and HTTPS requests that are forwarded to CloudFront, and lets you control access to your content. Based on conditions that you specify, such as the IP addresses that requests originate from or the values of query strings, CloudFront responds to requests either with the requested content or with an HTTP 403 status code (Forbidden). You can also configure CloudFront to return a custom error page when a request is blocked. For more information about WAF, see the [Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html).
         """
         return pulumi.get(self, "web_acl_id")
@@ -2017,7 +2045,7 @@ class DistributionDefaultCacheBehavior(dict):
                 If you want to send values to the origin but not include them in the cache key, use an origin request policy. For more information, see [Creating origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html#origin-request-create-origin-request-policy) or [Using the managed origin request policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-origin-request-policies.html) in the *Amazon CloudFront Developer Guide*.
                 A ``DefaultCacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
                 A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
-        :param Sequence['DistributionFunctionAssociation'] function_associations: A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        :param Sequence['DistributionFunctionAssociation'] function_associations: A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
         :param Sequence['DistributionLambdaFunctionAssociation'] lambda_function_associations: A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
         :param float max_ttl: This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
                 The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -2168,7 +2196,7 @@ class DistributionDefaultCacheBehavior(dict):
     @pulumi.getter(name="functionAssociations")
     def function_associations(self) -> Optional[Sequence['outputs.DistributionFunctionAssociation']]:
         """
-        A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
         """
         return pulumi.get(self, "function_associations")
 
@@ -2563,6 +2591,10 @@ class DistributionLambdaFunctionAssociation(dict):
 
 @pulumi.output_type
 class DistributionLegacyCustomOrigin(dict):
+    """
+    A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+      This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2595,13 +2627,14 @@ class DistributionLegacyCustomOrigin(dict):
                  http_port: Optional[int] = None,
                  https_port: Optional[int] = None):
         """
-        :param str dns_name: The domain name assigned to your CloudFront distribution.
-        :param str origin_protocol_policy: Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
-        :param Sequence[str] origin_ssl_protocols: The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
-               
-               For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
-        :param int http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
-        :param int https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+        A custom origin. A custom origin is any origin that is *not* an S3 bucket, with one exception. An S3 bucket that is [configured with static website hosting](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html) *is* a custom origin.
+          This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        :param str dns_name: The domain name assigned to your CF distribution.
+        :param str origin_protocol_policy: Specifies the protocol (HTTP or HTTPS) that CF uses to connect to the origin.
+        :param Sequence[str] origin_ssl_protocols: The minimum SSL/TLS protocol version that CF uses when communicating with your origin server over HTTPs.
+                For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Developer Guide*.
+        :param int http_port: The HTTP port that CF uses to connect to the origin. Specify the HTTP port that the origin listens on.
+        :param int https_port: The HTTPS port that CF uses to connect to the origin. Specify the HTTPS port that the origin listens on.
         """
         pulumi.set(__self__, "dns_name", dns_name)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
@@ -2615,7 +2648,7 @@ class DistributionLegacyCustomOrigin(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
-        The domain name assigned to your CloudFront distribution.
+        The domain name assigned to your CF distribution.
         """
         return pulumi.get(self, "dns_name")
 
@@ -2623,7 +2656,7 @@ class DistributionLegacyCustomOrigin(dict):
     @pulumi.getter(name="originProtocolPolicy")
     def origin_protocol_policy(self) -> str:
         """
-        Specifies the protocol (HTTP or HTTPS) that CloudFront uses to connect to the origin.
+        Specifies the protocol (HTTP or HTTPS) that CF uses to connect to the origin.
         """
         return pulumi.get(self, "origin_protocol_policy")
 
@@ -2631,9 +2664,8 @@ class DistributionLegacyCustomOrigin(dict):
     @pulumi.getter(name="originSslProtocols")
     def origin_ssl_protocols(self) -> Sequence[str]:
         """
-        The minimum SSL/TLS protocol version that CloudFront uses when communicating with your origin server over HTTPs.
-
-        For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide* .
+        The minimum SSL/TLS protocol version that CF uses when communicating with your origin server over HTTPs.
+         For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Developer Guide*.
         """
         return pulumi.get(self, "origin_ssl_protocols")
 
@@ -2641,7 +2673,7 @@ class DistributionLegacyCustomOrigin(dict):
     @pulumi.getter(name="httpPort")
     def http_port(self) -> Optional[int]:
         """
-        The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
+        The HTTP port that CF uses to connect to the origin. Specify the HTTP port that the origin listens on.
         """
         return pulumi.get(self, "http_port")
 
@@ -2649,13 +2681,17 @@ class DistributionLegacyCustomOrigin(dict):
     @pulumi.getter(name="httpsPort")
     def https_port(self) -> Optional[int]:
         """
-        The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
+        The HTTPS port that CF uses to connect to the origin. Specify the HTTPS port that the origin listens on.
         """
         return pulumi.get(self, "https_port")
 
 
 @pulumi.output_type
 class DistributionLegacyS3Origin(dict):
+    """
+    The origin as an S3 bucket. 
+      This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2679,10 +2715,11 @@ class DistributionLegacyS3Origin(dict):
                  dns_name: str,
                  origin_access_identity: Optional[str] = None):
         """
-        :param str dns_name: The domain name assigned to your CloudFront distribution.
-        :param str origin_access_identity: The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
-               
-               > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+        The origin as an S3 bucket. 
+          This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+        :param str dns_name: The domain name assigned to your CF distribution.
+        :param str origin_access_identity: The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
+                 This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
         """
         pulumi.set(__self__, "dns_name", dns_name)
         if origin_access_identity is not None:
@@ -2692,7 +2729,7 @@ class DistributionLegacyS3Origin(dict):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         """
-        The domain name assigned to your CloudFront distribution.
+        The domain name assigned to your CF distribution.
         """
         return pulumi.get(self, "dns_name")
 
@@ -2700,9 +2737,8 @@ class DistributionLegacyS3Origin(dict):
     @pulumi.getter(name="originAccessIdentity")
     def origin_access_identity(self) -> Optional[str]:
         """
-        The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
-
-        > This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+        The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
+          This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
         """
         return pulumi.get(self, "origin_access_identity")
 
@@ -3355,9 +3391,10 @@ class DistributionS3OriginConfig(dict):
                  origin_access_identity: Optional[str] = None):
         """
         A complex type that contains information about the Amazon S3 origin. If the origin is a custom origin or an S3 bucket that is configured as a website endpoint, use the ``CustomOriginConfig`` element instead.
-        :param str origin_access_identity: The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
-                origin-access-identity/cloudfront/*ID-of-origin-access-identity* 
-                where ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
+        :param str origin_access_identity: If you're using origin access control (OAC) instead of origin access identity, specify an empty ``OriginAccessIdentity`` element. For more information, see [Restricting access to an](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
+                 The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
+                 ``origin-access-identity/cloudfront/ID-of-origin-access-identity`` 
+                The ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
                 If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
                 To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
                 To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
@@ -3370,9 +3407,10 @@ class DistributionS3OriginConfig(dict):
     @pulumi.getter(name="originAccessIdentity")
     def origin_access_identity(self) -> Optional[str]:
         """
-        The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
-         origin-access-identity/cloudfront/*ID-of-origin-access-identity* 
-         where ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
+        If you're using origin access control (OAC) instead of origin access identity, specify an empty ``OriginAccessIdentity`` element. For more information, see [Restricting access to an](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
+          The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
+          ``origin-access-identity/cloudfront/ID-of-origin-access-identity`` 
+         The ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
          If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
          To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
          To replace the origin access identity, update the distribution configuration and specify the new origin access identity.
@@ -3582,6 +3620,9 @@ class DistributionViewerCertificate(dict):
 
 @pulumi.output_type
 class FunctionConfig(dict):
+    """
+    Contains configuration information about a CloudFront function.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3604,6 +3645,7 @@ class FunctionConfig(dict):
                  runtime: str,
                  key_value_store_associations: Optional[Sequence['outputs.FunctionKeyValueStoreAssociation']] = None):
         """
+        Contains configuration information about a CloudFront function.
         :param str comment: A comment to describe the function.
         :param str runtime: The function's runtime environment version.
         :param Sequence['FunctionKeyValueStoreAssociation'] key_value_store_associations: The configuration for the key value store associations.
@@ -3640,6 +3682,9 @@ class FunctionConfig(dict):
 
 @pulumi.output_type
 class FunctionKeyValueStoreAssociation(dict):
+    """
+    The key value store association.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3660,6 +3705,7 @@ class FunctionKeyValueStoreAssociation(dict):
     def __init__(__self__, *,
                  key_value_store_arn: str):
         """
+        The key value store association.
         :param str key_value_store_arn: The Amazon Resource Name (ARN) of the key value store association.
         """
         pulumi.set(__self__, "key_value_store_arn", key_value_store_arn)
@@ -3675,6 +3721,9 @@ class FunctionKeyValueStoreAssociation(dict):
 
 @pulumi.output_type
 class FunctionMetadata(dict):
+    """
+    Contains metadata about a CloudFront function.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3695,6 +3744,7 @@ class FunctionMetadata(dict):
     def __init__(__self__, *,
                  function_arn: Optional[str] = None):
         """
+        Contains metadata about a CloudFront function.
         :param str function_arn: The Amazon Resource Name (ARN) of the function. The ARN uniquely identifies the function.
         """
         if function_arn is not None:
@@ -3711,11 +3761,17 @@ class FunctionMetadata(dict):
 
 @pulumi.output_type
 class KeyGroupConfig(dict):
+    """
+    A key group configuration.
+     A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
+    """
     def __init__(__self__, *,
                  items: Sequence[str],
                  name: str,
                  comment: Optional[str] = None):
         """
+        A key group configuration.
+         A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
         :param Sequence[str] items: A list of the identifiers of the public keys in the key group.
         :param str name: A name to identify the key group.
         :param str comment: A comment to describe the key group. The comment cannot be longer than 128 characters.
@@ -3752,6 +3808,9 @@ class KeyGroupConfig(dict):
 
 @pulumi.output_type
 class KeyValueStoreImportSource(dict):
+    """
+    The import source for the key value store.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3775,6 +3834,7 @@ class KeyValueStoreImportSource(dict):
                  source_arn: str,
                  source_type: str):
         """
+        The import source for the key value store.
         :param str source_arn: The Amazon Resource Name (ARN) of the import source for the key value store.
         :param str source_type: The source type of the import source for the key value store.
         """
@@ -3800,6 +3860,9 @@ class KeyValueStoreImportSource(dict):
 
 @pulumi.output_type
 class MonitoringSubscription(dict):
+    """
+    A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3820,6 +3883,7 @@ class MonitoringSubscription(dict):
     def __init__(__self__, *,
                  realtime_metrics_subscription_config: Optional['outputs.MonitoringSubscriptionRealtimeMetricsSubscriptionConfig'] = None):
         """
+        A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         :param 'MonitoringSubscriptionRealtimeMetricsSubscriptionConfig' realtime_metrics_subscription_config: A subscription configuration for additional CloudWatch metrics.
         """
         if realtime_metrics_subscription_config is not None:
@@ -3836,6 +3900,9 @@ class MonitoringSubscription(dict):
 
 @pulumi.output_type
 class MonitoringSubscriptionRealtimeMetricsSubscriptionConfig(dict):
+    """
+    A subscription configuration for additional CloudWatch metrics.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3856,6 +3923,7 @@ class MonitoringSubscriptionRealtimeMetricsSubscriptionConfig(dict):
     def __init__(__self__, *,
                  realtime_metrics_subscription_status: 'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus'):
         """
+        A subscription configuration for additional CloudWatch metrics.
         :param 'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus' realtime_metrics_subscription_status: A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
         pulumi.set(__self__, "realtime_metrics_subscription_status", realtime_metrics_subscription_status)
@@ -3871,6 +3939,11 @@ class MonitoringSubscriptionRealtimeMetricsSubscriptionConfig(dict):
 
 @pulumi.output_type
 class OriginAccessControlConfig(dict):
+    """
+    Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+     This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
+     For more information about using a CloudFront origin access control, see [Restricting access to an origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3899,16 +3972,17 @@ class OriginAccessControlConfig(dict):
                  signing_protocol: str,
                  description: Optional[str] = None):
         """
+        Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
+         This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
+         For more information about using a CloudFront origin access control, see [Restricting access to an origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
         :param str name: A name to identify the origin access control. You can specify up to 64 characters.
         :param str origin_access_control_origin_type: The type of origin that this origin access control is for.
-        :param str signing_behavior: Specifies which requests CloudFront signs (adds authentication information to). Specify `always` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide* .
-               
-               This field can have one of the following values:
-               
-               - `always` – CloudFront signs all origin requests, overwriting the `Authorization` header from the viewer request if one exists.
-               - `never` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
-               - `no-override` – If the viewer request doesn't contain the `Authorization` header, then CloudFront signs the origin request. If the viewer request contains the `Authorization` header, then CloudFront doesn't sign the origin request and instead passes along the `Authorization` header from the viewer request. *WARNING: To pass along the `Authorization` header from the viewer request, you *must* add the `Authorization` header to a [cache policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html) for all cache behaviors that use origins associated with this origin access control.*
-        :param str signing_protocol: The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4` .
+        :param str signing_behavior: Specifies which requests CloudFront signs (adds authentication information to). Specify ``always`` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide*.
+                This field can have one of the following values:
+                 +   ``always`` – CloudFront signs all origin requests, overwriting the ``Authorization`` header from the viewer request if one exists.
+                 +   ``never`` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+                 +   ``no-override`` – If the viewer request doesn't contain the ``Authorization`` header, then CloudFront signs the origin request. If the viewer request contains the ``Authorization`` header, then CloudFront doesn't sign the origin request and instead passes along the ``Authorization`` header from the viewer request. *WARNING: To pass along the Authorization header from the viewer request, you must add the Authorization header to a cache policy for all cache behaviors that use origins associated with this origin access control.*
+        :param str signing_protocol: The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is ``sigv4``.
         :param str description: A description of the origin access control.
         """
         pulumi.set(__self__, "name", name)
@@ -3938,13 +4012,11 @@ class OriginAccessControlConfig(dict):
     @pulumi.getter(name="signingBehavior")
     def signing_behavior(self) -> str:
         """
-        Specifies which requests CloudFront signs (adds authentication information to). Specify `always` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide* .
-
-        This field can have one of the following values:
-
-        - `always` – CloudFront signs all origin requests, overwriting the `Authorization` header from the viewer request if one exists.
-        - `never` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
-        - `no-override` – If the viewer request doesn't contain the `Authorization` header, then CloudFront signs the origin request. If the viewer request contains the `Authorization` header, then CloudFront doesn't sign the origin request and instead passes along the `Authorization` header from the viewer request. *WARNING: To pass along the `Authorization` header from the viewer request, you *must* add the `Authorization` header to a [cache policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html) for all cache behaviors that use origins associated with this origin access control.*
+        Specifies which requests CloudFront signs (adds authentication information to). Specify ``always`` for the most common use case. For more information, see [origin access control advanced settings](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html#oac-advanced-settings) in the *Amazon CloudFront Developer Guide*.
+         This field can have one of the following values:
+          +   ``always`` – CloudFront signs all origin requests, overwriting the ``Authorization`` header from the viewer request if one exists.
+          +   ``never`` – CloudFront doesn't sign any origin requests. This value turns off origin access control for all origins in all distributions that use this origin access control.
+          +   ``no-override`` – If the viewer request doesn't contain the ``Authorization`` header, then CloudFront signs the origin request. If the viewer request contains the ``Authorization`` header, then CloudFront doesn't sign the origin request and instead passes along the ``Authorization`` header from the viewer request. *WARNING: To pass along the Authorization header from the viewer request, you must add the Authorization header to a cache policy for all cache behaviors that use origins associated with this origin access control.*
         """
         return pulumi.get(self, "signing_behavior")
 
@@ -3952,7 +4024,7 @@ class OriginAccessControlConfig(dict):
     @pulumi.getter(name="signingProtocol")
     def signing_protocol(self) -> str:
         """
-        The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is `sigv4` .
+        The signing protocol of the origin access control, which determines how CloudFront signs (authenticates) requests. The only valid value is ``sigv4``.
         """
         return pulumi.get(self, "signing_protocol")
 
@@ -3967,6 +4039,15 @@ class OriginAccessControlConfig(dict):
 
 @pulumi.output_type
 class OriginRequestPolicyConfig(dict):
+    """
+    An origin request policy configuration.
+     This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
+      +  The request body and the URL path (without the domain name) from the viewer request.
+      +  The headers that CloudFront automatically includes in every origin request, including ``Host``, ``User-Agent``, and ``X-Amz-Cf-Id``.
+      +  All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
+      
+     CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use ``CachePolicy``.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3995,6 +4076,13 @@ class OriginRequestPolicyConfig(dict):
                  query_strings_config: 'outputs.OriginRequestPolicyQueryStringsConfig',
                  comment: Optional[str] = None):
         """
+        An origin request policy configuration.
+         This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
+          +  The request body and the URL path (without the domain name) from the viewer request.
+          +  The headers that CloudFront automatically includes in every origin request, including ``Host``, ``User-Agent``, and ``X-Amz-Cf-Id``.
+          +  All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
+          
+         CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use ``CachePolicy``.
         :param 'OriginRequestPolicyCookiesConfig' cookies_config: The cookies from viewer requests to include in origin requests.
         :param 'OriginRequestPolicyHeadersConfig' headers_config: The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
         :param str name: A unique name to identify the origin request policy.
@@ -4051,6 +4139,9 @@ class OriginRequestPolicyConfig(dict):
 
 @pulumi.output_type
 class OriginRequestPolicyCookiesConfig(dict):
+    """
+    An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4072,12 +4163,12 @@ class OriginRequestPolicyCookiesConfig(dict):
                  cookie_behavior: str,
                  cookies: Optional[Sequence[str]] = None):
         """
+        An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
         :param str cookie_behavior: Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-               
-               - `none` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in a `CachePolicy` *are* included in origin requests.
-               - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in requests that CloudFront sends to the origin.
-               - `all` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
-               - `allExcept` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `CookieNames` type, which are not included.
+                 +   ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy`` *are* included in origin requests.
+                 +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
+                 +   ``all`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+                 +   ``allExcept`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``CookieNames`` type, which are not included.
         :param Sequence[str] cookies: Contains a list of cookie names.
         """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
@@ -4089,11 +4180,10 @@ class OriginRequestPolicyCookiesConfig(dict):
     def cookie_behavior(self) -> str:
         """
         Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-
-        - `none` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any cookies that are listed in a `CachePolicy` *are* included in origin requests.
-        - `whitelist` – Only the cookies in viewer requests that are listed in the `CookieNames` type are included in requests that CloudFront sends to the origin.
-        - `all` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
-        - `allExcept` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `CookieNames` type, which are not included.
+          +   ``none`` – No cookies in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any cookies that are listed in a ``CachePolicy`` *are* included in origin requests.
+          +   ``whitelist`` – Only the cookies in viewer requests that are listed in the ``CookieNames`` type are included in requests that CloudFront sends to the origin.
+          +   ``all`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+          +   ``allExcept`` – All cookies in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``CookieNames`` type, which are not included.
         """
         return pulumi.get(self, "cookie_behavior")
 
@@ -4108,6 +4198,9 @@ class OriginRequestPolicyCookiesConfig(dict):
 
 @pulumi.output_type
 class OriginRequestPolicyHeadersConfig(dict):
+    """
+    An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4129,13 +4222,13 @@ class OriginRequestPolicyHeadersConfig(dict):
                  header_behavior: str,
                  headers: Optional[Sequence[str]] = None):
         """
+        An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
         :param str header_behavior: Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
-               
-               - `none` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in a `CachePolicy` *are* included in origin requests.
-               - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin.
-               - `allViewer` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
-               - `allViewerAndWhitelistCloudFront` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
-               - `allExcept` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `Headers` type, which are not included.
+                 +   ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy`` *are* included in origin requests.
+                 +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
+                 +   ``allViewer`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+                 +   ``allViewerAndWhitelistCloudFront`` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+                 +   ``allExcept`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``Headers`` type, which are not included.
         :param Sequence[str] headers: Contains a list of HTTP header names.
         """
         pulumi.set(__self__, "header_behavior", header_behavior)
@@ -4147,12 +4240,11 @@ class OriginRequestPolicyHeadersConfig(dict):
     def header_behavior(self) -> str:
         """
         Determines whether any HTTP headers are included in requests that CloudFront sends to the origin. Valid values are:
-
-        - `none` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any headers that are listed in a `CachePolicy` *are* included in origin requests.
-        - `whitelist` – Only the HTTP headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin.
-        - `allViewer` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
-        - `allViewerAndWhitelistCloudFront` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the `Headers` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
-        - `allExcept` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `Headers` type, which are not included.
+          +   ``none`` – No HTTP headers in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any headers that are listed in a ``CachePolicy`` *are* included in origin requests.
+          +   ``whitelist`` – Only the HTTP headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin.
+          +   ``allViewer`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin.
+          +   ``allViewerAndWhitelistCloudFront`` – All HTTP headers in viewer requests and the additional CloudFront headers that are listed in the ``Headers`` type are included in requests that CloudFront sends to the origin. The additional headers are added by CloudFront.
+          +   ``allExcept`` – All HTTP headers in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``Headers`` type, which are not included.
         """
         return pulumi.get(self, "header_behavior")
 
@@ -4167,6 +4259,9 @@ class OriginRequestPolicyHeadersConfig(dict):
 
 @pulumi.output_type
 class OriginRequestPolicyQueryStringsConfig(dict):
+    """
+    An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4190,12 +4285,12 @@ class OriginRequestPolicyQueryStringsConfig(dict):
                  query_string_behavior: str,
                  query_strings: Optional[Sequence[str]] = None):
         """
+        An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
         :param str query_string_behavior: Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-               
-               - `none` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
-               - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
-               - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
-               - `allExcept` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `QueryStringNames` type, which are not included.
+                 +   ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy`` *are* included in origin requests.
+                 +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
+                 +   ``all`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+                 +   ``allExcept`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``QueryStringNames`` type, which are not included.
         :param Sequence[str] query_strings: Contains a list of query string names.
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
@@ -4207,11 +4302,10 @@ class OriginRequestPolicyQueryStringsConfig(dict):
     def query_string_behavior(self) -> str:
         """
         Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
-
-        - `none` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to `none` , any query strings that are listed in a `CachePolicy` *are* included in origin requests.
-        - `whitelist` – Only the query strings in viewer requests that are listed in the `QueryStringNames` type are included in requests that CloudFront sends to the origin.
-        - `all` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
-        - `allExcept` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, **except** for those listed in the `QueryStringNames` type, which are not included.
+          +   ``none`` – No query strings in viewer requests are included in requests that CloudFront sends to the origin. Even when this field is set to ``none``, any query strings that are listed in a ``CachePolicy`` *are* included in origin requests.
+          +   ``whitelist`` – Only the query strings in viewer requests that are listed in the ``QueryStringNames`` type are included in requests that CloudFront sends to the origin.
+          +   ``all`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
+          +   ``allExcept`` – All query strings in viewer requests are included in requests that CloudFront sends to the origin, *except* for those listed in the ``QueryStringNames`` type, which are not included.
         """
         return pulumi.get(self, "query_string_behavior")
 
@@ -4226,6 +4320,9 @@ class OriginRequestPolicyQueryStringsConfig(dict):
 
 @pulumi.output_type
 class PublicKeyConfig(dict):
+    """
+    Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4251,8 +4348,9 @@ class PublicKeyConfig(dict):
                  name: str,
                  comment: Optional[str] = None):
         """
+        Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         :param str caller_reference: A string included in the request to help make sure that the request can't be replayed.
-        :param str encoded_key: The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        :param str encoded_key: The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         :param str name: A name to help identify the public key.
         :param str comment: A comment to describe the public key. The comment cannot be longer than 128 characters.
         """
@@ -4274,7 +4372,7 @@ class PublicKeyConfig(dict):
     @pulumi.getter(name="encodedKey")
     def encoded_key(self) -> str:
         """
-        The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        The public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         """
         return pulumi.get(self, "encoded_key")
 
@@ -4297,6 +4395,9 @@ class PublicKeyConfig(dict):
 
 @pulumi.output_type
 class RealtimeLogConfigEndPoint(dict):
+    """
+    Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4320,8 +4421,9 @@ class RealtimeLogConfigEndPoint(dict):
                  kinesis_stream_config: 'outputs.RealtimeLogConfigKinesisStreamConfig',
                  stream_type: str):
         """
+        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
         :param 'RealtimeLogConfigKinesisStreamConfig' kinesis_stream_config: Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
-        :param str stream_type: The type of data stream where you are sending real-time log data. The only valid value is `Kinesis` .
+        :param str stream_type: The type of data stream where you are sending real-time log data. The only valid value is ``Kinesis``.
         """
         pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
         pulumi.set(__self__, "stream_type", stream_type)
@@ -4338,13 +4440,16 @@ class RealtimeLogConfigEndPoint(dict):
     @pulumi.getter(name="streamType")
     def stream_type(self) -> str:
         """
-        The type of data stream where you are sending real-time log data. The only valid value is `Kinesis` .
+        The type of data stream where you are sending real-time log data. The only valid value is ``Kinesis``.
         """
         return pulumi.get(self, "stream_type")
 
 
 @pulumi.output_type
 class RealtimeLogConfigKinesisStreamConfig(dict):
+    """
+    Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4368,9 +4473,9 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
                  role_arn: str,
                  stream_arn: str):
         """
-        :param str role_arn: The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
-               
-               For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide* .
+        Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+        :param str role_arn: The Amazon Resource Name (ARN) of an IAMlong (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
+                For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide*.
         :param str stream_arn: The Amazon Resource Name (ARN) of the Kinesis data stream where you are sending real-time log data.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -4380,9 +4485,8 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
-
-        For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide* .
+        The Amazon Resource Name (ARN) of an IAMlong (IAM) role that CloudFront can use to send real-time log data to your Kinesis data stream.
+         For more information the IAM role, see [Real-time log configuration IAM role](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "role_arn")
 
@@ -4397,10 +4501,16 @@ class RealtimeLogConfigKinesisStreamConfig(dict):
 
 @pulumi.output_type
 class ResponseHeadersPolicyAccessControlAllowHeaders(dict):
+    """
+    A list of HTTP header names that CloudFront includes as values for the ``Access-Control-Allow-Headers`` HTTP response header.
+     For more information about the ``Access-Control-Allow-Headers`` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
+    """
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
-        :param Sequence[str] items: The list of HTTP header names. You can specify `*` to allow all headers.
+        A list of HTTP header names that CloudFront includes as values for the ``Access-Control-Allow-Headers`` HTTP response header.
+         For more information about the ``Access-Control-Allow-Headers`` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
+        :param Sequence[str] items: The list of HTTP header names. You can specify ``*`` to allow all headers.
         """
         pulumi.set(__self__, "items", items)
 
@@ -4408,28 +4518,33 @@ class ResponseHeadersPolicyAccessControlAllowHeaders(dict):
     @pulumi.getter
     def items(self) -> Sequence[str]:
         """
-        The list of HTTP header names. You can specify `*` to allow all headers.
+        The list of HTTP header names. You can specify ``*`` to allow all headers.
         """
         return pulumi.get(self, "items")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyAccessControlAllowMethods(dict):
+    """
+    A list of HTTP methods that CloudFront includes as values for the ``Access-Control-Allow-Methods`` HTTP response header.
+     For more information about the ``Access-Control-Allow-Methods`` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
+    """
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
+        A list of HTTP methods that CloudFront includes as values for the ``Access-Control-Allow-Methods`` HTTP response header.
+         For more information about the ``Access-Control-Allow-Methods`` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
         :param Sequence[str] items: The list of HTTP methods. Valid values are:
-               
-               - `GET`
-               - `DELETE`
-               - `HEAD`
-               - `OPTIONS`
-               - `PATCH`
-               - `POST`
-               - `PUT`
-               - `ALL`
-               
-               `ALL` is a special value that includes all of the listed HTTP methods.
+                 +   ``GET`` 
+                 +   ``DELETE`` 
+                 +   ``HEAD`` 
+                 +   ``OPTIONS`` 
+                 +   ``PATCH`` 
+                 +   ``POST`` 
+                 +   ``PUT`` 
+                 +   ``ALL`` 
+                 
+                 ``ALL`` is a special value that includes all of the listed HTTP methods.
         """
         pulumi.set(__self__, "items", items)
 
@@ -4438,27 +4553,32 @@ class ResponseHeadersPolicyAccessControlAllowMethods(dict):
     def items(self) -> Sequence[str]:
         """
         The list of HTTP methods. Valid values are:
-
-        - `GET`
-        - `DELETE`
-        - `HEAD`
-        - `OPTIONS`
-        - `PATCH`
-        - `POST`
-        - `PUT`
-        - `ALL`
-
-        `ALL` is a special value that includes all of the listed HTTP methods.
+          +   ``GET`` 
+          +   ``DELETE`` 
+          +   ``HEAD`` 
+          +   ``OPTIONS`` 
+          +   ``PATCH`` 
+          +   ``POST`` 
+          +   ``PUT`` 
+          +   ``ALL`` 
+          
+          ``ALL`` is a special value that includes all of the listed HTTP methods.
         """
         return pulumi.get(self, "items")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyAccessControlAllowOrigins(dict):
+    """
+    A list of origins (domain names) that CloudFront can use as the value for the ``Access-Control-Allow-Origin`` HTTP response header.
+     For more information about the ``Access-Control-Allow-Origin`` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+    """
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
-        :param Sequence[str] items: The list of origins (domain names). You can specify `*` to allow all origins.
+        A list of origins (domain names) that CloudFront can use as the value for the ``Access-Control-Allow-Origin`` HTTP response header.
+         For more information about the ``Access-Control-Allow-Origin`` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+        :param Sequence[str] items: The list of origins (domain names). You can specify ``*`` to allow all origins.
         """
         pulumi.set(__self__, "items", items)
 
@@ -4466,17 +4586,23 @@ class ResponseHeadersPolicyAccessControlAllowOrigins(dict):
     @pulumi.getter
     def items(self) -> Sequence[str]:
         """
-        The list of origins (domain names). You can specify `*` to allow all origins.
+        The list of origins (domain names). You can specify ``*`` to allow all origins.
         """
         return pulumi.get(self, "items")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyAccessControlExposeHeaders(dict):
+    """
+    A list of HTTP headers that CloudFront includes as values for the ``Access-Control-Expose-Headers`` HTTP response header.
+     For more information about the ``Access-Control-Expose-Headers`` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
+    """
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
-        :param Sequence[str] items: The list of HTTP headers. You can specify `*` to expose all headers.
+        A list of HTTP headers that CloudFront includes as values for the ``Access-Control-Expose-Headers`` HTTP response header.
+         For more information about the ``Access-Control-Expose-Headers`` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
+        :param Sequence[str] items: The list of HTTP headers. You can specify ``*`` to expose all headers.
         """
         pulumi.set(__self__, "items", items)
 
@@ -4484,13 +4610,17 @@ class ResponseHeadersPolicyAccessControlExposeHeaders(dict):
     @pulumi.getter
     def items(self) -> Sequence[str]:
         """
-        The list of HTTP headers. You can specify `*` to expose all headers.
+        The list of HTTP headers. You can specify ``*`` to expose all headers.
         """
         return pulumi.get(self, "items")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyConfig(dict):
+    """
+    A response headers policy configuration.
+     A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4525,17 +4655,17 @@ class ResponseHeadersPolicyConfig(dict):
                  security_headers_config: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig'] = None,
                  server_timing_headers_config: Optional['outputs.ResponseHeadersPolicyServerTimingHeadersConfig'] = None):
         """
+        A response headers policy configuration.
+         A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         :param str name: A name to identify the response headers policy.
-               
-               The name must be unique for response headers policies in this AWS account .
+                The name must be unique for response headers policies in this AWS-account.
         :param str comment: A comment to describe the response headers policy.
-               
-               The comment cannot be longer than 128 characters.
+                The comment cannot be longer than 128 characters.
         :param 'ResponseHeadersPolicyCorsConfig' cors_config: A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
         :param 'ResponseHeadersPolicyCustomHeadersConfig' custom_headers_config: A configuration for a set of custom HTTP response headers.
         :param 'ResponseHeadersPolicyRemoveHeadersConfig' remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response.
         :param 'ResponseHeadersPolicySecurityHeadersConfig' security_headers_config: A configuration for a set of security-related HTTP response headers.
-        :param 'ResponseHeadersPolicyServerTimingHeadersConfig' server_timing_headers_config: A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
+        :param 'ResponseHeadersPolicyServerTimingHeadersConfig' server_timing_headers_config: A configuration for enabling the ``Server-Timing`` header in HTTP responses sent from CloudFront.
         """
         pulumi.set(__self__, "name", name)
         if comment is not None:
@@ -4556,8 +4686,7 @@ class ResponseHeadersPolicyConfig(dict):
     def name(self) -> str:
         """
         A name to identify the response headers policy.
-
-        The name must be unique for response headers policies in this AWS account .
+         The name must be unique for response headers policies in this AWS-account.
         """
         return pulumi.get(self, "name")
 
@@ -4566,8 +4695,7 @@ class ResponseHeadersPolicyConfig(dict):
     def comment(self) -> Optional[str]:
         """
         A comment to describe the response headers policy.
-
-        The comment cannot be longer than 128 characters.
+         The comment cannot be longer than 128 characters.
         """
         return pulumi.get(self, "comment")
 
@@ -4607,13 +4735,17 @@ class ResponseHeadersPolicyConfig(dict):
     @pulumi.getter(name="serverTimingHeadersConfig")
     def server_timing_headers_config(self) -> Optional['outputs.ResponseHeadersPolicyServerTimingHeadersConfig']:
         """
-        A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
+        A configuration for enabling the ``Server-Timing`` header in HTTP responses sent from CloudFront.
         """
         return pulumi.get(self, "server_timing_headers_config")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyContentSecurityPolicy(dict):
+    """
+    The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
+     For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4635,8 +4767,11 @@ class ResponseHeadersPolicyContentSecurityPolicy(dict):
                  content_security_policy: str,
                  override: bool):
         """
-        :param str content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-        :param bool override: A Boolean that determines whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+        The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
+         For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
+        :param str content_security_policy: The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
+                For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
+        :param bool override: A Boolean that determines whether CloudFront overrides the ``Content-Security-Policy`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "content_security_policy", content_security_policy)
         pulumi.set(__self__, "override", override)
@@ -4645,7 +4780,8 @@ class ResponseHeadersPolicyContentSecurityPolicy(dict):
     @pulumi.getter(name="contentSecurityPolicy")
     def content_security_policy(self) -> str:
         """
-        The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
+        The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
+         For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
         """
         return pulumi.get(self, "content_security_policy")
 
@@ -4653,17 +4789,23 @@ class ResponseHeadersPolicyContentSecurityPolicy(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean that determines whether CloudFront overrides the `Content-Security-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+        A Boolean that determines whether CloudFront overrides the ``Content-Security-Policy`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyContentTypeOptions(dict):
+    """
+    Determines whether CloudFront includes the ``X-Content-Type-Options`` HTTP response header with its value set to ``nosniff``.
+     For more information about the ``X-Content-Type-Options`` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
+    """
     def __init__(__self__, *,
                  override: bool):
         """
-        :param bool override: A Boolean that determines whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        Determines whether CloudFront includes the ``X-Content-Type-Options`` HTTP response header with its value set to ``nosniff``.
+         For more information about the ``X-Content-Type-Options`` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
+        :param bool override: A Boolean that determines whether CloudFront overrides the ``X-Content-Type-Options`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "override", override)
 
@@ -4671,13 +4813,17 @@ class ResponseHeadersPolicyContentTypeOptions(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean that determines whether CloudFront overrides the `X-Content-Type-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        A Boolean that determines whether CloudFront overrides the ``X-Content-Type-Options`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyCorsConfig(dict):
+    """
+    A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for CORS requests that match a cache behavior associated with this response headers policy.
+     For more information about CORS, see [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in the MDN Web Docs.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4716,25 +4862,21 @@ class ResponseHeadersPolicyCorsConfig(dict):
                  access_control_expose_headers: Optional['outputs.ResponseHeadersPolicyAccessControlExposeHeaders'] = None,
                  access_control_max_age_sec: Optional[int] = None):
         """
-        :param bool access_control_allow_credentials: A Boolean that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
-               
-               For more information about the `Access-Control-Allow-Credentials` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyAccessControlAllowHeaders' access_control_allow_headers: A list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
-               
-               For more information about the `Access-Control-Allow-Headers` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyAccessControlAllowMethods' access_control_allow_methods: A list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header.
-               
-               For more information about the `Access-Control-Allow-Methods` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyAccessControlAllowOrigins' access_control_allow_origins: A list of origins (domain names) that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
-               
-               For more information about the `Access-Control-Allow-Origin` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+        A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for CORS requests that match a cache behavior associated with this response headers policy.
+         For more information about CORS, see [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in the MDN Web Docs.
+        :param bool access_control_allow_credentials: A Boolean that CloudFront uses as the value for the ``Access-Control-Allow-Credentials`` HTTP response header.
+                For more information about the ``Access-Control-Allow-Credentials`` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyAccessControlAllowHeaders' access_control_allow_headers: A list of HTTP header names that CloudFront includes as values for the ``Access-Control-Allow-Headers`` HTTP response header.
+                For more information about the ``Access-Control-Allow-Headers`` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyAccessControlAllowMethods' access_control_allow_methods: A list of HTTP methods that CloudFront includes as values for the ``Access-Control-Allow-Methods`` HTTP response header.
+                For more information about the ``Access-Control-Allow-Methods`` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyAccessControlAllowOrigins' access_control_allow_origins: A list of origins (domain names) that CloudFront can use as the value for the ``Access-Control-Allow-Origin`` HTTP response header.
+                For more information about the ``Access-Control-Allow-Origin`` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
         :param bool origin_override: A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
-        :param 'ResponseHeadersPolicyAccessControlExposeHeaders' access_control_expose_headers: A list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
-               
-               For more information about the `Access-Control-Expose-Headers` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
-        :param int access_control_max_age_sec: A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
-               
-               For more information about the `Access-Control-Max-Age` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyAccessControlExposeHeaders' access_control_expose_headers: A list of HTTP headers that CloudFront includes as values for the ``Access-Control-Expose-Headers`` HTTP response header.
+                For more information about the ``Access-Control-Expose-Headers`` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
+        :param int access_control_max_age_sec: A number that CloudFront uses as the value for the ``Access-Control-Max-Age`` HTTP response header.
+                For more information about the ``Access-Control-Max-Age`` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
         """
         pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
         pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
@@ -4750,9 +4892,8 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @pulumi.getter(name="accessControlAllowCredentials")
     def access_control_allow_credentials(self) -> bool:
         """
-        A Boolean that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
-
-        For more information about the `Access-Control-Allow-Credentials` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
+        A Boolean that CloudFront uses as the value for the ``Access-Control-Allow-Credentials`` HTTP response header.
+         For more information about the ``Access-Control-Allow-Credentials`` HTTP response header, see [Access-Control-Allow-Credentials](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials) in the MDN Web Docs.
         """
         return pulumi.get(self, "access_control_allow_credentials")
 
@@ -4760,9 +4901,8 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @pulumi.getter(name="accessControlAllowHeaders")
     def access_control_allow_headers(self) -> 'outputs.ResponseHeadersPolicyAccessControlAllowHeaders':
         """
-        A list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
-
-        For more information about the `Access-Control-Allow-Headers` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
+        A list of HTTP header names that CloudFront includes as values for the ``Access-Control-Allow-Headers`` HTTP response header.
+         For more information about the ``Access-Control-Allow-Headers`` HTTP response header, see [Access-Control-Allow-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers) in the MDN Web Docs.
         """
         return pulumi.get(self, "access_control_allow_headers")
 
@@ -4770,9 +4910,8 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @pulumi.getter(name="accessControlAllowMethods")
     def access_control_allow_methods(self) -> 'outputs.ResponseHeadersPolicyAccessControlAllowMethods':
         """
-        A list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header.
-
-        For more information about the `Access-Control-Allow-Methods` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
+        A list of HTTP methods that CloudFront includes as values for the ``Access-Control-Allow-Methods`` HTTP response header.
+         For more information about the ``Access-Control-Allow-Methods`` HTTP response header, see [Access-Control-Allow-Methods](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods) in the MDN Web Docs.
         """
         return pulumi.get(self, "access_control_allow_methods")
 
@@ -4780,9 +4919,8 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @pulumi.getter(name="accessControlAllowOrigins")
     def access_control_allow_origins(self) -> 'outputs.ResponseHeadersPolicyAccessControlAllowOrigins':
         """
-        A list of origins (domain names) that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
-
-        For more information about the `Access-Control-Allow-Origin` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+        A list of origins (domain names) that CloudFront can use as the value for the ``Access-Control-Allow-Origin`` HTTP response header.
+         For more information about the ``Access-Control-Allow-Origin`` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
         """
         return pulumi.get(self, "access_control_allow_origins")
 
@@ -4798,9 +4936,8 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @pulumi.getter(name="accessControlExposeHeaders")
     def access_control_expose_headers(self) -> Optional['outputs.ResponseHeadersPolicyAccessControlExposeHeaders']:
         """
-        A list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
-
-        For more information about the `Access-Control-Expose-Headers` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
+        A list of HTTP headers that CloudFront includes as values for the ``Access-Control-Expose-Headers`` HTTP response header.
+         For more information about the ``Access-Control-Expose-Headers`` HTTP response header, see [Access-Control-Expose-Headers](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers) in the MDN Web Docs.
         """
         return pulumi.get(self, "access_control_expose_headers")
 
@@ -4808,20 +4945,23 @@ class ResponseHeadersPolicyCorsConfig(dict):
     @pulumi.getter(name="accessControlMaxAgeSec")
     def access_control_max_age_sec(self) -> Optional[int]:
         """
-        A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
-
-        For more information about the `Access-Control-Max-Age` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
+        A number that CloudFront uses as the value for the ``Access-Control-Max-Age`` HTTP response header.
+         For more information about the ``Access-Control-Max-Age`` HTTP response header, see [Access-Control-Max-Age](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age) in the MDN Web Docs.
         """
         return pulumi.get(self, "access_control_max_age_sec")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyCustomHeader(dict):
+    """
+    An HTTP response header name and its value. CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+    """
     def __init__(__self__, *,
                  header: str,
                  override: bool,
                  value: str):
         """
+        An HTTP response header name and its value. CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
         :param str header: The HTTP response header name.
         :param bool override: A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
         :param str value: The value for the HTTP response header.
@@ -4857,9 +4997,13 @@ class ResponseHeadersPolicyCustomHeader(dict):
 
 @pulumi.output_type
 class ResponseHeadersPolicyCustomHeadersConfig(dict):
+    """
+    A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+    """
     def __init__(__self__, *,
                  items: Sequence['outputs.ResponseHeadersPolicyCustomHeader']):
         """
+        A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
         :param Sequence['ResponseHeadersPolicyCustomHeader'] items: The list of HTTP response headers and their values.
         """
         pulumi.set(__self__, "items", items)
@@ -4875,6 +5019,10 @@ class ResponseHeadersPolicyCustomHeadersConfig(dict):
 
 @pulumi.output_type
 class ResponseHeadersPolicyFrameOptions(dict):
+    """
+    Determines whether CloudFront includes the ``X-Frame-Options`` HTTP response header and the header's value.
+     For more information about the ``X-Frame-Options`` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4896,10 +5044,11 @@ class ResponseHeadersPolicyFrameOptions(dict):
                  frame_option: str,
                  override: bool):
         """
-        :param str frame_option: The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
-               
-               For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
-        :param bool override: A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        Determines whether CloudFront includes the ``X-Frame-Options`` HTTP response header and the header's value.
+         For more information about the ``X-Frame-Options`` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+        :param str frame_option: The value of the ``X-Frame-Options`` HTTP response header. Valid values are ``DENY`` and ``SAMEORIGIN``.
+                For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+        :param bool override: A Boolean that determines whether CloudFront overrides the ``X-Frame-Options`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         pulumi.set(__self__, "frame_option", frame_option)
         pulumi.set(__self__, "override", override)
@@ -4908,9 +5057,8 @@ class ResponseHeadersPolicyFrameOptions(dict):
     @pulumi.getter(name="frameOption")
     def frame_option(self) -> str:
         """
-        The value of the `X-Frame-Options` HTTP response header. Valid values are `DENY` and `SAMEORIGIN` .
-
-        For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+        The value of the ``X-Frame-Options`` HTTP response header. Valid values are ``DENY`` and ``SAMEORIGIN``.
+         For more information about these values, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
         """
         return pulumi.get(self, "frame_option")
 
@@ -4918,13 +5066,17 @@ class ResponseHeadersPolicyFrameOptions(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean that determines whether CloudFront overrides the `X-Frame-Options` HTTP response header received from the origin with the one specified in this response headers policy.
+        A Boolean that determines whether CloudFront overrides the ``X-Frame-Options`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyReferrerPolicy(dict):
+    """
+    Determines whether CloudFront includes the ``Referrer-Policy`` HTTP response header and the header's value.
+     For more information about the ``Referrer-Policy`` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4946,19 +5098,11 @@ class ResponseHeadersPolicyReferrerPolicy(dict):
                  override: bool,
                  referrer_policy: str):
         """
-        :param bool override: A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
-        :param str referrer_policy: The value of the `Referrer-Policy` HTTP response header. Valid values are:
-               
-               - `no-referrer`
-               - `no-referrer-when-downgrade`
-               - `origin`
-               - `origin-when-cross-origin`
-               - `same-origin`
-               - `strict-origin`
-               - `strict-origin-when-cross-origin`
-               - `unsafe-url`
-               
-               For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+        Determines whether CloudFront includes the ``Referrer-Policy`` HTTP response header and the header's value.
+         For more information about the ``Referrer-Policy`` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+        :param bool override: A Boolean that determines whether CloudFront overrides the ``Referrer-Policy`` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param str referrer_policy: Determines whether CloudFront includes the ``Referrer-Policy`` HTTP response header and the header's value.
+                For more information about the ``Referrer-Policy`` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
         """
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "referrer_policy", referrer_policy)
@@ -4967,7 +5111,7 @@ class ResponseHeadersPolicyReferrerPolicy(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean that determines whether CloudFront overrides the `Referrer-Policy` HTTP response header received from the origin with the one specified in this response headers policy.
+        A Boolean that determines whether CloudFront overrides the ``Referrer-Policy`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -4975,27 +5119,21 @@ class ResponseHeadersPolicyReferrerPolicy(dict):
     @pulumi.getter(name="referrerPolicy")
     def referrer_policy(self) -> str:
         """
-        The value of the `Referrer-Policy` HTTP response header. Valid values are:
-
-        - `no-referrer`
-        - `no-referrer-when-downgrade`
-        - `origin`
-        - `origin-when-cross-origin`
-        - `same-origin`
-        - `strict-origin`
-        - `strict-origin-when-cross-origin`
-        - `unsafe-url`
-
-        For more information about these values, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+        Determines whether CloudFront includes the ``Referrer-Policy`` HTTP response header and the header's value.
+         For more information about the ``Referrer-Policy`` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
         """
         return pulumi.get(self, "referrer_policy")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyRemoveHeader(dict):
+    """
+    The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+    """
     def __init__(__self__, *,
                  header: str):
         """
+        The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
         :param str header: The HTTP header name.
         """
         pulumi.set(__self__, "header", header)
@@ -5011,9 +5149,13 @@ class ResponseHeadersPolicyRemoveHeader(dict):
 
 @pulumi.output_type
 class ResponseHeadersPolicyRemoveHeadersConfig(dict):
+    """
+    A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+    """
     def __init__(__self__, *,
                  items: Sequence['outputs.ResponseHeadersPolicyRemoveHeader']):
         """
+        A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
         :param Sequence['ResponseHeadersPolicyRemoveHeader'] items: The list of HTTP header names.
         """
         pulumi.set(__self__, "items", items)
@@ -5029,6 +5171,9 @@ class ResponseHeadersPolicyRemoveHeadersConfig(dict):
 
 @pulumi.output_type
 class ResponseHeadersPolicySecurityHeadersConfig(dict):
+    """
+    A configuration for a set of security-related HTTP response headers. CloudFront adds these headers to HTTP responses that it sends for requests that match a cache behavior associated with this response headers policy.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5064,24 +5209,19 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
                  strict_transport_security: Optional['outputs.ResponseHeadersPolicyStrictTransportSecurity'] = None,
                  xss_protection: Optional['outputs.ResponseHeadersPolicyXssProtection'] = None):
         """
-        :param 'ResponseHeadersPolicyContentSecurityPolicy' content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-               
-               For more information about the `Content-Security-Policy` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyContentTypeOptions' content_type_options: Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff` .
-               
-               For more information about the `X-Content-Type-Options` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyFrameOptions' frame_options: Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header's value.
-               
-               For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyReferrerPolicy' referrer_policy: Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header's value.
-               
-               For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyStrictTransportSecurity' strict_transport_security: Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
-               
-               For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyXssProtection' xss_protection: Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header's value.
-               
-               For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        A configuration for a set of security-related HTTP response headers. CloudFront adds these headers to HTTP responses that it sends for requests that match a cache behavior associated with this response headers policy.
+        :param 'ResponseHeadersPolicyContentSecurityPolicy' content_security_policy: The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
+                For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyContentTypeOptions' content_type_options: Determines whether CloudFront includes the ``X-Content-Type-Options`` HTTP response header with its value set to ``nosniff``.
+                For more information about the ``X-Content-Type-Options`` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyFrameOptions' frame_options: Determines whether CloudFront includes the ``X-Frame-Options`` HTTP response header and the header's value.
+                For more information about the ``X-Frame-Options`` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyReferrerPolicy' referrer_policy: Determines whether CloudFront includes the ``Referrer-Policy`` HTTP response header and the header's value.
+                For more information about the ``Referrer-Policy`` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyStrictTransportSecurity' strict_transport_security: Determines whether CloudFront includes the ``Strict-Transport-Security`` HTTP response header and the header's value.
+                For more information about the ``Strict-Transport-Security`` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+        :param 'ResponseHeadersPolicyXssProtection' xss_protection: Determines whether CloudFront includes the ``X-XSS-Protection`` HTTP response header and the header's value.
+                For more information about the ``X-XSS-Protection`` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
         """
         if content_security_policy is not None:
             pulumi.set(__self__, "content_security_policy", content_security_policy)
@@ -5100,9 +5240,8 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="contentSecurityPolicy")
     def content_security_policy(self) -> Optional['outputs.ResponseHeadersPolicyContentSecurityPolicy']:
         """
-        The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
-
-        For more information about the `Content-Security-Policy` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
+        The policy directives and their values that CloudFront includes as values for the ``Content-Security-Policy`` HTTP response header.
+         For more information about the ``Content-Security-Policy`` HTTP response header, see [Content-Security-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) in the MDN Web Docs.
         """
         return pulumi.get(self, "content_security_policy")
 
@@ -5110,9 +5249,8 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="contentTypeOptions")
     def content_type_options(self) -> Optional['outputs.ResponseHeadersPolicyContentTypeOptions']:
         """
-        Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff` .
-
-        For more information about the `X-Content-Type-Options` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
+        Determines whether CloudFront includes the ``X-Content-Type-Options`` HTTP response header with its value set to ``nosniff``.
+         For more information about the ``X-Content-Type-Options`` HTTP response header, see [X-Content-Type-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options) in the MDN Web Docs.
         """
         return pulumi.get(self, "content_type_options")
 
@@ -5120,9 +5258,8 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="frameOptions")
     def frame_options(self) -> Optional['outputs.ResponseHeadersPolicyFrameOptions']:
         """
-        Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header's value.
-
-        For more information about the `X-Frame-Options` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
+        Determines whether CloudFront includes the ``X-Frame-Options`` HTTP response header and the header's value.
+         For more information about the ``X-Frame-Options`` HTTP response header, see [X-Frame-Options](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) in the MDN Web Docs.
         """
         return pulumi.get(self, "frame_options")
 
@@ -5130,9 +5267,8 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="referrerPolicy")
     def referrer_policy(self) -> Optional['outputs.ResponseHeadersPolicyReferrerPolicy']:
         """
-        Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header's value.
-
-        For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
+        Determines whether CloudFront includes the ``Referrer-Policy`` HTTP response header and the header's value.
+         For more information about the ``Referrer-Policy`` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
         """
         return pulumi.get(self, "referrer_policy")
 
@@ -5140,9 +5276,8 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="strictTransportSecurity")
     def strict_transport_security(self) -> Optional['outputs.ResponseHeadersPolicyStrictTransportSecurity']:
         """
-        Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
-
-        For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+        Determines whether CloudFront includes the ``Strict-Transport-Security`` HTTP response header and the header's value.
+         For more information about the ``Strict-Transport-Security`` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
         """
         return pulumi.get(self, "strict_transport_security")
 
@@ -5150,15 +5285,17 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
     @pulumi.getter(name="xssProtection")
     def xss_protection(self) -> Optional['outputs.ResponseHeadersPolicyXssProtection']:
         """
-        Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header's value.
-
-        For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        Determines whether CloudFront includes the ``X-XSS-Protection`` HTTP response header and the header's value.
+         For more information about the ``X-XSS-Protection`` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
         """
         return pulumi.get(self, "xss_protection")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
+    """
+    A configuration for enabling the ``Server-Timing`` header in HTTP responses sent from CloudFront.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5180,8 +5317,9 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
                  enabled: bool,
                  sampling_rate: Optional[float] = None):
         """
-        :param bool enabled: A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
-        :param float sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the `Server-Timing` header to. When you set the sampling rate to 100, CloudFront adds the `Server-Timing` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
+        A configuration for enabling the ``Server-Timing`` header in HTTP responses sent from CloudFront.
+        :param bool enabled: A Boolean that determines whether CloudFront adds the ``Server-Timing`` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        :param float sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the ``Server-Timing`` header to. When you set the sampling rate to 100, CloudFront adds the ``Server-Timing`` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
         """
         pulumi.set(__self__, "enabled", enabled)
         if sampling_rate is not None:
@@ -5191,7 +5329,7 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        A Boolean that determines whether CloudFront adds the ``Server-Timing`` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
         """
         return pulumi.get(self, "enabled")
 
@@ -5199,13 +5337,17 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
     @pulumi.getter(name="samplingRate")
     def sampling_rate(self) -> Optional[float]:
         """
-        A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the `Server-Timing` header to. When you set the sampling rate to 100, CloudFront adds the `Server-Timing` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
+        A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the ``Server-Timing`` header to. When you set the sampling rate to 100, CloudFront adds the ``Server-Timing`` header to the HTTP response for every request that matches the cache behavior that this response headers policy is attached to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests that match the cache behavior. You can set the sampling rate to any number 0–100 with up to four decimal places.
         """
         return pulumi.get(self, "sampling_rate")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyStrictTransportSecurity(dict):
+    """
+    Determines whether CloudFront includes the ``Strict-Transport-Security`` HTTP response header and the header's value.
+     For more information about the ``Strict-Transport-Security`` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5231,10 +5373,12 @@ class ResponseHeadersPolicyStrictTransportSecurity(dict):
                  include_subdomains: Optional[bool] = None,
                  preload: Optional[bool] = None):
         """
-        :param int access_control_max_age_sec: A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
-        :param bool override: A Boolean that determines whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
-        :param bool include_subdomains: A Boolean that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
-        :param bool preload: A Boolean that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+        Determines whether CloudFront includes the ``Strict-Transport-Security`` HTTP response header and the header's value.
+         For more information about the ``Strict-Transport-Security`` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+        :param int access_control_max_age_sec: A number that CloudFront uses as the value for the ``max-age`` directive in the ``Strict-Transport-Security`` HTTP response header.
+        :param bool override: A Boolean that determines whether CloudFront overrides the ``Strict-Transport-Security`` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool include_subdomains: A Boolean that determines whether CloudFront includes the ``includeSubDomains`` directive in the ``Strict-Transport-Security`` HTTP response header.
+        :param bool preload: A Boolean that determines whether CloudFront includes the ``preload`` directive in the ``Strict-Transport-Security`` HTTP response header.
         """
         pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
         pulumi.set(__self__, "override", override)
@@ -5247,7 +5391,7 @@ class ResponseHeadersPolicyStrictTransportSecurity(dict):
     @pulumi.getter(name="accessControlMaxAgeSec")
     def access_control_max_age_sec(self) -> int:
         """
-        A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+        A number that CloudFront uses as the value for the ``max-age`` directive in the ``Strict-Transport-Security`` HTTP response header.
         """
         return pulumi.get(self, "access_control_max_age_sec")
 
@@ -5255,7 +5399,7 @@ class ResponseHeadersPolicyStrictTransportSecurity(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean that determines whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
+        A Boolean that determines whether CloudFront overrides the ``Strict-Transport-Security`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -5263,7 +5407,7 @@ class ResponseHeadersPolicyStrictTransportSecurity(dict):
     @pulumi.getter(name="includeSubdomains")
     def include_subdomains(self) -> Optional[bool]:
         """
-        A Boolean that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
+        A Boolean that determines whether CloudFront includes the ``includeSubDomains`` directive in the ``Strict-Transport-Security`` HTTP response header.
         """
         return pulumi.get(self, "include_subdomains")
 
@@ -5271,13 +5415,17 @@ class ResponseHeadersPolicyStrictTransportSecurity(dict):
     @pulumi.getter
     def preload(self) -> Optional[bool]:
         """
-        A Boolean that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+        A Boolean that determines whether CloudFront includes the ``preload`` directive in the ``Strict-Transport-Security`` HTTP response header.
         """
         return pulumi.get(self, "preload")
 
 
 @pulumi.output_type
 class ResponseHeadersPolicyXssProtection(dict):
+    """
+    Determines whether CloudFront includes the ``X-XSS-Protection`` HTTP response header and the header's value.
+     For more information about the ``X-XSS-Protection`` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5303,18 +5451,16 @@ class ResponseHeadersPolicyXssProtection(dict):
                  mode_block: Optional[bool] = None,
                  report_uri: Optional[str] = None):
         """
-        :param bool override: A Boolean that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
-        :param bool protection: A Boolean that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true` , the value of the `X-XSS-Protection` header is `1` . When this setting is `false` , the value of the `X-XSS-Protection` header is `0` .
-               
-               For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
-        :param bool mode_block: A Boolean that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
-               
-               For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
-        :param str report_uri: A reporting URI, which CloudFront uses as the value of the `report` directive in the `X-XSS-Protection` header.
-               
-               You cannot specify a `ReportUri` when `ModeBlock` is `true` .
-               
-               For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        Determines whether CloudFront includes the ``X-XSS-Protection`` HTTP response header and the header's value.
+         For more information about the ``X-XSS-Protection`` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        :param bool override: A Boolean that determines whether CloudFront overrides the ``X-XSS-Protection`` HTTP response header received from the origin with the one specified in this response headers policy.
+        :param bool protection: A Boolean that determines the value of the ``X-XSS-Protection`` HTTP response header. When this setting is ``true``, the value of the ``X-XSS-Protection`` header is ``1``. When this setting is ``false``, the value of the ``X-XSS-Protection`` header is ``0``.
+                For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        :param bool mode_block: A Boolean that determines whether CloudFront includes the ``mode=block`` directive in the ``X-XSS-Protection`` header.
+                For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        :param str report_uri: A reporting URI, which CloudFront uses as the value of the ``report`` directive in the ``X-XSS-Protection`` header.
+                You cannot specify a ``ReportUri`` when ``ModeBlock`` is ``true``.
+                For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
         """
         pulumi.set(__self__, "override", override)
         pulumi.set(__self__, "protection", protection)
@@ -5327,7 +5473,7 @@ class ResponseHeadersPolicyXssProtection(dict):
     @pulumi.getter
     def override(self) -> bool:
         """
-        A Boolean that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
+        A Boolean that determines whether CloudFront overrides the ``X-XSS-Protection`` HTTP response header received from the origin with the one specified in this response headers policy.
         """
         return pulumi.get(self, "override")
 
@@ -5335,9 +5481,8 @@ class ResponseHeadersPolicyXssProtection(dict):
     @pulumi.getter
     def protection(self) -> bool:
         """
-        A Boolean that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true` , the value of the `X-XSS-Protection` header is `1` . When this setting is `false` , the value of the `X-XSS-Protection` header is `0` .
-
-        For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        A Boolean that determines the value of the ``X-XSS-Protection`` HTTP response header. When this setting is ``true``, the value of the ``X-XSS-Protection`` header is ``1``. When this setting is ``false``, the value of the ``X-XSS-Protection`` header is ``0``.
+         For more information about these settings, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
         """
         return pulumi.get(self, "protection")
 
@@ -5345,9 +5490,8 @@ class ResponseHeadersPolicyXssProtection(dict):
     @pulumi.getter(name="modeBlock")
     def mode_block(self) -> Optional[bool]:
         """
-        A Boolean that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
-
-        For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        A Boolean that determines whether CloudFront includes the ``mode=block`` directive in the ``X-XSS-Protection`` header.
+         For more information about this directive, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
         """
         return pulumi.get(self, "mode_block")
 
@@ -5355,11 +5499,9 @@ class ResponseHeadersPolicyXssProtection(dict):
     @pulumi.getter(name="reportUri")
     def report_uri(self) -> Optional[str]:
         """
-        A reporting URI, which CloudFront uses as the value of the `report` directive in the `X-XSS-Protection` header.
-
-        You cannot specify a `ReportUri` when `ModeBlock` is `true` .
-
-        For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
+        A reporting URI, which CloudFront uses as the value of the ``report`` directive in the ``X-XSS-Protection`` header.
+         You cannot specify a ``ReportUri`` when ``ModeBlock`` is ``true``.
+         For more information about using a reporting URL, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
         """
         return pulumi.get(self, "report_uri")
 

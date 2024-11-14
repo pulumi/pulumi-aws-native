@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+// A real-time log configuration.
 type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
 
@@ -21,8 +21,7 @@ type RealtimeLogConfig struct {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints RealtimeLogConfigEndPointArrayOutput `pulumi:"endPoints"`
 	// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-	//
-	// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+	//  For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
 	Fields pulumi.StringArrayOutput `pulumi:"fields"`
 	// The unique name of this real-time log configuration.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -86,8 +85,7 @@ type realtimeLogConfigArgs struct {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints []RealtimeLogConfigEndPoint `pulumi:"endPoints"`
 	// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-	//
-	// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+	//  For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
 	Fields []string `pulumi:"fields"`
 	// The unique name of this real-time log configuration.
 	Name *string `pulumi:"name"`
@@ -100,8 +98,7 @@ type RealtimeLogConfigArgs struct {
 	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints RealtimeLogConfigEndPointArrayInput
 	// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-	//
-	// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+	//  For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
 	Fields pulumi.StringArrayInput
 	// The unique name of this real-time log configuration.
 	Name pulumi.StringPtrInput
@@ -158,7 +155,7 @@ func (o RealtimeLogConfigOutput) EndPoints() RealtimeLogConfigEndPointArrayOutpu
 
 // A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
 //
-// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+//	For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
 func (o RealtimeLogConfigOutput) Fields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringArrayOutput { return v.Fields }).(pulumi.StringArrayOutput)
 }

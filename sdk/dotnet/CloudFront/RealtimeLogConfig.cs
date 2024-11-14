@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+    /// A real-time log configuration.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:RealtimeLogConfig")]
     public partial class RealtimeLogConfig : global::Pulumi.CustomResource
@@ -29,8 +29,7 @@ namespace Pulumi.AwsNative.CloudFront
 
         /// <summary>
         /// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-        /// 
-        /// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+        ///  For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         [Output("fields")]
         public Output<ImmutableArray<string>> Fields { get; private set; } = null!;
@@ -113,8 +112,7 @@ namespace Pulumi.AwsNative.CloudFront
 
         /// <summary>
         /// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-        /// 
-        /// For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+        ///  For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         public InputList<string> Fields
         {

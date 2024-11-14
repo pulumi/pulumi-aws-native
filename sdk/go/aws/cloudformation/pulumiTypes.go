@@ -13,6 +13,172 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Hook targets are the destination where hooks will be invoked against.
+type GuardHookHookTarget struct {
+	Action          GuardHookAction          `pulumi:"action"`
+	InvocationPoint GuardHookInvocationPoint `pulumi:"invocationPoint"`
+	TargetName      string                   `pulumi:"targetName"`
+}
+
+// S3 Source Location for the Guard files.
+type GuardHookS3Location struct {
+	// S3 uri of Guard files.
+	Uri string `pulumi:"uri"`
+	// S3 object version
+	VersionId *string `pulumi:"versionId"`
+}
+
+// GuardHookS3LocationInput is an input type that accepts GuardHookS3LocationArgs and GuardHookS3LocationOutput values.
+// You can construct a concrete instance of `GuardHookS3LocationInput` via:
+//
+//	GuardHookS3LocationArgs{...}
+type GuardHookS3LocationInput interface {
+	pulumi.Input
+
+	ToGuardHookS3LocationOutput() GuardHookS3LocationOutput
+	ToGuardHookS3LocationOutputWithContext(context.Context) GuardHookS3LocationOutput
+}
+
+// S3 Source Location for the Guard files.
+type GuardHookS3LocationArgs struct {
+	// S3 uri of Guard files.
+	Uri pulumi.StringInput `pulumi:"uri"`
+	// S3 object version
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+}
+
+func (GuardHookS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardHookS3Location)(nil)).Elem()
+}
+
+func (i GuardHookS3LocationArgs) ToGuardHookS3LocationOutput() GuardHookS3LocationOutput {
+	return i.ToGuardHookS3LocationOutputWithContext(context.Background())
+}
+
+func (i GuardHookS3LocationArgs) ToGuardHookS3LocationOutputWithContext(ctx context.Context) GuardHookS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardHookS3LocationOutput)
+}
+
+func (i GuardHookS3LocationArgs) ToGuardHookS3LocationPtrOutput() GuardHookS3LocationPtrOutput {
+	return i.ToGuardHookS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i GuardHookS3LocationArgs) ToGuardHookS3LocationPtrOutputWithContext(ctx context.Context) GuardHookS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardHookS3LocationOutput).ToGuardHookS3LocationPtrOutputWithContext(ctx)
+}
+
+// GuardHookS3LocationPtrInput is an input type that accepts GuardHookS3LocationArgs, GuardHookS3LocationPtr and GuardHookS3LocationPtrOutput values.
+// You can construct a concrete instance of `GuardHookS3LocationPtrInput` via:
+//
+//	        GuardHookS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GuardHookS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToGuardHookS3LocationPtrOutput() GuardHookS3LocationPtrOutput
+	ToGuardHookS3LocationPtrOutputWithContext(context.Context) GuardHookS3LocationPtrOutput
+}
+
+type guardHookS3LocationPtrType GuardHookS3LocationArgs
+
+func GuardHookS3LocationPtr(v *GuardHookS3LocationArgs) GuardHookS3LocationPtrInput {
+	return (*guardHookS3LocationPtrType)(v)
+}
+
+func (*guardHookS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardHookS3Location)(nil)).Elem()
+}
+
+func (i *guardHookS3LocationPtrType) ToGuardHookS3LocationPtrOutput() GuardHookS3LocationPtrOutput {
+	return i.ToGuardHookS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *guardHookS3LocationPtrType) ToGuardHookS3LocationPtrOutputWithContext(ctx context.Context) GuardHookS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GuardHookS3LocationPtrOutput)
+}
+
+// S3 Source Location for the Guard files.
+type GuardHookS3LocationOutput struct{ *pulumi.OutputState }
+
+func (GuardHookS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GuardHookS3Location)(nil)).Elem()
+}
+
+func (o GuardHookS3LocationOutput) ToGuardHookS3LocationOutput() GuardHookS3LocationOutput {
+	return o
+}
+
+func (o GuardHookS3LocationOutput) ToGuardHookS3LocationOutputWithContext(ctx context.Context) GuardHookS3LocationOutput {
+	return o
+}
+
+func (o GuardHookS3LocationOutput) ToGuardHookS3LocationPtrOutput() GuardHookS3LocationPtrOutput {
+	return o.ToGuardHookS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o GuardHookS3LocationOutput) ToGuardHookS3LocationPtrOutputWithContext(ctx context.Context) GuardHookS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GuardHookS3Location) *GuardHookS3Location {
+		return &v
+	}).(GuardHookS3LocationPtrOutput)
+}
+
+// S3 uri of Guard files.
+func (o GuardHookS3LocationOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v GuardHookS3Location) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+// S3 object version
+func (o GuardHookS3LocationOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GuardHookS3Location) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+type GuardHookS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (GuardHookS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GuardHookS3Location)(nil)).Elem()
+}
+
+func (o GuardHookS3LocationPtrOutput) ToGuardHookS3LocationPtrOutput() GuardHookS3LocationPtrOutput {
+	return o
+}
+
+func (o GuardHookS3LocationPtrOutput) ToGuardHookS3LocationPtrOutputWithContext(ctx context.Context) GuardHookS3LocationPtrOutput {
+	return o
+}
+
+func (o GuardHookS3LocationPtrOutput) Elem() GuardHookS3LocationOutput {
+	return o.ApplyT(func(v *GuardHookS3Location) GuardHookS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret GuardHookS3Location
+		return ret
+	}).(GuardHookS3LocationOutput)
+}
+
+// S3 uri of Guard files.
+func (o GuardHookS3LocationPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuardHookS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 object version
+func (o GuardHookS3LocationPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GuardHookS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
 type HookVersionLoggingConfig struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -167,6 +333,115 @@ func (o HookVersionLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutput {
 		}
 		return v.LogRoleArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Hook targets are the destination where hooks will be invoked against.
+type LambdaHookHookTarget struct {
+	Action          LambdaHookAction          `pulumi:"action"`
+	InvocationPoint LambdaHookInvocationPoint `pulumi:"invocationPoint"`
+	TargetName      string                    `pulumi:"targetName"`
+}
+
+// LambdaHookHookTargetInput is an input type that accepts LambdaHookHookTargetArgs and LambdaHookHookTargetOutput values.
+// You can construct a concrete instance of `LambdaHookHookTargetInput` via:
+//
+//	LambdaHookHookTargetArgs{...}
+type LambdaHookHookTargetInput interface {
+	pulumi.Input
+
+	ToLambdaHookHookTargetOutput() LambdaHookHookTargetOutput
+	ToLambdaHookHookTargetOutputWithContext(context.Context) LambdaHookHookTargetOutput
+}
+
+// Hook targets are the destination where hooks will be invoked against.
+type LambdaHookHookTargetArgs struct {
+	Action          LambdaHookActionInput          `pulumi:"action"`
+	InvocationPoint LambdaHookInvocationPointInput `pulumi:"invocationPoint"`
+	TargetName      pulumi.StringInput             `pulumi:"targetName"`
+}
+
+func (LambdaHookHookTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookHookTarget)(nil)).Elem()
+}
+
+func (i LambdaHookHookTargetArgs) ToLambdaHookHookTargetOutput() LambdaHookHookTargetOutput {
+	return i.ToLambdaHookHookTargetOutputWithContext(context.Background())
+}
+
+func (i LambdaHookHookTargetArgs) ToLambdaHookHookTargetOutputWithContext(ctx context.Context) LambdaHookHookTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LambdaHookHookTargetOutput)
+}
+
+// LambdaHookHookTargetArrayInput is an input type that accepts LambdaHookHookTargetArray and LambdaHookHookTargetArrayOutput values.
+// You can construct a concrete instance of `LambdaHookHookTargetArrayInput` via:
+//
+//	LambdaHookHookTargetArray{ LambdaHookHookTargetArgs{...} }
+type LambdaHookHookTargetArrayInput interface {
+	pulumi.Input
+
+	ToLambdaHookHookTargetArrayOutput() LambdaHookHookTargetArrayOutput
+	ToLambdaHookHookTargetArrayOutputWithContext(context.Context) LambdaHookHookTargetArrayOutput
+}
+
+type LambdaHookHookTargetArray []LambdaHookHookTargetInput
+
+func (LambdaHookHookTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LambdaHookHookTarget)(nil)).Elem()
+}
+
+func (i LambdaHookHookTargetArray) ToLambdaHookHookTargetArrayOutput() LambdaHookHookTargetArrayOutput {
+	return i.ToLambdaHookHookTargetArrayOutputWithContext(context.Background())
+}
+
+func (i LambdaHookHookTargetArray) ToLambdaHookHookTargetArrayOutputWithContext(ctx context.Context) LambdaHookHookTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LambdaHookHookTargetArrayOutput)
+}
+
+// Hook targets are the destination where hooks will be invoked against.
+type LambdaHookHookTargetOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookHookTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LambdaHookHookTarget)(nil)).Elem()
+}
+
+func (o LambdaHookHookTargetOutput) ToLambdaHookHookTargetOutput() LambdaHookHookTargetOutput {
+	return o
+}
+
+func (o LambdaHookHookTargetOutput) ToLambdaHookHookTargetOutputWithContext(ctx context.Context) LambdaHookHookTargetOutput {
+	return o
+}
+
+func (o LambdaHookHookTargetOutput) Action() LambdaHookActionOutput {
+	return o.ApplyT(func(v LambdaHookHookTarget) LambdaHookAction { return v.Action }).(LambdaHookActionOutput)
+}
+
+func (o LambdaHookHookTargetOutput) InvocationPoint() LambdaHookInvocationPointOutput {
+	return o.ApplyT(func(v LambdaHookHookTarget) LambdaHookInvocationPoint { return v.InvocationPoint }).(LambdaHookInvocationPointOutput)
+}
+
+func (o LambdaHookHookTargetOutput) TargetName() pulumi.StringOutput {
+	return o.ApplyT(func(v LambdaHookHookTarget) string { return v.TargetName }).(pulumi.StringOutput)
+}
+
+type LambdaHookHookTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (LambdaHookHookTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LambdaHookHookTarget)(nil)).Elem()
+}
+
+func (o LambdaHookHookTargetArrayOutput) ToLambdaHookHookTargetArrayOutput() LambdaHookHookTargetArrayOutput {
+	return o
+}
+
+func (o LambdaHookHookTargetArrayOutput) ToLambdaHookHookTargetArrayOutputWithContext(ctx context.Context) LambdaHookHookTargetArrayOutput {
+	return o
+}
+
+func (o LambdaHookHookTargetArrayOutput) Index(i pulumi.IntInput) LambdaHookHookTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LambdaHookHookTarget {
+		return vs[0].([]LambdaHookHookTarget)[vs[1].(int)]
+	}).(LambdaHookHookTargetOutput)
 }
 
 // Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
@@ -333,6 +608,139 @@ func (o ManagedExecutionPropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type OptionsProperties struct {
+	InputParams *GuardHookS3Location `pulumi:"inputParams"`
+}
+
+// OptionsPropertiesInput is an input type that accepts OptionsPropertiesArgs and OptionsPropertiesOutput values.
+// You can construct a concrete instance of `OptionsPropertiesInput` via:
+//
+//	OptionsPropertiesArgs{...}
+type OptionsPropertiesInput interface {
+	pulumi.Input
+
+	ToOptionsPropertiesOutput() OptionsPropertiesOutput
+	ToOptionsPropertiesOutputWithContext(context.Context) OptionsPropertiesOutput
+}
+
+type OptionsPropertiesArgs struct {
+	InputParams GuardHookS3LocationPtrInput `pulumi:"inputParams"`
+}
+
+func (OptionsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionsProperties)(nil)).Elem()
+}
+
+func (i OptionsPropertiesArgs) ToOptionsPropertiesOutput() OptionsPropertiesOutput {
+	return i.ToOptionsPropertiesOutputWithContext(context.Background())
+}
+
+func (i OptionsPropertiesArgs) ToOptionsPropertiesOutputWithContext(ctx context.Context) OptionsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionsPropertiesOutput)
+}
+
+func (i OptionsPropertiesArgs) ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput {
+	return i.ToOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i OptionsPropertiesArgs) ToOptionsPropertiesPtrOutputWithContext(ctx context.Context) OptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionsPropertiesOutput).ToOptionsPropertiesPtrOutputWithContext(ctx)
+}
+
+// OptionsPropertiesPtrInput is an input type that accepts OptionsPropertiesArgs, OptionsPropertiesPtr and OptionsPropertiesPtrOutput values.
+// You can construct a concrete instance of `OptionsPropertiesPtrInput` via:
+//
+//	        OptionsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type OptionsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput
+	ToOptionsPropertiesPtrOutputWithContext(context.Context) OptionsPropertiesPtrOutput
+}
+
+type optionsPropertiesPtrType OptionsPropertiesArgs
+
+func OptionsPropertiesPtr(v *OptionsPropertiesArgs) OptionsPropertiesPtrInput {
+	return (*optionsPropertiesPtrType)(v)
+}
+
+func (*optionsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptionsProperties)(nil)).Elem()
+}
+
+func (i *optionsPropertiesPtrType) ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput {
+	return i.ToOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *optionsPropertiesPtrType) ToOptionsPropertiesPtrOutputWithContext(ctx context.Context) OptionsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OptionsPropertiesPtrOutput)
+}
+
+type OptionsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (OptionsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OptionsProperties)(nil)).Elem()
+}
+
+func (o OptionsPropertiesOutput) ToOptionsPropertiesOutput() OptionsPropertiesOutput {
+	return o
+}
+
+func (o OptionsPropertiesOutput) ToOptionsPropertiesOutputWithContext(ctx context.Context) OptionsPropertiesOutput {
+	return o
+}
+
+func (o OptionsPropertiesOutput) ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput {
+	return o.ToOptionsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o OptionsPropertiesOutput) ToOptionsPropertiesPtrOutputWithContext(ctx context.Context) OptionsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OptionsProperties) *OptionsProperties {
+		return &v
+	}).(OptionsPropertiesPtrOutput)
+}
+
+func (o OptionsPropertiesOutput) InputParams() GuardHookS3LocationPtrOutput {
+	return o.ApplyT(func(v OptionsProperties) *GuardHookS3Location { return v.InputParams }).(GuardHookS3LocationPtrOutput)
+}
+
+type OptionsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (OptionsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OptionsProperties)(nil)).Elem()
+}
+
+func (o OptionsPropertiesPtrOutput) ToOptionsPropertiesPtrOutput() OptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o OptionsPropertiesPtrOutput) ToOptionsPropertiesPtrOutputWithContext(ctx context.Context) OptionsPropertiesPtrOutput {
+	return o
+}
+
+func (o OptionsPropertiesPtrOutput) Elem() OptionsPropertiesOutput {
+	return o.ApplyT(func(v *OptionsProperties) OptionsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret OptionsProperties
+		return ret
+	}).(OptionsPropertiesOutput)
+}
+
+func (o OptionsPropertiesPtrOutput) InputParams() GuardHookS3LocationPtrOutput {
+	return o.ApplyT(func(v *OptionsProperties) *GuardHookS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.InputParams
+	}).(GuardHookS3LocationPtrOutput)
+}
+
 type ResourceVersionLoggingConfig struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -487,6 +895,504 @@ func (o ResourceVersionLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutp
 		}
 		return v.LogRoleArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Filters to allow hooks to target specific stack attributes
+type StackFiltersProperties struct {
+	// Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+	FilteringCriteria LambdaHookStackFiltersPropertiesFilteringCriteria `pulumi:"filteringCriteria"`
+	// List of stack names as filters
+	StackNames *StackFiltersPropertiesStackNamesProperties `pulumi:"stackNames"`
+	// List of stack roles that are performing the stack operations.
+	StackRoles *StackFiltersPropertiesStackRolesProperties `pulumi:"stackRoles"`
+}
+
+// StackFiltersPropertiesInput is an input type that accepts StackFiltersPropertiesArgs and StackFiltersPropertiesOutput values.
+// You can construct a concrete instance of `StackFiltersPropertiesInput` via:
+//
+//	StackFiltersPropertiesArgs{...}
+type StackFiltersPropertiesInput interface {
+	pulumi.Input
+
+	ToStackFiltersPropertiesOutput() StackFiltersPropertiesOutput
+	ToStackFiltersPropertiesOutputWithContext(context.Context) StackFiltersPropertiesOutput
+}
+
+// Filters to allow hooks to target specific stack attributes
+type StackFiltersPropertiesArgs struct {
+	// Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+	FilteringCriteria LambdaHookStackFiltersPropertiesFilteringCriteriaInput `pulumi:"filteringCriteria"`
+	// List of stack names as filters
+	StackNames StackFiltersPropertiesStackNamesPropertiesPtrInput `pulumi:"stackNames"`
+	// List of stack roles that are performing the stack operations.
+	StackRoles StackFiltersPropertiesStackRolesPropertiesPtrInput `pulumi:"stackRoles"`
+}
+
+func (StackFiltersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackFiltersProperties)(nil)).Elem()
+}
+
+func (i StackFiltersPropertiesArgs) ToStackFiltersPropertiesOutput() StackFiltersPropertiesOutput {
+	return i.ToStackFiltersPropertiesOutputWithContext(context.Background())
+}
+
+func (i StackFiltersPropertiesArgs) ToStackFiltersPropertiesOutputWithContext(ctx context.Context) StackFiltersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesOutput)
+}
+
+func (i StackFiltersPropertiesArgs) ToStackFiltersPropertiesPtrOutput() StackFiltersPropertiesPtrOutput {
+	return i.ToStackFiltersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StackFiltersPropertiesArgs) ToStackFiltersPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesOutput).ToStackFiltersPropertiesPtrOutputWithContext(ctx)
+}
+
+// StackFiltersPropertiesPtrInput is an input type that accepts StackFiltersPropertiesArgs, StackFiltersPropertiesPtr and StackFiltersPropertiesPtrOutput values.
+// You can construct a concrete instance of `StackFiltersPropertiesPtrInput` via:
+//
+//	        StackFiltersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackFiltersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStackFiltersPropertiesPtrOutput() StackFiltersPropertiesPtrOutput
+	ToStackFiltersPropertiesPtrOutputWithContext(context.Context) StackFiltersPropertiesPtrOutput
+}
+
+type stackFiltersPropertiesPtrType StackFiltersPropertiesArgs
+
+func StackFiltersPropertiesPtr(v *StackFiltersPropertiesArgs) StackFiltersPropertiesPtrInput {
+	return (*stackFiltersPropertiesPtrType)(v)
+}
+
+func (*stackFiltersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackFiltersProperties)(nil)).Elem()
+}
+
+func (i *stackFiltersPropertiesPtrType) ToStackFiltersPropertiesPtrOutput() StackFiltersPropertiesPtrOutput {
+	return i.ToStackFiltersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackFiltersPropertiesPtrType) ToStackFiltersPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesPtrOutput)
+}
+
+// Filters to allow hooks to target specific stack attributes
+type StackFiltersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StackFiltersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackFiltersProperties)(nil)).Elem()
+}
+
+func (o StackFiltersPropertiesOutput) ToStackFiltersPropertiesOutput() StackFiltersPropertiesOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesOutput) ToStackFiltersPropertiesOutputWithContext(ctx context.Context) StackFiltersPropertiesOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesOutput) ToStackFiltersPropertiesPtrOutput() StackFiltersPropertiesPtrOutput {
+	return o.ToStackFiltersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StackFiltersPropertiesOutput) ToStackFiltersPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackFiltersProperties) *StackFiltersProperties {
+		return &v
+	}).(StackFiltersPropertiesPtrOutput)
+}
+
+// Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+func (o StackFiltersPropertiesOutput) FilteringCriteria() LambdaHookStackFiltersPropertiesFilteringCriteriaOutput {
+	return o.ApplyT(func(v StackFiltersProperties) LambdaHookStackFiltersPropertiesFilteringCriteria {
+		return v.FilteringCriteria
+	}).(LambdaHookStackFiltersPropertiesFilteringCriteriaOutput)
+}
+
+// List of stack names as filters
+func (o StackFiltersPropertiesOutput) StackNames() StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return o.ApplyT(func(v StackFiltersProperties) *StackFiltersPropertiesStackNamesProperties { return v.StackNames }).(StackFiltersPropertiesStackNamesPropertiesPtrOutput)
+}
+
+// List of stack roles that are performing the stack operations.
+func (o StackFiltersPropertiesOutput) StackRoles() StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return o.ApplyT(func(v StackFiltersProperties) *StackFiltersPropertiesStackRolesProperties { return v.StackRoles }).(StackFiltersPropertiesStackRolesPropertiesPtrOutput)
+}
+
+type StackFiltersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackFiltersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackFiltersProperties)(nil)).Elem()
+}
+
+func (o StackFiltersPropertiesPtrOutput) ToStackFiltersPropertiesPtrOutput() StackFiltersPropertiesPtrOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesPtrOutput) ToStackFiltersPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesPtrOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesPtrOutput) Elem() StackFiltersPropertiesOutput {
+	return o.ApplyT(func(v *StackFiltersProperties) StackFiltersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StackFiltersProperties
+		return ret
+	}).(StackFiltersPropertiesOutput)
+}
+
+// Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+func (o StackFiltersPropertiesPtrOutput) FilteringCriteria() LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput {
+	return o.ApplyT(func(v *StackFiltersProperties) *LambdaHookStackFiltersPropertiesFilteringCriteria {
+		if v == nil {
+			return nil
+		}
+		return &v.FilteringCriteria
+	}).(LambdaHookStackFiltersPropertiesFilteringCriteriaPtrOutput)
+}
+
+// List of stack names as filters
+func (o StackFiltersPropertiesPtrOutput) StackNames() StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return o.ApplyT(func(v *StackFiltersProperties) *StackFiltersPropertiesStackNamesProperties {
+		if v == nil {
+			return nil
+		}
+		return v.StackNames
+	}).(StackFiltersPropertiesStackNamesPropertiesPtrOutput)
+}
+
+// List of stack roles that are performing the stack operations.
+func (o StackFiltersPropertiesPtrOutput) StackRoles() StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return o.ApplyT(func(v *StackFiltersProperties) *StackFiltersPropertiesStackRolesProperties {
+		if v == nil {
+			return nil
+		}
+		return v.StackRoles
+	}).(StackFiltersPropertiesStackRolesPropertiesPtrOutput)
+}
+
+// List of stack names as filters
+type StackFiltersPropertiesStackNamesProperties struct {
+	// List of stack names that the hook is going to be excluded from
+	Exclude []string `pulumi:"exclude"`
+	// List of stack names that the hook is going to target
+	Include []string `pulumi:"include"`
+}
+
+// StackFiltersPropertiesStackNamesPropertiesInput is an input type that accepts StackFiltersPropertiesStackNamesPropertiesArgs and StackFiltersPropertiesStackNamesPropertiesOutput values.
+// You can construct a concrete instance of `StackFiltersPropertiesStackNamesPropertiesInput` via:
+//
+//	StackFiltersPropertiesStackNamesPropertiesArgs{...}
+type StackFiltersPropertiesStackNamesPropertiesInput interface {
+	pulumi.Input
+
+	ToStackFiltersPropertiesStackNamesPropertiesOutput() StackFiltersPropertiesStackNamesPropertiesOutput
+	ToStackFiltersPropertiesStackNamesPropertiesOutputWithContext(context.Context) StackFiltersPropertiesStackNamesPropertiesOutput
+}
+
+// List of stack names as filters
+type StackFiltersPropertiesStackNamesPropertiesArgs struct {
+	// List of stack names that the hook is going to be excluded from
+	Exclude pulumi.StringArrayInput `pulumi:"exclude"`
+	// List of stack names that the hook is going to target
+	Include pulumi.StringArrayInput `pulumi:"include"`
+}
+
+func (StackFiltersPropertiesStackNamesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackFiltersPropertiesStackNamesProperties)(nil)).Elem()
+}
+
+func (i StackFiltersPropertiesStackNamesPropertiesArgs) ToStackFiltersPropertiesStackNamesPropertiesOutput() StackFiltersPropertiesStackNamesPropertiesOutput {
+	return i.ToStackFiltersPropertiesStackNamesPropertiesOutputWithContext(context.Background())
+}
+
+func (i StackFiltersPropertiesStackNamesPropertiesArgs) ToStackFiltersPropertiesStackNamesPropertiesOutputWithContext(ctx context.Context) StackFiltersPropertiesStackNamesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesStackNamesPropertiesOutput)
+}
+
+func (i StackFiltersPropertiesStackNamesPropertiesArgs) ToStackFiltersPropertiesStackNamesPropertiesPtrOutput() StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return i.ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StackFiltersPropertiesStackNamesPropertiesArgs) ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesStackNamesPropertiesOutput).ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(ctx)
+}
+
+// StackFiltersPropertiesStackNamesPropertiesPtrInput is an input type that accepts StackFiltersPropertiesStackNamesPropertiesArgs, StackFiltersPropertiesStackNamesPropertiesPtr and StackFiltersPropertiesStackNamesPropertiesPtrOutput values.
+// You can construct a concrete instance of `StackFiltersPropertiesStackNamesPropertiesPtrInput` via:
+//
+//	        StackFiltersPropertiesStackNamesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackFiltersPropertiesStackNamesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStackFiltersPropertiesStackNamesPropertiesPtrOutput() StackFiltersPropertiesStackNamesPropertiesPtrOutput
+	ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(context.Context) StackFiltersPropertiesStackNamesPropertiesPtrOutput
+}
+
+type stackFiltersPropertiesStackNamesPropertiesPtrType StackFiltersPropertiesStackNamesPropertiesArgs
+
+func StackFiltersPropertiesStackNamesPropertiesPtr(v *StackFiltersPropertiesStackNamesPropertiesArgs) StackFiltersPropertiesStackNamesPropertiesPtrInput {
+	return (*stackFiltersPropertiesStackNamesPropertiesPtrType)(v)
+}
+
+func (*stackFiltersPropertiesStackNamesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackFiltersPropertiesStackNamesProperties)(nil)).Elem()
+}
+
+func (i *stackFiltersPropertiesStackNamesPropertiesPtrType) ToStackFiltersPropertiesStackNamesPropertiesPtrOutput() StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return i.ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackFiltersPropertiesStackNamesPropertiesPtrType) ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesStackNamesPropertiesPtrOutput)
+}
+
+// List of stack names as filters
+type StackFiltersPropertiesStackNamesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StackFiltersPropertiesStackNamesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackFiltersPropertiesStackNamesProperties)(nil)).Elem()
+}
+
+func (o StackFiltersPropertiesStackNamesPropertiesOutput) ToStackFiltersPropertiesStackNamesPropertiesOutput() StackFiltersPropertiesStackNamesPropertiesOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesStackNamesPropertiesOutput) ToStackFiltersPropertiesStackNamesPropertiesOutputWithContext(ctx context.Context) StackFiltersPropertiesStackNamesPropertiesOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesStackNamesPropertiesOutput) ToStackFiltersPropertiesStackNamesPropertiesPtrOutput() StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return o.ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StackFiltersPropertiesStackNamesPropertiesOutput) ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackFiltersPropertiesStackNamesProperties) *StackFiltersPropertiesStackNamesProperties {
+		return &v
+	}).(StackFiltersPropertiesStackNamesPropertiesPtrOutput)
+}
+
+// List of stack names that the hook is going to be excluded from
+func (o StackFiltersPropertiesStackNamesPropertiesOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackFiltersPropertiesStackNamesProperties) []string { return v.Exclude }).(pulumi.StringArrayOutput)
+}
+
+// List of stack names that the hook is going to target
+func (o StackFiltersPropertiesStackNamesPropertiesOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackFiltersPropertiesStackNamesProperties) []string { return v.Include }).(pulumi.StringArrayOutput)
+}
+
+type StackFiltersPropertiesStackNamesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackFiltersPropertiesStackNamesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackFiltersPropertiesStackNamesProperties)(nil)).Elem()
+}
+
+func (o StackFiltersPropertiesStackNamesPropertiesPtrOutput) ToStackFiltersPropertiesStackNamesPropertiesPtrOutput() StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesStackNamesPropertiesPtrOutput) ToStackFiltersPropertiesStackNamesPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesStackNamesPropertiesPtrOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesStackNamesPropertiesPtrOutput) Elem() StackFiltersPropertiesStackNamesPropertiesOutput {
+	return o.ApplyT(func(v *StackFiltersPropertiesStackNamesProperties) StackFiltersPropertiesStackNamesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StackFiltersPropertiesStackNamesProperties
+		return ret
+	}).(StackFiltersPropertiesStackNamesPropertiesOutput)
+}
+
+// List of stack names that the hook is going to be excluded from
+func (o StackFiltersPropertiesStackNamesPropertiesPtrOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackFiltersPropertiesStackNamesProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of stack names that the hook is going to target
+func (o StackFiltersPropertiesStackNamesPropertiesPtrOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackFiltersPropertiesStackNamesProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of stack roles that are performing the stack operations.
+type StackFiltersPropertiesStackRolesProperties struct {
+	// List of stack roles that the hook is going to be excluded from
+	Exclude []string `pulumi:"exclude"`
+	// List of stack roles that the hook is going to target
+	Include []string `pulumi:"include"`
+}
+
+// StackFiltersPropertiesStackRolesPropertiesInput is an input type that accepts StackFiltersPropertiesStackRolesPropertiesArgs and StackFiltersPropertiesStackRolesPropertiesOutput values.
+// You can construct a concrete instance of `StackFiltersPropertiesStackRolesPropertiesInput` via:
+//
+//	StackFiltersPropertiesStackRolesPropertiesArgs{...}
+type StackFiltersPropertiesStackRolesPropertiesInput interface {
+	pulumi.Input
+
+	ToStackFiltersPropertiesStackRolesPropertiesOutput() StackFiltersPropertiesStackRolesPropertiesOutput
+	ToStackFiltersPropertiesStackRolesPropertiesOutputWithContext(context.Context) StackFiltersPropertiesStackRolesPropertiesOutput
+}
+
+// List of stack roles that are performing the stack operations.
+type StackFiltersPropertiesStackRolesPropertiesArgs struct {
+	// List of stack roles that the hook is going to be excluded from
+	Exclude pulumi.StringArrayInput `pulumi:"exclude"`
+	// List of stack roles that the hook is going to target
+	Include pulumi.StringArrayInput `pulumi:"include"`
+}
+
+func (StackFiltersPropertiesStackRolesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackFiltersPropertiesStackRolesProperties)(nil)).Elem()
+}
+
+func (i StackFiltersPropertiesStackRolesPropertiesArgs) ToStackFiltersPropertiesStackRolesPropertiesOutput() StackFiltersPropertiesStackRolesPropertiesOutput {
+	return i.ToStackFiltersPropertiesStackRolesPropertiesOutputWithContext(context.Background())
+}
+
+func (i StackFiltersPropertiesStackRolesPropertiesArgs) ToStackFiltersPropertiesStackRolesPropertiesOutputWithContext(ctx context.Context) StackFiltersPropertiesStackRolesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesStackRolesPropertiesOutput)
+}
+
+func (i StackFiltersPropertiesStackRolesPropertiesArgs) ToStackFiltersPropertiesStackRolesPropertiesPtrOutput() StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return i.ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i StackFiltersPropertiesStackRolesPropertiesArgs) ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesStackRolesPropertiesOutput).ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(ctx)
+}
+
+// StackFiltersPropertiesStackRolesPropertiesPtrInput is an input type that accepts StackFiltersPropertiesStackRolesPropertiesArgs, StackFiltersPropertiesStackRolesPropertiesPtr and StackFiltersPropertiesStackRolesPropertiesPtrOutput values.
+// You can construct a concrete instance of `StackFiltersPropertiesStackRolesPropertiesPtrInput` via:
+//
+//	        StackFiltersPropertiesStackRolesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type StackFiltersPropertiesStackRolesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToStackFiltersPropertiesStackRolesPropertiesPtrOutput() StackFiltersPropertiesStackRolesPropertiesPtrOutput
+	ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(context.Context) StackFiltersPropertiesStackRolesPropertiesPtrOutput
+}
+
+type stackFiltersPropertiesStackRolesPropertiesPtrType StackFiltersPropertiesStackRolesPropertiesArgs
+
+func StackFiltersPropertiesStackRolesPropertiesPtr(v *StackFiltersPropertiesStackRolesPropertiesArgs) StackFiltersPropertiesStackRolesPropertiesPtrInput {
+	return (*stackFiltersPropertiesStackRolesPropertiesPtrType)(v)
+}
+
+func (*stackFiltersPropertiesStackRolesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackFiltersPropertiesStackRolesProperties)(nil)).Elem()
+}
+
+func (i *stackFiltersPropertiesStackRolesPropertiesPtrType) ToStackFiltersPropertiesStackRolesPropertiesPtrOutput() StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return i.ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackFiltersPropertiesStackRolesPropertiesPtrType) ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackFiltersPropertiesStackRolesPropertiesPtrOutput)
+}
+
+// List of stack roles that are performing the stack operations.
+type StackFiltersPropertiesStackRolesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (StackFiltersPropertiesStackRolesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackFiltersPropertiesStackRolesProperties)(nil)).Elem()
+}
+
+func (o StackFiltersPropertiesStackRolesPropertiesOutput) ToStackFiltersPropertiesStackRolesPropertiesOutput() StackFiltersPropertiesStackRolesPropertiesOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesStackRolesPropertiesOutput) ToStackFiltersPropertiesStackRolesPropertiesOutputWithContext(ctx context.Context) StackFiltersPropertiesStackRolesPropertiesOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesStackRolesPropertiesOutput) ToStackFiltersPropertiesStackRolesPropertiesPtrOutput() StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return o.ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o StackFiltersPropertiesStackRolesPropertiesOutput) ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackFiltersPropertiesStackRolesProperties) *StackFiltersPropertiesStackRolesProperties {
+		return &v
+	}).(StackFiltersPropertiesStackRolesPropertiesPtrOutput)
+}
+
+// List of stack roles that the hook is going to be excluded from
+func (o StackFiltersPropertiesStackRolesPropertiesOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackFiltersPropertiesStackRolesProperties) []string { return v.Exclude }).(pulumi.StringArrayOutput)
+}
+
+// List of stack roles that the hook is going to target
+func (o StackFiltersPropertiesStackRolesPropertiesOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackFiltersPropertiesStackRolesProperties) []string { return v.Include }).(pulumi.StringArrayOutput)
+}
+
+type StackFiltersPropertiesStackRolesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackFiltersPropertiesStackRolesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackFiltersPropertiesStackRolesProperties)(nil)).Elem()
+}
+
+func (o StackFiltersPropertiesStackRolesPropertiesPtrOutput) ToStackFiltersPropertiesStackRolesPropertiesPtrOutput() StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesStackRolesPropertiesPtrOutput) ToStackFiltersPropertiesStackRolesPropertiesPtrOutputWithContext(ctx context.Context) StackFiltersPropertiesStackRolesPropertiesPtrOutput {
+	return o
+}
+
+func (o StackFiltersPropertiesStackRolesPropertiesPtrOutput) Elem() StackFiltersPropertiesStackRolesPropertiesOutput {
+	return o.ApplyT(func(v *StackFiltersPropertiesStackRolesProperties) StackFiltersPropertiesStackRolesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret StackFiltersPropertiesStackRolesProperties
+		return ret
+	}).(StackFiltersPropertiesStackRolesPropertiesOutput)
+}
+
+// List of stack roles that the hook is going to be excluded from
+func (o StackFiltersPropertiesStackRolesPropertiesPtrOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackFiltersPropertiesStackRolesProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of stack roles that the hook is going to target
+func (o StackFiltersPropertiesStackRolesPropertiesPtrOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackFiltersPropertiesStackRolesProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(pulumi.StringArrayOutput)
 }
 
 type StackOutputType struct {
@@ -1379,6 +2285,324 @@ type StackTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Attribute to specify which targets should invoke the hook
+type TargetFilters0Properties struct {
+	// List of actions that the hook is going to target
+	Actions []LambdaHookAction `pulumi:"actions"`
+	// List of invocation points that the hook is going to target
+	InvocationPoints []LambdaHookInvocationPoint `pulumi:"invocationPoints"`
+	// List of type names that the hook is going to target
+	TargetNames []string `pulumi:"targetNames"`
+}
+
+// TargetFilters0PropertiesInput is an input type that accepts TargetFilters0PropertiesArgs and TargetFilters0PropertiesOutput values.
+// You can construct a concrete instance of `TargetFilters0PropertiesInput` via:
+//
+//	TargetFilters0PropertiesArgs{...}
+type TargetFilters0PropertiesInput interface {
+	pulumi.Input
+
+	ToTargetFilters0PropertiesOutput() TargetFilters0PropertiesOutput
+	ToTargetFilters0PropertiesOutputWithContext(context.Context) TargetFilters0PropertiesOutput
+}
+
+// Attribute to specify which targets should invoke the hook
+type TargetFilters0PropertiesArgs struct {
+	// List of actions that the hook is going to target
+	Actions LambdaHookActionArrayInput `pulumi:"actions"`
+	// List of invocation points that the hook is going to target
+	InvocationPoints LambdaHookInvocationPointArrayInput `pulumi:"invocationPoints"`
+	// List of type names that the hook is going to target
+	TargetNames pulumi.StringArrayInput `pulumi:"targetNames"`
+}
+
+func (TargetFilters0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetFilters0Properties)(nil)).Elem()
+}
+
+func (i TargetFilters0PropertiesArgs) ToTargetFilters0PropertiesOutput() TargetFilters0PropertiesOutput {
+	return i.ToTargetFilters0PropertiesOutputWithContext(context.Background())
+}
+
+func (i TargetFilters0PropertiesArgs) ToTargetFilters0PropertiesOutputWithContext(ctx context.Context) TargetFilters0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetFilters0PropertiesOutput)
+}
+
+func (i TargetFilters0PropertiesArgs) ToTargetFilters0PropertiesPtrOutput() TargetFilters0PropertiesPtrOutput {
+	return i.ToTargetFilters0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TargetFilters0PropertiesArgs) ToTargetFilters0PropertiesPtrOutputWithContext(ctx context.Context) TargetFilters0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetFilters0PropertiesOutput).ToTargetFilters0PropertiesPtrOutputWithContext(ctx)
+}
+
+// TargetFilters0PropertiesPtrInput is an input type that accepts TargetFilters0PropertiesArgs, TargetFilters0PropertiesPtr and TargetFilters0PropertiesPtrOutput values.
+// You can construct a concrete instance of `TargetFilters0PropertiesPtrInput` via:
+//
+//	        TargetFilters0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetFilters0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTargetFilters0PropertiesPtrOutput() TargetFilters0PropertiesPtrOutput
+	ToTargetFilters0PropertiesPtrOutputWithContext(context.Context) TargetFilters0PropertiesPtrOutput
+}
+
+type targetFilters0PropertiesPtrType TargetFilters0PropertiesArgs
+
+func TargetFilters0PropertiesPtr(v *TargetFilters0PropertiesArgs) TargetFilters0PropertiesPtrInput {
+	return (*targetFilters0PropertiesPtrType)(v)
+}
+
+func (*targetFilters0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetFilters0Properties)(nil)).Elem()
+}
+
+func (i *targetFilters0PropertiesPtrType) ToTargetFilters0PropertiesPtrOutput() TargetFilters0PropertiesPtrOutput {
+	return i.ToTargetFilters0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *targetFilters0PropertiesPtrType) ToTargetFilters0PropertiesPtrOutputWithContext(ctx context.Context) TargetFilters0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetFilters0PropertiesPtrOutput)
+}
+
+// Attribute to specify which targets should invoke the hook
+type TargetFilters0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (TargetFilters0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetFilters0Properties)(nil)).Elem()
+}
+
+func (o TargetFilters0PropertiesOutput) ToTargetFilters0PropertiesOutput() TargetFilters0PropertiesOutput {
+	return o
+}
+
+func (o TargetFilters0PropertiesOutput) ToTargetFilters0PropertiesOutputWithContext(ctx context.Context) TargetFilters0PropertiesOutput {
+	return o
+}
+
+func (o TargetFilters0PropertiesOutput) ToTargetFilters0PropertiesPtrOutput() TargetFilters0PropertiesPtrOutput {
+	return o.ToTargetFilters0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TargetFilters0PropertiesOutput) ToTargetFilters0PropertiesPtrOutputWithContext(ctx context.Context) TargetFilters0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetFilters0Properties) *TargetFilters0Properties {
+		return &v
+	}).(TargetFilters0PropertiesPtrOutput)
+}
+
+// List of actions that the hook is going to target
+func (o TargetFilters0PropertiesOutput) Actions() LambdaHookActionArrayOutput {
+	return o.ApplyT(func(v TargetFilters0Properties) []LambdaHookAction { return v.Actions }).(LambdaHookActionArrayOutput)
+}
+
+// List of invocation points that the hook is going to target
+func (o TargetFilters0PropertiesOutput) InvocationPoints() LambdaHookInvocationPointArrayOutput {
+	return o.ApplyT(func(v TargetFilters0Properties) []LambdaHookInvocationPoint { return v.InvocationPoints }).(LambdaHookInvocationPointArrayOutput)
+}
+
+// List of type names that the hook is going to target
+func (o TargetFilters0PropertiesOutput) TargetNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TargetFilters0Properties) []string { return v.TargetNames }).(pulumi.StringArrayOutput)
+}
+
+type TargetFilters0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetFilters0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetFilters0Properties)(nil)).Elem()
+}
+
+func (o TargetFilters0PropertiesPtrOutput) ToTargetFilters0PropertiesPtrOutput() TargetFilters0PropertiesPtrOutput {
+	return o
+}
+
+func (o TargetFilters0PropertiesPtrOutput) ToTargetFilters0PropertiesPtrOutputWithContext(ctx context.Context) TargetFilters0PropertiesPtrOutput {
+	return o
+}
+
+func (o TargetFilters0PropertiesPtrOutput) Elem() TargetFilters0PropertiesOutput {
+	return o.ApplyT(func(v *TargetFilters0Properties) TargetFilters0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret TargetFilters0Properties
+		return ret
+	}).(TargetFilters0PropertiesOutput)
+}
+
+// List of actions that the hook is going to target
+func (o TargetFilters0PropertiesPtrOutput) Actions() LambdaHookActionArrayOutput {
+	return o.ApplyT(func(v *TargetFilters0Properties) []LambdaHookAction {
+		if v == nil {
+			return nil
+		}
+		return v.Actions
+	}).(LambdaHookActionArrayOutput)
+}
+
+// List of invocation points that the hook is going to target
+func (o TargetFilters0PropertiesPtrOutput) InvocationPoints() LambdaHookInvocationPointArrayOutput {
+	return o.ApplyT(func(v *TargetFilters0Properties) []LambdaHookInvocationPoint {
+		if v == nil {
+			return nil
+		}
+		return v.InvocationPoints
+	}).(LambdaHookInvocationPointArrayOutput)
+}
+
+// List of type names that the hook is going to target
+func (o TargetFilters0PropertiesPtrOutput) TargetNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TargetFilters0Properties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Attribute to specify which targets should invoke the hook
+type TargetFilters1Properties struct {
+	// List of hook targets
+	Targets []LambdaHookHookTarget `pulumi:"targets"`
+}
+
+// TargetFilters1PropertiesInput is an input type that accepts TargetFilters1PropertiesArgs and TargetFilters1PropertiesOutput values.
+// You can construct a concrete instance of `TargetFilters1PropertiesInput` via:
+//
+//	TargetFilters1PropertiesArgs{...}
+type TargetFilters1PropertiesInput interface {
+	pulumi.Input
+
+	ToTargetFilters1PropertiesOutput() TargetFilters1PropertiesOutput
+	ToTargetFilters1PropertiesOutputWithContext(context.Context) TargetFilters1PropertiesOutput
+}
+
+// Attribute to specify which targets should invoke the hook
+type TargetFilters1PropertiesArgs struct {
+	// List of hook targets
+	Targets LambdaHookHookTargetArrayInput `pulumi:"targets"`
+}
+
+func (TargetFilters1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetFilters1Properties)(nil)).Elem()
+}
+
+func (i TargetFilters1PropertiesArgs) ToTargetFilters1PropertiesOutput() TargetFilters1PropertiesOutput {
+	return i.ToTargetFilters1PropertiesOutputWithContext(context.Background())
+}
+
+func (i TargetFilters1PropertiesArgs) ToTargetFilters1PropertiesOutputWithContext(ctx context.Context) TargetFilters1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetFilters1PropertiesOutput)
+}
+
+func (i TargetFilters1PropertiesArgs) ToTargetFilters1PropertiesPtrOutput() TargetFilters1PropertiesPtrOutput {
+	return i.ToTargetFilters1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TargetFilters1PropertiesArgs) ToTargetFilters1PropertiesPtrOutputWithContext(ctx context.Context) TargetFilters1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetFilters1PropertiesOutput).ToTargetFilters1PropertiesPtrOutputWithContext(ctx)
+}
+
+// TargetFilters1PropertiesPtrInput is an input type that accepts TargetFilters1PropertiesArgs, TargetFilters1PropertiesPtr and TargetFilters1PropertiesPtrOutput values.
+// You can construct a concrete instance of `TargetFilters1PropertiesPtrInput` via:
+//
+//	        TargetFilters1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TargetFilters1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTargetFilters1PropertiesPtrOutput() TargetFilters1PropertiesPtrOutput
+	ToTargetFilters1PropertiesPtrOutputWithContext(context.Context) TargetFilters1PropertiesPtrOutput
+}
+
+type targetFilters1PropertiesPtrType TargetFilters1PropertiesArgs
+
+func TargetFilters1PropertiesPtr(v *TargetFilters1PropertiesArgs) TargetFilters1PropertiesPtrInput {
+	return (*targetFilters1PropertiesPtrType)(v)
+}
+
+func (*targetFilters1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetFilters1Properties)(nil)).Elem()
+}
+
+func (i *targetFilters1PropertiesPtrType) ToTargetFilters1PropertiesPtrOutput() TargetFilters1PropertiesPtrOutput {
+	return i.ToTargetFilters1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *targetFilters1PropertiesPtrType) ToTargetFilters1PropertiesPtrOutputWithContext(ctx context.Context) TargetFilters1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TargetFilters1PropertiesPtrOutput)
+}
+
+// Attribute to specify which targets should invoke the hook
+type TargetFilters1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (TargetFilters1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TargetFilters1Properties)(nil)).Elem()
+}
+
+func (o TargetFilters1PropertiesOutput) ToTargetFilters1PropertiesOutput() TargetFilters1PropertiesOutput {
+	return o
+}
+
+func (o TargetFilters1PropertiesOutput) ToTargetFilters1PropertiesOutputWithContext(ctx context.Context) TargetFilters1PropertiesOutput {
+	return o
+}
+
+func (o TargetFilters1PropertiesOutput) ToTargetFilters1PropertiesPtrOutput() TargetFilters1PropertiesPtrOutput {
+	return o.ToTargetFilters1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TargetFilters1PropertiesOutput) ToTargetFilters1PropertiesPtrOutputWithContext(ctx context.Context) TargetFilters1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TargetFilters1Properties) *TargetFilters1Properties {
+		return &v
+	}).(TargetFilters1PropertiesPtrOutput)
+}
+
+// List of hook targets
+func (o TargetFilters1PropertiesOutput) Targets() LambdaHookHookTargetArrayOutput {
+	return o.ApplyT(func(v TargetFilters1Properties) []LambdaHookHookTarget { return v.Targets }).(LambdaHookHookTargetArrayOutput)
+}
+
+type TargetFilters1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TargetFilters1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TargetFilters1Properties)(nil)).Elem()
+}
+
+func (o TargetFilters1PropertiesPtrOutput) ToTargetFilters1PropertiesPtrOutput() TargetFilters1PropertiesPtrOutput {
+	return o
+}
+
+func (o TargetFilters1PropertiesPtrOutput) ToTargetFilters1PropertiesPtrOutputWithContext(ctx context.Context) TargetFilters1PropertiesPtrOutput {
+	return o
+}
+
+func (o TargetFilters1PropertiesPtrOutput) Elem() TargetFilters1PropertiesOutput {
+	return o.ApplyT(func(v *TargetFilters1Properties) TargetFilters1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret TargetFilters1Properties
+		return ret
+	}).(TargetFilters1PropertiesOutput)
+}
+
+// List of hook targets
+func (o TargetFilters1PropertiesPtrOutput) Targets() LambdaHookHookTargetArrayOutput {
+	return o.ApplyT(func(v *TargetFilters1Properties) []LambdaHookHookTarget {
+		if v == nil {
+			return nil
+		}
+		return v.Targets
+	}).(LambdaHookHookTargetArrayOutput)
+}
+
 type TypeActivationLoggingConfig struct {
 	// The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -1536,12 +2760,24 @@ func (o TypeActivationLoggingConfigPtrOutput) LogRoleArn() pulumi.StringPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookS3LocationInput)(nil)).Elem(), GuardHookS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GuardHookS3LocationPtrInput)(nil)).Elem(), GuardHookS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HookVersionLoggingConfigInput)(nil)).Elem(), HookVersionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HookVersionLoggingConfigPtrInput)(nil)).Elem(), HookVersionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookHookTargetInput)(nil)).Elem(), LambdaHookHookTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LambdaHookHookTargetArrayInput)(nil)).Elem(), LambdaHookHookTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedExecutionPropertiesInput)(nil)).Elem(), ManagedExecutionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedExecutionPropertiesPtrInput)(nil)).Elem(), ManagedExecutionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptionsPropertiesInput)(nil)).Elem(), OptionsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptionsPropertiesPtrInput)(nil)).Elem(), OptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionLoggingConfigInput)(nil)).Elem(), ResourceVersionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceVersionLoggingConfigPtrInput)(nil)).Elem(), ResourceVersionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackFiltersPropertiesInput)(nil)).Elem(), StackFiltersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackFiltersPropertiesPtrInput)(nil)).Elem(), StackFiltersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackFiltersPropertiesStackNamesPropertiesInput)(nil)).Elem(), StackFiltersPropertiesStackNamesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackFiltersPropertiesStackNamesPropertiesPtrInput)(nil)).Elem(), StackFiltersPropertiesStackNamesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackFiltersPropertiesStackRolesPropertiesInput)(nil)).Elem(), StackFiltersPropertiesStackRolesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackFiltersPropertiesStackRolesPropertiesPtrInput)(nil)).Elem(), StackFiltersPropertiesStackRolesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentPtrInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetDeploymentTargetsInput)(nil)).Elem(), StackSetDeploymentTargetsArgs{})
@@ -1551,14 +2787,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetParameterArrayInput)(nil)).Elem(), StackSetParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetStackInstancesInput)(nil)).Elem(), StackSetStackInstancesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetStackInstancesArrayInput)(nil)).Elem(), StackSetStackInstancesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetFilters0PropertiesInput)(nil)).Elem(), TargetFilters0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetFilters0PropertiesPtrInput)(nil)).Elem(), TargetFilters0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetFilters1PropertiesInput)(nil)).Elem(), TargetFilters1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetFilters1PropertiesPtrInput)(nil)).Elem(), TargetFilters1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationLoggingConfigPtrInput)(nil)).Elem(), TypeActivationLoggingConfigArgs{})
+	pulumi.RegisterOutputType(GuardHookS3LocationOutput{})
+	pulumi.RegisterOutputType(GuardHookS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(HookVersionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(HookVersionLoggingConfigPtrOutput{})
+	pulumi.RegisterOutputType(LambdaHookHookTargetOutput{})
+	pulumi.RegisterOutputType(LambdaHookHookTargetArrayOutput{})
 	pulumi.RegisterOutputType(ManagedExecutionPropertiesOutput{})
 	pulumi.RegisterOutputType(ManagedExecutionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(OptionsPropertiesOutput{})
+	pulumi.RegisterOutputType(OptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(ResourceVersionLoggingConfigPtrOutput{})
+	pulumi.RegisterOutputType(StackFiltersPropertiesOutput{})
+	pulumi.RegisterOutputType(StackFiltersPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StackFiltersPropertiesStackNamesPropertiesOutput{})
+	pulumi.RegisterOutputType(StackFiltersPropertiesStackNamesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(StackFiltersPropertiesStackRolesPropertiesOutput{})
+	pulumi.RegisterOutputType(StackFiltersPropertiesStackRolesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StackOutputTypeOutput{})
 	pulumi.RegisterOutputType(StackOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})
@@ -1570,6 +2822,10 @@ func init() {
 	pulumi.RegisterOutputType(StackSetParameterArrayOutput{})
 	pulumi.RegisterOutputType(StackSetStackInstancesOutput{})
 	pulumi.RegisterOutputType(StackSetStackInstancesArrayOutput{})
+	pulumi.RegisterOutputType(TargetFilters0PropertiesOutput{})
+	pulumi.RegisterOutputType(TargetFilters0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(TargetFilters1PropertiesOutput{})
+	pulumi.RegisterOutputType(TargetFilters1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TypeActivationLoggingConfigOutput{})
 	pulumi.RegisterOutputType(TypeActivationLoggingConfigPtrOutput{})
 }

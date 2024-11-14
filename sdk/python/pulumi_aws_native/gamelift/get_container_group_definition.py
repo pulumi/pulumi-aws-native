@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetContainerGroupDefinitionResult:
-    def __init__(__self__, container_group_definition_arn=None, creation_time=None, operating_system=None, source_version_number=None, status=None, status_reason=None, support_container_definitions=None, tags=None):
+    def __init__(__self__, container_group_definition_arn=None, creation_time=None, game_server_container_definition=None, operating_system=None, source_version_number=None, status=None, status_reason=None, support_container_definitions=None, tags=None, total_memory_limit_mebibytes=None, total_vcpu_limit=None, version_description=None, version_number=None):
         if container_group_definition_arn and not isinstance(container_group_definition_arn, str):
             raise TypeError("Expected argument 'container_group_definition_arn' to be a str")
         pulumi.set(__self__, "container_group_definition_arn", container_group_definition_arn)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
+        if game_server_container_definition and not isinstance(game_server_container_definition, dict):
+            raise TypeError("Expected argument 'game_server_container_definition' to be a dict")
+        pulumi.set(__self__, "game_server_container_definition", game_server_container_definition)
         if operating_system and not isinstance(operating_system, str):
             raise TypeError("Expected argument 'operating_system' to be a str")
         pulumi.set(__self__, "operating_system", operating_system)
@@ -50,6 +54,18 @@ class GetContainerGroupDefinitionResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if total_memory_limit_mebibytes and not isinstance(total_memory_limit_mebibytes, int):
+            raise TypeError("Expected argument 'total_memory_limit_mebibytes' to be a int")
+        pulumi.set(__self__, "total_memory_limit_mebibytes", total_memory_limit_mebibytes)
+        if total_vcpu_limit and not isinstance(total_vcpu_limit, float):
+            raise TypeError("Expected argument 'total_vcpu_limit' to be a float")
+        pulumi.set(__self__, "total_vcpu_limit", total_vcpu_limit)
+        if version_description and not isinstance(version_description, str):
+            raise TypeError("Expected argument 'version_description' to be a str")
+        pulumi.set(__self__, "version_description", version_description)
+        if version_number and not isinstance(version_number, int):
+            raise TypeError("Expected argument 'version_number' to be a int")
+        pulumi.set(__self__, "version_number", version_number)
 
     @property
     @pulumi.getter(name="containerGroupDefinitionArn")
@@ -66,6 +82,11 @@ class GetContainerGroupDefinitionResult:
         A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
         """
         return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter(name="gameServerContainerDefinition")
+    def game_server_container_definition(self) -> Optional['outputs.ContainerGroupDefinitionGameServerContainerDefinition']:
+        return pulumi.get(self, "game_server_container_definition")
 
     @property
     @pulumi.getter(name="operatingSystem")
@@ -101,7 +122,7 @@ class GetContainerGroupDefinitionResult:
 
     @property
     @pulumi.getter(name="supportContainerDefinitions")
-    def support_container_definitions(self) -> Optional[Sequence[Any]]:
+    def support_container_definitions(self) -> Optional[Sequence['outputs.ContainerGroupDefinitionSupportContainerDefinition']]:
         """
         A collection of support container definitions that define the containers in this group.
         """
@@ -115,6 +136,38 @@ class GetContainerGroupDefinitionResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="totalMemoryLimitMebibytes")
+    def total_memory_limit_mebibytes(self) -> Optional[int]:
+        """
+        The total memory limit of container groups following this definition in MiB
+        """
+        return pulumi.get(self, "total_memory_limit_mebibytes")
+
+    @property
+    @pulumi.getter(name="totalVcpuLimit")
+    def total_vcpu_limit(self) -> Optional[float]:
+        """
+        The total amount of virtual CPUs on the container group definition
+        """
+        return pulumi.get(self, "total_vcpu_limit")
+
+    @property
+    @pulumi.getter(name="versionDescription")
+    def version_description(self) -> Optional[str]:
+        """
+        The description of this version
+        """
+        return pulumi.get(self, "version_description")
+
+    @property
+    @pulumi.getter(name="versionNumber")
+    def version_number(self) -> Optional[int]:
+        """
+        The version of this ContainerGroupDefinition
+        """
+        return pulumi.get(self, "version_number")
+
 
 class AwaitableGetContainerGroupDefinitionResult(GetContainerGroupDefinitionResult):
     # pylint: disable=using-constant-test
@@ -124,12 +177,17 @@ class AwaitableGetContainerGroupDefinitionResult(GetContainerGroupDefinitionResu
         return GetContainerGroupDefinitionResult(
             container_group_definition_arn=self.container_group_definition_arn,
             creation_time=self.creation_time,
+            game_server_container_definition=self.game_server_container_definition,
             operating_system=self.operating_system,
             source_version_number=self.source_version_number,
             status=self.status,
             status_reason=self.status_reason,
             support_container_definitions=self.support_container_definitions,
-            tags=self.tags)
+            tags=self.tags,
+            total_memory_limit_mebibytes=self.total_memory_limit_mebibytes,
+            total_vcpu_limit=self.total_vcpu_limit,
+            version_description=self.version_description,
+            version_number=self.version_number)
 
 
 def get_container_group_definition(name: Optional[str] = None,
@@ -148,12 +206,17 @@ def get_container_group_definition(name: Optional[str] = None,
     return AwaitableGetContainerGroupDefinitionResult(
         container_group_definition_arn=pulumi.get(__ret__, 'container_group_definition_arn'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
+        game_server_container_definition=pulumi.get(__ret__, 'game_server_container_definition'),
         operating_system=pulumi.get(__ret__, 'operating_system'),
         source_version_number=pulumi.get(__ret__, 'source_version_number'),
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'),
         support_container_definitions=pulumi.get(__ret__, 'support_container_definitions'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        total_memory_limit_mebibytes=pulumi.get(__ret__, 'total_memory_limit_mebibytes'),
+        total_vcpu_limit=pulumi.get(__ret__, 'total_vcpu_limit'),
+        version_description=pulumi.get(__ret__, 'version_description'),
+        version_number=pulumi.get(__ret__, 'version_number'))
 def get_container_group_definition_output(name: Optional[pulumi.Input[str]] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerGroupDefinitionResult]:
     """
@@ -169,9 +232,14 @@ def get_container_group_definition_output(name: Optional[pulumi.Input[str]] = No
     return __ret__.apply(lambda __response__: GetContainerGroupDefinitionResult(
         container_group_definition_arn=pulumi.get(__response__, 'container_group_definition_arn'),
         creation_time=pulumi.get(__response__, 'creation_time'),
+        game_server_container_definition=pulumi.get(__response__, 'game_server_container_definition'),
         operating_system=pulumi.get(__response__, 'operating_system'),
         source_version_number=pulumi.get(__response__, 'source_version_number'),
         status=pulumi.get(__response__, 'status'),
         status_reason=pulumi.get(__response__, 'status_reason'),
         support_container_definitions=pulumi.get(__response__, 'support_container_definitions'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        total_memory_limit_mebibytes=pulumi.get(__response__, 'total_memory_limit_mebibytes'),
+        total_vcpu_limit=pulumi.get(__response__, 'total_vcpu_limit'),
+        version_description=pulumi.get(__response__, 'version_description'),
+        version_number=pulumi.get(__response__, 'version_number')))

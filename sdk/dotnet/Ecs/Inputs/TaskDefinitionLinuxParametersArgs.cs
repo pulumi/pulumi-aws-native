@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<Inputs.TaskDefinitionDeviceArgs>? _devices;
 
         /// <summary>
-        /// Any host devices to expose to the container. This parameter maps to ``Devices`` in tthe docker container create command and the ``--device`` option to docker run.
+        /// Any host devices to expose to the container. This parameter maps to ``Devices`` in the docker container create command and the ``--device`` option to docker run.
         ///   If you're using tasks that use the Fargate launch type, the ``devices`` parameter isn't supported.
         /// </summary>
         public InputList<Inputs.TaskDefinitionDeviceArgs> Devices

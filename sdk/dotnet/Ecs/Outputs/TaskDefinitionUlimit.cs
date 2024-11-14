@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     public sealed class TaskDefinitionUlimit
     {
         /// <summary>
-        /// The hard limit for the ``ulimit`` type.
+        /// The hard limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
         /// </summary>
         public readonly int HardLimit;
         /// <summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The soft limit for the ``ulimit`` type.
+        /// The soft limit for the ``ulimit`` type. The value can be specified in bytes, seconds, or as a count, depending on the ``type`` of the ``ulimit``.
         /// </summary>
         public readonly int SoftLimit;
 

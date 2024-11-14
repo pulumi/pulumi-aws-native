@@ -331,6 +331,2766 @@ func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+type ContainerFleetConnectionPortRange struct {
+	// A starting value for a range of allowed port numbers.
+	FromPort int `pulumi:"fromPort"`
+	// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+	ToPort int `pulumi:"toPort"`
+}
+
+// ContainerFleetConnectionPortRangeInput is an input type that accepts ContainerFleetConnectionPortRangeArgs and ContainerFleetConnectionPortRangeOutput values.
+// You can construct a concrete instance of `ContainerFleetConnectionPortRangeInput` via:
+//
+//	ContainerFleetConnectionPortRangeArgs{...}
+type ContainerFleetConnectionPortRangeInput interface {
+	pulumi.Input
+
+	ToContainerFleetConnectionPortRangeOutput() ContainerFleetConnectionPortRangeOutput
+	ToContainerFleetConnectionPortRangeOutputWithContext(context.Context) ContainerFleetConnectionPortRangeOutput
+}
+
+// Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+type ContainerFleetConnectionPortRangeArgs struct {
+	// A starting value for a range of allowed port numbers.
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (ContainerFleetConnectionPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetConnectionPortRange)(nil)).Elem()
+}
+
+func (i ContainerFleetConnectionPortRangeArgs) ToContainerFleetConnectionPortRangeOutput() ContainerFleetConnectionPortRangeOutput {
+	return i.ToContainerFleetConnectionPortRangeOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetConnectionPortRangeArgs) ToContainerFleetConnectionPortRangeOutputWithContext(ctx context.Context) ContainerFleetConnectionPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetConnectionPortRangeOutput)
+}
+
+func (i ContainerFleetConnectionPortRangeArgs) ToContainerFleetConnectionPortRangePtrOutput() ContainerFleetConnectionPortRangePtrOutput {
+	return i.ToContainerFleetConnectionPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetConnectionPortRangeArgs) ToContainerFleetConnectionPortRangePtrOutputWithContext(ctx context.Context) ContainerFleetConnectionPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetConnectionPortRangeOutput).ToContainerFleetConnectionPortRangePtrOutputWithContext(ctx)
+}
+
+// ContainerFleetConnectionPortRangePtrInput is an input type that accepts ContainerFleetConnectionPortRangeArgs, ContainerFleetConnectionPortRangePtr and ContainerFleetConnectionPortRangePtrOutput values.
+// You can construct a concrete instance of `ContainerFleetConnectionPortRangePtrInput` via:
+//
+//	        ContainerFleetConnectionPortRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerFleetConnectionPortRangePtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetConnectionPortRangePtrOutput() ContainerFleetConnectionPortRangePtrOutput
+	ToContainerFleetConnectionPortRangePtrOutputWithContext(context.Context) ContainerFleetConnectionPortRangePtrOutput
+}
+
+type containerFleetConnectionPortRangePtrType ContainerFleetConnectionPortRangeArgs
+
+func ContainerFleetConnectionPortRangePtr(v *ContainerFleetConnectionPortRangeArgs) ContainerFleetConnectionPortRangePtrInput {
+	return (*containerFleetConnectionPortRangePtrType)(v)
+}
+
+func (*containerFleetConnectionPortRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetConnectionPortRange)(nil)).Elem()
+}
+
+func (i *containerFleetConnectionPortRangePtrType) ToContainerFleetConnectionPortRangePtrOutput() ContainerFleetConnectionPortRangePtrOutput {
+	return i.ToContainerFleetConnectionPortRangePtrOutputWithContext(context.Background())
+}
+
+func (i *containerFleetConnectionPortRangePtrType) ToContainerFleetConnectionPortRangePtrOutputWithContext(ctx context.Context) ContainerFleetConnectionPortRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetConnectionPortRangePtrOutput)
+}
+
+// Defines the range of ports on the instance that allow inbound traffic to connect with containers in a fleet.
+type ContainerFleetConnectionPortRangeOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetConnectionPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetConnectionPortRange)(nil)).Elem()
+}
+
+func (o ContainerFleetConnectionPortRangeOutput) ToContainerFleetConnectionPortRangeOutput() ContainerFleetConnectionPortRangeOutput {
+	return o
+}
+
+func (o ContainerFleetConnectionPortRangeOutput) ToContainerFleetConnectionPortRangeOutputWithContext(ctx context.Context) ContainerFleetConnectionPortRangeOutput {
+	return o
+}
+
+func (o ContainerFleetConnectionPortRangeOutput) ToContainerFleetConnectionPortRangePtrOutput() ContainerFleetConnectionPortRangePtrOutput {
+	return o.ToContainerFleetConnectionPortRangePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetConnectionPortRangeOutput) ToContainerFleetConnectionPortRangePtrOutputWithContext(ctx context.Context) ContainerFleetConnectionPortRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetConnectionPortRange) *ContainerFleetConnectionPortRange {
+		return &v
+	}).(ContainerFleetConnectionPortRangePtrOutput)
+}
+
+// A starting value for a range of allowed port numbers.
+func (o ContainerFleetConnectionPortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerFleetConnectionPortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+func (o ContainerFleetConnectionPortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerFleetConnectionPortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type ContainerFleetConnectionPortRangePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetConnectionPortRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetConnectionPortRange)(nil)).Elem()
+}
+
+func (o ContainerFleetConnectionPortRangePtrOutput) ToContainerFleetConnectionPortRangePtrOutput() ContainerFleetConnectionPortRangePtrOutput {
+	return o
+}
+
+func (o ContainerFleetConnectionPortRangePtrOutput) ToContainerFleetConnectionPortRangePtrOutputWithContext(ctx context.Context) ContainerFleetConnectionPortRangePtrOutput {
+	return o
+}
+
+func (o ContainerFleetConnectionPortRangePtrOutput) Elem() ContainerFleetConnectionPortRangeOutput {
+	return o.ApplyT(func(v *ContainerFleetConnectionPortRange) ContainerFleetConnectionPortRange {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetConnectionPortRange
+		return ret
+	}).(ContainerFleetConnectionPortRangeOutput)
+}
+
+// A starting value for a range of allowed port numbers.
+func (o ContainerFleetConnectionPortRangePtrOutput) FromPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetConnectionPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.FromPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+func (o ContainerFleetConnectionPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetConnectionPortRange) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ToPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// Provides details about how to drain old tasks and replace them with new updated tasks.
+type ContainerFleetDeploymentConfiguration struct {
+	// The strategy to apply in case of impairment; defaults to MAINTAIN.
+	ImpairmentStrategy *ContainerFleetDeploymentConfigurationImpairmentStrategy `pulumi:"impairmentStrategy"`
+	// The minimum percentage of healthy required; defaults to 75.
+	MinimumHealthyPercentage *int `pulumi:"minimumHealthyPercentage"`
+	// The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+	ProtectionStrategy *ContainerFleetDeploymentConfigurationProtectionStrategy `pulumi:"protectionStrategy"`
+}
+
+// ContainerFleetDeploymentConfigurationInput is an input type that accepts ContainerFleetDeploymentConfigurationArgs and ContainerFleetDeploymentConfigurationOutput values.
+// You can construct a concrete instance of `ContainerFleetDeploymentConfigurationInput` via:
+//
+//	ContainerFleetDeploymentConfigurationArgs{...}
+type ContainerFleetDeploymentConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerFleetDeploymentConfigurationOutput() ContainerFleetDeploymentConfigurationOutput
+	ToContainerFleetDeploymentConfigurationOutputWithContext(context.Context) ContainerFleetDeploymentConfigurationOutput
+}
+
+// Provides details about how to drain old tasks and replace them with new updated tasks.
+type ContainerFleetDeploymentConfigurationArgs struct {
+	// The strategy to apply in case of impairment; defaults to MAINTAIN.
+	ImpairmentStrategy ContainerFleetDeploymentConfigurationImpairmentStrategyPtrInput `pulumi:"impairmentStrategy"`
+	// The minimum percentage of healthy required; defaults to 75.
+	MinimumHealthyPercentage pulumi.IntPtrInput `pulumi:"minimumHealthyPercentage"`
+	// The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+	ProtectionStrategy ContainerFleetDeploymentConfigurationProtectionStrategyPtrInput `pulumi:"protectionStrategy"`
+}
+
+func (ContainerFleetDeploymentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i ContainerFleetDeploymentConfigurationArgs) ToContainerFleetDeploymentConfigurationOutput() ContainerFleetDeploymentConfigurationOutput {
+	return i.ToContainerFleetDeploymentConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetDeploymentConfigurationArgs) ToContainerFleetDeploymentConfigurationOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetDeploymentConfigurationOutput)
+}
+
+func (i ContainerFleetDeploymentConfigurationArgs) ToContainerFleetDeploymentConfigurationPtrOutput() ContainerFleetDeploymentConfigurationPtrOutput {
+	return i.ToContainerFleetDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetDeploymentConfigurationArgs) ToContainerFleetDeploymentConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetDeploymentConfigurationOutput).ToContainerFleetDeploymentConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContainerFleetDeploymentConfigurationPtrInput is an input type that accepts ContainerFleetDeploymentConfigurationArgs, ContainerFleetDeploymentConfigurationPtr and ContainerFleetDeploymentConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContainerFleetDeploymentConfigurationPtrInput` via:
+//
+//	        ContainerFleetDeploymentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerFleetDeploymentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetDeploymentConfigurationPtrOutput() ContainerFleetDeploymentConfigurationPtrOutput
+	ToContainerFleetDeploymentConfigurationPtrOutputWithContext(context.Context) ContainerFleetDeploymentConfigurationPtrOutput
+}
+
+type containerFleetDeploymentConfigurationPtrType ContainerFleetDeploymentConfigurationArgs
+
+func ContainerFleetDeploymentConfigurationPtr(v *ContainerFleetDeploymentConfigurationArgs) ContainerFleetDeploymentConfigurationPtrInput {
+	return (*containerFleetDeploymentConfigurationPtrType)(v)
+}
+
+func (*containerFleetDeploymentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetDeploymentConfiguration)(nil)).Elem()
+}
+
+func (i *containerFleetDeploymentConfigurationPtrType) ToContainerFleetDeploymentConfigurationPtrOutput() ContainerFleetDeploymentConfigurationPtrOutput {
+	return i.ToContainerFleetDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerFleetDeploymentConfigurationPtrType) ToContainerFleetDeploymentConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetDeploymentConfigurationPtrOutput)
+}
+
+// Provides details about how to drain old tasks and replace them with new updated tasks.
+type ContainerFleetDeploymentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetDeploymentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetDeploymentConfigurationOutput) ToContainerFleetDeploymentConfigurationOutput() ContainerFleetDeploymentConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationOutput) ToContainerFleetDeploymentConfigurationOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationOutput) ToContainerFleetDeploymentConfigurationPtrOutput() ContainerFleetDeploymentConfigurationPtrOutput {
+	return o.ToContainerFleetDeploymentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationOutput) ToContainerFleetDeploymentConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetDeploymentConfiguration) *ContainerFleetDeploymentConfiguration {
+		return &v
+	}).(ContainerFleetDeploymentConfigurationPtrOutput)
+}
+
+// The strategy to apply in case of impairment; defaults to MAINTAIN.
+func (o ContainerFleetDeploymentConfigurationOutput) ImpairmentStrategy() ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return o.ApplyT(func(v ContainerFleetDeploymentConfiguration) *ContainerFleetDeploymentConfigurationImpairmentStrategy {
+		return v.ImpairmentStrategy
+	}).(ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput)
+}
+
+// The minimum percentage of healthy required; defaults to 75.
+func (o ContainerFleetDeploymentConfigurationOutput) MinimumHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerFleetDeploymentConfiguration) *int { return v.MinimumHealthyPercentage }).(pulumi.IntPtrOutput)
+}
+
+// The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+func (o ContainerFleetDeploymentConfigurationOutput) ProtectionStrategy() ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return o.ApplyT(func(v ContainerFleetDeploymentConfiguration) *ContainerFleetDeploymentConfigurationProtectionStrategy {
+		return v.ProtectionStrategy
+	}).(ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput)
+}
+
+type ContainerFleetDeploymentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetDeploymentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetDeploymentConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetDeploymentConfigurationPtrOutput) ToContainerFleetDeploymentConfigurationPtrOutput() ContainerFleetDeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationPtrOutput) ToContainerFleetDeploymentConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationPtrOutput) Elem() ContainerFleetDeploymentConfigurationOutput {
+	return o.ApplyT(func(v *ContainerFleetDeploymentConfiguration) ContainerFleetDeploymentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetDeploymentConfiguration
+		return ret
+	}).(ContainerFleetDeploymentConfigurationOutput)
+}
+
+// The strategy to apply in case of impairment; defaults to MAINTAIN.
+func (o ContainerFleetDeploymentConfigurationPtrOutput) ImpairmentStrategy() ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetDeploymentConfiguration) *ContainerFleetDeploymentConfigurationImpairmentStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.ImpairmentStrategy
+	}).(ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput)
+}
+
+// The minimum percentage of healthy required; defaults to 75.
+func (o ContainerFleetDeploymentConfigurationPtrOutput) MinimumHealthyPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetDeploymentConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumHealthyPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+func (o ContainerFleetDeploymentConfigurationPtrOutput) ProtectionStrategy() ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetDeploymentConfiguration) *ContainerFleetDeploymentConfigurationProtectionStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.ProtectionStrategy
+	}).(ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput)
+}
+
+// Provides information about the last deployment ID and its status.
+type ContainerFleetDeploymentDetails struct {
+	// The ID of the last deployment on the container fleet. This field will be empty if the container fleet does not have a ContainerGroupDefinition attached.
+	LatestDeploymentId *string `pulumi:"latestDeploymentId"`
+}
+
+// Provides information about the last deployment ID and its status.
+type ContainerFleetDeploymentDetailsOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetDeploymentDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetDeploymentDetails)(nil)).Elem()
+}
+
+func (o ContainerFleetDeploymentDetailsOutput) ToContainerFleetDeploymentDetailsOutput() ContainerFleetDeploymentDetailsOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentDetailsOutput) ToContainerFleetDeploymentDetailsOutputWithContext(ctx context.Context) ContainerFleetDeploymentDetailsOutput {
+	return o
+}
+
+// The ID of the last deployment on the container fleet. This field will be empty if the container fleet does not have a ContainerGroupDefinition attached.
+func (o ContainerFleetDeploymentDetailsOutput) LatestDeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerFleetDeploymentDetails) *string { return v.LatestDeploymentId }).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetDeploymentDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetDeploymentDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetDeploymentDetails)(nil)).Elem()
+}
+
+func (o ContainerFleetDeploymentDetailsPtrOutput) ToContainerFleetDeploymentDetailsPtrOutput() ContainerFleetDeploymentDetailsPtrOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentDetailsPtrOutput) ToContainerFleetDeploymentDetailsPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentDetailsPtrOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentDetailsPtrOutput) Elem() ContainerFleetDeploymentDetailsOutput {
+	return o.ApplyT(func(v *ContainerFleetDeploymentDetails) ContainerFleetDeploymentDetails {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetDeploymentDetails
+		return ret
+	}).(ContainerFleetDeploymentDetailsOutput)
+}
+
+// The ID of the last deployment on the container fleet. This field will be empty if the container fleet does not have a ContainerGroupDefinition attached.
+func (o ContainerFleetDeploymentDetailsPtrOutput) LatestDeploymentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetDeploymentDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LatestDeploymentId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+//
+// The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+type ContainerFleetGameSessionCreationLimitPolicy struct {
+	// The maximum number of game sessions that an individual can create during the policy period.
+	NewGameSessionsPerCreator *int `pulumi:"newGameSessionsPerCreator"`
+	// The time span used in evaluating the resource creation limit policy.
+	PolicyPeriodInMinutes *int `pulumi:"policyPeriodInMinutes"`
+}
+
+// ContainerFleetGameSessionCreationLimitPolicyInput is an input type that accepts ContainerFleetGameSessionCreationLimitPolicyArgs and ContainerFleetGameSessionCreationLimitPolicyOutput values.
+// You can construct a concrete instance of `ContainerFleetGameSessionCreationLimitPolicyInput` via:
+//
+//	ContainerFleetGameSessionCreationLimitPolicyArgs{...}
+type ContainerFleetGameSessionCreationLimitPolicyInput interface {
+	pulumi.Input
+
+	ToContainerFleetGameSessionCreationLimitPolicyOutput() ContainerFleetGameSessionCreationLimitPolicyOutput
+	ToContainerFleetGameSessionCreationLimitPolicyOutputWithContext(context.Context) ContainerFleetGameSessionCreationLimitPolicyOutput
+}
+
+// A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+//
+// The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+type ContainerFleetGameSessionCreationLimitPolicyArgs struct {
+	// The maximum number of game sessions that an individual can create during the policy period.
+	NewGameSessionsPerCreator pulumi.IntPtrInput `pulumi:"newGameSessionsPerCreator"`
+	// The time span used in evaluating the resource creation limit policy.
+	PolicyPeriodInMinutes pulumi.IntPtrInput `pulumi:"policyPeriodInMinutes"`
+}
+
+func (ContainerFleetGameSessionCreationLimitPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetGameSessionCreationLimitPolicy)(nil)).Elem()
+}
+
+func (i ContainerFleetGameSessionCreationLimitPolicyArgs) ToContainerFleetGameSessionCreationLimitPolicyOutput() ContainerFleetGameSessionCreationLimitPolicyOutput {
+	return i.ToContainerFleetGameSessionCreationLimitPolicyOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetGameSessionCreationLimitPolicyArgs) ToContainerFleetGameSessionCreationLimitPolicyOutputWithContext(ctx context.Context) ContainerFleetGameSessionCreationLimitPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetGameSessionCreationLimitPolicyOutput)
+}
+
+func (i ContainerFleetGameSessionCreationLimitPolicyArgs) ToContainerFleetGameSessionCreationLimitPolicyPtrOutput() ContainerFleetGameSessionCreationLimitPolicyPtrOutput {
+	return i.ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetGameSessionCreationLimitPolicyArgs) ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetGameSessionCreationLimitPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetGameSessionCreationLimitPolicyOutput).ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(ctx)
+}
+
+// ContainerFleetGameSessionCreationLimitPolicyPtrInput is an input type that accepts ContainerFleetGameSessionCreationLimitPolicyArgs, ContainerFleetGameSessionCreationLimitPolicyPtr and ContainerFleetGameSessionCreationLimitPolicyPtrOutput values.
+// You can construct a concrete instance of `ContainerFleetGameSessionCreationLimitPolicyPtrInput` via:
+//
+//	        ContainerFleetGameSessionCreationLimitPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerFleetGameSessionCreationLimitPolicyPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetGameSessionCreationLimitPolicyPtrOutput() ContainerFleetGameSessionCreationLimitPolicyPtrOutput
+	ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(context.Context) ContainerFleetGameSessionCreationLimitPolicyPtrOutput
+}
+
+type containerFleetGameSessionCreationLimitPolicyPtrType ContainerFleetGameSessionCreationLimitPolicyArgs
+
+func ContainerFleetGameSessionCreationLimitPolicyPtr(v *ContainerFleetGameSessionCreationLimitPolicyArgs) ContainerFleetGameSessionCreationLimitPolicyPtrInput {
+	return (*containerFleetGameSessionCreationLimitPolicyPtrType)(v)
+}
+
+func (*containerFleetGameSessionCreationLimitPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetGameSessionCreationLimitPolicy)(nil)).Elem()
+}
+
+func (i *containerFleetGameSessionCreationLimitPolicyPtrType) ToContainerFleetGameSessionCreationLimitPolicyPtrOutput() ContainerFleetGameSessionCreationLimitPolicyPtrOutput {
+	return i.ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *containerFleetGameSessionCreationLimitPolicyPtrType) ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetGameSessionCreationLimitPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetGameSessionCreationLimitPolicyPtrOutput)
+}
+
+// A policy that limits the number of game sessions a player can create on the same fleet. This optional policy gives game owners control over how players can consume available game server resources. A resource creation policy makes the following statement: "An individual player can create a maximum number of new game sessions within a specified time period".
+//
+// The policy is evaluated when a player tries to create a new game session. For example, assume you have a policy of 10 new game sessions and a time period of 60 minutes. On receiving a CreateGameSession request, Amazon GameLift checks that the player (identified by CreatorId) has created fewer than 10 game sessions in the past 60 minutes.
+type ContainerFleetGameSessionCreationLimitPolicyOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetGameSessionCreationLimitPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetGameSessionCreationLimitPolicy)(nil)).Elem()
+}
+
+func (o ContainerFleetGameSessionCreationLimitPolicyOutput) ToContainerFleetGameSessionCreationLimitPolicyOutput() ContainerFleetGameSessionCreationLimitPolicyOutput {
+	return o
+}
+
+func (o ContainerFleetGameSessionCreationLimitPolicyOutput) ToContainerFleetGameSessionCreationLimitPolicyOutputWithContext(ctx context.Context) ContainerFleetGameSessionCreationLimitPolicyOutput {
+	return o
+}
+
+func (o ContainerFleetGameSessionCreationLimitPolicyOutput) ToContainerFleetGameSessionCreationLimitPolicyPtrOutput() ContainerFleetGameSessionCreationLimitPolicyPtrOutput {
+	return o.ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetGameSessionCreationLimitPolicyOutput) ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetGameSessionCreationLimitPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetGameSessionCreationLimitPolicy) *ContainerFleetGameSessionCreationLimitPolicy {
+		return &v
+	}).(ContainerFleetGameSessionCreationLimitPolicyPtrOutput)
+}
+
+// The maximum number of game sessions that an individual can create during the policy period.
+func (o ContainerFleetGameSessionCreationLimitPolicyOutput) NewGameSessionsPerCreator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerFleetGameSessionCreationLimitPolicy) *int { return v.NewGameSessionsPerCreator }).(pulumi.IntPtrOutput)
+}
+
+// The time span used in evaluating the resource creation limit policy.
+func (o ContainerFleetGameSessionCreationLimitPolicyOutput) PolicyPeriodInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerFleetGameSessionCreationLimitPolicy) *int { return v.PolicyPeriodInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ContainerFleetGameSessionCreationLimitPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetGameSessionCreationLimitPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetGameSessionCreationLimitPolicy)(nil)).Elem()
+}
+
+func (o ContainerFleetGameSessionCreationLimitPolicyPtrOutput) ToContainerFleetGameSessionCreationLimitPolicyPtrOutput() ContainerFleetGameSessionCreationLimitPolicyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetGameSessionCreationLimitPolicyPtrOutput) ToContainerFleetGameSessionCreationLimitPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetGameSessionCreationLimitPolicyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetGameSessionCreationLimitPolicyPtrOutput) Elem() ContainerFleetGameSessionCreationLimitPolicyOutput {
+	return o.ApplyT(func(v *ContainerFleetGameSessionCreationLimitPolicy) ContainerFleetGameSessionCreationLimitPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetGameSessionCreationLimitPolicy
+		return ret
+	}).(ContainerFleetGameSessionCreationLimitPolicyOutput)
+}
+
+// The maximum number of game sessions that an individual can create during the policy period.
+func (o ContainerFleetGameSessionCreationLimitPolicyPtrOutput) NewGameSessionsPerCreator() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetGameSessionCreationLimitPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NewGameSessionsPerCreator
+	}).(pulumi.IntPtrOutput)
+}
+
+// The time span used in evaluating the resource creation limit policy.
+func (o ContainerFleetGameSessionCreationLimitPolicyPtrOutput) PolicyPeriodInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetGameSessionCreationLimitPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyPeriodInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+type ContainerFleetIpPermission struct {
+	// A starting value for a range of allowed port numbers.
+	FromPort int `pulumi:"fromPort"`
+	// A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
+	IpRange string `pulumi:"ipRange"`
+	// The network communication protocol used by the fleet.
+	Protocol ContainerFleetIpPermissionProtocol `pulumi:"protocol"`
+	// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+	ToPort int `pulumi:"toPort"`
+}
+
+// ContainerFleetIpPermissionInput is an input type that accepts ContainerFleetIpPermissionArgs and ContainerFleetIpPermissionOutput values.
+// You can construct a concrete instance of `ContainerFleetIpPermissionInput` via:
+//
+//	ContainerFleetIpPermissionArgs{...}
+type ContainerFleetIpPermissionInput interface {
+	pulumi.Input
+
+	ToContainerFleetIpPermissionOutput() ContainerFleetIpPermissionOutput
+	ToContainerFleetIpPermissionOutputWithContext(context.Context) ContainerFleetIpPermissionOutput
+}
+
+// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+type ContainerFleetIpPermissionArgs struct {
+	// A starting value for a range of allowed port numbers.
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
+	IpRange pulumi.StringInput `pulumi:"ipRange"`
+	// The network communication protocol used by the fleet.
+	Protocol ContainerFleetIpPermissionProtocolInput `pulumi:"protocol"`
+	// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (ContainerFleetIpPermissionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetIpPermission)(nil)).Elem()
+}
+
+func (i ContainerFleetIpPermissionArgs) ToContainerFleetIpPermissionOutput() ContainerFleetIpPermissionOutput {
+	return i.ToContainerFleetIpPermissionOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetIpPermissionArgs) ToContainerFleetIpPermissionOutputWithContext(ctx context.Context) ContainerFleetIpPermissionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetIpPermissionOutput)
+}
+
+// ContainerFleetIpPermissionArrayInput is an input type that accepts ContainerFleetIpPermissionArray and ContainerFleetIpPermissionArrayOutput values.
+// You can construct a concrete instance of `ContainerFleetIpPermissionArrayInput` via:
+//
+//	ContainerFleetIpPermissionArray{ ContainerFleetIpPermissionArgs{...} }
+type ContainerFleetIpPermissionArrayInput interface {
+	pulumi.Input
+
+	ToContainerFleetIpPermissionArrayOutput() ContainerFleetIpPermissionArrayOutput
+	ToContainerFleetIpPermissionArrayOutputWithContext(context.Context) ContainerFleetIpPermissionArrayOutput
+}
+
+type ContainerFleetIpPermissionArray []ContainerFleetIpPermissionInput
+
+func (ContainerFleetIpPermissionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerFleetIpPermission)(nil)).Elem()
+}
+
+func (i ContainerFleetIpPermissionArray) ToContainerFleetIpPermissionArrayOutput() ContainerFleetIpPermissionArrayOutput {
+	return i.ToContainerFleetIpPermissionArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetIpPermissionArray) ToContainerFleetIpPermissionArrayOutputWithContext(ctx context.Context) ContainerFleetIpPermissionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetIpPermissionArrayOutput)
+}
+
+// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift hosting resource. New game sessions that are started on the fleet are assigned an IP address/port number combination, which must fall into the fleet's allowed ranges. For fleets created with a custom game server, the ranges reflect the server's game session assignments. For Realtime Servers fleets, Amazon GameLift automatically opens two port ranges, one for TCP messaging and one for UDP, for use by the Realtime servers.
+type ContainerFleetIpPermissionOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetIpPermissionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetIpPermission)(nil)).Elem()
+}
+
+func (o ContainerFleetIpPermissionOutput) ToContainerFleetIpPermissionOutput() ContainerFleetIpPermissionOutput {
+	return o
+}
+
+func (o ContainerFleetIpPermissionOutput) ToContainerFleetIpPermissionOutputWithContext(ctx context.Context) ContainerFleetIpPermissionOutput {
+	return o
+}
+
+// A starting value for a range of allowed port numbers.
+func (o ContainerFleetIpPermissionOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerFleetIpPermission) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+// A range of allowed IP addresses. This value must be expressed in CIDR notation. Example: "000.000.000.000/[subnet mask]" or optionally the shortened version "0.0.0.0/[subnet mask]".
+func (o ContainerFleetIpPermissionOutput) IpRange() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerFleetIpPermission) string { return v.IpRange }).(pulumi.StringOutput)
+}
+
+// The network communication protocol used by the fleet.
+func (o ContainerFleetIpPermissionOutput) Protocol() ContainerFleetIpPermissionProtocolOutput {
+	return o.ApplyT(func(v ContainerFleetIpPermission) ContainerFleetIpPermissionProtocol { return v.Protocol }).(ContainerFleetIpPermissionProtocolOutput)
+}
+
+// An ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than FromPort.
+func (o ContainerFleetIpPermissionOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerFleetIpPermission) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type ContainerFleetIpPermissionArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetIpPermissionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerFleetIpPermission)(nil)).Elem()
+}
+
+func (o ContainerFleetIpPermissionArrayOutput) ToContainerFleetIpPermissionArrayOutput() ContainerFleetIpPermissionArrayOutput {
+	return o
+}
+
+func (o ContainerFleetIpPermissionArrayOutput) ToContainerFleetIpPermissionArrayOutputWithContext(ctx context.Context) ContainerFleetIpPermissionArrayOutput {
+	return o
+}
+
+func (o ContainerFleetIpPermissionArrayOutput) Index(i pulumi.IntInput) ContainerFleetIpPermissionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerFleetIpPermission {
+		return vs[0].([]ContainerFleetIpPermission)[vs[1].(int)]
+	}).(ContainerFleetIpPermissionOutput)
+}
+
+// Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+type ContainerFleetLocationCapacity struct {
+	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+	DesiredEc2Instances int `pulumi:"desiredEc2Instances"`
+	// The maximum value that is allowed for the fleet's instance count for a location.
+	MaxSize int `pulumi:"maxSize"`
+	// The minimum value allowed for the fleet's instance count for a location.
+	MinSize int `pulumi:"minSize"`
+}
+
+// ContainerFleetLocationCapacityInput is an input type that accepts ContainerFleetLocationCapacityArgs and ContainerFleetLocationCapacityOutput values.
+// You can construct a concrete instance of `ContainerFleetLocationCapacityInput` via:
+//
+//	ContainerFleetLocationCapacityArgs{...}
+type ContainerFleetLocationCapacityInput interface {
+	pulumi.Input
+
+	ToContainerFleetLocationCapacityOutput() ContainerFleetLocationCapacityOutput
+	ToContainerFleetLocationCapacityOutputWithContext(context.Context) ContainerFleetLocationCapacityOutput
+}
+
+// Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+type ContainerFleetLocationCapacityArgs struct {
+	// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+	DesiredEc2Instances pulumi.IntInput `pulumi:"desiredEc2Instances"`
+	// The maximum value that is allowed for the fleet's instance count for a location.
+	MaxSize pulumi.IntInput `pulumi:"maxSize"`
+	// The minimum value allowed for the fleet's instance count for a location.
+	MinSize pulumi.IntInput `pulumi:"minSize"`
+}
+
+func (ContainerFleetLocationCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLocationCapacity)(nil)).Elem()
+}
+
+func (i ContainerFleetLocationCapacityArgs) ToContainerFleetLocationCapacityOutput() ContainerFleetLocationCapacityOutput {
+	return i.ToContainerFleetLocationCapacityOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetLocationCapacityArgs) ToContainerFleetLocationCapacityOutputWithContext(ctx context.Context) ContainerFleetLocationCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetLocationCapacityOutput)
+}
+
+func (i ContainerFleetLocationCapacityArgs) ToContainerFleetLocationCapacityPtrOutput() ContainerFleetLocationCapacityPtrOutput {
+	return i.ToContainerFleetLocationCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetLocationCapacityArgs) ToContainerFleetLocationCapacityPtrOutputWithContext(ctx context.Context) ContainerFleetLocationCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetLocationCapacityOutput).ToContainerFleetLocationCapacityPtrOutputWithContext(ctx)
+}
+
+// ContainerFleetLocationCapacityPtrInput is an input type that accepts ContainerFleetLocationCapacityArgs, ContainerFleetLocationCapacityPtr and ContainerFleetLocationCapacityPtrOutput values.
+// You can construct a concrete instance of `ContainerFleetLocationCapacityPtrInput` via:
+//
+//	        ContainerFleetLocationCapacityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerFleetLocationCapacityPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetLocationCapacityPtrOutput() ContainerFleetLocationCapacityPtrOutput
+	ToContainerFleetLocationCapacityPtrOutputWithContext(context.Context) ContainerFleetLocationCapacityPtrOutput
+}
+
+type containerFleetLocationCapacityPtrType ContainerFleetLocationCapacityArgs
+
+func ContainerFleetLocationCapacityPtr(v *ContainerFleetLocationCapacityArgs) ContainerFleetLocationCapacityPtrInput {
+	return (*containerFleetLocationCapacityPtrType)(v)
+}
+
+func (*containerFleetLocationCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetLocationCapacity)(nil)).Elem()
+}
+
+func (i *containerFleetLocationCapacityPtrType) ToContainerFleetLocationCapacityPtrOutput() ContainerFleetLocationCapacityPtrOutput {
+	return i.ToContainerFleetLocationCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *containerFleetLocationCapacityPtrType) ToContainerFleetLocationCapacityPtrOutputWithContext(ctx context.Context) ContainerFleetLocationCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetLocationCapacityPtrOutput)
+}
+
+// Current resource capacity settings in a specified fleet or location. The location value might refer to a fleet's remote location or its home Region.
+type ContainerFleetLocationCapacityOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLocationCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLocationCapacity)(nil)).Elem()
+}
+
+func (o ContainerFleetLocationCapacityOutput) ToContainerFleetLocationCapacityOutput() ContainerFleetLocationCapacityOutput {
+	return o
+}
+
+func (o ContainerFleetLocationCapacityOutput) ToContainerFleetLocationCapacityOutputWithContext(ctx context.Context) ContainerFleetLocationCapacityOutput {
+	return o
+}
+
+func (o ContainerFleetLocationCapacityOutput) ToContainerFleetLocationCapacityPtrOutput() ContainerFleetLocationCapacityPtrOutput {
+	return o.ToContainerFleetLocationCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLocationCapacityOutput) ToContainerFleetLocationCapacityPtrOutputWithContext(ctx context.Context) ContainerFleetLocationCapacityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetLocationCapacity) *ContainerFleetLocationCapacity {
+		return &v
+	}).(ContainerFleetLocationCapacityPtrOutput)
+}
+
+// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+func (o ContainerFleetLocationCapacityOutput) DesiredEc2Instances() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerFleetLocationCapacity) int { return v.DesiredEc2Instances }).(pulumi.IntOutput)
+}
+
+// The maximum value that is allowed for the fleet's instance count for a location.
+func (o ContainerFleetLocationCapacityOutput) MaxSize() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerFleetLocationCapacity) int { return v.MaxSize }).(pulumi.IntOutput)
+}
+
+// The minimum value allowed for the fleet's instance count for a location.
+func (o ContainerFleetLocationCapacityOutput) MinSize() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerFleetLocationCapacity) int { return v.MinSize }).(pulumi.IntOutput)
+}
+
+type ContainerFleetLocationCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLocationCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetLocationCapacity)(nil)).Elem()
+}
+
+func (o ContainerFleetLocationCapacityPtrOutput) ToContainerFleetLocationCapacityPtrOutput() ContainerFleetLocationCapacityPtrOutput {
+	return o
+}
+
+func (o ContainerFleetLocationCapacityPtrOutput) ToContainerFleetLocationCapacityPtrOutputWithContext(ctx context.Context) ContainerFleetLocationCapacityPtrOutput {
+	return o
+}
+
+func (o ContainerFleetLocationCapacityPtrOutput) Elem() ContainerFleetLocationCapacityOutput {
+	return o.ApplyT(func(v *ContainerFleetLocationCapacity) ContainerFleetLocationCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetLocationCapacity
+		return ret
+	}).(ContainerFleetLocationCapacityOutput)
+}
+
+// The number of EC2 instances you want to maintain in the specified fleet location. This value must fall between the minimum and maximum size limits.
+func (o ContainerFleetLocationCapacityPtrOutput) DesiredEc2Instances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetLocationCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DesiredEc2Instances
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum value that is allowed for the fleet's instance count for a location.
+func (o ContainerFleetLocationCapacityPtrOutput) MaxSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetLocationCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum value allowed for the fleet's instance count for a location.
+func (o ContainerFleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetLocationCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+type ContainerFleetLocationConfiguration struct {
+	Location         string                             `pulumi:"location"`
+	LocationCapacity *ContainerFleetLocationCapacity    `pulumi:"locationCapacity"`
+	StoppedActions   []ContainerFleetStoppedActionsItem `pulumi:"stoppedActions"`
+}
+
+// ContainerFleetLocationConfigurationInput is an input type that accepts ContainerFleetLocationConfigurationArgs and ContainerFleetLocationConfigurationOutput values.
+// You can construct a concrete instance of `ContainerFleetLocationConfigurationInput` via:
+//
+//	ContainerFleetLocationConfigurationArgs{...}
+type ContainerFleetLocationConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerFleetLocationConfigurationOutput() ContainerFleetLocationConfigurationOutput
+	ToContainerFleetLocationConfigurationOutputWithContext(context.Context) ContainerFleetLocationConfigurationOutput
+}
+
+// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+type ContainerFleetLocationConfigurationArgs struct {
+	Location         pulumi.StringInput                         `pulumi:"location"`
+	LocationCapacity ContainerFleetLocationCapacityPtrInput     `pulumi:"locationCapacity"`
+	StoppedActions   ContainerFleetStoppedActionsItemArrayInput `pulumi:"stoppedActions"`
+}
+
+func (ContainerFleetLocationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLocationConfiguration)(nil)).Elem()
+}
+
+func (i ContainerFleetLocationConfigurationArgs) ToContainerFleetLocationConfigurationOutput() ContainerFleetLocationConfigurationOutput {
+	return i.ToContainerFleetLocationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetLocationConfigurationArgs) ToContainerFleetLocationConfigurationOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetLocationConfigurationOutput)
+}
+
+// ContainerFleetLocationConfigurationArrayInput is an input type that accepts ContainerFleetLocationConfigurationArray and ContainerFleetLocationConfigurationArrayOutput values.
+// You can construct a concrete instance of `ContainerFleetLocationConfigurationArrayInput` via:
+//
+//	ContainerFleetLocationConfigurationArray{ ContainerFleetLocationConfigurationArgs{...} }
+type ContainerFleetLocationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToContainerFleetLocationConfigurationArrayOutput() ContainerFleetLocationConfigurationArrayOutput
+	ToContainerFleetLocationConfigurationArrayOutputWithContext(context.Context) ContainerFleetLocationConfigurationArrayOutput
+}
+
+type ContainerFleetLocationConfigurationArray []ContainerFleetLocationConfigurationInput
+
+func (ContainerFleetLocationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerFleetLocationConfiguration)(nil)).Elem()
+}
+
+func (i ContainerFleetLocationConfigurationArray) ToContainerFleetLocationConfigurationArrayOutput() ContainerFleetLocationConfigurationArrayOutput {
+	return i.ToContainerFleetLocationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetLocationConfigurationArray) ToContainerFleetLocationConfigurationArrayOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetLocationConfigurationArrayOutput)
+}
+
+// A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+type ContainerFleetLocationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLocationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLocationConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetLocationConfigurationOutput) ToContainerFleetLocationConfigurationOutput() ContainerFleetLocationConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetLocationConfigurationOutput) ToContainerFleetLocationConfigurationOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetLocationConfigurationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerFleetLocationConfiguration) string { return v.Location }).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetLocationConfigurationOutput) LocationCapacity() ContainerFleetLocationCapacityPtrOutput {
+	return o.ApplyT(func(v ContainerFleetLocationConfiguration) *ContainerFleetLocationCapacity { return v.LocationCapacity }).(ContainerFleetLocationCapacityPtrOutput)
+}
+
+func (o ContainerFleetLocationConfigurationOutput) StoppedActions() ContainerFleetStoppedActionsItemArrayOutput {
+	return o.ApplyT(func(v ContainerFleetLocationConfiguration) []ContainerFleetStoppedActionsItem {
+		return v.StoppedActions
+	}).(ContainerFleetStoppedActionsItemArrayOutput)
+}
+
+type ContainerFleetLocationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLocationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerFleetLocationConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetLocationConfigurationArrayOutput) ToContainerFleetLocationConfigurationArrayOutput() ContainerFleetLocationConfigurationArrayOutput {
+	return o
+}
+
+func (o ContainerFleetLocationConfigurationArrayOutput) ToContainerFleetLocationConfigurationArrayOutputWithContext(ctx context.Context) ContainerFleetLocationConfigurationArrayOutput {
+	return o
+}
+
+func (o ContainerFleetLocationConfigurationArrayOutput) Index(i pulumi.IntInput) ContainerFleetLocationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerFleetLocationConfiguration {
+		return vs[0].([]ContainerFleetLocationConfiguration)[vs[1].(int)]
+	}).(ContainerFleetLocationConfigurationOutput)
+}
+
+// A policy the location and provider of logs from the fleet.
+type ContainerFleetLogConfiguration struct {
+	LogDestination *ContainerFleetLogDestination `pulumi:"logDestination"`
+	// The name of the S3 bucket to pull logs from if S3 is the LogDestination
+	S3BucketName *string `pulumi:"s3BucketName"`
+}
+
+// ContainerFleetLogConfigurationInput is an input type that accepts ContainerFleetLogConfigurationArgs and ContainerFleetLogConfigurationOutput values.
+// You can construct a concrete instance of `ContainerFleetLogConfigurationInput` via:
+//
+//	ContainerFleetLogConfigurationArgs{...}
+type ContainerFleetLogConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerFleetLogConfigurationOutput() ContainerFleetLogConfigurationOutput
+	ToContainerFleetLogConfigurationOutputWithContext(context.Context) ContainerFleetLogConfigurationOutput
+}
+
+// A policy the location and provider of logs from the fleet.
+type ContainerFleetLogConfigurationArgs struct {
+	LogDestination ContainerFleetLogDestinationPtrInput `pulumi:"logDestination"`
+	// The name of the S3 bucket to pull logs from if S3 is the LogDestination
+	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
+}
+
+func (ContainerFleetLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLogConfiguration)(nil)).Elem()
+}
+
+func (i ContainerFleetLogConfigurationArgs) ToContainerFleetLogConfigurationOutput() ContainerFleetLogConfigurationOutput {
+	return i.ToContainerFleetLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetLogConfigurationArgs) ToContainerFleetLogConfigurationOutputWithContext(ctx context.Context) ContainerFleetLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetLogConfigurationOutput)
+}
+
+func (i ContainerFleetLogConfigurationArgs) ToContainerFleetLogConfigurationPtrOutput() ContainerFleetLogConfigurationPtrOutput {
+	return i.ToContainerFleetLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetLogConfigurationArgs) ToContainerFleetLogConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetLogConfigurationOutput).ToContainerFleetLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContainerFleetLogConfigurationPtrInput is an input type that accepts ContainerFleetLogConfigurationArgs, ContainerFleetLogConfigurationPtr and ContainerFleetLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContainerFleetLogConfigurationPtrInput` via:
+//
+//	        ContainerFleetLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerFleetLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetLogConfigurationPtrOutput() ContainerFleetLogConfigurationPtrOutput
+	ToContainerFleetLogConfigurationPtrOutputWithContext(context.Context) ContainerFleetLogConfigurationPtrOutput
+}
+
+type containerFleetLogConfigurationPtrType ContainerFleetLogConfigurationArgs
+
+func ContainerFleetLogConfigurationPtr(v *ContainerFleetLogConfigurationArgs) ContainerFleetLogConfigurationPtrInput {
+	return (*containerFleetLogConfigurationPtrType)(v)
+}
+
+func (*containerFleetLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetLogConfiguration)(nil)).Elem()
+}
+
+func (i *containerFleetLogConfigurationPtrType) ToContainerFleetLogConfigurationPtrOutput() ContainerFleetLogConfigurationPtrOutput {
+	return i.ToContainerFleetLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerFleetLogConfigurationPtrType) ToContainerFleetLogConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetLogConfigurationPtrOutput)
+}
+
+// A policy the location and provider of logs from the fleet.
+type ContainerFleetLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLogConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetLogConfigurationOutput) ToContainerFleetLogConfigurationOutput() ContainerFleetLogConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetLogConfigurationOutput) ToContainerFleetLogConfigurationOutputWithContext(ctx context.Context) ContainerFleetLogConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetLogConfigurationOutput) ToContainerFleetLogConfigurationPtrOutput() ContainerFleetLogConfigurationPtrOutput {
+	return o.ToContainerFleetLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLogConfigurationOutput) ToContainerFleetLogConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetLogConfiguration) *ContainerFleetLogConfiguration {
+		return &v
+	}).(ContainerFleetLogConfigurationPtrOutput)
+}
+
+func (o ContainerFleetLogConfigurationOutput) LogDestination() ContainerFleetLogDestinationPtrOutput {
+	return o.ApplyT(func(v ContainerFleetLogConfiguration) *ContainerFleetLogDestination { return v.LogDestination }).(ContainerFleetLogDestinationPtrOutput)
+}
+
+// The name of the S3 bucket to pull logs from if S3 is the LogDestination
+func (o ContainerFleetLogConfigurationOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerFleetLogConfiguration) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetLogConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetLogConfigurationPtrOutput) ToContainerFleetLogConfigurationPtrOutput() ContainerFleetLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetLogConfigurationPtrOutput) ToContainerFleetLogConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetLogConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetLogConfigurationPtrOutput) Elem() ContainerFleetLogConfigurationOutput {
+	return o.ApplyT(func(v *ContainerFleetLogConfiguration) ContainerFleetLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetLogConfiguration
+		return ret
+	}).(ContainerFleetLogConfigurationOutput)
+}
+
+func (o ContainerFleetLogConfigurationPtrOutput) LogDestination() ContainerFleetLogDestinationPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetLogConfiguration) *ContainerFleetLogDestination {
+		if v == nil {
+			return nil
+		}
+		return v.LogDestination
+	}).(ContainerFleetLogDestinationPtrOutput)
+}
+
+// The name of the S3 bucket to pull logs from if S3 is the LogDestination
+func (o ContainerFleetLogConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerFleetLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+type ContainerFleetScalingPolicy struct {
+	// Comparison operator to use when measuring a metric against the threshold value.
+	ComparisonOperator *ContainerFleetScalingPolicyComparisonOperator `pulumi:"comparisonOperator"`
+	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+	MetricName ContainerFleetScalingPolicyMetricName `pulumi:"metricName"`
+	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+	Name string `pulumi:"name"`
+	// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+	PolicyType *ContainerFleetScalingPolicyPolicyType `pulumi:"policyType"`
+	// Amount of adjustment to make, based on the scaling adjustment type.
+	ScalingAdjustment *int `pulumi:"scalingAdjustment"`
+	// The type of adjustment to make to a fleet's instance count.
+	ScalingAdjustmentType *ContainerFleetScalingPolicyScalingAdjustmentType `pulumi:"scalingAdjustmentType"`
+	// An object that contains settings for a target-based scaling policy.
+	TargetConfiguration *ContainerFleetTargetConfiguration `pulumi:"targetConfiguration"`
+	// Metric value used to trigger a scaling event.
+	Threshold *float64 `pulumi:"threshold"`
+}
+
+// ContainerFleetScalingPolicyInput is an input type that accepts ContainerFleetScalingPolicyArgs and ContainerFleetScalingPolicyOutput values.
+// You can construct a concrete instance of `ContainerFleetScalingPolicyInput` via:
+//
+//	ContainerFleetScalingPolicyArgs{...}
+type ContainerFleetScalingPolicyInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyOutput() ContainerFleetScalingPolicyOutput
+	ToContainerFleetScalingPolicyOutputWithContext(context.Context) ContainerFleetScalingPolicyOutput
+}
+
+// Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+type ContainerFleetScalingPolicyArgs struct {
+	// Comparison operator to use when measuring a metric against the threshold value.
+	ComparisonOperator ContainerFleetScalingPolicyComparisonOperatorPtrInput `pulumi:"comparisonOperator"`
+	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+	EvaluationPeriods pulumi.IntPtrInput `pulumi:"evaluationPeriods"`
+	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+	MetricName ContainerFleetScalingPolicyMetricNameInput `pulumi:"metricName"`
+	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+	PolicyType ContainerFleetScalingPolicyPolicyTypePtrInput `pulumi:"policyType"`
+	// Amount of adjustment to make, based on the scaling adjustment type.
+	ScalingAdjustment pulumi.IntPtrInput `pulumi:"scalingAdjustment"`
+	// The type of adjustment to make to a fleet's instance count.
+	ScalingAdjustmentType ContainerFleetScalingPolicyScalingAdjustmentTypePtrInput `pulumi:"scalingAdjustmentType"`
+	// An object that contains settings for a target-based scaling policy.
+	TargetConfiguration ContainerFleetTargetConfigurationPtrInput `pulumi:"targetConfiguration"`
+	// Metric value used to trigger a scaling event.
+	Threshold pulumi.Float64PtrInput `pulumi:"threshold"`
+}
+
+func (ContainerFleetScalingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicy)(nil)).Elem()
+}
+
+func (i ContainerFleetScalingPolicyArgs) ToContainerFleetScalingPolicyOutput() ContainerFleetScalingPolicyOutput {
+	return i.ToContainerFleetScalingPolicyOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetScalingPolicyArgs) ToContainerFleetScalingPolicyOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetScalingPolicyOutput)
+}
+
+// ContainerFleetScalingPolicyArrayInput is an input type that accepts ContainerFleetScalingPolicyArray and ContainerFleetScalingPolicyArrayOutput values.
+// You can construct a concrete instance of `ContainerFleetScalingPolicyArrayInput` via:
+//
+//	ContainerFleetScalingPolicyArray{ ContainerFleetScalingPolicyArgs{...} }
+type ContainerFleetScalingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyArrayOutput() ContainerFleetScalingPolicyArrayOutput
+	ToContainerFleetScalingPolicyArrayOutputWithContext(context.Context) ContainerFleetScalingPolicyArrayOutput
+}
+
+type ContainerFleetScalingPolicyArray []ContainerFleetScalingPolicyInput
+
+func (ContainerFleetScalingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerFleetScalingPolicy)(nil)).Elem()
+}
+
+func (i ContainerFleetScalingPolicyArray) ToContainerFleetScalingPolicyArrayOutput() ContainerFleetScalingPolicyArrayOutput {
+	return i.ToContainerFleetScalingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetScalingPolicyArray) ToContainerFleetScalingPolicyArrayOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetScalingPolicyArrayOutput)
+}
+
+// Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
+type ContainerFleetScalingPolicyOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicy)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyOutput) ToContainerFleetScalingPolicyOutput() ContainerFleetScalingPolicyOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyOutput) ToContainerFleetScalingPolicyOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyOutput {
+	return o
+}
+
+// Comparison operator to use when measuring a metric against the threshold value.
+func (o ContainerFleetScalingPolicyOutput) ComparisonOperator() ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) *ContainerFleetScalingPolicyComparisonOperator {
+		return v.ComparisonOperator
+	}).(ContainerFleetScalingPolicyComparisonOperatorPtrOutput)
+}
+
+// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+func (o ContainerFleetScalingPolicyOutput) EvaluationPeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) *int { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
+}
+
+// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+func (o ContainerFleetScalingPolicyOutput) MetricName() ContainerFleetScalingPolicyMetricNameOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) ContainerFleetScalingPolicyMetricName { return v.MetricName }).(ContainerFleetScalingPolicyMetricNameOutput)
+}
+
+// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
+func (o ContainerFleetScalingPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+func (o ContainerFleetScalingPolicyOutput) PolicyType() ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) *ContainerFleetScalingPolicyPolicyType { return v.PolicyType }).(ContainerFleetScalingPolicyPolicyTypePtrOutput)
+}
+
+// Amount of adjustment to make, based on the scaling adjustment type.
+func (o ContainerFleetScalingPolicyOutput) ScalingAdjustment() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) *int { return v.ScalingAdjustment }).(pulumi.IntPtrOutput)
+}
+
+// The type of adjustment to make to a fleet's instance count.
+func (o ContainerFleetScalingPolicyOutput) ScalingAdjustmentType() ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) *ContainerFleetScalingPolicyScalingAdjustmentType {
+		return v.ScalingAdjustmentType
+	}).(ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput)
+}
+
+// An object that contains settings for a target-based scaling policy.
+func (o ContainerFleetScalingPolicyOutput) TargetConfiguration() ContainerFleetTargetConfigurationPtrOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) *ContainerFleetTargetConfiguration { return v.TargetConfiguration }).(ContainerFleetTargetConfigurationPtrOutput)
+}
+
+// Metric value used to trigger a scaling event.
+func (o ContainerFleetScalingPolicyOutput) Threshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) *float64 { return v.Threshold }).(pulumi.Float64PtrOutput)
+}
+
+type ContainerFleetScalingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerFleetScalingPolicy)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyArrayOutput) ToContainerFleetScalingPolicyArrayOutput() ContainerFleetScalingPolicyArrayOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyArrayOutput) ToContainerFleetScalingPolicyArrayOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyArrayOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyArrayOutput) Index(i pulumi.IntInput) ContainerFleetScalingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerFleetScalingPolicy {
+		return vs[0].([]ContainerFleetScalingPolicy)[vs[1].(int)]
+	}).(ContainerFleetScalingPolicyOutput)
+}
+
+// A key-value pair to associate with a resource.
+type ContainerFleetTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length.
+	Value string `pulumi:"value"`
+}
+
+// Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+type ContainerFleetTargetConfiguration struct {
+	// Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+	TargetValue float64 `pulumi:"targetValue"`
+}
+
+// ContainerFleetTargetConfigurationInput is an input type that accepts ContainerFleetTargetConfigurationArgs and ContainerFleetTargetConfigurationOutput values.
+// You can construct a concrete instance of `ContainerFleetTargetConfigurationInput` via:
+//
+//	ContainerFleetTargetConfigurationArgs{...}
+type ContainerFleetTargetConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerFleetTargetConfigurationOutput() ContainerFleetTargetConfigurationOutput
+	ToContainerFleetTargetConfigurationOutputWithContext(context.Context) ContainerFleetTargetConfigurationOutput
+}
+
+// Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+type ContainerFleetTargetConfigurationArgs struct {
+	// Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
+}
+
+func (ContainerFleetTargetConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetTargetConfiguration)(nil)).Elem()
+}
+
+func (i ContainerFleetTargetConfigurationArgs) ToContainerFleetTargetConfigurationOutput() ContainerFleetTargetConfigurationOutput {
+	return i.ToContainerFleetTargetConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetTargetConfigurationArgs) ToContainerFleetTargetConfigurationOutputWithContext(ctx context.Context) ContainerFleetTargetConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetTargetConfigurationOutput)
+}
+
+func (i ContainerFleetTargetConfigurationArgs) ToContainerFleetTargetConfigurationPtrOutput() ContainerFleetTargetConfigurationPtrOutput {
+	return i.ToContainerFleetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetTargetConfigurationArgs) ToContainerFleetTargetConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetTargetConfigurationOutput).ToContainerFleetTargetConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContainerFleetTargetConfigurationPtrInput is an input type that accepts ContainerFleetTargetConfigurationArgs, ContainerFleetTargetConfigurationPtr and ContainerFleetTargetConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContainerFleetTargetConfigurationPtrInput` via:
+//
+//	        ContainerFleetTargetConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerFleetTargetConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetTargetConfigurationPtrOutput() ContainerFleetTargetConfigurationPtrOutput
+	ToContainerFleetTargetConfigurationPtrOutputWithContext(context.Context) ContainerFleetTargetConfigurationPtrOutput
+}
+
+type containerFleetTargetConfigurationPtrType ContainerFleetTargetConfigurationArgs
+
+func ContainerFleetTargetConfigurationPtr(v *ContainerFleetTargetConfigurationArgs) ContainerFleetTargetConfigurationPtrInput {
+	return (*containerFleetTargetConfigurationPtrType)(v)
+}
+
+func (*containerFleetTargetConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetTargetConfiguration)(nil)).Elem()
+}
+
+func (i *containerFleetTargetConfigurationPtrType) ToContainerFleetTargetConfigurationPtrOutput() ContainerFleetTargetConfigurationPtrOutput {
+	return i.ToContainerFleetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerFleetTargetConfigurationPtrType) ToContainerFleetTargetConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetTargetConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetTargetConfigurationPtrOutput)
+}
+
+// Settings for a target-based scaling policy. A target-based policy tracks a particular fleet metric specifies a target value for the metric. As player usage changes, the policy triggers Amazon GameLift to adjust capacity so that the metric returns to the target value. The target configuration specifies settings as needed for the target based policy, including the target value.
+type ContainerFleetTargetConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetTargetConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetTargetConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetTargetConfigurationOutput) ToContainerFleetTargetConfigurationOutput() ContainerFleetTargetConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetTargetConfigurationOutput) ToContainerFleetTargetConfigurationOutputWithContext(ctx context.Context) ContainerFleetTargetConfigurationOutput {
+	return o
+}
+
+func (o ContainerFleetTargetConfigurationOutput) ToContainerFleetTargetConfigurationPtrOutput() ContainerFleetTargetConfigurationPtrOutput {
+	return o.ToContainerFleetTargetConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetTargetConfigurationOutput) ToContainerFleetTargetConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetTargetConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetTargetConfiguration) *ContainerFleetTargetConfiguration {
+		return &v
+	}).(ContainerFleetTargetConfigurationPtrOutput)
+}
+
+// Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+func (o ContainerFleetTargetConfigurationOutput) TargetValue() pulumi.Float64Output {
+	return o.ApplyT(func(v ContainerFleetTargetConfiguration) float64 { return v.TargetValue }).(pulumi.Float64Output)
+}
+
+type ContainerFleetTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetTargetConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetTargetConfiguration)(nil)).Elem()
+}
+
+func (o ContainerFleetTargetConfigurationPtrOutput) ToContainerFleetTargetConfigurationPtrOutput() ContainerFleetTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetTargetConfigurationPtrOutput) ToContainerFleetTargetConfigurationPtrOutputWithContext(ctx context.Context) ContainerFleetTargetConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetTargetConfigurationPtrOutput) Elem() ContainerFleetTargetConfigurationOutput {
+	return o.ApplyT(func(v *ContainerFleetTargetConfiguration) ContainerFleetTargetConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetTargetConfiguration
+		return ret
+	}).(ContainerFleetTargetConfigurationOutput)
+}
+
+// Desired value to use with a target-based scaling policy. The value must be relevant for whatever metric the scaling policy is using. For example, in a policy using the metric PercentAvailableGameSessions, the target value should be the preferred size of the fleet's buffer (the percent of capacity that should be idle and ready for new game sessions).
+func (o ContainerFleetTargetConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ContainerFleetTargetConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.TargetValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A dependency that impacts a container's startup and shutdown.
+type ContainerGroupDefinitionContainerDependency struct {
+	// The type of dependency.
+	Condition ContainerGroupDefinitionContainerDependencyCondition `pulumi:"condition"`
+	// A descriptive label for the container definition. The container being defined depends on this container's condition.
+	ContainerName string `pulumi:"containerName"`
+}
+
+// ContainerGroupDefinitionContainerDependencyInput is an input type that accepts ContainerGroupDefinitionContainerDependencyArgs and ContainerGroupDefinitionContainerDependencyOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerDependencyInput` via:
+//
+//	ContainerGroupDefinitionContainerDependencyArgs{...}
+type ContainerGroupDefinitionContainerDependencyInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerDependencyOutput() ContainerGroupDefinitionContainerDependencyOutput
+	ToContainerGroupDefinitionContainerDependencyOutputWithContext(context.Context) ContainerGroupDefinitionContainerDependencyOutput
+}
+
+// A dependency that impacts a container's startup and shutdown.
+type ContainerGroupDefinitionContainerDependencyArgs struct {
+	// The type of dependency.
+	Condition ContainerGroupDefinitionContainerDependencyConditionInput `pulumi:"condition"`
+	// A descriptive label for the container definition. The container being defined depends on this container's condition.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+}
+
+func (ContainerGroupDefinitionContainerDependencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerDependency)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerDependencyArgs) ToContainerGroupDefinitionContainerDependencyOutput() ContainerGroupDefinitionContainerDependencyOutput {
+	return i.ToContainerGroupDefinitionContainerDependencyOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerDependencyArgs) ToContainerGroupDefinitionContainerDependencyOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerDependencyOutput)
+}
+
+// ContainerGroupDefinitionContainerDependencyArrayInput is an input type that accepts ContainerGroupDefinitionContainerDependencyArray and ContainerGroupDefinitionContainerDependencyArrayOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerDependencyArrayInput` via:
+//
+//	ContainerGroupDefinitionContainerDependencyArray{ ContainerGroupDefinitionContainerDependencyArgs{...} }
+type ContainerGroupDefinitionContainerDependencyArrayInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerDependencyArrayOutput() ContainerGroupDefinitionContainerDependencyArrayOutput
+	ToContainerGroupDefinitionContainerDependencyArrayOutputWithContext(context.Context) ContainerGroupDefinitionContainerDependencyArrayOutput
+}
+
+type ContainerGroupDefinitionContainerDependencyArray []ContainerGroupDefinitionContainerDependencyInput
+
+func (ContainerGroupDefinitionContainerDependencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionContainerDependency)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerDependencyArray) ToContainerGroupDefinitionContainerDependencyArrayOutput() ContainerGroupDefinitionContainerDependencyArrayOutput {
+	return i.ToContainerGroupDefinitionContainerDependencyArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerDependencyArray) ToContainerGroupDefinitionContainerDependencyArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerDependencyArrayOutput)
+}
+
+// A dependency that impacts a container's startup and shutdown.
+type ContainerGroupDefinitionContainerDependencyOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerDependencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerDependency)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerDependencyOutput) ToContainerGroupDefinitionContainerDependencyOutput() ContainerGroupDefinitionContainerDependencyOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerDependencyOutput) ToContainerGroupDefinitionContainerDependencyOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyOutput {
+	return o
+}
+
+// The type of dependency.
+func (o ContainerGroupDefinitionContainerDependencyOutput) Condition() ContainerGroupDefinitionContainerDependencyConditionOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerDependency) ContainerGroupDefinitionContainerDependencyCondition {
+		return v.Condition
+	}).(ContainerGroupDefinitionContainerDependencyConditionOutput)
+}
+
+// A descriptive label for the container definition. The container being defined depends on this container's condition.
+func (o ContainerGroupDefinitionContainerDependencyOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerDependency) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+type ContainerGroupDefinitionContainerDependencyArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerDependencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionContainerDependency)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerDependencyArrayOutput) ToContainerGroupDefinitionContainerDependencyArrayOutput() ContainerGroupDefinitionContainerDependencyArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerDependencyArrayOutput) ToContainerGroupDefinitionContainerDependencyArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerDependencyArrayOutput) Index(i pulumi.IntInput) ContainerGroupDefinitionContainerDependencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerGroupDefinitionContainerDependency {
+		return vs[0].([]ContainerGroupDefinitionContainerDependency)[vs[1].(int)]
+	}).(ContainerGroupDefinitionContainerDependencyOutput)
+}
+
+// An environment variable to set inside a container, in the form of a key-value pair.
+type ContainerGroupDefinitionContainerEnvironment struct {
+	// The environment variable name.
+	Name string `pulumi:"name"`
+	// The environment variable value.
+	Value string `pulumi:"value"`
+}
+
+// ContainerGroupDefinitionContainerEnvironmentInput is an input type that accepts ContainerGroupDefinitionContainerEnvironmentArgs and ContainerGroupDefinitionContainerEnvironmentOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerEnvironmentInput` via:
+//
+//	ContainerGroupDefinitionContainerEnvironmentArgs{...}
+type ContainerGroupDefinitionContainerEnvironmentInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerEnvironmentOutput() ContainerGroupDefinitionContainerEnvironmentOutput
+	ToContainerGroupDefinitionContainerEnvironmentOutputWithContext(context.Context) ContainerGroupDefinitionContainerEnvironmentOutput
+}
+
+// An environment variable to set inside a container, in the form of a key-value pair.
+type ContainerGroupDefinitionContainerEnvironmentArgs struct {
+	// The environment variable name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The environment variable value.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContainerGroupDefinitionContainerEnvironmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerEnvironment)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerEnvironmentArgs) ToContainerGroupDefinitionContainerEnvironmentOutput() ContainerGroupDefinitionContainerEnvironmentOutput {
+	return i.ToContainerGroupDefinitionContainerEnvironmentOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerEnvironmentArgs) ToContainerGroupDefinitionContainerEnvironmentOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerEnvironmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerEnvironmentOutput)
+}
+
+// ContainerGroupDefinitionContainerEnvironmentArrayInput is an input type that accepts ContainerGroupDefinitionContainerEnvironmentArray and ContainerGroupDefinitionContainerEnvironmentArrayOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerEnvironmentArrayInput` via:
+//
+//	ContainerGroupDefinitionContainerEnvironmentArray{ ContainerGroupDefinitionContainerEnvironmentArgs{...} }
+type ContainerGroupDefinitionContainerEnvironmentArrayInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerEnvironmentArrayOutput() ContainerGroupDefinitionContainerEnvironmentArrayOutput
+	ToContainerGroupDefinitionContainerEnvironmentArrayOutputWithContext(context.Context) ContainerGroupDefinitionContainerEnvironmentArrayOutput
+}
+
+type ContainerGroupDefinitionContainerEnvironmentArray []ContainerGroupDefinitionContainerEnvironmentInput
+
+func (ContainerGroupDefinitionContainerEnvironmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionContainerEnvironment)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerEnvironmentArray) ToContainerGroupDefinitionContainerEnvironmentArrayOutput() ContainerGroupDefinitionContainerEnvironmentArrayOutput {
+	return i.ToContainerGroupDefinitionContainerEnvironmentArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerEnvironmentArray) ToContainerGroupDefinitionContainerEnvironmentArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerEnvironmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerEnvironmentArrayOutput)
+}
+
+// An environment variable to set inside a container, in the form of a key-value pair.
+type ContainerGroupDefinitionContainerEnvironmentOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerEnvironmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerEnvironment)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerEnvironmentOutput) ToContainerGroupDefinitionContainerEnvironmentOutput() ContainerGroupDefinitionContainerEnvironmentOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerEnvironmentOutput) ToContainerGroupDefinitionContainerEnvironmentOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerEnvironmentOutput {
+	return o
+}
+
+// The environment variable name.
+func (o ContainerGroupDefinitionContainerEnvironmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerEnvironment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The environment variable value.
+func (o ContainerGroupDefinitionContainerEnvironmentOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerEnvironment) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContainerGroupDefinitionContainerEnvironmentArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerEnvironmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionContainerEnvironment)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerEnvironmentArrayOutput) ToContainerGroupDefinitionContainerEnvironmentArrayOutput() ContainerGroupDefinitionContainerEnvironmentArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerEnvironmentArrayOutput) ToContainerGroupDefinitionContainerEnvironmentArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerEnvironmentArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerEnvironmentArrayOutput) Index(i pulumi.IntInput) ContainerGroupDefinitionContainerEnvironmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerGroupDefinitionContainerEnvironment {
+		return vs[0].([]ContainerGroupDefinitionContainerEnvironment)[vs[1].(int)]
+	}).(ContainerGroupDefinitionContainerEnvironmentOutput)
+}
+
+// Specifies how the process manager checks the health of containers.
+type ContainerGroupDefinitionContainerHealthCheck struct {
+	// A string array representing the command that the container runs to determine if it is healthy.
+	Command []string `pulumi:"command"`
+	// How often (in seconds) the health is checked.
+	Interval *int `pulumi:"interval"`
+	// How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+	Retries *int `pulumi:"retries"`
+	// The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+	StartPeriod *int `pulumi:"startPeriod"`
+	// How many seconds the process manager allows the command to run before canceling it.
+	Timeout *int `pulumi:"timeout"`
+}
+
+// ContainerGroupDefinitionContainerHealthCheckInput is an input type that accepts ContainerGroupDefinitionContainerHealthCheckArgs and ContainerGroupDefinitionContainerHealthCheckOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerHealthCheckInput` via:
+//
+//	ContainerGroupDefinitionContainerHealthCheckArgs{...}
+type ContainerGroupDefinitionContainerHealthCheckInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerHealthCheckOutput() ContainerGroupDefinitionContainerHealthCheckOutput
+	ToContainerGroupDefinitionContainerHealthCheckOutputWithContext(context.Context) ContainerGroupDefinitionContainerHealthCheckOutput
+}
+
+// Specifies how the process manager checks the health of containers.
+type ContainerGroupDefinitionContainerHealthCheckArgs struct {
+	// A string array representing the command that the container runs to determine if it is healthy.
+	Command pulumi.StringArrayInput `pulumi:"command"`
+	// How often (in seconds) the health is checked.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+	Retries pulumi.IntPtrInput `pulumi:"retries"`
+	// The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+	StartPeriod pulumi.IntPtrInput `pulumi:"startPeriod"`
+	// How many seconds the process manager allows the command to run before canceling it.
+	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+}
+
+func (ContainerGroupDefinitionContainerHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerHealthCheck)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerHealthCheckArgs) ToContainerGroupDefinitionContainerHealthCheckOutput() ContainerGroupDefinitionContainerHealthCheckOutput {
+	return i.ToContainerGroupDefinitionContainerHealthCheckOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerHealthCheckArgs) ToContainerGroupDefinitionContainerHealthCheckOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerHealthCheckOutput)
+}
+
+func (i ContainerGroupDefinitionContainerHealthCheckArgs) ToContainerGroupDefinitionContainerHealthCheckPtrOutput() ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return i.ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerHealthCheckArgs) ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerHealthCheckOutput).ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(ctx)
+}
+
+// ContainerGroupDefinitionContainerHealthCheckPtrInput is an input type that accepts ContainerGroupDefinitionContainerHealthCheckArgs, ContainerGroupDefinitionContainerHealthCheckPtr and ContainerGroupDefinitionContainerHealthCheckPtrOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerHealthCheckPtrInput` via:
+//
+//	        ContainerGroupDefinitionContainerHealthCheckArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerGroupDefinitionContainerHealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerHealthCheckPtrOutput() ContainerGroupDefinitionContainerHealthCheckPtrOutput
+	ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(context.Context) ContainerGroupDefinitionContainerHealthCheckPtrOutput
+}
+
+type containerGroupDefinitionContainerHealthCheckPtrType ContainerGroupDefinitionContainerHealthCheckArgs
+
+func ContainerGroupDefinitionContainerHealthCheckPtr(v *ContainerGroupDefinitionContainerHealthCheckArgs) ContainerGroupDefinitionContainerHealthCheckPtrInput {
+	return (*containerGroupDefinitionContainerHealthCheckPtrType)(v)
+}
+
+func (*containerGroupDefinitionContainerHealthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionContainerHealthCheck)(nil)).Elem()
+}
+
+func (i *containerGroupDefinitionContainerHealthCheckPtrType) ToContainerGroupDefinitionContainerHealthCheckPtrOutput() ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return i.ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *containerGroupDefinitionContainerHealthCheckPtrType) ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerHealthCheckPtrOutput)
+}
+
+// Specifies how the process manager checks the health of containers.
+type ContainerGroupDefinitionContainerHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerHealthCheck)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) ToContainerGroupDefinitionContainerHealthCheckOutput() ContainerGroupDefinitionContainerHealthCheckOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) ToContainerGroupDefinitionContainerHealthCheckOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerHealthCheckOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) ToContainerGroupDefinitionContainerHealthCheckPtrOutput() ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return o.ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionContainerHealthCheck) *ContainerGroupDefinitionContainerHealthCheck {
+		return &v
+	}).(ContainerGroupDefinitionContainerHealthCheckPtrOutput)
+}
+
+// A string array representing the command that the container runs to determine if it is healthy.
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerHealthCheck) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+// How often (in seconds) the health is checked.
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerHealthCheck) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) Retries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerHealthCheck) *int { return v.Retries }).(pulumi.IntPtrOutput)
+}
+
+// The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) StartPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerHealthCheck) *int { return v.StartPeriod }).(pulumi.IntPtrOutput)
+}
+
+// How many seconds the process manager allows the command to run before canceling it.
+func (o ContainerGroupDefinitionContainerHealthCheckOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerHealthCheck) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
+type ContainerGroupDefinitionContainerHealthCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerHealthCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionContainerHealthCheck)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerHealthCheckPtrOutput) ToContainerGroupDefinitionContainerHealthCheckPtrOutput() ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerHealthCheckPtrOutput) ToContainerGroupDefinitionContainerHealthCheckPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerHealthCheckPtrOutput) Elem() ContainerGroupDefinitionContainerHealthCheckOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerHealthCheck) ContainerGroupDefinitionContainerHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionContainerHealthCheck
+		return ret
+	}).(ContainerGroupDefinitionContainerHealthCheckOutput)
+}
+
+// A string array representing the command that the container runs to determine if it is healthy.
+func (o ContainerGroupDefinitionContainerHealthCheckPtrOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerHealthCheck) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Command
+	}).(pulumi.StringArrayOutput)
+}
+
+// How often (in seconds) the health is checked.
+func (o ContainerGroupDefinitionContainerHealthCheckPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// How many times the process manager will retry the command after a timeout. (The first run of the command does not count as a retry.)
+func (o ContainerGroupDefinitionContainerHealthCheckPtrOutput) Retries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Retries
+	}).(pulumi.IntPtrOutput)
+}
+
+// The optional grace period (in seconds) to give a container time to boostrap before teh health check is declared failed.
+func (o ContainerGroupDefinitionContainerHealthCheckPtrOutput) StartPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+// How many seconds the process manager allows the command to run before canceling it.
+func (o ContainerGroupDefinitionContainerHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Timeout
+	}).(pulumi.IntPtrOutput)
+}
+
+// Defines the mount point configuration within a container.
+type ContainerGroupDefinitionContainerMountPoint struct {
+	// The access permissions for the mounted path.
+	AccessLevel *ContainerGroupDefinitionContainerMountPointAccessLevel `pulumi:"accessLevel"`
+	// The path inside the container where the mount is accessible.
+	ContainerPath *string `pulumi:"containerPath"`
+	// The path on the host that will be mounted in the container.
+	InstancePath string `pulumi:"instancePath"`
+}
+
+// ContainerGroupDefinitionContainerMountPointInput is an input type that accepts ContainerGroupDefinitionContainerMountPointArgs and ContainerGroupDefinitionContainerMountPointOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerMountPointInput` via:
+//
+//	ContainerGroupDefinitionContainerMountPointArgs{...}
+type ContainerGroupDefinitionContainerMountPointInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerMountPointOutput() ContainerGroupDefinitionContainerMountPointOutput
+	ToContainerGroupDefinitionContainerMountPointOutputWithContext(context.Context) ContainerGroupDefinitionContainerMountPointOutput
+}
+
+// Defines the mount point configuration within a container.
+type ContainerGroupDefinitionContainerMountPointArgs struct {
+	// The access permissions for the mounted path.
+	AccessLevel ContainerGroupDefinitionContainerMountPointAccessLevelPtrInput `pulumi:"accessLevel"`
+	// The path inside the container where the mount is accessible.
+	ContainerPath pulumi.StringPtrInput `pulumi:"containerPath"`
+	// The path on the host that will be mounted in the container.
+	InstancePath pulumi.StringInput `pulumi:"instancePath"`
+}
+
+func (ContainerGroupDefinitionContainerMountPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerMountPoint)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerMountPointArgs) ToContainerGroupDefinitionContainerMountPointOutput() ContainerGroupDefinitionContainerMountPointOutput {
+	return i.ToContainerGroupDefinitionContainerMountPointOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerMountPointArgs) ToContainerGroupDefinitionContainerMountPointOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerMountPointOutput)
+}
+
+// ContainerGroupDefinitionContainerMountPointArrayInput is an input type that accepts ContainerGroupDefinitionContainerMountPointArray and ContainerGroupDefinitionContainerMountPointArrayOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerMountPointArrayInput` via:
+//
+//	ContainerGroupDefinitionContainerMountPointArray{ ContainerGroupDefinitionContainerMountPointArgs{...} }
+type ContainerGroupDefinitionContainerMountPointArrayInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerMountPointArrayOutput() ContainerGroupDefinitionContainerMountPointArrayOutput
+	ToContainerGroupDefinitionContainerMountPointArrayOutputWithContext(context.Context) ContainerGroupDefinitionContainerMountPointArrayOutput
+}
+
+type ContainerGroupDefinitionContainerMountPointArray []ContainerGroupDefinitionContainerMountPointInput
+
+func (ContainerGroupDefinitionContainerMountPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionContainerMountPoint)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerMountPointArray) ToContainerGroupDefinitionContainerMountPointArrayOutput() ContainerGroupDefinitionContainerMountPointArrayOutput {
+	return i.ToContainerGroupDefinitionContainerMountPointArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerMountPointArray) ToContainerGroupDefinitionContainerMountPointArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerMountPointArrayOutput)
+}
+
+// Defines the mount point configuration within a container.
+type ContainerGroupDefinitionContainerMountPointOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerMountPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerMountPoint)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerMountPointOutput) ToContainerGroupDefinitionContainerMountPointOutput() ContainerGroupDefinitionContainerMountPointOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerMountPointOutput) ToContainerGroupDefinitionContainerMountPointOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointOutput {
+	return o
+}
+
+// The access permissions for the mounted path.
+func (o ContainerGroupDefinitionContainerMountPointOutput) AccessLevel() ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerMountPoint) *ContainerGroupDefinitionContainerMountPointAccessLevel {
+		return v.AccessLevel
+	}).(ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput)
+}
+
+// The path inside the container where the mount is accessible.
+func (o ContainerGroupDefinitionContainerMountPointOutput) ContainerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerMountPoint) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
+}
+
+// The path on the host that will be mounted in the container.
+func (o ContainerGroupDefinitionContainerMountPointOutput) InstancePath() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerMountPoint) string { return v.InstancePath }).(pulumi.StringOutput)
+}
+
+type ContainerGroupDefinitionContainerMountPointArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerMountPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionContainerMountPoint)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerMountPointArrayOutput) ToContainerGroupDefinitionContainerMountPointArrayOutput() ContainerGroupDefinitionContainerMountPointArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerMountPointArrayOutput) ToContainerGroupDefinitionContainerMountPointArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerMountPointArrayOutput) Index(i pulumi.IntInput) ContainerGroupDefinitionContainerMountPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerGroupDefinitionContainerMountPoint {
+		return vs[0].([]ContainerGroupDefinitionContainerMountPoint)[vs[1].(int)]
+	}).(ContainerGroupDefinitionContainerMountPointOutput)
+}
+
+// A set of one or more port numbers that can be opened on the container.
+type ContainerGroupDefinitionContainerPortRange struct {
+	// A starting value for the range of allowed port numbers.
+	FromPort int `pulumi:"fromPort"`
+	// Defines the protocol of these ports.
+	Protocol ContainerGroupDefinitionContainerPortRangeProtocol `pulumi:"protocol"`
+	// An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+	ToPort int `pulumi:"toPort"`
+}
+
+// ContainerGroupDefinitionContainerPortRangeInput is an input type that accepts ContainerGroupDefinitionContainerPortRangeArgs and ContainerGroupDefinitionContainerPortRangeOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerPortRangeInput` via:
+//
+//	ContainerGroupDefinitionContainerPortRangeArgs{...}
+type ContainerGroupDefinitionContainerPortRangeInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerPortRangeOutput() ContainerGroupDefinitionContainerPortRangeOutput
+	ToContainerGroupDefinitionContainerPortRangeOutputWithContext(context.Context) ContainerGroupDefinitionContainerPortRangeOutput
+}
+
+// A set of one or more port numbers that can be opened on the container.
+type ContainerGroupDefinitionContainerPortRangeArgs struct {
+	// A starting value for the range of allowed port numbers.
+	FromPort pulumi.IntInput `pulumi:"fromPort"`
+	// Defines the protocol of these ports.
+	Protocol ContainerGroupDefinitionContainerPortRangeProtocolInput `pulumi:"protocol"`
+	// An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+	ToPort pulumi.IntInput `pulumi:"toPort"`
+}
+
+func (ContainerGroupDefinitionContainerPortRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerPortRange)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerPortRangeArgs) ToContainerGroupDefinitionContainerPortRangeOutput() ContainerGroupDefinitionContainerPortRangeOutput {
+	return i.ToContainerGroupDefinitionContainerPortRangeOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerPortRangeArgs) ToContainerGroupDefinitionContainerPortRangeOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerPortRangeOutput)
+}
+
+// ContainerGroupDefinitionContainerPortRangeArrayInput is an input type that accepts ContainerGroupDefinitionContainerPortRangeArray and ContainerGroupDefinitionContainerPortRangeArrayOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionContainerPortRangeArrayInput` via:
+//
+//	ContainerGroupDefinitionContainerPortRangeArray{ ContainerGroupDefinitionContainerPortRangeArgs{...} }
+type ContainerGroupDefinitionContainerPortRangeArrayInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerPortRangeArrayOutput() ContainerGroupDefinitionContainerPortRangeArrayOutput
+	ToContainerGroupDefinitionContainerPortRangeArrayOutputWithContext(context.Context) ContainerGroupDefinitionContainerPortRangeArrayOutput
+}
+
+type ContainerGroupDefinitionContainerPortRangeArray []ContainerGroupDefinitionContainerPortRangeInput
+
+func (ContainerGroupDefinitionContainerPortRangeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionContainerPortRange)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionContainerPortRangeArray) ToContainerGroupDefinitionContainerPortRangeArrayOutput() ContainerGroupDefinitionContainerPortRangeArrayOutput {
+	return i.ToContainerGroupDefinitionContainerPortRangeArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionContainerPortRangeArray) ToContainerGroupDefinitionContainerPortRangeArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionContainerPortRangeArrayOutput)
+}
+
+// A set of one or more port numbers that can be opened on the container.
+type ContainerGroupDefinitionContainerPortRangeOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerPortRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerPortRange)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeOutput) ToContainerGroupDefinitionContainerPortRangeOutput() ContainerGroupDefinitionContainerPortRangeOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeOutput) ToContainerGroupDefinitionContainerPortRangeOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeOutput {
+	return o
+}
+
+// A starting value for the range of allowed port numbers.
+func (o ContainerGroupDefinitionContainerPortRangeOutput) FromPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerPortRange) int { return v.FromPort }).(pulumi.IntOutput)
+}
+
+// Defines the protocol of these ports.
+func (o ContainerGroupDefinitionContainerPortRangeOutput) Protocol() ContainerGroupDefinitionContainerPortRangeProtocolOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerPortRange) ContainerGroupDefinitionContainerPortRangeProtocol {
+		return v.Protocol
+	}).(ContainerGroupDefinitionContainerPortRangeProtocolOutput)
+}
+
+// An ending value for the range of allowed port numbers. Port numbers are end-inclusive. This value must be equal to or greater than FromPort.
+func (o ContainerGroupDefinitionContainerPortRangeOutput) ToPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionContainerPortRange) int { return v.ToPort }).(pulumi.IntOutput)
+}
+
+type ContainerGroupDefinitionContainerPortRangeArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerPortRangeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionContainerPortRange)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeArrayOutput) ToContainerGroupDefinitionContainerPortRangeArrayOutput() ContainerGroupDefinitionContainerPortRangeArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeArrayOutput) ToContainerGroupDefinitionContainerPortRangeArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeArrayOutput) Index(i pulumi.IntInput) ContainerGroupDefinitionContainerPortRangeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerGroupDefinitionContainerPortRange {
+		return vs[0].([]ContainerGroupDefinitionContainerPortRange)[vs[1].(int)]
+	}).(ContainerGroupDefinitionContainerPortRangeOutput)
+}
+
+// Specifies the information required to run game servers with this container group
+type ContainerGroupDefinitionGameServerContainerDefinition struct {
+	// A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+	ContainerName string `pulumi:"containerName"`
+	// A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+	DependsOn []ContainerGroupDefinitionContainerDependency `pulumi:"dependsOn"`
+	// The environment variables to pass to a container.
+	EnvironmentOverride []ContainerGroupDefinitionContainerEnvironment `pulumi:"environmentOverride"`
+	// Specifies the image URI of this container.
+	ImageUri string `pulumi:"imageUri"`
+	// A list of mount point configurations to be used in a container.
+	MountPoints []ContainerGroupDefinitionContainerMountPoint `pulumi:"mountPoints"`
+	// Defines the ports on the container.
+	PortConfiguration *ContainerGroupDefinitionPortConfiguration `pulumi:"portConfiguration"`
+	// The digest of the container image.
+	ResolvedImageDigest *string `pulumi:"resolvedImageDigest"`
+	// The version of the server SDK used in this container group
+	ServerSdkVersion string `pulumi:"serverSdkVersion"`
+}
+
+// ContainerGroupDefinitionGameServerContainerDefinitionInput is an input type that accepts ContainerGroupDefinitionGameServerContainerDefinitionArgs and ContainerGroupDefinitionGameServerContainerDefinitionOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionGameServerContainerDefinitionInput` via:
+//
+//	ContainerGroupDefinitionGameServerContainerDefinitionArgs{...}
+type ContainerGroupDefinitionGameServerContainerDefinitionInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionGameServerContainerDefinitionOutput() ContainerGroupDefinitionGameServerContainerDefinitionOutput
+	ToContainerGroupDefinitionGameServerContainerDefinitionOutputWithContext(context.Context) ContainerGroupDefinitionGameServerContainerDefinitionOutput
+}
+
+// Specifies the information required to run game servers with this container group
+type ContainerGroupDefinitionGameServerContainerDefinitionArgs struct {
+	// A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+	DependsOn ContainerGroupDefinitionContainerDependencyArrayInput `pulumi:"dependsOn"`
+	// The environment variables to pass to a container.
+	EnvironmentOverride ContainerGroupDefinitionContainerEnvironmentArrayInput `pulumi:"environmentOverride"`
+	// Specifies the image URI of this container.
+	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+	// A list of mount point configurations to be used in a container.
+	MountPoints ContainerGroupDefinitionContainerMountPointArrayInput `pulumi:"mountPoints"`
+	// Defines the ports on the container.
+	PortConfiguration ContainerGroupDefinitionPortConfigurationPtrInput `pulumi:"portConfiguration"`
+	// The digest of the container image.
+	ResolvedImageDigest pulumi.StringPtrInput `pulumi:"resolvedImageDigest"`
+	// The version of the server SDK used in this container group
+	ServerSdkVersion pulumi.StringInput `pulumi:"serverSdkVersion"`
+}
+
+func (ContainerGroupDefinitionGameServerContainerDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionGameServerContainerDefinition)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionGameServerContainerDefinitionArgs) ToContainerGroupDefinitionGameServerContainerDefinitionOutput() ContainerGroupDefinitionGameServerContainerDefinitionOutput {
+	return i.ToContainerGroupDefinitionGameServerContainerDefinitionOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionGameServerContainerDefinitionArgs) ToContainerGroupDefinitionGameServerContainerDefinitionOutputWithContext(ctx context.Context) ContainerGroupDefinitionGameServerContainerDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionGameServerContainerDefinitionOutput)
+}
+
+func (i ContainerGroupDefinitionGameServerContainerDefinitionArgs) ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutput() ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return i.ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionGameServerContainerDefinitionArgs) ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionGameServerContainerDefinitionOutput).ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(ctx)
+}
+
+// ContainerGroupDefinitionGameServerContainerDefinitionPtrInput is an input type that accepts ContainerGroupDefinitionGameServerContainerDefinitionArgs, ContainerGroupDefinitionGameServerContainerDefinitionPtr and ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionGameServerContainerDefinitionPtrInput` via:
+//
+//	        ContainerGroupDefinitionGameServerContainerDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerGroupDefinitionGameServerContainerDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutput() ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput
+	ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(context.Context) ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput
+}
+
+type containerGroupDefinitionGameServerContainerDefinitionPtrType ContainerGroupDefinitionGameServerContainerDefinitionArgs
+
+func ContainerGroupDefinitionGameServerContainerDefinitionPtr(v *ContainerGroupDefinitionGameServerContainerDefinitionArgs) ContainerGroupDefinitionGameServerContainerDefinitionPtrInput {
+	return (*containerGroupDefinitionGameServerContainerDefinitionPtrType)(v)
+}
+
+func (*containerGroupDefinitionGameServerContainerDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionGameServerContainerDefinition)(nil)).Elem()
+}
+
+func (i *containerGroupDefinitionGameServerContainerDefinitionPtrType) ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutput() ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return i.ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *containerGroupDefinitionGameServerContainerDefinitionPtrType) ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput)
+}
+
+// Specifies the information required to run game servers with this container group
+type ContainerGroupDefinitionGameServerContainerDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionGameServerContainerDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionGameServerContainerDefinition)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ToContainerGroupDefinitionGameServerContainerDefinitionOutput() ContainerGroupDefinitionGameServerContainerDefinitionOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ToContainerGroupDefinitionGameServerContainerDefinitionOutputWithContext(ctx context.Context) ContainerGroupDefinitionGameServerContainerDefinitionOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutput() ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return o.ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionGameServerContainerDefinition) *ContainerGroupDefinitionGameServerContainerDefinition {
+		return &v
+	}).(ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput)
+}
+
+// A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) DependsOn() ContainerGroupDefinitionContainerDependencyArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) []ContainerGroupDefinitionContainerDependency {
+		return v.DependsOn
+	}).(ContainerGroupDefinitionContainerDependencyArrayOutput)
+}
+
+// The environment variables to pass to a container.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) EnvironmentOverride() ContainerGroupDefinitionContainerEnvironmentArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) []ContainerGroupDefinitionContainerEnvironment {
+		return v.EnvironmentOverride
+	}).(ContainerGroupDefinitionContainerEnvironmentArrayOutput)
+}
+
+// Specifies the image URI of this container.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) string { return v.ImageUri }).(pulumi.StringOutput)
+}
+
+// A list of mount point configurations to be used in a container.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) MountPoints() ContainerGroupDefinitionContainerMountPointArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) []ContainerGroupDefinitionContainerMountPoint {
+		return v.MountPoints
+	}).(ContainerGroupDefinitionContainerMountPointArrayOutput)
+}
+
+// Defines the ports on the container.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) PortConfiguration() ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) *ContainerGroupDefinitionPortConfiguration {
+		return v.PortConfiguration
+	}).(ContainerGroupDefinitionPortConfigurationPtrOutput)
+}
+
+// The digest of the container image.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ResolvedImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) *string { return v.ResolvedImageDigest }).(pulumi.StringPtrOutput)
+}
+
+// The version of the server SDK used in this container group
+func (o ContainerGroupDefinitionGameServerContainerDefinitionOutput) ServerSdkVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionGameServerContainerDefinition) string { return v.ServerSdkVersion }).(pulumi.StringOutput)
+}
+
+type ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionGameServerContainerDefinition)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutput() ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ToContainerGroupDefinitionGameServerContainerDefinitionPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) Elem() ContainerGroupDefinitionGameServerContainerDefinitionOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) ContainerGroupDefinitionGameServerContainerDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionGameServerContainerDefinition
+		return ret
+	}).(ContainerGroupDefinitionGameServerContainerDefinitionOutput)
+}
+
+// A descriptive label for the container definition. Container definition names must be unique with a container group definition.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) DependsOn() ContainerGroupDefinitionContainerDependencyArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) []ContainerGroupDefinitionContainerDependency {
+		if v == nil {
+			return nil
+		}
+		return v.DependsOn
+	}).(ContainerGroupDefinitionContainerDependencyArrayOutput)
+}
+
+// The environment variables to pass to a container.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) EnvironmentOverride() ContainerGroupDefinitionContainerEnvironmentArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) []ContainerGroupDefinitionContainerEnvironment {
+		if v == nil {
+			return nil
+		}
+		return v.EnvironmentOverride
+	}).(ContainerGroupDefinitionContainerEnvironmentArrayOutput)
+}
+
+// Specifies the image URI of this container.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of mount point configurations to be used in a container.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) MountPoints() ContainerGroupDefinitionContainerMountPointArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) []ContainerGroupDefinitionContainerMountPoint {
+		if v == nil {
+			return nil
+		}
+		return v.MountPoints
+	}).(ContainerGroupDefinitionContainerMountPointArrayOutput)
+}
+
+// Defines the ports on the container.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) PortConfiguration() ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) *ContainerGroupDefinitionPortConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PortConfiguration
+	}).(ContainerGroupDefinitionPortConfigurationPtrOutput)
+}
+
+// The digest of the container image.
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ResolvedImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResolvedImageDigest
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the server SDK used in this container group
+func (o ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput) ServerSdkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionGameServerContainerDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerSdkVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the ports on a container.
+type ContainerGroupDefinitionPortConfiguration struct {
+	// Specifies one or more ranges of ports on a container.
+	ContainerPortRanges []ContainerGroupDefinitionContainerPortRange `pulumi:"containerPortRanges"`
+}
+
+// ContainerGroupDefinitionPortConfigurationInput is an input type that accepts ContainerGroupDefinitionPortConfigurationArgs and ContainerGroupDefinitionPortConfigurationOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionPortConfigurationInput` via:
+//
+//	ContainerGroupDefinitionPortConfigurationArgs{...}
+type ContainerGroupDefinitionPortConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionPortConfigurationOutput() ContainerGroupDefinitionPortConfigurationOutput
+	ToContainerGroupDefinitionPortConfigurationOutputWithContext(context.Context) ContainerGroupDefinitionPortConfigurationOutput
+}
+
+// Defines the ports on a container.
+type ContainerGroupDefinitionPortConfigurationArgs struct {
+	// Specifies one or more ranges of ports on a container.
+	ContainerPortRanges ContainerGroupDefinitionContainerPortRangeArrayInput `pulumi:"containerPortRanges"`
+}
+
+func (ContainerGroupDefinitionPortConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionPortConfiguration)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionPortConfigurationArgs) ToContainerGroupDefinitionPortConfigurationOutput() ContainerGroupDefinitionPortConfigurationOutput {
+	return i.ToContainerGroupDefinitionPortConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionPortConfigurationArgs) ToContainerGroupDefinitionPortConfigurationOutputWithContext(ctx context.Context) ContainerGroupDefinitionPortConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionPortConfigurationOutput)
+}
+
+func (i ContainerGroupDefinitionPortConfigurationArgs) ToContainerGroupDefinitionPortConfigurationPtrOutput() ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return i.ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionPortConfigurationArgs) ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionPortConfigurationOutput).ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(ctx)
+}
+
+// ContainerGroupDefinitionPortConfigurationPtrInput is an input type that accepts ContainerGroupDefinitionPortConfigurationArgs, ContainerGroupDefinitionPortConfigurationPtr and ContainerGroupDefinitionPortConfigurationPtrOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionPortConfigurationPtrInput` via:
+//
+//	        ContainerGroupDefinitionPortConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ContainerGroupDefinitionPortConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionPortConfigurationPtrOutput() ContainerGroupDefinitionPortConfigurationPtrOutput
+	ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(context.Context) ContainerGroupDefinitionPortConfigurationPtrOutput
+}
+
+type containerGroupDefinitionPortConfigurationPtrType ContainerGroupDefinitionPortConfigurationArgs
+
+func ContainerGroupDefinitionPortConfigurationPtr(v *ContainerGroupDefinitionPortConfigurationArgs) ContainerGroupDefinitionPortConfigurationPtrInput {
+	return (*containerGroupDefinitionPortConfigurationPtrType)(v)
+}
+
+func (*containerGroupDefinitionPortConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionPortConfiguration)(nil)).Elem()
+}
+
+func (i *containerGroupDefinitionPortConfigurationPtrType) ToContainerGroupDefinitionPortConfigurationPtrOutput() ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return i.ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *containerGroupDefinitionPortConfigurationPtrType) ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionPortConfigurationPtrOutput)
+}
+
+// Defines the ports on a container.
+type ContainerGroupDefinitionPortConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionPortConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionPortConfiguration)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionPortConfigurationOutput) ToContainerGroupDefinitionPortConfigurationOutput() ContainerGroupDefinitionPortConfigurationOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionPortConfigurationOutput) ToContainerGroupDefinitionPortConfigurationOutputWithContext(ctx context.Context) ContainerGroupDefinitionPortConfigurationOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionPortConfigurationOutput) ToContainerGroupDefinitionPortConfigurationPtrOutput() ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return o.ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionPortConfigurationOutput) ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionPortConfiguration) *ContainerGroupDefinitionPortConfiguration {
+		return &v
+	}).(ContainerGroupDefinitionPortConfigurationPtrOutput)
+}
+
+// Specifies one or more ranges of ports on a container.
+func (o ContainerGroupDefinitionPortConfigurationOutput) ContainerPortRanges() ContainerGroupDefinitionContainerPortRangeArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionPortConfiguration) []ContainerGroupDefinitionContainerPortRange {
+		return v.ContainerPortRanges
+	}).(ContainerGroupDefinitionContainerPortRangeArrayOutput)
+}
+
+type ContainerGroupDefinitionPortConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionPortConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionPortConfiguration)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionPortConfigurationPtrOutput) ToContainerGroupDefinitionPortConfigurationPtrOutput() ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionPortConfigurationPtrOutput) ToContainerGroupDefinitionPortConfigurationPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionPortConfigurationPtrOutput) Elem() ContainerGroupDefinitionPortConfigurationOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionPortConfiguration) ContainerGroupDefinitionPortConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionPortConfiguration
+		return ret
+	}).(ContainerGroupDefinitionPortConfigurationOutput)
+}
+
+// Specifies one or more ranges of ports on a container.
+func (o ContainerGroupDefinitionPortConfigurationPtrOutput) ContainerPortRanges() ContainerGroupDefinitionContainerPortRangeArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionPortConfiguration) []ContainerGroupDefinitionContainerPortRange {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerPortRanges
+	}).(ContainerGroupDefinitionContainerPortRangeArrayOutput)
+}
+
+// Supports the function of the main container group
+type ContainerGroupDefinitionSupportContainerDefinition struct {
+	// A descriptive label for the container definition.
+	ContainerName string `pulumi:"containerName"`
+	// A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+	DependsOn []ContainerGroupDefinitionContainerDependency `pulumi:"dependsOn"`
+	// The environment variables to pass to a container.
+	EnvironmentOverride []ContainerGroupDefinitionContainerEnvironment `pulumi:"environmentOverride"`
+	// Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+	Essential *bool `pulumi:"essential"`
+	// Specifies how the health of the containers will be checked.
+	HealthCheck *ContainerGroupDefinitionContainerHealthCheck `pulumi:"healthCheck"`
+	// Specifies the image URI of this container.
+	ImageUri string `pulumi:"imageUri"`
+	// The total memory limit of container groups following this definition in MiB
+	MemoryHardLimitMebibytes *int `pulumi:"memoryHardLimitMebibytes"`
+	// A list of mount point configurations to be used in a container.
+	MountPoints []ContainerGroupDefinitionContainerMountPoint `pulumi:"mountPoints"`
+	// Defines the ports on the container.
+	PortConfiguration *ContainerGroupDefinitionPortConfiguration `pulumi:"portConfiguration"`
+	// The digest of the container image.
+	ResolvedImageDigest *string `pulumi:"resolvedImageDigest"`
+	// The number of virtual CPUs to give to the support group
+	Vcpu *float64 `pulumi:"vcpu"`
+}
+
+// ContainerGroupDefinitionSupportContainerDefinitionInput is an input type that accepts ContainerGroupDefinitionSupportContainerDefinitionArgs and ContainerGroupDefinitionSupportContainerDefinitionOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionSupportContainerDefinitionInput` via:
+//
+//	ContainerGroupDefinitionSupportContainerDefinitionArgs{...}
+type ContainerGroupDefinitionSupportContainerDefinitionInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionSupportContainerDefinitionOutput() ContainerGroupDefinitionSupportContainerDefinitionOutput
+	ToContainerGroupDefinitionSupportContainerDefinitionOutputWithContext(context.Context) ContainerGroupDefinitionSupportContainerDefinitionOutput
+}
+
+// Supports the function of the main container group
+type ContainerGroupDefinitionSupportContainerDefinitionArgs struct {
+	// A descriptive label for the container definition.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+	DependsOn ContainerGroupDefinitionContainerDependencyArrayInput `pulumi:"dependsOn"`
+	// The environment variables to pass to a container.
+	EnvironmentOverride ContainerGroupDefinitionContainerEnvironmentArrayInput `pulumi:"environmentOverride"`
+	// Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+	Essential pulumi.BoolPtrInput `pulumi:"essential"`
+	// Specifies how the health of the containers will be checked.
+	HealthCheck ContainerGroupDefinitionContainerHealthCheckPtrInput `pulumi:"healthCheck"`
+	// Specifies the image URI of this container.
+	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+	// The total memory limit of container groups following this definition in MiB
+	MemoryHardLimitMebibytes pulumi.IntPtrInput `pulumi:"memoryHardLimitMebibytes"`
+	// A list of mount point configurations to be used in a container.
+	MountPoints ContainerGroupDefinitionContainerMountPointArrayInput `pulumi:"mountPoints"`
+	// Defines the ports on the container.
+	PortConfiguration ContainerGroupDefinitionPortConfigurationPtrInput `pulumi:"portConfiguration"`
+	// The digest of the container image.
+	ResolvedImageDigest pulumi.StringPtrInput `pulumi:"resolvedImageDigest"`
+	// The number of virtual CPUs to give to the support group
+	Vcpu pulumi.Float64PtrInput `pulumi:"vcpu"`
+}
+
+func (ContainerGroupDefinitionSupportContainerDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionSupportContainerDefinition)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionSupportContainerDefinitionArgs) ToContainerGroupDefinitionSupportContainerDefinitionOutput() ContainerGroupDefinitionSupportContainerDefinitionOutput {
+	return i.ToContainerGroupDefinitionSupportContainerDefinitionOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionSupportContainerDefinitionArgs) ToContainerGroupDefinitionSupportContainerDefinitionOutputWithContext(ctx context.Context) ContainerGroupDefinitionSupportContainerDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionSupportContainerDefinitionOutput)
+}
+
+// ContainerGroupDefinitionSupportContainerDefinitionArrayInput is an input type that accepts ContainerGroupDefinitionSupportContainerDefinitionArray and ContainerGroupDefinitionSupportContainerDefinitionArrayOutput values.
+// You can construct a concrete instance of `ContainerGroupDefinitionSupportContainerDefinitionArrayInput` via:
+//
+//	ContainerGroupDefinitionSupportContainerDefinitionArray{ ContainerGroupDefinitionSupportContainerDefinitionArgs{...} }
+type ContainerGroupDefinitionSupportContainerDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionSupportContainerDefinitionArrayOutput() ContainerGroupDefinitionSupportContainerDefinitionArrayOutput
+	ToContainerGroupDefinitionSupportContainerDefinitionArrayOutputWithContext(context.Context) ContainerGroupDefinitionSupportContainerDefinitionArrayOutput
+}
+
+type ContainerGroupDefinitionSupportContainerDefinitionArray []ContainerGroupDefinitionSupportContainerDefinitionInput
+
+func (ContainerGroupDefinitionSupportContainerDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionSupportContainerDefinition)(nil)).Elem()
+}
+
+func (i ContainerGroupDefinitionSupportContainerDefinitionArray) ToContainerGroupDefinitionSupportContainerDefinitionArrayOutput() ContainerGroupDefinitionSupportContainerDefinitionArrayOutput {
+	return i.ToContainerGroupDefinitionSupportContainerDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupDefinitionSupportContainerDefinitionArray) ToContainerGroupDefinitionSupportContainerDefinitionArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionSupportContainerDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupDefinitionSupportContainerDefinitionArrayOutput)
+}
+
+// Supports the function of the main container group
+type ContainerGroupDefinitionSupportContainerDefinitionOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionSupportContainerDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionSupportContainerDefinition)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) ToContainerGroupDefinitionSupportContainerDefinitionOutput() ContainerGroupDefinitionSupportContainerDefinitionOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) ToContainerGroupDefinitionSupportContainerDefinitionOutputWithContext(ctx context.Context) ContainerGroupDefinitionSupportContainerDefinitionOutput {
+	return o
+}
+
+// A descriptive label for the container definition.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// A list of container dependencies that determines when this container starts up and shuts down. For container groups with multiple containers, dependencies let you define a startup/shutdown sequence across the containers.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) DependsOn() ContainerGroupDefinitionContainerDependencyArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) []ContainerGroupDefinitionContainerDependency {
+		return v.DependsOn
+	}).(ContainerGroupDefinitionContainerDependencyArrayOutput)
+}
+
+// The environment variables to pass to a container.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) EnvironmentOverride() ContainerGroupDefinitionContainerEnvironmentArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) []ContainerGroupDefinitionContainerEnvironment {
+		return v.EnvironmentOverride
+	}).(ContainerGroupDefinitionContainerEnvironmentArrayOutput)
+}
+
+// Specifies if the container is essential. If an essential container fails a health check, then all containers in the container group will be restarted. You must specify exactly 1 essential container in a container group.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) Essential() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) *bool { return v.Essential }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies how the health of the containers will be checked.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) HealthCheck() ContainerGroupDefinitionContainerHealthCheckPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) *ContainerGroupDefinitionContainerHealthCheck {
+		return v.HealthCheck
+	}).(ContainerGroupDefinitionContainerHealthCheckPtrOutput)
+}
+
+// Specifies the image URI of this container.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) string { return v.ImageUri }).(pulumi.StringOutput)
+}
+
+// The total memory limit of container groups following this definition in MiB
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) MemoryHardLimitMebibytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) *int { return v.MemoryHardLimitMebibytes }).(pulumi.IntPtrOutput)
+}
+
+// A list of mount point configurations to be used in a container.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) MountPoints() ContainerGroupDefinitionContainerMountPointArrayOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) []ContainerGroupDefinitionContainerMountPoint {
+		return v.MountPoints
+	}).(ContainerGroupDefinitionContainerMountPointArrayOutput)
+}
+
+// Defines the ports on the container.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) PortConfiguration() ContainerGroupDefinitionPortConfigurationPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) *ContainerGroupDefinitionPortConfiguration {
+		return v.PortConfiguration
+	}).(ContainerGroupDefinitionPortConfigurationPtrOutput)
+}
+
+// The digest of the container image.
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) ResolvedImageDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) *string { return v.ResolvedImageDigest }).(pulumi.StringPtrOutput)
+}
+
+// The number of virtual CPUs to give to the support group
+func (o ContainerGroupDefinitionSupportContainerDefinitionOutput) Vcpu() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ContainerGroupDefinitionSupportContainerDefinition) *float64 { return v.Vcpu }).(pulumi.Float64PtrOutput)
+}
+
+type ContainerGroupDefinitionSupportContainerDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionSupportContainerDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerGroupDefinitionSupportContainerDefinition)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionSupportContainerDefinitionArrayOutput) ToContainerGroupDefinitionSupportContainerDefinitionArrayOutput() ContainerGroupDefinitionSupportContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionSupportContainerDefinitionArrayOutput) ToContainerGroupDefinitionSupportContainerDefinitionArrayOutputWithContext(ctx context.Context) ContainerGroupDefinitionSupportContainerDefinitionArrayOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionSupportContainerDefinitionArrayOutput) Index(i pulumi.IntInput) ContainerGroupDefinitionSupportContainerDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerGroupDefinitionSupportContainerDefinition {
+		return vs[0].([]ContainerGroupDefinitionSupportContainerDefinition)[vs[1].(int)]
+	}).(ContainerGroupDefinitionSupportContainerDefinitionOutput)
+}
+
 // A key-value pair to associate with a resource.
 type ContainerGroupDefinitionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length.
@@ -485,8 +3245,8 @@ type FleetCertificateConfiguration struct {
 	//
 	// Valid values include:
 	//
-	// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-	// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+	// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+	// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
 	CertificateType FleetCertificateConfigurationCertificateType `pulumi:"certificateType"`
 }
 
@@ -507,8 +3267,8 @@ type FleetCertificateConfigurationArgs struct {
 	//
 	// Valid values include:
 	//
-	// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-	// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+	// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+	// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
 	CertificateType FleetCertificateConfigurationCertificateTypeInput `pulumi:"certificateType"`
 }
 
@@ -594,8 +3354,8 @@ func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrO
 //
 // Valid values include:
 //
-// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
 func (o FleetCertificateConfigurationOutput) CertificateType() FleetCertificateConfigurationCertificateTypeOutput {
 	return o.ApplyT(func(v FleetCertificateConfiguration) FleetCertificateConfigurationCertificateType {
 		return v.CertificateType
@@ -630,8 +3390,8 @@ func (o FleetCertificateConfigurationPtrOutput) Elem() FleetCertificateConfigura
 //
 // Valid values include:
 //
-// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
 func (o FleetCertificateConfigurationPtrOutput) CertificateType() FleetCertificateConfigurationCertificateTypePtrOutput {
 	return o.ApplyT(func(v *FleetCertificateConfiguration) *FleetCertificateConfigurationCertificateType {
 		if v == nil {
@@ -950,7 +3710,7 @@ func (o FleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 type FleetLocationConfiguration struct {
 	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Location string `pulumi:"location"`
-	// Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+	// Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 	//
 	// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 	LocationCapacity *FleetLocationCapacity `pulumi:"locationCapacity"`
@@ -971,7 +3731,7 @@ type FleetLocationConfigurationInput interface {
 type FleetLocationConfigurationArgs struct {
 	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Location pulumi.StringInput `pulumi:"location"`
-	// Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+	// Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 	//
 	// *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 	LocationCapacity FleetLocationCapacityPtrInput `pulumi:"locationCapacity"`
@@ -1034,7 +3794,7 @@ func (o FleetLocationConfigurationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetLocationConfiguration) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Current resource capacity settings for managed EC2 fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
+// Current resource capacity settings for managed EC2 fleets and managed container fleets. For multi-location fleets, location values might refer to a fleet's remote location or its home Region.
 //
 // *Returned by:* [DescribeFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetCapacity.html) , [DescribeFleetLocationCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetLocationCapacity.html) , [UpdateFleetCapacity](https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateFleetCapacity.html)
 func (o FleetLocationConfigurationOutput) LocationCapacity() FleetLocationCapacityPtrOutput {
@@ -3294,6 +6054,40 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationInput)(nil)).Elem(), BuildStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationPtrInput)(nil)).Elem(), BuildStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetConnectionPortRangeInput)(nil)).Elem(), ContainerFleetConnectionPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetConnectionPortRangePtrInput)(nil)).Elem(), ContainerFleetConnectionPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetDeploymentConfigurationInput)(nil)).Elem(), ContainerFleetDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetDeploymentConfigurationPtrInput)(nil)).Elem(), ContainerFleetDeploymentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetGameSessionCreationLimitPolicyInput)(nil)).Elem(), ContainerFleetGameSessionCreationLimitPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetGameSessionCreationLimitPolicyPtrInput)(nil)).Elem(), ContainerFleetGameSessionCreationLimitPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetIpPermissionInput)(nil)).Elem(), ContainerFleetIpPermissionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetIpPermissionArrayInput)(nil)).Elem(), ContainerFleetIpPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLocationCapacityInput)(nil)).Elem(), ContainerFleetLocationCapacityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLocationCapacityPtrInput)(nil)).Elem(), ContainerFleetLocationCapacityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLocationConfigurationInput)(nil)).Elem(), ContainerFleetLocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLocationConfigurationArrayInput)(nil)).Elem(), ContainerFleetLocationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogConfigurationInput)(nil)).Elem(), ContainerFleetLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogConfigurationPtrInput)(nil)).Elem(), ContainerFleetLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyInput)(nil)).Elem(), ContainerFleetScalingPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyArrayInput)(nil)).Elem(), ContainerFleetScalingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetTargetConfigurationInput)(nil)).Elem(), ContainerFleetTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetTargetConfigurationPtrInput)(nil)).Elem(), ContainerFleetTargetConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerDependencyInput)(nil)).Elem(), ContainerGroupDefinitionContainerDependencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerDependencyArrayInput)(nil)).Elem(), ContainerGroupDefinitionContainerDependencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerEnvironmentInput)(nil)).Elem(), ContainerGroupDefinitionContainerEnvironmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerEnvironmentArrayInput)(nil)).Elem(), ContainerGroupDefinitionContainerEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerHealthCheckInput)(nil)).Elem(), ContainerGroupDefinitionContainerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerHealthCheckPtrInput)(nil)).Elem(), ContainerGroupDefinitionContainerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerMountPointInput)(nil)).Elem(), ContainerGroupDefinitionContainerMountPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerMountPointArrayInput)(nil)).Elem(), ContainerGroupDefinitionContainerMountPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeInput)(nil)).Elem(), ContainerGroupDefinitionContainerPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeArrayInput)(nil)).Elem(), ContainerGroupDefinitionContainerPortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionGameServerContainerDefinitionInput)(nil)).Elem(), ContainerGroupDefinitionGameServerContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionGameServerContainerDefinitionPtrInput)(nil)).Elem(), ContainerGroupDefinitionGameServerContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionPortConfigurationInput)(nil)).Elem(), ContainerGroupDefinitionPortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionPortConfigurationPtrInput)(nil)).Elem(), ContainerGroupDefinitionPortConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionSupportContainerDefinitionInput)(nil)).Elem(), ContainerGroupDefinitionSupportContainerDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionSupportContainerDefinitionArrayInput)(nil)).Elem(), ContainerGroupDefinitionSupportContainerDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAnywhereConfigurationInput)(nil)).Elem(), FleetAnywhereConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAnywhereConfigurationPtrInput)(nil)).Elem(), FleetAnywhereConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetCertificateConfigurationInput)(nil)).Elem(), FleetCertificateConfigurationArgs{})
@@ -3337,6 +6131,42 @@ func init() {
 	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BuildStorageLocationOutput{})
 	pulumi.RegisterOutputType(BuildStorageLocationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetConnectionPortRangeOutput{})
+	pulumi.RegisterOutputType(ContainerFleetConnectionPortRangePtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetDeploymentConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerFleetDeploymentConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetDeploymentDetailsOutput{})
+	pulumi.RegisterOutputType(ContainerFleetDeploymentDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetGameSessionCreationLimitPolicyOutput{})
+	pulumi.RegisterOutputType(ContainerFleetGameSessionCreationLimitPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetIpPermissionOutput{})
+	pulumi.RegisterOutputType(ContainerFleetIpPermissionArrayOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLocationCapacityOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLocationCapacityPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLocationConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLocationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLogConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ContainerFleetTargetConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerFleetTargetConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerDependencyOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerDependencyArrayOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerEnvironmentOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerEnvironmentArrayOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerHealthCheckOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerMountPointOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerMountPointArrayOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerPortRangeOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerPortRangeArrayOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionGameServerContainerDefinitionOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionPortConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionPortConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionSupportContainerDefinitionOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionSupportContainerDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(FleetAnywhereConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetAnywhereConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetCertificateConfigurationOutput{})
