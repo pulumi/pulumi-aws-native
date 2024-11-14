@@ -1,0 +1,3 @@
+name: aws-native-autonaming-overlay
+runtime: nodejs
+description: An example program to test autoname overlay

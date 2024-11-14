@@ -35,6 +35,26 @@ import (
 
 type schemaUrls []string
 
+// CloudFormationAutoNameOverlay represents the overlay file `aws-cfn-autoname-overlay.json`.
+// Some resources have name requirements that are not defined yet in the CloudFormation schema.
+// This file allows us to define those requirements as an overlay. It will never overwrite existing
+// values in the schema, so as they add these requirements to the schema, it will overwrite what we have.
+type CloudFormationAutoNameOverlay struct {
+	// Resources is a map of CloudFormation resource types to their auto-naming properties.
+	Resources map[string]AutoNamingOverlay `json:"Resources"`
+}
+
+// AutoNamingOverlay is a map of property names to their auto-naming properties.
+type AutoNamingOverlay map[string]AutoNamingProps
+
+// AutoNamingProps is the auto-naming properties for a property.
+// These properties will overwrite the auto-naming properties in the schema only
+// if the schema property does not already have a value set.
+type AutoNamingProps struct {
+	MinLength int `json:"minLength"`
+	MaxLength int `json:"maxLength"`
+}
+
 func (s *schemaUrls) String() string {
 	return fmt.Sprint(*s)
 }
@@ -77,6 +97,12 @@ func main() {
 
 	genDir := filepath.Join(".", "provider", "cmd", "pulumi-gen-aws-native")
 	semanticsDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
+	autonameOverlay := filepath.Join(".", "aws-cfn-autoname-overlay.json")
+	autoNameOverlay, err := readAutonamingOverlay(autonameOverlay)
+	if err != nil {
+		fmt.Println("Error reading autonaming overlay file: ", err)
+		return
+	}
 
 	switch operation {
 	case "docs":
@@ -106,7 +132,7 @@ func main() {
 
 	case "schema":
 		supportedTypes := readSupportedResourceTypes(genDir)
-		jsonSchemas := readJsonSchemas(schemaFolder)
+		jsonSchemas := readJsonSchemas(schemaFolder, autoNameOverlay)
 		docsTypes, err := schema.ReadCloudFormationDocsFile(filepath.Join(".", "aws-cloudformation-docs", "CloudFormationDocumentation.json"))
 		if err != nil {
 			fatalf("error reading CloudFormation docs file: %v", err)
@@ -172,7 +198,7 @@ func fatalf(format string, a ...any) {
 	log.Fatalf(fmt.Sprintf("schema generation failed\n%s\n%s\n%s\n", barrier, fmt.Sprintf(format, a...), barrier))
 }
 
-func readJsonSchemas(schemaDir string) (res []*jsschema.Schema) {
+func readJsonSchemas(schemaDir string, overlay map[string]AutoNamingOverlay) (res []*jsschema.Schema) {
 	var fileNames []string
 	root := filepath.Join(".", schemaDir)
 	err := filepath.Walk(root, func(path string, info os.FileInfo, err error) error {
@@ -187,18 +213,36 @@ func readJsonSchemas(schemaDir string) (res []*jsschema.Schema) {
 
 	sort.Strings(fileNames)
 	for _, fileName := range fileNames {
-		res = append(res, readJsonSchema(fileName))
+		res = append(res, readJsonSchema(fileName, overlay))
 	}
 	return
 }
 
-func readJsonSchema(schemaPath string) *jsschema.Schema {
+func readJsonSchema(schemaPath string, overlay map[string]AutoNamingOverlay) *jsschema.Schema {
 	s, err := jsschema.ReadFile(schemaPath)
 	if err != nil {
 		fatalf("%v", errors.Wrapf(err, schemaPath))
 	}
+	mergeAutoNaming(s, overlay)
 
 	return s
+}
+
+func mergeAutoNaming(schema *jsschema.Schema, overlay map[string]AutoNamingOverlay) {
+	if cfTypeName, ok := schema.Extras["typeName"].(string); ok {
+		if typeOverlay, ok := overlay[cfTypeName]; ok {
+			for propertyName, autoName := range typeOverlay {
+				if p, ok := schema.Properties[propertyName]; ok {
+					if p.MaxLength.Val == 0 {
+						p.MaxLength.Val = autoName.MaxLength
+					}
+					if p.MinLength.Val == 0 {
+						p.MinLength.Val = autoName.MinLength
+					}
+				}
+			}
+		}
+	}
 }
 
 const regionsFile = "regions.json"
@@ -228,6 +272,20 @@ func readSupportedResourceTypes(outDir string) []string {
 		panic(err)
 	}
 	return strings.Split(string(bytes), "\n")
+}
+
+func readAutonamingOverlay(file string) (map[string]AutoNamingOverlay, error) {
+	bytes, err := os.ReadFile(file)
+	if err != nil {
+		return nil, err
+	}
+
+	var overlay CloudFormationAutoNameOverlay
+	err = json.Unmarshal(bytes, &overlay)
+	if err != nil {
+		return nil, err
+	}
+	return overlay.Resources, nil
 }
 
 func writeSupportedResourceTypes(outDir string) error {

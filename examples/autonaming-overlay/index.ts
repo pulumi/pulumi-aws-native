@@ -1,0 +1,16 @@
+import * as aws from "@pulumi/aws-native";
+
+new aws.iam.Role("myRole".repeat(11), {
+  assumeRolePolicyDocument: {
+    Version: "2012-10-17",
+    Statement: [
+      {
+        Effect: "Allow",
+        Principal: {
+          Service: "lambda.amazonaws.com",
+        },
+        Action: "sts:AssumeRole",
+      },
+    ],
+  },
+});
