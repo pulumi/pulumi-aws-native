@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A subscription configuration for additional CloudWatch metrics.
+    /// </summary>
     [OutputType]
     public sealed class MonitoringSubscriptionRealtimeMetricsSubscriptionConfig
     {

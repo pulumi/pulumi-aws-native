@@ -488,6 +488,34 @@ namespace Pulumi.AwsNative.Ecs
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct TaskDefinitionContainerDefinitionVersionConsistency : IEquatable<TaskDefinitionContainerDefinitionVersionConsistency>
+    {
+        private readonly string _value;
+
+        private TaskDefinitionContainerDefinitionVersionConsistency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskDefinitionContainerDefinitionVersionConsistency Enabled { get; } = new TaskDefinitionContainerDefinitionVersionConsistency("enabled");
+        public static TaskDefinitionContainerDefinitionVersionConsistency Disabled { get; } = new TaskDefinitionContainerDefinitionVersionConsistency("disabled");
+
+        public static bool operator ==(TaskDefinitionContainerDefinitionVersionConsistency left, TaskDefinitionContainerDefinitionVersionConsistency right) => left.Equals(right);
+        public static bool operator !=(TaskDefinitionContainerDefinitionVersionConsistency left, TaskDefinitionContainerDefinitionVersionConsistency right) => !left.Equals(right);
+
+        public static explicit operator string(TaskDefinitionContainerDefinitionVersionConsistency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskDefinitionContainerDefinitionVersionConsistency other && Equals(other);
+        public bool Equals(TaskDefinitionContainerDefinitionVersionConsistency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Determines whether to use encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be turned on if Amazon EFS IAM authorization is used. If this parameter is omitted, the default value of ``DISABLED`` is used. For more information, see [Encrypting data in transit](https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html) in the *Amazon Elastic File System User Guide*.
     /// </summary>

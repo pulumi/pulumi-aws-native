@@ -85,7 +85,7 @@ class AwaitableGetKeyValueStoreResult(GetKeyValueStoreResult):
 def get_key_value_store(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyValueStoreResult:
     """
-    Resource Type definition for AWS::CloudFront::KeyValueStore
+    The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
 
 
     :param str name: The name of the key value store.
@@ -103,7 +103,7 @@ def get_key_value_store(name: Optional[str] = None,
 def get_key_value_store_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyValueStoreResult]:
     """
-    Resource Type definition for AWS::CloudFront::KeyValueStore
+    The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
 
 
     :param str name: The name of the key value store.

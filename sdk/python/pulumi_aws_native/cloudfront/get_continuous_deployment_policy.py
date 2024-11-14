@@ -75,7 +75,9 @@ class AwaitableGetContinuousDeploymentPolicyResult(GetContinuousDeploymentPolicy
 def get_continuous_deployment_policy(id: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContinuousDeploymentPolicyResult:
     """
-    Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
+    Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.
+     After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This enables you to test changes to a distribution's configuration before moving all of your production traffic to the new configuration.
+     For more information, see [Using CloudFront continuous deployment to safely test CDN configuration changes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/continuous-deployment.html) in the *Amazon CloudFront Developer Guide*.
 
 
     :param str id: The identifier of the cotinuous deployment policy.
@@ -92,7 +94,9 @@ def get_continuous_deployment_policy(id: Optional[str] = None,
 def get_continuous_deployment_policy_output(id: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContinuousDeploymentPolicyResult]:
     """
-    Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
+    Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.
+     After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This enables you to test changes to a distribution's configuration before moving all of your production traffic to the new configuration.
+     For more information, see [Using CloudFront continuous deployment to safely test CDN configuration changes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/continuous-deployment.html) in the *Amazon CloudFront Developer Guide*.
 
 
     :param str id: The identifier of the cotinuous deployment policy.

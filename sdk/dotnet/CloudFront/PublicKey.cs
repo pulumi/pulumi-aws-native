@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFront::PublicKey
+    /// A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:PublicKey")]
     public partial class PublicKey : global::Pulumi.CustomResource
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        /// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         /// </summary>
         [Output("publicKeyConfig")]
         public Output<Outputs.PublicKeyConfig> PublicKeyConfig { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class PublicKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        /// Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         /// </summary>
         [Input("publicKeyConfig", required: true)]
         public Input<Inputs.PublicKeyConfigArgs> PublicKeyConfig { get; set; } = null!;

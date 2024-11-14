@@ -16,9 +16,10 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
     public sealed class DistributionS3OriginConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
-        ///  origin-access-identity/cloudfront/*ID-of-origin-access-identity* 
-        ///  where ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
+        /// If you're using origin access control (OAC) instead of origin access identity, specify an empty ``OriginAccessIdentity`` element. For more information, see [Restricting access to an](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
+        ///   The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that viewers can *only* access objects in an Amazon S3 bucket through CloudFront. The format of the value is:
+        ///   ``origin-access-identity/cloudfront/ID-of-origin-access-identity`` 
+        ///  The ``ID-of-origin-access-identity`` is the value that CloudFront returned in the ``ID`` element when you created the origin access identity.
         ///  If you want viewers to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty ``OriginAccessIdentity`` element.
         ///  To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty ``OriginAccessIdentity`` element.
         ///  To replace the origin access identity, update the distribution configuration and specify the new origin access identity.

@@ -39,7 +39,6 @@ func NewViewVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ViewArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"versionDescription",
 		"viewArn",
 		"viewContentSha256",
 	})

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+    /// </summary>
     public sealed class RealtimeLogConfigEndPointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -19,7 +22,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<Inputs.RealtimeLogConfigKinesisStreamConfigArgs> KinesisStreamConfig { get; set; } = null!;
 
         /// <summary>
-        /// The type of data stream where you are sending real-time log data. The only valid value is `Kinesis` .
+        /// The type of data stream where you are sending real-time log data. The only valid value is ``Kinesis``.
         /// </summary>
         [Input("streamType", required: true)]
         public Input<string> StreamType { get; set; } = null!;

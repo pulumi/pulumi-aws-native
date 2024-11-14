@@ -232,6 +232,13 @@ func TestCfnCustomResource_Create(t *testing.T) {
 				},
 			},
 		},
+		{
+			name: "CustomResource without response data",
+			customResourceData: nil,
+			customResourceInputs: map[string]interface{}{
+				"key1": "value1",
+			},
+		},
 	}
 
 	for _, tt := range tests {
@@ -329,9 +336,14 @@ func TestCfnCustomResource_Create(t *testing.T) {
 				require.NoError(t, err)
 
 				expectedID := physicalResourceID
+				expectedCustomResourceData := tt.customResourceData
+				if expectedCustomResourceData == nil {
+					expectedCustomResourceData = map[string]interface{}{}
+				}
+
 				expectedState := CfnCustomResourceState{
 					PhysicalResourceID: physicalResourceID,
-					Data:               tt.customResourceData,
+					Data:               expectedCustomResourceData,
 					StackID:            stackID,
 					ServiceToken:       serviceToken,
 					Bucket:             bucketName,
@@ -611,6 +623,10 @@ func TestCfnCustomResource_Update(t *testing.T) {
 			timeout:               10 * time.Minute,
 			newCustomResourceData: map[string]interface{}{"new": "value"},
 		},
+		{
+			name: "CustomResource without response data",
+			newCustomResourceData: nil,
+		},
 	}
 
 	for _, tt := range tests {
@@ -733,9 +749,14 @@ func TestCfnCustomResource_Update(t *testing.T) {
 
 			require.NoError(t, err)
 
+			expectedCustomResourceData := tt.newCustomResourceData
+			if expectedCustomResourceData == nil {
+				expectedCustomResourceData = map[string]interface{}{}
+			}
+
 			expectedState := CfnCustomResourceState{
 				PhysicalResourceID: physicalResourceID,
-				Data:               tt.newCustomResourceData,
+				Data:               expectedCustomResourceData,
 				StackID:            stackID,
 				ServiceToken:       serviceToken,
 				Bucket:             bucketName,

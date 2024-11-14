@@ -25,6 +25,183 @@ export const BuildOperatingSystem = {
  */
 export type BuildOperatingSystem = (typeof BuildOperatingSystem)[keyof typeof BuildOperatingSystem];
 
+export const ContainerFleetBillingType = {
+    OnDemand: "ON_DEMAND",
+    Spot: "SPOT",
+} as const;
+
+/**
+ * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+ */
+export type ContainerFleetBillingType = (typeof ContainerFleetBillingType)[keyof typeof ContainerFleetBillingType];
+
+export const ContainerFleetDeploymentConfigurationImpairmentStrategy = {
+    Maintain: "MAINTAIN",
+    Rollback: "ROLLBACK",
+} as const;
+
+/**
+ * The strategy to apply in case of impairment; defaults to MAINTAIN.
+ */
+export type ContainerFleetDeploymentConfigurationImpairmentStrategy = (typeof ContainerFleetDeploymentConfigurationImpairmentStrategy)[keyof typeof ContainerFleetDeploymentConfigurationImpairmentStrategy];
+
+export const ContainerFleetDeploymentConfigurationProtectionStrategy = {
+    WithProtection: "WITH_PROTECTION",
+    IgnoreProtection: "IGNORE_PROTECTION",
+} as const;
+
+/**
+ * The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+ */
+export type ContainerFleetDeploymentConfigurationProtectionStrategy = (typeof ContainerFleetDeploymentConfigurationProtectionStrategy)[keyof typeof ContainerFleetDeploymentConfigurationProtectionStrategy];
+
+export const ContainerFleetIpPermissionProtocol = {
+    Tcp: "TCP",
+    Udp: "UDP",
+} as const;
+
+/**
+ * The network communication protocol used by the fleet.
+ */
+export type ContainerFleetIpPermissionProtocol = (typeof ContainerFleetIpPermissionProtocol)[keyof typeof ContainerFleetIpPermissionProtocol];
+
+export const ContainerFleetLogDestination = {
+    None: "NONE",
+    Cloudwatch: "CLOUDWATCH",
+    S3: "S3",
+} as const;
+
+/**
+ * Configures the service that provides logs.
+ */
+export type ContainerFleetLogDestination = (typeof ContainerFleetLogDestination)[keyof typeof ContainerFleetLogDestination];
+
+export const ContainerFleetNewGameSessionProtectionPolicy = {
+    FullProtection: "FullProtection",
+    NoProtection: "NoProtection",
+} as const;
+
+/**
+ * A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+ */
+export type ContainerFleetNewGameSessionProtectionPolicy = (typeof ContainerFleetNewGameSessionProtectionPolicy)[keyof typeof ContainerFleetNewGameSessionProtectionPolicy];
+
+export const ContainerFleetScalingPolicyComparisonOperator = {
+    GreaterThanOrEqualToThreshold: "GreaterThanOrEqualToThreshold",
+    GreaterThanThreshold: "GreaterThanThreshold",
+    LessThanThreshold: "LessThanThreshold",
+    LessThanOrEqualToThreshold: "LessThanOrEqualToThreshold",
+} as const;
+
+/**
+ * Comparison operator to use when measuring a metric against the threshold value.
+ */
+export type ContainerFleetScalingPolicyComparisonOperator = (typeof ContainerFleetScalingPolicyComparisonOperator)[keyof typeof ContainerFleetScalingPolicyComparisonOperator];
+
+export const ContainerFleetScalingPolicyMetricName = {
+    ActivatingGameSessions: "ActivatingGameSessions",
+    ActiveGameSessions: "ActiveGameSessions",
+    ActiveInstances: "ActiveInstances",
+    AvailableGameSessions: "AvailableGameSessions",
+    AvailablePlayerSessions: "AvailablePlayerSessions",
+    CurrentPlayerSessions: "CurrentPlayerSessions",
+    IdleInstances: "IdleInstances",
+    PercentAvailableGameSessions: "PercentAvailableGameSessions",
+    PercentIdleInstances: "PercentIdleInstances",
+    QueueDepth: "QueueDepth",
+    WaitTime: "WaitTime",
+    ConcurrentActivatableGameSessions: "ConcurrentActivatableGameSessions",
+} as const;
+
+/**
+ * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+ */
+export type ContainerFleetScalingPolicyMetricName = (typeof ContainerFleetScalingPolicyMetricName)[keyof typeof ContainerFleetScalingPolicyMetricName];
+
+export const ContainerFleetScalingPolicyPolicyType = {
+    RuleBased: "RuleBased",
+    TargetBased: "TargetBased",
+} as const;
+
+/**
+ * The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+ */
+export type ContainerFleetScalingPolicyPolicyType = (typeof ContainerFleetScalingPolicyPolicyType)[keyof typeof ContainerFleetScalingPolicyPolicyType];
+
+export const ContainerFleetScalingPolicyScalingAdjustmentType = {
+    ChangeInCapacity: "ChangeInCapacity",
+    ExactCapacity: "ExactCapacity",
+    PercentChangeInCapacity: "PercentChangeInCapacity",
+} as const;
+
+/**
+ * The type of adjustment to make to a fleet's instance count.
+ */
+export type ContainerFleetScalingPolicyScalingAdjustmentType = (typeof ContainerFleetScalingPolicyScalingAdjustmentType)[keyof typeof ContainerFleetScalingPolicyScalingAdjustmentType];
+
+export const ContainerFleetStatus = {
+    Pending: "PENDING",
+    Creating: "CREATING",
+    Created: "CREATED",
+    Activating: "ACTIVATING",
+    Active: "ACTIVE",
+    Updating: "UPDATING",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * The current status of the container fleet.
+ */
+export type ContainerFleetStatus = (typeof ContainerFleetStatus)[keyof typeof ContainerFleetStatus];
+
+export const ContainerFleetStoppedActionsItem = {
+    AutoScaling: "AUTO_SCALING",
+} as const;
+
+export type ContainerFleetStoppedActionsItem = (typeof ContainerFleetStoppedActionsItem)[keyof typeof ContainerFleetStoppedActionsItem];
+
+export const ContainerGroupDefinitionContainerDependencyCondition = {
+    Start: "START",
+    Complete: "COMPLETE",
+    Success: "SUCCESS",
+    Healthy: "HEALTHY",
+} as const;
+
+/**
+ * The type of dependency.
+ */
+export type ContainerGroupDefinitionContainerDependencyCondition = (typeof ContainerGroupDefinitionContainerDependencyCondition)[keyof typeof ContainerGroupDefinitionContainerDependencyCondition];
+
+export const ContainerGroupDefinitionContainerGroupType = {
+    GameServer: "GAME_SERVER",
+    PerInstance: "PER_INSTANCE",
+} as const;
+
+/**
+ * The scope of the container group
+ */
+export type ContainerGroupDefinitionContainerGroupType = (typeof ContainerGroupDefinitionContainerGroupType)[keyof typeof ContainerGroupDefinitionContainerGroupType];
+
+export const ContainerGroupDefinitionContainerMountPointAccessLevel = {
+    ReadOnly: "READ_ONLY",
+    ReadAndWrite: "READ_AND_WRITE",
+} as const;
+
+/**
+ * The access permissions for the mounted path.
+ */
+export type ContainerGroupDefinitionContainerMountPointAccessLevel = (typeof ContainerGroupDefinitionContainerMountPointAccessLevel)[keyof typeof ContainerGroupDefinitionContainerMountPointAccessLevel];
+
+export const ContainerGroupDefinitionContainerPortRangeProtocol = {
+    Tcp: "TCP",
+    Udp: "UDP",
+} as const;
+
+/**
+ * Defines the protocol of these ports.
+ */
+export type ContainerGroupDefinitionContainerPortRangeProtocol = (typeof ContainerGroupDefinitionContainerPortRangeProtocol)[keyof typeof ContainerGroupDefinitionContainerPortRangeProtocol];
+
 export const ContainerGroupDefinitionOperatingSystem = {
     AmazonLinux2023: "AMAZON_LINUX_2023",
 } as const;
@@ -65,8 +242,8 @@ export const FleetCertificateConfigurationCertificateType = {
  *
  * Valid values include:
  *
- * - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
- * - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+ * - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+ * - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
  */
 export type FleetCertificateConfigurationCertificateType = (typeof FleetCertificateConfigurationCertificateType)[keyof typeof FleetCertificateConfigurationCertificateType];
 

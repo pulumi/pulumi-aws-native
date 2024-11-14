@@ -33,6 +33,7 @@ export interface GetContainerGroupDefinitionResult {
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
      */
     readonly creationTime?: string;
+    readonly gameServerContainerDefinition?: outputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinition;
     /**
      * The operating system of the container group
      */
@@ -52,11 +53,27 @@ export interface GetContainerGroupDefinitionResult {
     /**
      * A collection of support container definitions that define the containers in this group.
      */
-    readonly supportContainerDefinitions?: any[];
+    readonly supportContainerDefinitions?: outputs.gamelift.ContainerGroupDefinitionSupportContainerDefinition[];
     /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The total memory limit of container groups following this definition in MiB
+     */
+    readonly totalMemoryLimitMebibytes?: number;
+    /**
+     * The total amount of virtual CPUs on the container group definition
+     */
+    readonly totalVcpuLimit?: number;
+    /**
+     * The description of this version
+     */
+    readonly versionDescription?: string;
+    /**
+     * The version of this ContainerGroupDefinition
+     */
+    readonly versionNumber?: number;
 }
 /**
  * The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.

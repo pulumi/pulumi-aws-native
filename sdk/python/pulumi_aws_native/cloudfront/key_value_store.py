@@ -84,7 +84,7 @@ class KeyValueStore(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::KeyValueStore
+        The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -99,7 +99,7 @@ class KeyValueStore(pulumi.CustomResource):
                  args: Optional[KeyValueStoreArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::KeyValueStore
+        The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
 
         :param str resource_name: The name of the resource.
         :param KeyValueStoreArgs args: The arguments to use to populate this resource's properties.

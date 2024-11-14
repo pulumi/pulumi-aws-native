@@ -143,9 +143,11 @@ AWS::CleanRooms::IdNamespaceAssociation
 AWS::CleanRooms::Membership
 AWS::CleanRooms::PrivacyBudgetTemplate
 AWS::CleanRoomsML::TrainingDataset
+AWS::CloudFormation::GuardHook
 AWS::CloudFormation::HookDefaultVersion
 AWS::CloudFormation::HookTypeConfig
 AWS::CloudFormation::HookVersion
+AWS::CloudFormation::LambdaHook
 AWS::CloudFormation::ModuleDefaultVersion
 AWS::CloudFormation::ModuleVersion
 AWS::CloudFormation::PublicTypeVersion
@@ -476,6 +478,7 @@ AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::GameLift::Alias
 AWS::GameLift::Build
+AWS::GameLift::ContainerFleet
 AWS::GameLift::ContainerGroupDefinition
 AWS::GameLift::Fleet
 AWS::GameLift::GameServerGroup

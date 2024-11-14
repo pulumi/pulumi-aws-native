@@ -50,7 +50,9 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                  continuous_deployment_policy_config: Optional[pulumi.Input[Union['ContinuousDeploymentPolicyConfigArgs', 'ContinuousDeploymentPolicyConfigArgsDict']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
+        Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.
+         After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This enables you to test changes to a distribution's configuration before moving all of your production traffic to the new configuration.
+         For more information, see [Using CloudFront continuous deployment to safely test CDN configuration changes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/continuous-deployment.html) in the *Amazon CloudFront Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -63,7 +65,9 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                  args: ContinuousDeploymentPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::ContinuousDeploymentPolicy
+        Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.
+         After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This enables you to test changes to a distribution's configuration before moving all of your production traffic to the new configuration.
+         For more information, see [Using CloudFront continuous deployment to safely test CDN configuration changes](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/continuous-deployment.html) in the *Amazon CloudFront Developer Guide*.
 
         :param str resource_name: The name of the resource.
         :param ContinuousDeploymentPolicyArgs args: The arguments to use to populate this resource's properties.

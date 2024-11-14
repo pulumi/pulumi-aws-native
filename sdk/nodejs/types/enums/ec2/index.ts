@@ -629,6 +629,7 @@ export const SpotFleetInstanceRequirementsRequestCpuManufacturersItem = {
     Intel: "intel",
     Amd: "amd",
     AmazonWebServices: "amazon-web-services",
+    Apple: "apple",
 } as const;
 
 export type SpotFleetInstanceRequirementsRequestCpuManufacturersItem = (typeof SpotFleetInstanceRequirementsRequestCpuManufacturersItem)[keyof typeof SpotFleetInstanceRequirementsRequestCpuManufacturersItem];

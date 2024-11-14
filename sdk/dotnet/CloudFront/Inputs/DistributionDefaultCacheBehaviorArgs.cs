@@ -88,7 +88,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         private InputList<Inputs.DistributionFunctionAssociationArgs>? _functionAssociations;
 
         /// <summary>
-        /// A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        /// A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
         /// </summary>
         public InputList<Inputs.DistributionFunctionAssociationArgs> FunctionAssociations
         {

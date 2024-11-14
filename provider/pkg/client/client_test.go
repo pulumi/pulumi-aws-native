@@ -375,7 +375,17 @@ func TestGetResourceRetryNotFoundRetrySettings(t *testing.T) {
 	for attempt := 0; attempt < attempts; attempt++ {
 		delay, err := backoff.BackoffDelay(attempt, nil)
 		require.NoError(t, err)
+		t.Logf("attempt %d delay is %v", attempt, delay)
 		totalDelay += delay
 	}
-	require.LessOrEqual(t, totalDelay, 10*time.Second)
+	// Typical test output (though it is random):
+	//
+	// client_test.go:378: attempt 0 delay is 745.506998ms
+	// client_test.go:378: attempt 1 delay is 1.229581817s
+	// client_test.go:378: attempt 2 delay is 931.993865ms
+	// client_test.go:378: attempt 3 delay is 5s
+	// client_test.go:378: attempt 4 delay is 5s
+	//
+	// The worst case wait is 25 seconds.
+	require.LessOrEqual(t, totalDelay, 25*time.Second)
 }

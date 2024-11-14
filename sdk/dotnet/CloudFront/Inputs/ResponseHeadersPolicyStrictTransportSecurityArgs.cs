@@ -10,28 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// Determines whether CloudFront includes the ``Strict-Transport-Security`` HTTP response header and the header's value.
+    ///  For more information about the ``Strict-Transport-Security`` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+    /// </summary>
     public sealed class ResponseHeadersPolicyStrictTransportSecurityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
+        /// A number that CloudFront uses as the value for the ``max-age`` directive in the ``Strict-Transport-Security`` HTTP response header.
         /// </summary>
         [Input("accessControlMaxAgeSec", required: true)]
         public Input<int> AccessControlMaxAgeSec { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
+        /// A Boolean that determines whether CloudFront includes the ``includeSubDomains`` directive in the ``Strict-Transport-Security`` HTTP response header.
         /// </summary>
         [Input("includeSubdomains")]
         public Input<bool>? IncludeSubdomains { get; set; }
 
         /// <summary>
-        /// A Boolean that determines whether CloudFront overrides the `Strict-Transport-Security` HTTP response header received from the origin with the one specified in this response headers policy.
+        /// A Boolean that determines whether CloudFront overrides the ``Strict-Transport-Security`` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
+        /// A Boolean that determines whether CloudFront includes the ``preload`` directive in the ``Strict-Transport-Security`` HTTP response header.
         /// </summary>
         [Input("preload")]
         public Input<bool>? Preload { get; set; }

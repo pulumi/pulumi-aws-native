@@ -17,17 +17,76 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'GuardHookS3Location',
     'HookVersionLoggingConfig',
+    'LambdaHookHookTarget',
     'ManagedExecutionProperties',
+    'OptionsProperties',
     'ResourceVersionLoggingConfig',
+    'StackFiltersProperties',
+    'StackFiltersPropertiesStackNamesProperties',
+    'StackFiltersPropertiesStackRolesProperties',
     'StackOutput',
     'StackSetAutoDeployment',
     'StackSetDeploymentTargets',
     'StackSetOperationPreferences',
     'StackSetParameter',
     'StackSetStackInstances',
+    'TargetFilters0Properties',
+    'TargetFilters1Properties',
     'TypeActivationLoggingConfig',
 ]
+
+@pulumi.output_type
+class GuardHookS3Location(dict):
+    """
+    S3 Source Location for the Guard files.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuardHookS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuardHookS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuardHookS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uri: str,
+                 version_id: Optional[str] = None):
+        """
+        S3 Source Location for the Guard files.
+        :param str uri: S3 uri of Guard files.
+        :param str version_id: S3 object version
+        """
+        pulumi.set(__self__, "uri", uri)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        S3 uri of Guard files.
+        """
+        return pulumi.get(self, "uri")
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[str]:
+        """
+        S3 object version
+        """
+        return pulumi.get(self, "version_id")
+
 
 @pulumi.output_type
 class HookVersionLoggingConfig(dict):
@@ -80,6 +139,57 @@ class HookVersionLoggingConfig(dict):
 
 
 @pulumi.output_type
+class LambdaHookHookTarget(dict):
+    """
+    Hook targets are the destination where hooks will be invoked against.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invocationPoint":
+            suggest = "invocation_point"
+        elif key == "targetName":
+            suggest = "target_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LambdaHookHookTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LambdaHookHookTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LambdaHookHookTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: 'LambdaHookAction',
+                 invocation_point: 'LambdaHookInvocationPoint',
+                 target_name: str):
+        """
+        Hook targets are the destination where hooks will be invoked against.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "invocation_point", invocation_point)
+        pulumi.set(__self__, "target_name", target_name)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'LambdaHookAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="invocationPoint")
+    def invocation_point(self) -> 'LambdaHookInvocationPoint':
+        return pulumi.get(self, "invocation_point")
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> str:
+        return pulumi.get(self, "target_name")
+
+
+@pulumi.output_type
 class ManagedExecutionProperties(dict):
     """
     Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
@@ -112,6 +222,36 @@ class ManagedExecutionProperties(dict):
         When `false` (default), StackSets performs one operation at a time in request order.
         """
         return pulumi.get(self, "active")
+
+
+@pulumi.output_type
+class OptionsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputParams":
+            suggest = "input_params"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OptionsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OptionsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OptionsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_params: Optional['outputs.GuardHookS3Location'] = None):
+        if input_params is not None:
+            pulumi.set(__self__, "input_params", input_params)
+
+    @property
+    @pulumi.getter(name="inputParams")
+    def input_params(self) -> Optional['outputs.GuardHookS3Location']:
+        return pulumi.get(self, "input_params")
 
 
 @pulumi.output_type
@@ -162,6 +302,143 @@ class ResourceVersionLoggingConfig(dict):
         The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
         """
         return pulumi.get(self, "log_role_arn")
+
+
+@pulumi.output_type
+class StackFiltersProperties(dict):
+    """
+    Filters to allow hooks to target specific stack attributes
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filteringCriteria":
+            suggest = "filtering_criteria"
+        elif key == "stackNames":
+            suggest = "stack_names"
+        elif key == "stackRoles":
+            suggest = "stack_roles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackFiltersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackFiltersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackFiltersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filtering_criteria: 'LambdaHookStackFiltersPropertiesFilteringCriteria',
+                 stack_names: Optional['outputs.StackFiltersPropertiesStackNamesProperties'] = None,
+                 stack_roles: Optional['outputs.StackFiltersPropertiesStackRolesProperties'] = None):
+        """
+        Filters to allow hooks to target specific stack attributes
+        :param 'LambdaHookStackFiltersPropertiesFilteringCriteria' filtering_criteria: Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+        :param 'StackFiltersPropertiesStackNamesProperties' stack_names: List of stack names as filters
+        :param 'StackFiltersPropertiesStackRolesProperties' stack_roles: List of stack roles that are performing the stack operations.
+        """
+        pulumi.set(__self__, "filtering_criteria", filtering_criteria)
+        if stack_names is not None:
+            pulumi.set(__self__, "stack_names", stack_names)
+        if stack_roles is not None:
+            pulumi.set(__self__, "stack_roles", stack_roles)
+
+    @property
+    @pulumi.getter(name="filteringCriteria")
+    def filtering_criteria(self) -> 'LambdaHookStackFiltersPropertiesFilteringCriteria':
+        """
+        Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+        """
+        return pulumi.get(self, "filtering_criteria")
+
+    @property
+    @pulumi.getter(name="stackNames")
+    def stack_names(self) -> Optional['outputs.StackFiltersPropertiesStackNamesProperties']:
+        """
+        List of stack names as filters
+        """
+        return pulumi.get(self, "stack_names")
+
+    @property
+    @pulumi.getter(name="stackRoles")
+    def stack_roles(self) -> Optional['outputs.StackFiltersPropertiesStackRolesProperties']:
+        """
+        List of stack roles that are performing the stack operations.
+        """
+        return pulumi.get(self, "stack_roles")
+
+
+@pulumi.output_type
+class StackFiltersPropertiesStackNamesProperties(dict):
+    """
+    List of stack names as filters
+    """
+    def __init__(__self__, *,
+                 exclude: Optional[Sequence[str]] = None,
+                 include: Optional[Sequence[str]] = None):
+        """
+        List of stack names as filters
+        :param Sequence[str] exclude: List of stack names that the hook is going to be excluded from
+        :param Sequence[str] include: List of stack names that the hook is going to target
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of stack names that the hook is going to be excluded from
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[Sequence[str]]:
+        """
+        List of stack names that the hook is going to target
+        """
+        return pulumi.get(self, "include")
+
+
+@pulumi.output_type
+class StackFiltersPropertiesStackRolesProperties(dict):
+    """
+    List of stack roles that are performing the stack operations.
+    """
+    def __init__(__self__, *,
+                 exclude: Optional[Sequence[str]] = None,
+                 include: Optional[Sequence[str]] = None):
+        """
+        List of stack roles that are performing the stack operations.
+        :param Sequence[str] exclude: List of stack roles that the hook is going to be excluded from
+        :param Sequence[str] include: List of stack roles that the hook is going to target
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of stack roles that the hook is going to be excluded from
+        """
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[Sequence[str]]:
+        """
+        List of stack roles that the hook is going to target
+        """
+        return pulumi.get(self, "include")
 
 
 @pulumi.output_type
@@ -648,6 +925,94 @@ class StackSetStackInstances(dict):
         A list of stack set parameters whose values you want to override in the selected stack instances.
         """
         return pulumi.get(self, "parameter_overrides")
+
+
+@pulumi.output_type
+class TargetFilters0Properties(dict):
+    """
+    Attribute to specify which targets should invoke the hook
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invocationPoints":
+            suggest = "invocation_points"
+        elif key == "targetNames":
+            suggest = "target_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetFilters0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetFilters0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetFilters0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: Optional[Sequence['LambdaHookAction']] = None,
+                 invocation_points: Optional[Sequence['LambdaHookInvocationPoint']] = None,
+                 target_names: Optional[Sequence[str]] = None):
+        """
+        Attribute to specify which targets should invoke the hook
+        :param Sequence['LambdaHookAction'] actions: List of actions that the hook is going to target
+        :param Sequence['LambdaHookInvocationPoint'] invocation_points: List of invocation points that the hook is going to target
+        :param Sequence[str] target_names: List of type names that the hook is going to target
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if invocation_points is not None:
+            pulumi.set(__self__, "invocation_points", invocation_points)
+        if target_names is not None:
+            pulumi.set(__self__, "target_names", target_names)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['LambdaHookAction']]:
+        """
+        List of actions that the hook is going to target
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="invocationPoints")
+    def invocation_points(self) -> Optional[Sequence['LambdaHookInvocationPoint']]:
+        """
+        List of invocation points that the hook is going to target
+        """
+        return pulumi.get(self, "invocation_points")
+
+    @property
+    @pulumi.getter(name="targetNames")
+    def target_names(self) -> Optional[Sequence[str]]:
+        """
+        List of type names that the hook is going to target
+        """
+        return pulumi.get(self, "target_names")
+
+
+@pulumi.output_type
+class TargetFilters1Properties(dict):
+    """
+    Attribute to specify which targets should invoke the hook
+    """
+    def __init__(__self__, *,
+                 targets: Sequence['outputs.LambdaHookHookTarget']):
+        """
+        Attribute to specify which targets should invoke the hook
+        :param Sequence['LambdaHookHookTarget'] targets: List of hook targets
+        """
+        pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> Sequence['outputs.LambdaHookHookTarget']:
+        """
+        List of hook targets
+        """
+        return pulumi.get(self, "targets")
 
 
 @pulumi.output_type

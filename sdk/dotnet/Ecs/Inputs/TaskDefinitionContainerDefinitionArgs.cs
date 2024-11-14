@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 
         /// <summary>
         /// Early versions of the Amazon ECS container agent don't properly handle ``entryPoint`` parameters. If you have problems using ``entryPoint``, update your container agent or enter your commands and arguments as ``command`` array items instead.
-        ///   The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in tthe docker container create command and the ``--entrypoint`` option to docker run.
+        ///   The entry point that's passed to the container. This parameter maps to ``Entrypoint`` in the docker container create command and the ``--entrypoint`` option to docker run.
         /// </summary>
         public InputList<string> EntryPoint
         {
@@ -211,7 +211,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<Inputs.TaskDefinitionHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// The hostname to use for your container. This parameter maps to ``Hostname`` in thethe docker container create command and the ``--hostname`` option to docker run.
+        /// The hostname to use for your container. This parameter maps to ``Hostname`` in the docker container create command and the ``--hostname`` option to docker run.
         ///   The ``hostname`` parameter is not supported if you're using the ``awsvpc`` network mode.
         /// </summary>
         [Input("hostname")]
@@ -300,7 +300,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         }
 
         /// <summary>
-        /// The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in tthe docker container create command and the ``--name`` option to docker run.
+        /// The name of a container. If you're linking multiple containers together in a task definition, the ``name`` of one container can be entered in the ``links`` of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to ``name`` in the docker container create command and the ``--name`` option to docker run.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         public Input<bool>? Privileged { get; set; }
 
         /// <summary>
-        /// When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in tthe docker container create command and the ``--tty`` option to docker run.
+        /// When this parameter is ``true``, a TTY is allocated. This parameter maps to ``Tty`` in the docker container create command and the ``--tty`` option to docker run.
         /// </summary>
         [Input("pseudoTerminal")]
         public Input<bool>? PseudoTerminal { get; set; }
@@ -396,9 +396,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         ///   +  Linux platform version ``1.3.0`` or later.
         ///   +  Windows platform version ``1.0.0`` or later.
         ///   
-        ///  The max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
+        ///  For tasks that use the Fargate launch type, the max stop timeout value is 120 seconds and if the parameter is not specified, the default value of 30 seconds is used.
         ///  For tasks that use the EC2 launch type, if the ``stopTimeout`` parameter isn't specified, the value set for the Amazon ECS container agent configuration variable ``ECS_CONTAINER_STOP_TIMEOUT`` is used. If neither the ``stopTimeout`` parameter or the ``ECS_CONTAINER_STOP_TIMEOUT`` agent configuration variable are set, then the default values of 30 seconds for Linux containers and 30 seconds on Windows containers are used. Your container instances require at least version 1.26.0 of the container agent to use a container stop timeout value. However, we recommend using the latest container agent version. For information about checking your agent version and updating to the latest version, see [Updating the Amazon ECS Container Agent](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html) in the *Amazon Elastic Container Service Developer Guide*. If you're using an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the ``ecs-init`` package. If your container instances are launched from version ``20190301`` or later, then they contain the required versions of the container agent and ``ecs-init``. For more information, see [Amazon ECS-optimized Linux AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html) in the *Amazon Elastic Container Service Developer Guide*.
-        ///  The valid values are 2-120 seconds.
+        ///  The valid values for Fargate are 2-120 seconds.
         /// </summary>
         [Input("stopTimeout")]
         public Input<int>? StopTimeout { get; set; }
@@ -407,7 +407,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         private InputList<Inputs.TaskDefinitionSystemControlArgs>? _systemControls;
 
         /// <summary>
-        /// A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in tthe docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
+        /// A list of namespaced kernel parameters to set in the container. This parameter maps to ``Sysctls`` in the docker container create command and the ``--sysctl`` option to docker run. For example, you can configure ``net.ipv4.tcp_keepalive_time`` setting to maintain longer lived connections.
         /// </summary>
         public InputList<Inputs.TaskDefinitionSystemControlArgs> SystemControls
         {
@@ -444,11 +444,14 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("user")]
         public Input<string>? User { get; set; }
 
+        [Input("versionConsistency")]
+        public Input<Pulumi.AwsNative.Ecs.TaskDefinitionContainerDefinitionVersionConsistency>? VersionConsistency { get; set; }
+
         [Input("volumesFrom")]
         private InputList<Inputs.TaskDefinitionVolumeFromArgs>? _volumesFrom;
 
         /// <summary>
-        /// Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in tthe docker container create command and the ``--volumes-from`` option to docker run.
+        /// Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the docker container create command and the ``--volumes-from`` option to docker run.
         /// </summary>
         public InputList<Inputs.TaskDefinitionVolumeFromArgs> VolumesFrom
         {

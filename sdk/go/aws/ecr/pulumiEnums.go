@@ -389,8 +389,9 @@ func (o RepositoryCreationTemplateAppliedForItemArrayOutput) Index(i pulumi.IntI
 type RepositoryCreationTemplateEncryptionType string
 
 const (
-	RepositoryCreationTemplateEncryptionTypeAes256 = RepositoryCreationTemplateEncryptionType("AES256")
-	RepositoryCreationTemplateEncryptionTypeKms    = RepositoryCreationTemplateEncryptionType("KMS")
+	RepositoryCreationTemplateEncryptionTypeAes256  = RepositoryCreationTemplateEncryptionType("AES256")
+	RepositoryCreationTemplateEncryptionTypeKms     = RepositoryCreationTemplateEncryptionType("KMS")
+	RepositoryCreationTemplateEncryptionTypeKmsDsse = RepositoryCreationTemplateEncryptionType("KMS_DSSE")
 )
 
 func (RepositoryCreationTemplateEncryptionType) ElementType() reflect.Type {
@@ -517,6 +518,7 @@ func (o RepositoryCreationTemplateEncryptionTypePtrOutput) ToStringPtrOutputWith
 //
 //	RepositoryCreationTemplateEncryptionTypeAes256
 //	RepositoryCreationTemplateEncryptionTypeKms
+//	RepositoryCreationTemplateEncryptionTypeKmsDsse
 type RepositoryCreationTemplateEncryptionTypeInput interface {
 	pulumi.Input
 

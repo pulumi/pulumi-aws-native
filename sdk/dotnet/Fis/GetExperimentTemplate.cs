@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.Fis
         /// The experiment options for an experiment template.
         /// </summary>
         public readonly Outputs.ExperimentTemplateExperimentOptions? ExperimentOptions;
+        public readonly Outputs.ExperimentTemplateExperimentReportConfiguration? ExperimentReportConfiguration;
         /// <summary>
         /// The ID of the experiment template.
         /// </summary>
@@ -98,6 +99,8 @@ namespace Pulumi.AwsNative.Fis
 
             Outputs.ExperimentTemplateExperimentOptions? experimentOptions,
 
+            Outputs.ExperimentTemplateExperimentReportConfiguration? experimentReportConfiguration,
+
             string? id,
 
             Outputs.ExperimentTemplateLogConfiguration? logConfiguration,
@@ -111,6 +114,7 @@ namespace Pulumi.AwsNative.Fis
             Actions = actions;
             Description = description;
             ExperimentOptions = experimentOptions;
+            ExperimentReportConfiguration = experimentReportConfiguration;
             Id = id;
             LogConfiguration = logConfiguration;
             RoleArn = roleArn;

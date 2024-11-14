@@ -45,6 +45,20 @@ export const DeliveryStreamAuthenticationConfigurationConnectivity = {
  */
 export type DeliveryStreamAuthenticationConfigurationConnectivity = (typeof DeliveryStreamAuthenticationConfigurationConnectivity)[keyof typeof DeliveryStreamAuthenticationConfigurationConnectivity];
 
+export const DeliveryStreamDatabaseSourceConfigurationSslMode = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+export type DeliveryStreamDatabaseSourceConfigurationSslMode = (typeof DeliveryStreamDatabaseSourceConfigurationSslMode)[keyof typeof DeliveryStreamDatabaseSourceConfigurationSslMode];
+
+export const DeliveryStreamDatabaseSourceConfigurationType = {
+    MySql: "MySQL",
+    PostgreSql: "PostgreSQL",
+} as const;
+
+export type DeliveryStreamDatabaseSourceConfigurationType = (typeof DeliveryStreamDatabaseSourceConfigurationType)[keyof typeof DeliveryStreamDatabaseSourceConfigurationType];
+
 export const DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat = {
     FirehoseDefault: "FIREHOSE_DEFAULT",
     NoDocumentId: "NO_DOCUMENT_ID",
@@ -215,6 +229,7 @@ export const DeliveryStreamSplunkDestinationConfigurationHecEndpointType = {
 export type DeliveryStreamSplunkDestinationConfigurationHecEndpointType = (typeof DeliveryStreamSplunkDestinationConfigurationHecEndpointType)[keyof typeof DeliveryStreamSplunkDestinationConfigurationHecEndpointType];
 
 export const DeliveryStreamType = {
+    DatabaseAsSource: "DatabaseAsSource",
     DirectPut: "DirectPut",
     KinesisStreamAsSource: "KinesisStreamAsSource",
     MskasSource: "MSKAsSource",

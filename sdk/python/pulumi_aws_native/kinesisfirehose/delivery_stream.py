@@ -26,6 +26,7 @@ class DeliveryStreamArgs:
     def __init__(__self__, *,
                  amazon_open_search_serverless_destination_configuration: Optional[pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs']] = None,
                  amazonopensearchservice_destination_configuration: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs']] = None,
+                 database_source_configuration: Optional[pulumi.Input['DeliveryStreamDatabaseSourceConfigurationArgs']] = None,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input['DeliveryStreamEncryptionConfigurationInputArgs']] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamType']] = None,
@@ -92,6 +93,8 @@ class DeliveryStreamArgs:
             pulumi.set(__self__, "amazon_open_search_serverless_destination_configuration", amazon_open_search_serverless_destination_configuration)
         if amazonopensearchservice_destination_configuration is not None:
             pulumi.set(__self__, "amazonopensearchservice_destination_configuration", amazonopensearchservice_destination_configuration)
+        if database_source_configuration is not None:
+            pulumi.set(__self__, "database_source_configuration", database_source_configuration)
         if delivery_stream_encryption_configuration_input is not None:
             pulumi.set(__self__, "delivery_stream_encryption_configuration_input", delivery_stream_encryption_configuration_input)
         if delivery_stream_name is not None:
@@ -144,6 +147,15 @@ class DeliveryStreamArgs:
     @amazonopensearchservice_destination_configuration.setter
     def amazonopensearchservice_destination_configuration(self, value: Optional[pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs']]):
         pulumi.set(self, "amazonopensearchservice_destination_configuration", value)
+
+    @property
+    @pulumi.getter(name="databaseSourceConfiguration")
+    def database_source_configuration(self) -> Optional[pulumi.Input['DeliveryStreamDatabaseSourceConfigurationArgs']]:
+        return pulumi.get(self, "database_source_configuration")
+
+    @database_source_configuration.setter
+    def database_source_configuration(self, value: Optional[pulumi.Input['DeliveryStreamDatabaseSourceConfigurationArgs']]):
+        pulumi.set(self, "database_source_configuration", value)
 
     @property
     @pulumi.getter(name="deliveryStreamEncryptionConfigurationInput")
@@ -350,6 +362,7 @@ class DeliveryStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_open_search_serverless_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs', 'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgsDict']]] = None,
                  amazonopensearchservice_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs', 'DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgsDict']]] = None,
+                 database_source_configuration: Optional[pulumi.Input[Union['DeliveryStreamDatabaseSourceConfigurationArgs', 'DeliveryStreamDatabaseSourceConfigurationArgsDict']]] = None,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input[Union['DeliveryStreamEncryptionConfigurationInputArgs', 'DeliveryStreamEncryptionConfigurationInputArgsDict']]] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamType']] = None,
@@ -442,6 +455,7 @@ class DeliveryStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  amazon_open_search_serverless_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs', 'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgsDict']]] = None,
                  amazonopensearchservice_destination_configuration: Optional[pulumi.Input[Union['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs', 'DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgsDict']]] = None,
+                 database_source_configuration: Optional[pulumi.Input[Union['DeliveryStreamDatabaseSourceConfigurationArgs', 'DeliveryStreamDatabaseSourceConfigurationArgsDict']]] = None,
                  delivery_stream_encryption_configuration_input: Optional[pulumi.Input[Union['DeliveryStreamEncryptionConfigurationInputArgs', 'DeliveryStreamEncryptionConfigurationInputArgsDict']]] = None,
                  delivery_stream_name: Optional[pulumi.Input[str]] = None,
                  delivery_stream_type: Optional[pulumi.Input['DeliveryStreamType']] = None,
@@ -467,6 +481,7 @@ class DeliveryStream(pulumi.CustomResource):
 
             __props__.__dict__["amazon_open_search_serverless_destination_configuration"] = amazon_open_search_serverless_destination_configuration
             __props__.__dict__["amazonopensearchservice_destination_configuration"] = amazonopensearchservice_destination_configuration
+            __props__.__dict__["database_source_configuration"] = database_source_configuration
             __props__.__dict__["delivery_stream_encryption_configuration_input"] = delivery_stream_encryption_configuration_input
             __props__.__dict__["delivery_stream_name"] = delivery_stream_name
             __props__.__dict__["delivery_stream_type"] = delivery_stream_type
@@ -482,7 +497,7 @@ class DeliveryStream(pulumi.CustomResource):
             __props__.__dict__["splunk_destination_configuration"] = splunk_destination_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "databaseSourceConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryStream, __self__).__init__(
             'aws-native:kinesisfirehose:DeliveryStream',
@@ -509,6 +524,7 @@ class DeliveryStream(pulumi.CustomResource):
         __props__.__dict__["amazon_open_search_serverless_destination_configuration"] = None
         __props__.__dict__["amazonopensearchservice_destination_configuration"] = None
         __props__.__dict__["arn"] = None
+        __props__.__dict__["database_source_configuration"] = None
         __props__.__dict__["delivery_stream_encryption_configuration_input"] = None
         __props__.__dict__["delivery_stream_name"] = None
         __props__.__dict__["delivery_stream_type"] = None
@@ -548,6 +564,11 @@ class DeliveryStream(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="databaseSourceConfiguration")
+    def database_source_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamDatabaseSourceConfiguration']]:
+        return pulumi.get(self, "database_source_configuration")
 
     @property
     @pulumi.getter(name="deliveryStreamEncryptionConfigurationInput")

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// Origin access identity configuration. Send a ``GET`` request to the ``/CloudFront API version/CloudFront/identity ID/config`` resource.
+    /// </summary>
     public sealed class CloudFrontOriginAccessIdentityConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

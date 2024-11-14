@@ -22,10 +22,19 @@ namespace Pulumi.AwsNative.GameLift
         public Output<string> ContainerGroupDefinitionArn { get; private set; } = null!;
 
         /// <summary>
+        /// The scope of the container group
+        /// </summary>
+        [Output("containerGroupType")]
+        public Output<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionContainerGroupType?> ContainerGroupType { get; private set; } = null!;
+
+        /// <summary>
         /// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
         /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
+
+        [Output("gameServerContainerDefinition")]
+        public Output<Outputs.ContainerGroupDefinitionGameServerContainerDefinition?> GameServerContainerDefinition { get; private set; } = null!;
 
         /// <summary>
         /// A descriptive label for the container group definition.
@@ -61,13 +70,37 @@ namespace Pulumi.AwsNative.GameLift
         /// A collection of support container definitions that define the containers in this group.
         /// </summary>
         [Output("supportContainerDefinitions")]
-        public Output<ImmutableArray<object>> SupportContainerDefinitions { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ContainerGroupDefinitionSupportContainerDefinition>> SupportContainerDefinitions { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The total memory limit of container groups following this definition in MiB
+        /// </summary>
+        [Output("totalMemoryLimitMebibytes")]
+        public Output<int> TotalMemoryLimitMebibytes { get; private set; } = null!;
+
+        /// <summary>
+        /// The total amount of virtual CPUs on the container group definition
+        /// </summary>
+        [Output("totalVcpuLimit")]
+        public Output<double> TotalVcpuLimit { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of this version
+        /// </summary>
+        [Output("versionDescription")]
+        public Output<string?> VersionDescription { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of this ContainerGroupDefinition
+        /// </summary>
+        [Output("versionNumber")]
+        public Output<int> VersionNumber { get; private set; } = null!;
 
 
         /// <summary>
@@ -94,6 +127,7 @@ namespace Pulumi.AwsNative.GameLift
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "containerGroupType",
                     "name",
                 },
             };
@@ -119,6 +153,15 @@ namespace Pulumi.AwsNative.GameLift
     public sealed class ContainerGroupDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The scope of the container group
+        /// </summary>
+        [Input("containerGroupType")]
+        public Input<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionContainerGroupType>? ContainerGroupType { get; set; }
+
+        [Input("gameServerContainerDefinition")]
+        public Input<Inputs.ContainerGroupDefinitionGameServerContainerDefinitionArgs>? GameServerContainerDefinition { get; set; }
+
+        /// <summary>
         /// A descriptive label for the container group definition.
         /// </summary>
         [Input("name")]
@@ -137,14 +180,14 @@ namespace Pulumi.AwsNative.GameLift
         public Input<int>? SourceVersionNumber { get; set; }
 
         [Input("supportContainerDefinitions")]
-        private InputList<object>? _supportContainerDefinitions;
+        private InputList<Inputs.ContainerGroupDefinitionSupportContainerDefinitionArgs>? _supportContainerDefinitions;
 
         /// <summary>
         /// A collection of support container definitions that define the containers in this group.
         /// </summary>
-        public InputList<object> SupportContainerDefinitions
+        public InputList<Inputs.ContainerGroupDefinitionSupportContainerDefinitionArgs> SupportContainerDefinitions
         {
-            get => _supportContainerDefinitions ?? (_supportContainerDefinitions = new InputList<object>());
+            get => _supportContainerDefinitions ?? (_supportContainerDefinitions = new InputList<Inputs.ContainerGroupDefinitionSupportContainerDefinitionArgs>());
             set => _supportContainerDefinitions = value;
         }
 
@@ -159,6 +202,24 @@ namespace Pulumi.AwsNative.GameLift
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The total memory limit of container groups following this definition in MiB
+        /// </summary>
+        [Input("totalMemoryLimitMebibytes", required: true)]
+        public Input<int> TotalMemoryLimitMebibytes { get; set; } = null!;
+
+        /// <summary>
+        /// The total amount of virtual CPUs on the container group definition
+        /// </summary>
+        [Input("totalVcpuLimit", required: true)]
+        public Input<double> TotalVcpuLimit { get; set; } = null!;
+
+        /// <summary>
+        /// The description of this version
+        /// </summary>
+        [Input("versionDescription")]
+        public Input<string>? VersionDescription { get; set; }
 
         public ContainerGroupDefinitionArgs()
         {

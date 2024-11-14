@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.DistributionForwardedValues? ForwardedValues;
         /// <summary>
-        /// A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        /// A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionFunctionAssociation> FunctionAssociations;
         /// <summary>

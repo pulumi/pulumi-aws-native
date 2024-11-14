@@ -9,6 +9,8 @@ __all__ = [
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode',
     'DeliveryStreamAuthenticationConfigurationConnectivity',
+    'DeliveryStreamDatabaseSourceConfigurationSslMode',
+    'DeliveryStreamDatabaseSourceConfigurationType',
     'DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat',
     'DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod',
     'DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode',
@@ -61,6 +63,16 @@ class DeliveryStreamAuthenticationConfigurationConnectivity(str, Enum):
     """
     PUBLIC = "PUBLIC"
     PRIVATE = "PRIVATE"
+
+
+class DeliveryStreamDatabaseSourceConfigurationSslMode(str, Enum):
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class DeliveryStreamDatabaseSourceConfigurationType(str, Enum):
+    MY_SQL = "MySQL"
+    POSTGRE_SQL = "PostgreSQL"
 
 
 class DeliveryStreamDocumentIdOptionsDefaultDocumentIdFormat(str, Enum):
@@ -209,6 +221,7 @@ class DeliveryStreamType(str, Enum):
     - `DirectPut` : Provider applications access the Firehose stream directly.
     - `KinesisStreamAsSource` : The Firehose stream uses a Kinesis data stream as a source.
     """
+    DATABASE_AS_SOURCE = "DatabaseAsSource"
     DIRECT_PUT = "DirectPut"
     KINESIS_STREAM_AS_SOURCE = "KinesisStreamAsSource"
     MSKAS_SOURCE = "MSKAsSource"

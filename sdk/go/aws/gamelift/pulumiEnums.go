@@ -348,6 +348,2666 @@ func (in *buildOperatingSystemPtr) ToBuildOperatingSystemPtrOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, in).(BuildOperatingSystemPtrOutput)
 }
 
+// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+type ContainerFleetBillingType string
+
+const (
+	ContainerFleetBillingTypeOnDemand = ContainerFleetBillingType("ON_DEMAND")
+	ContainerFleetBillingTypeSpot     = ContainerFleetBillingType("SPOT")
+)
+
+func (ContainerFleetBillingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetBillingType)(nil)).Elem()
+}
+
+func (e ContainerFleetBillingType) ToContainerFleetBillingTypeOutput() ContainerFleetBillingTypeOutput {
+	return pulumi.ToOutput(e).(ContainerFleetBillingTypeOutput)
+}
+
+func (e ContainerFleetBillingType) ToContainerFleetBillingTypeOutputWithContext(ctx context.Context) ContainerFleetBillingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetBillingTypeOutput)
+}
+
+func (e ContainerFleetBillingType) ToContainerFleetBillingTypePtrOutput() ContainerFleetBillingTypePtrOutput {
+	return e.ToContainerFleetBillingTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetBillingType) ToContainerFleetBillingTypePtrOutputWithContext(ctx context.Context) ContainerFleetBillingTypePtrOutput {
+	return ContainerFleetBillingType(e).ToContainerFleetBillingTypeOutputWithContext(ctx).ToContainerFleetBillingTypePtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetBillingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetBillingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetBillingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetBillingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetBillingTypeOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetBillingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetBillingType)(nil)).Elem()
+}
+
+func (o ContainerFleetBillingTypeOutput) ToContainerFleetBillingTypeOutput() ContainerFleetBillingTypeOutput {
+	return o
+}
+
+func (o ContainerFleetBillingTypeOutput) ToContainerFleetBillingTypeOutputWithContext(ctx context.Context) ContainerFleetBillingTypeOutput {
+	return o
+}
+
+func (o ContainerFleetBillingTypeOutput) ToContainerFleetBillingTypePtrOutput() ContainerFleetBillingTypePtrOutput {
+	return o.ToContainerFleetBillingTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetBillingTypeOutput) ToContainerFleetBillingTypePtrOutputWithContext(ctx context.Context) ContainerFleetBillingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetBillingType) *ContainerFleetBillingType {
+		return &v
+	}).(ContainerFleetBillingTypePtrOutput)
+}
+
+func (o ContainerFleetBillingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetBillingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetBillingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetBillingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetBillingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetBillingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetBillingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetBillingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetBillingType)(nil)).Elem()
+}
+
+func (o ContainerFleetBillingTypePtrOutput) ToContainerFleetBillingTypePtrOutput() ContainerFleetBillingTypePtrOutput {
+	return o
+}
+
+func (o ContainerFleetBillingTypePtrOutput) ToContainerFleetBillingTypePtrOutputWithContext(ctx context.Context) ContainerFleetBillingTypePtrOutput {
+	return o
+}
+
+func (o ContainerFleetBillingTypePtrOutput) Elem() ContainerFleetBillingTypeOutput {
+	return o.ApplyT(func(v *ContainerFleetBillingType) ContainerFleetBillingType {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetBillingType
+		return ret
+	}).(ContainerFleetBillingTypeOutput)
+}
+
+func (o ContainerFleetBillingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetBillingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetBillingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetBillingTypeInput is an input type that accepts values of the ContainerFleetBillingType enum
+// A concrete instance of `ContainerFleetBillingTypeInput` can be one of the following:
+//
+//	ContainerFleetBillingTypeOnDemand
+//	ContainerFleetBillingTypeSpot
+type ContainerFleetBillingTypeInput interface {
+	pulumi.Input
+
+	ToContainerFleetBillingTypeOutput() ContainerFleetBillingTypeOutput
+	ToContainerFleetBillingTypeOutputWithContext(context.Context) ContainerFleetBillingTypeOutput
+}
+
+var containerFleetBillingTypePtrType = reflect.TypeOf((**ContainerFleetBillingType)(nil)).Elem()
+
+type ContainerFleetBillingTypePtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetBillingTypePtrOutput() ContainerFleetBillingTypePtrOutput
+	ToContainerFleetBillingTypePtrOutputWithContext(context.Context) ContainerFleetBillingTypePtrOutput
+}
+
+type containerFleetBillingTypePtr string
+
+func ContainerFleetBillingTypePtr(v string) ContainerFleetBillingTypePtrInput {
+	return (*containerFleetBillingTypePtr)(&v)
+}
+
+func (*containerFleetBillingTypePtr) ElementType() reflect.Type {
+	return containerFleetBillingTypePtrType
+}
+
+func (in *containerFleetBillingTypePtr) ToContainerFleetBillingTypePtrOutput() ContainerFleetBillingTypePtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetBillingTypePtrOutput)
+}
+
+func (in *containerFleetBillingTypePtr) ToContainerFleetBillingTypePtrOutputWithContext(ctx context.Context) ContainerFleetBillingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetBillingTypePtrOutput)
+}
+
+// The strategy to apply in case of impairment; defaults to MAINTAIN.
+type ContainerFleetDeploymentConfigurationImpairmentStrategy string
+
+const (
+	ContainerFleetDeploymentConfigurationImpairmentStrategyMaintain = ContainerFleetDeploymentConfigurationImpairmentStrategy("MAINTAIN")
+	ContainerFleetDeploymentConfigurationImpairmentStrategyRollback = ContainerFleetDeploymentConfigurationImpairmentStrategy("ROLLBACK")
+)
+
+func (ContainerFleetDeploymentConfigurationImpairmentStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetDeploymentConfigurationImpairmentStrategy)(nil)).Elem()
+}
+
+func (e ContainerFleetDeploymentConfigurationImpairmentStrategy) ToContainerFleetDeploymentConfigurationImpairmentStrategyOutput() ContainerFleetDeploymentConfigurationImpairmentStrategyOutput {
+	return pulumi.ToOutput(e).(ContainerFleetDeploymentConfigurationImpairmentStrategyOutput)
+}
+
+func (e ContainerFleetDeploymentConfigurationImpairmentStrategy) ToContainerFleetDeploymentConfigurationImpairmentStrategyOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationImpairmentStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetDeploymentConfigurationImpairmentStrategyOutput)
+}
+
+func (e ContainerFleetDeploymentConfigurationImpairmentStrategy) ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput() ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return e.ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetDeploymentConfigurationImpairmentStrategy) ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return ContainerFleetDeploymentConfigurationImpairmentStrategy(e).ToContainerFleetDeploymentConfigurationImpairmentStrategyOutputWithContext(ctx).ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetDeploymentConfigurationImpairmentStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetDeploymentConfigurationImpairmentStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetDeploymentConfigurationImpairmentStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetDeploymentConfigurationImpairmentStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetDeploymentConfigurationImpairmentStrategyOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetDeploymentConfigurationImpairmentStrategy)(nil)).Elem()
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ToContainerFleetDeploymentConfigurationImpairmentStrategyOutput() ContainerFleetDeploymentConfigurationImpairmentStrategyOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ToContainerFleetDeploymentConfigurationImpairmentStrategyOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationImpairmentStrategyOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput() ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return o.ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetDeploymentConfigurationImpairmentStrategy) *ContainerFleetDeploymentConfigurationImpairmentStrategy {
+		return &v
+	}).(ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput)
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetDeploymentConfigurationImpairmentStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetDeploymentConfigurationImpairmentStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetDeploymentConfigurationImpairmentStrategy)(nil)).Elem()
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput) ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput() ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput) ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput) Elem() ContainerFleetDeploymentConfigurationImpairmentStrategyOutput {
+	return o.ApplyT(func(v *ContainerFleetDeploymentConfigurationImpairmentStrategy) ContainerFleetDeploymentConfigurationImpairmentStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetDeploymentConfigurationImpairmentStrategy
+		return ret
+	}).(ContainerFleetDeploymentConfigurationImpairmentStrategyOutput)
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetDeploymentConfigurationImpairmentStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetDeploymentConfigurationImpairmentStrategyInput is an input type that accepts values of the ContainerFleetDeploymentConfigurationImpairmentStrategy enum
+// A concrete instance of `ContainerFleetDeploymentConfigurationImpairmentStrategyInput` can be one of the following:
+//
+//	ContainerFleetDeploymentConfigurationImpairmentStrategyMaintain
+//	ContainerFleetDeploymentConfigurationImpairmentStrategyRollback
+type ContainerFleetDeploymentConfigurationImpairmentStrategyInput interface {
+	pulumi.Input
+
+	ToContainerFleetDeploymentConfigurationImpairmentStrategyOutput() ContainerFleetDeploymentConfigurationImpairmentStrategyOutput
+	ToContainerFleetDeploymentConfigurationImpairmentStrategyOutputWithContext(context.Context) ContainerFleetDeploymentConfigurationImpairmentStrategyOutput
+}
+
+var containerFleetDeploymentConfigurationImpairmentStrategyPtrType = reflect.TypeOf((**ContainerFleetDeploymentConfigurationImpairmentStrategy)(nil)).Elem()
+
+type ContainerFleetDeploymentConfigurationImpairmentStrategyPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput() ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput
+	ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutputWithContext(context.Context) ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput
+}
+
+type containerFleetDeploymentConfigurationImpairmentStrategyPtr string
+
+func ContainerFleetDeploymentConfigurationImpairmentStrategyPtr(v string) ContainerFleetDeploymentConfigurationImpairmentStrategyPtrInput {
+	return (*containerFleetDeploymentConfigurationImpairmentStrategyPtr)(&v)
+}
+
+func (*containerFleetDeploymentConfigurationImpairmentStrategyPtr) ElementType() reflect.Type {
+	return containerFleetDeploymentConfigurationImpairmentStrategyPtrType
+}
+
+func (in *containerFleetDeploymentConfigurationImpairmentStrategyPtr) ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput() ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput)
+}
+
+func (in *containerFleetDeploymentConfigurationImpairmentStrategyPtr) ToContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput)
+}
+
+// The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+type ContainerFleetDeploymentConfigurationProtectionStrategy string
+
+const (
+	ContainerFleetDeploymentConfigurationProtectionStrategyWithProtection   = ContainerFleetDeploymentConfigurationProtectionStrategy("WITH_PROTECTION")
+	ContainerFleetDeploymentConfigurationProtectionStrategyIgnoreProtection = ContainerFleetDeploymentConfigurationProtectionStrategy("IGNORE_PROTECTION")
+)
+
+func (ContainerFleetDeploymentConfigurationProtectionStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetDeploymentConfigurationProtectionStrategy)(nil)).Elem()
+}
+
+func (e ContainerFleetDeploymentConfigurationProtectionStrategy) ToContainerFleetDeploymentConfigurationProtectionStrategyOutput() ContainerFleetDeploymentConfigurationProtectionStrategyOutput {
+	return pulumi.ToOutput(e).(ContainerFleetDeploymentConfigurationProtectionStrategyOutput)
+}
+
+func (e ContainerFleetDeploymentConfigurationProtectionStrategy) ToContainerFleetDeploymentConfigurationProtectionStrategyOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationProtectionStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetDeploymentConfigurationProtectionStrategyOutput)
+}
+
+func (e ContainerFleetDeploymentConfigurationProtectionStrategy) ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput() ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return e.ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetDeploymentConfigurationProtectionStrategy) ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return ContainerFleetDeploymentConfigurationProtectionStrategy(e).ToContainerFleetDeploymentConfigurationProtectionStrategyOutputWithContext(ctx).ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetDeploymentConfigurationProtectionStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetDeploymentConfigurationProtectionStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetDeploymentConfigurationProtectionStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetDeploymentConfigurationProtectionStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetDeploymentConfigurationProtectionStrategyOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetDeploymentConfigurationProtectionStrategy)(nil)).Elem()
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ToContainerFleetDeploymentConfigurationProtectionStrategyOutput() ContainerFleetDeploymentConfigurationProtectionStrategyOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ToContainerFleetDeploymentConfigurationProtectionStrategyOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationProtectionStrategyOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput() ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return o.ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetDeploymentConfigurationProtectionStrategy) *ContainerFleetDeploymentConfigurationProtectionStrategy {
+		return &v
+	}).(ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput)
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetDeploymentConfigurationProtectionStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetDeploymentConfigurationProtectionStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetDeploymentConfigurationProtectionStrategy)(nil)).Elem()
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput) ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput() ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput) ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput) Elem() ContainerFleetDeploymentConfigurationProtectionStrategyOutput {
+	return o.ApplyT(func(v *ContainerFleetDeploymentConfigurationProtectionStrategy) ContainerFleetDeploymentConfigurationProtectionStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetDeploymentConfigurationProtectionStrategy
+		return ret
+	}).(ContainerFleetDeploymentConfigurationProtectionStrategyOutput)
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetDeploymentConfigurationProtectionStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetDeploymentConfigurationProtectionStrategyInput is an input type that accepts values of the ContainerFleetDeploymentConfigurationProtectionStrategy enum
+// A concrete instance of `ContainerFleetDeploymentConfigurationProtectionStrategyInput` can be one of the following:
+//
+//	ContainerFleetDeploymentConfigurationProtectionStrategyWithProtection
+//	ContainerFleetDeploymentConfigurationProtectionStrategyIgnoreProtection
+type ContainerFleetDeploymentConfigurationProtectionStrategyInput interface {
+	pulumi.Input
+
+	ToContainerFleetDeploymentConfigurationProtectionStrategyOutput() ContainerFleetDeploymentConfigurationProtectionStrategyOutput
+	ToContainerFleetDeploymentConfigurationProtectionStrategyOutputWithContext(context.Context) ContainerFleetDeploymentConfigurationProtectionStrategyOutput
+}
+
+var containerFleetDeploymentConfigurationProtectionStrategyPtrType = reflect.TypeOf((**ContainerFleetDeploymentConfigurationProtectionStrategy)(nil)).Elem()
+
+type ContainerFleetDeploymentConfigurationProtectionStrategyPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput() ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput
+	ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutputWithContext(context.Context) ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput
+}
+
+type containerFleetDeploymentConfigurationProtectionStrategyPtr string
+
+func ContainerFleetDeploymentConfigurationProtectionStrategyPtr(v string) ContainerFleetDeploymentConfigurationProtectionStrategyPtrInput {
+	return (*containerFleetDeploymentConfigurationProtectionStrategyPtr)(&v)
+}
+
+func (*containerFleetDeploymentConfigurationProtectionStrategyPtr) ElementType() reflect.Type {
+	return containerFleetDeploymentConfigurationProtectionStrategyPtrType
+}
+
+func (in *containerFleetDeploymentConfigurationProtectionStrategyPtr) ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput() ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput)
+}
+
+func (in *containerFleetDeploymentConfigurationProtectionStrategyPtr) ToContainerFleetDeploymentConfigurationProtectionStrategyPtrOutputWithContext(ctx context.Context) ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput)
+}
+
+// The network communication protocol used by the fleet.
+type ContainerFleetIpPermissionProtocol string
+
+const (
+	ContainerFleetIpPermissionProtocolTcp = ContainerFleetIpPermissionProtocol("TCP")
+	ContainerFleetIpPermissionProtocolUdp = ContainerFleetIpPermissionProtocol("UDP")
+)
+
+func (ContainerFleetIpPermissionProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetIpPermissionProtocol)(nil)).Elem()
+}
+
+func (e ContainerFleetIpPermissionProtocol) ToContainerFleetIpPermissionProtocolOutput() ContainerFleetIpPermissionProtocolOutput {
+	return pulumi.ToOutput(e).(ContainerFleetIpPermissionProtocolOutput)
+}
+
+func (e ContainerFleetIpPermissionProtocol) ToContainerFleetIpPermissionProtocolOutputWithContext(ctx context.Context) ContainerFleetIpPermissionProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetIpPermissionProtocolOutput)
+}
+
+func (e ContainerFleetIpPermissionProtocol) ToContainerFleetIpPermissionProtocolPtrOutput() ContainerFleetIpPermissionProtocolPtrOutput {
+	return e.ToContainerFleetIpPermissionProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetIpPermissionProtocol) ToContainerFleetIpPermissionProtocolPtrOutputWithContext(ctx context.Context) ContainerFleetIpPermissionProtocolPtrOutput {
+	return ContainerFleetIpPermissionProtocol(e).ToContainerFleetIpPermissionProtocolOutputWithContext(ctx).ToContainerFleetIpPermissionProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetIpPermissionProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetIpPermissionProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetIpPermissionProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetIpPermissionProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetIpPermissionProtocolOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetIpPermissionProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetIpPermissionProtocol)(nil)).Elem()
+}
+
+func (o ContainerFleetIpPermissionProtocolOutput) ToContainerFleetIpPermissionProtocolOutput() ContainerFleetIpPermissionProtocolOutput {
+	return o
+}
+
+func (o ContainerFleetIpPermissionProtocolOutput) ToContainerFleetIpPermissionProtocolOutputWithContext(ctx context.Context) ContainerFleetIpPermissionProtocolOutput {
+	return o
+}
+
+func (o ContainerFleetIpPermissionProtocolOutput) ToContainerFleetIpPermissionProtocolPtrOutput() ContainerFleetIpPermissionProtocolPtrOutput {
+	return o.ToContainerFleetIpPermissionProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetIpPermissionProtocolOutput) ToContainerFleetIpPermissionProtocolPtrOutputWithContext(ctx context.Context) ContainerFleetIpPermissionProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetIpPermissionProtocol) *ContainerFleetIpPermissionProtocol {
+		return &v
+	}).(ContainerFleetIpPermissionProtocolPtrOutput)
+}
+
+func (o ContainerFleetIpPermissionProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetIpPermissionProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetIpPermissionProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetIpPermissionProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetIpPermissionProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetIpPermissionProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetIpPermissionProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetIpPermissionProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetIpPermissionProtocol)(nil)).Elem()
+}
+
+func (o ContainerFleetIpPermissionProtocolPtrOutput) ToContainerFleetIpPermissionProtocolPtrOutput() ContainerFleetIpPermissionProtocolPtrOutput {
+	return o
+}
+
+func (o ContainerFleetIpPermissionProtocolPtrOutput) ToContainerFleetIpPermissionProtocolPtrOutputWithContext(ctx context.Context) ContainerFleetIpPermissionProtocolPtrOutput {
+	return o
+}
+
+func (o ContainerFleetIpPermissionProtocolPtrOutput) Elem() ContainerFleetIpPermissionProtocolOutput {
+	return o.ApplyT(func(v *ContainerFleetIpPermissionProtocol) ContainerFleetIpPermissionProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetIpPermissionProtocol
+		return ret
+	}).(ContainerFleetIpPermissionProtocolOutput)
+}
+
+func (o ContainerFleetIpPermissionProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetIpPermissionProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetIpPermissionProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetIpPermissionProtocolInput is an input type that accepts values of the ContainerFleetIpPermissionProtocol enum
+// A concrete instance of `ContainerFleetIpPermissionProtocolInput` can be one of the following:
+//
+//	ContainerFleetIpPermissionProtocolTcp
+//	ContainerFleetIpPermissionProtocolUdp
+type ContainerFleetIpPermissionProtocolInput interface {
+	pulumi.Input
+
+	ToContainerFleetIpPermissionProtocolOutput() ContainerFleetIpPermissionProtocolOutput
+	ToContainerFleetIpPermissionProtocolOutputWithContext(context.Context) ContainerFleetIpPermissionProtocolOutput
+}
+
+var containerFleetIpPermissionProtocolPtrType = reflect.TypeOf((**ContainerFleetIpPermissionProtocol)(nil)).Elem()
+
+type ContainerFleetIpPermissionProtocolPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetIpPermissionProtocolPtrOutput() ContainerFleetIpPermissionProtocolPtrOutput
+	ToContainerFleetIpPermissionProtocolPtrOutputWithContext(context.Context) ContainerFleetIpPermissionProtocolPtrOutput
+}
+
+type containerFleetIpPermissionProtocolPtr string
+
+func ContainerFleetIpPermissionProtocolPtr(v string) ContainerFleetIpPermissionProtocolPtrInput {
+	return (*containerFleetIpPermissionProtocolPtr)(&v)
+}
+
+func (*containerFleetIpPermissionProtocolPtr) ElementType() reflect.Type {
+	return containerFleetIpPermissionProtocolPtrType
+}
+
+func (in *containerFleetIpPermissionProtocolPtr) ToContainerFleetIpPermissionProtocolPtrOutput() ContainerFleetIpPermissionProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetIpPermissionProtocolPtrOutput)
+}
+
+func (in *containerFleetIpPermissionProtocolPtr) ToContainerFleetIpPermissionProtocolPtrOutputWithContext(ctx context.Context) ContainerFleetIpPermissionProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetIpPermissionProtocolPtrOutput)
+}
+
+// Configures the service that provides logs.
+type ContainerFleetLogDestination string
+
+const (
+	ContainerFleetLogDestinationNone       = ContainerFleetLogDestination("NONE")
+	ContainerFleetLogDestinationCloudwatch = ContainerFleetLogDestination("CLOUDWATCH")
+	ContainerFleetLogDestinationS3         = ContainerFleetLogDestination("S3")
+)
+
+func (ContainerFleetLogDestination) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLogDestination)(nil)).Elem()
+}
+
+func (e ContainerFleetLogDestination) ToContainerFleetLogDestinationOutput() ContainerFleetLogDestinationOutput {
+	return pulumi.ToOutput(e).(ContainerFleetLogDestinationOutput)
+}
+
+func (e ContainerFleetLogDestination) ToContainerFleetLogDestinationOutputWithContext(ctx context.Context) ContainerFleetLogDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetLogDestinationOutput)
+}
+
+func (e ContainerFleetLogDestination) ToContainerFleetLogDestinationPtrOutput() ContainerFleetLogDestinationPtrOutput {
+	return e.ToContainerFleetLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetLogDestination) ToContainerFleetLogDestinationPtrOutputWithContext(ctx context.Context) ContainerFleetLogDestinationPtrOutput {
+	return ContainerFleetLogDestination(e).ToContainerFleetLogDestinationOutputWithContext(ctx).ToContainerFleetLogDestinationPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetLogDestination) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetLogDestination) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetLogDestination) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetLogDestination) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetLogDestinationOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLogDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetLogDestination)(nil)).Elem()
+}
+
+func (o ContainerFleetLogDestinationOutput) ToContainerFleetLogDestinationOutput() ContainerFleetLogDestinationOutput {
+	return o
+}
+
+func (o ContainerFleetLogDestinationOutput) ToContainerFleetLogDestinationOutputWithContext(ctx context.Context) ContainerFleetLogDestinationOutput {
+	return o
+}
+
+func (o ContainerFleetLogDestinationOutput) ToContainerFleetLogDestinationPtrOutput() ContainerFleetLogDestinationPtrOutput {
+	return o.ToContainerFleetLogDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLogDestinationOutput) ToContainerFleetLogDestinationPtrOutputWithContext(ctx context.Context) ContainerFleetLogDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetLogDestination) *ContainerFleetLogDestination {
+		return &v
+	}).(ContainerFleetLogDestinationPtrOutput)
+}
+
+func (o ContainerFleetLogDestinationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLogDestinationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetLogDestination) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetLogDestinationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLogDestinationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetLogDestination) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetLogDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetLogDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetLogDestination)(nil)).Elem()
+}
+
+func (o ContainerFleetLogDestinationPtrOutput) ToContainerFleetLogDestinationPtrOutput() ContainerFleetLogDestinationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetLogDestinationPtrOutput) ToContainerFleetLogDestinationPtrOutputWithContext(ctx context.Context) ContainerFleetLogDestinationPtrOutput {
+	return o
+}
+
+func (o ContainerFleetLogDestinationPtrOutput) Elem() ContainerFleetLogDestinationOutput {
+	return o.ApplyT(func(v *ContainerFleetLogDestination) ContainerFleetLogDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetLogDestination
+		return ret
+	}).(ContainerFleetLogDestinationOutput)
+}
+
+func (o ContainerFleetLogDestinationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetLogDestinationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetLogDestination) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetLogDestinationInput is an input type that accepts values of the ContainerFleetLogDestination enum
+// A concrete instance of `ContainerFleetLogDestinationInput` can be one of the following:
+//
+//	ContainerFleetLogDestinationNone
+//	ContainerFleetLogDestinationCloudwatch
+//	ContainerFleetLogDestinationS3
+type ContainerFleetLogDestinationInput interface {
+	pulumi.Input
+
+	ToContainerFleetLogDestinationOutput() ContainerFleetLogDestinationOutput
+	ToContainerFleetLogDestinationOutputWithContext(context.Context) ContainerFleetLogDestinationOutput
+}
+
+var containerFleetLogDestinationPtrType = reflect.TypeOf((**ContainerFleetLogDestination)(nil)).Elem()
+
+type ContainerFleetLogDestinationPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetLogDestinationPtrOutput() ContainerFleetLogDestinationPtrOutput
+	ToContainerFleetLogDestinationPtrOutputWithContext(context.Context) ContainerFleetLogDestinationPtrOutput
+}
+
+type containerFleetLogDestinationPtr string
+
+func ContainerFleetLogDestinationPtr(v string) ContainerFleetLogDestinationPtrInput {
+	return (*containerFleetLogDestinationPtr)(&v)
+}
+
+func (*containerFleetLogDestinationPtr) ElementType() reflect.Type {
+	return containerFleetLogDestinationPtrType
+}
+
+func (in *containerFleetLogDestinationPtr) ToContainerFleetLogDestinationPtrOutput() ContainerFleetLogDestinationPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetLogDestinationPtrOutput)
+}
+
+func (in *containerFleetLogDestinationPtr) ToContainerFleetLogDestinationPtrOutputWithContext(ctx context.Context) ContainerFleetLogDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetLogDestinationPtrOutput)
+}
+
+// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+type ContainerFleetNewGameSessionProtectionPolicy string
+
+const (
+	ContainerFleetNewGameSessionProtectionPolicyFullProtection = ContainerFleetNewGameSessionProtectionPolicy("FullProtection")
+	ContainerFleetNewGameSessionProtectionPolicyNoProtection   = ContainerFleetNewGameSessionProtectionPolicy("NoProtection")
+)
+
+func (ContainerFleetNewGameSessionProtectionPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetNewGameSessionProtectionPolicy)(nil)).Elem()
+}
+
+func (e ContainerFleetNewGameSessionProtectionPolicy) ToContainerFleetNewGameSessionProtectionPolicyOutput() ContainerFleetNewGameSessionProtectionPolicyOutput {
+	return pulumi.ToOutput(e).(ContainerFleetNewGameSessionProtectionPolicyOutput)
+}
+
+func (e ContainerFleetNewGameSessionProtectionPolicy) ToContainerFleetNewGameSessionProtectionPolicyOutputWithContext(ctx context.Context) ContainerFleetNewGameSessionProtectionPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetNewGameSessionProtectionPolicyOutput)
+}
+
+func (e ContainerFleetNewGameSessionProtectionPolicy) ToContainerFleetNewGameSessionProtectionPolicyPtrOutput() ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
+	return e.ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetNewGameSessionProtectionPolicy) ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
+	return ContainerFleetNewGameSessionProtectionPolicy(e).ToContainerFleetNewGameSessionProtectionPolicyOutputWithContext(ctx).ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetNewGameSessionProtectionPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetNewGameSessionProtectionPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetNewGameSessionProtectionPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetNewGameSessionProtectionPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetNewGameSessionProtectionPolicyOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetNewGameSessionProtectionPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetNewGameSessionProtectionPolicy)(nil)).Elem()
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyOutput) ToContainerFleetNewGameSessionProtectionPolicyOutput() ContainerFleetNewGameSessionProtectionPolicyOutput {
+	return o
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyOutput) ToContainerFleetNewGameSessionProtectionPolicyOutputWithContext(ctx context.Context) ContainerFleetNewGameSessionProtectionPolicyOutput {
+	return o
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyOutput) ToContainerFleetNewGameSessionProtectionPolicyPtrOutput() ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
+	return o.ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyOutput) ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetNewGameSessionProtectionPolicy) *ContainerFleetNewGameSessionProtectionPolicy {
+		return &v
+	}).(ContainerFleetNewGameSessionProtectionPolicyPtrOutput)
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetNewGameSessionProtectionPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetNewGameSessionProtectionPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetNewGameSessionProtectionPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetNewGameSessionProtectionPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetNewGameSessionProtectionPolicy)(nil)).Elem()
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyPtrOutput) ToContainerFleetNewGameSessionProtectionPolicyPtrOutput() ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyPtrOutput) ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
+	return o
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyPtrOutput) Elem() ContainerFleetNewGameSessionProtectionPolicyOutput {
+	return o.ApplyT(func(v *ContainerFleetNewGameSessionProtectionPolicy) ContainerFleetNewGameSessionProtectionPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetNewGameSessionProtectionPolicy
+		return ret
+	}).(ContainerFleetNewGameSessionProtectionPolicyOutput)
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetNewGameSessionProtectionPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetNewGameSessionProtectionPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetNewGameSessionProtectionPolicyInput is an input type that accepts values of the ContainerFleetNewGameSessionProtectionPolicy enum
+// A concrete instance of `ContainerFleetNewGameSessionProtectionPolicyInput` can be one of the following:
+//
+//	ContainerFleetNewGameSessionProtectionPolicyFullProtection
+//	ContainerFleetNewGameSessionProtectionPolicyNoProtection
+type ContainerFleetNewGameSessionProtectionPolicyInput interface {
+	pulumi.Input
+
+	ToContainerFleetNewGameSessionProtectionPolicyOutput() ContainerFleetNewGameSessionProtectionPolicyOutput
+	ToContainerFleetNewGameSessionProtectionPolicyOutputWithContext(context.Context) ContainerFleetNewGameSessionProtectionPolicyOutput
+}
+
+var containerFleetNewGameSessionProtectionPolicyPtrType = reflect.TypeOf((**ContainerFleetNewGameSessionProtectionPolicy)(nil)).Elem()
+
+type ContainerFleetNewGameSessionProtectionPolicyPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetNewGameSessionProtectionPolicyPtrOutput() ContainerFleetNewGameSessionProtectionPolicyPtrOutput
+	ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(context.Context) ContainerFleetNewGameSessionProtectionPolicyPtrOutput
+}
+
+type containerFleetNewGameSessionProtectionPolicyPtr string
+
+func ContainerFleetNewGameSessionProtectionPolicyPtr(v string) ContainerFleetNewGameSessionProtectionPolicyPtrInput {
+	return (*containerFleetNewGameSessionProtectionPolicyPtr)(&v)
+}
+
+func (*containerFleetNewGameSessionProtectionPolicyPtr) ElementType() reflect.Type {
+	return containerFleetNewGameSessionProtectionPolicyPtrType
+}
+
+func (in *containerFleetNewGameSessionProtectionPolicyPtr) ToContainerFleetNewGameSessionProtectionPolicyPtrOutput() ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetNewGameSessionProtectionPolicyPtrOutput)
+}
+
+func (in *containerFleetNewGameSessionProtectionPolicyPtr) ToContainerFleetNewGameSessionProtectionPolicyPtrOutputWithContext(ctx context.Context) ContainerFleetNewGameSessionProtectionPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetNewGameSessionProtectionPolicyPtrOutput)
+}
+
+// Comparison operator to use when measuring a metric against the threshold value.
+type ContainerFleetScalingPolicyComparisonOperator string
+
+const (
+	ContainerFleetScalingPolicyComparisonOperatorGreaterThanOrEqualToThreshold = ContainerFleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold")
+	ContainerFleetScalingPolicyComparisonOperatorGreaterThanThreshold          = ContainerFleetScalingPolicyComparisonOperator("GreaterThanThreshold")
+	ContainerFleetScalingPolicyComparisonOperatorLessThanThreshold             = ContainerFleetScalingPolicyComparisonOperator("LessThanThreshold")
+	ContainerFleetScalingPolicyComparisonOperatorLessThanOrEqualToThreshold    = ContainerFleetScalingPolicyComparisonOperator("LessThanOrEqualToThreshold")
+)
+
+func (ContainerFleetScalingPolicyComparisonOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicyComparisonOperator)(nil)).Elem()
+}
+
+func (e ContainerFleetScalingPolicyComparisonOperator) ToContainerFleetScalingPolicyComparisonOperatorOutput() ContainerFleetScalingPolicyComparisonOperatorOutput {
+	return pulumi.ToOutput(e).(ContainerFleetScalingPolicyComparisonOperatorOutput)
+}
+
+func (e ContainerFleetScalingPolicyComparisonOperator) ToContainerFleetScalingPolicyComparisonOperatorOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyComparisonOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetScalingPolicyComparisonOperatorOutput)
+}
+
+func (e ContainerFleetScalingPolicyComparisonOperator) ToContainerFleetScalingPolicyComparisonOperatorPtrOutput() ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return e.ToContainerFleetScalingPolicyComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetScalingPolicyComparisonOperator) ToContainerFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return ContainerFleetScalingPolicyComparisonOperator(e).ToContainerFleetScalingPolicyComparisonOperatorOutputWithContext(ctx).ToContainerFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetScalingPolicyComparisonOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetScalingPolicyComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetScalingPolicyComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetScalingPolicyComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetScalingPolicyComparisonOperatorOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyComparisonOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicyComparisonOperator)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorOutput) ToContainerFleetScalingPolicyComparisonOperatorOutput() ContainerFleetScalingPolicyComparisonOperatorOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorOutput) ToContainerFleetScalingPolicyComparisonOperatorOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyComparisonOperatorOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorOutput) ToContainerFleetScalingPolicyComparisonOperatorPtrOutput() ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return o.ToContainerFleetScalingPolicyComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorOutput) ToContainerFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetScalingPolicyComparisonOperator) *ContainerFleetScalingPolicyComparisonOperator {
+		return &v
+	}).(ContainerFleetScalingPolicyComparisonOperatorPtrOutput)
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetScalingPolicyComparisonOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetScalingPolicyComparisonOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetScalingPolicyComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyComparisonOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetScalingPolicyComparisonOperator)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorPtrOutput) ToContainerFleetScalingPolicyComparisonOperatorPtrOutput() ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorPtrOutput) ToContainerFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorPtrOutput) Elem() ContainerFleetScalingPolicyComparisonOperatorOutput {
+	return o.ApplyT(func(v *ContainerFleetScalingPolicyComparisonOperator) ContainerFleetScalingPolicyComparisonOperator {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetScalingPolicyComparisonOperator
+		return ret
+	}).(ContainerFleetScalingPolicyComparisonOperatorOutput)
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetScalingPolicyComparisonOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetScalingPolicyComparisonOperatorInput is an input type that accepts values of the ContainerFleetScalingPolicyComparisonOperator enum
+// A concrete instance of `ContainerFleetScalingPolicyComparisonOperatorInput` can be one of the following:
+//
+//	ContainerFleetScalingPolicyComparisonOperatorGreaterThanOrEqualToThreshold
+//	ContainerFleetScalingPolicyComparisonOperatorGreaterThanThreshold
+//	ContainerFleetScalingPolicyComparisonOperatorLessThanThreshold
+//	ContainerFleetScalingPolicyComparisonOperatorLessThanOrEqualToThreshold
+type ContainerFleetScalingPolicyComparisonOperatorInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyComparisonOperatorOutput() ContainerFleetScalingPolicyComparisonOperatorOutput
+	ToContainerFleetScalingPolicyComparisonOperatorOutputWithContext(context.Context) ContainerFleetScalingPolicyComparisonOperatorOutput
+}
+
+var containerFleetScalingPolicyComparisonOperatorPtrType = reflect.TypeOf((**ContainerFleetScalingPolicyComparisonOperator)(nil)).Elem()
+
+type ContainerFleetScalingPolicyComparisonOperatorPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyComparisonOperatorPtrOutput() ContainerFleetScalingPolicyComparisonOperatorPtrOutput
+	ToContainerFleetScalingPolicyComparisonOperatorPtrOutputWithContext(context.Context) ContainerFleetScalingPolicyComparisonOperatorPtrOutput
+}
+
+type containerFleetScalingPolicyComparisonOperatorPtr string
+
+func ContainerFleetScalingPolicyComparisonOperatorPtr(v string) ContainerFleetScalingPolicyComparisonOperatorPtrInput {
+	return (*containerFleetScalingPolicyComparisonOperatorPtr)(&v)
+}
+
+func (*containerFleetScalingPolicyComparisonOperatorPtr) ElementType() reflect.Type {
+	return containerFleetScalingPolicyComparisonOperatorPtrType
+}
+
+func (in *containerFleetScalingPolicyComparisonOperatorPtr) ToContainerFleetScalingPolicyComparisonOperatorPtrOutput() ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetScalingPolicyComparisonOperatorPtrOutput)
+}
+
+func (in *containerFleetScalingPolicyComparisonOperatorPtr) ToContainerFleetScalingPolicyComparisonOperatorPtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyComparisonOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetScalingPolicyComparisonOperatorPtrOutput)
+}
+
+// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+type ContainerFleetScalingPolicyMetricName string
+
+const (
+	ContainerFleetScalingPolicyMetricNameActivatingGameSessions            = ContainerFleetScalingPolicyMetricName("ActivatingGameSessions")
+	ContainerFleetScalingPolicyMetricNameActiveGameSessions                = ContainerFleetScalingPolicyMetricName("ActiveGameSessions")
+	ContainerFleetScalingPolicyMetricNameActiveInstances                   = ContainerFleetScalingPolicyMetricName("ActiveInstances")
+	ContainerFleetScalingPolicyMetricNameAvailableGameSessions             = ContainerFleetScalingPolicyMetricName("AvailableGameSessions")
+	ContainerFleetScalingPolicyMetricNameAvailablePlayerSessions           = ContainerFleetScalingPolicyMetricName("AvailablePlayerSessions")
+	ContainerFleetScalingPolicyMetricNameCurrentPlayerSessions             = ContainerFleetScalingPolicyMetricName("CurrentPlayerSessions")
+	ContainerFleetScalingPolicyMetricNameIdleInstances                     = ContainerFleetScalingPolicyMetricName("IdleInstances")
+	ContainerFleetScalingPolicyMetricNamePercentAvailableGameSessions      = ContainerFleetScalingPolicyMetricName("PercentAvailableGameSessions")
+	ContainerFleetScalingPolicyMetricNamePercentIdleInstances              = ContainerFleetScalingPolicyMetricName("PercentIdleInstances")
+	ContainerFleetScalingPolicyMetricNameQueueDepth                        = ContainerFleetScalingPolicyMetricName("QueueDepth")
+	ContainerFleetScalingPolicyMetricNameWaitTime                          = ContainerFleetScalingPolicyMetricName("WaitTime")
+	ContainerFleetScalingPolicyMetricNameConcurrentActivatableGameSessions = ContainerFleetScalingPolicyMetricName("ConcurrentActivatableGameSessions")
+)
+
+func (ContainerFleetScalingPolicyMetricName) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicyMetricName)(nil)).Elem()
+}
+
+func (e ContainerFleetScalingPolicyMetricName) ToContainerFleetScalingPolicyMetricNameOutput() ContainerFleetScalingPolicyMetricNameOutput {
+	return pulumi.ToOutput(e).(ContainerFleetScalingPolicyMetricNameOutput)
+}
+
+func (e ContainerFleetScalingPolicyMetricName) ToContainerFleetScalingPolicyMetricNameOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyMetricNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetScalingPolicyMetricNameOutput)
+}
+
+func (e ContainerFleetScalingPolicyMetricName) ToContainerFleetScalingPolicyMetricNamePtrOutput() ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return e.ToContainerFleetScalingPolicyMetricNamePtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetScalingPolicyMetricName) ToContainerFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return ContainerFleetScalingPolicyMetricName(e).ToContainerFleetScalingPolicyMetricNameOutputWithContext(ctx).ToContainerFleetScalingPolicyMetricNamePtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetScalingPolicyMetricName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetScalingPolicyMetricName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetScalingPolicyMetricName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetScalingPolicyMetricName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetScalingPolicyMetricNameOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyMetricNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicyMetricName)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyMetricNameOutput) ToContainerFleetScalingPolicyMetricNameOutput() ContainerFleetScalingPolicyMetricNameOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyMetricNameOutput) ToContainerFleetScalingPolicyMetricNameOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyMetricNameOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyMetricNameOutput) ToContainerFleetScalingPolicyMetricNamePtrOutput() ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return o.ToContainerFleetScalingPolicyMetricNamePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyMetricNameOutput) ToContainerFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetScalingPolicyMetricName) *ContainerFleetScalingPolicyMetricName {
+		return &v
+	}).(ContainerFleetScalingPolicyMetricNamePtrOutput)
+}
+
+func (o ContainerFleetScalingPolicyMetricNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyMetricNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetScalingPolicyMetricName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetScalingPolicyMetricNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyMetricNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetScalingPolicyMetricName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetScalingPolicyMetricNamePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyMetricNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetScalingPolicyMetricName)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyMetricNamePtrOutput) ToContainerFleetScalingPolicyMetricNamePtrOutput() ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyMetricNamePtrOutput) ToContainerFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyMetricNamePtrOutput) Elem() ContainerFleetScalingPolicyMetricNameOutput {
+	return o.ApplyT(func(v *ContainerFleetScalingPolicyMetricName) ContainerFleetScalingPolicyMetricName {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetScalingPolicyMetricName
+		return ret
+	}).(ContainerFleetScalingPolicyMetricNameOutput)
+}
+
+func (o ContainerFleetScalingPolicyMetricNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyMetricNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetScalingPolicyMetricName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetScalingPolicyMetricNameInput is an input type that accepts values of the ContainerFleetScalingPolicyMetricName enum
+// A concrete instance of `ContainerFleetScalingPolicyMetricNameInput` can be one of the following:
+//
+//	ContainerFleetScalingPolicyMetricNameActivatingGameSessions
+//	ContainerFleetScalingPolicyMetricNameActiveGameSessions
+//	ContainerFleetScalingPolicyMetricNameActiveInstances
+//	ContainerFleetScalingPolicyMetricNameAvailableGameSessions
+//	ContainerFleetScalingPolicyMetricNameAvailablePlayerSessions
+//	ContainerFleetScalingPolicyMetricNameCurrentPlayerSessions
+//	ContainerFleetScalingPolicyMetricNameIdleInstances
+//	ContainerFleetScalingPolicyMetricNamePercentAvailableGameSessions
+//	ContainerFleetScalingPolicyMetricNamePercentIdleInstances
+//	ContainerFleetScalingPolicyMetricNameQueueDepth
+//	ContainerFleetScalingPolicyMetricNameWaitTime
+//	ContainerFleetScalingPolicyMetricNameConcurrentActivatableGameSessions
+type ContainerFleetScalingPolicyMetricNameInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyMetricNameOutput() ContainerFleetScalingPolicyMetricNameOutput
+	ToContainerFleetScalingPolicyMetricNameOutputWithContext(context.Context) ContainerFleetScalingPolicyMetricNameOutput
+}
+
+var containerFleetScalingPolicyMetricNamePtrType = reflect.TypeOf((**ContainerFleetScalingPolicyMetricName)(nil)).Elem()
+
+type ContainerFleetScalingPolicyMetricNamePtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyMetricNamePtrOutput() ContainerFleetScalingPolicyMetricNamePtrOutput
+	ToContainerFleetScalingPolicyMetricNamePtrOutputWithContext(context.Context) ContainerFleetScalingPolicyMetricNamePtrOutput
+}
+
+type containerFleetScalingPolicyMetricNamePtr string
+
+func ContainerFleetScalingPolicyMetricNamePtr(v string) ContainerFleetScalingPolicyMetricNamePtrInput {
+	return (*containerFleetScalingPolicyMetricNamePtr)(&v)
+}
+
+func (*containerFleetScalingPolicyMetricNamePtr) ElementType() reflect.Type {
+	return containerFleetScalingPolicyMetricNamePtrType
+}
+
+func (in *containerFleetScalingPolicyMetricNamePtr) ToContainerFleetScalingPolicyMetricNamePtrOutput() ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetScalingPolicyMetricNamePtrOutput)
+}
+
+func (in *containerFleetScalingPolicyMetricNamePtr) ToContainerFleetScalingPolicyMetricNamePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetScalingPolicyMetricNamePtrOutput)
+}
+
+// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+type ContainerFleetScalingPolicyPolicyType string
+
+const (
+	ContainerFleetScalingPolicyPolicyTypeRuleBased   = ContainerFleetScalingPolicyPolicyType("RuleBased")
+	ContainerFleetScalingPolicyPolicyTypeTargetBased = ContainerFleetScalingPolicyPolicyType("TargetBased")
+)
+
+func (ContainerFleetScalingPolicyPolicyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicyPolicyType)(nil)).Elem()
+}
+
+func (e ContainerFleetScalingPolicyPolicyType) ToContainerFleetScalingPolicyPolicyTypeOutput() ContainerFleetScalingPolicyPolicyTypeOutput {
+	return pulumi.ToOutput(e).(ContainerFleetScalingPolicyPolicyTypeOutput)
+}
+
+func (e ContainerFleetScalingPolicyPolicyType) ToContainerFleetScalingPolicyPolicyTypeOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyPolicyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetScalingPolicyPolicyTypeOutput)
+}
+
+func (e ContainerFleetScalingPolicyPolicyType) ToContainerFleetScalingPolicyPolicyTypePtrOutput() ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return e.ToContainerFleetScalingPolicyPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetScalingPolicyPolicyType) ToContainerFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return ContainerFleetScalingPolicyPolicyType(e).ToContainerFleetScalingPolicyPolicyTypeOutputWithContext(ctx).ToContainerFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetScalingPolicyPolicyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetScalingPolicyPolicyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetScalingPolicyPolicyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetScalingPolicyPolicyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetScalingPolicyPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicyPolicyType)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypeOutput) ToContainerFleetScalingPolicyPolicyTypeOutput() ContainerFleetScalingPolicyPolicyTypeOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypeOutput) ToContainerFleetScalingPolicyPolicyTypeOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyPolicyTypeOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypeOutput) ToContainerFleetScalingPolicyPolicyTypePtrOutput() ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return o.ToContainerFleetScalingPolicyPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypeOutput) ToContainerFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetScalingPolicyPolicyType) *ContainerFleetScalingPolicyPolicyType {
+		return &v
+	}).(ContainerFleetScalingPolicyPolicyTypePtrOutput)
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetScalingPolicyPolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetScalingPolicyPolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetScalingPolicyPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetScalingPolicyPolicyType)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypePtrOutput) ToContainerFleetScalingPolicyPolicyTypePtrOutput() ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypePtrOutput) ToContainerFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypePtrOutput) Elem() ContainerFleetScalingPolicyPolicyTypeOutput {
+	return o.ApplyT(func(v *ContainerFleetScalingPolicyPolicyType) ContainerFleetScalingPolicyPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetScalingPolicyPolicyType
+		return ret
+	}).(ContainerFleetScalingPolicyPolicyTypeOutput)
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetScalingPolicyPolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetScalingPolicyPolicyTypeInput is an input type that accepts values of the ContainerFleetScalingPolicyPolicyType enum
+// A concrete instance of `ContainerFleetScalingPolicyPolicyTypeInput` can be one of the following:
+//
+//	ContainerFleetScalingPolicyPolicyTypeRuleBased
+//	ContainerFleetScalingPolicyPolicyTypeTargetBased
+type ContainerFleetScalingPolicyPolicyTypeInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyPolicyTypeOutput() ContainerFleetScalingPolicyPolicyTypeOutput
+	ToContainerFleetScalingPolicyPolicyTypeOutputWithContext(context.Context) ContainerFleetScalingPolicyPolicyTypeOutput
+}
+
+var containerFleetScalingPolicyPolicyTypePtrType = reflect.TypeOf((**ContainerFleetScalingPolicyPolicyType)(nil)).Elem()
+
+type ContainerFleetScalingPolicyPolicyTypePtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyPolicyTypePtrOutput() ContainerFleetScalingPolicyPolicyTypePtrOutput
+	ToContainerFleetScalingPolicyPolicyTypePtrOutputWithContext(context.Context) ContainerFleetScalingPolicyPolicyTypePtrOutput
+}
+
+type containerFleetScalingPolicyPolicyTypePtr string
+
+func ContainerFleetScalingPolicyPolicyTypePtr(v string) ContainerFleetScalingPolicyPolicyTypePtrInput {
+	return (*containerFleetScalingPolicyPolicyTypePtr)(&v)
+}
+
+func (*containerFleetScalingPolicyPolicyTypePtr) ElementType() reflect.Type {
+	return containerFleetScalingPolicyPolicyTypePtrType
+}
+
+func (in *containerFleetScalingPolicyPolicyTypePtr) ToContainerFleetScalingPolicyPolicyTypePtrOutput() ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetScalingPolicyPolicyTypePtrOutput)
+}
+
+func (in *containerFleetScalingPolicyPolicyTypePtr) ToContainerFleetScalingPolicyPolicyTypePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyPolicyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetScalingPolicyPolicyTypePtrOutput)
+}
+
+// The type of adjustment to make to a fleet's instance count.
+type ContainerFleetScalingPolicyScalingAdjustmentType string
+
+const (
+	ContainerFleetScalingPolicyScalingAdjustmentTypeChangeInCapacity        = ContainerFleetScalingPolicyScalingAdjustmentType("ChangeInCapacity")
+	ContainerFleetScalingPolicyScalingAdjustmentTypeExactCapacity           = ContainerFleetScalingPolicyScalingAdjustmentType("ExactCapacity")
+	ContainerFleetScalingPolicyScalingAdjustmentTypePercentChangeInCapacity = ContainerFleetScalingPolicyScalingAdjustmentType("PercentChangeInCapacity")
+)
+
+func (ContainerFleetScalingPolicyScalingAdjustmentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicyScalingAdjustmentType)(nil)).Elem()
+}
+
+func (e ContainerFleetScalingPolicyScalingAdjustmentType) ToContainerFleetScalingPolicyScalingAdjustmentTypeOutput() ContainerFleetScalingPolicyScalingAdjustmentTypeOutput {
+	return pulumi.ToOutput(e).(ContainerFleetScalingPolicyScalingAdjustmentTypeOutput)
+}
+
+func (e ContainerFleetScalingPolicyScalingAdjustmentType) ToContainerFleetScalingPolicyScalingAdjustmentTypeOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyScalingAdjustmentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetScalingPolicyScalingAdjustmentTypeOutput)
+}
+
+func (e ContainerFleetScalingPolicyScalingAdjustmentType) ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput() ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return e.ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetScalingPolicyScalingAdjustmentType) ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return ContainerFleetScalingPolicyScalingAdjustmentType(e).ToContainerFleetScalingPolicyScalingAdjustmentTypeOutputWithContext(ctx).ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetScalingPolicyScalingAdjustmentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetScalingPolicyScalingAdjustmentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetScalingPolicyScalingAdjustmentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetScalingPolicyScalingAdjustmentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetScalingPolicyScalingAdjustmentTypeOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetScalingPolicyScalingAdjustmentType)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ToContainerFleetScalingPolicyScalingAdjustmentTypeOutput() ContainerFleetScalingPolicyScalingAdjustmentTypeOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ToContainerFleetScalingPolicyScalingAdjustmentTypeOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyScalingAdjustmentTypeOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput() ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o.ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetScalingPolicyScalingAdjustmentType) *ContainerFleetScalingPolicyScalingAdjustmentType {
+		return &v
+	}).(ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput)
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetScalingPolicyScalingAdjustmentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetScalingPolicyScalingAdjustmentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetScalingPolicyScalingAdjustmentType)(nil)).Elem()
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput) ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput() ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput) ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return o
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput) Elem() ContainerFleetScalingPolicyScalingAdjustmentTypeOutput {
+	return o.ApplyT(func(v *ContainerFleetScalingPolicyScalingAdjustmentType) ContainerFleetScalingPolicyScalingAdjustmentType {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetScalingPolicyScalingAdjustmentType
+		return ret
+	}).(ContainerFleetScalingPolicyScalingAdjustmentTypeOutput)
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetScalingPolicyScalingAdjustmentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetScalingPolicyScalingAdjustmentTypeInput is an input type that accepts values of the ContainerFleetScalingPolicyScalingAdjustmentType enum
+// A concrete instance of `ContainerFleetScalingPolicyScalingAdjustmentTypeInput` can be one of the following:
+//
+//	ContainerFleetScalingPolicyScalingAdjustmentTypeChangeInCapacity
+//	ContainerFleetScalingPolicyScalingAdjustmentTypeExactCapacity
+//	ContainerFleetScalingPolicyScalingAdjustmentTypePercentChangeInCapacity
+type ContainerFleetScalingPolicyScalingAdjustmentTypeInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyScalingAdjustmentTypeOutput() ContainerFleetScalingPolicyScalingAdjustmentTypeOutput
+	ToContainerFleetScalingPolicyScalingAdjustmentTypeOutputWithContext(context.Context) ContainerFleetScalingPolicyScalingAdjustmentTypeOutput
+}
+
+var containerFleetScalingPolicyScalingAdjustmentTypePtrType = reflect.TypeOf((**ContainerFleetScalingPolicyScalingAdjustmentType)(nil)).Elem()
+
+type ContainerFleetScalingPolicyScalingAdjustmentTypePtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput() ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput
+	ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(context.Context) ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput
+}
+
+type containerFleetScalingPolicyScalingAdjustmentTypePtr string
+
+func ContainerFleetScalingPolicyScalingAdjustmentTypePtr(v string) ContainerFleetScalingPolicyScalingAdjustmentTypePtrInput {
+	return (*containerFleetScalingPolicyScalingAdjustmentTypePtr)(&v)
+}
+
+func (*containerFleetScalingPolicyScalingAdjustmentTypePtr) ElementType() reflect.Type {
+	return containerFleetScalingPolicyScalingAdjustmentTypePtrType
+}
+
+func (in *containerFleetScalingPolicyScalingAdjustmentTypePtr) ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput() ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput)
+}
+
+func (in *containerFleetScalingPolicyScalingAdjustmentTypePtr) ToContainerFleetScalingPolicyScalingAdjustmentTypePtrOutputWithContext(ctx context.Context) ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput)
+}
+
+// The current status of the container fleet.
+type ContainerFleetStatus string
+
+const (
+	ContainerFleetStatusPending    = ContainerFleetStatus("PENDING")
+	ContainerFleetStatusCreating   = ContainerFleetStatus("CREATING")
+	ContainerFleetStatusCreated    = ContainerFleetStatus("CREATED")
+	ContainerFleetStatusActivating = ContainerFleetStatus("ACTIVATING")
+	ContainerFleetStatusActive     = ContainerFleetStatus("ACTIVE")
+	ContainerFleetStatusUpdating   = ContainerFleetStatus("UPDATING")
+	ContainerFleetStatusDeleting   = ContainerFleetStatus("DELETING")
+)
+
+type ContainerFleetStatusOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetStatus)(nil)).Elem()
+}
+
+func (o ContainerFleetStatusOutput) ToContainerFleetStatusOutput() ContainerFleetStatusOutput {
+	return o
+}
+
+func (o ContainerFleetStatusOutput) ToContainerFleetStatusOutputWithContext(ctx context.Context) ContainerFleetStatusOutput {
+	return o
+}
+
+func (o ContainerFleetStatusOutput) ToContainerFleetStatusPtrOutput() ContainerFleetStatusPtrOutput {
+	return o.ToContainerFleetStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetStatusOutput) ToContainerFleetStatusPtrOutputWithContext(ctx context.Context) ContainerFleetStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetStatus) *ContainerFleetStatus {
+		return &v
+	}).(ContainerFleetStatusPtrOutput)
+}
+
+func (o ContainerFleetStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetStatus)(nil)).Elem()
+}
+
+func (o ContainerFleetStatusPtrOutput) ToContainerFleetStatusPtrOutput() ContainerFleetStatusPtrOutput {
+	return o
+}
+
+func (o ContainerFleetStatusPtrOutput) ToContainerFleetStatusPtrOutputWithContext(ctx context.Context) ContainerFleetStatusPtrOutput {
+	return o
+}
+
+func (o ContainerFleetStatusPtrOutput) Elem() ContainerFleetStatusOutput {
+	return o.ApplyT(func(v *ContainerFleetStatus) ContainerFleetStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetStatus
+		return ret
+	}).(ContainerFleetStatusOutput)
+}
+
+func (o ContainerFleetStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetStoppedActionsItem string
+
+const (
+	ContainerFleetStoppedActionsItemAutoScaling = ContainerFleetStoppedActionsItem("AUTO_SCALING")
+)
+
+func (ContainerFleetStoppedActionsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetStoppedActionsItem)(nil)).Elem()
+}
+
+func (e ContainerFleetStoppedActionsItem) ToContainerFleetStoppedActionsItemOutput() ContainerFleetStoppedActionsItemOutput {
+	return pulumi.ToOutput(e).(ContainerFleetStoppedActionsItemOutput)
+}
+
+func (e ContainerFleetStoppedActionsItem) ToContainerFleetStoppedActionsItemOutputWithContext(ctx context.Context) ContainerFleetStoppedActionsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerFleetStoppedActionsItemOutput)
+}
+
+func (e ContainerFleetStoppedActionsItem) ToContainerFleetStoppedActionsItemPtrOutput() ContainerFleetStoppedActionsItemPtrOutput {
+	return e.ToContainerFleetStoppedActionsItemPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetStoppedActionsItem) ToContainerFleetStoppedActionsItemPtrOutputWithContext(ctx context.Context) ContainerFleetStoppedActionsItemPtrOutput {
+	return ContainerFleetStoppedActionsItem(e).ToContainerFleetStoppedActionsItemOutputWithContext(ctx).ToContainerFleetStoppedActionsItemPtrOutputWithContext(ctx)
+}
+
+func (e ContainerFleetStoppedActionsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetStoppedActionsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerFleetStoppedActionsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerFleetStoppedActionsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerFleetStoppedActionsItemOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetStoppedActionsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerFleetStoppedActionsItem)(nil)).Elem()
+}
+
+func (o ContainerFleetStoppedActionsItemOutput) ToContainerFleetStoppedActionsItemOutput() ContainerFleetStoppedActionsItemOutput {
+	return o
+}
+
+func (o ContainerFleetStoppedActionsItemOutput) ToContainerFleetStoppedActionsItemOutputWithContext(ctx context.Context) ContainerFleetStoppedActionsItemOutput {
+	return o
+}
+
+func (o ContainerFleetStoppedActionsItemOutput) ToContainerFleetStoppedActionsItemPtrOutput() ContainerFleetStoppedActionsItemPtrOutput {
+	return o.ToContainerFleetStoppedActionsItemPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetStoppedActionsItemOutput) ToContainerFleetStoppedActionsItemPtrOutputWithContext(ctx context.Context) ContainerFleetStoppedActionsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerFleetStoppedActionsItem) *ContainerFleetStoppedActionsItem {
+		return &v
+	}).(ContainerFleetStoppedActionsItemPtrOutput)
+}
+
+func (o ContainerFleetStoppedActionsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetStoppedActionsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetStoppedActionsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerFleetStoppedActionsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetStoppedActionsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerFleetStoppedActionsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerFleetStoppedActionsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetStoppedActionsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerFleetStoppedActionsItem)(nil)).Elem()
+}
+
+func (o ContainerFleetStoppedActionsItemPtrOutput) ToContainerFleetStoppedActionsItemPtrOutput() ContainerFleetStoppedActionsItemPtrOutput {
+	return o
+}
+
+func (o ContainerFleetStoppedActionsItemPtrOutput) ToContainerFleetStoppedActionsItemPtrOutputWithContext(ctx context.Context) ContainerFleetStoppedActionsItemPtrOutput {
+	return o
+}
+
+func (o ContainerFleetStoppedActionsItemPtrOutput) Elem() ContainerFleetStoppedActionsItemOutput {
+	return o.ApplyT(func(v *ContainerFleetStoppedActionsItem) ContainerFleetStoppedActionsItem {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerFleetStoppedActionsItem
+		return ret
+	}).(ContainerFleetStoppedActionsItemOutput)
+}
+
+func (o ContainerFleetStoppedActionsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerFleetStoppedActionsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerFleetStoppedActionsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerFleetStoppedActionsItemInput is an input type that accepts values of the ContainerFleetStoppedActionsItem enum
+// A concrete instance of `ContainerFleetStoppedActionsItemInput` can be one of the following:
+//
+//	ContainerFleetStoppedActionsItemAutoScaling
+type ContainerFleetStoppedActionsItemInput interface {
+	pulumi.Input
+
+	ToContainerFleetStoppedActionsItemOutput() ContainerFleetStoppedActionsItemOutput
+	ToContainerFleetStoppedActionsItemOutputWithContext(context.Context) ContainerFleetStoppedActionsItemOutput
+}
+
+var containerFleetStoppedActionsItemPtrType = reflect.TypeOf((**ContainerFleetStoppedActionsItem)(nil)).Elem()
+
+type ContainerFleetStoppedActionsItemPtrInput interface {
+	pulumi.Input
+
+	ToContainerFleetStoppedActionsItemPtrOutput() ContainerFleetStoppedActionsItemPtrOutput
+	ToContainerFleetStoppedActionsItemPtrOutputWithContext(context.Context) ContainerFleetStoppedActionsItemPtrOutput
+}
+
+type containerFleetStoppedActionsItemPtr string
+
+func ContainerFleetStoppedActionsItemPtr(v string) ContainerFleetStoppedActionsItemPtrInput {
+	return (*containerFleetStoppedActionsItemPtr)(&v)
+}
+
+func (*containerFleetStoppedActionsItemPtr) ElementType() reflect.Type {
+	return containerFleetStoppedActionsItemPtrType
+}
+
+func (in *containerFleetStoppedActionsItemPtr) ToContainerFleetStoppedActionsItemPtrOutput() ContainerFleetStoppedActionsItemPtrOutput {
+	return pulumi.ToOutput(in).(ContainerFleetStoppedActionsItemPtrOutput)
+}
+
+func (in *containerFleetStoppedActionsItemPtr) ToContainerFleetStoppedActionsItemPtrOutputWithContext(ctx context.Context) ContainerFleetStoppedActionsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetStoppedActionsItemPtrOutput)
+}
+
+// ContainerFleetStoppedActionsItemArrayInput is an input type that accepts ContainerFleetStoppedActionsItemArray and ContainerFleetStoppedActionsItemArrayOutput values.
+// You can construct a concrete instance of `ContainerFleetStoppedActionsItemArrayInput` via:
+//
+//	ContainerFleetStoppedActionsItemArray{ ContainerFleetStoppedActionsItemArgs{...} }
+type ContainerFleetStoppedActionsItemArrayInput interface {
+	pulumi.Input
+
+	ToContainerFleetStoppedActionsItemArrayOutput() ContainerFleetStoppedActionsItemArrayOutput
+	ToContainerFleetStoppedActionsItemArrayOutputWithContext(context.Context) ContainerFleetStoppedActionsItemArrayOutput
+}
+
+type ContainerFleetStoppedActionsItemArray []ContainerFleetStoppedActionsItem
+
+func (ContainerFleetStoppedActionsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerFleetStoppedActionsItem)(nil)).Elem()
+}
+
+func (i ContainerFleetStoppedActionsItemArray) ToContainerFleetStoppedActionsItemArrayOutput() ContainerFleetStoppedActionsItemArrayOutput {
+	return i.ToContainerFleetStoppedActionsItemArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerFleetStoppedActionsItemArray) ToContainerFleetStoppedActionsItemArrayOutputWithContext(ctx context.Context) ContainerFleetStoppedActionsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerFleetStoppedActionsItemArrayOutput)
+}
+
+type ContainerFleetStoppedActionsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerFleetStoppedActionsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerFleetStoppedActionsItem)(nil)).Elem()
+}
+
+func (o ContainerFleetStoppedActionsItemArrayOutput) ToContainerFleetStoppedActionsItemArrayOutput() ContainerFleetStoppedActionsItemArrayOutput {
+	return o
+}
+
+func (o ContainerFleetStoppedActionsItemArrayOutput) ToContainerFleetStoppedActionsItemArrayOutputWithContext(ctx context.Context) ContainerFleetStoppedActionsItemArrayOutput {
+	return o
+}
+
+func (o ContainerFleetStoppedActionsItemArrayOutput) Index(i pulumi.IntInput) ContainerFleetStoppedActionsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerFleetStoppedActionsItem {
+		return vs[0].([]ContainerFleetStoppedActionsItem)[vs[1].(int)]
+	}).(ContainerFleetStoppedActionsItemOutput)
+}
+
+// The type of dependency.
+type ContainerGroupDefinitionContainerDependencyCondition string
+
+const (
+	ContainerGroupDefinitionContainerDependencyConditionStart    = ContainerGroupDefinitionContainerDependencyCondition("START")
+	ContainerGroupDefinitionContainerDependencyConditionComplete = ContainerGroupDefinitionContainerDependencyCondition("COMPLETE")
+	ContainerGroupDefinitionContainerDependencyConditionSuccess  = ContainerGroupDefinitionContainerDependencyCondition("SUCCESS")
+	ContainerGroupDefinitionContainerDependencyConditionHealthy  = ContainerGroupDefinitionContainerDependencyCondition("HEALTHY")
+)
+
+func (ContainerGroupDefinitionContainerDependencyCondition) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerDependencyCondition)(nil)).Elem()
+}
+
+func (e ContainerGroupDefinitionContainerDependencyCondition) ToContainerGroupDefinitionContainerDependencyConditionOutput() ContainerGroupDefinitionContainerDependencyConditionOutput {
+	return pulumi.ToOutput(e).(ContainerGroupDefinitionContainerDependencyConditionOutput)
+}
+
+func (e ContainerGroupDefinitionContainerDependencyCondition) ToContainerGroupDefinitionContainerDependencyConditionOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerGroupDefinitionContainerDependencyConditionOutput)
+}
+
+func (e ContainerGroupDefinitionContainerDependencyCondition) ToContainerGroupDefinitionContainerDependencyConditionPtrOutput() ContainerGroupDefinitionContainerDependencyConditionPtrOutput {
+	return e.ToContainerGroupDefinitionContainerDependencyConditionPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionContainerDependencyCondition) ToContainerGroupDefinitionContainerDependencyConditionPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyConditionPtrOutput {
+	return ContainerGroupDefinitionContainerDependencyCondition(e).ToContainerGroupDefinitionContainerDependencyConditionOutputWithContext(ctx).ToContainerGroupDefinitionContainerDependencyConditionPtrOutputWithContext(ctx)
+}
+
+func (e ContainerGroupDefinitionContainerDependencyCondition) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionContainerDependencyCondition) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionContainerDependencyCondition) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionContainerDependencyCondition) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerGroupDefinitionContainerDependencyConditionOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerDependencyConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerDependencyCondition)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionOutput) ToContainerGroupDefinitionContainerDependencyConditionOutput() ContainerGroupDefinitionContainerDependencyConditionOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionOutput) ToContainerGroupDefinitionContainerDependencyConditionOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyConditionOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionOutput) ToContainerGroupDefinitionContainerDependencyConditionPtrOutput() ContainerGroupDefinitionContainerDependencyConditionPtrOutput {
+	return o.ToContainerGroupDefinitionContainerDependencyConditionPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionOutput) ToContainerGroupDefinitionContainerDependencyConditionPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionContainerDependencyCondition) *ContainerGroupDefinitionContainerDependencyCondition {
+		return &v
+	}).(ContainerGroupDefinitionContainerDependencyConditionPtrOutput)
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionContainerDependencyCondition) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionContainerDependencyCondition) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupDefinitionContainerDependencyConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerDependencyConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionContainerDependencyCondition)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionPtrOutput) ToContainerGroupDefinitionContainerDependencyConditionPtrOutput() ContainerGroupDefinitionContainerDependencyConditionPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionPtrOutput) ToContainerGroupDefinitionContainerDependencyConditionPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyConditionPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionPtrOutput) Elem() ContainerGroupDefinitionContainerDependencyConditionOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerDependencyCondition) ContainerGroupDefinitionContainerDependencyCondition {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionContainerDependencyCondition
+		return ret
+	}).(ContainerGroupDefinitionContainerDependencyConditionOutput)
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerDependencyConditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupDefinitionContainerDependencyCondition) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerGroupDefinitionContainerDependencyConditionInput is an input type that accepts values of the ContainerGroupDefinitionContainerDependencyCondition enum
+// A concrete instance of `ContainerGroupDefinitionContainerDependencyConditionInput` can be one of the following:
+//
+//	ContainerGroupDefinitionContainerDependencyConditionStart
+//	ContainerGroupDefinitionContainerDependencyConditionComplete
+//	ContainerGroupDefinitionContainerDependencyConditionSuccess
+//	ContainerGroupDefinitionContainerDependencyConditionHealthy
+type ContainerGroupDefinitionContainerDependencyConditionInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerDependencyConditionOutput() ContainerGroupDefinitionContainerDependencyConditionOutput
+	ToContainerGroupDefinitionContainerDependencyConditionOutputWithContext(context.Context) ContainerGroupDefinitionContainerDependencyConditionOutput
+}
+
+var containerGroupDefinitionContainerDependencyConditionPtrType = reflect.TypeOf((**ContainerGroupDefinitionContainerDependencyCondition)(nil)).Elem()
+
+type ContainerGroupDefinitionContainerDependencyConditionPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerDependencyConditionPtrOutput() ContainerGroupDefinitionContainerDependencyConditionPtrOutput
+	ToContainerGroupDefinitionContainerDependencyConditionPtrOutputWithContext(context.Context) ContainerGroupDefinitionContainerDependencyConditionPtrOutput
+}
+
+type containerGroupDefinitionContainerDependencyConditionPtr string
+
+func ContainerGroupDefinitionContainerDependencyConditionPtr(v string) ContainerGroupDefinitionContainerDependencyConditionPtrInput {
+	return (*containerGroupDefinitionContainerDependencyConditionPtr)(&v)
+}
+
+func (*containerGroupDefinitionContainerDependencyConditionPtr) ElementType() reflect.Type {
+	return containerGroupDefinitionContainerDependencyConditionPtrType
+}
+
+func (in *containerGroupDefinitionContainerDependencyConditionPtr) ToContainerGroupDefinitionContainerDependencyConditionPtrOutput() ContainerGroupDefinitionContainerDependencyConditionPtrOutput {
+	return pulumi.ToOutput(in).(ContainerGroupDefinitionContainerDependencyConditionPtrOutput)
+}
+
+func (in *containerGroupDefinitionContainerDependencyConditionPtr) ToContainerGroupDefinitionContainerDependencyConditionPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerDependencyConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupDefinitionContainerDependencyConditionPtrOutput)
+}
+
+// The scope of the container group
+type ContainerGroupDefinitionContainerGroupType string
+
+const (
+	ContainerGroupDefinitionContainerGroupTypeGameServer  = ContainerGroupDefinitionContainerGroupType("GAME_SERVER")
+	ContainerGroupDefinitionContainerGroupTypePerInstance = ContainerGroupDefinitionContainerGroupType("PER_INSTANCE")
+)
+
+func (ContainerGroupDefinitionContainerGroupType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerGroupType)(nil)).Elem()
+}
+
+func (e ContainerGroupDefinitionContainerGroupType) ToContainerGroupDefinitionContainerGroupTypeOutput() ContainerGroupDefinitionContainerGroupTypeOutput {
+	return pulumi.ToOutput(e).(ContainerGroupDefinitionContainerGroupTypeOutput)
+}
+
+func (e ContainerGroupDefinitionContainerGroupType) ToContainerGroupDefinitionContainerGroupTypeOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerGroupTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerGroupDefinitionContainerGroupTypeOutput)
+}
+
+func (e ContainerGroupDefinitionContainerGroupType) ToContainerGroupDefinitionContainerGroupTypePtrOutput() ContainerGroupDefinitionContainerGroupTypePtrOutput {
+	return e.ToContainerGroupDefinitionContainerGroupTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionContainerGroupType) ToContainerGroupDefinitionContainerGroupTypePtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerGroupTypePtrOutput {
+	return ContainerGroupDefinitionContainerGroupType(e).ToContainerGroupDefinitionContainerGroupTypeOutputWithContext(ctx).ToContainerGroupDefinitionContainerGroupTypePtrOutputWithContext(ctx)
+}
+
+func (e ContainerGroupDefinitionContainerGroupType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionContainerGroupType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionContainerGroupType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionContainerGroupType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerGroupDefinitionContainerGroupTypeOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerGroupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerGroupType)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypeOutput) ToContainerGroupDefinitionContainerGroupTypeOutput() ContainerGroupDefinitionContainerGroupTypeOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypeOutput) ToContainerGroupDefinitionContainerGroupTypeOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerGroupTypeOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypeOutput) ToContainerGroupDefinitionContainerGroupTypePtrOutput() ContainerGroupDefinitionContainerGroupTypePtrOutput {
+	return o.ToContainerGroupDefinitionContainerGroupTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypeOutput) ToContainerGroupDefinitionContainerGroupTypePtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerGroupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionContainerGroupType) *ContainerGroupDefinitionContainerGroupType {
+		return &v
+	}).(ContainerGroupDefinitionContainerGroupTypePtrOutput)
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionContainerGroupType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionContainerGroupType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupDefinitionContainerGroupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerGroupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionContainerGroupType)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypePtrOutput) ToContainerGroupDefinitionContainerGroupTypePtrOutput() ContainerGroupDefinitionContainerGroupTypePtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypePtrOutput) ToContainerGroupDefinitionContainerGroupTypePtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerGroupTypePtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypePtrOutput) Elem() ContainerGroupDefinitionContainerGroupTypeOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerGroupType) ContainerGroupDefinitionContainerGroupType {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionContainerGroupType
+		return ret
+	}).(ContainerGroupDefinitionContainerGroupTypeOutput)
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupDefinitionContainerGroupType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerGroupDefinitionContainerGroupTypeInput is an input type that accepts values of the ContainerGroupDefinitionContainerGroupType enum
+// A concrete instance of `ContainerGroupDefinitionContainerGroupTypeInput` can be one of the following:
+//
+//	ContainerGroupDefinitionContainerGroupTypeGameServer
+//	ContainerGroupDefinitionContainerGroupTypePerInstance
+type ContainerGroupDefinitionContainerGroupTypeInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerGroupTypeOutput() ContainerGroupDefinitionContainerGroupTypeOutput
+	ToContainerGroupDefinitionContainerGroupTypeOutputWithContext(context.Context) ContainerGroupDefinitionContainerGroupTypeOutput
+}
+
+var containerGroupDefinitionContainerGroupTypePtrType = reflect.TypeOf((**ContainerGroupDefinitionContainerGroupType)(nil)).Elem()
+
+type ContainerGroupDefinitionContainerGroupTypePtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerGroupTypePtrOutput() ContainerGroupDefinitionContainerGroupTypePtrOutput
+	ToContainerGroupDefinitionContainerGroupTypePtrOutputWithContext(context.Context) ContainerGroupDefinitionContainerGroupTypePtrOutput
+}
+
+type containerGroupDefinitionContainerGroupTypePtr string
+
+func ContainerGroupDefinitionContainerGroupTypePtr(v string) ContainerGroupDefinitionContainerGroupTypePtrInput {
+	return (*containerGroupDefinitionContainerGroupTypePtr)(&v)
+}
+
+func (*containerGroupDefinitionContainerGroupTypePtr) ElementType() reflect.Type {
+	return containerGroupDefinitionContainerGroupTypePtrType
+}
+
+func (in *containerGroupDefinitionContainerGroupTypePtr) ToContainerGroupDefinitionContainerGroupTypePtrOutput() ContainerGroupDefinitionContainerGroupTypePtrOutput {
+	return pulumi.ToOutput(in).(ContainerGroupDefinitionContainerGroupTypePtrOutput)
+}
+
+func (in *containerGroupDefinitionContainerGroupTypePtr) ToContainerGroupDefinitionContainerGroupTypePtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerGroupTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupDefinitionContainerGroupTypePtrOutput)
+}
+
+// The access permissions for the mounted path.
+type ContainerGroupDefinitionContainerMountPointAccessLevel string
+
+const (
+	ContainerGroupDefinitionContainerMountPointAccessLevelReadOnly     = ContainerGroupDefinitionContainerMountPointAccessLevel("READ_ONLY")
+	ContainerGroupDefinitionContainerMountPointAccessLevelReadAndWrite = ContainerGroupDefinitionContainerMountPointAccessLevel("READ_AND_WRITE")
+)
+
+func (ContainerGroupDefinitionContainerMountPointAccessLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerMountPointAccessLevel)(nil)).Elem()
+}
+
+func (e ContainerGroupDefinitionContainerMountPointAccessLevel) ToContainerGroupDefinitionContainerMountPointAccessLevelOutput() ContainerGroupDefinitionContainerMountPointAccessLevelOutput {
+	return pulumi.ToOutput(e).(ContainerGroupDefinitionContainerMountPointAccessLevelOutput)
+}
+
+func (e ContainerGroupDefinitionContainerMountPointAccessLevel) ToContainerGroupDefinitionContainerMountPointAccessLevelOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointAccessLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerGroupDefinitionContainerMountPointAccessLevelOutput)
+}
+
+func (e ContainerGroupDefinitionContainerMountPointAccessLevel) ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput() ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return e.ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionContainerMountPointAccessLevel) ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return ContainerGroupDefinitionContainerMountPointAccessLevel(e).ToContainerGroupDefinitionContainerMountPointAccessLevelOutputWithContext(ctx).ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutputWithContext(ctx)
+}
+
+func (e ContainerGroupDefinitionContainerMountPointAccessLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionContainerMountPointAccessLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionContainerMountPointAccessLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionContainerMountPointAccessLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerGroupDefinitionContainerMountPointAccessLevelOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerMountPointAccessLevel)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ToContainerGroupDefinitionContainerMountPointAccessLevelOutput() ContainerGroupDefinitionContainerMountPointAccessLevelOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ToContainerGroupDefinitionContainerMountPointAccessLevelOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointAccessLevelOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput() ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return o.ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionContainerMountPointAccessLevel) *ContainerGroupDefinitionContainerMountPointAccessLevel {
+		return &v
+	}).(ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput)
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionContainerMountPointAccessLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionContainerMountPointAccessLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionContainerMountPointAccessLevel)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput) ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput() ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput) ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput) Elem() ContainerGroupDefinitionContainerMountPointAccessLevelOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerMountPointAccessLevel) ContainerGroupDefinitionContainerMountPointAccessLevel {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionContainerMountPointAccessLevel
+		return ret
+	}).(ContainerGroupDefinitionContainerMountPointAccessLevelOutput)
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupDefinitionContainerMountPointAccessLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerGroupDefinitionContainerMountPointAccessLevelInput is an input type that accepts values of the ContainerGroupDefinitionContainerMountPointAccessLevel enum
+// A concrete instance of `ContainerGroupDefinitionContainerMountPointAccessLevelInput` can be one of the following:
+//
+//	ContainerGroupDefinitionContainerMountPointAccessLevelReadOnly
+//	ContainerGroupDefinitionContainerMountPointAccessLevelReadAndWrite
+type ContainerGroupDefinitionContainerMountPointAccessLevelInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerMountPointAccessLevelOutput() ContainerGroupDefinitionContainerMountPointAccessLevelOutput
+	ToContainerGroupDefinitionContainerMountPointAccessLevelOutputWithContext(context.Context) ContainerGroupDefinitionContainerMountPointAccessLevelOutput
+}
+
+var containerGroupDefinitionContainerMountPointAccessLevelPtrType = reflect.TypeOf((**ContainerGroupDefinitionContainerMountPointAccessLevel)(nil)).Elem()
+
+type ContainerGroupDefinitionContainerMountPointAccessLevelPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput() ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput
+	ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutputWithContext(context.Context) ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput
+}
+
+type containerGroupDefinitionContainerMountPointAccessLevelPtr string
+
+func ContainerGroupDefinitionContainerMountPointAccessLevelPtr(v string) ContainerGroupDefinitionContainerMountPointAccessLevelPtrInput {
+	return (*containerGroupDefinitionContainerMountPointAccessLevelPtr)(&v)
+}
+
+func (*containerGroupDefinitionContainerMountPointAccessLevelPtr) ElementType() reflect.Type {
+	return containerGroupDefinitionContainerMountPointAccessLevelPtrType
+}
+
+func (in *containerGroupDefinitionContainerMountPointAccessLevelPtr) ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput() ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return pulumi.ToOutput(in).(ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput)
+}
+
+func (in *containerGroupDefinitionContainerMountPointAccessLevelPtr) ToContainerGroupDefinitionContainerMountPointAccessLevelPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput)
+}
+
+// Defines the protocol of these ports.
+type ContainerGroupDefinitionContainerPortRangeProtocol string
+
+const (
+	ContainerGroupDefinitionContainerPortRangeProtocolTcp = ContainerGroupDefinitionContainerPortRangeProtocol("TCP")
+	ContainerGroupDefinitionContainerPortRangeProtocolUdp = ContainerGroupDefinitionContainerPortRangeProtocol("UDP")
+)
+
+func (ContainerGroupDefinitionContainerPortRangeProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeProtocol)(nil)).Elem()
+}
+
+func (e ContainerGroupDefinitionContainerPortRangeProtocol) ToContainerGroupDefinitionContainerPortRangeProtocolOutput() ContainerGroupDefinitionContainerPortRangeProtocolOutput {
+	return pulumi.ToOutput(e).(ContainerGroupDefinitionContainerPortRangeProtocolOutput)
+}
+
+func (e ContainerGroupDefinitionContainerPortRangeProtocol) ToContainerGroupDefinitionContainerPortRangeProtocolOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerGroupDefinitionContainerPortRangeProtocolOutput)
+}
+
+func (e ContainerGroupDefinitionContainerPortRangeProtocol) ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutput() ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput {
+	return e.ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionContainerPortRangeProtocol) ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput {
+	return ContainerGroupDefinitionContainerPortRangeProtocol(e).ToContainerGroupDefinitionContainerPortRangeProtocolOutputWithContext(ctx).ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ContainerGroupDefinitionContainerPortRangeProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionContainerPortRangeProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerGroupDefinitionContainerPortRangeProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerGroupDefinitionContainerPortRangeProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerGroupDefinitionContainerPortRangeProtocolOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerPortRangeProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeProtocol)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolOutput) ToContainerGroupDefinitionContainerPortRangeProtocolOutput() ContainerGroupDefinitionContainerPortRangeProtocolOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolOutput) ToContainerGroupDefinitionContainerPortRangeProtocolOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeProtocolOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolOutput) ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutput() ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput {
+	return o.ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolOutput) ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerGroupDefinitionContainerPortRangeProtocol) *ContainerGroupDefinitionContainerPortRangeProtocol {
+		return &v
+	}).(ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput)
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionContainerPortRangeProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerGroupDefinitionContainerPortRangeProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupDefinitionContainerPortRangeProtocol)(nil)).Elem()
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput) ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutput() ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput) ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput {
+	return o
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput) Elem() ContainerGroupDefinitionContainerPortRangeProtocolOutput {
+	return o.ApplyT(func(v *ContainerGroupDefinitionContainerPortRangeProtocol) ContainerGroupDefinitionContainerPortRangeProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerGroupDefinitionContainerPortRangeProtocol
+		return ret
+	}).(ContainerGroupDefinitionContainerPortRangeProtocolOutput)
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerGroupDefinitionContainerPortRangeProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerGroupDefinitionContainerPortRangeProtocolInput is an input type that accepts values of the ContainerGroupDefinitionContainerPortRangeProtocol enum
+// A concrete instance of `ContainerGroupDefinitionContainerPortRangeProtocolInput` can be one of the following:
+//
+//	ContainerGroupDefinitionContainerPortRangeProtocolTcp
+//	ContainerGroupDefinitionContainerPortRangeProtocolUdp
+type ContainerGroupDefinitionContainerPortRangeProtocolInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerPortRangeProtocolOutput() ContainerGroupDefinitionContainerPortRangeProtocolOutput
+	ToContainerGroupDefinitionContainerPortRangeProtocolOutputWithContext(context.Context) ContainerGroupDefinitionContainerPortRangeProtocolOutput
+}
+
+var containerGroupDefinitionContainerPortRangeProtocolPtrType = reflect.TypeOf((**ContainerGroupDefinitionContainerPortRangeProtocol)(nil)).Elem()
+
+type ContainerGroupDefinitionContainerPortRangeProtocolPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutput() ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput
+	ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutputWithContext(context.Context) ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput
+}
+
+type containerGroupDefinitionContainerPortRangeProtocolPtr string
+
+func ContainerGroupDefinitionContainerPortRangeProtocolPtr(v string) ContainerGroupDefinitionContainerPortRangeProtocolPtrInput {
+	return (*containerGroupDefinitionContainerPortRangeProtocolPtr)(&v)
+}
+
+func (*containerGroupDefinitionContainerPortRangeProtocolPtr) ElementType() reflect.Type {
+	return containerGroupDefinitionContainerPortRangeProtocolPtrType
+}
+
+func (in *containerGroupDefinitionContainerPortRangeProtocolPtr) ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutput() ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput)
+}
+
+func (in *containerGroupDefinitionContainerPortRangeProtocolPtr) ToContainerGroupDefinitionContainerPortRangeProtocolPtrOutputWithContext(ctx context.Context) ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput)
+}
+
 // The operating system of the container group
 type ContainerGroupDefinitionOperatingSystem string
 
@@ -774,8 +3434,8 @@ func (in *fleetApplyCapacityPtr) ToFleetApplyCapacityPtrOutputWithContext(ctx co
 //
 // Valid values include:
 //
-// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
 type FleetCertificateConfigurationCertificateType string
 
 const (
@@ -3852,6 +6512,37 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyTypePtrInput)(nil)).Elem(), AliasRoutingStrategyType("SIMPLE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildOperatingSystemInput)(nil)).Elem(), BuildOperatingSystem("AMAZON_LINUX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildOperatingSystemPtrInput)(nil)).Elem(), BuildOperatingSystem("AMAZON_LINUX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetBillingTypeInput)(nil)).Elem(), ContainerFleetBillingType("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetBillingTypePtrInput)(nil)).Elem(), ContainerFleetBillingType("ON_DEMAND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetDeploymentConfigurationImpairmentStrategyInput)(nil)).Elem(), ContainerFleetDeploymentConfigurationImpairmentStrategy("MAINTAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetDeploymentConfigurationImpairmentStrategyPtrInput)(nil)).Elem(), ContainerFleetDeploymentConfigurationImpairmentStrategy("MAINTAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetDeploymentConfigurationProtectionStrategyInput)(nil)).Elem(), ContainerFleetDeploymentConfigurationProtectionStrategy("WITH_PROTECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetDeploymentConfigurationProtectionStrategyPtrInput)(nil)).Elem(), ContainerFleetDeploymentConfigurationProtectionStrategy("WITH_PROTECTION"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetIpPermissionProtocolInput)(nil)).Elem(), ContainerFleetIpPermissionProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetIpPermissionProtocolPtrInput)(nil)).Elem(), ContainerFleetIpPermissionProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogDestinationInput)(nil)).Elem(), ContainerFleetLogDestination("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetLogDestinationPtrInput)(nil)).Elem(), ContainerFleetLogDestination("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetNewGameSessionProtectionPolicyInput)(nil)).Elem(), ContainerFleetNewGameSessionProtectionPolicy("FullProtection"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetNewGameSessionProtectionPolicyPtrInput)(nil)).Elem(), ContainerFleetNewGameSessionProtectionPolicy("FullProtection"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyComparisonOperatorInput)(nil)).Elem(), ContainerFleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyComparisonOperatorPtrInput)(nil)).Elem(), ContainerFleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyMetricNameInput)(nil)).Elem(), ContainerFleetScalingPolicyMetricName("ActivatingGameSessions"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyMetricNamePtrInput)(nil)).Elem(), ContainerFleetScalingPolicyMetricName("ActivatingGameSessions"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyPolicyTypeInput)(nil)).Elem(), ContainerFleetScalingPolicyPolicyType("RuleBased"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyPolicyTypePtrInput)(nil)).Elem(), ContainerFleetScalingPolicyPolicyType("RuleBased"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyScalingAdjustmentTypeInput)(nil)).Elem(), ContainerFleetScalingPolicyScalingAdjustmentType("ChangeInCapacity"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetScalingPolicyScalingAdjustmentTypePtrInput)(nil)).Elem(), ContainerFleetScalingPolicyScalingAdjustmentType("ChangeInCapacity"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetStoppedActionsItemInput)(nil)).Elem(), ContainerFleetStoppedActionsItem("AUTO_SCALING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetStoppedActionsItemPtrInput)(nil)).Elem(), ContainerFleetStoppedActionsItem("AUTO_SCALING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerFleetStoppedActionsItemArrayInput)(nil)).Elem(), ContainerFleetStoppedActionsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerDependencyConditionInput)(nil)).Elem(), ContainerGroupDefinitionContainerDependencyCondition("START"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerDependencyConditionPtrInput)(nil)).Elem(), ContainerGroupDefinitionContainerDependencyCondition("START"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerGroupTypeInput)(nil)).Elem(), ContainerGroupDefinitionContainerGroupType("GAME_SERVER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerGroupTypePtrInput)(nil)).Elem(), ContainerGroupDefinitionContainerGroupType("GAME_SERVER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerMountPointAccessLevelInput)(nil)).Elem(), ContainerGroupDefinitionContainerMountPointAccessLevel("READ_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerMountPointAccessLevelPtrInput)(nil)).Elem(), ContainerGroupDefinitionContainerMountPointAccessLevel("READ_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeProtocolInput)(nil)).Elem(), ContainerGroupDefinitionContainerPortRangeProtocol("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionContainerPortRangeProtocolPtrInput)(nil)).Elem(), ContainerGroupDefinitionContainerPortRangeProtocol("TCP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionOperatingSystemInput)(nil)).Elem(), ContainerGroupDefinitionOperatingSystem("AMAZON_LINUX_2023"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContainerGroupDefinitionOperatingSystemPtrInput)(nil)).Elem(), ContainerGroupDefinitionOperatingSystem("AMAZON_LINUX_2023"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetApplyCapacityInput)(nil)).Elem(), FleetApplyCapacity("ON_UPDATE"))
@@ -3897,6 +6588,39 @@ func init() {
 	pulumi.RegisterOutputType(AliasRoutingStrategyTypePtrOutput{})
 	pulumi.RegisterOutputType(BuildOperatingSystemOutput{})
 	pulumi.RegisterOutputType(BuildOperatingSystemPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetBillingTypeOutput{})
+	pulumi.RegisterOutputType(ContainerFleetBillingTypePtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetDeploymentConfigurationImpairmentStrategyOutput{})
+	pulumi.RegisterOutputType(ContainerFleetDeploymentConfigurationImpairmentStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetDeploymentConfigurationProtectionStrategyOutput{})
+	pulumi.RegisterOutputType(ContainerFleetDeploymentConfigurationProtectionStrategyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetIpPermissionProtocolOutput{})
+	pulumi.RegisterOutputType(ContainerFleetIpPermissionProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLogDestinationOutput{})
+	pulumi.RegisterOutputType(ContainerFleetLogDestinationPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetNewGameSessionProtectionPolicyOutput{})
+	pulumi.RegisterOutputType(ContainerFleetNewGameSessionProtectionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyComparisonOperatorOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyComparisonOperatorPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyMetricNameOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyMetricNamePtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyPolicyTypeOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyPolicyTypePtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyScalingAdjustmentTypeOutput{})
+	pulumi.RegisterOutputType(ContainerFleetScalingPolicyScalingAdjustmentTypePtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetStatusOutput{})
+	pulumi.RegisterOutputType(ContainerFleetStatusPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetStoppedActionsItemOutput{})
+	pulumi.RegisterOutputType(ContainerFleetStoppedActionsItemPtrOutput{})
+	pulumi.RegisterOutputType(ContainerFleetStoppedActionsItemArrayOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerDependencyConditionOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerDependencyConditionPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerGroupTypeOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerGroupTypePtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerMountPointAccessLevelOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerMountPointAccessLevelPtrOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerPortRangeProtocolOutput{})
+	pulumi.RegisterOutputType(ContainerGroupDefinitionContainerPortRangeProtocolPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionOperatingSystemOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionOperatingSystemPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDefinitionStatusOutput{})

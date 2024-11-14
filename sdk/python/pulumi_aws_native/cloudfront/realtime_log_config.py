@@ -29,8 +29,7 @@ class RealtimeLogConfigArgs:
         The set of arguments for constructing a RealtimeLogConfig resource.
         :param pulumi.Input[Sequence[pulumi.Input['RealtimeLogConfigEndPointArgs']]] end_points: Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-               
-               For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+                For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[float] sampling_rate: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.
         :param pulumi.Input[str] name: The unique name of this real-time log configuration.
         """
@@ -57,8 +56,7 @@ class RealtimeLogConfigArgs:
     def fields(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-
-        For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+         For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "fields")
 
@@ -102,14 +100,13 @@ class RealtimeLogConfig(pulumi.CustomResource):
                  sampling_rate: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+        A real-time log configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RealtimeLogConfigEndPointArgs', 'RealtimeLogConfigEndPointArgsDict']]]] end_points: Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fields: A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-               
-               For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+                For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[str] name: The unique name of this real-time log configuration.
         :param pulumi.Input[float] sampling_rate: The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. The sampling rate is an integer between 1 and 100, inclusive.
         """
@@ -120,7 +117,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
                  args: RealtimeLogConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::CloudFront::RealtimeLogConfig
+        A real-time log configuration.
 
         :param str resource_name: The name of the resource.
         :param RealtimeLogConfigArgs args: The arguments to use to populate this resource's properties.
@@ -213,8 +210,7 @@ class RealtimeLogConfig(pulumi.CustomResource):
     def fields(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
-
-        For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide* .
+         For more information about fields, see [Real-time log configuration fields](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "fields")
 

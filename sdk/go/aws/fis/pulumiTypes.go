@@ -149,6 +149,100 @@ func (o ExperimentTemplateActionMapOutput) MapIndex(k pulumi.StringInput) Experi
 	}).(ExperimentTemplateActionOutput)
 }
 
+type ExperimentTemplateCloudWatchDashboard struct {
+	DashboardIdentifier string `pulumi:"dashboardIdentifier"`
+}
+
+// ExperimentTemplateCloudWatchDashboardInput is an input type that accepts ExperimentTemplateCloudWatchDashboardArgs and ExperimentTemplateCloudWatchDashboardOutput values.
+// You can construct a concrete instance of `ExperimentTemplateCloudWatchDashboardInput` via:
+//
+//	ExperimentTemplateCloudWatchDashboardArgs{...}
+type ExperimentTemplateCloudWatchDashboardInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateCloudWatchDashboardOutput() ExperimentTemplateCloudWatchDashboardOutput
+	ToExperimentTemplateCloudWatchDashboardOutputWithContext(context.Context) ExperimentTemplateCloudWatchDashboardOutput
+}
+
+type ExperimentTemplateCloudWatchDashboardArgs struct {
+	DashboardIdentifier pulumi.StringInput `pulumi:"dashboardIdentifier"`
+}
+
+func (ExperimentTemplateCloudWatchDashboardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateCloudWatchDashboard)(nil)).Elem()
+}
+
+func (i ExperimentTemplateCloudWatchDashboardArgs) ToExperimentTemplateCloudWatchDashboardOutput() ExperimentTemplateCloudWatchDashboardOutput {
+	return i.ToExperimentTemplateCloudWatchDashboardOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateCloudWatchDashboardArgs) ToExperimentTemplateCloudWatchDashboardOutputWithContext(ctx context.Context) ExperimentTemplateCloudWatchDashboardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateCloudWatchDashboardOutput)
+}
+
+// ExperimentTemplateCloudWatchDashboardArrayInput is an input type that accepts ExperimentTemplateCloudWatchDashboardArray and ExperimentTemplateCloudWatchDashboardArrayOutput values.
+// You can construct a concrete instance of `ExperimentTemplateCloudWatchDashboardArrayInput` via:
+//
+//	ExperimentTemplateCloudWatchDashboardArray{ ExperimentTemplateCloudWatchDashboardArgs{...} }
+type ExperimentTemplateCloudWatchDashboardArrayInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateCloudWatchDashboardArrayOutput() ExperimentTemplateCloudWatchDashboardArrayOutput
+	ToExperimentTemplateCloudWatchDashboardArrayOutputWithContext(context.Context) ExperimentTemplateCloudWatchDashboardArrayOutput
+}
+
+type ExperimentTemplateCloudWatchDashboardArray []ExperimentTemplateCloudWatchDashboardInput
+
+func (ExperimentTemplateCloudWatchDashboardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExperimentTemplateCloudWatchDashboard)(nil)).Elem()
+}
+
+func (i ExperimentTemplateCloudWatchDashboardArray) ToExperimentTemplateCloudWatchDashboardArrayOutput() ExperimentTemplateCloudWatchDashboardArrayOutput {
+	return i.ToExperimentTemplateCloudWatchDashboardArrayOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateCloudWatchDashboardArray) ToExperimentTemplateCloudWatchDashboardArrayOutputWithContext(ctx context.Context) ExperimentTemplateCloudWatchDashboardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateCloudWatchDashboardArrayOutput)
+}
+
+type ExperimentTemplateCloudWatchDashboardOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateCloudWatchDashboardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateCloudWatchDashboard)(nil)).Elem()
+}
+
+func (o ExperimentTemplateCloudWatchDashboardOutput) ToExperimentTemplateCloudWatchDashboardOutput() ExperimentTemplateCloudWatchDashboardOutput {
+	return o
+}
+
+func (o ExperimentTemplateCloudWatchDashboardOutput) ToExperimentTemplateCloudWatchDashboardOutputWithContext(ctx context.Context) ExperimentTemplateCloudWatchDashboardOutput {
+	return o
+}
+
+func (o ExperimentTemplateCloudWatchDashboardOutput) DashboardIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentTemplateCloudWatchDashboard) string { return v.DashboardIdentifier }).(pulumi.StringOutput)
+}
+
+type ExperimentTemplateCloudWatchDashboardArrayOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateCloudWatchDashboardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExperimentTemplateCloudWatchDashboard)(nil)).Elem()
+}
+
+func (o ExperimentTemplateCloudWatchDashboardArrayOutput) ToExperimentTemplateCloudWatchDashboardArrayOutput() ExperimentTemplateCloudWatchDashboardArrayOutput {
+	return o
+}
+
+func (o ExperimentTemplateCloudWatchDashboardArrayOutput) ToExperimentTemplateCloudWatchDashboardArrayOutputWithContext(ctx context.Context) ExperimentTemplateCloudWatchDashboardArrayOutput {
+	return o
+}
+
+func (o ExperimentTemplateCloudWatchDashboardArrayOutput) Index(i pulumi.IntInput) ExperimentTemplateCloudWatchDashboardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExperimentTemplateCloudWatchDashboard {
+		return vs[0].([]ExperimentTemplateCloudWatchDashboard)[vs[1].(int)]
+	}).(ExperimentTemplateCloudWatchDashboardOutput)
+}
+
 type ExperimentTemplateExperimentOptions struct {
 	// The account targeting setting for the experiment template.
 	AccountTargeting *ExperimentTemplateExperimentOptionsAccountTargeting `pulumi:"accountTargeting"`
@@ -307,6 +401,610 @@ func (o ExperimentTemplateExperimentOptionsPtrOutput) EmptyTargetResolutionMode(
 		}
 		return v.EmptyTargetResolutionMode
 	}).(ExperimentTemplateExperimentOptionsEmptyTargetResolutionModePtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfiguration struct {
+	DataSources            ExperimentTemplateExperimentReportConfigurationDataSourcesProperties `pulumi:"dataSources"`
+	Outputs                ExperimentTemplateExperimentReportConfigurationOutputsProperties     `pulumi:"outputs"`
+	PostExperimentDuration *string                                                              `pulumi:"postExperimentDuration"`
+	PreExperimentDuration  *string                                                              `pulumi:"preExperimentDuration"`
+}
+
+// ExperimentTemplateExperimentReportConfigurationInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationArgs and ExperimentTemplateExperimentReportConfigurationOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentReportConfigurationInput` via:
+//
+//	ExperimentTemplateExperimentReportConfigurationArgs{...}
+type ExperimentTemplateExperimentReportConfigurationInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentReportConfigurationOutput() ExperimentTemplateExperimentReportConfigurationOutput
+	ToExperimentTemplateExperimentReportConfigurationOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationOutput
+}
+
+type ExperimentTemplateExperimentReportConfigurationArgs struct {
+	DataSources            ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput `pulumi:"dataSources"`
+	Outputs                ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput     `pulumi:"outputs"`
+	PostExperimentDuration pulumi.StringPtrInput                                                     `pulumi:"postExperimentDuration"`
+	PreExperimentDuration  pulumi.StringPtrInput                                                     `pulumi:"preExperimentDuration"`
+}
+
+func (ExperimentTemplateExperimentReportConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentReportConfiguration)(nil)).Elem()
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationArgs) ToExperimentTemplateExperimentReportConfigurationOutput() ExperimentTemplateExperimentReportConfigurationOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationArgs) ToExperimentTemplateExperimentReportConfigurationOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutput)
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationArgs) ToExperimentTemplateExperimentReportConfigurationPtrOutput() ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationArgs) ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutput).ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateExperimentReportConfigurationPtrInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationArgs, ExperimentTemplateExperimentReportConfigurationPtr and ExperimentTemplateExperimentReportConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentReportConfigurationPtrInput` via:
+//
+//	        ExperimentTemplateExperimentReportConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateExperimentReportConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentReportConfigurationPtrOutput() ExperimentTemplateExperimentReportConfigurationPtrOutput
+	ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationPtrOutput
+}
+
+type experimentTemplateExperimentReportConfigurationPtrType ExperimentTemplateExperimentReportConfigurationArgs
+
+func ExperimentTemplateExperimentReportConfigurationPtr(v *ExperimentTemplateExperimentReportConfigurationArgs) ExperimentTemplateExperimentReportConfigurationPtrInput {
+	return (*experimentTemplateExperimentReportConfigurationPtrType)(v)
+}
+
+func (*experimentTemplateExperimentReportConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentReportConfiguration)(nil)).Elem()
+}
+
+func (i *experimentTemplateExperimentReportConfigurationPtrType) ToExperimentTemplateExperimentReportConfigurationPtrOutput() ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateExperimentReportConfigurationPtrType) ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationPtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentReportConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentReportConfiguration)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutput) ToExperimentTemplateExperimentReportConfigurationOutput() ExperimentTemplateExperimentReportConfigurationOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutput) ToExperimentTemplateExperimentReportConfigurationOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutput) ToExperimentTemplateExperimentReportConfigurationPtrOutput() ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return o.ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutput) ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfiguration {
+		return &v
+	}).(ExperimentTemplateExperimentReportConfigurationPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutput) DataSources() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) ExperimentTemplateExperimentReportConfigurationDataSourcesProperties {
+		return v.DataSources
+	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutput) Outputs() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) ExperimentTemplateExperimentReportConfigurationOutputsProperties {
+		return v.Outputs
+	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutput) PostExperimentDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *string { return v.PostExperimentDuration }).(pulumi.StringPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutput) PreExperimentDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *string { return v.PreExperimentDuration }).(pulumi.StringPtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentReportConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentReportConfiguration)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) ToExperimentTemplateExperimentReportConfigurationPtrOutput() ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) ToExperimentTemplateExperimentReportConfigurationPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) Elem() ExperimentTemplateExperimentReportConfigurationOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) ExperimentTemplateExperimentReportConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateExperimentReportConfiguration
+		return ret
+	}).(ExperimentTemplateExperimentReportConfigurationOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) DataSources() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationDataSourcesProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSources
+	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) Outputs() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationOutputsProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.Outputs
+	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PostExperimentDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostExperimentDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PreExperimentDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreExperimentDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationDataSourcesProperties struct {
+	CloudWatchDashboards []ExperimentTemplateCloudWatchDashboard `pulumi:"cloudWatchDashboards"`
+}
+
+// ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs and ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput` via:
+//
+//	ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs{...}
+type ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput
+	ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput
+}
+
+type ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs struct {
+	CloudWatchDashboards ExperimentTemplateCloudWatchDashboardArrayInput `pulumi:"cloudWatchDashboards"`
+}
+
+func (ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationDataSourcesProperties)(nil)).Elem()
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput)
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput).ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs, ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtr and ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrInput` via:
+//
+//	        ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput
+	ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput
+}
+
+type experimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrType ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs
+
+func ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtr(v *ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrInput {
+	return (*experimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrType)(v)
+}
+
+func (*experimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentReportConfigurationDataSourcesProperties)(nil)).Elem()
+}
+
+func (i *experimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrType) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrType) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationDataSourcesProperties)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return o.ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateExperimentReportConfigurationDataSourcesProperties) *ExperimentTemplateExperimentReportConfigurationDataSourcesProperties {
+		return &v
+	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput) CloudWatchDashboards() ExperimentTemplateCloudWatchDashboardArrayOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationDataSourcesProperties) []ExperimentTemplateCloudWatchDashboard {
+		return v.CloudWatchDashboards
+	}).(ExperimentTemplateCloudWatchDashboardArrayOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentReportConfigurationDataSourcesProperties)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput) ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput) Elem() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationDataSourcesProperties) ExperimentTemplateExperimentReportConfigurationDataSourcesProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateExperimentReportConfigurationDataSourcesProperties
+		return ret
+	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput) CloudWatchDashboards() ExperimentTemplateCloudWatchDashboardArrayOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationDataSourcesProperties) []ExperimentTemplateCloudWatchDashboard {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchDashboards
+	}).(ExperimentTemplateCloudWatchDashboardArrayOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutputsProperties struct {
+	ExperimentReportS3Configuration ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties `pulumi:"experimentReportS3Configuration"`
+}
+
+// ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs and ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput` via:
+//
+//	ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs{...}
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput
+	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs struct {
+	ExperimentReportS3Configuration ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesInput `pulumi:"experimentReportS3Configuration"`
+}
+
+func (ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationOutputsProperties)(nil)).Elem()
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput)
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput).ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs, ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtr and ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrInput` via:
+//
+//	        ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput
+	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput
+}
+
+type experimentTemplateExperimentReportConfigurationOutputsPropertiesPtrType ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs
+
+func ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtr(v *ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrInput {
+	return (*experimentTemplateExperimentReportConfigurationOutputsPropertiesPtrType)(v)
+}
+
+func (*experimentTemplateExperimentReportConfigurationOutputsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentReportConfigurationOutputsProperties)(nil)).Elem()
+}
+
+func (i *experimentTemplateExperimentReportConfigurationOutputsPropertiesPtrType) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateExperimentReportConfigurationOutputsPropertiesPtrType) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationOutputsProperties)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return o.ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateExperimentReportConfigurationOutputsProperties) *ExperimentTemplateExperimentReportConfigurationOutputsProperties {
+		return &v
+	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput) ExperimentReportS3Configuration() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationOutputsProperties) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties {
+		return v.ExperimentReportS3Configuration
+	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentReportConfigurationOutputsProperties)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput) Elem() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationOutputsProperties) ExperimentTemplateExperimentReportConfigurationOutputsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateExperimentReportConfigurationOutputsProperties
+		return ret
+	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput) ExperimentReportS3Configuration() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationOutputsProperties) *ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ExperimentReportS3Configuration
+	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties struct {
+	BucketName string  `pulumi:"bucketName"`
+	Prefix     *string `pulumi:"prefix"`
+}
+
+// ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs and ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesInput` via:
+//
+//	ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs{...}
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput
+	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs struct {
+	BucketName pulumi.StringInput    `pulumi:"bucketName"`
+	Prefix     pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput)
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput).ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs, ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtr and ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrInput` via:
+//
+//	        ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput
+	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput
+}
+
+type experimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrType ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs
+
+func ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtr(v *ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrInput {
+	return (*experimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrType)(v)
+}
+
+func (*experimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (i *experimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrType) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return i.ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrType) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return o.ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties) *ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties {
+		return &v
+	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput) BucketName() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties) string {
+		return v.BucketName
+	}).(pulumi.StringOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties) *string {
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties)(nil)).Elem()
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput) ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput) Elem() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties
+		return ret
+	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
 }
 
 type ExperimentTemplateLogConfiguration struct {
@@ -1128,8 +1826,18 @@ func (o ExperimentTemplateTargetFilterArrayOutput) Index(i pulumi.IntInput) Expe
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionInput)(nil)).Elem(), ExperimentTemplateActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateActionMapInput)(nil)).Elem(), ExperimentTemplateActionMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateCloudWatchDashboardInput)(nil)).Elem(), ExperimentTemplateCloudWatchDashboardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateCloudWatchDashboardArrayInput)(nil)).Elem(), ExperimentTemplateCloudWatchDashboardArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentOptionsInput)(nil)).Elem(), ExperimentTemplateExperimentOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentOptionsPtrInput)(nil)).Elem(), ExperimentTemplateExperimentOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationInput)(nil)).Elem(), ExperimentTemplateExperimentReportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationPtrInput)(nil)).Elem(), ExperimentTemplateExperimentReportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput)(nil)).Elem(), ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrInput)(nil)).Elem(), ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput)(nil)).Elem(), ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrInput)(nil)).Elem(), ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesInput)(nil)).Elem(), ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrInput)(nil)).Elem(), ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationPtrInput)(nil)).Elem(), ExperimentTemplateLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesInput)(nil)).Elem(), ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesArgs{})
@@ -1144,8 +1852,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentTemplateTargetFilterArrayInput)(nil)).Elem(), ExperimentTemplateTargetFilterArray{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateActionMapOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateCloudWatchDashboardOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateCloudWatchDashboardArrayOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateExperimentOptionsOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateExperimentOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentReportConfigurationOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentReportConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationPropertiesOutput{})

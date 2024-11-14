@@ -30,6 +30,8 @@ type LookupViewVersionArgs struct {
 type LookupViewVersionResult struct {
 	// The version of the view.
 	Version *int `pulumi:"version"`
+	// The description for the view version.
+	VersionDescription *string `pulumi:"versionDescription"`
 	// The Amazon Resource Name (ARN) of the created view version.
 	ViewVersionArn *string `pulumi:"viewVersionArn"`
 }
@@ -79,6 +81,11 @@ func (o LookupViewVersionResultOutput) ToLookupViewVersionResultOutputWithContex
 // The version of the view.
 func (o LookupViewVersionResultOutput) Version() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupViewVersionResult) *int { return v.Version }).(pulumi.IntPtrOutput)
+}
+
+// The description for the view version.
+func (o LookupViewVersionResultOutput) VersionDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupViewVersionResult) *string { return v.VersionDescription }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the created view version.

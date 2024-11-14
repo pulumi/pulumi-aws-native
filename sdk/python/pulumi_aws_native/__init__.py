@@ -1060,9 +1060,11 @@ _utilities.register(
   "fqn": "pulumi_aws_native.cloudformation",
   "classes": {
    "aws-native:cloudformation:CustomResourceEmulator": "CustomResourceEmulator",
+   "aws-native:cloudformation:GuardHook": "GuardHook",
    "aws-native:cloudformation:HookDefaultVersion": "HookDefaultVersion",
    "aws-native:cloudformation:HookTypeConfig": "HookTypeConfig",
    "aws-native:cloudformation:HookVersion": "HookVersion",
+   "aws-native:cloudformation:LambdaHook": "LambdaHook",
    "aws-native:cloudformation:ModuleDefaultVersion": "ModuleDefaultVersion",
    "aws-native:cloudformation:ModuleVersion": "ModuleVersion",
    "aws-native:cloudformation:PublicTypeVersion": "PublicTypeVersion",
@@ -1762,6 +1764,7 @@ _utilities.register(
   "classes": {
    "aws-native:gamelift:Alias": "Alias",
    "aws-native:gamelift:Build": "Build",
+   "aws-native:gamelift:ContainerFleet": "ContainerFleet",
    "aws-native:gamelift:ContainerGroupDefinition": "ContainerGroupDefinition",
    "aws-native:gamelift:Fleet": "Fleet",
    "aws-native:gamelift:GameServerGroup": "GameServerGroup",

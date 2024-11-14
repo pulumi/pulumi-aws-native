@@ -7,9 +7,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .custom_resource_emulator import *
+from .get_guard_hook import *
 from .get_hook_default_version import *
 from .get_hook_type_config import *
 from .get_hook_version import *
+from .get_lambda_hook import *
 from .get_module_version import *
 from .get_public_type_version import *
 from .get_publisher import *
@@ -18,9 +20,11 @@ from .get_resource_version import *
 from .get_stack import *
 from .get_stack_set import *
 from .get_type_activation import *
+from .guard_hook import *
 from .hook_default_version import *
 from .hook_type_config import *
 from .hook_version import *
+from .lambda_hook import *
 from .module_default_version import *
 from .module_version import *
 from .public_type_version import *

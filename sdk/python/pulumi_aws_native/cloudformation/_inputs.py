@@ -16,12 +16,24 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'GuardHookS3LocationArgs',
+    'GuardHookS3LocationArgsDict',
     'HookVersionLoggingConfigArgs',
     'HookVersionLoggingConfigArgsDict',
+    'LambdaHookHookTargetArgs',
+    'LambdaHookHookTargetArgsDict',
     'ManagedExecutionPropertiesArgs',
     'ManagedExecutionPropertiesArgsDict',
+    'OptionsPropertiesArgs',
+    'OptionsPropertiesArgsDict',
     'ResourceVersionLoggingConfigArgs',
     'ResourceVersionLoggingConfigArgsDict',
+    'StackFiltersPropertiesStackNamesPropertiesArgs',
+    'StackFiltersPropertiesStackNamesPropertiesArgsDict',
+    'StackFiltersPropertiesStackRolesPropertiesArgs',
+    'StackFiltersPropertiesStackRolesPropertiesArgsDict',
+    'StackFiltersPropertiesArgs',
+    'StackFiltersPropertiesArgsDict',
     'StackSetAutoDeploymentArgs',
     'StackSetAutoDeploymentArgsDict',
     'StackSetDeploymentTargetsArgs',
@@ -32,11 +44,70 @@ __all__ = [
     'StackSetParameterArgsDict',
     'StackSetStackInstancesArgs',
     'StackSetStackInstancesArgsDict',
+    'TargetFilters0PropertiesArgs',
+    'TargetFilters0PropertiesArgsDict',
+    'TargetFilters1PropertiesArgs',
+    'TargetFilters1PropertiesArgsDict',
     'TypeActivationLoggingConfigArgs',
     'TypeActivationLoggingConfigArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class GuardHookS3LocationArgsDict(TypedDict):
+        """
+        S3 Source Location for the Guard files.
+        """
+        uri: pulumi.Input[str]
+        """
+        S3 uri of Guard files.
+        """
+        version_id: NotRequired[pulumi.Input[str]]
+        """
+        S3 object version
+        """
+elif False:
+    GuardHookS3LocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GuardHookS3LocationArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[str],
+                 version_id: Optional[pulumi.Input[str]] = None):
+        """
+        S3 Source Location for the Guard files.
+        :param pulumi.Input[str] uri: S3 uri of Guard files.
+        :param pulumi.Input[str] version_id: S3 object version
+        """
+        pulumi.set(__self__, "uri", uri)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        S3 uri of Guard files.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        S3 object version
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_id", value)
+
 
 if not MYPY:
     class HookVersionLoggingConfigArgsDict(TypedDict):
@@ -88,6 +159,58 @@ class HookVersionLoggingConfigArgs:
     @log_role_arn.setter
     def log_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_role_arn", value)
+
+
+if not MYPY:
+    class LambdaHookHookTargetArgsDict(TypedDict):
+        """
+        Hook targets are the destination where hooks will be invoked against.
+        """
+        action: pulumi.Input['LambdaHookAction']
+        invocation_point: pulumi.Input['LambdaHookInvocationPoint']
+        target_name: pulumi.Input[str]
+elif False:
+    LambdaHookHookTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LambdaHookHookTargetArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['LambdaHookAction'],
+                 invocation_point: pulumi.Input['LambdaHookInvocationPoint'],
+                 target_name: pulumi.Input[str]):
+        """
+        Hook targets are the destination where hooks will be invoked against.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "invocation_point", invocation_point)
+        pulumi.set(__self__, "target_name", target_name)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['LambdaHookAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['LambdaHookAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="invocationPoint")
+    def invocation_point(self) -> pulumi.Input['LambdaHookInvocationPoint']:
+        return pulumi.get(self, "invocation_point")
+
+    @invocation_point.setter
+    def invocation_point(self, value: pulumi.Input['LambdaHookInvocationPoint']):
+        pulumi.set(self, "invocation_point", value)
+
+    @property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target_name", value)
 
 
 if not MYPY:
@@ -145,6 +268,29 @@ class ManagedExecutionPropertiesArgs:
 
 
 if not MYPY:
+    class OptionsPropertiesArgsDict(TypedDict):
+        input_params: NotRequired[pulumi.Input['GuardHookS3LocationArgsDict']]
+elif False:
+    OptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OptionsPropertiesArgs:
+    def __init__(__self__, *,
+                 input_params: Optional[pulumi.Input['GuardHookS3LocationArgs']] = None):
+        if input_params is not None:
+            pulumi.set(__self__, "input_params", input_params)
+
+    @property
+    @pulumi.getter(name="inputParams")
+    def input_params(self) -> Optional[pulumi.Input['GuardHookS3LocationArgs']]:
+        return pulumi.get(self, "input_params")
+
+    @input_params.setter
+    def input_params(self, value: Optional[pulumi.Input['GuardHookS3LocationArgs']]):
+        pulumi.set(self, "input_params", value)
+
+
+if not MYPY:
     class ResourceVersionLoggingConfigArgsDict(TypedDict):
         log_group_name: NotRequired[pulumi.Input[str]]
         """
@@ -194,6 +340,193 @@ class ResourceVersionLoggingConfigArgs:
     @log_role_arn.setter
     def log_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_role_arn", value)
+
+
+if not MYPY:
+    class StackFiltersPropertiesStackNamesPropertiesArgsDict(TypedDict):
+        """
+        List of stack names as filters
+        """
+        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of stack names that the hook is going to be excluded from
+        """
+        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of stack names that the hook is going to target
+        """
+elif False:
+    StackFiltersPropertiesStackNamesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StackFiltersPropertiesStackNamesPropertiesArgs:
+    def __init__(__self__, *,
+                 exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        List of stack names as filters
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude: List of stack names that the hook is going to be excluded from
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include: List of stack names that the hook is going to target
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of stack names that the hook is going to be excluded from
+        """
+        return pulumi.get(self, "exclude")
+
+    @exclude.setter
+    def exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude", value)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of stack names that the hook is going to target
+        """
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include", value)
+
+
+if not MYPY:
+    class StackFiltersPropertiesStackRolesPropertiesArgsDict(TypedDict):
+        """
+        List of stack roles that are performing the stack operations.
+        """
+        exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of stack roles that the hook is going to be excluded from
+        """
+        include: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of stack roles that the hook is going to target
+        """
+elif False:
+    StackFiltersPropertiesStackRolesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StackFiltersPropertiesStackRolesPropertiesArgs:
+    def __init__(__self__, *,
+                 exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        List of stack roles that are performing the stack operations.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude: List of stack roles that the hook is going to be excluded from
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] include: List of stack roles that the hook is going to target
+        """
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of stack roles that the hook is going to be excluded from
+        """
+        return pulumi.get(self, "exclude")
+
+    @exclude.setter
+    def exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exclude", value)
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of stack roles that the hook is going to target
+        """
+        return pulumi.get(self, "include")
+
+    @include.setter
+    def include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "include", value)
+
+
+if not MYPY:
+    class StackFiltersPropertiesArgsDict(TypedDict):
+        """
+        Filters to allow hooks to target specific stack attributes
+        """
+        filtering_criteria: pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria']
+        """
+        Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+        """
+        stack_names: NotRequired[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgsDict']]
+        """
+        List of stack names as filters
+        """
+        stack_roles: NotRequired[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgsDict']]
+        """
+        List of stack roles that are performing the stack operations.
+        """
+elif False:
+    StackFiltersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StackFiltersPropertiesArgs:
+    def __init__(__self__, *,
+                 filtering_criteria: pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria'],
+                 stack_names: Optional[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgs']] = None,
+                 stack_roles: Optional[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs']] = None):
+        """
+        Filters to allow hooks to target specific stack attributes
+        :param pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria'] filtering_criteria: Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+        :param pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgs'] stack_names: List of stack names as filters
+        :param pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs'] stack_roles: List of stack roles that are performing the stack operations.
+        """
+        pulumi.set(__self__, "filtering_criteria", filtering_criteria)
+        if stack_names is not None:
+            pulumi.set(__self__, "stack_names", stack_names)
+        if stack_roles is not None:
+            pulumi.set(__self__, "stack_roles", stack_roles)
+
+    @property
+    @pulumi.getter(name="filteringCriteria")
+    def filtering_criteria(self) -> pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria']:
+        """
+        Attribute to specify the filtering behavior. ANY will make the Hook pass if one filter matches. ALL will make the Hook pass if all filters match
+        """
+        return pulumi.get(self, "filtering_criteria")
+
+    @filtering_criteria.setter
+    def filtering_criteria(self, value: pulumi.Input['LambdaHookStackFiltersPropertiesFilteringCriteria']):
+        pulumi.set(self, "filtering_criteria", value)
+
+    @property
+    @pulumi.getter(name="stackNames")
+    def stack_names(self) -> Optional[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgs']]:
+        """
+        List of stack names as filters
+        """
+        return pulumi.get(self, "stack_names")
+
+    @stack_names.setter
+    def stack_names(self, value: Optional[pulumi.Input['StackFiltersPropertiesStackNamesPropertiesArgs']]):
+        pulumi.set(self, "stack_names", value)
+
+    @property
+    @pulumi.getter(name="stackRoles")
+    def stack_roles(self) -> Optional[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs']]:
+        """
+        List of stack roles that are performing the stack operations.
+        """
+        return pulumi.get(self, "stack_roles")
+
+    @stack_roles.setter
+    def stack_roles(self, value: Optional[pulumi.Input['StackFiltersPropertiesStackRolesPropertiesArgs']]):
+        pulumi.set(self, "stack_roles", value)
 
 
 if not MYPY:
@@ -691,6 +1024,117 @@ class StackSetStackInstancesArgs:
     @parameter_overrides.setter
     def parameter_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StackSetParameterArgs']]]]):
         pulumi.set(self, "parameter_overrides", value)
+
+
+if not MYPY:
+    class TargetFilters0PropertiesArgsDict(TypedDict):
+        """
+        Attribute to specify which targets should invoke the hook
+        """
+        actions: NotRequired[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]]
+        """
+        List of actions that the hook is going to target
+        """
+        invocation_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]
+        """
+        List of invocation points that the hook is going to target
+        """
+        target_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of type names that the hook is going to target
+        """
+elif False:
+    TargetFilters0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetFilters0PropertiesArgs:
+    def __init__(__self__, *,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]] = None,
+                 invocation_points: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]] = None,
+                 target_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Attribute to specify which targets should invoke the hook
+        :param pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]] actions: List of actions that the hook is going to target
+        :param pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]] invocation_points: List of invocation points that the hook is going to target
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_names: List of type names that the hook is going to target
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if invocation_points is not None:
+            pulumi.set(__self__, "invocation_points", invocation_points)
+        if target_names is not None:
+            pulumi.set(__self__, "target_names", target_names)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]]:
+        """
+        List of actions that the hook is going to target
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookAction']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="invocationPoints")
+    def invocation_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]:
+        """
+        List of invocation points that the hook is going to target
+        """
+        return pulumi.get(self, "invocation_points")
+
+    @invocation_points.setter
+    def invocation_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LambdaHookInvocationPoint']]]]):
+        pulumi.set(self, "invocation_points", value)
+
+    @property
+    @pulumi.getter(name="targetNames")
+    def target_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of type names that the hook is going to target
+        """
+        return pulumi.get(self, "target_names")
+
+    @target_names.setter
+    def target_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "target_names", value)
+
+
+if not MYPY:
+    class TargetFilters1PropertiesArgsDict(TypedDict):
+        """
+        Attribute to specify which targets should invoke the hook
+        """
+        targets: pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgsDict']]]
+        """
+        List of hook targets
+        """
+elif False:
+    TargetFilters1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetFilters1PropertiesArgs:
+    def __init__(__self__, *,
+                 targets: pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgs']]]):
+        """
+        Attribute to specify which targets should invoke the hook
+        :param pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgs']]] targets: List of hook targets
+        """
+        pulumi.set(__self__, "targets", targets)
+
+    @property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgs']]]:
+        """
+        List of hook targets
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input[Sequence[pulumi.Input['LambdaHookHookTargetArgs']]]):
+        pulumi.set(self, "targets", value)
 
 
 if not MYPY:

@@ -117,7 +117,8 @@ type ExperimentTemplate struct {
 	// The description for the experiment template.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The experiment options for an experiment template.
-	ExperimentOptions ExperimentTemplateExperimentOptionsPtrOutput `pulumi:"experimentOptions"`
+	ExperimentOptions             ExperimentTemplateExperimentOptionsPtrOutput             `pulumi:"experimentOptions"`
+	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrOutput `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role.
@@ -195,7 +196,8 @@ type experimentTemplateArgs struct {
 	// The description for the experiment template.
 	Description string `pulumi:"description"`
 	// The experiment options for an experiment template.
-	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
+	ExperimentOptions             *ExperimentTemplateExperimentOptions             `pulumi:"experimentOptions"`
+	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role.
@@ -215,7 +217,8 @@ type ExperimentTemplateArgs struct {
 	// The description for the experiment template.
 	Description pulumi.StringInput
 	// The experiment options for an experiment template.
-	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
+	ExperimentOptions             ExperimentTemplateExperimentOptionsPtrInput
+	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrInput
 	// The configuration for experiment logging.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role.
@@ -283,6 +286,12 @@ func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {
 // The experiment options for an experiment template.
 func (o ExperimentTemplateOutput) ExperimentOptions() ExperimentTemplateExperimentOptionsPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentOptionsPtrOutput { return v.ExperimentOptions }).(ExperimentTemplateExperimentOptionsPtrOutput)
+}
+
+func (o ExperimentTemplateOutput) ExperimentReportConfiguration() ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentReportConfigurationPtrOutput {
+		return v.ExperimentReportConfiguration
+	}).(ExperimentTemplateExperimentReportConfigurationPtrOutput)
 }
 
 // The configuration for experiment logging.

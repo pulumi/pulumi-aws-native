@@ -49,6 +49,7 @@ export class DeliveryStream extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly databaseSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDatabaseSourceConfiguration | undefined>;
     /**
      * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
      */
@@ -148,6 +149,7 @@ export class DeliveryStream extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["amazonOpenSearchServerlessDestinationConfiguration"] = args ? args.amazonOpenSearchServerlessDestinationConfiguration : undefined;
             resourceInputs["amazonopensearchserviceDestinationConfiguration"] = args ? args.amazonopensearchserviceDestinationConfiguration : undefined;
+            resourceInputs["databaseSourceConfiguration"] = args ? args.databaseSourceConfiguration : undefined;
             resourceInputs["deliveryStreamEncryptionConfigurationInput"] = args ? args.deliveryStreamEncryptionConfigurationInput : undefined;
             resourceInputs["deliveryStreamName"] = args ? args.deliveryStreamName : undefined;
             resourceInputs["deliveryStreamType"] = args ? args.deliveryStreamType : undefined;
@@ -167,6 +169,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["amazonOpenSearchServerlessDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["amazonopensearchserviceDestinationConfiguration"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["databaseSourceConfiguration"] = undefined /*out*/;
             resourceInputs["deliveryStreamEncryptionConfigurationInput"] = undefined /*out*/;
             resourceInputs["deliveryStreamName"] = undefined /*out*/;
             resourceInputs["deliveryStreamType"] = undefined /*out*/;
@@ -183,7 +186,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration", "amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "databaseSourceConfiguration", "deliveryStreamName", "deliveryStreamType", "elasticsearchDestinationConfiguration.vpcConfiguration", "icebergDestinationConfiguration", "kinesisStreamSourceConfiguration", "mskSourceConfiguration", "snowflakeDestinationConfiguration.snowflakeVpcConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
@@ -201,6 +204,7 @@ export interface DeliveryStreamArgs {
      * The destination in Amazon OpenSearch Service. You can specify only one destination.
      */
     amazonopensearchserviceDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>;
+    databaseSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDatabaseSourceConfigurationArgs>;
     /**
      * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
      */

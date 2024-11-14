@@ -33,7 +33,8 @@ type LookupExperimentTemplateResult struct {
 	// The description for the experiment template.
 	Description *string `pulumi:"description"`
 	// The experiment options for an experiment template.
-	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
+	ExperimentOptions             *ExperimentTemplateExperimentOptions             `pulumi:"experimentOptions"`
+	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
 	// The ID of the experiment template.
 	Id *string `pulumi:"id"`
 	// The configuration for experiment logging.
@@ -103,6 +104,12 @@ func (o LookupExperimentTemplateResultOutput) ExperimentOptions() ExperimentTemp
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateExperimentOptions {
 		return v.ExperimentOptions
 	}).(ExperimentTemplateExperimentOptionsPtrOutput)
+}
+
+func (o LookupExperimentTemplateResultOutput) ExperimentReportConfiguration() ExperimentTemplateExperimentReportConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateExperimentReportConfiguration {
+		return v.ExperimentReportConfiguration
+	}).(ExperimentTemplateExperimentReportConfigurationPtrOutput)
 }
 
 // The ID of the experiment template.

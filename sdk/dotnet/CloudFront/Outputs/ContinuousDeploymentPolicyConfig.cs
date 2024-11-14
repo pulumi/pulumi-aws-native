@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// Contains the configuration for a continuous deployment policy.
+    /// </summary>
     [OutputType]
     public sealed class ContinuousDeploymentPolicyConfig
     {
         /// <summary>
-        /// A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is `true` , this policy is enabled and in effect. When this value is `false` , this policy is not enabled and has no effect.
+        /// A Boolean that indicates whether this continuous deployment policy is enabled (in effect). When this value is ``true``, this policy is enabled and in effect. When this value is ``false``, this policy is not enabled and has no effect.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
@@ -26,7 +29,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties? SingleWeightPolicyConfig;
         /// <summary>
-        /// The CloudFront domain name of the staging distribution. For example: `d111111abcdef8.cloudfront.net` .
+        /// The CloudFront domain name of the staging distribution. For example: ``d111111abcdef8.cloudfront.net``.
         /// </summary>
         public readonly ImmutableArray<string> StagingDistributionDnsNames;
         /// <summary>

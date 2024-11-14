@@ -82,7 +82,7 @@ export class ViewVersion extends pulumi.CustomResource {
             resourceInputs["viewVersionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["versionDescription", "viewArn", "viewContentSha256"] };
+        const replaceOnChanges = { replaceOnChanges: ["viewArn", "viewContentSha256"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ViewVersion.__pulumiType, name, resourceInputs, opts);
     }

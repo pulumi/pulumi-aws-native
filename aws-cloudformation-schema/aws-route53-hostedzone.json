@@ -138,13 +138,13 @@
       "permissions" : [ "route53:GetHostedZone", "route53:ListTagsForResource", "route53:ListQueryLoggingConfigs" ]
     },
     "update" : {
-      "permissions" : [ "route53:GetChange", "route53:ListTagsForResource", "route53:UpdateHostedZoneComment", "route53:ChangeTagsForResource", "route53:AssociateVPCWithHostedZone", "route53:DisassociateVPCFromHostedZone", "route53:CreateQueryLoggingConfig", "route53:DeleteQueryLoggingConfig", "ec2:DescribeVpcs" ]
+      "permissions" : [ "route53:GetChange", "route53:GetHostedZone", "route53:ListTagsForResource", "route53:ListQueryLoggingConfigs", "route53:UpdateHostedZoneComment", "route53:ChangeTagsForResource", "route53:AssociateVPCWithHostedZone", "route53:DisassociateVPCFromHostedZone", "route53:CreateQueryLoggingConfig", "route53:DeleteQueryLoggingConfig", "ec2:DescribeVpcs" ]
     },
     "delete" : {
       "permissions" : [ "route53:DeleteHostedZone", "route53:DeleteQueryLoggingConfig", "route53:ListQueryLoggingConfigs", "route53:GetChange" ]
     },
     "list" : {
-      "permissions" : [ "route53:GetHostedZone", "route53:ListHostedZones", "route53:ListHostedZonesByName", "route53:ListQueryLoggingConfigs", "route53:ListTagsForResource" ]
+      "permissions" : [ "route53:GetHostedZone", "route53:ListHostedZones", "route53:ListQueryLoggingConfigs", "route53:ListTagsForResource" ]
     }
   }
 }

@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly int? Version;
         /// <summary>
+        /// The description for the view version.
+        /// </summary>
+        public readonly string? VersionDescription;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the created view version.
         /// </summary>
         public readonly string? ViewVersionArn;
@@ -70,9 +74,12 @@ namespace Pulumi.AwsNative.Connect
         private GetViewVersionResult(
             int? version,
 
+            string? versionDescription,
+
             string? viewVersionArn)
         {
             Version = version;
+            VersionDescription = versionDescription;
             ViewVersionArn = viewVersionArn;
         }
     }

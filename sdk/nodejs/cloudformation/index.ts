@@ -10,6 +10,11 @@ export type CustomResourceEmulator = import("./customResourceEmulator").CustomRe
 export const CustomResourceEmulator: typeof import("./customResourceEmulator").CustomResourceEmulator = null as any;
 utilities.lazyLoad(exports, ["CustomResourceEmulator"], () => require("./customResourceEmulator"));
 
+export { GetGuardHookArgs, GetGuardHookResult, GetGuardHookOutputArgs } from "./getGuardHook";
+export const getGuardHook: typeof import("./getGuardHook").getGuardHook = null as any;
+export const getGuardHookOutput: typeof import("./getGuardHook").getGuardHookOutput = null as any;
+utilities.lazyLoad(exports, ["getGuardHook","getGuardHookOutput"], () => require("./getGuardHook"));
+
 export { GetHookDefaultVersionArgs, GetHookDefaultVersionResult, GetHookDefaultVersionOutputArgs } from "./getHookDefaultVersion";
 export const getHookDefaultVersion: typeof import("./getHookDefaultVersion").getHookDefaultVersion = null as any;
 export const getHookDefaultVersionOutput: typeof import("./getHookDefaultVersion").getHookDefaultVersionOutput = null as any;
@@ -24,6 +29,11 @@ export { GetHookVersionArgs, GetHookVersionResult, GetHookVersionOutputArgs } fr
 export const getHookVersion: typeof import("./getHookVersion").getHookVersion = null as any;
 export const getHookVersionOutput: typeof import("./getHookVersion").getHookVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getHookVersion","getHookVersionOutput"], () => require("./getHookVersion"));
+
+export { GetLambdaHookArgs, GetLambdaHookResult, GetLambdaHookOutputArgs } from "./getLambdaHook";
+export const getLambdaHook: typeof import("./getLambdaHook").getLambdaHook = null as any;
+export const getLambdaHookOutput: typeof import("./getLambdaHook").getLambdaHookOutput = null as any;
+utilities.lazyLoad(exports, ["getLambdaHook","getLambdaHookOutput"], () => require("./getLambdaHook"));
 
 export { GetModuleVersionArgs, GetModuleVersionResult, GetModuleVersionOutputArgs } from "./getModuleVersion";
 export const getModuleVersion: typeof import("./getModuleVersion").getModuleVersion = null as any;
@@ -65,6 +75,11 @@ export const getTypeActivation: typeof import("./getTypeActivation").getTypeActi
 export const getTypeActivationOutput: typeof import("./getTypeActivation").getTypeActivationOutput = null as any;
 utilities.lazyLoad(exports, ["getTypeActivation","getTypeActivationOutput"], () => require("./getTypeActivation"));
 
+export { GuardHookArgs } from "./guardHook";
+export type GuardHook = import("./guardHook").GuardHook;
+export const GuardHook: typeof import("./guardHook").GuardHook = null as any;
+utilities.lazyLoad(exports, ["GuardHook"], () => require("./guardHook"));
+
 export { HookDefaultVersionArgs } from "./hookDefaultVersion";
 export type HookDefaultVersion = import("./hookDefaultVersion").HookDefaultVersion;
 export const HookDefaultVersion: typeof import("./hookDefaultVersion").HookDefaultVersion = null as any;
@@ -79,6 +94,11 @@ export { HookVersionArgs } from "./hookVersion";
 export type HookVersion = import("./hookVersion").HookVersion;
 export const HookVersion: typeof import("./hookVersion").HookVersion = null as any;
 utilities.lazyLoad(exports, ["HookVersion"], () => require("./hookVersion"));
+
+export { LambdaHookArgs } from "./lambdaHook";
+export type LambdaHook = import("./lambdaHook").LambdaHook;
+export const LambdaHook: typeof import("./lambdaHook").LambdaHook = null as any;
+utilities.lazyLoad(exports, ["LambdaHook"], () => require("./lambdaHook"));
 
 export { ModuleDefaultVersionArgs } from "./moduleDefaultVersion";
 export type ModuleDefaultVersion = import("./moduleDefaultVersion").ModuleDefaultVersion;
@@ -135,12 +155,16 @@ const _module = {
         switch (type) {
             case "aws-native:cloudformation:CustomResourceEmulator":
                 return new CustomResourceEmulator(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:GuardHook":
+                return new GuardHook(name, <any>undefined, { urn })
             case "aws-native:cloudformation:HookDefaultVersion":
                 return new HookDefaultVersion(name, <any>undefined, { urn })
             case "aws-native:cloudformation:HookTypeConfig":
                 return new HookTypeConfig(name, <any>undefined, { urn })
             case "aws-native:cloudformation:HookVersion":
                 return new HookVersion(name, <any>undefined, { urn })
+            case "aws-native:cloudformation:LambdaHook":
+                return new LambdaHook(name, <any>undefined, { urn })
             case "aws-native:cloudformation:ModuleDefaultVersion":
                 return new ModuleDefaultVersion(name, <any>undefined, { urn })
             case "aws-native:cloudformation:ModuleVersion":

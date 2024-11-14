@@ -10,18 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// The origin as an S3 bucket. 
+    ///   This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
+    /// </summary>
     public sealed class DistributionLegacyS3OriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain name assigned to your CloudFront distribution.
+        /// The domain name assigned to your CF distribution.
         /// </summary>
         [Input("dnsName", required: true)]
         public Input<string> DnsName { get; set; } = null!;
 
         /// <summary>
-        /// The CloudFront origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an Amazon S3 through CloudFront .
-        /// 
-        /// &gt; This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
+        /// The CF origin access identity to associate with the distribution. Use an origin access identity to configure the distribution so that end users can only access objects in an S3 through CF.
+        ///   This property is legacy. We recommend that you use [OriginAccessControl](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html) instead.
         /// </summary>
         [Input("originAccessIdentity")]
         public Input<string>? OriginAccessIdentity { get; set; }

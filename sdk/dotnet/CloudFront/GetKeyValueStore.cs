@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetKeyValueStore
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::KeyValueStore
+        /// The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
         /// </summary>
         public static Task<GetKeyValueStoreResult> InvokeAsync(GetKeyValueStoreArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyValueStoreResult>("aws-native:cloudfront:getKeyValueStore", args ?? new GetKeyValueStoreArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::KeyValueStore
+        /// The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
         /// </summary>
         public static Output<GetKeyValueStoreResult> Invoke(GetKeyValueStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyValueStoreResult>("aws-native:cloudfront:getKeyValueStore", args ?? new GetKeyValueStoreInvokeArgs(), options.WithDefaults());

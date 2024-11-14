@@ -55,7 +55,7 @@ class GetPublicKeyResult:
     @pulumi.getter(name="publicKeyConfig")
     def public_key_config(self) -> Optional['outputs.PublicKeyConfig']:
         """
-        Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) , or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html) .
+        Configuration information about a public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
         """
         return pulumi.get(self, "public_key_config")
 
@@ -74,7 +74,7 @@ class AwaitableGetPublicKeyResult(GetPublicKeyResult):
 def get_public_key(id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPublicKeyResult:
     """
-    Resource Type definition for AWS::CloudFront::PublicKey
+    A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
 
 
     :param str id: The identifier of the public key.
@@ -91,7 +91,7 @@ def get_public_key(id: Optional[str] = None,
 def get_public_key_output(id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
-    Resource Type definition for AWS::CloudFront::PublicKey
+    A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
 
 
     :param str id: The identifier of the public key.

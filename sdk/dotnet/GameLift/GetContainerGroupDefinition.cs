@@ -65,6 +65,7 @@ namespace Pulumi.AwsNative.GameLift
         /// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
         /// </summary>
         public readonly string? CreationTime;
+        public readonly Outputs.ContainerGroupDefinitionGameServerContainerDefinition? GameServerContainerDefinition;
         /// <summary>
         /// The operating system of the container group
         /// </summary>
@@ -84,17 +85,35 @@ namespace Pulumi.AwsNative.GameLift
         /// <summary>
         /// A collection of support container definitions that define the containers in this group.
         /// </summary>
-        public readonly ImmutableArray<object> SupportContainerDefinitions;
+        public readonly ImmutableArray<Outputs.ContainerGroupDefinitionSupportContainerDefinition> SupportContainerDefinitions;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The total memory limit of container groups following this definition in MiB
+        /// </summary>
+        public readonly int? TotalMemoryLimitMebibytes;
+        /// <summary>
+        /// The total amount of virtual CPUs on the container group definition
+        /// </summary>
+        public readonly double? TotalVcpuLimit;
+        /// <summary>
+        /// The description of this version
+        /// </summary>
+        public readonly string? VersionDescription;
+        /// <summary>
+        /// The version of this ContainerGroupDefinition
+        /// </summary>
+        public readonly int? VersionNumber;
 
         [OutputConstructor]
         private GetContainerGroupDefinitionResult(
             string? containerGroupDefinitionArn,
 
             string? creationTime,
+
+            Outputs.ContainerGroupDefinitionGameServerContainerDefinition? gameServerContainerDefinition,
 
             Pulumi.AwsNative.GameLift.ContainerGroupDefinitionOperatingSystem? operatingSystem,
 
@@ -104,18 +123,31 @@ namespace Pulumi.AwsNative.GameLift
 
             string? statusReason,
 
-            ImmutableArray<object> supportContainerDefinitions,
+            ImmutableArray<Outputs.ContainerGroupDefinitionSupportContainerDefinition> supportContainerDefinitions,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            int? totalMemoryLimitMebibytes,
+
+            double? totalVcpuLimit,
+
+            string? versionDescription,
+
+            int? versionNumber)
         {
             ContainerGroupDefinitionArn = containerGroupDefinitionArn;
             CreationTime = creationTime;
+            GameServerContainerDefinition = gameServerContainerDefinition;
             OperatingSystem = operatingSystem;
             SourceVersionNumber = sourceVersionNumber;
             Status = status;
             StatusReason = statusReason;
             SupportContainerDefinitions = supportContainerDefinitions;
             Tags = tags;
+            TotalMemoryLimitMebibytes = totalMemoryLimitMebibytes;
+            TotalVcpuLimit = totalVcpuLimit;
+            VersionDescription = versionDescription;
+            VersionNumber = versionNumber;
         }
     }
 }

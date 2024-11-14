@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::CloudFront::MonitoringSubscription
+ * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
  */
 export function getMonitoringSubscription(args: GetMonitoringSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,7 +31,7 @@ export interface GetMonitoringSubscriptionResult {
     readonly monitoringSubscription?: outputs.cloudfront.MonitoringSubscription;
 }
 /**
- * Resource Type definition for AWS::CloudFront::MonitoringSubscription
+ * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
  */
 export function getMonitoringSubscriptionOutput(args: GetMonitoringSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

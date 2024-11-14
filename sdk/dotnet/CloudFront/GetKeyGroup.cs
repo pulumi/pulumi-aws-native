@@ -12,13 +12,15 @@ namespace Pulumi.AwsNative.CloudFront
     public static class GetKeyGroup
     {
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::KeyGroup
+        /// A key group.
+        ///  A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
         /// </summary>
         public static Task<GetKeyGroupResult> InvokeAsync(GetKeyGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS::CloudFront::KeyGroup
+        /// A key group.
+        ///  A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());

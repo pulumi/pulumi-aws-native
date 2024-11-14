@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("databaseSourceConfiguration")]
+        public Output<Outputs.DeliveryStreamDatabaseSourceConfiguration?> DatabaseSourceConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
         /// </summary>
@@ -173,6 +176,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
                 {
                     "amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration",
                     "amazonopensearchserviceDestinationConfiguration.vpcConfiguration",
+                    "databaseSourceConfiguration",
                     "deliveryStreamName",
                     "deliveryStreamType",
                     "elasticsearchDestinationConfiguration.vpcConfiguration",
@@ -214,6 +218,9 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// </summary>
         [Input("amazonopensearchserviceDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>? AmazonopensearchserviceDestinationConfiguration { get; set; }
+
+        [Input("databaseSourceConfiguration")]
+        public Input<Inputs.DeliveryStreamDatabaseSourceConfigurationArgs>? DatabaseSourceConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).

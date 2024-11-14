@@ -29,6 +29,12 @@ __all__ = [
     'DeliveryStreamCloudWatchLoggingOptions',
     'DeliveryStreamCopyCommand',
     'DeliveryStreamDataFormatConversionConfiguration',
+    'DeliveryStreamDatabaseColumns',
+    'DeliveryStreamDatabaseSourceAuthenticationConfiguration',
+    'DeliveryStreamDatabaseSourceConfiguration',
+    'DeliveryStreamDatabaseSourceVpcConfiguration',
+    'DeliveryStreamDatabaseTables',
+    'DeliveryStreamDatabases',
     'DeliveryStreamDeserializer',
     'DeliveryStreamDestinationTableConfiguration',
     'DeliveryStreamDocumentIdOptions',
@@ -947,6 +953,255 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
         Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
         """
         return pulumi.get(self, "schema_configuration")
+
+
+@pulumi.output_type
+class DeliveryStreamDatabaseColumns(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[Sequence[str]] = None,
+                 include: Optional[Sequence[str]] = None):
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "include")
+
+
+@pulumi.output_type
+class DeliveryStreamDatabaseSourceAuthenticationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManagerConfiguration":
+            suggest = "secrets_manager_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDatabaseSourceAuthenticationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamDatabaseSourceAuthenticationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamDatabaseSourceAuthenticationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager_configuration: 'outputs.DeliveryStreamSecretsManagerConfiguration'):
+        pulumi.set(__self__, "secrets_manager_configuration", secrets_manager_configuration)
+
+    @property
+    @pulumi.getter(name="secretsManagerConfiguration")
+    def secrets_manager_configuration(self) -> 'outputs.DeliveryStreamSecretsManagerConfiguration':
+        return pulumi.get(self, "secrets_manager_configuration")
+
+
+@pulumi.output_type
+class DeliveryStreamDatabaseSourceConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseSourceAuthenticationConfiguration":
+            suggest = "database_source_authentication_configuration"
+        elif key == "databaseSourceVpcConfiguration":
+            suggest = "database_source_vpc_configuration"
+        elif key == "snapshotWatermarkTable":
+            suggest = "snapshot_watermark_table"
+        elif key == "publicCertificate":
+            suggest = "public_certificate"
+        elif key == "sslMode":
+            suggest = "ssl_mode"
+        elif key == "surrogateKeys":
+            suggest = "surrogate_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDatabaseSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamDatabaseSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamDatabaseSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_source_authentication_configuration: 'outputs.DeliveryStreamDatabaseSourceAuthenticationConfiguration',
+                 database_source_vpc_configuration: 'outputs.DeliveryStreamDatabaseSourceVpcConfiguration',
+                 databases: 'outputs.DeliveryStreamDatabases',
+                 endpoint: str,
+                 port: int,
+                 snapshot_watermark_table: str,
+                 tables: 'outputs.DeliveryStreamDatabaseTables',
+                 type: 'DeliveryStreamDatabaseSourceConfigurationType',
+                 columns: Optional['outputs.DeliveryStreamDatabaseColumns'] = None,
+                 digest: Optional[str] = None,
+                 public_certificate: Optional[str] = None,
+                 ssl_mode: Optional['DeliveryStreamDatabaseSourceConfigurationSslMode'] = None,
+                 surrogate_keys: Optional[Sequence[str]] = None):
+        pulumi.set(__self__, "database_source_authentication_configuration", database_source_authentication_configuration)
+        pulumi.set(__self__, "database_source_vpc_configuration", database_source_vpc_configuration)
+        pulumi.set(__self__, "databases", databases)
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "snapshot_watermark_table", snapshot_watermark_table)
+        pulumi.set(__self__, "tables", tables)
+        pulumi.set(__self__, "type", type)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if digest is not None:
+            pulumi.set(__self__, "digest", digest)
+        if public_certificate is not None:
+            pulumi.set(__self__, "public_certificate", public_certificate)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if surrogate_keys is not None:
+            pulumi.set(__self__, "surrogate_keys", surrogate_keys)
+
+    @property
+    @pulumi.getter(name="databaseSourceAuthenticationConfiguration")
+    def database_source_authentication_configuration(self) -> 'outputs.DeliveryStreamDatabaseSourceAuthenticationConfiguration':
+        return pulumi.get(self, "database_source_authentication_configuration")
+
+    @property
+    @pulumi.getter(name="databaseSourceVpcConfiguration")
+    def database_source_vpc_configuration(self) -> 'outputs.DeliveryStreamDatabaseSourceVpcConfiguration':
+        return pulumi.get(self, "database_source_vpc_configuration")
+
+    @property
+    @pulumi.getter
+    def databases(self) -> 'outputs.DeliveryStreamDatabases':
+        return pulumi.get(self, "databases")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> str:
+        return pulumi.get(self, "endpoint")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="snapshotWatermarkTable")
+    def snapshot_watermark_table(self) -> str:
+        return pulumi.get(self, "snapshot_watermark_table")
+
+    @property
+    @pulumi.getter
+    def tables(self) -> 'outputs.DeliveryStreamDatabaseTables':
+        return pulumi.get(self, "tables")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'DeliveryStreamDatabaseSourceConfigurationType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional['outputs.DeliveryStreamDatabaseColumns']:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def digest(self) -> Optional[str]:
+        return pulumi.get(self, "digest")
+
+    @property
+    @pulumi.getter(name="publicCertificate")
+    def public_certificate(self) -> Optional[str]:
+        return pulumi.get(self, "public_certificate")
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional['DeliveryStreamDatabaseSourceConfigurationSslMode']:
+        return pulumi.get(self, "ssl_mode")
+
+    @property
+    @pulumi.getter(name="surrogateKeys")
+    def surrogate_keys(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "surrogate_keys")
+
+
+@pulumi.output_type
+class DeliveryStreamDatabaseSourceVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vpcEndpointServiceName":
+            suggest = "vpc_endpoint_service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeliveryStreamDatabaseSourceVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeliveryStreamDatabaseSourceVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeliveryStreamDatabaseSourceVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 vpc_endpoint_service_name: str):
+        pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
+
+    @property
+    @pulumi.getter(name="vpcEndpointServiceName")
+    def vpc_endpoint_service_name(self) -> str:
+        return pulumi.get(self, "vpc_endpoint_service_name")
+
+
+@pulumi.output_type
+class DeliveryStreamDatabaseTables(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[Sequence[str]] = None,
+                 include: Optional[Sequence[str]] = None):
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "include")
+
+
+@pulumi.output_type
+class DeliveryStreamDatabases(dict):
+    def __init__(__self__, *,
+                 exclude: Optional[Sequence[str]] = None,
+                 include: Optional[Sequence[str]] = None):
+        if exclude is not None:
+            pulumi.set(__self__, "exclude", exclude)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def exclude(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exclude")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "include")
 
 
 @pulumi.output_type

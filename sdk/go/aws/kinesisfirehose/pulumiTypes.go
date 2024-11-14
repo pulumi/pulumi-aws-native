@@ -2336,6 +2336,1039 @@ func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) SchemaConfigur
 	}).(DeliveryStreamSchemaConfigurationPtrOutput)
 }
 
+type DeliveryStreamDatabaseColumns struct {
+	Exclude []string `pulumi:"exclude"`
+	Include []string `pulumi:"include"`
+}
+
+// DeliveryStreamDatabaseColumnsInput is an input type that accepts DeliveryStreamDatabaseColumnsArgs and DeliveryStreamDatabaseColumnsOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseColumnsInput` via:
+//
+//	DeliveryStreamDatabaseColumnsArgs{...}
+type DeliveryStreamDatabaseColumnsInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseColumnsOutput() DeliveryStreamDatabaseColumnsOutput
+	ToDeliveryStreamDatabaseColumnsOutputWithContext(context.Context) DeliveryStreamDatabaseColumnsOutput
+}
+
+type DeliveryStreamDatabaseColumnsArgs struct {
+	Exclude pulumi.StringArrayInput `pulumi:"exclude"`
+	Include pulumi.StringArrayInput `pulumi:"include"`
+}
+
+func (DeliveryStreamDatabaseColumnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseColumns)(nil)).Elem()
+}
+
+func (i DeliveryStreamDatabaseColumnsArgs) ToDeliveryStreamDatabaseColumnsOutput() DeliveryStreamDatabaseColumnsOutput {
+	return i.ToDeliveryStreamDatabaseColumnsOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseColumnsArgs) ToDeliveryStreamDatabaseColumnsOutputWithContext(ctx context.Context) DeliveryStreamDatabaseColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseColumnsOutput)
+}
+
+func (i DeliveryStreamDatabaseColumnsArgs) ToDeliveryStreamDatabaseColumnsPtrOutput() DeliveryStreamDatabaseColumnsPtrOutput {
+	return i.ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseColumnsArgs) ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseColumnsOutput).ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDatabaseColumnsPtrInput is an input type that accepts DeliveryStreamDatabaseColumnsArgs, DeliveryStreamDatabaseColumnsPtr and DeliveryStreamDatabaseColumnsPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseColumnsPtrInput` via:
+//
+//	        DeliveryStreamDatabaseColumnsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamDatabaseColumnsPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseColumnsPtrOutput() DeliveryStreamDatabaseColumnsPtrOutput
+	ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(context.Context) DeliveryStreamDatabaseColumnsPtrOutput
+}
+
+type deliveryStreamDatabaseColumnsPtrType DeliveryStreamDatabaseColumnsArgs
+
+func DeliveryStreamDatabaseColumnsPtr(v *DeliveryStreamDatabaseColumnsArgs) DeliveryStreamDatabaseColumnsPtrInput {
+	return (*deliveryStreamDatabaseColumnsPtrType)(v)
+}
+
+func (*deliveryStreamDatabaseColumnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseColumns)(nil)).Elem()
+}
+
+func (i *deliveryStreamDatabaseColumnsPtrType) ToDeliveryStreamDatabaseColumnsPtrOutput() DeliveryStreamDatabaseColumnsPtrOutput {
+	return i.ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDatabaseColumnsPtrType) ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseColumnsPtrOutput)
+}
+
+type DeliveryStreamDatabaseColumnsOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseColumnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseColumns)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseColumnsOutput) ToDeliveryStreamDatabaseColumnsOutput() DeliveryStreamDatabaseColumnsOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseColumnsOutput) ToDeliveryStreamDatabaseColumnsOutputWithContext(ctx context.Context) DeliveryStreamDatabaseColumnsOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseColumnsOutput) ToDeliveryStreamDatabaseColumnsPtrOutput() DeliveryStreamDatabaseColumnsPtrOutput {
+	return o.ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseColumnsOutput) ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseColumnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDatabaseColumns) *DeliveryStreamDatabaseColumns {
+		return &v
+	}).(DeliveryStreamDatabaseColumnsPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseColumnsOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseColumns) []string { return v.Exclude }).(pulumi.StringArrayOutput)
+}
+
+func (o DeliveryStreamDatabaseColumnsOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseColumns) []string { return v.Include }).(pulumi.StringArrayOutput)
+}
+
+type DeliveryStreamDatabaseColumnsPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseColumnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseColumns)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseColumnsPtrOutput) ToDeliveryStreamDatabaseColumnsPtrOutput() DeliveryStreamDatabaseColumnsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseColumnsPtrOutput) ToDeliveryStreamDatabaseColumnsPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseColumnsPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseColumnsPtrOutput) Elem() DeliveryStreamDatabaseColumnsOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseColumns) DeliveryStreamDatabaseColumns {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDatabaseColumns
+		return ret
+	}).(DeliveryStreamDatabaseColumnsOutput)
+}
+
+func (o DeliveryStreamDatabaseColumnsPtrOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseColumns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DeliveryStreamDatabaseColumnsPtrOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseColumns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(pulumi.StringArrayOutput)
+}
+
+type DeliveryStreamDatabaseSourceAuthenticationConfiguration struct {
+	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfiguration `pulumi:"secretsManagerConfiguration"`
+}
+
+// DeliveryStreamDatabaseSourceAuthenticationConfigurationInput is an input type that accepts DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs and DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseSourceAuthenticationConfigurationInput` via:
+//
+//	DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs{...}
+type DeliveryStreamDatabaseSourceAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceAuthenticationConfigurationOutput() DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput
+	ToDeliveryStreamDatabaseSourceAuthenticationConfigurationOutputWithContext(context.Context) DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput
+}
+
+type DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs struct {
+	SecretsManagerConfiguration DeliveryStreamSecretsManagerConfigurationInput `pulumi:"secretsManagerConfiguration"`
+}
+
+func (DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationOutput() DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput {
+	return i.ToDeliveryStreamDatabaseSourceAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput)
+}
+
+func (i DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput() DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return i.ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput).ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrInput is an input type that accepts DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs, DeliveryStreamDatabaseSourceAuthenticationConfigurationPtr and DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrInput` via:
+//
+//	        DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput() DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput
+	ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(context.Context) DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput
+}
+
+type deliveryStreamDatabaseSourceAuthenticationConfigurationPtrType DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs
+
+func DeliveryStreamDatabaseSourceAuthenticationConfigurationPtr(v *DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs) DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrInput {
+	return (*deliveryStreamDatabaseSourceAuthenticationConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamDatabaseSourceAuthenticationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseSourceAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamDatabaseSourceAuthenticationConfigurationPtrType) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput() DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return i.ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDatabaseSourceAuthenticationConfigurationPtrType) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput)
+}
+
+type DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationOutput() DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput() DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return o.ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDatabaseSourceAuthenticationConfiguration) *DeliveryStreamDatabaseSourceAuthenticationConfiguration {
+		return &v
+	}).(DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceAuthenticationConfiguration) DeliveryStreamSecretsManagerConfiguration {
+		return v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationOutput)
+}
+
+type DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseSourceAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput() DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput) ToDeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput) Elem() DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceAuthenticationConfiguration) DeliveryStreamDatabaseSourceAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDatabaseSourceAuthenticationConfiguration
+		return ret
+	}).(DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput) SecretsManagerConfiguration() DeliveryStreamSecretsManagerConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceAuthenticationConfiguration) *DeliveryStreamSecretsManagerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretsManagerConfiguration
+	}).(DeliveryStreamSecretsManagerConfigurationPtrOutput)
+}
+
+type DeliveryStreamDatabaseSourceConfiguration struct {
+	Columns                                   *DeliveryStreamDatabaseColumns                          `pulumi:"columns"`
+	DatabaseSourceAuthenticationConfiguration DeliveryStreamDatabaseSourceAuthenticationConfiguration `pulumi:"databaseSourceAuthenticationConfiguration"`
+	DatabaseSourceVpcConfiguration            DeliveryStreamDatabaseSourceVpcConfiguration            `pulumi:"databaseSourceVpcConfiguration"`
+	Databases                                 DeliveryStreamDatabases                                 `pulumi:"databases"`
+	Digest                                    *string                                                 `pulumi:"digest"`
+	Endpoint                                  string                                                  `pulumi:"endpoint"`
+	Port                                      int                                                     `pulumi:"port"`
+	PublicCertificate                         *string                                                 `pulumi:"publicCertificate"`
+	SnapshotWatermarkTable                    string                                                  `pulumi:"snapshotWatermarkTable"`
+	SslMode                                   *DeliveryStreamDatabaseSourceConfigurationSslMode       `pulumi:"sslMode"`
+	SurrogateKeys                             []string                                                `pulumi:"surrogateKeys"`
+	Tables                                    DeliveryStreamDatabaseTables                            `pulumi:"tables"`
+	Type                                      DeliveryStreamDatabaseSourceConfigurationType           `pulumi:"type"`
+}
+
+// DeliveryStreamDatabaseSourceConfigurationInput is an input type that accepts DeliveryStreamDatabaseSourceConfigurationArgs and DeliveryStreamDatabaseSourceConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseSourceConfigurationInput` via:
+//
+//	DeliveryStreamDatabaseSourceConfigurationArgs{...}
+type DeliveryStreamDatabaseSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceConfigurationOutput() DeliveryStreamDatabaseSourceConfigurationOutput
+	ToDeliveryStreamDatabaseSourceConfigurationOutputWithContext(context.Context) DeliveryStreamDatabaseSourceConfigurationOutput
+}
+
+type DeliveryStreamDatabaseSourceConfigurationArgs struct {
+	Columns                                   DeliveryStreamDatabaseColumnsPtrInput                        `pulumi:"columns"`
+	DatabaseSourceAuthenticationConfiguration DeliveryStreamDatabaseSourceAuthenticationConfigurationInput `pulumi:"databaseSourceAuthenticationConfiguration"`
+	DatabaseSourceVpcConfiguration            DeliveryStreamDatabaseSourceVpcConfigurationInput            `pulumi:"databaseSourceVpcConfiguration"`
+	Databases                                 DeliveryStreamDatabasesInput                                 `pulumi:"databases"`
+	Digest                                    pulumi.StringPtrInput                                        `pulumi:"digest"`
+	Endpoint                                  pulumi.StringInput                                           `pulumi:"endpoint"`
+	Port                                      pulumi.IntInput                                              `pulumi:"port"`
+	PublicCertificate                         pulumi.StringPtrInput                                        `pulumi:"publicCertificate"`
+	SnapshotWatermarkTable                    pulumi.StringInput                                           `pulumi:"snapshotWatermarkTable"`
+	SslMode                                   DeliveryStreamDatabaseSourceConfigurationSslModePtrInput     `pulumi:"sslMode"`
+	SurrogateKeys                             pulumi.StringArrayInput                                      `pulumi:"surrogateKeys"`
+	Tables                                    DeliveryStreamDatabaseTablesInput                            `pulumi:"tables"`
+	Type                                      DeliveryStreamDatabaseSourceConfigurationTypeInput           `pulumi:"type"`
+}
+
+func (DeliveryStreamDatabaseSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamDatabaseSourceConfigurationArgs) ToDeliveryStreamDatabaseSourceConfigurationOutput() DeliveryStreamDatabaseSourceConfigurationOutput {
+	return i.ToDeliveryStreamDatabaseSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseSourceConfigurationArgs) ToDeliveryStreamDatabaseSourceConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceConfigurationOutput)
+}
+
+func (i DeliveryStreamDatabaseSourceConfigurationArgs) ToDeliveryStreamDatabaseSourceConfigurationPtrOutput() DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return i.ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseSourceConfigurationArgs) ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceConfigurationOutput).ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDatabaseSourceConfigurationPtrInput is an input type that accepts DeliveryStreamDatabaseSourceConfigurationArgs, DeliveryStreamDatabaseSourceConfigurationPtr and DeliveryStreamDatabaseSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseSourceConfigurationPtrInput` via:
+//
+//	        DeliveryStreamDatabaseSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamDatabaseSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceConfigurationPtrOutput() DeliveryStreamDatabaseSourceConfigurationPtrOutput
+	ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(context.Context) DeliveryStreamDatabaseSourceConfigurationPtrOutput
+}
+
+type deliveryStreamDatabaseSourceConfigurationPtrType DeliveryStreamDatabaseSourceConfigurationArgs
+
+func DeliveryStreamDatabaseSourceConfigurationPtr(v *DeliveryStreamDatabaseSourceConfigurationArgs) DeliveryStreamDatabaseSourceConfigurationPtrInput {
+	return (*deliveryStreamDatabaseSourceConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamDatabaseSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseSourceConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamDatabaseSourceConfigurationPtrType) ToDeliveryStreamDatabaseSourceConfigurationPtrOutput() DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return i.ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDatabaseSourceConfigurationPtrType) ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceConfigurationPtrOutput)
+}
+
+type DeliveryStreamDatabaseSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) ToDeliveryStreamDatabaseSourceConfigurationOutput() DeliveryStreamDatabaseSourceConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) ToDeliveryStreamDatabaseSourceConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) ToDeliveryStreamDatabaseSourceConfigurationPtrOutput() DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return o.ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceConfiguration {
+		return &v
+	}).(DeliveryStreamDatabaseSourceConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) Columns() DeliveryStreamDatabaseColumnsPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseColumns { return v.Columns }).(DeliveryStreamDatabaseColumnsPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) DatabaseSourceAuthenticationConfiguration() DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseSourceAuthenticationConfiguration {
+		return v.DatabaseSourceAuthenticationConfiguration
+	}).(DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) DatabaseSourceVpcConfiguration() DeliveryStreamDatabaseSourceVpcConfigurationOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseSourceVpcConfiguration {
+		return v.DatabaseSourceVpcConfiguration
+	}).(DeliveryStreamDatabaseSourceVpcConfigurationOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) Databases() DeliveryStreamDatabasesOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabases { return v.Databases }).(DeliveryStreamDatabasesOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) *string { return v.Digest }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) PublicCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) *string { return v.PublicCertificate }).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) SnapshotWatermarkTable() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) string { return v.SnapshotWatermarkTable }).(pulumi.StringOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) SslMode() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceConfigurationSslMode {
+		return v.SslMode
+	}).(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) SurrogateKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) []string { return v.SurrogateKeys }).(pulumi.StringArrayOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) Tables() DeliveryStreamDatabaseTablesOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseTables { return v.Tables }).(DeliveryStreamDatabaseTablesOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationOutput) Type() DeliveryStreamDatabaseSourceConfigurationTypeOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseSourceConfigurationType {
+		return v.Type
+	}).(DeliveryStreamDatabaseSourceConfigurationTypeOutput)
+}
+
+type DeliveryStreamDatabaseSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseSourceConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) ToDeliveryStreamDatabaseSourceConfigurationPtrOutput() DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) ToDeliveryStreamDatabaseSourceConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Elem() DeliveryStreamDatabaseSourceConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDatabaseSourceConfiguration
+		return ret
+	}).(DeliveryStreamDatabaseSourceConfigurationOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Columns() DeliveryStreamDatabaseColumnsPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseColumns {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(DeliveryStreamDatabaseColumnsPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) DatabaseSourceAuthenticationConfiguration() DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceAuthenticationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseSourceAuthenticationConfiguration
+	}).(DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) DatabaseSourceVpcConfiguration() DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceVpcConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseSourceVpcConfiguration
+	}).(DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Databases() DeliveryStreamDatabasesPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabases {
+		if v == nil {
+			return nil
+		}
+		return &v.Databases
+	}).(DeliveryStreamDatabasesPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Digest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Digest
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) PublicCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SnapshotWatermarkTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotWatermarkTable
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SslMode() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceConfigurationSslMode {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SurrogateKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SurrogateKeys
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Tables() DeliveryStreamDatabaseTablesPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseTables {
+		if v == nil {
+			return nil
+		}
+		return &v.Tables
+	}).(DeliveryStreamDatabaseTablesPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Type() DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(DeliveryStreamDatabaseSourceConfigurationTypePtrOutput)
+}
+
+type DeliveryStreamDatabaseSourceVpcConfiguration struct {
+	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
+}
+
+// DeliveryStreamDatabaseSourceVpcConfigurationInput is an input type that accepts DeliveryStreamDatabaseSourceVpcConfigurationArgs and DeliveryStreamDatabaseSourceVpcConfigurationOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseSourceVpcConfigurationInput` via:
+//
+//	DeliveryStreamDatabaseSourceVpcConfigurationArgs{...}
+type DeliveryStreamDatabaseSourceVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceVpcConfigurationOutput() DeliveryStreamDatabaseSourceVpcConfigurationOutput
+	ToDeliveryStreamDatabaseSourceVpcConfigurationOutputWithContext(context.Context) DeliveryStreamDatabaseSourceVpcConfigurationOutput
+}
+
+type DeliveryStreamDatabaseSourceVpcConfigurationArgs struct {
+	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
+}
+
+func (DeliveryStreamDatabaseSourceVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceVpcConfiguration)(nil)).Elem()
+}
+
+func (i DeliveryStreamDatabaseSourceVpcConfigurationArgs) ToDeliveryStreamDatabaseSourceVpcConfigurationOutput() DeliveryStreamDatabaseSourceVpcConfigurationOutput {
+	return i.ToDeliveryStreamDatabaseSourceVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseSourceVpcConfigurationArgs) ToDeliveryStreamDatabaseSourceVpcConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceVpcConfigurationOutput)
+}
+
+func (i DeliveryStreamDatabaseSourceVpcConfigurationArgs) ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutput() DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return i.ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseSourceVpcConfigurationArgs) ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceVpcConfigurationOutput).ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDatabaseSourceVpcConfigurationPtrInput is an input type that accepts DeliveryStreamDatabaseSourceVpcConfigurationArgs, DeliveryStreamDatabaseSourceVpcConfigurationPtr and DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseSourceVpcConfigurationPtrInput` via:
+//
+//	        DeliveryStreamDatabaseSourceVpcConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamDatabaseSourceVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutput() DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput
+	ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(context.Context) DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput
+}
+
+type deliveryStreamDatabaseSourceVpcConfigurationPtrType DeliveryStreamDatabaseSourceVpcConfigurationArgs
+
+func DeliveryStreamDatabaseSourceVpcConfigurationPtr(v *DeliveryStreamDatabaseSourceVpcConfigurationArgs) DeliveryStreamDatabaseSourceVpcConfigurationPtrInput {
+	return (*deliveryStreamDatabaseSourceVpcConfigurationPtrType)(v)
+}
+
+func (*deliveryStreamDatabaseSourceVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseSourceVpcConfiguration)(nil)).Elem()
+}
+
+func (i *deliveryStreamDatabaseSourceVpcConfigurationPtrType) ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutput() DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return i.ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDatabaseSourceVpcConfigurationPtrType) ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput)
+}
+
+type DeliveryStreamDatabaseSourceVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseSourceVpcConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationOutput) ToDeliveryStreamDatabaseSourceVpcConfigurationOutput() DeliveryStreamDatabaseSourceVpcConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationOutput) ToDeliveryStreamDatabaseSourceVpcConfigurationOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceVpcConfigurationOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationOutput) ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutput() DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return o.ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationOutput) ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDatabaseSourceVpcConfiguration) *DeliveryStreamDatabaseSourceVpcConfiguration {
+		return &v
+	}).(DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationOutput) VpcEndpointServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseSourceVpcConfiguration) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
+}
+
+type DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseSourceVpcConfiguration)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput) ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutput() DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput) ToDeliveryStreamDatabaseSourceVpcConfigurationPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput) Elem() DeliveryStreamDatabaseSourceVpcConfigurationOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceVpcConfiguration) DeliveryStreamDatabaseSourceVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDatabaseSourceVpcConfiguration
+		return ret
+	}).(DeliveryStreamDatabaseSourceVpcConfigurationOutput)
+}
+
+func (o DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput) VpcEndpointServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcEndpointServiceName
+	}).(pulumi.StringPtrOutput)
+}
+
+type DeliveryStreamDatabaseTables struct {
+	Exclude []string `pulumi:"exclude"`
+	Include []string `pulumi:"include"`
+}
+
+// DeliveryStreamDatabaseTablesInput is an input type that accepts DeliveryStreamDatabaseTablesArgs and DeliveryStreamDatabaseTablesOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseTablesInput` via:
+//
+//	DeliveryStreamDatabaseTablesArgs{...}
+type DeliveryStreamDatabaseTablesInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseTablesOutput() DeliveryStreamDatabaseTablesOutput
+	ToDeliveryStreamDatabaseTablesOutputWithContext(context.Context) DeliveryStreamDatabaseTablesOutput
+}
+
+type DeliveryStreamDatabaseTablesArgs struct {
+	Exclude pulumi.StringArrayInput `pulumi:"exclude"`
+	Include pulumi.StringArrayInput `pulumi:"include"`
+}
+
+func (DeliveryStreamDatabaseTablesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseTables)(nil)).Elem()
+}
+
+func (i DeliveryStreamDatabaseTablesArgs) ToDeliveryStreamDatabaseTablesOutput() DeliveryStreamDatabaseTablesOutput {
+	return i.ToDeliveryStreamDatabaseTablesOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseTablesArgs) ToDeliveryStreamDatabaseTablesOutputWithContext(ctx context.Context) DeliveryStreamDatabaseTablesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseTablesOutput)
+}
+
+func (i DeliveryStreamDatabaseTablesArgs) ToDeliveryStreamDatabaseTablesPtrOutput() DeliveryStreamDatabaseTablesPtrOutput {
+	return i.ToDeliveryStreamDatabaseTablesPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabaseTablesArgs) ToDeliveryStreamDatabaseTablesPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseTablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseTablesOutput).ToDeliveryStreamDatabaseTablesPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDatabaseTablesPtrInput is an input type that accepts DeliveryStreamDatabaseTablesArgs, DeliveryStreamDatabaseTablesPtr and DeliveryStreamDatabaseTablesPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabaseTablesPtrInput` via:
+//
+//	        DeliveryStreamDatabaseTablesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamDatabaseTablesPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabaseTablesPtrOutput() DeliveryStreamDatabaseTablesPtrOutput
+	ToDeliveryStreamDatabaseTablesPtrOutputWithContext(context.Context) DeliveryStreamDatabaseTablesPtrOutput
+}
+
+type deliveryStreamDatabaseTablesPtrType DeliveryStreamDatabaseTablesArgs
+
+func DeliveryStreamDatabaseTablesPtr(v *DeliveryStreamDatabaseTablesArgs) DeliveryStreamDatabaseTablesPtrInput {
+	return (*deliveryStreamDatabaseTablesPtrType)(v)
+}
+
+func (*deliveryStreamDatabaseTablesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseTables)(nil)).Elem()
+}
+
+func (i *deliveryStreamDatabaseTablesPtrType) ToDeliveryStreamDatabaseTablesPtrOutput() DeliveryStreamDatabaseTablesPtrOutput {
+	return i.ToDeliveryStreamDatabaseTablesPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDatabaseTablesPtrType) ToDeliveryStreamDatabaseTablesPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseTablesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabaseTablesPtrOutput)
+}
+
+type DeliveryStreamDatabaseTablesOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseTablesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabaseTables)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseTablesOutput) ToDeliveryStreamDatabaseTablesOutput() DeliveryStreamDatabaseTablesOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseTablesOutput) ToDeliveryStreamDatabaseTablesOutputWithContext(ctx context.Context) DeliveryStreamDatabaseTablesOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseTablesOutput) ToDeliveryStreamDatabaseTablesPtrOutput() DeliveryStreamDatabaseTablesPtrOutput {
+	return o.ToDeliveryStreamDatabaseTablesPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabaseTablesOutput) ToDeliveryStreamDatabaseTablesPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseTablesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDatabaseTables) *DeliveryStreamDatabaseTables {
+		return &v
+	}).(DeliveryStreamDatabaseTablesPtrOutput)
+}
+
+func (o DeliveryStreamDatabaseTablesOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseTables) []string { return v.Exclude }).(pulumi.StringArrayOutput)
+}
+
+func (o DeliveryStreamDatabaseTablesOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabaseTables) []string { return v.Include }).(pulumi.StringArrayOutput)
+}
+
+type DeliveryStreamDatabaseTablesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabaseTablesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabaseTables)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabaseTablesPtrOutput) ToDeliveryStreamDatabaseTablesPtrOutput() DeliveryStreamDatabaseTablesPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseTablesPtrOutput) ToDeliveryStreamDatabaseTablesPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabaseTablesPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabaseTablesPtrOutput) Elem() DeliveryStreamDatabaseTablesOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseTables) DeliveryStreamDatabaseTables {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDatabaseTables
+		return ret
+	}).(DeliveryStreamDatabaseTablesOutput)
+}
+
+func (o DeliveryStreamDatabaseTablesPtrOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseTables) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DeliveryStreamDatabaseTablesPtrOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabaseTables) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(pulumi.StringArrayOutput)
+}
+
+type DeliveryStreamDatabases struct {
+	Exclude []string `pulumi:"exclude"`
+	Include []string `pulumi:"include"`
+}
+
+// DeliveryStreamDatabasesInput is an input type that accepts DeliveryStreamDatabasesArgs and DeliveryStreamDatabasesOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabasesInput` via:
+//
+//	DeliveryStreamDatabasesArgs{...}
+type DeliveryStreamDatabasesInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabasesOutput() DeliveryStreamDatabasesOutput
+	ToDeliveryStreamDatabasesOutputWithContext(context.Context) DeliveryStreamDatabasesOutput
+}
+
+type DeliveryStreamDatabasesArgs struct {
+	Exclude pulumi.StringArrayInput `pulumi:"exclude"`
+	Include pulumi.StringArrayInput `pulumi:"include"`
+}
+
+func (DeliveryStreamDatabasesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabases)(nil)).Elem()
+}
+
+func (i DeliveryStreamDatabasesArgs) ToDeliveryStreamDatabasesOutput() DeliveryStreamDatabasesOutput {
+	return i.ToDeliveryStreamDatabasesOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabasesArgs) ToDeliveryStreamDatabasesOutputWithContext(ctx context.Context) DeliveryStreamDatabasesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabasesOutput)
+}
+
+func (i DeliveryStreamDatabasesArgs) ToDeliveryStreamDatabasesPtrOutput() DeliveryStreamDatabasesPtrOutput {
+	return i.ToDeliveryStreamDatabasesPtrOutputWithContext(context.Background())
+}
+
+func (i DeliveryStreamDatabasesArgs) ToDeliveryStreamDatabasesPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabasesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabasesOutput).ToDeliveryStreamDatabasesPtrOutputWithContext(ctx)
+}
+
+// DeliveryStreamDatabasesPtrInput is an input type that accepts DeliveryStreamDatabasesArgs, DeliveryStreamDatabasesPtr and DeliveryStreamDatabasesPtrOutput values.
+// You can construct a concrete instance of `DeliveryStreamDatabasesPtrInput` via:
+//
+//	        DeliveryStreamDatabasesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DeliveryStreamDatabasesPtrInput interface {
+	pulumi.Input
+
+	ToDeliveryStreamDatabasesPtrOutput() DeliveryStreamDatabasesPtrOutput
+	ToDeliveryStreamDatabasesPtrOutputWithContext(context.Context) DeliveryStreamDatabasesPtrOutput
+}
+
+type deliveryStreamDatabasesPtrType DeliveryStreamDatabasesArgs
+
+func DeliveryStreamDatabasesPtr(v *DeliveryStreamDatabasesArgs) DeliveryStreamDatabasesPtrInput {
+	return (*deliveryStreamDatabasesPtrType)(v)
+}
+
+func (*deliveryStreamDatabasesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabases)(nil)).Elem()
+}
+
+func (i *deliveryStreamDatabasesPtrType) ToDeliveryStreamDatabasesPtrOutput() DeliveryStreamDatabasesPtrOutput {
+	return i.ToDeliveryStreamDatabasesPtrOutputWithContext(context.Background())
+}
+
+func (i *deliveryStreamDatabasesPtrType) ToDeliveryStreamDatabasesPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabasesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeliveryStreamDatabasesPtrOutput)
+}
+
+type DeliveryStreamDatabasesOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabasesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeliveryStreamDatabases)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabasesOutput) ToDeliveryStreamDatabasesOutput() DeliveryStreamDatabasesOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabasesOutput) ToDeliveryStreamDatabasesOutputWithContext(ctx context.Context) DeliveryStreamDatabasesOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabasesOutput) ToDeliveryStreamDatabasesPtrOutput() DeliveryStreamDatabasesPtrOutput {
+	return o.ToDeliveryStreamDatabasesPtrOutputWithContext(context.Background())
+}
+
+func (o DeliveryStreamDatabasesOutput) ToDeliveryStreamDatabasesPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabasesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeliveryStreamDatabases) *DeliveryStreamDatabases {
+		return &v
+	}).(DeliveryStreamDatabasesPtrOutput)
+}
+
+func (o DeliveryStreamDatabasesOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabases) []string { return v.Exclude }).(pulumi.StringArrayOutput)
+}
+
+func (o DeliveryStreamDatabasesOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DeliveryStreamDatabases) []string { return v.Include }).(pulumi.StringArrayOutput)
+}
+
+type DeliveryStreamDatabasesPtrOutput struct{ *pulumi.OutputState }
+
+func (DeliveryStreamDatabasesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeliveryStreamDatabases)(nil)).Elem()
+}
+
+func (o DeliveryStreamDatabasesPtrOutput) ToDeliveryStreamDatabasesPtrOutput() DeliveryStreamDatabasesPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabasesPtrOutput) ToDeliveryStreamDatabasesPtrOutputWithContext(ctx context.Context) DeliveryStreamDatabasesPtrOutput {
+	return o
+}
+
+func (o DeliveryStreamDatabasesPtrOutput) Elem() DeliveryStreamDatabasesOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabases) DeliveryStreamDatabases {
+		if v != nil {
+			return *v
+		}
+		var ret DeliveryStreamDatabases
+		return ret
+	}).(DeliveryStreamDatabasesOutput)
+}
+
+func (o DeliveryStreamDatabasesPtrOutput) Exclude() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabases) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Exclude
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o DeliveryStreamDatabasesPtrOutput) Include() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DeliveryStreamDatabases) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Include
+	}).(pulumi.StringArrayOutput)
+}
+
 type DeliveryStreamDeserializer struct {
 	// The native Hive / HCatalog JsonSerDe. Used by Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.
 	HiveJsonSerDe *DeliveryStreamHiveJsonSerDe `pulumi:"hiveJsonSerDe"`
@@ -10960,6 +11993,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamCopyCommandPtrInput)(nil)).Elem(), DeliveryStreamCopyCommandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDataFormatConversionConfigurationInput)(nil)).Elem(), DeliveryStreamDataFormatConversionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDataFormatConversionConfigurationPtrInput)(nil)).Elem(), DeliveryStreamDataFormatConversionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseColumnsInput)(nil)).Elem(), DeliveryStreamDatabaseColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseColumnsPtrInput)(nil)).Elem(), DeliveryStreamDatabaseColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceAuthenticationConfigurationInput)(nil)).Elem(), DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrInput)(nil)).Elem(), DeliveryStreamDatabaseSourceAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationInput)(nil)).Elem(), DeliveryStreamDatabaseSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceConfigurationPtrInput)(nil)).Elem(), DeliveryStreamDatabaseSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceVpcConfigurationInput)(nil)).Elem(), DeliveryStreamDatabaseSourceVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseSourceVpcConfigurationPtrInput)(nil)).Elem(), DeliveryStreamDatabaseSourceVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseTablesInput)(nil)).Elem(), DeliveryStreamDatabaseTablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabaseTablesPtrInput)(nil)).Elem(), DeliveryStreamDatabaseTablesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabasesInput)(nil)).Elem(), DeliveryStreamDatabasesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDatabasesPtrInput)(nil)).Elem(), DeliveryStreamDatabasesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDeserializerInput)(nil)).Elem(), DeliveryStreamDeserializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDeserializerPtrInput)(nil)).Elem(), DeliveryStreamDeserializerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryStreamDestinationTableConfigurationInput)(nil)).Elem(), DeliveryStreamDestinationTableConfigurationArgs{})
@@ -11070,6 +12115,18 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryStreamCopyCommandPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDataFormatConversionConfigurationOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDataFormatConversionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseColumnsOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseColumnsPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseTablesOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabaseTablesPtrOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabasesOutput{})
+	pulumi.RegisterOutputType(DeliveryStreamDatabasesPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDeserializerPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryStreamDestinationTableConfigurationOutput{})

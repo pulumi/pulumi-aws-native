@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront
 {
     /// <summary>
-    /// Resource Type definition for AWS::CloudFront::MonitoringSubscription
+    /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
     /// </summary>
     [AwsNativeResourceType("aws-native:cloudfront:MonitoringSubscription")]
     public partial class MonitoringSubscription : global::Pulumi.CustomResource

@@ -18,7 +18,12 @@ from ._enums import *
 
 __all__ = [
     'ExperimentTemplateAction',
+    'ExperimentTemplateCloudWatchDashboard',
     'ExperimentTemplateExperimentOptions',
+    'ExperimentTemplateExperimentReportConfiguration',
+    'ExperimentTemplateExperimentReportConfigurationDataSourcesProperties',
+    'ExperimentTemplateExperimentReportConfigurationOutputsProperties',
+    'ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties',
     'ExperimentTemplateLogConfiguration',
     'ExperimentTemplateLogConfigurationCloudWatchLogsConfigurationProperties',
     'ExperimentTemplateLogConfigurationS3ConfigurationProperties',
@@ -117,6 +122,35 @@ class ExperimentTemplateAction(dict):
 
 
 @pulumi.output_type
+class ExperimentTemplateCloudWatchDashboard(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dashboardIdentifier":
+            suggest = "dashboard_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateCloudWatchDashboard. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateCloudWatchDashboard.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateCloudWatchDashboard.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dashboard_identifier: str):
+        pulumi.set(__self__, "dashboard_identifier", dashboard_identifier)
+
+    @property
+    @pulumi.getter(name="dashboardIdentifier")
+    def dashboard_identifier(self) -> str:
+        return pulumi.get(self, "dashboard_identifier")
+
+
+@pulumi.output_type
 class ExperimentTemplateExperimentOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -164,6 +198,158 @@ class ExperimentTemplateExperimentOptions(dict):
         The target resolution failure mode for the experiment template.
         """
         return pulumi.get(self, "empty_target_resolution_mode")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSources":
+            suggest = "data_sources"
+        elif key == "postExperimentDuration":
+            suggest = "post_experiment_duration"
+        elif key == "preExperimentDuration":
+            suggest = "pre_experiment_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_sources: 'outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties',
+                 outputs: 'outputs.ExperimentTemplateExperimentReportConfigurationOutputsProperties',
+                 post_experiment_duration: Optional[str] = None,
+                 pre_experiment_duration: Optional[str] = None):
+        pulumi.set(__self__, "data_sources", data_sources)
+        pulumi.set(__self__, "outputs", outputs)
+        if post_experiment_duration is not None:
+            pulumi.set(__self__, "post_experiment_duration", post_experiment_duration)
+        if pre_experiment_duration is not None:
+            pulumi.set(__self__, "pre_experiment_duration", pre_experiment_duration)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> 'outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties':
+        return pulumi.get(self, "data_sources")
+
+    @property
+    @pulumi.getter
+    def outputs(self) -> 'outputs.ExperimentTemplateExperimentReportConfigurationOutputsProperties':
+        return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter(name="postExperimentDuration")
+    def post_experiment_duration(self) -> Optional[str]:
+        return pulumi.get(self, "post_experiment_duration")
+
+    @property
+    @pulumi.getter(name="preExperimentDuration")
+    def pre_experiment_duration(self) -> Optional[str]:
+        return pulumi.get(self, "pre_experiment_duration")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfigurationDataSourcesProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchDashboards":
+            suggest = "cloud_watch_dashboards"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfigurationDataSourcesProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfigurationDataSourcesProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfigurationDataSourcesProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_dashboards: Optional[Sequence['outputs.ExperimentTemplateCloudWatchDashboard']] = None):
+        if cloud_watch_dashboards is not None:
+            pulumi.set(__self__, "cloud_watch_dashboards", cloud_watch_dashboards)
+
+    @property
+    @pulumi.getter(name="cloudWatchDashboards")
+    def cloud_watch_dashboards(self) -> Optional[Sequence['outputs.ExperimentTemplateCloudWatchDashboard']]:
+        return pulumi.get(self, "cloud_watch_dashboards")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfigurationOutputsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "experimentReportS3Configuration":
+            suggest = "experiment_report_s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfigurationOutputsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfigurationOutputsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfigurationOutputsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 experiment_report_s3_configuration: 'outputs.ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties'):
+        pulumi.set(__self__, "experiment_report_s3_configuration", experiment_report_s3_configuration)
+
+    @property
+    @pulumi.getter(name="experimentReportS3Configuration")
+    def experiment_report_s3_configuration(self) -> 'outputs.ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties':
+        return pulumi.get(self, "experiment_report_s3_configuration")
+
+
+@pulumi.output_type
+class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketName":
+            suggest = "bucket_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_name: str,
+                 prefix: Optional[str] = None):
+        pulumi.set(__self__, "bucket_name", bucket_name)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> str:
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

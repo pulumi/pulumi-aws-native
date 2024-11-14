@@ -73,6 +73,519 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
+    /// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetBillingType : IEquatable<ContainerFleetBillingType>
+    {
+        private readonly string _value;
+
+        private ContainerFleetBillingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetBillingType OnDemand { get; } = new ContainerFleetBillingType("ON_DEMAND");
+        public static ContainerFleetBillingType Spot { get; } = new ContainerFleetBillingType("SPOT");
+
+        public static bool operator ==(ContainerFleetBillingType left, ContainerFleetBillingType right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetBillingType left, ContainerFleetBillingType right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetBillingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetBillingType other && Equals(other);
+        public bool Equals(ContainerFleetBillingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The strategy to apply in case of impairment; defaults to MAINTAIN.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetDeploymentConfigurationImpairmentStrategy : IEquatable<ContainerFleetDeploymentConfigurationImpairmentStrategy>
+    {
+        private readonly string _value;
+
+        private ContainerFleetDeploymentConfigurationImpairmentStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetDeploymentConfigurationImpairmentStrategy Maintain { get; } = new ContainerFleetDeploymentConfigurationImpairmentStrategy("MAINTAIN");
+        public static ContainerFleetDeploymentConfigurationImpairmentStrategy Rollback { get; } = new ContainerFleetDeploymentConfigurationImpairmentStrategy("ROLLBACK");
+
+        public static bool operator ==(ContainerFleetDeploymentConfigurationImpairmentStrategy left, ContainerFleetDeploymentConfigurationImpairmentStrategy right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetDeploymentConfigurationImpairmentStrategy left, ContainerFleetDeploymentConfigurationImpairmentStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetDeploymentConfigurationImpairmentStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetDeploymentConfigurationImpairmentStrategy other && Equals(other);
+        public bool Equals(ContainerFleetDeploymentConfigurationImpairmentStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The protection strategy for deployment on the container fleet; defaults to WITH_PROTECTION.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetDeploymentConfigurationProtectionStrategy : IEquatable<ContainerFleetDeploymentConfigurationProtectionStrategy>
+    {
+        private readonly string _value;
+
+        private ContainerFleetDeploymentConfigurationProtectionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetDeploymentConfigurationProtectionStrategy WithProtection { get; } = new ContainerFleetDeploymentConfigurationProtectionStrategy("WITH_PROTECTION");
+        public static ContainerFleetDeploymentConfigurationProtectionStrategy IgnoreProtection { get; } = new ContainerFleetDeploymentConfigurationProtectionStrategy("IGNORE_PROTECTION");
+
+        public static bool operator ==(ContainerFleetDeploymentConfigurationProtectionStrategy left, ContainerFleetDeploymentConfigurationProtectionStrategy right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetDeploymentConfigurationProtectionStrategy left, ContainerFleetDeploymentConfigurationProtectionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetDeploymentConfigurationProtectionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetDeploymentConfigurationProtectionStrategy other && Equals(other);
+        public bool Equals(ContainerFleetDeploymentConfigurationProtectionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network communication protocol used by the fleet.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetIpPermissionProtocol : IEquatable<ContainerFleetIpPermissionProtocol>
+    {
+        private readonly string _value;
+
+        private ContainerFleetIpPermissionProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetIpPermissionProtocol Tcp { get; } = new ContainerFleetIpPermissionProtocol("TCP");
+        public static ContainerFleetIpPermissionProtocol Udp { get; } = new ContainerFleetIpPermissionProtocol("UDP");
+
+        public static bool operator ==(ContainerFleetIpPermissionProtocol left, ContainerFleetIpPermissionProtocol right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetIpPermissionProtocol left, ContainerFleetIpPermissionProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetIpPermissionProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetIpPermissionProtocol other && Equals(other);
+        public bool Equals(ContainerFleetIpPermissionProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Configures the service that provides logs.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetLogDestination : IEquatable<ContainerFleetLogDestination>
+    {
+        private readonly string _value;
+
+        private ContainerFleetLogDestination(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetLogDestination None { get; } = new ContainerFleetLogDestination("NONE");
+        public static ContainerFleetLogDestination Cloudwatch { get; } = new ContainerFleetLogDestination("CLOUDWATCH");
+        public static ContainerFleetLogDestination S3 { get; } = new ContainerFleetLogDestination("S3");
+
+        public static bool operator ==(ContainerFleetLogDestination left, ContainerFleetLogDestination right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetLogDestination left, ContainerFleetLogDestination right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetLogDestination value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetLogDestination other && Equals(other);
+        public bool Equals(ContainerFleetLogDestination other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetNewGameSessionProtectionPolicy : IEquatable<ContainerFleetNewGameSessionProtectionPolicy>
+    {
+        private readonly string _value;
+
+        private ContainerFleetNewGameSessionProtectionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetNewGameSessionProtectionPolicy FullProtection { get; } = new ContainerFleetNewGameSessionProtectionPolicy("FullProtection");
+        public static ContainerFleetNewGameSessionProtectionPolicy NoProtection { get; } = new ContainerFleetNewGameSessionProtectionPolicy("NoProtection");
+
+        public static bool operator ==(ContainerFleetNewGameSessionProtectionPolicy left, ContainerFleetNewGameSessionProtectionPolicy right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetNewGameSessionProtectionPolicy left, ContainerFleetNewGameSessionProtectionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetNewGameSessionProtectionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetNewGameSessionProtectionPolicy other && Equals(other);
+        public bool Equals(ContainerFleetNewGameSessionProtectionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Comparison operator to use when measuring a metric against the threshold value.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetScalingPolicyComparisonOperator : IEquatable<ContainerFleetScalingPolicyComparisonOperator>
+    {
+        private readonly string _value;
+
+        private ContainerFleetScalingPolicyComparisonOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetScalingPolicyComparisonOperator GreaterThanOrEqualToThreshold { get; } = new ContainerFleetScalingPolicyComparisonOperator("GreaterThanOrEqualToThreshold");
+        public static ContainerFleetScalingPolicyComparisonOperator GreaterThanThreshold { get; } = new ContainerFleetScalingPolicyComparisonOperator("GreaterThanThreshold");
+        public static ContainerFleetScalingPolicyComparisonOperator LessThanThreshold { get; } = new ContainerFleetScalingPolicyComparisonOperator("LessThanThreshold");
+        public static ContainerFleetScalingPolicyComparisonOperator LessThanOrEqualToThreshold { get; } = new ContainerFleetScalingPolicyComparisonOperator("LessThanOrEqualToThreshold");
+
+        public static bool operator ==(ContainerFleetScalingPolicyComparisonOperator left, ContainerFleetScalingPolicyComparisonOperator right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetScalingPolicyComparisonOperator left, ContainerFleetScalingPolicyComparisonOperator right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetScalingPolicyComparisonOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetScalingPolicyComparisonOperator other && Equals(other);
+        public bool Equals(ContainerFleetScalingPolicyComparisonOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetScalingPolicyMetricName : IEquatable<ContainerFleetScalingPolicyMetricName>
+    {
+        private readonly string _value;
+
+        private ContainerFleetScalingPolicyMetricName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetScalingPolicyMetricName ActivatingGameSessions { get; } = new ContainerFleetScalingPolicyMetricName("ActivatingGameSessions");
+        public static ContainerFleetScalingPolicyMetricName ActiveGameSessions { get; } = new ContainerFleetScalingPolicyMetricName("ActiveGameSessions");
+        public static ContainerFleetScalingPolicyMetricName ActiveInstances { get; } = new ContainerFleetScalingPolicyMetricName("ActiveInstances");
+        public static ContainerFleetScalingPolicyMetricName AvailableGameSessions { get; } = new ContainerFleetScalingPolicyMetricName("AvailableGameSessions");
+        public static ContainerFleetScalingPolicyMetricName AvailablePlayerSessions { get; } = new ContainerFleetScalingPolicyMetricName("AvailablePlayerSessions");
+        public static ContainerFleetScalingPolicyMetricName CurrentPlayerSessions { get; } = new ContainerFleetScalingPolicyMetricName("CurrentPlayerSessions");
+        public static ContainerFleetScalingPolicyMetricName IdleInstances { get; } = new ContainerFleetScalingPolicyMetricName("IdleInstances");
+        public static ContainerFleetScalingPolicyMetricName PercentAvailableGameSessions { get; } = new ContainerFleetScalingPolicyMetricName("PercentAvailableGameSessions");
+        public static ContainerFleetScalingPolicyMetricName PercentIdleInstances { get; } = new ContainerFleetScalingPolicyMetricName("PercentIdleInstances");
+        public static ContainerFleetScalingPolicyMetricName QueueDepth { get; } = new ContainerFleetScalingPolicyMetricName("QueueDepth");
+        public static ContainerFleetScalingPolicyMetricName WaitTime { get; } = new ContainerFleetScalingPolicyMetricName("WaitTime");
+        public static ContainerFleetScalingPolicyMetricName ConcurrentActivatableGameSessions { get; } = new ContainerFleetScalingPolicyMetricName("ConcurrentActivatableGameSessions");
+
+        public static bool operator ==(ContainerFleetScalingPolicyMetricName left, ContainerFleetScalingPolicyMetricName right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetScalingPolicyMetricName left, ContainerFleetScalingPolicyMetricName right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetScalingPolicyMetricName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetScalingPolicyMetricName other && Equals(other);
+        public bool Equals(ContainerFleetScalingPolicyMetricName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetScalingPolicyPolicyType : IEquatable<ContainerFleetScalingPolicyPolicyType>
+    {
+        private readonly string _value;
+
+        private ContainerFleetScalingPolicyPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetScalingPolicyPolicyType RuleBased { get; } = new ContainerFleetScalingPolicyPolicyType("RuleBased");
+        public static ContainerFleetScalingPolicyPolicyType TargetBased { get; } = new ContainerFleetScalingPolicyPolicyType("TargetBased");
+
+        public static bool operator ==(ContainerFleetScalingPolicyPolicyType left, ContainerFleetScalingPolicyPolicyType right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetScalingPolicyPolicyType left, ContainerFleetScalingPolicyPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetScalingPolicyPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetScalingPolicyPolicyType other && Equals(other);
+        public bool Equals(ContainerFleetScalingPolicyPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of adjustment to make to a fleet's instance count.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetScalingPolicyScalingAdjustmentType : IEquatable<ContainerFleetScalingPolicyScalingAdjustmentType>
+    {
+        private readonly string _value;
+
+        private ContainerFleetScalingPolicyScalingAdjustmentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetScalingPolicyScalingAdjustmentType ChangeInCapacity { get; } = new ContainerFleetScalingPolicyScalingAdjustmentType("ChangeInCapacity");
+        public static ContainerFleetScalingPolicyScalingAdjustmentType ExactCapacity { get; } = new ContainerFleetScalingPolicyScalingAdjustmentType("ExactCapacity");
+        public static ContainerFleetScalingPolicyScalingAdjustmentType PercentChangeInCapacity { get; } = new ContainerFleetScalingPolicyScalingAdjustmentType("PercentChangeInCapacity");
+
+        public static bool operator ==(ContainerFleetScalingPolicyScalingAdjustmentType left, ContainerFleetScalingPolicyScalingAdjustmentType right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetScalingPolicyScalingAdjustmentType left, ContainerFleetScalingPolicyScalingAdjustmentType right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetScalingPolicyScalingAdjustmentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetScalingPolicyScalingAdjustmentType other && Equals(other);
+        public bool Equals(ContainerFleetScalingPolicyScalingAdjustmentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the container fleet.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerFleetStatus : IEquatable<ContainerFleetStatus>
+    {
+        private readonly string _value;
+
+        private ContainerFleetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetStatus Pending { get; } = new ContainerFleetStatus("PENDING");
+        public static ContainerFleetStatus Creating { get; } = new ContainerFleetStatus("CREATING");
+        public static ContainerFleetStatus Created { get; } = new ContainerFleetStatus("CREATED");
+        public static ContainerFleetStatus Activating { get; } = new ContainerFleetStatus("ACTIVATING");
+        public static ContainerFleetStatus Active { get; } = new ContainerFleetStatus("ACTIVE");
+        public static ContainerFleetStatus Updating { get; } = new ContainerFleetStatus("UPDATING");
+        public static ContainerFleetStatus Deleting { get; } = new ContainerFleetStatus("DELETING");
+
+        public static bool operator ==(ContainerFleetStatus left, ContainerFleetStatus right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetStatus left, ContainerFleetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetStatus other && Equals(other);
+        public bool Equals(ContainerFleetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ContainerFleetStoppedActionsItem : IEquatable<ContainerFleetStoppedActionsItem>
+    {
+        private readonly string _value;
+
+        private ContainerFleetStoppedActionsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerFleetStoppedActionsItem AutoScaling { get; } = new ContainerFleetStoppedActionsItem("AUTO_SCALING");
+
+        public static bool operator ==(ContainerFleetStoppedActionsItem left, ContainerFleetStoppedActionsItem right) => left.Equals(right);
+        public static bool operator !=(ContainerFleetStoppedActionsItem left, ContainerFleetStoppedActionsItem right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerFleetStoppedActionsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerFleetStoppedActionsItem other && Equals(other);
+        public bool Equals(ContainerFleetStoppedActionsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of dependency.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerGroupDefinitionContainerDependencyCondition : IEquatable<ContainerGroupDefinitionContainerDependencyCondition>
+    {
+        private readonly string _value;
+
+        private ContainerGroupDefinitionContainerDependencyCondition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerGroupDefinitionContainerDependencyCondition Start { get; } = new ContainerGroupDefinitionContainerDependencyCondition("START");
+        public static ContainerGroupDefinitionContainerDependencyCondition Complete { get; } = new ContainerGroupDefinitionContainerDependencyCondition("COMPLETE");
+        public static ContainerGroupDefinitionContainerDependencyCondition Success { get; } = new ContainerGroupDefinitionContainerDependencyCondition("SUCCESS");
+        public static ContainerGroupDefinitionContainerDependencyCondition Healthy { get; } = new ContainerGroupDefinitionContainerDependencyCondition("HEALTHY");
+
+        public static bool operator ==(ContainerGroupDefinitionContainerDependencyCondition left, ContainerGroupDefinitionContainerDependencyCondition right) => left.Equals(right);
+        public static bool operator !=(ContainerGroupDefinitionContainerDependencyCondition left, ContainerGroupDefinitionContainerDependencyCondition right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerGroupDefinitionContainerDependencyCondition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionContainerDependencyCondition other && Equals(other);
+        public bool Equals(ContainerGroupDefinitionContainerDependencyCondition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The scope of the container group
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerGroupDefinitionContainerGroupType : IEquatable<ContainerGroupDefinitionContainerGroupType>
+    {
+        private readonly string _value;
+
+        private ContainerGroupDefinitionContainerGroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerGroupDefinitionContainerGroupType GameServer { get; } = new ContainerGroupDefinitionContainerGroupType("GAME_SERVER");
+        public static ContainerGroupDefinitionContainerGroupType PerInstance { get; } = new ContainerGroupDefinitionContainerGroupType("PER_INSTANCE");
+
+        public static bool operator ==(ContainerGroupDefinitionContainerGroupType left, ContainerGroupDefinitionContainerGroupType right) => left.Equals(right);
+        public static bool operator !=(ContainerGroupDefinitionContainerGroupType left, ContainerGroupDefinitionContainerGroupType right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerGroupDefinitionContainerGroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionContainerGroupType other && Equals(other);
+        public bool Equals(ContainerGroupDefinitionContainerGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The access permissions for the mounted path.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerGroupDefinitionContainerMountPointAccessLevel : IEquatable<ContainerGroupDefinitionContainerMountPointAccessLevel>
+    {
+        private readonly string _value;
+
+        private ContainerGroupDefinitionContainerMountPointAccessLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerGroupDefinitionContainerMountPointAccessLevel ReadOnly { get; } = new ContainerGroupDefinitionContainerMountPointAccessLevel("READ_ONLY");
+        public static ContainerGroupDefinitionContainerMountPointAccessLevel ReadAndWrite { get; } = new ContainerGroupDefinitionContainerMountPointAccessLevel("READ_AND_WRITE");
+
+        public static bool operator ==(ContainerGroupDefinitionContainerMountPointAccessLevel left, ContainerGroupDefinitionContainerMountPointAccessLevel right) => left.Equals(right);
+        public static bool operator !=(ContainerGroupDefinitionContainerMountPointAccessLevel left, ContainerGroupDefinitionContainerMountPointAccessLevel right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerGroupDefinitionContainerMountPointAccessLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionContainerMountPointAccessLevel other && Equals(other);
+        public bool Equals(ContainerGroupDefinitionContainerMountPointAccessLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the protocol of these ports.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerGroupDefinitionContainerPortRangeProtocol : IEquatable<ContainerGroupDefinitionContainerPortRangeProtocol>
+    {
+        private readonly string _value;
+
+        private ContainerGroupDefinitionContainerPortRangeProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerGroupDefinitionContainerPortRangeProtocol Tcp { get; } = new ContainerGroupDefinitionContainerPortRangeProtocol("TCP");
+        public static ContainerGroupDefinitionContainerPortRangeProtocol Udp { get; } = new ContainerGroupDefinitionContainerPortRangeProtocol("UDP");
+
+        public static bool operator ==(ContainerGroupDefinitionContainerPortRangeProtocol left, ContainerGroupDefinitionContainerPortRangeProtocol right) => left.Equals(right);
+        public static bool operator !=(ContainerGroupDefinitionContainerPortRangeProtocol left, ContainerGroupDefinitionContainerPortRangeProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerGroupDefinitionContainerPortRangeProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerGroupDefinitionContainerPortRangeProtocol other && Equals(other);
+        public bool Equals(ContainerGroupDefinitionContainerPortRangeProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The operating system of the container group
     /// </summary>
     [EnumType]
@@ -170,8 +683,8 @@ namespace Pulumi.AwsNative.GameLift
     /// 
     /// Valid values include:
     /// 
-    /// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
-    /// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
+    /// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
+    /// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
     /// </summary>
     [EnumType]
     public readonly struct FleetCertificateConfigurationCertificateType : IEquatable<FleetCertificateConfigurationCertificateType>

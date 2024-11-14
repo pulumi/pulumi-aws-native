@@ -10,13 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Inputs
 {
 
+    /// <summary>
+    /// A list of origins (domain names) that CloudFront can use as the value for the ``Access-Control-Allow-Origin`` HTTP response header.
+    ///  For more information about the ``Access-Control-Allow-Origin`` HTTP response header, see [Access-Control-Allow-Origin](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin) in the MDN Web Docs.
+    /// </summary>
     public sealed class ResponseHeadersPolicyAccessControlAllowOriginsArgs : global::Pulumi.ResourceArgs
     {
         [Input("items", required: true)]
         private InputList<string>? _items;
 
         /// <summary>
-        /// The list of origins (domain names). You can specify `*` to allow all origins.
+        /// The list of origins (domain names). You can specify ``*`` to allow all origins.
         /// </summary>
         public InputList<string> Items
         {

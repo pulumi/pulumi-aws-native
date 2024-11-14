@@ -132,7 +132,7 @@ class ViewVersion(pulumi.CustomResource):
             __props__.__dict__["view_content_sha256"] = view_content_sha256
             __props__.__dict__["version"] = None
             __props__.__dict__["view_version_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["versionDescription", "viewArn", "viewContentSha256"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["viewArn", "viewContentSha256"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ViewVersion, __self__).__init__(
             'aws-native:connect:ViewVersion',

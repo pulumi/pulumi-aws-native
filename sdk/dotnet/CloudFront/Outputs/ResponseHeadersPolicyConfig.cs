@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFront.Outputs
 {
 
+    /// <summary>
+    /// A response headers policy configuration.
+    ///  A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
+    /// </summary>
     [OutputType]
     public sealed class ResponseHeadersPolicyConfig
     {
         /// <summary>
         /// A comment to describe the response headers policy.
-        /// 
-        /// The comment cannot be longer than 128 characters.
+        ///  The comment cannot be longer than 128 characters.
         /// </summary>
         public readonly string? Comment;
         /// <summary>
@@ -29,8 +32,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         public readonly Outputs.ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig;
         /// <summary>
         /// A name to identify the response headers policy.
-        /// 
-        /// The name must be unique for response headers policies in this AWS account .
+        ///  The name must be unique for response headers policies in this AWS-account.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -42,7 +44,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig;
         /// <summary>
-        /// A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
+        /// A configuration for enabling the ``Server-Timing`` header in HTTP responses sent from CloudFront.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicyServerTimingHeadersConfig? ServerTimingHeadersConfig;
 
