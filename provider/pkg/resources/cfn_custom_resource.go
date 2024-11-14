@@ -678,5 +678,10 @@ func sanitizeCustomResourceResponse(event *cfn.Event, response *cfn.Response) *c
 		response.PhysicalResourceID = event.RequestID
 	}
 
+	// ensure Data is not nil
+	if response.Data == nil {
+		response.Data = map[string]interface{}{}
+	}
+
 	return response
 }
