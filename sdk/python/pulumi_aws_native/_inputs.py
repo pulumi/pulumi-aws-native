@@ -22,6 +22,8 @@ __all__ = [
     'CreateOnlyTagArgsDict',
     'ProviderAssumeRoleArgs',
     'ProviderAssumeRoleArgsDict',
+    'ProviderAutoNamingArgs',
+    'ProviderAutoNamingArgsDict',
     'ProviderDefaultTagsArgs',
     'ProviderDefaultTagsArgsDict',
     'ProviderEndpointArgs',
@@ -338,6 +340,64 @@ class ProviderAssumeRoleArgs:
     @transitive_tag_keys.setter
     def transitive_tag_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "transitive_tag_keys", value)
+
+
+if not MYPY:
+    class ProviderAutoNamingArgsDict(TypedDict):
+        """
+        The configuration for automatically naming resources.
+        """
+        auto_trim: NotRequired[pulumi.Input[bool]]
+        """
+        Automatically trim the auto-generated name to meet the maximum length constraint.
+        """
+        random_suffix_min_length: NotRequired[pulumi.Input[int]]
+        """
+        The minimum length of the random suffix to append to the auto-generated name.
+        """
+elif False:
+    ProviderAutoNamingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProviderAutoNamingArgs:
+    def __init__(__self__, *,
+                 auto_trim: Optional[pulumi.Input[bool]] = None,
+                 random_suffix_min_length: Optional[pulumi.Input[int]] = None):
+        """
+        The configuration for automatically naming resources.
+        :param pulumi.Input[bool] auto_trim: Automatically trim the auto-generated name to meet the maximum length constraint.
+        :param pulumi.Input[int] random_suffix_min_length: The minimum length of the random suffix to append to the auto-generated name.
+        """
+        if auto_trim is not None:
+            pulumi.set(__self__, "auto_trim", auto_trim)
+        if random_suffix_min_length is None:
+            random_suffix_min_length = 1
+        if random_suffix_min_length is not None:
+            pulumi.set(__self__, "random_suffix_min_length", random_suffix_min_length)
+
+    @property
+    @pulumi.getter(name="autoTrim")
+    def auto_trim(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Automatically trim the auto-generated name to meet the maximum length constraint.
+        """
+        return pulumi.get(self, "auto_trim")
+
+    @auto_trim.setter
+    def auto_trim(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_trim", value)
+
+    @property
+    @pulumi.getter(name="randomSuffixMinLength")
+    def random_suffix_min_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum length of the random suffix to append to the auto-generated name.
+        """
+        return pulumi.get(self, "random_suffix_min_length")
+
+    @random_suffix_min_length.setter
+    def random_suffix_min_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "random_suffix_min_length", value)
 
 
 if not MYPY:

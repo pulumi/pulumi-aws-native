@@ -102,6 +102,12 @@ namespace Pulumi.AwsNative
         public Input<Inputs.ProviderAssumeRoleArgs>? AssumeRole { get; set; }
 
         /// <summary>
+        /// The configuration for automatically naming resources.
+        /// </summary>
+        [Input("autoNaming", json: true)]
+        public Input<Inputs.ProviderAutoNamingArgs>? AutoNaming { get; set; }
+
+        /// <summary>
         /// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
         /// </summary>
         [Input("defaultTags", json: true)]

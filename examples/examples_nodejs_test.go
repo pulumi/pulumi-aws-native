@@ -157,6 +157,24 @@ func TestAutoNamingOverlay(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAutoNamingOverlayWithConfig(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "autonaming-overlay"),
+			Config: map[string]string{
+				"aws-native:autoNaming": `{"autoTrim": true, "randomSuffixMinLength": 7}`,
+				"roleName":              "myReallyLongRoleNameThatIsLongerThan64CharactersOneTwoThreeFour",
+			},
+			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
+				roleName := stackInfo.Outputs["roleName"].(string)
+				assert.Equal(t, 64, len(roleName))
+				assert.Regexp(t, "myReallyLongRoleNameThatIsLon64CharactersOneTwoThreeFour-[a-z0-9]{7}", roleName)
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestParallelTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{

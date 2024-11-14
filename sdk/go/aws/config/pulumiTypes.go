@@ -29,6 +29,27 @@ type AssumeRole struct {
 	TransitiveTagKeys []string `pulumi:"transitiveTagKeys"`
 }
 
+// The configuration for automatically naming resources.
+type AutoNaming struct {
+	// Automatically trim the auto-generated name to meet the maximum length constraint.
+	AutoTrim *bool `pulumi:"autoTrim"`
+	// The minimum length of the random suffix to append to the auto-generated name.
+	RandomSuffixMinLength *int `pulumi:"randomSuffixMinLength"`
+}
+
+// Defaults sets the appropriate defaults for AutoNaming
+func (val *AutoNaming) Defaults() *AutoNaming {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.RandomSuffixMinLength == nil {
+		randomSuffixMinLength_ := 1
+		tmp.RandomSuffixMinLength = &randomSuffixMinLength_
+	}
+	return &tmp
+}
+
 // The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
 type DefaultTags struct {
 	// A group of tags to set across all resources.

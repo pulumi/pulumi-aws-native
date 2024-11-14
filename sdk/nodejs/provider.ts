@@ -61,6 +61,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["accessKey"] = args?.accessKey ? pulumi.secret(args.accessKey) : undefined;
             resourceInputs["allowedAccountIds"] = pulumi.output(args ? args.allowedAccountIds : undefined).apply(JSON.stringify);
             resourceInputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
+            resourceInputs["autoNaming"] = pulumi.output(args ? (args.autoNaming ? pulumi.output(args.autoNaming).apply(inputs.providerAutoNamingArgsProvideDefaults) : undefined) : undefined).apply(JSON.stringify);
             resourceInputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             resourceInputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
             resourceInputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
@@ -101,6 +102,10 @@ export interface ProviderArgs {
      * Configuration for retrieving temporary credentials from the STS service.
      */
     assumeRole?: pulumi.Input<inputs.ProviderAssumeRoleArgs>;
+    /**
+     * The configuration for automatically naming resources.
+     */
+    autoNaming?: pulumi.Input<inputs.ProviderAutoNamingArgs>;
     /**
      * Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
      */

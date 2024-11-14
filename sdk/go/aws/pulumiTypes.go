@@ -573,6 +573,189 @@ func (o ProviderAssumeRolePtrOutput) TransitiveTagKeys() pulumi.StringArrayOutpu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration for automatically naming resources.
+type ProviderAutoNaming struct {
+	// Automatically trim the auto-generated name to meet the maximum length constraint.
+	AutoTrim *bool `pulumi:"autoTrim"`
+	// The minimum length of the random suffix to append to the auto-generated name.
+	RandomSuffixMinLength *int `pulumi:"randomSuffixMinLength"`
+}
+
+// Defaults sets the appropriate defaults for ProviderAutoNaming
+func (val *ProviderAutoNaming) Defaults() *ProviderAutoNaming {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.RandomSuffixMinLength == nil {
+		randomSuffixMinLength_ := 1
+		tmp.RandomSuffixMinLength = &randomSuffixMinLength_
+	}
+	return &tmp
+}
+
+// ProviderAutoNamingInput is an input type that accepts ProviderAutoNamingArgs and ProviderAutoNamingOutput values.
+// You can construct a concrete instance of `ProviderAutoNamingInput` via:
+//
+//	ProviderAutoNamingArgs{...}
+type ProviderAutoNamingInput interface {
+	pulumi.Input
+
+	ToProviderAutoNamingOutput() ProviderAutoNamingOutput
+	ToProviderAutoNamingOutputWithContext(context.Context) ProviderAutoNamingOutput
+}
+
+// The configuration for automatically naming resources.
+type ProviderAutoNamingArgs struct {
+	// Automatically trim the auto-generated name to meet the maximum length constraint.
+	AutoTrim pulumi.BoolPtrInput `pulumi:"autoTrim"`
+	// The minimum length of the random suffix to append to the auto-generated name.
+	RandomSuffixMinLength pulumi.IntPtrInput `pulumi:"randomSuffixMinLength"`
+}
+
+// Defaults sets the appropriate defaults for ProviderAutoNamingArgs
+func (val *ProviderAutoNamingArgs) Defaults() *ProviderAutoNamingArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if tmp.RandomSuffixMinLength == nil {
+		tmp.RandomSuffixMinLength = pulumi.IntPtr(1)
+	}
+	return &tmp
+}
+func (ProviderAutoNamingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderAutoNaming)(nil)).Elem()
+}
+
+func (i ProviderAutoNamingArgs) ToProviderAutoNamingOutput() ProviderAutoNamingOutput {
+	return i.ToProviderAutoNamingOutputWithContext(context.Background())
+}
+
+func (i ProviderAutoNamingArgs) ToProviderAutoNamingOutputWithContext(ctx context.Context) ProviderAutoNamingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAutoNamingOutput)
+}
+
+func (i ProviderAutoNamingArgs) ToProviderAutoNamingPtrOutput() ProviderAutoNamingPtrOutput {
+	return i.ToProviderAutoNamingPtrOutputWithContext(context.Background())
+}
+
+func (i ProviderAutoNamingArgs) ToProviderAutoNamingPtrOutputWithContext(ctx context.Context) ProviderAutoNamingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAutoNamingOutput).ToProviderAutoNamingPtrOutputWithContext(ctx)
+}
+
+// ProviderAutoNamingPtrInput is an input type that accepts ProviderAutoNamingArgs, ProviderAutoNamingPtr and ProviderAutoNamingPtrOutput values.
+// You can construct a concrete instance of `ProviderAutoNamingPtrInput` via:
+//
+//	        ProviderAutoNamingArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProviderAutoNamingPtrInput interface {
+	pulumi.Input
+
+	ToProviderAutoNamingPtrOutput() ProviderAutoNamingPtrOutput
+	ToProviderAutoNamingPtrOutputWithContext(context.Context) ProviderAutoNamingPtrOutput
+}
+
+type providerAutoNamingPtrType ProviderAutoNamingArgs
+
+func ProviderAutoNamingPtr(v *ProviderAutoNamingArgs) ProviderAutoNamingPtrInput {
+	return (*providerAutoNamingPtrType)(v)
+}
+
+func (*providerAutoNamingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderAutoNaming)(nil)).Elem()
+}
+
+func (i *providerAutoNamingPtrType) ToProviderAutoNamingPtrOutput() ProviderAutoNamingPtrOutput {
+	return i.ToProviderAutoNamingPtrOutputWithContext(context.Background())
+}
+
+func (i *providerAutoNamingPtrType) ToProviderAutoNamingPtrOutputWithContext(ctx context.Context) ProviderAutoNamingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProviderAutoNamingPtrOutput)
+}
+
+// The configuration for automatically naming resources.
+type ProviderAutoNamingOutput struct{ *pulumi.OutputState }
+
+func (ProviderAutoNamingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProviderAutoNaming)(nil)).Elem()
+}
+
+func (o ProviderAutoNamingOutput) ToProviderAutoNamingOutput() ProviderAutoNamingOutput {
+	return o
+}
+
+func (o ProviderAutoNamingOutput) ToProviderAutoNamingOutputWithContext(ctx context.Context) ProviderAutoNamingOutput {
+	return o
+}
+
+func (o ProviderAutoNamingOutput) ToProviderAutoNamingPtrOutput() ProviderAutoNamingPtrOutput {
+	return o.ToProviderAutoNamingPtrOutputWithContext(context.Background())
+}
+
+func (o ProviderAutoNamingOutput) ToProviderAutoNamingPtrOutputWithContext(ctx context.Context) ProviderAutoNamingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProviderAutoNaming) *ProviderAutoNaming {
+		return &v
+	}).(ProviderAutoNamingPtrOutput)
+}
+
+// Automatically trim the auto-generated name to meet the maximum length constraint.
+func (o ProviderAutoNamingOutput) AutoTrim() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderAutoNaming) *bool { return v.AutoTrim }).(pulumi.BoolPtrOutput)
+}
+
+// The minimum length of the random suffix to append to the auto-generated name.
+func (o ProviderAutoNamingOutput) RandomSuffixMinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProviderAutoNaming) *int { return v.RandomSuffixMinLength }).(pulumi.IntPtrOutput)
+}
+
+type ProviderAutoNamingPtrOutput struct{ *pulumi.OutputState }
+
+func (ProviderAutoNamingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProviderAutoNaming)(nil)).Elem()
+}
+
+func (o ProviderAutoNamingPtrOutput) ToProviderAutoNamingPtrOutput() ProviderAutoNamingPtrOutput {
+	return o
+}
+
+func (o ProviderAutoNamingPtrOutput) ToProviderAutoNamingPtrOutputWithContext(ctx context.Context) ProviderAutoNamingPtrOutput {
+	return o
+}
+
+func (o ProviderAutoNamingPtrOutput) Elem() ProviderAutoNamingOutput {
+	return o.ApplyT(func(v *ProviderAutoNaming) ProviderAutoNaming {
+		if v != nil {
+			return *v
+		}
+		var ret ProviderAutoNaming
+		return ret
+	}).(ProviderAutoNamingOutput)
+}
+
+// Automatically trim the auto-generated name to meet the maximum length constraint.
+func (o ProviderAutoNamingPtrOutput) AutoTrim() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderAutoNaming) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoTrim
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The minimum length of the random suffix to append to the auto-generated name.
+func (o ProviderAutoNamingPtrOutput) RandomSuffixMinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProviderAutoNaming) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RandomSuffixMinLength
+	}).(pulumi.IntPtrOutput)
+}
+
 // The configuration with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
 type ProviderDefaultTags struct {
 	// A group of tags to set across all resources.
@@ -1124,6 +1307,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CreateOnlyTagArrayInput)(nil)).Elem(), CreateOnlyTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRoleInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAssumeRolePtrInput)(nil)).Elem(), ProviderAssumeRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAutoNamingInput)(nil)).Elem(), ProviderAutoNamingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProviderAutoNamingPtrInput)(nil)).Elem(), ProviderAutoNamingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderDefaultTagsPtrInput)(nil)).Elem(), ProviderDefaultTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderEndpointInput)(nil)).Elem(), ProviderEndpointArgs{})
@@ -1138,6 +1323,8 @@ func init() {
 	pulumi.RegisterOutputType(CreateOnlyTagArrayOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRoleOutput{})
 	pulumi.RegisterOutputType(ProviderAssumeRolePtrOutput{})
+	pulumi.RegisterOutputType(ProviderAutoNamingOutput{})
+	pulumi.RegisterOutputType(ProviderAutoNamingPtrOutput{})
 	pulumi.RegisterOutputType(ProviderDefaultTagsOutput{})
 	pulumi.RegisterOutputType(ProviderDefaultTagsPtrOutput{})
 	pulumi.RegisterOutputType(ProviderEndpointOutput{})

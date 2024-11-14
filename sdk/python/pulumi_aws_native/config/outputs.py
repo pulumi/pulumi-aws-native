@@ -16,6 +16,7 @@ from .. import _utilities
 
 __all__ = [
     'AssumeRole',
+    'AutoNaming',
     'DefaultTags',
     'Endpoints',
     'IgnoreTags',
@@ -126,6 +127,43 @@ class AssumeRole(dict):
         A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
         """
         return pulumi.get(self, "transitive_tag_keys")
+
+
+@pulumi.output_type
+class AutoNaming(dict):
+    """
+    The configuration for automatically naming resources.
+    """
+    def __init__(__self__, *,
+                 auto_trim: Optional[bool] = None,
+                 random_suffix_min_length: Optional[int] = None):
+        """
+        The configuration for automatically naming resources.
+        :param bool auto_trim: Automatically trim the auto-generated name to meet the maximum length constraint.
+        :param int random_suffix_min_length: The minimum length of the random suffix to append to the auto-generated name.
+        """
+        if auto_trim is not None:
+            pulumi.set(__self__, "auto_trim", auto_trim)
+        if random_suffix_min_length is None:
+            random_suffix_min_length = 1
+        if random_suffix_min_length is not None:
+            pulumi.set(__self__, "random_suffix_min_length", random_suffix_min_length)
+
+    @property
+    @pulumi.getter(name="autoTrim")
+    def auto_trim(self) -> Optional[bool]:
+        """
+        Automatically trim the auto-generated name to meet the maximum length constraint.
+        """
+        return pulumi.get(self, "auto_trim")
+
+    @property
+    @pulumi.getter(name="randomSuffixMinLength")
+    def random_suffix_min_length(self) -> Optional[int]:
+        """
+        The minimum length of the random suffix to append to the auto-generated name.
+        """
+        return pulumi.get(self, "random_suffix_min_length")
 
 
 @pulumi.output_type
