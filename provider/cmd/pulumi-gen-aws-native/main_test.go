@@ -82,7 +82,7 @@ func Test_mergeAutoNaming(t *testing.T) {
 		}, schema.Properties["RoleName"])
 	})
 
-	t.Run("overlay does not overwrites", func(t *testing.T) {
+	t.Run("overlay does not overwrite", func(t *testing.T) {
 		schema := &jsschema.Schema{
 			Extras: map[string]interface{}{
 				"typeName": "AWS::IAM::Role",
