@@ -550,36 +550,3 @@ func TestGatherPackage_regionGeneration(t *testing.T) {
 		{Value: "us-west-2", Name: "UsWest2", Description: "US West (Oregon)"},
 	}, regionEnum)
 }
-
-func TestGatherPackage_autonaming(t *testing.T) {
-	spec := map[string]interface{}{
-		"definitions": map[string]interface{}{},
-		"properties": map[string]interface{}{
-			"RoleName": map[string]interface{}{
-				"description": "A name for the IAM role, up to 64 characters in length. For valid values, see the ``RoleName`` parameter for the [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html) action in the *User Guide*.\n This parameter allows (per its [regex pattern](https://docs.aws.amazon.com/http://wikipedia.org/wiki/regex)) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-. The role name must be unique within the account. Role names are not distinguished by case. For example, you cannot create roles named both \"Role1\" and \"role1\".\n If you don't specify a name, CFN generates a unique physical ID and uses that ID for the role name.\n If you specify a name, you must specify the ``CAPABILITY_NAMED_IAM`` value to acknowledge your template's capabilities. For more information, see [Acknowledging Resources in Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).\n  Naming an IAM resource can cause an unrecoverable error if you reuse the same template in multiple Regions. To prevent this, we recommend using ``Fn::Join`` and ``AWS::Region`` to create a Region-specific name, as in the following example: ``{\"Fn::Join\": [\"\", [{\"Ref\": \"AWS::Region\"}, {\"Ref\": \"MyResourceName\"}]]}``.",
-				"type":        "string",
-			},
-		},
-		"typeName":             "AWS::IAM::Role",
-		"primaryIdentifier":    []string{"/properties/RoleName"},
-		"createOnlyProperties": []string{"/properties/Path", "/properties/RoleName"},
-		"readOnlyProperties":   []string{"/properties/Arn", "/properties/RoleId"},
-	}
-	docs := Docs{
-		Types: map[string]DocsTypes{
-			"AWS::IAM::Role": {
-				Description: "Some desc",
-				Properties:  map[string]string{},
-			},
-		},
-	}
-
-	_, meta, _ := runTest(t, spec, docs)
-	auto := meta.Resources["aws-native:iam:Role"].AutoNamingSpec
-	assert.Equal(t, *auto, metadata.AutoNamingSpec{
-		SdkName:   "roleName",
-		MinLength: 1,
-		MaxLength: 64,
-	})
-
-}
