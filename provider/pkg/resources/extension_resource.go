@@ -64,7 +64,7 @@ func (r *extensionResource) Check(ctx context.Context, urn resource.URN, randomS
 			SdkName:   typedInputs.AutoNaming.PropertyName,
 			MinLength: typedInputs.AutoNaming.MinLength,
 			MaxLength: typedInputs.AutoNaming.MaxLength,
-		}, urn, randomSeed, state, inputs); err != nil {
+		}, urn, randomSeed, state, inputs, nil); err != nil {
 			return nil, nil, fmt.Errorf("failed to apply auto-naming: %w", err)
 		}
 	}

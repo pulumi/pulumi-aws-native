@@ -139,6 +139,24 @@ var ignoreTags = pschema.ComplexTypeSpec{
 	},
 }
 
+var autoName = pschema.ComplexTypeSpec{
+	ObjectTypeSpec: pschema.ObjectTypeSpec{
+		Description: "The configuration for automatically naming resources.",
+		Properties: map[string]pschema.PropertySpec{
+			"autoTrim": {
+				Description: "Automatically trim the auto-generated name to meet the maximum length constraint.",
+				TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+			},
+			"randomSuffixMinLength": {
+				Description: "The minimum length of the random suffix to append to the auto-generated name.",
+				Default:     1,
+				TypeSpec:    pschema.TypeSpec{Type: "integer"},
+			},
+		},
+		Type: "object",
+	},
+}
+
 func generateRegionEnum(regions []RegionInfo) pschema.ComplexTypeSpec {
 	enums := make([]pschema.EnumValueSpec, len(regions))
 	for i, region := range regions {
@@ -178,4 +196,6 @@ var typeOverlays = map[string]pschema.ComplexTypeSpec{
 	"aws-native:index:ProviderEndpoint":    configToProvider(endpoints),
 	"aws-native:config:IgnoreTags":         ignoreTags,
 	"aws-native:index:ProviderIgnoreTags":  configToProvider(ignoreTags),
+	"aws-native:config:AutoNaming":         autoName,
+	"aws-native:index:ProviderAutoNaming":  configToProvider(autoName),
 }

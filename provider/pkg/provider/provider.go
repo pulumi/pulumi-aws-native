@@ -107,6 +107,7 @@ type cfnProvider struct {
 	partition           partition
 	resourceMap         *metadata.CloudAPIMetadata
 	roleArn             *string
+	autoNamingConfig    *autonaming.AutoNamingConfig
 	allowedAccountIds   []string
 	forbiddenAccountIds []string
 	defaultTags         map[string]string
@@ -519,6 +520,14 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 		metadata.CfnCustomResourceToken: resources.NewCfnCustomResource(p.name, s3Client, lambdaClient),
 	}
 
+	if autoNaming, ok := vars["aws-native:config:autoNaming"]; ok {
+		var autoNamingConfig autonaming.AutoNamingConfig
+		if err := json.Unmarshal([]byte(autoNaming), &autoNamingConfig); err != nil {
+			return nil, fmt.Errorf("failed to unmarshal 'autoNaming' config: %w", err)
+		}
+		p.autoNamingConfig = &autoNamingConfig
+	}
+
 	p.configured = true
 
 	return &pulumirpc.ConfigureResponse{
@@ -743,7 +752,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 			return nil, errors.Errorf("resource type %s not found", resourceToken)
 		}
 
-		if err := autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, req.RandomSeed, olds, newInputs); err != nil {
+		if err := autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, req.RandomSeed, olds, newInputs, p.autoNamingConfig); err != nil {
 			return nil, fmt.Errorf("failed to apply auto-naming: %w", err)
 		}
 
