@@ -89,7 +89,7 @@ func getDefaultName(
 
 	maxLength := 0
 	if autoNamingSpec.MaxLength > 0 {
-		left := autoNamingSpec.MaxLength - len(prefix) - namingTrivia.Length() - randomSuffixMinLength
+		left := autoNamingSpec.MaxLength - len(prefix) - namingTrivia.Length()
 
 		if left <= 0 && autoTrim {
 			autoTrimMaxLength := autoNamingSpec.MaxLength - namingTrivia.Length() - randomSuffixMinLength
