@@ -6987,7 +6987,8 @@
         "description": "The experiment options for an experiment template."
       },
       "experimentReportConfiguration": {
-        "$ref": "#/types/aws-native:fis:ExperimentTemplateExperimentReportConfiguration"
+        "$ref": "#/types/aws-native:fis:ExperimentTemplateExperimentReportConfiguration",
+        "description": "Describes the report configuration for the experiment template."
       },
       "logConfiguration": {
         "$ref": "#/types/aws-native:fis:ExperimentTemplateLogConfiguration",
@@ -8502,7 +8503,7 @@
       },
       "principal": {
         "type": "string",
-        "description": "The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service."
+        "description": "The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service."
       },
       "principalOrgId": {
         "type": "string",
@@ -12962,6 +12963,9 @@
       "resourceIdentifier": {
         "type": "string",
         "description": "The ID or Amazon Resource Name (ARN) of the service network or service."
+      },
+      "serviceNetworkLogType": {
+        "$ref": "#/types/aws-native:vpclattice:AccessLogSubscriptionServiceNetworkLogType"
       },
       "tags": {
         "type": "array",
