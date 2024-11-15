@@ -148,6 +148,9 @@ func TestAutoNamingOverlay(t *testing.T) {
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "autonaming-overlay"),
 			Stderr:        &buf,
+			Config: map[string]string{
+				"roleName":              "myReallyLongRoleNameThatIsLongerThan64CharactersOneTwoThreeFour",
+			},
 			ExpectFailure: true,
 			ExtraRuntimeValidation: func(t *testing.T, stackInfo integration.RuntimeValidationStackInfo) {
 				assert.Contains(t, buf.String(), "is too large to fix max length constraint of 64")
