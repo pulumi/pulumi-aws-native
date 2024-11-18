@@ -177,6 +177,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Secret:      true,
 				},
+				"autoNaming": {
+					Description: "The configuration for automatically naming resources.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:config:AutoNaming"},
+				},
 			},
 			Required: []string{
 				"region",
@@ -260,6 +264,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 					"skipRequestingAccountId": {
 						Description: "Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.",
 						TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					},
+					"autoNaming": {
+						Description: "The configuration for automatically naming resources.",
+						TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderAutoNaming"},
 					},
 				},
 			},
@@ -373,6 +381,10 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 					Description: "Session token for validating temporary credentials. Typically provided after successful identity federation or Multi-Factor Authentication (MFA) login. With MFA login, this is the session token provided afterward, not the 6 digit MFA code used to get temporary credentials.",
 					Secret:      true,
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
+				},
+				"autoNaming": {
+					Description: "The configuration for automatically naming resources.",
+					TypeSpec:    pschema.TypeSpec{Ref: "#/types/aws-native:index:ProviderAutoNaming"},
 				},
 			},
 			RequiredInputs: []string{

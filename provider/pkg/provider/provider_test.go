@@ -5,6 +5,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
@@ -18,6 +19,88 @@ import (
 	gomock "go.uber.org/mock/gomock"
 	"google.golang.org/protobuf/types/known/structpb"
 )
+
+func TestConfigure(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	mockCustomResource := resources.NewMockCustomResource(ctrl)
+
+	ctx, cancel := context.WithCancel(context.Background())
+	provider := &cfnProvider{
+		name:            "test-provider",
+		resourceMap:     &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{}},
+		customResources: map[string]resources.CustomResource{"custom:resource": mockCustomResource},
+		ccc:             mockCCC,
+		canceler: &cancellationContext{
+			context: ctx,
+			cancel:  cancel,
+		},
+	}
+
+	t.Run("No AutoNaming Config", func(t *testing.T) {
+		req := &pulumirpc.ConfigureRequest{
+			Variables: map[string]string{
+				"aws-native:config:skipCredentialsValidation": "true",
+				"aws-native:config:region":                    "us-west-2",
+			},
+		}
+
+		_, err := provider.Configure(ctx, req)
+		assert.NoError(t, err)
+
+		assert.Nil(t, provider.autoNamingConfig)
+	})
+
+	t.Run("AutoNaming config", func(t *testing.T) {
+		req := &pulumirpc.ConfigureRequest{
+			Variables: map[string]string{
+				"aws-native:config:skipCredentialsValidation": "true",
+				"aws-native:config:autoNaming":                "{\"autoTrim\": true, \"randomSuffixMinLength\": 5}",
+				"aws-native:config:region":                    "us-west-2",
+			},
+		}
+
+		_, err := provider.Configure(ctx, req)
+		assert.NoError(t, err)
+
+		assert.NotNil(t, provider.autoNamingConfig)
+		assert.Equal(t, autonaming.AutoNamingConfig{
+			AutoTrim:              true,
+			RandomSuffixMinLength: 5,
+		}, *provider.autoNamingConfig)
+	})
+
+	t.Run("AutoNaming empty", func(t *testing.T) {
+		req := &pulumirpc.ConfigureRequest{
+			Variables: map[string]string{
+				"aws-native:config:skipCredentialsValidation": "true",
+				"aws-native:config:autoNaming":                "{}",
+				"aws-native:config:region":                    "us-west-2",
+			},
+		}
+
+		_, err := provider.Configure(ctx, req)
+		assert.NoError(t, err)
+
+		assert.NotNil(t, provider.autoNamingConfig)
+		assert.Equal(t, autonaming.AutoNamingConfig{}, *provider.autoNamingConfig)
+	})
+
+	t.Run("AutoNaming config invalid", func(t *testing.T) {
+		req := &pulumirpc.ConfigureRequest{
+			Variables: map[string]string{
+				"aws-native:config:skipCredentialsValidation": "true",
+				"aws-native:config:autoNaming":                "autoTrim: true",
+				"aws-native:config:region":                    "us-west-2",
+			},
+		}
+
+		_, err := provider.Configure(ctx, req)
+		assert.ErrorContains(t, err, "failed to unmarshal 'autoNaming' config")
+	})
+}
 
 func TestCreate(t *testing.T) {
 	ctrl := gomock.NewController(t)

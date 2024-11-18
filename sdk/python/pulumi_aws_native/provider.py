@@ -24,6 +24,7 @@ class ProviderArgs:
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
+                 auto_naming: Optional[pulumi.Input['ProviderAutoNamingArgs']] = None,
                  default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -47,6 +48,7 @@ class ProviderArgs:
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         :param pulumi.Input['ProviderAssumeRoleArgs'] assume_role: Configuration for retrieving temporary credentials from the STS service.
+        :param pulumi.Input['ProviderAutoNamingArgs'] auto_naming: The configuration for automatically naming resources.
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
         :param pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]] endpoints: Configuration block for customizing service endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] forbidden_account_ids: List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
@@ -74,6 +76,8 @@ class ProviderArgs:
             pulumi.set(__self__, "allowed_account_ids", allowed_account_ids)
         if assume_role is not None:
             pulumi.set(__self__, "assume_role", assume_role)
+        if auto_naming is not None:
+            pulumi.set(__self__, "auto_naming", auto_naming)
         if default_tags is not None:
             pulumi.set(__self__, "default_tags", default_tags)
         if endpoints is not None:
@@ -168,6 +172,18 @@ class ProviderArgs:
     @assume_role.setter
     def assume_role(self, value: Optional[pulumi.Input['ProviderAssumeRoleArgs']]):
         pulumi.set(self, "assume_role", value)
+
+    @property
+    @pulumi.getter(name="autoNaming")
+    def auto_naming(self) -> Optional[pulumi.Input['ProviderAutoNamingArgs']]:
+        """
+        The configuration for automatically naming resources.
+        """
+        return pulumi.get(self, "auto_naming")
+
+    @auto_naming.setter
+    def auto_naming(self, value: Optional[pulumi.Input['ProviderAutoNamingArgs']]):
+        pulumi.set(self, "auto_naming", value)
 
     @property
     @pulumi.getter(name="defaultTags")
@@ -382,6 +398,7 @@ class Provider(pulumi.ProviderResource):
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
+                 auto_naming: Optional[pulumi.Input[Union['ProviderAutoNamingArgs', 'ProviderAutoNamingArgsDict']]] = None,
                  default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -409,6 +426,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the ‘Security & Credentials’ section of the AWS console.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_account_ids: List of allowed AWS account IDs to prevent you from mistakenly using an incorrect one. Conflicts with `forbiddenAccountIds`.
         :param pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']] assume_role: Configuration for retrieving temporary credentials from the STS service.
+        :param pulumi.Input[Union['ProviderAutoNamingArgs', 'ProviderAutoNamingArgsDict']] auto_naming: The configuration for automatically naming resources.
         :param pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']] default_tags: Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]] endpoints: Configuration block for customizing service endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] forbidden_account_ids: List of forbidden AWS account IDs to prevent you from mistakenly using the wrong one (and potentially end up destroying a live environment). Conflicts with `allowedAccountIds`.
@@ -455,6 +473,7 @@ class Provider(pulumi.ProviderResource):
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[Union['ProviderAssumeRoleArgs', 'ProviderAssumeRoleArgsDict']]] = None,
+                 auto_naming: Optional[pulumi.Input[Union['ProviderAutoNamingArgs', 'ProviderAutoNamingArgsDict']]] = None,
                  default_tags: Optional[pulumi.Input[Union['ProviderDefaultTagsArgs', 'ProviderDefaultTagsArgsDict']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProviderEndpointArgs', 'ProviderEndpointArgsDict']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -485,6 +504,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["access_key"] = None if access_key is None else pulumi.Output.secret(access_key)
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
+            __props__.__dict__["auto_naming"] = pulumi.Output.from_input(auto_naming).apply(pulumi.runtime.to_json) if auto_naming is not None else None
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
             __props__.__dict__["forbidden_account_ids"] = pulumi.Output.from_input(forbidden_account_ids).apply(pulumi.runtime.to_json) if forbidden_account_ids is not None else None

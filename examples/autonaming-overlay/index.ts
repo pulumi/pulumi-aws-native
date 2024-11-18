@@ -1,6 +1,9 @@
+import * as pulumi from '@pulumi/pulumi';
 import * as aws from "@pulumi/aws-native";
 
-new aws.iam.Role("myRole".repeat(11), {
+const config = new pulumi.Config();
+const name = config.require('roleName');
+const role = new aws.iam.Role(name, {
   assumeRolePolicyDocument: {
     Version: "2012-10-17",
     Statement: [
@@ -14,3 +17,5 @@ new aws.iam.Role("myRole".repeat(11), {
     ],
   },
 });
+
+export const roleName = role.roleName;

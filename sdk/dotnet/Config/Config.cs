@@ -62,6 +62,16 @@ namespace Pulumi.AwsNative
             set => _assumeRole.Set(value);
         }
 
+        private static readonly __Value<Pulumi.AwsNative.Config.Types.AutoNaming?> _autoNaming = new __Value<Pulumi.AwsNative.Config.Types.AutoNaming?>(() => __config.GetObject<Pulumi.AwsNative.Config.Types.AutoNaming>("autoNaming"));
+        /// <summary>
+        /// The configuration for automatically naming resources.
+        /// </summary>
+        public static Pulumi.AwsNative.Config.Types.AutoNaming? AutoNaming
+        {
+            get => _autoNaming.Get();
+            set => _autoNaming.Set(value);
+        }
+
         private static readonly __Value<Pulumi.AwsNative.Config.Types.DefaultTags?> _defaultTags = new __Value<Pulumi.AwsNative.Config.Types.DefaultTags?>(() => __config.GetObject<Pulumi.AwsNative.Config.Types.DefaultTags>("defaultTags"));
         /// <summary>
         /// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
@@ -279,6 +289,18 @@ namespace Pulumi.AwsNative
             /// A list of keys for session tags that you want to set as transitive. If you set a tag key as transitive, the corresponding key and value passes to subsequent sessions in a role chain.
             /// </summary>
                 public ImmutableArray<string> TransitiveTagKeys { get; set; }
+            }
+
+             public class AutoNaming
+             {
+            /// <summary>
+            /// Automatically trim the auto-generated name to meet the maximum length constraint.
+            /// </summary>
+                public bool? AutoTrim { get; set; }
+            /// <summary>
+            /// The minimum length of the random suffix to append to the auto-generated name.
+            /// </summary>
+                public int? RandomSuffixMinLength { get; set; }
             }
 
              public class DefaultTags

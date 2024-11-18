@@ -33,6 +33,9 @@ func NewProvider(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AutoNaming != nil {
+		args.AutoNaming = args.AutoNaming.ToProviderAutoNamingPtrOutput().ApplyT(func(v *ProviderAutoNaming) *ProviderAutoNaming { return v.Defaults() }).(ProviderAutoNamingPtrOutput)
+	}
 	if args.Profile == nil {
 		if d := internal.GetEnvOrDefault(nil, nil, "AWS_PROFILE"); d != nil {
 			args.Profile = pulumi.StringPtr(d.(string))
@@ -85,6 +88,8 @@ type providerArgs struct {
 	AllowedAccountIds []string `pulumi:"allowedAccountIds"`
 	// Configuration for retrieving temporary credentials from the STS service.
 	AssumeRole *ProviderAssumeRole `pulumi:"assumeRole"`
+	// The configuration for automatically naming resources.
+	AutoNaming *ProviderAutoNaming `pulumi:"autoNaming"`
 	// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
 	DefaultTags *ProviderDefaultTags `pulumi:"defaultTags"`
 	// Configuration block for customizing service endpoints.
@@ -131,6 +136,8 @@ type ProviderArgs struct {
 	AllowedAccountIds pulumi.StringArrayInput
 	// Configuration for retrieving temporary credentials from the STS service.
 	AssumeRole ProviderAssumeRolePtrInput
+	// The configuration for automatically naming resources.
+	AutoNaming ProviderAutoNamingPtrInput
 	// Configuration block with resource tag settings to apply across all resources handled by this provider. This is designed to replace redundant per-resource `tags` configurations. Provider tags can be overridden with new values, but not excluded from specific resources. To override provider tag values, use the `tags` argument within a resource to configure new tag values for matching keys.
 	DefaultTags ProviderDefaultTagsPtrInput
 	// Configuration block for customizing service endpoints.
