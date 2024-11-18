@@ -189,6 +189,9 @@
         },
         "OnStartDeepHealthChecks" : {
           "$ref" : "#/definitions/OnStartDeepHealthChecks"
+        },
+        "OverrideVpcConfig" : {
+          "$ref" : "#/definitions/VpcConfig"
         }
       },
       "required" : [ "ExecutionRole", "InstanceCount", "InstanceGroupName", "InstanceType", "LifeCycleConfig" ]
@@ -275,7 +278,7 @@
   "primaryIdentifier" : [ "/properties/ClusterArn" ],
   "additionalIdentifiers" : [ [ "/properties/ClusterName" ] ],
   "readOnlyProperties" : [ "/properties/ClusterArn", "/properties/CreationTime", "/properties/ClusterStatus", "/properties/FailureMessage", "/properties/InstanceGroups/*/CurrentCount" ],
-  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/VpcConfig", "/properties/Orchestrator", "/properties/InstanceGroups/*/ExecutionRole", "/properties/InstanceGroups/*/InstanceGroupName", "/properties/InstanceGroups/*/InstanceType", "/properties/InstanceGroups/*/ThreadsPerCore" ],
+  "createOnlyProperties" : [ "/properties/ClusterName", "/properties/VpcConfig", "/properties/Orchestrator", "/properties/InstanceGroups/*/OverrideVpcConfig", "/properties/InstanceGroups/*/ExecutionRole", "/properties/InstanceGroups/*/InstanceGroupName", "/properties/InstanceGroups/*/InstanceType", "/properties/InstanceGroups/*/ThreadsPerCore" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,

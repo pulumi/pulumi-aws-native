@@ -37,9 +37,9 @@
       "type" : "string"
     },
     "Engine" : {
-      "description" : "Must be redis.",
+      "description" : "The target cache engine for the user group.",
       "type" : "string",
-      "enum" : [ "redis" ]
+      "enum" : [ "redis", "valkey" ]
     },
     "UserIds" : {
       "type" : "array",
@@ -69,7 +69,7 @@
   "additionalProperties" : false,
   "required" : [ "UserGroupId", "Engine", "UserIds" ],
   "readOnlyProperties" : [ "/properties/Status", "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/UserGroupId", "/properties/Engine" ],
+  "createOnlyProperties" : [ "/properties/UserGroupId" ],
   "primaryIdentifier" : [ "/properties/UserGroupId" ],
   "tagging" : {
     "taggable" : true,
