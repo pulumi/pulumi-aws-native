@@ -21,7 +21,7 @@ func Test_getDefaultName(t *testing.T) {
 		olds       resource.PropertyMap
 		news       resource.PropertyMap
 		err        error
-		comparison func(actual resource.PropertyValue) bool
+		comparison func(t *testing.T, actual resource.PropertyValue) bool
 	}{
 		{
 			name: "Name specified explicitly",
@@ -81,7 +81,7 @@ func Test_getDefaultName(t *testing.T) {
 			} else {
 				require.NoError(t, err)
 			}
-			if !tt.comparison(got) {
+			if !tt.comparison(t, got) {
 				t.Errorf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
 			}
 			t.Logf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
@@ -100,7 +100,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 		olds           resource.PropertyMap
 		news           resource.PropertyMap
 		err            error
-		comparison     func(actual resource.PropertyValue) bool
+		comparison     func(t *testing.T, actual resource.PropertyValue) bool
 	}{
 		{
 			name:         "Name specified explicitly",
@@ -135,7 +135,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			autoNameConfig: AutoNamingConfig{
 				AutoTrim: true,
 			},
-			comparison: within(12, 12),
+			comparison: startsWith("myReagName", 1),
 		},
 		{
 			resourceName: "myReallyLongName",
@@ -144,7 +144,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			autoNameConfig: AutoNamingConfig{
 				AutoTrim: true,
 			},
-			comparison: within(13, 13),
+			comparison: startsWith("myRealgName", 1),
 		},
 		{
 			name:         "Autoname with max length too small and no auto trim",
@@ -165,7 +165,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 				AutoTrim:              true,
 			},
 			maxLength:  13,
-			comparison: within(13, 13),
+			comparison: startsWith("myReagName", 2),
 		},
 		{
 			name:         "Autoname with long random suffix",
@@ -197,7 +197,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			} else {
 				require.NoError(t, err)
 			}
-			if !tt.comparison(got) {
+			if !tt.comparison(t, got) {
 				t.Errorf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
 			}
 			t.Logf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
@@ -205,14 +205,20 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 	}
 }
 
-func equals(expected resource.PropertyValue) func(resource.PropertyValue) bool {
-	return func(actual resource.PropertyValue) bool {
+func equals(expected resource.PropertyValue) func(t *testing.T, actual resource.PropertyValue) bool {
+	return func(t *testing.T, actual resource.PropertyValue) bool {
 		return expected == actual
 	}
 }
 
-func within(min, max int) func(value resource.PropertyValue) bool {
-	return func(actual resource.PropertyValue) bool {
+func startsWith(prefix string, randomLen int) func(t *testing.T, actual resource.PropertyValue) bool {
+	return func(t *testing.T, actual resource.PropertyValue) bool {
+		return assert.Regexp(t, fmt.Sprintf("^%s-[a-z0-9]{%d}", prefix, randomLen), actual.StringValue())
+	}
+}
+
+func within(min, max int) func(t *testing.T, value resource.PropertyValue) bool {
+	return func(t *testing.T, actual resource.PropertyValue) bool {
 		l := len(actual.V.(string))
 		return min <= l && l <= max
 	}
