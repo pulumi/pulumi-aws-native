@@ -1108,6 +1108,1787 @@ func (o ScalingPolicyPredefinedMetricSpecificationPtrOutput) ResourceLabel() pul
 	}).(pulumi.StringPtrOutput)
 }
 
+type ScalingPolicyPredictiveScalingCustomizedCapacityMetric struct {
+	MetricDataQueries []ScalingPolicyPredictiveScalingMetricDataQuery `pulumi:"metricDataQueries"`
+}
+
+// ScalingPolicyPredictiveScalingCustomizedCapacityMetricInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs and ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedCapacityMetricInput` via:
+//
+//	ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs{...}
+type ScalingPolicyPredictiveScalingCustomizedCapacityMetricInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput
+	ToScalingPolicyPredictiveScalingCustomizedCapacityMetricOutputWithContext(context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput
+}
+
+type ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs struct {
+	MetricDataQueries ScalingPolicyPredictiveScalingMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
+}
+
+func (ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedCapacityMetric)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedCapacityMetricOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput).ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs, ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtr and ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput
+	ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput
+}
+
+type scalingPolicyPredictiveScalingCustomizedCapacityMetricPtrType ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs
+
+func ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtr(v *ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs) ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput {
+	return (*scalingPolicyPredictiveScalingCustomizedCapacityMetricPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingCustomizedCapacityMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingCustomizedCapacityMetric)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingCustomizedCapacityMetricPtrType) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingCustomizedCapacityMetricPtrType) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedCapacityMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingCustomizedCapacityMetric) *ScalingPolicyPredictiveScalingCustomizedCapacityMetric {
+		return &v
+	}).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) MetricDataQueries() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingCustomizedCapacityMetric) []ScalingPolicyPredictiveScalingMetricDataQuery {
+		return v.MetricDataQueries
+	}).(ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingCustomizedCapacityMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingCustomizedCapacityMetric) ScalingPolicyPredictiveScalingCustomizedCapacityMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingCustomizedCapacityMetric
+		return ret
+	}).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) MetricDataQueries() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingCustomizedCapacityMetric) []ScalingPolicyPredictiveScalingMetricDataQuery {
+		if v == nil {
+			return nil
+		}
+		return v.MetricDataQueries
+	}).(ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingCustomizedLoadMetric struct {
+	MetricDataQueries []ScalingPolicyPredictiveScalingMetricDataQuery `pulumi:"metricDataQueries"`
+}
+
+// ScalingPolicyPredictiveScalingCustomizedLoadMetricInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs and ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedLoadMetricInput` via:
+//
+//	ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs{...}
+type ScalingPolicyPredictiveScalingCustomizedLoadMetricInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingCustomizedLoadMetricOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput
+	ToScalingPolicyPredictiveScalingCustomizedLoadMetricOutputWithContext(context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput
+}
+
+type ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs struct {
+	MetricDataQueries ScalingPolicyPredictiveScalingMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
+}
+
+func (ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedLoadMetric)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ToScalingPolicyPredictiveScalingCustomizedLoadMetricOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedLoadMetricOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ToScalingPolicyPredictiveScalingCustomizedLoadMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput).ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs, ScalingPolicyPredictiveScalingCustomizedLoadMetricPtr and ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput
+	ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput
+}
+
+type scalingPolicyPredictiveScalingCustomizedLoadMetricPtrType ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs
+
+func ScalingPolicyPredictiveScalingCustomizedLoadMetricPtr(v *ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs) ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput {
+	return (*scalingPolicyPredictiveScalingCustomizedLoadMetricPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingCustomizedLoadMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingCustomizedLoadMetric)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingCustomizedLoadMetricPtrType) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingCustomizedLoadMetricPtrType) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedLoadMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) ToScalingPolicyPredictiveScalingCustomizedLoadMetricOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) ToScalingPolicyPredictiveScalingCustomizedLoadMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingCustomizedLoadMetric) *ScalingPolicyPredictiveScalingCustomizedLoadMetric {
+		return &v
+	}).(ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput) MetricDataQueries() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingCustomizedLoadMetric) []ScalingPolicyPredictiveScalingMetricDataQuery {
+		return v.MetricDataQueries
+	}).(ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingCustomizedLoadMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingCustomizedLoadMetric) ScalingPolicyPredictiveScalingCustomizedLoadMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingCustomizedLoadMetric
+		return ret
+	}).(ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput) MetricDataQueries() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingCustomizedLoadMetric) []ScalingPolicyPredictiveScalingMetricDataQuery {
+		if v == nil {
+			return nil
+		}
+		return v.MetricDataQueries
+	}).(ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingCustomizedScalingMetric struct {
+	MetricDataQueries []ScalingPolicyPredictiveScalingMetricDataQuery `pulumi:"metricDataQueries"`
+}
+
+// ScalingPolicyPredictiveScalingCustomizedScalingMetricInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs and ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedScalingMetricInput` via:
+//
+//	ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs{...}
+type ScalingPolicyPredictiveScalingCustomizedScalingMetricInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingCustomizedScalingMetricOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput
+	ToScalingPolicyPredictiveScalingCustomizedScalingMetricOutputWithContext(context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput
+}
+
+type ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs struct {
+	MetricDataQueries ScalingPolicyPredictiveScalingMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
+}
+
+func (ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedScalingMetric)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ToScalingPolicyPredictiveScalingCustomizedScalingMetricOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedScalingMetricOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ToScalingPolicyPredictiveScalingCustomizedScalingMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput).ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs, ScalingPolicyPredictiveScalingCustomizedScalingMetricPtr and ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput
+	ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput
+}
+
+type scalingPolicyPredictiveScalingCustomizedScalingMetricPtrType ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs
+
+func ScalingPolicyPredictiveScalingCustomizedScalingMetricPtr(v *ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs) ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput {
+	return (*scalingPolicyPredictiveScalingCustomizedScalingMetricPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingCustomizedScalingMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingCustomizedScalingMetric)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingCustomizedScalingMetricPtrType) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingCustomizedScalingMetricPtrType) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedScalingMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) ToScalingPolicyPredictiveScalingCustomizedScalingMetricOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) ToScalingPolicyPredictiveScalingCustomizedScalingMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingCustomizedScalingMetric) *ScalingPolicyPredictiveScalingCustomizedScalingMetric {
+		return &v
+	}).(ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput) MetricDataQueries() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingCustomizedScalingMetric) []ScalingPolicyPredictiveScalingMetricDataQuery {
+		return v.MetricDataQueries
+	}).(ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingCustomizedScalingMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) ToScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingCustomizedScalingMetric) ScalingPolicyPredictiveScalingCustomizedScalingMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingCustomizedScalingMetric
+		return ret
+	}).(ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) MetricDataQueries() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingCustomizedScalingMetric) []ScalingPolicyPredictiveScalingMetricDataQuery {
+		if v == nil {
+			return nil
+		}
+		return v.MetricDataQueries
+	}).(ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetric struct {
+	// The dimensions for the metric.
+	Dimensions []ScalingPolicyPredictiveScalingMetricDimension `pulumi:"dimensions"`
+	// The name of the metric.
+	MetricName *string `pulumi:"metricName"`
+	// The namespace of the metric.
+	Namespace *string `pulumi:"namespace"`
+}
+
+// ScalingPolicyPredictiveScalingMetricInput is an input type that accepts ScalingPolicyPredictiveScalingMetricArgs and ScalingPolicyPredictiveScalingMetricOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricInput` via:
+//
+//	ScalingPolicyPredictiveScalingMetricArgs{...}
+type ScalingPolicyPredictiveScalingMetricInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricOutput() ScalingPolicyPredictiveScalingMetricOutput
+	ToScalingPolicyPredictiveScalingMetricOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricOutput
+}
+
+type ScalingPolicyPredictiveScalingMetricArgs struct {
+	// The dimensions for the metric.
+	Dimensions ScalingPolicyPredictiveScalingMetricDimensionArrayInput `pulumi:"dimensions"`
+	// The name of the metric.
+	MetricName pulumi.StringPtrInput `pulumi:"metricName"`
+	// The namespace of the metric.
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
+}
+
+func (ScalingPolicyPredictiveScalingMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetric)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingMetricArgs) ToScalingPolicyPredictiveScalingMetricOutput() ScalingPolicyPredictiveScalingMetricOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricArgs) ToScalingPolicyPredictiveScalingMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingMetricArgs) ToScalingPolicyPredictiveScalingMetricPtrOutput() ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricArgs) ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricOutput).ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingMetricArgs, ScalingPolicyPredictiveScalingMetricPtr and ScalingPolicyPredictiveScalingMetricPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingMetricPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricPtrOutput() ScalingPolicyPredictiveScalingMetricPtrOutput
+	ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricPtrOutput
+}
+
+type scalingPolicyPredictiveScalingMetricPtrType ScalingPolicyPredictiveScalingMetricArgs
+
+func ScalingPolicyPredictiveScalingMetricPtr(v *ScalingPolicyPredictiveScalingMetricArgs) ScalingPolicyPredictiveScalingMetricPtrInput {
+	return (*scalingPolicyPredictiveScalingMetricPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingMetric)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingMetricPtrType) ToScalingPolicyPredictiveScalingMetricPtrOutput() ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingMetricPtrType) ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricOutput) ToScalingPolicyPredictiveScalingMetricOutput() ScalingPolicyPredictiveScalingMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricOutput) ToScalingPolicyPredictiveScalingMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricOutput) ToScalingPolicyPredictiveScalingMetricPtrOutput() ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingMetricOutput) ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingMetric) *ScalingPolicyPredictiveScalingMetric {
+		return &v
+	}).(ScalingPolicyPredictiveScalingMetricPtrOutput)
+}
+
+// The dimensions for the metric.
+func (o ScalingPolicyPredictiveScalingMetricOutput) Dimensions() ScalingPolicyPredictiveScalingMetricDimensionArrayOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetric) []ScalingPolicyPredictiveScalingMetricDimension {
+		return v.Dimensions
+	}).(ScalingPolicyPredictiveScalingMetricDimensionArrayOutput)
+}
+
+// The name of the metric.
+func (o ScalingPolicyPredictiveScalingMetricOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetric) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+// The namespace of the metric.
+func (o ScalingPolicyPredictiveScalingMetricOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetric) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricPtrOutput) ToScalingPolicyPredictiveScalingMetricPtrOutput() ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricPtrOutput) ToScalingPolicyPredictiveScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingMetricOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingMetric) ScalingPolicyPredictiveScalingMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingMetric
+		return ret
+	}).(ScalingPolicyPredictiveScalingMetricOutput)
+}
+
+// The dimensions for the metric.
+func (o ScalingPolicyPredictiveScalingMetricPtrOutput) Dimensions() ScalingPolicyPredictiveScalingMetricDimensionArrayOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingMetric) []ScalingPolicyPredictiveScalingMetricDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(ScalingPolicyPredictiveScalingMetricDimensionArrayOutput)
+}
+
+// The name of the metric.
+func (o ScalingPolicyPredictiveScalingMetricPtrOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MetricName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The namespace of the metric.
+func (o ScalingPolicyPredictiveScalingMetricPtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricDataQuery struct {
+	// The math expression to perform on the returned data, if this object is performing a math expression.
+	Expression *string `pulumi:"expression"`
+	// A short name that identifies the object's results in the response.
+	Id *string `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+	Label *string `pulumi:"label"`
+	// Information about the metric data to return.
+	MetricStat *ScalingPolicyPredictiveScalingMetricStat `pulumi:"metricStat"`
+	// Indicates whether to return the timestamps and raw data values of this metric.
+	ReturnData *bool `pulumi:"returnData"`
+}
+
+// ScalingPolicyPredictiveScalingMetricDataQueryInput is an input type that accepts ScalingPolicyPredictiveScalingMetricDataQueryArgs and ScalingPolicyPredictiveScalingMetricDataQueryOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricDataQueryInput` via:
+//
+//	ScalingPolicyPredictiveScalingMetricDataQueryArgs{...}
+type ScalingPolicyPredictiveScalingMetricDataQueryInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricDataQueryOutput() ScalingPolicyPredictiveScalingMetricDataQueryOutput
+	ToScalingPolicyPredictiveScalingMetricDataQueryOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricDataQueryOutput
+}
+
+type ScalingPolicyPredictiveScalingMetricDataQueryArgs struct {
+	// The math expression to perform on the returned data, if this object is performing a math expression.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// A short name that identifies the object's results in the response.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// Information about the metric data to return.
+	MetricStat ScalingPolicyPredictiveScalingMetricStatPtrInput `pulumi:"metricStat"`
+	// Indicates whether to return the timestamps and raw data values of this metric.
+	ReturnData pulumi.BoolPtrInput `pulumi:"returnData"`
+}
+
+func (ScalingPolicyPredictiveScalingMetricDataQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricDataQuery)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingMetricDataQueryArgs) ToScalingPolicyPredictiveScalingMetricDataQueryOutput() ScalingPolicyPredictiveScalingMetricDataQueryOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricDataQueryOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricDataQueryArgs) ToScalingPolicyPredictiveScalingMetricDataQueryOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricDataQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricDataQueryOutput)
+}
+
+// ScalingPolicyPredictiveScalingMetricDataQueryArrayInput is an input type that accepts ScalingPolicyPredictiveScalingMetricDataQueryArray and ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricDataQueryArrayInput` via:
+//
+//	ScalingPolicyPredictiveScalingMetricDataQueryArray{ ScalingPolicyPredictiveScalingMetricDataQueryArgs{...} }
+type ScalingPolicyPredictiveScalingMetricDataQueryArrayInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricDataQueryArrayOutput() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput
+	ToScalingPolicyPredictiveScalingMetricDataQueryArrayOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput
+}
+
+type ScalingPolicyPredictiveScalingMetricDataQueryArray []ScalingPolicyPredictiveScalingMetricDataQueryInput
+
+func (ScalingPolicyPredictiveScalingMetricDataQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyPredictiveScalingMetricDataQuery)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingMetricDataQueryArray) ToScalingPolicyPredictiveScalingMetricDataQueryArrayOutput() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricDataQueryArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricDataQueryArray) ToScalingPolicyPredictiveScalingMetricDataQueryArrayOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricDataQueryOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricDataQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricDataQuery)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDataQueryOutput) ToScalingPolicyPredictiveScalingMetricDataQueryOutput() ScalingPolicyPredictiveScalingMetricDataQueryOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDataQueryOutput) ToScalingPolicyPredictiveScalingMetricDataQueryOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricDataQueryOutput {
+	return o
+}
+
+// The math expression to perform on the returned data, if this object is performing a math expression.
+func (o ScalingPolicyPredictiveScalingMetricDataQueryOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricDataQuery) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// A short name that identifies the object's results in the response.
+func (o ScalingPolicyPredictiveScalingMetricDataQueryOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricDataQuery) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+func (o ScalingPolicyPredictiveScalingMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricDataQuery) *string { return v.Label }).(pulumi.StringPtrOutput)
+}
+
+// Information about the metric data to return.
+func (o ScalingPolicyPredictiveScalingMetricDataQueryOutput) MetricStat() ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricDataQuery) *ScalingPolicyPredictiveScalingMetricStat {
+		return v.MetricStat
+	}).(ScalingPolicyPredictiveScalingMetricStatPtrOutput)
+}
+
+// Indicates whether to return the timestamps and raw data values of this metric.
+func (o ScalingPolicyPredictiveScalingMetricDataQueryOutput) ReturnData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricDataQuery) *bool { return v.ReturnData }).(pulumi.BoolPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyPredictiveScalingMetricDataQuery)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput) ToScalingPolicyPredictiveScalingMetricDataQueryArrayOutput() ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput) ToScalingPolicyPredictiveScalingMetricDataQueryArrayOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput) Index(i pulumi.IntInput) ScalingPolicyPredictiveScalingMetricDataQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPolicyPredictiveScalingMetricDataQuery {
+		return vs[0].([]ScalingPolicyPredictiveScalingMetricDataQuery)[vs[1].(int)]
+	}).(ScalingPolicyPredictiveScalingMetricDataQueryOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricDimension struct {
+	// The name of the dimension.
+	Name *string `pulumi:"name"`
+	// The value of the dimension.
+	Value *string `pulumi:"value"`
+}
+
+// ScalingPolicyPredictiveScalingMetricDimensionInput is an input type that accepts ScalingPolicyPredictiveScalingMetricDimensionArgs and ScalingPolicyPredictiveScalingMetricDimensionOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricDimensionInput` via:
+//
+//	ScalingPolicyPredictiveScalingMetricDimensionArgs{...}
+type ScalingPolicyPredictiveScalingMetricDimensionInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricDimensionOutput() ScalingPolicyPredictiveScalingMetricDimensionOutput
+	ToScalingPolicyPredictiveScalingMetricDimensionOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricDimensionOutput
+}
+
+type ScalingPolicyPredictiveScalingMetricDimensionArgs struct {
+	// The name of the dimension.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the dimension.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ScalingPolicyPredictiveScalingMetricDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricDimension)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingMetricDimensionArgs) ToScalingPolicyPredictiveScalingMetricDimensionOutput() ScalingPolicyPredictiveScalingMetricDimensionOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricDimensionOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricDimensionArgs) ToScalingPolicyPredictiveScalingMetricDimensionOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricDimensionOutput)
+}
+
+// ScalingPolicyPredictiveScalingMetricDimensionArrayInput is an input type that accepts ScalingPolicyPredictiveScalingMetricDimensionArray and ScalingPolicyPredictiveScalingMetricDimensionArrayOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricDimensionArrayInput` via:
+//
+//	ScalingPolicyPredictiveScalingMetricDimensionArray{ ScalingPolicyPredictiveScalingMetricDimensionArgs{...} }
+type ScalingPolicyPredictiveScalingMetricDimensionArrayInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricDimensionArrayOutput() ScalingPolicyPredictiveScalingMetricDimensionArrayOutput
+	ToScalingPolicyPredictiveScalingMetricDimensionArrayOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricDimensionArrayOutput
+}
+
+type ScalingPolicyPredictiveScalingMetricDimensionArray []ScalingPolicyPredictiveScalingMetricDimensionInput
+
+func (ScalingPolicyPredictiveScalingMetricDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyPredictiveScalingMetricDimension)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingMetricDimensionArray) ToScalingPolicyPredictiveScalingMetricDimensionArrayOutput() ScalingPolicyPredictiveScalingMetricDimensionArrayOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricDimensionArray) ToScalingPolicyPredictiveScalingMetricDimensionArrayOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricDimensionArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricDimensionOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricDimension)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDimensionOutput) ToScalingPolicyPredictiveScalingMetricDimensionOutput() ScalingPolicyPredictiveScalingMetricDimensionOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDimensionOutput) ToScalingPolicyPredictiveScalingMetricDimensionOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricDimensionOutput {
+	return o
+}
+
+// The name of the dimension.
+func (o ScalingPolicyPredictiveScalingMetricDimensionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricDimension) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the dimension.
+func (o ScalingPolicyPredictiveScalingMetricDimensionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricDimension) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyPredictiveScalingMetricDimension)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDimensionArrayOutput) ToScalingPolicyPredictiveScalingMetricDimensionArrayOutput() ScalingPolicyPredictiveScalingMetricDimensionArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDimensionArrayOutput) ToScalingPolicyPredictiveScalingMetricDimensionArrayOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricDimensionArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricDimensionArrayOutput) Index(i pulumi.IntInput) ScalingPolicyPredictiveScalingMetricDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPolicyPredictiveScalingMetricDimension {
+		return vs[0].([]ScalingPolicyPredictiveScalingMetricDimension)[vs[1].(int)]
+	}).(ScalingPolicyPredictiveScalingMetricDimensionOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricSpecification struct {
+	CustomizedCapacityMetricSpecification *ScalingPolicyPredictiveScalingCustomizedCapacityMetric `pulumi:"customizedCapacityMetricSpecification"`
+	CustomizedLoadMetricSpecification     *ScalingPolicyPredictiveScalingCustomizedLoadMetric     `pulumi:"customizedLoadMetricSpecification"`
+	CustomizedScalingMetricSpecification  *ScalingPolicyPredictiveScalingCustomizedScalingMetric  `pulumi:"customizedScalingMetricSpecification"`
+	PredefinedLoadMetricSpecification     *ScalingPolicyPredictiveScalingPredefinedLoadMetric     `pulumi:"predefinedLoadMetricSpecification"`
+	PredefinedMetricPairSpecification     *ScalingPolicyPredictiveScalingPredefinedMetricPair     `pulumi:"predefinedMetricPairSpecification"`
+	PredefinedScalingMetricSpecification  *ScalingPolicyPredictiveScalingPredefinedScalingMetric  `pulumi:"predefinedScalingMetricSpecification"`
+	TargetValue                           float64                                                 `pulumi:"targetValue"`
+}
+
+// ScalingPolicyPredictiveScalingMetricSpecificationInput is an input type that accepts ScalingPolicyPredictiveScalingMetricSpecificationArgs and ScalingPolicyPredictiveScalingMetricSpecificationOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricSpecificationInput` via:
+//
+//	ScalingPolicyPredictiveScalingMetricSpecificationArgs{...}
+type ScalingPolicyPredictiveScalingMetricSpecificationInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricSpecificationOutput() ScalingPolicyPredictiveScalingMetricSpecificationOutput
+	ToScalingPolicyPredictiveScalingMetricSpecificationOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricSpecificationOutput
+}
+
+type ScalingPolicyPredictiveScalingMetricSpecificationArgs struct {
+	CustomizedCapacityMetricSpecification ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput `pulumi:"customizedCapacityMetricSpecification"`
+	CustomizedLoadMetricSpecification     ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput     `pulumi:"customizedLoadMetricSpecification"`
+	CustomizedScalingMetricSpecification  ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput  `pulumi:"customizedScalingMetricSpecification"`
+	PredefinedLoadMetricSpecification     ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput     `pulumi:"predefinedLoadMetricSpecification"`
+	PredefinedMetricPairSpecification     ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput     `pulumi:"predefinedMetricPairSpecification"`
+	PredefinedScalingMetricSpecification  ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput  `pulumi:"predefinedScalingMetricSpecification"`
+	TargetValue                           pulumi.Float64Input                                            `pulumi:"targetValue"`
+}
+
+func (ScalingPolicyPredictiveScalingMetricSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricSpecification)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingMetricSpecificationArgs) ToScalingPolicyPredictiveScalingMetricSpecificationOutput() ScalingPolicyPredictiveScalingMetricSpecificationOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricSpecificationOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricSpecificationArgs) ToScalingPolicyPredictiveScalingMetricSpecificationOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricSpecificationOutput)
+}
+
+// ScalingPolicyPredictiveScalingMetricSpecificationArrayInput is an input type that accepts ScalingPolicyPredictiveScalingMetricSpecificationArray and ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricSpecificationArrayInput` via:
+//
+//	ScalingPolicyPredictiveScalingMetricSpecificationArray{ ScalingPolicyPredictiveScalingMetricSpecificationArgs{...} }
+type ScalingPolicyPredictiveScalingMetricSpecificationArrayInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricSpecificationArrayOutput() ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput
+	ToScalingPolicyPredictiveScalingMetricSpecificationArrayOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput
+}
+
+type ScalingPolicyPredictiveScalingMetricSpecificationArray []ScalingPolicyPredictiveScalingMetricSpecificationInput
+
+func (ScalingPolicyPredictiveScalingMetricSpecificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyPredictiveScalingMetricSpecification)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingMetricSpecificationArray) ToScalingPolicyPredictiveScalingMetricSpecificationArrayOutput() ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricSpecificationArrayOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricSpecificationArray) ToScalingPolicyPredictiveScalingMetricSpecificationArrayOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricSpecification)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) ToScalingPolicyPredictiveScalingMetricSpecificationOutput() ScalingPolicyPredictiveScalingMetricSpecificationOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) ToScalingPolicyPredictiveScalingMetricSpecificationOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricSpecificationOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) CustomizedCapacityMetricSpecification() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingCustomizedCapacityMetric {
+		return v.CustomizedCapacityMetricSpecification
+	}).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) CustomizedLoadMetricSpecification() ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingCustomizedLoadMetric {
+		return v.CustomizedLoadMetricSpecification
+	}).(ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) CustomizedScalingMetricSpecification() ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingCustomizedScalingMetric {
+		return v.CustomizedScalingMetricSpecification
+	}).(ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) PredefinedLoadMetricSpecification() ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingPredefinedLoadMetric {
+		return v.PredefinedLoadMetricSpecification
+	}).(ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) PredefinedMetricPairSpecification() ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingPredefinedMetricPair {
+		return v.PredefinedMetricPairSpecification
+	}).(ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) PredefinedScalingMetricSpecification() ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingPredefinedScalingMetric {
+		return v.PredefinedScalingMetricSpecification
+	}).(ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) TargetValue() pulumi.Float64Output {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) float64 { return v.TargetValue }).(pulumi.Float64Output)
+}
+
+type ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScalingPolicyPredictiveScalingMetricSpecification)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput) ToScalingPolicyPredictiveScalingMetricSpecificationArrayOutput() ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput) ToScalingPolicyPredictiveScalingMetricSpecificationArrayOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput) Index(i pulumi.IntInput) ScalingPolicyPredictiveScalingMetricSpecificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPolicyPredictiveScalingMetricSpecification {
+		return vs[0].([]ScalingPolicyPredictiveScalingMetricSpecification)[vs[1].(int)]
+	}).(ScalingPolicyPredictiveScalingMetricSpecificationOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricStat struct {
+	// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+	Metric *ScalingPolicyPredictiveScalingMetric `pulumi:"metric"`
+	// The statistic to return. It can include any CloudWatch statistic or extended statistic.
+	Stat *string `pulumi:"stat"`
+	// The unit to use for the returned data points.
+	Unit *string `pulumi:"unit"`
+}
+
+// ScalingPolicyPredictiveScalingMetricStatInput is an input type that accepts ScalingPolicyPredictiveScalingMetricStatArgs and ScalingPolicyPredictiveScalingMetricStatOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricStatInput` via:
+//
+//	ScalingPolicyPredictiveScalingMetricStatArgs{...}
+type ScalingPolicyPredictiveScalingMetricStatInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricStatOutput() ScalingPolicyPredictiveScalingMetricStatOutput
+	ToScalingPolicyPredictiveScalingMetricStatOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricStatOutput
+}
+
+type ScalingPolicyPredictiveScalingMetricStatArgs struct {
+	// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+	Metric ScalingPolicyPredictiveScalingMetricPtrInput `pulumi:"metric"`
+	// The statistic to return. It can include any CloudWatch statistic or extended statistic.
+	Stat pulumi.StringPtrInput `pulumi:"stat"`
+	// The unit to use for the returned data points.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+}
+
+func (ScalingPolicyPredictiveScalingMetricStatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricStat)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingMetricStatArgs) ToScalingPolicyPredictiveScalingMetricStatOutput() ScalingPolicyPredictiveScalingMetricStatOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricStatOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricStatArgs) ToScalingPolicyPredictiveScalingMetricStatOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricStatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricStatOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingMetricStatArgs) ToScalingPolicyPredictiveScalingMetricStatPtrOutput() ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingMetricStatArgs) ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricStatOutput).ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingMetricStatPtrInput is an input type that accepts ScalingPolicyPredictiveScalingMetricStatArgs, ScalingPolicyPredictiveScalingMetricStatPtr and ScalingPolicyPredictiveScalingMetricStatPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingMetricStatPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingMetricStatArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingMetricStatPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingMetricStatPtrOutput() ScalingPolicyPredictiveScalingMetricStatPtrOutput
+	ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingMetricStatPtrOutput
+}
+
+type scalingPolicyPredictiveScalingMetricStatPtrType ScalingPolicyPredictiveScalingMetricStatArgs
+
+func ScalingPolicyPredictiveScalingMetricStatPtr(v *ScalingPolicyPredictiveScalingMetricStatArgs) ScalingPolicyPredictiveScalingMetricStatPtrInput {
+	return (*scalingPolicyPredictiveScalingMetricStatPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingMetricStatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingMetricStat)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingMetricStatPtrType) ToScalingPolicyPredictiveScalingMetricStatPtrOutput() ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingMetricStatPtrType) ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingMetricStatPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricStatOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricStatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricStat)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricStatOutput) ToScalingPolicyPredictiveScalingMetricStatOutput() ScalingPolicyPredictiveScalingMetricStatOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricStatOutput) ToScalingPolicyPredictiveScalingMetricStatOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricStatOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricStatOutput) ToScalingPolicyPredictiveScalingMetricStatPtrOutput() ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingMetricStatOutput) ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingMetricStat) *ScalingPolicyPredictiveScalingMetricStat {
+		return &v
+	}).(ScalingPolicyPredictiveScalingMetricStatPtrOutput)
+}
+
+// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+func (o ScalingPolicyPredictiveScalingMetricStatOutput) Metric() ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricStat) *ScalingPolicyPredictiveScalingMetric {
+		return v.Metric
+	}).(ScalingPolicyPredictiveScalingMetricPtrOutput)
+}
+
+// The statistic to return. It can include any CloudWatch statistic or extended statistic.
+func (o ScalingPolicyPredictiveScalingMetricStatOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricStat) *string { return v.Stat }).(pulumi.StringPtrOutput)
+}
+
+// The unit to use for the returned data points.
+func (o ScalingPolicyPredictiveScalingMetricStatOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricStat) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingMetricStatPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingMetricStatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingMetricStat)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingMetricStatPtrOutput) ToScalingPolicyPredictiveScalingMetricStatPtrOutput() ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricStatPtrOutput) ToScalingPolicyPredictiveScalingMetricStatPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingMetricStatPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingMetricStatPtrOutput) Elem() ScalingPolicyPredictiveScalingMetricStatOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingMetricStat) ScalingPolicyPredictiveScalingMetricStat {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingMetricStat
+		return ret
+	}).(ScalingPolicyPredictiveScalingMetricStatOutput)
+}
+
+// The CloudWatch metric to return, including the metric name, namespace, and dimensions.
+func (o ScalingPolicyPredictiveScalingMetricStatPtrOutput) Metric() ScalingPolicyPredictiveScalingMetricPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingMetricStat) *ScalingPolicyPredictiveScalingMetric {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(ScalingPolicyPredictiveScalingMetricPtrOutput)
+}
+
+// The statistic to return. It can include any CloudWatch statistic or extended statistic.
+func (o ScalingPolicyPredictiveScalingMetricStatPtrOutput) Stat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingMetricStat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Stat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unit to use for the returned data points.
+func (o ScalingPolicyPredictiveScalingMetricStatPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingMetricStat) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPolicyConfiguration struct {
+	MaxCapacityBreachBehavior *string                                             `pulumi:"maxCapacityBreachBehavior"`
+	MaxCapacityBuffer         *int                                                `pulumi:"maxCapacityBuffer"`
+	MetricSpecifications      []ScalingPolicyPredictiveScalingMetricSpecification `pulumi:"metricSpecifications"`
+	Mode                      *string                                             `pulumi:"mode"`
+	SchedulingBufferTime      *int                                                `pulumi:"schedulingBufferTime"`
+}
+
+// ScalingPolicyPredictiveScalingPolicyConfigurationInput is an input type that accepts ScalingPolicyPredictiveScalingPolicyConfigurationArgs and ScalingPolicyPredictiveScalingPolicyConfigurationOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingPolicyConfigurationInput` via:
+//
+//	ScalingPolicyPredictiveScalingPolicyConfigurationArgs{...}
+type ScalingPolicyPredictiveScalingPolicyConfigurationInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingPolicyConfigurationOutput() ScalingPolicyPredictiveScalingPolicyConfigurationOutput
+	ToScalingPolicyPredictiveScalingPolicyConfigurationOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationOutput
+}
+
+type ScalingPolicyPredictiveScalingPolicyConfigurationArgs struct {
+	MaxCapacityBreachBehavior pulumi.StringPtrInput                                       `pulumi:"maxCapacityBreachBehavior"`
+	MaxCapacityBuffer         pulumi.IntPtrInput                                          `pulumi:"maxCapacityBuffer"`
+	MetricSpecifications      ScalingPolicyPredictiveScalingMetricSpecificationArrayInput `pulumi:"metricSpecifications"`
+	Mode                      pulumi.StringPtrInput                                       `pulumi:"mode"`
+	SchedulingBufferTime      pulumi.IntPtrInput                                          `pulumi:"schedulingBufferTime"`
+}
+
+func (ScalingPolicyPredictiveScalingPolicyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingPolicyConfigurationArgs) ToScalingPolicyPredictiveScalingPolicyConfigurationOutput() ScalingPolicyPredictiveScalingPolicyConfigurationOutput {
+	return i.ToScalingPolicyPredictiveScalingPolicyConfigurationOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingPolicyConfigurationArgs) ToScalingPolicyPredictiveScalingPolicyConfigurationOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPolicyConfigurationOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingPolicyConfigurationArgs) ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput() ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingPolicyConfigurationArgs) ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPolicyConfigurationOutput).ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingPolicyConfigurationPtrInput is an input type that accepts ScalingPolicyPredictiveScalingPolicyConfigurationArgs, ScalingPolicyPredictiveScalingPolicyConfigurationPtr and ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingPolicyConfigurationPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingPolicyConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingPolicyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput() ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput
+	ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput
+}
+
+type scalingPolicyPredictiveScalingPolicyConfigurationPtrType ScalingPolicyPredictiveScalingPolicyConfigurationArgs
+
+func ScalingPolicyPredictiveScalingPolicyConfigurationPtr(v *ScalingPolicyPredictiveScalingPolicyConfigurationArgs) ScalingPolicyPredictiveScalingPolicyConfigurationPtrInput {
+	return (*scalingPolicyPredictiveScalingPolicyConfigurationPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingPolicyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingPolicyConfigurationPtrType) ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput() ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingPolicyConfigurationPtrType) ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPolicyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingPolicyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) ToScalingPolicyPredictiveScalingPolicyConfigurationOutput() ScalingPolicyPredictiveScalingPolicyConfigurationOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) ToScalingPolicyPredictiveScalingPolicyConfigurationOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput() ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingPolicyConfiguration) *ScalingPolicyPredictiveScalingPolicyConfiguration {
+		return &v
+	}).(ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) MaxCapacityBreachBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPolicyConfiguration) *string { return v.MaxCapacityBreachBehavior }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) MaxCapacityBuffer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPolicyConfiguration) *int { return v.MaxCapacityBuffer }).(pulumi.IntPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) MetricSpecifications() ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPolicyConfiguration) []ScalingPolicyPredictiveScalingMetricSpecification {
+		return v.MetricSpecifications
+	}).(ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPolicyConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationOutput) SchedulingBufferTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPolicyConfiguration) *int { return v.SchedulingBufferTime }).(pulumi.IntPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingPolicyConfiguration)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput() ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) ToScalingPolicyPredictiveScalingPolicyConfigurationPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) Elem() ScalingPolicyPredictiveScalingPolicyConfigurationOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPolicyConfiguration) ScalingPolicyPredictiveScalingPolicyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingPolicyConfiguration
+		return ret
+	}).(ScalingPolicyPredictiveScalingPolicyConfigurationOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) MaxCapacityBreachBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPolicyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacityBreachBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) MaxCapacityBuffer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxCapacityBuffer
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) MetricSpecifications() ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPolicyConfiguration) []ScalingPolicyPredictiveScalingMetricSpecification {
+		if v == nil {
+			return nil
+		}
+		return v.MetricSpecifications
+	}).(ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPolicyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput) SchedulingBufferTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPolicyConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SchedulingBufferTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedLoadMetric struct {
+	PredefinedMetricType string  `pulumi:"predefinedMetricType"`
+	ResourceLabel        *string `pulumi:"resourceLabel"`
+}
+
+// ScalingPolicyPredictiveScalingPredefinedLoadMetricInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs and ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedLoadMetricInput` via:
+//
+//	ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs{...}
+type ScalingPolicyPredictiveScalingPredefinedLoadMetricInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput
+	ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput
+}
+
+type ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs struct {
+	PredefinedMetricType pulumi.StringInput    `pulumi:"predefinedMetricType"`
+	ResourceLabel        pulumi.StringPtrInput `pulumi:"resourceLabel"`
+}
+
+func (ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedLoadMetric)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput).ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs, ScalingPolicyPredictiveScalingPredefinedLoadMetricPtr and ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput
+	ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput
+}
+
+type scalingPolicyPredictiveScalingPredefinedLoadMetricPtrType ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs
+
+func ScalingPolicyPredictiveScalingPredefinedLoadMetricPtr(v *ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs) ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput {
+	return (*scalingPolicyPredictiveScalingPredefinedLoadMetricPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingPredefinedLoadMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingPredefinedLoadMetric)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingPredefinedLoadMetricPtrType) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingPredefinedLoadMetricPtrType) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedLoadMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ToScalingPolicyPredictiveScalingPredefinedLoadMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingPredefinedLoadMetric) *ScalingPolicyPredictiveScalingPredefinedLoadMetric {
+		return &v
+	}).(ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) PredefinedMetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedLoadMetric) string { return v.PredefinedMetricType }).(pulumi.StringOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedLoadMetric) *string { return v.ResourceLabel }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingPredefinedLoadMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) ToScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedLoadMetric) ScalingPolicyPredictiveScalingPredefinedLoadMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingPredefinedLoadMetric
+		return ret
+	}).(ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedLoadMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PredefinedMetricType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedLoadMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedMetricPair struct {
+	PredefinedMetricType string  `pulumi:"predefinedMetricType"`
+	ResourceLabel        *string `pulumi:"resourceLabel"`
+}
+
+// ScalingPolicyPredictiveScalingPredefinedMetricPairInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedMetricPairArgs and ScalingPolicyPredictiveScalingPredefinedMetricPairOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedMetricPairInput` via:
+//
+//	ScalingPolicyPredictiveScalingPredefinedMetricPairArgs{...}
+type ScalingPolicyPredictiveScalingPredefinedMetricPairInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingPredefinedMetricPairOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairOutput
+	ToScalingPolicyPredictiveScalingPredefinedMetricPairOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairOutput
+}
+
+type ScalingPolicyPredictiveScalingPredefinedMetricPairArgs struct {
+	PredefinedMetricType pulumi.StringInput    `pulumi:"predefinedMetricType"`
+	ResourceLabel        pulumi.StringPtrInput `pulumi:"resourceLabel"`
+}
+
+func (ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedMetricPair)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ToScalingPolicyPredictiveScalingPredefinedMetricPairOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedMetricPairOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ToScalingPolicyPredictiveScalingPredefinedMetricPairOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedMetricPairOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedMetricPairOutput).ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedMetricPairArgs, ScalingPolicyPredictiveScalingPredefinedMetricPairPtr and ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingPredefinedMetricPairArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput
+	ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput
+}
+
+type scalingPolicyPredictiveScalingPredefinedMetricPairPtrType ScalingPolicyPredictiveScalingPredefinedMetricPairArgs
+
+func ScalingPolicyPredictiveScalingPredefinedMetricPairPtr(v *ScalingPolicyPredictiveScalingPredefinedMetricPairArgs) ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput {
+	return (*scalingPolicyPredictiveScalingPredefinedMetricPairPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingPredefinedMetricPairPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingPredefinedMetricPair)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingPredefinedMetricPairPtrType) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingPredefinedMetricPairPtrType) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedMetricPairOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedMetricPair)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ToScalingPolicyPredictiveScalingPredefinedMetricPairOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ToScalingPolicyPredictiveScalingPredefinedMetricPairOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingPredefinedMetricPair) *ScalingPolicyPredictiveScalingPredefinedMetricPair {
+		return &v
+	}).(ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) PredefinedMetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedMetricPair) string { return v.PredefinedMetricType }).(pulumi.StringOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedMetricPair) *string { return v.ResourceLabel }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingPredefinedMetricPair)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput() ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) ToScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) Elem() ScalingPolicyPredictiveScalingPredefinedMetricPairOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedMetricPair) ScalingPolicyPredictiveScalingPredefinedMetricPair {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingPredefinedMetricPair
+		return ret
+	}).(ScalingPolicyPredictiveScalingPredefinedMetricPairOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedMetricPair) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PredefinedMetricType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedMetricPair) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceLabel
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedScalingMetric struct {
+	PredefinedMetricType string  `pulumi:"predefinedMetricType"`
+	ResourceLabel        *string `pulumi:"resourceLabel"`
+}
+
+// ScalingPolicyPredictiveScalingPredefinedScalingMetricInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs and ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedScalingMetricInput` via:
+//
+//	ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs{...}
+type ScalingPolicyPredictiveScalingPredefinedScalingMetricInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingPredefinedScalingMetricOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput
+	ToScalingPolicyPredictiveScalingPredefinedScalingMetricOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput
+}
+
+type ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs struct {
+	PredefinedMetricType pulumi.StringInput    `pulumi:"predefinedMetricType"`
+	ResourceLabel        pulumi.StringPtrInput `pulumi:"resourceLabel"`
+}
+
+func (ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedScalingMetric)(nil)).Elem()
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ToScalingPolicyPredictiveScalingPredefinedScalingMetricOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedScalingMetricOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ToScalingPolicyPredictiveScalingPredefinedScalingMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput)
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (i ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput).ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(ctx)
+}
+
+// ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput is an input type that accepts ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs, ScalingPolicyPredictiveScalingPredefinedScalingMetricPtr and ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput values.
+// You can construct a concrete instance of `ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput` via:
+//
+//	        ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput interface {
+	pulumi.Input
+
+	ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput
+	ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput
+}
+
+type scalingPolicyPredictiveScalingPredefinedScalingMetricPtrType ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs
+
+func ScalingPolicyPredictiveScalingPredefinedScalingMetricPtr(v *ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs) ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput {
+	return (*scalingPolicyPredictiveScalingPredefinedScalingMetricPtrType)(v)
+}
+
+func (*scalingPolicyPredictiveScalingPredefinedScalingMetricPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingPredefinedScalingMetric)(nil)).Elem()
+}
+
+func (i *scalingPolicyPredictiveScalingPredefinedScalingMetricPtrType) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return i.ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (i *scalingPolicyPredictiveScalingPredefinedScalingMetricPtrType) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedScalingMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ToScalingPolicyPredictiveScalingPredefinedScalingMetricOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ToScalingPolicyPredictiveScalingPredefinedScalingMetricOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return o.ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(context.Background())
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPolicyPredictiveScalingPredefinedScalingMetric) *ScalingPolicyPredictiveScalingPredefinedScalingMetric {
+		return &v
+	}).(ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) PredefinedMetricType() pulumi.StringOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedScalingMetric) string { return v.PredefinedMetricType }).(pulumi.StringOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScalingPolicyPredictiveScalingPredefinedScalingMetric) *string { return v.ResourceLabel }).(pulumi.StringPtrOutput)
+}
+
+type ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput struct{ *pulumi.OutputState }
+
+func (ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScalingPolicyPredictiveScalingPredefinedScalingMetric)(nil)).Elem()
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput() ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) ToScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutputWithContext(ctx context.Context) ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
+	return o
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) Elem() ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedScalingMetric) ScalingPolicyPredictiveScalingPredefinedScalingMetric {
+		if v != nil {
+			return *v
+		}
+		var ret ScalingPolicyPredictiveScalingPredefinedScalingMetric
+		return ret
+	}).(ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) PredefinedMetricType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedScalingMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PredefinedMetricType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingPredefinedScalingMetric) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceLabel
+	}).(pulumi.StringPtrOutput)
+}
+
 // “StepAdjustment“ specifies a step adjustment for the “StepAdjustments“ property of the [AWS::ApplicationAutoScaling::ScalingPolicy StepScalingPolicyConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html) property type.
 //
 //	For the following examples, suppose that you have an alarm with a breach threshold of 50:
@@ -2402,6 +4183,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyMetricDimensionArrayInput)(nil)).Elem(), ScalingPolicyMetricDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredefinedMetricSpecificationInput)(nil)).Elem(), ScalingPolicyPredefinedMetricSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredefinedMetricSpecificationPtrInput)(nil)).Elem(), ScalingPolicyPredefinedMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedCapacityMetricInput)(nil)).Elem(), ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedLoadMetricInput)(nil)).Elem(), ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedScalingMetricInput)(nil)).Elem(), ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricDataQueryInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricDataQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricDataQueryArrayInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricDataQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricDimensionInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricDimensionArrayInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricSpecificationInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricSpecificationArrayInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricStatInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricStatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingMetricStatPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingMetricStatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingPolicyConfigurationInput)(nil)).Elem(), ScalingPolicyPredictiveScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingPolicyConfigurationPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedLoadMetricInput)(nil)).Elem(), ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedMetricPairInput)(nil)).Elem(), ScalingPolicyPredictiveScalingPredefinedMetricPairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingPredefinedMetricPairArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedScalingMetricInput)(nil)).Elem(), ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput)(nil)).Elem(), ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyStepAdjustmentInput)(nil)).Elem(), ScalingPolicyStepAdjustmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyStepAdjustmentArrayInput)(nil)).Elem(), ScalingPolicyStepAdjustmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPolicyStepScalingPolicyConfigurationInput)(nil)).Elem(), ScalingPolicyStepScalingPolicyConfigurationArgs{})
@@ -2428,6 +4233,30 @@ func init() {
 	pulumi.RegisterOutputType(ScalingPolicyMetricDimensionArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyPredefinedMetricSpecificationOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyPredefinedMetricSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingCustomizedLoadMetricOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingCustomizedScalingMetricOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricDataQueryOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricDataQueryArrayOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricDimensionOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricDimensionArrayOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricSpecificationOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricStatOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingMetricStatPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingPolicyConfigurationOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingPredefinedLoadMetricOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingPredefinedMetricPairOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingPredefinedScalingMetricOutput{})
+	pulumi.RegisterOutputType(ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyStepAdjustmentOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyStepAdjustmentArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPolicyStepScalingPolicyConfigurationOutput{})

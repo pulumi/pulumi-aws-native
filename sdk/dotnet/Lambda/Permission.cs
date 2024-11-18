@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Lambda
         public Output<Pulumi.AwsNative.Lambda.PermissionFunctionUrlAuthType?> FunctionUrlAuthType { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+        /// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
         /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.Lambda
         public Input<Pulumi.AwsNative.Lambda.PermissionFunctionUrlAuthType>? FunctionUrlAuthType { get; set; }
 
         /// <summary>
-        /// The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+        /// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;

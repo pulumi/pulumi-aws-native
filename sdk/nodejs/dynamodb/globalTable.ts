@@ -106,8 +106,9 @@ export class GlobalTable extends pulumi.CustomResource {
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */
     public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableTimeToLiveSpecification | undefined>;
+    public readonly warmThroughput!: pulumi.Output<outputs.dynamodb.GlobalTableWarmThroughput | undefined>;
     /**
-     * Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+     * Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
      */
     public readonly writeOnDemandThroughputSettings!: pulumi.Output<outputs.dynamodb.GlobalTableWriteOnDemandThroughputSettings | undefined>;
     /**
@@ -145,6 +146,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["streamSpecification"] = args ? args.streamSpecification : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
             resourceInputs["timeToLiveSpecification"] = args ? args.timeToLiveSpecification : undefined;
+            resourceInputs["warmThroughput"] = args ? args.warmThroughput : undefined;
             resourceInputs["writeOnDemandThroughputSettings"] = args ? args.writeOnDemandThroughputSettings : undefined;
             resourceInputs["writeProvisionedThroughputSettings"] = args ? args.writeProvisionedThroughputSettings : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -164,6 +166,7 @@ export class GlobalTable extends pulumi.CustomResource {
             resourceInputs["tableId"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["timeToLiveSpecification"] = undefined /*out*/;
+            resourceInputs["warmThroughput"] = undefined /*out*/;
             resourceInputs["writeOnDemandThroughputSettings"] = undefined /*out*/;
             resourceInputs["writeProvisionedThroughputSettings"] = undefined /*out*/;
         }
@@ -233,8 +236,9 @@ export interface GlobalTableArgs {
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableTimeToLiveSpecificationArgs>;
+    warmThroughput?: pulumi.Input<inputs.dynamodb.GlobalTableWarmThroughputArgs>;
     /**
-     * Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+     * Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
      */
     writeOnDemandThroughputSettings?: pulumi.Input<inputs.dynamodb.GlobalTableWriteOnDemandThroughputSettingsArgs>;
     /**

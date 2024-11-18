@@ -241,6 +241,7 @@ AWS::Connect::UserHierarchyStructure
 AWS::Connect::View
 AWS::Connect::ViewVersion
 AWS::ConnectCampaigns::Campaign
+AWS::ConnectCampaignsV2::Campaign
 AWS::ControlTower::EnabledBaseline
 AWS::ControlTower::EnabledControl
 AWS::ControlTower::LandingZone

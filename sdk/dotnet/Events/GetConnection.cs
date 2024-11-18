@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+        /// </summary>
+        public readonly Outputs.ConnectionAuthParameters? AuthParameters;
+        /// <summary>
         /// The type of authorization to use for the connection.
         /// 
         /// &gt; OAUTH tokens are refreshed when a 401 or 407 response is returned.
@@ -80,6 +84,8 @@ namespace Pulumi.AwsNative.Events
         private GetConnectionResult(
             string? arn,
 
+            Outputs.ConnectionAuthParameters? authParameters,
+
             Pulumi.AwsNative.Events.ConnectionAuthorizationType? authorizationType,
 
             string? description,
@@ -87,6 +93,7 @@ namespace Pulumi.AwsNative.Events
             string? secretArn)
         {
             Arn = arn;
+            AuthParameters = authParameters;
             AuthorizationType = authorizationType;
             Description = description;
             SecretArn = secretArn;

@@ -80,6 +80,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// The date and time of the last update, specified in ISO-8601 format.
         /// </summary>
         public readonly string? LastUpdatedAt;
+        public readonly Outputs.ServiceNetworkSharingConfig? SharingConfig;
         /// <summary>
         /// The tags for the service network.
         /// </summary>
@@ -97,6 +98,8 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? lastUpdatedAt,
 
+            Outputs.ServiceNetworkSharingConfig? sharingConfig,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
@@ -104,6 +107,7 @@ namespace Pulumi.AwsNative.VpcLattice
             CreatedAt = createdAt;
             Id = id;
             LastUpdatedAt = lastUpdatedAt;
+            SharingConfig = sharingConfig;
             Tags = tags;
         }
     }

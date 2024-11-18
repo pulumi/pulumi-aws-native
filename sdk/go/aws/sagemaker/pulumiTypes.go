@@ -1248,6 +1248,7 @@ type ClusterInstanceGroup struct {
 	InstanceType            string                         `pulumi:"instanceType"`
 	LifeCycleConfig         ClusterLifeCycleConfig         `pulumi:"lifeCycleConfig"`
 	OnStartDeepHealthChecks []ClusterDeepHealthCheckType   `pulumi:"onStartDeepHealthChecks"`
+	OverrideVpcConfig       *ClusterVpcConfig              `pulumi:"overrideVpcConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore *int `pulumi:"threadsPerCore"`
 }
@@ -1275,6 +1276,7 @@ type ClusterInstanceGroupArgs struct {
 	InstanceType            pulumi.StringInput                     `pulumi:"instanceType"`
 	LifeCycleConfig         ClusterLifeCycleConfigInput            `pulumi:"lifeCycleConfig"`
 	OnStartDeepHealthChecks ClusterDeepHealthCheckTypeArrayInput   `pulumi:"onStartDeepHealthChecks"`
+	OverrideVpcConfig       ClusterVpcConfigPtrInput               `pulumi:"overrideVpcConfig"`
 	// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
 	ThreadsPerCore pulumi.IntPtrInput `pulumi:"threadsPerCore"`
 }
@@ -1363,6 +1365,10 @@ func (o ClusterInstanceGroupOutput) LifeCycleConfig() ClusterLifeCycleConfigOutp
 
 func (o ClusterInstanceGroupOutput) OnStartDeepHealthChecks() ClusterDeepHealthCheckTypeArrayOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) []ClusterDeepHealthCheckType { return v.OnStartDeepHealthChecks }).(ClusterDeepHealthCheckTypeArrayOutput)
+}
+
+func (o ClusterInstanceGroupOutput) OverrideVpcConfig() ClusterVpcConfigPtrOutput {
+	return o.ApplyT(func(v ClusterInstanceGroup) *ClusterVpcConfig { return v.OverrideVpcConfig }).(ClusterVpcConfigPtrOutput)
 }
 
 // The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
     public sealed class AnalyzerConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+        /// Specifies the configuration of an unused access analyzer for an AWS organization or account.
         /// </summary>
         [Input("unusedAccessConfiguration")]
         public Input<Inputs.AnalyzerUnusedAccessConfigurationArgs>? UnusedAccessConfiguration { get; set; }

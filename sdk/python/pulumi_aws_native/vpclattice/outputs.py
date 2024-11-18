@@ -33,6 +33,7 @@ __all__ = [
     'RuleWeightedTargetGroup',
     'ServiceDnsEntry',
     'ServiceNetworkServiceAssociationDnsEntry',
+    'ServiceNetworkSharingConfig',
     'TargetGroupConfig',
     'TargetGroupHealthCheckConfig',
     'TargetGroupMatcher',
@@ -751,6 +752,18 @@ class ServiceNetworkServiceAssociationDnsEntry(dict):
         The ID of the hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class ServiceNetworkSharingConfig(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

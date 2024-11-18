@@ -2843,6 +2843,146 @@ func (o NodegroupLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The node auto repair configuration for node group.
+type NodegroupNodeRepairConfig struct {
+	// Set this value to true to enable node auto repair for the node group.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// NodegroupNodeRepairConfigInput is an input type that accepts NodegroupNodeRepairConfigArgs and NodegroupNodeRepairConfigOutput values.
+// You can construct a concrete instance of `NodegroupNodeRepairConfigInput` via:
+//
+//	NodegroupNodeRepairConfigArgs{...}
+type NodegroupNodeRepairConfigInput interface {
+	pulumi.Input
+
+	ToNodegroupNodeRepairConfigOutput() NodegroupNodeRepairConfigOutput
+	ToNodegroupNodeRepairConfigOutputWithContext(context.Context) NodegroupNodeRepairConfigOutput
+}
+
+// The node auto repair configuration for node group.
+type NodegroupNodeRepairConfigArgs struct {
+	// Set this value to true to enable node auto repair for the node group.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (NodegroupNodeRepairConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupNodeRepairConfig)(nil)).Elem()
+}
+
+func (i NodegroupNodeRepairConfigArgs) ToNodegroupNodeRepairConfigOutput() NodegroupNodeRepairConfigOutput {
+	return i.ToNodegroupNodeRepairConfigOutputWithContext(context.Background())
+}
+
+func (i NodegroupNodeRepairConfigArgs) ToNodegroupNodeRepairConfigOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupNodeRepairConfigOutput)
+}
+
+func (i NodegroupNodeRepairConfigArgs) ToNodegroupNodeRepairConfigPtrOutput() NodegroupNodeRepairConfigPtrOutput {
+	return i.ToNodegroupNodeRepairConfigPtrOutputWithContext(context.Background())
+}
+
+func (i NodegroupNodeRepairConfigArgs) ToNodegroupNodeRepairConfigPtrOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupNodeRepairConfigOutput).ToNodegroupNodeRepairConfigPtrOutputWithContext(ctx)
+}
+
+// NodegroupNodeRepairConfigPtrInput is an input type that accepts NodegroupNodeRepairConfigArgs, NodegroupNodeRepairConfigPtr and NodegroupNodeRepairConfigPtrOutput values.
+// You can construct a concrete instance of `NodegroupNodeRepairConfigPtrInput` via:
+//
+//	        NodegroupNodeRepairConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type NodegroupNodeRepairConfigPtrInput interface {
+	pulumi.Input
+
+	ToNodegroupNodeRepairConfigPtrOutput() NodegroupNodeRepairConfigPtrOutput
+	ToNodegroupNodeRepairConfigPtrOutputWithContext(context.Context) NodegroupNodeRepairConfigPtrOutput
+}
+
+type nodegroupNodeRepairConfigPtrType NodegroupNodeRepairConfigArgs
+
+func NodegroupNodeRepairConfigPtr(v *NodegroupNodeRepairConfigArgs) NodegroupNodeRepairConfigPtrInput {
+	return (*nodegroupNodeRepairConfigPtrType)(v)
+}
+
+func (*nodegroupNodeRepairConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupNodeRepairConfig)(nil)).Elem()
+}
+
+func (i *nodegroupNodeRepairConfigPtrType) ToNodegroupNodeRepairConfigPtrOutput() NodegroupNodeRepairConfigPtrOutput {
+	return i.ToNodegroupNodeRepairConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *nodegroupNodeRepairConfigPtrType) ToNodegroupNodeRepairConfigPtrOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NodegroupNodeRepairConfigPtrOutput)
+}
+
+// The node auto repair configuration for node group.
+type NodegroupNodeRepairConfigOutput struct{ *pulumi.OutputState }
+
+func (NodegroupNodeRepairConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NodegroupNodeRepairConfig)(nil)).Elem()
+}
+
+func (o NodegroupNodeRepairConfigOutput) ToNodegroupNodeRepairConfigOutput() NodegroupNodeRepairConfigOutput {
+	return o
+}
+
+func (o NodegroupNodeRepairConfigOutput) ToNodegroupNodeRepairConfigOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigOutput {
+	return o
+}
+
+func (o NodegroupNodeRepairConfigOutput) ToNodegroupNodeRepairConfigPtrOutput() NodegroupNodeRepairConfigPtrOutput {
+	return o.ToNodegroupNodeRepairConfigPtrOutputWithContext(context.Background())
+}
+
+func (o NodegroupNodeRepairConfigOutput) ToNodegroupNodeRepairConfigPtrOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodegroupNodeRepairConfig) *NodegroupNodeRepairConfig {
+		return &v
+	}).(NodegroupNodeRepairConfigPtrOutput)
+}
+
+// Set this value to true to enable node auto repair for the node group.
+func (o NodegroupNodeRepairConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v NodegroupNodeRepairConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type NodegroupNodeRepairConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (NodegroupNodeRepairConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NodegroupNodeRepairConfig)(nil)).Elem()
+}
+
+func (o NodegroupNodeRepairConfigPtrOutput) ToNodegroupNodeRepairConfigPtrOutput() NodegroupNodeRepairConfigPtrOutput {
+	return o
+}
+
+func (o NodegroupNodeRepairConfigPtrOutput) ToNodegroupNodeRepairConfigPtrOutputWithContext(ctx context.Context) NodegroupNodeRepairConfigPtrOutput {
+	return o
+}
+
+func (o NodegroupNodeRepairConfigPtrOutput) Elem() NodegroupNodeRepairConfigOutput {
+	return o.ApplyT(func(v *NodegroupNodeRepairConfig) NodegroupNodeRepairConfig {
+		if v != nil {
+			return *v
+		}
+		var ret NodegroupNodeRepairConfig
+		return ret
+	}).(NodegroupNodeRepairConfigOutput)
+}
+
+// Set this value to true to enable node auto repair for the node group.
+func (o NodegroupNodeRepairConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NodegroupNodeRepairConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // An object representing a remote access configuration specification for AWS EKS Nodegroup.
 type NodegroupRemoteAccess struct {
 	// The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see [Amazon EC2 key pairs and Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances* . For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see [Amazon EC2 key pairs and Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html) in the *Amazon Elastic Compute Cloud User Guide for Windows Instances* .
@@ -3528,6 +3668,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingPtrInput)(nil)).Elem(), LoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupLaunchTemplateSpecificationInput)(nil)).Elem(), NodegroupLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupLaunchTemplateSpecificationPtrInput)(nil)).Elem(), NodegroupLaunchTemplateSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupNodeRepairConfigInput)(nil)).Elem(), NodegroupNodeRepairConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupNodeRepairConfigPtrInput)(nil)).Elem(), NodegroupNodeRepairConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupRemoteAccessInput)(nil)).Elem(), NodegroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupRemoteAccessPtrInput)(nil)).Elem(), NodegroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodegroupScalingConfigInput)(nil)).Elem(), NodegroupScalingConfigArgs{})
@@ -3575,6 +3717,8 @@ func init() {
 	pulumi.RegisterOutputType(LoggingPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(NodegroupLaunchTemplateSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(NodegroupNodeRepairConfigOutput{})
+	pulumi.RegisterOutputType(NodegroupNodeRepairConfigPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupRemoteAccessOutput{})
 	pulumi.RegisterOutputType(NodegroupRemoteAccessPtrOutput{})
 	pulumi.RegisterOutputType(NodegroupScalingConfigOutput{})

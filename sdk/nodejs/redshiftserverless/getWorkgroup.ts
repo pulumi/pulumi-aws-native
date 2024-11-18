@@ -38,6 +38,10 @@ export interface GetWorkgroupResult {
      */
     readonly publiclyAccessible?: boolean;
     /**
+     * The map of the key-value pairs used to tag the workgroup.
+     */
+    readonly tags?: outputs.Tag[];
+    /**
      * Definition for workgroup resource
      */
     readonly workgroup?: outputs.redshiftserverless.Workgroup;

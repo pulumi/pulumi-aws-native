@@ -65,6 +65,10 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public readonly Outputs.NodegroupLaunchTemplateSpecification? LaunchTemplate;
         /// <summary>
+        /// The node auto repair configuration for node group.
+        /// </summary>
+        public readonly Outputs.NodegroupNodeRepairConfig? NodeRepairConfig;
+        /// <summary>
         /// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
         /// </summary>
         public readonly string? ReleaseVersion;
@@ -99,6 +103,8 @@ namespace Pulumi.AwsNative.Eks
 
             Outputs.NodegroupLaunchTemplateSpecification? launchTemplate,
 
+            Outputs.NodegroupNodeRepairConfig? nodeRepairConfig,
+
             string? releaseVersion,
 
             Outputs.NodegroupScalingConfig? scalingConfig,
@@ -115,6 +121,7 @@ namespace Pulumi.AwsNative.Eks
             Id = id;
             Labels = labels;
             LaunchTemplate = launchTemplate;
+            NodeRepairConfig = nodeRepairConfig;
             ReleaseVersion = releaseVersion;
             ScalingConfig = scalingConfig;
             Tags = tags;

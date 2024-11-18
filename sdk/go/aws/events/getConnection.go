@@ -30,6 +30,8 @@ type LookupConnectionArgs struct {
 type LookupConnectionResult struct {
 	// The arn of the connection resource.
 	Arn *string `pulumi:"arn"`
+	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+	AuthParameters *ConnectionAuthParameters `pulumi:"authParameters"`
 	// The type of authorization to use for the connection.
 	//
 	// > OAUTH tokens are refreshed when a 401 or 407 response is returned.
@@ -85,6 +87,11 @@ func (o LookupConnectionResultOutput) ToLookupConnectionResultOutputWithContext(
 // The arn of the connection resource.
 func (o LookupConnectionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+func (o LookupConnectionResultOutput) AuthParameters() ConnectionAuthParametersPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *ConnectionAuthParameters { return v.AuthParameters }).(ConnectionAuthParametersPtrOutput)
 }
 
 // The type of authorization to use for the connection.

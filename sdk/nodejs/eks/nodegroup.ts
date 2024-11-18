@@ -127,6 +127,10 @@ export class Nodegroup extends pulumi.CustomResource {
      */
     public readonly launchTemplate!: pulumi.Output<outputs.eks.NodegroupLaunchTemplateSpecification | undefined>;
     /**
+     * The node auto repair configuration for node group.
+     */
+    public readonly nodeRepairConfig!: pulumi.Output<outputs.eks.NodegroupNodeRepairConfig | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
      */
     public readonly nodeRole!: pulumi.Output<string>;
@@ -195,6 +199,7 @@ export class Nodegroup extends pulumi.CustomResource {
             resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["nodeRepairConfig"] = args ? args.nodeRepairConfig : undefined;
             resourceInputs["nodeRole"] = args ? args.nodeRole : undefined;
             resourceInputs["nodegroupName"] = args ? args.nodegroupName : undefined;
             resourceInputs["releaseVersion"] = args ? args.releaseVersion : undefined;
@@ -218,6 +223,7 @@ export class Nodegroup extends pulumi.CustomResource {
             resourceInputs["instanceTypes"] = undefined /*out*/;
             resourceInputs["labels"] = undefined /*out*/;
             resourceInputs["launchTemplate"] = undefined /*out*/;
+            resourceInputs["nodeRepairConfig"] = undefined /*out*/;
             resourceInputs["nodeRole"] = undefined /*out*/;
             resourceInputs["nodegroupName"] = undefined /*out*/;
             resourceInputs["releaseVersion"] = undefined /*out*/;
@@ -272,6 +278,10 @@ export interface NodegroupArgs {
      * An object representing a node group's launch template specification.
      */
     launchTemplate?: pulumi.Input<inputs.eks.NodegroupLaunchTemplateSpecificationArgs>;
+    /**
+     * The node auto repair configuration for node group.
+     */
+    nodeRepairConfig?: pulumi.Input<inputs.eks.NodegroupNodeRepairConfigArgs>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
      */

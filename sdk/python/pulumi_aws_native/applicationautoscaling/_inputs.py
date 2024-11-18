@@ -27,6 +27,30 @@ __all__ = [
     'ScalingPolicyMetricDimensionArgsDict',
     'ScalingPolicyPredefinedMetricSpecificationArgs',
     'ScalingPolicyPredefinedMetricSpecificationArgsDict',
+    'ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs',
+    'ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgsDict',
+    'ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs',
+    'ScalingPolicyPredictiveScalingCustomizedLoadMetricArgsDict',
+    'ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs',
+    'ScalingPolicyPredictiveScalingCustomizedScalingMetricArgsDict',
+    'ScalingPolicyPredictiveScalingMetricDataQueryArgs',
+    'ScalingPolicyPredictiveScalingMetricDataQueryArgsDict',
+    'ScalingPolicyPredictiveScalingMetricDimensionArgs',
+    'ScalingPolicyPredictiveScalingMetricDimensionArgsDict',
+    'ScalingPolicyPredictiveScalingMetricSpecificationArgs',
+    'ScalingPolicyPredictiveScalingMetricSpecificationArgsDict',
+    'ScalingPolicyPredictiveScalingMetricStatArgs',
+    'ScalingPolicyPredictiveScalingMetricStatArgsDict',
+    'ScalingPolicyPredictiveScalingMetricArgs',
+    'ScalingPolicyPredictiveScalingMetricArgsDict',
+    'ScalingPolicyPredictiveScalingPolicyConfigurationArgs',
+    'ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict',
+    'ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs',
+    'ScalingPolicyPredictiveScalingPredefinedLoadMetricArgsDict',
+    'ScalingPolicyPredictiveScalingPredefinedMetricPairArgs',
+    'ScalingPolicyPredictiveScalingPredefinedMetricPairArgsDict',
+    'ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs',
+    'ScalingPolicyPredictiveScalingPredefinedScalingMetricArgsDict',
     'ScalingPolicyStepAdjustmentArgs',
     'ScalingPolicyStepAdjustmentArgsDict',
     'ScalingPolicyStepScalingPolicyConfigurationArgs',
@@ -619,6 +643,659 @@ class ScalingPolicyPredefinedMetricSpecificationArgs:
           
          To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
         """
+        return pulumi.get(self, "resource_label")
+
+    @resource_label.setter
+    def resource_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_label", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgsDict(TypedDict):
+        metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgsDict']]]
+elif False:
+    ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs:
+    def __init__(__self__, *,
+                 metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]):
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]:
+        return pulumi.get(self, "metric_data_queries")
+
+    @metric_data_queries.setter
+    def metric_data_queries(self, value: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]):
+        pulumi.set(self, "metric_data_queries", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingCustomizedLoadMetricArgsDict(TypedDict):
+        metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgsDict']]]
+elif False:
+    ScalingPolicyPredictiveScalingCustomizedLoadMetricArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs:
+    def __init__(__self__, *,
+                 metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]):
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]:
+        return pulumi.get(self, "metric_data_queries")
+
+    @metric_data_queries.setter
+    def metric_data_queries(self, value: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]):
+        pulumi.set(self, "metric_data_queries", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingCustomizedScalingMetricArgsDict(TypedDict):
+        metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgsDict']]]
+elif False:
+    ScalingPolicyPredictiveScalingCustomizedScalingMetricArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs:
+    def __init__(__self__, *,
+                 metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]):
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]:
+        return pulumi.get(self, "metric_data_queries")
+
+    @metric_data_queries.setter
+    def metric_data_queries(self, value: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]):
+        pulumi.set(self, "metric_data_queries", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingMetricDataQueryArgsDict(TypedDict):
+        expression: NotRequired[pulumi.Input[str]]
+        """
+        The math expression to perform on the returned data, if this object is performing a math expression.
+        """
+        id: NotRequired[pulumi.Input[str]]
+        """
+        A short name that identifies the object's results in the response.
+        """
+        label: NotRequired[pulumi.Input[str]]
+        """
+        A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+        """
+        metric_stat: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingMetricStatArgsDict']]
+        """
+        Information about the metric data to return.
+        """
+        return_data: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates whether to return the timestamps and raw data values of this metric.
+        """
+elif False:
+    ScalingPolicyPredictiveScalingMetricDataQueryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingMetricDataQueryArgs:
+    def __init__(__self__, *,
+                 expression: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 label: Optional[pulumi.Input[str]] = None,
+                 metric_stat: Optional[pulumi.Input['ScalingPolicyPredictiveScalingMetricStatArgs']] = None,
+                 return_data: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] expression: The math expression to perform on the returned data, if this object is performing a math expression.
+        :param pulumi.Input[str] id: A short name that identifies the object's results in the response.
+        :param pulumi.Input[str] label: A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+        :param pulumi.Input['ScalingPolicyPredictiveScalingMetricStatArgs'] metric_stat: Information about the metric data to return.
+        :param pulumi.Input[bool] return_data: Indicates whether to return the timestamps and raw data values of this metric.
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The math expression to perform on the returned data, if this object is performing a math expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A short name that identifies the object's results in the response.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "label", value)
+
+    @property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingMetricStatArgs']]:
+        """
+        Information about the metric data to return.
+        """
+        return pulumi.get(self, "metric_stat")
+
+    @metric_stat.setter
+    def metric_stat(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingMetricStatArgs']]):
+        pulumi.set(self, "metric_stat", value)
+
+    @property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to return the timestamps and raw data values of this metric.
+        """
+        return pulumi.get(self, "return_data")
+
+    @return_data.setter
+    def return_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "return_data", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingMetricDimensionArgsDict(TypedDict):
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the dimension.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the dimension.
+        """
+elif False:
+    ScalingPolicyPredictiveScalingMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingMetricDimensionArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the dimension.
+        :param pulumi.Input[str] value: The value of the dimension.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the dimension.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingMetricSpecificationArgsDict(TypedDict):
+        target_value: pulumi.Input[float]
+        customized_capacity_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgsDict']]
+        customized_load_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedLoadMetricArgsDict']]
+        customized_scaling_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedScalingMetricArgsDict']]
+        predefined_load_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgsDict']]
+        predefined_metric_pair_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgsDict']]
+        predefined_scaling_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgsDict']]
+elif False:
+    ScalingPolicyPredictiveScalingMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
+    def __init__(__self__, *,
+                 target_value: pulumi.Input[float],
+                 customized_capacity_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs']] = None,
+                 customized_load_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs']] = None,
+                 customized_scaling_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs']] = None,
+                 predefined_load_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs']] = None,
+                 predefined_metric_pair_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs']] = None,
+                 predefined_scaling_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs']] = None):
+        pulumi.set(__self__, "target_value", target_value)
+        if customized_capacity_metric_specification is not None:
+            pulumi.set(__self__, "customized_capacity_metric_specification", customized_capacity_metric_specification)
+        if customized_load_metric_specification is not None:
+            pulumi.set(__self__, "customized_load_metric_specification", customized_load_metric_specification)
+        if customized_scaling_metric_specification is not None:
+            pulumi.set(__self__, "customized_scaling_metric_specification", customized_scaling_metric_specification)
+        if predefined_load_metric_specification is not None:
+            pulumi.set(__self__, "predefined_load_metric_specification", predefined_load_metric_specification)
+        if predefined_metric_pair_specification is not None:
+            pulumi.set(__self__, "predefined_metric_pair_specification", predefined_metric_pair_specification)
+        if predefined_scaling_metric_specification is not None:
+            pulumi.set(__self__, "predefined_scaling_metric_specification", predefined_scaling_metric_specification)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "target_value")
+
+    @target_value.setter
+    def target_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "target_value", value)
+
+    @property
+    @pulumi.getter(name="customizedCapacityMetricSpecification")
+    def customized_capacity_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs']]:
+        return pulumi.get(self, "customized_capacity_metric_specification")
+
+    @customized_capacity_metric_specification.setter
+    def customized_capacity_metric_specification(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs']]):
+        pulumi.set(self, "customized_capacity_metric_specification", value)
+
+    @property
+    @pulumi.getter(name="customizedLoadMetricSpecification")
+    def customized_load_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs']]:
+        return pulumi.get(self, "customized_load_metric_specification")
+
+    @customized_load_metric_specification.setter
+    def customized_load_metric_specification(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs']]):
+        pulumi.set(self, "customized_load_metric_specification", value)
+
+    @property
+    @pulumi.getter(name="customizedScalingMetricSpecification")
+    def customized_scaling_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs']]:
+        return pulumi.get(self, "customized_scaling_metric_specification")
+
+    @customized_scaling_metric_specification.setter
+    def customized_scaling_metric_specification(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs']]):
+        pulumi.set(self, "customized_scaling_metric_specification", value)
+
+    @property
+    @pulumi.getter(name="predefinedLoadMetricSpecification")
+    def predefined_load_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs']]:
+        return pulumi.get(self, "predefined_load_metric_specification")
+
+    @predefined_load_metric_specification.setter
+    def predefined_load_metric_specification(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs']]):
+        pulumi.set(self, "predefined_load_metric_specification", value)
+
+    @property
+    @pulumi.getter(name="predefinedMetricPairSpecification")
+    def predefined_metric_pair_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs']]:
+        return pulumi.get(self, "predefined_metric_pair_specification")
+
+    @predefined_metric_pair_specification.setter
+    def predefined_metric_pair_specification(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs']]):
+        pulumi.set(self, "predefined_metric_pair_specification", value)
+
+    @property
+    @pulumi.getter(name="predefinedScalingMetricSpecification")
+    def predefined_scaling_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs']]:
+        return pulumi.get(self, "predefined_scaling_metric_specification")
+
+    @predefined_scaling_metric_specification.setter
+    def predefined_scaling_metric_specification(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs']]):
+        pulumi.set(self, "predefined_scaling_metric_specification", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingMetricStatArgsDict(TypedDict):
+        metric: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingMetricArgsDict']]
+        """
+        The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+        """
+        stat: NotRequired[pulumi.Input[str]]
+        """
+        The statistic to return. It can include any CloudWatch statistic or extended statistic.
+        """
+        unit: NotRequired[pulumi.Input[str]]
+        """
+        The unit to use for the returned data points.
+        """
+elif False:
+    ScalingPolicyPredictiveScalingMetricStatArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingMetricStatArgs:
+    def __init__(__self__, *,
+                 metric: Optional[pulumi.Input['ScalingPolicyPredictiveScalingMetricArgs']] = None,
+                 stat: Optional[pulumi.Input[str]] = None,
+                 unit: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ScalingPolicyPredictiveScalingMetricArgs'] metric: The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+        :param pulumi.Input[str] stat: The statistic to return. It can include any CloudWatch statistic or extended statistic.
+        :param pulumi.Input[str] unit: The unit to use for the returned data points.
+        """
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if stat is not None:
+            pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingMetricArgs']]:
+        """
+        The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+        """
+        return pulumi.get(self, "metric")
+
+    @metric.setter
+    def metric(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingMetricArgs']]):
+        pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter
+    def stat(self) -> Optional[pulumi.Input[str]]:
+        """
+        The statistic to return. It can include any CloudWatch statistic or extended statistic.
+        """
+        return pulumi.get(self, "stat")
+
+    @stat.setter
+    def stat(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "stat", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit to use for the returned data points.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingMetricArgsDict(TypedDict):
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDimensionArgsDict']]]]
+        """
+        The dimensions for the metric.
+        """
+        metric_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the metric.
+        """
+        namespace: NotRequired[pulumi.Input[str]]
+        """
+        The namespace of the metric.
+        """
+elif False:
+    ScalingPolicyPredictiveScalingMetricArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingMetricArgs:
+    def __init__(__self__, *,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDimensionArgs']]]] = None,
+                 metric_name: Optional[pulumi.Input[str]] = None,
+                 namespace: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDimensionArgs']]] dimensions: The dimensions for the metric.
+        :param pulumi.Input[str] metric_name: The name of the metric.
+        :param pulumi.Input[str] namespace: The namespace of the metric.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDimensionArgs']]]]:
+        """
+        The dimensions for the metric.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[pulumi.Input[str]]:
+        """
+        The namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "namespace", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict(TypedDict):
+        metric_specifications: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricSpecificationArgsDict']]]
+        max_capacity_breach_behavior: NotRequired[pulumi.Input[str]]
+        max_capacity_buffer: NotRequired[pulumi.Input[int]]
+        mode: NotRequired[pulumi.Input[str]]
+        scheduling_buffer_time: NotRequired[pulumi.Input[int]]
+elif False:
+    ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingPolicyConfigurationArgs:
+    def __init__(__self__, *,
+                 metric_specifications: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricSpecificationArgs']]],
+                 max_capacity_breach_behavior: Optional[pulumi.Input[str]] = None,
+                 max_capacity_buffer: Optional[pulumi.Input[int]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 scheduling_buffer_time: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "metric_specifications", metric_specifications)
+        if max_capacity_breach_behavior is not None:
+            pulumi.set(__self__, "max_capacity_breach_behavior", max_capacity_breach_behavior)
+        if max_capacity_buffer is not None:
+            pulumi.set(__self__, "max_capacity_buffer", max_capacity_buffer)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if scheduling_buffer_time is not None:
+            pulumi.set(__self__, "scheduling_buffer_time", scheduling_buffer_time)
+
+    @property
+    @pulumi.getter(name="metricSpecifications")
+    def metric_specifications(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricSpecificationArgs']]]:
+        return pulumi.get(self, "metric_specifications")
+
+    @metric_specifications.setter
+    def metric_specifications(self, value: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricSpecificationArgs']]]):
+        pulumi.set(self, "metric_specifications", value)
+
+    @property
+    @pulumi.getter(name="maxCapacityBreachBehavior")
+    def max_capacity_breach_behavior(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "max_capacity_breach_behavior")
+
+    @max_capacity_breach_behavior.setter
+    def max_capacity_breach_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_capacity_breach_behavior", value)
+
+    @property
+    @pulumi.getter(name="maxCapacityBuffer")
+    def max_capacity_buffer(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_capacity_buffer")
+
+    @max_capacity_buffer.setter
+    def max_capacity_buffer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_capacity_buffer", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="schedulingBufferTime")
+    def scheduling_buffer_time(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "scheduling_buffer_time")
+
+    @scheduling_buffer_time.setter
+    def scheduling_buffer_time(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "scheduling_buffer_time", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgsDict(TypedDict):
+        predefined_metric_type: pulumi.Input[str]
+        resource_label: NotRequired[pulumi.Input[str]]
+elif False:
+    ScalingPolicyPredictiveScalingPredefinedLoadMetricArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs:
+    def __init__(__self__, *,
+                 predefined_metric_type: pulumi.Input[str],
+                 resource_label: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "predefined_metric_type")
+
+    @predefined_metric_type.setter
+    def predefined_metric_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "predefined_metric_type", value)
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_label")
+
+    @resource_label.setter
+    def resource_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_label", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingPredefinedMetricPairArgsDict(TypedDict):
+        predefined_metric_type: pulumi.Input[str]
+        resource_label: NotRequired[pulumi.Input[str]]
+elif False:
+    ScalingPolicyPredictiveScalingPredefinedMetricPairArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingPredefinedMetricPairArgs:
+    def __init__(__self__, *,
+                 predefined_metric_type: pulumi.Input[str],
+                 resource_label: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "predefined_metric_type")
+
+    @predefined_metric_type.setter
+    def predefined_metric_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "predefined_metric_type", value)
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_label")
+
+    @resource_label.setter
+    def resource_label(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_label", value)
+
+
+if not MYPY:
+    class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgsDict(TypedDict):
+        predefined_metric_type: pulumi.Input[str]
+        resource_label: NotRequired[pulumi.Input[str]]
+elif False:
+    ScalingPolicyPredictiveScalingPredefinedScalingMetricArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs:
+    def __init__(__self__, *,
+                 predefined_metric_type: pulumi.Input[str],
+                 resource_label: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "predefined_metric_type")
+
+    @predefined_metric_type.setter
+    def predefined_metric_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "predefined_metric_type", value)
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter

@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
     /// <summary>
-    /// Must be redis.
+    /// The target cache engine for the user.
     /// </summary>
     [EnumType]
     public readonly struct UserEngine : IEquatable<UserEngine>
@@ -114,6 +114,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
 
         public static UserEngine Redis { get; } = new UserEngine("redis");
+        public static UserEngine Valkey { get; } = new UserEngine("valkey");
 
         public static bool operator ==(UserEngine left, UserEngine right) => left.Equals(right);
         public static bool operator !=(UserEngine left, UserEngine right) => !left.Equals(right);
@@ -131,7 +132,7 @@ namespace Pulumi.AwsNative.ElastiCache
     }
 
     /// <summary>
-    /// Must be redis.
+    /// The target cache engine for the user group.
     /// </summary>
     [EnumType]
     public readonly struct UserGroupEngine : IEquatable<UserGroupEngine>
@@ -144,6 +145,7 @@ namespace Pulumi.AwsNative.ElastiCache
         }
 
         public static UserGroupEngine Redis { get; } = new UserGroupEngine("redis");
+        public static UserGroupEngine Valkey { get; } = new UserGroupEngine("valkey");
 
         public static bool operator ==(UserGroupEngine left, UserGroupEngine right) => left.Equals(right);
         public static bool operator !=(UserGroupEngine left, UserGroupEngine right) => !left.Equals(right);

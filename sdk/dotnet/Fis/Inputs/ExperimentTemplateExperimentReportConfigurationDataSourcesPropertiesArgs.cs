@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Fis.Inputs
 {
 
+    /// <summary>
+    /// The data sources for the experiment report.
+    /// </summary>
     public sealed class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("cloudWatchDashboards")]

@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("resourceIdentifier")]
         public Output<string?> ResourceIdentifier { get; private set; } = null!;
 
+        [Output("serviceNetworkLogType")]
+        public Output<Pulumi.AwsNative.VpcLattice.AccessLogSubscriptionServiceNetworkLogType?> ServiceNetworkLogType { get; private set; } = null!;
+
         /// <summary>
         /// The tags for the access log subscription.
         /// </summary>
@@ -117,6 +120,9 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }
+
+        [Input("serviceNetworkLogType")]
+        public Input<Pulumi.AwsNative.VpcLattice.AccessLogSubscriptionServiceNetworkLogType>? ServiceNetworkLogType { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

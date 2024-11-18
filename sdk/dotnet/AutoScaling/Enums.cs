@@ -40,4 +40,32 @@ namespace Pulumi.AwsNative.AutoScaling
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior : IEquatable<AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior>
+    {
+        private readonly string _value;
+
+        private AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior IgnoreUnhealthy { get; } = new AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior("IgnoreUnhealthy");
+        public static AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior ReplaceUnhealthy { get; } = new AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior("ReplaceUnhealthy");
+
+        public static bool operator ==(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior left, AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior right) => left.Equals(right);
+        public static bool operator !=(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior left, AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior other && Equals(other);
+        public bool Equals(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

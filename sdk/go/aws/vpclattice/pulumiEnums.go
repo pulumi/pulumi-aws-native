@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccessLogSubscriptionServiceNetworkLogType string
+
+const (
+	AccessLogSubscriptionServiceNetworkLogTypeService  = AccessLogSubscriptionServiceNetworkLogType("SERVICE")
+	AccessLogSubscriptionServiceNetworkLogTypeResource = AccessLogSubscriptionServiceNetworkLogType("RESOURCE")
+)
+
+func (AccessLogSubscriptionServiceNetworkLogType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessLogSubscriptionServiceNetworkLogType)(nil)).Elem()
+}
+
+func (e AccessLogSubscriptionServiceNetworkLogType) ToAccessLogSubscriptionServiceNetworkLogTypeOutput() AccessLogSubscriptionServiceNetworkLogTypeOutput {
+	return pulumi.ToOutput(e).(AccessLogSubscriptionServiceNetworkLogTypeOutput)
+}
+
+func (e AccessLogSubscriptionServiceNetworkLogType) ToAccessLogSubscriptionServiceNetworkLogTypeOutputWithContext(ctx context.Context) AccessLogSubscriptionServiceNetworkLogTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AccessLogSubscriptionServiceNetworkLogTypeOutput)
+}
+
+func (e AccessLogSubscriptionServiceNetworkLogType) ToAccessLogSubscriptionServiceNetworkLogTypePtrOutput() AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return e.ToAccessLogSubscriptionServiceNetworkLogTypePtrOutputWithContext(context.Background())
+}
+
+func (e AccessLogSubscriptionServiceNetworkLogType) ToAccessLogSubscriptionServiceNetworkLogTypePtrOutputWithContext(ctx context.Context) AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return AccessLogSubscriptionServiceNetworkLogType(e).ToAccessLogSubscriptionServiceNetworkLogTypeOutputWithContext(ctx).ToAccessLogSubscriptionServiceNetworkLogTypePtrOutputWithContext(ctx)
+}
+
+func (e AccessLogSubscriptionServiceNetworkLogType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessLogSubscriptionServiceNetworkLogType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AccessLogSubscriptionServiceNetworkLogType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AccessLogSubscriptionServiceNetworkLogType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AccessLogSubscriptionServiceNetworkLogTypeOutput struct{ *pulumi.OutputState }
+
+func (AccessLogSubscriptionServiceNetworkLogTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessLogSubscriptionServiceNetworkLogType)(nil)).Elem()
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypeOutput) ToAccessLogSubscriptionServiceNetworkLogTypeOutput() AccessLogSubscriptionServiceNetworkLogTypeOutput {
+	return o
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypeOutput) ToAccessLogSubscriptionServiceNetworkLogTypeOutputWithContext(ctx context.Context) AccessLogSubscriptionServiceNetworkLogTypeOutput {
+	return o
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypeOutput) ToAccessLogSubscriptionServiceNetworkLogTypePtrOutput() AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return o.ToAccessLogSubscriptionServiceNetworkLogTypePtrOutputWithContext(context.Background())
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypeOutput) ToAccessLogSubscriptionServiceNetworkLogTypePtrOutputWithContext(ctx context.Context) AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessLogSubscriptionServiceNetworkLogType) *AccessLogSubscriptionServiceNetworkLogType {
+		return &v
+	}).(AccessLogSubscriptionServiceNetworkLogTypePtrOutput)
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessLogSubscriptionServiceNetworkLogType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AccessLogSubscriptionServiceNetworkLogType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccessLogSubscriptionServiceNetworkLogTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessLogSubscriptionServiceNetworkLogTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessLogSubscriptionServiceNetworkLogType)(nil)).Elem()
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypePtrOutput) ToAccessLogSubscriptionServiceNetworkLogTypePtrOutput() AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return o
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypePtrOutput) ToAccessLogSubscriptionServiceNetworkLogTypePtrOutputWithContext(ctx context.Context) AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return o
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypePtrOutput) Elem() AccessLogSubscriptionServiceNetworkLogTypeOutput {
+	return o.ApplyT(func(v *AccessLogSubscriptionServiceNetworkLogType) AccessLogSubscriptionServiceNetworkLogType {
+		if v != nil {
+			return *v
+		}
+		var ret AccessLogSubscriptionServiceNetworkLogType
+		return ret
+	}).(AccessLogSubscriptionServiceNetworkLogTypeOutput)
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AccessLogSubscriptionServiceNetworkLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AccessLogSubscriptionServiceNetworkLogType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AccessLogSubscriptionServiceNetworkLogTypeInput is an input type that accepts values of the AccessLogSubscriptionServiceNetworkLogType enum
+// A concrete instance of `AccessLogSubscriptionServiceNetworkLogTypeInput` can be one of the following:
+//
+//	AccessLogSubscriptionServiceNetworkLogTypeService
+//	AccessLogSubscriptionServiceNetworkLogTypeResource
+type AccessLogSubscriptionServiceNetworkLogTypeInput interface {
+	pulumi.Input
+
+	ToAccessLogSubscriptionServiceNetworkLogTypeOutput() AccessLogSubscriptionServiceNetworkLogTypeOutput
+	ToAccessLogSubscriptionServiceNetworkLogTypeOutputWithContext(context.Context) AccessLogSubscriptionServiceNetworkLogTypeOutput
+}
+
+var accessLogSubscriptionServiceNetworkLogTypePtrType = reflect.TypeOf((**AccessLogSubscriptionServiceNetworkLogType)(nil)).Elem()
+
+type AccessLogSubscriptionServiceNetworkLogTypePtrInput interface {
+	pulumi.Input
+
+	ToAccessLogSubscriptionServiceNetworkLogTypePtrOutput() AccessLogSubscriptionServiceNetworkLogTypePtrOutput
+	ToAccessLogSubscriptionServiceNetworkLogTypePtrOutputWithContext(context.Context) AccessLogSubscriptionServiceNetworkLogTypePtrOutput
+}
+
+type accessLogSubscriptionServiceNetworkLogTypePtr string
+
+func AccessLogSubscriptionServiceNetworkLogTypePtr(v string) AccessLogSubscriptionServiceNetworkLogTypePtrInput {
+	return (*accessLogSubscriptionServiceNetworkLogTypePtr)(&v)
+}
+
+func (*accessLogSubscriptionServiceNetworkLogTypePtr) ElementType() reflect.Type {
+	return accessLogSubscriptionServiceNetworkLogTypePtrType
+}
+
+func (in *accessLogSubscriptionServiceNetworkLogTypePtr) ToAccessLogSubscriptionServiceNetworkLogTypePtrOutput() AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return pulumi.ToOutput(in).(AccessLogSubscriptionServiceNetworkLogTypePtrOutput)
+}
+
+func (in *accessLogSubscriptionServiceNetworkLogTypePtr) ToAccessLogSubscriptionServiceNetworkLogTypePtrOutputWithContext(ctx context.Context) AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AccessLogSubscriptionServiceNetworkLogTypePtrOutput)
+}
+
 // The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
 type AuthPolicyStateEnum string
 
@@ -2333,6 +2498,8 @@ func (in *targetGroupTypePtr) ToTargetGroupTypePtrOutputWithContext(ctx context.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessLogSubscriptionServiceNetworkLogTypeInput)(nil)).Elem(), AccessLogSubscriptionServiceNetworkLogType("SERVICE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessLogSubscriptionServiceNetworkLogTypePtrInput)(nil)).Elem(), AccessLogSubscriptionServiceNetworkLogType("SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerProtocolInput)(nil)).Elem(), ListenerProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerProtocolPtrInput)(nil)).Elem(), ListenerProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleHttpMatchMethodInput)(nil)).Elem(), RuleHttpMatchMethod("CONNECT"))
@@ -2355,6 +2522,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckConfigProtocolVersionPtrInput)(nil)).Elem(), TargetGroupHealthCheckConfigProtocolVersion("HTTP1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTypeInput)(nil)).Elem(), TargetGroupType("IP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupTypePtrInput)(nil)).Elem(), TargetGroupType("IP"))
+	pulumi.RegisterOutputType(AccessLogSubscriptionServiceNetworkLogTypeOutput{})
+	pulumi.RegisterOutputType(AccessLogSubscriptionServiceNetworkLogTypePtrOutput{})
 	pulumi.RegisterOutputType(AuthPolicyStateEnumOutput{})
 	pulumi.RegisterOutputType(AuthPolicyStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(ListenerProtocolOutput{})

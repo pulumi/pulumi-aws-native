@@ -40,6 +40,7 @@ class ExperimentTemplateArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateTargetArgs']]] targets: The targets for the experiment.
         :param pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateActionArgs']]] actions: The actions for the experiment.
         :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for an experiment template.
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs'] experiment_report_configuration: Describes the report configuration for the experiment template.
         :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging.
         """
         pulumi.set(__self__, "description", description)
@@ -143,6 +144,9 @@ class ExperimentTemplateArgs:
     @property
     @pulumi.getter(name="experimentReportConfiguration")
     def experiment_report_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationArgs']]:
+        """
+        Describes the report configuration for the experiment template.
+        """
         return pulumi.get(self, "experiment_report_configuration")
 
     @experiment_report_configuration.setter
@@ -251,6 +255,7 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['ExperimentTemplateActionArgs', 'ExperimentTemplateActionArgsDict']]]] actions: The actions for the experiment.
         :param pulumi.Input[str] description: The description for the experiment template.
         :param pulumi.Input[Union['ExperimentTemplateExperimentOptionsArgs', 'ExperimentTemplateExperimentOptionsArgsDict']] experiment_options: The experiment options for an experiment template.
+        :param pulumi.Input[Union['ExperimentTemplateExperimentReportConfigurationArgs', 'ExperimentTemplateExperimentReportConfigurationArgsDict']] experiment_report_configuration: Describes the report configuration for the experiment template.
         :param pulumi.Input[Union['ExperimentTemplateLogConfigurationArgs', 'ExperimentTemplateLogConfigurationArgsDict']] log_configuration: The configuration for experiment logging.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentTemplateStopConditionArgs', 'ExperimentTemplateStopConditionArgsDict']]]] stop_conditions: The stop conditions for the experiment.
@@ -456,6 +461,9 @@ class ExperimentTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="experimentReportConfiguration")
     def experiment_report_configuration(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateExperimentReportConfiguration']]:
+        """
+        Describes the report configuration for the experiment template.
+        """
         return pulumi.get(self, "experiment_report_configuration")
 
     @property

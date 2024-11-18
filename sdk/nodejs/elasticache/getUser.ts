@@ -30,6 +30,10 @@ export interface GetUserResult {
      */
     readonly arn?: string;
     /**
+     * The target cache engine for the user.
+     */
+    readonly engine?: enums.elasticache.UserEngine;
+    /**
      * Indicates the user status. Can be "active", "modifying" or "deleting".
      */
     readonly status?: string;

@@ -139,7 +139,6 @@ namespace Pulumi.AwsNative.AccessAnalyzer
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "analyzerConfiguration",
                     "analyzerName",
                     "type",
                 },

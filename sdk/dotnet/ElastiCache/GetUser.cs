@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The target cache engine for the user.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ElastiCache.UserEngine? Engine;
+        /// <summary>
         /// Indicates the user status. Can be "active", "modifying" or "deleting".
         /// </summary>
         public readonly string? Status;
@@ -74,11 +78,14 @@ namespace Pulumi.AwsNative.ElastiCache
         private GetUserResult(
             string? arn,
 
+            Pulumi.AwsNative.ElastiCache.UserEngine? engine,
+
             string? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            Engine = engine;
             Status = status;
             Tags = tags;
         }

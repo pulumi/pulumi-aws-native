@@ -77,6 +77,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// The ID of the service network or service.
         /// </summary>
         public readonly string? ResourceId;
+        public readonly Pulumi.AwsNative.VpcLattice.AccessLogSubscriptionServiceNetworkLogType? ServiceNetworkLogType;
         /// <summary>
         /// The tags for the access log subscription.
         /// </summary>
@@ -94,6 +95,8 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? resourceId,
 
+            Pulumi.AwsNative.VpcLattice.AccessLogSubscriptionServiceNetworkLogType? serviceNetworkLogType,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
@@ -101,6 +104,7 @@ namespace Pulumi.AwsNative.VpcLattice
             Id = id;
             ResourceArn = resourceArn;
             ResourceId = resourceId;
+            ServiceNetworkLogType = serviceNetworkLogType;
             Tags = tags;
         }
     }

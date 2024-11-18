@@ -104,6 +104,7 @@ namespace Pulumi.AwsNative.SageMaker
                     "instanceGroups[*].executionRole",
                     "instanceGroups[*].instanceGroupName",
                     "instanceGroups[*].instanceType",
+                    "instanceGroups[*].overrideVpcConfig",
                     "instanceGroups[*].threadsPerCore",
                     "orchestrator",
                     "vpcConfig",

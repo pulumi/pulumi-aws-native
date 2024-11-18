@@ -54,6 +54,7 @@ export class ScalingPolicy extends pulumi.CustomResource {
      *   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
      */
     public readonly policyType!: pulumi.Output<string>;
+    public readonly predictiveScalingPolicyConfiguration!: pulumi.Output<outputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfiguration | undefined>;
     /**
      * The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
      *   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -138,6 +139,7 @@ export class ScalingPolicy extends pulumi.CustomResource {
             }
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["policyType"] = args ? args.policyType : undefined;
+            resourceInputs["predictiveScalingPolicyConfiguration"] = args ? args.predictiveScalingPolicyConfiguration : undefined;
             resourceInputs["resourceId"] = args ? args.resourceId : undefined;
             resourceInputs["scalableDimension"] = args ? args.scalableDimension : undefined;
             resourceInputs["scalingTargetId"] = args ? args.scalingTargetId : undefined;
@@ -149,6 +151,7 @@ export class ScalingPolicy extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["policyName"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;
+            resourceInputs["predictiveScalingPolicyConfiguration"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["scalableDimension"] = undefined /*out*/;
             resourceInputs["scalingTargetId"] = undefined /*out*/;
@@ -179,6 +182,7 @@ export interface ScalingPolicyArgs {
      *   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
      */
     policyType: pulumi.Input<string>;
+    predictiveScalingPolicyConfiguration?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfigurationArgs>;
     /**
      * The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
      *   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.

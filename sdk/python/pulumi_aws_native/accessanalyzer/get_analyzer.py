@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetAnalyzerResult:
-    def __init__(__self__, archive_rules=None, arn=None, tags=None):
+    def __init__(__self__, analyzer_configuration=None, archive_rules=None, arn=None, tags=None):
+        if analyzer_configuration and not isinstance(analyzer_configuration, dict):
+            raise TypeError("Expected argument 'analyzer_configuration' to be a dict")
+        pulumi.set(__self__, "analyzer_configuration", analyzer_configuration)
         if archive_rules and not isinstance(archive_rules, list):
             raise TypeError("Expected argument 'archive_rules' to be a list")
         pulumi.set(__self__, "archive_rules", archive_rules)
@@ -35,6 +38,14 @@ class GetAnalyzerResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="analyzerConfiguration")
+    def analyzer_configuration(self) -> Optional['outputs.AnalyzerConfigurationProperties']:
+        """
+        The configuration for the analyzer
+        """
+        return pulumi.get(self, "analyzer_configuration")
 
     @property
     @pulumi.getter(name="archiveRules")
@@ -67,6 +78,7 @@ class AwaitableGetAnalyzerResult(GetAnalyzerResult):
         if False:
             yield self
         return GetAnalyzerResult(
+            analyzer_configuration=self.analyzer_configuration,
             archive_rules=self.archive_rules,
             arn=self.arn,
             tags=self.tags)
@@ -86,6 +98,7 @@ def get_analyzer(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:accessanalyzer:getAnalyzer', __args__, opts=opts, typ=GetAnalyzerResult).value
 
     return AwaitableGetAnalyzerResult(
+        analyzer_configuration=pulumi.get(__ret__, 'analyzer_configuration'),
         archive_rules=pulumi.get(__ret__, 'archive_rules'),
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -102,6 +115,7 @@ def get_analyzer_output(arn: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:accessanalyzer:getAnalyzer', __args__, opts=opts, typ=GetAnalyzerResult)
     return __ret__.apply(lambda __response__: GetAnalyzerResult(
+        analyzer_configuration=pulumi.get(__response__, 'analyzer_configuration'),
         archive_rules=pulumi.get(__response__, 'archive_rules'),
         arn=pulumi.get(__response__, 'arn'),
         tags=pulumi.get(__response__, 'tags')))

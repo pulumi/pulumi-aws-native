@@ -32,7 +32,8 @@ type ServiceNetwork struct {
 	// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name          pulumi.StringPtrOutput               `pulumi:"name"`
+	SharingConfig ServiceNetworkSharingConfigPtrOutput `pulumi:"sharingConfig"`
 	// The tags for the service network.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -89,7 +90,8 @@ type serviceNetworkArgs struct {
 	// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-	Name *string `pulumi:"name"`
+	Name          *string                      `pulumi:"name"`
+	SharingConfig *ServiceNetworkSharingConfig `pulumi:"sharingConfig"`
 	// The tags for the service network.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -104,7 +106,8 @@ type ServiceNetworkArgs struct {
 	// The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-	Name pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
+	SharingConfig ServiceNetworkSharingConfigPtrInput
 	// The tags for the service network.
 	Tags aws.TagArrayInput
 }
@@ -179,6 +182,10 @@ func (o ServiceNetworkOutput) LastUpdatedAt() pulumi.StringOutput {
 // If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 func (o ServiceNetworkOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceNetworkOutput) SharingConfig() ServiceNetworkSharingConfigPtrOutput {
+	return o.ApplyT(func(v *ServiceNetwork) ServiceNetworkSharingConfigPtrOutput { return v.SharingConfig }).(ServiceNetworkSharingConfigPtrOutput)
 }
 
 // The tags for the service network.

@@ -5274,7 +5274,8 @@ type LoadBalancerSubnetMapping struct {
 	// [Network Load Balancers] The IPv6 address.
 	IPv6Address *string `pulumi:"iPv6Address"`
 	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
-	PrivateIPv4Address  *string `pulumi:"privateIPv4Address"`
+	PrivateIPv4Address *string `pulumi:"privateIPv4Address"`
+	// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
 	SourceNatIpv6Prefix *string `pulumi:"sourceNatIpv6Prefix"`
 	// The ID of the subnet.
 	SubnetId string `pulumi:"subnetId"`
@@ -5298,7 +5299,8 @@ type LoadBalancerSubnetMappingArgs struct {
 	// [Network Load Balancers] The IPv6 address.
 	IPv6Address pulumi.StringPtrInput `pulumi:"iPv6Address"`
 	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
-	PrivateIPv4Address  pulumi.StringPtrInput `pulumi:"privateIPv4Address"`
+	PrivateIPv4Address pulumi.StringPtrInput `pulumi:"privateIPv4Address"`
+	// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
 	SourceNatIpv6Prefix pulumi.StringPtrInput `pulumi:"sourceNatIpv6Prefix"`
 	// The ID of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -5371,6 +5373,7 @@ func (o LoadBalancerSubnetMappingOutput) PrivateIPv4Address() pulumi.StringPtrOu
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.PrivateIPv4Address }).(pulumi.StringPtrOutput)
 }
 
+// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
 func (o LoadBalancerSubnetMappingOutput) SourceNatIpv6Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.SourceNatIpv6Prefix }).(pulumi.StringPtrOutput)
 }

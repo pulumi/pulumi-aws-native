@@ -117,7 +117,8 @@ type ExperimentTemplate struct {
 	// The description for the experiment template.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// The experiment options for an experiment template.
-	ExperimentOptions             ExperimentTemplateExperimentOptionsPtrOutput             `pulumi:"experimentOptions"`
+	ExperimentOptions ExperimentTemplateExperimentOptionsPtrOutput `pulumi:"experimentOptions"`
+	// Describes the report configuration for the experiment template.
 	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrOutput `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
@@ -196,7 +197,8 @@ type experimentTemplateArgs struct {
 	// The description for the experiment template.
 	Description string `pulumi:"description"`
 	// The experiment options for an experiment template.
-	ExperimentOptions             *ExperimentTemplateExperimentOptions             `pulumi:"experimentOptions"`
+	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
+	// Describes the report configuration for the experiment template.
 	ExperimentReportConfiguration *ExperimentTemplateExperimentReportConfiguration `pulumi:"experimentReportConfiguration"`
 	// The configuration for experiment logging.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
@@ -217,7 +219,8 @@ type ExperimentTemplateArgs struct {
 	// The description for the experiment template.
 	Description pulumi.StringInput
 	// The experiment options for an experiment template.
-	ExperimentOptions             ExperimentTemplateExperimentOptionsPtrInput
+	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
+	// Describes the report configuration for the experiment template.
 	ExperimentReportConfiguration ExperimentTemplateExperimentReportConfigurationPtrInput
 	// The configuration for experiment logging.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
@@ -288,6 +291,7 @@ func (o ExperimentTemplateOutput) ExperimentOptions() ExperimentTemplateExperime
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentOptionsPtrOutput { return v.ExperimentOptions }).(ExperimentTemplateExperimentOptionsPtrOutput)
 }
 
+// Describes the report configuration for the experiment template.
 func (o ExperimentTemplateOutput) ExperimentReportConfiguration() ExperimentTemplateExperimentReportConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentReportConfigurationPtrOutput {
 		return v.ExperimentReportConfiguration

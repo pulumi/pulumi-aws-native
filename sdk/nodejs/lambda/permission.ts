@@ -64,7 +64,7 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly functionUrlAuthType!: pulumi.Output<enums.lambda.PermissionFunctionUrlAuthType | undefined>;
     /**
-     * The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+     * The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
      */
     public readonly principal!: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export interface PermissionArgs {
      */
     functionUrlAuthType?: pulumi.Input<enums.lambda.PermissionFunctionUrlAuthType>;
     /**
-     * The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+     * The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
      */
     principal: pulumi.Input<string>;
     /**

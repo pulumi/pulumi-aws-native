@@ -36,6 +36,7 @@ class LoadBalancerArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
+        :param pulumi.Input[str] enable_prefix_for_ipv6_source_nat: [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
         :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         :param pulumi.Input[str] ip_address_type: Note: Internal load balancers must use the ``ipv4`` IP address type.
                 [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
@@ -91,6 +92,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="enablePrefixForIpv6SourceNat")
     def enable_prefix_for_ipv6_source_nat(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+        """
         return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
 
     @enable_prefix_for_ipv6_source_nat.setter
@@ -258,6 +262,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] enable_prefix_for_ipv6_source_nat: [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
         :param pulumi.Input[str] enforce_security_group_inbound_rules_on_private_link_traffic: Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
         :param pulumi.Input[str] ip_address_type: Note: Internal load balancers must use the ``ipv4`` IP address type.
                 [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
@@ -408,6 +413,9 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="enablePrefixForIpv6SourceNat")
     def enable_prefix_for_ipv6_source_nat(self) -> pulumi.Output[Optional[str]]:
+        """
+        [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+        """
         return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
 
     @property

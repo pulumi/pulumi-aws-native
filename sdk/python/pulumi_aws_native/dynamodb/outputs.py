@@ -38,6 +38,7 @@ __all__ = [
     'GlobalTableTag',
     'GlobalTableTargetTrackingScalingPolicyConfiguration',
     'GlobalTableTimeToLiveSpecification',
+    'GlobalTableWarmThroughput',
     'GlobalTableWriteOnDemandThroughputSettings',
     'GlobalTableWriteProvisionedThroughputSettings',
     'TableAttributeDefinition',
@@ -58,6 +59,7 @@ __all__ = [
     'TableSseSpecification',
     'TableStreamSpecification',
     'TableTimeToLiveSpecification',
+    'TableWarmThroughput',
 ]
 
 @pulumi.output_type
@@ -226,6 +228,8 @@ class GlobalTableGlobalSecondaryIndex(dict):
             suggest = "index_name"
         elif key == "keySchema":
             suggest = "key_schema"
+        elif key == "warmThroughput":
+            suggest = "warm_throughput"
         elif key == "writeOnDemandThroughputSettings":
             suggest = "write_on_demand_throughput_settings"
         elif key == "writeProvisionedThroughputSettings":
@@ -246,6 +250,7 @@ class GlobalTableGlobalSecondaryIndex(dict):
                  index_name: str,
                  key_schema: Sequence['outputs.GlobalTableKeySchema'],
                  projection: 'outputs.GlobalTableProjection',
+                 warm_throughput: Optional['outputs.GlobalTableWarmThroughput'] = None,
                  write_on_demand_throughput_settings: Optional['outputs.GlobalTableWriteOnDemandThroughputSettings'] = None,
                  write_provisioned_throughput_settings: Optional['outputs.GlobalTableWriteProvisionedThroughputSettings'] = None):
         """
@@ -259,12 +264,14 @@ class GlobalTableGlobalSecondaryIndex(dict):
                > 
                > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         :param 'GlobalTableProjection' projection: Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-        :param 'GlobalTableWriteOnDemandThroughputSettings' write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        :param 'GlobalTableWriteOnDemandThroughputSettings' write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         :param 'GlobalTableWriteProvisionedThroughputSettings' write_provisioned_throughput_settings: Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
         pulumi.set(__self__, "projection", projection)
+        if warm_throughput is not None:
+            pulumi.set(__self__, "warm_throughput", warm_throughput)
         if write_on_demand_throughput_settings is not None:
             pulumi.set(__self__, "write_on_demand_throughput_settings", write_on_demand_throughput_settings)
         if write_provisioned_throughput_settings is not None:
@@ -302,10 +309,15 @@ class GlobalTableGlobalSecondaryIndex(dict):
         return pulumi.get(self, "projection")
 
     @property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> Optional['outputs.GlobalTableWarmThroughput']:
+        return pulumi.get(self, "warm_throughput")
+
+    @property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableWriteOnDemandThroughputSettings']:
         """
-        Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
@@ -723,7 +735,7 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecification(dict):
         """
         :param str index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
         :param 'GlobalTableContributorInsightsSpecification' contributor_insights_specification: Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
-        :param 'GlobalTableReadOnDemandThroughputSettings' read_on_demand_throughput_settings: Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        :param 'GlobalTableReadOnDemandThroughputSettings' read_on_demand_throughput_settings: Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         :param 'GlobalTableReadProvisionedThroughputSettings' read_provisioned_throughput_settings: Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
         """
         pulumi.set(__self__, "index_name", index_name)
@@ -754,7 +766,7 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecification(dict):
     @pulumi.getter(name="readOnDemandThroughputSettings")
     def read_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableReadOnDemandThroughputSettings']:
         """
-        Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         """
         return pulumi.get(self, "read_on_demand_throughput_settings")
 
@@ -1343,6 +1355,46 @@ class GlobalTableTimeToLiveSpecification(dict):
 
 
 @pulumi.output_type
+class GlobalTableWarmThroughput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readUnitsPerSecond":
+            suggest = "read_units_per_second"
+        elif key == "writeUnitsPerSecond":
+            suggest = "write_units_per_second"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GlobalTableWarmThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GlobalTableWarmThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GlobalTableWarmThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_units_per_second: Optional[int] = None,
+                 write_units_per_second: Optional[int] = None):
+        if read_units_per_second is not None:
+            pulumi.set(__self__, "read_units_per_second", read_units_per_second)
+        if write_units_per_second is not None:
+            pulumi.set(__self__, "write_units_per_second", write_units_per_second)
+
+    @property
+    @pulumi.getter(name="readUnitsPerSecond")
+    def read_units_per_second(self) -> Optional[int]:
+        return pulumi.get(self, "read_units_per_second")
+
+    @property
+    @pulumi.getter(name="writeUnitsPerSecond")
+    def write_units_per_second(self) -> Optional[int]:
+        return pulumi.get(self, "write_units_per_second")
+
+
+@pulumi.output_type
 class GlobalTableWriteOnDemandThroughputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1564,6 +1616,8 @@ class TableGlobalSecondaryIndex(dict):
             suggest = "on_demand_throughput"
         elif key == "provisionedThroughput":
             suggest = "provisioned_throughput"
+        elif key == "warmThroughput":
+            suggest = "warm_throughput"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableGlobalSecondaryIndex. Access the value via the '{suggest}' property getter instead.")
@@ -1582,7 +1636,8 @@ class TableGlobalSecondaryIndex(dict):
                  projection: 'outputs.TableProjection',
                  contributor_insights_specification: Optional['outputs.TableContributorInsightsSpecification'] = None,
                  on_demand_throughput: Optional['outputs.TableOnDemandThroughput'] = None,
-                 provisioned_throughput: Optional['outputs.TableProvisionedThroughput'] = None):
+                 provisioned_throughput: Optional['outputs.TableProvisionedThroughput'] = None,
+                 warm_throughput: Optional['outputs.TableWarmThroughput'] = None):
         """
         Represents the properties of a global secondary index.
         :param str index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
@@ -1607,6 +1662,8 @@ class TableGlobalSecondaryIndex(dict):
             pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
         if provisioned_throughput is not None:
             pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+        if warm_throughput is not None:
+            pulumi.set(__self__, "warm_throughput", warm_throughput)
 
     @property
     @pulumi.getter(name="indexName")
@@ -1661,6 +1718,11 @@ class TableGlobalSecondaryIndex(dict):
          For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         """
         return pulumi.get(self, "provisioned_throughput")
+
+    @property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> Optional['outputs.TableWarmThroughput']:
+        return pulumi.get(self, "warm_throughput")
 
 
 @pulumi.output_type
@@ -2489,5 +2551,45 @@ class TableTimeToLiveSpecification(dict):
           +  To update this property, you must first disable TTL and then enable TTL with the new attribute name.
         """
         return pulumi.get(self, "attribute_name")
+
+
+@pulumi.output_type
+class TableWarmThroughput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "readUnitsPerSecond":
+            suggest = "read_units_per_second"
+        elif key == "writeUnitsPerSecond":
+            suggest = "write_units_per_second"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableWarmThroughput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableWarmThroughput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableWarmThroughput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 read_units_per_second: Optional[int] = None,
+                 write_units_per_second: Optional[int] = None):
+        if read_units_per_second is not None:
+            pulumi.set(__self__, "read_units_per_second", read_units_per_second)
+        if write_units_per_second is not None:
+            pulumi.set(__self__, "write_units_per_second", write_units_per_second)
+
+    @property
+    @pulumi.getter(name="readUnitsPerSecond")
+    def read_units_per_second(self) -> Optional[int]:
+        return pulumi.get(self, "read_units_per_second")
+
+    @property
+    @pulumi.getter(name="writeUnitsPerSecond")
+    def write_units_per_second(self) -> Optional[int]:
+        return pulumi.get(self, "write_units_per_second")
 
 

@@ -58,7 +58,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+     * The Amazon Resource Name (ARN) of the database to use as the source for replication
      */
     public readonly sourceArn!: pulumi.Output<string>;
     /**
@@ -66,7 +66,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+     * The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
      */
     public readonly targetArn!: pulumi.Output<string>;
 
@@ -129,7 +129,7 @@ export interface IntegrationArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+     * The Amazon Resource Name (ARN) of the database to use as the source for replication
      */
     sourceArn: pulumi.Input<string>;
     /**
@@ -137,7 +137,7 @@ export interface IntegrationArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+     * The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
      */
     targetArn: pulumi.Input<string>;
 }

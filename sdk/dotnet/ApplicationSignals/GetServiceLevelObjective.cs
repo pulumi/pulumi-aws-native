@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// The ARN of this SLO.
         /// </summary>
         public readonly string? Arn;
+        public readonly ImmutableArray<Outputs.ServiceLevelObjectiveBurnRateConfiguration> BurnRateConfigurations;
         /// <summary>
         /// Epoch time in seconds of the time that this SLO was created
         /// </summary>
@@ -100,6 +101,8 @@ namespace Pulumi.AwsNative.ApplicationSignals
         private GetServiceLevelObjectiveResult(
             string? arn,
 
+            ImmutableArray<Outputs.ServiceLevelObjectiveBurnRateConfiguration> burnRateConfigurations,
+
             int? createdTime,
 
             string? description,
@@ -117,6 +120,7 @@ namespace Pulumi.AwsNative.ApplicationSignals
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            BurnRateConfigurations = burnRateConfigurations;
             CreatedTime = createdTime;
             Description = description;
             EvaluationType = evaluationType;

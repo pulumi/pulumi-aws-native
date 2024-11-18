@@ -50,6 +50,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      * The instance capacity distribution across Availability Zones.
      */
     public readonly availabilityZoneDistribution!: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution | undefined>;
+    public readonly availabilityZoneImpairmentPolicy!: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicy | undefined>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
      */
@@ -166,6 +167,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
     public readonly serviceLinkedRoleArn!: pulumi.Output<string | undefined>;
+    public readonly skipZonalShiftValidation!: pulumi.Output<boolean | undefined>;
     /**
      * One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
@@ -210,6 +212,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             }
             resourceInputs["autoScalingGroupName"] = args ? args.autoScalingGroupName : undefined;
             resourceInputs["availabilityZoneDistribution"] = args ? args.availabilityZoneDistribution : undefined;
+            resourceInputs["availabilityZoneImpairmentPolicy"] = args ? args.availabilityZoneImpairmentPolicy : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
             resourceInputs["context"] = args ? args.context : undefined;
@@ -235,6 +238,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["notificationConfigurations"] = args ? args.notificationConfigurations : undefined;
             resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
             resourceInputs["serviceLinkedRoleArn"] = args ? args.serviceLinkedRoleArn : undefined;
+            resourceInputs["skipZonalShiftValidation"] = args ? args.skipZonalShiftValidation : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
             resourceInputs["terminationPolicies"] = args ? args.terminationPolicies : undefined;
@@ -243,6 +247,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
         } else {
             resourceInputs["autoScalingGroupName"] = undefined /*out*/;
             resourceInputs["availabilityZoneDistribution"] = undefined /*out*/;
+            resourceInputs["availabilityZoneImpairmentPolicy"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
             resourceInputs["capacityRebalance"] = undefined /*out*/;
             resourceInputs["context"] = undefined /*out*/;
@@ -268,6 +273,7 @@ export class AutoScalingGroup extends pulumi.CustomResource {
             resourceInputs["notificationConfigurations"] = undefined /*out*/;
             resourceInputs["placementGroup"] = undefined /*out*/;
             resourceInputs["serviceLinkedRoleArn"] = undefined /*out*/;
+            resourceInputs["skipZonalShiftValidation"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetGroupArns"] = undefined /*out*/;
             resourceInputs["terminationPolicies"] = undefined /*out*/;
@@ -295,6 +301,7 @@ export interface AutoScalingGroupArgs {
      * The instance capacity distribution across Availability Zones.
      */
     availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs>;
+    availabilityZoneImpairmentPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
      */
@@ -411,6 +418,7 @@ export interface AutoScalingGroupArgs {
      * The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */
     serviceLinkedRoleArn?: pulumi.Input<string>;
+    skipZonalShiftValidation?: pulumi.Input<boolean>;
     /**
      * One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
      */

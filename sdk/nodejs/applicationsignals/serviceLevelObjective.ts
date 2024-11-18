@@ -41,6 +41,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      * The ARN of this SLO.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public readonly burnRateConfigurations!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveBurnRateConfiguration[] | undefined>;
     /**
      * Epoch time in seconds of the time that this SLO was created
      */
@@ -91,6 +92,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["burnRateConfigurations"] = args ? args.burnRateConfigurations : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["goal"] = args ? args.goal : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -103,6 +105,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["burnRateConfigurations"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["evaluationType"] = undefined /*out*/;
@@ -124,6 +127,7 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceLevelObjective resource.
  */
 export interface ServiceLevelObjectiveArgs {
+    burnRateConfigurations?: pulumi.Input<pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveBurnRateConfigurationArgs>[]>;
     /**
      * An optional description for this SLO. Default is 'No description'
      */

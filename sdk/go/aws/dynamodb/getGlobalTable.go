@@ -65,7 +65,8 @@ type LookupGlobalTableResult struct {
 	TableId *string `pulumi:"tableId"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
-	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+	WarmThroughput          *GlobalTableWarmThroughput          `pulumi:"warmThroughput"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
@@ -180,7 +181,11 @@ func (o LookupGlobalTableResultOutput) TimeToLiveSpecification() GlobalTableTime
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableTimeToLiveSpecification { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
-// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+func (o LookupGlobalTableResultOutput) WarmThroughput() GlobalTableWarmThroughputPtrOutput {
+	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableWarmThroughput { return v.WarmThroughput }).(GlobalTableWarmThroughputPtrOutput)
+}
+
+// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o LookupGlobalTableResultOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableWriteOnDemandThroughputSettings {
 		return v.WriteOnDemandThroughputSettings

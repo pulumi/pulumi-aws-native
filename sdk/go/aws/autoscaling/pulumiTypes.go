@@ -482,6 +482,156 @@ func (o AutoScalingGroupAvailabilityZoneDistributionPtrOutput) CapacityDistribut
 	}).(AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrOutput)
 }
 
+type AutoScalingGroupAvailabilityZoneImpairmentPolicy struct {
+	ImpairedZoneHealthCheckBehavior AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior `pulumi:"impairedZoneHealthCheckBehavior"`
+	ZonalShiftEnabled               bool                                                                            `pulumi:"zonalShiftEnabled"`
+}
+
+// AutoScalingGroupAvailabilityZoneImpairmentPolicyInput is an input type that accepts AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs and AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput values.
+// You can construct a concrete instance of `AutoScalingGroupAvailabilityZoneImpairmentPolicyInput` via:
+//
+//	AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs{...}
+type AutoScalingGroupAvailabilityZoneImpairmentPolicyInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupAvailabilityZoneImpairmentPolicyOutput() AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput
+	ToAutoScalingGroupAvailabilityZoneImpairmentPolicyOutputWithContext(context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput
+}
+
+type AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs struct {
+	ImpairedZoneHealthCheckBehavior AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorInput `pulumi:"impairedZoneHealthCheckBehavior"`
+	ZonalShiftEnabled               pulumi.BoolInput                                                                     `pulumi:"zonalShiftEnabled"`
+}
+
+func (AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupAvailabilityZoneImpairmentPolicy)(nil)).Elem()
+}
+
+func (i AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyOutput() AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput {
+	return i.ToAutoScalingGroupAvailabilityZoneImpairmentPolicyOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyOutputWithContext(ctx context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput)
+}
+
+func (i AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return i.ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput).ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(ctx)
+}
+
+// AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrInput is an input type that accepts AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs, AutoScalingGroupAvailabilityZoneImpairmentPolicyPtr and AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrInput` via:
+//
+//	        AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput
+	ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput
+}
+
+type autoScalingGroupAvailabilityZoneImpairmentPolicyPtrType AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs
+
+func AutoScalingGroupAvailabilityZoneImpairmentPolicyPtr(v *AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs) AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrInput {
+	return (*autoScalingGroupAvailabilityZoneImpairmentPolicyPtrType)(v)
+}
+
+func (*autoScalingGroupAvailabilityZoneImpairmentPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupAvailabilityZoneImpairmentPolicy)(nil)).Elem()
+}
+
+func (i *autoScalingGroupAvailabilityZoneImpairmentPolicyPtrType) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return i.ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *autoScalingGroupAvailabilityZoneImpairmentPolicyPtrType) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput)
+}
+
+type AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupAvailabilityZoneImpairmentPolicy)(nil)).Elem()
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyOutput() AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput {
+	return o
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyOutputWithContext(ctx context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput {
+	return o
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return o.ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupAvailabilityZoneImpairmentPolicy) *AutoScalingGroupAvailabilityZoneImpairmentPolicy {
+		return &v
+	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput)
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ImpairedZoneHealthCheckBehavior() AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorOutput {
+	return o.ApplyT(func(v AutoScalingGroupAvailabilityZoneImpairmentPolicy) AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior {
+		return v.ImpairedZoneHealthCheckBehavior
+	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorOutput)
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ZonalShiftEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v AutoScalingGroupAvailabilityZoneImpairmentPolicy) bool { return v.ZonalShiftEnabled }).(pulumi.BoolOutput)
+}
+
+type AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupAvailabilityZoneImpairmentPolicy)(nil)).Elem()
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ToAutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutputWithContext(ctx context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) Elem() AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput {
+	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneImpairmentPolicy) AutoScalingGroupAvailabilityZoneImpairmentPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupAvailabilityZoneImpairmentPolicy
+		return ret
+	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput)
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ImpairedZoneHealthCheckBehavior() AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneImpairmentPolicy) *AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior {
+		if v == nil {
+			return nil
+		}
+		return &v.ImpairedZoneHealthCheckBehavior
+	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrOutput)
+}
+
+func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ZonalShiftEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneImpairmentPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ZonalShiftEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // “BaselineEbsBandwidthMbpsRequest“ is a property of the “InstanceRequirements“ property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
 type AutoScalingGroupBaselineEbsBandwidthMbpsRequest struct {
 	// The maximum value in Mbps.
@@ -639,6 +789,276 @@ func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 		}
 		return v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type AutoScalingGroupBaselinePerformanceFactorsRequest struct {
+	Cpu *AutoScalingGroupCpuPerformanceFactorRequest `pulumi:"cpu"`
+}
+
+// AutoScalingGroupBaselinePerformanceFactorsRequestInput is an input type that accepts AutoScalingGroupBaselinePerformanceFactorsRequestArgs and AutoScalingGroupBaselinePerformanceFactorsRequestOutput values.
+// You can construct a concrete instance of `AutoScalingGroupBaselinePerformanceFactorsRequestInput` via:
+//
+//	AutoScalingGroupBaselinePerformanceFactorsRequestArgs{...}
+type AutoScalingGroupBaselinePerformanceFactorsRequestInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupBaselinePerformanceFactorsRequestOutput() AutoScalingGroupBaselinePerformanceFactorsRequestOutput
+	ToAutoScalingGroupBaselinePerformanceFactorsRequestOutputWithContext(context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestOutput
+}
+
+type AutoScalingGroupBaselinePerformanceFactorsRequestArgs struct {
+	Cpu AutoScalingGroupCpuPerformanceFactorRequestPtrInput `pulumi:"cpu"`
+}
+
+func (AutoScalingGroupBaselinePerformanceFactorsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (i AutoScalingGroupBaselinePerformanceFactorsRequestArgs) ToAutoScalingGroupBaselinePerformanceFactorsRequestOutput() AutoScalingGroupBaselinePerformanceFactorsRequestOutput {
+	return i.ToAutoScalingGroupBaselinePerformanceFactorsRequestOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupBaselinePerformanceFactorsRequestArgs) ToAutoScalingGroupBaselinePerformanceFactorsRequestOutputWithContext(ctx context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupBaselinePerformanceFactorsRequestOutput)
+}
+
+func (i AutoScalingGroupBaselinePerformanceFactorsRequestArgs) ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return i.ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupBaselinePerformanceFactorsRequestArgs) ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupBaselinePerformanceFactorsRequestOutput).ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx)
+}
+
+// AutoScalingGroupBaselinePerformanceFactorsRequestPtrInput is an input type that accepts AutoScalingGroupBaselinePerformanceFactorsRequestArgs, AutoScalingGroupBaselinePerformanceFactorsRequestPtr and AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupBaselinePerformanceFactorsRequestPtrInput` via:
+//
+//	        AutoScalingGroupBaselinePerformanceFactorsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoScalingGroupBaselinePerformanceFactorsRequestPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput
+	ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput
+}
+
+type autoScalingGroupBaselinePerformanceFactorsRequestPtrType AutoScalingGroupBaselinePerformanceFactorsRequestArgs
+
+func AutoScalingGroupBaselinePerformanceFactorsRequestPtr(v *AutoScalingGroupBaselinePerformanceFactorsRequestArgs) AutoScalingGroupBaselinePerformanceFactorsRequestPtrInput {
+	return (*autoScalingGroupBaselinePerformanceFactorsRequestPtrType)(v)
+}
+
+func (*autoScalingGroupBaselinePerformanceFactorsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (i *autoScalingGroupBaselinePerformanceFactorsRequestPtrType) ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return i.ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *autoScalingGroupBaselinePerformanceFactorsRequestPtrType) ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput)
+}
+
+type AutoScalingGroupBaselinePerformanceFactorsRequestOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupBaselinePerformanceFactorsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestOutput) ToAutoScalingGroupBaselinePerformanceFactorsRequestOutput() AutoScalingGroupBaselinePerformanceFactorsRequestOutput {
+	return o
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestOutput) ToAutoScalingGroupBaselinePerformanceFactorsRequestOutputWithContext(ctx context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestOutput {
+	return o
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestOutput) ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestOutput) ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupBaselinePerformanceFactorsRequest) *AutoScalingGroupBaselinePerformanceFactorsRequest {
+		return &v
+	}).(AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput)
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestOutput) Cpu() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupBaselinePerformanceFactorsRequest) *AutoScalingGroupCpuPerformanceFactorRequest {
+		return v.Cpu
+	}).(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput)
+}
+
+type AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) ToAutoScalingGroupBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) Elem() AutoScalingGroupBaselinePerformanceFactorsRequestOutput {
+	return o.ApplyT(func(v *AutoScalingGroupBaselinePerformanceFactorsRequest) AutoScalingGroupBaselinePerformanceFactorsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupBaselinePerformanceFactorsRequest
+		return ret
+	}).(AutoScalingGroupBaselinePerformanceFactorsRequestOutput)
+}
+
+func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) Cpu() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupBaselinePerformanceFactorsRequest) *AutoScalingGroupCpuPerformanceFactorRequest {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput)
+}
+
+type AutoScalingGroupCpuPerformanceFactorRequest struct {
+	References []AutoScalingGroupPerformanceFactorReferenceRequest `pulumi:"references"`
+}
+
+// AutoScalingGroupCpuPerformanceFactorRequestInput is an input type that accepts AutoScalingGroupCpuPerformanceFactorRequestArgs and AutoScalingGroupCpuPerformanceFactorRequestOutput values.
+// You can construct a concrete instance of `AutoScalingGroupCpuPerformanceFactorRequestInput` via:
+//
+//	AutoScalingGroupCpuPerformanceFactorRequestArgs{...}
+type AutoScalingGroupCpuPerformanceFactorRequestInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupCpuPerformanceFactorRequestOutput() AutoScalingGroupCpuPerformanceFactorRequestOutput
+	ToAutoScalingGroupCpuPerformanceFactorRequestOutputWithContext(context.Context) AutoScalingGroupCpuPerformanceFactorRequestOutput
+}
+
+type AutoScalingGroupCpuPerformanceFactorRequestArgs struct {
+	References AutoScalingGroupPerformanceFactorReferenceRequestArrayInput `pulumi:"references"`
+}
+
+func (AutoScalingGroupCpuPerformanceFactorRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (i AutoScalingGroupCpuPerformanceFactorRequestArgs) ToAutoScalingGroupCpuPerformanceFactorRequestOutput() AutoScalingGroupCpuPerformanceFactorRequestOutput {
+	return i.ToAutoScalingGroupCpuPerformanceFactorRequestOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupCpuPerformanceFactorRequestArgs) ToAutoScalingGroupCpuPerformanceFactorRequestOutputWithContext(ctx context.Context) AutoScalingGroupCpuPerformanceFactorRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCpuPerformanceFactorRequestOutput)
+}
+
+func (i AutoScalingGroupCpuPerformanceFactorRequestArgs) ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutput() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return i.ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupCpuPerformanceFactorRequestArgs) ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCpuPerformanceFactorRequestOutput).ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(ctx)
+}
+
+// AutoScalingGroupCpuPerformanceFactorRequestPtrInput is an input type that accepts AutoScalingGroupCpuPerformanceFactorRequestArgs, AutoScalingGroupCpuPerformanceFactorRequestPtr and AutoScalingGroupCpuPerformanceFactorRequestPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupCpuPerformanceFactorRequestPtrInput` via:
+//
+//	        AutoScalingGroupCpuPerformanceFactorRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoScalingGroupCpuPerformanceFactorRequestPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutput() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput
+	ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(context.Context) AutoScalingGroupCpuPerformanceFactorRequestPtrOutput
+}
+
+type autoScalingGroupCpuPerformanceFactorRequestPtrType AutoScalingGroupCpuPerformanceFactorRequestArgs
+
+func AutoScalingGroupCpuPerformanceFactorRequestPtr(v *AutoScalingGroupCpuPerformanceFactorRequestArgs) AutoScalingGroupCpuPerformanceFactorRequestPtrInput {
+	return (*autoScalingGroupCpuPerformanceFactorRequestPtrType)(v)
+}
+
+func (*autoScalingGroupCpuPerformanceFactorRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (i *autoScalingGroupCpuPerformanceFactorRequestPtrType) ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutput() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return i.ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *autoScalingGroupCpuPerformanceFactorRequestPtrType) ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput)
+}
+
+type AutoScalingGroupCpuPerformanceFactorRequestOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupCpuPerformanceFactorRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) ToAutoScalingGroupCpuPerformanceFactorRequestOutput() AutoScalingGroupCpuPerformanceFactorRequestOutput {
+	return o
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) ToAutoScalingGroupCpuPerformanceFactorRequestOutputWithContext(ctx context.Context) AutoScalingGroupCpuPerformanceFactorRequestOutput {
+	return o
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutput() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return o.ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupCpuPerformanceFactorRequest) *AutoScalingGroupCpuPerformanceFactorRequest {
+		return &v
+	}).(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput)
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) References() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
+	return o.ApplyT(func(v AutoScalingGroupCpuPerformanceFactorRequest) []AutoScalingGroupPerformanceFactorReferenceRequest {
+		return v.References
+	}).(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput)
+}
+
+type AutoScalingGroupCpuPerformanceFactorRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutput() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) ToAutoScalingGroupCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) Elem() AutoScalingGroupCpuPerformanceFactorRequestOutput {
+	return o.ApplyT(func(v *AutoScalingGroupCpuPerformanceFactorRequest) AutoScalingGroupCpuPerformanceFactorRequest {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupCpuPerformanceFactorRequest
+		return ret
+	}).(AutoScalingGroupCpuPerformanceFactorRequestOutput)
+}
+
+func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) References() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroupCpuPerformanceFactorRequest) []AutoScalingGroupPerformanceFactorReferenceRequest {
+		if v == nil {
+			return nil
+		}
+		return v.References
+	}).(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput)
 }
 
 // “InstanceMaintenancePolicy“ is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
@@ -868,7 +1288,8 @@ type AutoScalingGroupInstanceRequirements struct {
 	BareMetal *string `pulumi:"bareMetal"`
 	// The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps *AutoScalingGroupBaselineEbsBandwidthMbpsRequest `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps   *AutoScalingGroupBaselineEbsBandwidthMbpsRequest   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselinePerformanceFactors *AutoScalingGroupBaselinePerformanceFactorsRequest `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  Default: ``excluded``
 	BurstablePerformance *string `pulumi:"burstablePerformance"`
@@ -1004,7 +1425,8 @@ type AutoScalingGroupInstanceRequirementsArgs struct {
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps   AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselinePerformanceFactors AutoScalingGroupBaselinePerformanceFactorsRequestPtrInput `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  Default: ``excluded``
 	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
@@ -1253,6 +1675,12 @@ func (o AutoScalingGroupInstanceRequirementsOutput) BaselineEbsBandwidthMbps() A
 	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *AutoScalingGroupBaselineEbsBandwidthMbpsRequest {
 		return v.BaselineEbsBandwidthMbps
 	}).(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o AutoScalingGroupInstanceRequirementsOutput) BaselinePerformanceFactors() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *AutoScalingGroupBaselinePerformanceFactorsRequest {
+		return v.BaselinePerformanceFactors
+	}).(AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput)
 }
 
 // Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
@@ -1547,6 +1975,15 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps(
 		}
 		return v.BaselineEbsBandwidthMbps
 	}).(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o AutoScalingGroupInstanceRequirementsPtrOutput) BaselinePerformanceFactors() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstanceRequirements) *AutoScalingGroupBaselinePerformanceFactorsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.BaselinePerformanceFactors
+	}).(AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput)
 }
 
 // Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
@@ -4062,6 +4499,100 @@ func (o AutoScalingGroupNotificationConfigurationArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingGroupNotificationConfiguration {
 		return vs[0].([]AutoScalingGroupNotificationConfiguration)[vs[1].(int)]
 	}).(AutoScalingGroupNotificationConfigurationOutput)
+}
+
+type AutoScalingGroupPerformanceFactorReferenceRequest struct {
+	InstanceFamily *string `pulumi:"instanceFamily"`
+}
+
+// AutoScalingGroupPerformanceFactorReferenceRequestInput is an input type that accepts AutoScalingGroupPerformanceFactorReferenceRequestArgs and AutoScalingGroupPerformanceFactorReferenceRequestOutput values.
+// You can construct a concrete instance of `AutoScalingGroupPerformanceFactorReferenceRequestInput` via:
+//
+//	AutoScalingGroupPerformanceFactorReferenceRequestArgs{...}
+type AutoScalingGroupPerformanceFactorReferenceRequestInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupPerformanceFactorReferenceRequestOutput() AutoScalingGroupPerformanceFactorReferenceRequestOutput
+	ToAutoScalingGroupPerformanceFactorReferenceRequestOutputWithContext(context.Context) AutoScalingGroupPerformanceFactorReferenceRequestOutput
+}
+
+type AutoScalingGroupPerformanceFactorReferenceRequestArgs struct {
+	InstanceFamily pulumi.StringPtrInput `pulumi:"instanceFamily"`
+}
+
+func (AutoScalingGroupPerformanceFactorReferenceRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (i AutoScalingGroupPerformanceFactorReferenceRequestArgs) ToAutoScalingGroupPerformanceFactorReferenceRequestOutput() AutoScalingGroupPerformanceFactorReferenceRequestOutput {
+	return i.ToAutoScalingGroupPerformanceFactorReferenceRequestOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupPerformanceFactorReferenceRequestArgs) ToAutoScalingGroupPerformanceFactorReferenceRequestOutputWithContext(ctx context.Context) AutoScalingGroupPerformanceFactorReferenceRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupPerformanceFactorReferenceRequestOutput)
+}
+
+// AutoScalingGroupPerformanceFactorReferenceRequestArrayInput is an input type that accepts AutoScalingGroupPerformanceFactorReferenceRequestArray and AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput values.
+// You can construct a concrete instance of `AutoScalingGroupPerformanceFactorReferenceRequestArrayInput` via:
+//
+//	AutoScalingGroupPerformanceFactorReferenceRequestArray{ AutoScalingGroupPerformanceFactorReferenceRequestArgs{...} }
+type AutoScalingGroupPerformanceFactorReferenceRequestArrayInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupPerformanceFactorReferenceRequestArrayOutput() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput
+	ToAutoScalingGroupPerformanceFactorReferenceRequestArrayOutputWithContext(context.Context) AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput
+}
+
+type AutoScalingGroupPerformanceFactorReferenceRequestArray []AutoScalingGroupPerformanceFactorReferenceRequestInput
+
+func (AutoScalingGroupPerformanceFactorReferenceRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingGroupPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (i AutoScalingGroupPerformanceFactorReferenceRequestArray) ToAutoScalingGroupPerformanceFactorReferenceRequestArrayOutput() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
+	return i.ToAutoScalingGroupPerformanceFactorReferenceRequestArrayOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupPerformanceFactorReferenceRequestArray) ToAutoScalingGroupPerformanceFactorReferenceRequestArrayOutputWithContext(ctx context.Context) AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput)
+}
+
+type AutoScalingGroupPerformanceFactorReferenceRequestOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupPerformanceFactorReferenceRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (o AutoScalingGroupPerformanceFactorReferenceRequestOutput) ToAutoScalingGroupPerformanceFactorReferenceRequestOutput() AutoScalingGroupPerformanceFactorReferenceRequestOutput {
+	return o
+}
+
+func (o AutoScalingGroupPerformanceFactorReferenceRequestOutput) ToAutoScalingGroupPerformanceFactorReferenceRequestOutputWithContext(ctx context.Context) AutoScalingGroupPerformanceFactorReferenceRequestOutput {
+	return o
+}
+
+func (o AutoScalingGroupPerformanceFactorReferenceRequestOutput) InstanceFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupPerformanceFactorReferenceRequest) *string { return v.InstanceFamily }).(pulumi.StringPtrOutput)
+}
+
+type AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingGroupPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (o AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput) ToAutoScalingGroupPerformanceFactorReferenceRequestArrayOutput() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
+	return o
+}
+
+func (o AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput) ToAutoScalingGroupPerformanceFactorReferenceRequestArrayOutputWithContext(ctx context.Context) AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
+	return o
+}
+
+func (o AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupPerformanceFactorReferenceRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingGroupPerformanceFactorReferenceRequest {
+		return vs[0].([]AutoScalingGroupPerformanceFactorReferenceRequest)[vs[1].(int)]
+	}).(AutoScalingGroupPerformanceFactorReferenceRequestOutput)
 }
 
 // A structure that specifies a tag for the “Tags“ property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
@@ -8595,8 +9126,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrInput)(nil)).Elem(), AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAvailabilityZoneDistributionInput)(nil)).Elem(), AutoScalingGroupAvailabilityZoneDistributionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAvailabilityZoneDistributionPtrInput)(nil)).Elem(), AutoScalingGroupAvailabilityZoneDistributionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAvailabilityZoneImpairmentPolicyInput)(nil)).Elem(), AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrInput)(nil)).Elem(), AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselinePerformanceFactorsRequestInput)(nil)).Elem(), AutoScalingGroupBaselinePerformanceFactorsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselinePerformanceFactorsRequestPtrInput)(nil)).Elem(), AutoScalingGroupBaselinePerformanceFactorsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequestInput)(nil)).Elem(), AutoScalingGroupCpuPerformanceFactorRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequestPtrInput)(nil)).Elem(), AutoScalingGroupCpuPerformanceFactorRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyPtrInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceRequirementsInput)(nil)).Elem(), AutoScalingGroupInstanceRequirementsArgs{})
@@ -8626,6 +9163,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNotificationConfigurationInput)(nil)).Elem(), AutoScalingGroupNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNotificationConfigurationPtrInput)(nil)).Elem(), AutoScalingGroupNotificationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupNotificationConfigurationArrayInput)(nil)).Elem(), AutoScalingGroupNotificationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupPerformanceFactorReferenceRequestInput)(nil)).Elem(), AutoScalingGroupPerformanceFactorReferenceRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupPerformanceFactorReferenceRequestArrayInput)(nil)).Elem(), AutoScalingGroupPerformanceFactorReferenceRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyInput)(nil)).Elem(), AutoScalingGroupTagPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTagPropertyArrayInput)(nil)).Elem(), AutoScalingGroupTagPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupTotalLocalStorageGbRequestInput)(nil)).Elem(), AutoScalingGroupTotalLocalStorageGbRequestArgs{})
@@ -8684,8 +9223,14 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupAvailabilityZoneDistributionOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupAvailabilityZoneDistributionPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupBaselineEbsBandwidthMbpsRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupBaselinePerformanceFactorsRequestOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupCpuPerformanceFactorRequestOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceRequirementsOutput{})
@@ -8715,6 +9260,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupNotificationConfigurationOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupNotificationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupNotificationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupPerformanceFactorReferenceRequestOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTagPropertyArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupTotalLocalStorageGbRequestOutput{})

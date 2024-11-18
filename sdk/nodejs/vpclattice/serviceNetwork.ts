@@ -66,6 +66,7 @@ export class ServiceNetwork extends pulumi.CustomResource {
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    public readonly sharingConfig!: pulumi.Output<outputs.vpclattice.ServiceNetworkSharingConfig | undefined>;
     /**
      * The tags for the service network.
      */
@@ -84,6 +85,7 @@ export class ServiceNetwork extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["authType"] = args ? args.authType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sharingConfig"] = args ? args.sharingConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -96,6 +98,7 @@ export class ServiceNetwork extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["sharingConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -122,6 +125,7 @@ export interface ServiceNetworkArgs {
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
     name?: pulumi.Input<string>;
+    sharingConfig?: pulumi.Input<inputs.vpclattice.ServiceNetworkSharingConfigArgs>;
     /**
      * The tags for the service network.
      */

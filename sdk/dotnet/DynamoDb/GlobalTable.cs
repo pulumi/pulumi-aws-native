@@ -110,8 +110,11 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("timeToLiveSpecification")]
         public Output<Outputs.GlobalTableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
 
+        [Output("warmThroughput")]
+        public Output<Outputs.GlobalTableWarmThroughput?> WarmThroughput { get; private set; } = null!;
+
         /// <summary>
-        /// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        /// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         /// </summary>
         [Output("writeOnDemandThroughputSettings")]
         public Output<Outputs.GlobalTableWriteOnDemandThroughputSettings?> WriteOnDemandThroughputSettings { get; private set; } = null!;
@@ -278,8 +281,11 @@ namespace Pulumi.AwsNative.DynamoDb
         [Input("timeToLiveSpecification")]
         public Input<Inputs.GlobalTableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }
 
+        [Input("warmThroughput")]
+        public Input<Inputs.GlobalTableWarmThroughputArgs>? WarmThroughput { get; set; }
+
         /// <summary>
-        /// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        /// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         /// </summary>
         [Input("writeOnDemandThroughputSettings")]
         public Input<Inputs.GlobalTableWriteOnDemandThroughputSettingsArgs>? WriteOnDemandThroughputSettings { get; set; }

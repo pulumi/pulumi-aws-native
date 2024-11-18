@@ -35,7 +35,7 @@ type Permission struct {
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 	FunctionUrlAuthType PermissionFunctionUrlAuthTypePtrOutput `pulumi:"functionUrlAuthType"`
-	// The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal pulumi.StringOutput `pulumi:"principal"`
 	// The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
 	PrincipalOrgId pulumi.StringPtrOutput `pulumi:"principalOrgId"`
@@ -120,7 +120,7 @@ type permissionArgs struct {
 	FunctionName string `pulumi:"functionName"`
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 	FunctionUrlAuthType *PermissionFunctionUrlAuthType `pulumi:"functionUrlAuthType"`
-	// The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal string `pulumi:"principal"`
 	// The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
 	PrincipalOrgId *string `pulumi:"principalOrgId"`
@@ -147,7 +147,7 @@ type PermissionArgs struct {
 	FunctionName pulumi.StringInput
 	// The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
 	FunctionUrlAuthType PermissionFunctionUrlAuthTypePtrInput
-	// The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+	// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
 	Principal pulumi.StringInput
 	// The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
 	PrincipalOrgId pulumi.StringPtrInput
@@ -226,7 +226,7 @@ func (o PermissionOutput) FunctionUrlAuthType() PermissionFunctionUrlAuthTypePtr
 	return o.ApplyT(func(v *Permission) PermissionFunctionUrlAuthTypePtrOutput { return v.FunctionUrlAuthType }).(PermissionFunctionUrlAuthTypePtrOutput)
 }
 
-// The AWS-service or AWS-account that invokes the function. If you specify a service, use “SourceArn“ or “SourceAccount“ to limit who can invoke the function through that service.
+// The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use “SourceArn“ or “SourceAccount“ to limit who can invoke the function through that service.
 func (o PermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }

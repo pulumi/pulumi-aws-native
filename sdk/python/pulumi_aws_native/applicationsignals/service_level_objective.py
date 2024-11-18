@@ -24,6 +24,7 @@ __all__ = ['ServiceLevelObjectiveArgs', 'ServiceLevelObjective']
 @pulumi.input_type
 class ServiceLevelObjectiveArgs:
     def __init__(__self__, *,
+                 burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  goal: Optional[pulumi.Input['ServiceLevelObjectiveGoalArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -41,6 +42,8 @@ class ServiceLevelObjectiveArgs:
                
                Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         """
+        if burn_rate_configurations is not None:
+            pulumi.set(__self__, "burn_rate_configurations", burn_rate_configurations)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if goal is not None:
@@ -53,6 +56,15 @@ class ServiceLevelObjectiveArgs:
             pulumi.set(__self__, "sli", sli)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="burnRateConfigurations")
+    def burn_rate_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]]:
+        return pulumi.get(self, "burn_rate_configurations")
+
+    @burn_rate_configurations.setter
+    def burn_rate_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]]):
+        pulumi.set(self, "burn_rate_configurations", value)
 
     @property
     @pulumi.getter
@@ -134,6 +146,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -179,6 +192,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 burn_rate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  goal: Optional[pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -194,6 +208,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceLevelObjectiveArgs.__new__(ServiceLevelObjectiveArgs)
 
+            __props__.__dict__["burn_rate_configurations"] = burn_rate_configurations
             __props__.__dict__["description"] = description
             __props__.__dict__["goal"] = goal
             __props__.__dict__["name"] = name
@@ -229,6 +244,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
         __props__ = ServiceLevelObjectiveArgs.__new__(ServiceLevelObjectiveArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["burn_rate_configurations"] = None
         __props__.__dict__["created_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["evaluation_type"] = None
@@ -247,6 +263,11 @@ class ServiceLevelObjective(pulumi.CustomResource):
         The ARN of this SLO.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="burnRateConfigurations")
+    def burn_rate_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLevelObjectiveBurnRateConfiguration']]]:
+        return pulumi.get(self, "burn_rate_configurations")
 
     @property
     @pulumi.getter(name="createdTime")

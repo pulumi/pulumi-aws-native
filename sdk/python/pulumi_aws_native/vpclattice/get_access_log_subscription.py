@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetAccessLogSubscriptionResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAccessLogSubscriptionResult:
-    def __init__(__self__, arn=None, destination_arn=None, id=None, resource_arn=None, resource_id=None, tags=None):
+    def __init__(__self__, arn=None, destination_arn=None, id=None, resource_arn=None, resource_id=None, service_network_log_type=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +41,9 @@ class GetAccessLogSubscriptionResult:
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         pulumi.set(__self__, "resource_id", resource_id)
+        if service_network_log_type and not isinstance(service_network_log_type, str):
+            raise TypeError("Expected argument 'service_network_log_type' to be a str")
+        pulumi.set(__self__, "service_network_log_type", service_network_log_type)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -85,6 +89,11 @@ class GetAccessLogSubscriptionResult:
         return pulumi.get(self, "resource_id")
 
     @property
+    @pulumi.getter(name="serviceNetworkLogType")
+    def service_network_log_type(self) -> Optional['AccessLogSubscriptionServiceNetworkLogType']:
+        return pulumi.get(self, "service_network_log_type")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -104,6 +113,7 @@ class AwaitableGetAccessLogSubscriptionResult(GetAccessLogSubscriptionResult):
             id=self.id,
             resource_arn=self.resource_arn,
             resource_id=self.resource_id,
+            service_network_log_type=self.service_network_log_type,
             tags=self.tags)
 
 
@@ -126,6 +136,7 @@ def get_access_log_subscription(arn: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
+        service_network_log_type=pulumi.get(__ret__, 'service_network_log_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_access_log_subscription_output(arn: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessLogSubscriptionResult]:
@@ -145,4 +156,5 @@ def get_access_log_subscription_output(arn: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         resource_arn=pulumi.get(__response__, 'resource_arn'),
         resource_id=pulumi.get(__response__, 'resource_id'),
+        service_network_log_type=pulumi.get(__response__, 'service_network_log_type'),
         tags=pulumi.get(__response__, 'tags')))

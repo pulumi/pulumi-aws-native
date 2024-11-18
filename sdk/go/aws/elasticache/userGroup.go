@@ -19,7 +19,7 @@ type UserGroup struct {
 
 	// The Amazon Resource Name (ARN) of the user account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Must be redis.
+	// The target cache engine for the user group.
 	Engine UserGroupEngineOutput `pulumi:"engine"`
 	// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -48,7 +48,6 @@ func NewUserGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserIds'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"engine",
 		"userGroupId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -85,7 +84,7 @@ func (UserGroupState) ElementType() reflect.Type {
 }
 
 type userGroupArgs struct {
-	// Must be redis.
+	// The target cache engine for the user group.
 	Engine UserGroupEngine `pulumi:"engine"`
 	// An array of key-value pairs to apply to this user.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -97,7 +96,7 @@ type userGroupArgs struct {
 
 // The set of arguments for constructing a UserGroup resource.
 type UserGroupArgs struct {
-	// Must be redis.
+	// The target cache engine for the user group.
 	Engine UserGroupEngineInput
 	// An array of key-value pairs to apply to this user.
 	Tags aws.TagArrayInput
@@ -149,7 +148,7 @@ func (o UserGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Must be redis.
+// The target cache engine for the user group.
 func (o UserGroupOutput) Engine() UserGroupEngineOutput {
 	return o.ApplyT(func(v *UserGroup) UserGroupEngineOutput { return v.Engine }).(UserGroupEngineOutput)
 }

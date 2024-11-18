@@ -493,8 +493,9 @@ type GlobalTableGlobalSecondaryIndex struct {
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-	Projection GlobalTableProjection `pulumi:"projection"`
-	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+	Projection     GlobalTableProjection      `pulumi:"projection"`
+	WarmThroughput *GlobalTableWarmThroughput `pulumi:"warmThroughput"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
 	// Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
@@ -524,8 +525,9 @@ type GlobalTableGlobalSecondaryIndexArgs struct {
 	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
 	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-	Projection GlobalTableProjectionInput `pulumi:"projection"`
-	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+	Projection     GlobalTableProjectionInput        `pulumi:"projection"`
+	WarmThroughput GlobalTableWarmThroughputPtrInput `pulumi:"warmThroughput"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrInput `pulumi:"writeOnDemandThroughputSettings"`
 	// Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput `pulumi:"writeProvisionedThroughputSettings"`
@@ -604,7 +606,11 @@ func (o GlobalTableGlobalSecondaryIndexOutput) Projection() GlobalTableProjectio
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
 }
 
-// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+func (o GlobalTableGlobalSecondaryIndexOutput) WarmThroughput() GlobalTableWarmThroughputPtrOutput {
+	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableWarmThroughput { return v.WarmThroughput }).(GlobalTableWarmThroughputPtrOutput)
+}
+
+// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o GlobalTableGlobalSecondaryIndexOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableWriteOnDemandThroughputSettings {
 		return v.WriteOnDemandThroughputSettings
@@ -1581,7 +1587,7 @@ type GlobalTableReplicaGlobalSecondaryIndexSpecification struct {
 	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
-	// Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+	// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	ReadOnDemandThroughputSettings *GlobalTableReadOnDemandThroughputSettings `pulumi:"readOnDemandThroughputSettings"`
 	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
@@ -1603,7 +1609,7 @@ type GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs struct {
 	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+	// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	ReadOnDemandThroughputSettings GlobalTableReadOnDemandThroughputSettingsPtrInput `pulumi:"readOnDemandThroughputSettings"`
 	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
@@ -1672,7 +1678,7 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) IndexName() p
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableReadOnDemandThroughputSettings {
 		return v.ReadOnDemandThroughputSettings
@@ -3149,6 +3155,154 @@ func (o GlobalTableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GlobalTableWarmThroughput struct {
+	ReadUnitsPerSecond  *int `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
+}
+
+// GlobalTableWarmThroughputInput is an input type that accepts GlobalTableWarmThroughputArgs and GlobalTableWarmThroughputOutput values.
+// You can construct a concrete instance of `GlobalTableWarmThroughputInput` via:
+//
+//	GlobalTableWarmThroughputArgs{...}
+type GlobalTableWarmThroughputInput interface {
+	pulumi.Input
+
+	ToGlobalTableWarmThroughputOutput() GlobalTableWarmThroughputOutput
+	ToGlobalTableWarmThroughputOutputWithContext(context.Context) GlobalTableWarmThroughputOutput
+}
+
+type GlobalTableWarmThroughputArgs struct {
+	ReadUnitsPerSecond  pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
+}
+
+func (GlobalTableWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableWarmThroughput)(nil)).Elem()
+}
+
+func (i GlobalTableWarmThroughputArgs) ToGlobalTableWarmThroughputOutput() GlobalTableWarmThroughputOutput {
+	return i.ToGlobalTableWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i GlobalTableWarmThroughputArgs) ToGlobalTableWarmThroughputOutputWithContext(ctx context.Context) GlobalTableWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableWarmThroughputOutput)
+}
+
+func (i GlobalTableWarmThroughputArgs) ToGlobalTableWarmThroughputPtrOutput() GlobalTableWarmThroughputPtrOutput {
+	return i.ToGlobalTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalTableWarmThroughputArgs) ToGlobalTableWarmThroughputPtrOutputWithContext(ctx context.Context) GlobalTableWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableWarmThroughputOutput).ToGlobalTableWarmThroughputPtrOutputWithContext(ctx)
+}
+
+// GlobalTableWarmThroughputPtrInput is an input type that accepts GlobalTableWarmThroughputArgs, GlobalTableWarmThroughputPtr and GlobalTableWarmThroughputPtrOutput values.
+// You can construct a concrete instance of `GlobalTableWarmThroughputPtrInput` via:
+//
+//	        GlobalTableWarmThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalTableWarmThroughputPtrInput interface {
+	pulumi.Input
+
+	ToGlobalTableWarmThroughputPtrOutput() GlobalTableWarmThroughputPtrOutput
+	ToGlobalTableWarmThroughputPtrOutputWithContext(context.Context) GlobalTableWarmThroughputPtrOutput
+}
+
+type globalTableWarmThroughputPtrType GlobalTableWarmThroughputArgs
+
+func GlobalTableWarmThroughputPtr(v *GlobalTableWarmThroughputArgs) GlobalTableWarmThroughputPtrInput {
+	return (*globalTableWarmThroughputPtrType)(v)
+}
+
+func (*globalTableWarmThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableWarmThroughput)(nil)).Elem()
+}
+
+func (i *globalTableWarmThroughputPtrType) ToGlobalTableWarmThroughputPtrOutput() GlobalTableWarmThroughputPtrOutput {
+	return i.ToGlobalTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *globalTableWarmThroughputPtrType) ToGlobalTableWarmThroughputPtrOutputWithContext(ctx context.Context) GlobalTableWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalTableWarmThroughputPtrOutput)
+}
+
+type GlobalTableWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalTableWarmThroughput)(nil)).Elem()
+}
+
+func (o GlobalTableWarmThroughputOutput) ToGlobalTableWarmThroughputOutput() GlobalTableWarmThroughputOutput {
+	return o
+}
+
+func (o GlobalTableWarmThroughputOutput) ToGlobalTableWarmThroughputOutputWithContext(ctx context.Context) GlobalTableWarmThroughputOutput {
+	return o
+}
+
+func (o GlobalTableWarmThroughputOutput) ToGlobalTableWarmThroughputPtrOutput() GlobalTableWarmThroughputPtrOutput {
+	return o.ToGlobalTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalTableWarmThroughputOutput) ToGlobalTableWarmThroughputPtrOutputWithContext(ctx context.Context) GlobalTableWarmThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalTableWarmThroughput) *GlobalTableWarmThroughput {
+		return &v
+	}).(GlobalTableWarmThroughputPtrOutput)
+}
+
+func (o GlobalTableWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalTableWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+func (o GlobalTableWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalTableWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+type GlobalTableWarmThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalTableWarmThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalTableWarmThroughput)(nil)).Elem()
+}
+
+func (o GlobalTableWarmThroughputPtrOutput) ToGlobalTableWarmThroughputPtrOutput() GlobalTableWarmThroughputPtrOutput {
+	return o
+}
+
+func (o GlobalTableWarmThroughputPtrOutput) ToGlobalTableWarmThroughputPtrOutputWithContext(ctx context.Context) GlobalTableWarmThroughputPtrOutput {
+	return o
+}
+
+func (o GlobalTableWarmThroughputPtrOutput) Elem() GlobalTableWarmThroughputOutput {
+	return o.ApplyT(func(v *GlobalTableWarmThroughput) GlobalTableWarmThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalTableWarmThroughput
+		return ret
+	}).(GlobalTableWarmThroughputOutput)
+}
+
+func (o GlobalTableWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalTableWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o GlobalTableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalTableWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WriteUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
 type GlobalTableWriteOnDemandThroughputSettings struct {
 	// Maximum number of write request settings for the specified replica of a global table.
 	MaxWriteRequestUnits *int `pulumi:"maxWriteRequestUnits"`
@@ -3862,6 +4016,7 @@ type TableGlobalSecondaryIndex struct {
 	// Represents the provisioned throughput settings for the specified global secondary index.
 	//  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
 	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
+	WarmThroughput        *TableWarmThroughput        `pulumi:"warmThroughput"`
 }
 
 // TableGlobalSecondaryIndexInput is an input type that accepts TableGlobalSecondaryIndexArgs and TableGlobalSecondaryIndexOutput values.
@@ -3895,6 +4050,7 @@ type TableGlobalSecondaryIndexArgs struct {
 	// Represents the provisioned throughput settings for the specified global secondary index.
 	//  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
 	ProvisionedThroughput TableProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
+	WarmThroughput        TableWarmThroughputPtrInput        `pulumi:"warmThroughput"`
 }
 
 func (TableGlobalSecondaryIndexArgs) ElementType() reflect.Type {
@@ -3988,6 +4144,10 @@ func (o TableGlobalSecondaryIndexOutput) Projection() TableProjectionOutput {
 //	For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
 func (o TableGlobalSecondaryIndexOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableProvisionedThroughput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
+}
+
+func (o TableGlobalSecondaryIndexOutput) WarmThroughput() TableWarmThroughputPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableWarmThroughput { return v.WarmThroughput }).(TableWarmThroughputPtrOutput)
 }
 
 type TableGlobalSecondaryIndexArrayOutput struct{ *pulumi.OutputState }
@@ -6241,6 +6401,154 @@ func (o TableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+type TableWarmThroughput struct {
+	ReadUnitsPerSecond  *int `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond *int `pulumi:"writeUnitsPerSecond"`
+}
+
+// TableWarmThroughputInput is an input type that accepts TableWarmThroughputArgs and TableWarmThroughputOutput values.
+// You can construct a concrete instance of `TableWarmThroughputInput` via:
+//
+//	TableWarmThroughputArgs{...}
+type TableWarmThroughputInput interface {
+	pulumi.Input
+
+	ToTableWarmThroughputOutput() TableWarmThroughputOutput
+	ToTableWarmThroughputOutputWithContext(context.Context) TableWarmThroughputOutput
+}
+
+type TableWarmThroughputArgs struct {
+	ReadUnitsPerSecond  pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
+	WriteUnitsPerSecond pulumi.IntPtrInput `pulumi:"writeUnitsPerSecond"`
+}
+
+func (TableWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableWarmThroughput)(nil)).Elem()
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputOutput() TableWarmThroughputOutput {
+	return i.ToTableWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputOutputWithContext(ctx context.Context) TableWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputOutput)
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return i.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i TableWarmThroughputArgs) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputOutput).ToTableWarmThroughputPtrOutputWithContext(ctx)
+}
+
+// TableWarmThroughputPtrInput is an input type that accepts TableWarmThroughputArgs, TableWarmThroughputPtr and TableWarmThroughputPtrOutput values.
+// You can construct a concrete instance of `TableWarmThroughputPtrInput` via:
+//
+//	        TableWarmThroughputArgs{...}
+//
+//	or:
+//
+//	        nil
+type TableWarmThroughputPtrInput interface {
+	pulumi.Input
+
+	ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput
+	ToTableWarmThroughputPtrOutputWithContext(context.Context) TableWarmThroughputPtrOutput
+}
+
+type tableWarmThroughputPtrType TableWarmThroughputArgs
+
+func TableWarmThroughputPtr(v *TableWarmThroughputArgs) TableWarmThroughputPtrInput {
+	return (*tableWarmThroughputPtrType)(v)
+}
+
+func (*tableWarmThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableWarmThroughput)(nil)).Elem()
+}
+
+func (i *tableWarmThroughputPtrType) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return i.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *tableWarmThroughputPtrType) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputPtrOutput)
+}
+
+type TableWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (TableWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableWarmThroughput)(nil)).Elem()
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputOutput() TableWarmThroughputOutput {
+	return o
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputOutputWithContext(ctx context.Context) TableWarmThroughputOutput {
+	return o
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return o.ToTableWarmThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o TableWarmThroughputOutput) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TableWarmThroughput) *TableWarmThroughput {
+		return &v
+	}).(TableWarmThroughputPtrOutput)
+}
+
+func (o TableWarmThroughputOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableWarmThroughput) *int { return v.ReadUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+func (o TableWarmThroughputOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableWarmThroughput) *int { return v.WriteUnitsPerSecond }).(pulumi.IntPtrOutput)
+}
+
+type TableWarmThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (TableWarmThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableWarmThroughput)(nil)).Elem()
+}
+
+func (o TableWarmThroughputPtrOutput) ToTableWarmThroughputPtrOutput() TableWarmThroughputPtrOutput {
+	return o
+}
+
+func (o TableWarmThroughputPtrOutput) ToTableWarmThroughputPtrOutputWithContext(ctx context.Context) TableWarmThroughputPtrOutput {
+	return o
+}
+
+func (o TableWarmThroughputPtrOutput) Elem() TableWarmThroughputOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) TableWarmThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret TableWarmThroughput
+		return ret
+	}).(TableWarmThroughputOutput)
+}
+
+func (o TableWarmThroughputPtrOutput) ReadUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TableWarmThroughputPtrOutput) WriteUnitsPerSecond() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableWarmThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.WriteUnitsPerSecond
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableAttributeDefinitionInput)(nil)).Elem(), GlobalTableAttributeDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableAttributeDefinitionArrayInput)(nil)).Elem(), GlobalTableAttributeDefinitionArray{})
@@ -6283,6 +6591,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), GlobalTableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTimeToLiveSpecificationInput)(nil)).Elem(), GlobalTableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableTimeToLiveSpecificationPtrInput)(nil)).Elem(), GlobalTableTimeToLiveSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWarmThroughputInput)(nil)).Elem(), GlobalTableWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWarmThroughputPtrInput)(nil)).Elem(), GlobalTableWarmThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWriteOnDemandThroughputSettingsInput)(nil)).Elem(), GlobalTableWriteOnDemandThroughputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWriteOnDemandThroughputSettingsPtrInput)(nil)).Elem(), GlobalTableWriteOnDemandThroughputSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableWriteProvisionedThroughputSettingsInput)(nil)).Elem(), GlobalTableWriteProvisionedThroughputSettingsArgs{})
@@ -6322,6 +6632,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationPtrInput)(nil)).Elem(), TableStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTimeToLiveSpecificationInput)(nil)).Elem(), TableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTimeToLiveSpecificationPtrInput)(nil)).Elem(), TableTimeToLiveSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputInput)(nil)).Elem(), TableWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputPtrInput)(nil)).Elem(), TableWarmThroughputArgs{})
 	pulumi.RegisterOutputType(GlobalTableAttributeDefinitionOutput{})
 	pulumi.RegisterOutputType(GlobalTableAttributeDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(GlobalTableCapacityAutoScalingSettingsOutput{})
@@ -6363,6 +6675,8 @@ func init() {
 	pulumi.RegisterOutputType(GlobalTableTargetTrackingScalingPolicyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableTimeToLiveSpecificationOutput{})
 	pulumi.RegisterOutputType(GlobalTableTimeToLiveSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(GlobalTableWarmThroughputOutput{})
+	pulumi.RegisterOutputType(GlobalTableWarmThroughputPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableWriteOnDemandThroughputSettingsOutput{})
 	pulumi.RegisterOutputType(GlobalTableWriteOnDemandThroughputSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableWriteProvisionedThroughputSettingsOutput{})
@@ -6402,4 +6716,6 @@ func init() {
 	pulumi.RegisterOutputType(TableStreamSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableTimeToLiveSpecificationOutput{})
 	pulumi.RegisterOutputType(TableTimeToLiveSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableWarmThroughputOutput{})
+	pulumi.RegisterOutputType(TableWarmThroughputPtrOutput{})
 }

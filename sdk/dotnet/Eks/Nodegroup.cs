@@ -145,6 +145,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<Outputs.NodegroupLaunchTemplateSpecification?> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// The node auto repair configuration for node group.
+        /// </summary>
+        [Output("nodeRepairConfig")]
+        public Output<Outputs.NodegroupNodeRepairConfig?> NodeRepairConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
         /// </summary>
         [Output("nodeRole")]
@@ -320,6 +326,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.NodegroupLaunchTemplateSpecificationArgs>? LaunchTemplate { get; set; }
+
+        /// <summary>
+        /// The node auto repair configuration for node group.
+        /// </summary>
+        [Input("nodeRepairConfig")]
+        public Input<Inputs.NodegroupNodeRepairConfigArgs>? NodeRepairConfig { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.

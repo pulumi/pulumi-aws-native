@@ -115,7 +115,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clusterName", "instanceGroups[*].executionRole", "instanceGroups[*].instanceGroupName", "instanceGroups[*].instanceType", "instanceGroups[*].threadsPerCore", "orchestrator", "vpcConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["clusterName", "instanceGroups[*].executionRole", "instanceGroups[*].instanceGroupName", "instanceGroups[*].instanceType", "instanceGroups[*].overrideVpcConfig", "instanceGroups[*].threadsPerCore", "orchestrator", "vpcConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

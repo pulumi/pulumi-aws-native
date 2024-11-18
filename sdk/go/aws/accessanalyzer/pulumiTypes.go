@@ -13,6 +13,127 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The criteria for an analysis rule for an analyzer.
+type AnalyzerAnalysisRuleCriteria struct {
+	// A list of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+	AccountIds []string `pulumi:"accountIds"`
+	// An array of key-value pairs to match for your resources. You can use the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	//
+	// For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with aws:.
+	//
+	// For the tag value, you can specify a value that is 0 to 256 characters in length. If the specified tag value is 0 characters, the rule is applied to all principals with the specified tag key.
+	ResourceTags [][]AnalyzerTag `pulumi:"resourceTags"`
+}
+
+// AnalyzerAnalysisRuleCriteriaInput is an input type that accepts AnalyzerAnalysisRuleCriteriaArgs and AnalyzerAnalysisRuleCriteriaOutput values.
+// You can construct a concrete instance of `AnalyzerAnalysisRuleCriteriaInput` via:
+//
+//	AnalyzerAnalysisRuleCriteriaArgs{...}
+type AnalyzerAnalysisRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToAnalyzerAnalysisRuleCriteriaOutput() AnalyzerAnalysisRuleCriteriaOutput
+	ToAnalyzerAnalysisRuleCriteriaOutputWithContext(context.Context) AnalyzerAnalysisRuleCriteriaOutput
+}
+
+// The criteria for an analysis rule for an analyzer.
+type AnalyzerAnalysisRuleCriteriaArgs struct {
+	// A list of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+	AccountIds pulumi.StringArrayInput `pulumi:"accountIds"`
+	// An array of key-value pairs to match for your resources. You can use the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	//
+	// For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with aws:.
+	//
+	// For the tag value, you can specify a value that is 0 to 256 characters in length. If the specified tag value is 0 characters, the rule is applied to all principals with the specified tag key.
+	ResourceTags AnalyzerTagArrayArrayInput `pulumi:"resourceTags"`
+}
+
+func (AnalyzerAnalysisRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerAnalysisRuleCriteria)(nil)).Elem()
+}
+
+func (i AnalyzerAnalysisRuleCriteriaArgs) ToAnalyzerAnalysisRuleCriteriaOutput() AnalyzerAnalysisRuleCriteriaOutput {
+	return i.ToAnalyzerAnalysisRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i AnalyzerAnalysisRuleCriteriaArgs) ToAnalyzerAnalysisRuleCriteriaOutputWithContext(ctx context.Context) AnalyzerAnalysisRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerAnalysisRuleCriteriaOutput)
+}
+
+// AnalyzerAnalysisRuleCriteriaArrayInput is an input type that accepts AnalyzerAnalysisRuleCriteriaArray and AnalyzerAnalysisRuleCriteriaArrayOutput values.
+// You can construct a concrete instance of `AnalyzerAnalysisRuleCriteriaArrayInput` via:
+//
+//	AnalyzerAnalysisRuleCriteriaArray{ AnalyzerAnalysisRuleCriteriaArgs{...} }
+type AnalyzerAnalysisRuleCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToAnalyzerAnalysisRuleCriteriaArrayOutput() AnalyzerAnalysisRuleCriteriaArrayOutput
+	ToAnalyzerAnalysisRuleCriteriaArrayOutputWithContext(context.Context) AnalyzerAnalysisRuleCriteriaArrayOutput
+}
+
+type AnalyzerAnalysisRuleCriteriaArray []AnalyzerAnalysisRuleCriteriaInput
+
+func (AnalyzerAnalysisRuleCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerAnalysisRuleCriteria)(nil)).Elem()
+}
+
+func (i AnalyzerAnalysisRuleCriteriaArray) ToAnalyzerAnalysisRuleCriteriaArrayOutput() AnalyzerAnalysisRuleCriteriaArrayOutput {
+	return i.ToAnalyzerAnalysisRuleCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyzerAnalysisRuleCriteriaArray) ToAnalyzerAnalysisRuleCriteriaArrayOutputWithContext(ctx context.Context) AnalyzerAnalysisRuleCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerAnalysisRuleCriteriaArrayOutput)
+}
+
+// The criteria for an analysis rule for an analyzer.
+type AnalyzerAnalysisRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerAnalysisRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerAnalysisRuleCriteria)(nil)).Elem()
+}
+
+func (o AnalyzerAnalysisRuleCriteriaOutput) ToAnalyzerAnalysisRuleCriteriaOutput() AnalyzerAnalysisRuleCriteriaOutput {
+	return o
+}
+
+func (o AnalyzerAnalysisRuleCriteriaOutput) ToAnalyzerAnalysisRuleCriteriaOutputWithContext(ctx context.Context) AnalyzerAnalysisRuleCriteriaOutput {
+	return o
+}
+
+// A list of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+func (o AnalyzerAnalysisRuleCriteriaOutput) AccountIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AnalyzerAnalysisRuleCriteria) []string { return v.AccountIds }).(pulumi.StringArrayOutput)
+}
+
+// An array of key-value pairs to match for your resources. You can use the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+//
+// For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with aws:.
+//
+// For the tag value, you can specify a value that is 0 to 256 characters in length. If the specified tag value is 0 characters, the rule is applied to all principals with the specified tag key.
+func (o AnalyzerAnalysisRuleCriteriaOutput) ResourceTags() AnalyzerTagArrayArrayOutput {
+	return o.ApplyT(func(v AnalyzerAnalysisRuleCriteria) [][]AnalyzerTag { return v.ResourceTags }).(AnalyzerTagArrayArrayOutput)
+}
+
+type AnalyzerAnalysisRuleCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerAnalysisRuleCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerAnalysisRuleCriteria)(nil)).Elem()
+}
+
+func (o AnalyzerAnalysisRuleCriteriaArrayOutput) ToAnalyzerAnalysisRuleCriteriaArrayOutput() AnalyzerAnalysisRuleCriteriaArrayOutput {
+	return o
+}
+
+func (o AnalyzerAnalysisRuleCriteriaArrayOutput) ToAnalyzerAnalysisRuleCriteriaArrayOutputWithContext(ctx context.Context) AnalyzerAnalysisRuleCriteriaArrayOutput {
+	return o
+}
+
+func (o AnalyzerAnalysisRuleCriteriaArrayOutput) Index(i pulumi.IntInput) AnalyzerAnalysisRuleCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyzerAnalysisRuleCriteria {
+		return vs[0].([]AnalyzerAnalysisRuleCriteria)[vs[1].(int)]
+	}).(AnalyzerAnalysisRuleCriteriaOutput)
+}
+
 // An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRule struct {
 	// The criteria for the rule.
@@ -124,7 +245,7 @@ func (o AnalyzerArchiveRuleArrayOutput) Index(i pulumi.IntInput) AnalyzerArchive
 
 // The configuration for the analyzer
 type AnalyzerConfigurationProperties struct {
-	// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+	// Specifies the configuration of an unused access analyzer for an AWS organization or account.
 	UnusedAccessConfiguration *AnalyzerUnusedAccessConfiguration `pulumi:"unusedAccessConfiguration"`
 }
 
@@ -141,7 +262,7 @@ type AnalyzerConfigurationPropertiesInput interface {
 
 // The configuration for the analyzer
 type AnalyzerConfigurationPropertiesArgs struct {
-	// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+	// Specifies the configuration of an unused access analyzer for an AWS organization or account.
 	UnusedAccessConfiguration AnalyzerUnusedAccessConfigurationPtrInput `pulumi:"unusedAccessConfiguration"`
 }
 
@@ -223,7 +344,7 @@ func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationProperties
 	}).(AnalyzerConfigurationPropertiesPtrOutput)
 }
 
-// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+// Specifies the configuration of an unused access analyzer for an AWS organization or account.
 func (o AnalyzerConfigurationPropertiesOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
 		return v.UnusedAccessConfiguration
@@ -254,7 +375,7 @@ func (o AnalyzerConfigurationPropertiesPtrOutput) Elem() AnalyzerConfigurationPr
 	}).(AnalyzerConfigurationPropertiesOutput)
 }
 
-// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+// Specifies the configuration of an unused access analyzer for an AWS organization or account.
 func (o AnalyzerConfigurationPropertiesPtrOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
 		if v == nil {
@@ -401,13 +522,116 @@ func (o AnalyzerFilterArrayOutput) Index(i pulumi.IntInput) AnalyzerFilterOutput
 type AnalyzerTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value string `pulumi:"value"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// AnalyzerTagInput is an input type that accepts AnalyzerTagArgs and AnalyzerTagOutput values.
+// You can construct a concrete instance of `AnalyzerTagInput` via:
+//
+//	AnalyzerTagArgs{...}
+type AnalyzerTagInput interface {
+	pulumi.Input
+
+	ToAnalyzerTagOutput() AnalyzerTagOutput
+	ToAnalyzerTagOutputWithContext(context.Context) AnalyzerTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type AnalyzerTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (AnalyzerTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerTag)(nil)).Elem()
+}
+
+func (i AnalyzerTagArgs) ToAnalyzerTagOutput() AnalyzerTagOutput {
+	return i.ToAnalyzerTagOutputWithContext(context.Background())
+}
+
+func (i AnalyzerTagArgs) ToAnalyzerTagOutputWithContext(ctx context.Context) AnalyzerTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagOutput)
+}
+
+// AnalyzerTagArrayInput is an input type that accepts AnalyzerTagArray and AnalyzerTagArrayOutput values.
+// You can construct a concrete instance of `AnalyzerTagArrayInput` via:
+//
+//	AnalyzerTagArray{ AnalyzerTagArgs{...} }
+type AnalyzerTagArrayInput interface {
+	pulumi.Input
+
+	ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput
+	ToAnalyzerTagArrayOutputWithContext(context.Context) AnalyzerTagArrayOutput
+}
+
+type AnalyzerTagArray []AnalyzerTagInput
+
+func (AnalyzerTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerTag)(nil)).Elem()
+}
+
+func (i AnalyzerTagArray) ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput {
+	return i.ToAnalyzerTagArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyzerTagArray) ToAnalyzerTagArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AnalyzerTagOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerTag)(nil)).Elem()
+}
+
+func (o AnalyzerTagOutput) ToAnalyzerTagOutput() AnalyzerTagOutput {
+	return o
+}
+
+func (o AnalyzerTagOutput) ToAnalyzerTagOutputWithContext(ctx context.Context) AnalyzerTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AnalyzerTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v AnalyzerTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o AnalyzerTagOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnalyzerTag) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type AnalyzerTagArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnalyzerTag)(nil)).Elem()
+}
+
+func (o AnalyzerTagArrayOutput) ToAnalyzerTagArrayOutput() AnalyzerTagArrayOutput {
+	return o
+}
+
+func (o AnalyzerTagArrayOutput) ToAnalyzerTagArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayOutput {
+	return o
+}
+
+func (o AnalyzerTagArrayOutput) Index(i pulumi.IntInput) AnalyzerTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnalyzerTag {
+		return vs[0].([]AnalyzerTag)[vs[1].(int)]
+	}).(AnalyzerTagOutput)
 }
 
 // The Configuration for Unused Access Analyzer
 type AnalyzerUnusedAccessConfiguration struct {
-	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+	// Contains information about rules for the analyzer.
+	AnalysisRule *AnalyzerUnusedAccessConfigurationAnalysisRuleProperties `pulumi:"analysisRule"`
+	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.
 	UnusedAccessAge *int `pulumi:"unusedAccessAge"`
 }
 
@@ -424,7 +648,9 @@ type AnalyzerUnusedAccessConfigurationInput interface {
 
 // The Configuration for Unused Access Analyzer
 type AnalyzerUnusedAccessConfigurationArgs struct {
-	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+	// Contains information about rules for the analyzer.
+	AnalysisRule AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrInput `pulumi:"analysisRule"`
+	// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.
 	UnusedAccessAge pulumi.IntPtrInput `pulumi:"unusedAccessAge"`
 }
 
@@ -506,7 +732,14 @@ func (o AnalyzerUnusedAccessConfigurationOutput) ToAnalyzerUnusedAccessConfigura
 	}).(AnalyzerUnusedAccessConfigurationPtrOutput)
 }
 
-// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+// Contains information about rules for the analyzer.
+func (o AnalyzerUnusedAccessConfigurationOutput) AnalysisRule() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return o.ApplyT(func(v AnalyzerUnusedAccessConfiguration) *AnalyzerUnusedAccessConfigurationAnalysisRuleProperties {
+		return v.AnalysisRule
+	}).(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput)
+}
+
+// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.
 func (o AnalyzerUnusedAccessConfigurationOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnalyzerUnusedAccessConfiguration) *int { return v.UnusedAccessAge }).(pulumi.IntPtrOutput)
 }
@@ -535,7 +768,17 @@ func (o AnalyzerUnusedAccessConfigurationPtrOutput) Elem() AnalyzerUnusedAccessC
 	}).(AnalyzerUnusedAccessConfigurationOutput)
 }
 
-// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+// Contains information about rules for the analyzer.
+func (o AnalyzerUnusedAccessConfigurationPtrOutput) AnalysisRule() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return o.ApplyT(func(v *AnalyzerUnusedAccessConfiguration) *AnalyzerUnusedAccessConfigurationAnalysisRuleProperties {
+		if v == nil {
+			return nil
+		}
+		return v.AnalysisRule
+	}).(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput)
+}
+
+// The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.
 func (o AnalyzerUnusedAccessConfigurationPtrOutput) UnusedAccessAge() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AnalyzerUnusedAccessConfiguration) *int {
 		if v == nil {
@@ -545,21 +788,222 @@ func (o AnalyzerUnusedAccessConfigurationPtrOutput) UnusedAccessAge() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Contains information about rules for the analyzer.
+type AnalyzerUnusedAccessConfigurationAnalysisRuleProperties struct {
+	// A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
+	Exclusions []AnalyzerAnalysisRuleCriteria `pulumi:"exclusions"`
+}
+
+// AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesInput is an input type that accepts AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs and AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput values.
+// You can construct a concrete instance of `AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesInput` via:
+//
+//	AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs{...}
+type AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesInput interface {
+	pulumi.Input
+
+	ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput
+	ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutputWithContext(context.Context) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput
+}
+
+// Contains information about rules for the analyzer.
+type AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs struct {
+	// A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
+	Exclusions AnalyzerAnalysisRuleCriteriaArrayInput `pulumi:"exclusions"`
+}
+
+func (AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerUnusedAccessConfigurationAnalysisRuleProperties)(nil)).Elem()
+}
+
+func (i AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput {
+	return i.ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutputWithContext(context.Background())
+}
+
+func (i AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput)
+}
+
+func (i AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return i.ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput).ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(ctx)
+}
+
+// AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrInput is an input type that accepts AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs, AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtr and AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput values.
+// You can construct a concrete instance of `AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrInput` via:
+//
+//	        AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput
+	ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(context.Context) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput
+}
+
+type analyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrType AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs
+
+func AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtr(v *AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrInput {
+	return (*analyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrType)(v)
+}
+
+func (*analyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerUnusedAccessConfigurationAnalysisRuleProperties)(nil)).Elem()
+}
+
+func (i *analyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrType) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return i.ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *analyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrType) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput)
+}
+
+// Contains information about rules for the analyzer.
+type AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalyzerUnusedAccessConfigurationAnalysisRuleProperties)(nil)).Elem()
+}
+
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput {
+	return o
+}
+
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput {
+	return o
+}
+
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return o.ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyzerUnusedAccessConfigurationAnalysisRuleProperties) *AnalyzerUnusedAccessConfigurationAnalysisRuleProperties {
+		return &v
+	}).(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput)
+}
+
+// A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput) Exclusions() AnalyzerAnalysisRuleCriteriaArrayOutput {
+	return o.ApplyT(func(v AnalyzerUnusedAccessConfigurationAnalysisRuleProperties) []AnalyzerAnalysisRuleCriteria {
+		return v.Exclusions
+	}).(AnalyzerAnalysisRuleCriteriaArrayOutput)
+}
+
+type AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalyzerUnusedAccessConfigurationAnalysisRuleProperties)(nil)).Elem()
+}
+
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return o
+}
+
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput) ToAnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutputWithContext(ctx context.Context) AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput {
+	return o
+}
+
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput) Elem() AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput {
+	return o.ApplyT(func(v *AnalyzerUnusedAccessConfigurationAnalysisRuleProperties) AnalyzerUnusedAccessConfigurationAnalysisRuleProperties {
+		if v != nil {
+			return *v
+		}
+		var ret AnalyzerUnusedAccessConfigurationAnalysisRuleProperties
+		return ret
+	}).(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput)
+}
+
+// A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
+func (o AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput) Exclusions() AnalyzerAnalysisRuleCriteriaArrayOutput {
+	return o.ApplyT(func(v *AnalyzerUnusedAccessConfigurationAnalysisRuleProperties) []AnalyzerAnalysisRuleCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.Exclusions
+	}).(AnalyzerAnalysisRuleCriteriaArrayOutput)
+}
+
+type AnalyzerTagArrayArray []AnalyzerTagArrayInput
+
+func (AnalyzerTagArrayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]AnalyzerTag)(nil)).Elem()
+}
+
+func (i AnalyzerTagArrayArray) ToAnalyzerTagArrayArrayOutput() AnalyzerTagArrayArrayOutput {
+	return i.ToAnalyzerTagArrayArrayOutputWithContext(context.Background())
+}
+
+func (i AnalyzerTagArrayArray) ToAnalyzerTagArrayArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnalyzerTagArrayArrayOutput)
+}
+
+// AnalyzerTagArrayArrayInput is an input type that accepts AnalyzerTagArrayArray and AnalyzerTagArrayArrayOutput values.
+// You can construct a concrete instance of `AnalyzerTagArrayArrayInput` via:
+//
+//	AnalyzerTagArrayArray{ AnalyzerTagArray{ AnalyzerTagArgs{...} } }
+type AnalyzerTagArrayArrayInput interface {
+	pulumi.Input
+
+	ToAnalyzerTagArrayArrayOutput() AnalyzerTagArrayArrayOutput
+	ToAnalyzerTagArrayArrayOutputWithContext(context.Context) AnalyzerTagArrayArrayOutput
+}
+
+type AnalyzerTagArrayArrayOutput struct{ *pulumi.OutputState }
+
+func (AnalyzerTagArrayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[][]AnalyzerTag)(nil)).Elem()
+}
+
+func (o AnalyzerTagArrayArrayOutput) ToAnalyzerTagArrayArrayOutput() AnalyzerTagArrayArrayOutput {
+	return o
+}
+
+func (o AnalyzerTagArrayArrayOutput) ToAnalyzerTagArrayArrayOutputWithContext(ctx context.Context) AnalyzerTagArrayArrayOutput {
+	return o
+}
+
+func (o AnalyzerTagArrayArrayOutput) Index(i pulumi.IntInput) AnalyzerTagArrayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []AnalyzerTag {
+		return vs[0].([][]AnalyzerTag)[vs[1].(int)]
+	}).(AnalyzerTagArrayOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerAnalysisRuleCriteriaInput)(nil)).Elem(), AnalyzerAnalysisRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerAnalysisRuleCriteriaArrayInput)(nil)).Elem(), AnalyzerAnalysisRuleCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerArchiveRuleInput)(nil)).Elem(), AnalyzerArchiveRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerArchiveRuleArrayInput)(nil)).Elem(), AnalyzerArchiveRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationPropertiesInput)(nil)).Elem(), AnalyzerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerConfigurationPropertiesPtrInput)(nil)).Elem(), AnalyzerConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterInput)(nil)).Elem(), AnalyzerFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerFilterArrayInput)(nil)).Elem(), AnalyzerFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagInput)(nil)).Elem(), AnalyzerTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagArrayInput)(nil)).Elem(), AnalyzerTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationPtrInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrInput)(nil)).Elem(), AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalyzerTagArrayArrayInput)(nil)).Elem(), AnalyzerTagArrayArray{})
+	pulumi.RegisterOutputType(AnalyzerAnalysisRuleCriteriaOutput{})
+	pulumi.RegisterOutputType(AnalyzerAnalysisRuleCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleOutput{})
 	pulumi.RegisterOutputType(AnalyzerArchiveRuleArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(AnalyzerConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterOutput{})
 	pulumi.RegisterOutputType(AnalyzerFilterArrayOutput{})
+	pulumi.RegisterOutputType(AnalyzerTagOutput{})
+	pulumi.RegisterOutputType(AnalyzerTagArrayOutput{})
 	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationOutput{})
 	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesOutput{})
+	pulumi.RegisterOutputType(AnalyzerUnusedAccessConfigurationAnalysisRulePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AnalyzerTagArrayArrayOutput{})
 }

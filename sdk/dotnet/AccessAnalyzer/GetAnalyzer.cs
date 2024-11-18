@@ -58,6 +58,10 @@ namespace Pulumi.AwsNative.AccessAnalyzer
     public sealed class GetAnalyzerResult
     {
         /// <summary>
+        /// The configuration for the analyzer
+        /// </summary>
+        public readonly Outputs.AnalyzerConfigurationProperties? AnalyzerConfiguration;
+        /// <summary>
         /// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalyzerArchiveRule> ArchiveRules;
@@ -72,12 +76,15 @@ namespace Pulumi.AwsNative.AccessAnalyzer
 
         [OutputConstructor]
         private GetAnalyzerResult(
+            Outputs.AnalyzerConfigurationProperties? analyzerConfiguration,
+
             ImmutableArray<Outputs.AnalyzerArchiveRule> archiveRules,
 
             string? arn,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            AnalyzerConfiguration = analyzerConfiguration;
             ArchiveRules = archiveRules;
             Arn = arn;
             Tags = tags;

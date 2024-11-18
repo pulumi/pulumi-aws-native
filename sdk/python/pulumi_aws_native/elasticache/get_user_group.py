@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetUserGroupResult',
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserGroupResult:
-    def __init__(__self__, arn=None, status=None, tags=None, user_ids=None):
+    def __init__(__self__, arn=None, engine=None, status=None, tags=None, user_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if engine and not isinstance(engine, str):
+            raise TypeError("Expected argument 'engine' to be a str")
+        pulumi.set(__self__, "engine", engine)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -45,6 +49,14 @@ class GetUserGroupResult:
         The Amazon Resource Name (ARN) of the user account.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional['UserGroupEngine']:
+        """
+        The target cache engine for the user group.
+        """
+        return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter
@@ -78,6 +90,7 @@ class AwaitableGetUserGroupResult(GetUserGroupResult):
             yield self
         return GetUserGroupResult(
             arn=self.arn,
+            engine=self.engine,
             status=self.status,
             tags=self.tags,
             user_ids=self.user_ids)
@@ -98,6 +111,7 @@ def get_user_group(user_group_id: Optional[str] = None,
 
     return AwaitableGetUserGroupResult(
         arn=pulumi.get(__ret__, 'arn'),
+        engine=pulumi.get(__ret__, 'engine'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         user_ids=pulumi.get(__ret__, 'user_ids'))
@@ -115,6 +129,7 @@ def get_user_group_output(user_group_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getUserGroup', __args__, opts=opts, typ=GetUserGroupResult)
     return __ret__.apply(lambda __response__: GetUserGroupResult(
         arn=pulumi.get(__response__, 'arn'),
+        engine=pulumi.get(__response__, 'engine'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         user_ids=pulumi.get(__response__, 'user_ids')))

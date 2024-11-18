@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetUserResult',
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserResult:
-    def __init__(__self__, arn=None, status=None, tags=None):
+    def __init__(__self__, arn=None, engine=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if engine and not isinstance(engine, str):
+            raise TypeError("Expected argument 'engine' to be a str")
+        pulumi.set(__self__, "engine", engine)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -42,6 +46,14 @@ class GetUserResult:
         The Amazon Resource Name (ARN) of the user account.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional['UserEngine']:
+        """
+        The target cache engine for the user.
+        """
+        return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter
@@ -67,6 +79,7 @@ class AwaitableGetUserResult(GetUserResult):
             yield self
         return GetUserResult(
             arn=self.arn,
+            engine=self.engine,
             status=self.status,
             tags=self.tags)
 
@@ -86,6 +99,7 @@ def get_user(user_id: Optional[str] = None,
 
     return AwaitableGetUserResult(
         arn=pulumi.get(__ret__, 'arn'),
+        engine=pulumi.get(__ret__, 'engine'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_user_output(user_id: Optional[pulumi.Input[str]] = None,
@@ -102,5 +116,6 @@ def get_user_output(user_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         arn=pulumi.get(__response__, 'arn'),
+        engine=pulumi.get(__response__, 'engine'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

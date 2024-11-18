@@ -34,7 +34,7 @@ class UserArgs:
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input['UserEngine'] engine: Must be redis.
+        :param pulumi.Input['UserEngine'] engine: The target cache engine for the user.
         :param pulumi.Input[str] user_id: The ID of the user.
         :param pulumi.Input[str] access_string: Access permissions string used for this user account.
         :param pulumi.Input['AuthenticationModePropertiesArgs'] authentication_mode: Specifies the authentication mode to use. Below is an example of the possible JSON values:
@@ -67,7 +67,7 @@ class UserArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input['UserEngine']:
         """
-        Must be redis.
+        The target cache engine for the user.
         """
         return pulumi.get(self, "engine")
 
@@ -191,7 +191,7 @@ class User(pulumi.CustomResource):
                { Passwords: ["*****", "******"] // If Type is password.
                }
                ```
-        :param pulumi.Input['UserEngine'] engine: Must be redis.
+        :param pulumi.Input['UserEngine'] engine: The target cache engine for the user.
         :param pulumi.Input[bool] no_password_required: Indicates a password is not required for this user account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] passwords: Passwords used for this user account. You can create up to two passwords for each user.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this user.
@@ -253,7 +253,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine", "userId", "userName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["userId", "userName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(User, __self__).__init__(
             'aws-native:elasticache:User',
@@ -322,7 +322,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output['UserEngine']:
         """
-        Must be redis.
+        The target cache engine for the user.
         """
         return pulumi.get(self, "engine")
 

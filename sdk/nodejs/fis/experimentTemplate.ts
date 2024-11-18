@@ -121,6 +121,9 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      * The experiment options for an experiment template.
      */
     public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
+    /**
+     * Describes the report configuration for the experiment template.
+     */
     public readonly experimentReportConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentReportConfiguration | undefined>;
     /**
      * The configuration for experiment logging.
@@ -214,6 +217,9 @@ export interface ExperimentTemplateArgs {
      * The experiment options for an experiment template.
      */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptionsArgs>;
+    /**
+     * Describes the report configuration for the experiment template.
+     */
     experimentReportConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentReportConfigurationArgs>;
     /**
      * The configuration for experiment logging.

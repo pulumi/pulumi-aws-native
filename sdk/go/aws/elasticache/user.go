@@ -23,7 +23,7 @@ type User struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the authentication mode to use. Below is an example of the possible JSON values:
 	AuthenticationMode AuthenticationModePropertiesPtrOutput `pulumi:"authenticationMode"`
-	// Must be redis.
+	// The target cache engine for the user.
 	Engine UserEngineOutput `pulumi:"engine"`
 	// Indicates a password is not required for this user account.
 	NoPasswordRequired pulumi.BoolPtrOutput `pulumi:"noPasswordRequired"`
@@ -53,7 +53,6 @@ func NewUser(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'UserId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"engine",
 		"userId",
 		"userName",
 	})
@@ -95,7 +94,7 @@ type userArgs struct {
 	AccessString *string `pulumi:"accessString"`
 	// Specifies the authentication mode to use. Below is an example of the possible JSON values:
 	AuthenticationMode *AuthenticationModeProperties `pulumi:"authenticationMode"`
-	// Must be redis.
+	// The target cache engine for the user.
 	Engine UserEngine `pulumi:"engine"`
 	// Indicates a password is not required for this user account.
 	NoPasswordRequired *bool `pulumi:"noPasswordRequired"`
@@ -115,7 +114,7 @@ type UserArgs struct {
 	AccessString pulumi.StringPtrInput
 	// Specifies the authentication mode to use. Below is an example of the possible JSON values:
 	AuthenticationMode AuthenticationModePropertiesPtrInput
-	// Must be redis.
+	// The target cache engine for the user.
 	Engine UserEngineInput
 	// Indicates a password is not required for this user account.
 	NoPasswordRequired pulumi.BoolPtrInput
@@ -181,7 +180,7 @@ func (o UserOutput) AuthenticationMode() AuthenticationModePropertiesPtrOutput {
 	return o.ApplyT(func(v *User) AuthenticationModePropertiesPtrOutput { return v.AuthenticationMode }).(AuthenticationModePropertiesPtrOutput)
 }
 
-// Must be redis.
+// The target cache engine for the user.
 func (o UserOutput) Engine() UserEngineOutput {
 	return o.ApplyT(func(v *User) UserEngineOutput { return v.Engine }).(UserEngineOutput)
 }

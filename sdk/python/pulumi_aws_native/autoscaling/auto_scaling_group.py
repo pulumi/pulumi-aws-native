@@ -26,6 +26,7 @@ class AutoScalingGroupArgs:
                  min_size: pulumi.Input[str],
                  auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                  availability_zone_distribution: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']] = None,
+                 availability_zone_impairment_policy: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -49,6 +50,7 @@ class AutoScalingGroupArgs:
                  notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupNotificationConfigurationArgs']]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
+                 skip_zonal_shift_validation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -119,6 +121,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "auto_scaling_group_name", auto_scaling_group_name)
         if availability_zone_distribution is not None:
             pulumi.set(__self__, "availability_zone_distribution", availability_zone_distribution)
+        if availability_zone_impairment_policy is not None:
+            pulumi.set(__self__, "availability_zone_impairment_policy", availability_zone_impairment_policy)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
@@ -165,6 +169,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "placement_group", placement_group)
         if service_linked_role_arn is not None:
             pulumi.set(__self__, "service_linked_role_arn", service_linked_role_arn)
+        if skip_zonal_shift_validation is not None:
+            pulumi.set(__self__, "skip_zonal_shift_validation", skip_zonal_shift_validation)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_group_arns is not None:
@@ -226,6 +232,15 @@ class AutoScalingGroupArgs:
     @availability_zone_distribution.setter
     def availability_zone_distribution(self, value: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionArgs']]):
         pulumi.set(self, "availability_zone_distribution", value)
+
+    @property
+    @pulumi.getter(name="availabilityZoneImpairmentPolicy")
+    def availability_zone_impairment_policy(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']]:
+        return pulumi.get(self, "availability_zone_impairment_policy")
+
+    @availability_zone_impairment_policy.setter
+    def availability_zone_impairment_policy(self, value: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']]):
+        pulumi.set(self, "availability_zone_impairment_policy", value)
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -519,6 +534,15 @@ class AutoScalingGroupArgs:
         pulumi.set(self, "service_linked_role_arn", value)
 
     @property
+    @pulumi.getter(name="skipZonalShiftValidation")
+    def skip_zonal_shift_validation(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "skip_zonal_shift_validation")
+
+    @skip_zonal_shift_validation.setter
+    def skip_zonal_shift_validation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_zonal_shift_validation", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupTagPropertyArgs']]]]:
         """
@@ -590,6 +614,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                  availability_zone_distribution: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']]] = None,
+                 availability_zone_impairment_policy: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -615,6 +640,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
+                 skip_zonal_shift_validation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -715,6 +741,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                  availability_zone_distribution: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneDistributionArgs', 'AutoScalingGroupAvailabilityZoneDistributionArgsDict']]] = None,
+                 availability_zone_impairment_policy: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
@@ -740,6 +767,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  notification_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupNotificationConfigurationArgs', 'AutoScalingGroupNotificationConfigurationArgsDict']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
+                 skip_zonal_shift_validation: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AutoScalingGroupTagPropertyArgs', 'AutoScalingGroupTagPropertyArgsDict']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -756,6 +784,7 @@ class AutoScalingGroup(pulumi.CustomResource):
 
             __props__.__dict__["auto_scaling_group_name"] = auto_scaling_group_name
             __props__.__dict__["availability_zone_distribution"] = availability_zone_distribution
+            __props__.__dict__["availability_zone_impairment_policy"] = availability_zone_impairment_policy
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
             __props__.__dict__["context"] = context
@@ -785,6 +814,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["notification_configurations"] = notification_configurations
             __props__.__dict__["placement_group"] = placement_group
             __props__.__dict__["service_linked_role_arn"] = service_linked_role_arn
+            __props__.__dict__["skip_zonal_shift_validation"] = skip_zonal_shift_validation
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_group_arns"] = target_group_arns
             __props__.__dict__["termination_policies"] = termination_policies
@@ -816,6 +846,7 @@ class AutoScalingGroup(pulumi.CustomResource):
 
         __props__.__dict__["auto_scaling_group_name"] = None
         __props__.__dict__["availability_zone_distribution"] = None
+        __props__.__dict__["availability_zone_impairment_policy"] = None
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["capacity_rebalance"] = None
         __props__.__dict__["context"] = None
@@ -841,6 +872,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["notification_configurations"] = None
         __props__.__dict__["placement_group"] = None
         __props__.__dict__["service_linked_role_arn"] = None
+        __props__.__dict__["skip_zonal_shift_validation"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_group_arns"] = None
         __props__.__dict__["termination_policies"] = None
@@ -865,6 +897,11 @@ class AutoScalingGroup(pulumi.CustomResource):
         The instance capacity distribution across Availability Zones.
         """
         return pulumi.get(self, "availability_zone_distribution")
+
+    @property
+    @pulumi.getter(name="availabilityZoneImpairmentPolicy")
+    def availability_zone_impairment_policy(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy']]:
+        return pulumi.get(self, "availability_zone_impairment_policy")
 
     @property
     @pulumi.getter(name="availabilityZones")
@@ -1081,6 +1118,11 @@ class AutoScalingGroup(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "service_linked_role_arn")
+
+    @property
+    @pulumi.getter(name="skipZonalShiftValidation")
+    def skip_zonal_shift_validation(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "skip_zonal_shift_validation")
 
     @property
     @pulumi.getter

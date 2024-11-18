@@ -45,6 +45,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
+    /**
+     * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+     */
     public readonly enablePrefixForIpv6SourceNat!: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
@@ -173,6 +176,9 @@ export class LoadBalancer extends pulumi.CustomResource {
  * The set of arguments for constructing a LoadBalancer resource.
  */
 export interface LoadBalancerArgs {
+    /**
+     * [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+     */
     enablePrefixForIpv6SourceNat?: pulumi.Input<string>;
     /**
      * Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.

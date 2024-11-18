@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Fis.Inputs
 {
 
+    /// <summary>
+    /// The output destinations of the experiment report.
+    /// </summary>
     public sealed class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("experimentReportS3Configuration", required: true)]

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Must be redis.
+        /// The target cache engine for the user group.
         /// </summary>
         [Output("engine")]
         public Output<Pulumi.AwsNative.ElastiCache.UserGroupEngine> Engine { get; private set; } = null!;
@@ -76,7 +76,6 @@ namespace Pulumi.AwsNative.ElastiCache
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "engine",
                     "userGroupId",
                 },
             };
@@ -102,7 +101,7 @@ namespace Pulumi.AwsNative.ElastiCache
     public sealed class UserGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Must be redis.
+        /// The target cache engine for the user group.
         /// </summary>
         [Input("engine", required: true)]
         public Input<Pulumi.AwsNative.ElastiCache.UserGroupEngine> Engine { get; set; } = null!;

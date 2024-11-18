@@ -14,3 +14,10 @@ export const AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStr
  * - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
  */
 export type AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy = (typeof AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy)[keyof typeof AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy];
+
+export const AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior = {
+    IgnoreUnhealthy: "IgnoreUnhealthy",
+    ReplaceUnhealthy: "ReplaceUnhealthy",
+} as const;
+
+export type AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior = (typeof AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior)[keyof typeof AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior];

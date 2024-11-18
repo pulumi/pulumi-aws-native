@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<Outputs.AuthenticationModeProperties?> AuthenticationMode { get; private set; } = null!;
 
         /// <summary>
-        /// Must be redis.
+        /// The target cache engine for the user.
         /// </summary>
         [Output("engine")]
         public Output<Pulumi.AwsNative.ElastiCache.UserEngine> Engine { get; private set; } = null!;
@@ -105,7 +105,6 @@ namespace Pulumi.AwsNative.ElastiCache
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "engine",
                     "userId",
                     "userName",
                 },
@@ -149,7 +148,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public Input<Inputs.AuthenticationModePropertiesArgs>? AuthenticationMode { get; set; }
 
         /// <summary>
-        /// Must be redis.
+        /// The target cache engine for the user.
         /// </summary>
         [Input("engine", required: true)]
         public Input<Pulumi.AwsNative.ElastiCache.UserEngine> Engine { get; set; } = null!;

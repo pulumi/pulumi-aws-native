@@ -85,6 +85,9 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="enablePrefixForIpv6SourceNat")
     def enable_prefix_for_ipv6_source_nat(self) -> Optional[str]:
+        """
+        [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+        """
         return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
 
     @property

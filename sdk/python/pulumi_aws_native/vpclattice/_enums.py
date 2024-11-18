@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'AccessLogSubscriptionServiceNetworkLogType',
     'AuthPolicyState',
     'ListenerProtocol',
     'RuleHttpMatchMethod',
@@ -22,6 +23,11 @@ __all__ = [
     'TargetGroupStatus',
     'TargetGroupType',
 ]
+
+
+class AccessLogSubscriptionServiceNetworkLogType(str, Enum):
+    SERVICE = "SERVICE"
+    RESOURCE = "RESOURCE"
 
 
 class AuthPolicyState(str, Enum):

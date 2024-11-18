@@ -2046,6 +2046,139 @@ type ServiceNetworkServiceAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ServiceNetworkSharingConfig struct {
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ServiceNetworkSharingConfigInput is an input type that accepts ServiceNetworkSharingConfigArgs and ServiceNetworkSharingConfigOutput values.
+// You can construct a concrete instance of `ServiceNetworkSharingConfigInput` via:
+//
+//	ServiceNetworkSharingConfigArgs{...}
+type ServiceNetworkSharingConfigInput interface {
+	pulumi.Input
+
+	ToServiceNetworkSharingConfigOutput() ServiceNetworkSharingConfigOutput
+	ToServiceNetworkSharingConfigOutputWithContext(context.Context) ServiceNetworkSharingConfigOutput
+}
+
+type ServiceNetworkSharingConfigArgs struct {
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ServiceNetworkSharingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkSharingConfig)(nil)).Elem()
+}
+
+func (i ServiceNetworkSharingConfigArgs) ToServiceNetworkSharingConfigOutput() ServiceNetworkSharingConfigOutput {
+	return i.ToServiceNetworkSharingConfigOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkSharingConfigArgs) ToServiceNetworkSharingConfigOutputWithContext(ctx context.Context) ServiceNetworkSharingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkSharingConfigOutput)
+}
+
+func (i ServiceNetworkSharingConfigArgs) ToServiceNetworkSharingConfigPtrOutput() ServiceNetworkSharingConfigPtrOutput {
+	return i.ToServiceNetworkSharingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceNetworkSharingConfigArgs) ToServiceNetworkSharingConfigPtrOutputWithContext(ctx context.Context) ServiceNetworkSharingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkSharingConfigOutput).ToServiceNetworkSharingConfigPtrOutputWithContext(ctx)
+}
+
+// ServiceNetworkSharingConfigPtrInput is an input type that accepts ServiceNetworkSharingConfigArgs, ServiceNetworkSharingConfigPtr and ServiceNetworkSharingConfigPtrOutput values.
+// You can construct a concrete instance of `ServiceNetworkSharingConfigPtrInput` via:
+//
+//	        ServiceNetworkSharingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceNetworkSharingConfigPtrInput interface {
+	pulumi.Input
+
+	ToServiceNetworkSharingConfigPtrOutput() ServiceNetworkSharingConfigPtrOutput
+	ToServiceNetworkSharingConfigPtrOutputWithContext(context.Context) ServiceNetworkSharingConfigPtrOutput
+}
+
+type serviceNetworkSharingConfigPtrType ServiceNetworkSharingConfigArgs
+
+func ServiceNetworkSharingConfigPtr(v *ServiceNetworkSharingConfigArgs) ServiceNetworkSharingConfigPtrInput {
+	return (*serviceNetworkSharingConfigPtrType)(v)
+}
+
+func (*serviceNetworkSharingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkSharingConfig)(nil)).Elem()
+}
+
+func (i *serviceNetworkSharingConfigPtrType) ToServiceNetworkSharingConfigPtrOutput() ServiceNetworkSharingConfigPtrOutput {
+	return i.ToServiceNetworkSharingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceNetworkSharingConfigPtrType) ToServiceNetworkSharingConfigPtrOutputWithContext(ctx context.Context) ServiceNetworkSharingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkSharingConfigPtrOutput)
+}
+
+type ServiceNetworkSharingConfigOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkSharingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceNetworkSharingConfig)(nil)).Elem()
+}
+
+func (o ServiceNetworkSharingConfigOutput) ToServiceNetworkSharingConfigOutput() ServiceNetworkSharingConfigOutput {
+	return o
+}
+
+func (o ServiceNetworkSharingConfigOutput) ToServiceNetworkSharingConfigOutputWithContext(ctx context.Context) ServiceNetworkSharingConfigOutput {
+	return o
+}
+
+func (o ServiceNetworkSharingConfigOutput) ToServiceNetworkSharingConfigPtrOutput() ServiceNetworkSharingConfigPtrOutput {
+	return o.ToServiceNetworkSharingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceNetworkSharingConfigOutput) ToServiceNetworkSharingConfigPtrOutputWithContext(ctx context.Context) ServiceNetworkSharingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNetworkSharingConfig) *ServiceNetworkSharingConfig {
+		return &v
+	}).(ServiceNetworkSharingConfigPtrOutput)
+}
+
+func (o ServiceNetworkSharingConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceNetworkSharingConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ServiceNetworkSharingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceNetworkSharingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceNetworkSharingConfig)(nil)).Elem()
+}
+
+func (o ServiceNetworkSharingConfigPtrOutput) ToServiceNetworkSharingConfigPtrOutput() ServiceNetworkSharingConfigPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkSharingConfigPtrOutput) ToServiceNetworkSharingConfigPtrOutputWithContext(ctx context.Context) ServiceNetworkSharingConfigPtrOutput {
+	return o
+}
+
+func (o ServiceNetworkSharingConfigPtrOutput) Elem() ServiceNetworkSharingConfigOutput {
+	return o.ApplyT(func(v *ServiceNetworkSharingConfig) ServiceNetworkSharingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceNetworkSharingConfig
+		return ret
+	}).(ServiceNetworkSharingConfigOutput)
+}
+
+func (o ServiceNetworkSharingConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceNetworkSharingConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ServiceNetworkTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -2908,6 +3041,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsEntryPtrInput)(nil)).Elem(), ServiceDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkServiceAssociationDnsEntryPtrInput)(nil)).Elem(), ServiceNetworkServiceAssociationDnsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkSharingConfigInput)(nil)).Elem(), ServiceNetworkSharingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkSharingConfigPtrInput)(nil)).Elem(), ServiceNetworkSharingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigInput)(nil)).Elem(), TargetGroupConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupConfigPtrInput)(nil)).Elem(), TargetGroupConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckConfigInput)(nil)).Elem(), TargetGroupHealthCheckConfigArgs{})
@@ -2947,6 +3082,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDnsEntryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkServiceAssociationDnsEntryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkSharingConfigOutput{})
+	pulumi.RegisterOutputType(ServiceNetworkSharingConfigPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigOutput{})
 	pulumi.RegisterOutputType(TargetGroupConfigPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupHealthCheckConfigOutput{})

@@ -20,7 +20,10 @@ __all__ = [
     'AutoScalingGroupAcceleratorCountRequest',
     'AutoScalingGroupAcceleratorTotalMemoryMiBRequest',
     'AutoScalingGroupAvailabilityZoneDistribution',
+    'AutoScalingGroupAvailabilityZoneImpairmentPolicy',
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequest',
+    'AutoScalingGroupBaselinePerformanceFactorsRequest',
+    'AutoScalingGroupCpuPerformanceFactorRequest',
     'AutoScalingGroupInstanceMaintenancePolicy',
     'AutoScalingGroupInstanceRequirements',
     'AutoScalingGroupInstancesDistribution',
@@ -35,6 +38,7 @@ __all__ = [
     'AutoScalingGroupNetworkBandwidthGbpsRequest',
     'AutoScalingGroupNetworkInterfaceCountRequest',
     'AutoScalingGroupNotificationConfiguration',
+    'AutoScalingGroupPerformanceFactorReferenceRequest',
     'AutoScalingGroupTagProperty',
     'AutoScalingGroupTotalLocalStorageGbRequest',
     'AutoScalingGroupTrafficSourceIdentifier',
@@ -176,6 +180,44 @@ class AutoScalingGroupAvailabilityZoneDistribution(dict):
 
 
 @pulumi.output_type
+class AutoScalingGroupAvailabilityZoneImpairmentPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "impairedZoneHealthCheckBehavior":
+            suggest = "impaired_zone_health_check_behavior"
+        elif key == "zonalShiftEnabled":
+            suggest = "zonal_shift_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupAvailabilityZoneImpairmentPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupAvailabilityZoneImpairmentPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupAvailabilityZoneImpairmentPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 impaired_zone_health_check_behavior: 'AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior',
+                 zonal_shift_enabled: bool):
+        pulumi.set(__self__, "impaired_zone_health_check_behavior", impaired_zone_health_check_behavior)
+        pulumi.set(__self__, "zonal_shift_enabled", zonal_shift_enabled)
+
+    @property
+    @pulumi.getter(name="impairedZoneHealthCheckBehavior")
+    def impaired_zone_health_check_behavior(self) -> 'AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior':
+        return pulumi.get(self, "impaired_zone_health_check_behavior")
+
+    @property
+    @pulumi.getter(name="zonalShiftEnabled")
+    def zonal_shift_enabled(self) -> bool:
+        return pulumi.get(self, "zonal_shift_enabled")
+
+
+@pulumi.output_type
 class AutoScalingGroupBaselineEbsBandwidthMbpsRequest(dict):
     """
     ``BaselineEbsBandwidthMbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
@@ -208,6 +250,32 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequest(dict):
         The minimum value in Mbps.
         """
         return pulumi.get(self, "min")
+
+
+@pulumi.output_type
+class AutoScalingGroupBaselinePerformanceFactorsRequest(dict):
+    def __init__(__self__, *,
+                 cpu: Optional['outputs.AutoScalingGroupCpuPerformanceFactorRequest'] = None):
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional['outputs.AutoScalingGroupCpuPerformanceFactorRequest']:
+        return pulumi.get(self, "cpu")
+
+
+@pulumi.output_type
+class AutoScalingGroupCpuPerformanceFactorRequest(dict):
+    def __init__(__self__, *,
+                 references: Optional[Sequence['outputs.AutoScalingGroupPerformanceFactorReferenceRequest']] = None):
+        if references is not None:
+            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def references(self) -> Optional[Sequence['outputs.AutoScalingGroupPerformanceFactorReferenceRequest']]:
+        return pulumi.get(self, "references")
 
 
 @pulumi.output_type
@@ -305,6 +373,8 @@ class AutoScalingGroupInstanceRequirements(dict):
             suggest = "bare_metal"
         elif key == "baselineEbsBandwidthMbps":
             suggest = "baseline_ebs_bandwidth_mbps"
+        elif key == "baselinePerformanceFactors":
+            suggest = "baseline_performance_factors"
         elif key == "burstablePerformance":
             suggest = "burstable_performance"
         elif key == "cpuManufacturers":
@@ -356,6 +426,7 @@ class AutoScalingGroupInstanceRequirements(dict):
                  allowed_instance_types: Optional[Sequence[str]] = None,
                  bare_metal: Optional[str] = None,
                  baseline_ebs_bandwidth_mbps: Optional['outputs.AutoScalingGroupBaselineEbsBandwidthMbpsRequest'] = None,
+                 baseline_performance_factors: Optional['outputs.AutoScalingGroupBaselinePerformanceFactorsRequest'] = None,
                  burstable_performance: Optional[str] = None,
                  cpu_manufacturers: Optional[Sequence[str]] = None,
                  excluded_instance_types: Optional[Sequence[str]] = None,
@@ -487,6 +558,8 @@ class AutoScalingGroupInstanceRequirements(dict):
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
             pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if baseline_performance_factors is not None:
+            pulumi.set(__self__, "baseline_performance_factors", baseline_performance_factors)
         if burstable_performance is not None:
             pulumi.set(__self__, "burstable_performance", burstable_performance)
         if cpu_manufacturers is not None:
@@ -624,6 +697,11 @@ class AutoScalingGroupInstanceRequirements(dict):
          Default: No minimum or maximum limits
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
+
+    @property
+    @pulumi.getter(name="baselinePerformanceFactors")
+    def baseline_performance_factors(self) -> Optional['outputs.AutoScalingGroupBaselinePerformanceFactorsRequest']:
+        return pulumi.get(self, "baseline_performance_factors")
 
     @property
     @pulumi.getter(name="burstablePerformance")
@@ -1650,6 +1728,36 @@ class AutoScalingGroupNotificationConfiguration(dict):
           +   ``autoscaling:TEST_NOTIFICATION``
         """
         return pulumi.get(self, "notification_types")
+
+
+@pulumi.output_type
+class AutoScalingGroupPerformanceFactorReferenceRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceFamily":
+            suggest = "instance_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupPerformanceFactorReferenceRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupPerformanceFactorReferenceRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupPerformanceFactorReferenceRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_family: Optional[str] = None):
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[str]:
+        return pulumi.get(self, "instance_family")
 
 
 @pulumi.output_type

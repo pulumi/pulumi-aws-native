@@ -108,7 +108,13 @@ namespace Pulumi.AwsNative.CloudFormation
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "executionRoleArn",
                     "loggingConfig",
+                    "publicTypeArn",
+                    "publisherId",
+                    "type",
+                    "typeName",
+                    "typeNameAlias",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

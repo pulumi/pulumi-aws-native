@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Redshift
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+        /// The Amazon Resource Name (ARN) of the database to use as the source for replication
         /// </summary>
         [Output("sourceArn")]
         public Output<string> SourceArn { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Redshift
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+        /// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.Redshift
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+        /// The Amazon Resource Name (ARN) of the database to use as the source for replication
         /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.AwsNative.Redshift
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+        /// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
         /// </summary>
         [Input("targetArn", required: true)]
         public Input<string> TargetArn { get; set; } = null!;

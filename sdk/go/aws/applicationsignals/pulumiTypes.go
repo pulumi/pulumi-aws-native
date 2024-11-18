@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
+// For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
+// burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+type ServiceLevelObjectiveBurnRateConfiguration struct {
+	// The number of minutes to use as the look-back window.
+	LookBackWindowMinutes int `pulumi:"lookBackWindowMinutes"`
+}
+
+// ServiceLevelObjectiveBurnRateConfigurationInput is an input type that accepts ServiceLevelObjectiveBurnRateConfigurationArgs and ServiceLevelObjectiveBurnRateConfigurationOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveBurnRateConfigurationInput` via:
+//
+//	ServiceLevelObjectiveBurnRateConfigurationArgs{...}
+type ServiceLevelObjectiveBurnRateConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveBurnRateConfigurationOutput() ServiceLevelObjectiveBurnRateConfigurationOutput
+	ToServiceLevelObjectiveBurnRateConfigurationOutputWithContext(context.Context) ServiceLevelObjectiveBurnRateConfigurationOutput
+}
+
+// This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
+// For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
+// burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+type ServiceLevelObjectiveBurnRateConfigurationArgs struct {
+	// The number of minutes to use as the look-back window.
+	LookBackWindowMinutes pulumi.IntInput `pulumi:"lookBackWindowMinutes"`
+}
+
+func (ServiceLevelObjectiveBurnRateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfiguration)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveBurnRateConfigurationArgs) ToServiceLevelObjectiveBurnRateConfigurationOutput() ServiceLevelObjectiveBurnRateConfigurationOutput {
+	return i.ToServiceLevelObjectiveBurnRateConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveBurnRateConfigurationArgs) ToServiceLevelObjectiveBurnRateConfigurationOutputWithContext(ctx context.Context) ServiceLevelObjectiveBurnRateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveBurnRateConfigurationOutput)
+}
+
+// ServiceLevelObjectiveBurnRateConfigurationArrayInput is an input type that accepts ServiceLevelObjectiveBurnRateConfigurationArray and ServiceLevelObjectiveBurnRateConfigurationArrayOutput values.
+// You can construct a concrete instance of `ServiceLevelObjectiveBurnRateConfigurationArrayInput` via:
+//
+//	ServiceLevelObjectiveBurnRateConfigurationArray{ ServiceLevelObjectiveBurnRateConfigurationArgs{...} }
+type ServiceLevelObjectiveBurnRateConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToServiceLevelObjectiveBurnRateConfigurationArrayOutput() ServiceLevelObjectiveBurnRateConfigurationArrayOutput
+	ToServiceLevelObjectiveBurnRateConfigurationArrayOutputWithContext(context.Context) ServiceLevelObjectiveBurnRateConfigurationArrayOutput
+}
+
+type ServiceLevelObjectiveBurnRateConfigurationArray []ServiceLevelObjectiveBurnRateConfigurationInput
+
+func (ServiceLevelObjectiveBurnRateConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveBurnRateConfiguration)(nil)).Elem()
+}
+
+func (i ServiceLevelObjectiveBurnRateConfigurationArray) ToServiceLevelObjectiveBurnRateConfigurationArrayOutput() ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
+	return i.ToServiceLevelObjectiveBurnRateConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLevelObjectiveBurnRateConfigurationArray) ToServiceLevelObjectiveBurnRateConfigurationArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLevelObjectiveBurnRateConfigurationArrayOutput)
+}
+
+// This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
+// For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
+// burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+type ServiceLevelObjectiveBurnRateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveBurnRateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfiguration)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveBurnRateConfigurationOutput) ToServiceLevelObjectiveBurnRateConfigurationOutput() ServiceLevelObjectiveBurnRateConfigurationOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveBurnRateConfigurationOutput) ToServiceLevelObjectiveBurnRateConfigurationOutputWithContext(ctx context.Context) ServiceLevelObjectiveBurnRateConfigurationOutput {
+	return o
+}
+
+// The number of minutes to use as the look-back window.
+func (o ServiceLevelObjectiveBurnRateConfigurationOutput) LookBackWindowMinutes() pulumi.IntOutput {
+	return o.ApplyT(func(v ServiceLevelObjectiveBurnRateConfiguration) int { return v.LookBackWindowMinutes }).(pulumi.IntOutput)
+}
+
+type ServiceLevelObjectiveBurnRateConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLevelObjectiveBurnRateConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLevelObjectiveBurnRateConfiguration)(nil)).Elem()
+}
+
+func (o ServiceLevelObjectiveBurnRateConfigurationArrayOutput) ToServiceLevelObjectiveBurnRateConfigurationArrayOutput() ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveBurnRateConfigurationArrayOutput) ToServiceLevelObjectiveBurnRateConfigurationArrayOutputWithContext(ctx context.Context) ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
+	return o
+}
+
+func (o ServiceLevelObjectiveBurnRateConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceLevelObjectiveBurnRateConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLevelObjectiveBurnRateConfiguration {
+		return vs[0].([]ServiceLevelObjectiveBurnRateConfiguration)[vs[1].(int)]
+	}).(ServiceLevelObjectiveBurnRateConfigurationOutput)
+}
+
 // If the interval for this service level objective is a calendar interval, this structure contains the interval specifications.
 type ServiceLevelObjectiveCalendarInterval struct {
 	// Specifies the duration of each calendar interval. For example, if `Duration` is `1` and `DurationUnit` is `MONTH` , each interval is one month, aligned with the calendar.
@@ -2375,6 +2481,8 @@ type ServiceLevelObjectiveTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveBurnRateConfigurationArrayInput)(nil)).Elem(), ServiceLevelObjectiveBurnRateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveCalendarIntervalPtrInput)(nil)).Elem(), ServiceLevelObjectiveCalendarIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveDimensionInput)(nil)).Elem(), ServiceLevelObjectiveDimensionArgs{})
@@ -2401,6 +2509,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLevelObjectiveSliMetricPtrInput)(nil)).Elem(), ServiceLevelObjectiveSliMetricArgs{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceLevelObjectiveBurnRateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveCalendarIntervalPtrOutput{})
 	pulumi.RegisterOutputType(ServiceLevelObjectiveDimensionOutput{})

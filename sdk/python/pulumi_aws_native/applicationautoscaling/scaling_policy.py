@@ -23,6 +23,7 @@ class ScalingPolicyArgs:
     def __init__(__self__, *,
                  policy_type: pulumi.Input[str],
                  policy_name: Optional[pulumi.Input[str]] = None,
+                 predictive_scaling_policy_configuration: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  scaling_target_id: Optional[pulumi.Input[str]] = None,
@@ -90,6 +91,8 @@ class ScalingPolicyArgs:
         pulumi.set(__self__, "policy_type", policy_type)
         if policy_name is not None:
             pulumi.set(__self__, "policy_name", policy_name)
+        if predictive_scaling_policy_configuration is not None:
+            pulumi.set(__self__, "predictive_scaling_policy_configuration", predictive_scaling_policy_configuration)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if scalable_dimension is not None:
@@ -130,6 +133,15 @@ class ScalingPolicyArgs:
     @policy_name.setter
     def policy_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_name", value)
+
+    @property
+    @pulumi.getter(name="predictiveScalingPolicyConfiguration")
+    def predictive_scaling_policy_configuration(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']]:
+        return pulumi.get(self, "predictive_scaling_policy_configuration")
+
+    @predictive_scaling_policy_configuration.setter
+    def predictive_scaling_policy_configuration(self, value: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']]):
+        pulumi.set(self, "predictive_scaling_policy_configuration", value)
 
     @property
     @pulumi.getter(name="resourceId")
@@ -254,6 +266,7 @@ class ScalingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
+                 predictive_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyPredictiveScalingPolicyConfigurationArgs', 'ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  scaling_target_id: Optional[pulumi.Input[str]] = None,
@@ -350,6 +363,7 @@ class ScalingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
+                 predictive_scaling_policy_configuration: Optional[pulumi.Input[Union['ScalingPolicyPredictiveScalingPolicyConfigurationArgs', 'ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict']]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  scaling_target_id: Optional[pulumi.Input[str]] = None,
@@ -369,6 +383,7 @@ class ScalingPolicy(pulumi.CustomResource):
             if policy_type is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_type'")
             __props__.__dict__["policy_type"] = policy_type
+            __props__.__dict__["predictive_scaling_policy_configuration"] = predictive_scaling_policy_configuration
             __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["scalable_dimension"] = scalable_dimension
             __props__.__dict__["scaling_target_id"] = scaling_target_id
@@ -403,6 +418,7 @@ class ScalingPolicy(pulumi.CustomResource):
         __props__.__dict__["arn"] = None
         __props__.__dict__["policy_name"] = None
         __props__.__dict__["policy_type"] = None
+        __props__.__dict__["predictive_scaling_policy_configuration"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["scalable_dimension"] = None
         __props__.__dict__["scaling_target_id"] = None
@@ -438,6 +454,11 @@ class ScalingPolicy(pulumi.CustomResource):
           ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
         """
         return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter(name="predictiveScalingPolicyConfiguration")
+    def predictive_scaling_policy_configuration(self) -> pulumi.Output[Optional['outputs.ScalingPolicyPredictiveScalingPolicyConfiguration']]:
+        return pulumi.get(self, "predictive_scaling_policy_configuration")
 
     @property
     @pulumi.getter(name="resourceId")

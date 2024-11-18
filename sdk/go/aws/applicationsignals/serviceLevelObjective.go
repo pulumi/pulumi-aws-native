@@ -17,7 +17,8 @@ type ServiceLevelObjective struct {
 	pulumi.CustomResourceState
 
 	// The ARN of this SLO.
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn                    pulumi.StringOutput                                   `pulumi:"arn"`
+	BurnRateConfigurations ServiceLevelObjectiveBurnRateConfigurationArrayOutput `pulumi:"burnRateConfigurations"`
 	// Epoch time in seconds of the time that this SLO was created
 	CreatedTime pulumi.IntOutput `pulumi:"createdTime"`
 	// An optional description for this SLO. Default is 'No description'
@@ -84,6 +85,7 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 }
 
 type serviceLevelObjectiveArgs struct {
+	BurnRateConfigurations []ServiceLevelObjectiveBurnRateConfiguration `pulumi:"burnRateConfigurations"`
 	// An optional description for this SLO. Default is 'No description'
 	Description *string `pulumi:"description"`
 	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
@@ -102,6 +104,7 @@ type serviceLevelObjectiveArgs struct {
 
 // The set of arguments for constructing a ServiceLevelObjective resource.
 type ServiceLevelObjectiveArgs struct {
+	BurnRateConfigurations ServiceLevelObjectiveBurnRateConfigurationArrayInput
 	// An optional description for this SLO. Default is 'No description'
 	Description pulumi.StringPtrInput
 	// This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
@@ -158,6 +161,12 @@ func (o ServiceLevelObjectiveOutput) ToServiceLevelObjectiveOutputWithContext(ct
 // The ARN of this SLO.
 func (o ServiceLevelObjectiveOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o ServiceLevelObjectiveOutput) BurnRateConfigurations() ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
+	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
+		return v.BurnRateConfigurations
+	}).(ServiceLevelObjectiveBurnRateConfigurationArrayOutput)
 }
 
 // Epoch time in seconds of the time that this SLO was created

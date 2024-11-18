@@ -30,6 +30,10 @@ export interface GetUserGroupResult {
      */
     readonly arn?: string;
     /**
+     * The target cache engine for the user group.
+     */
+    readonly engine?: enums.elasticache.UserGroupEngine;
+    /**
      * Indicates user group status. Can be "creating", "active", "modifying", "deleting".
      */
     readonly status?: string;

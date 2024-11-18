@@ -32,8 +32,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         /// </summary>
         public readonly Outputs.GlobalTableProjection Projection;
+        public readonly Outputs.GlobalTableWarmThroughput? WarmThroughput;
         /// <summary>
-        /// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        /// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         /// </summary>
         public readonly Outputs.GlobalTableWriteOnDemandThroughputSettings? WriteOnDemandThroughputSettings;
         /// <summary>
@@ -49,6 +50,8 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 
             Outputs.GlobalTableProjection projection,
 
+            Outputs.GlobalTableWarmThroughput? warmThroughput,
+
             Outputs.GlobalTableWriteOnDemandThroughputSettings? writeOnDemandThroughputSettings,
 
             Outputs.GlobalTableWriteProvisionedThroughputSettings? writeProvisionedThroughputSettings)
@@ -56,6 +59,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
             IndexName = indexName;
             KeySchema = keySchema;
             Projection = projection;
+            WarmThroughput = warmThroughput;
             WriteOnDemandThroughputSettings = writeOnDemandThroughputSettings;
             WriteProvisionedThroughputSettings = writeProvisionedThroughputSettings;
         }

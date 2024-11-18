@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Fis.Inputs
 
     public sealed class ExperimentTemplateCloudWatchDashboardArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
+        /// </summary>
         [Input("dashboardIdentifier", required: true)]
         public Input<string> DashboardIdentifier { get; set; } = null!;
 

@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// The target cache engine for the user group.
+        /// </summary>
+        public readonly Pulumi.AwsNative.ElastiCache.UserGroupEngine? Engine;
+        /// <summary>
         /// Indicates user group status. Can be "creating", "active", "modifying", "deleting".
         /// </summary>
         public readonly string? Status;
@@ -78,6 +82,8 @@ namespace Pulumi.AwsNative.ElastiCache
         private GetUserGroupResult(
             string? arn,
 
+            Pulumi.AwsNative.ElastiCache.UserGroupEngine? engine,
+
             string? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -85,6 +91,7 @@ namespace Pulumi.AwsNative.ElastiCache
             ImmutableArray<string> userIds)
         {
             Arn = arn;
+            Engine = engine;
             Status = status;
             Tags = tags;
             UserIds = userIds;

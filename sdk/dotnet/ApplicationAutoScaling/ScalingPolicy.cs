@@ -38,6 +38,9 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
 
+        [Output("predictiveScalingPolicyConfiguration")]
+        public Output<Outputs.ScalingPolicyPredictiveScalingPolicyConfiguration?> PredictiveScalingPolicyConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
         ///   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -185,6 +188,9 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// </summary>
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
+
+        [Input("predictiveScalingPolicyConfiguration")]
+        public Input<Inputs.ScalingPolicyPredictiveScalingPolicyConfigurationArgs>? PredictiveScalingPolicyConfiguration { get; set; }
 
         /// <summary>
         /// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.

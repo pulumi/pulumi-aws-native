@@ -32,7 +32,8 @@ type LookupLoadBalancerResult struct {
 	// The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
 	CanonicalHostedZoneId *string `pulumi:"canonicalHostedZoneId"`
 	// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
-	DnsName                      *string `pulumi:"dnsName"`
+	DnsName *string `pulumi:"dnsName"`
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
 	EnablePrefixForIpv6SourceNat *string `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
@@ -122,6 +123,7 @@ func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.DnsName }).(pulumi.StringPtrOutput)
 }
 
+// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
 func (o LookupLoadBalancerResultOutput) EnablePrefixForIpv6SourceNat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.EnablePrefixForIpv6SourceNat }).(pulumi.StringPtrOutput)
 }

@@ -56,6 +56,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("sharingConfig")]
+        public Output<Outputs.ServiceNetworkSharingConfig?> SharingConfig { get; private set; } = null!;
+
         /// <summary>
         /// The tags for the service network.
         /// </summary>
@@ -127,6 +130,9 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("sharingConfig")]
+        public Input<Inputs.ServiceNetworkSharingConfigArgs>? SharingConfig { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Outputs
     public sealed class AnalyzerConfigurationProperties
     {
         /// <summary>
-        /// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+        /// Specifies the configuration of an unused access analyzer for an AWS organization or account.
         /// </summary>
         public readonly Outputs.AnalyzerUnusedAccessConfiguration? UnusedAccessConfiguration;
 

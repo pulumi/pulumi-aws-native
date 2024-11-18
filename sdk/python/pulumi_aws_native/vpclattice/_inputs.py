@@ -48,6 +48,8 @@ __all__ = [
     'ServiceDnsEntryArgsDict',
     'ServiceNetworkServiceAssociationDnsEntryArgs',
     'ServiceNetworkServiceAssociationDnsEntryArgsDict',
+    'ServiceNetworkSharingConfigArgs',
+    'ServiceNetworkSharingConfigArgsDict',
     'TargetGroupConfigArgs',
     'TargetGroupConfigArgsDict',
     'TargetGroupHealthCheckConfigArgs',
@@ -852,6 +854,28 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
     @hosted_zone_id.setter
     def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hosted_zone_id", value)
+
+
+if not MYPY:
+    class ServiceNetworkSharingConfigArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+elif False:
+    ServiceNetworkSharingConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceNetworkSharingConfigArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:

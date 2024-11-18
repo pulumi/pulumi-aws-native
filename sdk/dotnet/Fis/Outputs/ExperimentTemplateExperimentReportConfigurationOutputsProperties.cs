@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Fis.Outputs
 {
 
+    /// <summary>
+    /// The output destinations of the experiment report.
+    /// </summary>
     [OutputType]
     public sealed class ExperimentTemplateExperimentReportConfigurationOutputsProperties
     {

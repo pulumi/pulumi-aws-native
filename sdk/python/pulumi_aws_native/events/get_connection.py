@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -24,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectionResult:
-    def __init__(__self__, arn=None, authorization_type=None, description=None, secret_arn=None):
+    def __init__(__self__, arn=None, auth_parameters=None, authorization_type=None, description=None, secret_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if auth_parameters and not isinstance(auth_parameters, dict):
+            raise TypeError("Expected argument 'auth_parameters' to be a dict")
+        pulumi.set(__self__, "auth_parameters", auth_parameters)
         if authorization_type and not isinstance(authorization_type, str):
             raise TypeError("Expected argument 'authorization_type' to be a str")
         pulumi.set(__self__, "authorization_type", authorization_type)
@@ -45,6 +49,14 @@ class GetConnectionResult:
         The arn of the connection resource.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="authParameters")
+    def auth_parameters(self) -> Optional['outputs.ConnectionAuthParameters']:
+        """
+        A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+        """
+        return pulumi.get(self, "auth_parameters")
 
     @property
     @pulumi.getter(name="authorizationType")
@@ -80,6 +92,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             yield self
         return GetConnectionResult(
             arn=self.arn,
+            auth_parameters=self.auth_parameters,
             authorization_type=self.authorization_type,
             description=self.description,
             secret_arn=self.secret_arn)
@@ -100,6 +113,7 @@ def get_connection(name: Optional[str] = None,
 
     return AwaitableGetConnectionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        auth_parameters=pulumi.get(__ret__, 'auth_parameters'),
         authorization_type=pulumi.get(__ret__, 'authorization_type'),
         description=pulumi.get(__ret__, 'description'),
         secret_arn=pulumi.get(__ret__, 'secret_arn'))
@@ -117,6 +131,7 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:events:getConnection', __args__, opts=opts, typ=GetConnectionResult)
     return __ret__.apply(lambda __response__: GetConnectionResult(
         arn=pulumi.get(__response__, 'arn'),
+        auth_parameters=pulumi.get(__response__, 'auth_parameters'),
         authorization_type=pulumi.get(__response__, 'authorization_type'),
         description=pulumi.get(__response__, 'description'),
         secret_arn=pulumi.get(__response__, 'secret_arn')))

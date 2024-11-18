@@ -27,7 +27,8 @@ type ScalingPolicy struct {
 	//  The following policy types are supported:
 	//   ``TargetTrackingScaling``—Not supported for Amazon EMR
 	//   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
-	PolicyType pulumi.StringOutput `pulumi:"policyType"`
+	PolicyType                           pulumi.StringOutput                                        `pulumi:"policyType"`
+	PredictiveScalingPolicyConfiguration ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput `pulumi:"predictiveScalingPolicyConfiguration"`
 	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
 	//   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
 	//   +  Spot Fleet - The resource type is ``spot-fleet-request`` and the unique identifier is the Spot Fleet request ID. Example: ``spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE``.
@@ -143,7 +144,8 @@ type scalingPolicyArgs struct {
 	//  The following policy types are supported:
 	//   ``TargetTrackingScaling``—Not supported for Amazon EMR
 	//   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
-	PolicyType string `pulumi:"policyType"`
+	PolicyType                           string                                             `pulumi:"policyType"`
+	PredictiveScalingPolicyConfiguration *ScalingPolicyPredictiveScalingPolicyConfiguration `pulumi:"predictiveScalingPolicyConfiguration"`
 	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
 	//   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
 	//   +  Spot Fleet - The resource type is ``spot-fleet-request`` and the unique identifier is the Spot Fleet request ID. Example: ``spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE``.
@@ -210,7 +212,8 @@ type ScalingPolicyArgs struct {
 	//  The following policy types are supported:
 	//   ``TargetTrackingScaling``—Not supported for Amazon EMR
 	//   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
-	PolicyType pulumi.StringInput
+	PolicyType                           pulumi.StringInput
+	PredictiveScalingPolicyConfiguration ScalingPolicyPredictiveScalingPolicyConfigurationPtrInput
 	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
 	//   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
 	//   +  Spot Fleet - The resource type is ``spot-fleet-request`` and the unique identifier is the Spot Fleet request ID. Example: ``spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE``.
@@ -324,6 +327,12 @@ func (o ScalingPolicyOutput) PolicyName() pulumi.StringOutput {
 //	 ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
 func (o ScalingPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
+}
+
+func (o ScalingPolicyOutput) PredictiveScalingPolicyConfiguration() ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
+		return v.PredictiveScalingPolicyConfiguration
+	}).(ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput)
 }
 
 // The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.

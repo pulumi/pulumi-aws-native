@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ServiceLevelObjectiveBurnRateConfigurationArgs',
+    'ServiceLevelObjectiveBurnRateConfigurationArgsDict',
     'ServiceLevelObjectiveCalendarIntervalArgs',
     'ServiceLevelObjectiveCalendarIntervalArgsDict',
     'ServiceLevelObjectiveDimensionArgs',
@@ -45,6 +47,45 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ServiceLevelObjectiveBurnRateConfigurationArgsDict(TypedDict):
+        """
+        This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
+        For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
+        burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+        """
+        look_back_window_minutes: pulumi.Input[int]
+        """
+        The number of minutes to use as the look-back window.
+        """
+elif False:
+    ServiceLevelObjectiveBurnRateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceLevelObjectiveBurnRateConfigurationArgs:
+    def __init__(__self__, *,
+                 look_back_window_minutes: pulumi.Input[int]):
+        """
+        This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
+        For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
+        burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+        :param pulumi.Input[int] look_back_window_minutes: The number of minutes to use as the look-back window.
+        """
+        pulumi.set(__self__, "look_back_window_minutes", look_back_window_minutes)
+
+    @property
+    @pulumi.getter(name="lookBackWindowMinutes")
+    def look_back_window_minutes(self) -> pulumi.Input[int]:
+        """
+        The number of minutes to use as the look-back window.
+        """
+        return pulumi.get(self, "look_back_window_minutes")
+
+    @look_back_window_minutes.setter
+    def look_back_window_minutes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "look_back_window_minutes", value)
+
 
 if not MYPY:
     class ServiceLevelObjectiveCalendarIntervalArgsDict(TypedDict):

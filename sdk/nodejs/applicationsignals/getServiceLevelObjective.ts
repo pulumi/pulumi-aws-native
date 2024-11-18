@@ -29,6 +29,7 @@ export interface GetServiceLevelObjectiveResult {
      * The ARN of this SLO.
      */
     readonly arn?: string;
+    readonly burnRateConfigurations?: outputs.applicationsignals.ServiceLevelObjectiveBurnRateConfiguration[];
     /**
      * Epoch time in seconds of the time that this SLO was created
      */

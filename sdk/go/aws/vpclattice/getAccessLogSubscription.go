@@ -38,7 +38,8 @@ type LookupAccessLogSubscriptionResult struct {
 	// The Amazon Resource Name (ARN) of the access log subscription.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The ID of the service network or service.
-	ResourceId *string `pulumi:"resourceId"`
+	ResourceId            *string                                     `pulumi:"resourceId"`
+	ServiceNetworkLogType *AccessLogSubscriptionServiceNetworkLogType `pulumi:"serviceNetworkLogType"`
 	// The tags for the access log subscription.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -108,6 +109,12 @@ func (o LookupAccessLogSubscriptionResultOutput) ResourceArn() pulumi.StringPtrO
 // The ID of the service network or service.
 func (o LookupAccessLogSubscriptionResultOutput) ResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAccessLogSubscriptionResultOutput) ServiceNetworkLogType() AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *AccessLogSubscriptionServiceNetworkLogType {
+		return v.ServiceNetworkLogType
+	}).(AccessLogSubscriptionServiceNetworkLogTypePtrOutput)
 }
 
 // The tags for the access log subscription.

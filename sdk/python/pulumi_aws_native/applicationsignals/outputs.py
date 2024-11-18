@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ServiceLevelObjectiveBurnRateConfiguration',
     'ServiceLevelObjectiveCalendarInterval',
     'ServiceLevelObjectiveDimension',
     'ServiceLevelObjectiveGoal',
@@ -31,6 +32,49 @@ __all__ = [
     'ServiceLevelObjectiveSli',
     'ServiceLevelObjectiveSliMetric',
 ]
+
+@pulumi.output_type
+class ServiceLevelObjectiveBurnRateConfiguration(dict):
+    """
+    This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
+    For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
+    burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lookBackWindowMinutes":
+            suggest = "look_back_window_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLevelObjectiveBurnRateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLevelObjectiveBurnRateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLevelObjectiveBurnRateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 look_back_window_minutes: int):
+        """
+        This object defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of exactly 1 indicates that the SLO goal will be met exactly.
+        For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:
+        burn rate = error rate over the look-back window / (1 - attainment goal percentage)
+        :param int look_back_window_minutes: The number of minutes to use as the look-back window.
+        """
+        pulumi.set(__self__, "look_back_window_minutes", look_back_window_minutes)
+
+    @property
+    @pulumi.getter(name="lookBackWindowMinutes")
+    def look_back_window_minutes(self) -> int:
+        """
+        The number of minutes to use as the look-back window.
+        """
+        return pulumi.get(self, "look_back_window_minutes")
+
 
 @pulumi.output_type
 class ServiceLevelObjectiveCalendarInterval(dict):

@@ -55,6 +55,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             set => _onStartDeepHealthChecks = value;
         }
 
+        [Input("overrideVpcConfig")]
+        public Input<Inputs.ClusterVpcConfigArgs>? OverrideVpcConfig { get; set; }
+
         /// <summary>
         /// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         /// </summary>

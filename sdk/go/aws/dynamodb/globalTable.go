@@ -59,7 +59,8 @@ type GlobalTable struct {
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrOutput `pulumi:"timeToLiveSpecification"`
-	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+	WarmThroughput          GlobalTableWarmThroughputPtrOutput          `pulumi:"warmThroughput"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrOutput `pulumi:"writeOnDemandThroughputSettings"`
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrOutput `pulumi:"writeProvisionedThroughputSettings"`
@@ -155,7 +156,8 @@ type globalTableArgs struct {
 	TableName *string `pulumi:"tableName"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
-	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+	WarmThroughput          *GlobalTableWarmThroughput          `pulumi:"warmThroughput"`
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
@@ -198,7 +200,8 @@ type GlobalTableArgs struct {
 	TableName pulumi.StringPtrInput
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrInput
-	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+	WarmThroughput          GlobalTableWarmThroughputPtrInput
+	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrInput
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput
@@ -323,7 +326,11 @@ func (o GlobalTableOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecif
 	return o.ApplyT(func(v *GlobalTable) GlobalTableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
-// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+func (o GlobalTableOutput) WarmThroughput() GlobalTableWarmThroughputPtrOutput {
+	return o.ApplyT(func(v *GlobalTable) GlobalTableWarmThroughputPtrOutput { return v.WarmThroughput }).(GlobalTableWarmThroughputPtrOutput)
+}
+
+// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o GlobalTableOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 		return v.WriteOnDemandThroughputSettings

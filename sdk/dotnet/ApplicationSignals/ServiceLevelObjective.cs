@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        [Output("burnRateConfigurations")]
+        public Output<ImmutableArray<Outputs.ServiceLevelObjectiveBurnRateConfiguration>> BurnRateConfigurations { get; private set; } = null!;
+
         /// <summary>
         /// Epoch time in seconds of the time that this SLO was created
         /// </summary>
@@ -126,6 +129,14 @@ namespace Pulumi.AwsNative.ApplicationSignals
 
     public sealed class ServiceLevelObjectiveArgs : global::Pulumi.ResourceArgs
     {
+        [Input("burnRateConfigurations")]
+        private InputList<Inputs.ServiceLevelObjectiveBurnRateConfigurationArgs>? _burnRateConfigurations;
+        public InputList<Inputs.ServiceLevelObjectiveBurnRateConfigurationArgs> BurnRateConfigurations
+        {
+            get => _burnRateConfigurations ?? (_burnRateConfigurations = new InputList<Inputs.ServiceLevelObjectiveBurnRateConfigurationArgs>());
+            set => _burnRateConfigurations = value;
+        }
+
         /// <summary>
         /// An optional description for this SLO. Default is 'No description'
         /// </summary>

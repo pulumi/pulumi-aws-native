@@ -27,11 +27,11 @@ type Integration struct {
 	IntegrationName pulumi.StringPtrOutput `pulumi:"integrationName"`
 	// An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+	// The Amazon Resource Name (ARN) of the database to use as the source for replication
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+	// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 }
 
@@ -94,11 +94,11 @@ type integrationArgs struct {
 	IntegrationName *string `pulumi:"integrationName"`
 	// An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+	// The Amazon Resource Name (ARN) of the database to use as the source for replication
 	SourceArn string `pulumi:"sourceArn"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+	// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
 	TargetArn string `pulumi:"targetArn"`
 }
 
@@ -110,11 +110,11 @@ type IntegrationArgs struct {
 	IntegrationName pulumi.StringPtrInput
 	// An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
 	KmsKeyId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+	// The Amazon Resource Name (ARN) of the database to use as the source for replication
 	SourceArn pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
-	// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+	// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
 	TargetArn pulumi.StringInput
 }
 
@@ -180,7 +180,7 @@ func (o IntegrationOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+// The Amazon Resource Name (ARN) of the database to use as the source for replication
 func (o IntegrationOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.SourceArn }).(pulumi.StringOutput)
 }
@@ -190,7 +190,7 @@ func (o IntegrationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Integration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+// The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
 func (o IntegrationOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }

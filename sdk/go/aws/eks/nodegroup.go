@@ -115,6 +115,8 @@ type Nodegroup struct {
 	Labels pulumi.StringMapOutput `pulumi:"labels"`
 	// An object representing a node group's launch template specification.
 	LaunchTemplate NodegroupLaunchTemplateSpecificationPtrOutput `pulumi:"launchTemplate"`
+	// The node auto repair configuration for node group.
+	NodeRepairConfig NodegroupNodeRepairConfigPtrOutput `pulumi:"nodeRepairConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
 	NodeRole pulumi.StringOutput `pulumi:"nodeRole"`
 	// The unique name to give your node group.
@@ -214,6 +216,8 @@ type nodegroupArgs struct {
 	Labels map[string]string `pulumi:"labels"`
 	// An object representing a node group's launch template specification.
 	LaunchTemplate *NodegroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
+	// The node auto repair configuration for node group.
+	NodeRepairConfig *NodegroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
 	NodeRole string `pulumi:"nodeRole"`
 	// The unique name to give your node group.
@@ -254,6 +258,8 @@ type NodegroupArgs struct {
 	Labels pulumi.StringMapInput
 	// An object representing a node group's launch template specification.
 	LaunchTemplate NodegroupLaunchTemplateSpecificationPtrInput
+	// The node auto repair configuration for node group.
+	NodeRepairConfig NodegroupNodeRepairConfigPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
 	NodeRole pulumi.StringInput
 	// The unique name to give your node group.
@@ -360,6 +366,11 @@ func (o NodegroupOutput) Labels() pulumi.StringMapOutput {
 // An object representing a node group's launch template specification.
 func (o NodegroupOutput) LaunchTemplate() NodegroupLaunchTemplateSpecificationPtrOutput {
 	return o.ApplyT(func(v *Nodegroup) NodegroupLaunchTemplateSpecificationPtrOutput { return v.LaunchTemplate }).(NodegroupLaunchTemplateSpecificationPtrOutput)
+}
+
+// The node auto repair configuration for node group.
+func (o NodegroupOutput) NodeRepairConfig() NodegroupNodeRepairConfigPtrOutput {
+	return o.ApplyT(func(v *Nodegroup) NodegroupNodeRepairConfigPtrOutput { return v.NodeRepairConfig }).(NodegroupNodeRepairConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role to associate with your node group.

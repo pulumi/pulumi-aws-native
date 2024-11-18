@@ -7,6 +7,34 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.VpcLattice
 {
+    [EnumType]
+    public readonly struct AccessLogSubscriptionServiceNetworkLogType : IEquatable<AccessLogSubscriptionServiceNetworkLogType>
+    {
+        private readonly string _value;
+
+        private AccessLogSubscriptionServiceNetworkLogType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessLogSubscriptionServiceNetworkLogType Service { get; } = new AccessLogSubscriptionServiceNetworkLogType("SERVICE");
+        public static AccessLogSubscriptionServiceNetworkLogType Resource { get; } = new AccessLogSubscriptionServiceNetworkLogType("RESOURCE");
+
+        public static bool operator ==(AccessLogSubscriptionServiceNetworkLogType left, AccessLogSubscriptionServiceNetworkLogType right) => left.Equals(right);
+        public static bool operator !=(AccessLogSubscriptionServiceNetworkLogType left, AccessLogSubscriptionServiceNetworkLogType right) => !left.Equals(right);
+
+        public static explicit operator string(AccessLogSubscriptionServiceNetworkLogType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessLogSubscriptionServiceNetworkLogType other && Equals(other);
+        public bool Equals(AccessLogSubscriptionServiceNetworkLogType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The state of the auth policy. The auth policy is only active when the auth type is set to `AWS _IAM` . If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the auth type is `NONE` , then any auth policy you provide will remain inactive.
     /// </summary>

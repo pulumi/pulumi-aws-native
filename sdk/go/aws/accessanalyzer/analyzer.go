@@ -102,7 +102,6 @@ func NewAnalyzer(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"analyzerConfiguration",
 		"analyzerName",
 		"type",
 	})

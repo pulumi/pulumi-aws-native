@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy',
+    'AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior',
 ]
 
 
@@ -18,3 +19,8 @@ class AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy(s
     """
     BALANCED_BEST_EFFORT = "balanced-best-effort"
     BALANCED_ONLY = "balanced-only"
+
+
+class AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior(str, Enum):
+    IGNORE_UNHEALTHY = "IgnoreUnhealthy"
+    REPLACE_UNHEALTHY = "ReplaceUnhealthy"

@@ -36,6 +36,10 @@ export interface GetNodegroupResult {
      */
     readonly launchTemplate?: outputs.eks.NodegroupLaunchTemplateSpecification;
     /**
+     * The node auto repair configuration for node group.
+     */
+    readonly nodeRepairConfig?: outputs.eks.NodegroupNodeRepairConfig;
+    /**
      * The AMI version of the Amazon EKS-optimized AMI to use with your node group.
      */
     readonly releaseVersion?: string;

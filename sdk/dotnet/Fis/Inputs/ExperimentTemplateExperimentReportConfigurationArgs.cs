@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.Fis.Inputs
 
     public sealed class ExperimentTemplateExperimentReportConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The data sources for the experiment report.
+        /// </summary>
         [Input("dataSources", required: true)]
         public Input<Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs> DataSources { get; set; } = null!;
 
+        /// <summary>
+        /// The output destinations of the experiment report.
+        /// </summary>
         [Input("outputs", required: true)]
         public Input<Inputs.ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs> Outputs { get; set; } = null!;
 
+        /// <summary>
+        /// The duration after the experiment end time for the data sources to include in the report.
+        /// </summary>
         [Input("postExperimentDuration")]
         public Input<string>? PostExperimentDuration { get; set; }
 
+        /// <summary>
+        /// The duration before the experiment start time for the data sources to include in the report.
+        /// </summary>
         [Input("preExperimentDuration")]
         public Input<string>? PreExperimentDuration { get; set; }
 

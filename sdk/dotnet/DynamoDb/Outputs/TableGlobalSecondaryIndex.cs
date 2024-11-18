@@ -46,6 +46,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         ///  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         /// </summary>
         public readonly Outputs.TableProvisionedThroughput? ProvisionedThroughput;
+        public readonly Outputs.TableWarmThroughput? WarmThroughput;
 
         [OutputConstructor]
         private TableGlobalSecondaryIndex(
@@ -59,7 +60,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
 
             Outputs.TableProjection projection,
 
-            Outputs.TableProvisionedThroughput? provisionedThroughput)
+            Outputs.TableProvisionedThroughput? provisionedThroughput,
+
+            Outputs.TableWarmThroughput? warmThroughput)
         {
             ContributorInsightsSpecification = contributorInsightsSpecification;
             IndexName = indexName;
@@ -67,6 +70,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
             OnDemandThroughput = onDemandThroughput;
             Projection = projection;
             ProvisionedThroughput = provisionedThroughput;
+            WarmThroughput = warmThroughput;
         }
     }
 }

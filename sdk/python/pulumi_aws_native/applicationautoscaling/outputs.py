@@ -22,6 +22,18 @@ __all__ = [
     'ScalingPolicyCustomizedMetricSpecification',
     'ScalingPolicyMetricDimension',
     'ScalingPolicyPredefinedMetricSpecification',
+    'ScalingPolicyPredictiveScalingCustomizedCapacityMetric',
+    'ScalingPolicyPredictiveScalingCustomizedLoadMetric',
+    'ScalingPolicyPredictiveScalingCustomizedScalingMetric',
+    'ScalingPolicyPredictiveScalingMetric',
+    'ScalingPolicyPredictiveScalingMetricDataQuery',
+    'ScalingPolicyPredictiveScalingMetricDimension',
+    'ScalingPolicyPredictiveScalingMetricSpecification',
+    'ScalingPolicyPredictiveScalingMetricStat',
+    'ScalingPolicyPredictiveScalingPolicyConfiguration',
+    'ScalingPolicyPredictiveScalingPredefinedLoadMetric',
+    'ScalingPolicyPredictiveScalingPredefinedMetricPair',
+    'ScalingPolicyPredictiveScalingPredefinedScalingMetric',
     'ScalingPolicyStepAdjustment',
     'ScalingPolicyStepScalingPolicyConfiguration',
     'ScalingPolicyTargetTrackingMetric',
@@ -494,6 +506,586 @@ class ScalingPolicyPredefinedMetricSpecification(dict):
           
          To find the ARN for an Application Load Balancer, use the [DescribeLoadBalancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html) API operation. To find the ARN for the target group, use the [DescribeTargetGroups](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html) API operation.
         """
+        return pulumi.get(self, "resource_label")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingCustomizedCapacityMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDataQueries":
+            suggest = "metric_data_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingCustomizedCapacityMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingCustomizedCapacityMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingCustomizedCapacityMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_data_queries: Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']):
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']:
+        return pulumi.get(self, "metric_data_queries")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingCustomizedLoadMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDataQueries":
+            suggest = "metric_data_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingCustomizedLoadMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingCustomizedLoadMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingCustomizedLoadMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_data_queries: Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']):
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']:
+        return pulumi.get(self, "metric_data_queries")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingCustomizedScalingMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricDataQueries":
+            suggest = "metric_data_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingCustomizedScalingMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingCustomizedScalingMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingCustomizedScalingMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_data_queries: Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']):
+        pulumi.set(__self__, "metric_data_queries", metric_data_queries)
+
+    @property
+    @pulumi.getter(name="metricDataQueries")
+    def metric_data_queries(self) -> Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']:
+        return pulumi.get(self, "metric_data_queries")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional[Sequence['outputs.ScalingPolicyPredictiveScalingMetricDimension']] = None,
+                 metric_name: Optional[str] = None,
+                 namespace: Optional[str] = None):
+        """
+        :param Sequence['ScalingPolicyPredictiveScalingMetricDimension'] dimensions: The dimensions for the metric.
+        :param str metric_name: The name of the metric.
+        :param str namespace: The namespace of the metric.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence['outputs.ScalingPolicyPredictiveScalingMetricDimension']]:
+        """
+        The dimensions for the metric.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional[str]:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> Optional[str]:
+        """
+        The namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingMetricDataQuery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricStat":
+            suggest = "metric_stat"
+        elif key == "returnData":
+            suggest = "return_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingMetricDataQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingMetricDataQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingMetricDataQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: Optional[str] = None,
+                 id: Optional[str] = None,
+                 label: Optional[str] = None,
+                 metric_stat: Optional['outputs.ScalingPolicyPredictiveScalingMetricStat'] = None,
+                 return_data: Optional[bool] = None):
+        """
+        :param str expression: The math expression to perform on the returned data, if this object is performing a math expression.
+        :param str id: A short name that identifies the object's results in the response.
+        :param str label: A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+        :param 'ScalingPolicyPredictiveScalingMetricStat' metric_stat: Information about the metric data to return.
+        :param bool return_data: Indicates whether to return the timestamps and raw data values of this metric.
+        """
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if label is not None:
+            pulumi.set(__self__, "label", label)
+        if metric_stat is not None:
+            pulumi.set(__self__, "metric_stat", metric_stat)
+        if return_data is not None:
+            pulumi.set(__self__, "return_data", return_data)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        The math expression to perform on the returned data, if this object is performing a math expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        A short name that identifies the object's results in the response.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def label(self) -> Optional[str]:
+        """
+        A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
+        """
+        return pulumi.get(self, "label")
+
+    @property
+    @pulumi.getter(name="metricStat")
+    def metric_stat(self) -> Optional['outputs.ScalingPolicyPredictiveScalingMetricStat']:
+        """
+        Information about the metric data to return.
+        """
+        return pulumi.get(self, "metric_stat")
+
+    @property
+    @pulumi.getter(name="returnData")
+    def return_data(self) -> Optional[bool]:
+        """
+        Indicates whether to return the timestamps and raw data values of this metric.
+        """
+        return pulumi.get(self, "return_data")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingMetricDimension(dict):
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        :param str name: The name of the dimension.
+        :param str value: The value of the dimension.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the dimension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the dimension.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingMetricSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetValue":
+            suggest = "target_value"
+        elif key == "customizedCapacityMetricSpecification":
+            suggest = "customized_capacity_metric_specification"
+        elif key == "customizedLoadMetricSpecification":
+            suggest = "customized_load_metric_specification"
+        elif key == "customizedScalingMetricSpecification":
+            suggest = "customized_scaling_metric_specification"
+        elif key == "predefinedLoadMetricSpecification":
+            suggest = "predefined_load_metric_specification"
+        elif key == "predefinedMetricPairSpecification":
+            suggest = "predefined_metric_pair_specification"
+        elif key == "predefinedScalingMetricSpecification":
+            suggest = "predefined_scaling_metric_specification"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingMetricSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingMetricSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingMetricSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_value: float,
+                 customized_capacity_metric_specification: Optional['outputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetric'] = None,
+                 customized_load_metric_specification: Optional['outputs.ScalingPolicyPredictiveScalingCustomizedLoadMetric'] = None,
+                 customized_scaling_metric_specification: Optional['outputs.ScalingPolicyPredictiveScalingCustomizedScalingMetric'] = None,
+                 predefined_load_metric_specification: Optional['outputs.ScalingPolicyPredictiveScalingPredefinedLoadMetric'] = None,
+                 predefined_metric_pair_specification: Optional['outputs.ScalingPolicyPredictiveScalingPredefinedMetricPair'] = None,
+                 predefined_scaling_metric_specification: Optional['outputs.ScalingPolicyPredictiveScalingPredefinedScalingMetric'] = None):
+        pulumi.set(__self__, "target_value", target_value)
+        if customized_capacity_metric_specification is not None:
+            pulumi.set(__self__, "customized_capacity_metric_specification", customized_capacity_metric_specification)
+        if customized_load_metric_specification is not None:
+            pulumi.set(__self__, "customized_load_metric_specification", customized_load_metric_specification)
+        if customized_scaling_metric_specification is not None:
+            pulumi.set(__self__, "customized_scaling_metric_specification", customized_scaling_metric_specification)
+        if predefined_load_metric_specification is not None:
+            pulumi.set(__self__, "predefined_load_metric_specification", predefined_load_metric_specification)
+        if predefined_metric_pair_specification is not None:
+            pulumi.set(__self__, "predefined_metric_pair_specification", predefined_metric_pair_specification)
+        if predefined_scaling_metric_specification is not None:
+            pulumi.set(__self__, "predefined_scaling_metric_specification", predefined_scaling_metric_specification)
+
+    @property
+    @pulumi.getter(name="targetValue")
+    def target_value(self) -> float:
+        return pulumi.get(self, "target_value")
+
+    @property
+    @pulumi.getter(name="customizedCapacityMetricSpecification")
+    def customized_capacity_metric_specification(self) -> Optional['outputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetric']:
+        return pulumi.get(self, "customized_capacity_metric_specification")
+
+    @property
+    @pulumi.getter(name="customizedLoadMetricSpecification")
+    def customized_load_metric_specification(self) -> Optional['outputs.ScalingPolicyPredictiveScalingCustomizedLoadMetric']:
+        return pulumi.get(self, "customized_load_metric_specification")
+
+    @property
+    @pulumi.getter(name="customizedScalingMetricSpecification")
+    def customized_scaling_metric_specification(self) -> Optional['outputs.ScalingPolicyPredictiveScalingCustomizedScalingMetric']:
+        return pulumi.get(self, "customized_scaling_metric_specification")
+
+    @property
+    @pulumi.getter(name="predefinedLoadMetricSpecification")
+    def predefined_load_metric_specification(self) -> Optional['outputs.ScalingPolicyPredictiveScalingPredefinedLoadMetric']:
+        return pulumi.get(self, "predefined_load_metric_specification")
+
+    @property
+    @pulumi.getter(name="predefinedMetricPairSpecification")
+    def predefined_metric_pair_specification(self) -> Optional['outputs.ScalingPolicyPredictiveScalingPredefinedMetricPair']:
+        return pulumi.get(self, "predefined_metric_pair_specification")
+
+    @property
+    @pulumi.getter(name="predefinedScalingMetricSpecification")
+    def predefined_scaling_metric_specification(self) -> Optional['outputs.ScalingPolicyPredictiveScalingPredefinedScalingMetric']:
+        return pulumi.get(self, "predefined_scaling_metric_specification")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingMetricStat(dict):
+    def __init__(__self__, *,
+                 metric: Optional['outputs.ScalingPolicyPredictiveScalingMetric'] = None,
+                 stat: Optional[str] = None,
+                 unit: Optional[str] = None):
+        """
+        :param 'ScalingPolicyPredictiveScalingMetric' metric: The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+        :param str stat: The statistic to return. It can include any CloudWatch statistic or extended statistic.
+        :param str unit: The unit to use for the returned data points.
+        """
+        if metric is not None:
+            pulumi.set(__self__, "metric", metric)
+        if stat is not None:
+            pulumi.set(__self__, "stat", stat)
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+
+    @property
+    @pulumi.getter
+    def metric(self) -> Optional['outputs.ScalingPolicyPredictiveScalingMetric']:
+        """
+        The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+        """
+        return pulumi.get(self, "metric")
+
+    @property
+    @pulumi.getter
+    def stat(self) -> Optional[str]:
+        """
+        The statistic to return. It can include any CloudWatch statistic or extended statistic.
+        """
+        return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        The unit to use for the returned data points.
+        """
+        return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricSpecifications":
+            suggest = "metric_specifications"
+        elif key == "maxCapacityBreachBehavior":
+            suggest = "max_capacity_breach_behavior"
+        elif key == "maxCapacityBuffer":
+            suggest = "max_capacity_buffer"
+        elif key == "schedulingBufferTime":
+            suggest = "scheduling_buffer_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingPolicyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingPolicyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingPolicyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_specifications: Sequence['outputs.ScalingPolicyPredictiveScalingMetricSpecification'],
+                 max_capacity_breach_behavior: Optional[str] = None,
+                 max_capacity_buffer: Optional[int] = None,
+                 mode: Optional[str] = None,
+                 scheduling_buffer_time: Optional[int] = None):
+        pulumi.set(__self__, "metric_specifications", metric_specifications)
+        if max_capacity_breach_behavior is not None:
+            pulumi.set(__self__, "max_capacity_breach_behavior", max_capacity_breach_behavior)
+        if max_capacity_buffer is not None:
+            pulumi.set(__self__, "max_capacity_buffer", max_capacity_buffer)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if scheduling_buffer_time is not None:
+            pulumi.set(__self__, "scheduling_buffer_time", scheduling_buffer_time)
+
+    @property
+    @pulumi.getter(name="metricSpecifications")
+    def metric_specifications(self) -> Sequence['outputs.ScalingPolicyPredictiveScalingMetricSpecification']:
+        return pulumi.get(self, "metric_specifications")
+
+    @property
+    @pulumi.getter(name="maxCapacityBreachBehavior")
+    def max_capacity_breach_behavior(self) -> Optional[str]:
+        return pulumi.get(self, "max_capacity_breach_behavior")
+
+    @property
+    @pulumi.getter(name="maxCapacityBuffer")
+    def max_capacity_buffer(self) -> Optional[int]:
+        return pulumi.get(self, "max_capacity_buffer")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="schedulingBufferTime")
+    def scheduling_buffer_time(self) -> Optional[int]:
+        return pulumi.get(self, "scheduling_buffer_time")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingPredefinedLoadMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingPredefinedLoadMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingPredefinedLoadMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingPredefinedLoadMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predefined_metric_type: str,
+                 resource_label: Optional[str] = None):
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> str:
+        return pulumi.get(self, "predefined_metric_type")
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[str]:
+        return pulumi.get(self, "resource_label")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingPredefinedMetricPair(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingPredefinedMetricPair. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingPredefinedMetricPair.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingPredefinedMetricPair.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predefined_metric_type: str,
+                 resource_label: Optional[str] = None):
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> str:
+        return pulumi.get(self, "predefined_metric_type")
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[str]:
+        return pulumi.get(self, "resource_label")
+
+
+@pulumi.output_type
+class ScalingPolicyPredictiveScalingPredefinedScalingMetric(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "predefinedMetricType":
+            suggest = "predefined_metric_type"
+        elif key == "resourceLabel":
+            suggest = "resource_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScalingPolicyPredictiveScalingPredefinedScalingMetric. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScalingPolicyPredictiveScalingPredefinedScalingMetric.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScalingPolicyPredictiveScalingPredefinedScalingMetric.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 predefined_metric_type: str,
+                 resource_label: Optional[str] = None):
+        pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
+        if resource_label is not None:
+            pulumi.set(__self__, "resource_label", resource_label)
+
+    @property
+    @pulumi.getter(name="predefinedMetricType")
+    def predefined_metric_type(self) -> str:
+        return pulumi.get(self, "predefined_metric_type")
+
+    @property
+    @pulumi.getter(name="resourceLabel")
+    def resource_label(self) -> Optional[str]:
         return pulumi.get(self, "resource_label")
 
 

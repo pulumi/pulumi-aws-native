@@ -38,7 +38,7 @@ class PermissionArgs:
                  +   *Partial ARN* – ``123456789012:function:my-function``.
                  
                 You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-        :param pulumi.Input[str] principal: The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+        :param pulumi.Input[str] principal: The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
         :param pulumi.Input[str] event_source_token: For Alexa Smart Home functions, a token that the invoker must supply.
         :param pulumi.Input['PermissionFunctionUrlAuthType'] function_url_auth_type: The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
@@ -94,7 +94,7 @@ class PermissionArgs:
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
         """
-        The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+        The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
         """
         return pulumi.get(self, "principal")
 
@@ -196,7 +196,7 @@ class Permission(pulumi.CustomResource):
                  
                 You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
         :param pulumi.Input['PermissionFunctionUrlAuthType'] function_url_auth_type: The type of authentication that your function URL uses. Set to ``AWS_IAM`` if you want to restrict access to authenticated users only. Set to ``NONE`` if you want to bypass IAM authentication to create a public endpoint. For more information, see [Security and auth model for Lambda function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
-        :param pulumi.Input[str] principal: The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+        :param pulumi.Input[str] principal: The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
         :param pulumi.Input[str] principal_org_id: The identifier for your organization in AOlong. Use this to grant permissions to all the AWS-accounts under this organization.
         :param pulumi.Input[str] source_account: For AWS-service, the ID of the AWS-account that owns the resource. Use this together with ``SourceArn`` to ensure that the specified account owns the resource. It is possible for an Amazon S3 bucket to be deleted by its owner and recreated by another account.
         :param pulumi.Input[str] source_arn: For AWS-services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.
@@ -343,7 +343,7 @@ class Permission(pulumi.CustomResource):
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
         """
-        The AWS-service or AWS-account that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
+        The AWS-service, AWS-account, IAM user, or IAM role that invokes the function. If you specify a service, use ``SourceArn`` or ``SourceAccount`` to limit who can invoke the function through that service.
         """
         return pulumi.get(self, "principal")
 

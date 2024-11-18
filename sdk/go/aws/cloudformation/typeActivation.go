@@ -49,7 +49,13 @@ func NewTypeActivation(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"executionRoleArn",
 		"loggingConfig",
+		"publicTypeArn",
+		"publisherId",
+		"type",
+		"typeName",
+		"typeNameAlias",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

@@ -41,9 +41,9 @@
       "type" : "string"
     },
     "Engine" : {
-      "description" : "Must be redis.",
+      "description" : "The target cache engine for the user.",
       "type" : "string",
-      "enum" : [ "redis" ]
+      "enum" : [ "redis", "valkey" ]
     },
     "AccessString" : {
       "description" : "Access permissions string used for this user account.",
@@ -110,7 +110,7 @@
   "additionalProperties" : false,
   "required" : [ "UserId", "UserName", "Engine" ],
   "readOnlyProperties" : [ "/properties/Status", "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/UserId", "/properties/UserName", "/properties/Engine" ],
+  "createOnlyProperties" : [ "/properties/UserId", "/properties/UserName" ],
   "writeOnlyProperties" : [ "/properties/Passwords", "/properties/NoPasswordRequired", "/properties/AccessString", "/properties/AuthenticationMode" ],
   "primaryIdentifier" : [ "/properties/UserId" ],
   "handlers" : {

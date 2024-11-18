@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = ['AccessLogSubscriptionArgs', 'AccessLogSubscription']
 
@@ -23,6 +24,7 @@ class AccessLogSubscriptionArgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  resource_identifier: Optional[pulumi.Input[str]] = None,
+                 service_network_log_type: Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a AccessLogSubscription resource.
@@ -33,6 +35,8 @@ class AccessLogSubscriptionArgs:
         pulumi.set(__self__, "destination_arn", destination_arn)
         if resource_identifier is not None:
             pulumi.set(__self__, "resource_identifier", resource_identifier)
+        if service_network_log_type is not None:
+            pulumi.set(__self__, "service_network_log_type", service_network_log_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -61,6 +65,15 @@ class AccessLogSubscriptionArgs:
         pulumi.set(self, "resource_identifier", value)
 
     @property
+    @pulumi.getter(name="serviceNetworkLogType")
+    def service_network_log_type(self) -> Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']]:
+        return pulumi.get(self, "service_network_log_type")
+
+    @service_network_log_type.setter
+    def service_network_log_type(self, value: Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']]):
+        pulumi.set(self, "service_network_log_type", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -80,6 +93,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
+                 service_network_log_type: Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -117,6 +131,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  resource_identifier: Optional[pulumi.Input[str]] = None,
+                 service_network_log_type: Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -131,6 +146,7 @@ class AccessLogSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination_arn'")
             __props__.__dict__["destination_arn"] = destination_arn
             __props__.__dict__["resource_identifier"] = resource_identifier
+            __props__.__dict__["service_network_log_type"] = service_network_log_type
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
@@ -166,6 +182,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         __props__.__dict__["resource_arn"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["resource_identifier"] = None
+        __props__.__dict__["service_network_log_type"] = None
         __props__.__dict__["tags"] = None
         return AccessLogSubscription(resource_name, opts=opts, __props__=__props__)
 
@@ -216,6 +233,11 @@ class AccessLogSubscription(pulumi.CustomResource):
         The ID or Amazon Resource Name (ARN) of the service network or service.
         """
         return pulumi.get(self, "resource_identifier")
+
+    @property
+    @pulumi.getter(name="serviceNetworkLogType")
+    def service_network_log_type(self) -> pulumi.Output[Optional['AccessLogSubscriptionServiceNetworkLogType']]:
+        return pulumi.get(self, "service_network_log_type")
 
     @property
     @pulumi.getter

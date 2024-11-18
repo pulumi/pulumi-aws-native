@@ -34,6 +34,8 @@ type LookupNodegroupResult struct {
 	Labels map[string]string `pulumi:"labels"`
 	// An object representing a node group's launch template specification.
 	LaunchTemplate *NodegroupLaunchTemplateSpecification `pulumi:"launchTemplate"`
+	// The node auto repair configuration for node group.
+	NodeRepairConfig *NodegroupNodeRepairConfig `pulumi:"nodeRepairConfig"`
 	// The AMI version of the Amazon EKS-optimized AMI to use with your node group.
 	ReleaseVersion *string `pulumi:"releaseVersion"`
 	// The scaling configuration details for the Auto Scaling group that is created for your node group.
@@ -106,6 +108,11 @@ func (o LookupNodegroupResultOutput) Labels() pulumi.StringMapOutput {
 // An object representing a node group's launch template specification.
 func (o LookupNodegroupResultOutput) LaunchTemplate() NodegroupLaunchTemplateSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupNodegroupResult) *NodegroupLaunchTemplateSpecification { return v.LaunchTemplate }).(NodegroupLaunchTemplateSpecificationPtrOutput)
+}
+
+// The node auto repair configuration for node group.
+func (o LookupNodegroupResultOutput) NodeRepairConfig() NodegroupNodeRepairConfigPtrOutput {
+	return o.ApplyT(func(v LookupNodegroupResult) *NodegroupNodeRepairConfig { return v.NodeRepairConfig }).(NodegroupNodeRepairConfigPtrOutput)
 }
 
 // The AMI version of the Amazon EKS-optimized AMI to use with your node group.

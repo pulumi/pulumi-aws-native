@@ -28,7 +28,8 @@ type AccessLogSubscription struct {
 	// The ID of the service network or service.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service.
-	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
+	ResourceIdentifier    pulumi.StringPtrOutput                              `pulumi:"resourceIdentifier"`
+	ServiceNetworkLogType AccessLogSubscriptionServiceNetworkLogTypePtrOutput `pulumi:"serviceNetworkLogType"`
 	// The tags for the access log subscription.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -83,7 +84,8 @@ type accessLogSubscriptionArgs struct {
 	// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
 	DestinationArn string `pulumi:"destinationArn"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service.
-	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
+	ResourceIdentifier    *string                                     `pulumi:"resourceIdentifier"`
+	ServiceNetworkLogType *AccessLogSubscriptionServiceNetworkLogType `pulumi:"serviceNetworkLogType"`
 	// The tags for the access log subscription.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -93,7 +95,8 @@ type AccessLogSubscriptionArgs struct {
 	// The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
 	DestinationArn pulumi.StringInput
 	// The ID or Amazon Resource Name (ARN) of the service network or service.
-	ResourceIdentifier pulumi.StringPtrInput
+	ResourceIdentifier    pulumi.StringPtrInput
+	ServiceNetworkLogType AccessLogSubscriptionServiceNetworkLogTypePtrInput
 	// The tags for the access log subscription.
 	Tags aws.TagArrayInput
 }
@@ -163,6 +166,12 @@ func (o AccessLogSubscriptionOutput) ResourceId() pulumi.StringOutput {
 // The ID or Amazon Resource Name (ARN) of the service network or service.
 func (o AccessLogSubscriptionOutput) ResourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
+}
+
+func (o AccessLogSubscriptionOutput) ServiceNetworkLogType() AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+	return o.ApplyT(func(v *AccessLogSubscription) AccessLogSubscriptionServiceNetworkLogTypePtrOutput {
+		return v.ServiceNetworkLogType
+	}).(AccessLogSubscriptionServiceNetworkLogTypePtrOutput)
 }
 
 // The tags for the access log subscription.

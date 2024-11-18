@@ -508,11 +508,12 @@ func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePrope
 	return pulumi.ToOutputWithContext(ctx, in).(UserAuthenticationModePropertiesTypePtrOutput)
 }
 
-// Must be redis.
+// The target cache engine for the user.
 type UserEngine string
 
 const (
-	UserEngineRedis = UserEngine("redis")
+	UserEngineRedis  = UserEngine("redis")
+	UserEngineValkey = UserEngine("valkey")
 )
 
 func (UserEngine) ElementType() reflect.Type {
@@ -638,6 +639,7 @@ func (o UserEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 // A concrete instance of `UserEngineInput` can be one of the following:
 //
 //	UserEngineRedis
+//	UserEngineValkey
 type UserEngineInput interface {
 	pulumi.Input
 
@@ -672,11 +674,12 @@ func (in *userEnginePtr) ToUserEnginePtrOutputWithContext(ctx context.Context) U
 	return pulumi.ToOutputWithContext(ctx, in).(UserEnginePtrOutput)
 }
 
-// Must be redis.
+// The target cache engine for the user group.
 type UserGroupEngine string
 
 const (
-	UserGroupEngineRedis = UserGroupEngine("redis")
+	UserGroupEngineRedis  = UserGroupEngine("redis")
+	UserGroupEngineValkey = UserGroupEngine("valkey")
 )
 
 func (UserGroupEngine) ElementType() reflect.Type {
@@ -802,6 +805,7 @@ func (o UserGroupEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 // A concrete instance of `UserGroupEngineInput` can be one of the following:
 //
 //	UserGroupEngineRedis
+//	UserGroupEngineValkey
 type UserGroupEngineInput interface {
 	pulumi.Input
 

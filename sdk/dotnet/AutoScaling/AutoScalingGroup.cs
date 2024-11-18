@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("availabilityZoneDistribution")]
         public Output<Outputs.AutoScalingGroupAvailabilityZoneDistribution?> AvailabilityZoneDistribution { get; private set; } = null!;
 
+        [Output("availabilityZoneImpairmentPolicy")]
+        public Output<Outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy?> AvailabilityZoneImpairmentPolicy { get; private set; } = null!;
+
         /// <summary>
         /// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
         /// </summary>
@@ -198,6 +201,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("serviceLinkedRoleArn")]
         public Output<string?> ServiceLinkedRoleArn { get; private set; } = null!;
 
+        [Output("skipZonalShiftValidation")]
+        public Output<bool?> SkipZonalShiftValidation { get; private set; } = null!;
+
         /// <summary>
         /// One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
         /// </summary>
@@ -295,6 +301,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         [Input("availabilityZoneDistribution")]
         public Input<Inputs.AutoScalingGroupAvailabilityZoneDistributionArgs>? AvailabilityZoneDistribution { get; set; }
+
+        [Input("availabilityZoneImpairmentPolicy")]
+        public Input<Inputs.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>? AvailabilityZoneImpairmentPolicy { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
@@ -491,6 +500,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         [Input("serviceLinkedRoleArn")]
         public Input<string>? ServiceLinkedRoleArn { get; set; }
+
+        [Input("skipZonalShiftValidation")]
+        public Input<bool>? SkipZonalShiftValidation { get; set; }
 
         [Input("tags")]
         private InputList<Inputs.AutoScalingGroupTagPropertyArgs>? _tags;

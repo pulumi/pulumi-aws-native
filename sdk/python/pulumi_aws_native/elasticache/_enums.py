@@ -39,13 +39,15 @@ class UserAuthenticationModePropertiesType(str, Enum):
 
 class UserEngine(str, Enum):
     """
-    Must be redis.
+    The target cache engine for the user.
     """
     REDIS = "redis"
+    VALKEY = "valkey"
 
 
 class UserGroupEngine(str, Enum):
     """
-    Must be redis.
+    The target cache engine for the user group.
     """
     REDIS = "redis"
+    VALKEY = "valkey"

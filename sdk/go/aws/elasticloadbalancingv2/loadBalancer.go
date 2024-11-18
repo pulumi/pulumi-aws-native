@@ -19,7 +19,8 @@ type LoadBalancer struct {
 	// The ID of the Amazon Route 53 hosted zone associated with the load balancer. For example, `Z2P70J7EXAMPLE` .
 	CanonicalHostedZoneId pulumi.StringOutput `pulumi:"canonicalHostedZoneId"`
 	// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
-	DnsName                      pulumi.StringOutput    `pulumi:"dnsName"`
+	DnsName pulumi.StringOutput `pulumi:"dnsName"`
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
 	EnablePrefixForIpv6SourceNat pulumi.StringPtrOutput `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
@@ -113,6 +114,7 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
 	EnablePrefixForIpv6SourceNat *string `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
@@ -156,6 +158,7 @@ type loadBalancerArgs struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
 	EnablePrefixForIpv6SourceNat pulumi.StringPtrInput
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
@@ -244,6 +247,7 @@ func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
+// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
 func (o LoadBalancerOutput) EnablePrefixForIpv6SourceNat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.EnablePrefixForIpv6SourceNat }).(pulumi.StringPtrOutput)
 }

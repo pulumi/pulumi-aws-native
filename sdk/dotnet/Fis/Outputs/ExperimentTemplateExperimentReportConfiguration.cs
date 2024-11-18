@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateExperimentReportConfiguration
     {
+        /// <summary>
+        /// The data sources for the experiment report.
+        /// </summary>
         public readonly Outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties DataSources;
+        /// <summary>
+        /// The output destinations of the experiment report.
+        /// </summary>
         public readonly Outputs.ExperimentTemplateExperimentReportConfigurationOutputsProperties Outputs;
+        /// <summary>
+        /// The duration after the experiment end time for the data sources to include in the report.
+        /// </summary>
         public readonly string? PostExperimentDuration;
+        /// <summary>
+        /// The duration before the experiment start time for the data sources to include in the report.
+        /// </summary>
         public readonly string? PreExperimentDuration;
 
         [OutputConstructor]

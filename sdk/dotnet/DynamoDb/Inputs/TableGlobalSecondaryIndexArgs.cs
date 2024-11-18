@@ -63,6 +63,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("provisionedThroughput")]
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
 
+        [Input("warmThroughput")]
+        public Input<Inputs.TableWarmThroughputArgs>? WarmThroughput { get; set; }
+
         public TableGlobalSecondaryIndexArgs()
         {
         }

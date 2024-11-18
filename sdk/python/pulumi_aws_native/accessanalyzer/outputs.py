@@ -16,11 +16,76 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AnalyzerAnalysisRuleCriteria',
     'AnalyzerArchiveRule',
     'AnalyzerConfigurationProperties',
     'AnalyzerFilter',
+    'AnalyzerTag',
     'AnalyzerUnusedAccessConfiguration',
+    'AnalyzerUnusedAccessConfigurationAnalysisRuleProperties',
 ]
+
+@pulumi.output_type
+class AnalyzerAnalysisRuleCriteria(dict):
+    """
+    The criteria for an analysis rule for an analyzer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountIds":
+            suggest = "account_ids"
+        elif key == "resourceTags":
+            suggest = "resource_tags"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AnalyzerAnalysisRuleCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AnalyzerAnalysisRuleCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AnalyzerAnalysisRuleCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_ids: Optional[Sequence[str]] = None,
+                 resource_tags: Optional[Sequence[Sequence['outputs.AnalyzerTag']]] = None):
+        """
+        The criteria for an analysis rule for an analyzer.
+        :param Sequence[str] account_ids: A list of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+        :param Sequence[Sequence['AnalyzerTag']] resource_tags: An array of key-value pairs to match for your resources. You can use the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+               
+               For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with aws:.
+               
+               For the tag value, you can specify a value that is 0 to 256 characters in length. If the specified tag value is 0 characters, the rule is applied to all principals with the specified tag key.
+        """
+        if account_ids is not None:
+            pulumi.set(__self__, "account_ids", account_ids)
+        if resource_tags is not None:
+            pulumi.set(__self__, "resource_tags", resource_tags)
+
+    @property
+    @pulumi.getter(name="accountIds")
+    def account_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of AWS account IDs to apply to the analysis rule criteria. The accounts cannot include the organization analyzer owner account. Account IDs can only be applied to the analysis rule criteria for organization-level analyzers.
+        """
+        return pulumi.get(self, "account_ids")
+
+    @property
+    @pulumi.getter(name="resourceTags")
+    def resource_tags(self) -> Optional[Sequence[Sequence['outputs.AnalyzerTag']]]:
+        """
+        An array of key-value pairs to match for your resources. You can use the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+
+        For the tag key, you can specify a value that is 1 to 128 characters in length and cannot be prefixed with aws:.
+
+        For the tag value, you can specify a value that is 0 to 256 characters in length. If the specified tag value is 0 characters, the rule is applied to all principals with the specified tag key.
+        """
+        return pulumi.get(self, "resource_tags")
+
 
 @pulumi.output_type
 class AnalyzerArchiveRule(dict):
@@ -98,7 +163,7 @@ class AnalyzerConfigurationProperties(dict):
                  unused_access_configuration: Optional['outputs.AnalyzerUnusedAccessConfiguration'] = None):
         """
         The configuration for the analyzer
-        :param 'AnalyzerUnusedAccessConfiguration' unused_access_configuration: Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+        :param 'AnalyzerUnusedAccessConfiguration' unused_access_configuration: Specifies the configuration of an unused access analyzer for an AWS organization or account.
         """
         if unused_access_configuration is not None:
             pulumi.set(__self__, "unused_access_configuration", unused_access_configuration)
@@ -107,7 +172,7 @@ class AnalyzerConfigurationProperties(dict):
     @pulumi.getter(name="unusedAccessConfiguration")
     def unused_access_configuration(self) -> Optional['outputs.AnalyzerUnusedAccessConfiguration']:
         """
-        Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
+        Specifies the configuration of an unused access analyzer for an AWS organization or account.
         """
         return pulumi.get(self, "unused_access_configuration")
 
@@ -179,6 +244,40 @@ class AnalyzerFilter(dict):
 
 
 @pulumi.output_type
+class AnalyzerTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: Optional[str] = None):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        :param str value: The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -. 
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class AnalyzerUnusedAccessConfiguration(dict):
     """
     The Configuration for Unused Access Analyzer
@@ -186,7 +285,9 @@ class AnalyzerUnusedAccessConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "unusedAccessAge":
+        if key == "analysisRule":
+            suggest = "analysis_rule"
+        elif key == "unusedAccessAge":
             suggest = "unused_access_age"
 
         if suggest:
@@ -201,20 +302,55 @@ class AnalyzerUnusedAccessConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 analysis_rule: Optional['outputs.AnalyzerUnusedAccessConfigurationAnalysisRuleProperties'] = None,
                  unused_access_age: Optional[int] = None):
         """
         The Configuration for Unused Access Analyzer
-        :param int unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+        :param 'AnalyzerUnusedAccessConfigurationAnalysisRuleProperties' analysis_rule: Contains information about rules for the analyzer.
+        :param int unused_access_age: The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.
         """
+        if analysis_rule is not None:
+            pulumi.set(__self__, "analysis_rule", analysis_rule)
         if unused_access_age is not None:
             pulumi.set(__self__, "unused_access_age", unused_access_age)
+
+    @property
+    @pulumi.getter(name="analysisRule")
+    def analysis_rule(self) -> Optional['outputs.AnalyzerUnusedAccessConfigurationAnalysisRuleProperties']:
+        """
+        Contains information about rules for the analyzer.
+        """
+        return pulumi.get(self, "analysis_rule")
 
     @property
     @pulumi.getter(name="unusedAccessAge")
     def unused_access_age(self) -> Optional[int]:
         """
-        The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 180 days.
+        The specified access age in days for which to generate findings for unused access. For example, if you specify 90 days, the analyzer will generate findings for IAM entities within the accounts of the selected organization for any access that hasn't been used in 90 or more days since the analyzer's last scan. You can choose a value between 1 and 365 days.
         """
         return pulumi.get(self, "unused_access_age")
+
+
+@pulumi.output_type
+class AnalyzerUnusedAccessConfigurationAnalysisRuleProperties(dict):
+    """
+    Contains information about rules for the analyzer.
+    """
+    def __init__(__self__, *,
+                 exclusions: Optional[Sequence['outputs.AnalyzerAnalysisRuleCriteria']] = None):
+        """
+        Contains information about rules for the analyzer.
+        :param Sequence['AnalyzerAnalysisRuleCriteria'] exclusions: A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
+        """
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.AnalyzerAnalysisRuleCriteria']]:
+        """
+        A list of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings.
+        """
+        return pulumi.get(self, "exclusions")
 
 

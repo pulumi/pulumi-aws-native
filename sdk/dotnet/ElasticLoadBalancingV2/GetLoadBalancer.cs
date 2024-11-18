@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
         /// </summary>
         public readonly string? DnsName;
+        /// <summary>
+        /// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+        /// </summary>
         public readonly string? EnablePrefixForIpv6SourceNat;
         /// <summary>
         /// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.

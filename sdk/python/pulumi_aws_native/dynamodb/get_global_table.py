@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -56,6 +56,9 @@ class GetGlobalTableResult:
         if time_to_live_specification and not isinstance(time_to_live_specification, dict):
             raise TypeError("Expected argument 'time_to_live_specification' to be a dict")
         pulumi.set(__self__, "time_to_live_specification", time_to_live_specification)
+        if warm_throughput and not isinstance(warm_throughput, dict):
+            raise TypeError("Expected argument 'warm_throughput' to be a dict")
+        pulumi.set(__self__, "warm_throughput", warm_throughput)
         if write_on_demand_throughput_settings and not isinstance(write_on_demand_throughput_settings, dict):
             raise TypeError("Expected argument 'write_on_demand_throughput_settings' to be a dict")
         pulumi.set(__self__, "write_on_demand_throughput_settings", write_on_demand_throughput_settings)
@@ -159,10 +162,15 @@ class GetGlobalTableResult:
         return pulumi.get(self, "time_to_live_specification")
 
     @property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> Optional['outputs.GlobalTableWarmThroughput']:
+        return pulumi.get(self, "warm_throughput")
+
+    @property
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableWriteOnDemandThroughputSettings']:
         """
-        Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
+        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
@@ -191,6 +199,7 @@ class AwaitableGetGlobalTableResult(GetGlobalTableResult):
             stream_specification=self.stream_specification,
             table_id=self.table_id,
             time_to_live_specification=self.time_to_live_specification,
+            warm_throughput=self.warm_throughput,
             write_on_demand_throughput_settings=self.write_on_demand_throughput_settings,
             write_provisioned_throughput_settings=self.write_provisioned_throughput_settings)
 
@@ -221,6 +230,7 @@ def get_global_table(table_name: Optional[str] = None,
         stream_specification=pulumi.get(__ret__, 'stream_specification'),
         table_id=pulumi.get(__ret__, 'table_id'),
         time_to_live_specification=pulumi.get(__ret__, 'time_to_live_specification'),
+        warm_throughput=pulumi.get(__ret__, 'warm_throughput'),
         write_on_demand_throughput_settings=pulumi.get(__ret__, 'write_on_demand_throughput_settings'),
         write_provisioned_throughput_settings=pulumi.get(__ret__, 'write_provisioned_throughput_settings'))
 def get_global_table_output(table_name: Optional[pulumi.Input[str]] = None,
@@ -248,5 +258,6 @@ def get_global_table_output(table_name: Optional[pulumi.Input[str]] = None,
         stream_specification=pulumi.get(__response__, 'stream_specification'),
         table_id=pulumi.get(__response__, 'table_id'),
         time_to_live_specification=pulumi.get(__response__, 'time_to_live_specification'),
+        warm_throughput=pulumi.get(__response__, 'warm_throughput'),
         write_on_demand_throughput_settings=pulumi.get(__response__, 'write_on_demand_throughput_settings'),
         write_provisioned_throughput_settings=pulumi.get(__response__, 'write_provisioned_throughput_settings')))

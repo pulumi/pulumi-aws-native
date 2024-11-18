@@ -28,7 +28,7 @@ class UserGroupArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a UserGroup resource.
-        :param pulumi.Input['UserGroupEngine'] engine: Must be redis.
+        :param pulumi.Input['UserGroupEngine'] engine: The target cache engine for the user group.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this user.
@@ -43,7 +43,7 @@ class UserGroupArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input['UserGroupEngine']:
         """
-        Must be redis.
+        The target cache engine for the user group.
         """
         return pulumi.get(self, "engine")
 
@@ -103,7 +103,7 @@ class UserGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['UserGroupEngine'] engine: Must be redis.
+        :param pulumi.Input['UserGroupEngine'] engine: The target cache engine for the user group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this user.
         :param pulumi.Input[str] user_group_id: The ID of the user group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: List of users associated to this user group.
@@ -157,7 +157,7 @@ class UserGroup(pulumi.CustomResource):
             __props__.__dict__["user_ids"] = user_ids
             __props__.__dict__["arn"] = None
             __props__.__dict__["status"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["engine", "userGroupId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["userGroupId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserGroup, __self__).__init__(
             'aws-native:elasticache:UserGroup',
@@ -201,7 +201,7 @@ class UserGroup(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output['UserGroupEngine']:
         """
-        Must be redis.
+        The target cache engine for the user group.
         """
         return pulumi.get(self, "engine")
 

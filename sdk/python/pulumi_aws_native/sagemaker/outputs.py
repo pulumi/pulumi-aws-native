@@ -732,6 +732,8 @@ class ClusterInstanceGroup(dict):
             suggest = "instance_storage_configs"
         elif key == "onStartDeepHealthChecks":
             suggest = "on_start_deep_health_checks"
+        elif key == "overrideVpcConfig":
+            suggest = "override_vpc_config"
         elif key == "threadsPerCore":
             suggest = "threads_per_core"
 
@@ -755,6 +757,7 @@ class ClusterInstanceGroup(dict):
                  current_count: Optional[int] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
+                 override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
                  threads_per_core: Optional[int] = None):
         """
         Details of an instance group in a SageMaker HyperPod cluster.
@@ -773,6 +776,8 @@ class ClusterInstanceGroup(dict):
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if on_start_deep_health_checks is not None:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
+        if override_vpc_config is not None:
+            pulumi.set(__self__, "override_vpc_config", override_vpc_config)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
 
@@ -821,6 +826,11 @@ class ClusterInstanceGroup(dict):
     @pulumi.getter(name="onStartDeepHealthChecks")
     def on_start_deep_health_checks(self) -> Optional[Sequence['ClusterDeepHealthCheckType']]:
         return pulumi.get(self, "on_start_deep_health_checks")
+
+    @property
+    @pulumi.getter(name="overrideVpcConfig")
+    def override_vpc_config(self) -> Optional['outputs.ClusterVpcConfig']:
+        return pulumi.get(self, "override_vpc_config")
 
     @property
     @pulumi.getter(name="threadsPerCore")

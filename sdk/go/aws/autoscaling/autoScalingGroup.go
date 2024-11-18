@@ -25,7 +25,8 @@ type AutoScalingGroup struct {
 	//   You cannot use a colon (:) in the name.
 	AutoScalingGroupName pulumi.StringPtrOutput `pulumi:"autoScalingGroupName"`
 	// The instance capacity distribution across Availability Zones.
-	AvailabilityZoneDistribution AutoScalingGroupAvailabilityZoneDistributionPtrOutput `pulumi:"availabilityZoneDistribution"`
+	AvailabilityZoneDistribution     AutoScalingGroupAvailabilityZoneDistributionPtrOutput     `pulumi:"availabilityZoneDistribution"`
+	AvailabilityZoneImpairmentPolicy AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput `pulumi:"availabilityZoneImpairmentPolicy"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
@@ -93,7 +94,8 @@ type AutoScalingGroup struct {
 	//   A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
 	PlacementGroup pulumi.StringPtrOutput `pulumi:"placementGroup"`
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
-	ServiceLinkedRoleArn pulumi.StringPtrOutput `pulumi:"serviceLinkedRoleArn"`
+	ServiceLinkedRoleArn     pulumi.StringPtrOutput `pulumi:"serviceLinkedRoleArn"`
+	SkipZonalShiftValidation pulumi.BoolPtrOutput   `pulumi:"skipZonalShiftValidation"`
 	// One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	Tags AutoScalingGroupTagPropertyArrayOutput `pulumi:"tags"`
 	// The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -166,7 +168,8 @@ type autoScalingGroupArgs struct {
 	//   You cannot use a colon (:) in the name.
 	AutoScalingGroupName *string `pulumi:"autoScalingGroupName"`
 	// The instance capacity distribution across Availability Zones.
-	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
+	AvailabilityZoneDistribution     *AutoScalingGroupAvailabilityZoneDistribution     `pulumi:"availabilityZoneDistribution"`
+	AvailabilityZoneImpairmentPolicy *AutoScalingGroupAvailabilityZoneImpairmentPolicy `pulumi:"availabilityZoneImpairmentPolicy"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
@@ -234,7 +237,8 @@ type autoScalingGroupArgs struct {
 	//   A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
-	ServiceLinkedRoleArn *string `pulumi:"serviceLinkedRoleArn"`
+	ServiceLinkedRoleArn     *string `pulumi:"serviceLinkedRoleArn"`
+	SkipZonalShiftValidation *bool   `pulumi:"skipZonalShiftValidation"`
 	// One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	Tags []AutoScalingGroupTagProperty `pulumi:"tags"`
 	// The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -258,7 +262,8 @@ type AutoScalingGroupArgs struct {
 	//   You cannot use a colon (:) in the name.
 	AutoScalingGroupName pulumi.StringPtrInput
 	// The instance capacity distribution across Availability Zones.
-	AvailabilityZoneDistribution AutoScalingGroupAvailabilityZoneDistributionPtrInput
+	AvailabilityZoneDistribution     AutoScalingGroupAvailabilityZoneDistributionPtrInput
+	AvailabilityZoneImpairmentPolicy AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrInput
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
@@ -326,7 +331,8 @@ type AutoScalingGroupArgs struct {
 	//   A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.
 	PlacementGroup pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named ``AWSServiceRoleForAutoScaling``, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
-	ServiceLinkedRoleArn pulumi.StringPtrInput
+	ServiceLinkedRoleArn     pulumi.StringPtrInput
+	SkipZonalShiftValidation pulumi.BoolPtrInput
 	// One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	Tags AutoScalingGroupTagPropertyArrayInput
 	// The Amazon Resource Names (ARN) of the Elastic Load Balancing target groups to associate with the Auto Scaling group. Instances are registered as targets with the target groups. The target groups receive incoming traffic and route requests to one or more registered targets. For more information, see [Use Elastic Load Balancing to distribute traffic across the instances in your Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -393,6 +399,12 @@ func (o AutoScalingGroupOutput) AvailabilityZoneDistribution() AutoScalingGroupA
 	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupAvailabilityZoneDistributionPtrOutput {
 		return v.AvailabilityZoneDistribution
 	}).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) AvailabilityZoneImpairmentPolicy() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+		return v.AvailabilityZoneImpairmentPolicy
+	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput)
 }
 
 // A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the “VPCZoneIdentifier“ property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
@@ -558,6 +570,10 @@ func (o AutoScalingGroupOutput) PlacementGroup() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS service on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named “AWSServiceRoleForAutoScaling“, which it creates if it does not exist. For more information, see [Service-linked roles](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html) in the *Amazon EC2 Auto Scaling User Guide*.
 func (o AutoScalingGroupOutput) ServiceLinkedRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.StringPtrOutput { return v.ServiceLinkedRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) SkipZonalShiftValidation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) pulumi.BoolPtrOutput { return v.SkipZonalShiftValidation }).(pulumi.BoolPtrOutput)
 }
 
 // One or more tags. You can tag your Auto Scaling group and propagate the tags to the Amazon EC2 instances it launches. Tags are not propagated to Amazon EBS volumes. To add tags to Amazon EBS volumes, specify the tags in a launch template but use caution. If the launch template specifies an instance tag with a key that is also specified for the Auto Scaling group, Amazon EC2 Auto Scaling overrides the value of that instance tag with the value specified by the Auto Scaling group. For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*.

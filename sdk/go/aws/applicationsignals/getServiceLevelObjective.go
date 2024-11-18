@@ -30,7 +30,8 @@ type LookupServiceLevelObjectiveArgs struct {
 
 type LookupServiceLevelObjectiveResult struct {
 	// The ARN of this SLO.
-	Arn *string `pulumi:"arn"`
+	Arn                    *string                                      `pulumi:"arn"`
+	BurnRateConfigurations []ServiceLevelObjectiveBurnRateConfiguration `pulumi:"burnRateConfigurations"`
 	// Epoch time in seconds of the time that this SLO was created
 	CreatedTime *int `pulumi:"createdTime"`
 	// An optional description for this SLO. Default is 'No description'
@@ -96,6 +97,12 @@ func (o LookupServiceLevelObjectiveResultOutput) ToLookupServiceLevelObjectiveRe
 // The ARN of this SLO.
 func (o LookupServiceLevelObjectiveResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupServiceLevelObjectiveResultOutput) BurnRateConfigurations() ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) []ServiceLevelObjectiveBurnRateConfiguration {
+		return v.BurnRateConfigurations
+	}).(ServiceLevelObjectiveBurnRateConfigurationArrayOutput)
 }
 
 // Epoch time in seconds of the time that this SLO was created

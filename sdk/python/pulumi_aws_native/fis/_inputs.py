@@ -164,6 +164,9 @@ class ExperimentTemplateActionArgs:
 if not MYPY:
     class ExperimentTemplateCloudWatchDashboardArgsDict(TypedDict):
         dashboard_identifier: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
+        """
 elif False:
     ExperimentTemplateCloudWatchDashboardArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -171,11 +174,17 @@ elif False:
 class ExperimentTemplateCloudWatchDashboardArgs:
     def __init__(__self__, *,
                  dashboard_identifier: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] dashboard_identifier: The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
+        """
         pulumi.set(__self__, "dashboard_identifier", dashboard_identifier)
 
     @property
     @pulumi.getter(name="dashboardIdentifier")
     def dashboard_identifier(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
+        """
         return pulumi.get(self, "dashboard_identifier")
 
     @dashboard_identifier.setter
@@ -237,6 +246,9 @@ class ExperimentTemplateExperimentOptionsArgs:
 
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict(TypedDict):
+        """
+        The data sources for the experiment report.
+        """
         cloud_watch_dashboards: NotRequired[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateCloudWatchDashboardArgsDict']]]]
 elif False:
     ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -245,6 +257,9 @@ elif False:
 class ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs:
     def __init__(__self__, *,
                  cloud_watch_dashboards: Optional[pulumi.Input[Sequence[pulumi.Input['ExperimentTemplateCloudWatchDashboardArgs']]]] = None):
+        """
+        The data sources for the experiment report.
+        """
         if cloud_watch_dashboards is not None:
             pulumi.set(__self__, "cloud_watch_dashboards", cloud_watch_dashboards)
 
@@ -295,6 +310,9 @@ class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperiment
 
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict(TypedDict):
+        """
+        The output destinations of the experiment report.
+        """
         experiment_report_s3_configuration: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgsDict']
 elif False:
     ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -303,6 +321,9 @@ elif False:
 class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs:
     def __init__(__self__, *,
                  experiment_report_s3_configuration: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesArgs']):
+        """
+        The output destinations of the experiment report.
+        """
         pulumi.set(__self__, "experiment_report_s3_configuration", experiment_report_s3_configuration)
 
     @property
@@ -318,9 +339,21 @@ class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs:
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationArgsDict(TypedDict):
         data_sources: pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict']
+        """
+        The data sources for the experiment report.
+        """
         outputs: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict']
+        """
+        The output destinations of the experiment report.
+        """
         post_experiment_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration after the experiment end time for the data sources to include in the report.
+        """
         pre_experiment_duration: NotRequired[pulumi.Input[str]]
+        """
+        The duration before the experiment start time for the data sources to include in the report.
+        """
 elif False:
     ExperimentTemplateExperimentReportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -331,6 +364,12 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
                  outputs: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs'],
                  post_experiment_duration: Optional[pulumi.Input[str]] = None,
                  pre_experiment_duration: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs'] data_sources: The data sources for the experiment report.
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs'] outputs: The output destinations of the experiment report.
+        :param pulumi.Input[str] post_experiment_duration: The duration after the experiment end time for the data sources to include in the report.
+        :param pulumi.Input[str] pre_experiment_duration: The duration before the experiment start time for the data sources to include in the report.
+        """
         pulumi.set(__self__, "data_sources", data_sources)
         pulumi.set(__self__, "outputs", outputs)
         if post_experiment_duration is not None:
@@ -341,6 +380,9 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs']:
+        """
+        The data sources for the experiment report.
+        """
         return pulumi.get(self, "data_sources")
 
     @data_sources.setter
@@ -350,6 +392,9 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @property
     @pulumi.getter
     def outputs(self) -> pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs']:
+        """
+        The output destinations of the experiment report.
+        """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
@@ -359,6 +404,9 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @property
     @pulumi.getter(name="postExperimentDuration")
     def post_experiment_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration after the experiment end time for the data sources to include in the report.
+        """
         return pulumi.get(self, "post_experiment_duration")
 
     @post_experiment_duration.setter
@@ -368,6 +416,9 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @property
     @pulumi.getter(name="preExperimentDuration")
     def pre_experiment_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        The duration before the experiment start time for the data sources to include in the report.
+        """
         return pulumi.get(self, "pre_experiment_duration")
 
     @pre_experiment_duration.setter

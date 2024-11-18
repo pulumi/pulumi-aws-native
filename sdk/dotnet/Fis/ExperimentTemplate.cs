@@ -144,6 +144,9 @@ namespace Pulumi.AwsNative.Fis
         [Output("experimentOptions")]
         public Output<Outputs.ExperimentTemplateExperimentOptions?> ExperimentOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the report configuration for the experiment template.
+        /// </summary>
         [Output("experimentReportConfiguration")]
         public Output<Outputs.ExperimentTemplateExperimentReportConfiguration?> ExperimentReportConfiguration { get; private set; } = null!;
 
@@ -251,6 +254,9 @@ namespace Pulumi.AwsNative.Fis
         [Input("experimentOptions")]
         public Input<Inputs.ExperimentTemplateExperimentOptionsArgs>? ExperimentOptions { get; set; }
 
+        /// <summary>
+        /// Describes the report configuration for the experiment template.
+        /// </summary>
         [Input("experimentReportConfiguration")]
         public Input<Inputs.ExperimentTemplateExperimentReportConfigurationArgs>? ExperimentReportConfiguration { get; set; }
 

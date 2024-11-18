@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -34,6 +35,8 @@ type LookupWorkgroupResult struct {
 	Port *int `pulumi:"port"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// The map of the key-value pairs used to tag the workgroup.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Definition for workgroup resource
 	Workgroup *WorkgroupType `pulumi:"workgroup"`
 }
@@ -93,6 +96,11 @@ func (o LookupWorkgroupResultOutput) Port() pulumi.IntPtrOutput {
 // A value that specifies whether the workgroup can be accessible from a public network.
 func (o LookupWorkgroupResultOutput) PubliclyAccessible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) *bool { return v.PubliclyAccessible }).(pulumi.BoolPtrOutput)
+}
+
+// The map of the key-value pairs used to tag the workgroup.
+func (o LookupWorkgroupResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // Definition for workgroup resource

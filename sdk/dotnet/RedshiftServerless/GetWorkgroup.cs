@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// </summary>
         public readonly bool? PubliclyAccessible;
         /// <summary>
+        /// The map of the key-value pairs used to tag the workgroup.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
         /// Definition for workgroup resource
         /// </summary>
         public readonly Outputs.Workgroup? WorkgroupValue;
@@ -82,11 +86,14 @@ namespace Pulumi.AwsNative.RedshiftServerless
 
             bool? publiclyAccessible,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.Workgroup? workgroup)
         {
             EnhancedVpcRouting = enhancedVpcRouting;
             Port = port;
             PubliclyAccessible = publiclyAccessible;
+            Tags = tags;
             WorkgroupValue = workgroup;
         }
     }

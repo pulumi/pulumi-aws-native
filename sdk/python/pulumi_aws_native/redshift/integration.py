@@ -29,8 +29,8 @@ class IntegrationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Integration resource.
-        :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
-        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+        :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the database to use as the source for replication
+        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[str] integration_name: The name of the integration.
         :param pulumi.Input[str] kms_key_id: An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
@@ -51,7 +51,7 @@ class IntegrationArgs:
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+        The Amazon Resource Name (ARN) of the database to use as the source for replication
         """
         return pulumi.get(self, "source_arn")
 
@@ -63,7 +63,7 @@ class IntegrationArgs:
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Input[str]:
         """
-        The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+        The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
         """
         return pulumi.get(self, "target_arn")
 
@@ -140,9 +140,9 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_encryption_context: The encryption context for the integration. For more information, see [Encryption context](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[str] integration_name: The name of the integration.
         :param pulumi.Input[str] kms_key_id: An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.
-        :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+        :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the database to use as the source for replication
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+        :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
         """
         ...
     @overload
@@ -273,7 +273,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the database to use as the source for replication, for example, arn:aws:dynamodb:us-east-2:123412341234:table/dynamotable
+        The Amazon Resource Name (ARN) of the database to use as the source for replication
         """
         return pulumi.get(self, "source_arn")
 
@@ -289,7 +289,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="targetArn")
     def target_arn(self) -> pulumi.Output[str]:
         """
-        The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication, for example, arn:aws:redshift:us-east-2:123412341234:namespace:e43aab3e-10a3-4ec4-83d4-f227ff9bfbcf
+        The Amazon Resource Name (ARN) of the Redshift data warehouse to use as the target for replication
         """
         return pulumi.get(self, "target_arn")
 

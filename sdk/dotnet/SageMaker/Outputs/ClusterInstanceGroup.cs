@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly string InstanceType;
         public readonly Outputs.ClusterLifeCycleConfig LifeCycleConfig;
         public readonly ImmutableArray<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> OnStartDeepHealthChecks;
+        public readonly Outputs.ClusterVpcConfig? OverrideVpcConfig;
         /// <summary>
         /// The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
         /// </summary>
@@ -53,6 +54,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             ImmutableArray<Pulumi.AwsNative.SageMaker.ClusterDeepHealthCheckType> onStartDeepHealthChecks,
 
+            Outputs.ClusterVpcConfig? overrideVpcConfig,
+
             int? threadsPerCore)
         {
             CurrentCount = currentCount;
@@ -63,6 +66,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             InstanceType = instanceType;
             LifeCycleConfig = lifeCycleConfig;
             OnStartDeepHealthChecks = onStartDeepHealthChecks;
+            OverrideVpcConfig = overrideVpcConfig;
             ThreadsPerCore = threadsPerCore;
         }
     }

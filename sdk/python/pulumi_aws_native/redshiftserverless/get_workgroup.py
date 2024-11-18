@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkgroupResult:
-    def __init__(__self__, enhanced_vpc_routing=None, port=None, publicly_accessible=None, workgroup=None):
+    def __init__(__self__, enhanced_vpc_routing=None, port=None, publicly_accessible=None, tags=None, workgroup=None):
         if enhanced_vpc_routing and not isinstance(enhanced_vpc_routing, bool):
             raise TypeError("Expected argument 'enhanced_vpc_routing' to be a bool")
         pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
@@ -35,6 +36,9 @@ class GetWorkgroupResult:
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if workgroup and not isinstance(workgroup, dict):
             raise TypeError("Expected argument 'workgroup' to be a dict")
         pulumi.set(__self__, "workgroup", workgroup)
@@ -65,6 +69,14 @@ class GetWorkgroupResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The map of the key-value pairs used to tag the workgroup.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def workgroup(self) -> Optional['outputs.Workgroup']:
         """
         Definition for workgroup resource
@@ -81,6 +93,7 @@ class AwaitableGetWorkgroupResult(GetWorkgroupResult):
             enhanced_vpc_routing=self.enhanced_vpc_routing,
             port=self.port,
             publicly_accessible=self.publicly_accessible,
+            tags=self.tags,
             workgroup=self.workgroup)
 
 
@@ -101,6 +114,7 @@ def get_workgroup(workgroup_name: Optional[str] = None,
         enhanced_vpc_routing=pulumi.get(__ret__, 'enhanced_vpc_routing'),
         port=pulumi.get(__ret__, 'port'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
+        tags=pulumi.get(__ret__, 'tags'),
         workgroup=pulumi.get(__ret__, 'workgroup'))
 def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkgroupResult]:
@@ -118,4 +132,5 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
         enhanced_vpc_routing=pulumi.get(__response__, 'enhanced_vpc_routing'),
         port=pulumi.get(__response__, 'port'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
+        tags=pulumi.get(__response__, 'tags'),
         workgroup=pulumi.get(__response__, 'workgroup')))

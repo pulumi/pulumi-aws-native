@@ -61,6 +61,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
      * The ID or Amazon Resource Name (ARN) of the service network or service.
      */
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
+    public readonly serviceNetworkLogType!: pulumi.Output<enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType | undefined>;
     /**
      * The tags for the access log subscription.
      */
@@ -82,6 +83,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             }
             resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
             resourceInputs["resourceIdentifier"] = args ? args.resourceIdentifier : undefined;
+            resourceInputs["serviceNetworkLogType"] = args ? args.serviceNetworkLogType : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -94,6 +96,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceIdentifier"] = undefined /*out*/;
+            resourceInputs["serviceNetworkLogType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -115,6 +118,7 @@ export interface AccessLogSubscriptionArgs {
      * The ID or Amazon Resource Name (ARN) of the service network or service.
      */
     resourceIdentifier?: pulumi.Input<string>;
+    serviceNetworkLogType?: pulumi.Input<enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType>;
     /**
      * The tags for the access log subscription.
      */

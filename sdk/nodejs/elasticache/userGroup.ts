@@ -42,7 +42,7 @@ export class UserGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Must be redis.
+     * The target cache engine for the user group.
      */
     public readonly engine!: pulumi.Output<enums.elasticache.UserGroupEngine>;
     /**
@@ -97,7 +97,7 @@ export class UserGroup extends pulumi.CustomResource {
             resourceInputs["userIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["engine", "userGroupId"] };
+        const replaceOnChanges = { replaceOnChanges: ["userGroupId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,7 +108,7 @@ export class UserGroup extends pulumi.CustomResource {
  */
 export interface UserGroupArgs {
     /**
-     * Must be redis.
+     * The target cache engine for the user group.
      */
     engine: pulumi.Input<enums.elasticache.UserGroupEngine>;
     /**

@@ -37,6 +37,7 @@ __all__ = [
     'IdentityProviderConfigRequiredClaim',
     'Logging',
     'NodegroupLaunchTemplateSpecification',
+    'NodegroupNodeRepairConfig',
     'NodegroupRemoteAccess',
     'NodegroupScalingConfig',
     'NodegroupTaint',
@@ -1016,6 +1017,29 @@ class NodegroupLaunchTemplateSpecification(dict):
         The version number of the launch template to use. If no version is specified, then the template's default version is used.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class NodegroupNodeRepairConfig(dict):
+    """
+    The node auto repair configuration for node group.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        The node auto repair configuration for node group.
+        :param bool enabled: Set this value to true to enable node auto repair for the node group.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Set this value to true to enable node auto repair for the node group.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

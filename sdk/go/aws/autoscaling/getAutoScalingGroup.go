@@ -35,7 +35,8 @@ type LookupAutoScalingGroupArgs struct {
 
 type LookupAutoScalingGroupResult struct {
 	// The instance capacity distribution across Availability Zones.
-	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
+	AvailabilityZoneDistribution     *AutoScalingGroupAvailabilityZoneDistribution     `pulumi:"availabilityZoneDistribution"`
+	AvailabilityZoneImpairmentPolicy *AutoScalingGroupAvailabilityZoneImpairmentPolicy `pulumi:"availabilityZoneImpairmentPolicy"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
@@ -166,6 +167,12 @@ func (o LookupAutoScalingGroupResultOutput) AvailabilityZoneDistribution() AutoS
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupAvailabilityZoneDistribution {
 		return v.AvailabilityZoneDistribution
 	}).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
+}
+
+func (o LookupAutoScalingGroupResultOutput) AvailabilityZoneImpairmentPolicy() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
+	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupAvailabilityZoneImpairmentPolicy {
+		return v.AvailabilityZoneImpairmentPolicy
+	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput)
 }
 
 // A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the “VPCZoneIdentifier“ property, or for attaching a network interface when an existing network interface ID is specified in a launch template.

@@ -37,6 +37,9 @@ export interface GetExperimentTemplateResult {
      * The experiment options for an experiment template.
      */
     readonly experimentOptions?: outputs.fis.ExperimentTemplateExperimentOptions;
+    /**
+     * Describes the report configuration for the experiment template.
+     */
     readonly experimentReportConfiguration?: outputs.fis.ExperimentTemplateExperimentReportConfiguration;
     /**
      * The ID of the experiment template.

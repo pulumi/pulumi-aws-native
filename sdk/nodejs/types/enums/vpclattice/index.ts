@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessLogSubscriptionServiceNetworkLogType = {
+    Service: "SERVICE",
+    Resource: "RESOURCE",
+} as const;
+
+export type AccessLogSubscriptionServiceNetworkLogType = (typeof AccessLogSubscriptionServiceNetworkLogType)[keyof typeof AccessLogSubscriptionServiceNetworkLogType];
+
 export const AuthPolicyState = {
     Active: "ACTIVE",
     Inactive: "INACTIVE",

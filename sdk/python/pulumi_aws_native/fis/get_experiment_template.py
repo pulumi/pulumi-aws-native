@@ -81,6 +81,9 @@ class GetExperimentTemplateResult:
     @property
     @pulumi.getter(name="experimentReportConfiguration")
     def experiment_report_configuration(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfiguration']:
+        """
+        Describes the report configuration for the experiment template.
+        """
         return pulumi.get(self, "experiment_report_configuration")
 
     @property

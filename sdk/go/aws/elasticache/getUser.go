@@ -31,6 +31,8 @@ type LookupUserArgs struct {
 type LookupUserResult struct {
 	// The Amazon Resource Name (ARN) of the user account.
 	Arn *string `pulumi:"arn"`
+	// The target cache engine for the user.
+	Engine *UserEngine `pulumi:"engine"`
 	// Indicates the user status. Can be "active", "modifying" or "deleting".
 	Status *string `pulumi:"status"`
 	// An array of key-value pairs to apply to this user.
@@ -82,6 +84,11 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 // The Amazon Resource Name (ARN) of the user account.
 func (o LookupUserResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The target cache engine for the user.
+func (o LookupUserResultOutput) Engine() UserEnginePtrOutput {
+	return o.ApplyT(func(v LookupUserResult) *UserEngine { return v.Engine }).(UserEnginePtrOutput)
 }
 
 // Indicates the user status. Can be "active", "modifying" or "deleting".

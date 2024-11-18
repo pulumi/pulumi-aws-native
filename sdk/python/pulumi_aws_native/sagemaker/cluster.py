@@ -199,7 +199,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_status"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["failure_message"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName", "instanceGroups[*].executionRole", "instanceGroups[*].instanceGroupName", "instanceGroups[*].instanceType", "instanceGroups[*].threadsPerCore", "orchestrator", "vpcConfig"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterName", "instanceGroups[*].executionRole", "instanceGroups[*].instanceGroupName", "instanceGroups[*].instanceType", "instanceGroups[*].overrideVpcConfig", "instanceGroups[*].threadsPerCore", "orchestrator", "vpcConfig"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:sagemaker:Cluster',

@@ -42,7 +42,8 @@ class TableArgs:
                  table_class: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 time_to_live_specification: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']] = None):
+                 time_to_live_specification: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']] = None,
+                 warm_throughput: Optional[pulumi.Input['TableWarmThroughputArgs']] = None):
         """
         The set of arguments for constructing a Table resource.
         :param pulumi.Input[Union[Sequence[pulumi.Input['TableKeySchemaArgs']], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
@@ -120,6 +121,8 @@ class TableArgs:
             pulumi.set(__self__, "tags", tags)
         if time_to_live_specification is not None:
             pulumi.set(__self__, "time_to_live_specification", time_to_live_specification)
+        if warm_throughput is not None:
+            pulumi.set(__self__, "warm_throughput", warm_throughput)
 
     @property
     @pulumi.getter(name="keySchema")
@@ -367,6 +370,15 @@ class TableArgs:
     def time_to_live_specification(self, value: Optional[pulumi.Input['TableTimeToLiveSpecificationArgs']]):
         pulumi.set(self, "time_to_live_specification", value)
 
+    @property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+        return pulumi.get(self, "warm_throughput")
+
+    @warm_throughput.setter
+    def warm_throughput(self, value: Optional[pulumi.Input['TableWarmThroughputArgs']]):
+        pulumi.set(self, "warm_throughput", value)
+
 
 class Table(pulumi.CustomResource):
     @overload
@@ -392,13 +404,14 @@ class Table(pulumi.CustomResource):
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_to_live_specification: Optional[pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
+                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::DynamoDB::Table`` resource creates a DDB table. For more information, see [CreateTable](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_CreateTable.html) in the *API Reference*.
          You should be aware of the following behaviors when working with DDB tables:
           +   CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
 
-           Our guidance is to use the latest schema documented here for your CFNlong templates. This schema supports the provisioning of all table settings below. When using this schema in your CFNlong templates, please ensure that your Identity and Access Management (IAM) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
+           Our guidance is to use the latest schema documented for your CFNlong templates. This schema supports the provisioning of all table settings below. When using this schema in your CFNlong templates, please ensure that your Identity and Access Management (IAM) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
 
         ## Example Usage
         ### Example
@@ -677,7 +690,7 @@ class Table(pulumi.CustomResource):
          You should be aware of the following behaviors when working with DDB tables:
           +   CFNlong typically creates DDB tables in parallel. However, if your template includes multiple DDB tables with indexes, you must declare dependencies so that the tables are created sequentially. DDBlong limits the number of tables with secondary indexes that are in the creating state. If you create multiple tables with indexes at the same time, DDB returns an error and the stack operation fails. For an example, see [DynamoDB Table with a DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#aws-resource-dynamodb-table--examples--DynamoDB_Table_with_a_DependsOn_Attribute).
 
-           Our guidance is to use the latest schema documented here for your CFNlong templates. This schema supports the provisioning of all table settings below. When using this schema in your CFNlong templates, please ensure that your Identity and Access Management (IAM) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
+           Our guidance is to use the latest schema documented for your CFNlong templates. This schema supports the provisioning of all table settings below. When using this schema in your CFNlong templates, please ensure that your Identity and Access Management (IAM) policies are updated with appropriate permissions to allow for the authorization of these setting changes.
 
         ## Example Usage
         ### Example
@@ -939,6 +952,7 @@ class Table(pulumi.CustomResource):
                  table_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  time_to_live_specification: Optional[pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']]] = None,
+                 warm_throughput: Optional[pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -969,6 +983,7 @@ class Table(pulumi.CustomResource):
             __props__.__dict__["table_name"] = table_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["time_to_live_specification"] = time_to_live_specification
+            __props__.__dict__["warm_throughput"] = warm_throughput
             __props__.__dict__["arn"] = None
             __props__.__dict__["stream_arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["importSourceSpecification", "tableName"])
@@ -1016,6 +1031,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["table_name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["time_to_live_specification"] = None
+        __props__.__dict__["warm_throughput"] = None
         return Table(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1205,4 +1221,9 @@ class Table(pulumi.CustomResource):
           For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
         """
         return pulumi.get(self, "time_to_live_specification")
+
+    @property
+    @pulumi.getter(name="warmThroughput")
+    def warm_throughput(self) -> pulumi.Output[Optional['outputs.TableWarmThroughput']]:
+        return pulumi.get(self, "warm_throughput")
 

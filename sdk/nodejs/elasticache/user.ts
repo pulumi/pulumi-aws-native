@@ -55,7 +55,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly authenticationMode!: pulumi.Output<outputs.elasticache.AuthenticationModeProperties | undefined>;
     /**
-     * Must be redis.
+     * The target cache engine for the user.
      */
     public readonly engine!: pulumi.Output<enums.elasticache.UserEngine>;
     /**
@@ -123,7 +123,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["engine", "userId", "userName"] };
+        const replaceOnChanges = { replaceOnChanges: ["userId", "userName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
@@ -147,7 +147,7 @@ export interface UserArgs {
      */
     authenticationMode?: pulumi.Input<inputs.elasticache.AuthenticationModePropertiesArgs>;
     /**
-     * Must be redis.
+     * The target cache engine for the user.
      */
     engine: pulumi.Input<enums.elasticache.UserEngine>;
     /**

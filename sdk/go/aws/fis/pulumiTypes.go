@@ -150,6 +150,7 @@ func (o ExperimentTemplateActionMapOutput) MapIndex(k pulumi.StringInput) Experi
 }
 
 type ExperimentTemplateCloudWatchDashboard struct {
+	// The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
 	DashboardIdentifier string `pulumi:"dashboardIdentifier"`
 }
 
@@ -165,6 +166,7 @@ type ExperimentTemplateCloudWatchDashboardInput interface {
 }
 
 type ExperimentTemplateCloudWatchDashboardArgs struct {
+	// The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
 	DashboardIdentifier pulumi.StringInput `pulumi:"dashboardIdentifier"`
 }
 
@@ -219,6 +221,7 @@ func (o ExperimentTemplateCloudWatchDashboardOutput) ToExperimentTemplateCloudWa
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
 func (o ExperimentTemplateCloudWatchDashboardOutput) DashboardIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v ExperimentTemplateCloudWatchDashboard) string { return v.DashboardIdentifier }).(pulumi.StringOutput)
 }
@@ -404,10 +407,14 @@ func (o ExperimentTemplateExperimentOptionsPtrOutput) EmptyTargetResolutionMode(
 }
 
 type ExperimentTemplateExperimentReportConfiguration struct {
-	DataSources            ExperimentTemplateExperimentReportConfigurationDataSourcesProperties `pulumi:"dataSources"`
-	Outputs                ExperimentTemplateExperimentReportConfigurationOutputsProperties     `pulumi:"outputs"`
-	PostExperimentDuration *string                                                              `pulumi:"postExperimentDuration"`
-	PreExperimentDuration  *string                                                              `pulumi:"preExperimentDuration"`
+	// The data sources for the experiment report.
+	DataSources ExperimentTemplateExperimentReportConfigurationDataSourcesProperties `pulumi:"dataSources"`
+	// The output destinations of the experiment report.
+	Outputs ExperimentTemplateExperimentReportConfigurationOutputsProperties `pulumi:"outputs"`
+	// The duration after the experiment end time for the data sources to include in the report.
+	PostExperimentDuration *string `pulumi:"postExperimentDuration"`
+	// The duration before the experiment start time for the data sources to include in the report.
+	PreExperimentDuration *string `pulumi:"preExperimentDuration"`
 }
 
 // ExperimentTemplateExperimentReportConfigurationInput is an input type that accepts ExperimentTemplateExperimentReportConfigurationArgs and ExperimentTemplateExperimentReportConfigurationOutput values.
@@ -422,10 +429,14 @@ type ExperimentTemplateExperimentReportConfigurationInput interface {
 }
 
 type ExperimentTemplateExperimentReportConfigurationArgs struct {
-	DataSources            ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput `pulumi:"dataSources"`
-	Outputs                ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput     `pulumi:"outputs"`
-	PostExperimentDuration pulumi.StringPtrInput                                                     `pulumi:"postExperimentDuration"`
-	PreExperimentDuration  pulumi.StringPtrInput                                                     `pulumi:"preExperimentDuration"`
+	// The data sources for the experiment report.
+	DataSources ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput `pulumi:"dataSources"`
+	// The output destinations of the experiment report.
+	Outputs ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput `pulumi:"outputs"`
+	// The duration after the experiment end time for the data sources to include in the report.
+	PostExperimentDuration pulumi.StringPtrInput `pulumi:"postExperimentDuration"`
+	// The duration before the experiment start time for the data sources to include in the report.
+	PreExperimentDuration pulumi.StringPtrInput `pulumi:"preExperimentDuration"`
 }
 
 func (ExperimentTemplateExperimentReportConfigurationArgs) ElementType() reflect.Type {
@@ -505,22 +516,26 @@ func (o ExperimentTemplateExperimentReportConfigurationOutput) ToExperimentTempl
 	}).(ExperimentTemplateExperimentReportConfigurationPtrOutput)
 }
 
+// The data sources for the experiment report.
 func (o ExperimentTemplateExperimentReportConfigurationOutput) DataSources() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) ExperimentTemplateExperimentReportConfigurationDataSourcesProperties {
 		return v.DataSources
 	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput)
 }
 
+// The output destinations of the experiment report.
 func (o ExperimentTemplateExperimentReportConfigurationOutput) Outputs() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) ExperimentTemplateExperimentReportConfigurationOutputsProperties {
 		return v.Outputs
 	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput)
 }
 
+// The duration after the experiment end time for the data sources to include in the report.
 func (o ExperimentTemplateExperimentReportConfigurationOutput) PostExperimentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *string { return v.PostExperimentDuration }).(pulumi.StringPtrOutput)
 }
 
+// The duration before the experiment start time for the data sources to include in the report.
 func (o ExperimentTemplateExperimentReportConfigurationOutput) PreExperimentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *string { return v.PreExperimentDuration }).(pulumi.StringPtrOutput)
 }
@@ -549,6 +564,7 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) Elem() Experim
 	}).(ExperimentTemplateExperimentReportConfigurationOutput)
 }
 
+// The data sources for the experiment report.
 func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) DataSources() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationDataSourcesProperties {
 		if v == nil {
@@ -558,6 +574,7 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) DataSources() 
 	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput)
 }
 
+// The output destinations of the experiment report.
 func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) Outputs() ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationOutputsProperties {
 		if v == nil {
@@ -567,6 +584,7 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) Outputs() Expe
 	}).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput)
 }
 
+// The duration after the experiment end time for the data sources to include in the report.
 func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PostExperimentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *string {
 		if v == nil {
@@ -576,6 +594,7 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PostExperiment
 	}).(pulumi.StringPtrOutput)
 }
 
+// The duration before the experiment start time for the data sources to include in the report.
 func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PreExperimentDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplateExperimentReportConfiguration) *string {
 		if v == nil {
@@ -585,6 +604,7 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) PreExperimentD
 	}).(pulumi.StringPtrOutput)
 }
 
+// The data sources for the experiment report.
 type ExperimentTemplateExperimentReportConfigurationDataSourcesProperties struct {
 	CloudWatchDashboards []ExperimentTemplateCloudWatchDashboard `pulumi:"cloudWatchDashboards"`
 }
@@ -600,6 +620,7 @@ type ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput i
 	ToExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput
 }
 
+// The data sources for the experiment report.
 type ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs struct {
 	CloudWatchDashboards ExperimentTemplateCloudWatchDashboardArrayInput `pulumi:"cloudWatchDashboards"`
 }
@@ -657,6 +678,7 @@ func (i *experimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtr
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput)
 }
 
+// The data sources for the experiment report.
 type ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput) ElementType() reflect.Type {
@@ -720,6 +742,7 @@ func (o ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrO
 	}).(ExperimentTemplateCloudWatchDashboardArrayOutput)
 }
 
+// The output destinations of the experiment report.
 type ExperimentTemplateExperimentReportConfigurationOutputsProperties struct {
 	ExperimentReportS3Configuration ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties `pulumi:"experimentReportS3Configuration"`
 }
@@ -735,6 +758,7 @@ type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput inter
 	ToExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutputWithContext(context.Context) ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput
 }
 
+// The output destinations of the experiment report.
 type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs struct {
 	ExperimentReportS3Configuration ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationPropertiesInput `pulumi:"experimentReportS3Configuration"`
 }
@@ -792,6 +816,7 @@ func (i *experimentTemplateExperimentReportConfigurationOutputsPropertiesPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(ExperimentTemplateExperimentReportConfigurationOutputsPropertiesPtrOutput)
 }
 
+// The output destinations of the experiment report.
 type ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ExperimentTemplateExperimentReportConfigurationOutputsPropertiesOutput) ElementType() reflect.Type {

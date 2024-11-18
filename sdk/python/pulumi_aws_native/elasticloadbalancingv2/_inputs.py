@@ -3028,6 +3028,9 @@ if not MYPY:
         [Network Load Balancers] The private IPv4 address for an internal load balancer.
         """
         source_nat_ipv6_prefix: NotRequired[pulumi.Input[str]]
+        """
+        [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+        """
 elif False:
     LoadBalancerSubnetMappingArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3045,6 +3048,7 @@ class LoadBalancerSubnetMappingArgs:
         :param pulumi.Input[str] allocation_id: [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
         :param pulumi.Input[str] i_pv6_address: [Network Load Balancers] The IPv6 address.
         :param pulumi.Input[str] private_i_pv4_address: [Network Load Balancers] The private IPv4 address for an internal load balancer.
+        :param pulumi.Input[str] source_nat_ipv6_prefix: [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
@@ -3107,6 +3111,9 @@ class LoadBalancerSubnetMappingArgs:
     @property
     @pulumi.getter(name="sourceNatIpv6Prefix")
     def source_nat_ipv6_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+        """
         return pulumi.get(self, "source_nat_ipv6_prefix")
 
     @source_nat_ipv6_prefix.setter

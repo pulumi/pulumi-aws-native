@@ -30,6 +30,10 @@ export interface GetConnectionResult {
      */
     readonly arn?: string;
     /**
+     * A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+     */
+    readonly authParameters?: outputs.events.ConnectionAuthParameters;
+    /**
      * The type of authorization to use for the connection.
      *
      * > OAUTH tokens are refreshed when a 401 or 407 response is returned.

@@ -31,6 +31,7 @@ class NodegroupArgs:
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input['NodegroupLaunchTemplateSpecificationArgs']] = None,
+                 node_repair_config: Optional[pulumi.Input['NodegroupNodeRepairConfigArgs']] = None,
                  nodegroup_name: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
                  remote_access: Optional[pulumi.Input['NodegroupRemoteAccessArgs']] = None,
@@ -51,6 +52,7 @@ class NodegroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Specify the instance types for a node group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
         :param pulumi.Input['NodegroupLaunchTemplateSpecificationArgs'] launch_template: An object representing a node group's launch template specification.
+        :param pulumi.Input['NodegroupNodeRepairConfigArgs'] node_repair_config: The node auto repair configuration for node group.
         :param pulumi.Input[str] nodegroup_name: The unique name to give your node group.
         :param pulumi.Input[str] release_version: The AMI version of the Amazon EKS-optimized AMI to use with your node group.
         :param pulumi.Input['NodegroupRemoteAccessArgs'] remote_access: The remote access (SSH) configuration to use with your node group.
@@ -77,6 +79,8 @@ class NodegroupArgs:
             pulumi.set(__self__, "labels", labels)
         if launch_template is not None:
             pulumi.set(__self__, "launch_template", launch_template)
+        if node_repair_config is not None:
+            pulumi.set(__self__, "node_repair_config", node_repair_config)
         if nodegroup_name is not None:
             pulumi.set(__self__, "nodegroup_name", nodegroup_name)
         if release_version is not None:
@@ -215,6 +219,18 @@ class NodegroupArgs:
         pulumi.set(self, "launch_template", value)
 
     @property
+    @pulumi.getter(name="nodeRepairConfig")
+    def node_repair_config(self) -> Optional[pulumi.Input['NodegroupNodeRepairConfigArgs']]:
+        """
+        The node auto repair configuration for node group.
+        """
+        return pulumi.get(self, "node_repair_config")
+
+    @node_repair_config.setter
+    def node_repair_config(self, value: Optional[pulumi.Input['NodegroupNodeRepairConfigArgs']]):
+        pulumi.set(self, "node_repair_config", value)
+
+    @property
     @pulumi.getter(name="nodegroupName")
     def nodegroup_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -324,6 +340,7 @@ class Nodegroup(pulumi.CustomResource):
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input[Union['NodegroupLaunchTemplateSpecificationArgs', 'NodegroupLaunchTemplateSpecificationArgsDict']]] = None,
+                 node_repair_config: Optional[pulumi.Input[Union['NodegroupNodeRepairConfigArgs', 'NodegroupNodeRepairConfigArgsDict']]] = None,
                  node_role: Optional[pulumi.Input[str]] = None,
                  nodegroup_name: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
@@ -398,6 +415,7 @@ class Nodegroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Specify the instance types for a node group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: The Kubernetes labels to be applied to the nodes in the node group when they are created.
         :param pulumi.Input[Union['NodegroupLaunchTemplateSpecificationArgs', 'NodegroupLaunchTemplateSpecificationArgsDict']] launch_template: An object representing a node group's launch template specification.
+        :param pulumi.Input[Union['NodegroupNodeRepairConfigArgs', 'NodegroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for node group.
         :param pulumi.Input[str] node_role: The Amazon Resource Name (ARN) of the IAM role to associate with your node group.
         :param pulumi.Input[str] nodegroup_name: The unique name to give your node group.
         :param pulumi.Input[str] release_version: The AMI version of the Amazon EKS-optimized AMI to use with your node group.
@@ -491,6 +509,7 @@ class Nodegroup(pulumi.CustomResource):
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  launch_template: Optional[pulumi.Input[Union['NodegroupLaunchTemplateSpecificationArgs', 'NodegroupLaunchTemplateSpecificationArgsDict']]] = None,
+                 node_repair_config: Optional[pulumi.Input[Union['NodegroupNodeRepairConfigArgs', 'NodegroupNodeRepairConfigArgsDict']]] = None,
                  node_role: Optional[pulumi.Input[str]] = None,
                  nodegroup_name: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
@@ -520,6 +539,7 @@ class Nodegroup(pulumi.CustomResource):
             __props__.__dict__["instance_types"] = instance_types
             __props__.__dict__["labels"] = labels
             __props__.__dict__["launch_template"] = launch_template
+            __props__.__dict__["node_repair_config"] = node_repair_config
             if node_role is None and not opts.urn:
                 raise TypeError("Missing required property 'node_role'")
             __props__.__dict__["node_role"] = node_role
@@ -570,6 +590,7 @@ class Nodegroup(pulumi.CustomResource):
         __props__.__dict__["instance_types"] = None
         __props__.__dict__["labels"] = None
         __props__.__dict__["launch_template"] = None
+        __props__.__dict__["node_repair_config"] = None
         __props__.__dict__["node_role"] = None
         __props__.__dict__["nodegroup_name"] = None
         __props__.__dict__["release_version"] = None
@@ -658,6 +679,14 @@ class Nodegroup(pulumi.CustomResource):
         An object representing a node group's launch template specification.
         """
         return pulumi.get(self, "launch_template")
+
+    @property
+    @pulumi.getter(name="nodeRepairConfig")
+    def node_repair_config(self) -> pulumi.Output[Optional['outputs.NodegroupNodeRepairConfig']]:
+        """
+        The node auto repair configuration for node group.
+        """
+        return pulumi.get(self, "node_repair_config")
 
     @property
     @pulumi.getter(name="nodeRole")

@@ -1041,6 +1041,7 @@ if not MYPY:
         """
         instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
         on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
+        override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
         threads_per_core: NotRequired[pulumi.Input[int]]
         """
         The number you specified to TreadsPerCore in CreateCluster for enabling or disabling multithreading. For instance types that support multithreading, you can specify 1 for disabling multithreading and 2 for enabling multithreading.
@@ -1059,6 +1060,7 @@ class ClusterInstanceGroupArgs:
                  current_count: Optional[pulumi.Input[int]] = None,
                  instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
+                 override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
                  threads_per_core: Optional[pulumi.Input[int]] = None):
         """
         Details of an instance group in a SageMaker HyperPod cluster.
@@ -1077,6 +1079,8 @@ class ClusterInstanceGroupArgs:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if on_start_deep_health_checks is not None:
             pulumi.set(__self__, "on_start_deep_health_checks", on_start_deep_health_checks)
+        if override_vpc_config is not None:
+            pulumi.set(__self__, "override_vpc_config", override_vpc_config)
         if threads_per_core is not None:
             pulumi.set(__self__, "threads_per_core", threads_per_core)
 
@@ -1157,6 +1161,15 @@ class ClusterInstanceGroupArgs:
     @on_start_deep_health_checks.setter
     def on_start_deep_health_checks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]):
         pulumi.set(self, "on_start_deep_health_checks", value)
+
+    @property
+    @pulumi.getter(name="overrideVpcConfig")
+    def override_vpc_config(self) -> Optional[pulumi.Input['ClusterVpcConfigArgs']]:
+        return pulumi.get(self, "override_vpc_config")
+
+    @override_vpc_config.setter
+    def override_vpc_config(self, value: Optional[pulumi.Input['ClusterVpcConfigArgs']]):
+        pulumi.set(self, "override_vpc_config", value)
 
     @property
     @pulumi.getter(name="threadsPerCore")

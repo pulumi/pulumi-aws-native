@@ -22,8 +22,14 @@ __all__ = [
     'AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgsDict',
     'AutoScalingGroupAvailabilityZoneDistributionArgs',
     'AutoScalingGroupAvailabilityZoneDistributionArgsDict',
+    'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs',
+    'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict',
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs',
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgsDict',
+    'AutoScalingGroupBaselinePerformanceFactorsRequestArgs',
+    'AutoScalingGroupBaselinePerformanceFactorsRequestArgsDict',
+    'AutoScalingGroupCpuPerformanceFactorRequestArgs',
+    'AutoScalingGroupCpuPerformanceFactorRequestArgsDict',
     'AutoScalingGroupInstanceMaintenancePolicyArgs',
     'AutoScalingGroupInstanceMaintenancePolicyArgsDict',
     'AutoScalingGroupInstanceRequirementsArgs',
@@ -52,6 +58,8 @@ __all__ = [
     'AutoScalingGroupNetworkInterfaceCountRequestArgsDict',
     'AutoScalingGroupNotificationConfigurationArgs',
     'AutoScalingGroupNotificationConfigurationArgsDict',
+    'AutoScalingGroupPerformanceFactorReferenceRequestArgs',
+    'AutoScalingGroupPerformanceFactorReferenceRequestArgsDict',
     'AutoScalingGroupTagPropertyArgs',
     'AutoScalingGroupTagPropertyArgsDict',
     'AutoScalingGroupTotalLocalStorageGbRequestArgs',
@@ -262,6 +270,40 @@ class AutoScalingGroupAvailabilityZoneDistributionArgs:
 
 
 if not MYPY:
+    class AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict(TypedDict):
+        impaired_zone_health_check_behavior: pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior']
+        zonal_shift_enabled: pulumi.Input[bool]
+elif False:
+    AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs:
+    def __init__(__self__, *,
+                 impaired_zone_health_check_behavior: pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior'],
+                 zonal_shift_enabled: pulumi.Input[bool]):
+        pulumi.set(__self__, "impaired_zone_health_check_behavior", impaired_zone_health_check_behavior)
+        pulumi.set(__self__, "zonal_shift_enabled", zonal_shift_enabled)
+
+    @property
+    @pulumi.getter(name="impairedZoneHealthCheckBehavior")
+    def impaired_zone_health_check_behavior(self) -> pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior']:
+        return pulumi.get(self, "impaired_zone_health_check_behavior")
+
+    @impaired_zone_health_check_behavior.setter
+    def impaired_zone_health_check_behavior(self, value: pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior']):
+        pulumi.set(self, "impaired_zone_health_check_behavior", value)
+
+    @property
+    @pulumi.getter(name="zonalShiftEnabled")
+    def zonal_shift_enabled(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "zonal_shift_enabled")
+
+    @zonal_shift_enabled.setter
+    def zonal_shift_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "zonal_shift_enabled", value)
+
+
+if not MYPY:
     class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgsDict(TypedDict):
         """
         ``BaselineEbsBandwidthMbpsRequest`` is a property of the ``InstanceRequirements`` property of the [AWS::AutoScaling::AutoScalingGroup LaunchTemplateOverrides](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html) property type that describes the minimum and maximum baseline bandwidth performance for an instance type, in Mbps.
@@ -315,6 +357,52 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class AutoScalingGroupBaselinePerformanceFactorsRequestArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input['AutoScalingGroupCpuPerformanceFactorRequestArgsDict']]
+elif False:
+    AutoScalingGroupBaselinePerformanceFactorsRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupBaselinePerformanceFactorsRequestArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input['AutoScalingGroupCpuPerformanceFactorRequestArgs']] = None):
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input['AutoScalingGroupCpuPerformanceFactorRequestArgs']]:
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input['AutoScalingGroupCpuPerformanceFactorRequestArgs']]):
+        pulumi.set(self, "cpu", value)
+
+
+if not MYPY:
+    class AutoScalingGroupCpuPerformanceFactorRequestArgsDict(TypedDict):
+        references: NotRequired[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupPerformanceFactorReferenceRequestArgsDict']]]]
+elif False:
+    AutoScalingGroupCpuPerformanceFactorRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupCpuPerformanceFactorRequestArgs:
+    def __init__(__self__, *,
+                 references: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupPerformanceFactorReferenceRequestArgs']]]] = None):
+        if references is not None:
+            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupPerformanceFactorReferenceRequestArgs']]]]:
+        return pulumi.get(self, "references")
+
+    @references.setter
+    def references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupPerformanceFactorReferenceRequestArgs']]]]):
+        pulumi.set(self, "references", value)
 
 
 if not MYPY:
@@ -461,6 +549,7 @@ if not MYPY:
         The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
          Default: No minimum or maximum limits
         """
+        baseline_performance_factors: NotRequired[pulumi.Input['AutoScalingGroupBaselinePerformanceFactorsRequestArgsDict']]
         burstable_performance: NotRequired[pulumi.Input[str]]
         """
         Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
@@ -567,6 +656,7 @@ class AutoScalingGroupInstanceRequirementsArgs:
                  allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs']] = None,
+                 baseline_performance_factors: Optional[pulumi.Input['AutoScalingGroupBaselinePerformanceFactorsRequestArgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
                  cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -698,6 +788,8 @@ class AutoScalingGroupInstanceRequirementsArgs:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
             pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if baseline_performance_factors is not None:
+            pulumi.set(__self__, "baseline_performance_factors", baseline_performance_factors)
         if burstable_performance is not None:
             pulumi.set(__self__, "burstable_performance", burstable_performance)
         if cpu_manufacturers is not None:
@@ -875,6 +967,15 @@ class AutoScalingGroupInstanceRequirementsArgs:
     @baseline_ebs_bandwidth_mbps.setter
     def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs']]):
         pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
+
+    @property
+    @pulumi.getter(name="baselinePerformanceFactors")
+    def baseline_performance_factors(self) -> Optional[pulumi.Input['AutoScalingGroupBaselinePerformanceFactorsRequestArgs']]:
+        return pulumi.get(self, "baseline_performance_factors")
+
+    @baseline_performance_factors.setter
+    def baseline_performance_factors(self, value: Optional[pulumi.Input['AutoScalingGroupBaselinePerformanceFactorsRequestArgs']]):
+        pulumi.set(self, "baseline_performance_factors", value)
 
     @property
     @pulumi.getter(name="burstablePerformance")
@@ -2208,6 +2309,29 @@ class AutoScalingGroupNotificationConfigurationArgs:
     @notification_types.setter
     def notification_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "notification_types", value)
+
+
+if not MYPY:
+    class AutoScalingGroupPerformanceFactorReferenceRequestArgsDict(TypedDict):
+        instance_family: NotRequired[pulumi.Input[str]]
+elif False:
+    AutoScalingGroupPerformanceFactorReferenceRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupPerformanceFactorReferenceRequestArgs:
+    def __init__(__self__, *,
+                 instance_family: Optional[pulumi.Input[str]] = None):
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_family")
+
+    @instance_family.setter
+    def instance_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_family", value)
 
 
 if not MYPY:

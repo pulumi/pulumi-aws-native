@@ -34,18 +34,20 @@ export type UserAuthenticationModePropertiesType = (typeof UserAuthenticationMod
 
 export const UserEngine = {
     Redis: "redis",
+    Valkey: "valkey",
 } as const;
 
 /**
- * Must be redis.
+ * The target cache engine for the user.
  */
 export type UserEngine = (typeof UserEngine)[keyof typeof UserEngine];
 
 export const UserGroupEngine = {
     Redis: "redis",
+    Valkey: "valkey",
 } as const;
 
 /**
- * Must be redis.
+ * The target cache engine for the user group.
  */
 export type UserGroupEngine = (typeof UserGroupEngine)[keyof typeof UserGroupEngine];

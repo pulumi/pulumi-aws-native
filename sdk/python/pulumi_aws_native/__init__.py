@@ -126,6 +126,8 @@ if typing.TYPE_CHECKING:
     connect = __connect
     import pulumi_aws_native.connectcampaigns as __connectcampaigns
     connectcampaigns = __connectcampaigns
+    import pulumi_aws_native.connectcampaignsv2 as __connectcampaignsv2
+    connectcampaignsv2 = __connectcampaignsv2
     import pulumi_aws_native.controltower as __controltower
     controltower = __controltower
     import pulumi_aws_native.customerprofiles as __customerprofiles
@@ -509,6 +511,7 @@ else:
     configuration = _utilities.lazy_import('pulumi_aws_native.configuration')
     connect = _utilities.lazy_import('pulumi_aws_native.connect')
     connectcampaigns = _utilities.lazy_import('pulumi_aws_native.connectcampaigns')
+    connectcampaignsv2 = _utilities.lazy_import('pulumi_aws_native.connectcampaignsv2')
     controltower = _utilities.lazy_import('pulumi_aws_native.controltower')
     customerprofiles = _utilities.lazy_import('pulumi_aws_native.customerprofiles')
     databrew = _utilities.lazy_import('pulumi_aws_native.databrew')
@@ -1277,6 +1280,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.connectcampaigns",
   "classes": {
    "aws-native:connectcampaigns:Campaign": "Campaign"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "connectcampaignsv2",
+  "fqn": "pulumi_aws_native.connectcampaignsv2",
+  "classes": {
+   "aws-native:connectcampaignsv2:Campaign": "Campaign"
   }
  },
  {

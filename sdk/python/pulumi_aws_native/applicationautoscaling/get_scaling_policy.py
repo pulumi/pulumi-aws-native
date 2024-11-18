@@ -24,13 +24,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetScalingPolicyResult:
-    def __init__(__self__, arn=None, policy_type=None, step_scaling_policy_configuration=None, target_tracking_scaling_policy_configuration=None):
+    def __init__(__self__, arn=None, policy_type=None, predictive_scaling_policy_configuration=None, step_scaling_policy_configuration=None, target_tracking_scaling_policy_configuration=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if policy_type and not isinstance(policy_type, str):
             raise TypeError("Expected argument 'policy_type' to be a str")
         pulumi.set(__self__, "policy_type", policy_type)
+        if predictive_scaling_policy_configuration and not isinstance(predictive_scaling_policy_configuration, dict):
+            raise TypeError("Expected argument 'predictive_scaling_policy_configuration' to be a dict")
+        pulumi.set(__self__, "predictive_scaling_policy_configuration", predictive_scaling_policy_configuration)
         if step_scaling_policy_configuration and not isinstance(step_scaling_policy_configuration, dict):
             raise TypeError("Expected argument 'step_scaling_policy_configuration' to be a dict")
         pulumi.set(__self__, "step_scaling_policy_configuration", step_scaling_policy_configuration)
@@ -58,6 +61,11 @@ class GetScalingPolicyResult:
         return pulumi.get(self, "policy_type")
 
     @property
+    @pulumi.getter(name="predictiveScalingPolicyConfiguration")
+    def predictive_scaling_policy_configuration(self) -> Optional['outputs.ScalingPolicyPredictiveScalingPolicyConfiguration']:
+        return pulumi.get(self, "predictive_scaling_policy_configuration")
+
+    @property
     @pulumi.getter(name="stepScalingPolicyConfiguration")
     def step_scaling_policy_configuration(self) -> Optional['outputs.ScalingPolicyStepScalingPolicyConfiguration']:
         """
@@ -82,6 +90,7 @@ class AwaitableGetScalingPolicyResult(GetScalingPolicyResult):
         return GetScalingPolicyResult(
             arn=self.arn,
             policy_type=self.policy_type,
+            predictive_scaling_policy_configuration=self.predictive_scaling_policy_configuration,
             step_scaling_policy_configuration=self.step_scaling_policy_configuration,
             target_tracking_scaling_policy_configuration=self.target_tracking_scaling_policy_configuration)
 
@@ -129,6 +138,7 @@ def get_scaling_policy(arn: Optional[str] = None,
     return AwaitableGetScalingPolicyResult(
         arn=pulumi.get(__ret__, 'arn'),
         policy_type=pulumi.get(__ret__, 'policy_type'),
+        predictive_scaling_policy_configuration=pulumi.get(__ret__, 'predictive_scaling_policy_configuration'),
         step_scaling_policy_configuration=pulumi.get(__ret__, 'step_scaling_policy_configuration'),
         target_tracking_scaling_policy_configuration=pulumi.get(__ret__, 'target_tracking_scaling_policy_configuration'))
 def get_scaling_policy_output(arn: Optional[pulumi.Input[str]] = None,
@@ -173,5 +183,6 @@ def get_scaling_policy_output(arn: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetScalingPolicyResult(
         arn=pulumi.get(__response__, 'arn'),
         policy_type=pulumi.get(__response__, 'policy_type'),
+        predictive_scaling_policy_configuration=pulumi.get(__response__, 'predictive_scaling_policy_configuration'),
         step_scaling_policy_configuration=pulumi.get(__response__, 'step_scaling_policy_configuration'),
         target_tracking_scaling_policy_configuration=pulumi.get(__response__, 'target_tracking_scaling_policy_configuration')))

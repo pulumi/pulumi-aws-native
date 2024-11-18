@@ -36,6 +36,7 @@ import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
 import * as comprehend from "./comprehend";
 import * as connect from "./connect";
+import * as connectcampaignsv2 from "./connectcampaignsv2";
 import * as controltower from "./controltower";
 import * as customerprofiles from "./customerprofiles";
 import * as databrew from "./databrew";
@@ -205,6 +206,7 @@ export {
     codestarnotifications,
     comprehend,
     connect,
+    connectcampaignsv2,
     controltower,
     customerprofiles,
     databrew,

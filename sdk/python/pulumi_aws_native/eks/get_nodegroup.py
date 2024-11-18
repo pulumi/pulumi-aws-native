@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetNodegroupResult:
-    def __init__(__self__, arn=None, id=None, labels=None, launch_template=None, release_version=None, scaling_config=None, tags=None, taints=None, update_config=None, version=None):
+    def __init__(__self__, arn=None, id=None, labels=None, launch_template=None, node_repair_config=None, release_version=None, scaling_config=None, tags=None, taints=None, update_config=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetNodegroupResult:
         if launch_template and not isinstance(launch_template, dict):
             raise TypeError("Expected argument 'launch_template' to be a dict")
         pulumi.set(__self__, "launch_template", launch_template)
+        if node_repair_config and not isinstance(node_repair_config, dict):
+            raise TypeError("Expected argument 'node_repair_config' to be a dict")
+        pulumi.set(__self__, "node_repair_config", node_repair_config)
         if release_version and not isinstance(release_version, str):
             raise TypeError("Expected argument 'release_version' to be a str")
         pulumi.set(__self__, "release_version", release_version)
@@ -84,6 +87,14 @@ class GetNodegroupResult:
         An object representing a node group's launch template specification.
         """
         return pulumi.get(self, "launch_template")
+
+    @property
+    @pulumi.getter(name="nodeRepairConfig")
+    def node_repair_config(self) -> Optional['outputs.NodegroupNodeRepairConfig']:
+        """
+        The node auto repair configuration for node group.
+        """
+        return pulumi.get(self, "node_repair_config")
 
     @property
     @pulumi.getter(name="releaseVersion")
@@ -144,6 +155,7 @@ class AwaitableGetNodegroupResult(GetNodegroupResult):
             id=self.id,
             labels=self.labels,
             launch_template=self.launch_template,
+            node_repair_config=self.node_repair_config,
             release_version=self.release_version,
             scaling_config=self.scaling_config,
             tags=self.tags,
@@ -167,6 +179,7 @@ def get_nodegroup(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         labels=pulumi.get(__ret__, 'labels'),
         launch_template=pulumi.get(__ret__, 'launch_template'),
+        node_repair_config=pulumi.get(__ret__, 'node_repair_config'),
         release_version=pulumi.get(__ret__, 'release_version'),
         scaling_config=pulumi.get(__ret__, 'scaling_config'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -187,6 +200,7 @@ def get_nodegroup_output(id: Optional[pulumi.Input[str]] = None,
         id=pulumi.get(__response__, 'id'),
         labels=pulumi.get(__response__, 'labels'),
         launch_template=pulumi.get(__response__, 'launch_template'),
+        node_repair_config=pulumi.get(__response__, 'node_repair_config'),
         release_version=pulumi.get(__response__, 'release_version'),
         scaling_config=pulumi.get(__response__, 'scaling_config'),
         tags=pulumi.get(__response__, 'tags'),

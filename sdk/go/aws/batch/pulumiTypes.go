@@ -1097,15 +1097,22 @@ type ComputeEnvironmentLaunchTemplateSpecification struct {
 	// The ID of the launch template.
 	LaunchTemplateId *string `pulumi:"launchTemplateId"`
 	// The name of the launch template.
-	LaunchTemplateName *string                                                 `pulumi:"launchTemplateName"`
-	Overrides          []ComputeEnvironmentLaunchTemplateSpecificationOverride `pulumi:"overrides"`
-	// The version number of the launch template, `$Latest` , or `$Default` .
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	// A launch template to use in place of the default launch template. You must specify either the launch template ID or launch template name in the request, but not both.
 	//
-	// If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
+	// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
 	//
-	// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Latest` or `$Default` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
+	Overrides []ComputeEnvironmentLaunchTemplateSpecificationOverride `pulumi:"overrides"`
+	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
-	// Default: `$Default` .
+	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
+	//
+	// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Default` or `$Latest` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	//
+	// Default: `$Default`
+	//
+	// Latest: `$Latest`
 	Version *string `pulumi:"version"`
 }
 
@@ -1124,15 +1131,22 @@ type ComputeEnvironmentLaunchTemplateSpecificationArgs struct {
 	// The ID of the launch template.
 	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
 	// The name of the launch template.
-	LaunchTemplateName pulumi.StringPtrInput                                           `pulumi:"launchTemplateName"`
-	Overrides          ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput `pulumi:"overrides"`
-	// The version number of the launch template, `$Latest` , or `$Default` .
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	// A launch template to use in place of the default launch template. You must specify either the launch template ID or launch template name in the request, but not both.
 	//
-	// If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
+	// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
 	//
-	// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Latest` or `$Default` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
+	Overrides ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput `pulumi:"overrides"`
+	// The version number of the launch template, `$Default` , or `$Latest` .
 	//
-	// Default: `$Default` .
+	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
+	//
+	// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Default` or `$Latest` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	//
+	// Default: `$Default`
+	//
+	// Latest: `$Latest`
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -1223,19 +1237,26 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) LaunchTemplateName(
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecification) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
+// A launch template to use in place of the default launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+//
+// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
+//
+// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
 func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) Overrides() ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecification) []ComputeEnvironmentLaunchTemplateSpecificationOverride {
 		return v.Overrides
 	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
 }
 
-// The version number of the launch template, `$Latest` , or `$Default` .
+// The version number of the launch template, `$Default` , or `$Latest` .
 //
-// If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
+// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
 //
-// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Latest` or `$Default` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Default` or `$Latest` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 //
-// Default: `$Default` .
+// Default: `$Default`
+//
+// Latest: `$Latest`
 func (o ComputeEnvironmentLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -1284,6 +1305,11 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) LaunchTemplateNa
 	}).(pulumi.StringPtrOutput)
 }
 
+// A launch template to use in place of the default launch template. You must specify either the launch template ID or launch template name in the request, but not both.
+//
+// You can specify up to ten (10) launch template overrides that are associated to unique instance types or families for each compute environment.
+//
+// > To unset all override templates for a compute environment, you can pass an empty array to the [UpdateComputeEnvironment.overrides](https://docs.aws.amazon.com/batch/latest/APIReference/API_UpdateComputeEnvironment.html) parameter, or not include the `overrides` parameter when submitting the `UpdateComputeEnvironment` API operation.
 func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Overrides() ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentLaunchTemplateSpecification) []ComputeEnvironmentLaunchTemplateSpecificationOverride {
 		if v == nil {
@@ -1293,13 +1319,15 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Overrides() Comp
 	}).(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput)
 }
 
-// The version number of the launch template, `$Latest` , or `$Default` .
+// The version number of the launch template, `$Default` , or `$Latest` .
 //
-// If the value is `$Latest` , the latest version of the launch template is used. If the value is `$Default` , the default version of the launch template is used.
+// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
 //
-// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Latest` or `$Default` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Default` or `$Latest` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
 //
-// Default: `$Default` .
+// Default: `$Default`
+//
+// Latest: `$Latest`
 func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentLaunchTemplateSpecification) *string {
 		if v == nil {
@@ -1310,10 +1338,35 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationPtrOutput) Version() pulumi
 }
 
 type ComputeEnvironmentLaunchTemplateSpecificationOverride struct {
-	LaunchTemplateId    *string  `pulumi:"launchTemplateId"`
-	LaunchTemplateName  *string  `pulumi:"launchTemplateName"`
+	// The ID of the launch template.
+	//
+	// *Note:* If you specify the `launchTemplateId` you can't specify the `launchTemplateName` as well.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// The name of the launch template.
+	//
+	// *Note:* If you specify the `launchTemplateName` you can't specify the `launchTemplateId` as well.
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	// The instance type or family that this this override launch template should be applied to.
+	//
+	// This parameter is required when defining a launch template override.
+	//
+	// Information included in this parameter must meet the following requirements:
+	//
+	// - Must be a valid Amazon EC2 instance type or family.
+	// - `optimal` isn't allowed.
+	// - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
+	// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
 	TargetInstanceTypes []string `pulumi:"targetInstanceTypes"`
-	Version             *string  `pulumi:"version"`
+	// The version number of the launch template, `$Default` , or `$Latest` .
+	//
+	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
+	//
+	// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Default` or `$Latest` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	//
+	// Default: `$Default`
+	//
+	// Latest: `$Latest`
+	Version *string `pulumi:"version"`
 }
 
 // ComputeEnvironmentLaunchTemplateSpecificationOverrideInput is an input type that accepts ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs and ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput values.
@@ -1328,10 +1381,35 @@ type ComputeEnvironmentLaunchTemplateSpecificationOverrideInput interface {
 }
 
 type ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs struct {
-	LaunchTemplateId    pulumi.StringPtrInput   `pulumi:"launchTemplateId"`
-	LaunchTemplateName  pulumi.StringPtrInput   `pulumi:"launchTemplateName"`
+	// The ID of the launch template.
+	//
+	// *Note:* If you specify the `launchTemplateId` you can't specify the `launchTemplateName` as well.
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The name of the launch template.
+	//
+	// *Note:* If you specify the `launchTemplateName` you can't specify the `launchTemplateId` as well.
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	// The instance type or family that this this override launch template should be applied to.
+	//
+	// This parameter is required when defining a launch template override.
+	//
+	// Information included in this parameter must meet the following requirements:
+	//
+	// - Must be a valid Amazon EC2 instance type or family.
+	// - `optimal` isn't allowed.
+	// - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
+	// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
 	TargetInstanceTypes pulumi.StringArrayInput `pulumi:"targetInstanceTypes"`
-	Version             pulumi.StringPtrInput   `pulumi:"version"`
+	// The version number of the launch template, `$Default` , or `$Latest` .
+	//
+	// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
+	//
+	// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Default` or `$Latest` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+	//
+	// Default: `$Default`
+	//
+	// Latest: `$Latest`
+	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
 func (ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs) ElementType() reflect.Type {
@@ -1385,18 +1463,43 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) ToComputeEn
 	return o
 }
 
+// The ID of the launch template.
+//
+// *Note:* If you specify the `launchTemplateId` you can't specify the `launchTemplateName` as well.
 func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) LaunchTemplateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *string { return v.LaunchTemplateId }).(pulumi.StringPtrOutput)
 }
 
+// The name of the launch template.
+//
+// *Note:* If you specify the `launchTemplateName` you can't specify the `launchTemplateId` as well.
 func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) LaunchTemplateName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
+// The instance type or family that this this override launch template should be applied to.
+//
+// This parameter is required when defining a launch template override.
+//
+// Information included in this parameter must meet the following requirements:
+//
+// - Must be a valid Amazon EC2 instance type or family.
+// - `optimal` isn't allowed.
+// - `targetInstanceTypes` can target only instance types and families that are included within the [`ComputeResource.instanceTypes`](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-instanceTypes) set. `targetInstanceTypes` doesn't need to include all of the instances from the `instanceType` set, but at least a subset. For example, if `ComputeResource.instanceTypes` includes `[m5, g5]` , `targetInstanceTypes` can include `[m5.2xlarge]` and `[m5.large]` but not `[c5.large]` .
+// - `targetInstanceTypes` included within the same launch template override or across launch template overrides can't overlap for the same compute environment. For example, you can't define one launch template override to target an instance family and another define an instance type within this same family.
 func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) TargetInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) []string { return v.TargetInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
+// The version number of the launch template, `$Default` , or `$Latest` .
+//
+// If the value is `$Default` , the default version of the launch template is used. If the value is `$Latest` , the latest version of the launch template is used.
+//
+// > If the AMI ID that's used in a compute environment is from the launch template, the AMI isn't changed when the compute environment is updated. It's only changed if the `updateToLatestImageVersion` parameter for the compute environment is set to `true` . During an infrastructure update, if either `$Default` or `$Latest` is specified, AWS Batch re-evaluates the launch template version, and it might use a different version of the launch template. This is the case even if the launch template isn't specified in the update. When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
+//
+// Default: `$Default`
+//
+// Latest: `$Latest`
 func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

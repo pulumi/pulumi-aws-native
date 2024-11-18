@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['ServiceNetworkArgs', 'ServiceNetwork']
 
@@ -24,6 +26,7 @@ class ServiceNetworkArgs:
     def __init__(__self__, *,
                  auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sharing_config: Optional[pulumi.Input['ServiceNetworkSharingConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetwork resource.
@@ -40,6 +43,8 @@ class ServiceNetworkArgs:
             pulumi.set(__self__, "auth_type", auth_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if sharing_config is not None:
+            pulumi.set(__self__, "sharing_config", sharing_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -73,6 +78,15 @@ class ServiceNetworkArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="sharingConfig")
+    def sharing_config(self) -> Optional[pulumi.Input['ServiceNetworkSharingConfigArgs']]:
+        return pulumi.get(self, "sharing_config")
+
+    @sharing_config.setter
+    def sharing_config(self, value: Optional[pulumi.Input['ServiceNetworkSharingConfigArgs']]):
+        pulumi.set(self, "sharing_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -92,6 +106,7 @@ class ServiceNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sharing_config: Optional[pulumi.Input[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -134,6 +149,7 @@ class ServiceNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: Optional[pulumi.Input['ServiceNetworkAuthType']] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 sharing_config: Optional[pulumi.Input[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -146,6 +162,7 @@ class ServiceNetwork(pulumi.CustomResource):
 
             __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["name"] = name
+            __props__.__dict__["sharing_config"] = sharing_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
@@ -181,6 +198,7 @@ class ServiceNetwork(pulumi.CustomResource):
         __props__.__dict__["created_at"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["sharing_config"] = None
         __props__.__dict__["tags"] = None
         return ServiceNetwork(resource_name, opts=opts, __props__=__props__)
 
@@ -236,6 +254,11 @@ class ServiceNetwork(pulumi.CustomResource):
         If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sharingConfig")
+    def sharing_config(self) -> pulumi.Output[Optional['outputs.ServiceNetworkSharingConfig']]:
+        return pulumi.get(self, "sharing_config")
 
     @property
     @pulumi.getter

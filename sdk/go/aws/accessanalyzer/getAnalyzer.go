@@ -29,6 +29,8 @@ type LookupAnalyzerArgs struct {
 }
 
 type LookupAnalyzerResult struct {
+	// The configuration for the analyzer
+	AnalyzerConfiguration *AnalyzerConfigurationProperties `pulumi:"analyzerConfiguration"`
 	// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
 	ArchiveRules []AnalyzerArchiveRule `pulumi:"archiveRules"`
 	// Amazon Resource Name (ARN) of the analyzer
@@ -77,6 +79,11 @@ func (o LookupAnalyzerResultOutput) ToLookupAnalyzerResultOutput() LookupAnalyze
 
 func (o LookupAnalyzerResultOutput) ToLookupAnalyzerResultOutputWithContext(ctx context.Context) LookupAnalyzerResultOutput {
 	return o
+}
+
+// The configuration for the analyzer
+func (o LookupAnalyzerResultOutput) AnalyzerConfiguration() AnalyzerConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupAnalyzerResult) *AnalyzerConfigurationProperties { return v.AnalyzerConfiguration }).(AnalyzerConfigurationPropertiesPtrOutput)
 }
 
 // Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.

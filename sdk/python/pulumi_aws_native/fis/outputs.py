@@ -142,11 +142,17 @@ class ExperimentTemplateCloudWatchDashboard(dict):
 
     def __init__(__self__, *,
                  dashboard_identifier: str):
+        """
+        :param str dashboard_identifier: The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
+        """
         pulumi.set(__self__, "dashboard_identifier", dashboard_identifier)
 
     @property
     @pulumi.getter(name="dashboardIdentifier")
     def dashboard_identifier(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
+        """
         return pulumi.get(self, "dashboard_identifier")
 
 
@@ -228,6 +234,12 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
                  outputs: 'outputs.ExperimentTemplateExperimentReportConfigurationOutputsProperties',
                  post_experiment_duration: Optional[str] = None,
                  pre_experiment_duration: Optional[str] = None):
+        """
+        :param 'ExperimentTemplateExperimentReportConfigurationDataSourcesProperties' data_sources: The data sources for the experiment report.
+        :param 'ExperimentTemplateExperimentReportConfigurationOutputsProperties' outputs: The output destinations of the experiment report.
+        :param str post_experiment_duration: The duration after the experiment end time for the data sources to include in the report.
+        :param str pre_experiment_duration: The duration before the experiment start time for the data sources to include in the report.
+        """
         pulumi.set(__self__, "data_sources", data_sources)
         pulumi.set(__self__, "outputs", outputs)
         if post_experiment_duration is not None:
@@ -238,26 +250,41 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
     @property
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> 'outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties':
+        """
+        The data sources for the experiment report.
+        """
         return pulumi.get(self, "data_sources")
 
     @property
     @pulumi.getter
     def outputs(self) -> 'outputs.ExperimentTemplateExperimentReportConfigurationOutputsProperties':
+        """
+        The output destinations of the experiment report.
+        """
         return pulumi.get(self, "outputs")
 
     @property
     @pulumi.getter(name="postExperimentDuration")
     def post_experiment_duration(self) -> Optional[str]:
+        """
+        The duration after the experiment end time for the data sources to include in the report.
+        """
         return pulumi.get(self, "post_experiment_duration")
 
     @property
     @pulumi.getter(name="preExperimentDuration")
     def pre_experiment_duration(self) -> Optional[str]:
+        """
+        The duration before the experiment start time for the data sources to include in the report.
+        """
         return pulumi.get(self, "pre_experiment_duration")
 
 
 @pulumi.output_type
 class ExperimentTemplateExperimentReportConfigurationDataSourcesProperties(dict):
+    """
+    The data sources for the experiment report.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -277,6 +304,9 @@ class ExperimentTemplateExperimentReportConfigurationDataSourcesProperties(dict)
 
     def __init__(__self__, *,
                  cloud_watch_dashboards: Optional[Sequence['outputs.ExperimentTemplateCloudWatchDashboard']] = None):
+        """
+        The data sources for the experiment report.
+        """
         if cloud_watch_dashboards is not None:
             pulumi.set(__self__, "cloud_watch_dashboards", cloud_watch_dashboards)
 
@@ -288,6 +318,9 @@ class ExperimentTemplateExperimentReportConfigurationDataSourcesProperties(dict)
 
 @pulumi.output_type
 class ExperimentTemplateExperimentReportConfigurationOutputsProperties(dict):
+    """
+    The output destinations of the experiment report.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -307,6 +340,9 @@ class ExperimentTemplateExperimentReportConfigurationOutputsProperties(dict):
 
     def __init__(__self__, *,
                  experiment_report_s3_configuration: 'outputs.ExperimentTemplateExperimentReportConfigurationOutputsPropertiesExperimentReportS3ConfigurationProperties'):
+        """
+        The output destinations of the experiment report.
+        """
         pulumi.set(__self__, "experiment_report_s3_configuration", experiment_report_s3_configuration)
 
     @property

@@ -26,6 +26,10 @@ export interface GetAnalyzerArgs {
 
 export interface GetAnalyzerResult {
     /**
+     * The configuration for the analyzer
+     */
+    readonly analyzerConfiguration?: outputs.accessanalyzer.AnalyzerConfigurationProperties;
+    /**
      * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
      */
     readonly archiveRules?: outputs.accessanalyzer.AnalyzerArchiveRule[];

@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceLevelObjectiveResult:
-    def __init__(__self__, arn=None, created_time=None, description=None, evaluation_type=None, goal=None, last_updated_time=None, request_based_sli=None, sli=None, tags=None):
+    def __init__(__self__, arn=None, burn_rate_configurations=None, created_time=None, description=None, evaluation_type=None, goal=None, last_updated_time=None, request_based_sli=None, sli=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if burn_rate_configurations and not isinstance(burn_rate_configurations, list):
+            raise TypeError("Expected argument 'burn_rate_configurations' to be a list")
+        pulumi.set(__self__, "burn_rate_configurations", burn_rate_configurations)
         if created_time and not isinstance(created_time, int):
             raise TypeError("Expected argument 'created_time' to be a int")
         pulumi.set(__self__, "created_time", created_time)
@@ -62,6 +65,11 @@ class GetServiceLevelObjectiveResult:
         The ARN of this SLO.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="burnRateConfigurations")
+    def burn_rate_configurations(self) -> Optional[Sequence['outputs.ServiceLevelObjectiveBurnRateConfiguration']]:
+        return pulumi.get(self, "burn_rate_configurations")
 
     @property
     @pulumi.getter(name="createdTime")
@@ -137,6 +145,7 @@ class AwaitableGetServiceLevelObjectiveResult(GetServiceLevelObjectiveResult):
             yield self
         return GetServiceLevelObjectiveResult(
             arn=self.arn,
+            burn_rate_configurations=self.burn_rate_configurations,
             created_time=self.created_time,
             description=self.description,
             evaluation_type=self.evaluation_type,
@@ -162,6 +171,7 @@ def get_service_level_objective(arn: Optional[str] = None,
 
     return AwaitableGetServiceLevelObjectiveResult(
         arn=pulumi.get(__ret__, 'arn'),
+        burn_rate_configurations=pulumi.get(__ret__, 'burn_rate_configurations'),
         created_time=pulumi.get(__ret__, 'created_time'),
         description=pulumi.get(__ret__, 'description'),
         evaluation_type=pulumi.get(__ret__, 'evaluation_type'),
@@ -184,6 +194,7 @@ def get_service_level_objective_output(arn: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:applicationsignals:getServiceLevelObjective', __args__, opts=opts, typ=GetServiceLevelObjectiveResult)
     return __ret__.apply(lambda __response__: GetServiceLevelObjectiveResult(
         arn=pulumi.get(__response__, 'arn'),
+        burn_rate_configurations=pulumi.get(__response__, 'burn_rate_configurations'),
         created_time=pulumi.get(__response__, 'created_time'),
         description=pulumi.get(__response__, 'description'),
         evaluation_type=pulumi.get(__response__, 'evaluation_type'),

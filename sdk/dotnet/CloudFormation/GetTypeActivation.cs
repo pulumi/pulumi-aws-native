@@ -62,41 +62,32 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
+        /// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
         /// </summary>
-        public readonly string? PublicTypeArn;
+        public readonly bool? AutoUpdate;
         /// <summary>
-        /// The publisher id assigned by CloudFormation for publishing in this region.
+        /// The Major Version of the type you want to enable
         /// </summary>
-        public readonly string? PublisherId;
+        public readonly string? MajorVersion;
         /// <summary>
-        /// The name of the type being registered.
-        /// 
-        /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
+        /// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
         /// </summary>
-        public readonly string? TypeName;
-        /// <summary>
-        /// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
-        /// </summary>
-        public readonly string? TypeNameAlias;
+        public readonly Pulumi.AwsNative.CloudFormation.TypeActivationVersionBump? VersionBump;
 
         [OutputConstructor]
         private GetTypeActivationResult(
             string? arn,
 
-            string? publicTypeArn,
+            bool? autoUpdate,
 
-            string? publisherId,
+            string? majorVersion,
 
-            string? typeName,
-
-            string? typeNameAlias)
+            Pulumi.AwsNative.CloudFormation.TypeActivationVersionBump? versionBump)
         {
             Arn = arn;
-            PublicTypeArn = publicTypeArn;
-            PublisherId = publisherId;
-            TypeName = typeName;
-            TypeNameAlias = typeNameAlias;
+            AutoUpdate = autoUpdate;
+            MajorVersion = majorVersion;
+            VersionBump = versionBump;
         }
     }
 }

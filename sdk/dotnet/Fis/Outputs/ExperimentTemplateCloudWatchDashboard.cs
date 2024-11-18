@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Fis.Outputs
     [OutputType]
     public sealed class ExperimentTemplateCloudWatchDashboard
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.
+        /// </summary>
         public readonly string DashboardIdentifier;
 
         [OutputConstructor]

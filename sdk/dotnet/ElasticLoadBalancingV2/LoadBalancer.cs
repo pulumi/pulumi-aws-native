@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
 
+        /// <summary>
+        /// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+        /// </summary>
         [Output("enablePrefixForIpv6SourceNat")]
         public Output<string?> EnablePrefixForIpv6SourceNat { get; private set; } = null!;
 
@@ -177,6 +180,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
 
     public sealed class LoadBalancerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+        /// </summary>
         [Input("enablePrefixForIpv6SourceNat")]
         public Input<string>? EnablePrefixForIpv6SourceNat { get; set; }
 
