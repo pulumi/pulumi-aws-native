@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 )
 
@@ -37,6 +38,25 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 		if err != nil {
 			return err
 		}
+
+		primaryIdentifierIndex := func(prop string, notFound int) int {
+			for i, p := range sch.PrimaryIdentifier {
+				if strings.TrimPrefix(p, "/properties/") == prop {
+					return i
+				}
+			}
+			return notFound
+		}
+
+		// Going to reorder properties so that properties that are part of the PrimaryIdentifier come first.
+		// This makes it easier for the player to select these as the answer, as they are very commonly the
+		// answer.
+		sort.Slice(props, func(i, j int) bool {
+			if primaryIdentifierIndex(props[i], 1000) < primaryIdentifierIndex(props[j], 1000) {
+				return true
+			}
+			return props[i] < props[j]
+		})
 
 		fmt.Println("ResourceID: ", r)
 		fmt.Println("PrimaryID : ", strings.Join(sch.PrimaryIdentifier, " "))
