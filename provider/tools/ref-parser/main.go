@@ -1,24 +1,36 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
 	"os"
 	"path/filepath"
 	"regexp"
+	"sort"
 	"strings"
 )
 
 func main() {
 	guide := flag.String("guide", "", "path to a folder with Cloud Formation user guide")
+	schema := flag.String("schema", "", "path to a folder with Cloud Formation schema JSON files")
 	flag.Parse()
 
-	if guide == nil {
+	if guide == nil || *guide == "" {
 		log.Fatal("-guide is required")
 	}
 
+	if schema == nil || *schema == "" {
+		log.Fatal("-schema is required")
+	}
+
 	guideAbsPath, err := filepath.Abs(*guide)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	schemaAbsPath, err := filepath.Abs(*schema)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -52,21 +64,31 @@ func main() {
 	}
 
 	fmt.Println("Sampling of un-categorized files")
-	for _, x := range parsedFiles[0:100] {
+	for _, x := range parsedFiles {
 		if x.Category.Name() != Uncategorized.Name() {
 			continue
 		}
-		fmt.Printf("%q\n\n", x.RefSection)
+
+		props, err := findProperties(schemaAbsPath, x.ResourceID)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		fmt.Printf("ResourceID: %s\n", x.ResourceID)
+		fmt.Printf("Properties: %s\n", strings.Join(props, ", "))
+		fmt.Printf("RefSection: %s\n\n", x.RefSection)
 	}
 
 	fmt.Println(len(rFiles))
 }
 
 type resourceFile struct {
+	ResourceID string // e.g. AWS::EC2::VPC
 	RefSection string // optional
 	Category   Category
 }
 
+var resourceIdPattern = regexp.MustCompile(`^[#]\s*([^<\n]+)`)
 var refPattern = regexp.MustCompile(`(?m)^[#]+[ ]*Ref[^\n]*[\n]([^#]+)`)
 
 func parseResourceFile(file string) (resourceFile, error) {
@@ -75,6 +97,13 @@ func parseResourceFile(file string) (resourceFile, error) {
 		return resourceFile{}, err
 	}
 	rf := resourceFile{}
+
+	if m := resourceIdPattern.FindSubmatch(fbytes); m != nil {
+		rf.ResourceID = string(m[1])
+	}
+	if rf.ResourceID == "" {
+		return resourceFile{}, fmt.Errorf("Could not parse ResourceID from %q", file)
+	}
 
 	if m := refPattern.FindSubmatch(fbytes); m != nil {
 		rf.RefSection = string(m[1])
@@ -103,4 +132,31 @@ func resourceFiles(guide string) ([]string, error) {
 		result = append(result, filepath.Join(d, file.Name()))
 	}
 	return result, nil
+}
+
+// Read CF schema and find which properties are available for a resource.
+func findProperties(schemaAbsPath, resourceID string) ([]string, error) {
+	fn := strings.ToLower(strings.ReplaceAll(resourceID, "::", "-") + ".json")
+	file := filepath.Join(schemaAbsPath, fn)
+	fbytes, err := os.ReadFile(file)
+	if err != nil {
+		return nil, err
+	}
+
+	type schema struct {
+		TypeName   string         `json:"typeName"`
+		Properties map[string]any `json:"properties"`
+	}
+
+	var s schema
+	if err := json.Unmarshal(fbytes, &s); err != nil {
+		return nil, err
+	}
+
+	var res []string
+	for x := range s.Properties {
+		res = append(res, x)
+	}
+	sort.Strings(res)
+	return res, nil
 }
