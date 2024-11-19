@@ -5,9 +5,54 @@
         "property": "APIKeyId"
       }
     },
+    "AWS::AppConfig::Environment": {
+      "refReturns": {
+        "property": "EnvironmentId"
+      }
+    },
+    "AWS::AppStream::AppBlock": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
+    "AWS::ApplicationAutoScaling::ScalingPolicy": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::Backup::BackupVault": {
       "refReturns": {
         "property": "BackupVaultName"
+      }
+    },
+    "AWS::CloudFormation::ModuleVersion": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
+    "AWS::CloudWatch::CompositeAlarm": {
+      "refReturns": {
+        "property": "AlarmName"
+      }
+    },
+    "AWS::Comprehend::Flywheel": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
+    "AWS::DataSync::LocationEFS": {
+      "refReturns": {
+        "property": "LocationArn"
+      }
+    },
+    "AWS::DirectoryService::SimpleAD": {
+      "refReturns": {
+        "property": "DirectoryId"
+      }
+    },
+    "AWS::EC2::EIP": {
+      "refReturns": {
+        "property": "PublicIp"
       }
     },
     "AWS::EC2::NetworkAclEntry": {
@@ -20,9 +65,39 @@
         "property": "NetworkInsightsPathId"
       }
     },
+    "AWS::EC2::VerifiedAccessGroup": {
+      "refReturns": {
+        "property": "VerifiedAccessGroupId"
+      }
+    },
     "AWS::IAM::OIDCProvider": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::Lightsail::Certificate": {
+      "refReturns": {
+        "property": "CertificateName"
+      }
+    },
+    "AWS::MediaPackage::PackagingGroup": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::NetworkFirewall::RuleGroup": {
+      "refReturns": {
+        "property": "RuleGroupArn"
+      }
+    },
+    "AWS::NetworkManager::TransitGatewayRouteTableAttachment": {
+      "refReturns": {
+        "property": "AttachmentId"
+      }
+    },
+    "AWS::PinpointEmail::Identity": {
+      "refReturns": {
+        "property": "Name"
       }
     },
     "AWS::SSMContacts::ContactChannel": {
