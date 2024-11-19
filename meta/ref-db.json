@@ -10,6 +10,11 @@
         "property": "NetworkInsightsPathId"
       }
     },
+    "AWS::IAM::OIDCProvider": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::SSMContacts::ContactChannel": {
       "refReturns": {
         "property": "Arn"
