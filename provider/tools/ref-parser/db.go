@@ -23,7 +23,10 @@ type resourceInfo struct {
 
 type refReturnsInfo struct {
 	// If set, indicates that Ref will return the value of the given Resource property.
-	Property string `json:"property,omitEmpty"`
+	Property string `json:"property,omitempty"`
+
+	// If set, Ref is not supported for this resource.
+	NotSupported bool `json:"notSupported,omitempty"`
 }
 
 func (data *db) store(file string) error {

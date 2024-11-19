@@ -5,6 +5,11 @@
         "property": "APIKeyId"
       }
     },
+    "AWS::AppConfig::DeploymentStrategy": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::AppConfig::Environment": {
       "refReturns": {
         "property": "EnvironmentId"
@@ -88,6 +93,11 @@
     "AWS::FSx::FileSystem": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::GameLift::GameSessionQueue": {
+      "refReturns": {
+        "property": "Name"
       }
     },
     "AWS::Glue::Table": {

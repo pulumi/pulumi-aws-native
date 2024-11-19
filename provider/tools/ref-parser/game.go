@@ -16,6 +16,7 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 	gs := &gameState{
 		db:           db,
 		allResources: allResources,
+		dbFile:       dbFile,
 	}
 	for step := 1; true; step++ {
 		r, ok := gs.nextResource()
@@ -71,12 +72,25 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 			fmt.Printf("%3d: Ref returns the %q property\n", i+1, p)
 		}
 
+		notSupported := 999
+
+		fmt.Printf("%3d: Ref is not supported for this resource\n", notSupported)
+
 		fmt.Println("Your choice:")
 
 		var choice int
 		_, err = fmt.Scanf("%d", &choice)
 		if err != nil {
 			return err
+		}
+
+		if choice == notSupported {
+			if err := gs.edit(r, "NotSupported", func(ri *resourceInfo) {
+				ri.RefReturns.NotSupported = true
+			}); err != nil {
+				return err
+			}
+			continue
 		}
 
 		if choice == 0 {
@@ -88,22 +102,31 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 			continue
 		}
 
-		rInfo := db.Resources[r]
-		rInfo.RefReturns.Property = prop
-		db.Resources[r] = rInfo
-
-		if err := db.store(dbFile); err != nil {
+		if err := gs.edit(r, prop, func(ri *resourceInfo) {
+			ri.RefReturns.Property = prop
+		}); err != nil {
 			return err
 		}
-		fmt.Println("Stored your choice in the database: ", prop)
 	}
 
 	return nil
 }
 
 type gameState struct {
+	dbFile       string
 	db           *db
 	allResources map[string]resourceFile
+}
+
+func (gs *gameState) edit(r, desc string, f func(*resourceInfo)) error {
+	rInfo := gs.db.Resources[r]
+	f(&rInfo)
+	gs.db.Resources[r] = rInfo
+	if err := gs.db.store(gs.dbFile); err != nil {
+		return err
+	}
+	fmt.Println("Stored your choice in the database: ", desc)
+	return nil
 }
 
 func (gs *gameState) nextResource() (string, bool) {
