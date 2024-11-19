@@ -5,6 +5,16 @@
         "property": "APIKeyId"
       }
     },
+    "AWS::ApiGatewayV2::Deployment": {
+      "refReturns": {
+        "property": "DeploymentId"
+      }
+    },
+    "AWS::ApiGatewayV2::VpcLink": {
+      "refReturns": {
+        "property": "VpcLinkId"
+      }
+    },
     "AWS::AppConfig::DeploymentStrategy": {
       "refReturns": {
         "property": "Id"
@@ -13,6 +23,11 @@
     "AWS::AppConfig::Environment": {
       "refReturns": {
         "property": "EnvironmentId"
+      }
+    },
+    "AWS::AppMesh::Mesh": {
+      "refReturns": {
+        "property": "Arn"
       }
     },
     "AWS::AppMesh::VirtualGateway": {
@@ -75,6 +90,16 @@
         "property": "Arn"
       }
     },
+    "AWS::CloudFormation::ResourceDefaultVersion": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
+    "AWS::CloudFront::OriginAccessControl": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::CloudFront::ResponseHeadersPolicy": {
       "refReturns": {
         "property": "Id"
@@ -88,6 +113,11 @@
     "AWS::CodePipeline::Pipeline": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::Cognito::IdentityPool": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::Comprehend::Flywheel": {
@@ -123,6 +153,16 @@
     "AWS::DataSync::LocationEFS": {
       "refReturns": {
         "property": "LocationArn"
+      }
+    },
+    "AWS::Detective::Graph": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
+    "AWS::DevOpsGuru::LogAnomalyDetectionIntegration": {
+      "refReturns": {
+        "property": "AccountId"
       }
     },
     "AWS::DeviceFarm::Project": {
@@ -190,12 +230,27 @@
         "property": "Id"
       }
     },
+    "AWS::Evidently::Launch": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::FSx::FileSystem": {
       "refReturns": {
         "property": "Id"
       }
     },
+    "AWS::FraudDetector::EventType": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::GameLift::GameSessionQueue": {
+      "refReturns": {
+        "property": "Name"
+      }
+    },
+    "AWS::GameLift::MatchmakingConfiguration": {
       "refReturns": {
         "property": "Name"
       }
@@ -220,6 +275,11 @@
         "property": "Arn"
       }
     },
+    "AWS::Inspector::AssessmentTemplate": {
+      "refReturns": {
+        "property": "AssessmentTargetArn"
+      }
+    },
     "AWS::IoT::BillingGroup": {
       "refReturns": {
         "property": "Id"
@@ -240,6 +300,11 @@
         "property": "CertificateName"
       }
     },
+    "AWS::MediaConnect::Bridge": {
+      "refReturns": {
+        "property": "BridgeArn"
+      }
+    },
     "AWS::MediaConvert::Queue": {
       "refReturns": {
         "property": "Name"
@@ -250,6 +315,11 @@
         "property": "Id"
       }
     },
+    "AWS::MediaStore::Container": {
+      "refReturns": {
+        "property": "ContainerName"
+      }
+    },
     "AWS::Neptune::DBInstance": {
       "refReturns": {
         "property": "Id"
@@ -258,6 +328,15 @@
     "AWS::NetworkFirewall::RuleGroup": {
       "refReturns": {
         "property": "RuleGroupArn"
+      }
+    },
+    "AWS::NetworkManager::Site": {
+      "refReturns": {
+        "properties": [
+          "GlobalNetworkId",
+          "SiteId"
+        ],
+        "delimiter": "|"
       }
     },
     "AWS::NetworkManager::TransitGatewayRouteTableAttachment": {
@@ -273,6 +352,11 @@
     "AWS::Redshift::Cluster": {
       "refReturns": {
         "property": "ClusterIdentifier"
+      }
+    },
+    "AWS::Redshift::ClusterSubnetGroup": {
+      "refReturns": {
+        "property": "ClusterSubnetGroupName"
       }
     },
     "AWS::RoboMaker::RobotApplicationVersion": {
@@ -300,6 +384,11 @@
         "property": "MrapName"
       }
     },
+    "AWS::SES::ContactList": {
+      "refReturns": {
+        "property": "ContactListName"
+      }
+    },
     "AWS::SSMContacts::ContactChannel": {
       "refReturns": {
         "property": "Arn"
@@ -308,6 +397,16 @@
     "AWS::SecurityHub::Hub": {
       "refReturns": {
         "property": "ARN"
+      }
+    },
+    "AWS::ServiceCatalog::LaunchTemplateConstraint": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::WAFRegional::Rule": {
+      "refReturns": {
+        "property": "Id"
       }
     }
   }

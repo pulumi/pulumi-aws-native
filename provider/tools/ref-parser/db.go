@@ -21,9 +21,17 @@ type resourceInfo struct {
 	RefReturns refReturnsInfo `json:"refReturns"`
 }
 
+// One and only one of [Property], [Properties], and [NotSupported] must be set.
 type refReturnsInfo struct {
 	// If set, indicates that Ref will return the value of the given Resource property.
 	Property string `json:"property,omitempty"`
+
+	// If set, indicates that Ref will return a string value obtained by joining several Resource properties with a
+	// delimiter, typically "|".
+	Properties []string `json:"properties,omitempty"`
+
+	// Delimiter, typically "|". See [Properties].
+	Delimiter string `json:"delimiter,omitempty"`
 
 	// If set, Ref is not supported for this resource.
 	NotSupported bool `json:"notSupported,omitempty"`

@@ -73,7 +73,15 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 		}
 
 		notSupported := 999
+		primaryPipeDelimited := 111
 
+		var pkProps []string
+		for _, pi := range sch.PrimaryIdentifier {
+			pkProps = append(pkProps, strings.TrimPrefix(pi, "/properties/"))
+		}
+
+		fmt.Printf("%3d: Ref is obtained by joining the PrimaryID on `|`: %s\n",
+			primaryPipeDelimited, strings.Join(pkProps, "|"))
 		fmt.Printf("%3d: Ref is not supported for this resource\n", notSupported)
 
 		fmt.Println("Your choice:")
@@ -82,6 +90,16 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 		_, err = fmt.Scanf("%d", &choice)
 		if err != nil {
 			return err
+		}
+
+		if choice == primaryPipeDelimited {
+			if err := gs.edit(r, "PrimaryPipeDeilmited", func(ri *resourceInfo) {
+				ri.RefReturns.Delimiter = "|"
+				ri.RefReturns.Properties = pkProps
+			}); err != nil {
+				return err
+			}
+			continue
 		}
 
 		if choice == notSupported {
