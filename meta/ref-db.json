@@ -1,5 +1,15 @@
 {
   "resources": {
+    "AWS::ApiGateway::ApiKey": {
+      "refReturns": {
+        "property": "APIKeyId"
+      }
+    },
+    "AWS::Backup::BackupVault": {
+      "refReturns": {
+        "property": "BackupVaultName"
+      }
+    },
     "AWS::EC2::NetworkAclEntry": {
       "refReturns": {
         "property": "Id"
