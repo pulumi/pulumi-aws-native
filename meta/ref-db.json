@@ -15,6 +15,11 @@
         "property": "EnvironmentId"
       }
     },
+    "AWS::AppMesh::VirtualGateway": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::AppStream::AppBlock": {
       "refReturns": {
         "property": "Arn"
@@ -25,9 +30,19 @@
         "property": "Arn"
       }
     },
+    "AWS::AutoScaling::LifecycleHook": {
+      "refReturns": {
+        "property": "LifecycleHookName"
+      }
+    },
     "AWS::Backup::BackupVault": {
       "refReturns": {
         "property": "BackupVaultName"
+      }
+    },
+    "AWS::CloudFormation::HookVersion": {
+      "refReturns": {
+        "property": "Arn"
       }
     },
     "AWS::CloudFormation::ModuleVersion": {
@@ -43,6 +58,11 @@
     "AWS::Comprehend::Flywheel": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::Connect::ContactFlow": {
+      "refReturns": {
+        "property": "Name"
       }
     },
     "AWS::ConnectCampaigns::Campaign": {
@@ -110,6 +130,11 @@
         "property": "Arn"
       }
     },
+    "AWS::IoT::BillingGroup": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::Lightsail::Certificate": {
       "refReturns": {
         "property": "CertificateName"
@@ -121,6 +146,11 @@
       }
     },
     "AWS::MediaPackage::PackagingGroup": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::Neptune::DBInstance": {
       "refReturns": {
         "property": "Id"
       }
@@ -138,6 +168,21 @@
     "AWS::PinpointEmail::Identity": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::Redshift::Cluster": {
+      "refReturns": {
+        "property": "ClusterIdentifier"
+      }
+    },
+    "AWS::Route53::DNSSEC": {
+      "refReturns": {
+        "property": "HostedZoneId"
+      }
+    },
+    "AWS::Route53::HostedZone": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::S3::MultiRegionAccessPointPolicy": {
