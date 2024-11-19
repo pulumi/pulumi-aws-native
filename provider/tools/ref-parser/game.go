@@ -17,12 +17,14 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 		db:           db,
 		allResources: allResources,
 	}
-	for {
+	for step := 1; true; step++ {
 		r, ok := gs.nextResource()
 		if !ok {
 			fmt.Println("No resources left to map")
 			return nil
 		}
+
+		fmt.Printf("Step %d: %d/%d resources done\n", step, gs.labelledResourceCount(), gs.totalResourceCount())
 
 		res, ok := allResources[r]
 		if !ok {
@@ -95,6 +97,8 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 		}
 		fmt.Println("Stored your choice in the database: ", prop)
 	}
+
+	return nil
 }
 
 type gameState struct {
@@ -114,4 +118,12 @@ func (gs *gameState) nextResource() (string, bool) {
 		return r, true
 	}
 	return "", false
+}
+
+func (gs *gameState) totalResourceCount() int {
+	return len(gs.allResources)
+}
+
+func (gs *gameState) labelledResourceCount() int {
+	return len(gs.db.Resources)
 }

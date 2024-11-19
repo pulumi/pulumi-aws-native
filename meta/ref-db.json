@@ -40,6 +40,16 @@
         "property": "Arn"
       }
     },
+    "AWS::ConnectCampaigns::Campaign": {
+      "refReturns": {
+        "property": "Name"
+      }
+    },
+    "AWS::DAX::ParameterGroup": {
+      "refReturns": {
+        "property": "ParameterGroupName"
+      }
+    },
     "AWS::DataSync::LocationEFS": {
       "refReturns": {
         "property": "LocationArn"
@@ -53,6 +63,11 @@
     "AWS::EC2::EIP": {
       "refReturns": {
         "property": "PublicIp"
+      }
+    },
+    "AWS::EC2::IPAMPool": {
+      "refReturns": {
+        "property": "IpamPoolId"
       }
     },
     "AWS::EC2::NetworkAclEntry": {
@@ -70,6 +85,16 @@
         "property": "VerifiedAccessGroupId"
       }
     },
+    "AWS::FSx::FileSystem": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::Glue::Table": {
+      "refReturns": {
+        "property": "CatalogId"
+      }
+    },
     "AWS::IAM::OIDCProvider": {
       "refReturns": {
         "property": "Arn"
@@ -78,6 +103,11 @@
     "AWS::Lightsail::Certificate": {
       "refReturns": {
         "property": "CertificateName"
+      }
+    },
+    "AWS::MediaConvert::Queue": {
+      "refReturns": {
+        "property": "Name"
       }
     },
     "AWS::MediaPackage::PackagingGroup": {
@@ -98,6 +128,11 @@
     "AWS::PinpointEmail::Identity": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::S3::MultiRegionAccessPointPolicy": {
+      "refReturns": {
+        "property": "MrapName"
       }
     },
     "AWS::SSMContacts::ContactChannel": {
