@@ -139,6 +139,39 @@
       },
       "additionalProperties" : false
     },
+    "AcceleratorSelection" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "enum" : [ "t4", "a10g", "l4", "l40s" ]
+        },
+        "Runtime" : {
+          "type" : "string",
+          "maxLength" : 100,
+          "minLength" : 1
+        }
+      },
+      "required" : [ "Name" ],
+      "additionalProperties" : false
+    },
+    "AcceleratorCapabilities" : {
+      "type" : "object",
+      "properties" : {
+        "Selections" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AcceleratorSelection"
+          },
+          "minItems" : 1
+        },
+        "Count" : {
+          "$ref" : "#/definitions/AcceleratorCountRange"
+        }
+      },
+      "required" : [ "Selections" ],
+      "additionalProperties" : false
+    },
     "Ec2MarketType" : {
       "type" : "string",
       "enum" : [ "on-demand", "spot" ]
@@ -292,6 +325,9 @@
         },
         "RootEbsVolume" : {
           "$ref" : "#/definitions/Ec2EbsVolume"
+        },
+        "AcceleratorCapabilities" : {
+          "$ref" : "#/definitions/AcceleratorCapabilities"
         },
         "AllowedInstanceTypes" : {
           "type" : "array",

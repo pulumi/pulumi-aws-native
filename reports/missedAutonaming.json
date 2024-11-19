@@ -6582,6 +6582,10 @@
         "type": "string",
         "description": "Cache parameter group name to use for the new engine version. This parameter cannot be modified independently."
       },
+      "engine": {
+        "type": "string",
+        "description": "The engine of the Global Datastore."
+      },
       "engineVersion": {
         "type": "string",
         "description": "The engine version of the Global Datastore."
@@ -7145,7 +7149,8 @@
         "description": "Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet."
       },
       "deploymentConfiguration": {
-        "$ref": "#/types/aws-native:gamelift:ContainerFleetDeploymentConfiguration"
+        "$ref": "#/types/aws-native:gamelift:ContainerFleetDeploymentConfiguration",
+        "description": "Set of rules for processing a deployment for a container fleet update."
       },
       "description": {
         "type": "string",
@@ -7168,7 +7173,8 @@
         "description": "A policy that limits the number of game sessions an individual player can create over a span of time for this fleet."
       },
       "instanceConnectionPortRange": {
-        "$ref": "#/types/aws-native:gamelift:ContainerFleetConnectionPortRange"
+        "$ref": "#/types/aws-native:gamelift:ContainerFleetConnectionPortRange",
+        "description": "The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet."
       },
       "instanceInboundPermissions": {
         "type": "array",
@@ -7188,7 +7194,8 @@
         }
       },
       "logConfiguration": {
-        "$ref": "#/types/aws-native:gamelift:ContainerFleetLogConfiguration"
+        "$ref": "#/types/aws-native:gamelift:ContainerFleetLogConfiguration",
+        "description": "The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.\n\n- `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.\n- `S3` -- Store logs in an Amazon S3 bucket that you define.\n- `NONE` -- Don't collect container logs."
       },
       "metricGroups": {
         "type": "array",
@@ -10236,6 +10243,45 @@
       "schedule": {
         "$ref": "#/types/aws-native:quicksight:RefreshScheduleMap",
         "description": "The refresh schedule of a dataset."
+      }
+    }
+  },
+  "aws-native:rbin:Rule": {
+    "cfTypeName": "AWS::Rbin::Rule",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "The description of the retention rule."
+      },
+      "lockConfiguration": {
+        "$ref": "#/types/aws-native:rbin:RuleUnlockDelay",
+        "description": "Information about the retention rule lock configuration."
+      },
+      "resourceTags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:rbin:RuleResourceTag"
+        },
+        "description": "Information about the resource tags used to identify resources that are retained by the retention rule."
+      },
+      "resourceType": {
+        "$ref": "#/types/aws-native:rbin:RuleResourceType",
+        "description": "The resource type retained by the retention rule."
+      },
+      "retentionPeriod": {
+        "$ref": "#/types/aws-native:rbin:RuleRetentionPeriod",
+        "description": "Information about the retention period for which the retention rule is to retain resources."
+      },
+      "status": {
+        "type": "string",
+        "description": "The state of the retention rule. Only retention rules that are in the available state retain resources."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Information about the tags assigned to the retention rule."
       }
     }
   },

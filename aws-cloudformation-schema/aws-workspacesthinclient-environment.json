@@ -227,7 +227,7 @@
       "permissions" : [ "thinclient:DeleteEnvironment", "thinclient:UntagResource", "kms:Decrypt", "kms:RetireGrant" ]
     },
     "list" : {
-      "permissions" : [ "thinclient:ListEnvironment", "thinclient:ListTagsForResource", "kms:Decrypt" ]
+      "permissions" : [ "thinclient:ListEnvironments", "thinclient:ListTagsForResource", "kms:Decrypt" ]
     }
   }
 }

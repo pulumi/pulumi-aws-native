@@ -854,7 +854,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "sagemaker:AddTags", "sagemaker:ListTags", "sagemaker:DeleteTags" ]
   },
   "readOnlyProperties" : [ "/properties/ModelCardArn", "/properties/ModelCardVersion", "/properties/CreatedBy/DomainId", "/properties/CreatedBy/UserProfileArn", "/properties/CreatedBy/UserProfileName", "/properties/LastModifiedBy/DomainId", "/properties/LastModifiedBy/UserProfileArn", "/properties/LastModifiedBy/UserProfileName", "/properties/CreationTime", "/properties/LastModifiedTime", "/properties/ModelCardProcessingStatus" ],
   "primaryIdentifier" : [ "/properties/ModelCardName" ],

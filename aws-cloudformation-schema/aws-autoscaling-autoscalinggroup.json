@@ -260,6 +260,22 @@
       },
       "required" : [ "LaunchTemplate" ]
     },
+    "CapacityReservationIds" : {
+      "uniqueItems" : true,
+      "insertionOrder" : true,
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
+    "CapacityReservationResourceGroupArns" : {
+      "uniqueItems" : true,
+      "insertionOrder" : true,
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    },
     "TagProperty" : {
       "description" : "A structure that specifies a tag for the ``Tags`` property of [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.\n For more information, see [Tag Auto Scaling groups and instances](https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html) in the *Amazon EC2 Auto Scaling User Guide*. You can find a sample template snippet in the [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html#aws-resource-autoscaling-autoscalinggroup--examples) section of the ``AWS::AutoScaling::AutoScalingGroup`` resource.\n CloudFormation adds the following tags to all Auto Scaling groups and associated instances: \n  +  aws:cloudformation:stack-name\n  +  aws:cloudformation:stack-id\n  +  aws:cloudformation:logical-id",
       "additionalProperties" : false,
@@ -632,6 +648,33 @@
         }
       },
       "required" : [ "MemoryMiB", "VCpuCount" ]
+    },
+    "CapacityReservationTarget" : {
+      "description" : "",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CapacityReservationIds" : {
+          "$ref" : "#/definitions/CapacityReservationIds"
+        },
+        "CapacityReservationResourceGroupArns" : {
+          "$ref" : "#/definitions/CapacityReservationResourceGroupArns"
+        }
+      }
+    },
+    "CapacityReservationSpecification" : {
+      "description" : "",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CapacityReservationPreference" : {
+          "type" : "string"
+        },
+        "CapacityReservationTarget" : {
+          "$ref" : "#/definitions/CapacityReservationTarget"
+        }
+      },
+      "required" : [ "CapacityReservationPreference" ]
     }
   },
   "properties" : {
@@ -814,6 +857,10 @@
     "PlacementGroup" : {
       "description" : "The name of the placement group into which to launch your instances. For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the *Amazon EC2 User Guide for Linux Instances*.\n  A *cluster* placement group is a logical grouping of instances within a single Availability Zone. You cannot specify multiple Availability Zones and a cluster placement group.",
       "type" : "string"
+    },
+    "CapacityReservationSpecification" : {
+      "description" : "",
+      "$ref" : "#/definitions/CapacityReservationSpecification"
     },
     "HealthCheckType" : {
       "description" : "A comma-separated value string of one or more health check types.\n The valid values are ``EC2``, ``EBS``, ``ELB``, and ``VPC_LATTICE``. ``EC2`` is the default health check and cannot be disabled. For more information, see [Health checks for instances in an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-health-checks.html) in the *Amazon EC2 Auto Scaling User Guide*.\n Only specify ``EC2`` if you must clear a value that was previously set.",

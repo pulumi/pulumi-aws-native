@@ -531,6 +531,7 @@ AWS::IAM::UserPolicy
 AWS::IAM::VirtualMFADevice
 AWS::IVS::Channel
 AWS::IVS::EncoderConfiguration
+AWS::IVS::IngestConfiguration
 AWS::IVS::PlaybackKeyPair
 AWS::IVS::PlaybackRestrictionPolicy
 AWS::IVS::PublicKey
@@ -840,6 +841,7 @@ AWS::RDS::GlobalCluster
 AWS::RDS::Integration
 AWS::RDS::OptionGroup
 AWS::RUM::AppMonitor
+AWS::Rbin::Rule
 AWS::Redshift::Cluster
 AWS::Redshift::ClusterParameterGroup
 AWS::Redshift::ClusterSubnetGroup
