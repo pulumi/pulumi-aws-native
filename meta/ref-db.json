@@ -20,6 +20,11 @@
         "property": "Arn"
       }
     },
+    "AWS::AppRunner::ObservabilityConfiguration": {
+      "refReturns": {
+        "property": "ObservabilityConfigurationName"
+      }
+    },
     "AWS::AppRunner::VpcIngressConnection": {
       "refReturns": {
         "property": "VpcIngressConnectionName"
@@ -50,6 +55,16 @@
         "property": "BackupVaultName"
       }
     },
+    "AWS::BackupGateway::Hypervisor": {
+      "refReturns": {
+        "property": "HypervisorArn"
+      }
+    },
+    "AWS::CloudFormation::HookTypeConfig": {
+      "refReturns": {
+        "property": "ConfigurationArn"
+      }
+    },
     "AWS::CloudFormation::HookVersion": {
       "refReturns": {
         "property": "Arn"
@@ -60,9 +75,19 @@
         "property": "Arn"
       }
     },
+    "AWS::CloudFront::ResponseHeadersPolicy": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::CloudWatch::CompositeAlarm": {
       "refReturns": {
         "property": "AlarmName"
+      }
+    },
+    "AWS::CodePipeline::Pipeline": {
+      "refReturns": {
+        "property": "Name"
       }
     },
     "AWS::Comprehend::Flywheel": {
@@ -71,6 +96,16 @@
       }
     },
     "AWS::Connect::ContactFlow": {
+      "refReturns": {
+        "property": "Name"
+      }
+    },
+    "AWS::Connect::Instance": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::Connect::UserHierarchyGroup": {
       "refReturns": {
         "property": "Name"
       }
@@ -100,9 +135,19 @@
         "property": "DirectoryId"
       }
     },
+    "AWS::EC2::DHCPOptions": {
+      "refReturns": {
+        "property": "DhcpOptionsId"
+      }
+    },
     "AWS::EC2::EIP": {
       "refReturns": {
         "property": "PublicIp"
+      }
+    },
+    "AWS::EC2::EgressOnlyInternetGateway": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::EC2::IPAMPool": {
@@ -128,6 +173,11 @@
     "AWS::EC2::VPCEndpointConnectionNotification": {
       "refReturns": {
         "property": "VPCEndpointConnectionNotificationId"
+      }
+    },
+    "AWS::EC2::VPNConnection": {
+      "refReturns": {
+        "property": "VpnConnectionId"
       }
     },
     "AWS::EC2::VerifiedAccessGroup": {
@@ -160,6 +210,11 @@
         "property": "CatalogId"
       }
     },
+    "AWS::Greengrass::CoreDefinition": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::IAM::OIDCProvider": {
       "refReturns": {
         "property": "Arn"
@@ -168,6 +223,16 @@
     "AWS::IoT::BillingGroup": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::IoTWireless::WirelessDeviceImportTask": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::Lambda::Function": {
+      "refReturns": {
+        "property": "FunctionName"
       }
     },
     "AWS::Lightsail::Certificate": {
@@ -210,6 +275,11 @@
         "property": "ClusterIdentifier"
       }
     },
+    "AWS::RoboMaker::RobotApplicationVersion": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::Route53::DNSSEC": {
       "refReturns": {
         "property": "HostedZoneId"
@@ -233,6 +303,11 @@
     "AWS::SSMContacts::ContactChannel": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::SecurityHub::Hub": {
+      "refReturns": {
+        "property": "ARN"
       }
     }
   }
