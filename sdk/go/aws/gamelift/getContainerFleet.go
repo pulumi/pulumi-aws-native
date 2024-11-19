@@ -44,10 +44,16 @@ type LookupContainerFleetResult struct {
 	GameServerContainerGroupDefinitionArn *string `pulumi:"gameServerContainerGroupDefinitionArn"`
 	// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 	GameSessionCreationLimitPolicy *ContainerFleetGameSessionCreationLimitPolicy `pulumi:"gameSessionCreationLimitPolicy"`
-	InstanceConnectionPortRange    *ContainerFleetConnectionPortRange            `pulumi:"instanceConnectionPortRange"`
+	// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+	InstanceConnectionPortRange *ContainerFleetConnectionPortRange `pulumi:"instanceConnectionPortRange"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
-	InstanceInboundPermissions []ContainerFleetIpPermission    `pulumi:"instanceInboundPermissions"`
-	LogConfiguration           *ContainerFleetLogConfiguration `pulumi:"logConfiguration"`
+	InstanceInboundPermissions []ContainerFleetIpPermission `pulumi:"instanceInboundPermissions"`
+	// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+	//
+	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+	// - `NONE` -- Don't collect container logs.
+	LogConfiguration *ContainerFleetLogConfiguration `pulumi:"logConfiguration"`
 	// The maximum number of game server container groups per instance, a number between 1-5000.
 	MaximumGameServerContainerGroupsPerInstance *int `pulumi:"maximumGameServerContainerGroupsPerInstance"`
 	// The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -145,6 +151,7 @@ func (o LookupContainerFleetResultOutput) GameSessionCreationLimitPolicy() Conta
 	}).(ContainerFleetGameSessionCreationLimitPolicyPtrOutput)
 }
 
+// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
 func (o LookupContainerFleetResultOutput) InstanceConnectionPortRange() ContainerFleetConnectionPortRangePtrOutput {
 	return o.ApplyT(func(v LookupContainerFleetResult) *ContainerFleetConnectionPortRange {
 		return v.InstanceConnectionPortRange
@@ -156,6 +163,11 @@ func (o LookupContainerFleetResultOutput) InstanceInboundPermissions() Container
 	return o.ApplyT(func(v LookupContainerFleetResult) []ContainerFleetIpPermission { return v.InstanceInboundPermissions }).(ContainerFleetIpPermissionArrayOutput)
 }
 
+// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+//
+// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+// - `NONE` -- Don't collect container logs.
 func (o LookupContainerFleetResultOutput) LogConfiguration() ContainerFleetLogConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupContainerFleetResult) *ContainerFleetLogConfiguration { return v.LogConfiguration }).(ContainerFleetLogConfigurationPtrOutput)
 }

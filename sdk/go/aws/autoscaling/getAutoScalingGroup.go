@@ -40,7 +40,8 @@ type LookupAutoScalingGroupResult struct {
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
-	CapacityRebalance *bool `pulumi:"capacityRebalance"`
+	CapacityRebalance                *bool                                             `pulumi:"capacityRebalance"`
+	CapacityReservationSpecification *AutoScalingGroupCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context *string `pulumi:"context"`
 	// *Only needed if you use simple scaling policies.*
@@ -183,6 +184,12 @@ func (o LookupAutoScalingGroupResultOutput) AvailabilityZones() pulumi.StringArr
 // Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
 func (o LookupAutoScalingGroupResultOutput) CapacityRebalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *bool { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupAutoScalingGroupResultOutput) CapacityReservationSpecification() AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupCapacityReservationSpecification {
+		return v.CapacityReservationSpecification
+	}).(AutoScalingGroupCapacityReservationSpecificationPtrOutput)
 }
 
 // Reserved.

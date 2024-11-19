@@ -59,7 +59,8 @@ type GlobalTable struct {
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrOutput `pulumi:"timeToLiveSpecification"`
-	WarmThroughput          GlobalTableWarmThroughputPtrOutput          `pulumi:"warmThroughput"`
+	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+	WarmThroughput GlobalTableWarmThroughputPtrOutput `pulumi:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrOutput `pulumi:"writeOnDemandThroughputSettings"`
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
@@ -156,7 +157,8 @@ type globalTableArgs struct {
 	TableName *string `pulumi:"tableName"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
-	WarmThroughput          *GlobalTableWarmThroughput          `pulumi:"warmThroughput"`
+	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+	WarmThroughput *GlobalTableWarmThroughput `pulumi:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
@@ -200,7 +202,8 @@ type GlobalTableArgs struct {
 	TableName pulumi.StringPtrInput
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrInput
-	WarmThroughput          GlobalTableWarmThroughputPtrInput
+	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+	WarmThroughput GlobalTableWarmThroughputPtrInput
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrInput
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
@@ -326,6 +329,7 @@ func (o GlobalTableOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecif
 	return o.ApplyT(func(v *GlobalTable) GlobalTableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
+// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
 func (o GlobalTableOutput) WarmThroughput() GlobalTableWarmThroughputPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableWarmThroughputPtrOutput { return v.WarmThroughput }).(GlobalTableWarmThroughputPtrOutput)
 }

@@ -1048,6 +1048,47 @@ class DeliveryStreamDatabaseSourceConfiguration(dict):
                  public_certificate: Optional[str] = None,
                  ssl_mode: Optional['DeliveryStreamDatabaseSourceConfigurationSslMode'] = None,
                  surrogate_keys: Optional[Sequence[str]] = None):
+        """
+        :param 'DeliveryStreamDatabaseSourceAuthenticationConfiguration' database_source_authentication_configuration: The structure to configure the authentication methods for Firehose to connect to source database endpoint.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param 'DeliveryStreamDatabaseSourceVpcConfiguration' database_source_vpc_configuration: The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param 'DeliveryStreamDatabases' databases: The list of database patterns in source database endpoint for Firehose to read from.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param str endpoint: The endpoint of the database server.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param int port: The port of the database. This can be one of the following values.
+               
+               - 3306 for MySQL database type
+               - 5432 for PostgreSQL database type
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param str snapshot_watermark_table: The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param 'DeliveryStreamDatabaseTables' tables: The list of table patterns in source database endpoint for Firehose to read from.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param 'DeliveryStreamDatabaseSourceConfigurationType' type: The type of database engine. This can be one of the following values.
+               
+               - MySQL
+               - PostgreSQL
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param 'DeliveryStreamDatabaseColumns' columns: The list of column patterns in source database endpoint for Firehose to read from.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param 'DeliveryStreamDatabaseSourceConfigurationSslMode' ssl_mode: The mode to enable or disable SSL when Firehose connects to the database endpoint.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        :param Sequence[str] surrogate_keys: The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        """
         pulumi.set(__self__, "database_source_authentication_configuration", database_source_authentication_configuration)
         pulumi.set(__self__, "database_source_vpc_configuration", database_source_vpc_configuration)
         pulumi.set(__self__, "databases", databases)
@@ -1070,46 +1111,97 @@ class DeliveryStreamDatabaseSourceConfiguration(dict):
     @property
     @pulumi.getter(name="databaseSourceAuthenticationConfiguration")
     def database_source_authentication_configuration(self) -> 'outputs.DeliveryStreamDatabaseSourceAuthenticationConfiguration':
+        """
+        The structure to configure the authentication methods for Firehose to connect to source database endpoint.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "database_source_authentication_configuration")
 
     @property
     @pulumi.getter(name="databaseSourceVpcConfiguration")
     def database_source_vpc_configuration(self) -> 'outputs.DeliveryStreamDatabaseSourceVpcConfiguration':
+        """
+        The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "database_source_vpc_configuration")
 
     @property
     @pulumi.getter
     def databases(self) -> 'outputs.DeliveryStreamDatabases':
+        """
+        The list of database patterns in source database endpoint for Firehose to read from.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "databases")
 
     @property
     @pulumi.getter
     def endpoint(self) -> str:
+        """
+        The endpoint of the database server.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter
     def port(self) -> int:
+        """
+        The port of the database. This can be one of the following values.
+
+        - 3306 for MySQL database type
+        - 5432 for PostgreSQL database type
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "port")
 
     @property
     @pulumi.getter(name="snapshotWatermarkTable")
     def snapshot_watermark_table(self) -> str:
+        """
+        The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "snapshot_watermark_table")
 
     @property
     @pulumi.getter
     def tables(self) -> 'outputs.DeliveryStreamDatabaseTables':
+        """
+        The list of table patterns in source database endpoint for Firehose to read from.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "tables")
 
     @property
     @pulumi.getter
     def type(self) -> 'DeliveryStreamDatabaseSourceConfigurationType':
+        """
+        The type of database engine. This can be one of the following values.
+
+        - MySQL
+        - PostgreSQL
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def columns(self) -> Optional['outputs.DeliveryStreamDatabaseColumns']:
+        """
+        The list of column patterns in source database endpoint for Firehose to read from.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "columns")
 
     @property
@@ -1125,11 +1217,21 @@ class DeliveryStreamDatabaseSourceConfiguration(dict):
     @property
     @pulumi.getter(name="sslMode")
     def ssl_mode(self) -> Optional['DeliveryStreamDatabaseSourceConfigurationSslMode']:
+        """
+        The mode to enable or disable SSL when Firehose connects to the database endpoint.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "ssl_mode")
 
     @property
     @pulumi.getter(name="surrogateKeys")
     def surrogate_keys(self) -> Optional[Sequence[str]]:
+        """
+        The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "surrogate_keys")
 
 
@@ -1154,11 +1256,21 @@ class DeliveryStreamDatabaseSourceVpcConfiguration(dict):
 
     def __init__(__self__, *,
                  vpc_endpoint_service_name: str):
+        """
+        :param str vpc_endpoint_service_name: The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle `firehose.amazonaws.com` as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like `com.amazonaws.vpce.<region>.<vpc-endpoint-service-id>` .
+               
+               Amazon Data Firehose is in preview release and is subject to change.
+        """
         pulumi.set(__self__, "vpc_endpoint_service_name", vpc_endpoint_service_name)
 
     @property
     @pulumi.getter(name="vpcEndpointServiceName")
     def vpc_endpoint_service_name(self) -> str:
+        """
+        The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle `firehose.amazonaws.com` as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like `com.amazonaws.vpce.<region>.<vpc-endpoint-service-id>` .
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "vpc_endpoint_service_name")
 
 

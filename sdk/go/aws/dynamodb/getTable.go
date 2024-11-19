@@ -91,7 +91,8 @@ type LookupTableResult struct {
 	// Specifies the Time to Live (TTL) settings for the table.
 	//   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification *TableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
-	WarmThroughput          *TableWarmThroughput          `pulumi:"warmThroughput"`
+	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
+	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
@@ -261,6 +262,7 @@ func (o LookupTableResultOutput) TimeToLiveSpecification() TableTimeToLiveSpecif
 	return o.ApplyT(func(v LookupTableResult) *TableTimeToLiveSpecification { return v.TimeToLiveSpecification }).(TableTimeToLiveSpecificationPtrOutput)
 }
 
+// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 func (o LookupTableResultOutput) WarmThroughput() TableWarmThroughputPtrOutput {
 	return o.ApplyT(func(v LookupTableResult) *TableWarmThroughput { return v.WarmThroughput }).(TableWarmThroughputPtrOutput)
 }

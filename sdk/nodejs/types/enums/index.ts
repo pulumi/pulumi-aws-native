@@ -126,6 +126,7 @@ import * as pipes from "./pipes";
 import * as proton from "./proton";
 import * as qbusiness from "./qbusiness";
 import * as quicksight from "./quicksight";
+import * as rbin from "./rbin";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as redshiftserverless from "./redshiftserverless";
@@ -296,6 +297,7 @@ export {
     proton,
     qbusiness,
     quicksight,
+    rbin,
     rds,
     redshift,
     redshiftserverless,

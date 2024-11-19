@@ -22,7 +22,8 @@ type ContainerGroupDefinition struct {
 	// The scope of the container group
 	ContainerGroupType ContainerGroupDefinitionContainerGroupTypePtrOutput `pulumi:"containerGroupType"`
 	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime                  pulumi.StringOutput                                            `pulumi:"creationTime"`
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
 	GameServerContainerDefinition ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput `pulumi:"gameServerContainerDefinition"`
 	// A descriptive label for the container group definition.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -103,7 +104,8 @@ func (ContainerGroupDefinitionState) ElementType() reflect.Type {
 
 type containerGroupDefinitionArgs struct {
 	// The scope of the container group
-	ContainerGroupType            *ContainerGroupDefinitionContainerGroupType            `pulumi:"containerGroupType"`
+	ContainerGroupType *ContainerGroupDefinitionContainerGroupType `pulumi:"containerGroupType"`
+	// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
 	GameServerContainerDefinition *ContainerGroupDefinitionGameServerContainerDefinition `pulumi:"gameServerContainerDefinition"`
 	// A descriptive label for the container group definition.
 	Name *string `pulumi:"name"`
@@ -126,7 +128,8 @@ type containerGroupDefinitionArgs struct {
 // The set of arguments for constructing a ContainerGroupDefinition resource.
 type ContainerGroupDefinitionArgs struct {
 	// The scope of the container group
-	ContainerGroupType            ContainerGroupDefinitionContainerGroupTypePtrInput
+	ContainerGroupType ContainerGroupDefinitionContainerGroupTypePtrInput
+	// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
 	GameServerContainerDefinition ContainerGroupDefinitionGameServerContainerDefinitionPtrInput
 	// A descriptive label for the container group definition.
 	Name pulumi.StringPtrInput
@@ -200,6 +203,7 @@ func (o ContainerGroupDefinitionOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerGroupDefinition) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
 func (o ContainerGroupDefinitionOutput) GameServerContainerDefinition() ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
 	return o.ApplyT(func(v *ContainerGroupDefinition) ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
 		return v.GameServerContainerDefinition

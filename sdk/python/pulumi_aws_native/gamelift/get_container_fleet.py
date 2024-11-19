@@ -143,6 +143,9 @@ class GetContainerFleetResult:
     @property
     @pulumi.getter(name="instanceConnectionPortRange")
     def instance_connection_port_range(self) -> Optional['outputs.ContainerFleetConnectionPortRange']:
+        """
+        The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+        """
         return pulumi.get(self, "instance_connection_port_range")
 
     @property
@@ -156,6 +159,13 @@ class GetContainerFleetResult:
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.ContainerFleetLogConfiguration']:
+        """
+        The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+
+        - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+        - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        - `NONE` -- Don't collect container logs.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property

@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         ///  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         /// </summary>
         public readonly Outputs.TableProvisionedThroughput? ProvisionedThroughput;
+        /// <summary>
+        /// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        /// </summary>
         public readonly Outputs.TableWarmThroughput? WarmThroughput;
 
         [OutputConstructor]

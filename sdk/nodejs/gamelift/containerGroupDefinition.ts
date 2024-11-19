@@ -49,6 +49,9 @@ export class ContainerGroupDefinition extends pulumi.CustomResource {
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+     */
     public readonly gameServerContainerDefinition!: pulumi.Output<outputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinition | undefined>;
     /**
      * A descriptive label for the container group definition.
@@ -162,6 +165,9 @@ export interface ContainerGroupDefinitionArgs {
      * The scope of the container group
      */
     containerGroupType?: pulumi.Input<enums.gamelift.ContainerGroupDefinitionContainerGroupType>;
+    /**
+     * The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+     */
     gameServerContainerDefinition?: pulumi.Input<inputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinitionArgs>;
     /**
      * A descriptive label for the container group definition.

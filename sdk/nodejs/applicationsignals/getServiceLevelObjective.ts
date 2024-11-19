@@ -29,6 +29,9 @@ export interface GetServiceLevelObjectiveResult {
      * The ARN of this SLO.
      */
     readonly arn?: string;
+    /**
+     * Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+     */
     readonly burnRateConfigurations?: outputs.applicationsignals.ServiceLevelObjectiveBurnRateConfiguration[];
     /**
      * Epoch time in seconds of the time that this SLO was created

@@ -83,6 +83,7 @@ class TableArgs:
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         :param pulumi.Input['TableTimeToLiveSpecificationArgs'] time_to_live_specification: Specifies the Time to Live (TTL) settings for the table.
                  For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
+        :param pulumi.Input['TableWarmThroughputArgs'] warm_throughput: Represents the warm throughput (in read units per second and write units per second) for creating a table.
         """
         pulumi.set(__self__, "key_schema", key_schema)
         if attribute_definitions is not None:
@@ -373,6 +374,9 @@ class TableArgs:
     @property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+        """
+        Represents the warm throughput (in read units per second and write units per second) for creating a table.
+        """
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
@@ -678,6 +682,7 @@ class Table(pulumi.CustomResource):
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         :param pulumi.Input[Union['TableTimeToLiveSpecificationArgs', 'TableTimeToLiveSpecificationArgsDict']] time_to_live_specification: Specifies the Time to Live (TTL) settings for the table.
                  For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
+        :param pulumi.Input[Union['TableWarmThroughputArgs', 'TableWarmThroughputArgsDict']] warm_throughput: Represents the warm throughput (in read units per second and write units per second) for creating a table.
         """
         ...
     @overload
@@ -1225,5 +1230,8 @@ class Table(pulumi.CustomResource):
     @property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> pulumi.Output[Optional['outputs.TableWarmThroughput']]:
+        """
+        Represents the warm throughput (in read units per second and write units per second) for creating a table.
+        """
         return pulumi.get(self, "warm_throughput")
 

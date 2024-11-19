@@ -29,6 +29,7 @@ class AutoScalingGroupArgs:
                  availability_zone_impairment_policy: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs']] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs']] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
@@ -127,6 +128,8 @@ class AutoScalingGroupArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+        if capacity_reservation_specification is not None:
+            pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if context is not None:
             pulumi.set(__self__, "context", context)
         if cooldown is not None:
@@ -265,6 +268,15 @@ class AutoScalingGroupArgs:
     @capacity_rebalance.setter
     def capacity_rebalance(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "capacity_rebalance", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional[pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs']]:
+        return pulumi.get(self, "capacity_reservation_specification")
+
+    @capacity_reservation_specification.setter
+    def capacity_reservation_specification(self, value: Optional[pulumi.Input['AutoScalingGroupCapacityReservationSpecificationArgs']]):
+        pulumi.set(self, "capacity_reservation_specification", value)
 
     @property
     @pulumi.getter
@@ -617,6 +629,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  availability_zone_impairment_policy: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input[Union['AutoScalingGroupCapacityReservationSpecificationArgs', 'AutoScalingGroupCapacityReservationSpecificationArgsDict']]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
@@ -744,6 +757,7 @@ class AutoScalingGroup(pulumi.CustomResource):
                  availability_zone_impairment_policy: Optional[pulumi.Input[Union['AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs', 'AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict']]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+                 capacity_reservation_specification: Optional[pulumi.Input[Union['AutoScalingGroupCapacityReservationSpecificationArgs', 'AutoScalingGroupCapacityReservationSpecificationArgsDict']]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[str]] = None,
                  default_instance_warmup: Optional[pulumi.Input[int]] = None,
@@ -787,6 +801,7 @@ class AutoScalingGroup(pulumi.CustomResource):
             __props__.__dict__["availability_zone_impairment_policy"] = availability_zone_impairment_policy
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
+            __props__.__dict__["capacity_reservation_specification"] = capacity_reservation_specification
             __props__.__dict__["context"] = context
             __props__.__dict__["cooldown"] = cooldown
             __props__.__dict__["default_instance_warmup"] = default_instance_warmup
@@ -849,6 +864,7 @@ class AutoScalingGroup(pulumi.CustomResource):
         __props__.__dict__["availability_zone_impairment_policy"] = None
         __props__.__dict__["availability_zones"] = None
         __props__.__dict__["capacity_rebalance"] = None
+        __props__.__dict__["capacity_reservation_specification"] = None
         __props__.__dict__["context"] = None
         __props__.__dict__["cooldown"] = None
         __props__.__dict__["default_instance_warmup"] = None
@@ -918,6 +934,11 @@ class AutoScalingGroup(pulumi.CustomResource):
         Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "capacity_rebalance")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> pulumi.Output[Optional['outputs.AutoScalingGroupCapacityReservationSpecification']]:
+        return pulumi.get(self, "capacity_reservation_specification")
 
     @property
     @pulumi.getter

@@ -33,6 +33,9 @@ export interface GetContainerGroupDefinitionResult {
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
      */
     readonly creationTime?: string;
+    /**
+     * The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+     */
     readonly gameServerContainerDefinition?: outputs.gamelift.ContainerGroupDefinitionGameServerContainerDefinition;
     /**
      * The operating system of the container group

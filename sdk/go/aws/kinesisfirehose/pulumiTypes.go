@@ -2620,19 +2620,58 @@ func (o DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput) Secret
 }
 
 type DeliveryStreamDatabaseSourceConfiguration struct {
-	Columns                                   *DeliveryStreamDatabaseColumns                          `pulumi:"columns"`
+	// The list of column patterns in source database endpoint for Firehose to read from.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Columns *DeliveryStreamDatabaseColumns `pulumi:"columns"`
+	// The structure to configure the authentication methods for Firehose to connect to source database endpoint.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	DatabaseSourceAuthenticationConfiguration DeliveryStreamDatabaseSourceAuthenticationConfiguration `pulumi:"databaseSourceAuthenticationConfiguration"`
-	DatabaseSourceVpcConfiguration            DeliveryStreamDatabaseSourceVpcConfiguration            `pulumi:"databaseSourceVpcConfiguration"`
-	Databases                                 DeliveryStreamDatabases                                 `pulumi:"databases"`
-	Digest                                    *string                                                 `pulumi:"digest"`
-	Endpoint                                  string                                                  `pulumi:"endpoint"`
-	Port                                      int                                                     `pulumi:"port"`
-	PublicCertificate                         *string                                                 `pulumi:"publicCertificate"`
-	SnapshotWatermarkTable                    string                                                  `pulumi:"snapshotWatermarkTable"`
-	SslMode                                   *DeliveryStreamDatabaseSourceConfigurationSslMode       `pulumi:"sslMode"`
-	SurrogateKeys                             []string                                                `pulumi:"surrogateKeys"`
-	Tables                                    DeliveryStreamDatabaseTables                            `pulumi:"tables"`
-	Type                                      DeliveryStreamDatabaseSourceConfigurationType           `pulumi:"type"`
+	// The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	DatabaseSourceVpcConfiguration DeliveryStreamDatabaseSourceVpcConfiguration `pulumi:"databaseSourceVpcConfiguration"`
+	// The list of database patterns in source database endpoint for Firehose to read from.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Databases DeliveryStreamDatabases `pulumi:"databases"`
+	Digest    *string                 `pulumi:"digest"`
+	// The endpoint of the database server.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Endpoint string `pulumi:"endpoint"`
+	// The port of the database. This can be one of the following values.
+	//
+	// - 3306 for MySQL database type
+	// - 5432 for PostgreSQL database type
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Port              int     `pulumi:"port"`
+	PublicCertificate *string `pulumi:"publicCertificate"`
+	// The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	SnapshotWatermarkTable string `pulumi:"snapshotWatermarkTable"`
+	// The mode to enable or disable SSL when Firehose connects to the database endpoint.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	SslMode *DeliveryStreamDatabaseSourceConfigurationSslMode `pulumi:"sslMode"`
+	// The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	SurrogateKeys []string `pulumi:"surrogateKeys"`
+	// The list of table patterns in source database endpoint for Firehose to read from.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Tables DeliveryStreamDatabaseTables `pulumi:"tables"`
+	// The type of database engine. This can be one of the following values.
+	//
+	// - MySQL
+	// - PostgreSQL
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Type DeliveryStreamDatabaseSourceConfigurationType `pulumi:"type"`
 }
 
 // DeliveryStreamDatabaseSourceConfigurationInput is an input type that accepts DeliveryStreamDatabaseSourceConfigurationArgs and DeliveryStreamDatabaseSourceConfigurationOutput values.
@@ -2647,19 +2686,58 @@ type DeliveryStreamDatabaseSourceConfigurationInput interface {
 }
 
 type DeliveryStreamDatabaseSourceConfigurationArgs struct {
-	Columns                                   DeliveryStreamDatabaseColumnsPtrInput                        `pulumi:"columns"`
+	// The list of column patterns in source database endpoint for Firehose to read from.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Columns DeliveryStreamDatabaseColumnsPtrInput `pulumi:"columns"`
+	// The structure to configure the authentication methods for Firehose to connect to source database endpoint.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	DatabaseSourceAuthenticationConfiguration DeliveryStreamDatabaseSourceAuthenticationConfigurationInput `pulumi:"databaseSourceAuthenticationConfiguration"`
-	DatabaseSourceVpcConfiguration            DeliveryStreamDatabaseSourceVpcConfigurationInput            `pulumi:"databaseSourceVpcConfiguration"`
-	Databases                                 DeliveryStreamDatabasesInput                                 `pulumi:"databases"`
-	Digest                                    pulumi.StringPtrInput                                        `pulumi:"digest"`
-	Endpoint                                  pulumi.StringInput                                           `pulumi:"endpoint"`
-	Port                                      pulumi.IntInput                                              `pulumi:"port"`
-	PublicCertificate                         pulumi.StringPtrInput                                        `pulumi:"publicCertificate"`
-	SnapshotWatermarkTable                    pulumi.StringInput                                           `pulumi:"snapshotWatermarkTable"`
-	SslMode                                   DeliveryStreamDatabaseSourceConfigurationSslModePtrInput     `pulumi:"sslMode"`
-	SurrogateKeys                             pulumi.StringArrayInput                                      `pulumi:"surrogateKeys"`
-	Tables                                    DeliveryStreamDatabaseTablesInput                            `pulumi:"tables"`
-	Type                                      DeliveryStreamDatabaseSourceConfigurationTypeInput           `pulumi:"type"`
+	// The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	DatabaseSourceVpcConfiguration DeliveryStreamDatabaseSourceVpcConfigurationInput `pulumi:"databaseSourceVpcConfiguration"`
+	// The list of database patterns in source database endpoint for Firehose to read from.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Databases DeliveryStreamDatabasesInput `pulumi:"databases"`
+	Digest    pulumi.StringPtrInput        `pulumi:"digest"`
+	// The endpoint of the database server.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The port of the database. This can be one of the following values.
+	//
+	// - 3306 for MySQL database type
+	// - 5432 for PostgreSQL database type
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Port              pulumi.IntInput       `pulumi:"port"`
+	PublicCertificate pulumi.StringPtrInput `pulumi:"publicCertificate"`
+	// The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	SnapshotWatermarkTable pulumi.StringInput `pulumi:"snapshotWatermarkTable"`
+	// The mode to enable or disable SSL when Firehose connects to the database endpoint.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	SslMode DeliveryStreamDatabaseSourceConfigurationSslModePtrInput `pulumi:"sslMode"`
+	// The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	SurrogateKeys pulumi.StringArrayInput `pulumi:"surrogateKeys"`
+	// The list of table patterns in source database endpoint for Firehose to read from.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Tables DeliveryStreamDatabaseTablesInput `pulumi:"tables"`
+	// The type of database engine. This can be one of the following values.
+	//
+	// - MySQL
+	// - PostgreSQL
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	Type DeliveryStreamDatabaseSourceConfigurationTypeInput `pulumi:"type"`
 }
 
 func (DeliveryStreamDatabaseSourceConfigurationArgs) ElementType() reflect.Type {
@@ -2739,22 +2817,34 @@ func (o DeliveryStreamDatabaseSourceConfigurationOutput) ToDeliveryStreamDatabas
 	}).(DeliveryStreamDatabaseSourceConfigurationPtrOutput)
 }
 
+// The list of column patterns in source database endpoint for Firehose to read from.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) Columns() DeliveryStreamDatabaseColumnsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseColumns { return v.Columns }).(DeliveryStreamDatabaseColumnsPtrOutput)
 }
 
+// The structure to configure the authentication methods for Firehose to connect to source database endpoint.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) DatabaseSourceAuthenticationConfiguration() DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseSourceAuthenticationConfiguration {
 		return v.DatabaseSourceAuthenticationConfiguration
 	}).(DeliveryStreamDatabaseSourceAuthenticationConfigurationOutput)
 }
 
+// The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) DatabaseSourceVpcConfiguration() DeliveryStreamDatabaseSourceVpcConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseSourceVpcConfiguration {
 		return v.DatabaseSourceVpcConfiguration
 	}).(DeliveryStreamDatabaseSourceVpcConfigurationOutput)
 }
 
+// The list of database patterns in source database endpoint for Firehose to read from.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) Databases() DeliveryStreamDatabasesOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabases { return v.Databases }).(DeliveryStreamDatabasesOutput)
 }
@@ -2763,10 +2853,19 @@ func (o DeliveryStreamDatabaseSourceConfigurationOutput) Digest() pulumi.StringP
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) *string { return v.Digest }).(pulumi.StringPtrOutput)
 }
 
+// The endpoint of the database server.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// The port of the database. This can be one of the following values.
+//
+// - 3306 for MySQL database type
+// - 5432 for PostgreSQL database type
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -2775,24 +2874,42 @@ func (o DeliveryStreamDatabaseSourceConfigurationOutput) PublicCertificate() pul
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) *string { return v.PublicCertificate }).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) SnapshotWatermarkTable() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) string { return v.SnapshotWatermarkTable }).(pulumi.StringOutput)
 }
 
+// The mode to enable or disable SSL when Firehose connects to the database endpoint.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) SslMode() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceConfigurationSslMode {
 		return v.SslMode
 	}).(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput)
 }
 
+// The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) SurrogateKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) []string { return v.SurrogateKeys }).(pulumi.StringArrayOutput)
 }
 
+// The list of table patterns in source database endpoint for Firehose to read from.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) Tables() DeliveryStreamDatabaseTablesOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseTables { return v.Tables }).(DeliveryStreamDatabaseTablesOutput)
 }
 
+// The type of database engine. This can be one of the following values.
+//
+// - MySQL
+// - PostgreSQL
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationOutput) Type() DeliveryStreamDatabaseSourceConfigurationTypeOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceConfiguration) DeliveryStreamDatabaseSourceConfigurationType {
 		return v.Type
@@ -2823,6 +2940,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Elem() DeliveryStrea
 	}).(DeliveryStreamDatabaseSourceConfigurationOutput)
 }
 
+// The list of column patterns in source database endpoint for Firehose to read from.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Columns() DeliveryStreamDatabaseColumnsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseColumns {
 		if v == nil {
@@ -2832,6 +2952,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Columns() DeliverySt
 	}).(DeliveryStreamDatabaseColumnsPtrOutput)
 }
 
+// The structure to configure the authentication methods for Firehose to connect to source database endpoint.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) DatabaseSourceAuthenticationConfiguration() DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceAuthenticationConfiguration {
 		if v == nil {
@@ -2841,6 +2964,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) DatabaseSourceAuthen
 	}).(DeliveryStreamDatabaseSourceAuthenticationConfigurationPtrOutput)
 }
 
+// The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) DatabaseSourceVpcConfiguration() DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceVpcConfiguration {
 		if v == nil {
@@ -2850,6 +2976,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) DatabaseSourceVpcCon
 	}).(DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput)
 }
 
+// The list of database patterns in source database endpoint for Firehose to read from.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Databases() DeliveryStreamDatabasesPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabases {
 		if v == nil {
@@ -2868,6 +2997,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Digest() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The endpoint of the database server.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Endpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *string {
 		if v == nil {
@@ -2877,6 +3009,12 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Endpoint() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The port of the database. This can be one of the following values.
+//
+// - 3306 for MySQL database type
+// - 5432 for PostgreSQL database type
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *int {
 		if v == nil {
@@ -2895,6 +3033,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) PublicCertificate() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SnapshotWatermarkTable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *string {
 		if v == nil {
@@ -2904,6 +3045,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SnapshotWatermarkTab
 	}).(pulumi.StringPtrOutput)
 }
 
+// The mode to enable or disable SSL when Firehose connects to the database endpoint.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SslMode() DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceConfigurationSslMode {
 		if v == nil {
@@ -2913,6 +3057,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SslMode() DeliverySt
 	}).(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput)
 }
 
+// The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SurrogateKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) []string {
 		if v == nil {
@@ -2922,6 +3069,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) SurrogateKeys() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+// The list of table patterns in source database endpoint for Firehose to read from.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Tables() DeliveryStreamDatabaseTablesPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseTables {
 		if v == nil {
@@ -2931,6 +3081,12 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Tables() DeliveryStr
 	}).(DeliveryStreamDatabaseTablesPtrOutput)
 }
 
+// The type of database engine. This can be one of the following values.
+//
+// - MySQL
+// - PostgreSQL
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Type() DeliveryStreamDatabaseSourceConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceConfiguration) *DeliveryStreamDatabaseSourceConfigurationType {
 		if v == nil {
@@ -2941,6 +3097,9 @@ func (o DeliveryStreamDatabaseSourceConfigurationPtrOutput) Type() DeliveryStrea
 }
 
 type DeliveryStreamDatabaseSourceVpcConfiguration struct {
+	// The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle `firehose.amazonaws.com` as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like `com.amazonaws.vpce.<region>.<vpc-endpoint-service-id>` .
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	VpcEndpointServiceName string `pulumi:"vpcEndpointServiceName"`
 }
 
@@ -2956,6 +3115,9 @@ type DeliveryStreamDatabaseSourceVpcConfigurationInput interface {
 }
 
 type DeliveryStreamDatabaseSourceVpcConfigurationArgs struct {
+	// The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle `firehose.amazonaws.com` as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like `com.amazonaws.vpce.<region>.<vpc-endpoint-service-id>` .
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	VpcEndpointServiceName pulumi.StringInput `pulumi:"vpcEndpointServiceName"`
 }
 
@@ -3036,6 +3198,9 @@ func (o DeliveryStreamDatabaseSourceVpcConfigurationOutput) ToDeliveryStreamData
 	}).(DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput)
 }
 
+// The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle `firehose.amazonaws.com` as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like `com.amazonaws.vpce.<region>.<vpc-endpoint-service-id>` .
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceVpcConfigurationOutput) VpcEndpointServiceName() pulumi.StringOutput {
 	return o.ApplyT(func(v DeliveryStreamDatabaseSourceVpcConfiguration) string { return v.VpcEndpointServiceName }).(pulumi.StringOutput)
 }
@@ -3064,6 +3229,9 @@ func (o DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput) Elem() DeliverySt
 	}).(DeliveryStreamDatabaseSourceVpcConfigurationOutput)
 }
 
+// The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle `firehose.amazonaws.com` as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like `com.amazonaws.vpce.<region>.<vpc-endpoint-service-id>` .
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamDatabaseSourceVpcConfigurationPtrOutput) VpcEndpointServiceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDatabaseSourceVpcConfiguration) *string {
 		if v == nil {

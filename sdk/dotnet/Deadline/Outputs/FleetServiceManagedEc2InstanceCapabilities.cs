@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     [OutputType]
     public sealed class FleetServiceManagedEc2InstanceCapabilities
     {
+        public readonly Outputs.FleetAcceleratorCapabilities? AcceleratorCapabilities;
         public readonly ImmutableArray<string> AllowedInstanceTypes;
         public readonly Pulumi.AwsNative.Deadline.FleetCpuArchitectureType CpuArchitectureType;
         public readonly ImmutableArray<Outputs.FleetAmountCapability> CustomAmounts;
@@ -25,6 +26,8 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
         [OutputConstructor]
         private FleetServiceManagedEc2InstanceCapabilities(
+            Outputs.FleetAcceleratorCapabilities? acceleratorCapabilities,
+
             ImmutableArray<string> allowedInstanceTypes,
 
             Pulumi.AwsNative.Deadline.FleetCpuArchitectureType cpuArchitectureType,
@@ -43,6 +46,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
 
             Outputs.FleetVCpuCountRange vCpuCount)
         {
+            AcceleratorCapabilities = acceleratorCapabilities;
             AllowedInstanceTypes = allowedInstanceTypes;
             CpuArchitectureType = cpuArchitectureType;
             CustomAmounts = customAmounts;

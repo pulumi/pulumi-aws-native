@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<string?> CacheParameterGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The engine of the Global Datastore.
+        /// </summary>
+        [Output("engine")]
+        public Output<string?> Engine { get; private set; } = null!;
+
+        /// <summary>
         /// The engine version of the Global Datastore.
         /// </summary>
         [Output("engineVersion")]
@@ -143,6 +149,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         [Input("cacheParameterGroupName")]
         public Input<string>? CacheParameterGroupName { get; set; }
+
+        /// <summary>
+        /// The engine of the Global Datastore.
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
 
         /// <summary>
         /// The engine version of the Global Datastore.

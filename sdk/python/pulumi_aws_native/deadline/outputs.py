@@ -17,7 +17,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'FleetAcceleratorCapabilities',
     'FleetAcceleratorCountRange',
+    'FleetAcceleratorSelection',
     'FleetAcceleratorTotalMemoryMiBRange',
     'FleetAmountCapability',
     'FleetAttributeCapability',
@@ -40,6 +42,26 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class FleetAcceleratorCapabilities(dict):
+    def __init__(__self__, *,
+                 selections: Sequence['outputs.FleetAcceleratorSelection'],
+                 count: Optional['outputs.FleetAcceleratorCountRange'] = None):
+        pulumi.set(__self__, "selections", selections)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def selections(self) -> Sequence['outputs.FleetAcceleratorSelection']:
+        return pulumi.get(self, "selections")
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional['outputs.FleetAcceleratorCountRange']:
+        return pulumi.get(self, "count")
+
+
+@pulumi.output_type
 class FleetAcceleratorCountRange(dict):
     def __init__(__self__, *,
                  min: int,
@@ -57,6 +79,26 @@ class FleetAcceleratorCountRange(dict):
     @pulumi.getter
     def max(self) -> Optional[int]:
         return pulumi.get(self, "max")
+
+
+@pulumi.output_type
+class FleetAcceleratorSelection(dict):
+    def __init__(__self__, *,
+                 name: 'FleetAcceleratorSelectionName',
+                 runtime: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+
+    @property
+    @pulumi.getter
+    def name(self) -> 'FleetAcceleratorSelectionName':
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[str]:
+        return pulumi.get(self, "runtime")
 
 
 @pulumi.output_type
@@ -509,6 +551,8 @@ class FleetServiceManagedEc2InstanceCapabilities(dict):
             suggest = "os_family"
         elif key == "vCpuCount":
             suggest = "v_cpu_count"
+        elif key == "acceleratorCapabilities":
+            suggest = "accelerator_capabilities"
         elif key == "allowedInstanceTypes":
             suggest = "allowed_instance_types"
         elif key == "customAmounts":
@@ -536,6 +580,7 @@ class FleetServiceManagedEc2InstanceCapabilities(dict):
                  memory_mi_b: 'outputs.FleetMemoryMiBRange',
                  os_family: 'FleetServiceManagedFleetOperatingSystemFamily',
                  v_cpu_count: 'outputs.FleetVCpuCountRange',
+                 accelerator_capabilities: Optional['outputs.FleetAcceleratorCapabilities'] = None,
                  allowed_instance_types: Optional[Sequence[str]] = None,
                  custom_amounts: Optional[Sequence['outputs.FleetAmountCapability']] = None,
                  custom_attributes: Optional[Sequence['outputs.FleetAttributeCapability']] = None,
@@ -545,6 +590,8 @@ class FleetServiceManagedEc2InstanceCapabilities(dict):
         pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         pulumi.set(__self__, "os_family", os_family)
         pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+        if accelerator_capabilities is not None:
+            pulumi.set(__self__, "accelerator_capabilities", accelerator_capabilities)
         if allowed_instance_types is not None:
             pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if custom_amounts is not None:
@@ -575,6 +622,11 @@ class FleetServiceManagedEc2InstanceCapabilities(dict):
     @pulumi.getter(name="vCpuCount")
     def v_cpu_count(self) -> 'outputs.FleetVCpuCountRange':
         return pulumi.get(self, "v_cpu_count")
+
+    @property
+    @pulumi.getter(name="acceleratorCapabilities")
+    def accelerator_capabilities(self) -> Optional['outputs.FleetAcceleratorCapabilities']:
+        return pulumi.get(self, "accelerator_capabilities")
 
     @property
     @pulumi.getter(name="allowedInstanceTypes")

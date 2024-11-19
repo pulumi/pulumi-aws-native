@@ -124,6 +124,9 @@ export interface GetTableResult {
      *   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
     readonly timeToLiveSpecification?: outputs.dynamodb.TableTimeToLiveSpecification;
+    /**
+     * Represents the warm throughput (in read units per second and write units per second) for creating a table.
+     */
     readonly warmThroughput?: outputs.dynamodb.TableWarmThroughput;
 }
 /**

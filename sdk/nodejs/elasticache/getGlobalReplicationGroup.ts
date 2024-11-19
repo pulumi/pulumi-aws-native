@@ -30,6 +30,10 @@ export interface GetGlobalReplicationGroupResult {
      */
     readonly cacheParameterGroupName?: string;
     /**
+     * The engine of the Global Datastore.
+     */
+    readonly engine?: string;
+    /**
      * The optional description of the Global Datastore
      */
     readonly globalReplicationGroupDescription?: string;

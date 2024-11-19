@@ -69,6 +69,9 @@ class GetServiceLevelObjectiveResult:
     @property
     @pulumi.getter(name="burnRateConfigurations")
     def burn_rate_configurations(self) -> Optional[Sequence['outputs.ServiceLevelObjectiveBurnRateConfiguration']]:
+        """
+        Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+        """
         return pulumi.get(self, "burn_rate_configurations")
 
     @property

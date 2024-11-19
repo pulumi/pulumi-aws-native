@@ -45,6 +45,9 @@ export class ContainerFleet extends pulumi.CustomResource {
      * A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    /**
+     * Set of rules for processing a deployment for a container fleet update.
+     */
     public readonly deploymentConfiguration!: pulumi.Output<outputs.gamelift.ContainerFleetDeploymentConfiguration | undefined>;
     public /*out*/ readonly deploymentDetails!: pulumi.Output<outputs.gamelift.ContainerFleetDeploymentDetails>;
     /**
@@ -79,6 +82,9 @@ export class ContainerFleet extends pulumi.CustomResource {
      * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
      */
     public readonly gameSessionCreationLimitPolicy!: pulumi.Output<outputs.gamelift.ContainerFleetGameSessionCreationLimitPolicy | undefined>;
+    /**
+     * The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+     */
     public readonly instanceConnectionPortRange!: pulumi.Output<outputs.gamelift.ContainerFleetConnectionPortRange | undefined>;
     /**
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
@@ -89,6 +95,13 @@ export class ContainerFleet extends pulumi.CustomResource {
      */
     public readonly instanceType!: pulumi.Output<string | undefined>;
     public readonly locations!: pulumi.Output<outputs.gamelift.ContainerFleetLocationConfiguration[] | undefined>;
+    /**
+     * The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+     *
+     * - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+     * - `S3` -- Store logs in an Amazon S3 bucket that you define.
+     * - `NONE` -- Don't collect container logs.
+     */
     public readonly logConfiguration!: pulumi.Output<outputs.gamelift.ContainerFleetLogConfiguration | undefined>;
     /**
      * The maximum number of game server container groups per instance, a number between 1-5000.
@@ -204,6 +217,9 @@ export interface ContainerFleetArgs {
      * Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
      */
     billingType?: pulumi.Input<enums.gamelift.ContainerFleetBillingType>;
+    /**
+     * Set of rules for processing a deployment for a container fleet update.
+     */
     deploymentConfiguration?: pulumi.Input<inputs.gamelift.ContainerFleetDeploymentConfigurationArgs>;
     /**
      * A human-readable description of a fleet.
@@ -225,6 +241,9 @@ export interface ContainerFleetArgs {
      * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
      */
     gameSessionCreationLimitPolicy?: pulumi.Input<inputs.gamelift.ContainerFleetGameSessionCreationLimitPolicyArgs>;
+    /**
+     * The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+     */
     instanceConnectionPortRange?: pulumi.Input<inputs.gamelift.ContainerFleetConnectionPortRangeArgs>;
     /**
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
@@ -235,6 +254,13 @@ export interface ContainerFleetArgs {
      */
     instanceType?: pulumi.Input<string>;
     locations?: pulumi.Input<pulumi.Input<inputs.gamelift.ContainerFleetLocationConfigurationArgs>[]>;
+    /**
+     * The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+     *
+     * - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+     * - `S3` -- Store logs in an Amazon S3 bucket that you define.
+     * - `NONE` -- Don't collect container logs.
+     */
     logConfiguration?: pulumi.Input<inputs.gamelift.ContainerFleetLogConfigurationArgs>;
     /**
      * The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.

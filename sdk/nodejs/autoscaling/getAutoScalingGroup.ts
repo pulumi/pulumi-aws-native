@@ -43,6 +43,7 @@ export interface GetAutoScalingGroupResult {
      * Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
      */
     readonly capacityRebalance?: boolean;
+    readonly capacityReservationSpecification?: outputs.autoscaling.AutoScalingGroupCapacityReservationSpecification;
     /**
      * Reserved.
      */

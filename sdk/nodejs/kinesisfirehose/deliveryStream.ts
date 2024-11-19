@@ -49,6 +49,11 @@ export class DeliveryStream extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The top level object for configuring streams with database as a source.
+     *
+     * Amazon Data Firehose is in preview release and is subject to change.
+     */
     public readonly databaseSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamDatabaseSourceConfiguration | undefined>;
     /**
      * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
@@ -126,7 +131,7 @@ export class DeliveryStream extends pulumi.CustomResource {
      *
      * You can specify up to 50 tags when creating a Firehose stream.
      *
-     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
      *
      * *AccessDeniedException*
      *
@@ -204,6 +209,11 @@ export interface DeliveryStreamArgs {
      * The destination in Amazon OpenSearch Service. You can specify only one destination.
      */
     amazonopensearchserviceDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>;
+    /**
+     * The top level object for configuring streams with database as a source.
+     *
+     * Amazon Data Firehose is in preview release and is subject to change.
+     */
     databaseSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamDatabaseSourceConfigurationArgs>;
     /**
      * Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
@@ -281,7 +291,7 @@ export interface DeliveryStreamArgs {
      *
      * You can specify up to 50 tags when creating a Firehose stream.
      *
-     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
      *
      * *AccessDeniedException*
      *

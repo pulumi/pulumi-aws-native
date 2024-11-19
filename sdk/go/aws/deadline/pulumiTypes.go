@@ -21,6 +21,154 @@ type FarmTag struct {
 	Value string `pulumi:"value"`
 }
 
+type FleetAcceleratorCapabilities struct {
+	Count      *FleetAcceleratorCountRange `pulumi:"count"`
+	Selections []FleetAcceleratorSelection `pulumi:"selections"`
+}
+
+// FleetAcceleratorCapabilitiesInput is an input type that accepts FleetAcceleratorCapabilitiesArgs and FleetAcceleratorCapabilitiesOutput values.
+// You can construct a concrete instance of `FleetAcceleratorCapabilitiesInput` via:
+//
+//	FleetAcceleratorCapabilitiesArgs{...}
+type FleetAcceleratorCapabilitiesInput interface {
+	pulumi.Input
+
+	ToFleetAcceleratorCapabilitiesOutput() FleetAcceleratorCapabilitiesOutput
+	ToFleetAcceleratorCapabilitiesOutputWithContext(context.Context) FleetAcceleratorCapabilitiesOutput
+}
+
+type FleetAcceleratorCapabilitiesArgs struct {
+	Count      FleetAcceleratorCountRangePtrInput  `pulumi:"count"`
+	Selections FleetAcceleratorSelectionArrayInput `pulumi:"selections"`
+}
+
+func (FleetAcceleratorCapabilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetAcceleratorCapabilities)(nil)).Elem()
+}
+
+func (i FleetAcceleratorCapabilitiesArgs) ToFleetAcceleratorCapabilitiesOutput() FleetAcceleratorCapabilitiesOutput {
+	return i.ToFleetAcceleratorCapabilitiesOutputWithContext(context.Background())
+}
+
+func (i FleetAcceleratorCapabilitiesArgs) ToFleetAcceleratorCapabilitiesOutputWithContext(ctx context.Context) FleetAcceleratorCapabilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetAcceleratorCapabilitiesOutput)
+}
+
+func (i FleetAcceleratorCapabilitiesArgs) ToFleetAcceleratorCapabilitiesPtrOutput() FleetAcceleratorCapabilitiesPtrOutput {
+	return i.ToFleetAcceleratorCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i FleetAcceleratorCapabilitiesArgs) ToFleetAcceleratorCapabilitiesPtrOutputWithContext(ctx context.Context) FleetAcceleratorCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetAcceleratorCapabilitiesOutput).ToFleetAcceleratorCapabilitiesPtrOutputWithContext(ctx)
+}
+
+// FleetAcceleratorCapabilitiesPtrInput is an input type that accepts FleetAcceleratorCapabilitiesArgs, FleetAcceleratorCapabilitiesPtr and FleetAcceleratorCapabilitiesPtrOutput values.
+// You can construct a concrete instance of `FleetAcceleratorCapabilitiesPtrInput` via:
+//
+//	        FleetAcceleratorCapabilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FleetAcceleratorCapabilitiesPtrInput interface {
+	pulumi.Input
+
+	ToFleetAcceleratorCapabilitiesPtrOutput() FleetAcceleratorCapabilitiesPtrOutput
+	ToFleetAcceleratorCapabilitiesPtrOutputWithContext(context.Context) FleetAcceleratorCapabilitiesPtrOutput
+}
+
+type fleetAcceleratorCapabilitiesPtrType FleetAcceleratorCapabilitiesArgs
+
+func FleetAcceleratorCapabilitiesPtr(v *FleetAcceleratorCapabilitiesArgs) FleetAcceleratorCapabilitiesPtrInput {
+	return (*fleetAcceleratorCapabilitiesPtrType)(v)
+}
+
+func (*fleetAcceleratorCapabilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetAcceleratorCapabilities)(nil)).Elem()
+}
+
+func (i *fleetAcceleratorCapabilitiesPtrType) ToFleetAcceleratorCapabilitiesPtrOutput() FleetAcceleratorCapabilitiesPtrOutput {
+	return i.ToFleetAcceleratorCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetAcceleratorCapabilitiesPtrType) ToFleetAcceleratorCapabilitiesPtrOutputWithContext(ctx context.Context) FleetAcceleratorCapabilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetAcceleratorCapabilitiesPtrOutput)
+}
+
+type FleetAcceleratorCapabilitiesOutput struct{ *pulumi.OutputState }
+
+func (FleetAcceleratorCapabilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetAcceleratorCapabilities)(nil)).Elem()
+}
+
+func (o FleetAcceleratorCapabilitiesOutput) ToFleetAcceleratorCapabilitiesOutput() FleetAcceleratorCapabilitiesOutput {
+	return o
+}
+
+func (o FleetAcceleratorCapabilitiesOutput) ToFleetAcceleratorCapabilitiesOutputWithContext(ctx context.Context) FleetAcceleratorCapabilitiesOutput {
+	return o
+}
+
+func (o FleetAcceleratorCapabilitiesOutput) ToFleetAcceleratorCapabilitiesPtrOutput() FleetAcceleratorCapabilitiesPtrOutput {
+	return o.ToFleetAcceleratorCapabilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o FleetAcceleratorCapabilitiesOutput) ToFleetAcceleratorCapabilitiesPtrOutputWithContext(ctx context.Context) FleetAcceleratorCapabilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetAcceleratorCapabilities) *FleetAcceleratorCapabilities {
+		return &v
+	}).(FleetAcceleratorCapabilitiesPtrOutput)
+}
+
+func (o FleetAcceleratorCapabilitiesOutput) Count() FleetAcceleratorCountRangePtrOutput {
+	return o.ApplyT(func(v FleetAcceleratorCapabilities) *FleetAcceleratorCountRange { return v.Count }).(FleetAcceleratorCountRangePtrOutput)
+}
+
+func (o FleetAcceleratorCapabilitiesOutput) Selections() FleetAcceleratorSelectionArrayOutput {
+	return o.ApplyT(func(v FleetAcceleratorCapabilities) []FleetAcceleratorSelection { return v.Selections }).(FleetAcceleratorSelectionArrayOutput)
+}
+
+type FleetAcceleratorCapabilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetAcceleratorCapabilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetAcceleratorCapabilities)(nil)).Elem()
+}
+
+func (o FleetAcceleratorCapabilitiesPtrOutput) ToFleetAcceleratorCapabilitiesPtrOutput() FleetAcceleratorCapabilitiesPtrOutput {
+	return o
+}
+
+func (o FleetAcceleratorCapabilitiesPtrOutput) ToFleetAcceleratorCapabilitiesPtrOutputWithContext(ctx context.Context) FleetAcceleratorCapabilitiesPtrOutput {
+	return o
+}
+
+func (o FleetAcceleratorCapabilitiesPtrOutput) Elem() FleetAcceleratorCapabilitiesOutput {
+	return o.ApplyT(func(v *FleetAcceleratorCapabilities) FleetAcceleratorCapabilities {
+		if v != nil {
+			return *v
+		}
+		var ret FleetAcceleratorCapabilities
+		return ret
+	}).(FleetAcceleratorCapabilitiesOutput)
+}
+
+func (o FleetAcceleratorCapabilitiesPtrOutput) Count() FleetAcceleratorCountRangePtrOutput {
+	return o.ApplyT(func(v *FleetAcceleratorCapabilities) *FleetAcceleratorCountRange {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(FleetAcceleratorCountRangePtrOutput)
+}
+
+func (o FleetAcceleratorCapabilitiesPtrOutput) Selections() FleetAcceleratorSelectionArrayOutput {
+	return o.ApplyT(func(v *FleetAcceleratorCapabilities) []FleetAcceleratorSelection {
+		if v == nil {
+			return nil
+		}
+		return v.Selections
+	}).(FleetAcceleratorSelectionArrayOutput)
+}
+
 type FleetAcceleratorCountRange struct {
 	Max *int `pulumi:"max"`
 	Min int  `pulumi:"min"`
@@ -167,6 +315,106 @@ func (o FleetAcceleratorCountRangePtrOutput) Min() pulumi.IntPtrOutput {
 		}
 		return &v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type FleetAcceleratorSelection struct {
+	Name    FleetAcceleratorSelectionName `pulumi:"name"`
+	Runtime *string                       `pulumi:"runtime"`
+}
+
+// FleetAcceleratorSelectionInput is an input type that accepts FleetAcceleratorSelectionArgs and FleetAcceleratorSelectionOutput values.
+// You can construct a concrete instance of `FleetAcceleratorSelectionInput` via:
+//
+//	FleetAcceleratorSelectionArgs{...}
+type FleetAcceleratorSelectionInput interface {
+	pulumi.Input
+
+	ToFleetAcceleratorSelectionOutput() FleetAcceleratorSelectionOutput
+	ToFleetAcceleratorSelectionOutputWithContext(context.Context) FleetAcceleratorSelectionOutput
+}
+
+type FleetAcceleratorSelectionArgs struct {
+	Name    FleetAcceleratorSelectionNameInput `pulumi:"name"`
+	Runtime pulumi.StringPtrInput              `pulumi:"runtime"`
+}
+
+func (FleetAcceleratorSelectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetAcceleratorSelection)(nil)).Elem()
+}
+
+func (i FleetAcceleratorSelectionArgs) ToFleetAcceleratorSelectionOutput() FleetAcceleratorSelectionOutput {
+	return i.ToFleetAcceleratorSelectionOutputWithContext(context.Background())
+}
+
+func (i FleetAcceleratorSelectionArgs) ToFleetAcceleratorSelectionOutputWithContext(ctx context.Context) FleetAcceleratorSelectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetAcceleratorSelectionOutput)
+}
+
+// FleetAcceleratorSelectionArrayInput is an input type that accepts FleetAcceleratorSelectionArray and FleetAcceleratorSelectionArrayOutput values.
+// You can construct a concrete instance of `FleetAcceleratorSelectionArrayInput` via:
+//
+//	FleetAcceleratorSelectionArray{ FleetAcceleratorSelectionArgs{...} }
+type FleetAcceleratorSelectionArrayInput interface {
+	pulumi.Input
+
+	ToFleetAcceleratorSelectionArrayOutput() FleetAcceleratorSelectionArrayOutput
+	ToFleetAcceleratorSelectionArrayOutputWithContext(context.Context) FleetAcceleratorSelectionArrayOutput
+}
+
+type FleetAcceleratorSelectionArray []FleetAcceleratorSelectionInput
+
+func (FleetAcceleratorSelectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetAcceleratorSelection)(nil)).Elem()
+}
+
+func (i FleetAcceleratorSelectionArray) ToFleetAcceleratorSelectionArrayOutput() FleetAcceleratorSelectionArrayOutput {
+	return i.ToFleetAcceleratorSelectionArrayOutputWithContext(context.Background())
+}
+
+func (i FleetAcceleratorSelectionArray) ToFleetAcceleratorSelectionArrayOutputWithContext(ctx context.Context) FleetAcceleratorSelectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetAcceleratorSelectionArrayOutput)
+}
+
+type FleetAcceleratorSelectionOutput struct{ *pulumi.OutputState }
+
+func (FleetAcceleratorSelectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetAcceleratorSelection)(nil)).Elem()
+}
+
+func (o FleetAcceleratorSelectionOutput) ToFleetAcceleratorSelectionOutput() FleetAcceleratorSelectionOutput {
+	return o
+}
+
+func (o FleetAcceleratorSelectionOutput) ToFleetAcceleratorSelectionOutputWithContext(ctx context.Context) FleetAcceleratorSelectionOutput {
+	return o
+}
+
+func (o FleetAcceleratorSelectionOutput) Name() FleetAcceleratorSelectionNameOutput {
+	return o.ApplyT(func(v FleetAcceleratorSelection) FleetAcceleratorSelectionName { return v.Name }).(FleetAcceleratorSelectionNameOutput)
+}
+
+func (o FleetAcceleratorSelectionOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetAcceleratorSelection) *string { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+type FleetAcceleratorSelectionArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetAcceleratorSelectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetAcceleratorSelection)(nil)).Elem()
+}
+
+func (o FleetAcceleratorSelectionArrayOutput) ToFleetAcceleratorSelectionArrayOutput() FleetAcceleratorSelectionArrayOutput {
+	return o
+}
+
+func (o FleetAcceleratorSelectionArrayOutput) ToFleetAcceleratorSelectionArrayOutputWithContext(ctx context.Context) FleetAcceleratorSelectionArrayOutput {
+	return o
+}
+
+func (o FleetAcceleratorSelectionArrayOutput) Index(i pulumi.IntInput) FleetAcceleratorSelectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetAcceleratorSelection {
+		return vs[0].([]FleetAcceleratorSelection)[vs[1].(int)]
+	}).(FleetAcceleratorSelectionOutput)
 }
 
 type FleetAcceleratorTotalMemoryMiBRange struct {
@@ -1461,15 +1709,16 @@ func (o FleetServiceManagedEc2FleetConfigurationPtrOutput) InstanceMarketOptions
 }
 
 type FleetServiceManagedEc2InstanceCapabilities struct {
-	AllowedInstanceTypes  []string                                      `pulumi:"allowedInstanceTypes"`
-	CpuArchitectureType   FleetCpuArchitectureType                      `pulumi:"cpuArchitectureType"`
-	CustomAmounts         []FleetAmountCapability                       `pulumi:"customAmounts"`
-	CustomAttributes      []FleetAttributeCapability                    `pulumi:"customAttributes"`
-	ExcludedInstanceTypes []string                                      `pulumi:"excludedInstanceTypes"`
-	MemoryMiB             FleetMemoryMiBRange                           `pulumi:"memoryMiB"`
-	OsFamily              FleetServiceManagedFleetOperatingSystemFamily `pulumi:"osFamily"`
-	RootEbsVolume         *FleetEc2EbsVolume                            `pulumi:"rootEbsVolume"`
-	VCpuCount             FleetVCpuCountRange                           `pulumi:"vCpuCount"`
+	AcceleratorCapabilities *FleetAcceleratorCapabilities                 `pulumi:"acceleratorCapabilities"`
+	AllowedInstanceTypes    []string                                      `pulumi:"allowedInstanceTypes"`
+	CpuArchitectureType     FleetCpuArchitectureType                      `pulumi:"cpuArchitectureType"`
+	CustomAmounts           []FleetAmountCapability                       `pulumi:"customAmounts"`
+	CustomAttributes        []FleetAttributeCapability                    `pulumi:"customAttributes"`
+	ExcludedInstanceTypes   []string                                      `pulumi:"excludedInstanceTypes"`
+	MemoryMiB               FleetMemoryMiBRange                           `pulumi:"memoryMiB"`
+	OsFamily                FleetServiceManagedFleetOperatingSystemFamily `pulumi:"osFamily"`
+	RootEbsVolume           *FleetEc2EbsVolume                            `pulumi:"rootEbsVolume"`
+	VCpuCount               FleetVCpuCountRange                           `pulumi:"vCpuCount"`
 }
 
 // FleetServiceManagedEc2InstanceCapabilitiesInput is an input type that accepts FleetServiceManagedEc2InstanceCapabilitiesArgs and FleetServiceManagedEc2InstanceCapabilitiesOutput values.
@@ -1484,15 +1733,16 @@ type FleetServiceManagedEc2InstanceCapabilitiesInput interface {
 }
 
 type FleetServiceManagedEc2InstanceCapabilitiesArgs struct {
-	AllowedInstanceTypes  pulumi.StringArrayInput                            `pulumi:"allowedInstanceTypes"`
-	CpuArchitectureType   FleetCpuArchitectureTypeInput                      `pulumi:"cpuArchitectureType"`
-	CustomAmounts         FleetAmountCapabilityArrayInput                    `pulumi:"customAmounts"`
-	CustomAttributes      FleetAttributeCapabilityArrayInput                 `pulumi:"customAttributes"`
-	ExcludedInstanceTypes pulumi.StringArrayInput                            `pulumi:"excludedInstanceTypes"`
-	MemoryMiB             FleetMemoryMiBRangeInput                           `pulumi:"memoryMiB"`
-	OsFamily              FleetServiceManagedFleetOperatingSystemFamilyInput `pulumi:"osFamily"`
-	RootEbsVolume         FleetEc2EbsVolumePtrInput                          `pulumi:"rootEbsVolume"`
-	VCpuCount             FleetVCpuCountRangeInput                           `pulumi:"vCpuCount"`
+	AcceleratorCapabilities FleetAcceleratorCapabilitiesPtrInput               `pulumi:"acceleratorCapabilities"`
+	AllowedInstanceTypes    pulumi.StringArrayInput                            `pulumi:"allowedInstanceTypes"`
+	CpuArchitectureType     FleetCpuArchitectureTypeInput                      `pulumi:"cpuArchitectureType"`
+	CustomAmounts           FleetAmountCapabilityArrayInput                    `pulumi:"customAmounts"`
+	CustomAttributes        FleetAttributeCapabilityArrayInput                 `pulumi:"customAttributes"`
+	ExcludedInstanceTypes   pulumi.StringArrayInput                            `pulumi:"excludedInstanceTypes"`
+	MemoryMiB               FleetMemoryMiBRangeInput                           `pulumi:"memoryMiB"`
+	OsFamily                FleetServiceManagedFleetOperatingSystemFamilyInput `pulumi:"osFamily"`
+	RootEbsVolume           FleetEc2EbsVolumePtrInput                          `pulumi:"rootEbsVolume"`
+	VCpuCount               FleetVCpuCountRangeInput                           `pulumi:"vCpuCount"`
 }
 
 func (FleetServiceManagedEc2InstanceCapabilitiesArgs) ElementType() reflect.Type {
@@ -1519,6 +1769,12 @@ func (o FleetServiceManagedEc2InstanceCapabilitiesOutput) ToFleetServiceManagedE
 
 func (o FleetServiceManagedEc2InstanceCapabilitiesOutput) ToFleetServiceManagedEc2InstanceCapabilitiesOutputWithContext(ctx context.Context) FleetServiceManagedEc2InstanceCapabilitiesOutput {
 	return o
+}
+
+func (o FleetServiceManagedEc2InstanceCapabilitiesOutput) AcceleratorCapabilities() FleetAcceleratorCapabilitiesPtrOutput {
+	return o.ApplyT(func(v FleetServiceManagedEc2InstanceCapabilities) *FleetAcceleratorCapabilities {
+		return v.AcceleratorCapabilities
+	}).(FleetAcceleratorCapabilitiesPtrOutput)
 }
 
 func (o FleetServiceManagedEc2InstanceCapabilitiesOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
@@ -1585,6 +1841,15 @@ func (o FleetServiceManagedEc2InstanceCapabilitiesPtrOutput) Elem() FleetService
 		var ret FleetServiceManagedEc2InstanceCapabilities
 		return ret
 	}).(FleetServiceManagedEc2InstanceCapabilitiesOutput)
+}
+
+func (o FleetServiceManagedEc2InstanceCapabilitiesPtrOutput) AcceleratorCapabilities() FleetAcceleratorCapabilitiesPtrOutput {
+	return o.ApplyT(func(v *FleetServiceManagedEc2InstanceCapabilities) *FleetAcceleratorCapabilities {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorCapabilities
+	}).(FleetAcceleratorCapabilitiesPtrOutput)
 }
 
 func (o FleetServiceManagedEc2InstanceCapabilitiesPtrOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
@@ -2630,8 +2895,12 @@ func (o StorageProfileFileSystemLocationArrayOutput) Index(i pulumi.IntInput) St
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorCapabilitiesInput)(nil)).Elem(), FleetAcceleratorCapabilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorCapabilitiesPtrInput)(nil)).Elem(), FleetAcceleratorCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorCountRangeInput)(nil)).Elem(), FleetAcceleratorCountRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorCountRangePtrInput)(nil)).Elem(), FleetAcceleratorCountRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorSelectionInput)(nil)).Elem(), FleetAcceleratorSelectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorSelectionArrayInput)(nil)).Elem(), FleetAcceleratorSelectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorTotalMemoryMiBRangeInput)(nil)).Elem(), FleetAcceleratorTotalMemoryMiBRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorTotalMemoryMiBRangePtrInput)(nil)).Elem(), FleetAcceleratorTotalMemoryMiBRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAmountCapabilityInput)(nil)).Elem(), FleetAmountCapabilityArgs{})
@@ -2659,8 +2928,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueWindowsUserPtrInput)(nil)).Elem(), QueueWindowsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileFileSystemLocationInput)(nil)).Elem(), StorageProfileFileSystemLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileFileSystemLocationArrayInput)(nil)).Elem(), StorageProfileFileSystemLocationArray{})
+	pulumi.RegisterOutputType(FleetAcceleratorCapabilitiesOutput{})
+	pulumi.RegisterOutputType(FleetAcceleratorCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorCountRangeOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorCountRangePtrOutput{})
+	pulumi.RegisterOutputType(FleetAcceleratorSelectionOutput{})
+	pulumi.RegisterOutputType(FleetAcceleratorSelectionArrayOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorTotalMemoryMiBRangeOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorTotalMemoryMiBRangePtrOutput{})
 	pulumi.RegisterOutputType(FleetAmountCapabilityOutput{})

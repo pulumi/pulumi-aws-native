@@ -65,7 +65,8 @@ type LookupGlobalTableResult struct {
 	TableId *string `pulumi:"tableId"`
 	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
-	WarmThroughput          *GlobalTableWarmThroughput          `pulumi:"warmThroughput"`
+	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+	WarmThroughput *GlobalTableWarmThroughput `pulumi:"warmThroughput"`
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
@@ -181,6 +182,7 @@ func (o LookupGlobalTableResultOutput) TimeToLiveSpecification() GlobalTableTime
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableTimeToLiveSpecification { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }
 
+// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
 func (o LookupGlobalTableResultOutput) WarmThroughput() GlobalTableWarmThroughputPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableWarmThroughput { return v.WarmThroughput }).(GlobalTableWarmThroughputPtrOutput)
 }

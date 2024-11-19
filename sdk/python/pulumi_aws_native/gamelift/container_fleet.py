@@ -45,12 +45,19 @@ class ContainerFleetArgs:
         The set of arguments for constructing a ContainerFleet resource.
         :param pulumi.Input[str] fleet_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input['ContainerFleetBillingType'] billing_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+        :param pulumi.Input['ContainerFleetDeploymentConfigurationArgs'] deployment_configuration: Set of rules for processing a deployment for a container fleet update.
         :param pulumi.Input[str] description: A human-readable description of a fleet.
         :param pulumi.Input[str] game_server_container_group_definition_name: The name of the container group definition that will be created per game server. You must specify GAME_SERVER container group. You have the option to also specify one PER_INSTANCE container group.
         :param pulumi.Input[int] game_server_container_groups_per_instance: The number of desired game server container groups per instance, a number between 1-5000.
         :param pulumi.Input['ContainerFleetGameSessionCreationLimitPolicyArgs'] game_session_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
+        :param pulumi.Input['ContainerFleetConnectionPortRangeArgs'] instance_connection_port_range: The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerFleetIpPermissionArgs']]] instance_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         :param pulumi.Input[str] instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
+        :param pulumi.Input['ContainerFleetLogConfigurationArgs'] log_configuration: The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+               
+               - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+               - `S3` -- Store logs in an Amazon S3 bucket that you define.
+               - `NONE` -- Don't collect container logs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         :param pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[str] per_instance_container_group_definition_name: The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
@@ -118,6 +125,9 @@ class ContainerFleetArgs:
     @property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional[pulumi.Input['ContainerFleetDeploymentConfigurationArgs']]:
+        """
+        Set of rules for processing a deployment for a container fleet update.
+        """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
@@ -175,6 +185,9 @@ class ContainerFleetArgs:
     @property
     @pulumi.getter(name="instanceConnectionPortRange")
     def instance_connection_port_range(self) -> Optional[pulumi.Input['ContainerFleetConnectionPortRangeArgs']]:
+        """
+        The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+        """
         return pulumi.get(self, "instance_connection_port_range")
 
     @instance_connection_port_range.setter
@@ -217,6 +230,13 @@ class ContainerFleetArgs:
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['ContainerFleetLogConfigurationArgs']]:
+        """
+        The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+
+        - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+        - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        - `NONE` -- Don't collect container logs.
+        """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
@@ -313,13 +333,20 @@ class ContainerFleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ContainerFleetBillingType'] billing_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
+        :param pulumi.Input[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict']] deployment_configuration: Set of rules for processing a deployment for a container fleet update.
         :param pulumi.Input[str] description: A human-readable description of a fleet.
         :param pulumi.Input[str] fleet_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input[str] game_server_container_group_definition_name: The name of the container group definition that will be created per game server. You must specify GAME_SERVER container group. You have the option to also specify one PER_INSTANCE container group.
         :param pulumi.Input[int] game_server_container_groups_per_instance: The number of desired game server container groups per instance, a number between 1-5000.
         :param pulumi.Input[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict']] game_session_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
+        :param pulumi.Input[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']] instance_connection_port_range: The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]] instance_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         :param pulumi.Input[str] instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
+        :param pulumi.Input[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']] log_configuration: The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+               
+               - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+               - `S3` -- Store logs in an Amazon S3 bucket that you define.
+               - `NONE` -- Don't collect container logs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
         :param pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[str] per_instance_container_group_definition_name: The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
@@ -473,6 +500,9 @@ class ContainerFleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> pulumi.Output[Optional['outputs.ContainerFleetDeploymentConfiguration']]:
+        """
+        Set of rules for processing a deployment for a container fleet update.
+        """
         return pulumi.get(self, "deployment_configuration")
 
     @property
@@ -547,6 +577,9 @@ class ContainerFleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="instanceConnectionPortRange")
     def instance_connection_port_range(self) -> pulumi.Output[Optional['outputs.ContainerFleetConnectionPortRange']]:
+        """
+        The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+        """
         return pulumi.get(self, "instance_connection_port_range")
 
     @property
@@ -573,6 +606,13 @@ class ContainerFleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.ContainerFleetLogConfiguration']]:
+        """
+        The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+
+        - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+        - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        - `NONE` -- Don't collect container logs.
+        """
         return pulumi.get(self, "log_configuration")
 
     @property

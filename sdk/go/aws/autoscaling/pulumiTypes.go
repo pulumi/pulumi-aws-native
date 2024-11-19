@@ -926,6 +926,308 @@ func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) Cpu() AutoSc
 	}).(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput)
 }
 
+type AutoScalingGroupCapacityReservationSpecification struct {
+	CapacityReservationPreference string                                     `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     *AutoScalingGroupCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+}
+
+// AutoScalingGroupCapacityReservationSpecificationInput is an input type that accepts AutoScalingGroupCapacityReservationSpecificationArgs and AutoScalingGroupCapacityReservationSpecificationOutput values.
+// You can construct a concrete instance of `AutoScalingGroupCapacityReservationSpecificationInput` via:
+//
+//	AutoScalingGroupCapacityReservationSpecificationArgs{...}
+type AutoScalingGroupCapacityReservationSpecificationInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupCapacityReservationSpecificationOutput() AutoScalingGroupCapacityReservationSpecificationOutput
+	ToAutoScalingGroupCapacityReservationSpecificationOutputWithContext(context.Context) AutoScalingGroupCapacityReservationSpecificationOutput
+}
+
+type AutoScalingGroupCapacityReservationSpecificationArgs struct {
+	CapacityReservationPreference pulumi.StringInput                                `pulumi:"capacityReservationPreference"`
+	CapacityReservationTarget     AutoScalingGroupCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+}
+
+func (AutoScalingGroupCapacityReservationSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i AutoScalingGroupCapacityReservationSpecificationArgs) ToAutoScalingGroupCapacityReservationSpecificationOutput() AutoScalingGroupCapacityReservationSpecificationOutput {
+	return i.ToAutoScalingGroupCapacityReservationSpecificationOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupCapacityReservationSpecificationArgs) ToAutoScalingGroupCapacityReservationSpecificationOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCapacityReservationSpecificationOutput)
+}
+
+func (i AutoScalingGroupCapacityReservationSpecificationArgs) ToAutoScalingGroupCapacityReservationSpecificationPtrOutput() AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return i.ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupCapacityReservationSpecificationArgs) ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCapacityReservationSpecificationOutput).ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(ctx)
+}
+
+// AutoScalingGroupCapacityReservationSpecificationPtrInput is an input type that accepts AutoScalingGroupCapacityReservationSpecificationArgs, AutoScalingGroupCapacityReservationSpecificationPtr and AutoScalingGroupCapacityReservationSpecificationPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupCapacityReservationSpecificationPtrInput` via:
+//
+//	        AutoScalingGroupCapacityReservationSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoScalingGroupCapacityReservationSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupCapacityReservationSpecificationPtrOutput() AutoScalingGroupCapacityReservationSpecificationPtrOutput
+	ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(context.Context) AutoScalingGroupCapacityReservationSpecificationPtrOutput
+}
+
+type autoScalingGroupCapacityReservationSpecificationPtrType AutoScalingGroupCapacityReservationSpecificationArgs
+
+func AutoScalingGroupCapacityReservationSpecificationPtr(v *AutoScalingGroupCapacityReservationSpecificationArgs) AutoScalingGroupCapacityReservationSpecificationPtrInput {
+	return (*autoScalingGroupCapacityReservationSpecificationPtrType)(v)
+}
+
+func (*autoScalingGroupCapacityReservationSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (i *autoScalingGroupCapacityReservationSpecificationPtrType) ToAutoScalingGroupCapacityReservationSpecificationPtrOutput() AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return i.ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *autoScalingGroupCapacityReservationSpecificationPtrType) ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCapacityReservationSpecificationPtrOutput)
+}
+
+type AutoScalingGroupCapacityReservationSpecificationOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupCapacityReservationSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationOutput) ToAutoScalingGroupCapacityReservationSpecificationOutput() AutoScalingGroupCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationOutput) ToAutoScalingGroupCapacityReservationSpecificationOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationSpecificationOutput {
+	return o
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationOutput) ToAutoScalingGroupCapacityReservationSpecificationPtrOutput() AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return o.ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationOutput) ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupCapacityReservationSpecification) *AutoScalingGroupCapacityReservationSpecification {
+		return &v
+	}).(AutoScalingGroupCapacityReservationSpecificationPtrOutput)
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v AutoScalingGroupCapacityReservationSpecification) string {
+		return v.CapacityReservationPreference
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationOutput) CapacityReservationTarget() AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v AutoScalingGroupCapacityReservationSpecification) *AutoScalingGroupCapacityReservationTarget {
+		return v.CapacityReservationTarget
+	}).(AutoScalingGroupCapacityReservationTargetPtrOutput)
+}
+
+type AutoScalingGroupCapacityReservationSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupCapacityReservationSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupCapacityReservationSpecification)(nil)).Elem()
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) ToAutoScalingGroupCapacityReservationSpecificationPtrOutput() AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) ToAutoScalingGroupCapacityReservationSpecificationPtrOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) Elem() AutoScalingGroupCapacityReservationSpecificationOutput {
+	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationSpecification) AutoScalingGroupCapacityReservationSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupCapacityReservationSpecification
+		return ret
+	}).(AutoScalingGroupCapacityReservationSpecificationOutput)
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationSpecification) *AutoScalingGroupCapacityReservationTarget {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationTarget
+	}).(AutoScalingGroupCapacityReservationTargetPtrOutput)
+}
+
+type AutoScalingGroupCapacityReservationTarget struct {
+	CapacityReservationIds               []string `pulumi:"capacityReservationIds"`
+	CapacityReservationResourceGroupArns []string `pulumi:"capacityReservationResourceGroupArns"`
+}
+
+// AutoScalingGroupCapacityReservationTargetInput is an input type that accepts AutoScalingGroupCapacityReservationTargetArgs and AutoScalingGroupCapacityReservationTargetOutput values.
+// You can construct a concrete instance of `AutoScalingGroupCapacityReservationTargetInput` via:
+//
+//	AutoScalingGroupCapacityReservationTargetArgs{...}
+type AutoScalingGroupCapacityReservationTargetInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupCapacityReservationTargetOutput() AutoScalingGroupCapacityReservationTargetOutput
+	ToAutoScalingGroupCapacityReservationTargetOutputWithContext(context.Context) AutoScalingGroupCapacityReservationTargetOutput
+}
+
+type AutoScalingGroupCapacityReservationTargetArgs struct {
+	CapacityReservationIds               pulumi.StringArrayInput `pulumi:"capacityReservationIds"`
+	CapacityReservationResourceGroupArns pulumi.StringArrayInput `pulumi:"capacityReservationResourceGroupArns"`
+}
+
+func (AutoScalingGroupCapacityReservationTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i AutoScalingGroupCapacityReservationTargetArgs) ToAutoScalingGroupCapacityReservationTargetOutput() AutoScalingGroupCapacityReservationTargetOutput {
+	return i.ToAutoScalingGroupCapacityReservationTargetOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupCapacityReservationTargetArgs) ToAutoScalingGroupCapacityReservationTargetOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCapacityReservationTargetOutput)
+}
+
+func (i AutoScalingGroupCapacityReservationTargetArgs) ToAutoScalingGroupCapacityReservationTargetPtrOutput() AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return i.ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupCapacityReservationTargetArgs) ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCapacityReservationTargetOutput).ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(ctx)
+}
+
+// AutoScalingGroupCapacityReservationTargetPtrInput is an input type that accepts AutoScalingGroupCapacityReservationTargetArgs, AutoScalingGroupCapacityReservationTargetPtr and AutoScalingGroupCapacityReservationTargetPtrOutput values.
+// You can construct a concrete instance of `AutoScalingGroupCapacityReservationTargetPtrInput` via:
+//
+//	        AutoScalingGroupCapacityReservationTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutoScalingGroupCapacityReservationTargetPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupCapacityReservationTargetPtrOutput() AutoScalingGroupCapacityReservationTargetPtrOutput
+	ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(context.Context) AutoScalingGroupCapacityReservationTargetPtrOutput
+}
+
+type autoScalingGroupCapacityReservationTargetPtrType AutoScalingGroupCapacityReservationTargetArgs
+
+func AutoScalingGroupCapacityReservationTargetPtr(v *AutoScalingGroupCapacityReservationTargetArgs) AutoScalingGroupCapacityReservationTargetPtrInput {
+	return (*autoScalingGroupCapacityReservationTargetPtrType)(v)
+}
+
+func (*autoScalingGroupCapacityReservationTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupCapacityReservationTarget)(nil)).Elem()
+}
+
+func (i *autoScalingGroupCapacityReservationTargetPtrType) ToAutoScalingGroupCapacityReservationTargetPtrOutput() AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return i.ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *autoScalingGroupCapacityReservationTargetPtrType) ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupCapacityReservationTargetPtrOutput)
+}
+
+type AutoScalingGroupCapacityReservationTargetOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupCapacityReservationTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o AutoScalingGroupCapacityReservationTargetOutput) ToAutoScalingGroupCapacityReservationTargetOutput() AutoScalingGroupCapacityReservationTargetOutput {
+	return o
+}
+
+func (o AutoScalingGroupCapacityReservationTargetOutput) ToAutoScalingGroupCapacityReservationTargetOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationTargetOutput {
+	return o
+}
+
+func (o AutoScalingGroupCapacityReservationTargetOutput) ToAutoScalingGroupCapacityReservationTargetPtrOutput() AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return o.ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupCapacityReservationTargetOutput) ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupCapacityReservationTarget) *AutoScalingGroupCapacityReservationTarget {
+		return &v
+	}).(AutoScalingGroupCapacityReservationTargetPtrOutput)
+}
+
+func (o AutoScalingGroupCapacityReservationTargetOutput) CapacityReservationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutoScalingGroupCapacityReservationTarget) []string { return v.CapacityReservationIds }).(pulumi.StringArrayOutput)
+}
+
+func (o AutoScalingGroupCapacityReservationTargetOutput) CapacityReservationResourceGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AutoScalingGroupCapacityReservationTarget) []string {
+		return v.CapacityReservationResourceGroupArns
+	}).(pulumi.StringArrayOutput)
+}
+
+type AutoScalingGroupCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupCapacityReservationTarget)(nil)).Elem()
+}
+
+func (o AutoScalingGroupCapacityReservationTargetPtrOutput) ToAutoScalingGroupCapacityReservationTargetPtrOutput() AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupCapacityReservationTargetPtrOutput) ToAutoScalingGroupCapacityReservationTargetPtrOutputWithContext(ctx context.Context) AutoScalingGroupCapacityReservationTargetPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupCapacityReservationTargetPtrOutput) Elem() AutoScalingGroupCapacityReservationTargetOutput {
+	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationTarget) AutoScalingGroupCapacityReservationTarget {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupCapacityReservationTarget
+		return ret
+	}).(AutoScalingGroupCapacityReservationTargetOutput)
+}
+
+func (o AutoScalingGroupCapacityReservationTargetPtrOutput) CapacityReservationIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationTarget) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationIds
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o AutoScalingGroupCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationTarget) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArns
+	}).(pulumi.StringArrayOutput)
+}
+
 type AutoScalingGroupCpuPerformanceFactorRequest struct {
 	References []AutoScalingGroupPerformanceFactorReferenceRequest `pulumi:"references"`
 }
@@ -9132,6 +9434,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselinePerformanceFactorsRequestInput)(nil)).Elem(), AutoScalingGroupBaselinePerformanceFactorsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupBaselinePerformanceFactorsRequestPtrInput)(nil)).Elem(), AutoScalingGroupBaselinePerformanceFactorsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCapacityReservationSpecificationInput)(nil)).Elem(), AutoScalingGroupCapacityReservationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCapacityReservationSpecificationPtrInput)(nil)).Elem(), AutoScalingGroupCapacityReservationSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCapacityReservationTargetInput)(nil)).Elem(), AutoScalingGroupCapacityReservationTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCapacityReservationTargetPtrInput)(nil)).Elem(), AutoScalingGroupCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequestInput)(nil)).Elem(), AutoScalingGroupCpuPerformanceFactorRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequestPtrInput)(nil)).Elem(), AutoScalingGroupCpuPerformanceFactorRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
@@ -9229,6 +9535,10 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupBaselinePerformanceFactorsRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupCapacityReservationSpecificationOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupCapacityReservationSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupCapacityReservationTargetOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupCpuPerformanceFactorRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyOutput{})

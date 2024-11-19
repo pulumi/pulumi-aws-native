@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class ContainerFleetLocationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 

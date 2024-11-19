@@ -134,6 +134,11 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The mode to enable or disable SSL when Firehose connects to the database endpoint.
+    /// 
+    /// Amazon Data Firehose is in preview release and is subject to change.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamDatabaseSourceConfigurationSslMode : IEquatable<DeliveryStreamDatabaseSourceConfigurationSslMode>
     {
@@ -162,6 +167,14 @@ namespace Pulumi.AwsNative.KinesisFirehose
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of database engine. This can be one of the following values.
+    /// 
+    /// - MySQL
+    /// - PostgreSQL
+    /// 
+    /// Amazon Data Firehose is in preview release and is subject to change.
+    /// </summary>
     [EnumType]
     public readonly struct DeliveryStreamDatabaseSourceConfigurationType : IEquatable<DeliveryStreamDatabaseSourceConfigurationType>
     {

@@ -40,6 +40,7 @@ class ContainerGroupDefinitionArgs:
         :param pulumi.Input[int] total_memory_limit_mebibytes: The total memory limit of container groups following this definition in MiB
         :param pulumi.Input[float] total_vcpu_limit: The total amount of virtual CPUs on the container group definition
         :param pulumi.Input['ContainerGroupDefinitionContainerGroupType'] container_group_type: The scope of the container group
+        :param pulumi.Input['ContainerGroupDefinitionGameServerContainerDefinitionArgs'] game_server_container_definition: The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
         :param pulumi.Input[str] name: A descriptive label for the container group definition.
         :param pulumi.Input[int] source_version_number: A specific ContainerGroupDefinition version to be updated
         :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupDefinitionSupportContainerDefinitionArgs']]] support_container_definitions: A collection of support container definitions that define the containers in this group.
@@ -115,6 +116,9 @@ class ContainerGroupDefinitionArgs:
     @property
     @pulumi.getter(name="gameServerContainerDefinition")
     def game_server_container_definition(self) -> Optional[pulumi.Input['ContainerGroupDefinitionGameServerContainerDefinitionArgs']]:
+        """
+        The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+        """
         return pulumi.get(self, "game_server_container_definition")
 
     @game_server_container_definition.setter
@@ -204,6 +208,7 @@ class ContainerGroupDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ContainerGroupDefinitionContainerGroupType'] container_group_type: The scope of the container group
+        :param pulumi.Input[Union['ContainerGroupDefinitionGameServerContainerDefinitionArgs', 'ContainerGroupDefinitionGameServerContainerDefinitionArgsDict']] game_server_container_definition: The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
         :param pulumi.Input[str] name: A descriptive label for the container group definition.
         :param pulumi.Input['ContainerGroupDefinitionOperatingSystem'] operating_system: The operating system of the container group
         :param pulumi.Input[int] source_version_number: A specific ContainerGroupDefinition version to be updated
@@ -345,6 +350,9 @@ class ContainerGroupDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter(name="gameServerContainerDefinition")
     def game_server_container_definition(self) -> pulumi.Output[Optional['outputs.ContainerGroupDefinitionGameServerContainerDefinition']]:
+        """
+        The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+        """
         return pulumi.get(self, "game_server_container_definition")
 
     @property

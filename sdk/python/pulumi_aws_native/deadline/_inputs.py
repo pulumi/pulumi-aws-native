@@ -16,8 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'FleetAcceleratorCapabilitiesArgs',
+    'FleetAcceleratorCapabilitiesArgsDict',
     'FleetAcceleratorCountRangeArgs',
     'FleetAcceleratorCountRangeArgsDict',
+    'FleetAcceleratorSelectionArgs',
+    'FleetAcceleratorSelectionArgsDict',
     'FleetAcceleratorTotalMemoryMiBRangeArgs',
     'FleetAcceleratorTotalMemoryMiBRangeArgsDict',
     'FleetAmountCapabilityArgs',
@@ -59,6 +63,41 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
+    class FleetAcceleratorCapabilitiesArgsDict(TypedDict):
+        selections: pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgsDict']]]
+        count: NotRequired[pulumi.Input['FleetAcceleratorCountRangeArgsDict']]
+elif False:
+    FleetAcceleratorCapabilitiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetAcceleratorCapabilitiesArgs:
+    def __init__(__self__, *,
+                 selections: pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgs']]],
+                 count: Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']] = None):
+        pulumi.set(__self__, "selections", selections)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+
+    @property
+    @pulumi.getter
+    def selections(self) -> pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgs']]]:
+        return pulumi.get(self, "selections")
+
+    @selections.setter
+    def selections(self, value: pulumi.Input[Sequence[pulumi.Input['FleetAcceleratorSelectionArgs']]]):
+        pulumi.set(self, "selections", value)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']]:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input['FleetAcceleratorCountRangeArgs']]):
+        pulumi.set(self, "count", value)
+
+
+if not MYPY:
     class FleetAcceleratorCountRangeArgsDict(TypedDict):
         min: pulumi.Input[int]
         max: NotRequired[pulumi.Input[int]]
@@ -91,6 +130,41 @@ class FleetAcceleratorCountRangeArgs:
     @max.setter
     def max(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max", value)
+
+
+if not MYPY:
+    class FleetAcceleratorSelectionArgsDict(TypedDict):
+        name: pulumi.Input['FleetAcceleratorSelectionName']
+        runtime: NotRequired[pulumi.Input[str]]
+elif False:
+    FleetAcceleratorSelectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetAcceleratorSelectionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input['FleetAcceleratorSelectionName'],
+                 runtime: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "name", name)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input['FleetAcceleratorSelectionName']:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input['FleetAcceleratorSelectionName']):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def runtime(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "runtime", value)
 
 
 if not MYPY:
@@ -586,6 +660,7 @@ if not MYPY:
         memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgsDict']
         os_family: pulumi.Input['FleetServiceManagedFleetOperatingSystemFamily']
         v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgsDict']
+        accelerator_capabilities: NotRequired[pulumi.Input['FleetAcceleratorCapabilitiesArgsDict']]
         allowed_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         custom_amounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgsDict']]]]
         custom_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgsDict']]]]
@@ -601,6 +676,7 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
                  memory_mi_b: pulumi.Input['FleetMemoryMiBRangeArgs'],
                  os_family: pulumi.Input['FleetServiceManagedFleetOperatingSystemFamily'],
                  v_cpu_count: pulumi.Input['FleetVCpuCountRangeArgs'],
+                 accelerator_capabilities: Optional[pulumi.Input['FleetAcceleratorCapabilitiesArgs']] = None,
                  allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_amounts: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAmountCapabilityArgs']]]] = None,
                  custom_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['FleetAttributeCapabilityArgs']]]] = None,
@@ -610,6 +686,8 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
         pulumi.set(__self__, "memory_mi_b", memory_mi_b)
         pulumi.set(__self__, "os_family", os_family)
         pulumi.set(__self__, "v_cpu_count", v_cpu_count)
+        if accelerator_capabilities is not None:
+            pulumi.set(__self__, "accelerator_capabilities", accelerator_capabilities)
         if allowed_instance_types is not None:
             pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         if custom_amounts is not None:
@@ -656,6 +734,15 @@ class FleetServiceManagedEc2InstanceCapabilitiesArgs:
     @v_cpu_count.setter
     def v_cpu_count(self, value: pulumi.Input['FleetVCpuCountRangeArgs']):
         pulumi.set(self, "v_cpu_count", value)
+
+    @property
+    @pulumi.getter(name="acceleratorCapabilities")
+    def accelerator_capabilities(self) -> Optional[pulumi.Input['FleetAcceleratorCapabilitiesArgs']]:
+        return pulumi.get(self, "accelerator_capabilities")
+
+    @accelerator_capabilities.setter
+    def accelerator_capabilities(self, value: Optional[pulumi.Input['FleetAcceleratorCapabilitiesArgs']]):
+        pulumi.set(self, "accelerator_capabilities", value)
 
     @property
     @pulumi.getter(name="allowedInstanceTypes")

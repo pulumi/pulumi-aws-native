@@ -45,6 +45,9 @@ class DeliveryStreamArgs:
         The set of arguments for constructing a DeliveryStream resource.
         :param pulumi.Input['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs'] amazon_open_search_serverless_destination_configuration: Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
         :param pulumi.Input['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs'] amazonopensearchservice_destination_configuration: The destination in Amazon OpenSearch Service. You can specify only one destination.
+        :param pulumi.Input['DeliveryStreamDatabaseSourceConfigurationArgs'] database_source_configuration: The top level object for configuring streams with database as a source.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
         :param pulumi.Input['DeliveryStreamEncryptionConfigurationInputArgs'] delivery_stream_encryption_configuration_input: Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
         :param pulumi.Input[str] delivery_stream_name: The name of the Firehose stream.
         :param pulumi.Input['DeliveryStreamType'] delivery_stream_type: The Firehose stream type. This can be one of the following values:
@@ -81,7 +84,7 @@ class DeliveryStreamArgs:
                
                You can specify up to 50 tags when creating a Firehose stream.
                
-               If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+               If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
                
                *AccessDeniedException*
                
@@ -151,6 +154,11 @@ class DeliveryStreamArgs:
     @property
     @pulumi.getter(name="databaseSourceConfiguration")
     def database_source_configuration(self) -> Optional[pulumi.Input['DeliveryStreamDatabaseSourceConfigurationArgs']]:
+        """
+        The top level object for configuring streams with database as a source.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "database_source_configuration")
 
     @database_source_configuration.setter
@@ -340,7 +348,7 @@ class DeliveryStreamArgs:
 
         You can specify up to 50 tags when creating a Firehose stream.
 
-        If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+        If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
 
         *AccessDeniedException*
 
@@ -385,6 +393,9 @@ class DeliveryStream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs', 'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgsDict']] amazon_open_search_serverless_destination_configuration: Describes the configuration of a destination in the Serverless offering for Amazon OpenSearch Service.
         :param pulumi.Input[Union['DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs', 'DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgsDict']] amazonopensearchservice_destination_configuration: The destination in Amazon OpenSearch Service. You can specify only one destination.
+        :param pulumi.Input[Union['DeliveryStreamDatabaseSourceConfigurationArgs', 'DeliveryStreamDatabaseSourceConfigurationArgsDict']] database_source_configuration: The top level object for configuring streams with database as a source.
+               
+               Amazon Data Firehose is in preview release and is subject to change.
         :param pulumi.Input[Union['DeliveryStreamEncryptionConfigurationInputArgs', 'DeliveryStreamEncryptionConfigurationInputArgsDict']] delivery_stream_encryption_configuration_input: Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
         :param pulumi.Input[str] delivery_stream_name: The name of the Firehose stream.
         :param pulumi.Input['DeliveryStreamType'] delivery_stream_type: The Firehose stream type. This can be one of the following values:
@@ -421,7 +432,7 @@ class DeliveryStream(pulumi.CustomResource):
                
                You can specify up to 50 tags when creating a Firehose stream.
                
-               If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+               If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
                
                *AccessDeniedException*
                
@@ -568,6 +579,11 @@ class DeliveryStream(pulumi.CustomResource):
     @property
     @pulumi.getter(name="databaseSourceConfiguration")
     def database_source_configuration(self) -> pulumi.Output[Optional['outputs.DeliveryStreamDatabaseSourceConfiguration']]:
+        """
+        The top level object for configuring streams with database as a source.
+
+        Amazon Data Firehose is in preview release and is subject to change.
+        """
         return pulumi.get(self, "database_source_configuration")
 
     @property
@@ -701,7 +717,7 @@ class DeliveryStream(pulumi.CustomResource):
 
         You can specify up to 50 tags when creating a Firehose stream.
 
-        If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+        If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
 
         *AccessDeniedException*
 

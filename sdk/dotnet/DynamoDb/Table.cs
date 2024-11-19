@@ -473,6 +473,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("timeToLiveSpecification")]
         public Output<Outputs.TableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the warm throughput (in read units per second and write units per second) for creating a table.
+        /// </summary>
         [Output("warmThroughput")]
         public Output<Outputs.TableWarmThroughput?> WarmThroughput { get; private set; } = null!;
 
@@ -682,6 +685,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Input("timeToLiveSpecification")]
         public Input<Inputs.TableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }
 
+        /// <summary>
+        /// Represents the warm throughput (in read units per second and write units per second) for creating a table.
+        /// </summary>
         [Input("warmThroughput")]
         public Input<Inputs.TableWarmThroughputArgs>? WarmThroughput { get; set; }
 

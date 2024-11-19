@@ -66,11 +66,24 @@ class DeliveryStreamAuthenticationConfigurationConnectivity(str, Enum):
 
 
 class DeliveryStreamDatabaseSourceConfigurationSslMode(str, Enum):
+    """
+    The mode to enable or disable SSL when Firehose connects to the database endpoint.
+
+    Amazon Data Firehose is in preview release and is subject to change.
+    """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
 
 
 class DeliveryStreamDatabaseSourceConfigurationType(str, Enum):
+    """
+    The type of database engine. This can be one of the following values.
+
+    - MySQL
+    - PostgreSQL
+
+    Amazon Data Firehose is in preview release and is subject to change.
+    """
     MY_SQL = "MySQL"
     POSTGRE_SQL = "PostgreSQL"
 

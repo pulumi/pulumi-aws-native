@@ -30,7 +30,8 @@ type LookupServiceLevelObjectiveArgs struct {
 
 type LookupServiceLevelObjectiveResult struct {
 	// The ARN of this SLO.
-	Arn                    *string                                      `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 	BurnRateConfigurations []ServiceLevelObjectiveBurnRateConfiguration `pulumi:"burnRateConfigurations"`
 	// Epoch time in seconds of the time that this SLO was created
 	CreatedTime *int `pulumi:"createdTime"`
@@ -99,6 +100,7 @@ func (o LookupServiceLevelObjectiveResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 func (o LookupServiceLevelObjectiveResultOutput) BurnRateConfigurations() ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupServiceLevelObjectiveResult) []ServiceLevelObjectiveBurnRateConfiguration {
 		return v.BurnRateConfigurations

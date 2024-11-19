@@ -322,6 +322,9 @@ if not MYPY:
         Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         """
         warm_throughput: NotRequired[pulumi.Input['GlobalTableWarmThroughputArgsDict']]
+        """
+        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        """
         write_on_demand_throughput_settings: NotRequired[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgsDict']]
         """
         Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
@@ -353,6 +356,7 @@ class GlobalTableGlobalSecondaryIndexArgs:
                > 
                > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         :param pulumi.Input['GlobalTableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        :param pulumi.Input['GlobalTableWarmThroughputArgs'] warm_throughput: Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
         :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
         """
@@ -412,6 +416,9 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional[pulumi.Input['GlobalTableWarmThroughputArgs']]:
+        """
+        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        """
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
@@ -1630,7 +1637,13 @@ class GlobalTableTimeToLiveSpecificationArgs:
 if not MYPY:
     class GlobalTableWarmThroughputArgsDict(TypedDict):
         read_units_per_second: NotRequired[pulumi.Input[int]]
+        """
+        Represents the number of read operations your base table can instantaneously support.
+        """
         write_units_per_second: NotRequired[pulumi.Input[int]]
+        """
+        Represents the number of write operations your base table can instantaneously support.
+        """
 elif False:
     GlobalTableWarmThroughputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1639,6 +1652,10 @@ class GlobalTableWarmThroughputArgs:
     def __init__(__self__, *,
                  read_units_per_second: Optional[pulumi.Input[int]] = None,
                  write_units_per_second: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] read_units_per_second: Represents the number of read operations your base table can instantaneously support.
+        :param pulumi.Input[int] write_units_per_second: Represents the number of write operations your base table can instantaneously support.
+        """
         if read_units_per_second is not None:
             pulumi.set(__self__, "read_units_per_second", read_units_per_second)
         if write_units_per_second is not None:
@@ -1647,6 +1664,9 @@ class GlobalTableWarmThroughputArgs:
     @property
     @pulumi.getter(name="readUnitsPerSecond")
     def read_units_per_second(self) -> Optional[pulumi.Input[int]]:
+        """
+        Represents the number of read operations your base table can instantaneously support.
+        """
         return pulumi.get(self, "read_units_per_second")
 
     @read_units_per_second.setter
@@ -1656,6 +1676,9 @@ class GlobalTableWarmThroughputArgs:
     @property
     @pulumi.getter(name="writeUnitsPerSecond")
     def write_units_per_second(self) -> Optional[pulumi.Input[int]]:
+        """
+        Represents the number of write operations your base table can instantaneously support.
+        """
         return pulumi.get(self, "write_units_per_second")
 
     @write_units_per_second.setter
@@ -1917,6 +1940,9 @@ if not MYPY:
          For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
         """
         warm_throughput: NotRequired[pulumi.Input['TableWarmThroughputArgsDict']]
+        """
+        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        """
 elif False:
     TableGlobalSecondaryIndexArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1944,6 +1970,7 @@ class TableGlobalSecondaryIndexArgs:
         :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
         :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Represents the provisioned throughput settings for the specified global secondary index.
                 For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
+        :param pulumi.Input['TableWarmThroughputArgs'] warm_throughput: Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
@@ -2038,6 +2065,9 @@ class TableGlobalSecondaryIndexArgs:
     @property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
+        """
+        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        """
         return pulumi.get(self, "warm_throughput")
 
     @warm_throughput.setter
@@ -2966,7 +2996,13 @@ class TableTimeToLiveSpecificationArgs:
 if not MYPY:
     class TableWarmThroughputArgsDict(TypedDict):
         read_units_per_second: NotRequired[pulumi.Input[int]]
+        """
+        Represents the number of read operations your base table can instantaneously support.
+        """
         write_units_per_second: NotRequired[pulumi.Input[int]]
+        """
+        Represents the number of write operations your base table can instantaneously support.
+        """
 elif False:
     TableWarmThroughputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2975,6 +3011,10 @@ class TableWarmThroughputArgs:
     def __init__(__self__, *,
                  read_units_per_second: Optional[pulumi.Input[int]] = None,
                  write_units_per_second: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] read_units_per_second: Represents the number of read operations your base table can instantaneously support.
+        :param pulumi.Input[int] write_units_per_second: Represents the number of write operations your base table can instantaneously support.
+        """
         if read_units_per_second is not None:
             pulumi.set(__self__, "read_units_per_second", read_units_per_second)
         if write_units_per_second is not None:
@@ -2983,6 +3023,9 @@ class TableWarmThroughputArgs:
     @property
     @pulumi.getter(name="readUnitsPerSecond")
     def read_units_per_second(self) -> Optional[pulumi.Input[int]]:
+        """
+        Represents the number of read operations your base table can instantaneously support.
+        """
         return pulumi.get(self, "read_units_per_second")
 
     @read_units_per_second.setter
@@ -2992,6 +3035,9 @@ class TableWarmThroughputArgs:
     @property
     @pulumi.getter(name="writeUnitsPerSecond")
     def write_units_per_second(self) -> Optional[pulumi.Input[int]]:
+        """
+        Represents the number of write operations your base table can instantaneously support.
+        """
         return pulumi.get(self, "write_units_per_second")
 
     @write_units_per_second.setter

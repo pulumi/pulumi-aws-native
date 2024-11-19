@@ -22,6 +22,8 @@ type GlobalReplicationGroup struct {
 	CacheNodeType pulumi.StringPtrOutput `pulumi:"cacheNodeType"`
 	// Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
 	CacheParameterGroupName pulumi.StringPtrOutput `pulumi:"cacheParameterGroupName"`
+	// The engine of the Global Datastore.
+	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The engine version of the Global Datastore.
 	EngineVersion pulumi.StringPtrOutput `pulumi:"engineVersion"`
 	// Indicates the number of node groups in the Global Datastore.
@@ -89,6 +91,8 @@ type globalReplicationGroupArgs struct {
 	CacheNodeType *string `pulumi:"cacheNodeType"`
 	// Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
 	CacheParameterGroupName *string `pulumi:"cacheParameterGroupName"`
+	// The engine of the Global Datastore.
+	Engine *string `pulumi:"engine"`
 	// The engine version of the Global Datastore.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Indicates the number of node groups in the Global Datastore.
@@ -111,6 +115,8 @@ type GlobalReplicationGroupArgs struct {
 	CacheNodeType pulumi.StringPtrInput
 	// Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
 	CacheParameterGroupName pulumi.StringPtrInput
+	// The engine of the Global Datastore.
+	Engine pulumi.StringPtrInput
 	// The engine version of the Global Datastore.
 	EngineVersion pulumi.StringPtrInput
 	// Indicates the number of node groups in the Global Datastore.
@@ -175,6 +181,11 @@ func (o GlobalReplicationGroupOutput) CacheNodeType() pulumi.StringPtrOutput {
 // Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
 func (o GlobalReplicationGroupOutput) CacheParameterGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.CacheParameterGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The engine of the Global Datastore.
+func (o GlobalReplicationGroupOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.Engine }).(pulumi.StringPtrOutput)
 }
 
 // The engine version of the Global Datastore.

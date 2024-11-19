@@ -373,6 +373,9 @@ export class Table extends pulumi.CustomResource {
      *   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
     public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.TableTimeToLiveSpecification | undefined>;
+    /**
+     * Represents the warm throughput (in read units per second and write units per second) for creating a table.
+     */
     public readonly warmThroughput!: pulumi.Output<outputs.dynamodb.TableWarmThroughput | undefined>;
 
     /**
@@ -540,5 +543,8 @@ export interface TableArgs {
      *   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
      */
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.TableTimeToLiveSpecificationArgs>;
+    /**
+     * Represents the warm throughput (in read units per second and write units per second) for creating a table.
+     */
     warmThroughput?: pulumi.Input<inputs.dynamodb.TableWarmThroughputArgs>;
 }

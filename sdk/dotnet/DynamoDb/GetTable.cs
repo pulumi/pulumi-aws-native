@@ -161,6 +161,9 @@ namespace Pulumi.AwsNative.DynamoDb
         ///   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
         /// </summary>
         public readonly Outputs.TableTimeToLiveSpecification? TimeToLiveSpecification;
+        /// <summary>
+        /// Represents the warm throughput (in read units per second and write units per second) for creating a table.
+        /// </summary>
         public readonly Outputs.TableWarmThroughput? WarmThroughput;
 
         [OutputConstructor]

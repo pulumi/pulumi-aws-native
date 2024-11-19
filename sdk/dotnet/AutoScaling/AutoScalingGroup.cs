@@ -47,6 +47,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("capacityRebalance")]
         public Output<bool?> CapacityRebalance { get; private set; } = null!;
 
+        [Output("capacityReservationSpecification")]
+        public Output<Outputs.AutoScalingGroupCapacityReservationSpecification?> CapacityReservationSpecification { get; private set; } = null!;
+
         /// <summary>
         /// Reserved.
         /// </summary>
@@ -322,6 +325,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         [Input("capacityRebalance")]
         public Input<bool>? CapacityRebalance { get; set; }
+
+        [Input("capacityReservationSpecification")]
+        public Input<Inputs.AutoScalingGroupCapacityReservationSpecificationArgs>? CapacityReservationSpecification { get; set; }
 
         /// <summary>
         /// Reserved.

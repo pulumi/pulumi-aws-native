@@ -17,7 +17,8 @@ type ServiceLevelObjective struct {
 	pulumi.CustomResourceState
 
 	// The ARN of this SLO.
-	Arn                    pulumi.StringOutput                                   `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 	BurnRateConfigurations ServiceLevelObjectiveBurnRateConfigurationArrayOutput `pulumi:"burnRateConfigurations"`
 	// Epoch time in seconds of the time that this SLO was created
 	CreatedTime pulumi.IntOutput `pulumi:"createdTime"`
@@ -85,6 +86,7 @@ func (ServiceLevelObjectiveState) ElementType() reflect.Type {
 }
 
 type serviceLevelObjectiveArgs struct {
+	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 	BurnRateConfigurations []ServiceLevelObjectiveBurnRateConfiguration `pulumi:"burnRateConfigurations"`
 	// An optional description for this SLO. Default is 'No description'
 	Description *string `pulumi:"description"`
@@ -104,6 +106,7 @@ type serviceLevelObjectiveArgs struct {
 
 // The set of arguments for constructing a ServiceLevelObjective resource.
 type ServiceLevelObjectiveArgs struct {
+	// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 	BurnRateConfigurations ServiceLevelObjectiveBurnRateConfigurationArrayInput
 	// An optional description for this SLO. Default is 'No description'
 	Description pulumi.StringPtrInput
@@ -163,6 +166,7 @@ func (o ServiceLevelObjectiveOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
 func (o ServiceLevelObjectiveOutput) BurnRateConfigurations() ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
 	return o.ApplyT(func(v *ServiceLevelObjective) ServiceLevelObjectiveBurnRateConfigurationArrayOutput {
 		return v.BurnRateConfigurations

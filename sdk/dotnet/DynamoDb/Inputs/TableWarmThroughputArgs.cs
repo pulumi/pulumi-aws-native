@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
 
     public sealed class TableWarmThroughputArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Represents the number of read operations your base table can instantaneously support.
+        /// </summary>
         [Input("readUnitsPerSecond")]
         public Input<int>? ReadUnitsPerSecond { get; set; }
 
+        /// <summary>
+        /// Represents the number of write operations your base table can instantaneously support.
+        /// </summary>
         [Input("writeUnitsPerSecond")]
         public Input<int>? WriteUnitsPerSecond { get; set; }
 

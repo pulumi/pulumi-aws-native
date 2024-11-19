@@ -514,6 +514,263 @@ func (in *channelTypePtr) ToChannelTypePtrOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelTypePtrOutput)
 }
 
+// Ingest Protocol.
+type IngestConfigurationIngestProtocol string
+
+const (
+	IngestConfigurationIngestProtocolRtmp  = IngestConfigurationIngestProtocol("RTMP")
+	IngestConfigurationIngestProtocolRtmps = IngestConfigurationIngestProtocol("RTMPS")
+)
+
+func (IngestConfigurationIngestProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngestConfigurationIngestProtocol)(nil)).Elem()
+}
+
+func (e IngestConfigurationIngestProtocol) ToIngestConfigurationIngestProtocolOutput() IngestConfigurationIngestProtocolOutput {
+	return pulumi.ToOutput(e).(IngestConfigurationIngestProtocolOutput)
+}
+
+func (e IngestConfigurationIngestProtocol) ToIngestConfigurationIngestProtocolOutputWithContext(ctx context.Context) IngestConfigurationIngestProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IngestConfigurationIngestProtocolOutput)
+}
+
+func (e IngestConfigurationIngestProtocol) ToIngestConfigurationIngestProtocolPtrOutput() IngestConfigurationIngestProtocolPtrOutput {
+	return e.ToIngestConfigurationIngestProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e IngestConfigurationIngestProtocol) ToIngestConfigurationIngestProtocolPtrOutputWithContext(ctx context.Context) IngestConfigurationIngestProtocolPtrOutput {
+	return IngestConfigurationIngestProtocol(e).ToIngestConfigurationIngestProtocolOutputWithContext(ctx).ToIngestConfigurationIngestProtocolPtrOutputWithContext(ctx)
+}
+
+func (e IngestConfigurationIngestProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IngestConfigurationIngestProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IngestConfigurationIngestProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IngestConfigurationIngestProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IngestConfigurationIngestProtocolOutput struct{ *pulumi.OutputState }
+
+func (IngestConfigurationIngestProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngestConfigurationIngestProtocol)(nil)).Elem()
+}
+
+func (o IngestConfigurationIngestProtocolOutput) ToIngestConfigurationIngestProtocolOutput() IngestConfigurationIngestProtocolOutput {
+	return o
+}
+
+func (o IngestConfigurationIngestProtocolOutput) ToIngestConfigurationIngestProtocolOutputWithContext(ctx context.Context) IngestConfigurationIngestProtocolOutput {
+	return o
+}
+
+func (o IngestConfigurationIngestProtocolOutput) ToIngestConfigurationIngestProtocolPtrOutput() IngestConfigurationIngestProtocolPtrOutput {
+	return o.ToIngestConfigurationIngestProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o IngestConfigurationIngestProtocolOutput) ToIngestConfigurationIngestProtocolPtrOutputWithContext(ctx context.Context) IngestConfigurationIngestProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngestConfigurationIngestProtocol) *IngestConfigurationIngestProtocol {
+		return &v
+	}).(IngestConfigurationIngestProtocolPtrOutput)
+}
+
+func (o IngestConfigurationIngestProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IngestConfigurationIngestProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IngestConfigurationIngestProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IngestConfigurationIngestProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IngestConfigurationIngestProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IngestConfigurationIngestProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IngestConfigurationIngestProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (IngestConfigurationIngestProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngestConfigurationIngestProtocol)(nil)).Elem()
+}
+
+func (o IngestConfigurationIngestProtocolPtrOutput) ToIngestConfigurationIngestProtocolPtrOutput() IngestConfigurationIngestProtocolPtrOutput {
+	return o
+}
+
+func (o IngestConfigurationIngestProtocolPtrOutput) ToIngestConfigurationIngestProtocolPtrOutputWithContext(ctx context.Context) IngestConfigurationIngestProtocolPtrOutput {
+	return o
+}
+
+func (o IngestConfigurationIngestProtocolPtrOutput) Elem() IngestConfigurationIngestProtocolOutput {
+	return o.ApplyT(func(v *IngestConfigurationIngestProtocol) IngestConfigurationIngestProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret IngestConfigurationIngestProtocol
+		return ret
+	}).(IngestConfigurationIngestProtocolOutput)
+}
+
+func (o IngestConfigurationIngestProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IngestConfigurationIngestProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IngestConfigurationIngestProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IngestConfigurationIngestProtocolInput is an input type that accepts values of the IngestConfigurationIngestProtocol enum
+// A concrete instance of `IngestConfigurationIngestProtocolInput` can be one of the following:
+//
+//	IngestConfigurationIngestProtocolRtmp
+//	IngestConfigurationIngestProtocolRtmps
+type IngestConfigurationIngestProtocolInput interface {
+	pulumi.Input
+
+	ToIngestConfigurationIngestProtocolOutput() IngestConfigurationIngestProtocolOutput
+	ToIngestConfigurationIngestProtocolOutputWithContext(context.Context) IngestConfigurationIngestProtocolOutput
+}
+
+var ingestConfigurationIngestProtocolPtrType = reflect.TypeOf((**IngestConfigurationIngestProtocol)(nil)).Elem()
+
+type IngestConfigurationIngestProtocolPtrInput interface {
+	pulumi.Input
+
+	ToIngestConfigurationIngestProtocolPtrOutput() IngestConfigurationIngestProtocolPtrOutput
+	ToIngestConfigurationIngestProtocolPtrOutputWithContext(context.Context) IngestConfigurationIngestProtocolPtrOutput
+}
+
+type ingestConfigurationIngestProtocolPtr string
+
+func IngestConfigurationIngestProtocolPtr(v string) IngestConfigurationIngestProtocolPtrInput {
+	return (*ingestConfigurationIngestProtocolPtr)(&v)
+}
+
+func (*ingestConfigurationIngestProtocolPtr) ElementType() reflect.Type {
+	return ingestConfigurationIngestProtocolPtrType
+}
+
+func (in *ingestConfigurationIngestProtocolPtr) ToIngestConfigurationIngestProtocolPtrOutput() IngestConfigurationIngestProtocolPtrOutput {
+	return pulumi.ToOutput(in).(IngestConfigurationIngestProtocolPtrOutput)
+}
+
+func (in *ingestConfigurationIngestProtocolPtr) ToIngestConfigurationIngestProtocolPtrOutputWithContext(ctx context.Context) IngestConfigurationIngestProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IngestConfigurationIngestProtocolPtrOutput)
+}
+
+// State of IngestConfiguration which determines whether IngestConfiguration is in use or not.
+type IngestConfigurationStateEnum string
+
+const (
+	IngestConfigurationStateEnumActive   = IngestConfigurationStateEnum("ACTIVE")
+	IngestConfigurationStateEnumInactive = IngestConfigurationStateEnum("INACTIVE")
+)
+
+type IngestConfigurationStateEnumOutput struct{ *pulumi.OutputState }
+
+func (IngestConfigurationStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IngestConfigurationStateEnum)(nil)).Elem()
+}
+
+func (o IngestConfigurationStateEnumOutput) ToIngestConfigurationStateEnumOutput() IngestConfigurationStateEnumOutput {
+	return o
+}
+
+func (o IngestConfigurationStateEnumOutput) ToIngestConfigurationStateEnumOutputWithContext(ctx context.Context) IngestConfigurationStateEnumOutput {
+	return o
+}
+
+func (o IngestConfigurationStateEnumOutput) ToIngestConfigurationStateEnumPtrOutput() IngestConfigurationStateEnumPtrOutput {
+	return o.ToIngestConfigurationStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o IngestConfigurationStateEnumOutput) ToIngestConfigurationStateEnumPtrOutputWithContext(ctx context.Context) IngestConfigurationStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IngestConfigurationStateEnum) *IngestConfigurationStateEnum {
+		return &v
+	}).(IngestConfigurationStateEnumPtrOutput)
+}
+
+func (o IngestConfigurationStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IngestConfigurationStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IngestConfigurationStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IngestConfigurationStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IngestConfigurationStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IngestConfigurationStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IngestConfigurationStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (IngestConfigurationStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IngestConfigurationStateEnum)(nil)).Elem()
+}
+
+func (o IngestConfigurationStateEnumPtrOutput) ToIngestConfigurationStateEnumPtrOutput() IngestConfigurationStateEnumPtrOutput {
+	return o
+}
+
+func (o IngestConfigurationStateEnumPtrOutput) ToIngestConfigurationStateEnumPtrOutputWithContext(ctx context.Context) IngestConfigurationStateEnumPtrOutput {
+	return o
+}
+
+func (o IngestConfigurationStateEnumPtrOutput) Elem() IngestConfigurationStateEnumOutput {
+	return o.ApplyT(func(v *IngestConfigurationStateEnum) IngestConfigurationStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret IngestConfigurationStateEnum
+		return ret
+	}).(IngestConfigurationStateEnumOutput)
+}
+
+func (o IngestConfigurationStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IngestConfigurationStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IngestConfigurationStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Resolution Selection indicates which set of renditions are recorded for a stream.
 type RecordingConfigurationRenditionConfigurationRenditionSelection string
 
@@ -1751,6 +2008,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPresetPtrInput)(nil)).Elem(), ChannelPreset(""))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypeInput)(nil)).Elem(), ChannelType("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTypePtrInput)(nil)).Elem(), ChannelType("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IngestConfigurationIngestProtocolInput)(nil)).Elem(), IngestConfigurationIngestProtocol("RTMP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IngestConfigurationIngestProtocolPtrInput)(nil)).Elem(), IngestConfigurationIngestProtocol("RTMP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionSelectionInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionSelection("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionSelectionPtrInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionSelection("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordingConfigurationRenditionConfigurationRenditionsItemInput)(nil)).Elem(), RecordingConfigurationRenditionConfigurationRenditionsItem("FULL_HD"))
@@ -1772,6 +2031,10 @@ func init() {
 	pulumi.RegisterOutputType(ChannelPresetPtrOutput{})
 	pulumi.RegisterOutputType(ChannelTypeOutput{})
 	pulumi.RegisterOutputType(ChannelTypePtrOutput{})
+	pulumi.RegisterOutputType(IngestConfigurationIngestProtocolOutput{})
+	pulumi.RegisterOutputType(IngestConfigurationIngestProtocolPtrOutput{})
+	pulumi.RegisterOutputType(IngestConfigurationStateEnumOutput{})
+	pulumi.RegisterOutputType(IngestConfigurationStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationRenditionSelectionOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationRenditionSelectionPtrOutput{})
 	pulumi.RegisterOutputType(RecordingConfigurationRenditionConfigurationRenditionsItemOutput{})

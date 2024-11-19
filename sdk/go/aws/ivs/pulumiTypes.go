@@ -28,6 +28,11 @@ type EncoderConfigurationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IngestConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type PlaybackKeyPairTag struct {
 	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
 	Key string `pulumi:"key"`

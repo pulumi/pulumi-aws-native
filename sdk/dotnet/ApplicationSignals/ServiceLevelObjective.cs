@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+        /// </summary>
         [Output("burnRateConfigurations")]
         public Output<ImmutableArray<Outputs.ServiceLevelObjectiveBurnRateConfiguration>> BurnRateConfigurations { get; private set; } = null!;
 
@@ -131,6 +134,10 @@ namespace Pulumi.AwsNative.ApplicationSignals
     {
         [Input("burnRateConfigurations")]
         private InputList<Inputs.ServiceLevelObjectiveBurnRateConfigurationArgs>? _burnRateConfigurations;
+
+        /// <summary>
+        /// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+        /// </summary>
         public InputList<Inputs.ServiceLevelObjectiveBurnRateConfigurationArgs> BurnRateConfigurations
         {
             get => _burnRateConfigurations ?? (_burnRateConfigurations = new InputList<Inputs.ServiceLevelObjectiveBurnRateConfigurationArgs>());

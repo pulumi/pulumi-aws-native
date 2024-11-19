@@ -578,6 +578,7 @@ class ContainerFleetLocationConfiguration(dict):
                  stopped_actions: Optional[Sequence['ContainerFleetStoppedActionsItem']] = None):
         """
         A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
+        :param str location: An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
         """
         pulumi.set(__self__, "location", location)
         if location_capacity is not None:
@@ -588,6 +589,9 @@ class ContainerFleetLocationConfiguration(dict):
     @property
     @pulumi.getter
     def location(self) -> str:
+        """
+        An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        """
         return pulumi.get(self, "location")
 
     @property
@@ -630,6 +634,11 @@ class ContainerFleetLogConfiguration(dict):
                  s3_bucket_name: Optional[str] = None):
         """
         A policy the location and provider of logs from the fleet.
+        :param 'ContainerFleetLogDestination' log_destination: The type of log collection to use for a fleet.
+               
+               - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+               - `S3` -- Store logs in an Amazon S3 bucket that you define.
+               - `NONE` -- Don't collect container logs.
         :param str s3_bucket_name: The name of the S3 bucket to pull logs from if S3 is the LogDestination
         """
         if log_destination is not None:
@@ -640,6 +649,13 @@ class ContainerFleetLogConfiguration(dict):
     @property
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional['ContainerFleetLogDestination']:
+        """
+        The type of log collection to use for a fleet.
+
+        - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+        - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        - `NONE` -- Don't collect container logs.
+        """
         return pulumi.get(self, "log_destination")
 
     @property
@@ -1536,8 +1552,8 @@ class FleetCertificateConfiguration(dict):
                
                Valid values include:
                
-               - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
-               - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
+               - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+               - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
 
@@ -1549,8 +1565,8 @@ class FleetCertificateConfiguration(dict):
 
         Valid values include:
 
-        - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
-        - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
+        - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+        - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
         """
         return pulumi.get(self, "certificate_type")
 

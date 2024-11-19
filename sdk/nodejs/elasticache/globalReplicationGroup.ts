@@ -50,6 +50,10 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
      */
     public readonly cacheParameterGroupName!: pulumi.Output<string | undefined>;
     /**
+     * The engine of the Global Datastore.
+     */
+    public readonly engine!: pulumi.Output<string | undefined>;
+    /**
      * The engine version of the Global Datastore.
      */
     public readonly engineVersion!: pulumi.Output<string | undefined>;
@@ -99,6 +103,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
             resourceInputs["cacheNodeType"] = args ? args.cacheNodeType : undefined;
             resourceInputs["cacheParameterGroupName"] = args ? args.cacheParameterGroupName : undefined;
+            resourceInputs["engine"] = args ? args.engine : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalNodeGroupCount"] = args ? args.globalNodeGroupCount : undefined;
             resourceInputs["globalReplicationGroupDescription"] = args ? args.globalReplicationGroupDescription : undefined;
@@ -111,6 +116,7 @@ export class GlobalReplicationGroup extends pulumi.CustomResource {
             resourceInputs["automaticFailoverEnabled"] = undefined /*out*/;
             resourceInputs["cacheNodeType"] = undefined /*out*/;
             resourceInputs["cacheParameterGroupName"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["globalNodeGroupCount"] = undefined /*out*/;
             resourceInputs["globalReplicationGroupDescription"] = undefined /*out*/;
@@ -141,6 +147,10 @@ export interface GlobalReplicationGroupArgs {
      * Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
      */
     cacheParameterGroupName?: pulumi.Input<string>;
+    /**
+     * The engine of the Global Datastore.
+     */
+    engine?: pulumi.Input<string>;
     /**
      * The engine version of the Global Datastore.
      */

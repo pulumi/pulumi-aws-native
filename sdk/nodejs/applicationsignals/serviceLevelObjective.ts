@@ -41,6 +41,9 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
      * The ARN of this SLO.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+     */
     public readonly burnRateConfigurations!: pulumi.Output<outputs.applicationsignals.ServiceLevelObjectiveBurnRateConfiguration[] | undefined>;
     /**
      * Epoch time in seconds of the time that this SLO was created
@@ -127,6 +130,9 @@ export class ServiceLevelObjective extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceLevelObjective resource.
  */
 export interface ServiceLevelObjectiveArgs {
+    /**
+     * Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+     */
     burnRateConfigurations?: pulumi.Input<pulumi.Input<inputs.applicationsignals.ServiceLevelObjectiveBurnRateConfigurationArgs>[]>;
     /**
      * An optional description for this SLO. Default is 'No description'

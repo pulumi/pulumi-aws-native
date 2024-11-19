@@ -8,6 +8,36 @@ using Pulumi;
 namespace Pulumi.AwsNative.Deadline
 {
     [EnumType]
+    public readonly struct FleetAcceleratorSelectionName : IEquatable<FleetAcceleratorSelectionName>
+    {
+        private readonly string _value;
+
+        private FleetAcceleratorSelectionName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FleetAcceleratorSelectionName T4 { get; } = new FleetAcceleratorSelectionName("t4");
+        public static FleetAcceleratorSelectionName A10g { get; } = new FleetAcceleratorSelectionName("a10g");
+        public static FleetAcceleratorSelectionName L4 { get; } = new FleetAcceleratorSelectionName("l4");
+        public static FleetAcceleratorSelectionName L40s { get; } = new FleetAcceleratorSelectionName("l40s");
+
+        public static bool operator ==(FleetAcceleratorSelectionName left, FleetAcceleratorSelectionName right) => left.Equals(right);
+        public static bool operator !=(FleetAcceleratorSelectionName left, FleetAcceleratorSelectionName right) => !left.Equals(right);
+
+        public static explicit operator string(FleetAcceleratorSelectionName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FleetAcceleratorSelectionName other && Equals(other);
+        public bool Equals(FleetAcceleratorSelectionName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct FleetAcceleratorType : IEquatable<FleetAcceleratorType>
     {
         private readonly string _value;

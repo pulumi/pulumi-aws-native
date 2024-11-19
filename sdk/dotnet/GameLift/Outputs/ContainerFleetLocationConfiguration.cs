@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
     [OutputType]
     public sealed class ContainerFleetLocationConfiguration
     {
+        /// <summary>
+        /// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
+        /// </summary>
         public readonly string Location;
         public readonly Outputs.ContainerFleetLocationCapacity? LocationCapacity;
         public readonly ImmutableArray<Pulumi.AwsNative.GameLift.ContainerFleetStoppedActionsItem> StoppedActions;

@@ -33,6 +33,11 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The top level object for configuring streams with database as a source.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         [Output("databaseSourceConfiguration")]
         public Output<Outputs.DeliveryStreamDatabaseSourceConfiguration?> DatabaseSourceConfiguration { get; private set; } = null!;
 
@@ -138,7 +143,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// 
         /// You can specify up to 50 tags when creating a Firehose stream.
         /// 
-        /// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+        /// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
         /// 
         /// *AccessDeniedException*
         /// 
@@ -219,6 +224,11 @@ namespace Pulumi.AwsNative.KinesisFirehose
         [Input("amazonopensearchserviceDestinationConfiguration")]
         public Input<Inputs.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>? AmazonopensearchserviceDestinationConfiguration { get; set; }
 
+        /// <summary>
+        /// The top level object for configuring streams with database as a source.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         [Input("databaseSourceConfiguration")]
         public Input<Inputs.DeliveryStreamDatabaseSourceConfigurationArgs>? DatabaseSourceConfiguration { get; set; }
 
@@ -327,7 +337,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
         /// 
         /// You can specify up to 50 tags when creating a Firehose stream.
         /// 
-        /// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+        /// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
         /// 
         /// *AccessDeniedException*
         /// 

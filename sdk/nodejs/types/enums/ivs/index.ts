@@ -35,6 +35,26 @@ export const ChannelType = {
  */
 export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
 
+export const IngestConfigurationIngestProtocol = {
+    Rtmp: "RTMP",
+    Rtmps: "RTMPS",
+} as const;
+
+/**
+ * Ingest Protocol.
+ */
+export type IngestConfigurationIngestProtocol = (typeof IngestConfigurationIngestProtocol)[keyof typeof IngestConfigurationIngestProtocol];
+
+export const IngestConfigurationState = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * State of IngestConfiguration which determines whether IngestConfiguration is in use or not.
+ */
+export type IngestConfigurationState = (typeof IngestConfigurationState)[keyof typeof IngestConfigurationState];
+
 export const RecordingConfigurationRenditionConfigurationRenditionSelection = {
     All: "ALL",
     None: "NONE",

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     [OutputType]
     public sealed class TableWarmThroughput
     {
+        /// <summary>
+        /// Represents the number of read operations your base table can instantaneously support.
+        /// </summary>
         public readonly int? ReadUnitsPerSecond;
+        /// <summary>
+        /// Represents the number of write operations your base table can instantaneously support.
+        /// </summary>
         public readonly int? WriteUnitsPerSecond;
 
         [OutputConstructor]

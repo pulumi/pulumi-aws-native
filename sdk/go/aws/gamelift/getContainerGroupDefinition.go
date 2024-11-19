@@ -32,7 +32,8 @@ type LookupContainerGroupDefinitionResult struct {
 	// The Amazon Resource Name (ARN) that is assigned to a Amazon GameLift container group resource and uniquely identifies it across all AWS Regions.
 	ContainerGroupDefinitionArn *string `pulumi:"containerGroupDefinitionArn"`
 	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime                  *string                                                `pulumi:"creationTime"`
+	CreationTime *string `pulumi:"creationTime"`
+	// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
 	GameServerContainerDefinition *ContainerGroupDefinitionGameServerContainerDefinition `pulumi:"gameServerContainerDefinition"`
 	// The operating system of the container group
 	OperatingSystem *ContainerGroupDefinitionOperatingSystem `pulumi:"operatingSystem"`
@@ -108,6 +109,7 @@ func (o LookupContainerGroupDefinitionResultOutput) CreationTime() pulumi.String
 	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *string { return v.CreationTime }).(pulumi.StringPtrOutput)
 }
 
+// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
 func (o LookupContainerGroupDefinitionResultOutput) GameServerContainerDefinition() ContainerGroupDefinitionGameServerContainerDefinitionPtrOutput {
 	return o.ApplyT(func(v LookupContainerGroupDefinitionResult) *ContainerGroupDefinitionGameServerContainerDefinition {
 		return v.GameServerContainerDefinition

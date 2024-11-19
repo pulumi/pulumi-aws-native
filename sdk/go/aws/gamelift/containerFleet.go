@@ -20,7 +20,8 @@ type ContainerFleet struct {
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
 	BillingType ContainerFleetBillingTypePtrOutput `pulumi:"billingType"`
 	// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-	CreationTime            pulumi.StringOutput                            `pulumi:"creationTime"`
+	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
+	// Set of rules for processing a deployment for a container fleet update.
 	DeploymentConfiguration ContainerFleetDeploymentConfigurationPtrOutput `pulumi:"deploymentConfiguration"`
 	DeploymentDetails       ContainerFleetDeploymentDetailsOutput          `pulumi:"deploymentDetails"`
 	// A human-readable description of a fleet.
@@ -39,13 +40,19 @@ type ContainerFleet struct {
 	GameServerContainerGroupsPerInstance pulumi.IntPtrOutput `pulumi:"gameServerContainerGroupsPerInstance"`
 	// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 	GameSessionCreationLimitPolicy ContainerFleetGameSessionCreationLimitPolicyPtrOutput `pulumi:"gameSessionCreationLimitPolicy"`
-	InstanceConnectionPortRange    ContainerFleetConnectionPortRangePtrOutput            `pulumi:"instanceConnectionPortRange"`
+	// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+	InstanceConnectionPortRange ContainerFleetConnectionPortRangePtrOutput `pulumi:"instanceConnectionPortRange"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
 	InstanceInboundPermissions ContainerFleetIpPermissionArrayOutput `pulumi:"instanceInboundPermissions"`
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-	InstanceType     pulumi.StringPtrOutput                         `pulumi:"instanceType"`
-	Locations        ContainerFleetLocationConfigurationArrayOutput `pulumi:"locations"`
-	LogConfiguration ContainerFleetLogConfigurationPtrOutput        `pulumi:"logConfiguration"`
+	InstanceType pulumi.StringPtrOutput                         `pulumi:"instanceType"`
+	Locations    ContainerFleetLocationConfigurationArrayOutput `pulumi:"locations"`
+	// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+	//
+	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+	// - `NONE` -- Don't collect container logs.
+	LogConfiguration ContainerFleetLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// The maximum number of game server container groups per instance, a number between 1-5000.
 	MaximumGameServerContainerGroupsPerInstance pulumi.IntOutput `pulumi:"maximumGameServerContainerGroupsPerInstance"`
 	// The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -114,7 +121,8 @@ func (ContainerFleetState) ElementType() reflect.Type {
 
 type containerFleetArgs struct {
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-	BillingType             *ContainerFleetBillingType             `pulumi:"billingType"`
+	BillingType *ContainerFleetBillingType `pulumi:"billingType"`
+	// Set of rules for processing a deployment for a container fleet update.
 	DeploymentConfiguration *ContainerFleetDeploymentConfiguration `pulumi:"deploymentConfiguration"`
 	// A human-readable description of a fleet.
 	Description *string `pulumi:"description"`
@@ -126,13 +134,19 @@ type containerFleetArgs struct {
 	GameServerContainerGroupsPerInstance *int `pulumi:"gameServerContainerGroupsPerInstance"`
 	// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 	GameSessionCreationLimitPolicy *ContainerFleetGameSessionCreationLimitPolicy `pulumi:"gameSessionCreationLimitPolicy"`
-	InstanceConnectionPortRange    *ContainerFleetConnectionPortRange            `pulumi:"instanceConnectionPortRange"`
+	// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+	InstanceConnectionPortRange *ContainerFleetConnectionPortRange `pulumi:"instanceConnectionPortRange"`
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
 	InstanceInboundPermissions []ContainerFleetIpPermission `pulumi:"instanceInboundPermissions"`
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-	InstanceType     *string                               `pulumi:"instanceType"`
-	Locations        []ContainerFleetLocationConfiguration `pulumi:"locations"`
-	LogConfiguration *ContainerFleetLogConfiguration       `pulumi:"logConfiguration"`
+	InstanceType *string                               `pulumi:"instanceType"`
+	Locations    []ContainerFleetLocationConfiguration `pulumi:"locations"`
+	// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+	//
+	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+	// - `NONE` -- Don't collect container logs.
+	LogConfiguration *ContainerFleetLogConfiguration `pulumi:"logConfiguration"`
 	// The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
 	MetricGroups []string `pulumi:"metricGroups"`
 	// A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
@@ -148,7 +162,8 @@ type containerFleetArgs struct {
 // The set of arguments for constructing a ContainerFleet resource.
 type ContainerFleetArgs struct {
 	// Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-	BillingType             ContainerFleetBillingTypePtrInput
+	BillingType ContainerFleetBillingTypePtrInput
+	// Set of rules for processing a deployment for a container fleet update.
 	DeploymentConfiguration ContainerFleetDeploymentConfigurationPtrInput
 	// A human-readable description of a fleet.
 	Description pulumi.StringPtrInput
@@ -160,12 +175,18 @@ type ContainerFleetArgs struct {
 	GameServerContainerGroupsPerInstance pulumi.IntPtrInput
 	// A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
 	GameSessionCreationLimitPolicy ContainerFleetGameSessionCreationLimitPolicyPtrInput
-	InstanceConnectionPortRange    ContainerFleetConnectionPortRangePtrInput
+	// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+	InstanceConnectionPortRange ContainerFleetConnectionPortRangePtrInput
 	// A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
 	InstanceInboundPermissions ContainerFleetIpPermissionArrayInput
 	// The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-	InstanceType     pulumi.StringPtrInput
-	Locations        ContainerFleetLocationConfigurationArrayInput
+	InstanceType pulumi.StringPtrInput
+	Locations    ContainerFleetLocationConfigurationArrayInput
+	// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+	//
+	// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+	// - `NONE` -- Don't collect container logs.
 	LogConfiguration ContainerFleetLogConfigurationPtrInput
 	// The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
 	MetricGroups pulumi.StringArrayInput
@@ -226,6 +247,7 @@ func (o ContainerFleetOutput) CreationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerFleet) pulumi.StringOutput { return v.CreationTime }).(pulumi.StringOutput)
 }
 
+// Set of rules for processing a deployment for a container fleet update.
 func (o ContainerFleetOutput) DeploymentConfiguration() ContainerFleetDeploymentConfigurationPtrOutput {
 	return o.ApplyT(func(v *ContainerFleet) ContainerFleetDeploymentConfigurationPtrOutput {
 		return v.DeploymentConfiguration
@@ -278,6 +300,7 @@ func (o ContainerFleetOutput) GameSessionCreationLimitPolicy() ContainerFleetGam
 	}).(ContainerFleetGameSessionCreationLimitPolicyPtrOutput)
 }
 
+// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
 func (o ContainerFleetOutput) InstanceConnectionPortRange() ContainerFleetConnectionPortRangePtrOutput {
 	return o.ApplyT(func(v *ContainerFleet) ContainerFleetConnectionPortRangePtrOutput {
 		return v.InstanceConnectionPortRange
@@ -298,6 +321,11 @@ func (o ContainerFleetOutput) Locations() ContainerFleetLocationConfigurationArr
 	return o.ApplyT(func(v *ContainerFleet) ContainerFleetLocationConfigurationArrayOutput { return v.Locations }).(ContainerFleetLocationConfigurationArrayOutput)
 }
 
+// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+//
+// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+// - `NONE` -- Don't collect container logs.
 func (o ContainerFleetOutput) LogConfiguration() ContainerFleetLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ContainerFleet) ContainerFleetLogConfigurationPtrOutput { return v.LogConfiguration }).(ContainerFleetLogConfigurationPtrOutput)
 }

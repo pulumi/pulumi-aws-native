@@ -61,6 +61,9 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// The ARN of this SLO.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceLevelObjectiveBurnRateConfiguration> BurnRateConfigurations;
         /// <summary>
         /// Epoch time in seconds of the time that this SLO was created

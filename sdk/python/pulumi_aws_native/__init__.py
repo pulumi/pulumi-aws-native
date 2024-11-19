@@ -352,6 +352,8 @@ if typing.TYPE_CHECKING:
     quicksight = __quicksight
     import pulumi_aws_native.ram as __ram
     ram = __ram
+    import pulumi_aws_native.rbin as __rbin
+    rbin = __rbin
     import pulumi_aws_native.rds as __rds
     rds = __rds
     import pulumi_aws_native.redshift as __redshift
@@ -624,6 +626,7 @@ else:
     qldb = _utilities.lazy_import('pulumi_aws_native.qldb')
     quicksight = _utilities.lazy_import('pulumi_aws_native.quicksight')
     ram = _utilities.lazy_import('pulumi_aws_native.ram')
+    rbin = _utilities.lazy_import('pulumi_aws_native.rbin')
     rds = _utilities.lazy_import('pulumi_aws_native.rds')
     redshift = _utilities.lazy_import('pulumi_aws_native.redshift')
     redshiftserverless = _utilities.lazy_import('pulumi_aws_native.redshiftserverless')
@@ -2069,6 +2072,7 @@ _utilities.register(
   "classes": {
    "aws-native:ivs:Channel": "Channel",
    "aws-native:ivs:EncoderConfiguration": "EncoderConfiguration",
+   "aws-native:ivs:IngestConfiguration": "IngestConfiguration",
    "aws-native:ivs:PlaybackKeyPair": "PlaybackKeyPair",
    "aws-native:ivs:PlaybackRestrictionPolicy": "PlaybackRestrictionPolicy",
    "aws-native:ivs:PublicKey": "PublicKey",
@@ -2661,6 +2665,14 @@ _utilities.register(
   "fqn": "pulumi_aws_native.ram",
   "classes": {
    "aws-native:ram:Permission": "Permission"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "rbin",
+  "fqn": "pulumi_aws_native.rbin",
+  "classes": {
+   "aws-native:rbin:Rule": "Rule"
   }
  },
  {

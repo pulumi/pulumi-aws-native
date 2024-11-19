@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.GameLift
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// Set of rules for processing a deployment for a container fleet update.
+        /// </summary>
         [Output("deploymentConfiguration")]
         public Output<Outputs.ContainerFleetDeploymentConfiguration?> DeploymentConfiguration { get; private set; } = null!;
 
@@ -81,6 +84,9 @@ namespace Pulumi.AwsNative.GameLift
         [Output("gameSessionCreationLimitPolicy")]
         public Output<Outputs.ContainerFleetGameSessionCreationLimitPolicy?> GameSessionCreationLimitPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+        /// </summary>
         [Output("instanceConnectionPortRange")]
         public Output<Outputs.ContainerFleetConnectionPortRange?> InstanceConnectionPortRange { get; private set; } = null!;
 
@@ -99,6 +105,13 @@ namespace Pulumi.AwsNative.GameLift
         [Output("locations")]
         public Output<ImmutableArray<Outputs.ContainerFleetLocationConfiguration>> Locations { get; private set; } = null!;
 
+        /// <summary>
+        /// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+        /// 
+        /// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+        /// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        /// - `NONE` -- Don't collect container logs.
+        /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.ContainerFleetLogConfiguration?> LogConfiguration { get; private set; } = null!;
 
@@ -207,6 +220,9 @@ namespace Pulumi.AwsNative.GameLift
         [Input("billingType")]
         public Input<Pulumi.AwsNative.GameLift.ContainerFleetBillingType>? BillingType { get; set; }
 
+        /// <summary>
+        /// Set of rules for processing a deployment for a container fleet update.
+        /// </summary>
         [Input("deploymentConfiguration")]
         public Input<Inputs.ContainerFleetDeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }
 
@@ -240,6 +256,9 @@ namespace Pulumi.AwsNative.GameLift
         [Input("gameSessionCreationLimitPolicy")]
         public Input<Inputs.ContainerFleetGameSessionCreationLimitPolicyArgs>? GameSessionCreationLimitPolicy { get; set; }
 
+        /// <summary>
+        /// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+        /// </summary>
         [Input("instanceConnectionPortRange")]
         public Input<Inputs.ContainerFleetConnectionPortRangeArgs>? InstanceConnectionPortRange { get; set; }
 
@@ -269,6 +288,13 @@ namespace Pulumi.AwsNative.GameLift
             set => _locations = value;
         }
 
+        /// <summary>
+        /// The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+        /// 
+        /// - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+        /// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        /// - `NONE` -- Don't collect container logs.
+        /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ContainerFleetLogConfigurationArgs>? LogConfiguration { get; set; }
 

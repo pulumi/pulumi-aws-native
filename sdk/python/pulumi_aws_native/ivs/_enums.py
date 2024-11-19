@@ -8,6 +8,8 @@ __all__ = [
     'ChannelLatencyMode',
     'ChannelPreset',
     'ChannelType',
+    'IngestConfigurationIngestProtocol',
+    'IngestConfigurationState',
     'RecordingConfigurationRenditionConfigurationRenditionSelection',
     'RecordingConfigurationRenditionConfigurationRenditionsItem',
     'RecordingConfigurationState',
@@ -43,6 +45,22 @@ class ChannelType(str, Enum):
     BASIC = "BASIC"
     ADVANCED_SD = "ADVANCED_SD"
     ADVANCED_HD = "ADVANCED_HD"
+
+
+class IngestConfigurationIngestProtocol(str, Enum):
+    """
+    Ingest Protocol.
+    """
+    RTMP = "RTMP"
+    RTMPS = "RTMPS"
+
+
+class IngestConfigurationState(str, Enum):
+    """
+    State of IngestConfiguration which determines whether IngestConfiguration is in use or not.
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
 
 
 class RecordingConfigurationRenditionConfigurationRenditionSelection(str, Enum):

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Deadline.Inputs
 
     public sealed class FleetServiceManagedEc2InstanceCapabilitiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("acceleratorCapabilities")]
+        public Input<Inputs.FleetAcceleratorCapabilitiesArgs>? AcceleratorCapabilities { get; set; }
+
         [Input("allowedInstanceTypes")]
         private InputList<string>? _allowedInstanceTypes;
         public InputList<string> AllowedInstanceTypes

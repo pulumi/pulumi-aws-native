@@ -23,6 +23,8 @@ __all__ = [
     'AutoScalingGroupAvailabilityZoneImpairmentPolicy',
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequest',
     'AutoScalingGroupBaselinePerformanceFactorsRequest',
+    'AutoScalingGroupCapacityReservationSpecification',
+    'AutoScalingGroupCapacityReservationTarget',
     'AutoScalingGroupCpuPerformanceFactorRequest',
     'AutoScalingGroupInstanceMaintenancePolicy',
     'AutoScalingGroupInstanceRequirements',
@@ -263,6 +265,85 @@ class AutoScalingGroupBaselinePerformanceFactorsRequest(dict):
     @pulumi.getter
     def cpu(self) -> Optional['outputs.AutoScalingGroupCpuPerformanceFactorRequest']:
         return pulumi.get(self, "cpu")
+
+
+@pulumi.output_type
+class AutoScalingGroupCapacityReservationSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "capacityReservationTarget":
+            suggest = "capacity_reservation_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupCapacityReservationSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupCapacityReservationSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupCapacityReservationSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: str,
+                 capacity_reservation_target: Optional['outputs.AutoScalingGroupCapacityReservationTarget'] = None):
+        pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> str:
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional['outputs.AutoScalingGroupCapacityReservationTarget']:
+        return pulumi.get(self, "capacity_reservation_target")
+
+
+@pulumi.output_type
+class AutoScalingGroupCapacityReservationTarget(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationIds":
+            suggest = "capacity_reservation_ids"
+        elif key == "capacityReservationResourceGroupArns":
+            suggest = "capacity_reservation_resource_group_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupCapacityReservationTarget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupCapacityReservationTarget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_ids: Optional[Sequence[str]] = None,
+                 capacity_reservation_resource_group_arns: Optional[Sequence[str]] = None):
+        if capacity_reservation_ids is not None:
+            pulumi.set(__self__, "capacity_reservation_ids", capacity_reservation_ids)
+        if capacity_reservation_resource_group_arns is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arns", capacity_reservation_resource_group_arns)
+
+    @property
+    @pulumi.getter(name="capacityReservationIds")
+    def capacity_reservation_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "capacity_reservation_ids")
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArns")
+    def capacity_reservation_resource_group_arns(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "capacity_reservation_resource_group_arns")
 
 
 @pulumi.output_type

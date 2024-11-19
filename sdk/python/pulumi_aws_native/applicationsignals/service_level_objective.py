@@ -33,6 +33,7 @@ class ServiceLevelObjectiveArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceLevelObjective resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]] burn_rate_configurations: Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
         :param pulumi.Input['ServiceLevelObjectiveGoalArgs'] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
@@ -60,6 +61,9 @@ class ServiceLevelObjectiveArgs:
     @property
     @pulumi.getter(name="burnRateConfigurations")
     def burn_rate_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLevelObjectiveBurnRateConfigurationArgs']]]]:
+        """
+        Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+        """
         return pulumi.get(self, "burn_rate_configurations")
 
     @burn_rate_configurations.setter
@@ -159,6 +163,7 @@ class ServiceLevelObjective(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceLevelObjectiveBurnRateConfigurationArgs', 'ServiceLevelObjectiveBurnRateConfigurationArgsDict']]]] burn_rate_configurations: Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
         :param pulumi.Input[str] description: An optional description for this SLO. Default is 'No description'
         :param pulumi.Input[Union['ServiceLevelObjectiveGoalArgs', 'ServiceLevelObjectiveGoalArgsDict']] goal: This structure contains the attributes that determine the goal of an SLO. This includes the time period for evaluation and the attainment threshold.
         :param pulumi.Input[str] name: The name of this SLO.
@@ -267,6 +272,9 @@ class ServiceLevelObjective(pulumi.CustomResource):
     @property
     @pulumi.getter(name="burnRateConfigurations")
     def burn_rate_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceLevelObjectiveBurnRateConfiguration']]]:
+        """
+        Each object in this array defines the length of the look-back window used to calculate one burn rate metric for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.
+        """
         return pulumi.get(self, "burn_rate_configurations")
 
     @property

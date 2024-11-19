@@ -261,6 +261,9 @@ class GetTableResult:
     @property
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional['outputs.TableWarmThroughput']:
+        """
+        Represents the warm throughput (in read units per second and write units per second) for creating a table.
+        """
         return pulumi.get(self, "warm_throughput")
 
 

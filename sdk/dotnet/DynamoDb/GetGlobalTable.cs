@@ -116,6 +116,9 @@ namespace Pulumi.AwsNative.DynamoDb
         /// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         /// </summary>
         public readonly Outputs.GlobalTableTimeToLiveSpecification? TimeToLiveSpecification;
+        /// <summary>
+        /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+        /// </summary>
         public readonly Outputs.GlobalTableWarmThroughput? WarmThroughput;
         /// <summary>
         /// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .

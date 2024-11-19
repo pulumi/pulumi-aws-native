@@ -86,6 +86,9 @@ class GetContainerGroupDefinitionResult:
     @property
     @pulumi.getter(name="gameServerContainerDefinition")
     def game_server_container_definition(self) -> Optional['outputs.ContainerGroupDefinitionGameServerContainerDefinition']:
+        """
+        The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+        """
         return pulumi.get(self, "game_server_container_definition")
 
     @property

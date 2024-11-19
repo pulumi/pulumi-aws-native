@@ -104,6 +104,68 @@ namespace Pulumi.AwsNative.Ivs
     }
 
     /// <summary>
+    /// Ingest Protocol.
+    /// </summary>
+    [EnumType]
+    public readonly struct IngestConfigurationIngestProtocol : IEquatable<IngestConfigurationIngestProtocol>
+    {
+        private readonly string _value;
+
+        private IngestConfigurationIngestProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IngestConfigurationIngestProtocol Rtmp { get; } = new IngestConfigurationIngestProtocol("RTMP");
+        public static IngestConfigurationIngestProtocol Rtmps { get; } = new IngestConfigurationIngestProtocol("RTMPS");
+
+        public static bool operator ==(IngestConfigurationIngestProtocol left, IngestConfigurationIngestProtocol right) => left.Equals(right);
+        public static bool operator !=(IngestConfigurationIngestProtocol left, IngestConfigurationIngestProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(IngestConfigurationIngestProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IngestConfigurationIngestProtocol other && Equals(other);
+        public bool Equals(IngestConfigurationIngestProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// State of IngestConfiguration which determines whether IngestConfiguration is in use or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct IngestConfigurationState : IEquatable<IngestConfigurationState>
+    {
+        private readonly string _value;
+
+        private IngestConfigurationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IngestConfigurationState Active { get; } = new IngestConfigurationState("ACTIVE");
+        public static IngestConfigurationState Inactive { get; } = new IngestConfigurationState("INACTIVE");
+
+        public static bool operator ==(IngestConfigurationState left, IngestConfigurationState right) => left.Equals(right);
+        public static bool operator !=(IngestConfigurationState left, IngestConfigurationState right) => !left.Equals(right);
+
+        public static explicit operator string(IngestConfigurationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IngestConfigurationState other && Equals(other);
+        public bool Equals(IngestConfigurationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Resolution Selection indicates which set of renditions are recorded for a stream.
     /// </summary>
     [EnumType]

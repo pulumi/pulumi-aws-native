@@ -1204,6 +1204,7 @@ func (o ContainerFleetLocationCapacityPtrOutput) MinSize() pulumi.IntPtrOutput {
 
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type ContainerFleetLocationConfiguration struct {
+	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Location         string                             `pulumi:"location"`
 	LocationCapacity *ContainerFleetLocationCapacity    `pulumi:"locationCapacity"`
 	StoppedActions   []ContainerFleetStoppedActionsItem `pulumi:"stoppedActions"`
@@ -1222,6 +1223,7 @@ type ContainerFleetLocationConfigurationInput interface {
 
 // A remote location where a multi-location fleet can deploy EC2 instances for game hosting.
 type ContainerFleetLocationConfigurationArgs struct {
+	// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 	Location         pulumi.StringInput                         `pulumi:"location"`
 	LocationCapacity ContainerFleetLocationCapacityPtrInput     `pulumi:"locationCapacity"`
 	StoppedActions   ContainerFleetStoppedActionsItemArrayInput `pulumi:"stoppedActions"`
@@ -1279,6 +1281,7 @@ func (o ContainerFleetLocationConfigurationOutput) ToContainerFleetLocationConfi
 	return o
 }
 
+// An AWS Region code, such as `us-west-2` . For a list of supported Regions and Local Zones, see [Amazon GameLift service locations](https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html) for managed hosting.
 func (o ContainerFleetLocationConfigurationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v ContainerFleetLocationConfiguration) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -1315,6 +1318,11 @@ func (o ContainerFleetLocationConfigurationArrayOutput) Index(i pulumi.IntInput)
 
 // A policy the location and provider of logs from the fleet.
 type ContainerFleetLogConfiguration struct {
+	// The type of log collection to use for a fleet.
+	//
+	// - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+	// - `NONE` -- Don't collect container logs.
 	LogDestination *ContainerFleetLogDestination `pulumi:"logDestination"`
 	// The name of the S3 bucket to pull logs from if S3 is the LogDestination
 	S3BucketName *string `pulumi:"s3BucketName"`
@@ -1333,6 +1341,11 @@ type ContainerFleetLogConfigurationInput interface {
 
 // A policy the location and provider of logs from the fleet.
 type ContainerFleetLogConfigurationArgs struct {
+	// The type of log collection to use for a fleet.
+	//
+	// - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+	// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+	// - `NONE` -- Don't collect container logs.
 	LogDestination ContainerFleetLogDestinationPtrInput `pulumi:"logDestination"`
 	// The name of the S3 bucket to pull logs from if S3 is the LogDestination
 	S3BucketName pulumi.StringPtrInput `pulumi:"s3BucketName"`
@@ -1416,6 +1429,11 @@ func (o ContainerFleetLogConfigurationOutput) ToContainerFleetLogConfigurationPt
 	}).(ContainerFleetLogConfigurationPtrOutput)
 }
 
+// The type of log collection to use for a fleet.
+//
+// - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+// - `NONE` -- Don't collect container logs.
 func (o ContainerFleetLogConfigurationOutput) LogDestination() ContainerFleetLogDestinationPtrOutput {
 	return o.ApplyT(func(v ContainerFleetLogConfiguration) *ContainerFleetLogDestination { return v.LogDestination }).(ContainerFleetLogDestinationPtrOutput)
 }
@@ -1449,6 +1467,11 @@ func (o ContainerFleetLogConfigurationPtrOutput) Elem() ContainerFleetLogConfigu
 	}).(ContainerFleetLogConfigurationOutput)
 }
 
+// The type of log collection to use for a fleet.
+//
+// - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+// - `NONE` -- Don't collect container logs.
 func (o ContainerFleetLogConfigurationPtrOutput) LogDestination() ContainerFleetLogDestinationPtrOutput {
 	return o.ApplyT(func(v *ContainerFleetLogConfiguration) *ContainerFleetLogDestination {
 		if v == nil {
@@ -3245,8 +3268,8 @@ type FleetCertificateConfiguration struct {
 	//
 	// Valid values include:
 	//
-	// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
-	// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
+	// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+	// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
 	CertificateType FleetCertificateConfigurationCertificateType `pulumi:"certificateType"`
 }
 
@@ -3267,8 +3290,8 @@ type FleetCertificateConfigurationArgs struct {
 	//
 	// Valid values include:
 	//
-	// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
-	// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
+	// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+	// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
 	CertificateType FleetCertificateConfigurationCertificateTypeInput `pulumi:"certificateType"`
 }
 
@@ -3354,8 +3377,8 @@ func (o FleetCertificateConfigurationOutput) ToFleetCertificateConfigurationPtrO
 //
 // Valid values include:
 //
-// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
-// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
+// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
 func (o FleetCertificateConfigurationOutput) CertificateType() FleetCertificateConfigurationCertificateTypeOutput {
 	return o.ApplyT(func(v FleetCertificateConfiguration) FleetCertificateConfigurationCertificateType {
 		return v.CertificateType
@@ -3390,8 +3413,8 @@ func (o FleetCertificateConfigurationPtrOutput) Elem() FleetCertificateConfigura
 //
 // Valid values include:
 //
-// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
-// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
+// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
 func (o FleetCertificateConfigurationPtrOutput) CertificateType() FleetCertificateConfigurationCertificateTypePtrOutput {
 	return o.ApplyT(func(v *FleetCertificateConfiguration) *FleetCertificateConfigurationCertificateType {
 		if v == nil {

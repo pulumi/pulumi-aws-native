@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAutoScalingGroupResult:
-    def __init__(__self__, availability_zone_distribution=None, availability_zone_impairment_policy=None, availability_zones=None, capacity_rebalance=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
+    def __init__(__self__, availability_zone_distribution=None, availability_zone_impairment_policy=None, availability_zones=None, capacity_rebalance=None, capacity_reservation_specification=None, context=None, cooldown=None, default_instance_warmup=None, desired_capacity=None, desired_capacity_type=None, health_check_grace_period=None, health_check_type=None, instance_maintenance_policy=None, launch_configuration_name=None, launch_template=None, lifecycle_hook_specification_list=None, load_balancer_names=None, max_instance_lifetime=None, max_size=None, metrics_collection=None, min_size=None, mixed_instances_policy=None, new_instances_protected_from_scale_in=None, notification_configuration=None, notification_configurations=None, placement_group=None, service_linked_role_arn=None, tags=None, target_group_arns=None, termination_policies=None, traffic_sources=None, vpc_zone_identifier=None):
         if availability_zone_distribution and not isinstance(availability_zone_distribution, dict):
             raise TypeError("Expected argument 'availability_zone_distribution' to be a dict")
         pulumi.set(__self__, "availability_zone_distribution", availability_zone_distribution)
@@ -38,6 +38,9 @@ class GetAutoScalingGroupResult:
         if capacity_rebalance and not isinstance(capacity_rebalance, bool):
             raise TypeError("Expected argument 'capacity_rebalance' to be a bool")
         pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+        if capacity_reservation_specification and not isinstance(capacity_reservation_specification, dict):
+            raise TypeError("Expected argument 'capacity_reservation_specification' to be a dict")
+        pulumi.set(__self__, "capacity_reservation_specification", capacity_reservation_specification)
         if context and not isinstance(context, str):
             raise TypeError("Expected argument 'context' to be a str")
         pulumi.set(__self__, "context", context)
@@ -148,6 +151,11 @@ class GetAutoScalingGroupResult:
         Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "capacity_rebalance")
+
+    @property
+    @pulumi.getter(name="capacityReservationSpecification")
+    def capacity_reservation_specification(self) -> Optional['outputs.AutoScalingGroupCapacityReservationSpecification']:
+        return pulumi.get(self, "capacity_reservation_specification")
 
     @property
     @pulumi.getter
@@ -395,6 +403,7 @@ class AwaitableGetAutoScalingGroupResult(GetAutoScalingGroupResult):
             availability_zone_impairment_policy=self.availability_zone_impairment_policy,
             availability_zones=self.availability_zones,
             capacity_rebalance=self.capacity_rebalance,
+            capacity_reservation_specification=self.capacity_reservation_specification,
             context=self.context,
             cooldown=self.cooldown,
             default_instance_warmup=self.default_instance_warmup,
@@ -447,6 +456,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[str] = None,
         availability_zone_impairment_policy=pulumi.get(__ret__, 'availability_zone_impairment_policy'),
         availability_zones=pulumi.get(__ret__, 'availability_zones'),
         capacity_rebalance=pulumi.get(__ret__, 'capacity_rebalance'),
+        capacity_reservation_specification=pulumi.get(__ret__, 'capacity_reservation_specification'),
         context=pulumi.get(__ret__, 'context'),
         cooldown=pulumi.get(__ret__, 'cooldown'),
         default_instance_warmup=pulumi.get(__ret__, 'default_instance_warmup'),
@@ -496,6 +506,7 @@ def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input
         availability_zone_impairment_policy=pulumi.get(__response__, 'availability_zone_impairment_policy'),
         availability_zones=pulumi.get(__response__, 'availability_zones'),
         capacity_rebalance=pulumi.get(__response__, 'capacity_rebalance'),
+        capacity_reservation_specification=pulumi.get(__response__, 'capacity_reservation_specification'),
         context=pulumi.get(__response__, 'context'),
         cooldown=pulumi.get(__response__, 'cooldown'),
         default_instance_warmup=pulumi.get(__response__, 'default_instance_warmup'),

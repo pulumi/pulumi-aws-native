@@ -2,6 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const FleetAcceleratorSelectionName = {
+    T4: "t4",
+    A10g: "a10g",
+    L4: "l4",
+    L40s: "l40s",
+} as const;
+
+export type FleetAcceleratorSelectionName = (typeof FleetAcceleratorSelectionName)[keyof typeof FleetAcceleratorSelectionName];
+
 export const FleetAcceleratorType = {
     Gpu: "gpu",
 } as const;

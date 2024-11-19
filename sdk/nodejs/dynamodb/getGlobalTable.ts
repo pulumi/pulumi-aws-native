@@ -82,6 +82,9 @@ export interface GetGlobalTableResult {
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */
     readonly timeToLiveSpecification?: outputs.dynamodb.GlobalTableTimeToLiveSpecification;
+    /**
+     * Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+     */
     readonly warmThroughput?: outputs.dynamodb.GlobalTableWarmThroughput;
     /**
      * Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .

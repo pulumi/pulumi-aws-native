@@ -21,7 +21,10 @@ type DeliveryStream struct {
 	// The destination in Amazon OpenSearch Service. You can specify only one destination.
 	AmazonopensearchserviceDestinationConfiguration DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput `pulumi:"amazonopensearchserviceDestinationConfiguration"`
 	// The Amazon Resource Name (ARN) of the delivery stream, such as `arn:aws:firehose:us-east-2:123456789012:deliverystream/delivery-stream-name` .
-	Arn                         pulumi.StringOutput                                `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The top level object for configuring streams with database as a source.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
 	DatabaseSourceConfiguration DeliveryStreamDatabaseSourceConfigurationPtrOutput `pulumi:"databaseSourceConfiguration"`
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput DeliveryStreamEncryptionConfigurationInputTypePtrOutput `pulumi:"deliveryStreamEncryptionConfigurationInput"`
@@ -72,7 +75,7 @@ type DeliveryStream struct {
 	//
 	// You can specify up to 50 tags when creating a Firehose stream.
 	//
-	// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+	// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
 	//
 	// *AccessDeniedException*
 	//
@@ -139,7 +142,10 @@ type deliveryStreamArgs struct {
 	AmazonOpenSearchServerlessDestinationConfiguration *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration `pulumi:"amazonOpenSearchServerlessDestinationConfiguration"`
 	// The destination in Amazon OpenSearch Service. You can specify only one destination.
 	AmazonopensearchserviceDestinationConfiguration *DeliveryStreamAmazonopensearchserviceDestinationConfiguration `pulumi:"amazonopensearchserviceDestinationConfiguration"`
-	DatabaseSourceConfiguration                     *DeliveryStreamDatabaseSourceConfiguration                     `pulumi:"databaseSourceConfiguration"`
+	// The top level object for configuring streams with database as a source.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	DatabaseSourceConfiguration *DeliveryStreamDatabaseSourceConfiguration `pulumi:"databaseSourceConfiguration"`
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput *DeliveryStreamEncryptionConfigurationInputType `pulumi:"deliveryStreamEncryptionConfigurationInput"`
 	// The name of the Firehose stream.
@@ -189,7 +195,7 @@ type deliveryStreamArgs struct {
 	//
 	// You can specify up to 50 tags when creating a Firehose stream.
 	//
-	// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+	// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
 	//
 	// *AccessDeniedException*
 	//
@@ -205,7 +211,10 @@ type DeliveryStreamArgs struct {
 	AmazonOpenSearchServerlessDestinationConfiguration DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrInput
 	// The destination in Amazon OpenSearch Service. You can specify only one destination.
 	AmazonopensearchserviceDestinationConfiguration DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrInput
-	DatabaseSourceConfiguration                     DeliveryStreamDatabaseSourceConfigurationPtrInput
+	// The top level object for configuring streams with database as a source.
+	//
+	// Amazon Data Firehose is in preview release and is subject to change.
+	DatabaseSourceConfiguration DeliveryStreamDatabaseSourceConfigurationPtrInput
 	// Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE).
 	DeliveryStreamEncryptionConfigurationInput DeliveryStreamEncryptionConfigurationInputTypePtrInput
 	// The name of the Firehose stream.
@@ -255,7 +264,7 @@ type DeliveryStreamArgs struct {
 	//
 	// You can specify up to 50 tags when creating a Firehose stream.
 	//
-	// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+	// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
 	//
 	// *AccessDeniedException*
 	//
@@ -321,6 +330,9 @@ func (o DeliveryStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliveryStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The top level object for configuring streams with database as a source.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 func (o DeliveryStreamOutput) DatabaseSourceConfiguration() DeliveryStreamDatabaseSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStream) DeliveryStreamDatabaseSourceConfigurationPtrOutput {
 		return v.DatabaseSourceConfiguration
@@ -435,7 +447,7 @@ func (o DeliveryStreamOutput) SplunkDestinationConfiguration() DeliveryStreamSpl
 //
 // You can specify up to 50 tags when creating a Firehose stream.
 //
-// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+// If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
 //
 // *AccessDeniedException*
 //

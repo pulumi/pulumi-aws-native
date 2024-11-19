@@ -54,11 +54,21 @@ export interface GetContainerFleetResult {
      * A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
      */
     readonly gameSessionCreationLimitPolicy?: outputs.gamelift.ContainerFleetGameSessionCreationLimitPolicy;
+    /**
+     * The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+     */
     readonly instanceConnectionPortRange?: outputs.gamelift.ContainerFleetConnectionPortRange;
     /**
      * A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
      */
     readonly instanceInboundPermissions?: outputs.gamelift.ContainerFleetIpPermission[];
+    /**
+     * The method that is used to collect container logs for the fleet. Amazon GameLift saves all standard output for each container in logs, including game session logs.
+     *
+     * - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+     * - `S3` -- Store logs in an Amazon S3 bucket that you define.
+     * - `NONE` -- Don't collect container logs.
+     */
     readonly logConfiguration?: outputs.gamelift.ContainerFleetLogConfiguration;
     /**
      * The maximum number of game server container groups per instance, a number between 1-5000.

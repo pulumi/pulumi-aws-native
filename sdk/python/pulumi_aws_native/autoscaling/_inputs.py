@@ -28,6 +28,10 @@ __all__ = [
     'AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgsDict',
     'AutoScalingGroupBaselinePerformanceFactorsRequestArgs',
     'AutoScalingGroupBaselinePerformanceFactorsRequestArgsDict',
+    'AutoScalingGroupCapacityReservationSpecificationArgs',
+    'AutoScalingGroupCapacityReservationSpecificationArgsDict',
+    'AutoScalingGroupCapacityReservationTargetArgs',
+    'AutoScalingGroupCapacityReservationTargetArgsDict',
     'AutoScalingGroupCpuPerformanceFactorRequestArgs',
     'AutoScalingGroupCpuPerformanceFactorRequestArgsDict',
     'AutoScalingGroupInstanceMaintenancePolicyArgs',
@@ -380,6 +384,77 @@ class AutoScalingGroupBaselinePerformanceFactorsRequestArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input['AutoScalingGroupCpuPerformanceFactorRequestArgs']]):
         pulumi.set(self, "cpu", value)
+
+
+if not MYPY:
+    class AutoScalingGroupCapacityReservationSpecificationArgsDict(TypedDict):
+        capacity_reservation_preference: pulumi.Input[str]
+        capacity_reservation_target: NotRequired[pulumi.Input['AutoScalingGroupCapacityReservationTargetArgsDict']]
+elif False:
+    AutoScalingGroupCapacityReservationSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupCapacityReservationSpecificationArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_preference: pulumi.Input[str],
+                 capacity_reservation_target: Optional[pulumi.Input['AutoScalingGroupCapacityReservationTargetArgs']] = None):
+        pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
+
+    @property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @capacity_reservation_preference.setter
+    def capacity_reservation_preference(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capacity_reservation_preference", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional[pulumi.Input['AutoScalingGroupCapacityReservationTargetArgs']]:
+        return pulumi.get(self, "capacity_reservation_target")
+
+    @capacity_reservation_target.setter
+    def capacity_reservation_target(self, value: Optional[pulumi.Input['AutoScalingGroupCapacityReservationTargetArgs']]):
+        pulumi.set(self, "capacity_reservation_target", value)
+
+
+if not MYPY:
+    class AutoScalingGroupCapacityReservationTargetArgsDict(TypedDict):
+        capacity_reservation_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        capacity_reservation_resource_group_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    AutoScalingGroupCapacityReservationTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutoScalingGroupCapacityReservationTargetArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 capacity_reservation_resource_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if capacity_reservation_ids is not None:
+            pulumi.set(__self__, "capacity_reservation_ids", capacity_reservation_ids)
+        if capacity_reservation_resource_group_arns is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arns", capacity_reservation_resource_group_arns)
+
+    @property
+    @pulumi.getter(name="capacityReservationIds")
+    def capacity_reservation_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "capacity_reservation_ids")
+
+    @capacity_reservation_ids.setter
+    def capacity_reservation_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "capacity_reservation_ids", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArns")
+    def capacity_reservation_resource_group_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "capacity_reservation_resource_group_arns")
+
+    @capacity_reservation_resource_group_arns.setter
+    def capacity_reservation_resource_group_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "capacity_reservation_resource_group_arns", value)
 
 
 if not MYPY:

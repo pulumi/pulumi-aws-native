@@ -26,6 +26,7 @@ class GlobalReplicationGroupArgs:
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_node_group_count: Optional[pulumi.Input[int]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
@@ -37,6 +38,7 @@ class GlobalReplicationGroupArgs:
         :param pulumi.Input[bool] automatic_failover_enabled: AutomaticFailoverEnabled
         :param pulumi.Input[str] cache_node_type: The cache node type of the Global Datastore
         :param pulumi.Input[str] cache_parameter_group_name: Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
+        :param pulumi.Input[str] engine: The engine of the Global Datastore.
         :param pulumi.Input[str] engine_version: The engine version of the Global Datastore.
         :param pulumi.Input[int] global_node_group_count: Indicates the number of node groups in the Global Datastore.
         :param pulumi.Input[str] global_replication_group_description: The optional description of the Global Datastore
@@ -50,6 +52,8 @@ class GlobalReplicationGroupArgs:
             pulumi.set(__self__, "cache_node_type", cache_node_type)
         if cache_parameter_group_name is not None:
             pulumi.set(__self__, "cache_parameter_group_name", cache_parameter_group_name)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
             pulumi.set(__self__, "engine_version", engine_version)
         if global_node_group_count is not None:
@@ -108,6 +112,18 @@ class GlobalReplicationGroupArgs:
     @cache_parameter_group_name.setter
     def cache_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cache_parameter_group_name", value)
+
+    @property
+    @pulumi.getter
+    def engine(self) -> Optional[pulumi.Input[str]]:
+        """
+        The engine of the Global Datastore.
+        """
+        return pulumi.get(self, "engine")
+
+    @engine.setter
+    def engine(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine", value)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -178,6 +194,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_node_group_count: Optional[pulumi.Input[int]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
@@ -193,6 +210,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] automatic_failover_enabled: AutomaticFailoverEnabled
         :param pulumi.Input[str] cache_node_type: The cache node type of the Global Datastore
         :param pulumi.Input[str] cache_parameter_group_name: Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
+        :param pulumi.Input[str] engine: The engine of the Global Datastore.
         :param pulumi.Input[str] engine_version: The engine version of the Global Datastore.
         :param pulumi.Input[int] global_node_group_count: Indicates the number of node groups in the Global Datastore.
         :param pulumi.Input[str] global_replication_group_description: The optional description of the Global Datastore
@@ -227,6 +245,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_node_group_count: Optional[pulumi.Input[int]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
@@ -245,6 +264,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
             __props__.__dict__["cache_node_type"] = cache_node_type
             __props__.__dict__["cache_parameter_group_name"] = cache_parameter_group_name
+            __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_node_group_count"] = global_node_group_count
             __props__.__dict__["global_replication_group_description"] = global_replication_group_description
@@ -280,6 +300,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["automatic_failover_enabled"] = None
         __props__.__dict__["cache_node_type"] = None
         __props__.__dict__["cache_parameter_group_name"] = None
+        __props__.__dict__["engine"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["global_node_group_count"] = None
         __props__.__dict__["global_replication_group_description"] = None
@@ -313,6 +334,14 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         Cache parameter group name to use for the new engine version. This parameter cannot be modified independently.
         """
         return pulumi.get(self, "cache_parameter_group_name")
+
+    @property
+    @pulumi.getter
+    def engine(self) -> pulumi.Output[Optional[str]]:
+        """
+        The engine of the Global Datastore.
+        """
+        return pulumi.get(self, "engine")
 
     @property
     @pulumi.getter(name="engineVersion")

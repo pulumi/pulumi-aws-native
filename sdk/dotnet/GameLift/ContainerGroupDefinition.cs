@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.GameLift
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+        /// </summary>
         [Output("gameServerContainerDefinition")]
         public Output<Outputs.ContainerGroupDefinitionGameServerContainerDefinition?> GameServerContainerDefinition { get; private set; } = null!;
 
@@ -158,6 +161,9 @@ namespace Pulumi.AwsNative.GameLift
         [Input("containerGroupType")]
         public Input<Pulumi.AwsNative.GameLift.ContainerGroupDefinitionContainerGroupType>? ContainerGroupType { get; set; }
 
+        /// <summary>
+        /// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+        /// </summary>
         [Input("gameServerContainerDefinition")]
         public Input<Inputs.ContainerGroupDefinitionGameServerContainerDefinitionArgs>? GameServerContainerDefinition { get; set; }
 

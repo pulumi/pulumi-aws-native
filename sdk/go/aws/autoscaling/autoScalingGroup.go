@@ -30,7 +30,8 @@ type AutoScalingGroup struct {
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
-	CapacityRebalance pulumi.BoolPtrOutput `pulumi:"capacityRebalance"`
+	CapacityRebalance                pulumi.BoolPtrOutput                                      `pulumi:"capacityRebalance"`
+	CapacityReservationSpecification AutoScalingGroupCapacityReservationSpecificationPtrOutput `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// *Only needed if you use simple scaling policies.*
@@ -173,7 +174,8 @@ type autoScalingGroupArgs struct {
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
-	CapacityRebalance *bool `pulumi:"capacityRebalance"`
+	CapacityRebalance                *bool                                             `pulumi:"capacityRebalance"`
+	CapacityReservationSpecification *AutoScalingGroupCapacityReservationSpecification `pulumi:"capacityReservationSpecification"`
 	// Reserved.
 	Context *string `pulumi:"context"`
 	// *Only needed if you use simple scaling policies.*
@@ -267,7 +269,8 @@ type AutoScalingGroupArgs struct {
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
-	CapacityRebalance pulumi.BoolPtrInput
+	CapacityRebalance                pulumi.BoolPtrInput
+	CapacityReservationSpecification AutoScalingGroupCapacityReservationSpecificationPtrInput
 	// Reserved.
 	Context pulumi.StringPtrInput
 	// *Only needed if you use simple scaling policies.*
@@ -415,6 +418,12 @@ func (o AutoScalingGroupOutput) AvailabilityZones() pulumi.StringArrayOutput {
 // Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
 func (o AutoScalingGroupOutput) CapacityRebalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroup) pulumi.BoolPtrOutput { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
+}
+
+func (o AutoScalingGroupOutput) CapacityReservationSpecification() AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+	return o.ApplyT(func(v *AutoScalingGroup) AutoScalingGroupCapacityReservationSpecificationPtrOutput {
+		return v.CapacityReservationSpecification
+	}).(AutoScalingGroupCapacityReservationSpecificationPtrOutput)
 }
 
 // Reserved.

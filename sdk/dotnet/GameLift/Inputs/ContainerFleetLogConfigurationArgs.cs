@@ -15,6 +15,13 @@ namespace Pulumi.AwsNative.GameLift.Inputs
     /// </summary>
     public sealed class ContainerFleetLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of log collection to use for a fleet.
+        /// 
+        /// - `CLOUDWATCH` -- (default value) Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
+        /// - `S3` -- Store logs in an Amazon S3 bucket that you define.
+        /// - `NONE` -- Don't collect container logs.
+        /// </summary>
         [Input("logDestination")]
         public Input<Pulumi.AwsNative.GameLift.ContainerFleetLogDestination>? LogDestination { get; set; }
 

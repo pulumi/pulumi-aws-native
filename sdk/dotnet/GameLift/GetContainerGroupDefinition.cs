@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.GameLift
         /// A time stamp indicating when this data object was created. Format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
         /// </summary>
         public readonly string? CreationTime;
+        /// <summary>
+        /// The definition for the game server container in this group. This property is used only when the container group type is `GAME_SERVER` . This container definition specifies a container image with the game server build.
+        /// </summary>
         public readonly Outputs.ContainerGroupDefinitionGameServerContainerDefinition? GameServerContainerDefinition;
         /// <summary>
         /// The operating system of the container group

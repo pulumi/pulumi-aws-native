@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         /// </summary>
         public readonly Outputs.GlobalTableProjection Projection;
+        /// <summary>
+        /// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        /// </summary>
         public readonly Outputs.GlobalTableWarmThroughput? WarmThroughput;
         /// <summary>
         /// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .

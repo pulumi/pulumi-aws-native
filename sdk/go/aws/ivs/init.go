@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Channel{}
 	case "aws-native:ivs:EncoderConfiguration":
 		r = &EncoderConfiguration{}
+	case "aws-native:ivs:IngestConfiguration":
+		r = &IngestConfiguration{}
 	case "aws-native:ivs:PlaybackKeyPair":
 		r = &PlaybackKeyPair{}
 	case "aws-native:ivs:PlaybackRestrictionPolicy":

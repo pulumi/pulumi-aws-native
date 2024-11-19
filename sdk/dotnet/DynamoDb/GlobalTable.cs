@@ -110,6 +110,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("timeToLiveSpecification")]
         public Output<Outputs.GlobalTableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+        /// </summary>
         [Output("warmThroughput")]
         public Output<Outputs.GlobalTableWarmThroughput?> WarmThroughput { get; private set; } = null!;
 
@@ -281,6 +284,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Input("timeToLiveSpecification")]
         public Input<Inputs.GlobalTableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }
 
+        /// <summary>
+        /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+        /// </summary>
         [Input("warmThroughput")]
         public Input<Inputs.GlobalTableWarmThroughputArgs>? WarmThroughput { get; set; }
 

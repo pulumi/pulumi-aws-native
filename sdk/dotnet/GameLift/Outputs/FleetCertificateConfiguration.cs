@@ -21,8 +21,8 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// 
         /// Valid values include:
         /// 
-        /// - *GENERATED* -- Generate a TLS/SSL certificate for this fleet.
-        /// - *DISABLED* -- (default) Do not generate a TLS/SSL certificate for this fleet.
+        /// - *GENERATED* - Generate a TLS/SSL certificate for this fleet.
+        /// - *DISABLED* - (default) Do not generate a TLS/SSL certificate for this fleet.
         /// </summary>
         public readonly Pulumi.AwsNative.GameLift.FleetCertificateConfigurationCertificateType CertificateType;
 

@@ -10,6 +10,175 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type FleetAcceleratorSelectionName string
+
+const (
+	FleetAcceleratorSelectionNameT4   = FleetAcceleratorSelectionName("t4")
+	FleetAcceleratorSelectionNameA10g = FleetAcceleratorSelectionName("a10g")
+	FleetAcceleratorSelectionNameL4   = FleetAcceleratorSelectionName("l4")
+	FleetAcceleratorSelectionNameL40s = FleetAcceleratorSelectionName("l40s")
+)
+
+func (FleetAcceleratorSelectionName) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetAcceleratorSelectionName)(nil)).Elem()
+}
+
+func (e FleetAcceleratorSelectionName) ToFleetAcceleratorSelectionNameOutput() FleetAcceleratorSelectionNameOutput {
+	return pulumi.ToOutput(e).(FleetAcceleratorSelectionNameOutput)
+}
+
+func (e FleetAcceleratorSelectionName) ToFleetAcceleratorSelectionNameOutputWithContext(ctx context.Context) FleetAcceleratorSelectionNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FleetAcceleratorSelectionNameOutput)
+}
+
+func (e FleetAcceleratorSelectionName) ToFleetAcceleratorSelectionNamePtrOutput() FleetAcceleratorSelectionNamePtrOutput {
+	return e.ToFleetAcceleratorSelectionNamePtrOutputWithContext(context.Background())
+}
+
+func (e FleetAcceleratorSelectionName) ToFleetAcceleratorSelectionNamePtrOutputWithContext(ctx context.Context) FleetAcceleratorSelectionNamePtrOutput {
+	return FleetAcceleratorSelectionName(e).ToFleetAcceleratorSelectionNameOutputWithContext(ctx).ToFleetAcceleratorSelectionNamePtrOutputWithContext(ctx)
+}
+
+func (e FleetAcceleratorSelectionName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetAcceleratorSelectionName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FleetAcceleratorSelectionName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FleetAcceleratorSelectionName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FleetAcceleratorSelectionNameOutput struct{ *pulumi.OutputState }
+
+func (FleetAcceleratorSelectionNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetAcceleratorSelectionName)(nil)).Elem()
+}
+
+func (o FleetAcceleratorSelectionNameOutput) ToFleetAcceleratorSelectionNameOutput() FleetAcceleratorSelectionNameOutput {
+	return o
+}
+
+func (o FleetAcceleratorSelectionNameOutput) ToFleetAcceleratorSelectionNameOutputWithContext(ctx context.Context) FleetAcceleratorSelectionNameOutput {
+	return o
+}
+
+func (o FleetAcceleratorSelectionNameOutput) ToFleetAcceleratorSelectionNamePtrOutput() FleetAcceleratorSelectionNamePtrOutput {
+	return o.ToFleetAcceleratorSelectionNamePtrOutputWithContext(context.Background())
+}
+
+func (o FleetAcceleratorSelectionNameOutput) ToFleetAcceleratorSelectionNamePtrOutputWithContext(ctx context.Context) FleetAcceleratorSelectionNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetAcceleratorSelectionName) *FleetAcceleratorSelectionName {
+		return &v
+	}).(FleetAcceleratorSelectionNamePtrOutput)
+}
+
+func (o FleetAcceleratorSelectionNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FleetAcceleratorSelectionNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetAcceleratorSelectionName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FleetAcceleratorSelectionNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetAcceleratorSelectionNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FleetAcceleratorSelectionName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FleetAcceleratorSelectionNamePtrOutput struct{ *pulumi.OutputState }
+
+func (FleetAcceleratorSelectionNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetAcceleratorSelectionName)(nil)).Elem()
+}
+
+func (o FleetAcceleratorSelectionNamePtrOutput) ToFleetAcceleratorSelectionNamePtrOutput() FleetAcceleratorSelectionNamePtrOutput {
+	return o
+}
+
+func (o FleetAcceleratorSelectionNamePtrOutput) ToFleetAcceleratorSelectionNamePtrOutputWithContext(ctx context.Context) FleetAcceleratorSelectionNamePtrOutput {
+	return o
+}
+
+func (o FleetAcceleratorSelectionNamePtrOutput) Elem() FleetAcceleratorSelectionNameOutput {
+	return o.ApplyT(func(v *FleetAcceleratorSelectionName) FleetAcceleratorSelectionName {
+		if v != nil {
+			return *v
+		}
+		var ret FleetAcceleratorSelectionName
+		return ret
+	}).(FleetAcceleratorSelectionNameOutput)
+}
+
+func (o FleetAcceleratorSelectionNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FleetAcceleratorSelectionNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FleetAcceleratorSelectionName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FleetAcceleratorSelectionNameInput is an input type that accepts values of the FleetAcceleratorSelectionName enum
+// A concrete instance of `FleetAcceleratorSelectionNameInput` can be one of the following:
+//
+//	FleetAcceleratorSelectionNameT4
+//	FleetAcceleratorSelectionNameA10g
+//	FleetAcceleratorSelectionNameL4
+//	FleetAcceleratorSelectionNameL40s
+type FleetAcceleratorSelectionNameInput interface {
+	pulumi.Input
+
+	ToFleetAcceleratorSelectionNameOutput() FleetAcceleratorSelectionNameOutput
+	ToFleetAcceleratorSelectionNameOutputWithContext(context.Context) FleetAcceleratorSelectionNameOutput
+}
+
+var fleetAcceleratorSelectionNamePtrType = reflect.TypeOf((**FleetAcceleratorSelectionName)(nil)).Elem()
+
+type FleetAcceleratorSelectionNamePtrInput interface {
+	pulumi.Input
+
+	ToFleetAcceleratorSelectionNamePtrOutput() FleetAcceleratorSelectionNamePtrOutput
+	ToFleetAcceleratorSelectionNamePtrOutputWithContext(context.Context) FleetAcceleratorSelectionNamePtrOutput
+}
+
+type fleetAcceleratorSelectionNamePtr string
+
+func FleetAcceleratorSelectionNamePtr(v string) FleetAcceleratorSelectionNamePtrInput {
+	return (*fleetAcceleratorSelectionNamePtr)(&v)
+}
+
+func (*fleetAcceleratorSelectionNamePtr) ElementType() reflect.Type {
+	return fleetAcceleratorSelectionNamePtrType
+}
+
+func (in *fleetAcceleratorSelectionNamePtr) ToFleetAcceleratorSelectionNamePtrOutput() FleetAcceleratorSelectionNamePtrOutput {
+	return pulumi.ToOutput(in).(FleetAcceleratorSelectionNamePtrOutput)
+}
+
+func (in *fleetAcceleratorSelectionNamePtr) ToFleetAcceleratorSelectionNamePtrOutputWithContext(ctx context.Context) FleetAcceleratorSelectionNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FleetAcceleratorSelectionNamePtrOutput)
+}
+
 type FleetAcceleratorType string
 
 const (
@@ -2060,6 +2229,8 @@ func (in *storageProfileOperatingSystemFamilyPtr) ToStorageProfileOperatingSyste
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorSelectionNameInput)(nil)).Elem(), FleetAcceleratorSelectionName("t4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorSelectionNamePtrInput)(nil)).Elem(), FleetAcceleratorSelectionName("t4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorTypeInput)(nil)).Elem(), FleetAcceleratorType("gpu"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorTypePtrInput)(nil)).Elem(), FleetAcceleratorType("gpu"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorTypeArrayInput)(nil)).Elem(), FleetAcceleratorTypeArray{})
@@ -2083,6 +2254,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileFileSystemLocationTypePtrInput)(nil)).Elem(), StorageProfileFileSystemLocationType("SHARED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileOperatingSystemFamilyInput)(nil)).Elem(), StorageProfileOperatingSystemFamily("WINDOWS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileOperatingSystemFamilyPtrInput)(nil)).Elem(), StorageProfileOperatingSystemFamily("WINDOWS"))
+	pulumi.RegisterOutputType(FleetAcceleratorSelectionNameOutput{})
+	pulumi.RegisterOutputType(FleetAcceleratorSelectionNamePtrOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorTypeOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorTypePtrOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorTypeArrayOutput{})

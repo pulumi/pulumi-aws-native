@@ -13,18 +13,79 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamDatabaseSourceConfiguration
     {
+        /// <summary>
+        /// The list of column patterns in source database endpoint for Firehose to read from.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Outputs.DeliveryStreamDatabaseColumns? Columns;
+        /// <summary>
+        /// The structure to configure the authentication methods for Firehose to connect to source database endpoint.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Outputs.DeliveryStreamDatabaseSourceAuthenticationConfiguration DatabaseSourceAuthenticationConfiguration;
+        /// <summary>
+        /// The details of the VPC Endpoint Service which Firehose uses to create a PrivateLink to the database.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Outputs.DeliveryStreamDatabaseSourceVpcConfiguration DatabaseSourceVpcConfiguration;
+        /// <summary>
+        /// The list of database patterns in source database endpoint for Firehose to read from.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Outputs.DeliveryStreamDatabases Databases;
         public readonly string? Digest;
+        /// <summary>
+        /// The endpoint of the database server.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly string Endpoint;
+        /// <summary>
+        /// The port of the database. This can be one of the following values.
+        /// 
+        /// - 3306 for MySQL database type
+        /// - 5432 for PostgreSQL database type
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly int Port;
         public readonly string? PublicCertificate;
+        /// <summary>
+        /// The fully qualified name of the table in source database endpoint that Firehose uses to track snapshot progress.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly string SnapshotWatermarkTable;
+        /// <summary>
+        /// The mode to enable or disable SSL when Firehose connects to the database endpoint.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamDatabaseSourceConfigurationSslMode? SslMode;
+        /// <summary>
+        /// The optional list of table and column names used as unique key columns when taking snapshot if the tables don’t have primary keys configured.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly ImmutableArray<string> SurrogateKeys;
+        /// <summary>
+        /// The list of table patterns in source database endpoint for Firehose to read from.
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Outputs.DeliveryStreamDatabaseTables Tables;
+        /// <summary>
+        /// The type of database engine. This can be one of the following values.
+        /// 
+        /// - MySQL
+        /// - PostgreSQL
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamDatabaseSourceConfigurationType Type;
 
         [OutputConstructor]

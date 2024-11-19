@@ -106,6 +106,9 @@ export class GlobalTable extends pulumi.CustomResource {
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */
     public readonly timeToLiveSpecification!: pulumi.Output<outputs.dynamodb.GlobalTableTimeToLiveSpecification | undefined>;
+    /**
+     * Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+     */
     public readonly warmThroughput!: pulumi.Output<outputs.dynamodb.GlobalTableWarmThroughput | undefined>;
     /**
      * Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
@@ -236,6 +239,9 @@ export interface GlobalTableArgs {
      * Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
      */
     timeToLiveSpecification?: pulumi.Input<inputs.dynamodb.GlobalTableTimeToLiveSpecificationArgs>;
+    /**
+     * Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
+     */
     warmThroughput?: pulumi.Input<inputs.dynamodb.GlobalTableWarmThroughputArgs>;
     /**
      * Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .

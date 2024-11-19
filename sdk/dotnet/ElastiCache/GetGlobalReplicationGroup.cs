@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public readonly string? CacheParameterGroupName;
         /// <summary>
+        /// The engine of the Global Datastore.
+        /// </summary>
+        public readonly string? Engine;
+        /// <summary>
         /// The optional description of the Global Datastore
         /// </summary>
         public readonly string? GlobalReplicationGroupDescription;
@@ -82,6 +86,8 @@ namespace Pulumi.AwsNative.ElastiCache
         private GetGlobalReplicationGroupResult(
             string? cacheParameterGroupName,
 
+            string? engine,
+
             string? globalReplicationGroupDescription,
 
             string? globalReplicationGroupId,
@@ -91,6 +97,7 @@ namespace Pulumi.AwsNative.ElastiCache
             string? status)
         {
             CacheParameterGroupName = cacheParameterGroupName;
+            Engine = engine;
             GlobalReplicationGroupDescription = globalReplicationGroupDescription;
             GlobalReplicationGroupId = globalReplicationGroupId;
             Members = members;

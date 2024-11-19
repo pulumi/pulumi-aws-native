@@ -680,6 +680,9 @@ func (in *deliveryStreamAuthenticationConfigurationConnectivityPtr) ToDeliverySt
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamAuthenticationConfigurationConnectivityPtrOutput)
 }
 
+// The mode to enable or disable SSL when Firehose connects to the database endpoint.
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 type DeliveryStreamDatabaseSourceConfigurationSslMode string
 
 const (
@@ -845,6 +848,12 @@ func (in *deliveryStreamDatabaseSourceConfigurationSslModePtr) ToDeliveryStreamD
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryStreamDatabaseSourceConfigurationSslModePtrOutput)
 }
 
+// The type of database engine. This can be one of the following values.
+//
+// - MySQL
+// - PostgreSQL
+//
+// Amazon Data Firehose is in preview release and is subject to change.
 type DeliveryStreamDatabaseSourceConfigurationType string
 
 const (

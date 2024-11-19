@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'FleetAcceleratorSelectionName',
     'FleetAcceleratorType',
     'FleetAutoScalingMode',
     'FleetCpuArchitectureType',
@@ -19,6 +20,13 @@ __all__ = [
     'StorageProfileFileSystemLocationType',
     'StorageProfileOperatingSystemFamily',
 ]
+
+
+class FleetAcceleratorSelectionName(str, Enum):
+    T4 = "t4"
+    A10G = "a10g"
+    L4 = "l4"
+    L40S = "l40s"
 
 
 class FleetAcceleratorType(str, Enum):

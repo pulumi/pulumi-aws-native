@@ -10,6 +10,7 @@ from .channel import *
 from .encoder_configuration import *
 from .get_channel import *
 from .get_encoder_configuration import *
+from .get_ingest_configuration import *
 from .get_playback_key_pair import *
 from .get_playback_restriction_policy import *
 from .get_public_key import *
@@ -17,6 +18,7 @@ from .get_recording_configuration import *
 from .get_stage import *
 from .get_storage_configuration import *
 from .get_stream_key import *
+from .ingest_configuration import *
 from .playback_key_pair import *
 from .playback_restriction_policy import *
 from .public_key import *

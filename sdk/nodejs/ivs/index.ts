@@ -25,6 +25,11 @@ export const getEncoderConfiguration: typeof import("./getEncoderConfiguration")
 export const getEncoderConfigurationOutput: typeof import("./getEncoderConfiguration").getEncoderConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getEncoderConfiguration","getEncoderConfigurationOutput"], () => require("./getEncoderConfiguration"));
 
+export { GetIngestConfigurationArgs, GetIngestConfigurationResult, GetIngestConfigurationOutputArgs } from "./getIngestConfiguration";
+export const getIngestConfiguration: typeof import("./getIngestConfiguration").getIngestConfiguration = null as any;
+export const getIngestConfigurationOutput: typeof import("./getIngestConfiguration").getIngestConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getIngestConfiguration","getIngestConfigurationOutput"], () => require("./getIngestConfiguration"));
+
 export { GetPlaybackKeyPairArgs, GetPlaybackKeyPairResult, GetPlaybackKeyPairOutputArgs } from "./getPlaybackKeyPair";
 export const getPlaybackKeyPair: typeof import("./getPlaybackKeyPair").getPlaybackKeyPair = null as any;
 export const getPlaybackKeyPairOutput: typeof import("./getPlaybackKeyPair").getPlaybackKeyPairOutput = null as any;
@@ -59,6 +64,11 @@ export { GetStreamKeyArgs, GetStreamKeyResult, GetStreamKeyOutputArgs } from "./
 export const getStreamKey: typeof import("./getStreamKey").getStreamKey = null as any;
 export const getStreamKeyOutput: typeof import("./getStreamKey").getStreamKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getStreamKey","getStreamKeyOutput"], () => require("./getStreamKey"));
+
+export { IngestConfigurationArgs } from "./ingestConfiguration";
+export type IngestConfiguration = import("./ingestConfiguration").IngestConfiguration;
+export const IngestConfiguration: typeof import("./ingestConfiguration").IngestConfiguration = null as any;
+utilities.lazyLoad(exports, ["IngestConfiguration"], () => require("./ingestConfiguration"));
 
 export { PlaybackKeyPairArgs } from "./playbackKeyPair";
 export type PlaybackKeyPair = import("./playbackKeyPair").PlaybackKeyPair;
@@ -107,6 +117,8 @@ const _module = {
                 return new Channel(name, <any>undefined, { urn })
             case "aws-native:ivs:EncoderConfiguration":
                 return new EncoderConfiguration(name, <any>undefined, { urn })
+            case "aws-native:ivs:IngestConfiguration":
+                return new IngestConfiguration(name, <any>undefined, { urn })
             case "aws-native:ivs:PlaybackKeyPair":
                 return new PlaybackKeyPair(name, <any>undefined, { urn })
             case "aws-native:ivs:PlaybackRestrictionPolicy":

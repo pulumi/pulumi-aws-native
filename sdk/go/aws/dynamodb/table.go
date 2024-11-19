@@ -344,7 +344,8 @@ type Table struct {
 	// Specifies the Time to Live (TTL) settings for the table.
 	//   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification TableTimeToLiveSpecificationPtrOutput `pulumi:"timeToLiveSpecification"`
-	WarmThroughput          TableWarmThroughputPtrOutput          `pulumi:"warmThroughput"`
+	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
+	WarmThroughput TableWarmThroughputPtrOutput `pulumi:"warmThroughput"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
@@ -451,7 +452,8 @@ type tableArgs struct {
 	// Specifies the Time to Live (TTL) settings for the table.
 	//   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification *TableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
-	WarmThroughput          *TableWarmThroughput          `pulumi:"warmThroughput"`
+	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
+	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -512,7 +514,8 @@ type TableArgs struct {
 	// Specifies the Time to Live (TTL) settings for the table.
 	//   For detailed information about the limits in DynamoDB, see [Limits in Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the Amazon DynamoDB Developer Guide.
 	TimeToLiveSpecification TableTimeToLiveSpecificationPtrInput
-	WarmThroughput          TableWarmThroughputPtrInput
+	// Represents the warm throughput (in read units per second and write units per second) for creating a table.
+	WarmThroughput TableWarmThroughputPtrInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -690,6 +693,7 @@ func (o TableOutput) TimeToLiveSpecification() TableTimeToLiveSpecificationPtrOu
 	return o.ApplyT(func(v *Table) TableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(TableTimeToLiveSpecificationPtrOutput)
 }
 
+// Represents the warm throughput (in read units per second and write units per second) for creating a table.
 func (o TableOutput) WarmThroughput() TableWarmThroughputPtrOutput {
 	return o.ApplyT(func(v *Table) TableWarmThroughputPtrOutput { return v.WarmThroughput }).(TableWarmThroughputPtrOutput)
 }

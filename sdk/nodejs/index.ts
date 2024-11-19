@@ -230,6 +230,7 @@ import * as qbusiness from "./qbusiness";
 import * as qldb from "./qldb";
 import * as quicksight from "./quicksight";
 import * as ram from "./ram";
+import * as rbin from "./rbin";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as redshiftserverless from "./redshiftserverless";
@@ -451,6 +452,7 @@ export {
     qldb,
     quicksight,
     ram,
+    rbin,
     rds,
     redshift,
     redshiftserverless,

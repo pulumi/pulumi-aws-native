@@ -13,6 +13,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     [OutputType]
     public sealed class DeliveryStreamDatabaseSourceVpcConfiguration
     {
+        /// <summary>
+        /// The VPC endpoint service name which Firehose uses to create a PrivateLink to the database. The endpoint service must have the Firehose service principle `firehose.amazonaws.com` as an allowed principal on the VPC endpoint service. The VPC endpoint service name is a string that looks like `com.amazonaws.vpce.&lt;region&gt;.&lt;vpc-endpoint-service-id&gt;` .
+        /// 
+        /// Amazon Data Firehose is in preview release and is subject to change.
+        /// </summary>
         public readonly string VpcEndpointServiceName;
 
         [OutputConstructor]
