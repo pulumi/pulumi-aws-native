@@ -33,7 +33,13 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 			return err
 		}
 
+		sch, err := findSchema(schemaAbsPath, r)
+		if err != nil {
+			return err
+		}
+
 		fmt.Println("ResourceID: ", r)
+		fmt.Println("PrimaryID : ", strings.Join(sch.PrimaryIdentifier, " "))
 		fmt.Println("RefSection: ", res.RefSection)
 		fmt.Println("Enter one of the following: ")
 

@@ -1,14 +1,12 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
 	"log"
 	"os"
 	"path/filepath"
 	"regexp"
-	"sort"
 	"strings"
 )
 
@@ -144,31 +142,4 @@ func resourceFiles(guide string) ([]string, error) {
 		result = append(result, filepath.Join(d, file.Name()))
 	}
 	return result, nil
-}
-
-// Read CF schema and find which properties are available for a resource.
-func findProperties(schemaAbsPath, resourceID string) ([]string, error) {
-	fn := strings.ToLower(strings.ReplaceAll(resourceID, "::", "-") + ".json")
-	file := filepath.Join(schemaAbsPath, fn)
-	fbytes, err := os.ReadFile(file)
-	if err != nil {
-		return nil, err
-	}
-
-	type schema struct {
-		TypeName   string         `json:"typeName"`
-		Properties map[string]any `json:"properties"`
-	}
-
-	var s schema
-	if err := json.Unmarshal(fbytes, &s); err != nil {
-		return nil, err
-	}
-
-	var res []string
-	for x := range s.Properties {
-		res = append(res, x)
-	}
-	sort.Strings(res)
-	return res, nil
 }

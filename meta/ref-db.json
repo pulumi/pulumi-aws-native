@@ -1,0 +1,19 @@
+{
+  "resources": {
+    "AWS::EC2::NetworkAclEntry": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::EC2::NetworkInsightsPath": {
+      "refReturns": {
+        "property": "NetworkInsightsPathId"
+      }
+    },
+    "AWS::SSMContacts::ContactChannel": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    }
+  }
+}
