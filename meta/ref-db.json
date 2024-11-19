@@ -20,6 +20,11 @@
         "property": "Arn"
       }
     },
+    "AWS::AppRunner::VpcIngressConnection": {
+      "refReturns": {
+        "property": "VpcIngressConnectionName"
+      }
+    },
     "AWS::AppStream::AppBlock": {
       "refReturns": {
         "property": "Arn"
@@ -28,6 +33,11 @@
     "AWS::ApplicationAutoScaling::ScalingPolicy": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::Athena::PreparedStatement": {
+      "refReturns": {
+        "property": "StatementName"
       }
     },
     "AWS::AutoScaling::LifecycleHook": {
@@ -80,6 +90,11 @@
         "property": "LocationArn"
       }
     },
+    "AWS::DeviceFarm::Project": {
+      "refReturns": {
+        "notSupported": true
+      }
+    },
     "AWS::DirectoryService::SimpleAD": {
       "refReturns": {
         "property": "DirectoryId"
@@ -105,9 +120,24 @@
         "property": "NetworkInsightsPathId"
       }
     },
+    "AWS::EC2::SubnetRouteTableAssociation": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::EC2::VPCEndpointConnectionNotification": {
+      "refReturns": {
+        "property": "VPCEndpointConnectionNotificationId"
+      }
+    },
     "AWS::EC2::VerifiedAccessGroup": {
       "refReturns": {
         "property": "VerifiedAccessGroupId"
+      }
+    },
+    "AWS::EMR::Step": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::FSx::FileSystem": {
@@ -118,6 +148,11 @@
     "AWS::GameLift::GameSessionQueue": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::Glue::Connection": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::Glue::Table": {
@@ -183,6 +218,11 @@
     "AWS::Route53::HostedZone": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::Route53RecoveryControl::RoutingControl": {
+      "refReturns": {
+        "property": "RoutingControlArn"
       }
     },
     "AWS::S3::MultiRegionAccessPointPolicy": {
