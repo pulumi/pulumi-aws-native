@@ -67,7 +67,7 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 		}
 
 		rInfo := db.Resources[r]
-		rInfo.RefReturns.Property = prop1
+		rInfo.RefReturns.Property = prop
 		db.Resources[r] = rInfo
 
 		if err := db.store(dbFile); err != nil {
