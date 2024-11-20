@@ -232,6 +232,12 @@
         "property": "AlarmName"
       }
     },
+    "AWS::CloudWatch::Dashboard": {
+      "refReturns": {
+        "property": "DashboardName",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::CodeArtifact::Repository": {
       "refReturns": {
         "property": "Arn"
