@@ -254,6 +254,11 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::CleanRooms::AnalysisTemplate": {
+      "refReturns": {
+        "property": "AnalysisTemplateIdentifier"
+      }
+    },
     "AWS::CleanRooms::ConfiguredTable": {
       "refReturns": {
         "property": "Name",
@@ -342,6 +347,18 @@
         "property": "Id"
       }
     },
+    "AWS::CloudTrail::Channel": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::CloudTrail::EventDataStore": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::CloudTrail::Trail": {
       "refReturns": {
         "property": "TrailName"
@@ -395,6 +412,11 @@
     "AWS::Cognito::IdentityPool": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::Cognito::IdentityPoolRoleAttachment": {
+      "refReturns": {
+        "property": "IdentityPoolId"
       }
     },
     "AWS::Cognito::UserPoolClient": {
@@ -552,6 +574,11 @@
       }
     },
     "AWS::DataSync::LocationEFS": {
+      "refReturns": {
+        "property": "LocationArn"
+      }
+    },
+    "AWS::DataSync::LocationFSxONTAP": {
       "refReturns": {
         "property": "LocationArn"
       }
@@ -1069,6 +1096,11 @@
         "property": "Arn"
       }
     },
+    "AWS::Inspector::AssessmentTarget": {
+      "refReturns": {
+        "property": "ResourceGroupArn"
+      }
+    },
     "AWS::Inspector::AssessmentTemplate": {
       "refReturns": {
         "property": "AssessmentTargetArn"
@@ -1142,6 +1174,11 @@
       "refReturns": {
         "property": "ThingName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::IoT::ThingType": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::IoTEvents::AlarmModel": {
@@ -1791,6 +1828,11 @@
     "AWS::SecurityHub::Standard": {
       "refReturns": {
         "property": "StandardsSubscriptionArn"
+      }
+    },
+    "AWS::ServiceCatalog::LaunchNotificationConstraint": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::ServiceCatalog::LaunchTemplateConstraint": {

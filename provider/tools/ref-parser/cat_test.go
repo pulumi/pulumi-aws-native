@@ -49,4 +49,9 @@ func TestCategorize(t *testing.T) {
 	assert.Equal(t,
 		RefReturnsArn,
 		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the Amazon Resource Name \\(ARN\\) of the endpoint configuration, such as `arn:aws:sagemaker:us-west-2:012345678901:notebook-instance-lifecycle-config/mylifecycleconfig`"))
+
+	assert.Equal(t,
+		RefReturnsName,
+		Categorize("When the logical ID of this resource is provided to the Ref intrinsic function, .Ref. returns the resource name"))
+
 }
