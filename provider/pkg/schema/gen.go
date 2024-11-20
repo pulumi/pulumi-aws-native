@@ -16,6 +16,7 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema/docs"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -44,8 +45,15 @@ type RegionInfo struct {
 }
 
 // GatherPackage builds a package spec based on the provided CF JSON schemas.
-func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Schema,
-	genAll bool, semanticsDocument *metadata.SemanticsSpecDocument, docsSchema *Docs, regionInfo []RegionInfo) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
+func GatherPackage(
+	supportedResourceTypes []string,
+	jsonSchemas []*jsschema.Schema,
+	genAll bool,
+	semanticsDocument *metadata.SemanticsSpecDocument,
+	docsSchema *Docs,
+	regionInfo []RegionInfo,
+	refDB *refdb.RefDB,
+) (*pschema.PackageSpec, *metadata.CloudAPIMetadata, *Reports, error) {
 	globalTagType := pschema.ObjectTypeSpec{
 		Type:        "object",
 		Description: "A set of tags to apply to the resource.",
@@ -435,7 +443,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 		},
 	})
 
-	metadata := metadata.CloudAPIMetadata{
+	mdata := metadata.CloudAPIMetadata{
 		Resources: map[string]metadata.CloudAPIResource{},
 		Types: map[string]metadata.CloudAPIType{
 			globalTagToken: {
@@ -464,7 +472,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 			mod := strings.ToLower(fullMod)
 			ctx := &cfSchemaContext{
 				pkg:              &p,
-				metadata:         &metadata,
+				metadata:         &mdata,
 				cfTypeName:       cfTypeName,
 				mod:              mod,
 				resourceName:     resourceName,
@@ -635,7 +643,15 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 		},
 	}
 
-	return &p, &metadata, reports, nil
+	// Enrich with metadata about CF Ref Intrinsic function behavior.
+	for resKey, res := range mdata.Resources {
+		if r, ok := refDB.Resources[res.CfType]; ok {
+			res.CfRef = &r.RefReturns.CfRefBehavior
+			mdata.Resources[resKey] = res
+		}
+	}
+
+	return &p, &mdata, reports, nil
 }
 
 // cfSchemaContext holds shared information for a single CF JSON schema.
