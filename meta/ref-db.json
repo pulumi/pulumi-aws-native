@@ -1649,6 +1649,11 @@
         "property": "Arn"
       }
     },
+    "AWS::IAM::Role": {
+      "refReturns": {
+        "property": "RoleName"
+      }
+    },
     "AWS::IAM::SAMLProvider": {
       "refReturns": {
         "property": "Arn",
@@ -2553,6 +2558,11 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::S3::Bucket": {
+      "refReturns": {
+        "property": "BucketName",
+      }
+    },
     "AWS::S3::MultiRegionAccessPoint": {
       "refReturns": {
         "property": "Name",
@@ -2685,6 +2695,11 @@
       "refReturns": {
         "property": "UserProfileName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Scheduler::Schedule": {
+      "refReturns": {
+        "property": "Name"
       }
     },
     "AWS::SecurityHub::Hub": {
@@ -2942,6 +2957,16 @@
       "refReturns": {
         "property": "ResourceArn",
         "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::WAFv2::WebACL": {
+      "refReturns": {
+        "properties": [
+          "Name",
+          "Id",
+          "Scope"
+        ],
+        "delimiter": "|"
       }
     },
     "AWS::Wisdom::Assistant": {
