@@ -57,6 +57,18 @@
         "property": "APIKeyId"
       }
     },
+    "AWS::ApiGateway::Authorizer": {
+      "refReturns": {
+        "property": "AuthorizerId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ApiGateway::Deployment": {
+      "refReturns": {
+        "property": "DeploymentId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::ApiGateway::Model": {
       "refReturns": {
         "property": "Name",
@@ -66,6 +78,12 @@
     "AWS::ApiGateway::Resource": {
       "refReturns": {
         "property": "ResourceId"
+      }
+    },
+    "AWS::ApiGateway::RestApi": {
+      "refReturns": {
+        "property": "RestApiId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::ApiGateway::Stage": {
@@ -86,6 +104,24 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::ApiGatewayV2::Api": {
+      "refReturns": {
+        "property": "ApiId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ApiGatewayV2::ApiMapping": {
+      "refReturns": {
+        "property": "ApiMappingId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ApiGatewayV2::Authorizer": {
+      "refReturns": {
+        "property": "AuthorizerId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::ApiGatewayV2::Deployment": {
       "refReturns": {
         "property": "DeploymentId"
@@ -94,6 +130,30 @@
     "AWS::ApiGatewayV2::Integration": {
       "refReturns": {
         "property": "IntegrationId"
+      }
+    },
+    "AWS::ApiGatewayV2::IntegrationResponse": {
+      "refReturns": {
+        "property": "IntegrationResponseId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ApiGatewayV2::Model": {
+      "refReturns": {
+        "property": "ModelId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ApiGatewayV2::Route": {
+      "refReturns": {
+        "property": "RouteId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ApiGatewayV2::RouteResponse": {
+      "refReturns": {
+        "property": "RouteResponseId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::ApiGatewayV2::Stage": {
@@ -109,6 +169,12 @@
     "AWS::AppConfig::Application": {
       "refReturns": {
         "property": "ApplicationId"
+      }
+    },
+    "AWS::AppConfig::ConfigurationProfile": {
+      "refReturns": {
+        "property": "ConfigurationProfileId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::AppConfig::DeploymentStrategy": {
@@ -168,6 +234,15 @@
         "property": "Arn"
       }
     },
+    "AWS::AppStream::ApplicationFleetAssociation": {
+      "refReturns": {
+        "properties": [
+          "FleetName",
+          "ApplicationArn"
+        ],
+        "delimiter": "|"
+      }
+    },
     "AWS::ApplicationAutoScaling::ScalingPolicy": {
       "refReturns": {
         "property": "Arn"
@@ -204,6 +279,12 @@
     "AWS::Athena::WorkGroup": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::AuditManager::Assessment": {
+      "refReturns": {
+        "property": "AssessmentId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::AutoScaling::LaunchConfiguration": {
@@ -308,6 +389,12 @@
     "AWS::CloudFormation::ModuleVersion": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::CloudFormation::Publisher": {
+      "refReturns": {
+        "property": "PublisherId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::CloudFormation::ResourceDefaultVersion": {
@@ -591,6 +678,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::DataPipeline::Pipeline": {
+      "refReturns": {
+        "property": "PipelineId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::DataSync::LocationAzureBlob": {
       "refReturns": {
         "property": "LocationArn",
@@ -697,6 +790,18 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::EC2::CapacityReservationFleet": {
+      "refReturns": {
+        "property": "CapacityReservationFleetId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::CarrierGateway": {
+      "refReturns": {
+        "property": "CarrierGatewayId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::ClientVpnEndpoint": {
       "refReturns": {
         "property": "Id",
@@ -729,6 +834,12 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::EC2::Host": {
+      "refReturns": {
+        "property": "HostId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::IPAM": {
       "refReturns": {
         "property": "IpamId"
@@ -758,6 +869,12 @@
     "AWS::EC2::SubnetRouteTableAssociation": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::EC2::TransitGatewayMulticastDomain": {
+      "refReturns": {
+        "property": "TransitGatewayMulticastDomainId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::EC2::VPCCidrBlock": {
@@ -802,6 +919,18 @@
       "refReturns": {
         "property": "TaskDefinitionArn",
         "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::EFS::AccessPoint": {
+      "refReturns": {
+        "property": "AccessPointId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EFS::FileSystem": {
+      "refReturns": {
+        "property": "FileSystemId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::EFS::MountTarget": {
@@ -855,6 +984,12 @@
     "AWS::EMR::Step": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::EMR::Studio": {
+      "refReturns": {
+        "property": "StudioId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::ElastiCache::SubnetGroup": {
@@ -950,6 +1085,12 @@
         "property": "Id"
       }
     },
+    "AWS::FSx::StorageVirtualMachine": {
+      "refReturns": {
+        "property": "StorageVirtualMachineId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::FinSpace::Environment": {
       "refReturns": {
         "property": "Name",
@@ -994,6 +1135,24 @@
       "refReturns": {
         "property": "Arn",
         "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::GameLift::Alias": {
+      "refReturns": {
+        "property": "AliasId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::GameLift::Build": {
+      "refReturns": {
+        "property": "BuildId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::GameLift::Fleet": {
+      "refReturns": {
+        "property": "FleetId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::GameLift::GameSessionQueue": {
@@ -1108,6 +1267,18 @@
     "AWS::GuardDuty::IPSet": {
       "refReturns": {
         "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::GuardDuty::Master": {
+      "refReturns": {
+        "property": "MasterId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::GuardDuty::Member": {
+      "refReturns": {
+        "property": "MemberId",
         "heuristic": "RefReturnsID"
       }
     },
@@ -1359,6 +1530,12 @@
         "property": "AliasName"
       }
     },
+    "AWS::KMS::Key": {
+      "refReturns": {
+        "property": "KeyId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::Kendra::DataSource": {
       "refReturns": {
         "property": "Id",
@@ -1450,6 +1627,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::Logs::QueryDefinition": {
+      "refReturns": {
+        "property": "QueryDefinitionId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::LookoutMetrics::Alert": {
       "refReturns": {
         "property": "AlertName",
@@ -1482,6 +1665,18 @@
     "AWS::ManagedBlockchain::Accessor": {
       "refReturns": {
         "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ManagedBlockchain::Member": {
+      "refReturns": {
+        "property": "MemberId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ManagedBlockchain::Node": {
+      "refReturns": {
+        "property": "NodeId",
         "heuristic": "RefReturnsID"
       }
     },
@@ -1834,6 +2029,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::Rekognition::Collection": {
+      "refReturns": {
+        "property": "CollectionId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::Rekognition::Project": {
       "refReturns": {
         "property": "ProjectName",
@@ -1879,6 +2080,12 @@
         "property": "HostedZoneId"
       }
     },
+    "AWS::Route53::HealthCheck": {
+      "refReturns": {
+        "property": "HealthCheckId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::Route53::HostedZone": {
       "refReturns": {
         "property": "Id"
@@ -1887,6 +2094,11 @@
     "AWS::Route53RecoveryControl::RoutingControl": {
       "refReturns": {
         "property": "RoutingControlArn"
+      }
+    },
+    "AWS::Route53RecoveryReadiness::ResourceSet": {
+      "refReturns": {
+        "property": "ResourceSetName"
       }
     },
     "AWS::Route53Resolver::FirewallRuleGroupAssociation": {
@@ -2009,6 +2221,12 @@
       "refReturns": {
         "property": "AppImageConfigName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::SageMaker::Domain": {
+      "refReturns": {
+        "property": "DomainId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::SageMaker::Endpoint": {
@@ -2284,6 +2502,24 @@
       "refReturns": {
         "property": "ResourceArn",
         "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::Wisdom::Assistant": {
+      "refReturns": {
+        "property": "AssistantId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Wisdom::AssistantAssociation": {
+      "refReturns": {
+        "property": "AssistantAssociationId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Wisdom::KnowledgeBase": {
+      "refReturns": {
+        "property": "KnowledgeBaseId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::XRay::Group": {

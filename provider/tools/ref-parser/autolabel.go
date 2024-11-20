@@ -58,6 +58,11 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 		case Categorize(res.RefSection).Name() == RefReturnsID.Name():
 			idProp := "Id"
 			_, hasID := sch.Properties[idProp]
+			if !hasID {
+				idProp = simpleResName(r) + "Id"
+				_, hasID = sch.Properties[idProp]
+			}
+
 			if hasID {
 				if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
 					ri.RefReturns.Property = idProp
