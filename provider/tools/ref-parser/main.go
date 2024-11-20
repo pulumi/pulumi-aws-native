@@ -14,6 +14,7 @@ func main() {
 	guide := flag.String("guide", "", "path to a folder with Cloud Formation user guide")
 	schema := flag.String("schema", "", "path to a folder with Cloud Formation schema JSON files")
 	dbFile := flag.String("db", "", "path to a database to play a guessing game")
+	auto := flag.Bool("auto", false, "let the computer play the guessing game")
 	flag.Parse()
 
 	if guide == nil || *guide == "" {
@@ -53,11 +54,19 @@ func main() {
 		parsedFiles = append(parsedFiles, rf)
 	}
 
-	if dbFile != nil {
-		allResources := map[string]resourceFile{}
-		for _, rf := range parsedFiles {
-			allResources[rf.ResourceID] = rf
+	allResources := map[string]resourceFile{}
+	for _, rf := range parsedFiles {
+		allResources[rf.ResourceID] = rf
+	}
+
+	if dbFile != nil && auto != nil && *auto {
+		if err := autoLabel(schemaAbsPath, *dbFile, allResources); err != nil {
+			log.Fatal(err)
 		}
+		return
+	}
+
+	if dbFile != nil {
 		if err := game(schemaAbsPath, *dbFile, allResources); err != nil {
 			log.Fatal(err)
 		}

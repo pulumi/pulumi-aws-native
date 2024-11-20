@@ -38,6 +38,9 @@ type refReturnsInfo struct {
 
 	// If set, Ref is not supported for this resource.
 	NotSupported bool `json:"notSupported,omitempty"`
+
+	// If set, indicates the data point was assigned by a heuristic rule and has not been reviewed by a human yet.
+	Heuristic string `json:"heuristic,omitempty"`
 }
 
 func (data *db) store(file string) error {

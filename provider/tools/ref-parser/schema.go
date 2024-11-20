@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 	"path/filepath"
 	"sort"
@@ -17,10 +18,11 @@ type schema struct {
 // Read CF schema and find which properties are available for a resource.
 func findSchema(schemaAbsPath, resourceID string) (*schema, error) {
 	fn := strings.ToLower(strings.ReplaceAll(resourceID, "::", "-") + ".json")
+	fn = strings.ReplaceAll(fn, "`", "")
 	file := filepath.Join(schemaAbsPath, fn)
 	fbytes, err := os.ReadFile(file)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("No schema file for %q: %w", resourceID, err)
 	}
 	var s schema
 	if err := json.Unmarshal(fbytes, &s); err != nil {
