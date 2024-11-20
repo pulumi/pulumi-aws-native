@@ -22,6 +22,7 @@ var Uncategorized Category = simpleCategory("Uncategorized")
 var Undocumented Category = simpleCategory("Undocumented")
 var RefReturnsArn Category = simpleCategory("RefReturnsArn")
 var RefReturnsName Category = simpleCategory("RefReturnsName")
+var RefReturnsID Category = simpleCategory("RefReturnsID")
 var ShouldNotBeUsed Category = simpleCategory("ShouldNotBeUsed")
 
 type categorizationRule struct {
@@ -65,6 +66,10 @@ var categorizationRules = []categorizationRule{
 	{
 		Category: RefReturnsName,
 		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the .* name"),
+	},
+	{
+		Category: RefReturnsID,
+		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the .* ID"),
 	},
 	// {
 	// 	Name: "RefReturnsArn",

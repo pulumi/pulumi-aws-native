@@ -34,6 +34,24 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::AmazonMQ::Broker": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::AmazonMQ::Configuration": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::AmazonMQ::ConfigurationAssociation": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::ApiGateway::ApiKey": {
       "refReturns": {
         "property": "APIKeyId"
@@ -54,6 +72,18 @@
       "refReturns": {
         "property": "StageName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::ApiGateway::UsagePlan": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ApiGateway::UsagePlanKey": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::ApiGatewayV2::Deployment": {
@@ -267,9 +297,21 @@
         "property": "Id"
       }
     },
+    "AWS::CloudFront::Distribution": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::CloudFront::OriginAccessControl": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::CloudFront::OriginRequestPolicy": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::CloudFront::ResponseHeadersPolicy": {
@@ -532,6 +574,18 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::EC2::CapacityReservation": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::ClientVpnEndpoint": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::ClientVpnTargetNetworkAssociation": {
       "refReturns": {
         "property": "Id"
@@ -550,6 +604,12 @@
     "AWS::EC2::EgressOnlyInternetGateway": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::EC2::FlowLog": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::EC2::IPAM": {
@@ -572,9 +632,21 @@
         "property": "NetworkInsightsPathId"
       }
     },
+    "AWS::EC2::SubnetCidrBlock": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::SubnetRouteTableAssociation": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::EC2::VPCCidrBlock": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::EC2::VPCEndpointConnectionNotification": {
@@ -609,6 +681,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::EFS::MountTarget": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EKS::Addon": {
       "refReturns": {
         "property": "AddonName",
@@ -637,6 +715,12 @@
       "refReturns": {
         "property": "NodegroupName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::EMR::Cluster": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::EMR::SecurityConfiguration": {
@@ -673,6 +757,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::Events::EventBusPolicy": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::Evidently::Experiment": {
       "refReturns": {
         "property": "/properties/Arn",
@@ -700,6 +790,12 @@
       "refReturns": {
         "property": "/properties/Arn",
         "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::FIS::ExperimentTemplate": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::FSx::FileSystem": {
@@ -792,6 +888,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::Glue::MLTransform": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::Glue::Table": {
       "refReturns": {
         "property": "CatalogId"
@@ -826,10 +928,22 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::GuardDuty::Detector": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::GuardDuty::Filter": {
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::GuardDuty::IPSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::GuardDuty::ThreatIntelSet": {
@@ -952,6 +1066,18 @@
         "property": "Id"
       }
     },
+    "AWS::IoT::CACertificate": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::IoT::Certificate": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::IoT::Dimension": {
       "refReturns": {
         "property": "Name",
@@ -1012,14 +1138,56 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::IoTWireless::DeviceProfile": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::IoTWireless::ServiceProfile": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::IoTWireless::WirelessDevice": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::IoTWireless::WirelessDeviceImportTask": {
       "refReturns": {
         "property": "Id"
       }
     },
+    "AWS::IoTWireless::WirelessGateway": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::KMS::Alias": {
       "refReturns": {
         "property": "AliasName"
+      }
+    },
+    "AWS::Kendra::DataSource": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Kendra::Index": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::KendraRanking::ExecutionPlan": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::LakeFormation::PrincipalPermissions": {
@@ -1029,6 +1197,12 @@
           "ResourceIdentifier"
         ],
         "delimiter": "|"
+      }
+    },
+    "AWS::Lambda::EventSourceMapping": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::Lambda::Function": {
@@ -1092,6 +1266,12 @@
     "AWS::MSK::ClusterPolicy": {
       "refReturns": {
         "property": "ClusterArn"
+      }
+    },
+    "AWS::ManagedBlockchain::Accessor": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::MediaConnect::Bridge": {
@@ -1208,6 +1388,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::OpenSearchServerless::Collection": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::OpenSearchServerless::SecurityConfig": {
       "refReturns": {
         "property": "Name",
@@ -1218,6 +1404,12 @@
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::OpenSearchServerless::VpcEndpoint": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::OpsWorks::App": {
@@ -1236,6 +1428,12 @@
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::OpsWorks::Volume": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::Organizations::OrganizationalUnit": {
@@ -1400,6 +1598,12 @@
         "property": "Arn"
       }
     },
+    "AWS::Route53::CidrCollection": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::Route53::DNSSEC": {
       "refReturns": {
         "property": "HostedZoneId"
@@ -1413,6 +1617,18 @@
     "AWS::Route53RecoveryControl::RoutingControl": {
       "refReturns": {
         "property": "RoutingControlArn"
+      }
+    },
+    "AWS::Route53Resolver::FirewallRuleGroupAssociation": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Route53Resolver::ResolverConfig": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::S3::AccessPoint": {
@@ -1460,10 +1676,34 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::SSM::MaintenanceWindow": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::SSM::MaintenanceWindowTarget": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::SSM::MaintenanceWindowTask": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::SSM::Parameter": {
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::SSM::PatchBaseline": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::SSMContacts::Contact": {
@@ -1575,9 +1815,33 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::WAF::ByteMatchSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::WAF::IPSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::WAF::Rule": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::WAF::SizeConstraintSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::WAF::SqlInjectionMatchSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::WAF::WebACL": {
@@ -1586,15 +1850,75 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::WAF::XssMatchSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::WAFRegional::ByteMatchSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::WAFRegional::GeoMatchSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::WAFRegional::IPSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::WAFRegional::RateBasedRule": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::WAFRegional::RegexPatternSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::WAFRegional::Rule": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::WAFRegional::SizeConstraintSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::WAFRegional::SqlInjectionMatchSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::WAFRegional::WebACL": {
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::WAFRegional::XssMatchSet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "Alexa::ASK::Skill": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     }
   }
