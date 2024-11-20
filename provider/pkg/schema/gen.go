@@ -644,10 +644,12 @@ func GatherPackage(
 	}
 
 	// Enrich with metadata about CF Ref Intrinsic function behavior.
-	for resKey, res := range mdata.Resources {
-		if r, ok := refDB.Resources[res.CfType]; ok {
-			res.CfRef = &r.RefReturns.CfRefBehavior
-			mdata.Resources[resKey] = res
+	if refDB != nil {
+		for resKey, res := range mdata.Resources {
+			if r, ok := refDB.Resources[res.CfType]; ok {
+				res.CfRef = &r.RefReturns.CfRefBehavior
+				mdata.Resources[resKey] = res
+			}
 		}
 	}
 
