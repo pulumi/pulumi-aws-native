@@ -2047,6 +2047,12 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::XRay::Group": {
+      "refReturns": {
+        "property": "GroupARN",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "Alexa::ASK::Skill": {
       "refReturns": {
         "property": "Id",

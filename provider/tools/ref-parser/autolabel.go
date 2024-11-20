@@ -37,8 +37,17 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 			}); err != nil {
 				return err
 			}
+		case Categorize(res.RefSection).Name() == RefReturnsArn.Name():
+			if nameProp, ok := findUniqueProperty(sch, r, "ARN"); ok {
+				if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
+					ri.RefReturns.Property = nameProp
+					ri.RefReturns.Heuristic = RefReturnsArn.Name()
+				}); err != nil {
+					return err
+				}
+			}
 		case Categorize(res.RefSection).Name() == RefReturnsName.Name():
-			if nameProp, ok := findUniqueNameProperty(sch, r); ok {
+			if nameProp, ok := findUniqueProperty(sch, r, "Name"); ok {
 				if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
 					ri.RefReturns.Property = nameProp
 					ri.RefReturns.Heuristic = RefReturnsName.Name()
@@ -67,15 +76,15 @@ func simpleResName(r string) string {
 	return parts[len(parts)-1]
 }
 
-func findUniqueNameProperty(s *schema, r string) (string, bool) {
+func findUniqueProperty(s *schema, resourceName, propertyName string) (string, bool) {
 	count := 0
 	found := ""
 	for p := range s.Properties {
-		if p == "Name" {
+		if p == propertyName {
 			found = p
 			count++
 		}
-		if p == simpleResName(r)+"Name" {
+		if p == simpleResName(resourceName)+propertyName {
 			found = p
 			count++
 		}
