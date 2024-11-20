@@ -56,6 +56,10 @@ var categorizationRules = []categorizationRule{
 		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the resource ARN"),
 	},
 	{
+		Category: RefReturnsArn,
+		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the Amazon Resource Name"),
+	},
+	{
 		Category: RefReturnsName,
 		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the value of [`][^`]*Name[`]"),
 	},

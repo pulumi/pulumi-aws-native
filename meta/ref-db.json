@@ -260,6 +260,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::CloudFormation::HookDefaultVersion": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::CloudFormation::HookTypeConfig": {
       "refReturns": {
         "property": "ConfigurationArn"
@@ -274,6 +280,12 @@
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::CloudFormation::ModuleDefaultVersion": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::CloudFormation::ModuleVersion": {
@@ -312,6 +324,12 @@
       "refReturns": {
         "property": "Id",
         "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::CloudFront::RealtimeLogConfig": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::CloudFront::ResponseHeadersPolicy": {
@@ -382,6 +400,12 @@
     "AWS::Cognito::UserPoolClient": {
       "refReturns": {
         "property": "ClientId"
+      }
+    },
+    "AWS::Comprehend::DocumentClassifier": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::Comprehend::Flywheel": {
@@ -1016,6 +1040,12 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::ImageBuilder::DistributionConfiguration": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::ImageBuilder::Image": {
       "refReturns": {
         "property": "/properties/Arn",
@@ -1266,6 +1296,12 @@
     "AWS::MSK::ClusterPolicy": {
       "refReturns": {
         "property": "ClusterArn"
+      }
+    },
+    "AWS::MSK::VpcConnection": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::ManagedBlockchain::Accessor": {
@@ -1654,6 +1690,12 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::S3Outposts::Endpoint": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::SES::ConfigurationSet": {
       "refReturns": {
         "property": "Name",
@@ -1810,6 +1852,54 @@
       }
     },
     "AWS::Transfer::Server": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::VpcLattice::AccessLogSubscription": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::VpcLattice::Listener": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::VpcLattice::Rule": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::VpcLattice::Service": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::VpcLattice::ServiceNetwork": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::VpcLattice::ServiceNetworkServiceAssociation": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::VpcLattice::ServiceNetworkVpcAssociation": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::VpcLattice::TargetGroup": {
       "refReturns": {
         "property": "/properties/Arn",
         "heuristic": "RefReturnsArn"
