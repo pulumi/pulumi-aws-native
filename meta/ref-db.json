@@ -44,6 +44,12 @@
         "property": "ResourceId"
       }
     },
+    "AWS::ApiGateway::Stage": {
+      "refReturns": {
+        "property": "StageName",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::ApiGatewayV2::Deployment": {
       "refReturns": {
         "property": "DeploymentId"
@@ -130,6 +136,12 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::Athena::DataCatalog": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::Athena::PreparedStatement": {
       "refReturns": {
         "property": "StatementName"
@@ -174,6 +186,12 @@
     "AWS::Cassandra::Keyspace": {
       "refReturns": {
         "property": "KeyspaceName"
+      }
+    },
+    "AWS::Cassandra::Table": {
+      "refReturns": {
+        "property": "TableName",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::CloudFormation::HookTypeConfig": {
@@ -238,9 +256,21 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::CloudWatch::MetricStream": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::CodeArtifact::Repository": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::CodeGuruProfiler::ProfilingGroup": {
+      "refReturns": {
+        "property": "ProfilingGroupName",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::CodePipeline::Pipeline": {
@@ -263,9 +293,27 @@
         "property": "Arn"
       }
     },
+    "AWS::Config::ConformancePack": {
+      "refReturns": {
+        "property": "ConformancePackName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Config::OrganizationConformancePack": {
+      "refReturns": {
+        "property": "OrganizationConformancePackName",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::Connect::ContactFlow": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::Connect::ContactFlowModule": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::Connect::Instance": {
@@ -281,6 +329,12 @@
     "AWS::ConnectCampaigns::Campaign": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::DAX::Cluster": {
+      "refReturns": {
+        "property": "ClusterName",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::DAX::ParameterGroup": {
@@ -403,6 +457,18 @@
         "property": "CacheSubnetGroupName"
       }
     },
+    "AWS::Events::ApiDestination": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Events::Connection": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::Evidently::Experiment": {
       "refReturns": {
         "property": "/properties/Arn",
@@ -478,6 +544,12 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::GuardDuty::Filter": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::GuardDuty::ThreatIntelSet": {
       "refReturns": {
         "property": "Id"
@@ -518,6 +590,24 @@
     "AWS::IoT::BillingGroup": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::IoTEvents::AlarmModel": {
+      "refReturns": {
+        "property": "AlarmModelName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::IoTEvents::DetectorModel": {
+      "refReturns": {
+        "property": "DetectorModelName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::IoTEvents::Input": {
+      "refReturns": {
+        "property": "InputName",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::IoTWireless::WirelessDeviceImportTask": {
@@ -567,6 +657,12 @@
     "AWS::MediaConvert::Queue": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::MediaLive::Channel": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::MediaPackage::PackagingGroup": {
@@ -620,14 +716,62 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::OpenSearchServerless::AccessPolicy": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::OpenSearchServerless::SecurityConfig": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::OpenSearchServerless::SecurityPolicy": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::Organizations::OrganizationalUnit": {
       "refReturns": {
         "property": "Id"
       }
     },
+    "AWS::Personalize::Dataset": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Personalize::DatasetGroup": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Personalize::Schema": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Personalize::Solution": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::PinpointEmail::Identity": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::Pipes::Pipe": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::Proton::EnvironmentAccountConnection": {
@@ -654,6 +798,48 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::RDS::DBClusterParameterGroup": {
+      "refReturns": {
+        "property": "DBClusterParameterGroupName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::RDS::DBParameterGroup": {
+      "refReturns": {
+        "property": "DBParameterGroupName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::RDS::DBProxy": {
+      "refReturns": {
+        "property": "DBProxyName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::RDS::DBProxyEndpoint": {
+      "refReturns": {
+        "property": "DBProxyEndpointName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::RDS::DBSubnetGroup": {
+      "refReturns": {
+        "property": "DBSubnetGroupName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::RDS::OptionGroup": {
+      "refReturns": {
+        "property": "OptionGroupName",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::RUM::AppMonitor": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::Redshift::Cluster": {
       "refReturns": {
         "property": "ClusterIdentifier"
@@ -662,6 +848,12 @@
     "AWS::Redshift::ClusterSubnetGroup": {
       "refReturns": {
         "property": "ClusterSubnetGroupName"
+      }
+    },
+    "AWS::Rekognition::StreamProcessor": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::ResilienceHub::ResiliencyPolicy": {
@@ -695,6 +887,12 @@
         "property": "RoutingControlArn"
       }
     },
+    "AWS::S3::MultiRegionAccessPoint": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::S3::MultiRegionAccessPointPolicy": {
       "refReturns": {
         "property": "MrapName"
@@ -710,6 +908,12 @@
         "property": "RuleSetName"
       }
     },
+    "AWS::SSM::Parameter": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
     "AWS::SSMContacts::Contact": {
       "refReturns": {
         "property": "/properties/Arn",
@@ -719,6 +923,12 @@
     "AWS::SSMContacts::ContactChannel": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::SageMaker::AppImageConfig": {
+      "refReturns": {
+        "property": "AppImageConfigName",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::SecurityHub::Hub": {
@@ -739,6 +949,24 @@
     "AWS::ServiceCatalog::PortfolioShare": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::SimSpaceWeaver::Simulation": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Synthetics::Canary": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Synthetics::Group": {
+      "refReturns": {
+        "property": "Name",
+        "heuristic": "RefReturnsName"
       }
     },
     "AWS::WAF::Rule": {
