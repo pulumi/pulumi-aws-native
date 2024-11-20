@@ -17,4 +17,8 @@ func TestCategorize(t *testing.T) {
 	assert.Equal(t,
 		ShouldNotBeUsed,
 		Categorize("\nThis reference should not be used in CloudFormation templates\\. Instead, use `AWS::ACMPCA::Certificate.Arn` to identify a certificate, and use `AWS::ACMPCA::Certificate.CertificateAuthorityArn` to identify a certificate authority\\.\n\n"))
+
+	assert.Equal(t,
+		RefReturnsArn,
+		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the Arn of the Cost Category that is created by the template\\."))
 }

@@ -41,6 +41,10 @@ var categorizationRules = []categorizationRule{
 		Category: ShouldNotBeUsed,
 		Pattern:  regexp.MustCompile("^This reference should not be used in CloudFormation templates"),
 	},
+	{
+		Category: RefReturnsArn,
+		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the Arn of the .* that is created by the"),
+	},
 	// {
 	// 	Name: "RefReturnsArn",
 	// 	Pattern: regexp.MustCompile("When you pass the logical ID of an [^ ]+ resource to the intrinsic " +
