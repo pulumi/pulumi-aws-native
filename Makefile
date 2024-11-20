@@ -185,12 +185,12 @@ install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 # Required for the codegen action that runs in pulumi/pulumi
 only_build:: build
 
-refgame::
+ref-db::
 	mkdir -p bin
 	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
 	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json
 
-refgame-auto::
+ref-db-auto::
 	mkdir -p bin
 	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
 	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -auto
