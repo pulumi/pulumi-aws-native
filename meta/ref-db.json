@@ -824,6 +824,42 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::IVS::StreamKey": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::ImageBuilder::Component": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::ImageBuilder::ContainerRecipe": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::ImageBuilder::Image": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::ImageBuilder::ImagePipeline": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::ImageBuilder::ImageRecipe": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::ImageBuilder::InfrastructureConfiguration": {
       "refReturns": {
         "property": "Arn"
