@@ -63,6 +63,7 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 
 		fmt.Println("ResourceID: ", r)
 		fmt.Println("PrimaryID : ", strings.Join(sch.PrimaryIdentifier, " "))
+		fmt.Println("Category:   ", Categorize(res.RefSection).Name())
 		fmt.Println("RefSection: ", res.RefSection)
 		fmt.Println("Enter one of the following: ")
 

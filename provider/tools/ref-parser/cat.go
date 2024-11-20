@@ -21,6 +21,7 @@ func (s simpleCategory) Name() string {
 var Uncategorized Category = simpleCategory("Uncategorized")
 var Undocumented Category = simpleCategory("Undocumented")
 var RefReturnsArn Category = simpleCategory("RefReturnsArn")
+var RefReturnsName Category = simpleCategory("RefReturnsName")
 var ShouldNotBeUsed Category = simpleCategory("ShouldNotBeUsed")
 
 type categorizationRule struct {
@@ -44,6 +45,10 @@ var categorizationRules = []categorizationRule{
 	{
 		Category: RefReturnsArn,
 		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the Arn of the .* that is created by the"),
+	},
+	{
+		Category: RefReturnsName,
+		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the value of [`][^`]*Name[`]"),
 	},
 	// {
 	// 	Name: "RefReturnsArn",
