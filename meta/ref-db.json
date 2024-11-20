@@ -52,6 +52,12 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::ApiGateway::Account": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::ApiGateway::ApiKey": {
       "refReturns": {
         "property": "APIKeyId"
@@ -69,10 +75,22 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::ApiGateway::DocumentationPart": {
+      "refReturns": {
+        "property": "DocumentationPartId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::ApiGateway::Model": {
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::ApiGateway::RequestValidator": {
+      "refReturns": {
+        "property": "RequestValidatorId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::ApiGateway::Resource": {
@@ -101,6 +119,12 @@
     "AWS::ApiGateway::UsagePlanKey": {
       "refReturns": {
         "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::ApiGateway::VpcLink": {
+      "refReturns": {
+        "property": "VpcLinkId",
         "heuristic": "RefReturnsID"
       }
     },
@@ -352,6 +376,12 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::CertificateManager::Account": {
+      "refReturns": {
+        "property": "AccountId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::CleanRooms::AnalysisTemplate": {
       "refReturns": {
         "property": "AnalysisTemplateIdentifier"
@@ -361,6 +391,12 @@
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Cloud9::EnvironmentEC2": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::CloudFormation::HookDefaultVersion": {
@@ -424,12 +460,24 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::CloudFront::KeyGroup": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::CloudFront::OriginAccessControl": {
       "refReturns": {
         "property": "Id"
       }
     },
     "AWS::CloudFront::OriginRequestPolicy": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::CloudFront::PublicKey": {
       "refReturns": {
         "property": "Id",
         "heuristic": "RefReturnsID"
@@ -659,6 +707,12 @@
         "property": "SubnetGroupName"
       }
     },
+    "AWS::DLM::LifecyclePolicy": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::DataBrew::Dataset": {
       "refReturns": {
         "property": "Name",
@@ -824,6 +878,12 @@
         "property": "Id"
       }
     },
+    "AWS::EC2::CustomerGateway": {
+      "refReturns": {
+        "property": "CustomerGatewayId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::DHCPOptions": {
       "refReturns": {
         "property": "DhcpOptionsId"
@@ -832,6 +892,12 @@
     "AWS::EC2::EIP": {
       "refReturns": {
         "property": "PublicIp"
+      }
+    },
+    "AWS::EC2::EIPAssociation": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::EC2::EgressOnlyInternetGateway": {
@@ -861,14 +927,104 @@
         "property": "IpamPoolId"
       }
     },
+    "AWS::EC2::InstanceConnectEndpoint": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::InternetGateway": {
+      "refReturns": {
+        "property": "InternetGatewayId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::LaunchTemplate": {
+      "refReturns": {
+        "property": "LaunchTemplateId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::LocalGatewayRouteTable": {
+      "refReturns": {
+        "property": "LocalGatewayRouteTableId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation": {
+      "refReturns": {
+        "property": "LocalGatewayRouteTableVirtualInterfaceGroupAssociationId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::NatGateway": {
+      "refReturns": {
+        "property": "NatGatewayId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::NetworkAcl": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::NetworkAclEntry": {
       "refReturns": {
         "property": "Id"
       }
     },
+    "AWS::EC2::NetworkInsightsAccessScope": {
+      "refReturns": {
+        "property": "NetworkInsightsAccessScopeId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::NetworkInsightsAccessScopeAnalysis": {
+      "refReturns": {
+        "property": "NetworkInsightsAccessScopeAnalysisId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::NetworkInsightsAnalysis": {
+      "refReturns": {
+        "property": "NetworkInsightsAnalysisId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::NetworkInsightsPath": {
       "refReturns": {
         "property": "NetworkInsightsPathId"
+      }
+    },
+    "AWS::EC2::NetworkInterface": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::PrefixList": {
+      "refReturns": {
+        "property": "PrefixListId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::RouteTable": {
+      "refReturns": {
+        "property": "RouteTableId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::SpotFleet": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::Subnet": {
+      "refReturns": {
+        "property": "SubnetId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::EC2::SubnetCidrBlock": {
@@ -882,13 +1038,67 @@
         "property": "Id"
       }
     },
+    "AWS::EC2::TrafficMirrorFilter": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::TrafficMirrorFilterRule": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::TrafficMirrorSession": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::TrafficMirrorTarget": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::TransitGateway": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::TransitGatewayAttachment": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::TransitGatewayMulticastDomain": {
       "refReturns": {
         "property": "TransitGatewayMulticastDomainId",
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::EC2::TransitGatewayRouteTable": {
+      "refReturns": {
+        "property": "TransitGatewayRouteTableId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::TransitGatewayVpcAttachment": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::VPCCidrBlock": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::VPCEndpoint": {
       "refReturns": {
         "property": "Id",
         "heuristic": "RefReturnsID"
@@ -899,14 +1109,50 @@
         "property": "VPCEndpointConnectionNotificationId"
       }
     },
+    "AWS::EC2::VPCPeeringConnection": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::VPNConnection": {
       "refReturns": {
         "property": "VpnConnectionId"
       }
     },
+    "AWS::EC2::VPNGateway": {
+      "refReturns": {
+        "property": "VPNGatewayId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::VPNGatewayRoutePropagation": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::VerifiedAccessEndpoint": {
+      "refReturns": {
+        "property": "VerifiedAccessEndpointId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EC2::VerifiedAccessGroup": {
       "refReturns": {
         "property": "VerifiedAccessGroupId"
+      }
+    },
+    "AWS::EC2::VerifiedAccessInstance": {
+      "refReturns": {
+        "property": "VerifiedAccessInstanceId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::VerifiedAccessTrustProvider": {
+      "refReturns": {
+        "property": "VerifiedAccessTrustProviderId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::ECR::Repository": {
@@ -986,6 +1232,18 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::EMR::InstanceFleetConfig": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EMR::InstanceGroupConfig": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::EMR::SecurityConfiguration": {
       "refReturns": {
         "property": "Name",
@@ -1000,6 +1258,18 @@
     "AWS::EMR::Studio": {
       "refReturns": {
         "property": "StudioId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EMRContainers::VirtualCluster": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EMRServerless::Application": {
+      "refReturns": {
+        "property": "ApplicationId",
         "heuristic": "RefReturnsID"
       }
     },
@@ -1096,9 +1366,21 @@
         "property": "Id"
       }
     },
+    "AWS::FSx::Snapshot": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::FSx::StorageVirtualMachine": {
       "refReturns": {
         "property": "StorageVirtualMachineId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::FSx::Volume": {
+      "refReturns": {
+        "property": "VolumeId",
         "heuristic": "RefReturnsID"
       }
     },
@@ -1252,9 +1534,51 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::Greengrass::ConnectorDefinition": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::Greengrass::CoreDefinition": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::Greengrass::DeviceDefinition": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Greengrass::FunctionDefinition": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Greengrass::Group": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Greengrass::LoggerDefinition": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Greengrass::ResourceDefinition": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Greengrass::SubscriptionDefinition": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::GroundStation::Config": {
@@ -1673,6 +1997,24 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::Macie::AllowList": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Macie::CustomDataIdentifier": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Macie::FindingsFilter": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::ManagedBlockchain::Accessor": {
       "refReturns": {
         "property": "Id",
@@ -1810,9 +2152,27 @@
         "property": "RuleGroupArn"
       }
     },
+    "AWS::NetworkManager::CoreNetwork": {
+      "refReturns": {
+        "property": "CoreNetworkId",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::NetworkManager::Device": {
+      "refReturns": {
+        "property": "DeviceId",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::NetworkManager::GlobalNetwork": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::NetworkManager::Link": {
+      "refReturns": {
+        "property": "LinkId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::NetworkManager::Site": {
@@ -2124,6 +2484,24 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::Route53Resolver::ResolverDNSSECConfig": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Route53Resolver::ResolverQueryLoggingConfig": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
+      }
+    },
     "AWS::S3::AccessPoint": {
       "refReturns": {
         "property": "Name",
@@ -2272,6 +2650,12 @@
     "AWS::SecurityHub::Standard": {
       "refReturns": {
         "property": "StandardsSubscriptionArn"
+      }
+    },
+    "AWS::ServiceCatalog::CloudFormationProduct": {
+      "refReturns": {
+        "property": "Id",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::ServiceCatalog::LaunchNotificationConstraint": {
