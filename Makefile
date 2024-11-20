@@ -190,4 +190,9 @@ refgame::
 	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
 	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json
 
+refgame-auto::
+	mkdir -p bin
+	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
+	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -auto
+
 .PHONY: ensure generate_schema generate build_provider build
