@@ -5,9 +5,33 @@
         "notSupported": true
       }
     },
+    "AWS::ACMPCA::CertificateAuthority": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::ACMPCA::CertificateAuthorityActivation": {
       "refReturns": {
         "property": "CertificateAuthorityArn"
+      }
+    },
+    "AWS::APS::RuleGroupsNamespace": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::APS::Workspace": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::AccessAnalyzer::Analyzer": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::ApiGateway::ApiKey": {
@@ -100,6 +124,12 @@
         "property": "ApplicationARN"
       }
     },
+    "AWS::Athena::CapacityReservation": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::Athena::PreparedStatement": {
       "refReturns": {
         "property": "StatementName"
@@ -135,6 +165,12 @@
         "property": "HypervisorArn"
       }
     },
+    "AWS::CE::CostCategory": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::Cassandra::Keyspace": {
       "refReturns": {
         "property": "KeyspaceName"
@@ -158,6 +194,12 @@
     "AWS::CloudFormation::ResourceDefaultVersion": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::CloudFormation::ResourceVersion": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::CloudFront::CachePolicy": {
@@ -355,9 +397,33 @@
         "property": "CacheSubnetGroupName"
       }
     },
+    "AWS::Evidently::Experiment": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::Evidently::Feature": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::Evidently::Launch": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::Evidently::Project": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::Evidently::Segment": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::FSx::FileSystem": {
@@ -400,6 +466,12 @@
         "property": "Id"
       }
     },
+    "AWS::GroundStation::Config": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::GuardDuty::ThreatIntelSet": {
       "refReturns": {
         "property": "Id"
@@ -410,6 +482,12 @@
         "property": "Arn"
       }
     },
+    "AWS::IAM::SAMLProvider": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::ImageBuilder::InfrastructureConfiguration": {
       "refReturns": {
         "property": "Arn"
@@ -418,6 +496,12 @@
     "AWS::Inspector::AssessmentTemplate": {
       "refReturns": {
         "property": "AssessmentTargetArn"
+      }
+    },
+    "AWS::Inspector::ResourceGroup": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::InspectorV2::Filter": {
@@ -518,6 +602,18 @@
         "property": "AttachmentId"
       }
     },
+    "AWS::Oam::Link": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::Oam::Sink": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::Organizations::OrganizationalUnit": {
       "refReturns": {
         "property": "Id"
@@ -526,6 +622,30 @@
     "AWS::PinpointEmail::Identity": {
       "refReturns": {
         "property": "Name"
+      }
+    },
+    "AWS::Proton::EnvironmentAccountConnection": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::Proton::EnvironmentTemplate": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::Proton::ServiceTemplate": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::RAM::Permission": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::Redshift::Cluster": {
@@ -541,6 +661,12 @@
     "AWS::ResilienceHub::ResiliencyPolicy": {
       "refReturns": {
         "property": "PolicyArn"
+      }
+    },
+    "AWS::ResourceExplorer2::Index": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::RoboMaker::RobotApplicationVersion": {
@@ -576,6 +702,12 @@
     "AWS::SES::ReceiptRuleSet": {
       "refReturns": {
         "property": "RuleSetName"
+      }
+    },
+    "AWS::SSMContacts::Contact": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::SSMContacts::ContactChannel": {
