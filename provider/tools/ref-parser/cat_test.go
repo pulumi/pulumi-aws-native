@@ -29,4 +29,8 @@ func TestCategorize(t *testing.T) {
 	assert.Equal(t,
 		RefReturnsName,
 		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the name of the resource\\."))
+
+	assert.Equal(t,
+		RefReturnsName,
+		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the DB instance name\\."))
 }
