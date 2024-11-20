@@ -1,3 +1,7 @@
+# meta
+
+Reference data used by the `pulumi-aws-native` provider.
+
 ## ref-db.json
 
 Metadata describing the behavior of the [CloudFormation Ref Intrinsic](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html).
