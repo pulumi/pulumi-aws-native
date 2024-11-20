@@ -29,10 +29,10 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 		switch {
 		case Categorize(res.RefSection).Name() == RefReturnsArn.Name() &&
 			len(sch.PrimaryIdentifier) == 1 &&
-			strings.ToLower(sch.PrimaryIdentifier[0]) == "/properties/arn":
+			strings.Contains(strings.ToLower(sch.PrimaryIdentifier[0]), "arn"):
 
 			if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
-				ri.RefReturns.Property = strings.TrimPrefix(sch.PrimaryIdentifier[0], "/properties/arn")
+				ri.RefReturns.Property = strings.TrimPrefix(sch.PrimaryIdentifier[0], "/properties/")
 				ri.RefReturns.Heuristic = RefReturnsArn.Name()
 			}); err != nil {
 				return err
