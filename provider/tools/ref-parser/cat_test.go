@@ -47,6 +47,10 @@ func TestCategorize(t *testing.T) {
 		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the wireless device ID\\."))
 
 	assert.Equal(t,
+		RefReturnsID,
+		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns a generated ID, such as `us-east-2_zgaEXAMPLE`\\."))
+
+	assert.Equal(t,
 		RefReturnsArn,
 		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the Amazon Resource Name \\(ARN\\) of the endpoint configuration, such as `arn:aws:sagemaker:us-west-2:012345678901:notebook-instance-lifecycle-config/mylifecycleconfig`"))
 

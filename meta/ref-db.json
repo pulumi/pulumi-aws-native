@@ -243,6 +243,11 @@
         "delimiter": "|"
       }
     },
+    "AWS::AppSync::DomainName": {
+      "refReturns": {
+        "property": "DomainName"
+      }
+    },
     "AWS::ApplicationAutoScaling::ScalingPolicy": {
       "refReturns": {
         "property": "Arn"
@@ -522,6 +527,12 @@
     "AWS::Cognito::IdentityPoolRoleAttachment": {
       "refReturns": {
         "property": "IdentityPoolId"
+      }
+    },
+    "AWS::Cognito::UserPool": {
+      "refReturns": {
+        "property": "UserPoolId",
+        "heuristic": "RefReturnsID"
       }
     },
     "AWS::Cognito::UserPoolClient": {
