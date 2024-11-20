@@ -1,8 +1,23 @@
 {
   "resources": {
+    "AWS::ACMPCA::Certificate": {
+      "refReturns": {
+        "notSupported": true
+      }
+    },
+    "AWS::ACMPCA::CertificateAuthorityActivation": {
+      "refReturns": {
+        "property": "CertificateAuthorityArn"
+      }
+    },
     "AWS::ApiGateway::ApiKey": {
       "refReturns": {
         "property": "APIKeyId"
+      }
+    },
+    "AWS::ApiGateway::Resource": {
+      "refReturns": {
+        "property": "ResourceId"
       }
     },
     "AWS::ApiGatewayV2::Deployment": {
@@ -10,9 +25,24 @@
         "property": "DeploymentId"
       }
     },
+    "AWS::ApiGatewayV2::Integration": {
+      "refReturns": {
+        "property": "IntegrationId"
+      }
+    },
+    "AWS::ApiGatewayV2::Stage": {
+      "refReturns": {
+        "property": "StageName"
+      }
+    },
     "AWS::ApiGatewayV2::VpcLink": {
       "refReturns": {
         "property": "VpcLinkId"
+      }
+    },
+    "AWS::AppConfig::Application": {
+      "refReturns": {
+        "property": "ApplicationId"
       }
     },
     "AWS::AppConfig::DeploymentStrategy": {
@@ -23,6 +53,16 @@
     "AWS::AppConfig::Environment": {
       "refReturns": {
         "property": "EnvironmentId"
+      }
+    },
+    "AWS::AppFlow::ConnectorProfile": {
+      "refReturns": {
+        "property": "ConnectorProfileName"
+      }
+    },
+    "AWS::AppIntegrations::DataIntegration": {
+      "refReturns": {
+        "property": "Name"
       }
     },
     "AWS::AppMesh::Mesh": {
@@ -55,14 +95,34 @@
         "property": "Arn"
       }
     },
+    "AWS::ApplicationInsights::Application": {
+      "refReturns": {
+        "property": "ApplicationARN"
+      }
+    },
     "AWS::Athena::PreparedStatement": {
       "refReturns": {
         "property": "StatementName"
       }
     },
+    "AWS::Athena::WorkGroup": {
+      "refReturns": {
+        "property": "Name"
+      }
+    },
+    "AWS::AutoScaling::LaunchConfiguration": {
+      "refReturns": {
+        "property": "LaunchConfigurationName"
+      }
+    },
     "AWS::AutoScaling::LifecycleHook": {
       "refReturns": {
         "property": "LifecycleHookName"
+      }
+    },
+    "AWS::AutoScaling::ScheduledAction": {
+      "refReturns": {
+        "property": "ScheduledActionName"
       }
     },
     "AWS::Backup::BackupVault": {
@@ -73,6 +133,11 @@
     "AWS::BackupGateway::Hypervisor": {
       "refReturns": {
         "property": "HypervisorArn"
+      }
+    },
+    "AWS::Cassandra::Keyspace": {
+      "refReturns": {
+        "property": "KeyspaceName"
       }
     },
     "AWS::CloudFormation::HookTypeConfig": {
@@ -95,12 +160,22 @@
         "property": "Arn"
       }
     },
+    "AWS::CloudFront::CachePolicy": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::CloudFront::OriginAccessControl": {
       "refReturns": {
         "property": "Id"
       }
     },
     "AWS::CloudFront::ResponseHeadersPolicy": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::CloudFront::StreamingDistribution": {
       "refReturns": {
         "property": "Id"
       }
@@ -115,6 +190,11 @@
         "property": "AlarmName"
       }
     },
+    "AWS::CodeArtifact::Repository": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::CodePipeline::Pipeline": {
       "refReturns": {
         "property": "Name"
@@ -123,6 +203,11 @@
     "AWS::Cognito::IdentityPool": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::Cognito::UserPoolClient": {
+      "refReturns": {
+        "property": "ClientId"
       }
     },
     "AWS::Comprehend::Flywheel": {
@@ -155,6 +240,11 @@
         "property": "ParameterGroupName"
       }
     },
+    "AWS::DAX::SubnetGroup": {
+      "refReturns": {
+        "property": "SubnetGroupName"
+      }
+    },
     "AWS::DataSync::LocationEFS": {
       "refReturns": {
         "property": "LocationArn"
@@ -185,6 +275,11 @@
         "property": "DirectoryId"
       }
     },
+    "AWS::DocDB::DBClusterParameterGroup": {
+      "refReturns": {
+        "property": "Name"
+      }
+    },
     "AWS::EC2::ClientVpnTargetNetworkAssociation": {
       "refReturns": {
         "property": "Id"
@@ -203,6 +298,11 @@
     "AWS::EC2::EgressOnlyInternetGateway": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::EC2::IPAM": {
+      "refReturns": {
+        "property": "IpamId"
       }
     },
     "AWS::EC2::IPAMPool": {
@@ -250,6 +350,11 @@
         "property": "Id"
       }
     },
+    "AWS::ElastiCache::SubnetGroup": {
+      "refReturns": {
+        "property": "CacheSubnetGroupName"
+      }
+    },
     "AWS::Evidently::Launch": {
       "refReturns": {
         "property": "Arn"
@@ -261,6 +366,11 @@
       }
     },
     "AWS::FraudDetector::EventType": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
+    "AWS::FraudDetector::Label": {
       "refReturns": {
         "property": "Arn"
       }
@@ -325,6 +435,11 @@
         "property": "Id"
       }
     },
+    "AWS::KMS::Alias": {
+      "refReturns": {
+        "property": "AliasName"
+      }
+    },
     "AWS::LakeFormation::PrincipalPermissions": {
       "refReturns": {
         "properties": [
@@ -342,6 +457,11 @@
     "AWS::Lightsail::Certificate": {
       "refReturns": {
         "property": "CertificateName"
+      }
+    },
+    "AWS::MSK::ClusterPolicy": {
+      "refReturns": {
+        "property": "ClusterArn"
       }
     },
     "AWS::MediaConnect::Bridge": {
@@ -379,6 +499,11 @@
         "property": "RuleGroupArn"
       }
     },
+    "AWS::NetworkManager::GlobalNetwork": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::NetworkManager::Site": {
       "refReturns": {
         "properties": [
@@ -391,6 +516,11 @@
     "AWS::NetworkManager::TransitGatewayRouteTableAttachment": {
       "refReturns": {
         "property": "AttachmentId"
+      }
+    },
+    "AWS::Organizations::OrganizationalUnit": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::PinpointEmail::Identity": {
@@ -406,6 +536,11 @@
     "AWS::Redshift::ClusterSubnetGroup": {
       "refReturns": {
         "property": "ClusterSubnetGroupName"
+      }
+    },
+    "AWS::ResilienceHub::ResiliencyPolicy": {
+      "refReturns": {
+        "property": "PolicyArn"
       }
     },
     "AWS::RoboMaker::RobotApplicationVersion": {
@@ -453,7 +588,22 @@
         "property": "ARN"
       }
     },
+    "AWS::SecurityHub::Standard": {
+      "refReturns": {
+        "property": "StandardsSubscriptionArn"
+      }
+    },
     "AWS::ServiceCatalog::LaunchTemplateConstraint": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::ServiceCatalog::PortfolioShare": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::WAF::Rule": {
       "refReturns": {
         "property": "Id"
       }
