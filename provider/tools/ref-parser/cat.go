@@ -50,6 +50,10 @@ var categorizationRules = []categorizationRule{
 		Category: RefReturnsName,
 		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the value of [`][^`]*Name[`]"),
 	},
+	{
+		Category: RefReturnsName,
+		Pattern:  regexp.MustCompile("^When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns the name"),
+	},
 	// {
 	// 	Name: "RefReturnsArn",
 	// 	Pattern: regexp.MustCompile("When you pass the logical ID of an [^ ]+ resource to the intrinsic " +
