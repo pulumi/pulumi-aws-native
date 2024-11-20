@@ -201,6 +201,12 @@
         "property": "HypervisorArn"
       }
     },
+    "AWS::Batch::SchedulingPolicy": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::CE::CostCategory": {
       "refReturns": {
         "property": "/properties/Arn",
@@ -713,6 +719,18 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::FraudDetector::Detector": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::FraudDetector::EntityType": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::FraudDetector::EventType": {
       "refReturns": {
         "property": "Arn"
@@ -721,6 +739,18 @@
     "AWS::FraudDetector::Label": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::FraudDetector::Outcome": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::FraudDetector::Variable": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::GameLift::GameSessionQueue": {
@@ -824,7 +854,37 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::IVS::Channel": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::IVS::PlaybackKeyPair": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::IVS::RecordingConfiguration": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::IVS::StreamKey": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::IVSChat::LoggingConfiguration": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::IVSChat::Room": {
       "refReturns": {
         "property": "/properties/Arn",
         "heuristic": "RefReturnsArn"
@@ -1372,6 +1432,12 @@
         "property": "MrapName"
       }
     },
+    "AWS::S3Outposts::AccessPoint": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::SES::ConfigurationSet": {
       "refReturns": {
         "property": "Name",
@@ -1495,6 +1561,18 @@
       "refReturns": {
         "property": "DatabaseName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Timestream::ScheduledQuery": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::Transfer::Server": {
+      "refReturns": {
+        "property": "/properties/Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::WAF::Rule": {

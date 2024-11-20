@@ -37,4 +37,8 @@ func TestCategorize(t *testing.T) {
 	assert.Equal(t,
 		RefReturnsName,
 		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the DB instance name\\."))
+
+	assert.Equal(t,
+		RefReturnsArn,
+		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the scheduling policy ARN, such as `arn:aws:batch:us-east-1:111122223333:scheduling-policy/HighPriority`\\."))
 }
