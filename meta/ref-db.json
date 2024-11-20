@@ -382,6 +382,11 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::Chatbot::SlackChannelConfiguration": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::CleanRooms::AnalysisTemplate": {
       "refReturns": {
         "property": "AnalysisTemplateIdentifier"
@@ -450,6 +455,11 @@
       }
     },
     "AWS::CloudFront::CachePolicy": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
+    "AWS::CloudFront::CloudFrontOriginAccessIdentity": {
       "refReturns": {
         "property": "Id"
       }
@@ -544,6 +554,11 @@
         "property": "Arn"
       }
     },
+    "AWS::CodeDeploy::DeploymentConfig": {
+      "refReturns": {
+        "property": "DeploymentConfigName"
+      }
+    },
     "AWS::CodeGuruProfiler::ProfilingGroup": {
       "refReturns": {
         "property": "ProfilingGroupName",
@@ -565,6 +580,11 @@
       "refReturns": {
         "property": "ConnectionArn",
         "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::CodeStarNotifications::NotificationRule": {
+      "refReturns": {
+        "property": "Arn"
       }
     },
     "AWS::Cognito::IdentityPool": {
@@ -1014,6 +1034,15 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::EC2::Route": {
+      "refReturns": {
+        "properties": [
+          "RouteTableId",
+          "CidrBlock"
+        ],
+        "delimiter": "|"
+      }
+    },
     "AWS::EC2::RouteTable": {
       "refReturns": {
         "property": "RouteTableId",
@@ -1165,6 +1194,11 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::EC2::Volume": {
+      "refReturns": {
+        "property": "VolumeId"
+      }
+    },
     "AWS::ECR::Repository": {
       "refReturns": {
         "property": "RepositoryName",
@@ -1180,6 +1214,11 @@
       "refReturns": {
         "property": "ClusterName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::ECS::Service": {
+      "refReturns": {
+        "property": "ServiceArn"
       }
     },
     "AWS::ECS::TaskDefinition": {
@@ -1334,6 +1373,11 @@
       "refReturns": {
         "property": "Id",
         "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::Events::Rule": {
+      "refReturns": {
+        "property": "Name"
       }
     },
     "AWS::Evidently::Experiment": {
@@ -1591,6 +1635,11 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::GreengrassV2::ComponentVersion": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
     "AWS::GroundStation::Config": {
       "refReturns": {
         "property": "Arn",
@@ -1822,6 +1871,11 @@
         "property": "Id"
       }
     },
+    "AWS::IoT::TopicRule": {
+      "refReturns": {
+        "property": "RuleName"
+      }
+    },
     "AWS::IoTEvents::AlarmModel": {
       "refReturns": {
         "property": "AlarmModelName",
@@ -1904,6 +1958,11 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::Kinesis::Stream": {
+      "refReturns": {
+        "property": "Name"
+      }
+    },
     "AWS::LakeFormation::PrincipalPermissions": {
       "refReturns": {
         "properties": [
@@ -1951,6 +2010,11 @@
       "refReturns": {
         "property": "MapName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::Location::PlaceIndex": {
+      "refReturns": {
+        "property": "IndexName"
       }
     },
     "AWS::Location::Tracker": {
@@ -2362,6 +2426,11 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::RDS::DBInstance": {
+      "refReturns": {
+        "property": "DBInstanceIdentifier"
+      }
+    },
     "AWS::RDS::DBParameterGroup": {
       "refReturns": {
         "property": "DBParameterGroupName",
@@ -2560,7 +2629,7 @@
     },
     "AWS::S3::Bucket": {
       "refReturns": {
-        "property": "BucketName",
+        "property": "BucketName"
       }
     },
     "AWS::S3::MultiRegionAccessPoint": {
@@ -2608,6 +2677,11 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::SQS::Queue": {
+      "refReturns": {
+        "property": "QueueUrl"
+      }
+    },
     "AWS::SSM::Document": {
       "refReturns": {
         "property": "Name",
@@ -2653,6 +2727,19 @@
     "AWS::SSMContacts::ContactChannel": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::SSO::Assignment": {
+      "refReturns": {
+        "properties": [
+          "InstanceArn",
+          "TargetId",
+          "TargetType",
+          "PermissionSetArn",
+          "PrincipalType",
+          "PrincipalId"
+        ],
+        "delimiter": "|"
       }
     },
     "AWS::SageMaker::App": {
@@ -2767,6 +2854,16 @@
       "refReturns": {
         "property": "Name",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::StepFunctions::StateMachine": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
+    "AWS::SupportApp::SlackWorkspaceConfiguration": {
+      "refReturns": {
+        "property": "TeamId"
       }
     },
     "AWS::Synthetics::Canary": {
@@ -2953,10 +3050,30 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::WAFv2::IPSet": {
+      "refReturns": {
+        "properties": [
+          "Name",
+          "Id",
+          "Scope"
+        ],
+        "delimiter": "|"
+      }
+    },
     "AWS::WAFv2::LoggingConfiguration": {
       "refReturns": {
         "property": "ResourceArn",
         "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::WAFv2::RegexPatternSet": {
+      "refReturns": {
+        "properties": [
+          "Name",
+          "Id",
+          "Scope"
+        ],
+        "delimiter": "|"
       }
     },
     "AWS::WAFv2::WebACL": {

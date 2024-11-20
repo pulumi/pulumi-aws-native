@@ -15,6 +15,7 @@ func main() {
 	schema := flag.String("schema", "", "path to a folder with Cloud Formation schema JSON files")
 	dbFile := flag.String("db", "", "path to a database to play a guessing game")
 	auto := flag.Bool("auto", false, "let the computer play the guessing game")
+	specific := flag.String("specific", "", "specific CF resource name to target")
 	flag.Parse()
 
 	if guide == nil || *guide == "" {
@@ -56,6 +57,9 @@ func main() {
 
 	allResources := map[string]resourceFile{}
 	for _, rf := range parsedFiles {
+		if specific != nil && *specific != "" && rf.ResourceID != *specific {
+			continue
+		}
 		allResources[rf.ResourceID] = rf
 	}
 
