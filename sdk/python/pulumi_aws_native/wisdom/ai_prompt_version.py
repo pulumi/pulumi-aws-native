@@ -189,9 +189,6 @@ class AiPromptVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> pulumi.Output[str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-        """
         return pulumi.get(self, "assistant_arn")
 
     @property

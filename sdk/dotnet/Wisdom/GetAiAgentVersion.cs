@@ -75,14 +75,8 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetAiAgentVersionResult
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the AI agent.
-        /// </summary>
         public readonly string? AiAgentArn;
         public readonly string? AiAgentVersionId;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-        /// </summary>
         public readonly string? AssistantArn;
         /// <summary>
         /// The version number for this AI Agent version.

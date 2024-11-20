@@ -249,6 +249,9 @@ class GetServiceResult:
     @property
     @pulumi.getter(name="vpcLatticeConfigurations")
     def vpc_lattice_configurations(self) -> Optional[Sequence['outputs.ServiceVpcLatticeConfiguration']]:
+        """
+        The VPC Lattice configuration for the service being created.
+        """
         return pulumi.get(self, "vpc_lattice_configurations")
 
 

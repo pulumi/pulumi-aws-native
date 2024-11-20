@@ -88,7 +88,8 @@ type LookupServiceResult struct {
 	// The ``family`` and ``revision`` (``family:revision``) or full ARN of the task definition to run in your service. If a ``revision`` isn't specified, the latest ``ACTIVE`` revision is used.
 	//  A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
-	TaskDefinition           *string                          `pulumi:"taskDefinition"`
+	TaskDefinition *string `pulumi:"taskDefinition"`
+	// The VPC Lattice configuration for the service being created.
 	VpcLatticeConfigurations []ServiceVpcLatticeConfiguration `pulumi:"vpcLatticeConfigurations"`
 }
 
@@ -253,6 +254,7 @@ func (o LookupServiceResultOutput) TaskDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.TaskDefinition }).(pulumi.StringPtrOutput)
 }
 
+// The VPC Lattice configuration for the service being created.
 func (o LookupServiceResultOutput) VpcLatticeConfigurations() ServiceVpcLatticeConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []ServiceVpcLatticeConfiguration { return v.VpcLatticeConfigurations }).(ServiceVpcLatticeConfigurationArrayOutput)
 }

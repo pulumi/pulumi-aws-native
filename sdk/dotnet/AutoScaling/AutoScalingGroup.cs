@@ -32,6 +32,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("availabilityZoneDistribution")]
         public Output<Outputs.AutoScalingGroupAvailabilityZoneDistribution?> AvailabilityZoneDistribution { get; private set; } = null!;
 
+        /// <summary>
+        /// The Availability Zone impairment policy.
+        /// </summary>
         [Output("availabilityZoneImpairmentPolicy")]
         public Output<Outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy?> AvailabilityZoneImpairmentPolicy { get; private set; } = null!;
 
@@ -305,6 +308,9 @@ namespace Pulumi.AwsNative.AutoScaling
         [Input("availabilityZoneDistribution")]
         public Input<Inputs.AutoScalingGroupAvailabilityZoneDistributionArgs>? AvailabilityZoneDistribution { get; set; }
 
+        /// <summary>
+        /// The Availability Zone impairment policy.
+        /// </summary>
         [Input("availabilityZoneImpairmentPolicy")]
         public Input<Inputs.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>? AvailabilityZoneImpairmentPolicy { get; set; }
 

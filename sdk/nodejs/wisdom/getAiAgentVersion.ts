@@ -29,14 +29,8 @@ export interface GetAiAgentVersionArgs {
 }
 
 export interface GetAiAgentVersionResult {
-    /**
-     * The Amazon Resource Name (ARN) of the AI agent.
-     */
     readonly aiAgentArn?: string;
     readonly aiAgentVersionId?: string;
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-     */
     readonly assistantArn?: string;
     /**
      * The version number for this AI Agent version.

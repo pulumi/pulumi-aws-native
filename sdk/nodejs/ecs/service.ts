@@ -168,6 +168,9 @@ export class Service extends pulumi.CustomResource {
      * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
      */
     public readonly volumeConfigurations!: pulumi.Output<outputs.ecs.ServiceVolumeConfiguration[] | undefined>;
+    /**
+     * The VPC Lattice configuration for the service being created.
+     */
     public readonly vpcLatticeConfigurations!: pulumi.Output<outputs.ecs.ServiceVpcLatticeConfiguration[] | undefined>;
 
     /**
@@ -369,5 +372,8 @@ export interface ServiceArgs {
      * The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
      */
     volumeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVolumeConfigurationArgs>[]>;
+    /**
+     * The VPC Lattice configuration for the service being created.
+     */
     vpcLatticeConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ServiceVpcLatticeConfigurationArgs>[]>;
 }

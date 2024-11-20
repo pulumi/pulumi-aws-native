@@ -63,7 +63,7 @@ class GlobalTableArgs:
                > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input['GlobalTableTimeToLiveSpecificationArgs'] time_to_live_specification: Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         :param pulumi.Input['GlobalTableWarmThroughputArgs'] warm_throughput: Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
-        :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
         """
         pulumi.set(__self__, "attribute_definitions", attribute_definitions)
@@ -241,7 +241,7 @@ class GlobalTableArgs:
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
         """
-        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
@@ -312,7 +312,7 @@ class GlobalTable(pulumi.CustomResource):
                > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[Union['GlobalTableTimeToLiveSpecificationArgs', 'GlobalTableTimeToLiveSpecificationArgsDict']] time_to_live_specification: Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         :param pulumi.Input[Union['GlobalTableWarmThroughputArgs', 'GlobalTableWarmThroughputArgsDict']] warm_throughput: Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
-        :param pulumi.Input[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict']] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input[Union['GlobalTableWriteOnDemandThroughputSettingsArgs', 'GlobalTableWriteOnDemandThroughputSettingsArgsDict']] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         :param pulumi.Input[Union['GlobalTableWriteProvisionedThroughputSettingsArgs', 'GlobalTableWriteProvisionedThroughputSettingsArgsDict']] write_provisioned_throughput_settings: Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
         """
         ...
@@ -558,7 +558,7 @@ class GlobalTable(pulumi.CustomResource):
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> pulumi.Output[Optional['outputs.GlobalTableWriteOnDemandThroughputSettings']]:
         """
-        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 

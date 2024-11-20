@@ -34,6 +34,9 @@ export interface GetAutoScalingGroupResult {
      * The instance capacity distribution across Availability Zones.
      */
     readonly availabilityZoneDistribution?: outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution;
+    /**
+     * The Availability Zone impairment policy.
+     */
     readonly availabilityZoneImpairmentPolicy?: outputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicy;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.

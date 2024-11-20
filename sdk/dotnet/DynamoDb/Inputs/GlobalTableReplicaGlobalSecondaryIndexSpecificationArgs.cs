@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         public Input<string> IndexName { get; set; } = null!;
 
         /// <summary>
-        /// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        /// Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         /// </summary>
         [Input("readOnDemandThroughputSettings")]
         public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? ReadOnDemandThroughputSettings { get; set; }

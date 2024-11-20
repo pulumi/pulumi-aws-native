@@ -483,8 +483,10 @@ func (o AutoScalingGroupAvailabilityZoneDistributionPtrOutput) CapacityDistribut
 }
 
 type AutoScalingGroupAvailabilityZoneImpairmentPolicy struct {
+	// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	ImpairedZoneHealthCheckBehavior AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior `pulumi:"impairedZoneHealthCheckBehavior"`
-	ZonalShiftEnabled               bool                                                                            `pulumi:"zonalShiftEnabled"`
+	// If `true` , enable zonal shift for your Auto Scaling group.
+	ZonalShiftEnabled bool `pulumi:"zonalShiftEnabled"`
 }
 
 // AutoScalingGroupAvailabilityZoneImpairmentPolicyInput is an input type that accepts AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs and AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput values.
@@ -499,8 +501,10 @@ type AutoScalingGroupAvailabilityZoneImpairmentPolicyInput interface {
 }
 
 type AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs struct {
+	// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
 	ImpairedZoneHealthCheckBehavior AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorInput `pulumi:"impairedZoneHealthCheckBehavior"`
-	ZonalShiftEnabled               pulumi.BoolInput                                                                     `pulumi:"zonalShiftEnabled"`
+	// If `true` , enable zonal shift for your Auto Scaling group.
+	ZonalShiftEnabled pulumi.BoolInput `pulumi:"zonalShiftEnabled"`
 }
 
 func (AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs) ElementType() reflect.Type {
@@ -580,12 +584,14 @@ func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ToAutoScalingGro
 	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput)
 }
 
+// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
 func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ImpairedZoneHealthCheckBehavior() AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorOutput {
 	return o.ApplyT(func(v AutoScalingGroupAvailabilityZoneImpairmentPolicy) AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior {
 		return v.ImpairedZoneHealthCheckBehavior
 	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorOutput)
 }
 
+// If `true` , enable zonal shift for your Auto Scaling group.
 func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ZonalShiftEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutoScalingGroupAvailabilityZoneImpairmentPolicy) bool { return v.ZonalShiftEnabled }).(pulumi.BoolOutput)
 }
@@ -614,6 +620,7 @@ func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) Elem() AutoSc
 	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput)
 }
 
+// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
 func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ImpairedZoneHealthCheckBehavior() AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneImpairmentPolicy) *AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior {
 		if v == nil {
@@ -623,6 +630,7 @@ func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ImpairedZoneH
 	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrOutput)
 }
 
+// If `true` , enable zonal shift for your Auto Scaling group.
 func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ZonalShiftEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneImpairmentPolicy) *bool {
 		if v == nil {

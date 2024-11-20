@@ -162,6 +162,9 @@ namespace Pulumi.AwsNative.Ecs
         ///  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
         /// </summary>
         public readonly string? TaskDefinition;
+        /// <summary>
+        /// The VPC Lattice configuration for the service being created.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ServiceVpcLatticeConfiguration> VpcLatticeConfigurations;
 
         [OutputConstructor]

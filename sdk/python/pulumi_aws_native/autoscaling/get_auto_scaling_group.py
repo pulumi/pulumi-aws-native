@@ -134,6 +134,9 @@ class GetAutoScalingGroupResult:
     @property
     @pulumi.getter(name="availabilityZoneImpairmentPolicy")
     def availability_zone_impairment_policy(self) -> Optional['outputs.AutoScalingGroupAvailabilityZoneImpairmentPolicy']:
+        """
+        The Availability Zone impairment policy.
+        """
         return pulumi.get(self, "availability_zone_impairment_policy")
 
     @property

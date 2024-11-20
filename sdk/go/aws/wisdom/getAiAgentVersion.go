@@ -31,11 +31,9 @@ type LookupAiAgentVersionArgs struct {
 }
 
 type LookupAiAgentVersionResult struct {
-	// The Amazon Resource Name (ARN) of the AI agent.
 	AiAgentArn       *string `pulumi:"aiAgentArn"`
 	AiAgentVersionId *string `pulumi:"aiAgentVersionId"`
-	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-	AssistantArn *string `pulumi:"assistantArn"`
+	AssistantArn     *string `pulumi:"assistantArn"`
 	// The version number for this AI Agent version.
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
@@ -85,7 +83,6 @@ func (o LookupAiAgentVersionResultOutput) ToLookupAiAgentVersionResultOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the AI agent.
 func (o LookupAiAgentVersionResultOutput) AiAgentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentVersionResult) *string { return v.AiAgentArn }).(pulumi.StringPtrOutput)
 }
@@ -94,7 +91,6 @@ func (o LookupAiAgentVersionResultOutput) AiAgentVersionId() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupAiAgentVersionResult) *string { return v.AiAgentVersionId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o LookupAiAgentVersionResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentVersionResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }

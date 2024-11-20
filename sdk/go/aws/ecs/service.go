@@ -97,7 +97,8 @@ type Service struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
-	VolumeConfigurations     ServiceVolumeConfigurationArrayOutput     `pulumi:"volumeConfigurations"`
+	VolumeConfigurations ServiceVolumeConfigurationArrayOutput `pulumi:"volumeConfigurations"`
+	// The VPC Lattice configuration for the service being created.
 	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayOutput `pulumi:"vpcLatticeConfigurations"`
 }
 
@@ -224,7 +225,8 @@ type serviceArgs struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition *string `pulumi:"taskDefinition"`
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
-	VolumeConfigurations     []ServiceVolumeConfiguration     `pulumi:"volumeConfigurations"`
+	VolumeConfigurations []ServiceVolumeConfiguration `pulumi:"volumeConfigurations"`
+	// The VPC Lattice configuration for the service being created.
 	VpcLatticeConfigurations []ServiceVpcLatticeConfiguration `pulumi:"vpcLatticeConfigurations"`
 }
 
@@ -304,7 +306,8 @@ type ServiceArgs struct {
 	//  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
 	TaskDefinition pulumi.StringPtrInput
 	// The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
-	VolumeConfigurations     ServiceVolumeConfigurationArrayInput
+	VolumeConfigurations ServiceVolumeConfigurationArrayInput
+	// The VPC Lattice configuration for the service being created.
 	VpcLatticeConfigurations ServiceVpcLatticeConfigurationArrayInput
 }
 
@@ -514,6 +517,7 @@ func (o ServiceOutput) VolumeConfigurations() ServiceVolumeConfigurationArrayOut
 	return o.ApplyT(func(v *Service) ServiceVolumeConfigurationArrayOutput { return v.VolumeConfigurations }).(ServiceVolumeConfigurationArrayOutput)
 }
 
+// The VPC Lattice configuration for the service being created.
 func (o ServiceOutput) VpcLatticeConfigurations() ServiceVpcLatticeConfigurationArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceVpcLatticeConfigurationArrayOutput { return v.VpcLatticeConfigurations }).(ServiceVpcLatticeConfigurationArrayOutput)
 }

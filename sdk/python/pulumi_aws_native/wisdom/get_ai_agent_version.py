@@ -40,9 +40,6 @@ class GetAiAgentVersionResult:
     @property
     @pulumi.getter(name="aiAgentArn")
     def ai_agent_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the AI agent.
-        """
         return pulumi.get(self, "ai_agent_arn")
 
     @property
@@ -53,9 +50,6 @@ class GetAiAgentVersionResult:
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> Optional[str]:
-        """
-        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-        """
         return pulumi.get(self, "assistant_arn")
 
     @property

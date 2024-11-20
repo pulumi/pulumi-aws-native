@@ -16,14 +16,12 @@ import (
 type AiAgentVersion struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the AI agent.
 	AiAgentArn pulumi.StringOutput `pulumi:"aiAgentArn"`
 	// The identifier of the AI Agent.
 	AiAgentId        pulumi.StringOutput `pulumi:"aiAgentId"`
 	AiAgentVersionId pulumi.StringOutput `pulumi:"aiAgentVersionId"`
-	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-	AssistantArn pulumi.StringOutput `pulumi:"assistantArn"`
-	AssistantId  pulumi.StringOutput `pulumi:"assistantId"`
+	AssistantArn     pulumi.StringOutput `pulumi:"assistantArn"`
+	AssistantId      pulumi.StringOutput `pulumi:"assistantId"`
 	// The time the AI Agent version was last modified in seconds.
 	ModifiedTimeSeconds pulumi.Float64PtrOutput `pulumi:"modifiedTimeSeconds"`
 	// The version number for this AI Agent version.
@@ -135,7 +133,6 @@ func (o AiAgentVersionOutput) ToAiAgentVersionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the AI agent.
 func (o AiAgentVersionOutput) AiAgentArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiAgentVersion) pulumi.StringOutput { return v.AiAgentArn }).(pulumi.StringOutput)
 }
@@ -149,7 +146,6 @@ func (o AiAgentVersionOutput) AiAgentVersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiAgentVersion) pulumi.StringOutput { return v.AiAgentVersionId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o AiAgentVersionOutput) AssistantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiAgentVersion) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
 }

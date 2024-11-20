@@ -327,7 +327,7 @@ if not MYPY:
         """
         write_on_demand_throughput_settings: NotRequired[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgsDict']]
         """
-        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         write_provisioned_throughput_settings: NotRequired[pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgsDict']]
         """
@@ -357,7 +357,7 @@ class GlobalTableGlobalSecondaryIndexArgs:
                > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         :param pulumi.Input['GlobalTableProjectionArgs'] projection: Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         :param pulumi.Input['GlobalTableWarmThroughputArgs'] warm_throughput: Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
-        :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs'] write_on_demand_throughput_settings: Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         :param pulumi.Input['GlobalTableWriteProvisionedThroughputSettingsArgs'] write_provisioned_throughput_settings: Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
         """
         pulumi.set(__self__, "index_name", index_name)
@@ -429,7 +429,7 @@ class GlobalTableGlobalSecondaryIndexArgs:
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableWriteOnDemandThroughputSettingsArgs']]:
         """
-        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 
@@ -866,7 +866,7 @@ if not MYPY:
         """
         read_on_demand_throughput_settings: NotRequired[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgsDict']]
         """
-        Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         read_provisioned_throughput_settings: NotRequired[pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgsDict']]
         """
@@ -885,7 +885,7 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
         """
         :param pulumi.Input[str] index_name: The name of the global secondary index. The name must be unique among all other indexes on this table.
         :param pulumi.Input['GlobalTableContributorInsightsSpecificationArgs'] contributor_insights_specification: Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
-        :param pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs'] read_on_demand_throughput_settings: Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        :param pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs'] read_on_demand_throughput_settings: Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         :param pulumi.Input['GlobalTableReadProvisionedThroughputSettingsArgs'] read_provisioned_throughput_settings: Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
         """
         pulumi.set(__self__, "index_name", index_name)
@@ -924,7 +924,7 @@ class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs:
     @pulumi.getter(name="readOnDemandThroughputSettings")
     def read_on_demand_throughput_settings(self) -> Optional[pulumi.Input['GlobalTableReadOnDemandThroughputSettingsArgs']]:
         """
-        Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        Sets the read request settings for a replica global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         return pulumi.get(self, "read_on_demand_throughput_settings")
 

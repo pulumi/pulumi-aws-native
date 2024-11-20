@@ -34,18 +34,12 @@ export class AiAgentVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === AiAgentVersion.__pulumiType;
     }
 
-    /**
-     * The Amazon Resource Name (ARN) of the AI agent.
-     */
     public /*out*/ readonly aiAgentArn!: pulumi.Output<string>;
     /**
      * The identifier of the AI Agent.
      */
     public readonly aiAgentId!: pulumi.Output<string>;
     public /*out*/ readonly aiAgentVersionId!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
     public readonly assistantId!: pulumi.Output<string>;
     /**

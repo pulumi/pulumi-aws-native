@@ -67,7 +67,7 @@ type LookupGlobalTableResult struct {
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
 	// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the `UpdateTable` operation to meet the throughput requirements of an upcoming peak event.
 	WarmThroughput *GlobalTableWarmThroughput `pulumi:"warmThroughput"`
-	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
 	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
@@ -187,7 +187,7 @@ func (o LookupGlobalTableResultOutput) WarmThroughput() GlobalTableWarmThroughpu
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableWarmThroughput { return v.WarmThroughput }).(GlobalTableWarmThroughputPtrOutput)
 }
 
-// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+// Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
 func (o LookupGlobalTableResultOutput) WriteOnDemandThroughputSettings() GlobalTableWriteOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableWriteOnDemandThroughputSettings {
 		return v.WriteOnDemandThroughputSettings

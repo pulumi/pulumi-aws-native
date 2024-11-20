@@ -198,6 +198,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("volumeConfigurations")]
         public Output<ImmutableArray<Outputs.ServiceVolumeConfiguration>> VolumeConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The VPC Lattice configuration for the service being created.
+        /// </summary>
         [Output("vpcLatticeConfigurations")]
         public Output<ImmutableArray<Outputs.ServiceVpcLatticeConfiguration>> VpcLatticeConfigurations { get; private set; } = null!;
 
@@ -468,6 +471,10 @@ namespace Pulumi.AwsNative.Ecs
 
         [Input("vpcLatticeConfigurations")]
         private InputList<Inputs.ServiceVpcLatticeConfigurationArgs>? _vpcLatticeConfigurations;
+
+        /// <summary>
+        /// The VPC Lattice configuration for the service being created.
+        /// </summary>
         public InputList<Inputs.ServiceVpcLatticeConfigurationArgs> VpcLatticeConfigurations
         {
             get => _vpcLatticeConfigurations ?? (_vpcLatticeConfigurations = new InputList<Inputs.ServiceVpcLatticeConfigurationArgs>());

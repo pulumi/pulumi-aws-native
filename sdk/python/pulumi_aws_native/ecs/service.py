@@ -102,6 +102,7 @@ class ServiceArgs:
                 A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
                 For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
         :param pulumi.Input[Sequence[pulumi.Input['ServiceVolumeConfigurationArgs']]] volume_configurations: The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]] vpc_lattice_configurations: The VPC Lattice configuration for the service being created.
         """
         if availability_zone_rebalancing is not None:
             pulumi.set(__self__, "availability_zone_rebalancing", availability_zone_rebalancing)
@@ -470,6 +471,9 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="vpcLatticeConfigurations")
     def vpc_lattice_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]]:
+        """
+        The VPC Lattice configuration for the service being created.
+        """
         return pulumi.get(self, "vpc_lattice_configurations")
 
     @vpc_lattice_configurations.setter
@@ -566,6 +570,7 @@ class Service(pulumi.CustomResource):
                 A task definition must be specified if the service uses either the ``ECS`` or ``CODE_DEPLOY`` deployment controllers.
                 For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVolumeConfigurationArgs', 'ServiceVolumeConfigurationArgsDict']]]] volume_configurations: The configuration for a volume specified in the task definition as a volume that is configured at launch time. Currently, the only supported volume type is an Amazon EBS volume.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceVpcLatticeConfigurationArgs', 'ServiceVpcLatticeConfigurationArgsDict']]]] vpc_lattice_configurations: The VPC Lattice configuration for the service being created.
         """
         ...
     @overload
@@ -943,5 +948,8 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vpcLatticeConfigurations")
     def vpc_lattice_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ServiceVpcLatticeConfiguration']]]:
+        """
+        The VPC Lattice configuration for the service being created.
+        """
         return pulumi.get(self, "vpc_lattice_configurations")
 

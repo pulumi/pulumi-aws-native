@@ -50,6 +50,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      * The instance capacity distribution across Availability Zones.
      */
     public readonly availabilityZoneDistribution!: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneDistribution | undefined>;
+    /**
+     * The Availability Zone impairment policy.
+     */
     public readonly availabilityZoneImpairmentPolicy!: pulumi.Output<outputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicy | undefined>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
@@ -304,6 +307,9 @@ export interface AutoScalingGroupArgs {
      * The instance capacity distribution across Availability Zones.
      */
     availabilityZoneDistribution?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneDistributionArgs>;
+    /**
+     * The Availability Zone impairment policy.
+     */
     availabilityZoneImpairmentPolicy?: pulumi.Input<inputs.autoscaling.AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs>;
     /**
      * A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.

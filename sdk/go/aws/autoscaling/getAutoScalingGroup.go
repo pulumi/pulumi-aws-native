@@ -35,7 +35,8 @@ type LookupAutoScalingGroupArgs struct {
 
 type LookupAutoScalingGroupResult struct {
 	// The instance capacity distribution across Availability Zones.
-	AvailabilityZoneDistribution     *AutoScalingGroupAvailabilityZoneDistribution     `pulumi:"availabilityZoneDistribution"`
+	AvailabilityZoneDistribution *AutoScalingGroupAvailabilityZoneDistribution `pulumi:"availabilityZoneDistribution"`
+	// The Availability Zone impairment policy.
 	AvailabilityZoneImpairmentPolicy *AutoScalingGroupAvailabilityZoneImpairmentPolicy `pulumi:"availabilityZoneImpairmentPolicy"`
 	// A list of Availability Zones where instances in the Auto Scaling group can be created. Used for launching into the default VPC subnet in each Availability Zone when not using the ``VPCZoneIdentifier`` property, or for attaching a network interface when an existing network interface ID is specified in a launch template.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -170,6 +171,7 @@ func (o LookupAutoScalingGroupResultOutput) AvailabilityZoneDistribution() AutoS
 	}).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
 }
 
+// The Availability Zone impairment policy.
 func (o LookupAutoScalingGroupResultOutput) AvailabilityZoneImpairmentPolicy() AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput {
 	return o.ApplyT(func(v LookupAutoScalingGroupResult) *AutoScalingGroupAvailabilityZoneImpairmentPolicy {
 		return v.AvailabilityZoneImpairmentPolicy

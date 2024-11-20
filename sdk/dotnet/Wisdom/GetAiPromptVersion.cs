@@ -83,9 +83,6 @@ namespace Pulumi.AwsNative.Wisdom
     {
         public readonly string? AiPromptArn;
         public readonly string? AiPromptVersionId;
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-        /// </summary>
         public readonly string? AssistantArn;
         /// <summary>
         /// The version number for this AI Prompt version.

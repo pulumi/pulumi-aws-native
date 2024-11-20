@@ -173,7 +173,7 @@ class GetGlobalTableResult:
     @pulumi.getter(name="writeOnDemandThroughputSettings")
     def write_on_demand_throughput_settings(self) -> Optional['outputs.GlobalTableWriteOnDemandThroughputSettings']:
         """
-        Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        Sets the write request settings for a global table or a global secondary index. You can only specify this setting if your resource uses the `PAY_PER_REQUEST` `BillingMode` .
         """
         return pulumi.get(self, "write_on_demand_throughput_settings")
 

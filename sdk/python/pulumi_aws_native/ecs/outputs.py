@@ -2452,6 +2452,11 @@ class ServiceVpcLatticeConfiguration(dict):
                  port_name: str,
                  role_arn: str,
                  target_group_arn: str):
+        """
+        :param str port_name: The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
+        :param str role_arn: The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        :param str target_group_arn: The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.
+        """
         pulumi.set(__self__, "port_name", port_name)
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "target_group_arn", target_group_arn)
@@ -2459,16 +2464,25 @@ class ServiceVpcLatticeConfiguration(dict):
     @property
     @pulumi.getter(name="portName")
     def port_name(self) -> str:
+        """
+        The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
+        """
         return pulumi.get(self, "port_name")
 
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> str:
+        """
+        The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        """
         return pulumi.get(self, "role_arn")
 
     @property
     @pulumi.getter(name="targetGroupArn")
     def target_group_arn(self) -> str:
+        """
+        The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.
+        """
         return pulumi.get(self, "target_group_arn")
 
 

@@ -1635,7 +1635,9 @@ func (o AssistantAssociationAssociationDataOutput) KnowledgeBaseId() pulumi.Stri
 }
 
 type AssistantAssociationTag struct {
-	Key   string `pulumi:"key"`
+	// The key-value string map. The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
+	Key string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
 }
 
@@ -1777,7 +1779,9 @@ func (o AssistantServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.S
 }
 
 type AssistantTag struct {
-	Key   string `pulumi:"key"`
+	// The key-value string map. The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
+	Key string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
 }
 
@@ -2447,7 +2451,9 @@ func (o KnowledgeBaseSourceConfigurationPtrOutput) AppIntegrations() KnowledgeBa
 }
 
 type KnowledgeBaseTag struct {
-	Key   string `pulumi:"key"`
+	// The key-value string map. The valid character set is `[a-zA-Z+-=._:/]` . The tag key can be up to 128 characters and must not start with `aws:` .
+	Key string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
 }
 

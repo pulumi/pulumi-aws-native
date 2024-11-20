@@ -34,9 +34,6 @@ export interface GetAiPromptVersionArgs {
 export interface GetAiPromptVersionResult {
     readonly aiPromptArn?: string;
     readonly aiPromptVersionId?: string;
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-     */
     readonly assistantArn?: string;
     /**
      * The version number for this AI Prompt version.

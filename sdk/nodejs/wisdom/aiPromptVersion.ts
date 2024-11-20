@@ -40,9 +40,6 @@ export class AiPromptVersion extends pulumi.CustomResource {
      */
     public readonly aiPromptId!: pulumi.Output<string>;
     public /*out*/ readonly aiPromptVersionId!: pulumi.Output<string>;
-    /**
-     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.

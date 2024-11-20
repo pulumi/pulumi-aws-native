@@ -34,8 +34,7 @@ type LookupAiPromptVersionArgs struct {
 type LookupAiPromptVersionResult struct {
 	AiPromptArn       *string `pulumi:"aiPromptArn"`
 	AiPromptVersionId *string `pulumi:"aiPromptVersionId"`
-	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-	AssistantArn *string `pulumi:"assistantArn"`
+	AssistantArn      *string `pulumi:"assistantArn"`
 	// The version number for this AI Prompt version.
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
@@ -94,7 +93,6 @@ func (o LookupAiPromptVersionResultOutput) AiPromptVersionId() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupAiPromptVersionResult) *string { return v.AiPromptVersionId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o LookupAiPromptVersionResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiPromptVersionResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }

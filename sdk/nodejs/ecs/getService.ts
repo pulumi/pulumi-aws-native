@@ -121,6 +121,9 @@ export interface GetServiceResult {
      *  For more information about deployment types, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html).
      */
     readonly taskDefinition?: string;
+    /**
+     * The VPC Lattice configuration for the service being created.
+     */
     readonly vpcLatticeConfigurations?: outputs.ecs.ServiceVpcLatticeConfiguration[];
 }
 /**

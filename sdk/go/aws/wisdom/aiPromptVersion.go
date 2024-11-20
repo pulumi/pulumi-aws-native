@@ -20,8 +20,7 @@ type AiPromptVersion struct {
 	// The identifier of the Amazon Q in Connect AI prompt.
 	AiPromptId        pulumi.StringOutput `pulumi:"aiPromptId"`
 	AiPromptVersionId pulumi.StringOutput `pulumi:"aiPromptVersionId"`
-	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
-	AssistantArn pulumi.StringOutput `pulumi:"assistantArn"`
+	AssistantArn      pulumi.StringOutput `pulumi:"assistantArn"`
 	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId pulumi.StringOutput `pulumi:"assistantId"`
 	// The time the AI Prompt version was last modified in seconds.
@@ -150,7 +149,6 @@ func (o AiPromptVersionOutput) AiPromptVersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiPromptVersion) pulumi.StringOutput { return v.AiPromptVersionId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o AiPromptVersionOutput) AssistantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiPromptVersion) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
 }
