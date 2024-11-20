@@ -37,8 +37,41 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 			}); err != nil {
 				return err
 			}
+		case Categorize(res.RefSection).Name() == RefReturnsName.Name():
+			if nameProp, ok := findUniqueNameProperty(sch, r); ok {
+				if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
+					ri.RefReturns.Property = nameProp
+					ri.RefReturns.Heuristic = RefReturnsName.Name()
+				}); err != nil {
+					return err
+				}
+			}
 		}
 
 	}
 	return nil
+}
+
+func simpleResName(r string) string {
+	parts := strings.Split(r, "::")
+	return parts[len(parts)-1]
+}
+
+func findUniqueNameProperty(s *schema, r string) (string, bool) {
+	count := 0
+	found := ""
+	for p := range s.Properties {
+		if p == "Name" {
+			found = p
+			count++
+		}
+		if p == simpleResName(r)+"Name" {
+			found = p
+			count++
+		}
+	}
+	if count == 1 {
+		return found, true
+	}
+	return "", false
 }
