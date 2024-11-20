@@ -1,13 +1,17 @@
 package main
 
-import "strings"
+import (
+	"strings"
+
+	metadata "github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
+)
 
 // Instead of humans playing the game, let the computer assign labels based on heuristics that seem to be fairly robust.
 // This should add a label in the data indicating that it was assigned by a heuristic, in case this data point ends up
 // being erroneous and need correction later.
 func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFile) error {
-	db := new(db)
-	if err := db.load(dbFile); err != nil {
+	db := new(metadata.RefDB)
+	if err := db.LoadJSONFile(dbFile); err != nil {
 		return err
 	}
 	gs := &gameState{
@@ -31,7 +35,7 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 			len(sch.PrimaryIdentifier) == 1 &&
 			strings.Contains(strings.ToLower(sch.PrimaryIdentifier[0]), "arn"):
 
-			if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
+			if err := gs.edit(r, "heuristic", func(ri *metadata.RefDBResource) {
 				ri.RefReturns.Property = strings.TrimPrefix(sch.PrimaryIdentifier[0], "/properties/")
 				ri.RefReturns.Heuristic = RefReturnsArn.Name()
 			}); err != nil {
@@ -39,7 +43,7 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 			}
 		case Categorize(res.RefSection).Name() == RefReturnsArn.Name():
 			if nameProp, ok := findUniqueProperty(sch, r, "ARN"); ok {
-				if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
+				if err := gs.edit(r, "heuristic", func(ri *metadata.RefDBResource) {
 					ri.RefReturns.Property = nameProp
 					ri.RefReturns.Heuristic = RefReturnsArn.Name()
 				}); err != nil {
@@ -48,7 +52,7 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 			}
 		case Categorize(res.RefSection).Name() == RefReturnsName.Name():
 			if nameProp, ok := findUniqueProperty(sch, r, "Name"); ok {
-				if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
+				if err := gs.edit(r, "heuristic", func(ri *metadata.RefDBResource) {
 					ri.RefReturns.Property = nameProp
 					ri.RefReturns.Heuristic = RefReturnsName.Name()
 				}); err != nil {
@@ -64,7 +68,7 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 			}
 
 			if hasID {
-				if err := gs.edit(r, "heuristic", func(ri *resourceInfo) {
+				if err := gs.edit(r, "heuristic", func(ri *metadata.RefDBResource) {
 					ri.RefReturns.Property = idProp
 					ri.RefReturns.Heuristic = RefReturnsID.Name()
 				}); err != nil {

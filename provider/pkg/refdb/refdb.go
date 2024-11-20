@@ -1,4 +1,6 @@
-package main
+// Copyright 2016-2024, Pulumi Corporation.
+
+package refdb
 
 import (
 	"encoding/json"
@@ -14,16 +16,18 @@ import (
 // machine-readable.
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html
-type db struct {
+type RefDB struct {
 	// Indexed by CloudFormation Resource ID
-	Resources map[string]resourceInfo `json:"resources"`
+	Resources map[string]RefDBResource `json:"resources"`
 }
 
-type resourceInfo struct {
-	RefReturns refReturnsInfo `json:"refReturns"`
+// See [RefDB].
+type RefDBResource struct {
+	RefReturns RefDBRecord `json:"refReturns"`
 }
 
-type refReturnsInfo struct {
+// See [RefDB].
+type RefDBRecord struct {
 	metadata.CfRefBehavior
 
 	// If set, indicates the data point was assigned by a heuristic rule. This annotation can be removed once it is
@@ -31,7 +35,7 @@ type refReturnsInfo struct {
 	Heuristic string `json:"heuristic,omitempty"`
 }
 
-func (data *db) store(file string) error {
+func (data *RefDB) StoreJSONFile(file string) error {
 	bytes, err := json.MarshalIndent(data, "", "  ")
 	if err != nil {
 		return err
@@ -39,7 +43,7 @@ func (data *db) store(file string) error {
 	return os.WriteFile(file, bytes, 0600)
 }
 
-func (data *db) load(file string) error {
+func (data *RefDB) LoadJSONFile(file string) error {
 	bytes, err := os.ReadFile(file)
 	if err != nil {
 		return err
@@ -48,7 +52,7 @@ func (data *db) load(file string) error {
 		return err
 	}
 	if data.Resources == nil {
-		data.Resources = map[string]resourceInfo{}
+		data.Resources = map[string]RefDBResource{}
 	}
 	return nil
 }

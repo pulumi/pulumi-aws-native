@@ -4,13 +4,15 @@ import (
 	"fmt"
 	"sort"
 	"strings"
+
+	metadata "github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 )
 
 // Run the game loop where the user is trying to guess what CloudFormation Ref intrinsic function will return and record
 // this guess in a database.
 func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) error {
-	db := new(db)
-	if err := db.load(dbFile); err != nil {
+	db := new(metadata.RefDB)
+	if err := db.LoadJSONFile(dbFile); err != nil {
 		return err
 	}
 	gs := &gameState{
@@ -94,7 +96,7 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 		}
 
 		if choice == primaryPipeDelimited {
-			if err := gs.edit(r, "PrimaryPipeDeilmited", func(ri *resourceInfo) {
+			if err := gs.edit(r, "PrimaryPipeDeilmited", func(ri *metadata.RefDBResource) {
 				ri.RefReturns.Delimiter = "|"
 				ri.RefReturns.Properties = pkProps
 			}); err != nil {
@@ -104,7 +106,7 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 		}
 
 		if choice == notSupported {
-			if err := gs.edit(r, "NotSupported", func(ri *resourceInfo) {
+			if err := gs.edit(r, "NotSupported", func(ri *metadata.RefDBResource) {
 				ri.RefReturns.NotSupported = true
 			}); err != nil {
 				return err
@@ -121,7 +123,7 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 			continue
 		}
 
-		if err := gs.edit(r, prop, func(ri *resourceInfo) {
+		if err := gs.edit(r, prop, func(ri *metadata.RefDBResource) {
 			ri.RefReturns.Property = prop
 		}); err != nil {
 			return err
@@ -133,15 +135,15 @@ func game(schemaAbsPath, dbFile string, allResources map[string]resourceFile) er
 
 type gameState struct {
 	dbFile       string
-	db           *db
+	db           *metadata.RefDB
 	allResources map[string]resourceFile
 }
 
-func (gs *gameState) edit(r, desc string, f func(*resourceInfo)) error {
+func (gs *gameState) edit(r, desc string, f func(*metadata.RefDBResource)) error {
 	rInfo := gs.db.Resources[r]
 	f(&rInfo)
 	gs.db.Resources[r] = rInfo
-	if err := gs.db.store(gs.dbFile); err != nil {
+	if err := gs.db.StoreJSONFile(gs.dbFile); err != nil {
 		return err
 	}
 	fmt.Println("Stored your choice in the database: ", desc)
