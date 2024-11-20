@@ -588,6 +588,11 @@
         "property": "ClientId"
       }
     },
+    "AWS::Cognito::UserPoolResourceServer": {
+      "refReturns": {
+        "property": "Identifier"
+      }
+    },
     "AWS::Comprehend::DocumentClassifier": {
       "refReturns": {
         "property": "Arn",
@@ -1090,6 +1095,11 @@
       "refReturns": {
         "property": "Id",
         "heuristic": "RefReturnsID"
+      }
+    },
+    "AWS::EC2::VPC": {
+      "refReturns": {
+        "property": "VpcId"
       }
     },
     "AWS::EC2::VPCCidrBlock": {
@@ -2289,6 +2299,11 @@
         "property": "ApplicationId"
       }
     },
+    "AWS::Pinpoint::EmailTemplate": {
+      "refReturns": {
+        "property": "TemplateName"
+      }
+    },
     "AWS::PinpointEmail::ConfigurationSet": {
       "refReturns": {
         "property": "Name",
@@ -2435,9 +2450,39 @@
         "heuristic": "RefReturnsArn"
       }
     },
+    "AWS::RoboMaker::Fleet": {
+      "refReturns": {
+        "property": "Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::RoboMaker::Robot": {
+      "refReturns": {
+        "property": "Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::RoboMaker::RobotApplication": {
+      "refReturns": {
+        "property": "Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
     "AWS::RoboMaker::RobotApplicationVersion": {
       "refReturns": {
         "property": "Arn"
+      }
+    },
+    "AWS::RoboMaker::SimulationApplication": {
+      "refReturns": {
+        "property": "Arn",
+        "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::RoboMaker::SimulationApplicationVersion": {
+      "refReturns": {
+        "property": "Arn",
+        "heuristic": "RefReturnsArn"
       }
     },
     "AWS::Route53::CidrCollection": {

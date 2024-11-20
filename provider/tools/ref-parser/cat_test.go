@@ -58,4 +58,7 @@ func TestCategorize(t *testing.T) {
 		RefReturnsName,
 		Categorize("When the logical ID of this resource is provided to the Ref intrinsic function, .Ref. returns the resource name"))
 
+	assert.Equal(t,
+		RefReturnsArn,
+		Categorize("When you pass the logical ID of an `AWS::RoboMaker::SimulationApplication` resource to the intrinsic `Ref` function, the function returns the Amazon Resource Name \\(ARN\\) of the simulation application, such as `arn:aws:robomaker:us-west-2:123456789012:simulation-application/MySimulationApplication/1546541201334`\\. "))
 }
