@@ -23,6 +23,10 @@ func TestCategorize(t *testing.T) {
 		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the Arn of the Cost Category that is created by the template\\."))
 
 	assert.Equal(t,
+		RefReturnsArn,
+		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the resource ARN\\. For example:"))
+
+	assert.Equal(t,
 		RefReturnsName,
 		Categorize("When you pass the logical ID of this resource to the intrinsic `Ref`function, `Ref`returns the value of `DashboardName`\\."))
 
