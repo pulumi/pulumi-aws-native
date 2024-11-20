@@ -28,6 +28,9 @@ type refReturnsInfo struct {
 
 	// If set, indicates that Ref will return a string value obtained by joining several Resource properties with a
 	// delimiter, typically "|".
+	//
+	// Usually these properties are strings, but they can also be objects, in which case their values are
+	// JSON-encoded. See AWS::LakeFormation::PrincipalPermissions for an example of this.
 	Properties []string `json:"properties,omitempty"`
 
 	// Delimiter, typically "|". See [Properties].
