@@ -105,6 +105,11 @@
         "property": "Id"
       }
     },
+    "AWS::CloudTrail::Trail": {
+      "refReturns": {
+        "property": "TrailName"
+      }
+    },
     "AWS::CloudWatch::CompositeAlarm": {
       "refReturns": {
         "property": "AlarmName"
@@ -170,9 +175,19 @@
         "notSupported": true
       }
     },
+    "AWS::DeviceFarm::TestGridProject": {
+      "refReturns": {
+        "notSupported": true
+      }
+    },
     "AWS::DirectoryService::SimpleAD": {
       "refReturns": {
         "property": "DirectoryId"
+      }
+    },
+    "AWS::EC2::ClientVpnTargetNetworkAssociation": {
+      "refReturns": {
+        "property": "Id"
       }
     },
     "AWS::EC2::DHCPOptions": {
@@ -225,6 +240,11 @@
         "property": "VerifiedAccessGroupId"
       }
     },
+    "AWS::ECS::CapacityProvider": {
+      "refReturns": {
+        "property": "Name"
+      }
+    },
     "AWS::EMR::Step": {
       "refReturns": {
         "property": "Id"
@@ -270,7 +290,17 @@
         "property": "Id"
       }
     },
+    "AWS::GuardDuty::ThreatIntelSet": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::IAM::OIDCProvider": {
+      "refReturns": {
+        "property": "Arn"
+      }
+    },
+    "AWS::ImageBuilder::InfrastructureConfiguration": {
       "refReturns": {
         "property": "Arn"
       }
@@ -278,6 +308,11 @@
     "AWS::Inspector::AssessmentTemplate": {
       "refReturns": {
         "property": "AssessmentTargetArn"
+      }
+    },
+    "AWS::InspectorV2::Filter": {
+      "refReturns": {
+        "property": "Arn"
       }
     },
     "AWS::IoT::BillingGroup": {
@@ -288,6 +323,15 @@
     "AWS::IoTWireless::WirelessDeviceImportTask": {
       "refReturns": {
         "property": "Id"
+      }
+    },
+    "AWS::LakeFormation::PrincipalPermissions": {
+      "refReturns": {
+        "properties": [
+          "PrincipalIdentifier",
+          "ResourceIdentifier"
+        ],
+        "delimiter": "|"
       }
     },
     "AWS::Lambda::Function": {
@@ -303,6 +347,11 @@
     "AWS::MediaConnect::Bridge": {
       "refReturns": {
         "property": "BridgeArn"
+      }
+    },
+    "AWS::MediaConnect::Gateway": {
+      "refReturns": {
+        "property": "GatewayArn"
       }
     },
     "AWS::MediaConvert::Queue": {
@@ -387,6 +436,11 @@
     "AWS::SES::ContactList": {
       "refReturns": {
         "property": "ContactListName"
+      }
+    },
+    "AWS::SES::ReceiptRuleSet": {
+      "refReturns": {
+        "property": "RuleSetName"
       }
     },
     "AWS::SSMContacts::ContactChannel": {
