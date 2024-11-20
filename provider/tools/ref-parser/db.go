@@ -3,6 +3,8 @@ package main
 import (
 	"encoding/json"
 	"os"
+
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 )
 
 // Collected metadata about the Ref intrinsic function.
@@ -21,25 +23,11 @@ type resourceInfo struct {
 	RefReturns refReturnsInfo `json:"refReturns"`
 }
 
-// One and only one of [Property], [Properties], and [NotSupported] must be set.
 type refReturnsInfo struct {
-	// If set, indicates that Ref will return the value of the given Resource property.
-	Property string `json:"property,omitempty"`
+	metadata.CfRefBehavior
 
-	// If set, indicates that Ref will return a string value obtained by joining several Resource properties with a
-	// delimiter, typically "|".
-	//
-	// Usually these properties are strings, but they can also be objects, in which case their values are
-	// JSON-encoded. See AWS::LakeFormation::PrincipalPermissions for an example of this.
-	Properties []string `json:"properties,omitempty"`
-
-	// Delimiter, typically "|". See [Properties].
-	Delimiter string `json:"delimiter,omitempty"`
-
-	// If set, Ref is not supported for this resource.
-	NotSupported bool `json:"notSupported,omitempty"`
-
-	// If set, indicates the data point was assigned by a heuristic rule and has not been reviewed by a human yet.
+	// If set, indicates the data point was assigned by a heuristic rule. This annotation can be removed once it is
+	// confirmed the metadata correctly describes the behavior.
 	Heuristic string `json:"heuristic,omitempty"`
 }
 
