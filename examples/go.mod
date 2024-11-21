@@ -4,8 +4,8 @@ go 1.21
 
 require (
 	github.com/pulumi/providertest v0.1.3
-	github.com/pulumi/pulumi/pkg/v3 v3.138.0
-	github.com/pulumi/pulumi/sdk/v3 v3.138.0
+	github.com/pulumi/pulumi/pkg/v3 v3.140.0
+	github.com/pulumi/pulumi/sdk/v3 v3.140.0
 	github.com/stretchr/testify v1.9.0
 )
 
