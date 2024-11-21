@@ -2804,6 +2804,11 @@
         "property": "Name"
       }
     },
+    "AWS::SecretsManager::Secret": {
+      "refReturns": {
+        "property": "Id"
+      }
+    },
     "AWS::SecurityHub::Hub": {
       "refReturns": {
         "property": "ARN"
