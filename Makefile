@@ -195,4 +195,9 @@ ref-db-auto::
 	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
 	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -auto
 
+ref-db-report::
+	mkdir -p bin
+	(cd provider/tools/ref-parser && go build -o ../../../bin/ref-parser)
+	./bin/ref-parser -guide ./aws-cloudformation-user-guide -schema ./aws-cloudformation-schema -db ./meta/ref-db.json -report
+
 .PHONY: ensure generate_schema generate build_provider build

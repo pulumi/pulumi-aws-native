@@ -16,6 +16,7 @@ func main() {
 	dbFile := flag.String("db", "", "path to a database to play a guessing game")
 	auto := flag.Bool("auto", false, "let the computer play the guessing game")
 	specific := flag.String("specific", "", "specific CF resource name to target")
+	report := flag.Bool("report", false, "run data reporting")
 	flag.Parse()
 
 	if guide == nil || *guide == "" {
@@ -61,6 +62,13 @@ func main() {
 			continue
 		}
 		allResources[rf.ResourceID] = rf
+	}
+
+	if report != nil && *report {
+		if err := reportOnRefAsPrimaryIdentifier(*dbFile, schemaAbsPath); err != nil {
+			log.Fatal(err)
+		}
+		return
 	}
 
 	if dbFile != nil && auto != nil && *auto {
