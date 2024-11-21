@@ -1049,6 +1049,12 @@
         "heuristic": "RefReturnsID"
       }
     },
+    "AWS::EC2::SecurityGroup": {
+      "refReturns": {
+        "property": "GroupId",
+        "heuristic": "TODO[pulumi/pulumi-cdk#240]"
+      }
+    },
     "AWS::EC2::SpotFleet": {
       "refReturns": {
         "property": "Id",
