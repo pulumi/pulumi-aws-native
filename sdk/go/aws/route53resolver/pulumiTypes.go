@@ -41,10 +41,16 @@ type FirewallRuleGroupFirewallRule struct {
 	BlockOverrideTtl *int `pulumi:"blockOverrideTtl"`
 	// BlockResponse
 	BlockResponse *FirewallRuleGroupFirewallRuleBlockResponse `pulumi:"blockResponse"`
+	// FirewallDomainRedirectionAction
+	ConfidenceThreshold *FirewallRuleGroupFirewallRuleConfidenceThreshold `pulumi:"confidenceThreshold"`
+	// FirewallDomainRedirectionAction
+	DnsThreatProtection *FirewallRuleGroupFirewallRuleDnsThreatProtection `pulumi:"dnsThreatProtection"`
 	// ResourceId
-	FirewallDomainListId string `pulumi:"firewallDomainListId"`
+	FirewallDomainListId *string `pulumi:"firewallDomainListId"`
 	// FirewallDomainRedirectionAction
 	FirewallDomainRedirectionAction *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction `pulumi:"firewallDomainRedirectionAction"`
+	// ResourceId
+	FirewallThreatProtectionId *string `pulumi:"firewallThreatProtectionId"`
 	// Rule Priority
 	Priority int `pulumi:"priority"`
 	// Qtype
@@ -74,10 +80,16 @@ type FirewallRuleGroupFirewallRuleArgs struct {
 	BlockOverrideTtl pulumi.IntPtrInput `pulumi:"blockOverrideTtl"`
 	// BlockResponse
 	BlockResponse FirewallRuleGroupFirewallRuleBlockResponsePtrInput `pulumi:"blockResponse"`
+	// FirewallDomainRedirectionAction
+	ConfidenceThreshold FirewallRuleGroupFirewallRuleConfidenceThresholdPtrInput `pulumi:"confidenceThreshold"`
+	// FirewallDomainRedirectionAction
+	DnsThreatProtection FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrInput `pulumi:"dnsThreatProtection"`
 	// ResourceId
-	FirewallDomainListId pulumi.StringInput `pulumi:"firewallDomainListId"`
+	FirewallDomainListId pulumi.StringPtrInput `pulumi:"firewallDomainListId"`
 	// FirewallDomainRedirectionAction
 	FirewallDomainRedirectionAction FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput `pulumi:"firewallDomainRedirectionAction"`
+	// ResourceId
+	FirewallThreatProtectionId pulumi.StringPtrInput `pulumi:"firewallThreatProtectionId"`
 	// Rule Priority
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Qtype
@@ -165,9 +177,23 @@ func (o FirewallRuleGroupFirewallRuleOutput) BlockResponse() FirewallRuleGroupFi
 	}).(FirewallRuleGroupFirewallRuleBlockResponsePtrOutput)
 }
 
+// FirewallDomainRedirectionAction
+func (o FirewallRuleGroupFirewallRuleOutput) ConfidenceThreshold() FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleConfidenceThreshold {
+		return v.ConfidenceThreshold
+	}).(FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput)
+}
+
+// FirewallDomainRedirectionAction
+func (o FirewallRuleGroupFirewallRuleOutput) DnsThreatProtection() FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleDnsThreatProtection {
+		return v.DnsThreatProtection
+	}).(FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput)
+}
+
 // ResourceId
-func (o FirewallRuleGroupFirewallRuleOutput) FirewallDomainListId() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) string { return v.FirewallDomainListId }).(pulumi.StringOutput)
+func (o FirewallRuleGroupFirewallRuleOutput) FirewallDomainListId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.FirewallDomainListId }).(pulumi.StringPtrOutput)
 }
 
 // FirewallDomainRedirectionAction
@@ -175,6 +201,11 @@ func (o FirewallRuleGroupFirewallRuleOutput) FirewallDomainRedirectionAction() F
 	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction {
 		return v.FirewallDomainRedirectionAction
 	}).(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput)
+}
+
+// ResourceId
+func (o FirewallRuleGroupFirewallRuleOutput) FirewallThreatProtectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FirewallRuleGroupFirewallRule) *string { return v.FirewallThreatProtectionId }).(pulumi.StringPtrOutput)
 }
 
 // Rule Priority

@@ -25,13 +25,15 @@ class DirectoryBucketArgs:
                  data_redundancy: pulumi.Input['DirectoryBucketDataRedundancy'],
                  location_name: pulumi.Input[str],
                  bucket_encryption: Optional[pulumi.Input['DirectoryBucketBucketEncryptionArgs']] = None,
-                 bucket_name: Optional[pulumi.Input[str]] = None):
+                 bucket_name: Optional[pulumi.Input[str]] = None,
+                 lifecycle_configuration: Optional[pulumi.Input['DirectoryBucketLifecycleConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
         :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone that's used for redundancy for the bucket.
         :param pulumi.Input[str] location_name: Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
         :param pulumi.Input['DirectoryBucketBucketEncryptionArgs'] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
         :param pulumi.Input[str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        :param pulumi.Input['DirectoryBucketLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         """
         pulumi.set(__self__, "data_redundancy", data_redundancy)
         pulumi.set(__self__, "location_name", location_name)
@@ -39,6 +41,8 @@ class DirectoryBucketArgs:
             pulumi.set(__self__, "bucket_encryption", bucket_encryption)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if lifecycle_configuration is not None:
+            pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
 
     @property
     @pulumi.getter(name="dataRedundancy")
@@ -88,6 +92,18 @@ class DirectoryBucketArgs:
     def bucket_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket_name", value)
 
+    @property
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> Optional[pulumi.Input['DirectoryBucketLifecycleConfigurationArgs']]:
+        """
+        Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+        """
+        return pulumi.get(self, "lifecycle_configuration")
+
+    @lifecycle_configuration.setter
+    def lifecycle_configuration(self, value: Optional[pulumi.Input['DirectoryBucketLifecycleConfigurationArgs']]):
+        pulumi.set(self, "lifecycle_configuration", value)
+
 
 class DirectoryBucket(pulumi.CustomResource):
     @overload
@@ -97,6 +113,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  bucket_encryption: Optional[pulumi.Input[Union['DirectoryBucketBucketEncryptionArgs', 'DirectoryBucketBucketEncryptionArgsDict']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  data_redundancy: Optional[pulumi.Input['DirectoryBucketDataRedundancy']] = None,
+                 lifecycle_configuration: Optional[pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']]] = None,
                  location_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -107,6 +124,7 @@ class DirectoryBucket(pulumi.CustomResource):
         :param pulumi.Input[Union['DirectoryBucketBucketEncryptionArgs', 'DirectoryBucketBucketEncryptionArgsDict']] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
         :param pulumi.Input[str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone that's used for redundancy for the bucket.
+        :param pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']] lifecycle_configuration: Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         :param pulumi.Input[str] location_name: Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
         """
         ...
@@ -136,6 +154,7 @@ class DirectoryBucket(pulumi.CustomResource):
                  bucket_encryption: Optional[pulumi.Input[Union['DirectoryBucketBucketEncryptionArgs', 'DirectoryBucketBucketEncryptionArgsDict']]] = None,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  data_redundancy: Optional[pulumi.Input['DirectoryBucketDataRedundancy']] = None,
+                 lifecycle_configuration: Optional[pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']]] = None,
                  location_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -151,6 +170,7 @@ class DirectoryBucket(pulumi.CustomResource):
             if data_redundancy is None and not opts.urn:
                 raise TypeError("Missing required property 'data_redundancy'")
             __props__.__dict__["data_redundancy"] = data_redundancy
+            __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             if location_name is None and not opts.urn:
                 raise TypeError("Missing required property 'location_name'")
             __props__.__dict__["location_name"] = location_name
@@ -185,6 +205,7 @@ class DirectoryBucket(pulumi.CustomResource):
         __props__.__dict__["bucket_encryption"] = None
         __props__.__dict__["bucket_name"] = None
         __props__.__dict__["data_redundancy"] = None
+        __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["location_name"] = None
         return DirectoryBucket(resource_name, opts=opts, __props__=__props__)
 
@@ -227,6 +248,14 @@ class DirectoryBucket(pulumi.CustomResource):
         Specifies the number of Availability Zone that's used for redundancy for the bucket.
         """
         return pulumi.get(self, "data_redundancy")
+
+    @property
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> pulumi.Output[Optional['outputs.DirectoryBucketLifecycleConfiguration']]:
+        """
+        Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+        """
+        return pulumi.get(self, "lifecycle_configuration")
 
     @property
     @pulumi.getter(name="locationName")

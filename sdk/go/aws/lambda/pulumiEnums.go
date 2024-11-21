@@ -550,6 +550,214 @@ func (o EventSourceMappingFunctionResponseTypesItemArrayOutput) Index(i pulumi.I
 	}).(EventSourceMappingFunctionResponseTypesItemOutput)
 }
 
+type EventSourceMappingMetricsConfigMetricsItem string
+
+const (
+	EventSourceMappingMetricsConfigMetricsItemEventCount = EventSourceMappingMetricsConfigMetricsItem("EventCount")
+)
+
+func (EventSourceMappingMetricsConfigMetricsItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItem)(nil)).Elem()
+}
+
+func (e EventSourceMappingMetricsConfigMetricsItem) ToEventSourceMappingMetricsConfigMetricsItemOutput() EventSourceMappingMetricsConfigMetricsItemOutput {
+	return pulumi.ToOutput(e).(EventSourceMappingMetricsConfigMetricsItemOutput)
+}
+
+func (e EventSourceMappingMetricsConfigMetricsItem) ToEventSourceMappingMetricsConfigMetricsItemOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigMetricsItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventSourceMappingMetricsConfigMetricsItemOutput)
+}
+
+func (e EventSourceMappingMetricsConfigMetricsItem) ToEventSourceMappingMetricsConfigMetricsItemPtrOutput() EventSourceMappingMetricsConfigMetricsItemPtrOutput {
+	return e.ToEventSourceMappingMetricsConfigMetricsItemPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingMetricsConfigMetricsItem) ToEventSourceMappingMetricsConfigMetricsItemPtrOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigMetricsItemPtrOutput {
+	return EventSourceMappingMetricsConfigMetricsItem(e).ToEventSourceMappingMetricsConfigMetricsItemOutputWithContext(ctx).ToEventSourceMappingMetricsConfigMetricsItemPtrOutputWithContext(ctx)
+}
+
+func (e EventSourceMappingMetricsConfigMetricsItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingMetricsConfigMetricsItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventSourceMappingMetricsConfigMetricsItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventSourceMappingMetricsConfigMetricsItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventSourceMappingMetricsConfigMetricsItemOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingMetricsConfigMetricsItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItem)(nil)).Elem()
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemOutput) ToEventSourceMappingMetricsConfigMetricsItemOutput() EventSourceMappingMetricsConfigMetricsItemOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemOutput) ToEventSourceMappingMetricsConfigMetricsItemOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigMetricsItemOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemOutput) ToEventSourceMappingMetricsConfigMetricsItemPtrOutput() EventSourceMappingMetricsConfigMetricsItemPtrOutput {
+	return o.ToEventSourceMappingMetricsConfigMetricsItemPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemOutput) ToEventSourceMappingMetricsConfigMetricsItemPtrOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigMetricsItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingMetricsConfigMetricsItem) *EventSourceMappingMetricsConfigMetricsItem {
+		return &v
+	}).(EventSourceMappingMetricsConfigMetricsItemPtrOutput)
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingMetricsConfigMetricsItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventSourceMappingMetricsConfigMetricsItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingMetricsConfigMetricsItemPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingMetricsConfigMetricsItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingMetricsConfigMetricsItem)(nil)).Elem()
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemPtrOutput) ToEventSourceMappingMetricsConfigMetricsItemPtrOutput() EventSourceMappingMetricsConfigMetricsItemPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemPtrOutput) ToEventSourceMappingMetricsConfigMetricsItemPtrOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigMetricsItemPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemPtrOutput) Elem() EventSourceMappingMetricsConfigMetricsItemOutput {
+	return o.ApplyT(func(v *EventSourceMappingMetricsConfigMetricsItem) EventSourceMappingMetricsConfigMetricsItem {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingMetricsConfigMetricsItem
+		return ret
+	}).(EventSourceMappingMetricsConfigMetricsItemOutput)
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventSourceMappingMetricsConfigMetricsItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventSourceMappingMetricsConfigMetricsItemInput is an input type that accepts values of the EventSourceMappingMetricsConfigMetricsItem enum
+// A concrete instance of `EventSourceMappingMetricsConfigMetricsItemInput` can be one of the following:
+//
+//	EventSourceMappingMetricsConfigMetricsItemEventCount
+type EventSourceMappingMetricsConfigMetricsItemInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingMetricsConfigMetricsItemOutput() EventSourceMappingMetricsConfigMetricsItemOutput
+	ToEventSourceMappingMetricsConfigMetricsItemOutputWithContext(context.Context) EventSourceMappingMetricsConfigMetricsItemOutput
+}
+
+var eventSourceMappingMetricsConfigMetricsItemPtrType = reflect.TypeOf((**EventSourceMappingMetricsConfigMetricsItem)(nil)).Elem()
+
+type EventSourceMappingMetricsConfigMetricsItemPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingMetricsConfigMetricsItemPtrOutput() EventSourceMappingMetricsConfigMetricsItemPtrOutput
+	ToEventSourceMappingMetricsConfigMetricsItemPtrOutputWithContext(context.Context) EventSourceMappingMetricsConfigMetricsItemPtrOutput
+}
+
+type eventSourceMappingMetricsConfigMetricsItemPtr string
+
+func EventSourceMappingMetricsConfigMetricsItemPtr(v string) EventSourceMappingMetricsConfigMetricsItemPtrInput {
+	return (*eventSourceMappingMetricsConfigMetricsItemPtr)(&v)
+}
+
+func (*eventSourceMappingMetricsConfigMetricsItemPtr) ElementType() reflect.Type {
+	return eventSourceMappingMetricsConfigMetricsItemPtrType
+}
+
+func (in *eventSourceMappingMetricsConfigMetricsItemPtr) ToEventSourceMappingMetricsConfigMetricsItemPtrOutput() EventSourceMappingMetricsConfigMetricsItemPtrOutput {
+	return pulumi.ToOutput(in).(EventSourceMappingMetricsConfigMetricsItemPtrOutput)
+}
+
+func (in *eventSourceMappingMetricsConfigMetricsItemPtr) ToEventSourceMappingMetricsConfigMetricsItemPtrOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigMetricsItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventSourceMappingMetricsConfigMetricsItemPtrOutput)
+}
+
+// EventSourceMappingMetricsConfigMetricsItemArrayInput is an input type that accepts EventSourceMappingMetricsConfigMetricsItemArray and EventSourceMappingMetricsConfigMetricsItemArrayOutput values.
+// You can construct a concrete instance of `EventSourceMappingMetricsConfigMetricsItemArrayInput` via:
+//
+//	EventSourceMappingMetricsConfigMetricsItemArray{ EventSourceMappingMetricsConfigMetricsItemArgs{...} }
+type EventSourceMappingMetricsConfigMetricsItemArrayInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingMetricsConfigMetricsItemArrayOutput() EventSourceMappingMetricsConfigMetricsItemArrayOutput
+	ToEventSourceMappingMetricsConfigMetricsItemArrayOutputWithContext(context.Context) EventSourceMappingMetricsConfigMetricsItemArrayOutput
+}
+
+type EventSourceMappingMetricsConfigMetricsItemArray []EventSourceMappingMetricsConfigMetricsItem
+
+func (EventSourceMappingMetricsConfigMetricsItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingMetricsConfigMetricsItem)(nil)).Elem()
+}
+
+func (i EventSourceMappingMetricsConfigMetricsItemArray) ToEventSourceMappingMetricsConfigMetricsItemArrayOutput() EventSourceMappingMetricsConfigMetricsItemArrayOutput {
+	return i.ToEventSourceMappingMetricsConfigMetricsItemArrayOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingMetricsConfigMetricsItemArray) ToEventSourceMappingMetricsConfigMetricsItemArrayOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigMetricsItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingMetricsConfigMetricsItemArrayOutput)
+}
+
+type EventSourceMappingMetricsConfigMetricsItemArrayOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingMetricsConfigMetricsItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventSourceMappingMetricsConfigMetricsItem)(nil)).Elem()
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemArrayOutput) ToEventSourceMappingMetricsConfigMetricsItemArrayOutput() EventSourceMappingMetricsConfigMetricsItemArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemArrayOutput) ToEventSourceMappingMetricsConfigMetricsItemArrayOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigMetricsItemArrayOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigMetricsItemArrayOutput) Index(i pulumi.IntInput) EventSourceMappingMetricsConfigMetricsItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSourceMappingMetricsConfigMetricsItem {
+		return vs[0].([]EventSourceMappingMetricsConfigMetricsItem)[vs[1].(int)]
+	}).(EventSourceMappingMetricsConfigMetricsItemOutput)
+}
+
 // The type of authentication protocol, VPC components, or virtual host for your event source. For example: “"Type":"SASL_SCRAM_512_AUTH"“.
 //   - “BASIC_AUTH“ – (Amazon MQ) The ASMlong secret that stores your broker credentials.
 //   - “BASIC_AUTH“ – (Self-managed Apache Kafka) The Secrets Manager ARN of your secret key used for SASL/PLAIN authentication of your Apache Kafka brokers.
@@ -3203,6 +3411,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemPtrInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItem("ReportBatchItemFailures"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFunctionResponseTypesItemArrayInput)(nil)).Elem(), EventSourceMappingFunctionResponseTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItem("EventCount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemPtrInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItem("EventCount"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigMetricsItemArrayInput)(nil)).Elem(), EventSourceMappingMetricsConfigMetricsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationTypeInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSourceAccessConfigurationTypePtrInput)(nil)).Elem(), EventSourceMappingSourceAccessConfigurationType("BASIC_AUTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArchitecturesItemInput)(nil)).Elem(), FunctionArchitecturesItem("x86_64"))
@@ -3240,6 +3451,9 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFunctionResponseTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigMetricsItemArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSourceAccessConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(FunctionArchitecturesItemOutput{})

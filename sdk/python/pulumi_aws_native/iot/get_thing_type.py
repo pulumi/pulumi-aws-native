@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetThingTypeResult',
@@ -24,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetThingTypeResult:
-    def __init__(__self__, arn=None, deprecate_thing_type=None, id=None, tags=None):
+    def __init__(__self__, arn=None, deprecate_thing_type=None, id=None, tags=None, thing_type_properties=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +39,9 @@ class GetThingTypeResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if thing_type_properties and not isinstance(thing_type_properties, dict):
+            raise TypeError("Expected argument 'thing_type_properties' to be a dict")
+        pulumi.set(__self__, "thing_type_properties", thing_type_properties)
 
     @property
     @pulumi.getter
@@ -72,6 +77,14 @@ class GetThingTypeResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter(name="thingTypeProperties")
+    def thing_type_properties(self) -> Optional['outputs.ThingTypePropertiesProperties']:
+        """
+        The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        """
+        return pulumi.get(self, "thing_type_properties")
+
 
 class AwaitableGetThingTypeResult(GetThingTypeResult):
     # pylint: disable=using-constant-test
@@ -82,7 +95,8 @@ class AwaitableGetThingTypeResult(GetThingTypeResult):
             arn=self.arn,
             deprecate_thing_type=self.deprecate_thing_type,
             id=self.id,
-            tags=self.tags)
+            tags=self.tags,
+            thing_type_properties=self.thing_type_properties)
 
 
 def get_thing_type(thing_type_name: Optional[str] = None,
@@ -102,7 +116,8 @@ def get_thing_type(thing_type_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         deprecate_thing_type=pulumi.get(__ret__, 'deprecate_thing_type'),
         id=pulumi.get(__ret__, 'id'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        thing_type_properties=pulumi.get(__ret__, 'thing_type_properties'))
 def get_thing_type_output(thing_type_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingTypeResult]:
     """
@@ -119,4 +134,5 @@ def get_thing_type_output(thing_type_name: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         deprecate_thing_type=pulumi.get(__response__, 'deprecate_thing_type'),
         id=pulumi.get(__response__, 'id'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        thing_type_properties=pulumi.get(__response__, 'thing_type_properties')))

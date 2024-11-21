@@ -46,6 +46,10 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+     */
+    public readonly excludeResourceTags!: pulumi.Output<outputs.rbin.RuleResourceTag[] | undefined>;
+    /**
      * The unique ID of the retention rule.
      */
     public /*out*/ readonly identifier!: pulumi.Output<string>;
@@ -96,6 +100,7 @@ export class Rule extends pulumi.CustomResource {
                 throw new Error("Missing required property 'retentionPeriod'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
             resourceInputs["lockConfiguration"] = args ? args.lockConfiguration : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
@@ -108,6 +113,7 @@ export class Rule extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["excludeResourceTags"] = undefined /*out*/;
             resourceInputs["identifier"] = undefined /*out*/;
             resourceInputs["lockConfiguration"] = undefined /*out*/;
             resourceInputs["lockState"] = undefined /*out*/;
@@ -132,6 +138,10 @@ export interface RuleArgs {
      * The description of the retention rule.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+     */
+    excludeResourceTags?: pulumi.Input<pulumi.Input<inputs.rbin.RuleResourceTagArgs>[]>;
     /**
      * Information about the retention rule lock configuration.
      */

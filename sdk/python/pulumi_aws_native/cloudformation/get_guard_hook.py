@@ -89,11 +89,17 @@ class GetGuardHookResult:
     @property
     @pulumi.getter
     def options(self) -> Optional['outputs.OptionsProperties']:
+        """
+        Specifies the S3 location of your input parameters.
+        """
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter(name="ruleLocation")
     def rule_location(self) -> Optional['outputs.GuardHookS3Location']:
+        """
+        Specifies the S3 location of your Guard rules.
+        """
         return pulumi.get(self, "rule_location")
 
     @property

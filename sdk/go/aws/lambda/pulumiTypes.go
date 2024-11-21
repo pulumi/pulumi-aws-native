@@ -1919,6 +1919,143 @@ func (o EventSourceMappingFilterCriteriaPtrOutput) Filters() EventSourceMappingF
 	}).(EventSourceMappingFilterArrayOutput)
 }
 
+type EventSourceMappingMetricsConfig struct {
+	// Metric groups to enable.
+	Metrics []EventSourceMappingMetricsConfigMetricsItem `pulumi:"metrics"`
+}
+
+// EventSourceMappingMetricsConfigInput is an input type that accepts EventSourceMappingMetricsConfigArgs and EventSourceMappingMetricsConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingMetricsConfigInput` via:
+//
+//	EventSourceMappingMetricsConfigArgs{...}
+type EventSourceMappingMetricsConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingMetricsConfigOutput() EventSourceMappingMetricsConfigOutput
+	ToEventSourceMappingMetricsConfigOutputWithContext(context.Context) EventSourceMappingMetricsConfigOutput
+}
+
+type EventSourceMappingMetricsConfigArgs struct {
+	// Metric groups to enable.
+	Metrics EventSourceMappingMetricsConfigMetricsItemArrayInput `pulumi:"metrics"`
+}
+
+func (EventSourceMappingMetricsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingMetricsConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingMetricsConfigArgs) ToEventSourceMappingMetricsConfigOutput() EventSourceMappingMetricsConfigOutput {
+	return i.ToEventSourceMappingMetricsConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingMetricsConfigArgs) ToEventSourceMappingMetricsConfigOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingMetricsConfigOutput)
+}
+
+func (i EventSourceMappingMetricsConfigArgs) ToEventSourceMappingMetricsConfigPtrOutput() EventSourceMappingMetricsConfigPtrOutput {
+	return i.ToEventSourceMappingMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingMetricsConfigArgs) ToEventSourceMappingMetricsConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingMetricsConfigOutput).ToEventSourceMappingMetricsConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingMetricsConfigPtrInput is an input type that accepts EventSourceMappingMetricsConfigArgs, EventSourceMappingMetricsConfigPtr and EventSourceMappingMetricsConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingMetricsConfigPtrInput` via:
+//
+//	        EventSourceMappingMetricsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingMetricsConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingMetricsConfigPtrOutput() EventSourceMappingMetricsConfigPtrOutput
+	ToEventSourceMappingMetricsConfigPtrOutputWithContext(context.Context) EventSourceMappingMetricsConfigPtrOutput
+}
+
+type eventSourceMappingMetricsConfigPtrType EventSourceMappingMetricsConfigArgs
+
+func EventSourceMappingMetricsConfigPtr(v *EventSourceMappingMetricsConfigArgs) EventSourceMappingMetricsConfigPtrInput {
+	return (*eventSourceMappingMetricsConfigPtrType)(v)
+}
+
+func (*eventSourceMappingMetricsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingMetricsConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingMetricsConfigPtrType) ToEventSourceMappingMetricsConfigPtrOutput() EventSourceMappingMetricsConfigPtrOutput {
+	return i.ToEventSourceMappingMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingMetricsConfigPtrType) ToEventSourceMappingMetricsConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingMetricsConfigPtrOutput)
+}
+
+type EventSourceMappingMetricsConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingMetricsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingMetricsConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingMetricsConfigOutput) ToEventSourceMappingMetricsConfigOutput() EventSourceMappingMetricsConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigOutput) ToEventSourceMappingMetricsConfigOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigOutput) ToEventSourceMappingMetricsConfigPtrOutput() EventSourceMappingMetricsConfigPtrOutput {
+	return o.ToEventSourceMappingMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingMetricsConfigOutput) ToEventSourceMappingMetricsConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingMetricsConfig) *EventSourceMappingMetricsConfig {
+		return &v
+	}).(EventSourceMappingMetricsConfigPtrOutput)
+}
+
+// Metric groups to enable.
+func (o EventSourceMappingMetricsConfigOutput) Metrics() EventSourceMappingMetricsConfigMetricsItemArrayOutput {
+	return o.ApplyT(func(v EventSourceMappingMetricsConfig) []EventSourceMappingMetricsConfigMetricsItem { return v.Metrics }).(EventSourceMappingMetricsConfigMetricsItemArrayOutput)
+}
+
+type EventSourceMappingMetricsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingMetricsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingMetricsConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingMetricsConfigPtrOutput) ToEventSourceMappingMetricsConfigPtrOutput() EventSourceMappingMetricsConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigPtrOutput) ToEventSourceMappingMetricsConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingMetricsConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingMetricsConfigPtrOutput) Elem() EventSourceMappingMetricsConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingMetricsConfig) EventSourceMappingMetricsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingMetricsConfig
+		return ret
+	}).(EventSourceMappingMetricsConfigOutput)
+}
+
+// Metric groups to enable.
+func (o EventSourceMappingMetricsConfigPtrOutput) Metrics() EventSourceMappingMetricsConfigMetricsItemArrayOutput {
+	return o.ApplyT(func(v *EventSourceMappingMetricsConfig) []EventSourceMappingMetricsConfigMetricsItem {
+		if v == nil {
+			return nil
+		}
+		return v.Metrics
+	}).(EventSourceMappingMetricsConfigMetricsItemArrayOutput)
+}
+
 // A destination for events that failed processing.
 type EventSourceMappingOnFailure struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
@@ -2071,6 +2208,162 @@ func (o EventSourceMappingOnFailurePtrOutput) Destination() pulumi.StringPtrOutp
 		}
 		return v.Destination
 	}).(pulumi.StringPtrOutput)
+}
+
+type EventSourceMappingProvisionedPollerConfig struct {
+	// The maximum number of event pollers this event source can scale up to.
+	MaximumPollers *int `pulumi:"maximumPollers"`
+	// The minimum number of event pollers this event source can scale down to.
+	MinimumPollers *int `pulumi:"minimumPollers"`
+}
+
+// EventSourceMappingProvisionedPollerConfigInput is an input type that accepts EventSourceMappingProvisionedPollerConfigArgs and EventSourceMappingProvisionedPollerConfigOutput values.
+// You can construct a concrete instance of `EventSourceMappingProvisionedPollerConfigInput` via:
+//
+//	EventSourceMappingProvisionedPollerConfigArgs{...}
+type EventSourceMappingProvisionedPollerConfigInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingProvisionedPollerConfigOutput() EventSourceMappingProvisionedPollerConfigOutput
+	ToEventSourceMappingProvisionedPollerConfigOutputWithContext(context.Context) EventSourceMappingProvisionedPollerConfigOutput
+}
+
+type EventSourceMappingProvisionedPollerConfigArgs struct {
+	// The maximum number of event pollers this event source can scale up to.
+	MaximumPollers pulumi.IntPtrInput `pulumi:"maximumPollers"`
+	// The minimum number of event pollers this event source can scale down to.
+	MinimumPollers pulumi.IntPtrInput `pulumi:"minimumPollers"`
+}
+
+func (EventSourceMappingProvisionedPollerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingProvisionedPollerConfig)(nil)).Elem()
+}
+
+func (i EventSourceMappingProvisionedPollerConfigArgs) ToEventSourceMappingProvisionedPollerConfigOutput() EventSourceMappingProvisionedPollerConfigOutput {
+	return i.ToEventSourceMappingProvisionedPollerConfigOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingProvisionedPollerConfigArgs) ToEventSourceMappingProvisionedPollerConfigOutputWithContext(ctx context.Context) EventSourceMappingProvisionedPollerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingProvisionedPollerConfigOutput)
+}
+
+func (i EventSourceMappingProvisionedPollerConfigArgs) ToEventSourceMappingProvisionedPollerConfigPtrOutput() EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return i.ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EventSourceMappingProvisionedPollerConfigArgs) ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingProvisionedPollerConfigOutput).ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(ctx)
+}
+
+// EventSourceMappingProvisionedPollerConfigPtrInput is an input type that accepts EventSourceMappingProvisionedPollerConfigArgs, EventSourceMappingProvisionedPollerConfigPtr and EventSourceMappingProvisionedPollerConfigPtrOutput values.
+// You can construct a concrete instance of `EventSourceMappingProvisionedPollerConfigPtrInput` via:
+//
+//	        EventSourceMappingProvisionedPollerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventSourceMappingProvisionedPollerConfigPtrInput interface {
+	pulumi.Input
+
+	ToEventSourceMappingProvisionedPollerConfigPtrOutput() EventSourceMappingProvisionedPollerConfigPtrOutput
+	ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(context.Context) EventSourceMappingProvisionedPollerConfigPtrOutput
+}
+
+type eventSourceMappingProvisionedPollerConfigPtrType EventSourceMappingProvisionedPollerConfigArgs
+
+func EventSourceMappingProvisionedPollerConfigPtr(v *EventSourceMappingProvisionedPollerConfigArgs) EventSourceMappingProvisionedPollerConfigPtrInput {
+	return (*eventSourceMappingProvisionedPollerConfigPtrType)(v)
+}
+
+func (*eventSourceMappingProvisionedPollerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingProvisionedPollerConfig)(nil)).Elem()
+}
+
+func (i *eventSourceMappingProvisionedPollerConfigPtrType) ToEventSourceMappingProvisionedPollerConfigPtrOutput() EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return i.ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *eventSourceMappingProvisionedPollerConfigPtrType) ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventSourceMappingProvisionedPollerConfigPtrOutput)
+}
+
+type EventSourceMappingProvisionedPollerConfigOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingProvisionedPollerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventSourceMappingProvisionedPollerConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingProvisionedPollerConfigOutput) ToEventSourceMappingProvisionedPollerConfigOutput() EventSourceMappingProvisionedPollerConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingProvisionedPollerConfigOutput) ToEventSourceMappingProvisionedPollerConfigOutputWithContext(ctx context.Context) EventSourceMappingProvisionedPollerConfigOutput {
+	return o
+}
+
+func (o EventSourceMappingProvisionedPollerConfigOutput) ToEventSourceMappingProvisionedPollerConfigPtrOutput() EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return o.ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EventSourceMappingProvisionedPollerConfigOutput) ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSourceMappingProvisionedPollerConfig) *EventSourceMappingProvisionedPollerConfig {
+		return &v
+	}).(EventSourceMappingProvisionedPollerConfigPtrOutput)
+}
+
+// The maximum number of event pollers this event source can scale up to.
+func (o EventSourceMappingProvisionedPollerConfigOutput) MaximumPollers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MaximumPollers }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of event pollers this event source can scale down to.
+func (o EventSourceMappingProvisionedPollerConfigOutput) MinimumPollers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MinimumPollers }).(pulumi.IntPtrOutput)
+}
+
+type EventSourceMappingProvisionedPollerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EventSourceMappingProvisionedPollerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventSourceMappingProvisionedPollerConfig)(nil)).Elem()
+}
+
+func (o EventSourceMappingProvisionedPollerConfigPtrOutput) ToEventSourceMappingProvisionedPollerConfigPtrOutput() EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingProvisionedPollerConfigPtrOutput) ToEventSourceMappingProvisionedPollerConfigPtrOutputWithContext(ctx context.Context) EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return o
+}
+
+func (o EventSourceMappingProvisionedPollerConfigPtrOutput) Elem() EventSourceMappingProvisionedPollerConfigOutput {
+	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) EventSourceMappingProvisionedPollerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EventSourceMappingProvisionedPollerConfig
+		return ret
+	}).(EventSourceMappingProvisionedPollerConfigOutput)
+}
+
+// The maximum number of event pollers this event source can scale up to.
+func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MaximumPollers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumPollers
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of event pollers this event source can scale down to.
+func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MinimumPollers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumPollers
+	}).(pulumi.IntPtrOutput)
 }
 
 // (Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.
@@ -5038,8 +5331,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterArrayInput)(nil)).Elem(), EventSourceMappingFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingFilterCriteriaPtrInput)(nil)).Elem(), EventSourceMappingFilterCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigInput)(nil)).Elem(), EventSourceMappingMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingMetricsConfigPtrInput)(nil)).Elem(), EventSourceMappingMetricsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingOnFailureInput)(nil)).Elem(), EventSourceMappingOnFailureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingOnFailurePtrInput)(nil)).Elem(), EventSourceMappingOnFailureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingProvisionedPollerConfigInput)(nil)).Elem(), EventSourceMappingProvisionedPollerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingProvisionedPollerConfigPtrInput)(nil)).Elem(), EventSourceMappingProvisionedPollerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingScalingConfigInput)(nil)).Elem(), EventSourceMappingScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingScalingConfigPtrInput)(nil)).Elem(), EventSourceMappingScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingSelfManagedEventSourceInput)(nil)).Elem(), EventSourceMappingSelfManagedEventSourceArgs{})
@@ -5104,8 +5401,12 @@ func init() {
 	pulumi.RegisterOutputType(EventSourceMappingFilterArrayOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingFilterCriteriaPtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingMetricsConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailureOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingOnFailurePtrOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingProvisionedPollerConfigOutput{})
+	pulumi.RegisterOutputType(EventSourceMappingProvisionedPollerConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingScalingConfigOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingSelfManagedEventSourceOutput{})

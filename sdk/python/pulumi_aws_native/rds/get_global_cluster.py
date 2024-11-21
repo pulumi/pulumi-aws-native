@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalClusterResult:
-    def __init__(__self__, deletion_protection=None, engine_lifecycle_support=None, engine_version=None, tags=None):
+    def __init__(__self__, deletion_protection=None, engine_lifecycle_support=None, engine_version=None, global_endpoint=None, tags=None):
         if deletion_protection and not isinstance(deletion_protection, bool):
             raise TypeError("Expected argument 'deletion_protection' to be a bool")
         pulumi.set(__self__, "deletion_protection", deletion_protection)
@@ -34,6 +35,9 @@ class GetGlobalClusterResult:
         if engine_version and not isinstance(engine_version, str):
             raise TypeError("Expected argument 'engine_version' to be a str")
         pulumi.set(__self__, "engine_version", engine_version)
+        if global_endpoint and not isinstance(global_endpoint, dict):
+            raise TypeError("Expected argument 'global_endpoint' to be a dict")
+        pulumi.set(__self__, "global_endpoint", global_endpoint)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -63,6 +67,11 @@ class GetGlobalClusterResult:
         return pulumi.get(self, "engine_version")
 
     @property
+    @pulumi.getter(name="globalEndpoint")
+    def global_endpoint(self) -> Optional['outputs.GlobalClusterGlobalEndpoint']:
+        return pulumi.get(self, "global_endpoint")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -80,6 +89,7 @@ class AwaitableGetGlobalClusterResult(GetGlobalClusterResult):
             deletion_protection=self.deletion_protection,
             engine_lifecycle_support=self.engine_lifecycle_support,
             engine_version=self.engine_version,
+            global_endpoint=self.global_endpoint,
             tags=self.tags)
 
 
@@ -100,6 +110,7 @@ def get_global_cluster(global_cluster_identifier: Optional[str] = None,
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
         engine_lifecycle_support=pulumi.get(__ret__, 'engine_lifecycle_support'),
         engine_version=pulumi.get(__ret__, 'engine_version'),
+        global_endpoint=pulumi.get(__ret__, 'global_endpoint'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_global_cluster_output(global_cluster_identifier: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalClusterResult]:
@@ -117,4 +128,5 @@ def get_global_cluster_output(global_cluster_identifier: Optional[pulumi.Input[s
         deletion_protection=pulumi.get(__response__, 'deletion_protection'),
         engine_lifecycle_support=pulumi.get(__response__, 'engine_lifecycle_support'),
         engine_version=pulumi.get(__response__, 'engine_version'),
+        global_endpoint=pulumi.get(__response__, 'global_endpoint'),
         tags=pulumi.get(__response__, 'tags')))

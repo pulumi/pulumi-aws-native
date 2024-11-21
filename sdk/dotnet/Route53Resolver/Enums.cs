@@ -204,6 +204,69 @@ namespace Pulumi.AwsNative.Route53Resolver
     /// FirewallDomainRedirectionAction
     /// </summary>
     [EnumType]
+    public readonly struct FirewallRuleGroupFirewallRuleConfidenceThreshold : IEquatable<FirewallRuleGroupFirewallRuleConfidenceThreshold>
+    {
+        private readonly string _value;
+
+        private FirewallRuleGroupFirewallRuleConfidenceThreshold(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallRuleGroupFirewallRuleConfidenceThreshold Low { get; } = new FirewallRuleGroupFirewallRuleConfidenceThreshold("LOW");
+        public static FirewallRuleGroupFirewallRuleConfidenceThreshold Medium { get; } = new FirewallRuleGroupFirewallRuleConfidenceThreshold("MEDIUM");
+        public static FirewallRuleGroupFirewallRuleConfidenceThreshold High { get; } = new FirewallRuleGroupFirewallRuleConfidenceThreshold("HIGH");
+
+        public static bool operator ==(FirewallRuleGroupFirewallRuleConfidenceThreshold left, FirewallRuleGroupFirewallRuleConfidenceThreshold right) => left.Equals(right);
+        public static bool operator !=(FirewallRuleGroupFirewallRuleConfidenceThreshold left, FirewallRuleGroupFirewallRuleConfidenceThreshold right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallRuleGroupFirewallRuleConfidenceThreshold value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallRuleGroupFirewallRuleConfidenceThreshold other && Equals(other);
+        public bool Equals(FirewallRuleGroupFirewallRuleConfidenceThreshold other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// FirewallDomainRedirectionAction
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallRuleGroupFirewallRuleDnsThreatProtection : IEquatable<FirewallRuleGroupFirewallRuleDnsThreatProtection>
+    {
+        private readonly string _value;
+
+        private FirewallRuleGroupFirewallRuleDnsThreatProtection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallRuleGroupFirewallRuleDnsThreatProtection Dga { get; } = new FirewallRuleGroupFirewallRuleDnsThreatProtection("DGA");
+        public static FirewallRuleGroupFirewallRuleDnsThreatProtection DnsTunneling { get; } = new FirewallRuleGroupFirewallRuleDnsThreatProtection("DNS_TUNNELING");
+
+        public static bool operator ==(FirewallRuleGroupFirewallRuleDnsThreatProtection left, FirewallRuleGroupFirewallRuleDnsThreatProtection right) => left.Equals(right);
+        public static bool operator !=(FirewallRuleGroupFirewallRuleDnsThreatProtection left, FirewallRuleGroupFirewallRuleDnsThreatProtection right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallRuleGroupFirewallRuleDnsThreatProtection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallRuleGroupFirewallRuleDnsThreatProtection other && Equals(other);
+        public bool Equals(FirewallRuleGroupFirewallRuleDnsThreatProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// FirewallDomainRedirectionAction
+    /// </summary>
+    [EnumType]
     public readonly struct FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction : IEquatable<FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction>
     {
         private readonly string _value;

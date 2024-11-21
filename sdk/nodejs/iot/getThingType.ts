@@ -43,6 +43,10 @@ export interface GetThingTypeResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+     */
+    readonly thingTypeProperties?: outputs.iot.ThingTypePropertiesProperties;
 }
 /**
  * Resource Type definition for AWS::IoT::ThingType

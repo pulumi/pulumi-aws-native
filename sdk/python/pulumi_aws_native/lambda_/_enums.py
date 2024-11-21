@@ -8,6 +8,7 @@ __all__ = [
     'CodeSigningConfigCodeSigningPoliciesUntrustedArtifactOnDeployment',
     'EventSourceMappingDocumentDbEventSourceConfigFullDocument',
     'EventSourceMappingFunctionResponseTypesItem',
+    'EventSourceMappingMetricsConfigMetricsItem',
     'EventSourceMappingSourceAccessConfigurationType',
     'FunctionArchitecturesItem',
     'FunctionLoggingConfigApplicationLogLevel',
@@ -45,6 +46,10 @@ class EventSourceMappingDocumentDbEventSourceConfigFullDocument(str, Enum):
 
 class EventSourceMappingFunctionResponseTypesItem(str, Enum):
     REPORT_BATCH_ITEM_FAILURES = "ReportBatchItemFailures"
+
+
+class EventSourceMappingMetricsConfigMetricsItem(str, Enum):
+    EVENT_COUNT = "EventCount"
 
 
 class EventSourceMappingSourceAccessConfigurationType(str, Enum):

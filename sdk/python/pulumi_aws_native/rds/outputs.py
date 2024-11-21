@@ -30,6 +30,7 @@ __all__ = [
     'DbInstanceProcessorFeature',
     'DbProxyAuthFormat',
     'DbProxyTargetGroupConnectionPoolConfigurationInfoFormat',
+    'GlobalClusterGlobalEndpoint',
     'OptionGroupOptionConfiguration',
     'OptionGroupOptionSetting',
 ]
@@ -866,6 +867,25 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormat(dict):
         Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
         """
         return pulumi.get(self, "session_pinning_filters")
+
+
+@pulumi.output_type
+class GlobalClusterGlobalEndpoint(dict):
+    def __init__(__self__, *,
+                 address: Optional[str] = None):
+        """
+        :param str address: The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[str]:
+        """
+        The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+        """
+        return pulumi.get(self, "address")
 
 
 @pulumi.output_type

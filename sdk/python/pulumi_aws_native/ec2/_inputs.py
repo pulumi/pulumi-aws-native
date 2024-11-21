@@ -122,6 +122,8 @@ __all__ = [
     'LaunchTemplateAcceleratorTotalMemoryMiBArgsDict',
     'LaunchTemplateBaselineEbsBandwidthMbpsArgs',
     'LaunchTemplateBaselineEbsBandwidthMbpsArgsDict',
+    'LaunchTemplateBaselinePerformanceFactorsArgs',
+    'LaunchTemplateBaselinePerformanceFactorsArgsDict',
     'LaunchTemplateBlockDeviceMappingArgs',
     'LaunchTemplateBlockDeviceMappingArgsDict',
     'LaunchTemplateCapacityReservationSpecificationArgs',
@@ -132,6 +134,8 @@ __all__ = [
     'LaunchTemplateConnectionTrackingSpecificationArgsDict',
     'LaunchTemplateCpuOptionsArgs',
     'LaunchTemplateCpuOptionsArgsDict',
+    'LaunchTemplateCpuArgs',
+    'LaunchTemplateCpuArgsDict',
     'LaunchTemplateCreditSpecificationArgs',
     'LaunchTemplateCreditSpecificationArgsDict',
     'LaunchTemplateDataArgs',
@@ -186,6 +190,8 @@ __all__ = [
     'LaunchTemplatePrivateDnsNameOptionsArgsDict',
     'LaunchTemplatePrivateIpAddArgs',
     'LaunchTemplatePrivateIpAddArgsDict',
+    'LaunchTemplateReferenceArgs',
+    'LaunchTemplateReferenceArgsDict',
     'LaunchTemplateSpotOptionsArgs',
     'LaunchTemplateSpotOptionsArgsDict',
     'LaunchTemplateTagSpecificationArgs',
@@ -5157,6 +5163,29 @@ class LaunchTemplateBaselineEbsBandwidthMbpsArgs:
 
 
 if not MYPY:
+    class LaunchTemplateBaselinePerformanceFactorsArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input['LaunchTemplateCpuArgsDict']]
+elif False:
+    LaunchTemplateBaselinePerformanceFactorsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LaunchTemplateBaselinePerformanceFactorsArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input['LaunchTemplateCpuArgs']] = None):
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input['LaunchTemplateCpuArgs']]:
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input['LaunchTemplateCpuArgs']]):
+        pulumi.set(self, "cpu", value)
+
+
+if not MYPY:
     class LaunchTemplateBlockDeviceMappingArgsDict(TypedDict):
         """
         Specifies a block device mapping for a launch template. You must specify ``DeviceName`` plus exactly one of the following properties: ``Ebs``, ``NoDevice``, or ``VirtualName``.
@@ -5528,6 +5557,29 @@ class LaunchTemplateCpuOptionsArgs:
     @threads_per_core.setter
     def threads_per_core(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "threads_per_core", value)
+
+
+if not MYPY:
+    class LaunchTemplateCpuArgsDict(TypedDict):
+        references: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgsDict']]]]
+elif False:
+    LaunchTemplateCpuArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LaunchTemplateCpuArgs:
+    def __init__(__self__, *,
+                 references: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgs']]]] = None):
+        if references is not None:
+            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgs']]]]:
+        return pulumi.get(self, "references")
+
+    @references.setter
+    def references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgs']]]]):
+        pulumi.set(self, "references", value)
 
 
 if not MYPY:
@@ -6991,6 +7043,7 @@ if not MYPY:
         The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
          Default: No minimum or maximum limits
         """
+        baseline_performance_factors: NotRequired[pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgsDict']]
         burstable_performance: NotRequired[pulumi.Input[str]]
         """
         Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
@@ -7115,6 +7168,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                  allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['LaunchTemplateBaselineEbsBandwidthMbpsArgs']] = None,
+                 baseline_performance_factors: Optional[pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
                  cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -7268,6 +7322,8 @@ class LaunchTemplateInstanceRequirementsArgs:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
             pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if baseline_performance_factors is not None:
+            pulumi.set(__self__, "baseline_performance_factors", baseline_performance_factors)
         if burstable_performance is not None:
             pulumi.set(__self__, "burstable_performance", burstable_performance)
         if cpu_manufacturers is not None:
@@ -7435,6 +7491,15 @@ class LaunchTemplateInstanceRequirementsArgs:
     @baseline_ebs_bandwidth_mbps.setter
     def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['LaunchTemplateBaselineEbsBandwidthMbpsArgs']]):
         pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
+
+    @property
+    @pulumi.getter(name="baselinePerformanceFactors")
+    def baseline_performance_factors(self) -> Optional[pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgs']]:
+        return pulumi.get(self, "baseline_performance_factors")
+
+    @baseline_performance_factors.setter
+    def baseline_performance_factors(self, value: Optional[pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgs']]):
+        pulumi.set(self, "baseline_performance_factors", value)
 
     @property
     @pulumi.getter(name="burstablePerformance")
@@ -9072,6 +9137,38 @@ class LaunchTemplatePrivateIpAddArgs:
     @private_ip_address.setter
     def private_ip_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_ip_address", value)
+
+
+if not MYPY:
+    class LaunchTemplateReferenceArgsDict(TypedDict):
+        instance_family: NotRequired[pulumi.Input[str]]
+        """
+        The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+        """
+elif False:
+    LaunchTemplateReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LaunchTemplateReferenceArgs:
+    def __init__(__self__, *,
+                 instance_family: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] instance_family: The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+        """
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+        """
+        return pulumi.get(self, "instance_family")
+
+    @instance_family.setter
+    def instance_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_family", value)
 
 
 if not MYPY:

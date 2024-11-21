@@ -135,10 +135,12 @@ export class EventSourceMapping extends pulumi.CustomResource {
      * (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
      */
     public readonly maximumRetryAttempts!: pulumi.Output<number | undefined>;
+    public readonly metricsConfig!: pulumi.Output<outputs.lambda.EventSourceMappingMetricsConfig | undefined>;
     /**
      * (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
      */
     public readonly parallelizationFactor!: pulumi.Output<number | undefined>;
+    public readonly provisionedPollerConfig!: pulumi.Output<outputs.lambda.EventSourceMappingProvisionedPollerConfig | undefined>;
     /**
      * (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
      */
@@ -212,7 +214,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
             resourceInputs["maximumRecordAgeInSeconds"] = args ? args.maximumRecordAgeInSeconds : undefined;
             resourceInputs["maximumRetryAttempts"] = args ? args.maximumRetryAttempts : undefined;
+            resourceInputs["metricsConfig"] = args ? args.metricsConfig : undefined;
             resourceInputs["parallelizationFactor"] = args ? args.parallelizationFactor : undefined;
+            resourceInputs["provisionedPollerConfig"] = args ? args.provisionedPollerConfig : undefined;
             resourceInputs["queues"] = args ? args.queues : undefined;
             resourceInputs["scalingConfig"] = args ? args.scalingConfig : undefined;
             resourceInputs["selfManagedEventSource"] = args ? args.selfManagedEventSource : undefined;
@@ -242,7 +246,9 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["maximumBatchingWindowInSeconds"] = undefined /*out*/;
             resourceInputs["maximumRecordAgeInSeconds"] = undefined /*out*/;
             resourceInputs["maximumRetryAttempts"] = undefined /*out*/;
+            resourceInputs["metricsConfig"] = undefined /*out*/;
             resourceInputs["parallelizationFactor"] = undefined /*out*/;
+            resourceInputs["provisionedPollerConfig"] = undefined /*out*/;
             resourceInputs["queues"] = undefined /*out*/;
             resourceInputs["scalingConfig"] = undefined /*out*/;
             resourceInputs["selfManagedEventSource"] = undefined /*out*/;
@@ -347,10 +353,12 @@ export interface EventSourceMappingArgs {
      * (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
      */
     maximumRetryAttempts?: pulumi.Input<number>;
+    metricsConfig?: pulumi.Input<inputs.lambda.EventSourceMappingMetricsConfigArgs>;
     /**
      * (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
      */
     parallelizationFactor?: pulumi.Input<number>;
+    provisionedPollerConfig?: pulumi.Input<inputs.lambda.EventSourceMappingProvisionedPollerConfigArgs>;
     /**
      * (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
      */

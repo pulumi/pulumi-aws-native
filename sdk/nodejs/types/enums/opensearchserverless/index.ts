@@ -43,6 +43,7 @@ export type LifecyclePolicyType = (typeof LifecyclePolicyType)[keyof typeof Life
 
 export const SecurityConfigType = {
     Saml: "saml",
+    Iamidentitycenter: "iamidentitycenter",
 } as const;
 
 /**

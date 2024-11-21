@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleResult:
-    def __init__(__self__, arn=None, description=None, identifier=None, lock_state=None, resource_tags=None, retention_period=None, status=None, tags=None):
+    def __init__(__self__, arn=None, description=None, exclude_resource_tags=None, identifier=None, lock_state=None, resource_tags=None, retention_period=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if exclude_resource_tags and not isinstance(exclude_resource_tags, list):
+            raise TypeError("Expected argument 'exclude_resource_tags' to be a list")
+        pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
         if identifier and not isinstance(identifier, str):
             raise TypeError("Expected argument 'identifier' to be a str")
         pulumi.set(__self__, "identifier", identifier)
@@ -67,6 +70,14 @@ class GetRuleResult:
         The description of the retention rule.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="excludeResourceTags")
+    def exclude_resource_tags(self) -> Optional[Sequence['outputs.RuleResourceTag']]:
+        """
+        Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+        """
+        return pulumi.get(self, "exclude_resource_tags")
 
     @property
     @pulumi.getter
@@ -125,6 +136,7 @@ class AwaitableGetRuleResult(GetRuleResult):
         return GetRuleResult(
             arn=self.arn,
             description=self.description,
+            exclude_resource_tags=self.exclude_resource_tags,
             identifier=self.identifier,
             lock_state=self.lock_state,
             resource_tags=self.resource_tags,
@@ -149,6 +161,7 @@ def get_rule(arn: Optional[str] = None,
     return AwaitableGetRuleResult(
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'),
+        exclude_resource_tags=pulumi.get(__ret__, 'exclude_resource_tags'),
         identifier=pulumi.get(__ret__, 'identifier'),
         lock_state=pulumi.get(__ret__, 'lock_state'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
@@ -170,6 +183,7 @@ def get_rule_output(arn: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetRuleResult(
         arn=pulumi.get(__response__, 'arn'),
         description=pulumi.get(__response__, 'description'),
+        exclude_resource_tags=pulumi.get(__response__, 'exclude_resource_tags'),
         identifier=pulumi.get(__response__, 'identifier'),
         lock_state=pulumi.get(__response__, 'lock_state'),
         resource_tags=pulumi.get(__response__, 'resource_tags'),

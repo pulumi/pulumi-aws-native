@@ -74,6 +74,10 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// A list of unique names for active event triggers associated with the integration.
+        /// </summary>
+        public readonly ImmutableArray<string> EventTriggerNames;
+        /// <summary>
         /// The time of this integration got last updated at
         /// </summary>
         public readonly string? LastUpdatedAt;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.CustomerProfiles
         private GetIntegrationResult(
             string? createdAt,
 
+            ImmutableArray<string> eventTriggerNames,
+
             string? lastUpdatedAt,
 
             string? objectTypeName,
@@ -103,6 +109,7 @@ namespace Pulumi.AwsNative.CustomerProfiles
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreatedAt = createdAt;
+            EventTriggerNames = eventTriggerNames;
             LastUpdatedAt = lastUpdatedAt;
             ObjectTypeName = objectTypeName;
             ObjectTypeNames = objectTypeNames;

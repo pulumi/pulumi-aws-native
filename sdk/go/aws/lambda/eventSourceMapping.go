@@ -83,9 +83,11 @@ type EventSourceMapping struct {
 	//   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
 	MaximumRecordAgeInSeconds pulumi.IntPtrOutput `pulumi:"maximumRecordAgeInSeconds"`
 	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
-	MaximumRetryAttempts pulumi.IntPtrOutput `pulumi:"maximumRetryAttempts"`
+	MaximumRetryAttempts pulumi.IntPtrOutput                      `pulumi:"maximumRetryAttempts"`
+	MetricsConfig        EventSourceMappingMetricsConfigPtrOutput `pulumi:"metricsConfig"`
 	// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
-	ParallelizationFactor pulumi.IntPtrOutput `pulumi:"parallelizationFactor"`
+	ParallelizationFactor   pulumi.IntPtrOutput                                `pulumi:"parallelizationFactor"`
+	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrOutput `pulumi:"provisionedPollerConfig"`
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
 	Queues pulumi.StringArrayOutput `pulumi:"queues"`
 	// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
@@ -217,9 +219,11 @@ type eventSourceMappingArgs struct {
 	//   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
 	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
 	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
-	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+	MaximumRetryAttempts *int                             `pulumi:"maximumRetryAttempts"`
+	MetricsConfig        *EventSourceMappingMetricsConfig `pulumi:"metricsConfig"`
 	// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
-	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
+	ParallelizationFactor   *int                                       `pulumi:"parallelizationFactor"`
+	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
 	Queues []string `pulumi:"queues"`
 	// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
@@ -302,8 +306,10 @@ type EventSourceMappingArgs struct {
 	MaximumRecordAgeInSeconds pulumi.IntPtrInput
 	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
 	MaximumRetryAttempts pulumi.IntPtrInput
+	MetricsConfig        EventSourceMappingMetricsConfigPtrInput
 	// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
-	ParallelizationFactor pulumi.IntPtrInput
+	ParallelizationFactor   pulumi.IntPtrInput
+	ProvisionedPollerConfig EventSourceMappingProvisionedPollerConfigPtrInput
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
 	Queues pulumi.StringArrayInput
 	// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
@@ -484,9 +490,19 @@ func (o EventSourceMappingOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
+func (o EventSourceMappingOutput) MetricsConfig() EventSourceMappingMetricsConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingMetricsConfigPtrOutput { return v.MetricsConfig }).(EventSourceMappingMetricsConfigPtrOutput)
+}
+
 // (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
 func (o EventSourceMappingOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
+}
+
+func (o EventSourceMappingOutput) ProvisionedPollerConfig() EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) EventSourceMappingProvisionedPollerConfigPtrOutput {
+		return v.ProvisionedPollerConfig
+	}).(EventSourceMappingProvisionedPollerConfigPtrOutput)
 }
 
 // (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.

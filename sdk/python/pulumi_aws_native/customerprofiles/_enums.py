@@ -26,6 +26,11 @@ __all__ = [
     'IntegrationZendeskConnectorOperator',
     'ObjectTypeFieldContentType',
     'ObjectTypeKeyStandardIdentifiersItem',
+    'SegmentDefinitionAttributeDimensionType',
+    'SegmentDefinitionDateDimensionType',
+    'SegmentDefinitionIncludeOptions',
+    'SegmentDefinitionRangeOverrideUnit',
+    'SegmentDefinitionStringDimensionType',
 ]
 
 
@@ -290,3 +295,62 @@ class ObjectTypeKeyStandardIdentifiersItem(str, Enum):
     ASSET = "ASSET"
     CASE = "CASE"
     ORDER = "ORDER"
+
+
+class SegmentDefinitionAttributeDimensionType(str, Enum):
+    """
+    The type of segment dimension to use.
+    """
+    INCLUSIVE = "INCLUSIVE"
+    EXCLUSIVE = "EXCLUSIVE"
+    CONTAINS = "CONTAINS"
+    BEGINS_WITH = "BEGINS_WITH"
+    ENDS_WITH = "ENDS_WITH"
+    BEFORE = "BEFORE"
+    AFTER = "AFTER"
+    BETWEEN = "BETWEEN"
+    NOT_BETWEEN = "NOT_BETWEEN"
+    ON = "ON"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+    GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL"
+    LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+    EQUAL = "EQUAL"
+
+
+class SegmentDefinitionDateDimensionType(str, Enum):
+    """
+    The type of segment dimension to use for a date dimension.
+    """
+    BEFORE = "BEFORE"
+    AFTER = "AFTER"
+    BETWEEN = "BETWEEN"
+    NOT_BETWEEN = "NOT_BETWEEN"
+    ON = "ON"
+
+
+class SegmentDefinitionIncludeOptions(str, Enum):
+    """
+    Specifies the operator on how to handle multiple groups within the same segment.
+    """
+    ALL = "ALL"
+    ANY = "ANY"
+    NONE = "NONE"
+
+
+class SegmentDefinitionRangeOverrideUnit(str, Enum):
+    """
+    The unit to be applied to the range.
+    """
+    DAYS = "DAYS"
+
+
+class SegmentDefinitionStringDimensionType(str, Enum):
+    """
+    The type of segment dimension to use for a string dimension.
+    """
+    INCLUSIVE = "INCLUSIVE"
+    EXCLUSIVE = "EXCLUSIVE"
+    CONTAINS = "CONTAINS"
+    BEGINS_WITH = "BEGINS_WITH"
+    ENDS_WITH = "ENDS_WITH"

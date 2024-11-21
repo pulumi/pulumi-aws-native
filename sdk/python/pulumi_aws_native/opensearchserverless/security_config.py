@@ -23,6 +23,7 @@ __all__ = ['SecurityConfigArgs', 'SecurityConfig']
 class SecurityConfigArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
+                 iam_identity_center_options: Optional[pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  saml_options: Optional[pulumi.Input['SecurityConfigSamlConfigOptionsArgs']] = None,
                  type: Optional[pulumi.Input['SecurityConfigType']] = None):
@@ -35,6 +36,8 @@ class SecurityConfigArgs:
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if iam_identity_center_options is not None:
+            pulumi.set(__self__, "iam_identity_center_options", iam_identity_center_options)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if saml_options is not None:
@@ -53,6 +56,15 @@ class SecurityConfigArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="iamIdentityCenterOptions")
+    def iam_identity_center_options(self) -> Optional[pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs']]:
+        return pulumi.get(self, "iam_identity_center_options")
+
+    @iam_identity_center_options.setter
+    def iam_identity_center_options(self, value: Optional[pulumi.Input['SecurityConfigIamIdentityCenterConfigOptionsArgs']]):
+        pulumi.set(self, "iam_identity_center_options", value)
 
     @property
     @pulumi.getter
@@ -97,6 +109,7 @@ class SecurityConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 iam_identity_center_options: Optional[pulumi.Input[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  saml_options: Optional[pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
                  type: Optional[pulumi.Input['SecurityConfigType']] = None,
@@ -212,6 +225,7 @@ class SecurityConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 iam_identity_center_options: Optional[pulumi.Input[Union['SecurityConfigIamIdentityCenterConfigOptionsArgs', 'SecurityConfigIamIdentityCenterConfigOptionsArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  saml_options: Optional[pulumi.Input[Union['SecurityConfigSamlConfigOptionsArgs', 'SecurityConfigSamlConfigOptionsArgsDict']]] = None,
                  type: Optional[pulumi.Input['SecurityConfigType']] = None,
@@ -225,11 +239,12 @@ class SecurityConfig(pulumi.CustomResource):
             __props__ = SecurityConfigArgs.__new__(SecurityConfigArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["iam_identity_center_options"] = iam_identity_center_options
             __props__.__dict__["name"] = name
             __props__.__dict__["saml_options"] = saml_options
             __props__.__dict__["type"] = type
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["iamIdentityCenterOptions.instanceArn", "name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(SecurityConfig, __self__).__init__(
             'aws-native:opensearchserverless:SecurityConfig',
@@ -255,6 +270,7 @@ class SecurityConfig(pulumi.CustomResource):
 
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["iam_identity_center_options"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["saml_options"] = None
         __props__.__dict__["type"] = None
@@ -275,6 +291,11 @@ class SecurityConfig(pulumi.CustomResource):
         Security config description
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="iamIdentityCenterOptions")
+    def iam_identity_center_options(self) -> pulumi.Output[Optional['outputs.SecurityConfigIamIdentityCenterConfigOptions']]:
+        return pulumi.get(self, "iam_identity_center_options")
 
     @property
     @pulumi.getter

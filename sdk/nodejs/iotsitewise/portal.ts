@@ -78,6 +78,11 @@ export class Portal extends pulumi.CustomResource {
      */
     public /*out*/ readonly portalStartUrl!: pulumi.Output<string>;
     /**
+     * The type of portal
+     */
+    public readonly portalType!: pulumi.Output<enums.iotsitewise.PortalType | undefined>;
+    public readonly portalTypeConfiguration!: pulumi.Output<{[key: string]: outputs.iotsitewise.PortalTypeEntry} | undefined>;
+    /**
      * The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
@@ -109,6 +114,8 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["portalContactEmail"] = args ? args.portalContactEmail : undefined;
             resourceInputs["portalDescription"] = args ? args.portalDescription : undefined;
             resourceInputs["portalName"] = args ? args.portalName : undefined;
+            resourceInputs["portalType"] = args ? args.portalType : undefined;
+            resourceInputs["portalTypeConfiguration"] = args ? args.portalTypeConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["portalArn"] = undefined /*out*/;
@@ -126,11 +133,13 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["portalId"] = undefined /*out*/;
             resourceInputs["portalName"] = undefined /*out*/;
             resourceInputs["portalStartUrl"] = undefined /*out*/;
+            resourceInputs["portalType"] = undefined /*out*/;
+            resourceInputs["portalTypeConfiguration"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["portalAuthMode"] };
+        const replaceOnChanges = { replaceOnChanges: ["portalAuthMode", "portalType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Portal.__pulumiType, name, resourceInputs, opts);
     }
@@ -164,6 +173,11 @@ export interface PortalArgs {
      * A friendly name for the portal.
      */
     portalName?: pulumi.Input<string>;
+    /**
+     * The type of portal
+     */
+    portalType?: pulumi.Input<enums.iotsitewise.PortalType>;
+    portalTypeConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<inputs.iotsitewise.PortalTypeEntryArgs>}>;
     /**
      * The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
      */

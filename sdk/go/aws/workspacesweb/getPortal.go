@@ -48,7 +48,8 @@ type LookupPortalResult struct {
 	// The browser that users see when using a streaming session.
 	BrowserType *PortalBrowserType `pulumi:"browserType"`
 	// The creation date of the web portal.
-	CreationDate *string `pulumi:"creationDate"`
+	CreationDate              *string `pulumi:"creationDate"`
+	DataProtectionSettingsArn *string `pulumi:"dataProtectionSettingsArn"`
 	// The name of the web portal.
 	DisplayName *string `pulumi:"displayName"`
 	// The type and resources of the underlying instance.
@@ -153,6 +154,10 @@ func (o LookupPortalResultOutput) BrowserType() PortalBrowserTypePtrOutput {
 // The creation date of the web portal.
 func (o LookupPortalResultOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPortalResultOutput) DataProtectionSettingsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPortalResult) *string { return v.DataProtectionSettingsArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the web portal.

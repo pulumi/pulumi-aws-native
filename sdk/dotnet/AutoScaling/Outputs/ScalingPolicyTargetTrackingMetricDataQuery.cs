@@ -33,6 +33,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         /// Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
         /// </summary>
         public readonly Outputs.ScalingPolicyTargetTrackingMetricStat? MetricStat;
+        public readonly int? Period;
         /// <summary>
         /// Indicates whether to return the timestamps and raw data values of this metric.
         /// 
@@ -52,12 +53,15 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             Outputs.ScalingPolicyTargetTrackingMetricStat? metricStat,
 
+            int? period,
+
             bool? returnData)
         {
             Expression = expression;
             Id = id;
             Label = label;
             MetricStat = metricStat;
+            Period = period;
             ReturnData = returnData;
         }
     }

@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }
 
         /// <summary>
-        /// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        /// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
         /// </summary>
         [Input("warmThroughput")]
         public Input<Inputs.TableWarmThroughputArgs>? WarmThroughput { get; set; }

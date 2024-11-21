@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetCanaryResult',
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetCanaryResult:
-    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, vpc_config=None):
+    def __init__(__self__, artifact_config=None, artifact_s3_location=None, code=None, execution_role_arn=None, failure_retention_period=None, id=None, provisioned_resource_cleanup=None, run_config=None, runtime_version=None, schedule=None, state=None, success_retention_period=None, tags=None, vpc_config=None):
         if artifact_config and not isinstance(artifact_config, dict):
             raise TypeError("Expected argument 'artifact_config' to be a dict")
         pulumi.set(__self__, "artifact_config", artifact_config)
@@ -44,6 +45,9 @@ class GetCanaryResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if provisioned_resource_cleanup and not isinstance(provisioned_resource_cleanup, str):
+            raise TypeError("Expected argument 'provisioned_resource_cleanup' to be a str")
+        pulumi.set(__self__, "provisioned_resource_cleanup", provisioned_resource_cleanup)
         if run_config and not isinstance(run_config, dict):
             raise TypeError("Expected argument 'run_config' to be a dict")
         pulumi.set(__self__, "run_config", run_config)
@@ -115,6 +119,14 @@ class GetCanaryResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="provisionedResourceCleanup")
+    def provisioned_resource_cleanup(self) -> Optional['CanaryProvisionedResourceCleanup']:
+        """
+        Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+        """
+        return pulumi.get(self, "provisioned_resource_cleanup")
+
+    @property
     @pulumi.getter(name="runConfig")
     def run_config(self) -> Optional['outputs.CanaryRunConfig']:
         """
@@ -183,6 +195,7 @@ class AwaitableGetCanaryResult(GetCanaryResult):
             execution_role_arn=self.execution_role_arn,
             failure_retention_period=self.failure_retention_period,
             id=self.id,
+            provisioned_resource_cleanup=self.provisioned_resource_cleanup,
             run_config=self.run_config,
             runtime_version=self.runtime_version,
             schedule=self.schedule,
@@ -212,6 +225,7 @@ def get_canary(name: Optional[str] = None,
         execution_role_arn=pulumi.get(__ret__, 'execution_role_arn'),
         failure_retention_period=pulumi.get(__ret__, 'failure_retention_period'),
         id=pulumi.get(__ret__, 'id'),
+        provisioned_resource_cleanup=pulumi.get(__ret__, 'provisioned_resource_cleanup'),
         run_config=pulumi.get(__ret__, 'run_config'),
         runtime_version=pulumi.get(__ret__, 'runtime_version'),
         schedule=pulumi.get(__ret__, 'schedule'),
@@ -238,6 +252,7 @@ def get_canary_output(name: Optional[pulumi.Input[str]] = None,
         execution_role_arn=pulumi.get(__response__, 'execution_role_arn'),
         failure_retention_period=pulumi.get(__response__, 'failure_retention_period'),
         id=pulumi.get(__response__, 'id'),
+        provisioned_resource_cleanup=pulumi.get(__response__, 'provisioned_resource_cleanup'),
         run_config=pulumi.get(__response__, 'run_config'),
         runtime_version=pulumi.get(__response__, 'runtime_version'),
         schedule=pulumi.get(__response__, 'schedule'),

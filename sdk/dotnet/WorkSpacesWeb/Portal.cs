@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        [Output("dataProtectionSettingsArn")]
+        public Output<string?> DataProtectionSettingsArn { get; private set; } = null!;
+
         /// <summary>
         /// The name of the web portal.
         /// </summary>
@@ -248,6 +251,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
+
+        [Input("dataProtectionSettingsArn")]
+        public Input<string>? DataProtectionSettingsArn { get; set; }
 
         /// <summary>
         /// The name of the web portal.

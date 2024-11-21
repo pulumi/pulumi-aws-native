@@ -9,6 +9,7 @@ __all__ = [
     'AssetModelDataTypeSpec',
     'AssetModelTypeName',
     'AssetPropertyNotificationState',
+    'PortalType',
 ]
 
 
@@ -37,3 +38,11 @@ class AssetPropertyNotificationState(str, Enum):
     """
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
+
+
+class PortalType(str, Enum):
+    """
+    The type of portal
+    """
+    SITEWISE_PORTAL_V1 = "SITEWISE_PORTAL_V1"
+    SITEWISE_PORTAL_V2 = "SITEWISE_PORTAL_V2"

@@ -87,6 +87,10 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
         /// </summary>
         public readonly Pulumi.AwsNative.Route53RecoveryControl.SafetyRuleStatus? Status;
+        /// <summary>
+        /// A collection of tags associated with a resource
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetSafetyRuleResult(
@@ -102,7 +106,9 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
 
             string? safetyRuleArn,
 
-            Pulumi.AwsNative.Route53RecoveryControl.SafetyRuleStatus? status)
+            Pulumi.AwsNative.Route53RecoveryControl.SafetyRuleStatus? status,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AssertionRule = assertionRule;
             ControlPanelArn = controlPanelArn;
@@ -111,6 +117,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
             RuleConfig = ruleConfig;
             SafetyRuleArn = safetyRuleArn;
             Status = status;
+            Tags = tags;
         }
     }
 }

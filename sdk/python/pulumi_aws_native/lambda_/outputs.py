@@ -31,7 +31,9 @@ __all__ = [
     'EventSourceMappingEndpoints',
     'EventSourceMappingFilter',
     'EventSourceMappingFilterCriteria',
+    'EventSourceMappingMetricsConfig',
     'EventSourceMappingOnFailure',
+    'EventSourceMappingProvisionedPollerConfig',
     'EventSourceMappingScalingConfig',
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSelfManagedKafkaEventSourceConfig',
@@ -596,6 +598,25 @@ class EventSourceMappingFilterCriteria(dict):
 
 
 @pulumi.output_type
+class EventSourceMappingMetricsConfig(dict):
+    def __init__(__self__, *,
+                 metrics: Optional[Sequence['EventSourceMappingMetricsConfigMetricsItem']] = None):
+        """
+        :param Sequence['EventSourceMappingMetricsConfigMetricsItem'] metrics: Metric groups to enable.
+        """
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[Sequence['EventSourceMappingMetricsConfigMetricsItem']]:
+        """
+        Metric groups to enable.
+        """
+        return pulumi.get(self, "metrics")
+
+
+@pulumi.output_type
 class EventSourceMappingOnFailure(dict):
     """
     A destination for events that failed processing.
@@ -622,6 +643,56 @@ class EventSourceMappingOnFailure(dict):
          To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
         return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
+class EventSourceMappingProvisionedPollerConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumPollers":
+            suggest = "maximum_pollers"
+        elif key == "minimumPollers":
+            suggest = "minimum_pollers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventSourceMappingProvisionedPollerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventSourceMappingProvisionedPollerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventSourceMappingProvisionedPollerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_pollers: Optional[int] = None,
+                 minimum_pollers: Optional[int] = None):
+        """
+        :param int maximum_pollers: The maximum number of event pollers this event source can scale up to.
+        :param int minimum_pollers: The minimum number of event pollers this event source can scale down to.
+        """
+        if maximum_pollers is not None:
+            pulumi.set(__self__, "maximum_pollers", maximum_pollers)
+        if minimum_pollers is not None:
+            pulumi.set(__self__, "minimum_pollers", minimum_pollers)
+
+    @property
+    @pulumi.getter(name="maximumPollers")
+    def maximum_pollers(self) -> Optional[int]:
+        """
+        The maximum number of event pollers this event source can scale up to.
+        """
+        return pulumi.get(self, "maximum_pollers")
+
+    @property
+    @pulumi.getter(name="minimumPollers")
+    def minimum_pollers(self) -> Optional[int]:
+        """
+        The minimum number of event pollers this event source can scale down to.
+        """
+        return pulumi.get(self, "minimum_pollers")
 
 
 @pulumi.output_type

@@ -50,6 +50,7 @@ class SecurityConfigType(str, Enum):
     Config type for security config
     """
     SAML = "saml"
+    IAMIDENTITYCENTER = "iamidentitycenter"
 
 
 class SecurityPolicyType(str, Enum):

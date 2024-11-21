@@ -17,6 +17,7 @@ __all__ = [
     'EvaluationFormSingleSelectQuestionRuleCategoryAutomationCondition',
     'EvaluationFormStatus',
     'HoursOfOperationConfigDay',
+    'HoursOfOperationOverrideConfigDay',
     'InstanceIdentityManagementType',
     'InstanceStatus',
     'InstanceStorageConfigEncryptionType',
@@ -155,6 +156,19 @@ class EvaluationFormStatus(str, Enum):
 class HoursOfOperationConfigDay(str, Enum):
     """
     The day that the hours of operation applies to.
+    """
+    SUNDAY = "SUNDAY"
+    MONDAY = "MONDAY"
+    TUESDAY = "TUESDAY"
+    WEDNESDAY = "WEDNESDAY"
+    THURSDAY = "THURSDAY"
+    FRIDAY = "FRIDAY"
+    SATURDAY = "SATURDAY"
+
+
+class HoursOfOperationOverrideConfigDay(str, Enum):
+    """
+    The day that the hours of operation override applies to.
     """
     SUNDAY = "SUNDAY"
     MONDAY = "MONDAY"

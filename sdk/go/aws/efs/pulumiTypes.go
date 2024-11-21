@@ -1151,7 +1151,10 @@ type FileSystemReplicationDestination struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The AWS-Region in which the destination file system is located.
 	//   For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
-	Region *string `pulumi:"region"`
+	Region        *string `pulumi:"region"`
+	RoleArn       *string `pulumi:"roleArn"`
+	Status        *string `pulumi:"status"`
+	StatusMessage *string `pulumi:"statusMessage"`
 }
 
 // FileSystemReplicationDestinationInput is an input type that accepts FileSystemReplicationDestinationArgs and FileSystemReplicationDestinationOutput values.
@@ -1177,7 +1180,10 @@ type FileSystemReplicationDestinationArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The AWS-Region in which the destination file system is located.
 	//   For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
-	Region pulumi.StringPtrInput `pulumi:"region"`
+	Region        pulumi.StringPtrInput `pulumi:"region"`
+	RoleArn       pulumi.StringPtrInput `pulumi:"roleArn"`
+	Status        pulumi.StringPtrInput `pulumi:"status"`
+	StatusMessage pulumi.StringPtrInput `pulumi:"statusMessage"`
 }
 
 func (FileSystemReplicationDestinationArgs) ElementType() reflect.Type {
@@ -1255,6 +1261,18 @@ func (o FileSystemReplicationDestinationOutput) KmsKeyId() pulumi.StringPtrOutpu
 //	For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
 func (o FileSystemReplicationDestinationOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemReplicationDestinationOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemReplicationDestinationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o FileSystemReplicationDestinationOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileSystemReplicationDestination) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
 type FileSystemReplicationDestinationArrayOutput struct{ *pulumi.OutputState }

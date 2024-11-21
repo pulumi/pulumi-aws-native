@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation.Outputs
 {
 
+    /// <summary>
+    /// Specifies the S3 location of your input parameters.
+    /// </summary>
     [OutputType]
     public sealed class OptionsProperties
     {
+        /// <summary>
+        /// Specifies the S3 location where your input parameters are located.
+        /// </summary>
         public readonly Outputs.GuardHookS3Location? InputParams;
 
         [OutputConstructor]

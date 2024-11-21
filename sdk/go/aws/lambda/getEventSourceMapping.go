@@ -85,9 +85,11 @@ type LookupEventSourceMappingResult struct {
 	//   The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
 	MaximumRecordAgeInSeconds *int `pulumi:"maximumRecordAgeInSeconds"`
 	// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
-	MaximumRetryAttempts *int `pulumi:"maximumRetryAttempts"`
+	MaximumRetryAttempts *int                             `pulumi:"maximumRetryAttempts"`
+	MetricsConfig        *EventSourceMappingMetricsConfig `pulumi:"metricsConfig"`
 	// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
-	ParallelizationFactor *int `pulumi:"parallelizationFactor"`
+	ParallelizationFactor   *int                                       `pulumi:"parallelizationFactor"`
+	ProvisionedPollerConfig *EventSourceMappingProvisionedPollerConfig `pulumi:"provisionedPollerConfig"`
 	// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
 	Queues []string `pulumi:"queues"`
 	// (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
@@ -246,9 +248,19 @@ func (o LookupEventSourceMappingResultOutput) MaximumRetryAttempts() pulumi.IntP
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *int { return v.MaximumRetryAttempts }).(pulumi.IntPtrOutput)
 }
 
+func (o LookupEventSourceMappingResultOutput) MetricsConfig() EventSourceMappingMetricsConfigPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingMetricsConfig { return v.MetricsConfig }).(EventSourceMappingMetricsConfigPtrOutput)
+}
+
 // (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
 func (o LookupEventSourceMappingResultOutput) ParallelizationFactor() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupEventSourceMappingResult) *int { return v.ParallelizationFactor }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupEventSourceMappingResultOutput) ProvisionedPollerConfig() EventSourceMappingProvisionedPollerConfigPtrOutput {
+	return o.ApplyT(func(v LookupEventSourceMappingResult) *EventSourceMappingProvisionedPollerConfig {
+		return v.ProvisionedPollerConfig
+	}).(EventSourceMappingProvisionedPollerConfigPtrOutput)
 }
 
 // (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.

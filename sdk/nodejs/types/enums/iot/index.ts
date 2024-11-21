@@ -389,6 +389,13 @@ export const SoftwarePackageVersionPackageVersionStatus = {
 
 export type SoftwarePackageVersionPackageVersionStatus = (typeof SoftwarePackageVersionPackageVersionStatus)[keyof typeof SoftwarePackageVersionPackageVersionStatus];
 
+export const ThingTypePropagatingAttributeConnectionAttribute = {
+    IotClientId: "iot:ClientId",
+    IotThingThingName: "iot:Thing.ThingName",
+} as const;
+
+export type ThingTypePropagatingAttributeConnectionAttribute = (typeof ThingTypePropagatingAttributeConnectionAttribute)[keyof typeof ThingTypePropagatingAttributeConnectionAttribute];
+
 export const TopicRuleCannedAccessControlList = {
     Private: "private",
     PublicRead: "public-read",

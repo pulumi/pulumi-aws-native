@@ -58,6 +58,10 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public readonly dataRedundancy!: pulumi.Output<enums.s3express.DirectoryBucketDataRedundancy>;
     /**
+     * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+     */
+    public readonly lifecycleConfiguration!: pulumi.Output<outputs.s3express.DirectoryBucketLifecycleConfiguration | undefined>;
+    /**
      * Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
      */
     public readonly locationName!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["bucketEncryption"] = args ? args.bucketEncryption : undefined;
             resourceInputs["bucketName"] = args ? args.bucketName : undefined;
             resourceInputs["dataRedundancy"] = args ? args.dataRedundancy : undefined;
+            resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
             resourceInputs["locationName"] = args ? args.locationName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZoneName"] = undefined /*out*/;
@@ -91,6 +96,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
             resourceInputs["bucketEncryption"] = undefined /*out*/;
             resourceInputs["bucketName"] = undefined /*out*/;
             resourceInputs["dataRedundancy"] = undefined /*out*/;
+            resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["locationName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -116,6 +122,10 @@ export interface DirectoryBucketArgs {
      * Specifies the number of Availability Zone that's used for redundancy for the bucket.
      */
     dataRedundancy: pulumi.Input<enums.s3express.DirectoryBucketDataRedundancy>;
+    /**
+     * Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+     */
+    lifecycleConfiguration?: pulumi.Input<inputs.s3express.DirectoryBucketLifecycleConfigurationArgs>;
     /**
      * Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
      */

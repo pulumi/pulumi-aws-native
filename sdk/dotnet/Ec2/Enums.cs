@@ -2100,6 +2100,68 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcBlockPublicAccessExclusionInternetGatewayExclusionMode : IEquatable<VpcBlockPublicAccessExclusionInternetGatewayExclusionMode>
+    {
+        private readonly string _value;
+
+        private VpcBlockPublicAccessExclusionInternetGatewayExclusionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcBlockPublicAccessExclusionInternetGatewayExclusionMode AllowBidirectional { get; } = new VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional");
+        public static VpcBlockPublicAccessExclusionInternetGatewayExclusionMode AllowEgress { get; } = new VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-egress");
+
+        public static bool operator ==(VpcBlockPublicAccessExclusionInternetGatewayExclusionMode left, VpcBlockPublicAccessExclusionInternetGatewayExclusionMode right) => left.Equals(right);
+        public static bool operator !=(VpcBlockPublicAccessExclusionInternetGatewayExclusionMode left, VpcBlockPublicAccessExclusionInternetGatewayExclusionMode right) => !left.Equals(right);
+
+        public static explicit operator string(VpcBlockPublicAccessExclusionInternetGatewayExclusionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcBlockPublicAccessExclusionInternetGatewayExclusionMode other && Equals(other);
+        public bool Equals(VpcBlockPublicAccessExclusionInternetGatewayExclusionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
+    /// </summary>
+    [EnumType]
+    public readonly struct VpcBlockPublicAccessOptionsInternetGatewayBlockMode : IEquatable<VpcBlockPublicAccessOptionsInternetGatewayBlockMode>
+    {
+        private readonly string _value;
+
+        private VpcBlockPublicAccessOptionsInternetGatewayBlockMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcBlockPublicAccessOptionsInternetGatewayBlockMode BlockBidirectional { get; } = new VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional");
+        public static VpcBlockPublicAccessOptionsInternetGatewayBlockMode BlockIngress { get; } = new VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-ingress");
+
+        public static bool operator ==(VpcBlockPublicAccessOptionsInternetGatewayBlockMode left, VpcBlockPublicAccessOptionsInternetGatewayBlockMode right) => left.Equals(right);
+        public static bool operator !=(VpcBlockPublicAccessOptionsInternetGatewayBlockMode left, VpcBlockPublicAccessOptionsInternetGatewayBlockMode right) => !left.Equals(right);
+
+        public static explicit operator string(VpcBlockPublicAccessOptionsInternetGatewayBlockMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcBlockPublicAccessOptionsInternetGatewayBlockMode other && Equals(other);
+        public bool Equals(VpcBlockPublicAccessOptionsInternetGatewayBlockMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of endpoint.
     ///  Default: Gateway
     /// </summary>

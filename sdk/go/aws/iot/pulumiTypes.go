@@ -6568,8 +6568,117 @@ type ThingGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ThingTypePropagatingAttribute struct {
+	ConnectionAttribute *ThingTypePropagatingAttributeConnectionAttribute `pulumi:"connectionAttribute"`
+	ThingAttribute      *string                                           `pulumi:"thingAttribute"`
+	UserPropertyKey     string                                            `pulumi:"userPropertyKey"`
+}
+
+// ThingTypePropagatingAttributeInput is an input type that accepts ThingTypePropagatingAttributeArgs and ThingTypePropagatingAttributeOutput values.
+// You can construct a concrete instance of `ThingTypePropagatingAttributeInput` via:
+//
+//	ThingTypePropagatingAttributeArgs{...}
+type ThingTypePropagatingAttributeInput interface {
+	pulumi.Input
+
+	ToThingTypePropagatingAttributeOutput() ThingTypePropagatingAttributeOutput
+	ToThingTypePropagatingAttributeOutputWithContext(context.Context) ThingTypePropagatingAttributeOutput
+}
+
+type ThingTypePropagatingAttributeArgs struct {
+	ConnectionAttribute ThingTypePropagatingAttributeConnectionAttributePtrInput `pulumi:"connectionAttribute"`
+	ThingAttribute      pulumi.StringPtrInput                                    `pulumi:"thingAttribute"`
+	UserPropertyKey     pulumi.StringInput                                       `pulumi:"userPropertyKey"`
+}
+
+func (ThingTypePropagatingAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypePropagatingAttribute)(nil)).Elem()
+}
+
+func (i ThingTypePropagatingAttributeArgs) ToThingTypePropagatingAttributeOutput() ThingTypePropagatingAttributeOutput {
+	return i.ToThingTypePropagatingAttributeOutputWithContext(context.Background())
+}
+
+func (i ThingTypePropagatingAttributeArgs) ToThingTypePropagatingAttributeOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropagatingAttributeOutput)
+}
+
+// ThingTypePropagatingAttributeArrayInput is an input type that accepts ThingTypePropagatingAttributeArray and ThingTypePropagatingAttributeArrayOutput values.
+// You can construct a concrete instance of `ThingTypePropagatingAttributeArrayInput` via:
+//
+//	ThingTypePropagatingAttributeArray{ ThingTypePropagatingAttributeArgs{...} }
+type ThingTypePropagatingAttributeArrayInput interface {
+	pulumi.Input
+
+	ToThingTypePropagatingAttributeArrayOutput() ThingTypePropagatingAttributeArrayOutput
+	ToThingTypePropagatingAttributeArrayOutputWithContext(context.Context) ThingTypePropagatingAttributeArrayOutput
+}
+
+type ThingTypePropagatingAttributeArray []ThingTypePropagatingAttributeInput
+
+func (ThingTypePropagatingAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingTypePropagatingAttribute)(nil)).Elem()
+}
+
+func (i ThingTypePropagatingAttributeArray) ToThingTypePropagatingAttributeArrayOutput() ThingTypePropagatingAttributeArrayOutput {
+	return i.ToThingTypePropagatingAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i ThingTypePropagatingAttributeArray) ToThingTypePropagatingAttributeArrayOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropagatingAttributeArrayOutput)
+}
+
+type ThingTypePropagatingAttributeOutput struct{ *pulumi.OutputState }
+
+func (ThingTypePropagatingAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypePropagatingAttribute)(nil)).Elem()
+}
+
+func (o ThingTypePropagatingAttributeOutput) ToThingTypePropagatingAttributeOutput() ThingTypePropagatingAttributeOutput {
+	return o
+}
+
+func (o ThingTypePropagatingAttributeOutput) ToThingTypePropagatingAttributeOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeOutput {
+	return o
+}
+
+func (o ThingTypePropagatingAttributeOutput) ConnectionAttribute() ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return o.ApplyT(func(v ThingTypePropagatingAttribute) *ThingTypePropagatingAttributeConnectionAttribute {
+		return v.ConnectionAttribute
+	}).(ThingTypePropagatingAttributeConnectionAttributePtrOutput)
+}
+
+func (o ThingTypePropagatingAttributeOutput) ThingAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThingTypePropagatingAttribute) *string { return v.ThingAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o ThingTypePropagatingAttributeOutput) UserPropertyKey() pulumi.StringOutput {
+	return o.ApplyT(func(v ThingTypePropagatingAttribute) string { return v.UserPropertyKey }).(pulumi.StringOutput)
+}
+
+type ThingTypePropagatingAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (ThingTypePropagatingAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingTypePropagatingAttribute)(nil)).Elem()
+}
+
+func (o ThingTypePropagatingAttributeArrayOutput) ToThingTypePropagatingAttributeArrayOutput() ThingTypePropagatingAttributeArrayOutput {
+	return o
+}
+
+func (o ThingTypePropagatingAttributeArrayOutput) ToThingTypePropagatingAttributeArrayOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeArrayOutput {
+	return o
+}
+
+func (o ThingTypePropagatingAttributeArrayOutput) Index(i pulumi.IntInput) ThingTypePropagatingAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingTypePropagatingAttribute {
+		return vs[0].([]ThingTypePropagatingAttribute)[vs[1].(int)]
+	}).(ThingTypePropagatingAttributeOutput)
+}
+
 // The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 type ThingTypePropertiesProperties struct {
+	Mqtt5Configuration *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties `pulumi:"mqtt5Configuration"`
 	// A list of searchable thing attribute names.
 	SearchableAttributes []string `pulumi:"searchableAttributes"`
 	// The description of the thing type.
@@ -6589,6 +6698,7 @@ type ThingTypePropertiesPropertiesInput interface {
 
 // The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
 type ThingTypePropertiesPropertiesArgs struct {
+	Mqtt5Configuration ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrInput `pulumi:"mqtt5Configuration"`
 	// A list of searchable thing attribute names.
 	SearchableAttributes pulumi.StringArrayInput `pulumi:"searchableAttributes"`
 	// The description of the thing type.
@@ -6673,6 +6783,12 @@ func (o ThingTypePropertiesPropertiesOutput) ToThingTypePropertiesPropertiesPtrO
 	}).(ThingTypePropertiesPropertiesPtrOutput)
 }
 
+func (o ThingTypePropertiesPropertiesOutput) Mqtt5Configuration() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v ThingTypePropertiesProperties) *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties {
+		return v.Mqtt5Configuration
+	}).(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput)
+}
+
 // A list of searchable thing attribute names.
 func (o ThingTypePropertiesPropertiesOutput) SearchableAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ThingTypePropertiesProperties) []string { return v.SearchableAttributes }).(pulumi.StringArrayOutput)
@@ -6707,6 +6823,15 @@ func (o ThingTypePropertiesPropertiesPtrOutput) Elem() ThingTypePropertiesProper
 	}).(ThingTypePropertiesPropertiesOutput)
 }
 
+func (o ThingTypePropertiesPropertiesPtrOutput) Mqtt5Configuration() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *ThingTypePropertiesProperties) *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Mqtt5Configuration
+	}).(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput)
+}
+
 // A list of searchable thing attribute names.
 func (o ThingTypePropertiesPropertiesPtrOutput) SearchableAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ThingTypePropertiesProperties) []string {
@@ -6725,6 +6850,141 @@ func (o ThingTypePropertiesPropertiesPtrOutput) ThingTypeDescription() pulumi.St
 		}
 		return v.ThingTypeDescription
 	}).(pulumi.StringPtrOutput)
+}
+
+type ThingTypePropertiesPropertiesMqtt5ConfigurationProperties struct {
+	PropagatingAttributes []ThingTypePropagatingAttribute `pulumi:"propagatingAttributes"`
+}
+
+// ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesInput is an input type that accepts ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs and ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesInput` via:
+//
+//	ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs{...}
+type ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput
+	ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutputWithContext(context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput
+}
+
+type ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs struct {
+	PropagatingAttributes ThingTypePropagatingAttributeArrayInput `pulumi:"propagatingAttributes"`
+}
+
+func (ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypePropertiesPropertiesMqtt5ConfigurationProperties)(nil)).Elem()
+}
+
+func (i ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput {
+	return i.ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput)
+}
+
+func (i ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return i.ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput).ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrInput is an input type that accepts ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs, ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtr and ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrInput` via:
+//
+//	        ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput
+	ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput
+}
+
+type thingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrType ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs
+
+func ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtr(v *ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrInput {
+	return (*thingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrType)(v)
+}
+
+func (*thingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingTypePropertiesPropertiesMqtt5ConfigurationProperties)(nil)).Elem()
+}
+
+func (i *thingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrType) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return i.ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *thingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrType) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput)
+}
+
+type ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypePropertiesPropertiesMqtt5ConfigurationProperties)(nil)).Elem()
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput {
+	return o
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return o.ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingTypePropertiesPropertiesMqtt5ConfigurationProperties) *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties {
+		return &v
+	}).(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput)
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput) PropagatingAttributes() ThingTypePropagatingAttributeArrayOutput {
+	return o.ApplyT(func(v ThingTypePropertiesPropertiesMqtt5ConfigurationProperties) []ThingTypePropagatingAttribute {
+		return v.PropagatingAttributes
+	}).(ThingTypePropagatingAttributeArrayOutput)
+}
+
+type ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingTypePropertiesPropertiesMqtt5ConfigurationProperties)(nil)).Elem()
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput) ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutputWithContext(ctx context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput) Elem() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties) ThingTypePropertiesPropertiesMqtt5ConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ThingTypePropertiesPropertiesMqtt5ConfigurationProperties
+		return ret
+	}).(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput)
+}
+
+func (o ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput) PropagatingAttributes() ThingTypePropagatingAttributeArrayOutput {
+	return o.ApplyT(func(v *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties) []ThingTypePropagatingAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.PropagatingAttributes
+	}).(ThingTypePropagatingAttributeArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -14304,8 +14564,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupAttributePayloadPtrInput)(nil)).Elem(), ThingGroupAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesPropertiesInput)(nil)).Elem(), ThingGroupPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesPropertiesPtrInput)(nil)).Elem(), ThingGroupPropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropagatingAttributeInput)(nil)).Elem(), ThingTypePropagatingAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropagatingAttributeArrayInput)(nil)).Elem(), ThingTypePropagatingAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPropertiesInput)(nil)).Elem(), ThingTypePropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPropertiesPtrInput)(nil)).Elem(), ThingTypePropertiesPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesInput)(nil)).Elem(), ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrInput)(nil)).Elem(), ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeoutConfigPropertiesInput)(nil)).Elem(), TimeoutConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TimeoutConfigPropertiesPtrInput)(nil)).Elem(), TimeoutConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleActionInput)(nil)).Elem(), TopicRuleActionArgs{})
@@ -14468,8 +14732,12 @@ func init() {
 	pulumi.RegisterOutputType(ThingGroupAttributePayloadPtrOutput{})
 	pulumi.RegisterOutputType(ThingGroupPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(ThingGroupPropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ThingTypePropagatingAttributeOutput{})
+	pulumi.RegisterOutputType(ThingTypePropagatingAttributeArrayOutput{})
 	pulumi.RegisterOutputType(ThingTypePropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(ThingTypePropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TimeoutConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(TimeoutConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleActionOutput{})

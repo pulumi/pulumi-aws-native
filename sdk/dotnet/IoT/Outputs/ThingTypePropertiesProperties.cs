@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class ThingTypePropertiesProperties
     {
+        public readonly Outputs.ThingTypePropertiesPropertiesMqtt5ConfigurationProperties? Mqtt5Configuration;
         /// <summary>
         /// A list of searchable thing attribute names.
         /// </summary>
@@ -27,10 +28,13 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
         [OutputConstructor]
         private ThingTypePropertiesProperties(
+            Outputs.ThingTypePropertiesPropertiesMqtt5ConfigurationProperties? mqtt5Configuration,
+
             ImmutableArray<string> searchableAttributes,
 
             string? thingTypeDescription)
         {
+            Mqtt5Configuration = mqtt5Configuration;
             SearchableAttributes = searchableAttributes;
             ThingTypeDescription = thingTypeDescription;
         }

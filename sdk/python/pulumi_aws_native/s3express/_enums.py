@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'DirectoryBucketDataRedundancy',
+    'DirectoryBucketRuleStatus',
     'DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm',
 ]
 
@@ -15,6 +16,11 @@ class DirectoryBucketDataRedundancy(str, Enum):
     Specifies the number of Availability Zone that's used for redundancy for the bucket.
     """
     SINGLE_AVAILABILITY_ZONE = "SingleAvailabilityZone"
+
+
+class DirectoryBucketRuleStatus(str, Enum):
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm(str, Enum):

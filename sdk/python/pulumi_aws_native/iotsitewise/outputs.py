@@ -44,6 +44,7 @@ __all__ = [
     'GatewayGreengrassV2',
     'GatewayPlatform',
     'GatewaySiemensIe',
+    'PortalTypeEntry',
 ]
 
 @pulumi.output_type
@@ -1554,5 +1555,40 @@ class GatewaySiemensIe(dict):
         The name of the IoT Core Thing.
         """
         return pulumi.get(self, "iot_core_thing_name")
+
+
+@pulumi.output_type
+class PortalTypeEntry(dict):
+    """
+    Container associated a certain PortalType.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portalTools":
+            suggest = "portal_tools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PortalTypeEntry. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PortalTypeEntry.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PortalTypeEntry.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 portal_tools: Sequence[str]):
+        """
+        Container associated a certain PortalType.
+        """
+        pulumi.set(__self__, "portal_tools", portal_tools)
+
+    @property
+    @pulumi.getter(name="portalTools")
+    def portal_tools(self) -> Sequence[str]:
+        return pulumi.get(self, "portal_tools")
 
 

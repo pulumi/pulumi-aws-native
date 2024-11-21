@@ -5,8 +5,17 @@
 from enum import Enum
 
 __all__ = [
+    'CanaryProvisionedResourceCleanup',
     'CanaryResourceToTag',
 ]
+
+
+class CanaryProvisionedResourceCleanup(str, Enum):
+    """
+    Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    OFF = "OFF"
 
 
 class CanaryResourceToTag(str, Enum):

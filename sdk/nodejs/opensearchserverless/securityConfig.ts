@@ -85,6 +85,7 @@ export class SecurityConfig extends pulumi.CustomResource {
      * Security config description
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly iamIdentityCenterOptions!: pulumi.Output<outputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptions | undefined>;
     /**
      * The friendly name of the security config
      */
@@ -110,6 +111,7 @@ export class SecurityConfig extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["iamIdentityCenterOptions"] = args ? args.iamIdentityCenterOptions : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["samlOptions"] = args ? args.samlOptions : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
@@ -117,12 +119,13 @@ export class SecurityConfig extends pulumi.CustomResource {
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["iamIdentityCenterOptions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["samlOptions"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["iamIdentityCenterOptions.instanceArn", "name", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SecurityConfig.__pulumiType, name, resourceInputs, opts);
     }
@@ -136,6 +139,7 @@ export interface SecurityConfigArgs {
      * Security config description
      */
     description?: pulumi.Input<string>;
+    iamIdentityCenterOptions?: pulumi.Input<inputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptionsArgs>;
     /**
      * The friendly name of the security config
      */

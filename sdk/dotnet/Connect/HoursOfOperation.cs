@@ -82,6 +82,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> HoursOfOperationArn { get; private set; } = null!;
 
         /// <summary>
+        /// One or more hours of operation overrides assigned to an hour of operation.
+        /// </summary>
+        [Output("hoursOfOperationOverrides")]
+        public Output<ImmutableArray<Outputs.HoursOfOperationOverride>> HoursOfOperationOverrides { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the Amazon Connect instance.
         /// </summary>
         [Output("instanceArn")]
@@ -167,6 +173,18 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("hoursOfOperationOverrides")]
+        private InputList<Inputs.HoursOfOperationOverrideArgs>? _hoursOfOperationOverrides;
+
+        /// <summary>
+        /// One or more hours of operation overrides assigned to an hour of operation.
+        /// </summary>
+        public InputList<Inputs.HoursOfOperationOverrideArgs> HoursOfOperationOverrides
+        {
+            get => _hoursOfOperationOverrides ?? (_hoursOfOperationOverrides = new InputList<Inputs.HoursOfOperationOverrideArgs>());
+            set => _hoursOfOperationOverrides = value;
+        }
 
         /// <summary>
         /// The identifier of the Amazon Connect instance.

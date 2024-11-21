@@ -34,6 +34,10 @@ export interface GetRuleResult {
      */
     readonly description?: string;
     /**
+     * Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+     */
+    readonly excludeResourceTags?: outputs.rbin.RuleResourceTag[];
+    /**
      * The unique ID of the retention rule.
      */
     readonly identifier?: string;

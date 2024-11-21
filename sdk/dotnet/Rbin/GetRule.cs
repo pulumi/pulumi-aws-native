@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.Rbin
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleResourceTag> ExcludeResourceTags;
+        /// <summary>
         /// The unique ID of the retention rule.
         /// </summary>
         public readonly string? Identifier;
@@ -96,6 +100,8 @@ namespace Pulumi.AwsNative.Rbin
 
             string? description,
 
+            ImmutableArray<Outputs.RuleResourceTag> excludeResourceTags,
+
             string? identifier,
 
             string? lockState,
@@ -110,6 +116,7 @@ namespace Pulumi.AwsNative.Rbin
         {
             Arn = arn;
             Description = description;
+            ExcludeResourceTags = excludeResourceTags;
             Identifier = identifier;
             LockState = lockState;
             ResourceTags = resourceTags;

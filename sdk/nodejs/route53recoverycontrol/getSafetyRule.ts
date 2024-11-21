@@ -55,6 +55,10 @@ export interface GetSafetyRuleResult {
      * The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
      */
     readonly status?: enums.route53recoverycontrol.SafetyRuleStatus;
+    /**
+     * A collection of tags associated with a resource
+     */
+    readonly tags?: outputs.Tag[];
 }
 /**
  * Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.

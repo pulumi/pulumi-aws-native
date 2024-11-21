@@ -1541,6 +1541,11 @@ func (o DocumentationPartLocationOutput) Type() DocumentationPartLocationTypePtr
 	return o.ApplyT(func(v DocumentationPartLocation) *DocumentationPartLocationType { return v.Type }).(DocumentationPartLocationTypePtrOutput)
 }
 
+type DomainNameAccessAssociationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type DomainNameEndpointConfiguration struct {
 	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types []string `pulumi:"types"`
@@ -1838,6 +1843,144 @@ type DomainNameTag struct {
 	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
 	Key *string `pulumi:"key"`
 	// The value for the specified tag key.
+	Value *string `pulumi:"value"`
+}
+
+type DomainNameV2EndpointConfiguration struct {
+	Types []string `pulumi:"types"`
+}
+
+// DomainNameV2EndpointConfigurationInput is an input type that accepts DomainNameV2EndpointConfigurationArgs and DomainNameV2EndpointConfigurationOutput values.
+// You can construct a concrete instance of `DomainNameV2EndpointConfigurationInput` via:
+//
+//	DomainNameV2EndpointConfigurationArgs{...}
+type DomainNameV2EndpointConfigurationInput interface {
+	pulumi.Input
+
+	ToDomainNameV2EndpointConfigurationOutput() DomainNameV2EndpointConfigurationOutput
+	ToDomainNameV2EndpointConfigurationOutputWithContext(context.Context) DomainNameV2EndpointConfigurationOutput
+}
+
+type DomainNameV2EndpointConfigurationArgs struct {
+	Types pulumi.StringArrayInput `pulumi:"types"`
+}
+
+func (DomainNameV2EndpointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameV2EndpointConfiguration)(nil)).Elem()
+}
+
+func (i DomainNameV2EndpointConfigurationArgs) ToDomainNameV2EndpointConfigurationOutput() DomainNameV2EndpointConfigurationOutput {
+	return i.ToDomainNameV2EndpointConfigurationOutputWithContext(context.Background())
+}
+
+func (i DomainNameV2EndpointConfigurationArgs) ToDomainNameV2EndpointConfigurationOutputWithContext(ctx context.Context) DomainNameV2EndpointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameV2EndpointConfigurationOutput)
+}
+
+func (i DomainNameV2EndpointConfigurationArgs) ToDomainNameV2EndpointConfigurationPtrOutput() DomainNameV2EndpointConfigurationPtrOutput {
+	return i.ToDomainNameV2EndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainNameV2EndpointConfigurationArgs) ToDomainNameV2EndpointConfigurationPtrOutputWithContext(ctx context.Context) DomainNameV2EndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameV2EndpointConfigurationOutput).ToDomainNameV2EndpointConfigurationPtrOutputWithContext(ctx)
+}
+
+// DomainNameV2EndpointConfigurationPtrInput is an input type that accepts DomainNameV2EndpointConfigurationArgs, DomainNameV2EndpointConfigurationPtr and DomainNameV2EndpointConfigurationPtrOutput values.
+// You can construct a concrete instance of `DomainNameV2EndpointConfigurationPtrInput` via:
+//
+//	        DomainNameV2EndpointConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainNameV2EndpointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDomainNameV2EndpointConfigurationPtrOutput() DomainNameV2EndpointConfigurationPtrOutput
+	ToDomainNameV2EndpointConfigurationPtrOutputWithContext(context.Context) DomainNameV2EndpointConfigurationPtrOutput
+}
+
+type domainNameV2EndpointConfigurationPtrType DomainNameV2EndpointConfigurationArgs
+
+func DomainNameV2EndpointConfigurationPtr(v *DomainNameV2EndpointConfigurationArgs) DomainNameV2EndpointConfigurationPtrInput {
+	return (*domainNameV2EndpointConfigurationPtrType)(v)
+}
+
+func (*domainNameV2EndpointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameV2EndpointConfiguration)(nil)).Elem()
+}
+
+func (i *domainNameV2EndpointConfigurationPtrType) ToDomainNameV2EndpointConfigurationPtrOutput() DomainNameV2EndpointConfigurationPtrOutput {
+	return i.ToDomainNameV2EndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainNameV2EndpointConfigurationPtrType) ToDomainNameV2EndpointConfigurationPtrOutputWithContext(ctx context.Context) DomainNameV2EndpointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNameV2EndpointConfigurationPtrOutput)
+}
+
+type DomainNameV2EndpointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DomainNameV2EndpointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameV2EndpointConfiguration)(nil)).Elem()
+}
+
+func (o DomainNameV2EndpointConfigurationOutput) ToDomainNameV2EndpointConfigurationOutput() DomainNameV2EndpointConfigurationOutput {
+	return o
+}
+
+func (o DomainNameV2EndpointConfigurationOutput) ToDomainNameV2EndpointConfigurationOutputWithContext(ctx context.Context) DomainNameV2EndpointConfigurationOutput {
+	return o
+}
+
+func (o DomainNameV2EndpointConfigurationOutput) ToDomainNameV2EndpointConfigurationPtrOutput() DomainNameV2EndpointConfigurationPtrOutput {
+	return o.ToDomainNameV2EndpointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameV2EndpointConfigurationOutput) ToDomainNameV2EndpointConfigurationPtrOutputWithContext(ctx context.Context) DomainNameV2EndpointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameV2EndpointConfiguration) *DomainNameV2EndpointConfiguration {
+		return &v
+	}).(DomainNameV2EndpointConfigurationPtrOutput)
+}
+
+func (o DomainNameV2EndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DomainNameV2EndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+type DomainNameV2EndpointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameV2EndpointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameV2EndpointConfiguration)(nil)).Elem()
+}
+
+func (o DomainNameV2EndpointConfigurationPtrOutput) ToDomainNameV2EndpointConfigurationPtrOutput() DomainNameV2EndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainNameV2EndpointConfigurationPtrOutput) ToDomainNameV2EndpointConfigurationPtrOutputWithContext(ctx context.Context) DomainNameV2EndpointConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainNameV2EndpointConfigurationPtrOutput) Elem() DomainNameV2EndpointConfigurationOutput {
+	return o.ApplyT(func(v *DomainNameV2EndpointConfiguration) DomainNameV2EndpointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNameV2EndpointConfiguration
+		return ret
+	}).(DomainNameV2EndpointConfigurationOutput)
+}
+
+func (o DomainNameV2EndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DomainNameV2EndpointConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Types
+	}).(pulumi.StringArrayOutput)
+}
+
+type DomainNameV2Tag struct {
+	Key   *string `pulumi:"key"`
 	Value *string `pulumi:"value"`
 }
 
@@ -3966,6 +4109,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationPtrInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationPtrInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameV2EndpointConfigurationInput)(nil)).Elem(), DomainNameV2EndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameV2EndpointConfigurationPtrInput)(nil)).Elem(), DomainNameV2EndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationInput)(nil)).Elem(), MethodIntegrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationPtrInput)(nil)).Elem(), MethodIntegrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationResponseInput)(nil)).Elem(), MethodIntegrationResponseArgs{})
@@ -4008,6 +4153,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(DomainNameV2EndpointConfigurationOutput{})
+	pulumi.RegisterOutputType(DomainNameV2EndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationResponseOutput{})

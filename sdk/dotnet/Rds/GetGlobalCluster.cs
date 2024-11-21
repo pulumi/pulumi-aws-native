@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.Rds
         /// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
         /// </summary>
         public readonly string? EngineVersion;
+        public readonly Outputs.GlobalClusterGlobalEndpoint? GlobalEndpoint;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -82,11 +83,14 @@ namespace Pulumi.AwsNative.Rds
 
             string? engineVersion,
 
+            Outputs.GlobalClusterGlobalEndpoint? globalEndpoint,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             DeletionProtection = deletionProtection;
             EngineLifecycleSupport = engineLifecycleSupport;
             EngineVersion = engineVersion;
+            GlobalEndpoint = globalEndpoint;
             Tags = tags;
         }
     }

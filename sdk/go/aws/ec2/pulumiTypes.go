@@ -9347,6 +9347,139 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
+type LaunchTemplateBaselinePerformanceFactors struct {
+	Cpu *LaunchTemplateCpu `pulumi:"cpu"`
+}
+
+// LaunchTemplateBaselinePerformanceFactorsInput is an input type that accepts LaunchTemplateBaselinePerformanceFactorsArgs and LaunchTemplateBaselinePerformanceFactorsOutput values.
+// You can construct a concrete instance of `LaunchTemplateBaselinePerformanceFactorsInput` via:
+//
+//	LaunchTemplateBaselinePerformanceFactorsArgs{...}
+type LaunchTemplateBaselinePerformanceFactorsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBaselinePerformanceFactorsOutput() LaunchTemplateBaselinePerformanceFactorsOutput
+	ToLaunchTemplateBaselinePerformanceFactorsOutputWithContext(context.Context) LaunchTemplateBaselinePerformanceFactorsOutput
+}
+
+type LaunchTemplateBaselinePerformanceFactorsArgs struct {
+	Cpu LaunchTemplateCpuPtrInput `pulumi:"cpu"`
+}
+
+func (LaunchTemplateBaselinePerformanceFactorsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateBaselinePerformanceFactors)(nil)).Elem()
+}
+
+func (i LaunchTemplateBaselinePerformanceFactorsArgs) ToLaunchTemplateBaselinePerformanceFactorsOutput() LaunchTemplateBaselinePerformanceFactorsOutput {
+	return i.ToLaunchTemplateBaselinePerformanceFactorsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateBaselinePerformanceFactorsArgs) ToLaunchTemplateBaselinePerformanceFactorsOutputWithContext(ctx context.Context) LaunchTemplateBaselinePerformanceFactorsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselinePerformanceFactorsOutput)
+}
+
+func (i LaunchTemplateBaselinePerformanceFactorsArgs) ToLaunchTemplateBaselinePerformanceFactorsPtrOutput() LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return i.ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateBaselinePerformanceFactorsArgs) ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(ctx context.Context) LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselinePerformanceFactorsOutput).ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateBaselinePerformanceFactorsPtrInput is an input type that accepts LaunchTemplateBaselinePerformanceFactorsArgs, LaunchTemplateBaselinePerformanceFactorsPtr and LaunchTemplateBaselinePerformanceFactorsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateBaselinePerformanceFactorsPtrInput` via:
+//
+//	        LaunchTemplateBaselinePerformanceFactorsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateBaselinePerformanceFactorsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateBaselinePerformanceFactorsPtrOutput() LaunchTemplateBaselinePerformanceFactorsPtrOutput
+	ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(context.Context) LaunchTemplateBaselinePerformanceFactorsPtrOutput
+}
+
+type launchTemplateBaselinePerformanceFactorsPtrType LaunchTemplateBaselinePerformanceFactorsArgs
+
+func LaunchTemplateBaselinePerformanceFactorsPtr(v *LaunchTemplateBaselinePerformanceFactorsArgs) LaunchTemplateBaselinePerformanceFactorsPtrInput {
+	return (*launchTemplateBaselinePerformanceFactorsPtrType)(v)
+}
+
+func (*launchTemplateBaselinePerformanceFactorsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateBaselinePerformanceFactors)(nil)).Elem()
+}
+
+func (i *launchTemplateBaselinePerformanceFactorsPtrType) ToLaunchTemplateBaselinePerformanceFactorsPtrOutput() LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return i.ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateBaselinePerformanceFactorsPtrType) ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(ctx context.Context) LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselinePerformanceFactorsPtrOutput)
+}
+
+type LaunchTemplateBaselinePerformanceFactorsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateBaselinePerformanceFactorsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateBaselinePerformanceFactors)(nil)).Elem()
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsOutput) ToLaunchTemplateBaselinePerformanceFactorsOutput() LaunchTemplateBaselinePerformanceFactorsOutput {
+	return o
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsOutput) ToLaunchTemplateBaselinePerformanceFactorsOutputWithContext(ctx context.Context) LaunchTemplateBaselinePerformanceFactorsOutput {
+	return o
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsOutput) ToLaunchTemplateBaselinePerformanceFactorsPtrOutput() LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return o.ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsOutput) ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(ctx context.Context) LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateBaselinePerformanceFactors) *LaunchTemplateBaselinePerformanceFactors {
+		return &v
+	}).(LaunchTemplateBaselinePerformanceFactorsPtrOutput)
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsOutput) Cpu() LaunchTemplateCpuPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateBaselinePerformanceFactors) *LaunchTemplateCpu { return v.Cpu }).(LaunchTemplateCpuPtrOutput)
+}
+
+type LaunchTemplateBaselinePerformanceFactorsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateBaselinePerformanceFactorsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateBaselinePerformanceFactors)(nil)).Elem()
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsPtrOutput) ToLaunchTemplateBaselinePerformanceFactorsPtrOutput() LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsPtrOutput) ToLaunchTemplateBaselinePerformanceFactorsPtrOutputWithContext(ctx context.Context) LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsPtrOutput) Elem() LaunchTemplateBaselinePerformanceFactorsOutput {
+	return o.ApplyT(func(v *LaunchTemplateBaselinePerformanceFactors) LaunchTemplateBaselinePerformanceFactors {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateBaselinePerformanceFactors
+		return ret
+	}).(LaunchTemplateBaselinePerformanceFactorsOutput)
+}
+
+func (o LaunchTemplateBaselinePerformanceFactorsPtrOutput) Cpu() LaunchTemplateCpuPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateBaselinePerformanceFactors) *LaunchTemplateCpu {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(LaunchTemplateCpuPtrOutput)
+}
+
 // Specifies a block device mapping for a launch template. You must specify “DeviceName“ plus exactly one of the following properties: “Ebs“, “NoDevice“, or “VirtualName“.
 //
 //	``BlockDeviceMapping`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
@@ -9996,6 +10129,139 @@ func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) UdpTimeout() pul
 		}
 		return v.UdpTimeout
 	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateCpu struct {
+	References []LaunchTemplateReference `pulumi:"references"`
+}
+
+// LaunchTemplateCpuInput is an input type that accepts LaunchTemplateCpuArgs and LaunchTemplateCpuOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuInput` via:
+//
+//	LaunchTemplateCpuArgs{...}
+type LaunchTemplateCpuInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuOutput() LaunchTemplateCpuOutput
+	ToLaunchTemplateCpuOutputWithContext(context.Context) LaunchTemplateCpuOutput
+}
+
+type LaunchTemplateCpuArgs struct {
+	References LaunchTemplateReferenceArrayInput `pulumi:"references"`
+}
+
+func (LaunchTemplateCpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpu)(nil)).Elem()
+}
+
+func (i LaunchTemplateCpuArgs) ToLaunchTemplateCpuOutput() LaunchTemplateCpuOutput {
+	return i.ToLaunchTemplateCpuOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCpuArgs) ToLaunchTemplateCpuOutputWithContext(ctx context.Context) LaunchTemplateCpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOutput)
+}
+
+func (i LaunchTemplateCpuArgs) ToLaunchTemplateCpuPtrOutput() LaunchTemplateCpuPtrOutput {
+	return i.ToLaunchTemplateCpuPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateCpuArgs) ToLaunchTemplateCpuPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuOutput).ToLaunchTemplateCpuPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateCpuPtrInput is an input type that accepts LaunchTemplateCpuArgs, LaunchTemplateCpuPtr and LaunchTemplateCpuPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateCpuPtrInput` via:
+//
+//	        LaunchTemplateCpuArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateCpuPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateCpuPtrOutput() LaunchTemplateCpuPtrOutput
+	ToLaunchTemplateCpuPtrOutputWithContext(context.Context) LaunchTemplateCpuPtrOutput
+}
+
+type launchTemplateCpuPtrType LaunchTemplateCpuArgs
+
+func LaunchTemplateCpuPtr(v *LaunchTemplateCpuArgs) LaunchTemplateCpuPtrInput {
+	return (*launchTemplateCpuPtrType)(v)
+}
+
+func (*launchTemplateCpuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpu)(nil)).Elem()
+}
+
+func (i *launchTemplateCpuPtrType) ToLaunchTemplateCpuPtrOutput() LaunchTemplateCpuPtrOutput {
+	return i.ToLaunchTemplateCpuPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateCpuPtrType) ToLaunchTemplateCpuPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateCpuPtrOutput)
+}
+
+type LaunchTemplateCpuOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateCpu)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuOutput) ToLaunchTemplateCpuOutput() LaunchTemplateCpuOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOutput) ToLaunchTemplateCpuOutputWithContext(ctx context.Context) LaunchTemplateCpuOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuOutput) ToLaunchTemplateCpuPtrOutput() LaunchTemplateCpuPtrOutput {
+	return o.ToLaunchTemplateCpuPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateCpuOutput) ToLaunchTemplateCpuPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateCpu) *LaunchTemplateCpu {
+		return &v
+	}).(LaunchTemplateCpuPtrOutput)
+}
+
+func (o LaunchTemplateCpuOutput) References() LaunchTemplateReferenceArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateCpu) []LaunchTemplateReference { return v.References }).(LaunchTemplateReferenceArrayOutput)
+}
+
+type LaunchTemplateCpuPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateCpuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateCpu)(nil)).Elem()
+}
+
+func (o LaunchTemplateCpuPtrOutput) ToLaunchTemplateCpuPtrOutput() LaunchTemplateCpuPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuPtrOutput) ToLaunchTemplateCpuPtrOutputWithContext(ctx context.Context) LaunchTemplateCpuPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateCpuPtrOutput) Elem() LaunchTemplateCpuOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpu) LaunchTemplateCpu {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateCpu
+		return ret
+	}).(LaunchTemplateCpuOutput)
+}
+
+func (o LaunchTemplateCpuPtrOutput) References() LaunchTemplateReferenceArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpu) []LaunchTemplateReference {
+		if v == nil {
+			return nil
+		}
+		return v.References
+	}).(LaunchTemplateReferenceArrayOutput)
 }
 
 // Specifies the CPU options for an instance. For more information, see [Optimize CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) in the *User Guide*.
@@ -12334,7 +12600,8 @@ type LaunchTemplateInstanceRequirements struct {
 	BareMetal *string `pulumi:"bareMetal"`
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
 	//  Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps *LaunchTemplateBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps   *LaunchTemplateBaselineEbsBandwidthMbps   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselinePerformanceFactors *LaunchTemplateBaselinePerformanceFactors `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
 	//   +  To include burstable performance instance types, specify ``included``.
 	//   +  To require only burstable performance instance types, specify ``required``.
@@ -12492,7 +12759,8 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
 	//  Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps LaunchTemplateBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps   LaunchTemplateBaselineEbsBandwidthMbpsPtrInput   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselinePerformanceFactors LaunchTemplateBaselinePerformanceFactorsPtrInput `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
 	//   +  To include burstable performance instance types, specify ``included``.
 	//   +  To require only burstable performance instance types, specify ``required``.
@@ -12769,6 +13037,12 @@ func (o LaunchTemplateInstanceRequirementsOutput) BaselineEbsBandwidthMbps() Lau
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateBaselineEbsBandwidthMbps {
 		return v.BaselineEbsBandwidthMbps
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) BaselinePerformanceFactors() LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateBaselinePerformanceFactors {
+		return v.BaselinePerformanceFactors
+	}).(LaunchTemplateBaselinePerformanceFactorsPtrOutput)
 }
 
 // Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
@@ -13094,6 +13368,15 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() 
 		}
 		return v.BaselineEbsBandwidthMbps
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) BaselinePerformanceFactors() LaunchTemplateBaselinePerformanceFactorsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateBaselinePerformanceFactors {
+		if v == nil {
+			return nil
+		}
+		return v.BaselinePerformanceFactors
+	}).(LaunchTemplateBaselinePerformanceFactorsPtrOutput)
 }
 
 // Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
@@ -15848,6 +16131,103 @@ func (o LaunchTemplatePrivateIpAddArrayOutput) Index(i pulumi.IntInput) LaunchTe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplatePrivateIpAdd {
 		return vs[0].([]LaunchTemplatePrivateIpAdd)[vs[1].(int)]
 	}).(LaunchTemplatePrivateIpAddOutput)
+}
+
+type LaunchTemplateReference struct {
+	// The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+	InstanceFamily *string `pulumi:"instanceFamily"`
+}
+
+// LaunchTemplateReferenceInput is an input type that accepts LaunchTemplateReferenceArgs and LaunchTemplateReferenceOutput values.
+// You can construct a concrete instance of `LaunchTemplateReferenceInput` via:
+//
+//	LaunchTemplateReferenceArgs{...}
+type LaunchTemplateReferenceInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateReferenceOutput() LaunchTemplateReferenceOutput
+	ToLaunchTemplateReferenceOutputWithContext(context.Context) LaunchTemplateReferenceOutput
+}
+
+type LaunchTemplateReferenceArgs struct {
+	// The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+	InstanceFamily pulumi.StringPtrInput `pulumi:"instanceFamily"`
+}
+
+func (LaunchTemplateReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateReference)(nil)).Elem()
+}
+
+func (i LaunchTemplateReferenceArgs) ToLaunchTemplateReferenceOutput() LaunchTemplateReferenceOutput {
+	return i.ToLaunchTemplateReferenceOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateReferenceArgs) ToLaunchTemplateReferenceOutputWithContext(ctx context.Context) LaunchTemplateReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateReferenceOutput)
+}
+
+// LaunchTemplateReferenceArrayInput is an input type that accepts LaunchTemplateReferenceArray and LaunchTemplateReferenceArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateReferenceArrayInput` via:
+//
+//	LaunchTemplateReferenceArray{ LaunchTemplateReferenceArgs{...} }
+type LaunchTemplateReferenceArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateReferenceArrayOutput() LaunchTemplateReferenceArrayOutput
+	ToLaunchTemplateReferenceArrayOutputWithContext(context.Context) LaunchTemplateReferenceArrayOutput
+}
+
+type LaunchTemplateReferenceArray []LaunchTemplateReferenceInput
+
+func (LaunchTemplateReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateReference)(nil)).Elem()
+}
+
+func (i LaunchTemplateReferenceArray) ToLaunchTemplateReferenceArrayOutput() LaunchTemplateReferenceArrayOutput {
+	return i.ToLaunchTemplateReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateReferenceArray) ToLaunchTemplateReferenceArrayOutputWithContext(ctx context.Context) LaunchTemplateReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateReferenceArrayOutput)
+}
+
+type LaunchTemplateReferenceOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateReference)(nil)).Elem()
+}
+
+func (o LaunchTemplateReferenceOutput) ToLaunchTemplateReferenceOutput() LaunchTemplateReferenceOutput {
+	return o
+}
+
+func (o LaunchTemplateReferenceOutput) ToLaunchTemplateReferenceOutputWithContext(ctx context.Context) LaunchTemplateReferenceOutput {
+	return o
+}
+
+// The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+func (o LaunchTemplateReferenceOutput) InstanceFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateReference) *string { return v.InstanceFamily }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateReference)(nil)).Elem()
+}
+
+func (o LaunchTemplateReferenceArrayOutput) ToLaunchTemplateReferenceArrayOutput() LaunchTemplateReferenceArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateReferenceArrayOutput) ToLaunchTemplateReferenceArrayOutputWithContext(ctx context.Context) LaunchTemplateReferenceArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateReferenceArrayOutput) Index(i pulumi.IntInput) LaunchTemplateReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateReference {
+		return vs[0].([]LaunchTemplateReference)[vs[1].(int)]
+	}).(LaunchTemplateReferenceOutput)
 }
 
 // Specifies options for Spot Instances.
@@ -30706,6 +31086,14 @@ type VolumeTag struct {
 }
 
 // A key-value pair to associate with a resource.
+type VpcBlockPublicAccessExclusionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
 type VpcPeeringConnectionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
@@ -32295,6 +32683,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateAcceleratorTotalMemoryMiBPtrInput)(nil)).Elem(), LaunchTemplateAcceleratorTotalMemoryMiBArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBaselineEbsBandwidthMbpsInput)(nil)).Elem(), LaunchTemplateBaselineEbsBandwidthMbpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBaselineEbsBandwidthMbpsPtrInput)(nil)).Elem(), LaunchTemplateBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBaselinePerformanceFactorsInput)(nil)).Elem(), LaunchTemplateBaselinePerformanceFactorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBaselinePerformanceFactorsPtrInput)(nil)).Elem(), LaunchTemplateBaselinePerformanceFactorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBlockDeviceMappingInput)(nil)).Elem(), LaunchTemplateBlockDeviceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateBlockDeviceMappingArrayInput)(nil)).Elem(), LaunchTemplateBlockDeviceMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCapacityReservationSpecificationInput)(nil)).Elem(), LaunchTemplateCapacityReservationSpecificationArgs{})
@@ -32303,6 +32693,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCapacityReservationTargetPtrInput)(nil)).Elem(), LaunchTemplateCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateConnectionTrackingSpecificationInput)(nil)).Elem(), LaunchTemplateConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateConnectionTrackingSpecificationPtrInput)(nil)).Elem(), LaunchTemplateConnectionTrackingSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuInput)(nil)).Elem(), LaunchTemplateCpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuPtrInput)(nil)).Elem(), LaunchTemplateCpuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsInput)(nil)).Elem(), LaunchTemplateCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCpuOptionsPtrInput)(nil)).Elem(), LaunchTemplateCpuOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateCreditSpecificationInput)(nil)).Elem(), LaunchTemplateCreditSpecificationArgs{})
@@ -32358,6 +32750,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsPtrInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateIpAddInput)(nil)).Elem(), LaunchTemplatePrivateIpAddArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateIpAddArrayInput)(nil)).Elem(), LaunchTemplatePrivateIpAddArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateReferenceInput)(nil)).Elem(), LaunchTemplateReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateReferenceArrayInput)(nil)).Elem(), LaunchTemplateReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateSpotOptionsInput)(nil)).Elem(), LaunchTemplateSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateSpotOptionsPtrInput)(nil)).Elem(), LaunchTemplateSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagInput)(nil)).Elem(), LaunchTemplateTagArgs{})
@@ -32626,6 +33020,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateAcceleratorTotalMemoryMiBPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateBaselineEbsBandwidthMbpsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateBaselinePerformanceFactorsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateBaselinePerformanceFactorsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationSpecificationOutput{})
@@ -32634,6 +33030,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateConnectionTrackingSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateConnectionTrackingSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateCpuPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCpuOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateCreditSpecificationOutput{})
@@ -32689,6 +33087,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateIpAddArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateReferenceOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateReferenceArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateSpotOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateSpotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagOutput{})

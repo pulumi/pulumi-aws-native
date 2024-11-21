@@ -4027,7 +4027,7 @@ type TableGlobalSecondaryIndex struct {
 	// Represents the provisioned throughput settings for the specified global secondary index.
 	//  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
 	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
-	// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+	// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
 	WarmThroughput *TableWarmThroughput `pulumi:"warmThroughput"`
 }
 
@@ -4062,7 +4062,7 @@ type TableGlobalSecondaryIndexArgs struct {
 	// Represents the provisioned throughput settings for the specified global secondary index.
 	//  For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
 	ProvisionedThroughput TableProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
-	// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+	// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
 	WarmThroughput TableWarmThroughputPtrInput `pulumi:"warmThroughput"`
 }
 
@@ -4159,7 +4159,7 @@ func (o TableGlobalSecondaryIndexOutput) ProvisionedThroughput() TableProvisione
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableProvisionedThroughput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
 }
 
-// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+// Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify “ReadUnitsPerSecond“, “WriteUnitsPerSecond“, or both.
 func (o TableGlobalSecondaryIndexOutput) WarmThroughput() TableWarmThroughputPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *TableWarmThroughput { return v.WarmThroughput }).(TableWarmThroughputPtrOutput)
 }
@@ -6415,6 +6415,7 @@ func (o TableTimeToLiveSpecificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the “UpdateTable“ operation to meet the throughput requirements of an upcoming peak event.
 type TableWarmThroughput struct {
 	// Represents the number of read operations your base table can instantaneously support.
 	ReadUnitsPerSecond *int `pulumi:"readUnitsPerSecond"`
@@ -6433,6 +6434,7 @@ type TableWarmThroughputInput interface {
 	ToTableWarmThroughputOutputWithContext(context.Context) TableWarmThroughputOutput
 }
 
+// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the “UpdateTable“ operation to meet the throughput requirements of an upcoming peak event.
 type TableWarmThroughputArgs struct {
 	// Represents the number of read operations your base table can instantaneously support.
 	ReadUnitsPerSecond pulumi.IntPtrInput `pulumi:"readUnitsPerSecond"`
@@ -6493,6 +6495,7 @@ func (i *tableWarmThroughputPtrType) ToTableWarmThroughputPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(TableWarmThroughputPtrOutput)
 }
 
+// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the “UpdateTable“ operation to meet the throughput requirements of an upcoming peak event.
 type TableWarmThroughputOutput struct{ *pulumi.OutputState }
 
 func (TableWarmThroughputOutput) ElementType() reflect.Type {

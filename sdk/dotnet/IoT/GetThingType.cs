@@ -75,6 +75,10 @@ namespace Pulumi.AwsNative.IoT
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        /// </summary>
+        public readonly Outputs.ThingTypePropertiesProperties? ThingTypeProperties;
 
         [OutputConstructor]
         private GetThingTypeResult(
@@ -84,12 +88,15 @@ namespace Pulumi.AwsNative.IoT
 
             string? id,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            Outputs.ThingTypePropertiesProperties? thingTypeProperties)
         {
             Arn = arn;
             DeprecateThingType = deprecateThingType;
             Id = id;
             Tags = tags;
+            ThingTypeProperties = thingTypeProperties;
         }
     }
 }

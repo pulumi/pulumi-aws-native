@@ -38,8 +38,10 @@ class GuardHookArgs:
         :param pulumi.Input[str] execution_role: The execution role ARN assumed by hooks to read Guard rules from S3 and write Guard outputs to S3.
         :param pulumi.Input['GuardHookFailureMode'] failure_mode: Attribute to specify CloudFormation behavior on hook failure.
         :param pulumi.Input['GuardHookHookStatus'] hook_status: Attribute to specify which stacks this hook applies to or should get invoked for
+        :param pulumi.Input['GuardHookS3LocationArgs'] rule_location: Specifies the S3 location of your Guard rules.
         :param pulumi.Input[Sequence[pulumi.Input['GuardHookTargetOperation']]] target_operations: Which operations should this Hook run against? Resource changes, stacks or change sets.
         :param pulumi.Input[str] log_bucket: S3 Bucket where the guard validate report will be uploaded to
+        :param pulumi.Input['OptionsPropertiesArgs'] options: Specifies the S3 location of your input parameters.
         :param pulumi.Input['StackFiltersPropertiesArgs'] stack_filters: Filters to allow hooks to target specific stack attributes
         :param pulumi.Input[Union['TargetFilters0PropertiesArgs', 'TargetFilters1PropertiesArgs']] target_filters: Attribute to specify which targets should invoke the hook
         """
@@ -109,6 +111,9 @@ class GuardHookArgs:
     @property
     @pulumi.getter(name="ruleLocation")
     def rule_location(self) -> pulumi.Input['GuardHookS3LocationArgs']:
+        """
+        Specifies the S3 location of your Guard rules.
+        """
         return pulumi.get(self, "rule_location")
 
     @rule_location.setter
@@ -142,6 +147,9 @@ class GuardHookArgs:
     @property
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['OptionsPropertiesArgs']]:
+        """
+        Specifies the S3 location of your input parameters.
+        """
         return pulumi.get(self, "options")
 
     @options.setter
@@ -199,6 +207,8 @@ class GuardHook(pulumi.CustomResource):
         :param pulumi.Input['GuardHookFailureMode'] failure_mode: Attribute to specify CloudFormation behavior on hook failure.
         :param pulumi.Input['GuardHookHookStatus'] hook_status: Attribute to specify which stacks this hook applies to or should get invoked for
         :param pulumi.Input[str] log_bucket: S3 Bucket where the guard validate report will be uploaded to
+        :param pulumi.Input[Union['OptionsPropertiesArgs', 'OptionsPropertiesArgsDict']] options: Specifies the S3 location of your input parameters.
+        :param pulumi.Input[Union['GuardHookS3LocationArgs', 'GuardHookS3LocationArgsDict']] rule_location: Specifies the S3 location of your Guard rules.
         :param pulumi.Input[Union['StackFiltersPropertiesArgs', 'StackFiltersPropertiesArgsDict']] stack_filters: Filters to allow hooks to target specific stack attributes
         :param pulumi.Input[Union[Union['TargetFilters0PropertiesArgs', 'TargetFilters0PropertiesArgsDict'], Union['TargetFilters1PropertiesArgs', 'TargetFilters1PropertiesArgsDict']]] target_filters: Attribute to specify which targets should invoke the hook
         :param pulumi.Input[Sequence[pulumi.Input['GuardHookTargetOperation']]] target_operations: Which operations should this Hook run against? Resource changes, stacks or change sets.
@@ -357,11 +367,17 @@ class GuardHook(pulumi.CustomResource):
     @property
     @pulumi.getter
     def options(self) -> pulumi.Output[Optional['outputs.OptionsProperties']]:
+        """
+        Specifies the S3 location of your input parameters.
+        """
         return pulumi.get(self, "options")
 
     @property
     @pulumi.getter(name="ruleLocation")
     def rule_location(self) -> pulumi.Output['outputs.GuardHookS3Location']:
+        """
+        Specifies the S3 location of your Guard rules.
+        """
         return pulumi.get(self, "rule_location")
 
     @property

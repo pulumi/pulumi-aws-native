@@ -69,6 +69,27 @@ export const FirewallRuleGroupFirewallRuleBlockResponse = {
  */
 export type FirewallRuleGroupFirewallRuleBlockResponse = (typeof FirewallRuleGroupFirewallRuleBlockResponse)[keyof typeof FirewallRuleGroupFirewallRuleBlockResponse];
 
+export const FirewallRuleGroupFirewallRuleConfidenceThreshold = {
+    Low: "LOW",
+    Medium: "MEDIUM",
+    High: "HIGH",
+} as const;
+
+/**
+ * FirewallDomainRedirectionAction
+ */
+export type FirewallRuleGroupFirewallRuleConfidenceThreshold = (typeof FirewallRuleGroupFirewallRuleConfidenceThreshold)[keyof typeof FirewallRuleGroupFirewallRuleConfidenceThreshold];
+
+export const FirewallRuleGroupFirewallRuleDnsThreatProtection = {
+    Dga: "DGA",
+    DnsTunneling: "DNS_TUNNELING",
+} as const;
+
+/**
+ * FirewallDomainRedirectionAction
+ */
+export type FirewallRuleGroupFirewallRuleDnsThreatProtection = (typeof FirewallRuleGroupFirewallRuleDnsThreatProtection)[keyof typeof FirewallRuleGroupFirewallRuleDnsThreatProtection];
+
 export const FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction = {
     InspectRedirectionDomain: "INSPECT_REDIRECTION_DOMAIN",
     TrustRedirectionDomain: "TRUST_REDIRECTION_DOMAIN",

@@ -174,6 +174,171 @@ func (in *directoryBucketDataRedundancyPtr) ToDirectoryBucketDataRedundancyPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketDataRedundancyPtrOutput)
 }
 
+type DirectoryBucketRuleStatus string
+
+const (
+	DirectoryBucketRuleStatusEnabled  = DirectoryBucketRuleStatus("Enabled")
+	DirectoryBucketRuleStatusDisabled = DirectoryBucketRuleStatus("Disabled")
+)
+
+func (DirectoryBucketRuleStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketRuleStatus)(nil)).Elem()
+}
+
+func (e DirectoryBucketRuleStatus) ToDirectoryBucketRuleStatusOutput() DirectoryBucketRuleStatusOutput {
+	return pulumi.ToOutput(e).(DirectoryBucketRuleStatusOutput)
+}
+
+func (e DirectoryBucketRuleStatus) ToDirectoryBucketRuleStatusOutputWithContext(ctx context.Context) DirectoryBucketRuleStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DirectoryBucketRuleStatusOutput)
+}
+
+func (e DirectoryBucketRuleStatus) ToDirectoryBucketRuleStatusPtrOutput() DirectoryBucketRuleStatusPtrOutput {
+	return e.ToDirectoryBucketRuleStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketRuleStatus) ToDirectoryBucketRuleStatusPtrOutputWithContext(ctx context.Context) DirectoryBucketRuleStatusPtrOutput {
+	return DirectoryBucketRuleStatus(e).ToDirectoryBucketRuleStatusOutputWithContext(ctx).ToDirectoryBucketRuleStatusPtrOutputWithContext(ctx)
+}
+
+func (e DirectoryBucketRuleStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketRuleStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DirectoryBucketRuleStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DirectoryBucketRuleStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DirectoryBucketRuleStatusOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketRuleStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketRuleStatus)(nil)).Elem()
+}
+
+func (o DirectoryBucketRuleStatusOutput) ToDirectoryBucketRuleStatusOutput() DirectoryBucketRuleStatusOutput {
+	return o
+}
+
+func (o DirectoryBucketRuleStatusOutput) ToDirectoryBucketRuleStatusOutputWithContext(ctx context.Context) DirectoryBucketRuleStatusOutput {
+	return o
+}
+
+func (o DirectoryBucketRuleStatusOutput) ToDirectoryBucketRuleStatusPtrOutput() DirectoryBucketRuleStatusPtrOutput {
+	return o.ToDirectoryBucketRuleStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketRuleStatusOutput) ToDirectoryBucketRuleStatusPtrOutputWithContext(ctx context.Context) DirectoryBucketRuleStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketRuleStatus) *DirectoryBucketRuleStatus {
+		return &v
+	}).(DirectoryBucketRuleStatusPtrOutput)
+}
+
+func (o DirectoryBucketRuleStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketRuleStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketRuleStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DirectoryBucketRuleStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketRuleStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DirectoryBucketRuleStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DirectoryBucketRuleStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketRuleStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketRuleStatus)(nil)).Elem()
+}
+
+func (o DirectoryBucketRuleStatusPtrOutput) ToDirectoryBucketRuleStatusPtrOutput() DirectoryBucketRuleStatusPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketRuleStatusPtrOutput) ToDirectoryBucketRuleStatusPtrOutputWithContext(ctx context.Context) DirectoryBucketRuleStatusPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketRuleStatusPtrOutput) Elem() DirectoryBucketRuleStatusOutput {
+	return o.ApplyT(func(v *DirectoryBucketRuleStatus) DirectoryBucketRuleStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketRuleStatus
+		return ret
+	}).(DirectoryBucketRuleStatusOutput)
+}
+
+func (o DirectoryBucketRuleStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketRuleStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DirectoryBucketRuleStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DirectoryBucketRuleStatusInput is an input type that accepts values of the DirectoryBucketRuleStatus enum
+// A concrete instance of `DirectoryBucketRuleStatusInput` can be one of the following:
+//
+//	DirectoryBucketRuleStatusEnabled
+//	DirectoryBucketRuleStatusDisabled
+type DirectoryBucketRuleStatusInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketRuleStatusOutput() DirectoryBucketRuleStatusOutput
+	ToDirectoryBucketRuleStatusOutputWithContext(context.Context) DirectoryBucketRuleStatusOutput
+}
+
+var directoryBucketRuleStatusPtrType = reflect.TypeOf((**DirectoryBucketRuleStatus)(nil)).Elem()
+
+type DirectoryBucketRuleStatusPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketRuleStatusPtrOutput() DirectoryBucketRuleStatusPtrOutput
+	ToDirectoryBucketRuleStatusPtrOutputWithContext(context.Context) DirectoryBucketRuleStatusPtrOutput
+}
+
+type directoryBucketRuleStatusPtr string
+
+func DirectoryBucketRuleStatusPtr(v string) DirectoryBucketRuleStatusPtrInput {
+	return (*directoryBucketRuleStatusPtr)(&v)
+}
+
+func (*directoryBucketRuleStatusPtr) ElementType() reflect.Type {
+	return directoryBucketRuleStatusPtrType
+}
+
+func (in *directoryBucketRuleStatusPtr) ToDirectoryBucketRuleStatusPtrOutput() DirectoryBucketRuleStatusPtrOutput {
+	return pulumi.ToOutput(in).(DirectoryBucketRuleStatusPtrOutput)
+}
+
+func (in *directoryBucketRuleStatusPtr) ToDirectoryBucketRuleStatusPtrOutputWithContext(ctx context.Context) DirectoryBucketRuleStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketRuleStatusPtrOutput)
+}
+
 // Server-side encryption algorithm to use for the default encryption.
 //
 // > For directory buckets, there are only two supported values for server-side encryption: `AES256` and `aws:kms` .
@@ -345,10 +510,14 @@ func (in *directoryBucketServerSideEncryptionByDefaultSseAlgorithmPtr) ToDirecto
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDataRedundancyInput)(nil)).Elem(), DirectoryBucketDataRedundancy("SingleAvailabilityZone"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketDataRedundancyPtrInput)(nil)).Elem(), DirectoryBucketDataRedundancy("SingleAvailabilityZone"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleStatusInput)(nil)).Elem(), DirectoryBucketRuleStatus("Enabled"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleStatusPtrInput)(nil)).Elem(), DirectoryBucketRuleStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm("aws:kms"))
 	pulumi.RegisterOutputType(DirectoryBucketDataRedundancyOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketDataRedundancyPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketRuleStatusOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketRuleStatusPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionByDefaultSseAlgorithmPtrOutput{})
 }

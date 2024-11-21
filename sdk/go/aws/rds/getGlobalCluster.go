@@ -34,7 +34,8 @@ type LookupGlobalClusterResult struct {
 	// The life cycle type of the global cluster. You can use this setting to enroll your global cluster into Amazon RDS Extended Support.
 	EngineLifecycleSupport *string `pulumi:"engineLifecycleSupport"`
 	// The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
-	EngineVersion *string `pulumi:"engineVersion"`
+	EngineVersion  *string                      `pulumi:"engineVersion"`
+	GlobalEndpoint *GlobalClusterGlobalEndpoint `pulumi:"globalEndpoint"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -94,6 +95,10 @@ func (o LookupGlobalClusterResultOutput) EngineLifecycleSupport() pulumi.StringP
 // The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
 func (o LookupGlobalClusterResultOutput) EngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalClusterResult) *string { return v.EngineVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGlobalClusterResultOutput) GlobalEndpoint() GlobalClusterGlobalEndpointPtrOutput {
+	return o.ApplyT(func(v LookupGlobalClusterResult) *GlobalClusterGlobalEndpoint { return v.GlobalEndpoint }).(GlobalClusterGlobalEndpointPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

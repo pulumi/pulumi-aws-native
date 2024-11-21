@@ -11,6 +11,13 @@ export const DirectoryBucketDataRedundancy = {
  */
 export type DirectoryBucketDataRedundancy = (typeof DirectoryBucketDataRedundancy)[keyof typeof DirectoryBucketDataRedundancy];
 
+export const DirectoryBucketRuleStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type DirectoryBucketRuleStatus = (typeof DirectoryBucketRuleStatus)[keyof typeof DirectoryBucketRuleStatus];
+
 export const DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm = {
     Awskms: "aws:kms",
     Aes256: "AES256",

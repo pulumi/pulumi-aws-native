@@ -2826,20 +2826,25 @@ func (in *domainLifecycleManagementPtr) ToDomainLifecycleManagementPtrOutputWith
 type DomainMlTools string
 
 const (
-	DomainMlToolsDataWrangler          = DomainMlTools("DataWrangler")
-	DomainMlToolsFeatureStore          = DomainMlTools("FeatureStore")
-	DomainMlToolsEmrClusters           = DomainMlTools("EmrClusters")
-	DomainMlToolsAutoMl                = DomainMlTools("AutoMl")
-	DomainMlToolsExperiments           = DomainMlTools("Experiments")
-	DomainMlToolsTraining              = DomainMlTools("Training")
-	DomainMlToolsModelEvaluation       = DomainMlTools("ModelEvaluation")
-	DomainMlToolsPipelines             = DomainMlTools("Pipelines")
-	DomainMlToolsModels                = DomainMlTools("Models")
-	DomainMlToolsJumpStart             = DomainMlTools("JumpStart")
-	DomainMlToolsInferenceRecommender  = DomainMlTools("InferenceRecommender")
-	DomainMlToolsEndpoints             = DomainMlTools("Endpoints")
-	DomainMlToolsProjects              = DomainMlTools("Projects")
-	DomainMlToolsInferenceOptimization = DomainMlTools("InferenceOptimization")
+	DomainMlToolsDataWrangler            = DomainMlTools("DataWrangler")
+	DomainMlToolsFeatureStore            = DomainMlTools("FeatureStore")
+	DomainMlToolsEmrClusters             = DomainMlTools("EmrClusters")
+	DomainMlToolsAutoMl                  = DomainMlTools("AutoMl")
+	DomainMlToolsExperiments             = DomainMlTools("Experiments")
+	DomainMlToolsTraining                = DomainMlTools("Training")
+	DomainMlToolsModelEvaluation         = DomainMlTools("ModelEvaluation")
+	DomainMlToolsPipelines               = DomainMlTools("Pipelines")
+	DomainMlToolsModels                  = DomainMlTools("Models")
+	DomainMlToolsJumpStart               = DomainMlTools("JumpStart")
+	DomainMlToolsInferenceRecommender    = DomainMlTools("InferenceRecommender")
+	DomainMlToolsEndpoints               = DomainMlTools("Endpoints")
+	DomainMlToolsProjects                = DomainMlTools("Projects")
+	DomainMlToolsInferenceOptimization   = DomainMlTools("InferenceOptimization")
+	DomainMlToolsHyperPodClusters        = DomainMlTools("HyperPodClusters")
+	DomainMlToolsComet                   = DomainMlTools("Comet")
+	DomainMlToolsDeepchecksLlmEvaluation = DomainMlTools("DeepchecksLLMEvaluation")
+	DomainMlToolsFiddler                 = DomainMlTools("Fiddler")
+	DomainMlToolsLakeraGuard             = DomainMlTools("LakeraGuard")
 )
 
 func (DomainMlTools) ElementType() reflect.Type {
@@ -2978,6 +2983,11 @@ func (o DomainMlToolsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	DomainMlToolsEndpoints
 //	DomainMlToolsProjects
 //	DomainMlToolsInferenceOptimization
+//	DomainMlToolsHyperPodClusters
+//	DomainMlToolsComet
+//	DomainMlToolsDeepchecksLlmEvaluation
+//	DomainMlToolsFiddler
+//	DomainMlToolsLakeraGuard
 type DomainMlToolsInput interface {
 	pulumi.Input
 
@@ -15549,20 +15559,25 @@ func (in *userProfileLifecycleManagementPtr) ToUserProfileLifecycleManagementPtr
 type UserProfileMlTools string
 
 const (
-	UserProfileMlToolsDataWrangler          = UserProfileMlTools("DataWrangler")
-	UserProfileMlToolsFeatureStore          = UserProfileMlTools("FeatureStore")
-	UserProfileMlToolsEmrClusters           = UserProfileMlTools("EmrClusters")
-	UserProfileMlToolsAutoMl                = UserProfileMlTools("AutoMl")
-	UserProfileMlToolsExperiments           = UserProfileMlTools("Experiments")
-	UserProfileMlToolsTraining              = UserProfileMlTools("Training")
-	UserProfileMlToolsModelEvaluation       = UserProfileMlTools("ModelEvaluation")
-	UserProfileMlToolsPipelines             = UserProfileMlTools("Pipelines")
-	UserProfileMlToolsModels                = UserProfileMlTools("Models")
-	UserProfileMlToolsJumpStart             = UserProfileMlTools("JumpStart")
-	UserProfileMlToolsInferenceRecommender  = UserProfileMlTools("InferenceRecommender")
-	UserProfileMlToolsEndpoints             = UserProfileMlTools("Endpoints")
-	UserProfileMlToolsProjects              = UserProfileMlTools("Projects")
-	UserProfileMlToolsInferenceOptimization = UserProfileMlTools("InferenceOptimization")
+	UserProfileMlToolsDataWrangler            = UserProfileMlTools("DataWrangler")
+	UserProfileMlToolsFeatureStore            = UserProfileMlTools("FeatureStore")
+	UserProfileMlToolsEmrClusters             = UserProfileMlTools("EmrClusters")
+	UserProfileMlToolsAutoMl                  = UserProfileMlTools("AutoMl")
+	UserProfileMlToolsExperiments             = UserProfileMlTools("Experiments")
+	UserProfileMlToolsTraining                = UserProfileMlTools("Training")
+	UserProfileMlToolsModelEvaluation         = UserProfileMlTools("ModelEvaluation")
+	UserProfileMlToolsPipelines               = UserProfileMlTools("Pipelines")
+	UserProfileMlToolsModels                  = UserProfileMlTools("Models")
+	UserProfileMlToolsJumpStart               = UserProfileMlTools("JumpStart")
+	UserProfileMlToolsInferenceRecommender    = UserProfileMlTools("InferenceRecommender")
+	UserProfileMlToolsEndpoints               = UserProfileMlTools("Endpoints")
+	UserProfileMlToolsProjects                = UserProfileMlTools("Projects")
+	UserProfileMlToolsInferenceOptimization   = UserProfileMlTools("InferenceOptimization")
+	UserProfileMlToolsHyperPodClusters        = UserProfileMlTools("HyperPodClusters")
+	UserProfileMlToolsComet                   = UserProfileMlTools("Comet")
+	UserProfileMlToolsDeepchecksLlmEvaluation = UserProfileMlTools("DeepchecksLLMEvaluation")
+	UserProfileMlToolsFiddler                 = UserProfileMlTools("Fiddler")
+	UserProfileMlToolsLakeraGuard             = UserProfileMlTools("LakeraGuard")
 )
 
 func (UserProfileMlTools) ElementType() reflect.Type {
@@ -15701,6 +15716,11 @@ func (o UserProfileMlToolsPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	UserProfileMlToolsEndpoints
 //	UserProfileMlToolsProjects
 //	UserProfileMlToolsInferenceOptimization
+//	UserProfileMlToolsHyperPodClusters
+//	UserProfileMlToolsComet
+//	UserProfileMlToolsDeepchecksLlmEvaluation
+//	UserProfileMlToolsFiddler
+//	UserProfileMlToolsLakeraGuard
 type UserProfileMlToolsInput interface {
 	pulumi.Input
 

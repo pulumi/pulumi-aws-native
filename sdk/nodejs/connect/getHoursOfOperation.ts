@@ -38,6 +38,10 @@ export interface GetHoursOfOperationResult {
      */
     readonly hoursOfOperationArn?: string;
     /**
+     * One or more hours of operation overrides assigned to an hour of operation.
+     */
+    readonly hoursOfOperationOverrides?: outputs.connect.HoursOfOperationOverride[];
+    /**
      * The identifier of the Amazon Connect instance.
      */
     readonly instanceArn?: string;

@@ -1039,6 +1039,7 @@ if not MYPY:
         """
         The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         """
+        custom_metadata: NotRequired[Any]
         instance_storage_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgsDict']]]]
         on_start_deep_health_checks: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]]
         override_vpc_config: NotRequired[pulumi.Input['ClusterVpcConfigArgsDict']]
@@ -1058,6 +1059,7 @@ class ClusterInstanceGroupArgs:
                  instance_type: pulumi.Input[str],
                  life_cycle_config: pulumi.Input['ClusterLifeCycleConfigArgs'],
                  current_count: Optional[pulumi.Input[int]] = None,
+                 custom_metadata: Optional[Any] = None,
                  instance_storage_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterInstanceStorageConfigArgs']]]] = None,
                  on_start_deep_health_checks: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterDeepHealthCheckType']]]] = None,
                  override_vpc_config: Optional[pulumi.Input['ClusterVpcConfigArgs']] = None,
@@ -1075,6 +1077,8 @@ class ClusterInstanceGroupArgs:
         pulumi.set(__self__, "life_cycle_config", life_cycle_config)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
+        if custom_metadata is not None:
+            pulumi.set(__self__, "custom_metadata", custom_metadata)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if on_start_deep_health_checks is not None:
@@ -1143,6 +1147,15 @@ class ClusterInstanceGroupArgs:
     @current_count.setter
     def current_count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "current_count", value)
+
+    @property
+    @pulumi.getter(name="customMetadata")
+    def custom_metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "custom_metadata")
+
+    @custom_metadata.setter
+    def custom_metadata(self, value: Optional[Any]):
+        pulumi.set(self, "custom_metadata", value)
 
     @property
     @pulumi.getter(name="instanceStorageConfigs")

@@ -395,6 +395,10 @@ class FileSystemReplicationDestination(dict):
             suggest = "file_system_id"
         elif key == "kmsKeyId":
             suggest = "kms_key_id"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "statusMessage":
+            suggest = "status_message"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FileSystemReplicationDestination. Access the value via the '{suggest}' property getter instead.")
@@ -411,7 +415,10 @@ class FileSystemReplicationDestination(dict):
                  availability_zone_name: Optional[str] = None,
                  file_system_id: Optional[str] = None,
                  kms_key_id: Optional[str] = None,
-                 region: Optional[str] = None):
+                 region: Optional[str] = None,
+                 role_arn: Optional[str] = None,
+                 status: Optional[str] = None,
+                 status_message: Optional[str] = None):
         """
         Describes the destination file system in the replication configuration.
         :param str availability_zone_name: For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
@@ -430,6 +437,12 @@ class FileSystemReplicationDestination(dict):
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
 
     @property
     @pulumi.getter(name="availabilityZoneName")
@@ -465,5 +478,20 @@ class FileSystemReplicationDestination(dict):
           For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
         """
         return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[str]:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[str]:
+        return pulumi.get(self, "status_message")
 
 

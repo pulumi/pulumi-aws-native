@@ -46,7 +46,8 @@ type LookupPortalResult struct {
 	// A friendly name for the portal.
 	PortalName *string `pulumi:"portalName"`
 	// The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
-	PortalStartUrl *string `pulumi:"portalStartUrl"`
+	PortalStartUrl          *string                    `pulumi:"portalStartUrl"`
+	PortalTypeConfiguration map[string]PortalTypeEntry `pulumi:"portalTypeConfiguration"`
 	// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A list of key-value pairs that contain metadata for the portal.
@@ -138,6 +139,10 @@ func (o LookupPortalResultOutput) PortalName() pulumi.StringPtrOutput {
 // The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
 func (o LookupPortalResultOutput) PortalStartUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.PortalStartUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupPortalResultOutput) PortalTypeConfiguration() PortalTypeEntryMapOutput {
+	return o.ApplyT(func(v LookupPortalResult) map[string]PortalTypeEntry { return v.PortalTypeConfiguration }).(PortalTypeEntryMapOutput)
 }
 
 // The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.

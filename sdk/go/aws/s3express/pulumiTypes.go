@@ -13,6 +13,146 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+type DirectoryBucketAbortIncompleteMultipartUpload struct {
+	// Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+	DaysAfterInitiation int `pulumi:"daysAfterInitiation"`
+}
+
+// DirectoryBucketAbortIncompleteMultipartUploadInput is an input type that accepts DirectoryBucketAbortIncompleteMultipartUploadArgs and DirectoryBucketAbortIncompleteMultipartUploadOutput values.
+// You can construct a concrete instance of `DirectoryBucketAbortIncompleteMultipartUploadInput` via:
+//
+//	DirectoryBucketAbortIncompleteMultipartUploadArgs{...}
+type DirectoryBucketAbortIncompleteMultipartUploadInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketAbortIncompleteMultipartUploadOutput() DirectoryBucketAbortIncompleteMultipartUploadOutput
+	ToDirectoryBucketAbortIncompleteMultipartUploadOutputWithContext(context.Context) DirectoryBucketAbortIncompleteMultipartUploadOutput
+}
+
+// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+type DirectoryBucketAbortIncompleteMultipartUploadArgs struct {
+	// Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+	DaysAfterInitiation pulumi.IntInput `pulumi:"daysAfterInitiation"`
+}
+
+func (DirectoryBucketAbortIncompleteMultipartUploadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketAbortIncompleteMultipartUpload)(nil)).Elem()
+}
+
+func (i DirectoryBucketAbortIncompleteMultipartUploadArgs) ToDirectoryBucketAbortIncompleteMultipartUploadOutput() DirectoryBucketAbortIncompleteMultipartUploadOutput {
+	return i.ToDirectoryBucketAbortIncompleteMultipartUploadOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketAbortIncompleteMultipartUploadArgs) ToDirectoryBucketAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) DirectoryBucketAbortIncompleteMultipartUploadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketAbortIncompleteMultipartUploadOutput)
+}
+
+func (i DirectoryBucketAbortIncompleteMultipartUploadArgs) ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutput() DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return i.ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketAbortIncompleteMultipartUploadArgs) ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketAbortIncompleteMultipartUploadOutput).ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx)
+}
+
+// DirectoryBucketAbortIncompleteMultipartUploadPtrInput is an input type that accepts DirectoryBucketAbortIncompleteMultipartUploadArgs, DirectoryBucketAbortIncompleteMultipartUploadPtr and DirectoryBucketAbortIncompleteMultipartUploadPtrOutput values.
+// You can construct a concrete instance of `DirectoryBucketAbortIncompleteMultipartUploadPtrInput` via:
+//
+//	        DirectoryBucketAbortIncompleteMultipartUploadArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryBucketAbortIncompleteMultipartUploadPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutput() DirectoryBucketAbortIncompleteMultipartUploadPtrOutput
+	ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Context) DirectoryBucketAbortIncompleteMultipartUploadPtrOutput
+}
+
+type directoryBucketAbortIncompleteMultipartUploadPtrType DirectoryBucketAbortIncompleteMultipartUploadArgs
+
+func DirectoryBucketAbortIncompleteMultipartUploadPtr(v *DirectoryBucketAbortIncompleteMultipartUploadArgs) DirectoryBucketAbortIncompleteMultipartUploadPtrInput {
+	return (*directoryBucketAbortIncompleteMultipartUploadPtrType)(v)
+}
+
+func (*directoryBucketAbortIncompleteMultipartUploadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketAbortIncompleteMultipartUpload)(nil)).Elem()
+}
+
+func (i *directoryBucketAbortIncompleteMultipartUploadPtrType) ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutput() DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return i.ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryBucketAbortIncompleteMultipartUploadPtrType) ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketAbortIncompleteMultipartUploadPtrOutput)
+}
+
+// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+type DirectoryBucketAbortIncompleteMultipartUploadOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketAbortIncompleteMultipartUploadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketAbortIncompleteMultipartUpload)(nil)).Elem()
+}
+
+func (o DirectoryBucketAbortIncompleteMultipartUploadOutput) ToDirectoryBucketAbortIncompleteMultipartUploadOutput() DirectoryBucketAbortIncompleteMultipartUploadOutput {
+	return o
+}
+
+func (o DirectoryBucketAbortIncompleteMultipartUploadOutput) ToDirectoryBucketAbortIncompleteMultipartUploadOutputWithContext(ctx context.Context) DirectoryBucketAbortIncompleteMultipartUploadOutput {
+	return o
+}
+
+func (o DirectoryBucketAbortIncompleteMultipartUploadOutput) ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutput() DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return o.ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketAbortIncompleteMultipartUploadOutput) ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketAbortIncompleteMultipartUpload) *DirectoryBucketAbortIncompleteMultipartUpload {
+		return &v
+	}).(DirectoryBucketAbortIncompleteMultipartUploadPtrOutput)
+}
+
+// Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+func (o DirectoryBucketAbortIncompleteMultipartUploadOutput) DaysAfterInitiation() pulumi.IntOutput {
+	return o.ApplyT(func(v DirectoryBucketAbortIncompleteMultipartUpload) int { return v.DaysAfterInitiation }).(pulumi.IntOutput)
+}
+
+type DirectoryBucketAbortIncompleteMultipartUploadPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketAbortIncompleteMultipartUploadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketAbortIncompleteMultipartUpload)(nil)).Elem()
+}
+
+func (o DirectoryBucketAbortIncompleteMultipartUploadPtrOutput) ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutput() DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketAbortIncompleteMultipartUploadPtrOutput) ToDirectoryBucketAbortIncompleteMultipartUploadPtrOutputWithContext(ctx context.Context) DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketAbortIncompleteMultipartUploadPtrOutput) Elem() DirectoryBucketAbortIncompleteMultipartUploadOutput {
+	return o.ApplyT(func(v *DirectoryBucketAbortIncompleteMultipartUpload) DirectoryBucketAbortIncompleteMultipartUpload {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketAbortIncompleteMultipartUpload
+		return ret
+	}).(DirectoryBucketAbortIncompleteMultipartUploadOutput)
+}
+
+// Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+func (o DirectoryBucketAbortIncompleteMultipartUploadPtrOutput) DaysAfterInitiation() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DirectoryBucketAbortIncompleteMultipartUpload) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DaysAfterInitiation
+	}).(pulumi.IntPtrOutput)
+}
+
 // Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS).
 type DirectoryBucketBucketEncryption struct {
 	// Specifies the default server-side-encryption configuration.
@@ -153,6 +293,278 @@ func (o DirectoryBucketBucketEncryptionPtrOutput) ServerSideEncryptionConfigurat
 		}
 		return v.ServerSideEncryptionConfiguration
 	}).(DirectoryBucketServerSideEncryptionRuleArrayOutput)
+}
+
+type DirectoryBucketLifecycleConfiguration struct {
+	// A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+	Rules []DirectoryBucketRule `pulumi:"rules"`
+}
+
+// DirectoryBucketLifecycleConfigurationInput is an input type that accepts DirectoryBucketLifecycleConfigurationArgs and DirectoryBucketLifecycleConfigurationOutput values.
+// You can construct a concrete instance of `DirectoryBucketLifecycleConfigurationInput` via:
+//
+//	DirectoryBucketLifecycleConfigurationArgs{...}
+type DirectoryBucketLifecycleConfigurationInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketLifecycleConfigurationOutput() DirectoryBucketLifecycleConfigurationOutput
+	ToDirectoryBucketLifecycleConfigurationOutputWithContext(context.Context) DirectoryBucketLifecycleConfigurationOutput
+}
+
+type DirectoryBucketLifecycleConfigurationArgs struct {
+	// A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+	Rules DirectoryBucketRuleArrayInput `pulumi:"rules"`
+}
+
+func (DirectoryBucketLifecycleConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i DirectoryBucketLifecycleConfigurationArgs) ToDirectoryBucketLifecycleConfigurationOutput() DirectoryBucketLifecycleConfigurationOutput {
+	return i.ToDirectoryBucketLifecycleConfigurationOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketLifecycleConfigurationArgs) ToDirectoryBucketLifecycleConfigurationOutputWithContext(ctx context.Context) DirectoryBucketLifecycleConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketLifecycleConfigurationOutput)
+}
+
+func (i DirectoryBucketLifecycleConfigurationArgs) ToDirectoryBucketLifecycleConfigurationPtrOutput() DirectoryBucketLifecycleConfigurationPtrOutput {
+	return i.ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketLifecycleConfigurationArgs) ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) DirectoryBucketLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketLifecycleConfigurationOutput).ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(ctx)
+}
+
+// DirectoryBucketLifecycleConfigurationPtrInput is an input type that accepts DirectoryBucketLifecycleConfigurationArgs, DirectoryBucketLifecycleConfigurationPtr and DirectoryBucketLifecycleConfigurationPtrOutput values.
+// You can construct a concrete instance of `DirectoryBucketLifecycleConfigurationPtrInput` via:
+//
+//	        DirectoryBucketLifecycleConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectoryBucketLifecycleConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketLifecycleConfigurationPtrOutput() DirectoryBucketLifecycleConfigurationPtrOutput
+	ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(context.Context) DirectoryBucketLifecycleConfigurationPtrOutput
+}
+
+type directoryBucketLifecycleConfigurationPtrType DirectoryBucketLifecycleConfigurationArgs
+
+func DirectoryBucketLifecycleConfigurationPtr(v *DirectoryBucketLifecycleConfigurationArgs) DirectoryBucketLifecycleConfigurationPtrInput {
+	return (*directoryBucketLifecycleConfigurationPtrType)(v)
+}
+
+func (*directoryBucketLifecycleConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketLifecycleConfiguration)(nil)).Elem()
+}
+
+func (i *directoryBucketLifecycleConfigurationPtrType) ToDirectoryBucketLifecycleConfigurationPtrOutput() DirectoryBucketLifecycleConfigurationPtrOutput {
+	return i.ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryBucketLifecycleConfigurationPtrType) ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) DirectoryBucketLifecycleConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketLifecycleConfigurationPtrOutput)
+}
+
+type DirectoryBucketLifecycleConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketLifecycleConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o DirectoryBucketLifecycleConfigurationOutput) ToDirectoryBucketLifecycleConfigurationOutput() DirectoryBucketLifecycleConfigurationOutput {
+	return o
+}
+
+func (o DirectoryBucketLifecycleConfigurationOutput) ToDirectoryBucketLifecycleConfigurationOutputWithContext(ctx context.Context) DirectoryBucketLifecycleConfigurationOutput {
+	return o
+}
+
+func (o DirectoryBucketLifecycleConfigurationOutput) ToDirectoryBucketLifecycleConfigurationPtrOutput() DirectoryBucketLifecycleConfigurationPtrOutput {
+	return o.ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryBucketLifecycleConfigurationOutput) ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) DirectoryBucketLifecycleConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryBucketLifecycleConfiguration) *DirectoryBucketLifecycleConfiguration {
+		return &v
+	}).(DirectoryBucketLifecycleConfigurationPtrOutput)
+}
+
+// A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+func (o DirectoryBucketLifecycleConfigurationOutput) Rules() DirectoryBucketRuleArrayOutput {
+	return o.ApplyT(func(v DirectoryBucketLifecycleConfiguration) []DirectoryBucketRule { return v.Rules }).(DirectoryBucketRuleArrayOutput)
+}
+
+type DirectoryBucketLifecycleConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketLifecycleConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryBucketLifecycleConfiguration)(nil)).Elem()
+}
+
+func (o DirectoryBucketLifecycleConfigurationPtrOutput) ToDirectoryBucketLifecycleConfigurationPtrOutput() DirectoryBucketLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketLifecycleConfigurationPtrOutput) ToDirectoryBucketLifecycleConfigurationPtrOutputWithContext(ctx context.Context) DirectoryBucketLifecycleConfigurationPtrOutput {
+	return o
+}
+
+func (o DirectoryBucketLifecycleConfigurationPtrOutput) Elem() DirectoryBucketLifecycleConfigurationOutput {
+	return o.ApplyT(func(v *DirectoryBucketLifecycleConfiguration) DirectoryBucketLifecycleConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryBucketLifecycleConfiguration
+		return ret
+	}).(DirectoryBucketLifecycleConfigurationOutput)
+}
+
+// A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+func (o DirectoryBucketLifecycleConfigurationPtrOutput) Rules() DirectoryBucketRuleArrayOutput {
+	return o.ApplyT(func(v *DirectoryBucketLifecycleConfiguration) []DirectoryBucketRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(DirectoryBucketRuleArrayOutput)
+}
+
+// You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+type DirectoryBucketRule struct {
+	AbortIncompleteMultipartUpload *DirectoryBucketAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
+	ExpirationInDays               *int                                           `pulumi:"expirationInDays"`
+	Id                             *string                                        `pulumi:"id"`
+	ObjectSizeGreaterThan          *string                                        `pulumi:"objectSizeGreaterThan"`
+	ObjectSizeLessThan             *string                                        `pulumi:"objectSizeLessThan"`
+	Prefix                         *string                                        `pulumi:"prefix"`
+	Status                         DirectoryBucketRuleStatus                      `pulumi:"status"`
+}
+
+// DirectoryBucketRuleInput is an input type that accepts DirectoryBucketRuleArgs and DirectoryBucketRuleOutput values.
+// You can construct a concrete instance of `DirectoryBucketRuleInput` via:
+//
+//	DirectoryBucketRuleArgs{...}
+type DirectoryBucketRuleInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketRuleOutput() DirectoryBucketRuleOutput
+	ToDirectoryBucketRuleOutputWithContext(context.Context) DirectoryBucketRuleOutput
+}
+
+// You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+type DirectoryBucketRuleArgs struct {
+	AbortIncompleteMultipartUpload DirectoryBucketAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
+	ExpirationInDays               pulumi.IntPtrInput                                    `pulumi:"expirationInDays"`
+	Id                             pulumi.StringPtrInput                                 `pulumi:"id"`
+	ObjectSizeGreaterThan          pulumi.StringPtrInput                                 `pulumi:"objectSizeGreaterThan"`
+	ObjectSizeLessThan             pulumi.StringPtrInput                                 `pulumi:"objectSizeLessThan"`
+	Prefix                         pulumi.StringPtrInput                                 `pulumi:"prefix"`
+	Status                         DirectoryBucketRuleStatusInput                        `pulumi:"status"`
+}
+
+func (DirectoryBucketRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketRule)(nil)).Elem()
+}
+
+func (i DirectoryBucketRuleArgs) ToDirectoryBucketRuleOutput() DirectoryBucketRuleOutput {
+	return i.ToDirectoryBucketRuleOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketRuleArgs) ToDirectoryBucketRuleOutputWithContext(ctx context.Context) DirectoryBucketRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketRuleOutput)
+}
+
+// DirectoryBucketRuleArrayInput is an input type that accepts DirectoryBucketRuleArray and DirectoryBucketRuleArrayOutput values.
+// You can construct a concrete instance of `DirectoryBucketRuleArrayInput` via:
+//
+//	DirectoryBucketRuleArray{ DirectoryBucketRuleArgs{...} }
+type DirectoryBucketRuleArrayInput interface {
+	pulumi.Input
+
+	ToDirectoryBucketRuleArrayOutput() DirectoryBucketRuleArrayOutput
+	ToDirectoryBucketRuleArrayOutputWithContext(context.Context) DirectoryBucketRuleArrayOutput
+}
+
+type DirectoryBucketRuleArray []DirectoryBucketRuleInput
+
+func (DirectoryBucketRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryBucketRule)(nil)).Elem()
+}
+
+func (i DirectoryBucketRuleArray) ToDirectoryBucketRuleArrayOutput() DirectoryBucketRuleArrayOutput {
+	return i.ToDirectoryBucketRuleArrayOutputWithContext(context.Background())
+}
+
+func (i DirectoryBucketRuleArray) ToDirectoryBucketRuleArrayOutputWithContext(ctx context.Context) DirectoryBucketRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryBucketRuleArrayOutput)
+}
+
+// You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+type DirectoryBucketRuleOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryBucketRule)(nil)).Elem()
+}
+
+func (o DirectoryBucketRuleOutput) ToDirectoryBucketRuleOutput() DirectoryBucketRuleOutput {
+	return o
+}
+
+func (o DirectoryBucketRuleOutput) ToDirectoryBucketRuleOutputWithContext(ctx context.Context) DirectoryBucketRuleOutput {
+	return o
+}
+
+func (o DirectoryBucketRuleOutput) AbortIncompleteMultipartUpload() DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketRule) *DirectoryBucketAbortIncompleteMultipartUpload {
+		return v.AbortIncompleteMultipartUpload
+	}).(DirectoryBucketAbortIncompleteMultipartUploadPtrOutput)
+}
+
+func (o DirectoryBucketRuleOutput) ExpirationInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketRule) *int { return v.ExpirationInDays }).(pulumi.IntPtrOutput)
+}
+
+func (o DirectoryBucketRuleOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o DirectoryBucketRuleOutput) ObjectSizeGreaterThan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.ObjectSizeGreaterThan }).(pulumi.StringPtrOutput)
+}
+
+func (o DirectoryBucketRuleOutput) ObjectSizeLessThan() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.ObjectSizeLessThan }).(pulumi.StringPtrOutput)
+}
+
+func (o DirectoryBucketRuleOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+func (o DirectoryBucketRuleOutput) Status() DirectoryBucketRuleStatusOutput {
+	return o.ApplyT(func(v DirectoryBucketRule) DirectoryBucketRuleStatus { return v.Status }).(DirectoryBucketRuleStatusOutput)
+}
+
+type DirectoryBucketRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectoryBucketRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectoryBucketRule)(nil)).Elem()
+}
+
+func (o DirectoryBucketRuleArrayOutput) ToDirectoryBucketRuleArrayOutput() DirectoryBucketRuleArrayOutput {
+	return o
+}
+
+func (o DirectoryBucketRuleArrayOutput) ToDirectoryBucketRuleArrayOutputWithContext(ctx context.Context) DirectoryBucketRuleArrayOutput {
+	return o
+}
+
+func (o DirectoryBucketRuleArrayOutput) Index(i pulumi.IntInput) DirectoryBucketRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectoryBucketRule {
+		return vs[0].([]DirectoryBucketRule)[vs[1].(int)]
+	}).(DirectoryBucketRuleOutput)
 }
 
 // Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.
@@ -436,14 +848,26 @@ func (o DirectoryBucketServerSideEncryptionRuleArrayOutput) Index(i pulumi.IntIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketAbortIncompleteMultipartUploadInput)(nil)).Elem(), DirectoryBucketAbortIncompleteMultipartUploadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketAbortIncompleteMultipartUploadPtrInput)(nil)).Elem(), DirectoryBucketAbortIncompleteMultipartUploadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketBucketEncryptionInput)(nil)).Elem(), DirectoryBucketBucketEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketBucketEncryptionPtrInput)(nil)).Elem(), DirectoryBucketBucketEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLifecycleConfigurationInput)(nil)).Elem(), DirectoryBucketLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketLifecycleConfigurationPtrInput)(nil)).Elem(), DirectoryBucketLifecycleConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleInput)(nil)).Elem(), DirectoryBucketRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketRuleArrayInput)(nil)).Elem(), DirectoryBucketRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionByDefaultPtrInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionByDefaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionRuleInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryBucketServerSideEncryptionRuleArrayInput)(nil)).Elem(), DirectoryBucketServerSideEncryptionRuleArray{})
+	pulumi.RegisterOutputType(DirectoryBucketAbortIncompleteMultipartUploadOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketAbortIncompleteMultipartUploadPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketBucketEncryptionOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketBucketEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketLifecycleConfigurationOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketLifecycleConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketRuleOutput{})
+	pulumi.RegisterOutputType(DirectoryBucketRuleArrayOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionByDefaultOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionByDefaultPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryBucketServerSideEncryptionRuleOutput{})

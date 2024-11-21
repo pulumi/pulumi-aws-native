@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -44,6 +45,8 @@ type LookupSafetyRuleResult struct {
 	SafetyRuleArn *string `pulumi:"safetyRuleArn"`
 	// The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 	Status *SafetyRuleStatus `pulumi:"status"`
+	// A collection of tags associated with a resource
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupSafetyRuleOutput(ctx *pulumi.Context, args LookupSafetyRuleOutputArgs, opts ...pulumi.InvokeOption) LookupSafetyRuleResultOutput {
@@ -123,6 +126,11 @@ func (o LookupSafetyRuleResultOutput) SafetyRuleArn() pulumi.StringPtrOutput {
 // The deployment status of the routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.
 func (o LookupSafetyRuleResultOutput) Status() SafetyRuleStatusPtrOutput {
 	return o.ApplyT(func(v LookupSafetyRuleResult) *SafetyRuleStatus { return v.Status }).(SafetyRuleStatusPtrOutput)
+}
+
+// A collection of tags associated with a resource
+func (o LookupSafetyRuleResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupSafetyRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

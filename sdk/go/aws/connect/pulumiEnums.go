@@ -2057,6 +2057,182 @@ func (in *hoursOfOperationConfigDayPtr) ToHoursOfOperationConfigDayPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(HoursOfOperationConfigDayPtrOutput)
 }
 
+// The day that the hours of operation override applies to.
+type HoursOfOperationOverrideConfigDay string
+
+const (
+	HoursOfOperationOverrideConfigDaySunday    = HoursOfOperationOverrideConfigDay("SUNDAY")
+	HoursOfOperationOverrideConfigDayMonday    = HoursOfOperationOverrideConfigDay("MONDAY")
+	HoursOfOperationOverrideConfigDayTuesday   = HoursOfOperationOverrideConfigDay("TUESDAY")
+	HoursOfOperationOverrideConfigDayWednesday = HoursOfOperationOverrideConfigDay("WEDNESDAY")
+	HoursOfOperationOverrideConfigDayThursday  = HoursOfOperationOverrideConfigDay("THURSDAY")
+	HoursOfOperationOverrideConfigDayFriday    = HoursOfOperationOverrideConfigDay("FRIDAY")
+	HoursOfOperationOverrideConfigDaySaturday  = HoursOfOperationOverrideConfigDay("SATURDAY")
+)
+
+func (HoursOfOperationOverrideConfigDay) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverrideConfigDay)(nil)).Elem()
+}
+
+func (e HoursOfOperationOverrideConfigDay) ToHoursOfOperationOverrideConfigDayOutput() HoursOfOperationOverrideConfigDayOutput {
+	return pulumi.ToOutput(e).(HoursOfOperationOverrideConfigDayOutput)
+}
+
+func (e HoursOfOperationOverrideConfigDay) ToHoursOfOperationOverrideConfigDayOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigDayOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HoursOfOperationOverrideConfigDayOutput)
+}
+
+func (e HoursOfOperationOverrideConfigDay) ToHoursOfOperationOverrideConfigDayPtrOutput() HoursOfOperationOverrideConfigDayPtrOutput {
+	return e.ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(context.Background())
+}
+
+func (e HoursOfOperationOverrideConfigDay) ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigDayPtrOutput {
+	return HoursOfOperationOverrideConfigDay(e).ToHoursOfOperationOverrideConfigDayOutputWithContext(ctx).ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(ctx)
+}
+
+func (e HoursOfOperationOverrideConfigDay) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HoursOfOperationOverrideConfigDay) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HoursOfOperationOverrideConfigDay) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HoursOfOperationOverrideConfigDay) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HoursOfOperationOverrideConfigDayOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideConfigDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverrideConfigDay)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideConfigDayOutput) ToHoursOfOperationOverrideConfigDayOutput() HoursOfOperationOverrideConfigDayOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideConfigDayOutput) ToHoursOfOperationOverrideConfigDayOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigDayOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideConfigDayOutput) ToHoursOfOperationOverrideConfigDayPtrOutput() HoursOfOperationOverrideConfigDayPtrOutput {
+	return o.ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationOverrideConfigDayOutput) ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigDayPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HoursOfOperationOverrideConfigDay) *HoursOfOperationOverrideConfigDay {
+		return &v
+	}).(HoursOfOperationOverrideConfigDayPtrOutput)
+}
+
+func (o HoursOfOperationOverrideConfigDayOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationOverrideConfigDayOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HoursOfOperationOverrideConfigDay) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HoursOfOperationOverrideConfigDayOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationOverrideConfigDayOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HoursOfOperationOverrideConfigDay) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HoursOfOperationOverrideConfigDayPtrOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideConfigDayPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HoursOfOperationOverrideConfigDay)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideConfigDayPtrOutput) ToHoursOfOperationOverrideConfigDayPtrOutput() HoursOfOperationOverrideConfigDayPtrOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideConfigDayPtrOutput) ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigDayPtrOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideConfigDayPtrOutput) Elem() HoursOfOperationOverrideConfigDayOutput {
+	return o.ApplyT(func(v *HoursOfOperationOverrideConfigDay) HoursOfOperationOverrideConfigDay {
+		if v != nil {
+			return *v
+		}
+		var ret HoursOfOperationOverrideConfigDay
+		return ret
+	}).(HoursOfOperationOverrideConfigDayOutput)
+}
+
+func (o HoursOfOperationOverrideConfigDayPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HoursOfOperationOverrideConfigDayPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HoursOfOperationOverrideConfigDay) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HoursOfOperationOverrideConfigDayInput is an input type that accepts values of the HoursOfOperationOverrideConfigDay enum
+// A concrete instance of `HoursOfOperationOverrideConfigDayInput` can be one of the following:
+//
+//	HoursOfOperationOverrideConfigDaySunday
+//	HoursOfOperationOverrideConfigDayMonday
+//	HoursOfOperationOverrideConfigDayTuesday
+//	HoursOfOperationOverrideConfigDayWednesday
+//	HoursOfOperationOverrideConfigDayThursday
+//	HoursOfOperationOverrideConfigDayFriday
+//	HoursOfOperationOverrideConfigDaySaturday
+type HoursOfOperationOverrideConfigDayInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideConfigDayOutput() HoursOfOperationOverrideConfigDayOutput
+	ToHoursOfOperationOverrideConfigDayOutputWithContext(context.Context) HoursOfOperationOverrideConfigDayOutput
+}
+
+var hoursOfOperationOverrideConfigDayPtrType = reflect.TypeOf((**HoursOfOperationOverrideConfigDay)(nil)).Elem()
+
+type HoursOfOperationOverrideConfigDayPtrInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideConfigDayPtrOutput() HoursOfOperationOverrideConfigDayPtrOutput
+	ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(context.Context) HoursOfOperationOverrideConfigDayPtrOutput
+}
+
+type hoursOfOperationOverrideConfigDayPtr string
+
+func HoursOfOperationOverrideConfigDayPtr(v string) HoursOfOperationOverrideConfigDayPtrInput {
+	return (*hoursOfOperationOverrideConfigDayPtr)(&v)
+}
+
+func (*hoursOfOperationOverrideConfigDayPtr) ElementType() reflect.Type {
+	return hoursOfOperationOverrideConfigDayPtrType
+}
+
+func (in *hoursOfOperationOverrideConfigDayPtr) ToHoursOfOperationOverrideConfigDayPtrOutput() HoursOfOperationOverrideConfigDayPtrOutput {
+	return pulumi.ToOutput(in).(HoursOfOperationOverrideConfigDayPtrOutput)
+}
+
+func (in *hoursOfOperationOverrideConfigDayPtr) ToHoursOfOperationOverrideConfigDayPtrOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigDayPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HoursOfOperationOverrideConfigDayPtrOutput)
+}
+
 // Specifies the type of directory integration for new instance.
 type InstanceIdentityManagementType string
 
@@ -5407,6 +5583,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormStatusPtrInput)(nil)).Elem(), EvaluationFormStatus("DRAFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigDayPtrInput)(nil)).Elem(), HoursOfOperationConfigDay("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideConfigDayInput)(nil)).Elem(), HoursOfOperationOverrideConfigDay("SUNDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideConfigDayPtrInput)(nil)).Elem(), HoursOfOperationOverrideConfigDay("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypeInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceIdentityManagementTypePtrInput)(nil)).Elem(), InstanceIdentityManagementType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionTypeInput)(nil)).Elem(), InstanceStorageConfigEncryptionType("KMS"))
@@ -5467,6 +5645,8 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormStatusPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigDayPtrOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideConfigDayOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideConfigDayPtrOutput{})
 	pulumi.RegisterOutputType(InstanceIdentityManagementTypeOutput{})
 	pulumi.RegisterOutputType(InstanceIdentityManagementTypePtrOutput{})
 	pulumi.RegisterOutputType(InstanceStatusOutput{})

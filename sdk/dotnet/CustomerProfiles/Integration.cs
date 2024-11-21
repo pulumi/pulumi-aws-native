@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
+        /// A list of unique names for active event triggers associated with the integration.
+        /// </summary>
+        [Output("eventTriggerNames")]
+        public Output<ImmutableArray<string>> EventTriggerNames { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration that controls how Customer Profiles retrieves data from the source.
         /// </summary>
         [Output("flowDefinition")]
@@ -118,6 +124,18 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
+
+        [Input("eventTriggerNames")]
+        private InputList<string>? _eventTriggerNames;
+
+        /// <summary>
+        /// A list of unique names for active event triggers associated with the integration.
+        /// </summary>
+        public InputList<string> EventTriggerNames
+        {
+            get => _eventTriggerNames ?? (_eventTriggerNames = new InputList<string>());
+            set => _eventTriggerNames = value;
+        }
 
         /// <summary>
         /// The configuration that controls how Customer Profiles retrieves data from the source.

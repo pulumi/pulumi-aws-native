@@ -35,6 +35,8 @@ type LookupHoursOfOperationResult struct {
 	Description *string `pulumi:"description"`
 	// The Amazon Resource Name (ARN) for the hours of operation.
 	HoursOfOperationArn *string `pulumi:"hoursOfOperationArn"`
+	// One or more hours of operation overrides assigned to an hour of operation.
+	HoursOfOperationOverrides []HoursOfOperationOverride `pulumi:"hoursOfOperationOverrides"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn *string `pulumi:"instanceArn"`
 	// The name of the hours of operation.
@@ -100,6 +102,11 @@ func (o LookupHoursOfOperationResultOutput) Description() pulumi.StringPtrOutput
 // The Amazon Resource Name (ARN) for the hours of operation.
 func (o LookupHoursOfOperationResultOutput) HoursOfOperationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHoursOfOperationResult) *string { return v.HoursOfOperationArn }).(pulumi.StringPtrOutput)
+}
+
+// One or more hours of operation overrides assigned to an hour of operation.
+func (o LookupHoursOfOperationResultOutput) HoursOfOperationOverrides() HoursOfOperationOverrideArrayOutput {
+	return o.ApplyT(func(v LookupHoursOfOperationResult) []HoursOfOperationOverride { return v.HoursOfOperationOverrides }).(HoursOfOperationOverrideArrayOutput)
 }
 
 // The identifier of the Amazon Connect instance.

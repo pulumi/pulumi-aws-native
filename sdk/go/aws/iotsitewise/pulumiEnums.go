@@ -679,6 +679,172 @@ func (in *assetPropertyNotificationStatePtr) ToAssetPropertyNotificationStatePtr
 	return pulumi.ToOutputWithContext(ctx, in).(AssetPropertyNotificationStatePtrOutput)
 }
 
+// The type of portal
+type PortalType string
+
+const (
+	PortalTypeSitewisePortalV1 = PortalType("SITEWISE_PORTAL_V1")
+	PortalTypeSitewisePortalV2 = PortalType("SITEWISE_PORTAL_V2")
+)
+
+func (PortalType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalType)(nil)).Elem()
+}
+
+func (e PortalType) ToPortalTypeOutput() PortalTypeOutput {
+	return pulumi.ToOutput(e).(PortalTypeOutput)
+}
+
+func (e PortalType) ToPortalTypeOutputWithContext(ctx context.Context) PortalTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PortalTypeOutput)
+}
+
+func (e PortalType) ToPortalTypePtrOutput() PortalTypePtrOutput {
+	return e.ToPortalTypePtrOutputWithContext(context.Background())
+}
+
+func (e PortalType) ToPortalTypePtrOutputWithContext(ctx context.Context) PortalTypePtrOutput {
+	return PortalType(e).ToPortalTypeOutputWithContext(ctx).ToPortalTypePtrOutputWithContext(ctx)
+}
+
+func (e PortalType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PortalType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PortalType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PortalType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PortalTypeOutput struct{ *pulumi.OutputState }
+
+func (PortalTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalType)(nil)).Elem()
+}
+
+func (o PortalTypeOutput) ToPortalTypeOutput() PortalTypeOutput {
+	return o
+}
+
+func (o PortalTypeOutput) ToPortalTypeOutputWithContext(ctx context.Context) PortalTypeOutput {
+	return o
+}
+
+func (o PortalTypeOutput) ToPortalTypePtrOutput() PortalTypePtrOutput {
+	return o.ToPortalTypePtrOutputWithContext(context.Background())
+}
+
+func (o PortalTypeOutput) ToPortalTypePtrOutputWithContext(ctx context.Context) PortalTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PortalType) *PortalType {
+		return &v
+	}).(PortalTypePtrOutput)
+}
+
+func (o PortalTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PortalTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PortalType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PortalTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PortalTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PortalType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PortalTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PortalTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PortalType)(nil)).Elem()
+}
+
+func (o PortalTypePtrOutput) ToPortalTypePtrOutput() PortalTypePtrOutput {
+	return o
+}
+
+func (o PortalTypePtrOutput) ToPortalTypePtrOutputWithContext(ctx context.Context) PortalTypePtrOutput {
+	return o
+}
+
+func (o PortalTypePtrOutput) Elem() PortalTypeOutput {
+	return o.ApplyT(func(v *PortalType) PortalType {
+		if v != nil {
+			return *v
+		}
+		var ret PortalType
+		return ret
+	}).(PortalTypeOutput)
+}
+
+func (o PortalTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PortalTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PortalType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PortalTypeInput is an input type that accepts values of the PortalType enum
+// A concrete instance of `PortalTypeInput` can be one of the following:
+//
+//	PortalTypeSitewisePortalV1
+//	PortalTypeSitewisePortalV2
+type PortalTypeInput interface {
+	pulumi.Input
+
+	ToPortalTypeOutput() PortalTypeOutput
+	ToPortalTypeOutputWithContext(context.Context) PortalTypeOutput
+}
+
+var portalTypePtrType = reflect.TypeOf((**PortalType)(nil)).Elem()
+
+type PortalTypePtrInput interface {
+	pulumi.Input
+
+	ToPortalTypePtrOutput() PortalTypePtrOutput
+	ToPortalTypePtrOutputWithContext(context.Context) PortalTypePtrOutput
+}
+
+type portalTypePtr string
+
+func PortalTypePtr(v string) PortalTypePtrInput {
+	return (*portalTypePtr)(&v)
+}
+
+func (*portalTypePtr) ElementType() reflect.Type {
+	return portalTypePtrType
+}
+
+func (in *portalTypePtr) ToPortalTypePtrOutput() PortalTypePtrOutput {
+	return pulumi.ToOutput(in).(PortalTypePtrOutput)
+}
+
+func (in *portalTypePtr) ToPortalTypePtrOutputWithContext(ctx context.Context) PortalTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PortalTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelDataTypeInput)(nil)).Elem(), AssetModelDataType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelDataTypePtrInput)(nil)).Elem(), AssetModelDataType("STRING"))
@@ -688,6 +854,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetModelTypeNamePtrInput)(nil)).Elem(), AssetModelTypeName("Measurement"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyNotificationStateInput)(nil)).Elem(), AssetPropertyNotificationState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AssetPropertyNotificationStatePtrInput)(nil)).Elem(), AssetPropertyNotificationState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTypeInput)(nil)).Elem(), PortalType("SITEWISE_PORTAL_V1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTypePtrInput)(nil)).Elem(), PortalType("SITEWISE_PORTAL_V1"))
 	pulumi.RegisterOutputType(AssetModelDataTypeOutput{})
 	pulumi.RegisterOutputType(AssetModelDataTypePtrOutput{})
 	pulumi.RegisterOutputType(AssetModelDataTypeSpecOutput{})
@@ -696,4 +864,6 @@ func init() {
 	pulumi.RegisterOutputType(AssetModelTypeNamePtrOutput{})
 	pulumi.RegisterOutputType(AssetPropertyNotificationStateOutput{})
 	pulumi.RegisterOutputType(AssetPropertyNotificationStatePtrOutput{})
+	pulumi.RegisterOutputType(PortalTypeOutput{})
+	pulumi.RegisterOutputType(PortalTypePtrOutput{})
 }

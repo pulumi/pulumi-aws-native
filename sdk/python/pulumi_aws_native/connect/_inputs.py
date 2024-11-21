@@ -50,6 +50,12 @@ __all__ = [
     'EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgsDict',
     'HoursOfOperationConfigArgs',
     'HoursOfOperationConfigArgsDict',
+    'HoursOfOperationOverrideConfigArgs',
+    'HoursOfOperationOverrideConfigArgsDict',
+    'HoursOfOperationOverrideTimeSliceArgs',
+    'HoursOfOperationOverrideTimeSliceArgsDict',
+    'HoursOfOperationOverrideArgs',
+    'HoursOfOperationOverrideArgsDict',
     'HoursOfOperationTimeSliceArgs',
     'HoursOfOperationTimeSliceArgsDict',
     'InstanceAttributesArgs',
@@ -1447,6 +1453,223 @@ class HoursOfOperationConfigArgs:
     @start_time.setter
     def start_time(self, value: pulumi.Input['HoursOfOperationTimeSliceArgs']):
         pulumi.set(self, "start_time", value)
+
+
+if not MYPY:
+    class HoursOfOperationOverrideConfigArgsDict(TypedDict):
+        """
+        Contains information about the hours of operation override.
+        """
+        day: pulumi.Input['HoursOfOperationOverrideConfigDay']
+        """
+        The day that the hours of operation override applies to.
+        """
+        end_time: pulumi.Input['HoursOfOperationOverrideTimeSliceArgsDict']
+        """
+        The new end time that your contact center closes for the overriden days.
+        """
+        start_time: pulumi.Input['HoursOfOperationOverrideTimeSliceArgsDict']
+        """
+        The new start time that your contact center opens for the overriden days.
+        """
+elif False:
+    HoursOfOperationOverrideConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HoursOfOperationOverrideConfigArgs:
+    def __init__(__self__, *,
+                 day: pulumi.Input['HoursOfOperationOverrideConfigDay'],
+                 end_time: pulumi.Input['HoursOfOperationOverrideTimeSliceArgs'],
+                 start_time: pulumi.Input['HoursOfOperationOverrideTimeSliceArgs']):
+        """
+        Contains information about the hours of operation override.
+        :param pulumi.Input['HoursOfOperationOverrideConfigDay'] day: The day that the hours of operation override applies to.
+        :param pulumi.Input['HoursOfOperationOverrideTimeSliceArgs'] end_time: The new end time that your contact center closes for the overriden days.
+        :param pulumi.Input['HoursOfOperationOverrideTimeSliceArgs'] start_time: The new start time that your contact center opens for the overriden days.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def day(self) -> pulumi.Input['HoursOfOperationOverrideConfigDay']:
+        """
+        The day that the hours of operation override applies to.
+        """
+        return pulumi.get(self, "day")
+
+    @day.setter
+    def day(self, value: pulumi.Input['HoursOfOperationOverrideConfigDay']):
+        pulumi.set(self, "day", value)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> pulumi.Input['HoursOfOperationOverrideTimeSliceArgs']:
+        """
+        The new end time that your contact center closes for the overriden days.
+        """
+        return pulumi.get(self, "end_time")
+
+    @end_time.setter
+    def end_time(self, value: pulumi.Input['HoursOfOperationOverrideTimeSliceArgs']):
+        pulumi.set(self, "end_time", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input['HoursOfOperationOverrideTimeSliceArgs']:
+        """
+        The new start time that your contact center opens for the overriden days.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input['HoursOfOperationOverrideTimeSliceArgs']):
+        pulumi.set(self, "start_time", value)
+
+
+if not MYPY:
+    class HoursOfOperationOverrideTimeSliceArgsDict(TypedDict):
+        """
+        The start time or end time for an an hours of operation override.
+        """
+        hours: pulumi.Input[int]
+        """
+        The hours.
+        """
+        minutes: pulumi.Input[int]
+        """
+        The minutes.
+        """
+elif False:
+    HoursOfOperationOverrideTimeSliceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HoursOfOperationOverrideTimeSliceArgs:
+    def __init__(__self__, *,
+                 hours: pulumi.Input[int],
+                 minutes: pulumi.Input[int]):
+        """
+        The start time or end time for an an hours of operation override.
+        :param pulumi.Input[int] hours: The hours.
+        :param pulumi.Input[int] minutes: The minutes.
+        """
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> pulumi.Input[int]:
+        """
+        The hours.
+        """
+        return pulumi.get(self, "hours")
+
+    @hours.setter
+    def hours(self, value: pulumi.Input[int]):
+        pulumi.set(self, "hours", value)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> pulumi.Input[int]:
+        """
+        The minutes.
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minutes", value)
+
+
+if not MYPY:
+    class HoursOfOperationOverrideArgsDict(TypedDict):
+        """
+        Overrides attached to the hours of operation.
+        """
+        effective_from: pulumi.Input[str]
+        effective_till: pulumi.Input[str]
+        override_config: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideConfigArgsDict']]]
+        override_name: pulumi.Input[str]
+        hours_of_operation_override_id: NotRequired[pulumi.Input[str]]
+        override_description: NotRequired[pulumi.Input[str]]
+elif False:
+    HoursOfOperationOverrideArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HoursOfOperationOverrideArgs:
+    def __init__(__self__, *,
+                 effective_from: pulumi.Input[str],
+                 effective_till: pulumi.Input[str],
+                 override_config: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideConfigArgs']]],
+                 override_name: pulumi.Input[str],
+                 hours_of_operation_override_id: Optional[pulumi.Input[str]] = None,
+                 override_description: Optional[pulumi.Input[str]] = None):
+        """
+        Overrides attached to the hours of operation.
+        """
+        pulumi.set(__self__, "effective_from", effective_from)
+        pulumi.set(__self__, "effective_till", effective_till)
+        pulumi.set(__self__, "override_config", override_config)
+        pulumi.set(__self__, "override_name", override_name)
+        if hours_of_operation_override_id is not None:
+            pulumi.set(__self__, "hours_of_operation_override_id", hours_of_operation_override_id)
+        if override_description is not None:
+            pulumi.set(__self__, "override_description", override_description)
+
+    @property
+    @pulumi.getter(name="effectiveFrom")
+    def effective_from(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "effective_from")
+
+    @effective_from.setter
+    def effective_from(self, value: pulumi.Input[str]):
+        pulumi.set(self, "effective_from", value)
+
+    @property
+    @pulumi.getter(name="effectiveTill")
+    def effective_till(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "effective_till")
+
+    @effective_till.setter
+    def effective_till(self, value: pulumi.Input[str]):
+        pulumi.set(self, "effective_till", value)
+
+    @property
+    @pulumi.getter(name="overrideConfig")
+    def override_config(self) -> pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideConfigArgs']]]:
+        return pulumi.get(self, "override_config")
+
+    @override_config.setter
+    def override_config(self, value: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideConfigArgs']]]):
+        pulumi.set(self, "override_config", value)
+
+    @property
+    @pulumi.getter(name="overrideName")
+    def override_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "override_name")
+
+    @override_name.setter
+    def override_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "override_name", value)
+
+    @property
+    @pulumi.getter(name="hoursOfOperationOverrideId")
+    def hours_of_operation_override_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "hours_of_operation_override_id")
+
+    @hours_of_operation_override_id.setter
+    def hours_of_operation_override_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hours_of_operation_override_id", value)
+
+    @property
+    @pulumi.getter(name="overrideDescription")
+    def override_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "override_description")
+
+    @override_description.setter
+    def override_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_description", value)
 
 
 if not MYPY:

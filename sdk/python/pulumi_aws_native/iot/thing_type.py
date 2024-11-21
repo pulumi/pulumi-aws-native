@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ThingTypeArgs', 'ThingType']
@@ -161,7 +162,7 @@ class ThingType(pulumi.CustomResource):
             __props__.__dict__["thing_type_properties"] = thing_type_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thingTypeName", "thingTypeProperties"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["thingTypeName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ThingType, __self__).__init__(
             'aws-native:iot:ThingType',

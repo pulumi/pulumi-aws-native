@@ -834,6 +834,16 @@
         "$ref" : "#/definitions/Reference"
       }
     },
+    "BaselinePerformanceFactors" : {
+      "description" : "",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Cpu" : {
+          "$ref" : "#/definitions/Cpu"
+        }
+      }
+    },
     "LaunchTemplateElasticInferenceAccelerator" : {
       "description" : "Specifies an elastic inference accelerator.\n  ``LaunchTemplateElasticInferenceAccelerator`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).",
       "additionalProperties" : false,
@@ -969,6 +979,10 @@
         "NetworkBandwidthGbps" : {
           "description" : "The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).\n Default: No minimum or maximum limits",
           "$ref" : "#/definitions/NetworkBandwidthGbps"
+        },
+        "BaselinePerformanceFactors" : {
+          "description" : "",
+          "$ref" : "#/definitions/BaselinePerformanceFactors"
         },
         "SpotMaxPricePercentageOverLowestPrice" : {
           "description" : "[Price protection] The price protection threshold for Spot Instances, as a percentage higher than an identified Spot price. The identified Spot price is the Spot price of the lowest priced current generation C, M, or R instance type with your specified attributes. If no current generation C, M, or R instance type matches your attributes, then the identified Spot price is from the lowest priced current generation instance types, and failing that, from the lowest priced previous generation instance types that match your attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose Spot price exceeds your specified threshold.\n The parameter accepts an integer, which Amazon EC2 interprets as a percentage.\n If you set ``TargetCapacityUnitType`` to ``vcpu`` or ``memory-mib``, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.\n This parameter is not supported for [GetSpotPlacementScores](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html) and [GetInstanceTypesFromInstanceRequirements](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html).\n  Only one of ``SpotMaxPricePercentageOverLowestPrice`` or ``MaxSpotPriceAsPercentageOfOptimalOnDemandPrice`` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as ``999999``.\n  Default: ``100``",

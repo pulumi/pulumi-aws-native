@@ -36,6 +36,8 @@ __all__ = [
     'DomainNameEndpointConfigurationArgsDict',
     'DomainNameMutualTlsAuthenticationArgs',
     'DomainNameMutualTlsAuthenticationArgsDict',
+    'DomainNameV2EndpointConfigurationArgs',
+    'DomainNameV2EndpointConfigurationArgsDict',
     'MethodIntegrationResponseArgs',
     'MethodIntegrationResponseArgsDict',
     'MethodIntegrationArgs',
@@ -1197,6 +1199,29 @@ class DomainNameMutualTlsAuthenticationArgs:
     @truststore_version.setter
     def truststore_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "truststore_version", value)
+
+
+if not MYPY:
+    class DomainNameV2EndpointConfigurationArgsDict(TypedDict):
+        types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DomainNameV2EndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainNameV2EndpointConfigurationArgs:
+    def __init__(__self__, *,
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "types", value)
 
 
 if not MYPY:

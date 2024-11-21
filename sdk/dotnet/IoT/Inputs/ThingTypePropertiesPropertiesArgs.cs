@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
     /// </summary>
     public sealed class ThingTypePropertiesPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("mqtt5Configuration")]
+        public Input<Inputs.ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs>? Mqtt5Configuration { get; set; }
+
         [Input("searchableAttributes")]
         private InputList<string>? _searchableAttributes;
 

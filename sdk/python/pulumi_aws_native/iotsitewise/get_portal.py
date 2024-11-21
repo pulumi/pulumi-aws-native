@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPortalResult:
-    def __init__(__self__, alarms=None, notification_sender_email=None, portal_arn=None, portal_client_id=None, portal_contact_email=None, portal_description=None, portal_id=None, portal_name=None, portal_start_url=None, role_arn=None, tags=None):
+    def __init__(__self__, alarms=None, notification_sender_email=None, portal_arn=None, portal_client_id=None, portal_contact_email=None, portal_description=None, portal_id=None, portal_name=None, portal_start_url=None, portal_type_configuration=None, role_arn=None, tags=None):
         if alarms and not isinstance(alarms, dict):
             raise TypeError("Expected argument 'alarms' to be a dict")
         pulumi.set(__self__, "alarms", alarms)
@@ -53,6 +53,9 @@ class GetPortalResult:
         if portal_start_url and not isinstance(portal_start_url, str):
             raise TypeError("Expected argument 'portal_start_url' to be a str")
         pulumi.set(__self__, "portal_start_url", portal_start_url)
+        if portal_type_configuration and not isinstance(portal_type_configuration, dict):
+            raise TypeError("Expected argument 'portal_type_configuration' to be a dict")
+        pulumi.set(__self__, "portal_type_configuration", portal_type_configuration)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -133,6 +136,11 @@ class GetPortalResult:
         return pulumi.get(self, "portal_start_url")
 
     @property
+    @pulumi.getter(name="portalTypeConfiguration")
+    def portal_type_configuration(self) -> Optional[Mapping[str, 'outputs.PortalTypeEntry']]:
+        return pulumi.get(self, "portal_type_configuration")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
@@ -164,6 +172,7 @@ class AwaitableGetPortalResult(GetPortalResult):
             portal_id=self.portal_id,
             portal_name=self.portal_name,
             portal_start_url=self.portal_start_url,
+            portal_type_configuration=self.portal_type_configuration,
             role_arn=self.role_arn,
             tags=self.tags)
 
@@ -191,6 +200,7 @@ def get_portal(portal_id: Optional[str] = None,
         portal_id=pulumi.get(__ret__, 'portal_id'),
         portal_name=pulumi.get(__ret__, 'portal_name'),
         portal_start_url=pulumi.get(__ret__, 'portal_start_url'),
+        portal_type_configuration=pulumi.get(__ret__, 'portal_type_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_portal_output(portal_id: Optional[pulumi.Input[str]] = None,
@@ -215,5 +225,6 @@ def get_portal_output(portal_id: Optional[pulumi.Input[str]] = None,
         portal_id=pulumi.get(__response__, 'portal_id'),
         portal_name=pulumi.get(__response__, 'portal_name'),
         portal_start_url=pulumi.get(__response__, 'portal_start_url'),
+        portal_type_configuration=pulumi.get(__response__, 'portal_type_configuration'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         tags=pulumi.get(__response__, 'tags')))

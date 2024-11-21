@@ -306,3 +306,72 @@ export const ObjectTypeKeyStandardIdentifiersItem = {
 } as const;
 
 export type ObjectTypeKeyStandardIdentifiersItem = (typeof ObjectTypeKeyStandardIdentifiersItem)[keyof typeof ObjectTypeKeyStandardIdentifiersItem];
+
+export const SegmentDefinitionAttributeDimensionType = {
+    Inclusive: "INCLUSIVE",
+    Exclusive: "EXCLUSIVE",
+    Contains: "CONTAINS",
+    BeginsWith: "BEGINS_WITH",
+    EndsWith: "ENDS_WITH",
+    Before: "BEFORE",
+    After: "AFTER",
+    Between: "BETWEEN",
+    NotBetween: "NOT_BETWEEN",
+    On: "ON",
+    GreaterThan: "GREATER_THAN",
+    LessThan: "LESS_THAN",
+    GreaterThanOrEqual: "GREATER_THAN_OR_EQUAL",
+    LessThanOrEqual: "LESS_THAN_OR_EQUAL",
+    Equal: "EQUAL",
+} as const;
+
+/**
+ * The type of segment dimension to use.
+ */
+export type SegmentDefinitionAttributeDimensionType = (typeof SegmentDefinitionAttributeDimensionType)[keyof typeof SegmentDefinitionAttributeDimensionType];
+
+export const SegmentDefinitionDateDimensionType = {
+    Before: "BEFORE",
+    After: "AFTER",
+    Between: "BETWEEN",
+    NotBetween: "NOT_BETWEEN",
+    On: "ON",
+} as const;
+
+/**
+ * The type of segment dimension to use for a date dimension.
+ */
+export type SegmentDefinitionDateDimensionType = (typeof SegmentDefinitionDateDimensionType)[keyof typeof SegmentDefinitionDateDimensionType];
+
+export const SegmentDefinitionIncludeOptions = {
+    All: "ALL",
+    Any: "ANY",
+    None: "NONE",
+} as const;
+
+/**
+ * Specifies the operator on how to handle multiple groups within the same segment.
+ */
+export type SegmentDefinitionIncludeOptions = (typeof SegmentDefinitionIncludeOptions)[keyof typeof SegmentDefinitionIncludeOptions];
+
+export const SegmentDefinitionRangeOverrideUnit = {
+    Days: "DAYS",
+} as const;
+
+/**
+ * The unit to be applied to the range.
+ */
+export type SegmentDefinitionRangeOverrideUnit = (typeof SegmentDefinitionRangeOverrideUnit)[keyof typeof SegmentDefinitionRangeOverrideUnit];
+
+export const SegmentDefinitionStringDimensionType = {
+    Inclusive: "INCLUSIVE",
+    Exclusive: "EXCLUSIVE",
+    Contains: "CONTAINS",
+    BeginsWith: "BEGINS_WITH",
+    EndsWith: "ENDS_WITH",
+} as const;
+
+/**
+ * The type of segment dimension to use for a string dimension.
+ */
+export type SegmentDefinitionStringDimensionType = (typeof SegmentDefinitionStringDimensionType)[keyof typeof SegmentDefinitionStringDimensionType];

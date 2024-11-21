@@ -38,6 +38,7 @@ __all__ = [
     'SecurityProfileMetricDimensionOperator',
     'SecurityProfileStatisticalThresholdStatistic',
     'SoftwarePackageVersionPackageVersionStatus',
+    'ThingTypePropagatingAttributeConnectionAttribute',
     'TopicRuleCannedAccessControlList',
     'TopicRuleDestinationStatus',
 ]
@@ -362,6 +363,11 @@ class SoftwarePackageVersionPackageVersionStatus(str, Enum):
     DRAFT = "DRAFT"
     PUBLISHED = "PUBLISHED"
     DEPRECATED = "DEPRECATED"
+
+
+class ThingTypePropagatingAttributeConnectionAttribute(str, Enum):
+    IOT_CLIENT_ID = "iot:ClientId"
+    IOT_THING_THING_NAME = "iot:Thing.ThingName"
 
 
 class TopicRuleCannedAccessControlList(str, Enum):

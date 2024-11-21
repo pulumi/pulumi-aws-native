@@ -76,6 +76,15 @@ namespace Pulumi.AwsNative.IoTSiteWise
         public Output<string> PortalStartUrl { get; private set; } = null!;
 
         /// <summary>
+        /// The type of portal
+        /// </summary>
+        [Output("portalType")]
+        public Output<Pulumi.AwsNative.IoTSiteWise.PortalType?> PortalType { get; private set; } = null!;
+
+        [Output("portalTypeConfiguration")]
+        public Output<ImmutableDictionary<string, Outputs.PortalTypeEntry>?> PortalTypeConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         /// </summary>
         [Output("roleArn")]
@@ -113,6 +122,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
                 ReplaceOnChanges =
                 {
                     "portalAuthMode",
+                    "portalType",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,6 +181,20 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         [Input("portalName")]
         public Input<string>? PortalName { get; set; }
+
+        /// <summary>
+        /// The type of portal
+        /// </summary>
+        [Input("portalType")]
+        public Input<Pulumi.AwsNative.IoTSiteWise.PortalType>? PortalType { get; set; }
+
+        [Input("portalTypeConfiguration")]
+        private InputMap<Inputs.PortalTypeEntryArgs>? _portalTypeConfiguration;
+        public InputMap<Inputs.PortalTypeEntryArgs> PortalTypeConfiguration
+        {
+            get => _portalTypeConfiguration ?? (_portalTypeConfiguration = new InputMap<Inputs.PortalTypeEntryArgs>());
+            set => _portalTypeConfiguration = value;
+        }
 
         /// <summary>
         /// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.

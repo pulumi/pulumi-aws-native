@@ -10,10 +10,20 @@ export type BrowserSettings = import("./browserSettings").BrowserSettings;
 export const BrowserSettings: typeof import("./browserSettings").BrowserSettings = null as any;
 utilities.lazyLoad(exports, ["BrowserSettings"], () => require("./browserSettings"));
 
+export { DataProtectionSettingsArgs } from "./dataProtectionSettings";
+export type DataProtectionSettings = import("./dataProtectionSettings").DataProtectionSettings;
+export const DataProtectionSettings: typeof import("./dataProtectionSettings").DataProtectionSettings = null as any;
+utilities.lazyLoad(exports, ["DataProtectionSettings"], () => require("./dataProtectionSettings"));
+
 export { GetBrowserSettingsArgs, GetBrowserSettingsResult, GetBrowserSettingsOutputArgs } from "./getBrowserSettings";
 export const getBrowserSettings: typeof import("./getBrowserSettings").getBrowserSettings = null as any;
 export const getBrowserSettingsOutput: typeof import("./getBrowserSettings").getBrowserSettingsOutput = null as any;
 utilities.lazyLoad(exports, ["getBrowserSettings","getBrowserSettingsOutput"], () => require("./getBrowserSettings"));
+
+export { GetDataProtectionSettingsArgs, GetDataProtectionSettingsResult, GetDataProtectionSettingsOutputArgs } from "./getDataProtectionSettings";
+export const getDataProtectionSettings: typeof import("./getDataProtectionSettings").getDataProtectionSettings = null as any;
+export const getDataProtectionSettingsOutput: typeof import("./getDataProtectionSettings").getDataProtectionSettingsOutput = null as any;
+utilities.lazyLoad(exports, ["getDataProtectionSettings","getDataProtectionSettingsOutput"], () => require("./getDataProtectionSettings"));
 
 export { GetIdentityProviderArgs, GetIdentityProviderResult, GetIdentityProviderOutputArgs } from "./getIdentityProvider";
 export const getIdentityProvider: typeof import("./getIdentityProvider").getIdentityProvider = null as any;
@@ -95,6 +105,8 @@ const _module = {
         switch (type) {
             case "aws-native:workspacesweb:BrowserSettings":
                 return new BrowserSettings(name, <any>undefined, { urn })
+            case "aws-native:workspacesweb:DataProtectionSettings":
+                return new DataProtectionSettings(name, <any>undefined, { urn })
             case "aws-native:workspacesweb:IdentityProvider":
                 return new IdentityProvider(name, <any>undefined, { urn })
             case "aws-native:workspacesweb:IpAccessSettings":

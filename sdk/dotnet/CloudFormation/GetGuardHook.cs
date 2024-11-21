@@ -73,7 +73,13 @@ namespace Pulumi.AwsNative.CloudFormation
         /// S3 Bucket where the guard validate report will be uploaded to
         /// </summary>
         public readonly string? LogBucket;
+        /// <summary>
+        /// Specifies the S3 location of your input parameters.
+        /// </summary>
         public readonly Outputs.OptionsProperties? Options;
+        /// <summary>
+        /// Specifies the S3 location of your Guard rules.
+        /// </summary>
         public readonly Outputs.GuardHookS3Location? RuleLocation;
         /// <summary>
         /// Filters to allow hooks to target specific stack attributes

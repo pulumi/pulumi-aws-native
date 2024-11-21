@@ -145,11 +145,17 @@ namespace Pulumi.AwsNative.Lambda
         [Output("maximumRetryAttempts")]
         public Output<int?> MaximumRetryAttempts { get; private set; } = null!;
 
+        [Output("metricsConfig")]
+        public Output<Outputs.EventSourceMappingMetricsConfig?> MetricsConfig { get; private set; } = null!;
+
         /// <summary>
         /// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
         /// </summary>
         [Output("parallelizationFactor")]
         public Output<int?> ParallelizationFactor { get; private set; } = null!;
+
+        [Output("provisionedPollerConfig")]
+        public Output<Outputs.EventSourceMappingProvisionedPollerConfig?> ProvisionedPollerConfig { get; private set; } = null!;
 
         /// <summary>
         /// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
@@ -385,11 +391,17 @@ namespace Pulumi.AwsNative.Lambda
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 
+        [Input("metricsConfig")]
+        public Input<Inputs.EventSourceMappingMetricsConfigArgs>? MetricsConfig { get; set; }
+
         /// <summary>
         /// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
         /// </summary>
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
+
+        [Input("provisionedPollerConfig")]
+        public Input<Inputs.EventSourceMappingProvisionedPollerConfigArgs>? ProvisionedPollerConfig { get; set; }
 
         [Input("queues")]
         private InputList<string>? _queues;

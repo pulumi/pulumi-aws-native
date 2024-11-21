@@ -248,6 +248,11 @@ export const DomainMlTools = {
     Endpoints: "Endpoints",
     Projects: "Projects",
     InferenceOptimization: "InferenceOptimization",
+    HyperPodClusters: "HyperPodClusters",
+    Comet: "Comet",
+    DeepchecksLlmEvaluation: "DeepchecksLLMEvaluation",
+    Fiddler: "Fiddler",
+    LakeraGuard: "LakeraGuard",
 } as const;
 
 export type DomainMlTools = (typeof DomainMlTools)[keyof typeof DomainMlTools];
@@ -1197,6 +1202,11 @@ export const UserProfileMlTools = {
     Endpoints: "Endpoints",
     Projects: "Projects",
     InferenceOptimization: "InferenceOptimization",
+    HyperPodClusters: "HyperPodClusters",
+    Comet: "Comet",
+    DeepchecksLlmEvaluation: "DeepchecksLLMEvaluation",
+    Fiddler: "Fiddler",
+    LakeraGuard: "LakeraGuard",
 } as const;
 
 export type UserProfileMlTools = (typeof UserProfileMlTools)[keyof typeof UserProfileMlTools];

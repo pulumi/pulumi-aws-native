@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("iamIdentityCenterOptions")]
+        public Output<Outputs.SecurityConfigIamIdentityCenterConfigOptions?> IamIdentityCenterOptions { get; private set; } = null!;
+
         /// <summary>
         /// The friendly name of the security config
         /// </summary>
@@ -126,6 +129,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "iamIdentityCenterOptions.instanceArn",
                     "name",
                     "type",
                 },
@@ -156,6 +160,9 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("iamIdentityCenterOptions")]
+        public Input<Inputs.SecurityConfigIamIdentityCenterConfigOptionsArgs>? IamIdentityCenterOptions { get; set; }
 
         /// <summary>
         /// The friendly name of the security config

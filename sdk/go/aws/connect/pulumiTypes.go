@@ -215,6 +215,14 @@ type ContactFlowTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with a resource.
+type EmailAddressTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // An item at the root level. All items must be sections.
 type EvaluationFormBaseItem struct {
 	// A subsection or inner section of an item.
@@ -2753,6 +2761,315 @@ func (o HoursOfOperationConfigArrayOutput) Index(i pulumi.IntInput) HoursOfOpera
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HoursOfOperationConfig {
 		return vs[0].([]HoursOfOperationConfig)[vs[1].(int)]
 	}).(HoursOfOperationConfigOutput)
+}
+
+// Overrides attached to the hours of operation.
+type HoursOfOperationOverride struct {
+	EffectiveFrom              string                           `pulumi:"effectiveFrom"`
+	EffectiveTill              string                           `pulumi:"effectiveTill"`
+	HoursOfOperationOverrideId *string                          `pulumi:"hoursOfOperationOverrideId"`
+	OverrideConfig             []HoursOfOperationOverrideConfig `pulumi:"overrideConfig"`
+	OverrideDescription        *string                          `pulumi:"overrideDescription"`
+	OverrideName               string                           `pulumi:"overrideName"`
+}
+
+// HoursOfOperationOverrideInput is an input type that accepts HoursOfOperationOverrideArgs and HoursOfOperationOverrideOutput values.
+// You can construct a concrete instance of `HoursOfOperationOverrideInput` via:
+//
+//	HoursOfOperationOverrideArgs{...}
+type HoursOfOperationOverrideInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideOutput() HoursOfOperationOverrideOutput
+	ToHoursOfOperationOverrideOutputWithContext(context.Context) HoursOfOperationOverrideOutput
+}
+
+// Overrides attached to the hours of operation.
+type HoursOfOperationOverrideArgs struct {
+	EffectiveFrom              pulumi.StringInput                       `pulumi:"effectiveFrom"`
+	EffectiveTill              pulumi.StringInput                       `pulumi:"effectiveTill"`
+	HoursOfOperationOverrideId pulumi.StringPtrInput                    `pulumi:"hoursOfOperationOverrideId"`
+	OverrideConfig             HoursOfOperationOverrideConfigArrayInput `pulumi:"overrideConfig"`
+	OverrideDescription        pulumi.StringPtrInput                    `pulumi:"overrideDescription"`
+	OverrideName               pulumi.StringInput                       `pulumi:"overrideName"`
+}
+
+func (HoursOfOperationOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverride)(nil)).Elem()
+}
+
+func (i HoursOfOperationOverrideArgs) ToHoursOfOperationOverrideOutput() HoursOfOperationOverrideOutput {
+	return i.ToHoursOfOperationOverrideOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationOverrideArgs) ToHoursOfOperationOverrideOutputWithContext(ctx context.Context) HoursOfOperationOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationOverrideOutput)
+}
+
+// HoursOfOperationOverrideArrayInput is an input type that accepts HoursOfOperationOverrideArray and HoursOfOperationOverrideArrayOutput values.
+// You can construct a concrete instance of `HoursOfOperationOverrideArrayInput` via:
+//
+//	HoursOfOperationOverrideArray{ HoursOfOperationOverrideArgs{...} }
+type HoursOfOperationOverrideArrayInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideArrayOutput() HoursOfOperationOverrideArrayOutput
+	ToHoursOfOperationOverrideArrayOutputWithContext(context.Context) HoursOfOperationOverrideArrayOutput
+}
+
+type HoursOfOperationOverrideArray []HoursOfOperationOverrideInput
+
+func (HoursOfOperationOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationOverride)(nil)).Elem()
+}
+
+func (i HoursOfOperationOverrideArray) ToHoursOfOperationOverrideArrayOutput() HoursOfOperationOverrideArrayOutput {
+	return i.ToHoursOfOperationOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationOverrideArray) ToHoursOfOperationOverrideArrayOutputWithContext(ctx context.Context) HoursOfOperationOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationOverrideArrayOutput)
+}
+
+// Overrides attached to the hours of operation.
+type HoursOfOperationOverrideOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverride)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideOutput) ToHoursOfOperationOverrideOutput() HoursOfOperationOverrideOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideOutput) ToHoursOfOperationOverrideOutputWithContext(ctx context.Context) HoursOfOperationOverrideOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideOutput) EffectiveFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v HoursOfOperationOverride) string { return v.EffectiveFrom }).(pulumi.StringOutput)
+}
+
+func (o HoursOfOperationOverrideOutput) EffectiveTill() pulumi.StringOutput {
+	return o.ApplyT(func(v HoursOfOperationOverride) string { return v.EffectiveTill }).(pulumi.StringOutput)
+}
+
+func (o HoursOfOperationOverrideOutput) HoursOfOperationOverrideId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HoursOfOperationOverride) *string { return v.HoursOfOperationOverrideId }).(pulumi.StringPtrOutput)
+}
+
+func (o HoursOfOperationOverrideOutput) OverrideConfig() HoursOfOperationOverrideConfigArrayOutput {
+	return o.ApplyT(func(v HoursOfOperationOverride) []HoursOfOperationOverrideConfig { return v.OverrideConfig }).(HoursOfOperationOverrideConfigArrayOutput)
+}
+
+func (o HoursOfOperationOverrideOutput) OverrideDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HoursOfOperationOverride) *string { return v.OverrideDescription }).(pulumi.StringPtrOutput)
+}
+
+func (o HoursOfOperationOverrideOutput) OverrideName() pulumi.StringOutput {
+	return o.ApplyT(func(v HoursOfOperationOverride) string { return v.OverrideName }).(pulumi.StringOutput)
+}
+
+type HoursOfOperationOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationOverride)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideArrayOutput) ToHoursOfOperationOverrideArrayOutput() HoursOfOperationOverrideArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideArrayOutput) ToHoursOfOperationOverrideArrayOutputWithContext(ctx context.Context) HoursOfOperationOverrideArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideArrayOutput) Index(i pulumi.IntInput) HoursOfOperationOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HoursOfOperationOverride {
+		return vs[0].([]HoursOfOperationOverride)[vs[1].(int)]
+	}).(HoursOfOperationOverrideOutput)
+}
+
+// Contains information about the hours of operation override.
+type HoursOfOperationOverrideConfig struct {
+	// The day that the hours of operation override applies to.
+	Day HoursOfOperationOverrideConfigDay `pulumi:"day"`
+	// The new end time that your contact center closes for the overriden days.
+	EndTime HoursOfOperationOverrideTimeSlice `pulumi:"endTime"`
+	// The new start time that your contact center opens for the overriden days.
+	StartTime HoursOfOperationOverrideTimeSlice `pulumi:"startTime"`
+}
+
+// HoursOfOperationOverrideConfigInput is an input type that accepts HoursOfOperationOverrideConfigArgs and HoursOfOperationOverrideConfigOutput values.
+// You can construct a concrete instance of `HoursOfOperationOverrideConfigInput` via:
+//
+//	HoursOfOperationOverrideConfigArgs{...}
+type HoursOfOperationOverrideConfigInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideConfigOutput() HoursOfOperationOverrideConfigOutput
+	ToHoursOfOperationOverrideConfigOutputWithContext(context.Context) HoursOfOperationOverrideConfigOutput
+}
+
+// Contains information about the hours of operation override.
+type HoursOfOperationOverrideConfigArgs struct {
+	// The day that the hours of operation override applies to.
+	Day HoursOfOperationOverrideConfigDayInput `pulumi:"day"`
+	// The new end time that your contact center closes for the overriden days.
+	EndTime HoursOfOperationOverrideTimeSliceInput `pulumi:"endTime"`
+	// The new start time that your contact center opens for the overriden days.
+	StartTime HoursOfOperationOverrideTimeSliceInput `pulumi:"startTime"`
+}
+
+func (HoursOfOperationOverrideConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverrideConfig)(nil)).Elem()
+}
+
+func (i HoursOfOperationOverrideConfigArgs) ToHoursOfOperationOverrideConfigOutput() HoursOfOperationOverrideConfigOutput {
+	return i.ToHoursOfOperationOverrideConfigOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationOverrideConfigArgs) ToHoursOfOperationOverrideConfigOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationOverrideConfigOutput)
+}
+
+// HoursOfOperationOverrideConfigArrayInput is an input type that accepts HoursOfOperationOverrideConfigArray and HoursOfOperationOverrideConfigArrayOutput values.
+// You can construct a concrete instance of `HoursOfOperationOverrideConfigArrayInput` via:
+//
+//	HoursOfOperationOverrideConfigArray{ HoursOfOperationOverrideConfigArgs{...} }
+type HoursOfOperationOverrideConfigArrayInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideConfigArrayOutput() HoursOfOperationOverrideConfigArrayOutput
+	ToHoursOfOperationOverrideConfigArrayOutputWithContext(context.Context) HoursOfOperationOverrideConfigArrayOutput
+}
+
+type HoursOfOperationOverrideConfigArray []HoursOfOperationOverrideConfigInput
+
+func (HoursOfOperationOverrideConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationOverrideConfig)(nil)).Elem()
+}
+
+func (i HoursOfOperationOverrideConfigArray) ToHoursOfOperationOverrideConfigArrayOutput() HoursOfOperationOverrideConfigArrayOutput {
+	return i.ToHoursOfOperationOverrideConfigArrayOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationOverrideConfigArray) ToHoursOfOperationOverrideConfigArrayOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationOverrideConfigArrayOutput)
+}
+
+// Contains information about the hours of operation override.
+type HoursOfOperationOverrideConfigOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverrideConfig)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideConfigOutput) ToHoursOfOperationOverrideConfigOutput() HoursOfOperationOverrideConfigOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideConfigOutput) ToHoursOfOperationOverrideConfigOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigOutput {
+	return o
+}
+
+// The day that the hours of operation override applies to.
+func (o HoursOfOperationOverrideConfigOutput) Day() HoursOfOperationOverrideConfigDayOutput {
+	return o.ApplyT(func(v HoursOfOperationOverrideConfig) HoursOfOperationOverrideConfigDay { return v.Day }).(HoursOfOperationOverrideConfigDayOutput)
+}
+
+// The new end time that your contact center closes for the overriden days.
+func (o HoursOfOperationOverrideConfigOutput) EndTime() HoursOfOperationOverrideTimeSliceOutput {
+	return o.ApplyT(func(v HoursOfOperationOverrideConfig) HoursOfOperationOverrideTimeSlice { return v.EndTime }).(HoursOfOperationOverrideTimeSliceOutput)
+}
+
+// The new start time that your contact center opens for the overriden days.
+func (o HoursOfOperationOverrideConfigOutput) StartTime() HoursOfOperationOverrideTimeSliceOutput {
+	return o.ApplyT(func(v HoursOfOperationOverrideConfig) HoursOfOperationOverrideTimeSlice { return v.StartTime }).(HoursOfOperationOverrideTimeSliceOutput)
+}
+
+type HoursOfOperationOverrideConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HoursOfOperationOverrideConfig)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideConfigArrayOutput) ToHoursOfOperationOverrideConfigArrayOutput() HoursOfOperationOverrideConfigArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideConfigArrayOutput) ToHoursOfOperationOverrideConfigArrayOutputWithContext(ctx context.Context) HoursOfOperationOverrideConfigArrayOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideConfigArrayOutput) Index(i pulumi.IntInput) HoursOfOperationOverrideConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HoursOfOperationOverrideConfig {
+		return vs[0].([]HoursOfOperationOverrideConfig)[vs[1].(int)]
+	}).(HoursOfOperationOverrideConfigOutput)
+}
+
+// The start time or end time for an an hours of operation override.
+type HoursOfOperationOverrideTimeSlice struct {
+	// The hours.
+	Hours int `pulumi:"hours"`
+	// The minutes.
+	Minutes int `pulumi:"minutes"`
+}
+
+// HoursOfOperationOverrideTimeSliceInput is an input type that accepts HoursOfOperationOverrideTimeSliceArgs and HoursOfOperationOverrideTimeSliceOutput values.
+// You can construct a concrete instance of `HoursOfOperationOverrideTimeSliceInput` via:
+//
+//	HoursOfOperationOverrideTimeSliceArgs{...}
+type HoursOfOperationOverrideTimeSliceInput interface {
+	pulumi.Input
+
+	ToHoursOfOperationOverrideTimeSliceOutput() HoursOfOperationOverrideTimeSliceOutput
+	ToHoursOfOperationOverrideTimeSliceOutputWithContext(context.Context) HoursOfOperationOverrideTimeSliceOutput
+}
+
+// The start time or end time for an an hours of operation override.
+type HoursOfOperationOverrideTimeSliceArgs struct {
+	// The hours.
+	Hours pulumi.IntInput `pulumi:"hours"`
+	// The minutes.
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+}
+
+func (HoursOfOperationOverrideTimeSliceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverrideTimeSlice)(nil)).Elem()
+}
+
+func (i HoursOfOperationOverrideTimeSliceArgs) ToHoursOfOperationOverrideTimeSliceOutput() HoursOfOperationOverrideTimeSliceOutput {
+	return i.ToHoursOfOperationOverrideTimeSliceOutputWithContext(context.Background())
+}
+
+func (i HoursOfOperationOverrideTimeSliceArgs) ToHoursOfOperationOverrideTimeSliceOutputWithContext(ctx context.Context) HoursOfOperationOverrideTimeSliceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationOverrideTimeSliceOutput)
+}
+
+// The start time or end time for an an hours of operation override.
+type HoursOfOperationOverrideTimeSliceOutput struct{ *pulumi.OutputState }
+
+func (HoursOfOperationOverrideTimeSliceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HoursOfOperationOverrideTimeSlice)(nil)).Elem()
+}
+
+func (o HoursOfOperationOverrideTimeSliceOutput) ToHoursOfOperationOverrideTimeSliceOutput() HoursOfOperationOverrideTimeSliceOutput {
+	return o
+}
+
+func (o HoursOfOperationOverrideTimeSliceOutput) ToHoursOfOperationOverrideTimeSliceOutputWithContext(ctx context.Context) HoursOfOperationOverrideTimeSliceOutput {
+	return o
+}
+
+// The hours.
+func (o HoursOfOperationOverrideTimeSliceOutput) Hours() pulumi.IntOutput {
+	return o.ApplyT(func(v HoursOfOperationOverrideTimeSlice) int { return v.Hours }).(pulumi.IntOutput)
+}
+
+// The minutes.
+func (o HoursOfOperationOverrideTimeSliceOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v HoursOfOperationOverrideTimeSlice) int { return v.Minutes }).(pulumi.IntOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -9130,6 +9447,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EvaluationFormSingleSelectQuestionRuleCategoryAutomationInput)(nil)).Elem(), EvaluationFormSingleSelectQuestionRuleCategoryAutomationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigInput)(nil)).Elem(), HoursOfOperationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigArrayInput)(nil)).Elem(), HoursOfOperationConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideInput)(nil)).Elem(), HoursOfOperationOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideArrayInput)(nil)).Elem(), HoursOfOperationOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideConfigInput)(nil)).Elem(), HoursOfOperationOverrideConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideConfigArrayInput)(nil)).Elem(), HoursOfOperationOverrideConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationOverrideTimeSliceInput)(nil)).Elem(), HoursOfOperationOverrideTimeSliceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationTimeSliceInput)(nil)).Elem(), HoursOfOperationTimeSliceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAttributesInput)(nil)).Elem(), InstanceAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigEncryptionConfigInput)(nil)).Elem(), InstanceStorageConfigEncryptionConfigArgs{})
@@ -9248,6 +9570,11 @@ func init() {
 	pulumi.RegisterOutputType(EvaluationFormSingleSelectQuestionRuleCategoryAutomationOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigArrayOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideArrayOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideConfigOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideConfigArrayOutput{})
+	pulumi.RegisterOutputType(HoursOfOperationOverrideTimeSliceOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationTimeSliceOutput{})
 	pulumi.RegisterOutputType(InstanceAttributesOutput{})
 	pulumi.RegisterOutputType(InstanceAttributesPtrOutput{})

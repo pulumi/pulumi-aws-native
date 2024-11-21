@@ -5791,6 +5791,1777 @@ type ObjectTypeTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The address based criteria for the segment.
+type SegmentDefinitionAddressDimension struct {
+	City       *SegmentDefinitionProfileDimension `pulumi:"city"`
+	Country    *SegmentDefinitionProfileDimension `pulumi:"country"`
+	County     *SegmentDefinitionProfileDimension `pulumi:"county"`
+	PostalCode *SegmentDefinitionProfileDimension `pulumi:"postalCode"`
+	Province   *SegmentDefinitionProfileDimension `pulumi:"province"`
+	State      *SegmentDefinitionProfileDimension `pulumi:"state"`
+}
+
+// SegmentDefinitionAddressDimensionInput is an input type that accepts SegmentDefinitionAddressDimensionArgs and SegmentDefinitionAddressDimensionOutput values.
+// You can construct a concrete instance of `SegmentDefinitionAddressDimensionInput` via:
+//
+//	SegmentDefinitionAddressDimensionArgs{...}
+type SegmentDefinitionAddressDimensionInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionAddressDimensionOutput() SegmentDefinitionAddressDimensionOutput
+	ToSegmentDefinitionAddressDimensionOutputWithContext(context.Context) SegmentDefinitionAddressDimensionOutput
+}
+
+// The address based criteria for the segment.
+type SegmentDefinitionAddressDimensionArgs struct {
+	City       SegmentDefinitionProfileDimensionPtrInput `pulumi:"city"`
+	Country    SegmentDefinitionProfileDimensionPtrInput `pulumi:"country"`
+	County     SegmentDefinitionProfileDimensionPtrInput `pulumi:"county"`
+	PostalCode SegmentDefinitionProfileDimensionPtrInput `pulumi:"postalCode"`
+	Province   SegmentDefinitionProfileDimensionPtrInput `pulumi:"province"`
+	State      SegmentDefinitionProfileDimensionPtrInput `pulumi:"state"`
+}
+
+func (SegmentDefinitionAddressDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionAddressDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionAddressDimensionArgs) ToSegmentDefinitionAddressDimensionOutput() SegmentDefinitionAddressDimensionOutput {
+	return i.ToSegmentDefinitionAddressDimensionOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionAddressDimensionArgs) ToSegmentDefinitionAddressDimensionOutputWithContext(ctx context.Context) SegmentDefinitionAddressDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionAddressDimensionOutput)
+}
+
+func (i SegmentDefinitionAddressDimensionArgs) ToSegmentDefinitionAddressDimensionPtrOutput() SegmentDefinitionAddressDimensionPtrOutput {
+	return i.ToSegmentDefinitionAddressDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionAddressDimensionArgs) ToSegmentDefinitionAddressDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionAddressDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionAddressDimensionOutput).ToSegmentDefinitionAddressDimensionPtrOutputWithContext(ctx)
+}
+
+// SegmentDefinitionAddressDimensionPtrInput is an input type that accepts SegmentDefinitionAddressDimensionArgs, SegmentDefinitionAddressDimensionPtr and SegmentDefinitionAddressDimensionPtrOutput values.
+// You can construct a concrete instance of `SegmentDefinitionAddressDimensionPtrInput` via:
+//
+//	        SegmentDefinitionAddressDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SegmentDefinitionAddressDimensionPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionAddressDimensionPtrOutput() SegmentDefinitionAddressDimensionPtrOutput
+	ToSegmentDefinitionAddressDimensionPtrOutputWithContext(context.Context) SegmentDefinitionAddressDimensionPtrOutput
+}
+
+type segmentDefinitionAddressDimensionPtrType SegmentDefinitionAddressDimensionArgs
+
+func SegmentDefinitionAddressDimensionPtr(v *SegmentDefinitionAddressDimensionArgs) SegmentDefinitionAddressDimensionPtrInput {
+	return (*segmentDefinitionAddressDimensionPtrType)(v)
+}
+
+func (*segmentDefinitionAddressDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionAddressDimension)(nil)).Elem()
+}
+
+func (i *segmentDefinitionAddressDimensionPtrType) ToSegmentDefinitionAddressDimensionPtrOutput() SegmentDefinitionAddressDimensionPtrOutput {
+	return i.ToSegmentDefinitionAddressDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDefinitionAddressDimensionPtrType) ToSegmentDefinitionAddressDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionAddressDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionAddressDimensionPtrOutput)
+}
+
+// The address based criteria for the segment.
+type SegmentDefinitionAddressDimensionOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionAddressDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionAddressDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) ToSegmentDefinitionAddressDimensionOutput() SegmentDefinitionAddressDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) ToSegmentDefinitionAddressDimensionOutputWithContext(ctx context.Context) SegmentDefinitionAddressDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) ToSegmentDefinitionAddressDimensionPtrOutput() SegmentDefinitionAddressDimensionPtrOutput {
+	return o.ToSegmentDefinitionAddressDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) ToSegmentDefinitionAddressDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionAddressDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionAddressDimension) *SegmentDefinitionAddressDimension {
+		return &v
+	}).(SegmentDefinitionAddressDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) City() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension { return v.City }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) Country() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension { return v.Country }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) County() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension { return v.County }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) PostalCode() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension { return v.PostalCode }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) Province() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension { return v.Province }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionOutput) State() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension { return v.State }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+type SegmentDefinitionAddressDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionAddressDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionAddressDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) ToSegmentDefinitionAddressDimensionPtrOutput() SegmentDefinitionAddressDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) ToSegmentDefinitionAddressDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionAddressDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) Elem() SegmentDefinitionAddressDimensionOutput {
+	return o.ApplyT(func(v *SegmentDefinitionAddressDimension) SegmentDefinitionAddressDimension {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionAddressDimension
+		return ret
+	}).(SegmentDefinitionAddressDimensionOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) City() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) Country() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Country
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) County() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension {
+		if v == nil {
+			return nil
+		}
+		return v.County
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) PostalCode() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension {
+		if v == nil {
+			return nil
+		}
+		return v.PostalCode
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) Province() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Province
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionAddressDimensionPtrOutput) State() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionAddressDimension) *SegmentDefinitionProfileDimension {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+// Specifies attribute based criteria for a segment.
+type SegmentDefinitionAttributeDimension struct {
+	DimensionType SegmentDefinitionAttributeDimensionType `pulumi:"dimensionType"`
+	Values        []string                                `pulumi:"values"`
+}
+
+// SegmentDefinitionAttributeDimensionInput is an input type that accepts SegmentDefinitionAttributeDimensionArgs and SegmentDefinitionAttributeDimensionOutput values.
+// You can construct a concrete instance of `SegmentDefinitionAttributeDimensionInput` via:
+//
+//	SegmentDefinitionAttributeDimensionArgs{...}
+type SegmentDefinitionAttributeDimensionInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionAttributeDimensionOutput() SegmentDefinitionAttributeDimensionOutput
+	ToSegmentDefinitionAttributeDimensionOutputWithContext(context.Context) SegmentDefinitionAttributeDimensionOutput
+}
+
+// Specifies attribute based criteria for a segment.
+type SegmentDefinitionAttributeDimensionArgs struct {
+	DimensionType SegmentDefinitionAttributeDimensionTypeInput `pulumi:"dimensionType"`
+	Values        pulumi.StringArrayInput                      `pulumi:"values"`
+}
+
+func (SegmentDefinitionAttributeDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionAttributeDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionAttributeDimensionArgs) ToSegmentDefinitionAttributeDimensionOutput() SegmentDefinitionAttributeDimensionOutput {
+	return i.ToSegmentDefinitionAttributeDimensionOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionAttributeDimensionArgs) ToSegmentDefinitionAttributeDimensionOutputWithContext(ctx context.Context) SegmentDefinitionAttributeDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionAttributeDimensionOutput)
+}
+
+// SegmentDefinitionAttributeDimensionMapInput is an input type that accepts SegmentDefinitionAttributeDimensionMap and SegmentDefinitionAttributeDimensionMapOutput values.
+// You can construct a concrete instance of `SegmentDefinitionAttributeDimensionMapInput` via:
+//
+//	SegmentDefinitionAttributeDimensionMap{ "key": SegmentDefinitionAttributeDimensionArgs{...} }
+type SegmentDefinitionAttributeDimensionMapInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionAttributeDimensionMapOutput() SegmentDefinitionAttributeDimensionMapOutput
+	ToSegmentDefinitionAttributeDimensionMapOutputWithContext(context.Context) SegmentDefinitionAttributeDimensionMapOutput
+}
+
+type SegmentDefinitionAttributeDimensionMap map[string]SegmentDefinitionAttributeDimensionInput
+
+func (SegmentDefinitionAttributeDimensionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SegmentDefinitionAttributeDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionAttributeDimensionMap) ToSegmentDefinitionAttributeDimensionMapOutput() SegmentDefinitionAttributeDimensionMapOutput {
+	return i.ToSegmentDefinitionAttributeDimensionMapOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionAttributeDimensionMap) ToSegmentDefinitionAttributeDimensionMapOutputWithContext(ctx context.Context) SegmentDefinitionAttributeDimensionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionAttributeDimensionMapOutput)
+}
+
+// Specifies attribute based criteria for a segment.
+type SegmentDefinitionAttributeDimensionOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionAttributeDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionAttributeDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionAttributeDimensionOutput) ToSegmentDefinitionAttributeDimensionOutput() SegmentDefinitionAttributeDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionAttributeDimensionOutput) ToSegmentDefinitionAttributeDimensionOutputWithContext(ctx context.Context) SegmentDefinitionAttributeDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionAttributeDimensionOutput) DimensionType() SegmentDefinitionAttributeDimensionTypeOutput {
+	return o.ApplyT(func(v SegmentDefinitionAttributeDimension) SegmentDefinitionAttributeDimensionType {
+		return v.DimensionType
+	}).(SegmentDefinitionAttributeDimensionTypeOutput)
+}
+
+func (o SegmentDefinitionAttributeDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionAttributeDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SegmentDefinitionAttributeDimensionMapOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionAttributeDimensionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SegmentDefinitionAttributeDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionAttributeDimensionMapOutput) ToSegmentDefinitionAttributeDimensionMapOutput() SegmentDefinitionAttributeDimensionMapOutput {
+	return o
+}
+
+func (o SegmentDefinitionAttributeDimensionMapOutput) ToSegmentDefinitionAttributeDimensionMapOutputWithContext(ctx context.Context) SegmentDefinitionAttributeDimensionMapOutput {
+	return o
+}
+
+func (o SegmentDefinitionAttributeDimensionMapOutput) MapIndex(k pulumi.StringInput) SegmentDefinitionAttributeDimensionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SegmentDefinitionAttributeDimension {
+		return vs[0].(map[string]SegmentDefinitionAttributeDimension)[vs[1].(string)]
+	}).(SegmentDefinitionAttributeDimensionOutput)
+}
+
+// Specifies calculated attribute based criteria for a segment.
+type SegmentDefinitionCalculatedAttributeDimension struct {
+	ConditionOverrides *SegmentDefinitionConditionOverrides    `pulumi:"conditionOverrides"`
+	DimensionType      SegmentDefinitionAttributeDimensionType `pulumi:"dimensionType"`
+	Values             []string                                `pulumi:"values"`
+}
+
+// SegmentDefinitionCalculatedAttributeDimensionInput is an input type that accepts SegmentDefinitionCalculatedAttributeDimensionArgs and SegmentDefinitionCalculatedAttributeDimensionOutput values.
+// You can construct a concrete instance of `SegmentDefinitionCalculatedAttributeDimensionInput` via:
+//
+//	SegmentDefinitionCalculatedAttributeDimensionArgs{...}
+type SegmentDefinitionCalculatedAttributeDimensionInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionCalculatedAttributeDimensionOutput() SegmentDefinitionCalculatedAttributeDimensionOutput
+	ToSegmentDefinitionCalculatedAttributeDimensionOutputWithContext(context.Context) SegmentDefinitionCalculatedAttributeDimensionOutput
+}
+
+// Specifies calculated attribute based criteria for a segment.
+type SegmentDefinitionCalculatedAttributeDimensionArgs struct {
+	ConditionOverrides SegmentDefinitionConditionOverridesPtrInput  `pulumi:"conditionOverrides"`
+	DimensionType      SegmentDefinitionAttributeDimensionTypeInput `pulumi:"dimensionType"`
+	Values             pulumi.StringArrayInput                      `pulumi:"values"`
+}
+
+func (SegmentDefinitionCalculatedAttributeDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionCalculatedAttributeDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionCalculatedAttributeDimensionArgs) ToSegmentDefinitionCalculatedAttributeDimensionOutput() SegmentDefinitionCalculatedAttributeDimensionOutput {
+	return i.ToSegmentDefinitionCalculatedAttributeDimensionOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionCalculatedAttributeDimensionArgs) ToSegmentDefinitionCalculatedAttributeDimensionOutputWithContext(ctx context.Context) SegmentDefinitionCalculatedAttributeDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionCalculatedAttributeDimensionOutput)
+}
+
+// SegmentDefinitionCalculatedAttributeDimensionMapInput is an input type that accepts SegmentDefinitionCalculatedAttributeDimensionMap and SegmentDefinitionCalculatedAttributeDimensionMapOutput values.
+// You can construct a concrete instance of `SegmentDefinitionCalculatedAttributeDimensionMapInput` via:
+//
+//	SegmentDefinitionCalculatedAttributeDimensionMap{ "key": SegmentDefinitionCalculatedAttributeDimensionArgs{...} }
+type SegmentDefinitionCalculatedAttributeDimensionMapInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionCalculatedAttributeDimensionMapOutput() SegmentDefinitionCalculatedAttributeDimensionMapOutput
+	ToSegmentDefinitionCalculatedAttributeDimensionMapOutputWithContext(context.Context) SegmentDefinitionCalculatedAttributeDimensionMapOutput
+}
+
+type SegmentDefinitionCalculatedAttributeDimensionMap map[string]SegmentDefinitionCalculatedAttributeDimensionInput
+
+func (SegmentDefinitionCalculatedAttributeDimensionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SegmentDefinitionCalculatedAttributeDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionCalculatedAttributeDimensionMap) ToSegmentDefinitionCalculatedAttributeDimensionMapOutput() SegmentDefinitionCalculatedAttributeDimensionMapOutput {
+	return i.ToSegmentDefinitionCalculatedAttributeDimensionMapOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionCalculatedAttributeDimensionMap) ToSegmentDefinitionCalculatedAttributeDimensionMapOutputWithContext(ctx context.Context) SegmentDefinitionCalculatedAttributeDimensionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionCalculatedAttributeDimensionMapOutput)
+}
+
+// Specifies calculated attribute based criteria for a segment.
+type SegmentDefinitionCalculatedAttributeDimensionOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionCalculatedAttributeDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionCalculatedAttributeDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionCalculatedAttributeDimensionOutput) ToSegmentDefinitionCalculatedAttributeDimensionOutput() SegmentDefinitionCalculatedAttributeDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionCalculatedAttributeDimensionOutput) ToSegmentDefinitionCalculatedAttributeDimensionOutputWithContext(ctx context.Context) SegmentDefinitionCalculatedAttributeDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionCalculatedAttributeDimensionOutput) ConditionOverrides() SegmentDefinitionConditionOverridesPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionCalculatedAttributeDimension) *SegmentDefinitionConditionOverrides {
+		return v.ConditionOverrides
+	}).(SegmentDefinitionConditionOverridesPtrOutput)
+}
+
+func (o SegmentDefinitionCalculatedAttributeDimensionOutput) DimensionType() SegmentDefinitionAttributeDimensionTypeOutput {
+	return o.ApplyT(func(v SegmentDefinitionCalculatedAttributeDimension) SegmentDefinitionAttributeDimensionType {
+		return v.DimensionType
+	}).(SegmentDefinitionAttributeDimensionTypeOutput)
+}
+
+func (o SegmentDefinitionCalculatedAttributeDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionCalculatedAttributeDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SegmentDefinitionCalculatedAttributeDimensionMapOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionCalculatedAttributeDimensionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SegmentDefinitionCalculatedAttributeDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionCalculatedAttributeDimensionMapOutput) ToSegmentDefinitionCalculatedAttributeDimensionMapOutput() SegmentDefinitionCalculatedAttributeDimensionMapOutput {
+	return o
+}
+
+func (o SegmentDefinitionCalculatedAttributeDimensionMapOutput) ToSegmentDefinitionCalculatedAttributeDimensionMapOutputWithContext(ctx context.Context) SegmentDefinitionCalculatedAttributeDimensionMapOutput {
+	return o
+}
+
+func (o SegmentDefinitionCalculatedAttributeDimensionMapOutput) MapIndex(k pulumi.StringInput) SegmentDefinitionCalculatedAttributeDimensionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SegmentDefinitionCalculatedAttributeDimension {
+		return vs[0].(map[string]SegmentDefinitionCalculatedAttributeDimension)[vs[1].(string)]
+	}).(SegmentDefinitionCalculatedAttributeDimensionOutput)
+}
+
+// Overrides the condition block within the original calculated attribute definition.
+type SegmentDefinitionConditionOverrides struct {
+	Range *SegmentDefinitionRangeOverride `pulumi:"range"`
+}
+
+// SegmentDefinitionConditionOverridesInput is an input type that accepts SegmentDefinitionConditionOverridesArgs and SegmentDefinitionConditionOverridesOutput values.
+// You can construct a concrete instance of `SegmentDefinitionConditionOverridesInput` via:
+//
+//	SegmentDefinitionConditionOverridesArgs{...}
+type SegmentDefinitionConditionOverridesInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionConditionOverridesOutput() SegmentDefinitionConditionOverridesOutput
+	ToSegmentDefinitionConditionOverridesOutputWithContext(context.Context) SegmentDefinitionConditionOverridesOutput
+}
+
+// Overrides the condition block within the original calculated attribute definition.
+type SegmentDefinitionConditionOverridesArgs struct {
+	Range SegmentDefinitionRangeOverridePtrInput `pulumi:"range"`
+}
+
+func (SegmentDefinitionConditionOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionConditionOverrides)(nil)).Elem()
+}
+
+func (i SegmentDefinitionConditionOverridesArgs) ToSegmentDefinitionConditionOverridesOutput() SegmentDefinitionConditionOverridesOutput {
+	return i.ToSegmentDefinitionConditionOverridesOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionConditionOverridesArgs) ToSegmentDefinitionConditionOverridesOutputWithContext(ctx context.Context) SegmentDefinitionConditionOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionConditionOverridesOutput)
+}
+
+func (i SegmentDefinitionConditionOverridesArgs) ToSegmentDefinitionConditionOverridesPtrOutput() SegmentDefinitionConditionOverridesPtrOutput {
+	return i.ToSegmentDefinitionConditionOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionConditionOverridesArgs) ToSegmentDefinitionConditionOverridesPtrOutputWithContext(ctx context.Context) SegmentDefinitionConditionOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionConditionOverridesOutput).ToSegmentDefinitionConditionOverridesPtrOutputWithContext(ctx)
+}
+
+// SegmentDefinitionConditionOverridesPtrInput is an input type that accepts SegmentDefinitionConditionOverridesArgs, SegmentDefinitionConditionOverridesPtr and SegmentDefinitionConditionOverridesPtrOutput values.
+// You can construct a concrete instance of `SegmentDefinitionConditionOverridesPtrInput` via:
+//
+//	        SegmentDefinitionConditionOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SegmentDefinitionConditionOverridesPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionConditionOverridesPtrOutput() SegmentDefinitionConditionOverridesPtrOutput
+	ToSegmentDefinitionConditionOverridesPtrOutputWithContext(context.Context) SegmentDefinitionConditionOverridesPtrOutput
+}
+
+type segmentDefinitionConditionOverridesPtrType SegmentDefinitionConditionOverridesArgs
+
+func SegmentDefinitionConditionOverridesPtr(v *SegmentDefinitionConditionOverridesArgs) SegmentDefinitionConditionOverridesPtrInput {
+	return (*segmentDefinitionConditionOverridesPtrType)(v)
+}
+
+func (*segmentDefinitionConditionOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionConditionOverrides)(nil)).Elem()
+}
+
+func (i *segmentDefinitionConditionOverridesPtrType) ToSegmentDefinitionConditionOverridesPtrOutput() SegmentDefinitionConditionOverridesPtrOutput {
+	return i.ToSegmentDefinitionConditionOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDefinitionConditionOverridesPtrType) ToSegmentDefinitionConditionOverridesPtrOutputWithContext(ctx context.Context) SegmentDefinitionConditionOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionConditionOverridesPtrOutput)
+}
+
+// Overrides the condition block within the original calculated attribute definition.
+type SegmentDefinitionConditionOverridesOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionConditionOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionConditionOverrides)(nil)).Elem()
+}
+
+func (o SegmentDefinitionConditionOverridesOutput) ToSegmentDefinitionConditionOverridesOutput() SegmentDefinitionConditionOverridesOutput {
+	return o
+}
+
+func (o SegmentDefinitionConditionOverridesOutput) ToSegmentDefinitionConditionOverridesOutputWithContext(ctx context.Context) SegmentDefinitionConditionOverridesOutput {
+	return o
+}
+
+func (o SegmentDefinitionConditionOverridesOutput) ToSegmentDefinitionConditionOverridesPtrOutput() SegmentDefinitionConditionOverridesPtrOutput {
+	return o.ToSegmentDefinitionConditionOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionConditionOverridesOutput) ToSegmentDefinitionConditionOverridesPtrOutputWithContext(ctx context.Context) SegmentDefinitionConditionOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionConditionOverrides) *SegmentDefinitionConditionOverrides {
+		return &v
+	}).(SegmentDefinitionConditionOverridesPtrOutput)
+}
+
+func (o SegmentDefinitionConditionOverridesOutput) Range() SegmentDefinitionRangeOverridePtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionConditionOverrides) *SegmentDefinitionRangeOverride { return v.Range }).(SegmentDefinitionRangeOverridePtrOutput)
+}
+
+type SegmentDefinitionConditionOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionConditionOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionConditionOverrides)(nil)).Elem()
+}
+
+func (o SegmentDefinitionConditionOverridesPtrOutput) ToSegmentDefinitionConditionOverridesPtrOutput() SegmentDefinitionConditionOverridesPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionConditionOverridesPtrOutput) ToSegmentDefinitionConditionOverridesPtrOutputWithContext(ctx context.Context) SegmentDefinitionConditionOverridesPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionConditionOverridesPtrOutput) Elem() SegmentDefinitionConditionOverridesOutput {
+	return o.ApplyT(func(v *SegmentDefinitionConditionOverrides) SegmentDefinitionConditionOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionConditionOverrides
+		return ret
+	}).(SegmentDefinitionConditionOverridesOutput)
+}
+
+func (o SegmentDefinitionConditionOverridesPtrOutput) Range() SegmentDefinitionRangeOverridePtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionConditionOverrides) *SegmentDefinitionRangeOverride {
+		if v == nil {
+			return nil
+		}
+		return v.Range
+	}).(SegmentDefinitionRangeOverridePtrOutput)
+}
+
+// Specifies date based criteria for a segment.
+type SegmentDefinitionDateDimension struct {
+	DimensionType SegmentDefinitionDateDimensionType `pulumi:"dimensionType"`
+	Values        []string                           `pulumi:"values"`
+}
+
+// SegmentDefinitionDateDimensionInput is an input type that accepts SegmentDefinitionDateDimensionArgs and SegmentDefinitionDateDimensionOutput values.
+// You can construct a concrete instance of `SegmentDefinitionDateDimensionInput` via:
+//
+//	SegmentDefinitionDateDimensionArgs{...}
+type SegmentDefinitionDateDimensionInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionDateDimensionOutput() SegmentDefinitionDateDimensionOutput
+	ToSegmentDefinitionDateDimensionOutputWithContext(context.Context) SegmentDefinitionDateDimensionOutput
+}
+
+// Specifies date based criteria for a segment.
+type SegmentDefinitionDateDimensionArgs struct {
+	DimensionType SegmentDefinitionDateDimensionTypeInput `pulumi:"dimensionType"`
+	Values        pulumi.StringArrayInput                 `pulumi:"values"`
+}
+
+func (SegmentDefinitionDateDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionDateDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionDateDimensionArgs) ToSegmentDefinitionDateDimensionOutput() SegmentDefinitionDateDimensionOutput {
+	return i.ToSegmentDefinitionDateDimensionOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionDateDimensionArgs) ToSegmentDefinitionDateDimensionOutputWithContext(ctx context.Context) SegmentDefinitionDateDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionDateDimensionOutput)
+}
+
+func (i SegmentDefinitionDateDimensionArgs) ToSegmentDefinitionDateDimensionPtrOutput() SegmentDefinitionDateDimensionPtrOutput {
+	return i.ToSegmentDefinitionDateDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionDateDimensionArgs) ToSegmentDefinitionDateDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionDateDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionDateDimensionOutput).ToSegmentDefinitionDateDimensionPtrOutputWithContext(ctx)
+}
+
+// SegmentDefinitionDateDimensionPtrInput is an input type that accepts SegmentDefinitionDateDimensionArgs, SegmentDefinitionDateDimensionPtr and SegmentDefinitionDateDimensionPtrOutput values.
+// You can construct a concrete instance of `SegmentDefinitionDateDimensionPtrInput` via:
+//
+//	        SegmentDefinitionDateDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SegmentDefinitionDateDimensionPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionDateDimensionPtrOutput() SegmentDefinitionDateDimensionPtrOutput
+	ToSegmentDefinitionDateDimensionPtrOutputWithContext(context.Context) SegmentDefinitionDateDimensionPtrOutput
+}
+
+type segmentDefinitionDateDimensionPtrType SegmentDefinitionDateDimensionArgs
+
+func SegmentDefinitionDateDimensionPtr(v *SegmentDefinitionDateDimensionArgs) SegmentDefinitionDateDimensionPtrInput {
+	return (*segmentDefinitionDateDimensionPtrType)(v)
+}
+
+func (*segmentDefinitionDateDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionDateDimension)(nil)).Elem()
+}
+
+func (i *segmentDefinitionDateDimensionPtrType) ToSegmentDefinitionDateDimensionPtrOutput() SegmentDefinitionDateDimensionPtrOutput {
+	return i.ToSegmentDefinitionDateDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDefinitionDateDimensionPtrType) ToSegmentDefinitionDateDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionDateDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionDateDimensionPtrOutput)
+}
+
+// Specifies date based criteria for a segment.
+type SegmentDefinitionDateDimensionOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionDateDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionDateDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionDateDimensionOutput) ToSegmentDefinitionDateDimensionOutput() SegmentDefinitionDateDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionDateDimensionOutput) ToSegmentDefinitionDateDimensionOutputWithContext(ctx context.Context) SegmentDefinitionDateDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionDateDimensionOutput) ToSegmentDefinitionDateDimensionPtrOutput() SegmentDefinitionDateDimensionPtrOutput {
+	return o.ToSegmentDefinitionDateDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionDateDimensionOutput) ToSegmentDefinitionDateDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionDateDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionDateDimension) *SegmentDefinitionDateDimension {
+		return &v
+	}).(SegmentDefinitionDateDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionDateDimensionOutput) DimensionType() SegmentDefinitionDateDimensionTypeOutput {
+	return o.ApplyT(func(v SegmentDefinitionDateDimension) SegmentDefinitionDateDimensionType { return v.DimensionType }).(SegmentDefinitionDateDimensionTypeOutput)
+}
+
+func (o SegmentDefinitionDateDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionDateDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SegmentDefinitionDateDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionDateDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionDateDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionDateDimensionPtrOutput) ToSegmentDefinitionDateDimensionPtrOutput() SegmentDefinitionDateDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionDateDimensionPtrOutput) ToSegmentDefinitionDateDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionDateDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionDateDimensionPtrOutput) Elem() SegmentDefinitionDateDimensionOutput {
+	return o.ApplyT(func(v *SegmentDefinitionDateDimension) SegmentDefinitionDateDimension {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionDateDimension
+		return ret
+	}).(SegmentDefinitionDateDimensionOutput)
+}
+
+func (o SegmentDefinitionDateDimensionPtrOutput) DimensionType() SegmentDefinitionDateDimensionTypePtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionDateDimension) *SegmentDefinitionDateDimensionType {
+		if v == nil {
+			return nil
+		}
+		return &v.DimensionType
+	}).(SegmentDefinitionDateDimensionTypePtrOutput)
+}
+
+func (o SegmentDefinitionDateDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SegmentDefinitionDateDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// The criteria that define the dimensions for the segment.
+type SegmentDefinitionDimension0Properties struct {
+	ProfileAttributes SegmentDefinitionProfileAttributes `pulumi:"profileAttributes"`
+}
+
+// SegmentDefinitionDimension0PropertiesInput is an input type that accepts SegmentDefinitionDimension0PropertiesArgs and SegmentDefinitionDimension0PropertiesOutput values.
+// You can construct a concrete instance of `SegmentDefinitionDimension0PropertiesInput` via:
+//
+//	SegmentDefinitionDimension0PropertiesArgs{...}
+type SegmentDefinitionDimension0PropertiesInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionDimension0PropertiesOutput() SegmentDefinitionDimension0PropertiesOutput
+	ToSegmentDefinitionDimension0PropertiesOutputWithContext(context.Context) SegmentDefinitionDimension0PropertiesOutput
+}
+
+// The criteria that define the dimensions for the segment.
+type SegmentDefinitionDimension0PropertiesArgs struct {
+	ProfileAttributes SegmentDefinitionProfileAttributesInput `pulumi:"profileAttributes"`
+}
+
+func (SegmentDefinitionDimension0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionDimension0Properties)(nil)).Elem()
+}
+
+func (i SegmentDefinitionDimension0PropertiesArgs) ToSegmentDefinitionDimension0PropertiesOutput() SegmentDefinitionDimension0PropertiesOutput {
+	return i.ToSegmentDefinitionDimension0PropertiesOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionDimension0PropertiesArgs) ToSegmentDefinitionDimension0PropertiesOutputWithContext(ctx context.Context) SegmentDefinitionDimension0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionDimension0PropertiesOutput)
+}
+
+// The criteria that define the dimensions for the segment.
+type SegmentDefinitionDimension0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionDimension0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionDimension0Properties)(nil)).Elem()
+}
+
+func (o SegmentDefinitionDimension0PropertiesOutput) ToSegmentDefinitionDimension0PropertiesOutput() SegmentDefinitionDimension0PropertiesOutput {
+	return o
+}
+
+func (o SegmentDefinitionDimension0PropertiesOutput) ToSegmentDefinitionDimension0PropertiesOutputWithContext(ctx context.Context) SegmentDefinitionDimension0PropertiesOutput {
+	return o
+}
+
+func (o SegmentDefinitionDimension0PropertiesOutput) ProfileAttributes() SegmentDefinitionProfileAttributesOutput {
+	return o.ApplyT(func(v SegmentDefinitionDimension0Properties) SegmentDefinitionProfileAttributes {
+		return v.ProfileAttributes
+	}).(SegmentDefinitionProfileAttributesOutput)
+}
+
+// The criteria that define the dimensions for the segment.
+type SegmentDefinitionDimension1Properties struct {
+	CalculatedAttributes map[string]SegmentDefinitionCalculatedAttributeDimension `pulumi:"calculatedAttributes"`
+}
+
+// SegmentDefinitionDimension1PropertiesInput is an input type that accepts SegmentDefinitionDimension1PropertiesArgs and SegmentDefinitionDimension1PropertiesOutput values.
+// You can construct a concrete instance of `SegmentDefinitionDimension1PropertiesInput` via:
+//
+//	SegmentDefinitionDimension1PropertiesArgs{...}
+type SegmentDefinitionDimension1PropertiesInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionDimension1PropertiesOutput() SegmentDefinitionDimension1PropertiesOutput
+	ToSegmentDefinitionDimension1PropertiesOutputWithContext(context.Context) SegmentDefinitionDimension1PropertiesOutput
+}
+
+// The criteria that define the dimensions for the segment.
+type SegmentDefinitionDimension1PropertiesArgs struct {
+	CalculatedAttributes SegmentDefinitionCalculatedAttributeDimensionMapInput `pulumi:"calculatedAttributes"`
+}
+
+func (SegmentDefinitionDimension1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionDimension1Properties)(nil)).Elem()
+}
+
+func (i SegmentDefinitionDimension1PropertiesArgs) ToSegmentDefinitionDimension1PropertiesOutput() SegmentDefinitionDimension1PropertiesOutput {
+	return i.ToSegmentDefinitionDimension1PropertiesOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionDimension1PropertiesArgs) ToSegmentDefinitionDimension1PropertiesOutputWithContext(ctx context.Context) SegmentDefinitionDimension1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionDimension1PropertiesOutput)
+}
+
+// The criteria that define the dimensions for the segment.
+type SegmentDefinitionDimension1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionDimension1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionDimension1Properties)(nil)).Elem()
+}
+
+func (o SegmentDefinitionDimension1PropertiesOutput) ToSegmentDefinitionDimension1PropertiesOutput() SegmentDefinitionDimension1PropertiesOutput {
+	return o
+}
+
+func (o SegmentDefinitionDimension1PropertiesOutput) ToSegmentDefinitionDimension1PropertiesOutputWithContext(ctx context.Context) SegmentDefinitionDimension1PropertiesOutput {
+	return o
+}
+
+func (o SegmentDefinitionDimension1PropertiesOutput) CalculatedAttributes() SegmentDefinitionCalculatedAttributeDimensionMapOutput {
+	return o.ApplyT(func(v SegmentDefinitionDimension1Properties) map[string]SegmentDefinitionCalculatedAttributeDimension {
+		return v.CalculatedAttributes
+	}).(SegmentDefinitionCalculatedAttributeDimensionMapOutput)
+}
+
+// Specifies criteria for a segment using extended-length string values.
+type SegmentDefinitionExtraLengthValueProfileDimension struct {
+	DimensionType SegmentDefinitionStringDimensionType `pulumi:"dimensionType"`
+	Values        []string                             `pulumi:"values"`
+}
+
+// SegmentDefinitionExtraLengthValueProfileDimensionInput is an input type that accepts SegmentDefinitionExtraLengthValueProfileDimensionArgs and SegmentDefinitionExtraLengthValueProfileDimensionOutput values.
+// You can construct a concrete instance of `SegmentDefinitionExtraLengthValueProfileDimensionInput` via:
+//
+//	SegmentDefinitionExtraLengthValueProfileDimensionArgs{...}
+type SegmentDefinitionExtraLengthValueProfileDimensionInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionExtraLengthValueProfileDimensionOutput() SegmentDefinitionExtraLengthValueProfileDimensionOutput
+	ToSegmentDefinitionExtraLengthValueProfileDimensionOutputWithContext(context.Context) SegmentDefinitionExtraLengthValueProfileDimensionOutput
+}
+
+// Specifies criteria for a segment using extended-length string values.
+type SegmentDefinitionExtraLengthValueProfileDimensionArgs struct {
+	DimensionType SegmentDefinitionStringDimensionTypeInput `pulumi:"dimensionType"`
+	Values        pulumi.StringArrayInput                   `pulumi:"values"`
+}
+
+func (SegmentDefinitionExtraLengthValueProfileDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionExtraLengthValueProfileDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionExtraLengthValueProfileDimensionArgs) ToSegmentDefinitionExtraLengthValueProfileDimensionOutput() SegmentDefinitionExtraLengthValueProfileDimensionOutput {
+	return i.ToSegmentDefinitionExtraLengthValueProfileDimensionOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionExtraLengthValueProfileDimensionArgs) ToSegmentDefinitionExtraLengthValueProfileDimensionOutputWithContext(ctx context.Context) SegmentDefinitionExtraLengthValueProfileDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionExtraLengthValueProfileDimensionOutput)
+}
+
+func (i SegmentDefinitionExtraLengthValueProfileDimensionArgs) ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutput() SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return i.ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionExtraLengthValueProfileDimensionArgs) ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionExtraLengthValueProfileDimensionOutput).ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(ctx)
+}
+
+// SegmentDefinitionExtraLengthValueProfileDimensionPtrInput is an input type that accepts SegmentDefinitionExtraLengthValueProfileDimensionArgs, SegmentDefinitionExtraLengthValueProfileDimensionPtr and SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput values.
+// You can construct a concrete instance of `SegmentDefinitionExtraLengthValueProfileDimensionPtrInput` via:
+//
+//	        SegmentDefinitionExtraLengthValueProfileDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SegmentDefinitionExtraLengthValueProfileDimensionPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutput() SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput
+	ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(context.Context) SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput
+}
+
+type segmentDefinitionExtraLengthValueProfileDimensionPtrType SegmentDefinitionExtraLengthValueProfileDimensionArgs
+
+func SegmentDefinitionExtraLengthValueProfileDimensionPtr(v *SegmentDefinitionExtraLengthValueProfileDimensionArgs) SegmentDefinitionExtraLengthValueProfileDimensionPtrInput {
+	return (*segmentDefinitionExtraLengthValueProfileDimensionPtrType)(v)
+}
+
+func (*segmentDefinitionExtraLengthValueProfileDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionExtraLengthValueProfileDimension)(nil)).Elem()
+}
+
+func (i *segmentDefinitionExtraLengthValueProfileDimensionPtrType) ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutput() SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return i.ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDefinitionExtraLengthValueProfileDimensionPtrType) ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput)
+}
+
+// Specifies criteria for a segment using extended-length string values.
+type SegmentDefinitionExtraLengthValueProfileDimensionOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionExtraLengthValueProfileDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionExtraLengthValueProfileDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionOutput) ToSegmentDefinitionExtraLengthValueProfileDimensionOutput() SegmentDefinitionExtraLengthValueProfileDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionOutput) ToSegmentDefinitionExtraLengthValueProfileDimensionOutputWithContext(ctx context.Context) SegmentDefinitionExtraLengthValueProfileDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionOutput) ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutput() SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return o.ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionOutput) ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionExtraLengthValueProfileDimension) *SegmentDefinitionExtraLengthValueProfileDimension {
+		return &v
+	}).(SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionOutput) DimensionType() SegmentDefinitionStringDimensionTypeOutput {
+	return o.ApplyT(func(v SegmentDefinitionExtraLengthValueProfileDimension) SegmentDefinitionStringDimensionType {
+		return v.DimensionType
+	}).(SegmentDefinitionStringDimensionTypeOutput)
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionExtraLengthValueProfileDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionExtraLengthValueProfileDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput) ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutput() SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput) ToSegmentDefinitionExtraLengthValueProfileDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput) Elem() SegmentDefinitionExtraLengthValueProfileDimensionOutput {
+	return o.ApplyT(func(v *SegmentDefinitionExtraLengthValueProfileDimension) SegmentDefinitionExtraLengthValueProfileDimension {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionExtraLengthValueProfileDimension
+		return ret
+	}).(SegmentDefinitionExtraLengthValueProfileDimensionOutput)
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput) DimensionType() SegmentDefinitionStringDimensionTypePtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionExtraLengthValueProfileDimension) *SegmentDefinitionStringDimensionType {
+		if v == nil {
+			return nil
+		}
+		return &v.DimensionType
+	}).(SegmentDefinitionStringDimensionTypePtrOutput)
+}
+
+func (o SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SegmentDefinitionExtraLengthValueProfileDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+type SegmentDefinitionGroup struct {
+	Dimensions     []interface{}                    `pulumi:"dimensions"`
+	SourceSegments []SegmentDefinitionSourceSegment `pulumi:"sourceSegments"`
+	SourceType     *SegmentDefinitionIncludeOptions `pulumi:"sourceType"`
+	Type           *SegmentDefinitionIncludeOptions `pulumi:"type"`
+}
+
+// SegmentDefinitionGroupInput is an input type that accepts SegmentDefinitionGroupArgs and SegmentDefinitionGroupOutput values.
+// You can construct a concrete instance of `SegmentDefinitionGroupInput` via:
+//
+//	SegmentDefinitionGroupArgs{...}
+type SegmentDefinitionGroupInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionGroupOutput() SegmentDefinitionGroupOutput
+	ToSegmentDefinitionGroupOutputWithContext(context.Context) SegmentDefinitionGroupOutput
+}
+
+// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+type SegmentDefinitionGroupArgs struct {
+	Dimensions     pulumi.ArrayInput                        `pulumi:"dimensions"`
+	SourceSegments SegmentDefinitionSourceSegmentArrayInput `pulumi:"sourceSegments"`
+	SourceType     SegmentDefinitionIncludeOptionsPtrInput  `pulumi:"sourceType"`
+	Type           SegmentDefinitionIncludeOptionsPtrInput  `pulumi:"type"`
+}
+
+func (SegmentDefinitionGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionGroup)(nil)).Elem()
+}
+
+func (i SegmentDefinitionGroupArgs) ToSegmentDefinitionGroupOutput() SegmentDefinitionGroupOutput {
+	return i.ToSegmentDefinitionGroupOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionGroupArgs) ToSegmentDefinitionGroupOutputWithContext(ctx context.Context) SegmentDefinitionGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionGroupOutput)
+}
+
+// SegmentDefinitionGroupArrayInput is an input type that accepts SegmentDefinitionGroupArray and SegmentDefinitionGroupArrayOutput values.
+// You can construct a concrete instance of `SegmentDefinitionGroupArrayInput` via:
+//
+//	SegmentDefinitionGroupArray{ SegmentDefinitionGroupArgs{...} }
+type SegmentDefinitionGroupArrayInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionGroupArrayOutput() SegmentDefinitionGroupArrayOutput
+	ToSegmentDefinitionGroupArrayOutputWithContext(context.Context) SegmentDefinitionGroupArrayOutput
+}
+
+type SegmentDefinitionGroupArray []SegmentDefinitionGroupInput
+
+func (SegmentDefinitionGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentDefinitionGroup)(nil)).Elem()
+}
+
+func (i SegmentDefinitionGroupArray) ToSegmentDefinitionGroupArrayOutput() SegmentDefinitionGroupArrayOutput {
+	return i.ToSegmentDefinitionGroupArrayOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionGroupArray) ToSegmentDefinitionGroupArrayOutputWithContext(ctx context.Context) SegmentDefinitionGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionGroupArrayOutput)
+}
+
+// An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+type SegmentDefinitionGroupOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionGroup)(nil)).Elem()
+}
+
+func (o SegmentDefinitionGroupOutput) ToSegmentDefinitionGroupOutput() SegmentDefinitionGroupOutput {
+	return o
+}
+
+func (o SegmentDefinitionGroupOutput) ToSegmentDefinitionGroupOutputWithContext(ctx context.Context) SegmentDefinitionGroupOutput {
+	return o
+}
+
+func (o SegmentDefinitionGroupOutput) Dimensions() pulumi.ArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionGroup) []interface{} { return v.Dimensions }).(pulumi.ArrayOutput)
+}
+
+func (o SegmentDefinitionGroupOutput) SourceSegments() SegmentDefinitionSourceSegmentArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionGroup) []SegmentDefinitionSourceSegment { return v.SourceSegments }).(SegmentDefinitionSourceSegmentArrayOutput)
+}
+
+func (o SegmentDefinitionGroupOutput) SourceType() SegmentDefinitionIncludeOptionsPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionGroup) *SegmentDefinitionIncludeOptions { return v.SourceType }).(SegmentDefinitionIncludeOptionsPtrOutput)
+}
+
+func (o SegmentDefinitionGroupOutput) Type() SegmentDefinitionIncludeOptionsPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionGroup) *SegmentDefinitionIncludeOptions { return v.Type }).(SegmentDefinitionIncludeOptionsPtrOutput)
+}
+
+type SegmentDefinitionGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentDefinitionGroup)(nil)).Elem()
+}
+
+func (o SegmentDefinitionGroupArrayOutput) ToSegmentDefinitionGroupArrayOutput() SegmentDefinitionGroupArrayOutput {
+	return o
+}
+
+func (o SegmentDefinitionGroupArrayOutput) ToSegmentDefinitionGroupArrayOutputWithContext(ctx context.Context) SegmentDefinitionGroupArrayOutput {
+	return o
+}
+
+func (o SegmentDefinitionGroupArrayOutput) Index(i pulumi.IntInput) SegmentDefinitionGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentDefinitionGroup {
+		return vs[0].([]SegmentDefinitionGroup)[vs[1].(int)]
+	}).(SegmentDefinitionGroupOutput)
+}
+
+// Specifies the dimension settings within profile attributes for a segment.
+type SegmentDefinitionProfileAttributes struct {
+	AccountNumber         *SegmentDefinitionProfileDimension                 `pulumi:"accountNumber"`
+	AdditionalInformation *SegmentDefinitionExtraLengthValueProfileDimension `pulumi:"additionalInformation"`
+	Address               *SegmentDefinitionAddressDimension                 `pulumi:"address"`
+	Attributes            map[string]SegmentDefinitionAttributeDimension     `pulumi:"attributes"`
+	BillingAddress        *SegmentDefinitionAddressDimension                 `pulumi:"billingAddress"`
+	BirthDate             *SegmentDefinitionDateDimension                    `pulumi:"birthDate"`
+	BusinessEmailAddress  *SegmentDefinitionProfileDimension                 `pulumi:"businessEmailAddress"`
+	BusinessName          *SegmentDefinitionProfileDimension                 `pulumi:"businessName"`
+	BusinessPhoneNumber   *SegmentDefinitionProfileDimension                 `pulumi:"businessPhoneNumber"`
+	EmailAddress          *SegmentDefinitionProfileDimension                 `pulumi:"emailAddress"`
+	FirstName             *SegmentDefinitionProfileDimension                 `pulumi:"firstName"`
+	GenderString          *SegmentDefinitionProfileDimension                 `pulumi:"genderString"`
+	HomePhoneNumber       *SegmentDefinitionProfileDimension                 `pulumi:"homePhoneNumber"`
+	LastName              *SegmentDefinitionProfileDimension                 `pulumi:"lastName"`
+	MailingAddress        *SegmentDefinitionAddressDimension                 `pulumi:"mailingAddress"`
+	MiddleName            *SegmentDefinitionProfileDimension                 `pulumi:"middleName"`
+	MobilePhoneNumber     *SegmentDefinitionProfileDimension                 `pulumi:"mobilePhoneNumber"`
+	PartyTypeString       *SegmentDefinitionProfileDimension                 `pulumi:"partyTypeString"`
+	PersonalEmailAddress  *SegmentDefinitionProfileDimension                 `pulumi:"personalEmailAddress"`
+	PhoneNumber           *SegmentDefinitionProfileDimension                 `pulumi:"phoneNumber"`
+	ShippingAddress       *SegmentDefinitionAddressDimension                 `pulumi:"shippingAddress"`
+}
+
+// SegmentDefinitionProfileAttributesInput is an input type that accepts SegmentDefinitionProfileAttributesArgs and SegmentDefinitionProfileAttributesOutput values.
+// You can construct a concrete instance of `SegmentDefinitionProfileAttributesInput` via:
+//
+//	SegmentDefinitionProfileAttributesArgs{...}
+type SegmentDefinitionProfileAttributesInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionProfileAttributesOutput() SegmentDefinitionProfileAttributesOutput
+	ToSegmentDefinitionProfileAttributesOutputWithContext(context.Context) SegmentDefinitionProfileAttributesOutput
+}
+
+// Specifies the dimension settings within profile attributes for a segment.
+type SegmentDefinitionProfileAttributesArgs struct {
+	AccountNumber         SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"accountNumber"`
+	AdditionalInformation SegmentDefinitionExtraLengthValueProfileDimensionPtrInput `pulumi:"additionalInformation"`
+	Address               SegmentDefinitionAddressDimensionPtrInput                 `pulumi:"address"`
+	Attributes            SegmentDefinitionAttributeDimensionMapInput               `pulumi:"attributes"`
+	BillingAddress        SegmentDefinitionAddressDimensionPtrInput                 `pulumi:"billingAddress"`
+	BirthDate             SegmentDefinitionDateDimensionPtrInput                    `pulumi:"birthDate"`
+	BusinessEmailAddress  SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"businessEmailAddress"`
+	BusinessName          SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"businessName"`
+	BusinessPhoneNumber   SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"businessPhoneNumber"`
+	EmailAddress          SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"emailAddress"`
+	FirstName             SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"firstName"`
+	GenderString          SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"genderString"`
+	HomePhoneNumber       SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"homePhoneNumber"`
+	LastName              SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"lastName"`
+	MailingAddress        SegmentDefinitionAddressDimensionPtrInput                 `pulumi:"mailingAddress"`
+	MiddleName            SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"middleName"`
+	MobilePhoneNumber     SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"mobilePhoneNumber"`
+	PartyTypeString       SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"partyTypeString"`
+	PersonalEmailAddress  SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"personalEmailAddress"`
+	PhoneNumber           SegmentDefinitionProfileDimensionPtrInput                 `pulumi:"phoneNumber"`
+	ShippingAddress       SegmentDefinitionAddressDimensionPtrInput                 `pulumi:"shippingAddress"`
+}
+
+func (SegmentDefinitionProfileAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionProfileAttributes)(nil)).Elem()
+}
+
+func (i SegmentDefinitionProfileAttributesArgs) ToSegmentDefinitionProfileAttributesOutput() SegmentDefinitionProfileAttributesOutput {
+	return i.ToSegmentDefinitionProfileAttributesOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionProfileAttributesArgs) ToSegmentDefinitionProfileAttributesOutputWithContext(ctx context.Context) SegmentDefinitionProfileAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionProfileAttributesOutput)
+}
+
+// Specifies the dimension settings within profile attributes for a segment.
+type SegmentDefinitionProfileAttributesOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionProfileAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionProfileAttributes)(nil)).Elem()
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) ToSegmentDefinitionProfileAttributesOutput() SegmentDefinitionProfileAttributesOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) ToSegmentDefinitionProfileAttributesOutputWithContext(ctx context.Context) SegmentDefinitionProfileAttributesOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) AccountNumber() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.AccountNumber }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) AdditionalInformation() SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionExtraLengthValueProfileDimension {
+		return v.AdditionalInformation
+	}).(SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) Address() SegmentDefinitionAddressDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionAddressDimension { return v.Address }).(SegmentDefinitionAddressDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) Attributes() SegmentDefinitionAttributeDimensionMapOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) map[string]SegmentDefinitionAttributeDimension {
+		return v.Attributes
+	}).(SegmentDefinitionAttributeDimensionMapOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) BillingAddress() SegmentDefinitionAddressDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionAddressDimension { return v.BillingAddress }).(SegmentDefinitionAddressDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) BirthDate() SegmentDefinitionDateDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionDateDimension { return v.BirthDate }).(SegmentDefinitionDateDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) BusinessEmailAddress() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension {
+		return v.BusinessEmailAddress
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) BusinessName() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.BusinessName }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) BusinessPhoneNumber() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension {
+		return v.BusinessPhoneNumber
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) EmailAddress() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.EmailAddress }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) FirstName() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.FirstName }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) GenderString() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.GenderString }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) HomePhoneNumber() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension {
+		return v.HomePhoneNumber
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) LastName() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.LastName }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) MailingAddress() SegmentDefinitionAddressDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionAddressDimension { return v.MailingAddress }).(SegmentDefinitionAddressDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) MiddleName() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.MiddleName }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) MobilePhoneNumber() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension {
+		return v.MobilePhoneNumber
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) PartyTypeString() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension {
+		return v.PartyTypeString
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) PersonalEmailAddress() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension {
+		return v.PersonalEmailAddress
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) PhoneNumber() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionProfileDimension { return v.PhoneNumber }).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileAttributesOutput) ShippingAddress() SegmentDefinitionAddressDimensionPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileAttributes) *SegmentDefinitionAddressDimension {
+		return v.ShippingAddress
+	}).(SegmentDefinitionAddressDimensionPtrOutput)
+}
+
+// Specifies profile based criteria for a segment.
+type SegmentDefinitionProfileDimension struct {
+	DimensionType SegmentDefinitionStringDimensionType `pulumi:"dimensionType"`
+	Values        []string                             `pulumi:"values"`
+}
+
+// SegmentDefinitionProfileDimensionInput is an input type that accepts SegmentDefinitionProfileDimensionArgs and SegmentDefinitionProfileDimensionOutput values.
+// You can construct a concrete instance of `SegmentDefinitionProfileDimensionInput` via:
+//
+//	SegmentDefinitionProfileDimensionArgs{...}
+type SegmentDefinitionProfileDimensionInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionProfileDimensionOutput() SegmentDefinitionProfileDimensionOutput
+	ToSegmentDefinitionProfileDimensionOutputWithContext(context.Context) SegmentDefinitionProfileDimensionOutput
+}
+
+// Specifies profile based criteria for a segment.
+type SegmentDefinitionProfileDimensionArgs struct {
+	DimensionType SegmentDefinitionStringDimensionTypeInput `pulumi:"dimensionType"`
+	Values        pulumi.StringArrayInput                   `pulumi:"values"`
+}
+
+func (SegmentDefinitionProfileDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionProfileDimension)(nil)).Elem()
+}
+
+func (i SegmentDefinitionProfileDimensionArgs) ToSegmentDefinitionProfileDimensionOutput() SegmentDefinitionProfileDimensionOutput {
+	return i.ToSegmentDefinitionProfileDimensionOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionProfileDimensionArgs) ToSegmentDefinitionProfileDimensionOutputWithContext(ctx context.Context) SegmentDefinitionProfileDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionProfileDimensionOutput)
+}
+
+func (i SegmentDefinitionProfileDimensionArgs) ToSegmentDefinitionProfileDimensionPtrOutput() SegmentDefinitionProfileDimensionPtrOutput {
+	return i.ToSegmentDefinitionProfileDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionProfileDimensionArgs) ToSegmentDefinitionProfileDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionProfileDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionProfileDimensionOutput).ToSegmentDefinitionProfileDimensionPtrOutputWithContext(ctx)
+}
+
+// SegmentDefinitionProfileDimensionPtrInput is an input type that accepts SegmentDefinitionProfileDimensionArgs, SegmentDefinitionProfileDimensionPtr and SegmentDefinitionProfileDimensionPtrOutput values.
+// You can construct a concrete instance of `SegmentDefinitionProfileDimensionPtrInput` via:
+//
+//	        SegmentDefinitionProfileDimensionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SegmentDefinitionProfileDimensionPtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionProfileDimensionPtrOutput() SegmentDefinitionProfileDimensionPtrOutput
+	ToSegmentDefinitionProfileDimensionPtrOutputWithContext(context.Context) SegmentDefinitionProfileDimensionPtrOutput
+}
+
+type segmentDefinitionProfileDimensionPtrType SegmentDefinitionProfileDimensionArgs
+
+func SegmentDefinitionProfileDimensionPtr(v *SegmentDefinitionProfileDimensionArgs) SegmentDefinitionProfileDimensionPtrInput {
+	return (*segmentDefinitionProfileDimensionPtrType)(v)
+}
+
+func (*segmentDefinitionProfileDimensionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionProfileDimension)(nil)).Elem()
+}
+
+func (i *segmentDefinitionProfileDimensionPtrType) ToSegmentDefinitionProfileDimensionPtrOutput() SegmentDefinitionProfileDimensionPtrOutput {
+	return i.ToSegmentDefinitionProfileDimensionPtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDefinitionProfileDimensionPtrType) ToSegmentDefinitionProfileDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionProfileDimensionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+// Specifies profile based criteria for a segment.
+type SegmentDefinitionProfileDimensionOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionProfileDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionProfileDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionProfileDimensionOutput) ToSegmentDefinitionProfileDimensionOutput() SegmentDefinitionProfileDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileDimensionOutput) ToSegmentDefinitionProfileDimensionOutputWithContext(ctx context.Context) SegmentDefinitionProfileDimensionOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileDimensionOutput) ToSegmentDefinitionProfileDimensionPtrOutput() SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ToSegmentDefinitionProfileDimensionPtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionProfileDimensionOutput) ToSegmentDefinitionProfileDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionProfileDimensionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionProfileDimension) *SegmentDefinitionProfileDimension {
+		return &v
+	}).(SegmentDefinitionProfileDimensionPtrOutput)
+}
+
+func (o SegmentDefinitionProfileDimensionOutput) DimensionType() SegmentDefinitionStringDimensionTypeOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileDimension) SegmentDefinitionStringDimensionType { return v.DimensionType }).(SegmentDefinitionStringDimensionTypeOutput)
+}
+
+func (o SegmentDefinitionProfileDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionProfileDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SegmentDefinitionProfileDimensionPtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionProfileDimensionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionProfileDimension)(nil)).Elem()
+}
+
+func (o SegmentDefinitionProfileDimensionPtrOutput) ToSegmentDefinitionProfileDimensionPtrOutput() SegmentDefinitionProfileDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileDimensionPtrOutput) ToSegmentDefinitionProfileDimensionPtrOutputWithContext(ctx context.Context) SegmentDefinitionProfileDimensionPtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionProfileDimensionPtrOutput) Elem() SegmentDefinitionProfileDimensionOutput {
+	return o.ApplyT(func(v *SegmentDefinitionProfileDimension) SegmentDefinitionProfileDimension {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionProfileDimension
+		return ret
+	}).(SegmentDefinitionProfileDimensionOutput)
+}
+
+func (o SegmentDefinitionProfileDimensionPtrOutput) DimensionType() SegmentDefinitionStringDimensionTypePtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionProfileDimension) *SegmentDefinitionStringDimensionType {
+		if v == nil {
+			return nil
+		}
+		return &v.DimensionType
+	}).(SegmentDefinitionStringDimensionTypePtrOutput)
+}
+
+func (o SegmentDefinitionProfileDimensionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SegmentDefinitionProfileDimension) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// Defines the range to be applied to the calculated attribute definition.
+type SegmentDefinitionRangeOverride struct {
+	// The ending point for this overridden range.
+	End *int `pulumi:"end"`
+	// The starting point for this overridden range.
+	Start int `pulumi:"start"`
+	// The unit to be applied to the range.
+	Unit SegmentDefinitionRangeOverrideUnit `pulumi:"unit"`
+}
+
+// SegmentDefinitionRangeOverrideInput is an input type that accepts SegmentDefinitionRangeOverrideArgs and SegmentDefinitionRangeOverrideOutput values.
+// You can construct a concrete instance of `SegmentDefinitionRangeOverrideInput` via:
+//
+//	SegmentDefinitionRangeOverrideArgs{...}
+type SegmentDefinitionRangeOverrideInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionRangeOverrideOutput() SegmentDefinitionRangeOverrideOutput
+	ToSegmentDefinitionRangeOverrideOutputWithContext(context.Context) SegmentDefinitionRangeOverrideOutput
+}
+
+// Defines the range to be applied to the calculated attribute definition.
+type SegmentDefinitionRangeOverrideArgs struct {
+	// The ending point for this overridden range.
+	End pulumi.IntPtrInput `pulumi:"end"`
+	// The starting point for this overridden range.
+	Start pulumi.IntInput `pulumi:"start"`
+	// The unit to be applied to the range.
+	Unit SegmentDefinitionRangeOverrideUnitInput `pulumi:"unit"`
+}
+
+func (SegmentDefinitionRangeOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionRangeOverride)(nil)).Elem()
+}
+
+func (i SegmentDefinitionRangeOverrideArgs) ToSegmentDefinitionRangeOverrideOutput() SegmentDefinitionRangeOverrideOutput {
+	return i.ToSegmentDefinitionRangeOverrideOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionRangeOverrideArgs) ToSegmentDefinitionRangeOverrideOutputWithContext(ctx context.Context) SegmentDefinitionRangeOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionRangeOverrideOutput)
+}
+
+func (i SegmentDefinitionRangeOverrideArgs) ToSegmentDefinitionRangeOverridePtrOutput() SegmentDefinitionRangeOverridePtrOutput {
+	return i.ToSegmentDefinitionRangeOverridePtrOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionRangeOverrideArgs) ToSegmentDefinitionRangeOverridePtrOutputWithContext(ctx context.Context) SegmentDefinitionRangeOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionRangeOverrideOutput).ToSegmentDefinitionRangeOverridePtrOutputWithContext(ctx)
+}
+
+// SegmentDefinitionRangeOverridePtrInput is an input type that accepts SegmentDefinitionRangeOverrideArgs, SegmentDefinitionRangeOverridePtr and SegmentDefinitionRangeOverridePtrOutput values.
+// You can construct a concrete instance of `SegmentDefinitionRangeOverridePtrInput` via:
+//
+//	        SegmentDefinitionRangeOverrideArgs{...}
+//
+//	or:
+//
+//	        nil
+type SegmentDefinitionRangeOverridePtrInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionRangeOverridePtrOutput() SegmentDefinitionRangeOverridePtrOutput
+	ToSegmentDefinitionRangeOverridePtrOutputWithContext(context.Context) SegmentDefinitionRangeOverridePtrOutput
+}
+
+type segmentDefinitionRangeOverridePtrType SegmentDefinitionRangeOverrideArgs
+
+func SegmentDefinitionRangeOverridePtr(v *SegmentDefinitionRangeOverrideArgs) SegmentDefinitionRangeOverridePtrInput {
+	return (*segmentDefinitionRangeOverridePtrType)(v)
+}
+
+func (*segmentDefinitionRangeOverridePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionRangeOverride)(nil)).Elem()
+}
+
+func (i *segmentDefinitionRangeOverridePtrType) ToSegmentDefinitionRangeOverridePtrOutput() SegmentDefinitionRangeOverridePtrOutput {
+	return i.ToSegmentDefinitionRangeOverridePtrOutputWithContext(context.Background())
+}
+
+func (i *segmentDefinitionRangeOverridePtrType) ToSegmentDefinitionRangeOverridePtrOutputWithContext(ctx context.Context) SegmentDefinitionRangeOverridePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionRangeOverridePtrOutput)
+}
+
+// Defines the range to be applied to the calculated attribute definition.
+type SegmentDefinitionRangeOverrideOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionRangeOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionRangeOverride)(nil)).Elem()
+}
+
+func (o SegmentDefinitionRangeOverrideOutput) ToSegmentDefinitionRangeOverrideOutput() SegmentDefinitionRangeOverrideOutput {
+	return o
+}
+
+func (o SegmentDefinitionRangeOverrideOutput) ToSegmentDefinitionRangeOverrideOutputWithContext(ctx context.Context) SegmentDefinitionRangeOverrideOutput {
+	return o
+}
+
+func (o SegmentDefinitionRangeOverrideOutput) ToSegmentDefinitionRangeOverridePtrOutput() SegmentDefinitionRangeOverridePtrOutput {
+	return o.ToSegmentDefinitionRangeOverridePtrOutputWithContext(context.Background())
+}
+
+func (o SegmentDefinitionRangeOverrideOutput) ToSegmentDefinitionRangeOverridePtrOutputWithContext(ctx context.Context) SegmentDefinitionRangeOverridePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SegmentDefinitionRangeOverride) *SegmentDefinitionRangeOverride {
+		return &v
+	}).(SegmentDefinitionRangeOverridePtrOutput)
+}
+
+// The ending point for this overridden range.
+func (o SegmentDefinitionRangeOverrideOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionRangeOverride) *int { return v.End }).(pulumi.IntPtrOutput)
+}
+
+// The starting point for this overridden range.
+func (o SegmentDefinitionRangeOverrideOutput) Start() pulumi.IntOutput {
+	return o.ApplyT(func(v SegmentDefinitionRangeOverride) int { return v.Start }).(pulumi.IntOutput)
+}
+
+// The unit to be applied to the range.
+func (o SegmentDefinitionRangeOverrideOutput) Unit() SegmentDefinitionRangeOverrideUnitOutput {
+	return o.ApplyT(func(v SegmentDefinitionRangeOverride) SegmentDefinitionRangeOverrideUnit { return v.Unit }).(SegmentDefinitionRangeOverrideUnitOutput)
+}
+
+type SegmentDefinitionRangeOverridePtrOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionRangeOverridePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SegmentDefinitionRangeOverride)(nil)).Elem()
+}
+
+func (o SegmentDefinitionRangeOverridePtrOutput) ToSegmentDefinitionRangeOverridePtrOutput() SegmentDefinitionRangeOverridePtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionRangeOverridePtrOutput) ToSegmentDefinitionRangeOverridePtrOutputWithContext(ctx context.Context) SegmentDefinitionRangeOverridePtrOutput {
+	return o
+}
+
+func (o SegmentDefinitionRangeOverridePtrOutput) Elem() SegmentDefinitionRangeOverrideOutput {
+	return o.ApplyT(func(v *SegmentDefinitionRangeOverride) SegmentDefinitionRangeOverride {
+		if v != nil {
+			return *v
+		}
+		var ret SegmentDefinitionRangeOverride
+		return ret
+	}).(SegmentDefinitionRangeOverrideOutput)
+}
+
+// The ending point for this overridden range.
+func (o SegmentDefinitionRangeOverridePtrOutput) End() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionRangeOverride) *int {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.IntPtrOutput)
+}
+
+// The starting point for this overridden range.
+func (o SegmentDefinitionRangeOverridePtrOutput) Start() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionRangeOverride) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Start
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit to be applied to the range.
+func (o SegmentDefinitionRangeOverridePtrOutput) Unit() SegmentDefinitionRangeOverrideUnitPtrOutput {
+	return o.ApplyT(func(v *SegmentDefinitionRangeOverride) *SegmentDefinitionRangeOverrideUnit {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(SegmentDefinitionRangeOverrideUnitPtrOutput)
+}
+
+type SegmentDefinitionSegmentGroup struct {
+	Groups  []SegmentDefinitionGroup         `pulumi:"groups"`
+	Include *SegmentDefinitionIncludeOptions `pulumi:"include"`
+}
+
+// SegmentDefinitionSegmentGroupInput is an input type that accepts SegmentDefinitionSegmentGroupArgs and SegmentDefinitionSegmentGroupOutput values.
+// You can construct a concrete instance of `SegmentDefinitionSegmentGroupInput` via:
+//
+//	SegmentDefinitionSegmentGroupArgs{...}
+type SegmentDefinitionSegmentGroupInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSegmentGroupOutput() SegmentDefinitionSegmentGroupOutput
+	ToSegmentDefinitionSegmentGroupOutputWithContext(context.Context) SegmentDefinitionSegmentGroupOutput
+}
+
+type SegmentDefinitionSegmentGroupArgs struct {
+	Groups  SegmentDefinitionGroupArrayInput        `pulumi:"groups"`
+	Include SegmentDefinitionIncludeOptionsPtrInput `pulumi:"include"`
+}
+
+func (SegmentDefinitionSegmentGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSegmentGroup)(nil)).Elem()
+}
+
+func (i SegmentDefinitionSegmentGroupArgs) ToSegmentDefinitionSegmentGroupOutput() SegmentDefinitionSegmentGroupOutput {
+	return i.ToSegmentDefinitionSegmentGroupOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionSegmentGroupArgs) ToSegmentDefinitionSegmentGroupOutputWithContext(ctx context.Context) SegmentDefinitionSegmentGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionSegmentGroupOutput)
+}
+
+type SegmentDefinitionSegmentGroupOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSegmentGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSegmentGroup)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSegmentGroupOutput) ToSegmentDefinitionSegmentGroupOutput() SegmentDefinitionSegmentGroupOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentGroupOutput) ToSegmentDefinitionSegmentGroupOutputWithContext(ctx context.Context) SegmentDefinitionSegmentGroupOutput {
+	return o
+}
+
+func (o SegmentDefinitionSegmentGroupOutput) Groups() SegmentDefinitionGroupArrayOutput {
+	return o.ApplyT(func(v SegmentDefinitionSegmentGroup) []SegmentDefinitionGroup { return v.Groups }).(SegmentDefinitionGroupArrayOutput)
+}
+
+func (o SegmentDefinitionSegmentGroupOutput) Include() SegmentDefinitionIncludeOptionsPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionSegmentGroup) *SegmentDefinitionIncludeOptions { return v.Include }).(SegmentDefinitionIncludeOptionsPtrOutput)
+}
+
+// The base segment to build the segment on.
+type SegmentDefinitionSourceSegment struct {
+	SegmentDefinitionName *string `pulumi:"segmentDefinitionName"`
+}
+
+// SegmentDefinitionSourceSegmentInput is an input type that accepts SegmentDefinitionSourceSegmentArgs and SegmentDefinitionSourceSegmentOutput values.
+// You can construct a concrete instance of `SegmentDefinitionSourceSegmentInput` via:
+//
+//	SegmentDefinitionSourceSegmentArgs{...}
+type SegmentDefinitionSourceSegmentInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSourceSegmentOutput() SegmentDefinitionSourceSegmentOutput
+	ToSegmentDefinitionSourceSegmentOutputWithContext(context.Context) SegmentDefinitionSourceSegmentOutput
+}
+
+// The base segment to build the segment on.
+type SegmentDefinitionSourceSegmentArgs struct {
+	SegmentDefinitionName pulumi.StringPtrInput `pulumi:"segmentDefinitionName"`
+}
+
+func (SegmentDefinitionSourceSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSourceSegment)(nil)).Elem()
+}
+
+func (i SegmentDefinitionSourceSegmentArgs) ToSegmentDefinitionSourceSegmentOutput() SegmentDefinitionSourceSegmentOutput {
+	return i.ToSegmentDefinitionSourceSegmentOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionSourceSegmentArgs) ToSegmentDefinitionSourceSegmentOutputWithContext(ctx context.Context) SegmentDefinitionSourceSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionSourceSegmentOutput)
+}
+
+// SegmentDefinitionSourceSegmentArrayInput is an input type that accepts SegmentDefinitionSourceSegmentArray and SegmentDefinitionSourceSegmentArrayOutput values.
+// You can construct a concrete instance of `SegmentDefinitionSourceSegmentArrayInput` via:
+//
+//	SegmentDefinitionSourceSegmentArray{ SegmentDefinitionSourceSegmentArgs{...} }
+type SegmentDefinitionSourceSegmentArrayInput interface {
+	pulumi.Input
+
+	ToSegmentDefinitionSourceSegmentArrayOutput() SegmentDefinitionSourceSegmentArrayOutput
+	ToSegmentDefinitionSourceSegmentArrayOutputWithContext(context.Context) SegmentDefinitionSourceSegmentArrayOutput
+}
+
+type SegmentDefinitionSourceSegmentArray []SegmentDefinitionSourceSegmentInput
+
+func (SegmentDefinitionSourceSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentDefinitionSourceSegment)(nil)).Elem()
+}
+
+func (i SegmentDefinitionSourceSegmentArray) ToSegmentDefinitionSourceSegmentArrayOutput() SegmentDefinitionSourceSegmentArrayOutput {
+	return i.ToSegmentDefinitionSourceSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i SegmentDefinitionSourceSegmentArray) ToSegmentDefinitionSourceSegmentArrayOutputWithContext(ctx context.Context) SegmentDefinitionSourceSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SegmentDefinitionSourceSegmentArrayOutput)
+}
+
+// The base segment to build the segment on.
+type SegmentDefinitionSourceSegmentOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSourceSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SegmentDefinitionSourceSegment)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSourceSegmentOutput) ToSegmentDefinitionSourceSegmentOutput() SegmentDefinitionSourceSegmentOutput {
+	return o
+}
+
+func (o SegmentDefinitionSourceSegmentOutput) ToSegmentDefinitionSourceSegmentOutputWithContext(ctx context.Context) SegmentDefinitionSourceSegmentOutput {
+	return o
+}
+
+func (o SegmentDefinitionSourceSegmentOutput) SegmentDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SegmentDefinitionSourceSegment) *string { return v.SegmentDefinitionName }).(pulumi.StringPtrOutput)
+}
+
+type SegmentDefinitionSourceSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (SegmentDefinitionSourceSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SegmentDefinitionSourceSegment)(nil)).Elem()
+}
+
+func (o SegmentDefinitionSourceSegmentArrayOutput) ToSegmentDefinitionSourceSegmentArrayOutput() SegmentDefinitionSourceSegmentArrayOutput {
+	return o
+}
+
+func (o SegmentDefinitionSourceSegmentArrayOutput) ToSegmentDefinitionSourceSegmentArrayOutputWithContext(ctx context.Context) SegmentDefinitionSourceSegmentArrayOutput {
+	return o
+}
+
+func (o SegmentDefinitionSourceSegmentArrayOutput) Index(i pulumi.IntInput) SegmentDefinitionSourceSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SegmentDefinitionSourceSegment {
+		return vs[0].([]SegmentDefinitionSourceSegment)[vs[1].(int)]
+	}).(SegmentDefinitionSourceSegmentOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SegmentDefinitionTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionAttributeDetailsInput)(nil)).Elem(), CalculatedAttributeDefinitionAttributeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CalculatedAttributeDefinitionAttributeItemInput)(nil)).Elem(), CalculatedAttributeDefinitionAttributeItemArgs{})
@@ -5861,6 +7632,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyArrayInput)(nil)).Elem(), ObjectTypeKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyMapInput)(nil)).Elem(), ObjectTypeKeyMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectTypeKeyMapArrayInput)(nil)).Elem(), ObjectTypeKeyMapArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAddressDimensionInput)(nil)).Elem(), SegmentDefinitionAddressDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAddressDimensionPtrInput)(nil)).Elem(), SegmentDefinitionAddressDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAttributeDimensionInput)(nil)).Elem(), SegmentDefinitionAttributeDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionAttributeDimensionMapInput)(nil)).Elem(), SegmentDefinitionAttributeDimensionMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionCalculatedAttributeDimensionInput)(nil)).Elem(), SegmentDefinitionCalculatedAttributeDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionCalculatedAttributeDimensionMapInput)(nil)).Elem(), SegmentDefinitionCalculatedAttributeDimensionMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionConditionOverridesInput)(nil)).Elem(), SegmentDefinitionConditionOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionConditionOverridesPtrInput)(nil)).Elem(), SegmentDefinitionConditionOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionDateDimensionInput)(nil)).Elem(), SegmentDefinitionDateDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionDateDimensionPtrInput)(nil)).Elem(), SegmentDefinitionDateDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionDimension0PropertiesInput)(nil)).Elem(), SegmentDefinitionDimension0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionDimension1PropertiesInput)(nil)).Elem(), SegmentDefinitionDimension1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionExtraLengthValueProfileDimensionInput)(nil)).Elem(), SegmentDefinitionExtraLengthValueProfileDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionExtraLengthValueProfileDimensionPtrInput)(nil)).Elem(), SegmentDefinitionExtraLengthValueProfileDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionGroupInput)(nil)).Elem(), SegmentDefinitionGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionGroupArrayInput)(nil)).Elem(), SegmentDefinitionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileAttributesInput)(nil)).Elem(), SegmentDefinitionProfileAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileDimensionInput)(nil)).Elem(), SegmentDefinitionProfileDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionProfileDimensionPtrInput)(nil)).Elem(), SegmentDefinitionProfileDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionRangeOverrideInput)(nil)).Elem(), SegmentDefinitionRangeOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionRangeOverridePtrInput)(nil)).Elem(), SegmentDefinitionRangeOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSegmentGroupInput)(nil)).Elem(), SegmentDefinitionSegmentGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSourceSegmentInput)(nil)).Elem(), SegmentDefinitionSourceSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SegmentDefinitionSourceSegmentArrayInput)(nil)).Elem(), SegmentDefinitionSourceSegmentArray{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CalculatedAttributeDefinitionAttributeItemOutput{})
@@ -5935,4 +7730,28 @@ func init() {
 	pulumi.RegisterOutputType(ObjectTypeKeyArrayOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyMapOutput{})
 	pulumi.RegisterOutputType(ObjectTypeKeyMapArrayOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionAddressDimensionOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionAddressDimensionPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionAttributeDimensionOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionAttributeDimensionMapOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionCalculatedAttributeDimensionOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionCalculatedAttributeDimensionMapOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionConditionOverridesOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionConditionOverridesPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionDateDimensionOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionDateDimensionPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionDimension0PropertiesOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionDimension1PropertiesOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionExtraLengthValueProfileDimensionOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionGroupOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionGroupArrayOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionProfileAttributesOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionProfileDimensionOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionProfileDimensionPtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionRangeOverrideOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionRangeOverridePtrOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSegmentGroupOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSourceSegmentOutput{})
+	pulumi.RegisterOutputType(SegmentDefinitionSourceSegmentArrayOutput{})
 }

@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Rbin
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+        /// </summary>
+        [Output("excludeResourceTags")]
+        public Output<ImmutableArray<Outputs.RuleResourceTag>> ExcludeResourceTags { get; private set; } = null!;
+
+        /// <summary>
         /// The unique ID of the retention rule.
         /// </summary>
         [Output("identifier")]
@@ -129,6 +135,18 @@ namespace Pulumi.AwsNative.Rbin
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("excludeResourceTags")]
+        private InputList<Inputs.RuleResourceTagArgs>? _excludeResourceTags;
+
+        /// <summary>
+        /// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+        /// </summary>
+        public InputList<Inputs.RuleResourceTagArgs> ExcludeResourceTags
+        {
+            get => _excludeResourceTags ?? (_excludeResourceTags = new InputList<Inputs.RuleResourceTagArgs>());
+            set => _excludeResourceTags = value;
+        }
 
         /// <summary>
         /// Information about the retention rule lock configuration.

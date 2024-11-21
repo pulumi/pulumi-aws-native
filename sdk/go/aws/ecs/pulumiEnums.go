@@ -2365,6 +2365,7 @@ func (in *taskDefinitionAuthorizationConfigIamPtr) ToTaskDefinitionAuthorization
 	return pulumi.ToOutputWithContext(ctx, in).(TaskDefinitionAuthorizationConfigIamPtrOutput)
 }
 
+// Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is `enabled` . If you set the value for a container as `disabled` , Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide* .
 type TaskDefinitionContainerDefinitionVersionConsistency string
 
 const (

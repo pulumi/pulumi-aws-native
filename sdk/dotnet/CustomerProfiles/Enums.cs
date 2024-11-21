@@ -752,4 +752,178 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of segment dimension to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionAttributeDimensionType : IEquatable<SegmentDefinitionAttributeDimensionType>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionAttributeDimensionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionAttributeDimensionType Inclusive { get; } = new SegmentDefinitionAttributeDimensionType("INCLUSIVE");
+        public static SegmentDefinitionAttributeDimensionType Exclusive { get; } = new SegmentDefinitionAttributeDimensionType("EXCLUSIVE");
+        public static SegmentDefinitionAttributeDimensionType Contains { get; } = new SegmentDefinitionAttributeDimensionType("CONTAINS");
+        public static SegmentDefinitionAttributeDimensionType BeginsWith { get; } = new SegmentDefinitionAttributeDimensionType("BEGINS_WITH");
+        public static SegmentDefinitionAttributeDimensionType EndsWith { get; } = new SegmentDefinitionAttributeDimensionType("ENDS_WITH");
+        public static SegmentDefinitionAttributeDimensionType Before { get; } = new SegmentDefinitionAttributeDimensionType("BEFORE");
+        public static SegmentDefinitionAttributeDimensionType After { get; } = new SegmentDefinitionAttributeDimensionType("AFTER");
+        public static SegmentDefinitionAttributeDimensionType Between { get; } = new SegmentDefinitionAttributeDimensionType("BETWEEN");
+        public static SegmentDefinitionAttributeDimensionType NotBetween { get; } = new SegmentDefinitionAttributeDimensionType("NOT_BETWEEN");
+        public static SegmentDefinitionAttributeDimensionType On { get; } = new SegmentDefinitionAttributeDimensionType("ON");
+        public static SegmentDefinitionAttributeDimensionType GreaterThan { get; } = new SegmentDefinitionAttributeDimensionType("GREATER_THAN");
+        public static SegmentDefinitionAttributeDimensionType LessThan { get; } = new SegmentDefinitionAttributeDimensionType("LESS_THAN");
+        public static SegmentDefinitionAttributeDimensionType GreaterThanOrEqual { get; } = new SegmentDefinitionAttributeDimensionType("GREATER_THAN_OR_EQUAL");
+        public static SegmentDefinitionAttributeDimensionType LessThanOrEqual { get; } = new SegmentDefinitionAttributeDimensionType("LESS_THAN_OR_EQUAL");
+        public static SegmentDefinitionAttributeDimensionType Equal { get; } = new SegmentDefinitionAttributeDimensionType("EQUAL");
+
+        public static bool operator ==(SegmentDefinitionAttributeDimensionType left, SegmentDefinitionAttributeDimensionType right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionAttributeDimensionType left, SegmentDefinitionAttributeDimensionType right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionAttributeDimensionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionAttributeDimensionType other && Equals(other);
+        public bool Equals(SegmentDefinitionAttributeDimensionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of segment dimension to use for a date dimension.
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionDateDimensionType : IEquatable<SegmentDefinitionDateDimensionType>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionDateDimensionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionDateDimensionType Before { get; } = new SegmentDefinitionDateDimensionType("BEFORE");
+        public static SegmentDefinitionDateDimensionType After { get; } = new SegmentDefinitionDateDimensionType("AFTER");
+        public static SegmentDefinitionDateDimensionType Between { get; } = new SegmentDefinitionDateDimensionType("BETWEEN");
+        public static SegmentDefinitionDateDimensionType NotBetween { get; } = new SegmentDefinitionDateDimensionType("NOT_BETWEEN");
+        public static SegmentDefinitionDateDimensionType On { get; } = new SegmentDefinitionDateDimensionType("ON");
+
+        public static bool operator ==(SegmentDefinitionDateDimensionType left, SegmentDefinitionDateDimensionType right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionDateDimensionType left, SegmentDefinitionDateDimensionType right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionDateDimensionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionDateDimensionType other && Equals(other);
+        public bool Equals(SegmentDefinitionDateDimensionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the operator on how to handle multiple groups within the same segment.
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionIncludeOptions : IEquatable<SegmentDefinitionIncludeOptions>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionIncludeOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionIncludeOptions All { get; } = new SegmentDefinitionIncludeOptions("ALL");
+        public static SegmentDefinitionIncludeOptions Any { get; } = new SegmentDefinitionIncludeOptions("ANY");
+        public static SegmentDefinitionIncludeOptions None { get; } = new SegmentDefinitionIncludeOptions("NONE");
+
+        public static bool operator ==(SegmentDefinitionIncludeOptions left, SegmentDefinitionIncludeOptions right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionIncludeOptions left, SegmentDefinitionIncludeOptions right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionIncludeOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionIncludeOptions other && Equals(other);
+        public bool Equals(SegmentDefinitionIncludeOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The unit to be applied to the range.
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionRangeOverrideUnit : IEquatable<SegmentDefinitionRangeOverrideUnit>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionRangeOverrideUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionRangeOverrideUnit Days { get; } = new SegmentDefinitionRangeOverrideUnit("DAYS");
+
+        public static bool operator ==(SegmentDefinitionRangeOverrideUnit left, SegmentDefinitionRangeOverrideUnit right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionRangeOverrideUnit left, SegmentDefinitionRangeOverrideUnit right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionRangeOverrideUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionRangeOverrideUnit other && Equals(other);
+        public bool Equals(SegmentDefinitionRangeOverrideUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of segment dimension to use for a string dimension.
+    /// </summary>
+    [EnumType]
+    public readonly struct SegmentDefinitionStringDimensionType : IEquatable<SegmentDefinitionStringDimensionType>
+    {
+        private readonly string _value;
+
+        private SegmentDefinitionStringDimensionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SegmentDefinitionStringDimensionType Inclusive { get; } = new SegmentDefinitionStringDimensionType("INCLUSIVE");
+        public static SegmentDefinitionStringDimensionType Exclusive { get; } = new SegmentDefinitionStringDimensionType("EXCLUSIVE");
+        public static SegmentDefinitionStringDimensionType Contains { get; } = new SegmentDefinitionStringDimensionType("CONTAINS");
+        public static SegmentDefinitionStringDimensionType BeginsWith { get; } = new SegmentDefinitionStringDimensionType("BEGINS_WITH");
+        public static SegmentDefinitionStringDimensionType EndsWith { get; } = new SegmentDefinitionStringDimensionType("ENDS_WITH");
+
+        public static bool operator ==(SegmentDefinitionStringDimensionType left, SegmentDefinitionStringDimensionType right) => left.Equals(right);
+        public static bool operator !=(SegmentDefinitionStringDimensionType left, SegmentDefinitionStringDimensionType right) => !left.Equals(right);
+
+        public static explicit operator string(SegmentDefinitionStringDimensionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SegmentDefinitionStringDimensionType other && Equals(other);
+        public bool Equals(SegmentDefinitionStringDimensionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

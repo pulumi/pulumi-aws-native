@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PortalArgs', 'Portal']
@@ -30,6 +31,8 @@ class PortalArgs:
                  portal_auth_mode: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
+                 portal_type: Optional[pulumi.Input['PortalType']] = None,
+                 portal_type_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Portal resource.
@@ -40,6 +43,7 @@ class PortalArgs:
         :param pulumi.Input[str] portal_auth_mode: The service to use to authenticate users to the portal. Choose from SSO or IAM. You can't change this value after you create a portal.
         :param pulumi.Input[str] portal_description: A description for the portal.
         :param pulumi.Input[str] portal_name: A friendly name for the portal.
+        :param pulumi.Input['PortalType'] portal_type: The type of portal
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the portal.
         """
         pulumi.set(__self__, "portal_contact_email", portal_contact_email)
@@ -54,6 +58,10 @@ class PortalArgs:
             pulumi.set(__self__, "portal_description", portal_description)
         if portal_name is not None:
             pulumi.set(__self__, "portal_name", portal_name)
+        if portal_type is not None:
+            pulumi.set(__self__, "portal_type", portal_type)
+        if portal_type_configuration is not None:
+            pulumi.set(__self__, "portal_type_configuration", portal_type_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -142,6 +150,27 @@ class PortalArgs:
         pulumi.set(self, "portal_name", value)
 
     @property
+    @pulumi.getter(name="portalType")
+    def portal_type(self) -> Optional[pulumi.Input['PortalType']]:
+        """
+        The type of portal
+        """
+        return pulumi.get(self, "portal_type")
+
+    @portal_type.setter
+    def portal_type(self, value: Optional[pulumi.Input['PortalType']]):
+        pulumi.set(self, "portal_type", value)
+
+    @property
+    @pulumi.getter(name="portalTypeConfiguration")
+    def portal_type_configuration(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]]:
+        return pulumi.get(self, "portal_type_configuration")
+
+    @portal_type_configuration.setter
+    def portal_type_configuration(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['PortalTypeEntryArgs']]]]):
+        pulumi.set(self, "portal_type_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -165,6 +194,8 @@ class Portal(pulumi.CustomResource):
                  portal_contact_email: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
+                 portal_type: Optional[pulumi.Input['PortalType']] = None,
+                 portal_type_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['PortalTypeEntryArgs', 'PortalTypeEntryArgsDict']]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -179,6 +210,7 @@ class Portal(pulumi.CustomResource):
         :param pulumi.Input[str] portal_contact_email: The AWS administrator's contact email address.
         :param pulumi.Input[str] portal_description: A description for the portal.
         :param pulumi.Input[str] portal_name: A friendly name for the portal.
+        :param pulumi.Input['PortalType'] portal_type: The type of portal
         :param pulumi.Input[str] role_arn: The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the portal.
         """
@@ -212,6 +244,8 @@ class Portal(pulumi.CustomResource):
                  portal_contact_email: Optional[pulumi.Input[str]] = None,
                  portal_description: Optional[pulumi.Input[str]] = None,
                  portal_name: Optional[pulumi.Input[str]] = None,
+                 portal_type: Optional[pulumi.Input['PortalType']] = None,
+                 portal_type_configuration: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['PortalTypeEntryArgs', 'PortalTypeEntryArgsDict']]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -231,6 +265,8 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["portal_contact_email"] = portal_contact_email
             __props__.__dict__["portal_description"] = portal_description
             __props__.__dict__["portal_name"] = portal_name
+            __props__.__dict__["portal_type"] = portal_type
+            __props__.__dict__["portal_type_configuration"] = portal_type_configuration
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -239,7 +275,7 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["portal_client_id"] = None
             __props__.__dict__["portal_id"] = None
             __props__.__dict__["portal_start_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portalAuthMode"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["portalAuthMode", "portalType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Portal, __self__).__init__(
             'aws-native:iotsitewise:Portal',
@@ -273,6 +309,8 @@ class Portal(pulumi.CustomResource):
         __props__.__dict__["portal_id"] = None
         __props__.__dict__["portal_name"] = None
         __props__.__dict__["portal_start_url"] = None
+        __props__.__dict__["portal_type"] = None
+        __props__.__dict__["portal_type_configuration"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["tags"] = None
         return Portal(resource_name, opts=opts, __props__=__props__)
@@ -356,6 +394,19 @@ class Portal(pulumi.CustomResource):
         The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
         """
         return pulumi.get(self, "portal_start_url")
+
+    @property
+    @pulumi.getter(name="portalType")
+    def portal_type(self) -> pulumi.Output[Optional['PortalType']]:
+        """
+        The type of portal
+        """
+        return pulumi.get(self, "portal_type")
+
+    @property
+    @pulumi.getter(name="portalTypeConfiguration")
+    def portal_type_configuration(self) -> pulumi.Output[Optional[Mapping[str, 'outputs.PortalTypeEntry']]]:
+        return pulumi.get(self, "portal_type_configuration")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -49,6 +49,36 @@ namespace Pulumi.AwsNative.ApiGateway
     }
 
     /// <summary>
+    /// The source type of the domain name access association resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct DomainNameAccessAssociationAccessAssociationSourceType : IEquatable<DomainNameAccessAssociationAccessAssociationSourceType>
+    {
+        private readonly string _value;
+
+        private DomainNameAccessAssociationAccessAssociationSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainNameAccessAssociationAccessAssociationSourceType Vpce { get; } = new DomainNameAccessAssociationAccessAssociationSourceType("VPCE");
+
+        public static bool operator ==(DomainNameAccessAssociationAccessAssociationSourceType left, DomainNameAccessAssociationAccessAssociationSourceType right) => left.Equals(right);
+        public static bool operator !=(DomainNameAccessAssociationAccessAssociationSourceType left, DomainNameAccessAssociationAccessAssociationSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainNameAccessAssociationAccessAssociationSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainNameAccessAssociationAccessAssociationSourceType other && Equals(other);
+        public bool Equals(DomainNameAccessAssociationAccessAssociationSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
     /// </summary>
     [EnumType]

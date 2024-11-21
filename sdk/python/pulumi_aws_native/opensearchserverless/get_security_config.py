@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetSecurityConfigResult:
-    def __init__(__self__, description=None, id=None, saml_options=None):
+    def __init__(__self__, description=None, iam_identity_center_options=None, id=None, saml_options=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if iam_identity_center_options and not isinstance(iam_identity_center_options, dict):
+            raise TypeError("Expected argument 'iam_identity_center_options' to be a dict")
+        pulumi.set(__self__, "iam_identity_center_options", iam_identity_center_options)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -42,6 +45,11 @@ class GetSecurityConfigResult:
         Security config description
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="iamIdentityCenterOptions")
+    def iam_identity_center_options(self) -> Optional['outputs.SecurityConfigIamIdentityCenterConfigOptions']:
+        return pulumi.get(self, "iam_identity_center_options")
 
     @property
     @pulumi.getter
@@ -67,6 +75,7 @@ class AwaitableGetSecurityConfigResult(GetSecurityConfigResult):
             yield self
         return GetSecurityConfigResult(
             description=self.description,
+            iam_identity_center_options=self.iam_identity_center_options,
             id=self.id,
             saml_options=self.saml_options)
 
@@ -86,6 +95,7 @@ def get_security_config(id: Optional[str] = None,
 
     return AwaitableGetSecurityConfigResult(
         description=pulumi.get(__ret__, 'description'),
+        iam_identity_center_options=pulumi.get(__ret__, 'iam_identity_center_options'),
         id=pulumi.get(__ret__, 'id'),
         saml_options=pulumi.get(__ret__, 'saml_options'))
 def get_security_config_output(id: Optional[pulumi.Input[str]] = None,
@@ -102,5 +112,6 @@ def get_security_config_output(id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getSecurityConfig', __args__, opts=opts, typ=GetSecurityConfigResult)
     return __ret__.apply(lambda __response__: GetSecurityConfigResult(
         description=pulumi.get(__response__, 'description'),
+        iam_identity_center_options=pulumi.get(__response__, 'iam_identity_center_options'),
         id=pulumi.get(__response__, 'id'),
         saml_options=pulumi.get(__response__, 'saml_options')))

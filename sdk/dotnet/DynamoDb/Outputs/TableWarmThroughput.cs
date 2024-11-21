@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.DynamoDb.Outputs
 {
 
+    /// <summary>
+    /// Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
+    /// </summary>
     [OutputType]
     public sealed class TableWarmThroughput
     {

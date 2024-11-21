@@ -10,6 +10,169 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DataProtectionSettingsRedactionPlaceHolderType string
+
+const (
+	DataProtectionSettingsRedactionPlaceHolderTypeCustomText = DataProtectionSettingsRedactionPlaceHolderType("CustomText")
+)
+
+func (DataProtectionSettingsRedactionPlaceHolderType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsRedactionPlaceHolderType)(nil)).Elem()
+}
+
+func (e DataProtectionSettingsRedactionPlaceHolderType) ToDataProtectionSettingsRedactionPlaceHolderTypeOutput() DataProtectionSettingsRedactionPlaceHolderTypeOutput {
+	return pulumi.ToOutput(e).(DataProtectionSettingsRedactionPlaceHolderTypeOutput)
+}
+
+func (e DataProtectionSettingsRedactionPlaceHolderType) ToDataProtectionSettingsRedactionPlaceHolderTypeOutputWithContext(ctx context.Context) DataProtectionSettingsRedactionPlaceHolderTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataProtectionSettingsRedactionPlaceHolderTypeOutput)
+}
+
+func (e DataProtectionSettingsRedactionPlaceHolderType) ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutput() DataProtectionSettingsRedactionPlaceHolderTypePtrOutput {
+	return e.ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataProtectionSettingsRedactionPlaceHolderType) ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutputWithContext(ctx context.Context) DataProtectionSettingsRedactionPlaceHolderTypePtrOutput {
+	return DataProtectionSettingsRedactionPlaceHolderType(e).ToDataProtectionSettingsRedactionPlaceHolderTypeOutputWithContext(ctx).ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutputWithContext(ctx)
+}
+
+func (e DataProtectionSettingsRedactionPlaceHolderType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProtectionSettingsRedactionPlaceHolderType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProtectionSettingsRedactionPlaceHolderType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataProtectionSettingsRedactionPlaceHolderType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataProtectionSettingsRedactionPlaceHolderTypeOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsRedactionPlaceHolderTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProtectionSettingsRedactionPlaceHolderType)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypeOutput) ToDataProtectionSettingsRedactionPlaceHolderTypeOutput() DataProtectionSettingsRedactionPlaceHolderTypeOutput {
+	return o
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypeOutput) ToDataProtectionSettingsRedactionPlaceHolderTypeOutputWithContext(ctx context.Context) DataProtectionSettingsRedactionPlaceHolderTypeOutput {
+	return o
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypeOutput) ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutput() DataProtectionSettingsRedactionPlaceHolderTypePtrOutput {
+	return o.ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypeOutput) ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutputWithContext(ctx context.Context) DataProtectionSettingsRedactionPlaceHolderTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProtectionSettingsRedactionPlaceHolderType) *DataProtectionSettingsRedactionPlaceHolderType {
+		return &v
+	}).(DataProtectionSettingsRedactionPlaceHolderTypePtrOutput)
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProtectionSettingsRedactionPlaceHolderType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProtectionSettingsRedactionPlaceHolderType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProtectionSettingsRedactionPlaceHolderTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataProtectionSettingsRedactionPlaceHolderTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProtectionSettingsRedactionPlaceHolderType)(nil)).Elem()
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypePtrOutput) ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutput() DataProtectionSettingsRedactionPlaceHolderTypePtrOutput {
+	return o
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypePtrOutput) ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutputWithContext(ctx context.Context) DataProtectionSettingsRedactionPlaceHolderTypePtrOutput {
+	return o
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypePtrOutput) Elem() DataProtectionSettingsRedactionPlaceHolderTypeOutput {
+	return o.ApplyT(func(v *DataProtectionSettingsRedactionPlaceHolderType) DataProtectionSettingsRedactionPlaceHolderType {
+		if v != nil {
+			return *v
+		}
+		var ret DataProtectionSettingsRedactionPlaceHolderType
+		return ret
+	}).(DataProtectionSettingsRedactionPlaceHolderTypeOutput)
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProtectionSettingsRedactionPlaceHolderTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataProtectionSettingsRedactionPlaceHolderType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataProtectionSettingsRedactionPlaceHolderTypeInput is an input type that accepts values of the DataProtectionSettingsRedactionPlaceHolderType enum
+// A concrete instance of `DataProtectionSettingsRedactionPlaceHolderTypeInput` can be one of the following:
+//
+//	DataProtectionSettingsRedactionPlaceHolderTypeCustomText
+type DataProtectionSettingsRedactionPlaceHolderTypeInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsRedactionPlaceHolderTypeOutput() DataProtectionSettingsRedactionPlaceHolderTypeOutput
+	ToDataProtectionSettingsRedactionPlaceHolderTypeOutputWithContext(context.Context) DataProtectionSettingsRedactionPlaceHolderTypeOutput
+}
+
+var dataProtectionSettingsRedactionPlaceHolderTypePtrType = reflect.TypeOf((**DataProtectionSettingsRedactionPlaceHolderType)(nil)).Elem()
+
+type DataProtectionSettingsRedactionPlaceHolderTypePtrInput interface {
+	pulumi.Input
+
+	ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutput() DataProtectionSettingsRedactionPlaceHolderTypePtrOutput
+	ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutputWithContext(context.Context) DataProtectionSettingsRedactionPlaceHolderTypePtrOutput
+}
+
+type dataProtectionSettingsRedactionPlaceHolderTypePtr string
+
+func DataProtectionSettingsRedactionPlaceHolderTypePtr(v string) DataProtectionSettingsRedactionPlaceHolderTypePtrInput {
+	return (*dataProtectionSettingsRedactionPlaceHolderTypePtr)(&v)
+}
+
+func (*dataProtectionSettingsRedactionPlaceHolderTypePtr) ElementType() reflect.Type {
+	return dataProtectionSettingsRedactionPlaceHolderTypePtrType
+}
+
+func (in *dataProtectionSettingsRedactionPlaceHolderTypePtr) ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutput() DataProtectionSettingsRedactionPlaceHolderTypePtrOutput {
+	return pulumi.ToOutput(in).(DataProtectionSettingsRedactionPlaceHolderTypePtrOutput)
+}
+
+func (in *dataProtectionSettingsRedactionPlaceHolderTypePtr) ToDataProtectionSettingsRedactionPlaceHolderTypePtrOutputWithContext(ctx context.Context) DataProtectionSettingsRedactionPlaceHolderTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataProtectionSettingsRedactionPlaceHolderTypePtrOutput)
+}
+
 type IdentityProviderType string
 
 const (
@@ -950,6 +1113,8 @@ func (in *userSettingsEnabledTypePtr) ToUserSettingsEnabledTypePtrOutputWithCont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsRedactionPlaceHolderTypeInput)(nil)).Elem(), DataProtectionSettingsRedactionPlaceHolderType("CustomText"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProtectionSettingsRedactionPlaceHolderTypePtrInput)(nil)).Elem(), DataProtectionSettingsRedactionPlaceHolderType("CustomText"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderTypeInput)(nil)).Elem(), IdentityProviderType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderTypePtrInput)(nil)).Elem(), IdentityProviderType("SAML"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalAuthenticationTypeInput)(nil)).Elem(), PortalAuthenticationType("Standard"))
@@ -958,6 +1123,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PortalInstanceTypePtrInput)(nil)).Elem(), PortalInstanceType("standard.regular"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypeInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserSettingsEnabledTypePtrInput)(nil)).Elem(), UserSettingsEnabledType("Disabled"))
+	pulumi.RegisterOutputType(DataProtectionSettingsRedactionPlaceHolderTypeOutput{})
+	pulumi.RegisterOutputType(DataProtectionSettingsRedactionPlaceHolderTypePtrOutput{})
 	pulumi.RegisterOutputType(IdentityProviderTypeOutput{})
 	pulumi.RegisterOutputType(IdentityProviderTypePtrOutput{})
 	pulumi.RegisterOutputType(PortalAuthenticationTypeOutput{})

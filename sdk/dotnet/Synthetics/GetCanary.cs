@@ -82,6 +82,10 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Synthetics.CanaryProvisionedResourceCleanup? ProvisionedResourceCleanup;
+        /// <summary>
         /// Provide canary run configuration
         /// </summary>
         public readonly Outputs.CanaryRunConfig? RunConfig;
@@ -124,6 +128,8 @@ namespace Pulumi.AwsNative.Synthetics
 
             string? id,
 
+            Pulumi.AwsNative.Synthetics.CanaryProvisionedResourceCleanup? provisionedResourceCleanup,
+
             Outputs.CanaryRunConfig? runConfig,
 
             string? runtimeVersion,
@@ -144,6 +150,7 @@ namespace Pulumi.AwsNative.Synthetics
             ExecutionRoleArn = executionRoleArn;
             FailureRetentionPeriod = failureRetentionPeriod;
             Id = id;
+            ProvisionedResourceCleanup = provisionedResourceCleanup;
             RunConfig = runConfig;
             RuntimeVersion = runtimeVersion;
             Schedule = schedule;

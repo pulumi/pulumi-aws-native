@@ -51,9 +51,15 @@ namespace Pulumi.AwsNative.CloudFormation
         [Output("logBucket")]
         public Output<string?> LogBucket { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the S3 location of your input parameters.
+        /// </summary>
         [Output("options")]
         public Output<Outputs.OptionsProperties?> Options { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the S3 location of your Guard rules.
+        /// </summary>
         [Output("ruleLocation")]
         public Output<Outputs.GuardHookS3Location> RuleLocation { get; private set; } = null!;
 
@@ -155,9 +161,15 @@ namespace Pulumi.AwsNative.CloudFormation
         [Input("logBucket")]
         public Input<string>? LogBucket { get; set; }
 
+        /// <summary>
+        /// Specifies the S3 location of your input parameters.
+        /// </summary>
         [Input("options")]
         public Input<Inputs.OptionsPropertiesArgs>? Options { get; set; }
 
+        /// <summary>
+        /// Specifies the S3 location of your Guard rules.
+        /// </summary>
         [Input("ruleLocation", required: true)]
         public Input<Inputs.GuardHookS3LocationArgs> RuleLocation { get; set; } = null!;
 

@@ -61,6 +61,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// Security config description
         /// </summary>
         public readonly string? Description;
+        public readonly Outputs.SecurityConfigIamIdentityCenterConfigOptions? IamIdentityCenterOptions;
         /// <summary>
         /// The identifier of the security config
         /// </summary>
@@ -74,11 +75,14 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         private GetSecurityConfigResult(
             string? description,
 
+            Outputs.SecurityConfigIamIdentityCenterConfigOptions? iamIdentityCenterOptions,
+
             string? id,
 
             Outputs.SecurityConfigSamlConfigOptions? samlOptions)
         {
             Description = description;
+            IamIdentityCenterOptions = iamIdentityCenterOptions;
             Id = id;
             SamlOptions = samlOptions;
         }

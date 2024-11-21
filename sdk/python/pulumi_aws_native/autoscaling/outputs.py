@@ -2342,6 +2342,7 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
                  metric_name: Optional[str] = None,
                  metrics: Optional[Sequence['outputs.ScalingPolicyTargetTrackingMetricDataQuery']] = None,
                  namespace: Optional[str] = None,
+                 period: Optional[int] = None,
                  statistic: Optional[str] = None,
                  unit: Optional[str] = None):
         """
@@ -2362,6 +2363,8 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
             pulumi.set(__self__, "metrics", metrics)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
         if unit is not None:
@@ -2400,6 +2403,11 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
         The namespace of the metric.
         """
         return pulumi.get(self, "namespace")
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[int]:
+        return pulumi.get(self, "period")
 
     @property
     @pulumi.getter
@@ -3470,6 +3478,7 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
                  expression: Optional[str] = None,
                  label: Optional[str] = None,
                  metric_stat: Optional['outputs.ScalingPolicyTargetTrackingMetricStat'] = None,
+                 period: Optional[int] = None,
                  return_data: Optional[bool] = None):
         """
         :param str id: A short name that identifies the object's results in the response. This name must be unique among all `TargetTrackingMetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
@@ -3493,6 +3502,8 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
             pulumi.set(__self__, "label", label)
         if metric_stat is not None:
             pulumi.set(__self__, "metric_stat", metric_stat)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if return_data is not None:
             pulumi.set(__self__, "return_data", return_data)
 
@@ -3533,6 +3544,11 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
         return pulumi.get(self, "metric_stat")
 
     @property
+    @pulumi.getter
+    def period(self) -> Optional[int]:
+        return pulumi.get(self, "period")
+
+    @property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[bool]:
         """
@@ -3550,6 +3566,7 @@ class ScalingPolicyTargetTrackingMetricStat(dict):
     def __init__(__self__, *,
                  metric: 'outputs.ScalingPolicyMetric',
                  stat: str,
+                 period: Optional[int] = None,
                  unit: Optional[str] = None):
         """
         :param 'ScalingPolicyMetric' metric: The metric to use.
@@ -3560,6 +3577,8 @@ class ScalingPolicyTargetTrackingMetricStat(dict):
         """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
 
@@ -3580,6 +3599,11 @@ class ScalingPolicyTargetTrackingMetricStat(dict):
         The most commonly used metric for scaling is `Average` .
         """
         return pulumi.get(self, "stat")
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[int]:
+        return pulumi.get(self, "period")
 
     @property
     @pulumi.getter

@@ -13,9 +13,11 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['GlobalClusterArgs', 'GlobalCluster']
 
@@ -27,6 +29,7 @@ class GlobalClusterArgs:
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 global_endpoint: Optional[pulumi.Input['GlobalClusterGlobalEndpointArgs']] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -53,6 +56,8 @@ class GlobalClusterArgs:
             pulumi.set(__self__, "engine_version", engine_version)
         if global_cluster_identifier is not None:
             pulumi.set(__self__, "global_cluster_identifier", global_cluster_identifier)
+        if global_endpoint is not None:
+            pulumi.set(__self__, "global_endpoint", global_endpoint)
         if source_db_cluster_identifier is not None:
             pulumi.set(__self__, "source_db_cluster_identifier", source_db_cluster_identifier)
         if storage_encrypted is not None:
@@ -122,6 +127,15 @@ class GlobalClusterArgs:
         pulumi.set(self, "global_cluster_identifier", value)
 
     @property
+    @pulumi.getter(name="globalEndpoint")
+    def global_endpoint(self) -> Optional[pulumi.Input['GlobalClusterGlobalEndpointArgs']]:
+        return pulumi.get(self, "global_endpoint")
+
+    @global_endpoint.setter
+    def global_endpoint(self, value: Optional[pulumi.Input['GlobalClusterGlobalEndpointArgs']]):
+        pulumi.set(self, "global_endpoint", value)
+
+    @property
     @pulumi.getter(name="sourceDbClusterIdentifier")
     def source_db_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
@@ -169,6 +183,7 @@ class GlobalCluster(pulumi.CustomResource):
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 global_endpoint: Optional[pulumi.Input[Union['GlobalClusterGlobalEndpointArgs', 'GlobalClusterGlobalEndpointArgsDict']]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -218,6 +233,7 @@ class GlobalCluster(pulumi.CustomResource):
                  engine_lifecycle_support: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
+                 global_endpoint: Optional[pulumi.Input[Union['GlobalClusterGlobalEndpointArgs', 'GlobalClusterGlobalEndpointArgsDict']]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -235,6 +251,7 @@ class GlobalCluster(pulumi.CustomResource):
             __props__.__dict__["engine_lifecycle_support"] = engine_lifecycle_support
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_cluster_identifier"] = global_cluster_identifier
+            __props__.__dict__["global_endpoint"] = global_endpoint
             __props__.__dict__["source_db_cluster_identifier"] = source_db_cluster_identifier
             __props__.__dict__["storage_encrypted"] = storage_encrypted
             __props__.__dict__["tags"] = tags
@@ -267,6 +284,7 @@ class GlobalCluster(pulumi.CustomResource):
         __props__.__dict__["engine_lifecycle_support"] = None
         __props__.__dict__["engine_version"] = None
         __props__.__dict__["global_cluster_identifier"] = None
+        __props__.__dict__["global_endpoint"] = None
         __props__.__dict__["source_db_cluster_identifier"] = None
         __props__.__dict__["storage_encrypted"] = None
         __props__.__dict__["tags"] = None
@@ -312,6 +330,11 @@ class GlobalCluster(pulumi.CustomResource):
         The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
         """
         return pulumi.get(self, "global_cluster_identifier")
+
+    @property
+    @pulumi.getter(name="globalEndpoint")
+    def global_endpoint(self) -> pulumi.Output[Optional['outputs.GlobalClusterGlobalEndpoint']]:
+        return pulumi.get(self, "global_endpoint")
 
     @property
     @pulumi.getter(name="sourceDbClusterIdentifier")

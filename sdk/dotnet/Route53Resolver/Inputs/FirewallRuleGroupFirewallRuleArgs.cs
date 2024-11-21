@@ -46,16 +46,34 @@ namespace Pulumi.AwsNative.Route53Resolver.Inputs
         public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockResponse>? BlockResponse { get; set; }
 
         /// <summary>
+        /// FirewallDomainRedirectionAction
+        /// </summary>
+        [Input("confidenceThreshold")]
+        public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleConfidenceThreshold>? ConfidenceThreshold { get; set; }
+
+        /// <summary>
+        /// FirewallDomainRedirectionAction
+        /// </summary>
+        [Input("dnsThreatProtection")]
+        public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleDnsThreatProtection>? DnsThreatProtection { get; set; }
+
+        /// <summary>
         /// ResourceId
         /// </summary>
-        [Input("firewallDomainListId", required: true)]
-        public Input<string> FirewallDomainListId { get; set; } = null!;
+        [Input("firewallDomainListId")]
+        public Input<string>? FirewallDomainListId { get; set; }
 
         /// <summary>
         /// FirewallDomainRedirectionAction
         /// </summary>
         [Input("firewallDomainRedirectionAction")]
         public Input<Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction>? FirewallDomainRedirectionAction { get; set; }
+
+        /// <summary>
+        /// ResourceId
+        /// </summary>
+        [Input("firewallThreatProtectionId")]
+        public Input<string>? FirewallThreatProtectionId { get; set; }
 
         /// <summary>
         /// Rule Priority

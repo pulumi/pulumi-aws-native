@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.S3Express
         public Output<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; private set; } = null!;
 
         /// <summary>
+        /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+        /// </summary>
+        [Output("lifecycleConfiguration")]
+        public Output<Outputs.DirectoryBucketLifecycleConfiguration?> LifecycleConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
         /// </summary>
         [Output("locationName")]
@@ -119,6 +125,12 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         [Input("dataRedundancy", required: true)]
         public Input<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; set; } = null!;
+
+        /// <summary>
+        /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+        /// </summary>
+        [Input("lifecycleConfiguration")]
+        public Input<Inputs.DirectoryBucketLifecycleConfigurationArgs>? LifecycleConfiguration { get; set; }
 
         /// <summary>
         /// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.

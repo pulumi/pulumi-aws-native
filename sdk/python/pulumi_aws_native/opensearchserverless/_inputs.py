@@ -16,11 +16,120 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'SecurityConfigIamIdentityCenterConfigOptionsArgs',
+    'SecurityConfigIamIdentityCenterConfigOptionsArgsDict',
     'SecurityConfigSamlConfigOptionsArgs',
     'SecurityConfigSamlConfigOptionsArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class SecurityConfigIamIdentityCenterConfigOptionsArgsDict(TypedDict):
+        """
+        Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+        """
+        instance_arn: pulumi.Input[str]
+        application_arn: NotRequired[pulumi.Input[str]]
+        application_description: NotRequired[pulumi.Input[str]]
+        """
+        The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        """
+        application_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        """
+        group_attribute: NotRequired[pulumi.Input[str]]
+        user_attribute: NotRequired[pulumi.Input[str]]
+elif False:
+    SecurityConfigIamIdentityCenterConfigOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SecurityConfigIamIdentityCenterConfigOptionsArgs:
+    def __init__(__self__, *,
+                 instance_arn: pulumi.Input[str],
+                 application_arn: Optional[pulumi.Input[str]] = None,
+                 application_description: Optional[pulumi.Input[str]] = None,
+                 application_name: Optional[pulumi.Input[str]] = None,
+                 group_attribute: Optional[pulumi.Input[str]] = None,
+                 user_attribute: Optional[pulumi.Input[str]] = None):
+        """
+        Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+        :param pulumi.Input[str] application_description: The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        :param pulumi.Input[str] application_name: The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        """
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if application_description is not None:
+            pulumi.set(__self__, "application_description", application_description)
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "instance_arn")
+
+    @instance_arn.setter
+    def instance_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "instance_arn", value)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "application_arn")
+
+    @application_arn.setter
+    def application_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_arn", value)
+
+    @property
+    @pulumi.getter(name="applicationDescription")
+    def application_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        """
+        return pulumi.get(self, "application_description")
+
+    @application_description.setter
+    def application_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_description", value)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_name", value)
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_attribute")
+
+    @group_attribute.setter
+    def group_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_attribute", value)
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user_attribute")
+
+    @user_attribute.setter
+    def user_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_attribute", value)
+
 
 if not MYPY:
     class SecurityConfigSamlConfigOptionsArgsDict(TypedDict):

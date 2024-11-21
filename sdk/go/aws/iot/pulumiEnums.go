@@ -5425,6 +5425,171 @@ func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
+type ThingTypePropagatingAttributeConnectionAttribute string
+
+const (
+	ThingTypePropagatingAttributeConnectionAttributeIotClientId       = ThingTypePropagatingAttributeConnectionAttribute("iot:ClientId")
+	ThingTypePropagatingAttributeConnectionAttributeIotThingThingName = ThingTypePropagatingAttributeConnectionAttribute("iot:Thing.ThingName")
+)
+
+func (ThingTypePropagatingAttributeConnectionAttribute) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypePropagatingAttributeConnectionAttribute)(nil)).Elem()
+}
+
+func (e ThingTypePropagatingAttributeConnectionAttribute) ToThingTypePropagatingAttributeConnectionAttributeOutput() ThingTypePropagatingAttributeConnectionAttributeOutput {
+	return pulumi.ToOutput(e).(ThingTypePropagatingAttributeConnectionAttributeOutput)
+}
+
+func (e ThingTypePropagatingAttributeConnectionAttribute) ToThingTypePropagatingAttributeConnectionAttributeOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeConnectionAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ThingTypePropagatingAttributeConnectionAttributeOutput)
+}
+
+func (e ThingTypePropagatingAttributeConnectionAttribute) ToThingTypePropagatingAttributeConnectionAttributePtrOutput() ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return e.ToThingTypePropagatingAttributeConnectionAttributePtrOutputWithContext(context.Background())
+}
+
+func (e ThingTypePropagatingAttributeConnectionAttribute) ToThingTypePropagatingAttributeConnectionAttributePtrOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return ThingTypePropagatingAttributeConnectionAttribute(e).ToThingTypePropagatingAttributeConnectionAttributeOutputWithContext(ctx).ToThingTypePropagatingAttributeConnectionAttributePtrOutputWithContext(ctx)
+}
+
+func (e ThingTypePropagatingAttributeConnectionAttribute) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThingTypePropagatingAttributeConnectionAttribute) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ThingTypePropagatingAttributeConnectionAttribute) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ThingTypePropagatingAttributeConnectionAttribute) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ThingTypePropagatingAttributeConnectionAttributeOutput struct{ *pulumi.OutputState }
+
+func (ThingTypePropagatingAttributeConnectionAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingTypePropagatingAttributeConnectionAttribute)(nil)).Elem()
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributeOutput) ToThingTypePropagatingAttributeConnectionAttributeOutput() ThingTypePropagatingAttributeConnectionAttributeOutput {
+	return o
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributeOutput) ToThingTypePropagatingAttributeConnectionAttributeOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeConnectionAttributeOutput {
+	return o
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributeOutput) ToThingTypePropagatingAttributeConnectionAttributePtrOutput() ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return o.ToThingTypePropagatingAttributeConnectionAttributePtrOutputWithContext(context.Background())
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributeOutput) ToThingTypePropagatingAttributeConnectionAttributePtrOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingTypePropagatingAttributeConnectionAttribute) *ThingTypePropagatingAttributeConnectionAttribute {
+		return &v
+	}).(ThingTypePropagatingAttributeConnectionAttributePtrOutput)
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThingTypePropagatingAttributeConnectionAttribute) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ThingTypePropagatingAttributeConnectionAttribute) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThingTypePropagatingAttributeConnectionAttributePtrOutput struct{ *pulumi.OutputState }
+
+func (ThingTypePropagatingAttributeConnectionAttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingTypePropagatingAttributeConnectionAttribute)(nil)).Elem()
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributePtrOutput) ToThingTypePropagatingAttributeConnectionAttributePtrOutput() ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return o
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributePtrOutput) ToThingTypePropagatingAttributeConnectionAttributePtrOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return o
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributePtrOutput) Elem() ThingTypePropagatingAttributeConnectionAttributeOutput {
+	return o.ApplyT(func(v *ThingTypePropagatingAttributeConnectionAttribute) ThingTypePropagatingAttributeConnectionAttribute {
+		if v != nil {
+			return *v
+		}
+		var ret ThingTypePropagatingAttributeConnectionAttribute
+		return ret
+	}).(ThingTypePropagatingAttributeConnectionAttributeOutput)
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ThingTypePropagatingAttributeConnectionAttributePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ThingTypePropagatingAttributeConnectionAttribute) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ThingTypePropagatingAttributeConnectionAttributeInput is an input type that accepts values of the ThingTypePropagatingAttributeConnectionAttribute enum
+// A concrete instance of `ThingTypePropagatingAttributeConnectionAttributeInput` can be one of the following:
+//
+//	ThingTypePropagatingAttributeConnectionAttributeIotClientId
+//	ThingTypePropagatingAttributeConnectionAttributeIotThingThingName
+type ThingTypePropagatingAttributeConnectionAttributeInput interface {
+	pulumi.Input
+
+	ToThingTypePropagatingAttributeConnectionAttributeOutput() ThingTypePropagatingAttributeConnectionAttributeOutput
+	ToThingTypePropagatingAttributeConnectionAttributeOutputWithContext(context.Context) ThingTypePropagatingAttributeConnectionAttributeOutput
+}
+
+var thingTypePropagatingAttributeConnectionAttributePtrType = reflect.TypeOf((**ThingTypePropagatingAttributeConnectionAttribute)(nil)).Elem()
+
+type ThingTypePropagatingAttributeConnectionAttributePtrInput interface {
+	pulumi.Input
+
+	ToThingTypePropagatingAttributeConnectionAttributePtrOutput() ThingTypePropagatingAttributeConnectionAttributePtrOutput
+	ToThingTypePropagatingAttributeConnectionAttributePtrOutputWithContext(context.Context) ThingTypePropagatingAttributeConnectionAttributePtrOutput
+}
+
+type thingTypePropagatingAttributeConnectionAttributePtr string
+
+func ThingTypePropagatingAttributeConnectionAttributePtr(v string) ThingTypePropagatingAttributeConnectionAttributePtrInput {
+	return (*thingTypePropagatingAttributeConnectionAttributePtr)(&v)
+}
+
+func (*thingTypePropagatingAttributeConnectionAttributePtr) ElementType() reflect.Type {
+	return thingTypePropagatingAttributeConnectionAttributePtrType
+}
+
+func (in *thingTypePropagatingAttributeConnectionAttributePtr) ToThingTypePropagatingAttributeConnectionAttributePtrOutput() ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return pulumi.ToOutput(in).(ThingTypePropagatingAttributeConnectionAttributePtrOutput)
+}
+
+func (in *thingTypePropagatingAttributeConnectionAttributePtr) ToThingTypePropagatingAttributeConnectionAttributePtrOutputWithContext(ctx context.Context) ThingTypePropagatingAttributeConnectionAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ThingTypePropagatingAttributeConnectionAttributePtrOutput)
+}
+
 type TopicRuleCannedAccessControlList string
 
 const (
@@ -5831,6 +5996,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileMetricDimensionOperatorPtrInput)(nil)).Elem(), SecurityProfileMetricDimensionOperator("IN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileStatisticalThresholdStatisticInput)(nil)).Elem(), SecurityProfileStatisticalThresholdStatistic("Average"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityProfileStatisticalThresholdStatisticPtrInput)(nil)).Elem(), SecurityProfileStatisticalThresholdStatistic("Average"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropagatingAttributeConnectionAttributeInput)(nil)).Elem(), ThingTypePropagatingAttributeConnectionAttribute("iot:ClientId"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropagatingAttributeConnectionAttributePtrInput)(nil)).Elem(), ThingTypePropagatingAttributeConnectionAttribute("iot:ClientId"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCannedAccessControlListInput)(nil)).Elem(), TopicRuleCannedAccessControlList("private"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCannedAccessControlListPtrInput)(nil)).Elem(), TopicRuleCannedAccessControlList("private"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationStatusInput)(nil)).Elem(), TopicRuleDestinationStatus("ENABLED"))
@@ -5902,6 +6069,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityProfileStatisticalThresholdStatisticPtrOutput{})
 	pulumi.RegisterOutputType(SoftwarePackageVersionPackageVersionStatusOutput{})
 	pulumi.RegisterOutputType(SoftwarePackageVersionPackageVersionStatusPtrOutput{})
+	pulumi.RegisterOutputType(ThingTypePropagatingAttributeConnectionAttributeOutput{})
+	pulumi.RegisterOutputType(ThingTypePropagatingAttributeConnectionAttributePtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCannedAccessControlListOutput{})
 	pulumi.RegisterOutputType(TopicRuleCannedAccessControlListPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationStatusOutput{})

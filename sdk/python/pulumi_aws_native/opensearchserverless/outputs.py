@@ -16,8 +16,102 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'SecurityConfigIamIdentityCenterConfigOptions',
     'SecurityConfigSamlConfigOptions',
 ]
+
+@pulumi.output_type
+class SecurityConfigIamIdentityCenterConfigOptions(dict):
+    """
+    Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceArn":
+            suggest = "instance_arn"
+        elif key == "applicationArn":
+            suggest = "application_arn"
+        elif key == "applicationDescription":
+            suggest = "application_description"
+        elif key == "applicationName":
+            suggest = "application_name"
+        elif key == "groupAttribute":
+            suggest = "group_attribute"
+        elif key == "userAttribute":
+            suggest = "user_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityConfigIamIdentityCenterConfigOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityConfigIamIdentityCenterConfigOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityConfigIamIdentityCenterConfigOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_arn: str,
+                 application_arn: Optional[str] = None,
+                 application_description: Optional[str] = None,
+                 application_name: Optional[str] = None,
+                 group_attribute: Optional[str] = None,
+                 user_attribute: Optional[str] = None):
+        """
+        Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+        :param str application_description: The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        :param str application_name: The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        """
+        pulumi.set(__self__, "instance_arn", instance_arn)
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if application_description is not None:
+            pulumi.set(__self__, "application_description", application_description)
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
+        if group_attribute is not None:
+            pulumi.set(__self__, "group_attribute", group_attribute)
+        if user_attribute is not None:
+            pulumi.set(__self__, "user_attribute", user_attribute)
+
+    @property
+    @pulumi.getter(name="instanceArn")
+    def instance_arn(self) -> str:
+        return pulumi.get(self, "instance_arn")
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[str]:
+        return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="applicationDescription")
+    def application_description(self) -> Optional[str]:
+        """
+        The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        """
+        return pulumi.get(self, "application_description")
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> Optional[str]:
+        """
+        The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+        """
+        return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="groupAttribute")
+    def group_attribute(self) -> Optional[str]:
+        return pulumi.get(self, "group_attribute")
+
+    @property
+    @pulumi.getter(name="userAttribute")
+    def user_attribute(self) -> Optional[str]:
+        return pulumi.get(self, "user_attribute")
+
 
 @pulumi.output_type
 class SecurityConfigSamlConfigOptions(dict):

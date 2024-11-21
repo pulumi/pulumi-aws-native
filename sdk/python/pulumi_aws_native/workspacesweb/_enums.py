@@ -5,6 +5,7 @@
 from enum import Enum
 
 __all__ = [
+    'DataProtectionSettingsRedactionPlaceHolderType',
     'IdentityProviderType',
     'PortalAuthenticationType',
     'PortalBrowserType',
@@ -13,6 +14,10 @@ __all__ = [
     'PortalStatus',
     'UserSettingsEnabledType',
 ]
+
+
+class DataProtectionSettingsRedactionPlaceHolderType(str, Enum):
+    CUSTOM_TEXT = "CustomText"
 
 
 class IdentityProviderType(str, Enum):

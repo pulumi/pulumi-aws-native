@@ -1941,7 +1941,7 @@ if not MYPY:
         """
         warm_throughput: NotRequired[pulumi.Input['TableWarmThroughputArgsDict']]
         """
-        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
         """
 elif False:
     TableGlobalSecondaryIndexArgsDict: TypeAlias = Mapping[str, Any]
@@ -1970,7 +1970,7 @@ class TableGlobalSecondaryIndexArgs:
         :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
         :param pulumi.Input['TableProvisionedThroughputArgs'] provisioned_throughput: Represents the provisioned throughput settings for the specified global secondary index.
                 For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
-        :param pulumi.Input['TableWarmThroughputArgs'] warm_throughput: Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        :param pulumi.Input['TableWarmThroughputArgs'] warm_throughput: Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
@@ -2066,7 +2066,7 @@ class TableGlobalSecondaryIndexArgs:
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional[pulumi.Input['TableWarmThroughputArgs']]:
         """
-        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
         """
         return pulumi.get(self, "warm_throughput")
 
@@ -2995,6 +2995,9 @@ class TableTimeToLiveSpecificationArgs:
 
 if not MYPY:
     class TableWarmThroughputArgsDict(TypedDict):
+        """
+        Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
+        """
         read_units_per_second: NotRequired[pulumi.Input[int]]
         """
         Represents the number of read operations your base table can instantaneously support.
@@ -3012,6 +3015,7 @@ class TableWarmThroughputArgs:
                  read_units_per_second: Optional[pulumi.Input[int]] = None,
                  write_units_per_second: Optional[pulumi.Input[int]] = None):
         """
+        Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
         :param pulumi.Input[int] read_units_per_second: Represents the number of read operations your base table can instantaneously support.
         :param pulumi.Input[int] write_units_per_second: Represents the number of write operations your base table can instantaneously support.
         """

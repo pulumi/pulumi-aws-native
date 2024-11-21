@@ -29,6 +29,7 @@ export interface GetSecurityConfigResult {
      * Security config description
      */
     readonly description?: string;
+    readonly iamIdentityCenterOptions?: outputs.opensearchserverless.SecurityConfigIamIdentityCenterConfigOptions;
     /**
      * The identifier of the security config
      */

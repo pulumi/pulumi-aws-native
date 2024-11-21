@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDirectoryBucketResult:
-    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None):
+    def __init__(__self__, arn=None, availability_zone_name=None, bucket_encryption=None, lifecycle_configuration=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -35,6 +35,9 @@ class GetDirectoryBucketResult:
         if bucket_encryption and not isinstance(bucket_encryption, dict):
             raise TypeError("Expected argument 'bucket_encryption' to be a dict")
         pulumi.set(__self__, "bucket_encryption", bucket_encryption)
+        if lifecycle_configuration and not isinstance(lifecycle_configuration, dict):
+            raise TypeError("Expected argument 'lifecycle_configuration' to be a dict")
+        pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
 
     @property
     @pulumi.getter
@@ -60,6 +63,14 @@ class GetDirectoryBucketResult:
         """
         return pulumi.get(self, "bucket_encryption")
 
+    @property
+    @pulumi.getter(name="lifecycleConfiguration")
+    def lifecycle_configuration(self) -> Optional['outputs.DirectoryBucketLifecycleConfiguration']:
+        """
+        Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+        """
+        return pulumi.get(self, "lifecycle_configuration")
+
 
 class AwaitableGetDirectoryBucketResult(GetDirectoryBucketResult):
     # pylint: disable=using-constant-test
@@ -69,7 +80,8 @@ class AwaitableGetDirectoryBucketResult(GetDirectoryBucketResult):
         return GetDirectoryBucketResult(
             arn=self.arn,
             availability_zone_name=self.availability_zone_name,
-            bucket_encryption=self.bucket_encryption)
+            bucket_encryption=self.bucket_encryption,
+            lifecycle_configuration=self.lifecycle_configuration)
 
 
 def get_directory_bucket(bucket_name: Optional[str] = None,
@@ -88,7 +100,8 @@ def get_directory_bucket(bucket_name: Optional[str] = None,
     return AwaitableGetDirectoryBucketResult(
         arn=pulumi.get(__ret__, 'arn'),
         availability_zone_name=pulumi.get(__ret__, 'availability_zone_name'),
-        bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'))
+        bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'),
+        lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'))
 def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryBucketResult]:
     """
@@ -104,4 +117,5 @@ def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetDirectoryBucketResult(
         arn=pulumi.get(__response__, 'arn'),
         availability_zone_name=pulumi.get(__response__, 'availability_zone_name'),
-        bucket_encryption=pulumi.get(__response__, 'bucket_encryption')))
+        bucket_encryption=pulumi.get(__response__, 'bucket_encryption'),
+        lifecycle_configuration=pulumi.get(__response__, 'lifecycle_configuration')))

@@ -28,6 +28,12 @@ export const EventSourceMappingFunctionResponseTypesItem = {
 
 export type EventSourceMappingFunctionResponseTypesItem = (typeof EventSourceMappingFunctionResponseTypesItem)[keyof typeof EventSourceMappingFunctionResponseTypesItem];
 
+export const EventSourceMappingMetricsConfigMetricsItem = {
+    EventCount: "EventCount",
+} as const;
+
+export type EventSourceMappingMetricsConfigMetricsItem = (typeof EventSourceMappingMetricsConfigMetricsItem)[keyof typeof EventSourceMappingMetricsConfigMetricsItem];
+
 export const EventSourceMappingSourceAccessConfigurationType = {
     BasicAuth: "BASIC_AUTH",
     VpcSubnet: "VPC_SUBNET",

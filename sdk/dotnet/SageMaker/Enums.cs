@@ -598,6 +598,11 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainMlTools Endpoints { get; } = new DomainMlTools("Endpoints");
         public static DomainMlTools Projects { get; } = new DomainMlTools("Projects");
         public static DomainMlTools InferenceOptimization { get; } = new DomainMlTools("InferenceOptimization");
+        public static DomainMlTools HyperPodClusters { get; } = new DomainMlTools("HyperPodClusters");
+        public static DomainMlTools Comet { get; } = new DomainMlTools("Comet");
+        public static DomainMlTools DeepchecksLlmEvaluation { get; } = new DomainMlTools("DeepchecksLLMEvaluation");
+        public static DomainMlTools Fiddler { get; } = new DomainMlTools("Fiddler");
+        public static DomainMlTools LakeraGuard { get; } = new DomainMlTools("LakeraGuard");
 
         public static bool operator ==(DomainMlTools left, DomainMlTools right) => left.Equals(right);
         public static bool operator !=(DomainMlTools left, DomainMlTools right) => !left.Equals(right);
@@ -3164,6 +3169,11 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileMlTools Endpoints { get; } = new UserProfileMlTools("Endpoints");
         public static UserProfileMlTools Projects { get; } = new UserProfileMlTools("Projects");
         public static UserProfileMlTools InferenceOptimization { get; } = new UserProfileMlTools("InferenceOptimization");
+        public static UserProfileMlTools HyperPodClusters { get; } = new UserProfileMlTools("HyperPodClusters");
+        public static UserProfileMlTools Comet { get; } = new UserProfileMlTools("Comet");
+        public static UserProfileMlTools DeepchecksLlmEvaluation { get; } = new UserProfileMlTools("DeepchecksLLMEvaluation");
+        public static UserProfileMlTools Fiddler { get; } = new UserProfileMlTools("Fiddler");
+        public static UserProfileMlTools LakeraGuard { get; } = new UserProfileMlTools("LakeraGuard");
 
         public static bool operator ==(UserProfileMlTools left, UserProfileMlTools right) => left.Equals(right);
         public static bool operator !=(UserProfileMlTools left, UserProfileMlTools right) => !left.Equals(right);

@@ -109,10 +109,12 @@ export interface GetEventSourceMappingResult {
      * (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
      */
     readonly maximumRetryAttempts?: number;
+    readonly metricsConfig?: outputs.lambda.EventSourceMappingMetricsConfig;
     /**
      * (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
      */
     readonly parallelizationFactor?: number;
+    readonly provisionedPollerConfig?: outputs.lambda.EventSourceMappingProvisionedPollerConfig;
     /**
      * (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
      */

@@ -93,6 +93,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
         /// </summary>
         public readonly string? PortalStartUrl;
+        public readonly ImmutableDictionary<string, Outputs.PortalTypeEntry>? PortalTypeConfiguration;
         /// <summary>
         /// The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
         /// </summary>
@@ -122,6 +123,8 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
             string? portalStartUrl,
 
+            ImmutableDictionary<string, Outputs.PortalTypeEntry>? portalTypeConfiguration,
+
             string? roleArn,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -135,6 +138,7 @@ namespace Pulumi.AwsNative.IoTSiteWise
             PortalId = portalId;
             PortalName = portalName;
             PortalStartUrl = portalStartUrl;
+            PortalTypeConfiguration = portalTypeConfiguration;
             RoleArn = roleArn;
             Tags = tags;
         }

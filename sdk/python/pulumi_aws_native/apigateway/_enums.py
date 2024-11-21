@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'DocumentationPartLocationType',
+    'DomainNameAccessAssociationAccessAssociationSourceType',
     'MethodIntegrationConnectionType',
     'MethodIntegrationContentHandling',
     'MethodIntegrationPassthroughBehavior',
@@ -31,6 +32,13 @@ class DocumentationPartLocationType(str, Enum):
     RESPONSE = "RESPONSE"
     RESPONSE_HEADER = "RESPONSE_HEADER"
     RESPONSE_BODY = "RESPONSE_BODY"
+
+
+class DomainNameAccessAssociationAccessAssociationSourceType(str, Enum):
+    """
+    The source type of the domain name access association resource.
+    """
+    VPCE = "VPCE"
 
 
 class MethodIntegrationConnectionType(str, Enum):

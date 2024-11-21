@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         /// The metric to use.
         /// </summary>
         public readonly Outputs.ScalingPolicyMetric Metric;
+        public readonly int? Period;
         /// <summary>
         /// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
         /// 
@@ -32,11 +33,14 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         private ScalingPolicyTargetTrackingMetricStat(
             Outputs.ScalingPolicyMetric metric,
 
+            int? period,
+
             string stat,
 
             string? unit)
         {
             Metric = metric;
+            Period = period;
             Stat = stat;
             Unit = unit;
         }

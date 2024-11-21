@@ -21,6 +21,8 @@ type Integration struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The unique name of the domain.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// A list of unique names for active event triggers associated with the integration.
+	EventTriggerNames pulumi.StringArrayOutput `pulumi:"eventTriggerNames"`
 	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition IntegrationFlowDefinitionPtrOutput `pulumi:"flowDefinition"`
 	// The time of this integration got last updated at
@@ -85,6 +87,8 @@ func (IntegrationState) ElementType() reflect.Type {
 type integrationArgs struct {
 	// The unique name of the domain.
 	DomainName string `pulumi:"domainName"`
+	// A list of unique names for active event triggers associated with the integration.
+	EventTriggerNames []string `pulumi:"eventTriggerNames"`
 	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition *IntegrationFlowDefinition `pulumi:"flowDefinition"`
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
@@ -101,6 +105,8 @@ type integrationArgs struct {
 type IntegrationArgs struct {
 	// The unique name of the domain.
 	DomainName pulumi.StringInput
+	// A list of unique names for active event triggers associated with the integration.
+	EventTriggerNames pulumi.StringArrayInput
 	// The configuration that controls how Customer Profiles retrieves data from the source.
 	FlowDefinition IntegrationFlowDefinitionPtrInput
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
@@ -158,6 +164,11 @@ func (o IntegrationOutput) CreatedAt() pulumi.StringOutput {
 // The unique name of the domain.
 func (o IntegrationOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Integration) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// A list of unique names for active event triggers associated with the integration.
+func (o IntegrationOutput) EventTriggerNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Integration) pulumi.StringArrayOutput { return v.EventTriggerNames }).(pulumi.StringArrayOutput)
 }
 
 // The configuration that controls how Customer Profiles retrieves data from the source.

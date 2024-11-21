@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Authorizer{}
 	case "aws-native:apigateway:BasePathMapping":
 		r = &BasePathMapping{}
+	case "aws-native:apigateway:BasePathMappingV2":
+		r = &BasePathMappingV2{}
 	case "aws-native:apigateway:ClientCertificate":
 		r = &ClientCertificate{}
 	case "aws-native:apigateway:Deployment":
@@ -39,6 +41,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DocumentationVersion{}
 	case "aws-native:apigateway:DomainName":
 		r = &DomainName{}
+	case "aws-native:apigateway:DomainNameAccessAssociation":
+		r = &DomainNameAccessAssociation{}
+	case "aws-native:apigateway:DomainNameV2":
+		r = &DomainNameV2{}
 	case "aws-native:apigateway:GatewayResponse":
 		r = &GatewayResponse{}
 	case "aws-native:apigateway:Method":

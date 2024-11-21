@@ -26,6 +26,7 @@ class PortalArgs:
                  authentication_type: Optional[pulumi.Input['PortalAuthenticationType']] = None,
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
+                 data_protection_settings_arn: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input['PortalInstanceType']] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
@@ -73,6 +74,8 @@ class PortalArgs:
             pulumi.set(__self__, "browser_settings_arn", browser_settings_arn)
         if customer_managed_key is not None:
             pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+        if data_protection_settings_arn is not None:
+            pulumi.set(__self__, "data_protection_settings_arn", data_protection_settings_arn)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if instance_type is not None:
@@ -153,6 +156,15 @@ class PortalArgs:
     @customer_managed_key.setter
     def customer_managed_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "customer_managed_key", value)
+
+    @property
+    @pulumi.getter(name="dataProtectionSettingsArn")
+    def data_protection_settings_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "data_protection_settings_arn")
+
+    @data_protection_settings_arn.setter
+    def data_protection_settings_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_protection_settings_arn", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -272,6 +284,7 @@ class Portal(pulumi.CustomResource):
                  authentication_type: Optional[pulumi.Input['PortalAuthenticationType']] = None,
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
+                 data_protection_settings_arn: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input['PortalInstanceType']] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
@@ -343,6 +356,7 @@ class Portal(pulumi.CustomResource):
                  authentication_type: Optional[pulumi.Input['PortalAuthenticationType']] = None,
                  browser_settings_arn: Optional[pulumi.Input[str]] = None,
                  customer_managed_key: Optional[pulumi.Input[str]] = None,
+                 data_protection_settings_arn: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  instance_type: Optional[pulumi.Input['PortalInstanceType']] = None,
                  ip_access_settings_arn: Optional[pulumi.Input[str]] = None,
@@ -365,6 +379,7 @@ class Portal(pulumi.CustomResource):
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["browser_settings_arn"] = browser_settings_arn
             __props__.__dict__["customer_managed_key"] = customer_managed_key
+            __props__.__dict__["data_protection_settings_arn"] = data_protection_settings_arn
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["ip_access_settings_arn"] = ip_access_settings_arn
@@ -412,6 +427,7 @@ class Portal(pulumi.CustomResource):
         __props__.__dict__["browser_type"] = None
         __props__.__dict__["creation_date"] = None
         __props__.__dict__["customer_managed_key"] = None
+        __props__.__dict__["data_protection_settings_arn"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["ip_access_settings_arn"] = None
@@ -490,6 +506,11 @@ class Portal(pulumi.CustomResource):
         *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
         """
         return pulumi.get(self, "customer_managed_key")
+
+    @property
+    @pulumi.getter(name="dataProtectionSettingsArn")
+    def data_protection_settings_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "data_protection_settings_arn")
 
     @property
     @pulumi.getter(name="displayName")

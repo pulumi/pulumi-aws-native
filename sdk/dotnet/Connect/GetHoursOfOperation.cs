@@ -70,6 +70,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? HoursOfOperationArn;
         /// <summary>
+        /// One or more hours of operation overrides assigned to an hour of operation.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HoursOfOperationOverride> HoursOfOperationOverrides;
+        /// <summary>
         /// The identifier of the Amazon Connect instance.
         /// </summary>
         public readonly string? InstanceArn;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.Connect
 
             string? hoursOfOperationArn,
 
+            ImmutableArray<Outputs.HoursOfOperationOverride> hoursOfOperationOverrides,
+
             string? instanceArn,
 
             string? name,
@@ -105,6 +111,7 @@ namespace Pulumi.AwsNative.Connect
             Config = config;
             Description = description;
             HoursOfOperationArn = hoursOfOperationArn;
+            HoursOfOperationOverrides = hoursOfOperationOverrides;
             InstanceArn = instanceArn;
             Name = name;
             Tags = tags;

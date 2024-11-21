@@ -151,6 +151,27 @@
       }
     }
   },
+  "aws-native:apigateway:BasePathMappingV2": {
+    "cfTypeName": "AWS::ApiGateway::BasePathMappingV2",
+    "properties": {
+      "basePath": {
+        "type": "string",
+        "description": "The base path name that callers of the API must provide in the URL after the domain name."
+      },
+      "domainNameArn": {
+        "type": "string",
+        "description": "The Arn of an AWS::ApiGateway::DomainNameV2 resource."
+      },
+      "restApiId": {
+        "type": "string",
+        "description": "The ID of the API."
+      },
+      "stage": {
+        "type": "string",
+        "description": "The name of the API's stage."
+      }
+    }
+  },
   "aws-native:apigateway:ClientCertificate": {
     "cfTypeName": "AWS::ApiGateway::ClientCertificate",
     "properties": {
@@ -273,6 +294,61 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The collection of tags. Each tag element is associated with a given resource."
+      }
+    }
+  },
+  "aws-native:apigateway:DomainNameAccessAssociation": {
+    "cfTypeName": "AWS::ApiGateway::DomainNameAccessAssociation",
+    "properties": {
+      "accessAssociationSource": {
+        "type": "string",
+        "description": "The source of the domain name access association resource."
+      },
+      "accessAssociationSourceType": {
+        "$ref": "#/types/aws-native:apigateway:DomainNameAccessAssociationAccessAssociationSourceType",
+        "description": "The source type of the domain name access association resource."
+      },
+      "domainNameArn": {
+        "type": "string",
+        "description": "The amazon resource name (ARN) of the domain name resource."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:CreateOnlyTag"
+        },
+        "description": "An array of arbitrary tags (key-value pairs) to associate with the domainname access association."
+      }
+    }
+  },
+  "aws-native:apigateway:DomainNameV2": {
+    "cfTypeName": "AWS::ApiGateway::DomainNameV2",
+    "properties": {
+      "certificateArn": {
+        "type": "string"
+      },
+      "domainName": {
+        "type": "string"
+      },
+      "endpointConfiguration": {
+        "$ref": "#/types/aws-native:apigateway:DomainNameV2EndpointConfiguration"
+      },
+      "managementPolicy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property."
+      },
+      "policy": {
+        "$ref": "pulumi.json#/Any",
+        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property."
+      },
+      "securityPolicy": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },
@@ -1486,10 +1562,12 @@
         "description": "S3 Bucket where the guard validate report will be uploaded to"
       },
       "options": {
-        "$ref": "#/types/aws-native:cloudformation:OptionsProperties"
+        "$ref": "#/types/aws-native:cloudformation:OptionsProperties",
+        "description": "Specifies the S3 location of your input parameters."
       },
       "ruleLocation": {
-        "$ref": "#/types/aws-native:cloudformation:GuardHookS3Location"
+        "$ref": "#/types/aws-native:cloudformation:GuardHookS3Location",
+        "description": "Specifies the S3 location of your Guard rules."
       },
       "stackFilters": {
         "$ref": "#/types/aws-native:cloudformation:StackFiltersProperties",
@@ -2209,6 +2287,39 @@
       }
     }
   },
+  "aws-native:connect:EmailAddress": {
+    "cfTypeName": "AWS::Connect::EmailAddress",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "A description for the email address."
+      },
+      "displayName": {
+        "type": "string",
+        "description": "The display name for the email address."
+      },
+      "emailAddress": {
+        "type": "string",
+        "description": "Email address to be created for this instance",
+        "language": {
+          "csharp": {
+            "name": "EmailAddressValue"
+          }
+        }
+      },
+      "instanceArn": {
+        "type": "string",
+        "description": "The identifier of the Amazon Connect instance."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "One or more tags."
+      }
+    }
+  },
   "aws-native:connect:EvaluationForm": {
     "cfTypeName": "AWS::Connect::EvaluationForm",
     "properties": {
@@ -2534,6 +2645,13 @@
       "domainName": {
         "type": "string",
         "description": "The unique name of the domain."
+      },
+      "eventTriggerNames": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of unique names for active event triggers associated with the integration."
       },
       "flowDefinition": {
         "$ref": "#/types/aws-native:customerprofiles:IntegrationFlowDefinition",
@@ -5764,6 +5882,39 @@
       }
     }
   },
+  "aws-native:ec2:VpcBlockPublicAccessExclusion": {
+    "cfTypeName": "AWS::EC2::VPCBlockPublicAccessExclusion",
+    "properties": {
+      "internetGatewayExclusionMode": {
+        "$ref": "#/types/aws-native:ec2:VpcBlockPublicAccessExclusionInternetGatewayExclusionMode",
+        "description": "The desired Block Public Access Exclusion Mode for a specific VPC/Subnet."
+      },
+      "subnetId": {
+        "type": "string",
+        "description": "The ID of the subnet. Required only if you don't specify VpcId"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this resource."
+      },
+      "vpcId": {
+        "type": "string",
+        "description": "The ID of the vpc. Required only if you don't specify SubnetId."
+      }
+    }
+  },
+  "aws-native:ec2:VpcBlockPublicAccessOptions": {
+    "cfTypeName": "AWS::EC2::VPCBlockPublicAccessOptions",
+    "properties": {
+      "internetGatewayBlockMode": {
+        "$ref": "#/types/aws-native:ec2:VpcBlockPublicAccessOptionsInternetGatewayBlockMode",
+        "description": "The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value"
+      }
+    }
+  },
   "aws-native:ec2:VpcCidrBlock": {
     "cfTypeName": "AWS::EC2::VPCCidrBlock",
     "properties": {
@@ -8375,9 +8526,15 @@
         "type": "integer",
         "description": "(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source."
       },
+      "metricsConfig": {
+        "$ref": "#/types/aws-native:lambda:EventSourceMappingMetricsConfig"
+      },
       "parallelizationFactor": {
         "type": "integer",
         "description": "(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1."
+      },
+      "provisionedPollerConfig": {
+        "$ref": "#/types/aws-native:lambda:EventSourceMappingProvisionedPollerConfig"
       },
       "queues": {
         "type": "array",
@@ -8772,6 +8929,23 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "The tags that have been assigned to this delivery."
+      }
+    }
+  },
+  "aws-native:m2:Deployment": {
+    "cfTypeName": "AWS::M2::Deployment",
+    "properties": {
+      "applicationId": {
+        "type": "string",
+        "description": "The application ID."
+      },
+      "applicationVersion": {
+        "type": "integer",
+        "description": "The version number of the application to deploy"
+      },
+      "environmentId": {
+        "type": "string",
+        "description": "The environment ID."
       }
     }
   },
@@ -10253,6 +10427,13 @@
         "type": "string",
         "description": "The description of the retention rule."
       },
+      "excludeResourceTags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:rbin:RuleResourceTag"
+        },
+        "description": "Information about the exclude resource tags used to identify resources that are excluded by the retention rule."
+      },
       "lockConfiguration": {
         "$ref": "#/types/aws-native:rbin:RuleUnlockDelay",
         "description": "Information about the retention rule lock configuration."
@@ -11018,6 +11199,9 @@
       "globalClusterIdentifier": {
         "type": "string",
         "description": "The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string."
+      },
+      "globalEndpoint": {
+        "$ref": "#/types/aws-native:rds:GlobalClusterGlobalEndpoint"
       },
       "sourceDbClusterIdentifier": {
         "type": "string",
@@ -13239,6 +13423,35 @@
       }
     }
   },
+  "aws-native:workspacesweb:DataProtectionSettings": {
+    "cfTypeName": "AWS::WorkSpacesWeb::DataProtectionSettings",
+    "properties": {
+      "additionalEncryptionContext": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "customerManagedKey": {
+        "type": "string"
+      },
+      "description": {
+        "type": "string"
+      },
+      "displayName": {
+        "type": "string"
+      },
+      "inlineRedactionConfiguration": {
+        "$ref": "#/types/aws-native:workspacesweb:DataProtectionSettingsInlineRedactionConfiguration"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:workspacesweb:IpAccessSettings": {
     "cfTypeName": "AWS::WorkSpacesWeb::IpAccessSettings",
     "properties": {
@@ -13328,6 +13541,9 @@
       "customerManagedKey": {
         "type": "string",
         "description": "The customer managed key of the web portal.\n\n*Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`"
+      },
+      "dataProtectionSettingsArn": {
+        "type": "string"
       },
       "displayName": {
         "type": "string",

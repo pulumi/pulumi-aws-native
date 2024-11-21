@@ -400,6 +400,16 @@ export const getVpc: typeof import("./getVpc").getVpc = null as any;
 export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
 utilities.lazyLoad(exports, ["getVpc","getVpcOutput"], () => require("./getVpc"));
 
+export { GetVpcBlockPublicAccessExclusionArgs, GetVpcBlockPublicAccessExclusionResult, GetVpcBlockPublicAccessExclusionOutputArgs } from "./getVpcBlockPublicAccessExclusion";
+export const getVpcBlockPublicAccessExclusion: typeof import("./getVpcBlockPublicAccessExclusion").getVpcBlockPublicAccessExclusion = null as any;
+export const getVpcBlockPublicAccessExclusionOutput: typeof import("./getVpcBlockPublicAccessExclusion").getVpcBlockPublicAccessExclusionOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcBlockPublicAccessExclusion","getVpcBlockPublicAccessExclusionOutput"], () => require("./getVpcBlockPublicAccessExclusion"));
+
+export { GetVpcBlockPublicAccessOptionsArgs, GetVpcBlockPublicAccessOptionsResult, GetVpcBlockPublicAccessOptionsOutputArgs } from "./getVpcBlockPublicAccessOptions";
+export const getVpcBlockPublicAccessOptions: typeof import("./getVpcBlockPublicAccessOptions").getVpcBlockPublicAccessOptions = null as any;
+export const getVpcBlockPublicAccessOptionsOutput: typeof import("./getVpcBlockPublicAccessOptions").getVpcBlockPublicAccessOptionsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcBlockPublicAccessOptions","getVpcBlockPublicAccessOptionsOutput"], () => require("./getVpcBlockPublicAccessOptions"));
+
 export { GetVpcCidrBlockArgs, GetVpcCidrBlockResult, GetVpcCidrBlockOutputArgs } from "./getVpcCidrBlock";
 export const getVpcCidrBlock: typeof import("./getVpcCidrBlock").getVpcCidrBlock = null as any;
 export const getVpcCidrBlockOutput: typeof import("./getVpcCidrBlock").getVpcCidrBlockOutput = null as any;
@@ -745,6 +755,16 @@ export type Vpc = import("./vpc").Vpc;
 export const Vpc: typeof import("./vpc").Vpc = null as any;
 utilities.lazyLoad(exports, ["Vpc"], () => require("./vpc"));
 
+export { VpcBlockPublicAccessExclusionArgs } from "./vpcBlockPublicAccessExclusion";
+export type VpcBlockPublicAccessExclusion = import("./vpcBlockPublicAccessExclusion").VpcBlockPublicAccessExclusion;
+export const VpcBlockPublicAccessExclusion: typeof import("./vpcBlockPublicAccessExclusion").VpcBlockPublicAccessExclusion = null as any;
+utilities.lazyLoad(exports, ["VpcBlockPublicAccessExclusion"], () => require("./vpcBlockPublicAccessExclusion"));
+
+export { VpcBlockPublicAccessOptionsArgs } from "./vpcBlockPublicAccessOptions";
+export type VpcBlockPublicAccessOptions = import("./vpcBlockPublicAccessOptions").VpcBlockPublicAccessOptions;
+export const VpcBlockPublicAccessOptions: typeof import("./vpcBlockPublicAccessOptions").VpcBlockPublicAccessOptions = null as any;
+utilities.lazyLoad(exports, ["VpcBlockPublicAccessOptions"], () => require("./vpcBlockPublicAccessOptions"));
+
 export { VpcCidrBlockArgs } from "./vpcCidrBlock";
 export type VpcCidrBlock = import("./vpcCidrBlock").VpcCidrBlock;
 export const VpcCidrBlock: typeof import("./vpcCidrBlock").VpcCidrBlock = null as any;
@@ -952,6 +972,10 @@ const _module = {
                 return new VolumeAttachment(name, <any>undefined, { urn })
             case "aws-native:ec2:Vpc":
                 return new Vpc(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcBlockPublicAccessExclusion":
+                return new VpcBlockPublicAccessExclusion(name, <any>undefined, { urn })
+            case "aws-native:ec2:VpcBlockPublicAccessOptions":
+                return new VpcBlockPublicAccessOptions(name, <any>undefined, { urn })
             case "aws-native:ec2:VpcCidrBlock":
                 return new VpcCidrBlock(name, <any>undefined, { urn })
             case "aws-native:ec2:VpcEndpoint":

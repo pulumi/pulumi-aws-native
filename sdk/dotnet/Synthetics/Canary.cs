@@ -181,6 +181,12 @@ namespace Pulumi.AwsNative.Synthetics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+        /// </summary>
+        [Output("provisionedResourceCleanup")]
+        public Output<Pulumi.AwsNative.Synthetics.CanaryProvisionedResourceCleanup?> ProvisionedResourceCleanup { get; private set; } = null!;
+
+        /// <summary>
         /// List of resources which canary tags should be replicated to.
         /// </summary>
         [Output("resourcesToReplicateTags")]
@@ -330,6 +336,12 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+        /// </summary>
+        [Input("provisionedResourceCleanup")]
+        public Input<Pulumi.AwsNative.Synthetics.CanaryProvisionedResourceCleanup>? ProvisionedResourceCleanup { get; set; }
 
         [Input("resourcesToReplicateTags")]
         private InputList<Pulumi.AwsNative.Synthetics.CanaryResourceToTag>? _resourcesToReplicateTags;

@@ -50,6 +50,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         [Input("namespace")]
         public Input<string>? Namespace { get; set; }
 
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
         /// <summary>
         /// The statistic of the metric.
         /// </summary>

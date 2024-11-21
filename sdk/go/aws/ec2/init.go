@@ -165,6 +165,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VolumeAttachment{}
 	case "aws-native:ec2:Vpc":
 		r = &Vpc{}
+	case "aws-native:ec2:VpcBlockPublicAccessExclusion":
+		r = &VpcBlockPublicAccessExclusion{}
+	case "aws-native:ec2:VpcBlockPublicAccessOptions":
+		r = &VpcBlockPublicAccessOptions{}
 	case "aws-native:ec2:VpcCidrBlock":
 		r = &VpcCidrBlock{}
 	case "aws-native:ec2:VpcEndpoint":

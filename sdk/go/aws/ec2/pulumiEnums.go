@@ -10575,6 +10575,338 @@ func (in *spotFleetTagSpecificationResourceTypePtr) ToSpotFleetTagSpecificationR
 	return pulumi.ToOutputWithContext(ctx, in).(SpotFleetTagSpecificationResourceTypePtrOutput)
 }
 
+// The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
+type VpcBlockPublicAccessExclusionInternetGatewayExclusionMode string
+
+const (
+	VpcBlockPublicAccessExclusionInternetGatewayExclusionModeAllowBidirectional = VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional")
+	VpcBlockPublicAccessExclusionInternetGatewayExclusionModeAllowEgress        = VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-egress")
+)
+
+func (VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionMode)(nil)).Elem()
+}
+
+func (e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput() VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput {
+	return pulumi.ToOutput(e).(VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput)
+}
+
+func (e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput)
+}
+
+func (e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput() VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput {
+	return e.ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutputWithContext(context.Background())
+}
+
+func (e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput {
+	return VpcBlockPublicAccessExclusionInternetGatewayExclusionMode(e).ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutputWithContext(ctx).ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutputWithContext(ctx)
+}
+
+func (e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput struct{ *pulumi.OutputState }
+
+func (VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionMode)(nil)).Elem()
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput() VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput() VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput {
+	return o.ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) *VpcBlockPublicAccessExclusionInternetGatewayExclusionMode {
+		return &v
+	}).(VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput)
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcBlockPublicAccessExclusionInternetGatewayExclusionMode)(nil)).Elem()
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput() VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput) Elem() VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) VpcBlockPublicAccessExclusionInternetGatewayExclusionMode {
+		if v != nil {
+			return *v
+		}
+		var ret VpcBlockPublicAccessExclusionInternetGatewayExclusionMode
+		return ret
+	}).(VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput)
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcBlockPublicAccessExclusionInternetGatewayExclusionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcBlockPublicAccessExclusionInternetGatewayExclusionModeInput is an input type that accepts values of the VpcBlockPublicAccessExclusionInternetGatewayExclusionMode enum
+// A concrete instance of `VpcBlockPublicAccessExclusionInternetGatewayExclusionModeInput` can be one of the following:
+//
+//	VpcBlockPublicAccessExclusionInternetGatewayExclusionModeAllowBidirectional
+//	VpcBlockPublicAccessExclusionInternetGatewayExclusionModeAllowEgress
+type VpcBlockPublicAccessExclusionInternetGatewayExclusionModeInput interface {
+	pulumi.Input
+
+	ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput() VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput
+	ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutputWithContext(context.Context) VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput
+}
+
+var vpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrType = reflect.TypeOf((**VpcBlockPublicAccessExclusionInternetGatewayExclusionMode)(nil)).Elem()
+
+type VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrInput interface {
+	pulumi.Input
+
+	ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput() VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput
+	ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutputWithContext(context.Context) VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput
+}
+
+type vpcBlockPublicAccessExclusionInternetGatewayExclusionModePtr string
+
+func VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtr(v string) VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrInput {
+	return (*vpcBlockPublicAccessExclusionInternetGatewayExclusionModePtr)(&v)
+}
+
+func (*vpcBlockPublicAccessExclusionInternetGatewayExclusionModePtr) ElementType() reflect.Type {
+	return vpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrType
+}
+
+func (in *vpcBlockPublicAccessExclusionInternetGatewayExclusionModePtr) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput() VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput {
+	return pulumi.ToOutput(in).(VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput)
+}
+
+func (in *vpcBlockPublicAccessExclusionInternetGatewayExclusionModePtr) ToVpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput)
+}
+
+// The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
+type VpcBlockPublicAccessOptionsInternetGatewayBlockMode string
+
+const (
+	VpcBlockPublicAccessOptionsInternetGatewayBlockModeBlockBidirectional = VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional")
+	VpcBlockPublicAccessOptionsInternetGatewayBlockModeBlockIngress       = VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-ingress")
+)
+
+func (VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockMode)(nil)).Elem()
+}
+
+func (e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput() VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput {
+	return pulumi.ToOutput(e).(VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput)
+}
+
+func (e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModeOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput)
+}
+
+func (e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput() VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
+	return e.ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(context.Background())
+}
+
+func (e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
+	return VpcBlockPublicAccessOptionsInternetGatewayBlockMode(e).ToVpcBlockPublicAccessOptionsInternetGatewayBlockModeOutputWithContext(ctx).ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(ctx)
+}
+
+func (e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput struct{ *pulumi.OutputState }
+
+func (VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockMode)(nil)).Elem()
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput() VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModeOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput() VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
+	return o.ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcBlockPublicAccessOptionsInternetGatewayBlockMode) *VpcBlockPublicAccessOptionsInternetGatewayBlockMode {
+		return &v
+	}).(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput)
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcBlockPublicAccessOptionsInternetGatewayBlockMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcBlockPublicAccessOptionsInternetGatewayBlockMode)(nil)).Elem()
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput() VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
+	return o
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput) Elem() VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput {
+	return o.ApplyT(func(v *VpcBlockPublicAccessOptionsInternetGatewayBlockMode) VpcBlockPublicAccessOptionsInternetGatewayBlockMode {
+		if v != nil {
+			return *v
+		}
+		var ret VpcBlockPublicAccessOptionsInternetGatewayBlockMode
+		return ret
+	}).(VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput)
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcBlockPublicAccessOptionsInternetGatewayBlockMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcBlockPublicAccessOptionsInternetGatewayBlockModeInput is an input type that accepts values of the VpcBlockPublicAccessOptionsInternetGatewayBlockMode enum
+// A concrete instance of `VpcBlockPublicAccessOptionsInternetGatewayBlockModeInput` can be one of the following:
+//
+//	VpcBlockPublicAccessOptionsInternetGatewayBlockModeBlockBidirectional
+//	VpcBlockPublicAccessOptionsInternetGatewayBlockModeBlockIngress
+type VpcBlockPublicAccessOptionsInternetGatewayBlockModeInput interface {
+	pulumi.Input
+
+	ToVpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput() VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput
+	ToVpcBlockPublicAccessOptionsInternetGatewayBlockModeOutputWithContext(context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput
+}
+
+var vpcBlockPublicAccessOptionsInternetGatewayBlockModePtrType = reflect.TypeOf((**VpcBlockPublicAccessOptionsInternetGatewayBlockMode)(nil)).Elem()
+
+type VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrInput interface {
+	pulumi.Input
+
+	ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput() VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput
+	ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput
+}
+
+type vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr string
+
+func VpcBlockPublicAccessOptionsInternetGatewayBlockModePtr(v string) VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrInput {
+	return (*vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr)(&v)
+}
+
+func (*vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr) ElementType() reflect.Type {
+	return vpcBlockPublicAccessOptionsInternetGatewayBlockModePtrType
+}
+
+func (in *vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput() VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
+	return pulumi.ToOutput(in).(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput)
+}
+
+func (in *vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr) ToVpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutputWithContext(ctx context.Context) VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput)
+}
+
 // The type of endpoint.
 //
 //	Default: Gateway
@@ -12221,6 +12553,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetSpotPlacementTenancyPtrInput)(nil)).Elem(), SpotFleetSpotPlacementTenancy("dedicated"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypeInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetTagSpecificationResourceTypePtrInput)(nil)).Elem(), SpotFleetTagSpecificationResourceType("client-vpn-endpoint"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModeInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockModeInput)(nil)).Elem(), VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrInput)(nil)).Elem(), VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypeInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypePtrInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json"))
@@ -12374,6 +12710,10 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetSpotPlacementTenancyPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypeOutput{})
 	pulumi.RegisterOutputType(SpotFleetTagSpecificationResourceTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModeOutput{})
+	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput{})
+	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput{})
+	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput{})

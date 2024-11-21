@@ -813,6 +813,26 @@ export const SpotFleetTagSpecificationResourceType = {
  */
 export type SpotFleetTagSpecificationResourceType = (typeof SpotFleetTagSpecificationResourceType)[keyof typeof SpotFleetTagSpecificationResourceType];
 
+export const VpcBlockPublicAccessExclusionInternetGatewayExclusionMode = {
+    AllowBidirectional: "allow-bidirectional",
+    AllowEgress: "allow-egress",
+} as const;
+
+/**
+ * The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
+ */
+export type VpcBlockPublicAccessExclusionInternetGatewayExclusionMode = (typeof VpcBlockPublicAccessExclusionInternetGatewayExclusionMode)[keyof typeof VpcBlockPublicAccessExclusionInternetGatewayExclusionMode];
+
+export const VpcBlockPublicAccessOptionsInternetGatewayBlockMode = {
+    BlockBidirectional: "block-bidirectional",
+    BlockIngress: "block-ingress",
+} as const;
+
+/**
+ * The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
+ */
+export type VpcBlockPublicAccessOptionsInternetGatewayBlockMode = (typeof VpcBlockPublicAccessOptionsInternetGatewayBlockMode)[keyof typeof VpcBlockPublicAccessOptionsInternetGatewayBlockMode];
+
 export const VpcEndpointType = {
     Interface: "Interface",
     Gateway: "Gateway",

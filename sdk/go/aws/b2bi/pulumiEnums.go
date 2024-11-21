@@ -341,57 +341,324 @@ func (in *capabilityTypePtr) ToCapabilityTypePtrOutputWithContext(ctx context.Co
 type CapabilityX12TransactionSet string
 
 const (
+	CapabilityX12TransactionSetX12100     = CapabilityX12TransactionSet("X12_100")
+	CapabilityX12TransactionSetX12101     = CapabilityX12TransactionSet("X12_101")
+	CapabilityX12TransactionSetX12102     = CapabilityX12TransactionSet("X12_102")
+	CapabilityX12TransactionSetX12103     = CapabilityX12TransactionSet("X12_103")
+	CapabilityX12TransactionSetX12104     = CapabilityX12TransactionSet("X12_104")
+	CapabilityX12TransactionSetX12105     = CapabilityX12TransactionSet("X12_105")
+	CapabilityX12TransactionSetX12106     = CapabilityX12TransactionSet("X12_106")
+	CapabilityX12TransactionSetX12107     = CapabilityX12TransactionSet("X12_107")
+	CapabilityX12TransactionSetX12108     = CapabilityX12TransactionSet("X12_108")
+	CapabilityX12TransactionSetX12109     = CapabilityX12TransactionSet("X12_109")
 	CapabilityX12TransactionSetX12110     = CapabilityX12TransactionSet("X12_110")
+	CapabilityX12TransactionSetX12111     = CapabilityX12TransactionSet("X12_111")
+	CapabilityX12TransactionSetX12112     = CapabilityX12TransactionSet("X12_112")
+	CapabilityX12TransactionSetX12113     = CapabilityX12TransactionSet("X12_113")
+	CapabilityX12TransactionSetX12120     = CapabilityX12TransactionSet("X12_120")
+	CapabilityX12TransactionSetX12121     = CapabilityX12TransactionSet("X12_121")
+	CapabilityX12TransactionSetX12124     = CapabilityX12TransactionSet("X12_124")
+	CapabilityX12TransactionSetX12125     = CapabilityX12TransactionSet("X12_125")
+	CapabilityX12TransactionSetX12126     = CapabilityX12TransactionSet("X12_126")
+	CapabilityX12TransactionSetX12127     = CapabilityX12TransactionSet("X12_127")
+	CapabilityX12TransactionSetX12128     = CapabilityX12TransactionSet("X12_128")
+	CapabilityX12TransactionSetX12129     = CapabilityX12TransactionSet("X12_129")
+	CapabilityX12TransactionSetX12130     = CapabilityX12TransactionSet("X12_130")
+	CapabilityX12TransactionSetX12131     = CapabilityX12TransactionSet("X12_131")
+	CapabilityX12TransactionSetX12132     = CapabilityX12TransactionSet("X12_132")
+	CapabilityX12TransactionSetX12133     = CapabilityX12TransactionSet("X12_133")
+	CapabilityX12TransactionSetX12135     = CapabilityX12TransactionSet("X12_135")
+	CapabilityX12TransactionSetX12138     = CapabilityX12TransactionSet("X12_138")
+	CapabilityX12TransactionSetX12139     = CapabilityX12TransactionSet("X12_139")
+	CapabilityX12TransactionSetX12140     = CapabilityX12TransactionSet("X12_140")
+	CapabilityX12TransactionSetX12141     = CapabilityX12TransactionSet("X12_141")
+	CapabilityX12TransactionSetX12142     = CapabilityX12TransactionSet("X12_142")
+	CapabilityX12TransactionSetX12143     = CapabilityX12TransactionSet("X12_143")
+	CapabilityX12TransactionSetX12144     = CapabilityX12TransactionSet("X12_144")
+	CapabilityX12TransactionSetX12146     = CapabilityX12TransactionSet("X12_146")
+	CapabilityX12TransactionSetX12147     = CapabilityX12TransactionSet("X12_147")
+	CapabilityX12TransactionSetX12148     = CapabilityX12TransactionSet("X12_148")
+	CapabilityX12TransactionSetX12149     = CapabilityX12TransactionSet("X12_149")
+	CapabilityX12TransactionSetX12150     = CapabilityX12TransactionSet("X12_150")
+	CapabilityX12TransactionSetX12151     = CapabilityX12TransactionSet("X12_151")
+	CapabilityX12TransactionSetX12152     = CapabilityX12TransactionSet("X12_152")
+	CapabilityX12TransactionSetX12153     = CapabilityX12TransactionSet("X12_153")
+	CapabilityX12TransactionSetX12154     = CapabilityX12TransactionSet("X12_154")
+	CapabilityX12TransactionSetX12155     = CapabilityX12TransactionSet("X12_155")
+	CapabilityX12TransactionSetX12157     = CapabilityX12TransactionSet("X12_157")
+	CapabilityX12TransactionSetX12158     = CapabilityX12TransactionSet("X12_158")
+	CapabilityX12TransactionSetX12159     = CapabilityX12TransactionSet("X12_159")
+	CapabilityX12TransactionSetX12160     = CapabilityX12TransactionSet("X12_160")
+	CapabilityX12TransactionSetX12161     = CapabilityX12TransactionSet("X12_161")
+	CapabilityX12TransactionSetX12163     = CapabilityX12TransactionSet("X12_163")
+	CapabilityX12TransactionSetX12170     = CapabilityX12TransactionSet("X12_170")
+	CapabilityX12TransactionSetX12175     = CapabilityX12TransactionSet("X12_175")
+	CapabilityX12TransactionSetX12176     = CapabilityX12TransactionSet("X12_176")
+	CapabilityX12TransactionSetX12179     = CapabilityX12TransactionSet("X12_179")
 	CapabilityX12TransactionSetX12180     = CapabilityX12TransactionSet("X12_180")
+	CapabilityX12TransactionSetX12185     = CapabilityX12TransactionSet("X12_185")
+	CapabilityX12TransactionSetX12186     = CapabilityX12TransactionSet("X12_186")
+	CapabilityX12TransactionSetX12187     = CapabilityX12TransactionSet("X12_187")
+	CapabilityX12TransactionSetX12188     = CapabilityX12TransactionSet("X12_188")
+	CapabilityX12TransactionSetX12189     = CapabilityX12TransactionSet("X12_189")
+	CapabilityX12TransactionSetX12190     = CapabilityX12TransactionSet("X12_190")
+	CapabilityX12TransactionSetX12191     = CapabilityX12TransactionSet("X12_191")
+	CapabilityX12TransactionSetX12194     = CapabilityX12TransactionSet("X12_194")
+	CapabilityX12TransactionSetX12195     = CapabilityX12TransactionSet("X12_195")
+	CapabilityX12TransactionSetX12196     = CapabilityX12TransactionSet("X12_196")
+	CapabilityX12TransactionSetX12197     = CapabilityX12TransactionSet("X12_197")
+	CapabilityX12TransactionSetX12198     = CapabilityX12TransactionSet("X12_198")
+	CapabilityX12TransactionSetX12199     = CapabilityX12TransactionSet("X12_199")
+	CapabilityX12TransactionSetX12200     = CapabilityX12TransactionSet("X12_200")
+	CapabilityX12TransactionSetX12201     = CapabilityX12TransactionSet("X12_201")
+	CapabilityX12TransactionSetX12202     = CapabilityX12TransactionSet("X12_202")
+	CapabilityX12TransactionSetX12203     = CapabilityX12TransactionSet("X12_203")
 	CapabilityX12TransactionSetX12204     = CapabilityX12TransactionSet("X12_204")
+	CapabilityX12TransactionSetX12205     = CapabilityX12TransactionSet("X12_205")
+	CapabilityX12TransactionSetX12206     = CapabilityX12TransactionSet("X12_206")
 	CapabilityX12TransactionSetX12210     = CapabilityX12TransactionSet("X12_210")
 	CapabilityX12TransactionSetX12211     = CapabilityX12TransactionSet("X12_211")
+	CapabilityX12TransactionSetX12212     = CapabilityX12TransactionSet("X12_212")
+	CapabilityX12TransactionSetX12213     = CapabilityX12TransactionSet("X12_213")
 	CapabilityX12TransactionSetX12214     = CapabilityX12TransactionSet("X12_214")
 	CapabilityX12TransactionSetX12215     = CapabilityX12TransactionSet("X12_215")
+	CapabilityX12TransactionSetX12216     = CapabilityX12TransactionSet("X12_216")
+	CapabilityX12TransactionSetX12217     = CapabilityX12TransactionSet("X12_217")
+	CapabilityX12TransactionSetX12218     = CapabilityX12TransactionSet("X12_218")
+	CapabilityX12TransactionSetX12219     = CapabilityX12TransactionSet("X12_219")
+	CapabilityX12TransactionSetX12220     = CapabilityX12TransactionSet("X12_220")
+	CapabilityX12TransactionSetX12222     = CapabilityX12TransactionSet("X12_222")
+	CapabilityX12TransactionSetX12223     = CapabilityX12TransactionSet("X12_223")
+	CapabilityX12TransactionSetX12224     = CapabilityX12TransactionSet("X12_224")
+	CapabilityX12TransactionSetX12225     = CapabilityX12TransactionSet("X12_225")
+	CapabilityX12TransactionSetX12227     = CapabilityX12TransactionSet("X12_227")
+	CapabilityX12TransactionSetX12228     = CapabilityX12TransactionSet("X12_228")
+	CapabilityX12TransactionSetX12240     = CapabilityX12TransactionSet("X12_240")
+	CapabilityX12TransactionSetX12242     = CapabilityX12TransactionSet("X12_242")
+	CapabilityX12TransactionSetX12244     = CapabilityX12TransactionSet("X12_244")
+	CapabilityX12TransactionSetX12245     = CapabilityX12TransactionSet("X12_245")
+	CapabilityX12TransactionSetX12248     = CapabilityX12TransactionSet("X12_248")
+	CapabilityX12TransactionSetX12249     = CapabilityX12TransactionSet("X12_249")
+	CapabilityX12TransactionSetX12250     = CapabilityX12TransactionSet("X12_250")
+	CapabilityX12TransactionSetX12251     = CapabilityX12TransactionSet("X12_251")
+	CapabilityX12TransactionSetX12252     = CapabilityX12TransactionSet("X12_252")
+	CapabilityX12TransactionSetX12255     = CapabilityX12TransactionSet("X12_255")
+	CapabilityX12TransactionSetX12256     = CapabilityX12TransactionSet("X12_256")
 	CapabilityX12TransactionSetX12259     = CapabilityX12TransactionSet("X12_259")
 	CapabilityX12TransactionSetX12260     = CapabilityX12TransactionSet("X12_260")
+	CapabilityX12TransactionSetX12261     = CapabilityX12TransactionSet("X12_261")
+	CapabilityX12TransactionSetX12262     = CapabilityX12TransactionSet("X12_262")
+	CapabilityX12TransactionSetX12263     = CapabilityX12TransactionSet("X12_263")
+	CapabilityX12TransactionSetX12264     = CapabilityX12TransactionSet("X12_264")
+	CapabilityX12TransactionSetX12265     = CapabilityX12TransactionSet("X12_265")
 	CapabilityX12TransactionSetX12266     = CapabilityX12TransactionSet("X12_266")
+	CapabilityX12TransactionSetX12267     = CapabilityX12TransactionSet("X12_267")
+	CapabilityX12TransactionSetX12268     = CapabilityX12TransactionSet("X12_268")
 	CapabilityX12TransactionSetX12269     = CapabilityX12TransactionSet("X12_269")
 	CapabilityX12TransactionSetX12270     = CapabilityX12TransactionSet("X12_270")
 	CapabilityX12TransactionSetX12271     = CapabilityX12TransactionSet("X12_271")
+	CapabilityX12TransactionSetX12272     = CapabilityX12TransactionSet("X12_272")
+	CapabilityX12TransactionSetX12273     = CapabilityX12TransactionSet("X12_273")
 	CapabilityX12TransactionSetX12274     = CapabilityX12TransactionSet("X12_274")
 	CapabilityX12TransactionSetX12275     = CapabilityX12TransactionSet("X12_275")
 	CapabilityX12TransactionSetX12276     = CapabilityX12TransactionSet("X12_276")
 	CapabilityX12TransactionSetX12277     = CapabilityX12TransactionSet("X12_277")
 	CapabilityX12TransactionSetX12278     = CapabilityX12TransactionSet("X12_278")
+	CapabilityX12TransactionSetX12280     = CapabilityX12TransactionSet("X12_280")
+	CapabilityX12TransactionSetX12283     = CapabilityX12TransactionSet("X12_283")
+	CapabilityX12TransactionSetX12284     = CapabilityX12TransactionSet("X12_284")
+	CapabilityX12TransactionSetX12285     = CapabilityX12TransactionSet("X12_285")
+	CapabilityX12TransactionSetX12286     = CapabilityX12TransactionSet("X12_286")
+	CapabilityX12TransactionSetX12288     = CapabilityX12TransactionSet("X12_288")
+	CapabilityX12TransactionSetX12290     = CapabilityX12TransactionSet("X12_290")
+	CapabilityX12TransactionSetX12300     = CapabilityX12TransactionSet("X12_300")
+	CapabilityX12TransactionSetX12301     = CapabilityX12TransactionSet("X12_301")
+	CapabilityX12TransactionSetX12303     = CapabilityX12TransactionSet("X12_303")
+	CapabilityX12TransactionSetX12304     = CapabilityX12TransactionSet("X12_304")
+	CapabilityX12TransactionSetX12309     = CapabilityX12TransactionSet("X12_309")
 	CapabilityX12TransactionSetX12310     = CapabilityX12TransactionSet("X12_310")
+	CapabilityX12TransactionSetX12311     = CapabilityX12TransactionSet("X12_311")
+	CapabilityX12TransactionSetX12312     = CapabilityX12TransactionSet("X12_312")
+	CapabilityX12TransactionSetX12313     = CapabilityX12TransactionSet("X12_313")
 	CapabilityX12TransactionSetX12315     = CapabilityX12TransactionSet("X12_315")
+	CapabilityX12TransactionSetX12317     = CapabilityX12TransactionSet("X12_317")
+	CapabilityX12TransactionSetX12319     = CapabilityX12TransactionSet("X12_319")
 	CapabilityX12TransactionSetX12322     = CapabilityX12TransactionSet("X12_322")
+	CapabilityX12TransactionSetX12323     = CapabilityX12TransactionSet("X12_323")
+	CapabilityX12TransactionSetX12324     = CapabilityX12TransactionSet("X12_324")
+	CapabilityX12TransactionSetX12325     = CapabilityX12TransactionSet("X12_325")
+	CapabilityX12TransactionSetX12326     = CapabilityX12TransactionSet("X12_326")
+	CapabilityX12TransactionSetX12350     = CapabilityX12TransactionSet("X12_350")
+	CapabilityX12TransactionSetX12352     = CapabilityX12TransactionSet("X12_352")
+	CapabilityX12TransactionSetX12353     = CapabilityX12TransactionSet("X12_353")
+	CapabilityX12TransactionSetX12354     = CapabilityX12TransactionSet("X12_354")
+	CapabilityX12TransactionSetX12355     = CapabilityX12TransactionSet("X12_355")
+	CapabilityX12TransactionSetX12356     = CapabilityX12TransactionSet("X12_356")
+	CapabilityX12TransactionSetX12357     = CapabilityX12TransactionSet("X12_357")
+	CapabilityX12TransactionSetX12358     = CapabilityX12TransactionSet("X12_358")
+	CapabilityX12TransactionSetX12361     = CapabilityX12TransactionSet("X12_361")
+	CapabilityX12TransactionSetX12362     = CapabilityX12TransactionSet("X12_362")
 	CapabilityX12TransactionSetX12404     = CapabilityX12TransactionSet("X12_404")
 	CapabilityX12TransactionSetX12410     = CapabilityX12TransactionSet("X12_410")
+	CapabilityX12TransactionSetX12412     = CapabilityX12TransactionSet("X12_412")
+	CapabilityX12TransactionSetX12414     = CapabilityX12TransactionSet("X12_414")
 	CapabilityX12TransactionSetX12417     = CapabilityX12TransactionSet("X12_417")
+	CapabilityX12TransactionSetX12418     = CapabilityX12TransactionSet("X12_418")
+	CapabilityX12TransactionSetX12419     = CapabilityX12TransactionSet("X12_419")
+	CapabilityX12TransactionSetX12420     = CapabilityX12TransactionSet("X12_420")
 	CapabilityX12TransactionSetX12421     = CapabilityX12TransactionSet("X12_421")
+	CapabilityX12TransactionSetX12422     = CapabilityX12TransactionSet("X12_422")
+	CapabilityX12TransactionSetX12423     = CapabilityX12TransactionSet("X12_423")
+	CapabilityX12TransactionSetX12424     = CapabilityX12TransactionSet("X12_424")
+	CapabilityX12TransactionSetX12425     = CapabilityX12TransactionSet("X12_425")
 	CapabilityX12TransactionSetX12426     = CapabilityX12TransactionSet("X12_426")
+	CapabilityX12TransactionSetX12429     = CapabilityX12TransactionSet("X12_429")
+	CapabilityX12TransactionSetX12431     = CapabilityX12TransactionSet("X12_431")
+	CapabilityX12TransactionSetX12432     = CapabilityX12TransactionSet("X12_432")
+	CapabilityX12TransactionSetX12433     = CapabilityX12TransactionSet("X12_433")
+	CapabilityX12TransactionSetX12434     = CapabilityX12TransactionSet("X12_434")
+	CapabilityX12TransactionSetX12435     = CapabilityX12TransactionSet("X12_435")
+	CapabilityX12TransactionSetX12436     = CapabilityX12TransactionSet("X12_436")
+	CapabilityX12TransactionSetX12437     = CapabilityX12TransactionSet("X12_437")
+	CapabilityX12TransactionSetX12440     = CapabilityX12TransactionSet("X12_440")
+	CapabilityX12TransactionSetX12451     = CapabilityX12TransactionSet("X12_451")
+	CapabilityX12TransactionSetX12452     = CapabilityX12TransactionSet("X12_452")
+	CapabilityX12TransactionSetX12453     = CapabilityX12TransactionSet("X12_453")
+	CapabilityX12TransactionSetX12455     = CapabilityX12TransactionSet("X12_455")
+	CapabilityX12TransactionSetX12456     = CapabilityX12TransactionSet("X12_456")
+	CapabilityX12TransactionSetX12460     = CapabilityX12TransactionSet("X12_460")
+	CapabilityX12TransactionSetX12463     = CapabilityX12TransactionSet("X12_463")
+	CapabilityX12TransactionSetX12466     = CapabilityX12TransactionSet("X12_466")
+	CapabilityX12TransactionSetX12468     = CapabilityX12TransactionSet("X12_468")
+	CapabilityX12TransactionSetX12470     = CapabilityX12TransactionSet("X12_470")
+	CapabilityX12TransactionSetX12475     = CapabilityX12TransactionSet("X12_475")
+	CapabilityX12TransactionSetX12485     = CapabilityX12TransactionSet("X12_485")
+	CapabilityX12TransactionSetX12486     = CapabilityX12TransactionSet("X12_486")
+	CapabilityX12TransactionSetX12490     = CapabilityX12TransactionSet("X12_490")
+	CapabilityX12TransactionSetX12492     = CapabilityX12TransactionSet("X12_492")
+	CapabilityX12TransactionSetX12494     = CapabilityX12TransactionSet("X12_494")
+	CapabilityX12TransactionSetX12500     = CapabilityX12TransactionSet("X12_500")
+	CapabilityX12TransactionSetX12501     = CapabilityX12TransactionSet("X12_501")
+	CapabilityX12TransactionSetX12503     = CapabilityX12TransactionSet("X12_503")
+	CapabilityX12TransactionSetX12504     = CapabilityX12TransactionSet("X12_504")
+	CapabilityX12TransactionSetX12511     = CapabilityX12TransactionSet("X12_511")
+	CapabilityX12TransactionSetX12517     = CapabilityX12TransactionSet("X12_517")
+	CapabilityX12TransactionSetX12521     = CapabilityX12TransactionSet("X12_521")
+	CapabilityX12TransactionSetX12527     = CapabilityX12TransactionSet("X12_527")
+	CapabilityX12TransactionSetX12536     = CapabilityX12TransactionSet("X12_536")
+	CapabilityX12TransactionSetX12540     = CapabilityX12TransactionSet("X12_540")
+	CapabilityX12TransactionSetX12561     = CapabilityX12TransactionSet("X12_561")
+	CapabilityX12TransactionSetX12567     = CapabilityX12TransactionSet("X12_567")
+	CapabilityX12TransactionSetX12568     = CapabilityX12TransactionSet("X12_568")
+	CapabilityX12TransactionSetX12601     = CapabilityX12TransactionSet("X12_601")
+	CapabilityX12TransactionSetX12602     = CapabilityX12TransactionSet("X12_602")
+	CapabilityX12TransactionSetX12620     = CapabilityX12TransactionSet("X12_620")
+	CapabilityX12TransactionSetX12625     = CapabilityX12TransactionSet("X12_625")
+	CapabilityX12TransactionSetX12650     = CapabilityX12TransactionSet("X12_650")
+	CapabilityX12TransactionSetX12715     = CapabilityX12TransactionSet("X12_715")
+	CapabilityX12TransactionSetX12753     = CapabilityX12TransactionSet("X12_753")
+	CapabilityX12TransactionSetX12754     = CapabilityX12TransactionSet("X12_754")
+	CapabilityX12TransactionSetX12805     = CapabilityX12TransactionSet("X12_805")
+	CapabilityX12TransactionSetX12806     = CapabilityX12TransactionSet("X12_806")
 	CapabilityX12TransactionSetX12810     = CapabilityX12TransactionSet("X12_810")
+	CapabilityX12TransactionSetX12811     = CapabilityX12TransactionSet("X12_811")
+	CapabilityX12TransactionSetX12812     = CapabilityX12TransactionSet("X12_812")
+	CapabilityX12TransactionSetX12813     = CapabilityX12TransactionSet("X12_813")
+	CapabilityX12TransactionSetX12814     = CapabilityX12TransactionSet("X12_814")
+	CapabilityX12TransactionSetX12815     = CapabilityX12TransactionSet("X12_815")
+	CapabilityX12TransactionSetX12816     = CapabilityX12TransactionSet("X12_816")
+	CapabilityX12TransactionSetX12818     = CapabilityX12TransactionSet("X12_818")
+	CapabilityX12TransactionSetX12819     = CapabilityX12TransactionSet("X12_819")
 	CapabilityX12TransactionSetX12820     = CapabilityX12TransactionSet("X12_820")
+	CapabilityX12TransactionSetX12821     = CapabilityX12TransactionSet("X12_821")
+	CapabilityX12TransactionSetX12822     = CapabilityX12TransactionSet("X12_822")
+	CapabilityX12TransactionSetX12823     = CapabilityX12TransactionSet("X12_823")
 	CapabilityX12TransactionSetX12824     = CapabilityX12TransactionSet("X12_824")
+	CapabilityX12TransactionSetX12826     = CapabilityX12TransactionSet("X12_826")
+	CapabilityX12TransactionSetX12827     = CapabilityX12TransactionSet("X12_827")
+	CapabilityX12TransactionSetX12828     = CapabilityX12TransactionSet("X12_828")
+	CapabilityX12TransactionSetX12829     = CapabilityX12TransactionSet("X12_829")
 	CapabilityX12TransactionSetX12830     = CapabilityX12TransactionSet("X12_830")
+	CapabilityX12TransactionSetX12831     = CapabilityX12TransactionSet("X12_831")
 	CapabilityX12TransactionSetX12832     = CapabilityX12TransactionSet("X12_832")
+	CapabilityX12TransactionSetX12833     = CapabilityX12TransactionSet("X12_833")
 	CapabilityX12TransactionSetX12834     = CapabilityX12TransactionSet("X12_834")
 	CapabilityX12TransactionSetX12835     = CapabilityX12TransactionSet("X12_835")
+	CapabilityX12TransactionSetX12836     = CapabilityX12TransactionSet("X12_836")
 	CapabilityX12TransactionSetX12837     = CapabilityX12TransactionSet("X12_837")
+	CapabilityX12TransactionSetX12838     = CapabilityX12TransactionSet("X12_838")
+	CapabilityX12TransactionSetX12839     = CapabilityX12TransactionSet("X12_839")
+	CapabilityX12TransactionSetX12840     = CapabilityX12TransactionSet("X12_840")
+	CapabilityX12TransactionSetX12841     = CapabilityX12TransactionSet("X12_841")
+	CapabilityX12TransactionSetX12842     = CapabilityX12TransactionSet("X12_842")
+	CapabilityX12TransactionSetX12843     = CapabilityX12TransactionSet("X12_843")
 	CapabilityX12TransactionSetX12844     = CapabilityX12TransactionSet("X12_844")
+	CapabilityX12TransactionSetX12845     = CapabilityX12TransactionSet("X12_845")
 	CapabilityX12TransactionSetX12846     = CapabilityX12TransactionSet("X12_846")
+	CapabilityX12TransactionSetX12847     = CapabilityX12TransactionSet("X12_847")
+	CapabilityX12TransactionSetX12848     = CapabilityX12TransactionSet("X12_848")
 	CapabilityX12TransactionSetX12849     = CapabilityX12TransactionSet("X12_849")
 	CapabilityX12TransactionSetX12850     = CapabilityX12TransactionSet("X12_850")
+	CapabilityX12TransactionSetX12851     = CapabilityX12TransactionSet("X12_851")
 	CapabilityX12TransactionSetX12852     = CapabilityX12TransactionSet("X12_852")
+	CapabilityX12TransactionSetX12853     = CapabilityX12TransactionSet("X12_853")
+	CapabilityX12TransactionSetX12854     = CapabilityX12TransactionSet("X12_854")
 	CapabilityX12TransactionSetX12855     = CapabilityX12TransactionSet("X12_855")
 	CapabilityX12TransactionSetX12856     = CapabilityX12TransactionSet("X12_856")
+	CapabilityX12TransactionSetX12857     = CapabilityX12TransactionSet("X12_857")
+	CapabilityX12TransactionSetX12858     = CapabilityX12TransactionSet("X12_858")
+	CapabilityX12TransactionSetX12859     = CapabilityX12TransactionSet("X12_859")
 	CapabilityX12TransactionSetX12860     = CapabilityX12TransactionSet("X12_860")
 	CapabilityX12TransactionSetX12861     = CapabilityX12TransactionSet("X12_861")
+	CapabilityX12TransactionSetX12862     = CapabilityX12TransactionSet("X12_862")
+	CapabilityX12TransactionSetX12863     = CapabilityX12TransactionSet("X12_863")
 	CapabilityX12TransactionSetX12864     = CapabilityX12TransactionSet("X12_864")
 	CapabilityX12TransactionSetX12865     = CapabilityX12TransactionSet("X12_865")
+	CapabilityX12TransactionSetX12866     = CapabilityX12TransactionSet("X12_866")
+	CapabilityX12TransactionSetX12867     = CapabilityX12TransactionSet("X12_867")
+	CapabilityX12TransactionSetX12868     = CapabilityX12TransactionSet("X12_868")
 	CapabilityX12TransactionSetX12869     = CapabilityX12TransactionSet("X12_869")
 	CapabilityX12TransactionSetX12870     = CapabilityX12TransactionSet("X12_870")
+	CapabilityX12TransactionSetX12871     = CapabilityX12TransactionSet("X12_871")
+	CapabilityX12TransactionSetX12872     = CapabilityX12TransactionSet("X12_872")
+	CapabilityX12TransactionSetX12873     = CapabilityX12TransactionSet("X12_873")
+	CapabilityX12TransactionSetX12874     = CapabilityX12TransactionSet("X12_874")
+	CapabilityX12TransactionSetX12875     = CapabilityX12TransactionSet("X12_875")
+	CapabilityX12TransactionSetX12876     = CapabilityX12TransactionSet("X12_876")
+	CapabilityX12TransactionSetX12877     = CapabilityX12TransactionSet("X12_877")
+	CapabilityX12TransactionSetX12878     = CapabilityX12TransactionSet("X12_878")
+	CapabilityX12TransactionSetX12879     = CapabilityX12TransactionSet("X12_879")
+	CapabilityX12TransactionSetX12880     = CapabilityX12TransactionSet("X12_880")
+	CapabilityX12TransactionSetX12881     = CapabilityX12TransactionSet("X12_881")
+	CapabilityX12TransactionSetX12882     = CapabilityX12TransactionSet("X12_882")
+	CapabilityX12TransactionSetX12883     = CapabilityX12TransactionSet("X12_883")
+	CapabilityX12TransactionSetX12884     = CapabilityX12TransactionSet("X12_884")
+	CapabilityX12TransactionSetX12885     = CapabilityX12TransactionSet("X12_885")
+	CapabilityX12TransactionSetX12886     = CapabilityX12TransactionSet("X12_886")
+	CapabilityX12TransactionSetX12887     = CapabilityX12TransactionSet("X12_887")
+	CapabilityX12TransactionSetX12888     = CapabilityX12TransactionSet("X12_888")
+	CapabilityX12TransactionSetX12889     = CapabilityX12TransactionSet("X12_889")
+	CapabilityX12TransactionSetX12891     = CapabilityX12TransactionSet("X12_891")
+	CapabilityX12TransactionSetX12893     = CapabilityX12TransactionSet("X12_893")
+	CapabilityX12TransactionSetX12894     = CapabilityX12TransactionSet("X12_894")
+	CapabilityX12TransactionSetX12895     = CapabilityX12TransactionSet("X12_895")
+	CapabilityX12TransactionSetX12896     = CapabilityX12TransactionSet("X12_896")
+	CapabilityX12TransactionSetX12920     = CapabilityX12TransactionSet("X12_920")
+	CapabilityX12TransactionSetX12924     = CapabilityX12TransactionSet("X12_924")
+	CapabilityX12TransactionSetX12925     = CapabilityX12TransactionSet("X12_925")
+	CapabilityX12TransactionSetX12926     = CapabilityX12TransactionSet("X12_926")
+	CapabilityX12TransactionSetX12928     = CapabilityX12TransactionSet("X12_928")
 	CapabilityX12TransactionSetX12940     = CapabilityX12TransactionSet("X12_940")
+	CapabilityX12TransactionSetX12943     = CapabilityX12TransactionSet("X12_943")
+	CapabilityX12TransactionSetX12944     = CapabilityX12TransactionSet("X12_944")
 	CapabilityX12TransactionSetX12945     = CapabilityX12TransactionSet("X12_945")
+	CapabilityX12TransactionSetX12947     = CapabilityX12TransactionSet("X12_947")
+	CapabilityX12TransactionSetX12980     = CapabilityX12TransactionSet("X12_980")
 	CapabilityX12TransactionSetX12990     = CapabilityX12TransactionSet("X12_990")
+	CapabilityX12TransactionSetX12993     = CapabilityX12TransactionSet("X12_993")
+	CapabilityX12TransactionSetX12996     = CapabilityX12TransactionSet("X12_996")
 	CapabilityX12TransactionSetX12997     = CapabilityX12TransactionSet("X12_997")
+	CapabilityX12TransactionSetX12998     = CapabilityX12TransactionSet("X12_998")
 	CapabilityX12TransactionSetX12999     = CapabilityX12TransactionSet("X12_999")
 	CapabilityX12TransactionSetX12270x279 = CapabilityX12TransactionSet("X12_270_X279")
 	CapabilityX12TransactionSetX12271x279 = CapabilityX12TransactionSet("X12_271_X279")
@@ -540,57 +807,324 @@ func (o CapabilityX12TransactionSetPtrOutput) ToStringPtrOutputWithContext(ctx c
 // CapabilityX12TransactionSetInput is an input type that accepts values of the CapabilityX12TransactionSet enum
 // A concrete instance of `CapabilityX12TransactionSetInput` can be one of the following:
 //
+//	CapabilityX12TransactionSetX12100
+//	CapabilityX12TransactionSetX12101
+//	CapabilityX12TransactionSetX12102
+//	CapabilityX12TransactionSetX12103
+//	CapabilityX12TransactionSetX12104
+//	CapabilityX12TransactionSetX12105
+//	CapabilityX12TransactionSetX12106
+//	CapabilityX12TransactionSetX12107
+//	CapabilityX12TransactionSetX12108
+//	CapabilityX12TransactionSetX12109
 //	CapabilityX12TransactionSetX12110
+//	CapabilityX12TransactionSetX12111
+//	CapabilityX12TransactionSetX12112
+//	CapabilityX12TransactionSetX12113
+//	CapabilityX12TransactionSetX12120
+//	CapabilityX12TransactionSetX12121
+//	CapabilityX12TransactionSetX12124
+//	CapabilityX12TransactionSetX12125
+//	CapabilityX12TransactionSetX12126
+//	CapabilityX12TransactionSetX12127
+//	CapabilityX12TransactionSetX12128
+//	CapabilityX12TransactionSetX12129
+//	CapabilityX12TransactionSetX12130
+//	CapabilityX12TransactionSetX12131
+//	CapabilityX12TransactionSetX12132
+//	CapabilityX12TransactionSetX12133
+//	CapabilityX12TransactionSetX12135
+//	CapabilityX12TransactionSetX12138
+//	CapabilityX12TransactionSetX12139
+//	CapabilityX12TransactionSetX12140
+//	CapabilityX12TransactionSetX12141
+//	CapabilityX12TransactionSetX12142
+//	CapabilityX12TransactionSetX12143
+//	CapabilityX12TransactionSetX12144
+//	CapabilityX12TransactionSetX12146
+//	CapabilityX12TransactionSetX12147
+//	CapabilityX12TransactionSetX12148
+//	CapabilityX12TransactionSetX12149
+//	CapabilityX12TransactionSetX12150
+//	CapabilityX12TransactionSetX12151
+//	CapabilityX12TransactionSetX12152
+//	CapabilityX12TransactionSetX12153
+//	CapabilityX12TransactionSetX12154
+//	CapabilityX12TransactionSetX12155
+//	CapabilityX12TransactionSetX12157
+//	CapabilityX12TransactionSetX12158
+//	CapabilityX12TransactionSetX12159
+//	CapabilityX12TransactionSetX12160
+//	CapabilityX12TransactionSetX12161
+//	CapabilityX12TransactionSetX12163
+//	CapabilityX12TransactionSetX12170
+//	CapabilityX12TransactionSetX12175
+//	CapabilityX12TransactionSetX12176
+//	CapabilityX12TransactionSetX12179
 //	CapabilityX12TransactionSetX12180
+//	CapabilityX12TransactionSetX12185
+//	CapabilityX12TransactionSetX12186
+//	CapabilityX12TransactionSetX12187
+//	CapabilityX12TransactionSetX12188
+//	CapabilityX12TransactionSetX12189
+//	CapabilityX12TransactionSetX12190
+//	CapabilityX12TransactionSetX12191
+//	CapabilityX12TransactionSetX12194
+//	CapabilityX12TransactionSetX12195
+//	CapabilityX12TransactionSetX12196
+//	CapabilityX12TransactionSetX12197
+//	CapabilityX12TransactionSetX12198
+//	CapabilityX12TransactionSetX12199
+//	CapabilityX12TransactionSetX12200
+//	CapabilityX12TransactionSetX12201
+//	CapabilityX12TransactionSetX12202
+//	CapabilityX12TransactionSetX12203
 //	CapabilityX12TransactionSetX12204
+//	CapabilityX12TransactionSetX12205
+//	CapabilityX12TransactionSetX12206
 //	CapabilityX12TransactionSetX12210
 //	CapabilityX12TransactionSetX12211
+//	CapabilityX12TransactionSetX12212
+//	CapabilityX12TransactionSetX12213
 //	CapabilityX12TransactionSetX12214
 //	CapabilityX12TransactionSetX12215
+//	CapabilityX12TransactionSetX12216
+//	CapabilityX12TransactionSetX12217
+//	CapabilityX12TransactionSetX12218
+//	CapabilityX12TransactionSetX12219
+//	CapabilityX12TransactionSetX12220
+//	CapabilityX12TransactionSetX12222
+//	CapabilityX12TransactionSetX12223
+//	CapabilityX12TransactionSetX12224
+//	CapabilityX12TransactionSetX12225
+//	CapabilityX12TransactionSetX12227
+//	CapabilityX12TransactionSetX12228
+//	CapabilityX12TransactionSetX12240
+//	CapabilityX12TransactionSetX12242
+//	CapabilityX12TransactionSetX12244
+//	CapabilityX12TransactionSetX12245
+//	CapabilityX12TransactionSetX12248
+//	CapabilityX12TransactionSetX12249
+//	CapabilityX12TransactionSetX12250
+//	CapabilityX12TransactionSetX12251
+//	CapabilityX12TransactionSetX12252
+//	CapabilityX12TransactionSetX12255
+//	CapabilityX12TransactionSetX12256
 //	CapabilityX12TransactionSetX12259
 //	CapabilityX12TransactionSetX12260
+//	CapabilityX12TransactionSetX12261
+//	CapabilityX12TransactionSetX12262
+//	CapabilityX12TransactionSetX12263
+//	CapabilityX12TransactionSetX12264
+//	CapabilityX12TransactionSetX12265
 //	CapabilityX12TransactionSetX12266
+//	CapabilityX12TransactionSetX12267
+//	CapabilityX12TransactionSetX12268
 //	CapabilityX12TransactionSetX12269
 //	CapabilityX12TransactionSetX12270
 //	CapabilityX12TransactionSetX12271
+//	CapabilityX12TransactionSetX12272
+//	CapabilityX12TransactionSetX12273
 //	CapabilityX12TransactionSetX12274
 //	CapabilityX12TransactionSetX12275
 //	CapabilityX12TransactionSetX12276
 //	CapabilityX12TransactionSetX12277
 //	CapabilityX12TransactionSetX12278
+//	CapabilityX12TransactionSetX12280
+//	CapabilityX12TransactionSetX12283
+//	CapabilityX12TransactionSetX12284
+//	CapabilityX12TransactionSetX12285
+//	CapabilityX12TransactionSetX12286
+//	CapabilityX12TransactionSetX12288
+//	CapabilityX12TransactionSetX12290
+//	CapabilityX12TransactionSetX12300
+//	CapabilityX12TransactionSetX12301
+//	CapabilityX12TransactionSetX12303
+//	CapabilityX12TransactionSetX12304
+//	CapabilityX12TransactionSetX12309
 //	CapabilityX12TransactionSetX12310
+//	CapabilityX12TransactionSetX12311
+//	CapabilityX12TransactionSetX12312
+//	CapabilityX12TransactionSetX12313
 //	CapabilityX12TransactionSetX12315
+//	CapabilityX12TransactionSetX12317
+//	CapabilityX12TransactionSetX12319
 //	CapabilityX12TransactionSetX12322
+//	CapabilityX12TransactionSetX12323
+//	CapabilityX12TransactionSetX12324
+//	CapabilityX12TransactionSetX12325
+//	CapabilityX12TransactionSetX12326
+//	CapabilityX12TransactionSetX12350
+//	CapabilityX12TransactionSetX12352
+//	CapabilityX12TransactionSetX12353
+//	CapabilityX12TransactionSetX12354
+//	CapabilityX12TransactionSetX12355
+//	CapabilityX12TransactionSetX12356
+//	CapabilityX12TransactionSetX12357
+//	CapabilityX12TransactionSetX12358
+//	CapabilityX12TransactionSetX12361
+//	CapabilityX12TransactionSetX12362
 //	CapabilityX12TransactionSetX12404
 //	CapabilityX12TransactionSetX12410
+//	CapabilityX12TransactionSetX12412
+//	CapabilityX12TransactionSetX12414
 //	CapabilityX12TransactionSetX12417
+//	CapabilityX12TransactionSetX12418
+//	CapabilityX12TransactionSetX12419
+//	CapabilityX12TransactionSetX12420
 //	CapabilityX12TransactionSetX12421
+//	CapabilityX12TransactionSetX12422
+//	CapabilityX12TransactionSetX12423
+//	CapabilityX12TransactionSetX12424
+//	CapabilityX12TransactionSetX12425
 //	CapabilityX12TransactionSetX12426
+//	CapabilityX12TransactionSetX12429
+//	CapabilityX12TransactionSetX12431
+//	CapabilityX12TransactionSetX12432
+//	CapabilityX12TransactionSetX12433
+//	CapabilityX12TransactionSetX12434
+//	CapabilityX12TransactionSetX12435
+//	CapabilityX12TransactionSetX12436
+//	CapabilityX12TransactionSetX12437
+//	CapabilityX12TransactionSetX12440
+//	CapabilityX12TransactionSetX12451
+//	CapabilityX12TransactionSetX12452
+//	CapabilityX12TransactionSetX12453
+//	CapabilityX12TransactionSetX12455
+//	CapabilityX12TransactionSetX12456
+//	CapabilityX12TransactionSetX12460
+//	CapabilityX12TransactionSetX12463
+//	CapabilityX12TransactionSetX12466
+//	CapabilityX12TransactionSetX12468
+//	CapabilityX12TransactionSetX12470
+//	CapabilityX12TransactionSetX12475
+//	CapabilityX12TransactionSetX12485
+//	CapabilityX12TransactionSetX12486
+//	CapabilityX12TransactionSetX12490
+//	CapabilityX12TransactionSetX12492
+//	CapabilityX12TransactionSetX12494
+//	CapabilityX12TransactionSetX12500
+//	CapabilityX12TransactionSetX12501
+//	CapabilityX12TransactionSetX12503
+//	CapabilityX12TransactionSetX12504
+//	CapabilityX12TransactionSetX12511
+//	CapabilityX12TransactionSetX12517
+//	CapabilityX12TransactionSetX12521
+//	CapabilityX12TransactionSetX12527
+//	CapabilityX12TransactionSetX12536
+//	CapabilityX12TransactionSetX12540
+//	CapabilityX12TransactionSetX12561
+//	CapabilityX12TransactionSetX12567
+//	CapabilityX12TransactionSetX12568
+//	CapabilityX12TransactionSetX12601
+//	CapabilityX12TransactionSetX12602
+//	CapabilityX12TransactionSetX12620
+//	CapabilityX12TransactionSetX12625
+//	CapabilityX12TransactionSetX12650
+//	CapabilityX12TransactionSetX12715
+//	CapabilityX12TransactionSetX12753
+//	CapabilityX12TransactionSetX12754
+//	CapabilityX12TransactionSetX12805
+//	CapabilityX12TransactionSetX12806
 //	CapabilityX12TransactionSetX12810
+//	CapabilityX12TransactionSetX12811
+//	CapabilityX12TransactionSetX12812
+//	CapabilityX12TransactionSetX12813
+//	CapabilityX12TransactionSetX12814
+//	CapabilityX12TransactionSetX12815
+//	CapabilityX12TransactionSetX12816
+//	CapabilityX12TransactionSetX12818
+//	CapabilityX12TransactionSetX12819
 //	CapabilityX12TransactionSetX12820
+//	CapabilityX12TransactionSetX12821
+//	CapabilityX12TransactionSetX12822
+//	CapabilityX12TransactionSetX12823
 //	CapabilityX12TransactionSetX12824
+//	CapabilityX12TransactionSetX12826
+//	CapabilityX12TransactionSetX12827
+//	CapabilityX12TransactionSetX12828
+//	CapabilityX12TransactionSetX12829
 //	CapabilityX12TransactionSetX12830
+//	CapabilityX12TransactionSetX12831
 //	CapabilityX12TransactionSetX12832
+//	CapabilityX12TransactionSetX12833
 //	CapabilityX12TransactionSetX12834
 //	CapabilityX12TransactionSetX12835
+//	CapabilityX12TransactionSetX12836
 //	CapabilityX12TransactionSetX12837
+//	CapabilityX12TransactionSetX12838
+//	CapabilityX12TransactionSetX12839
+//	CapabilityX12TransactionSetX12840
+//	CapabilityX12TransactionSetX12841
+//	CapabilityX12TransactionSetX12842
+//	CapabilityX12TransactionSetX12843
 //	CapabilityX12TransactionSetX12844
+//	CapabilityX12TransactionSetX12845
 //	CapabilityX12TransactionSetX12846
+//	CapabilityX12TransactionSetX12847
+//	CapabilityX12TransactionSetX12848
 //	CapabilityX12TransactionSetX12849
 //	CapabilityX12TransactionSetX12850
+//	CapabilityX12TransactionSetX12851
 //	CapabilityX12TransactionSetX12852
+//	CapabilityX12TransactionSetX12853
+//	CapabilityX12TransactionSetX12854
 //	CapabilityX12TransactionSetX12855
 //	CapabilityX12TransactionSetX12856
+//	CapabilityX12TransactionSetX12857
+//	CapabilityX12TransactionSetX12858
+//	CapabilityX12TransactionSetX12859
 //	CapabilityX12TransactionSetX12860
 //	CapabilityX12TransactionSetX12861
+//	CapabilityX12TransactionSetX12862
+//	CapabilityX12TransactionSetX12863
 //	CapabilityX12TransactionSetX12864
 //	CapabilityX12TransactionSetX12865
+//	CapabilityX12TransactionSetX12866
+//	CapabilityX12TransactionSetX12867
+//	CapabilityX12TransactionSetX12868
 //	CapabilityX12TransactionSetX12869
 //	CapabilityX12TransactionSetX12870
+//	CapabilityX12TransactionSetX12871
+//	CapabilityX12TransactionSetX12872
+//	CapabilityX12TransactionSetX12873
+//	CapabilityX12TransactionSetX12874
+//	CapabilityX12TransactionSetX12875
+//	CapabilityX12TransactionSetX12876
+//	CapabilityX12TransactionSetX12877
+//	CapabilityX12TransactionSetX12878
+//	CapabilityX12TransactionSetX12879
+//	CapabilityX12TransactionSetX12880
+//	CapabilityX12TransactionSetX12881
+//	CapabilityX12TransactionSetX12882
+//	CapabilityX12TransactionSetX12883
+//	CapabilityX12TransactionSetX12884
+//	CapabilityX12TransactionSetX12885
+//	CapabilityX12TransactionSetX12886
+//	CapabilityX12TransactionSetX12887
+//	CapabilityX12TransactionSetX12888
+//	CapabilityX12TransactionSetX12889
+//	CapabilityX12TransactionSetX12891
+//	CapabilityX12TransactionSetX12893
+//	CapabilityX12TransactionSetX12894
+//	CapabilityX12TransactionSetX12895
+//	CapabilityX12TransactionSetX12896
+//	CapabilityX12TransactionSetX12920
+//	CapabilityX12TransactionSetX12924
+//	CapabilityX12TransactionSetX12925
+//	CapabilityX12TransactionSetX12926
+//	CapabilityX12TransactionSetX12928
 //	CapabilityX12TransactionSetX12940
+//	CapabilityX12TransactionSetX12943
+//	CapabilityX12TransactionSetX12944
 //	CapabilityX12TransactionSetX12945
+//	CapabilityX12TransactionSetX12947
+//	CapabilityX12TransactionSetX12980
 //	CapabilityX12TransactionSetX12990
+//	CapabilityX12TransactionSetX12993
+//	CapabilityX12TransactionSetX12996
 //	CapabilityX12TransactionSetX12997
+//	CapabilityX12TransactionSetX12998
 //	CapabilityX12TransactionSetX12999
 //	CapabilityX12TransactionSetX12270x279
 //	CapabilityX12TransactionSetX12271x279
@@ -654,6 +1188,8 @@ type CapabilityX12Version string
 const (
 	CapabilityX12VersionVersion4010      = CapabilityX12Version("VERSION_4010")
 	CapabilityX12VersionVersion4030      = CapabilityX12Version("VERSION_4030")
+	CapabilityX12VersionVersion4050      = CapabilityX12Version("VERSION_4050")
+	CapabilityX12VersionVersion4060      = CapabilityX12Version("VERSION_4060")
 	CapabilityX12VersionVersion5010      = CapabilityX12Version("VERSION_5010")
 	CapabilityX12VersionVersion5010Hipaa = CapabilityX12Version("VERSION_5010_HIPAA")
 )
@@ -782,6 +1318,8 @@ func (o CapabilityX12VersionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 //
 //	CapabilityX12VersionVersion4010
 //	CapabilityX12VersionVersion4030
+//	CapabilityX12VersionVersion4050
+//	CapabilityX12VersionVersion4060
 //	CapabilityX12VersionVersion5010
 //	CapabilityX12VersionVersion5010Hipaa
 type CapabilityX12VersionInput interface {
@@ -1809,57 +2347,324 @@ func (in *transformerToFormatPtr) ToTransformerToFormatPtrOutputWithContext(ctx 
 type TransformerX12TransactionSet string
 
 const (
+	TransformerX12TransactionSetX12100     = TransformerX12TransactionSet("X12_100")
+	TransformerX12TransactionSetX12101     = TransformerX12TransactionSet("X12_101")
+	TransformerX12TransactionSetX12102     = TransformerX12TransactionSet("X12_102")
+	TransformerX12TransactionSetX12103     = TransformerX12TransactionSet("X12_103")
+	TransformerX12TransactionSetX12104     = TransformerX12TransactionSet("X12_104")
+	TransformerX12TransactionSetX12105     = TransformerX12TransactionSet("X12_105")
+	TransformerX12TransactionSetX12106     = TransformerX12TransactionSet("X12_106")
+	TransformerX12TransactionSetX12107     = TransformerX12TransactionSet("X12_107")
+	TransformerX12TransactionSetX12108     = TransformerX12TransactionSet("X12_108")
+	TransformerX12TransactionSetX12109     = TransformerX12TransactionSet("X12_109")
 	TransformerX12TransactionSetX12110     = TransformerX12TransactionSet("X12_110")
+	TransformerX12TransactionSetX12111     = TransformerX12TransactionSet("X12_111")
+	TransformerX12TransactionSetX12112     = TransformerX12TransactionSet("X12_112")
+	TransformerX12TransactionSetX12113     = TransformerX12TransactionSet("X12_113")
+	TransformerX12TransactionSetX12120     = TransformerX12TransactionSet("X12_120")
+	TransformerX12TransactionSetX12121     = TransformerX12TransactionSet("X12_121")
+	TransformerX12TransactionSetX12124     = TransformerX12TransactionSet("X12_124")
+	TransformerX12TransactionSetX12125     = TransformerX12TransactionSet("X12_125")
+	TransformerX12TransactionSetX12126     = TransformerX12TransactionSet("X12_126")
+	TransformerX12TransactionSetX12127     = TransformerX12TransactionSet("X12_127")
+	TransformerX12TransactionSetX12128     = TransformerX12TransactionSet("X12_128")
+	TransformerX12TransactionSetX12129     = TransformerX12TransactionSet("X12_129")
+	TransformerX12TransactionSetX12130     = TransformerX12TransactionSet("X12_130")
+	TransformerX12TransactionSetX12131     = TransformerX12TransactionSet("X12_131")
+	TransformerX12TransactionSetX12132     = TransformerX12TransactionSet("X12_132")
+	TransformerX12TransactionSetX12133     = TransformerX12TransactionSet("X12_133")
+	TransformerX12TransactionSetX12135     = TransformerX12TransactionSet("X12_135")
+	TransformerX12TransactionSetX12138     = TransformerX12TransactionSet("X12_138")
+	TransformerX12TransactionSetX12139     = TransformerX12TransactionSet("X12_139")
+	TransformerX12TransactionSetX12140     = TransformerX12TransactionSet("X12_140")
+	TransformerX12TransactionSetX12141     = TransformerX12TransactionSet("X12_141")
+	TransformerX12TransactionSetX12142     = TransformerX12TransactionSet("X12_142")
+	TransformerX12TransactionSetX12143     = TransformerX12TransactionSet("X12_143")
+	TransformerX12TransactionSetX12144     = TransformerX12TransactionSet("X12_144")
+	TransformerX12TransactionSetX12146     = TransformerX12TransactionSet("X12_146")
+	TransformerX12TransactionSetX12147     = TransformerX12TransactionSet("X12_147")
+	TransformerX12TransactionSetX12148     = TransformerX12TransactionSet("X12_148")
+	TransformerX12TransactionSetX12149     = TransformerX12TransactionSet("X12_149")
+	TransformerX12TransactionSetX12150     = TransformerX12TransactionSet("X12_150")
+	TransformerX12TransactionSetX12151     = TransformerX12TransactionSet("X12_151")
+	TransformerX12TransactionSetX12152     = TransformerX12TransactionSet("X12_152")
+	TransformerX12TransactionSetX12153     = TransformerX12TransactionSet("X12_153")
+	TransformerX12TransactionSetX12154     = TransformerX12TransactionSet("X12_154")
+	TransformerX12TransactionSetX12155     = TransformerX12TransactionSet("X12_155")
+	TransformerX12TransactionSetX12157     = TransformerX12TransactionSet("X12_157")
+	TransformerX12TransactionSetX12158     = TransformerX12TransactionSet("X12_158")
+	TransformerX12TransactionSetX12159     = TransformerX12TransactionSet("X12_159")
+	TransformerX12TransactionSetX12160     = TransformerX12TransactionSet("X12_160")
+	TransformerX12TransactionSetX12161     = TransformerX12TransactionSet("X12_161")
+	TransformerX12TransactionSetX12163     = TransformerX12TransactionSet("X12_163")
+	TransformerX12TransactionSetX12170     = TransformerX12TransactionSet("X12_170")
+	TransformerX12TransactionSetX12175     = TransformerX12TransactionSet("X12_175")
+	TransformerX12TransactionSetX12176     = TransformerX12TransactionSet("X12_176")
+	TransformerX12TransactionSetX12179     = TransformerX12TransactionSet("X12_179")
 	TransformerX12TransactionSetX12180     = TransformerX12TransactionSet("X12_180")
+	TransformerX12TransactionSetX12185     = TransformerX12TransactionSet("X12_185")
+	TransformerX12TransactionSetX12186     = TransformerX12TransactionSet("X12_186")
+	TransformerX12TransactionSetX12187     = TransformerX12TransactionSet("X12_187")
+	TransformerX12TransactionSetX12188     = TransformerX12TransactionSet("X12_188")
+	TransformerX12TransactionSetX12189     = TransformerX12TransactionSet("X12_189")
+	TransformerX12TransactionSetX12190     = TransformerX12TransactionSet("X12_190")
+	TransformerX12TransactionSetX12191     = TransformerX12TransactionSet("X12_191")
+	TransformerX12TransactionSetX12194     = TransformerX12TransactionSet("X12_194")
+	TransformerX12TransactionSetX12195     = TransformerX12TransactionSet("X12_195")
+	TransformerX12TransactionSetX12196     = TransformerX12TransactionSet("X12_196")
+	TransformerX12TransactionSetX12197     = TransformerX12TransactionSet("X12_197")
+	TransformerX12TransactionSetX12198     = TransformerX12TransactionSet("X12_198")
+	TransformerX12TransactionSetX12199     = TransformerX12TransactionSet("X12_199")
+	TransformerX12TransactionSetX12200     = TransformerX12TransactionSet("X12_200")
+	TransformerX12TransactionSetX12201     = TransformerX12TransactionSet("X12_201")
+	TransformerX12TransactionSetX12202     = TransformerX12TransactionSet("X12_202")
+	TransformerX12TransactionSetX12203     = TransformerX12TransactionSet("X12_203")
 	TransformerX12TransactionSetX12204     = TransformerX12TransactionSet("X12_204")
+	TransformerX12TransactionSetX12205     = TransformerX12TransactionSet("X12_205")
+	TransformerX12TransactionSetX12206     = TransformerX12TransactionSet("X12_206")
 	TransformerX12TransactionSetX12210     = TransformerX12TransactionSet("X12_210")
 	TransformerX12TransactionSetX12211     = TransformerX12TransactionSet("X12_211")
+	TransformerX12TransactionSetX12212     = TransformerX12TransactionSet("X12_212")
+	TransformerX12TransactionSetX12213     = TransformerX12TransactionSet("X12_213")
 	TransformerX12TransactionSetX12214     = TransformerX12TransactionSet("X12_214")
 	TransformerX12TransactionSetX12215     = TransformerX12TransactionSet("X12_215")
+	TransformerX12TransactionSetX12216     = TransformerX12TransactionSet("X12_216")
+	TransformerX12TransactionSetX12217     = TransformerX12TransactionSet("X12_217")
+	TransformerX12TransactionSetX12218     = TransformerX12TransactionSet("X12_218")
+	TransformerX12TransactionSetX12219     = TransformerX12TransactionSet("X12_219")
+	TransformerX12TransactionSetX12220     = TransformerX12TransactionSet("X12_220")
+	TransformerX12TransactionSetX12222     = TransformerX12TransactionSet("X12_222")
+	TransformerX12TransactionSetX12223     = TransformerX12TransactionSet("X12_223")
+	TransformerX12TransactionSetX12224     = TransformerX12TransactionSet("X12_224")
+	TransformerX12TransactionSetX12225     = TransformerX12TransactionSet("X12_225")
+	TransformerX12TransactionSetX12227     = TransformerX12TransactionSet("X12_227")
+	TransformerX12TransactionSetX12228     = TransformerX12TransactionSet("X12_228")
+	TransformerX12TransactionSetX12240     = TransformerX12TransactionSet("X12_240")
+	TransformerX12TransactionSetX12242     = TransformerX12TransactionSet("X12_242")
+	TransformerX12TransactionSetX12244     = TransformerX12TransactionSet("X12_244")
+	TransformerX12TransactionSetX12245     = TransformerX12TransactionSet("X12_245")
+	TransformerX12TransactionSetX12248     = TransformerX12TransactionSet("X12_248")
+	TransformerX12TransactionSetX12249     = TransformerX12TransactionSet("X12_249")
+	TransformerX12TransactionSetX12250     = TransformerX12TransactionSet("X12_250")
+	TransformerX12TransactionSetX12251     = TransformerX12TransactionSet("X12_251")
+	TransformerX12TransactionSetX12252     = TransformerX12TransactionSet("X12_252")
+	TransformerX12TransactionSetX12255     = TransformerX12TransactionSet("X12_255")
+	TransformerX12TransactionSetX12256     = TransformerX12TransactionSet("X12_256")
 	TransformerX12TransactionSetX12259     = TransformerX12TransactionSet("X12_259")
 	TransformerX12TransactionSetX12260     = TransformerX12TransactionSet("X12_260")
+	TransformerX12TransactionSetX12261     = TransformerX12TransactionSet("X12_261")
+	TransformerX12TransactionSetX12262     = TransformerX12TransactionSet("X12_262")
+	TransformerX12TransactionSetX12263     = TransformerX12TransactionSet("X12_263")
+	TransformerX12TransactionSetX12264     = TransformerX12TransactionSet("X12_264")
+	TransformerX12TransactionSetX12265     = TransformerX12TransactionSet("X12_265")
 	TransformerX12TransactionSetX12266     = TransformerX12TransactionSet("X12_266")
+	TransformerX12TransactionSetX12267     = TransformerX12TransactionSet("X12_267")
+	TransformerX12TransactionSetX12268     = TransformerX12TransactionSet("X12_268")
 	TransformerX12TransactionSetX12269     = TransformerX12TransactionSet("X12_269")
 	TransformerX12TransactionSetX12270     = TransformerX12TransactionSet("X12_270")
 	TransformerX12TransactionSetX12271     = TransformerX12TransactionSet("X12_271")
+	TransformerX12TransactionSetX12272     = TransformerX12TransactionSet("X12_272")
+	TransformerX12TransactionSetX12273     = TransformerX12TransactionSet("X12_273")
 	TransformerX12TransactionSetX12274     = TransformerX12TransactionSet("X12_274")
 	TransformerX12TransactionSetX12275     = TransformerX12TransactionSet("X12_275")
 	TransformerX12TransactionSetX12276     = TransformerX12TransactionSet("X12_276")
 	TransformerX12TransactionSetX12277     = TransformerX12TransactionSet("X12_277")
 	TransformerX12TransactionSetX12278     = TransformerX12TransactionSet("X12_278")
+	TransformerX12TransactionSetX12280     = TransformerX12TransactionSet("X12_280")
+	TransformerX12TransactionSetX12283     = TransformerX12TransactionSet("X12_283")
+	TransformerX12TransactionSetX12284     = TransformerX12TransactionSet("X12_284")
+	TransformerX12TransactionSetX12285     = TransformerX12TransactionSet("X12_285")
+	TransformerX12TransactionSetX12286     = TransformerX12TransactionSet("X12_286")
+	TransformerX12TransactionSetX12288     = TransformerX12TransactionSet("X12_288")
+	TransformerX12TransactionSetX12290     = TransformerX12TransactionSet("X12_290")
+	TransformerX12TransactionSetX12300     = TransformerX12TransactionSet("X12_300")
+	TransformerX12TransactionSetX12301     = TransformerX12TransactionSet("X12_301")
+	TransformerX12TransactionSetX12303     = TransformerX12TransactionSet("X12_303")
+	TransformerX12TransactionSetX12304     = TransformerX12TransactionSet("X12_304")
+	TransformerX12TransactionSetX12309     = TransformerX12TransactionSet("X12_309")
 	TransformerX12TransactionSetX12310     = TransformerX12TransactionSet("X12_310")
+	TransformerX12TransactionSetX12311     = TransformerX12TransactionSet("X12_311")
+	TransformerX12TransactionSetX12312     = TransformerX12TransactionSet("X12_312")
+	TransformerX12TransactionSetX12313     = TransformerX12TransactionSet("X12_313")
 	TransformerX12TransactionSetX12315     = TransformerX12TransactionSet("X12_315")
+	TransformerX12TransactionSetX12317     = TransformerX12TransactionSet("X12_317")
+	TransformerX12TransactionSetX12319     = TransformerX12TransactionSet("X12_319")
 	TransformerX12TransactionSetX12322     = TransformerX12TransactionSet("X12_322")
+	TransformerX12TransactionSetX12323     = TransformerX12TransactionSet("X12_323")
+	TransformerX12TransactionSetX12324     = TransformerX12TransactionSet("X12_324")
+	TransformerX12TransactionSetX12325     = TransformerX12TransactionSet("X12_325")
+	TransformerX12TransactionSetX12326     = TransformerX12TransactionSet("X12_326")
+	TransformerX12TransactionSetX12350     = TransformerX12TransactionSet("X12_350")
+	TransformerX12TransactionSetX12352     = TransformerX12TransactionSet("X12_352")
+	TransformerX12TransactionSetX12353     = TransformerX12TransactionSet("X12_353")
+	TransformerX12TransactionSetX12354     = TransformerX12TransactionSet("X12_354")
+	TransformerX12TransactionSetX12355     = TransformerX12TransactionSet("X12_355")
+	TransformerX12TransactionSetX12356     = TransformerX12TransactionSet("X12_356")
+	TransformerX12TransactionSetX12357     = TransformerX12TransactionSet("X12_357")
+	TransformerX12TransactionSetX12358     = TransformerX12TransactionSet("X12_358")
+	TransformerX12TransactionSetX12361     = TransformerX12TransactionSet("X12_361")
+	TransformerX12TransactionSetX12362     = TransformerX12TransactionSet("X12_362")
 	TransformerX12TransactionSetX12404     = TransformerX12TransactionSet("X12_404")
 	TransformerX12TransactionSetX12410     = TransformerX12TransactionSet("X12_410")
+	TransformerX12TransactionSetX12412     = TransformerX12TransactionSet("X12_412")
+	TransformerX12TransactionSetX12414     = TransformerX12TransactionSet("X12_414")
 	TransformerX12TransactionSetX12417     = TransformerX12TransactionSet("X12_417")
+	TransformerX12TransactionSetX12418     = TransformerX12TransactionSet("X12_418")
+	TransformerX12TransactionSetX12419     = TransformerX12TransactionSet("X12_419")
+	TransformerX12TransactionSetX12420     = TransformerX12TransactionSet("X12_420")
 	TransformerX12TransactionSetX12421     = TransformerX12TransactionSet("X12_421")
+	TransformerX12TransactionSetX12422     = TransformerX12TransactionSet("X12_422")
+	TransformerX12TransactionSetX12423     = TransformerX12TransactionSet("X12_423")
+	TransformerX12TransactionSetX12424     = TransformerX12TransactionSet("X12_424")
+	TransformerX12TransactionSetX12425     = TransformerX12TransactionSet("X12_425")
 	TransformerX12TransactionSetX12426     = TransformerX12TransactionSet("X12_426")
+	TransformerX12TransactionSetX12429     = TransformerX12TransactionSet("X12_429")
+	TransformerX12TransactionSetX12431     = TransformerX12TransactionSet("X12_431")
+	TransformerX12TransactionSetX12432     = TransformerX12TransactionSet("X12_432")
+	TransformerX12TransactionSetX12433     = TransformerX12TransactionSet("X12_433")
+	TransformerX12TransactionSetX12434     = TransformerX12TransactionSet("X12_434")
+	TransformerX12TransactionSetX12435     = TransformerX12TransactionSet("X12_435")
+	TransformerX12TransactionSetX12436     = TransformerX12TransactionSet("X12_436")
+	TransformerX12TransactionSetX12437     = TransformerX12TransactionSet("X12_437")
+	TransformerX12TransactionSetX12440     = TransformerX12TransactionSet("X12_440")
+	TransformerX12TransactionSetX12451     = TransformerX12TransactionSet("X12_451")
+	TransformerX12TransactionSetX12452     = TransformerX12TransactionSet("X12_452")
+	TransformerX12TransactionSetX12453     = TransformerX12TransactionSet("X12_453")
+	TransformerX12TransactionSetX12455     = TransformerX12TransactionSet("X12_455")
+	TransformerX12TransactionSetX12456     = TransformerX12TransactionSet("X12_456")
+	TransformerX12TransactionSetX12460     = TransformerX12TransactionSet("X12_460")
+	TransformerX12TransactionSetX12463     = TransformerX12TransactionSet("X12_463")
+	TransformerX12TransactionSetX12466     = TransformerX12TransactionSet("X12_466")
+	TransformerX12TransactionSetX12468     = TransformerX12TransactionSet("X12_468")
+	TransformerX12TransactionSetX12470     = TransformerX12TransactionSet("X12_470")
+	TransformerX12TransactionSetX12475     = TransformerX12TransactionSet("X12_475")
+	TransformerX12TransactionSetX12485     = TransformerX12TransactionSet("X12_485")
+	TransformerX12TransactionSetX12486     = TransformerX12TransactionSet("X12_486")
+	TransformerX12TransactionSetX12490     = TransformerX12TransactionSet("X12_490")
+	TransformerX12TransactionSetX12492     = TransformerX12TransactionSet("X12_492")
+	TransformerX12TransactionSetX12494     = TransformerX12TransactionSet("X12_494")
+	TransformerX12TransactionSetX12500     = TransformerX12TransactionSet("X12_500")
+	TransformerX12TransactionSetX12501     = TransformerX12TransactionSet("X12_501")
+	TransformerX12TransactionSetX12503     = TransformerX12TransactionSet("X12_503")
+	TransformerX12TransactionSetX12504     = TransformerX12TransactionSet("X12_504")
+	TransformerX12TransactionSetX12511     = TransformerX12TransactionSet("X12_511")
+	TransformerX12TransactionSetX12517     = TransformerX12TransactionSet("X12_517")
+	TransformerX12TransactionSetX12521     = TransformerX12TransactionSet("X12_521")
+	TransformerX12TransactionSetX12527     = TransformerX12TransactionSet("X12_527")
+	TransformerX12TransactionSetX12536     = TransformerX12TransactionSet("X12_536")
+	TransformerX12TransactionSetX12540     = TransformerX12TransactionSet("X12_540")
+	TransformerX12TransactionSetX12561     = TransformerX12TransactionSet("X12_561")
+	TransformerX12TransactionSetX12567     = TransformerX12TransactionSet("X12_567")
+	TransformerX12TransactionSetX12568     = TransformerX12TransactionSet("X12_568")
+	TransformerX12TransactionSetX12601     = TransformerX12TransactionSet("X12_601")
+	TransformerX12TransactionSetX12602     = TransformerX12TransactionSet("X12_602")
+	TransformerX12TransactionSetX12620     = TransformerX12TransactionSet("X12_620")
+	TransformerX12TransactionSetX12625     = TransformerX12TransactionSet("X12_625")
+	TransformerX12TransactionSetX12650     = TransformerX12TransactionSet("X12_650")
+	TransformerX12TransactionSetX12715     = TransformerX12TransactionSet("X12_715")
+	TransformerX12TransactionSetX12753     = TransformerX12TransactionSet("X12_753")
+	TransformerX12TransactionSetX12754     = TransformerX12TransactionSet("X12_754")
+	TransformerX12TransactionSetX12805     = TransformerX12TransactionSet("X12_805")
+	TransformerX12TransactionSetX12806     = TransformerX12TransactionSet("X12_806")
 	TransformerX12TransactionSetX12810     = TransformerX12TransactionSet("X12_810")
+	TransformerX12TransactionSetX12811     = TransformerX12TransactionSet("X12_811")
+	TransformerX12TransactionSetX12812     = TransformerX12TransactionSet("X12_812")
+	TransformerX12TransactionSetX12813     = TransformerX12TransactionSet("X12_813")
+	TransformerX12TransactionSetX12814     = TransformerX12TransactionSet("X12_814")
+	TransformerX12TransactionSetX12815     = TransformerX12TransactionSet("X12_815")
+	TransformerX12TransactionSetX12816     = TransformerX12TransactionSet("X12_816")
+	TransformerX12TransactionSetX12818     = TransformerX12TransactionSet("X12_818")
+	TransformerX12TransactionSetX12819     = TransformerX12TransactionSet("X12_819")
 	TransformerX12TransactionSetX12820     = TransformerX12TransactionSet("X12_820")
+	TransformerX12TransactionSetX12821     = TransformerX12TransactionSet("X12_821")
+	TransformerX12TransactionSetX12822     = TransformerX12TransactionSet("X12_822")
+	TransformerX12TransactionSetX12823     = TransformerX12TransactionSet("X12_823")
 	TransformerX12TransactionSetX12824     = TransformerX12TransactionSet("X12_824")
+	TransformerX12TransactionSetX12826     = TransformerX12TransactionSet("X12_826")
+	TransformerX12TransactionSetX12827     = TransformerX12TransactionSet("X12_827")
+	TransformerX12TransactionSetX12828     = TransformerX12TransactionSet("X12_828")
+	TransformerX12TransactionSetX12829     = TransformerX12TransactionSet("X12_829")
 	TransformerX12TransactionSetX12830     = TransformerX12TransactionSet("X12_830")
+	TransformerX12TransactionSetX12831     = TransformerX12TransactionSet("X12_831")
 	TransformerX12TransactionSetX12832     = TransformerX12TransactionSet("X12_832")
+	TransformerX12TransactionSetX12833     = TransformerX12TransactionSet("X12_833")
 	TransformerX12TransactionSetX12834     = TransformerX12TransactionSet("X12_834")
 	TransformerX12TransactionSetX12835     = TransformerX12TransactionSet("X12_835")
+	TransformerX12TransactionSetX12836     = TransformerX12TransactionSet("X12_836")
 	TransformerX12TransactionSetX12837     = TransformerX12TransactionSet("X12_837")
+	TransformerX12TransactionSetX12838     = TransformerX12TransactionSet("X12_838")
+	TransformerX12TransactionSetX12839     = TransformerX12TransactionSet("X12_839")
+	TransformerX12TransactionSetX12840     = TransformerX12TransactionSet("X12_840")
+	TransformerX12TransactionSetX12841     = TransformerX12TransactionSet("X12_841")
+	TransformerX12TransactionSetX12842     = TransformerX12TransactionSet("X12_842")
+	TransformerX12TransactionSetX12843     = TransformerX12TransactionSet("X12_843")
 	TransformerX12TransactionSetX12844     = TransformerX12TransactionSet("X12_844")
+	TransformerX12TransactionSetX12845     = TransformerX12TransactionSet("X12_845")
 	TransformerX12TransactionSetX12846     = TransformerX12TransactionSet("X12_846")
+	TransformerX12TransactionSetX12847     = TransformerX12TransactionSet("X12_847")
+	TransformerX12TransactionSetX12848     = TransformerX12TransactionSet("X12_848")
 	TransformerX12TransactionSetX12849     = TransformerX12TransactionSet("X12_849")
 	TransformerX12TransactionSetX12850     = TransformerX12TransactionSet("X12_850")
+	TransformerX12TransactionSetX12851     = TransformerX12TransactionSet("X12_851")
 	TransformerX12TransactionSetX12852     = TransformerX12TransactionSet("X12_852")
+	TransformerX12TransactionSetX12853     = TransformerX12TransactionSet("X12_853")
+	TransformerX12TransactionSetX12854     = TransformerX12TransactionSet("X12_854")
 	TransformerX12TransactionSetX12855     = TransformerX12TransactionSet("X12_855")
 	TransformerX12TransactionSetX12856     = TransformerX12TransactionSet("X12_856")
+	TransformerX12TransactionSetX12857     = TransformerX12TransactionSet("X12_857")
+	TransformerX12TransactionSetX12858     = TransformerX12TransactionSet("X12_858")
+	TransformerX12TransactionSetX12859     = TransformerX12TransactionSet("X12_859")
 	TransformerX12TransactionSetX12860     = TransformerX12TransactionSet("X12_860")
 	TransformerX12TransactionSetX12861     = TransformerX12TransactionSet("X12_861")
+	TransformerX12TransactionSetX12862     = TransformerX12TransactionSet("X12_862")
+	TransformerX12TransactionSetX12863     = TransformerX12TransactionSet("X12_863")
 	TransformerX12TransactionSetX12864     = TransformerX12TransactionSet("X12_864")
 	TransformerX12TransactionSetX12865     = TransformerX12TransactionSet("X12_865")
+	TransformerX12TransactionSetX12866     = TransformerX12TransactionSet("X12_866")
+	TransformerX12TransactionSetX12867     = TransformerX12TransactionSet("X12_867")
+	TransformerX12TransactionSetX12868     = TransformerX12TransactionSet("X12_868")
 	TransformerX12TransactionSetX12869     = TransformerX12TransactionSet("X12_869")
 	TransformerX12TransactionSetX12870     = TransformerX12TransactionSet("X12_870")
+	TransformerX12TransactionSetX12871     = TransformerX12TransactionSet("X12_871")
+	TransformerX12TransactionSetX12872     = TransformerX12TransactionSet("X12_872")
+	TransformerX12TransactionSetX12873     = TransformerX12TransactionSet("X12_873")
+	TransformerX12TransactionSetX12874     = TransformerX12TransactionSet("X12_874")
+	TransformerX12TransactionSetX12875     = TransformerX12TransactionSet("X12_875")
+	TransformerX12TransactionSetX12876     = TransformerX12TransactionSet("X12_876")
+	TransformerX12TransactionSetX12877     = TransformerX12TransactionSet("X12_877")
+	TransformerX12TransactionSetX12878     = TransformerX12TransactionSet("X12_878")
+	TransformerX12TransactionSetX12879     = TransformerX12TransactionSet("X12_879")
+	TransformerX12TransactionSetX12880     = TransformerX12TransactionSet("X12_880")
+	TransformerX12TransactionSetX12881     = TransformerX12TransactionSet("X12_881")
+	TransformerX12TransactionSetX12882     = TransformerX12TransactionSet("X12_882")
+	TransformerX12TransactionSetX12883     = TransformerX12TransactionSet("X12_883")
+	TransformerX12TransactionSetX12884     = TransformerX12TransactionSet("X12_884")
+	TransformerX12TransactionSetX12885     = TransformerX12TransactionSet("X12_885")
+	TransformerX12TransactionSetX12886     = TransformerX12TransactionSet("X12_886")
+	TransformerX12TransactionSetX12887     = TransformerX12TransactionSet("X12_887")
+	TransformerX12TransactionSetX12888     = TransformerX12TransactionSet("X12_888")
+	TransformerX12TransactionSetX12889     = TransformerX12TransactionSet("X12_889")
+	TransformerX12TransactionSetX12891     = TransformerX12TransactionSet("X12_891")
+	TransformerX12TransactionSetX12893     = TransformerX12TransactionSet("X12_893")
+	TransformerX12TransactionSetX12894     = TransformerX12TransactionSet("X12_894")
+	TransformerX12TransactionSetX12895     = TransformerX12TransactionSet("X12_895")
+	TransformerX12TransactionSetX12896     = TransformerX12TransactionSet("X12_896")
+	TransformerX12TransactionSetX12920     = TransformerX12TransactionSet("X12_920")
+	TransformerX12TransactionSetX12924     = TransformerX12TransactionSet("X12_924")
+	TransformerX12TransactionSetX12925     = TransformerX12TransactionSet("X12_925")
+	TransformerX12TransactionSetX12926     = TransformerX12TransactionSet("X12_926")
+	TransformerX12TransactionSetX12928     = TransformerX12TransactionSet("X12_928")
 	TransformerX12TransactionSetX12940     = TransformerX12TransactionSet("X12_940")
+	TransformerX12TransactionSetX12943     = TransformerX12TransactionSet("X12_943")
+	TransformerX12TransactionSetX12944     = TransformerX12TransactionSet("X12_944")
 	TransformerX12TransactionSetX12945     = TransformerX12TransactionSet("X12_945")
+	TransformerX12TransactionSetX12947     = TransformerX12TransactionSet("X12_947")
+	TransformerX12TransactionSetX12980     = TransformerX12TransactionSet("X12_980")
 	TransformerX12TransactionSetX12990     = TransformerX12TransactionSet("X12_990")
+	TransformerX12TransactionSetX12993     = TransformerX12TransactionSet("X12_993")
+	TransformerX12TransactionSetX12996     = TransformerX12TransactionSet("X12_996")
 	TransformerX12TransactionSetX12997     = TransformerX12TransactionSet("X12_997")
+	TransformerX12TransactionSetX12998     = TransformerX12TransactionSet("X12_998")
 	TransformerX12TransactionSetX12999     = TransformerX12TransactionSet("X12_999")
 	TransformerX12TransactionSetX12270x279 = TransformerX12TransactionSet("X12_270_X279")
 	TransformerX12TransactionSetX12271x279 = TransformerX12TransactionSet("X12_271_X279")
@@ -2008,57 +2813,324 @@ func (o TransformerX12TransactionSetPtrOutput) ToStringPtrOutputWithContext(ctx 
 // TransformerX12TransactionSetInput is an input type that accepts values of the TransformerX12TransactionSet enum
 // A concrete instance of `TransformerX12TransactionSetInput` can be one of the following:
 //
+//	TransformerX12TransactionSetX12100
+//	TransformerX12TransactionSetX12101
+//	TransformerX12TransactionSetX12102
+//	TransformerX12TransactionSetX12103
+//	TransformerX12TransactionSetX12104
+//	TransformerX12TransactionSetX12105
+//	TransformerX12TransactionSetX12106
+//	TransformerX12TransactionSetX12107
+//	TransformerX12TransactionSetX12108
+//	TransformerX12TransactionSetX12109
 //	TransformerX12TransactionSetX12110
+//	TransformerX12TransactionSetX12111
+//	TransformerX12TransactionSetX12112
+//	TransformerX12TransactionSetX12113
+//	TransformerX12TransactionSetX12120
+//	TransformerX12TransactionSetX12121
+//	TransformerX12TransactionSetX12124
+//	TransformerX12TransactionSetX12125
+//	TransformerX12TransactionSetX12126
+//	TransformerX12TransactionSetX12127
+//	TransformerX12TransactionSetX12128
+//	TransformerX12TransactionSetX12129
+//	TransformerX12TransactionSetX12130
+//	TransformerX12TransactionSetX12131
+//	TransformerX12TransactionSetX12132
+//	TransformerX12TransactionSetX12133
+//	TransformerX12TransactionSetX12135
+//	TransformerX12TransactionSetX12138
+//	TransformerX12TransactionSetX12139
+//	TransformerX12TransactionSetX12140
+//	TransformerX12TransactionSetX12141
+//	TransformerX12TransactionSetX12142
+//	TransformerX12TransactionSetX12143
+//	TransformerX12TransactionSetX12144
+//	TransformerX12TransactionSetX12146
+//	TransformerX12TransactionSetX12147
+//	TransformerX12TransactionSetX12148
+//	TransformerX12TransactionSetX12149
+//	TransformerX12TransactionSetX12150
+//	TransformerX12TransactionSetX12151
+//	TransformerX12TransactionSetX12152
+//	TransformerX12TransactionSetX12153
+//	TransformerX12TransactionSetX12154
+//	TransformerX12TransactionSetX12155
+//	TransformerX12TransactionSetX12157
+//	TransformerX12TransactionSetX12158
+//	TransformerX12TransactionSetX12159
+//	TransformerX12TransactionSetX12160
+//	TransformerX12TransactionSetX12161
+//	TransformerX12TransactionSetX12163
+//	TransformerX12TransactionSetX12170
+//	TransformerX12TransactionSetX12175
+//	TransformerX12TransactionSetX12176
+//	TransformerX12TransactionSetX12179
 //	TransformerX12TransactionSetX12180
+//	TransformerX12TransactionSetX12185
+//	TransformerX12TransactionSetX12186
+//	TransformerX12TransactionSetX12187
+//	TransformerX12TransactionSetX12188
+//	TransformerX12TransactionSetX12189
+//	TransformerX12TransactionSetX12190
+//	TransformerX12TransactionSetX12191
+//	TransformerX12TransactionSetX12194
+//	TransformerX12TransactionSetX12195
+//	TransformerX12TransactionSetX12196
+//	TransformerX12TransactionSetX12197
+//	TransformerX12TransactionSetX12198
+//	TransformerX12TransactionSetX12199
+//	TransformerX12TransactionSetX12200
+//	TransformerX12TransactionSetX12201
+//	TransformerX12TransactionSetX12202
+//	TransformerX12TransactionSetX12203
 //	TransformerX12TransactionSetX12204
+//	TransformerX12TransactionSetX12205
+//	TransformerX12TransactionSetX12206
 //	TransformerX12TransactionSetX12210
 //	TransformerX12TransactionSetX12211
+//	TransformerX12TransactionSetX12212
+//	TransformerX12TransactionSetX12213
 //	TransformerX12TransactionSetX12214
 //	TransformerX12TransactionSetX12215
+//	TransformerX12TransactionSetX12216
+//	TransformerX12TransactionSetX12217
+//	TransformerX12TransactionSetX12218
+//	TransformerX12TransactionSetX12219
+//	TransformerX12TransactionSetX12220
+//	TransformerX12TransactionSetX12222
+//	TransformerX12TransactionSetX12223
+//	TransformerX12TransactionSetX12224
+//	TransformerX12TransactionSetX12225
+//	TransformerX12TransactionSetX12227
+//	TransformerX12TransactionSetX12228
+//	TransformerX12TransactionSetX12240
+//	TransformerX12TransactionSetX12242
+//	TransformerX12TransactionSetX12244
+//	TransformerX12TransactionSetX12245
+//	TransformerX12TransactionSetX12248
+//	TransformerX12TransactionSetX12249
+//	TransformerX12TransactionSetX12250
+//	TransformerX12TransactionSetX12251
+//	TransformerX12TransactionSetX12252
+//	TransformerX12TransactionSetX12255
+//	TransformerX12TransactionSetX12256
 //	TransformerX12TransactionSetX12259
 //	TransformerX12TransactionSetX12260
+//	TransformerX12TransactionSetX12261
+//	TransformerX12TransactionSetX12262
+//	TransformerX12TransactionSetX12263
+//	TransformerX12TransactionSetX12264
+//	TransformerX12TransactionSetX12265
 //	TransformerX12TransactionSetX12266
+//	TransformerX12TransactionSetX12267
+//	TransformerX12TransactionSetX12268
 //	TransformerX12TransactionSetX12269
 //	TransformerX12TransactionSetX12270
 //	TransformerX12TransactionSetX12271
+//	TransformerX12TransactionSetX12272
+//	TransformerX12TransactionSetX12273
 //	TransformerX12TransactionSetX12274
 //	TransformerX12TransactionSetX12275
 //	TransformerX12TransactionSetX12276
 //	TransformerX12TransactionSetX12277
 //	TransformerX12TransactionSetX12278
+//	TransformerX12TransactionSetX12280
+//	TransformerX12TransactionSetX12283
+//	TransformerX12TransactionSetX12284
+//	TransformerX12TransactionSetX12285
+//	TransformerX12TransactionSetX12286
+//	TransformerX12TransactionSetX12288
+//	TransformerX12TransactionSetX12290
+//	TransformerX12TransactionSetX12300
+//	TransformerX12TransactionSetX12301
+//	TransformerX12TransactionSetX12303
+//	TransformerX12TransactionSetX12304
+//	TransformerX12TransactionSetX12309
 //	TransformerX12TransactionSetX12310
+//	TransformerX12TransactionSetX12311
+//	TransformerX12TransactionSetX12312
+//	TransformerX12TransactionSetX12313
 //	TransformerX12TransactionSetX12315
+//	TransformerX12TransactionSetX12317
+//	TransformerX12TransactionSetX12319
 //	TransformerX12TransactionSetX12322
+//	TransformerX12TransactionSetX12323
+//	TransformerX12TransactionSetX12324
+//	TransformerX12TransactionSetX12325
+//	TransformerX12TransactionSetX12326
+//	TransformerX12TransactionSetX12350
+//	TransformerX12TransactionSetX12352
+//	TransformerX12TransactionSetX12353
+//	TransformerX12TransactionSetX12354
+//	TransformerX12TransactionSetX12355
+//	TransformerX12TransactionSetX12356
+//	TransformerX12TransactionSetX12357
+//	TransformerX12TransactionSetX12358
+//	TransformerX12TransactionSetX12361
+//	TransformerX12TransactionSetX12362
 //	TransformerX12TransactionSetX12404
 //	TransformerX12TransactionSetX12410
+//	TransformerX12TransactionSetX12412
+//	TransformerX12TransactionSetX12414
 //	TransformerX12TransactionSetX12417
+//	TransformerX12TransactionSetX12418
+//	TransformerX12TransactionSetX12419
+//	TransformerX12TransactionSetX12420
 //	TransformerX12TransactionSetX12421
+//	TransformerX12TransactionSetX12422
+//	TransformerX12TransactionSetX12423
+//	TransformerX12TransactionSetX12424
+//	TransformerX12TransactionSetX12425
 //	TransformerX12TransactionSetX12426
+//	TransformerX12TransactionSetX12429
+//	TransformerX12TransactionSetX12431
+//	TransformerX12TransactionSetX12432
+//	TransformerX12TransactionSetX12433
+//	TransformerX12TransactionSetX12434
+//	TransformerX12TransactionSetX12435
+//	TransformerX12TransactionSetX12436
+//	TransformerX12TransactionSetX12437
+//	TransformerX12TransactionSetX12440
+//	TransformerX12TransactionSetX12451
+//	TransformerX12TransactionSetX12452
+//	TransformerX12TransactionSetX12453
+//	TransformerX12TransactionSetX12455
+//	TransformerX12TransactionSetX12456
+//	TransformerX12TransactionSetX12460
+//	TransformerX12TransactionSetX12463
+//	TransformerX12TransactionSetX12466
+//	TransformerX12TransactionSetX12468
+//	TransformerX12TransactionSetX12470
+//	TransformerX12TransactionSetX12475
+//	TransformerX12TransactionSetX12485
+//	TransformerX12TransactionSetX12486
+//	TransformerX12TransactionSetX12490
+//	TransformerX12TransactionSetX12492
+//	TransformerX12TransactionSetX12494
+//	TransformerX12TransactionSetX12500
+//	TransformerX12TransactionSetX12501
+//	TransformerX12TransactionSetX12503
+//	TransformerX12TransactionSetX12504
+//	TransformerX12TransactionSetX12511
+//	TransformerX12TransactionSetX12517
+//	TransformerX12TransactionSetX12521
+//	TransformerX12TransactionSetX12527
+//	TransformerX12TransactionSetX12536
+//	TransformerX12TransactionSetX12540
+//	TransformerX12TransactionSetX12561
+//	TransformerX12TransactionSetX12567
+//	TransformerX12TransactionSetX12568
+//	TransformerX12TransactionSetX12601
+//	TransformerX12TransactionSetX12602
+//	TransformerX12TransactionSetX12620
+//	TransformerX12TransactionSetX12625
+//	TransformerX12TransactionSetX12650
+//	TransformerX12TransactionSetX12715
+//	TransformerX12TransactionSetX12753
+//	TransformerX12TransactionSetX12754
+//	TransformerX12TransactionSetX12805
+//	TransformerX12TransactionSetX12806
 //	TransformerX12TransactionSetX12810
+//	TransformerX12TransactionSetX12811
+//	TransformerX12TransactionSetX12812
+//	TransformerX12TransactionSetX12813
+//	TransformerX12TransactionSetX12814
+//	TransformerX12TransactionSetX12815
+//	TransformerX12TransactionSetX12816
+//	TransformerX12TransactionSetX12818
+//	TransformerX12TransactionSetX12819
 //	TransformerX12TransactionSetX12820
+//	TransformerX12TransactionSetX12821
+//	TransformerX12TransactionSetX12822
+//	TransformerX12TransactionSetX12823
 //	TransformerX12TransactionSetX12824
+//	TransformerX12TransactionSetX12826
+//	TransformerX12TransactionSetX12827
+//	TransformerX12TransactionSetX12828
+//	TransformerX12TransactionSetX12829
 //	TransformerX12TransactionSetX12830
+//	TransformerX12TransactionSetX12831
 //	TransformerX12TransactionSetX12832
+//	TransformerX12TransactionSetX12833
 //	TransformerX12TransactionSetX12834
 //	TransformerX12TransactionSetX12835
+//	TransformerX12TransactionSetX12836
 //	TransformerX12TransactionSetX12837
+//	TransformerX12TransactionSetX12838
+//	TransformerX12TransactionSetX12839
+//	TransformerX12TransactionSetX12840
+//	TransformerX12TransactionSetX12841
+//	TransformerX12TransactionSetX12842
+//	TransformerX12TransactionSetX12843
 //	TransformerX12TransactionSetX12844
+//	TransformerX12TransactionSetX12845
 //	TransformerX12TransactionSetX12846
+//	TransformerX12TransactionSetX12847
+//	TransformerX12TransactionSetX12848
 //	TransformerX12TransactionSetX12849
 //	TransformerX12TransactionSetX12850
+//	TransformerX12TransactionSetX12851
 //	TransformerX12TransactionSetX12852
+//	TransformerX12TransactionSetX12853
+//	TransformerX12TransactionSetX12854
 //	TransformerX12TransactionSetX12855
 //	TransformerX12TransactionSetX12856
+//	TransformerX12TransactionSetX12857
+//	TransformerX12TransactionSetX12858
+//	TransformerX12TransactionSetX12859
 //	TransformerX12TransactionSetX12860
 //	TransformerX12TransactionSetX12861
+//	TransformerX12TransactionSetX12862
+//	TransformerX12TransactionSetX12863
 //	TransformerX12TransactionSetX12864
 //	TransformerX12TransactionSetX12865
+//	TransformerX12TransactionSetX12866
+//	TransformerX12TransactionSetX12867
+//	TransformerX12TransactionSetX12868
 //	TransformerX12TransactionSetX12869
 //	TransformerX12TransactionSetX12870
+//	TransformerX12TransactionSetX12871
+//	TransformerX12TransactionSetX12872
+//	TransformerX12TransactionSetX12873
+//	TransformerX12TransactionSetX12874
+//	TransformerX12TransactionSetX12875
+//	TransformerX12TransactionSetX12876
+//	TransformerX12TransactionSetX12877
+//	TransformerX12TransactionSetX12878
+//	TransformerX12TransactionSetX12879
+//	TransformerX12TransactionSetX12880
+//	TransformerX12TransactionSetX12881
+//	TransformerX12TransactionSetX12882
+//	TransformerX12TransactionSetX12883
+//	TransformerX12TransactionSetX12884
+//	TransformerX12TransactionSetX12885
+//	TransformerX12TransactionSetX12886
+//	TransformerX12TransactionSetX12887
+//	TransformerX12TransactionSetX12888
+//	TransformerX12TransactionSetX12889
+//	TransformerX12TransactionSetX12891
+//	TransformerX12TransactionSetX12893
+//	TransformerX12TransactionSetX12894
+//	TransformerX12TransactionSetX12895
+//	TransformerX12TransactionSetX12896
+//	TransformerX12TransactionSetX12920
+//	TransformerX12TransactionSetX12924
+//	TransformerX12TransactionSetX12925
+//	TransformerX12TransactionSetX12926
+//	TransformerX12TransactionSetX12928
 //	TransformerX12TransactionSetX12940
+//	TransformerX12TransactionSetX12943
+//	TransformerX12TransactionSetX12944
 //	TransformerX12TransactionSetX12945
+//	TransformerX12TransactionSetX12947
+//	TransformerX12TransactionSetX12980
 //	TransformerX12TransactionSetX12990
+//	TransformerX12TransactionSetX12993
+//	TransformerX12TransactionSetX12996
 //	TransformerX12TransactionSetX12997
+//	TransformerX12TransactionSetX12998
 //	TransformerX12TransactionSetX12999
 //	TransformerX12TransactionSetX12270x279
 //	TransformerX12TransactionSetX12271x279
@@ -2122,6 +3194,8 @@ type TransformerX12Version string
 const (
 	TransformerX12VersionVersion4010      = TransformerX12Version("VERSION_4010")
 	TransformerX12VersionVersion4030      = TransformerX12Version("VERSION_4030")
+	TransformerX12VersionVersion4050      = TransformerX12Version("VERSION_4050")
+	TransformerX12VersionVersion4060      = TransformerX12Version("VERSION_4060")
 	TransformerX12VersionVersion5010      = TransformerX12Version("VERSION_5010")
 	TransformerX12VersionVersion5010Hipaa = TransformerX12Version("VERSION_5010_HIPAA")
 )
@@ -2250,6 +3324,8 @@ func (o TransformerX12VersionPtrOutput) ToStringPtrOutputWithContext(ctx context
 //
 //	TransformerX12VersionVersion4010
 //	TransformerX12VersionVersion4030
+//	TransformerX12VersionVersion4050
+//	TransformerX12VersionVersion4060
 //	TransformerX12VersionVersion5010
 //	TransformerX12VersionVersion5010Hipaa
 type TransformerX12VersionInput interface {
@@ -2291,8 +3367,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityDirectionPtrInput)(nil)).Elem(), CapabilityDirection("INBOUND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityTypeInput)(nil)).Elem(), CapabilityType("edi"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityTypePtrInput)(nil)).Elem(), CapabilityType("edi"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12TransactionSetInput)(nil)).Elem(), CapabilityX12TransactionSet("X12_110"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12TransactionSetPtrInput)(nil)).Elem(), CapabilityX12TransactionSet("X12_110"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12TransactionSetInput)(nil)).Elem(), CapabilityX12TransactionSet("X12_100"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12TransactionSetPtrInput)(nil)).Elem(), CapabilityX12TransactionSet("X12_100"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12VersionInput)(nil)).Elem(), CapabilityX12Version("VERSION_4010"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityX12VersionPtrInput)(nil)).Elem(), CapabilityX12Version("VERSION_4010"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileLoggingInput)(nil)).Elem(), ProfileLogging("ENABLED"))
@@ -2307,8 +3383,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerStatusPtrInput)(nil)).Elem(), TransformerStatus("active"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerToFormatInput)(nil)).Elem(), TransformerToFormat("X12"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerToFormatPtrInput)(nil)).Elem(), TransformerToFormat("X12"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12TransactionSetInput)(nil)).Elem(), TransformerX12TransactionSet("X12_110"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12TransactionSetPtrInput)(nil)).Elem(), TransformerX12TransactionSet("X12_110"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12TransactionSetInput)(nil)).Elem(), TransformerX12TransactionSet("X12_100"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12TransactionSetPtrInput)(nil)).Elem(), TransformerX12TransactionSet("X12_100"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12VersionInput)(nil)).Elem(), TransformerX12Version("VERSION_4010"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TransformerX12VersionPtrInput)(nil)).Elem(), TransformerX12Version("VERSION_4010"))
 	pulumi.RegisterOutputType(CapabilityDirectionOutput{})

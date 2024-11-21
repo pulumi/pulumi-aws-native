@@ -11,6 +11,8 @@ __all__ = [
     'FirewallRuleGroupFirewallRuleAction',
     'FirewallRuleGroupFirewallRuleBlockOverrideDnsType',
     'FirewallRuleGroupFirewallRuleBlockResponse',
+    'FirewallRuleGroupFirewallRuleConfidenceThreshold',
+    'FirewallRuleGroupFirewallRuleDnsThreatProtection',
     'FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction',
     'FirewallRuleGroupShareStatus',
     'FirewallRuleGroupStatus',
@@ -80,6 +82,23 @@ class FirewallRuleGroupFirewallRuleBlockResponse(str, Enum):
     NODATA = "NODATA"
     NXDOMAIN = "NXDOMAIN"
     OVERRIDE = "OVERRIDE"
+
+
+class FirewallRuleGroupFirewallRuleConfidenceThreshold(str, Enum):
+    """
+    FirewallDomainRedirectionAction
+    """
+    LOW = "LOW"
+    MEDIUM = "MEDIUM"
+    HIGH = "HIGH"
+
+
+class FirewallRuleGroupFirewallRuleDnsThreatProtection(str, Enum):
+    """
+    FirewallDomainRedirectionAction
+    """
+    DGA = "DGA"
+    DNS_TUNNELING = "DNS_TUNNELING"
 
 
 class FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction(str, Enum):

@@ -36,3 +36,13 @@ export const AssetPropertyNotificationState = {
  * The MQTT notification state (ENABLED or DISABLED) for this asset property.
  */
 export type AssetPropertyNotificationState = (typeof AssetPropertyNotificationState)[keyof typeof AssetPropertyNotificationState];
+
+export const PortalType = {
+    SitewisePortalV1: "SITEWISE_PORTAL_V1",
+    SitewisePortalV2: "SITEWISE_PORTAL_V2",
+} as const;
+
+/**
+ * The type of portal
+ */
+export type PortalType = (typeof PortalType)[keyof typeof PortalType];

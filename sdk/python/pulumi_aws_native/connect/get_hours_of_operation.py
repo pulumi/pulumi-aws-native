@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetHoursOfOperationResult:
-    def __init__(__self__, config=None, description=None, hours_of_operation_arn=None, instance_arn=None, name=None, tags=None, time_zone=None):
+    def __init__(__self__, config=None, description=None, hours_of_operation_arn=None, hours_of_operation_overrides=None, instance_arn=None, name=None, tags=None, time_zone=None):
         if config and not isinstance(config, list):
             raise TypeError("Expected argument 'config' to be a list")
         pulumi.set(__self__, "config", config)
@@ -36,6 +36,9 @@ class GetHoursOfOperationResult:
         if hours_of_operation_arn and not isinstance(hours_of_operation_arn, str):
             raise TypeError("Expected argument 'hours_of_operation_arn' to be a str")
         pulumi.set(__self__, "hours_of_operation_arn", hours_of_operation_arn)
+        if hours_of_operation_overrides and not isinstance(hours_of_operation_overrides, list):
+            raise TypeError("Expected argument 'hours_of_operation_overrides' to be a list")
+        pulumi.set(__self__, "hours_of_operation_overrides", hours_of_operation_overrides)
         if instance_arn and not isinstance(instance_arn, str):
             raise TypeError("Expected argument 'instance_arn' to be a str")
         pulumi.set(__self__, "instance_arn", instance_arn)
@@ -72,6 +75,14 @@ class GetHoursOfOperationResult:
         The Amazon Resource Name (ARN) for the hours of operation.
         """
         return pulumi.get(self, "hours_of_operation_arn")
+
+    @property
+    @pulumi.getter(name="hoursOfOperationOverrides")
+    def hours_of_operation_overrides(self) -> Optional[Sequence['outputs.HoursOfOperationOverride']]:
+        """
+        One or more hours of operation overrides assigned to an hour of operation.
+        """
+        return pulumi.get(self, "hours_of_operation_overrides")
 
     @property
     @pulumi.getter(name="instanceArn")
@@ -115,6 +126,7 @@ class AwaitableGetHoursOfOperationResult(GetHoursOfOperationResult):
             config=self.config,
             description=self.description,
             hours_of_operation_arn=self.hours_of_operation_arn,
+            hours_of_operation_overrides=self.hours_of_operation_overrides,
             instance_arn=self.instance_arn,
             name=self.name,
             tags=self.tags,
@@ -138,6 +150,7 @@ def get_hours_of_operation(hours_of_operation_arn: Optional[str] = None,
         config=pulumi.get(__ret__, 'config'),
         description=pulumi.get(__ret__, 'description'),
         hours_of_operation_arn=pulumi.get(__ret__, 'hours_of_operation_arn'),
+        hours_of_operation_overrides=pulumi.get(__ret__, 'hours_of_operation_overrides'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -158,6 +171,7 @@ def get_hours_of_operation_output(hours_of_operation_arn: Optional[pulumi.Input[
         config=pulumi.get(__response__, 'config'),
         description=pulumi.get(__response__, 'description'),
         hours_of_operation_arn=pulumi.get(__response__, 'hours_of_operation_arn'),
+        hours_of_operation_overrides=pulumi.get(__response__, 'hours_of_operation_overrides'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         name=pulumi.get(__response__, 'name'),
         tags=pulumi.get(__response__, 'tags'),

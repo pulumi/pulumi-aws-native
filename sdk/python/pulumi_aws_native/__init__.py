@@ -740,11 +740,14 @@ _utilities.register(
    "aws-native:apigateway:ApiKey": "ApiKey",
    "aws-native:apigateway:Authorizer": "Authorizer",
    "aws-native:apigateway:BasePathMapping": "BasePathMapping",
+   "aws-native:apigateway:BasePathMappingV2": "BasePathMappingV2",
    "aws-native:apigateway:ClientCertificate": "ClientCertificate",
    "aws-native:apigateway:Deployment": "Deployment",
    "aws-native:apigateway:DocumentationPart": "DocumentationPart",
    "aws-native:apigateway:DocumentationVersion": "DocumentationVersion",
    "aws-native:apigateway:DomainName": "DomainName",
+   "aws-native:apigateway:DomainNameAccessAssociation": "DomainNameAccessAssociation",
+   "aws-native:apigateway:DomainNameV2": "DomainNameV2",
    "aws-native:apigateway:GatewayResponse": "GatewayResponse",
    "aws-native:apigateway:Method": "Method",
    "aws-native:apigateway:Model": "Model",
@@ -1254,6 +1257,7 @@ _utilities.register(
    "aws-native:connect:ApprovedOrigin": "ApprovedOrigin",
    "aws-native:connect:ContactFlow": "ContactFlow",
    "aws-native:connect:ContactFlowModule": "ContactFlowModule",
+   "aws-native:connect:EmailAddress": "EmailAddress",
    "aws-native:connect:EvaluationForm": "EvaluationForm",
    "aws-native:connect:HoursOfOperation": "HoursOfOperation",
    "aws-native:connect:Instance": "Instance",
@@ -1312,7 +1316,8 @@ _utilities.register(
    "aws-native:customerprofiles:Domain": "Domain",
    "aws-native:customerprofiles:EventStream": "EventStream",
    "aws-native:customerprofiles:Integration": "Integration",
-   "aws-native:customerprofiles:ObjectType": "ObjectType"
+   "aws-native:customerprofiles:ObjectType": "ObjectType",
+   "aws-native:customerprofiles:SegmentDefinition": "SegmentDefinition"
   }
  },
  {
@@ -1538,6 +1543,8 @@ _utilities.register(
    "aws-native:ec2:Volume": "Volume",
    "aws-native:ec2:VolumeAttachment": "VolumeAttachment",
    "aws-native:ec2:Vpc": "Vpc",
+   "aws-native:ec2:VpcBlockPublicAccessExclusion": "VpcBlockPublicAccessExclusion",
+   "aws-native:ec2:VpcBlockPublicAccessOptions": "VpcBlockPublicAccessOptions",
    "aws-native:ec2:VpcCidrBlock": "VpcCidrBlock",
    "aws-native:ec2:VpcEndpoint": "VpcEndpoint",
    "aws-native:ec2:VpcEndpointConnectionNotification": "VpcEndpointConnectionNotification",
@@ -2292,6 +2299,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.m2",
   "classes": {
    "aws-native:m2:Application": "Application",
+   "aws-native:m2:Deployment": "Deployment",
    "aws-native:m2:Environment": "Environment"
   }
  },
@@ -3281,6 +3289,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.workspacesweb",
   "classes": {
    "aws-native:workspacesweb:BrowserSettings": "BrowserSettings",
+   "aws-native:workspacesweb:DataProtectionSettings": "DataProtectionSettings",
    "aws-native:workspacesweb:IdentityProvider": "IdentityProvider",
    "aws-native:workspacesweb:IpAccessSettings": "IpAccessSettings",
    "aws-native:workspacesweb:NetworkSettings": "NetworkSettings",

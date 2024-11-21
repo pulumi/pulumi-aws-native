@@ -42,6 +42,15 @@ namespace Pulumi.AwsNative.Efs.Inputs
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
+
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        [Input("statusMessage")]
+        public Input<string>? StatusMessage { get; set; }
+
         public FileSystemReplicationDestinationArgs()
         {
         }

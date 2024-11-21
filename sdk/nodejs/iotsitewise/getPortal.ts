@@ -61,6 +61,7 @@ export interface GetPortalResult {
      * The public root URL for the AWS IoT AWS IoT SiteWise Monitor application portal.
      */
     readonly portalStartUrl?: string;
+    readonly portalTypeConfiguration?: {[key: string]: outputs.iotsitewise.PortalTypeEntry};
     /**
      * The ARN of a service role that allows the portal's users to access your AWS IoT SiteWise resources on your behalf.
      */

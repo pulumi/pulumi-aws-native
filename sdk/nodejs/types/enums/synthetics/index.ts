@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CanaryProvisionedResourceCleanup = {
+    Automatic: "AUTOMATIC",
+    Off: "OFF",
+} as const;
+
+/**
+ * Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+ */
+export type CanaryProvisionedResourceCleanup = (typeof CanaryProvisionedResourceCleanup)[keyof typeof CanaryProvisionedResourceCleanup];
+
 export const CanaryResourceToTag = {
     LambdaFunction: "lambda-function",
 } as const;

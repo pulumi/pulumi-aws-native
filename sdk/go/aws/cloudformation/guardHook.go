@@ -27,9 +27,11 @@ type GuardHook struct {
 	// Attribute to specify which stacks this hook applies to or should get invoked for
 	HookStatus GuardHookHookStatusOutput `pulumi:"hookStatus"`
 	// S3 Bucket where the guard validate report will be uploaded to
-	LogBucket    pulumi.StringPtrOutput     `pulumi:"logBucket"`
-	Options      OptionsPropertiesPtrOutput `pulumi:"options"`
-	RuleLocation GuardHookS3LocationOutput  `pulumi:"ruleLocation"`
+	LogBucket pulumi.StringPtrOutput `pulumi:"logBucket"`
+	// Specifies the S3 location of your input parameters.
+	Options OptionsPropertiesPtrOutput `pulumi:"options"`
+	// Specifies the S3 location of your Guard rules.
+	RuleLocation GuardHookS3LocationOutput `pulumi:"ruleLocation"`
 	// Filters to allow hooks to target specific stack attributes
 	StackFilters StackFiltersPropertiesPtrOutput `pulumi:"stackFilters"`
 	// Attribute to specify which targets should invoke the hook
@@ -110,8 +112,10 @@ type guardHookArgs struct {
 	// Attribute to specify which stacks this hook applies to or should get invoked for
 	HookStatus GuardHookHookStatus `pulumi:"hookStatus"`
 	// S3 Bucket where the guard validate report will be uploaded to
-	LogBucket    *string             `pulumi:"logBucket"`
-	Options      *OptionsProperties  `pulumi:"options"`
+	LogBucket *string `pulumi:"logBucket"`
+	// Specifies the S3 location of your input parameters.
+	Options *OptionsProperties `pulumi:"options"`
+	// Specifies the S3 location of your Guard rules.
 	RuleLocation GuardHookS3Location `pulumi:"ruleLocation"`
 	// Filters to allow hooks to target specific stack attributes
 	StackFilters *StackFiltersProperties `pulumi:"stackFilters"`
@@ -132,8 +136,10 @@ type GuardHookArgs struct {
 	// Attribute to specify which stacks this hook applies to or should get invoked for
 	HookStatus GuardHookHookStatusInput
 	// S3 Bucket where the guard validate report will be uploaded to
-	LogBucket    pulumi.StringPtrInput
-	Options      OptionsPropertiesPtrInput
+	LogBucket pulumi.StringPtrInput
+	// Specifies the S3 location of your input parameters.
+	Options OptionsPropertiesPtrInput
+	// Specifies the S3 location of your Guard rules.
 	RuleLocation GuardHookS3LocationInput
 	// Filters to allow hooks to target specific stack attributes
 	StackFilters StackFiltersPropertiesPtrInput
@@ -210,10 +216,12 @@ func (o GuardHookOutput) LogBucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GuardHook) pulumi.StringPtrOutput { return v.LogBucket }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the S3 location of your input parameters.
 func (o GuardHookOutput) Options() OptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *GuardHook) OptionsPropertiesPtrOutput { return v.Options }).(OptionsPropertiesPtrOutput)
 }
 
+// Specifies the S3 location of your Guard rules.
 func (o GuardHookOutput) RuleLocation() GuardHookS3LocationOutput {
 	return o.ApplyT(func(v *GuardHook) GuardHookS3LocationOutput { return v.RuleLocation }).(GuardHookS3LocationOutput)
 }

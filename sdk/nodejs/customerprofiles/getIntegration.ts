@@ -35,6 +35,10 @@ export interface GetIntegrationResult {
      */
     readonly createdAt?: string;
     /**
+     * A list of unique names for active event triggers associated with the integration.
+     */
+    readonly eventTriggerNames?: string[];
+    /**
      * The time of this integration got last updated at
      */
     readonly lastUpdatedAt?: string;

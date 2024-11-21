@@ -107,6 +107,16 @@
         "$ref" : "#/definitions/ResourceTag"
       }
     },
+    "ExcludeResourceTags" : {
+      "description" : "Information about the exclude resource tags used to identify resources that are excluded by the retention rule.",
+      "type" : "array",
+      "maxItems" : 5,
+      "insertionOrder" : false,
+      "uniqueItems" : true,
+      "items" : {
+        "$ref" : "#/definitions/ResourceTag"
+      }
+    },
     "ResourceType" : {
       "description" : "The resource type retained by the retention rule.",
       "type" : "string",
@@ -169,6 +179,9 @@
           },
           "ResourceTags" : {
             "$ref" : "resource-schema.json#/properties/ResourceTags"
+          },
+          "ExcludeResourceTags" : {
+            "$ref" : "resource-schema.json#/properties/ExcludeResourceTags"
           },
           "ResourceType" : {
             "$ref" : "resource-schema.json#/properties/ResourceType"

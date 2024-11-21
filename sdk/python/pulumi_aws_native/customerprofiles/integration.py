@@ -25,6 +25,7 @@ __all__ = ['IntegrationArgs', 'Integration']
 class IntegrationArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
+                 event_trigger_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  flow_definition: Optional[pulumi.Input['IntegrationFlowDefinitionArgs']] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]]] = None,
@@ -33,6 +34,7 @@ class IntegrationArgs:
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_trigger_names: A list of unique names for active event triggers associated with the integration.
         :param pulumi.Input['IntegrationFlowDefinitionArgs'] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]] object_type_names: The mapping between 3rd party event types and ObjectType names
@@ -40,6 +42,8 @@ class IntegrationArgs:
         :param pulumi.Input[str] uri: The URI of the S3 bucket or any other type of data source.
         """
         pulumi.set(__self__, "domain_name", domain_name)
+        if event_trigger_names is not None:
+            pulumi.set(__self__, "event_trigger_names", event_trigger_names)
         if flow_definition is not None:
             pulumi.set(__self__, "flow_definition", flow_definition)
         if object_type_name is not None:
@@ -62,6 +66,18 @@ class IntegrationArgs:
     @domain_name.setter
     def domain_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="eventTriggerNames")
+    def event_trigger_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of unique names for active event triggers associated with the integration.
+        """
+        return pulumi.get(self, "event_trigger_names")
+
+    @event_trigger_names.setter
+    def event_trigger_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "event_trigger_names", value)
 
     @property
     @pulumi.getter(name="flowDefinition")
@@ -130,6 +146,7 @@ class Integration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 event_trigger_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  flow_definition: Optional[pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
@@ -142,6 +159,7 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_trigger_names: A list of unique names for active event triggers associated with the integration.
         :param pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
@@ -173,6 +191,7 @@ class Integration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
+                 event_trigger_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  flow_definition: Optional[pulumi.Input[Union['IntegrationFlowDefinitionArgs', 'IntegrationFlowDefinitionArgsDict']]] = None,
                  object_type_name: Optional[pulumi.Input[str]] = None,
                  object_type_names: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IntegrationObjectTypeMappingArgs', 'IntegrationObjectTypeMappingArgsDict']]]]] = None,
@@ -190,6 +209,7 @@ class Integration(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["event_trigger_names"] = event_trigger_names
             __props__.__dict__["flow_definition"] = flow_definition
             __props__.__dict__["object_type_name"] = object_type_name
             __props__.__dict__["object_type_names"] = object_type_names
@@ -223,6 +243,7 @@ class Integration(pulumi.CustomResource):
 
         __props__.__dict__["created_at"] = None
         __props__.__dict__["domain_name"] = None
+        __props__.__dict__["event_trigger_names"] = None
         __props__.__dict__["flow_definition"] = None
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["object_type_name"] = None
@@ -246,6 +267,14 @@ class Integration(pulumi.CustomResource):
         The unique name of the domain.
         """
         return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="eventTriggerNames")
+    def event_trigger_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of unique names for active event triggers associated with the integration.
+        """
+        return pulumi.get(self, "event_trigger_names")
 
     @property
     @pulumi.getter(name="flowDefinition")

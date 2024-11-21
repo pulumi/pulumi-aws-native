@@ -33,6 +33,8 @@ type LookupRuleResult struct {
 	Arn *string `pulumi:"arn"`
 	// The description of the retention rule.
 	Description *string `pulumi:"description"`
+	// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+	ExcludeResourceTags []RuleResourceTag `pulumi:"excludeResourceTags"`
 	// The unique ID of the retention rule.
 	Identifier *string `pulumi:"identifier"`
 	// The lock state for the retention rule.
@@ -97,6 +99,11 @@ func (o LookupRuleResultOutput) Arn() pulumi.StringPtrOutput {
 // The description of the retention rule.
 func (o LookupRuleResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+func (o LookupRuleResultOutput) ExcludeResourceTags() RuleResourceTagArrayOutput {
+	return o.ApplyT(func(v LookupRuleResult) []RuleResourceTag { return v.ExcludeResourceTags }).(RuleResourceTagArrayOutput)
 }
 
 // The unique ID of the retention rule.

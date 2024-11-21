@@ -45,6 +45,11 @@ export const getObjectType: typeof import("./getObjectType").getObjectType = nul
 export const getObjectTypeOutput: typeof import("./getObjectType").getObjectTypeOutput = null as any;
 utilities.lazyLoad(exports, ["getObjectType","getObjectTypeOutput"], () => require("./getObjectType"));
 
+export { GetSegmentDefinitionArgs, GetSegmentDefinitionResult, GetSegmentDefinitionOutputArgs } from "./getSegmentDefinition";
+export const getSegmentDefinition: typeof import("./getSegmentDefinition").getSegmentDefinition = null as any;
+export const getSegmentDefinitionOutput: typeof import("./getSegmentDefinition").getSegmentDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getSegmentDefinition","getSegmentDefinitionOutput"], () => require("./getSegmentDefinition"));
+
 export { IntegrationArgs } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
@@ -54,6 +59,11 @@ export { ObjectTypeArgs } from "./objectType";
 export type ObjectType = import("./objectType").ObjectType;
 export const ObjectType: typeof import("./objectType").ObjectType = null as any;
 utilities.lazyLoad(exports, ["ObjectType"], () => require("./objectType"));
+
+export { SegmentDefinitionArgs } from "./segmentDefinition";
+export type SegmentDefinition = import("./segmentDefinition").SegmentDefinition;
+export const SegmentDefinition: typeof import("./segmentDefinition").SegmentDefinition = null as any;
+utilities.lazyLoad(exports, ["SegmentDefinition"], () => require("./segmentDefinition"));
 
 
 // Export enums:
@@ -73,6 +83,8 @@ const _module = {
                 return new Integration(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:ObjectType":
                 return new ObjectType(name, <any>undefined, { urn })
+            case "aws-native:customerprofiles:SegmentDefinition":
+                return new SegmentDefinition(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

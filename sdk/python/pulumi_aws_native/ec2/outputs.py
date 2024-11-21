@@ -71,10 +71,12 @@ __all__ = [
     'LaunchTemplateAcceleratorCount',
     'LaunchTemplateAcceleratorTotalMemoryMiB',
     'LaunchTemplateBaselineEbsBandwidthMbps',
+    'LaunchTemplateBaselinePerformanceFactors',
     'LaunchTemplateBlockDeviceMapping',
     'LaunchTemplateCapacityReservationSpecification',
     'LaunchTemplateCapacityReservationTarget',
     'LaunchTemplateConnectionTrackingSpecification',
+    'LaunchTemplateCpu',
     'LaunchTemplateCpuOptions',
     'LaunchTemplateCreditSpecification',
     'LaunchTemplateData',
@@ -103,6 +105,7 @@ __all__ = [
     'LaunchTemplatePlacement',
     'LaunchTemplatePrivateDnsNameOptions',
     'LaunchTemplatePrivateIpAdd',
+    'LaunchTemplateReference',
     'LaunchTemplateSpotOptions',
     'LaunchTemplateTag',
     'LaunchTemplateTagSpecification',
@@ -3855,6 +3858,19 @@ class LaunchTemplateBaselineEbsBandwidthMbps(dict):
 
 
 @pulumi.output_type
+class LaunchTemplateBaselinePerformanceFactors(dict):
+    def __init__(__self__, *,
+                 cpu: Optional['outputs.LaunchTemplateCpu'] = None):
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional['outputs.LaunchTemplateCpu']:
+        return pulumi.get(self, "cpu")
+
+
+@pulumi.output_type
 class LaunchTemplateBlockDeviceMapping(dict):
     """
     Specifies a block device mapping for a launch template. You must specify ``DeviceName`` plus exactly one of the following properties: ``Ebs``, ``NoDevice``, or ``VirtualName``.
@@ -4118,6 +4134,19 @@ class LaunchTemplateConnectionTrackingSpecification(dict):
         Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
         """
         return pulumi.get(self, "udp_timeout")
+
+
+@pulumi.output_type
+class LaunchTemplateCpu(dict):
+    def __init__(__self__, *,
+                 references: Optional[Sequence['outputs.LaunchTemplateReference']] = None):
+        if references is not None:
+            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def references(self) -> Optional[Sequence['outputs.LaunchTemplateReference']]:
+        return pulumi.get(self, "references")
 
 
 @pulumi.output_type
@@ -5252,6 +5281,8 @@ class LaunchTemplateInstanceRequirements(dict):
             suggest = "bare_metal"
         elif key == "baselineEbsBandwidthMbps":
             suggest = "baseline_ebs_bandwidth_mbps"
+        elif key == "baselinePerformanceFactors":
+            suggest = "baseline_performance_factors"
         elif key == "burstablePerformance":
             suggest = "burstable_performance"
         elif key == "cpuManufacturers":
@@ -5305,6 +5336,7 @@ class LaunchTemplateInstanceRequirements(dict):
                  allowed_instance_types: Optional[Sequence[str]] = None,
                  bare_metal: Optional[str] = None,
                  baseline_ebs_bandwidth_mbps: Optional['outputs.LaunchTemplateBaselineEbsBandwidthMbps'] = None,
+                 baseline_performance_factors: Optional['outputs.LaunchTemplateBaselinePerformanceFactors'] = None,
                  burstable_performance: Optional[str] = None,
                  cpu_manufacturers: Optional[Sequence[str]] = None,
                  excluded_instance_types: Optional[Sequence[str]] = None,
@@ -5458,6 +5490,8 @@ class LaunchTemplateInstanceRequirements(dict):
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
             pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if baseline_performance_factors is not None:
+            pulumi.set(__self__, "baseline_performance_factors", baseline_performance_factors)
         if burstable_performance is not None:
             pulumi.set(__self__, "burstable_performance", burstable_performance)
         if cpu_manufacturers is not None:
@@ -5593,6 +5627,11 @@ class LaunchTemplateInstanceRequirements(dict):
          Default: No minimum or maximum limits
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
+
+    @property
+    @pulumi.getter(name="baselinePerformanceFactors")
+    def baseline_performance_factors(self) -> Optional['outputs.LaunchTemplateBaselinePerformanceFactors']:
+        return pulumi.get(self, "baseline_performance_factors")
 
     @property
     @pulumi.getter(name="burstablePerformance")
@@ -6870,6 +6909,42 @@ class LaunchTemplatePrivateIpAdd(dict):
         The private IPv4 address.
         """
         return pulumi.get(self, "private_ip_address")
+
+
+@pulumi.output_type
+class LaunchTemplateReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceFamily":
+            suggest = "instance_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_family: Optional[str] = None):
+        """
+        :param str instance_family: The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+        """
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[str]:
+        """
+        The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+        """
+        return pulumi.get(self, "instance_family")
 
 
 @pulumi.output_type

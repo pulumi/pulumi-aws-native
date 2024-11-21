@@ -3425,6 +3425,9 @@ if not MYPY:
           This parameter is not supported for Windows containers.
         """
         version_consistency: NotRequired[pulumi.Input['TaskDefinitionContainerDefinitionVersionConsistency']]
+        """
+        Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is `enabled` . If you set the value for a container as `disabled` , Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide* .
+        """
         volumes_from: NotRequired[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeFromArgsDict']]]]
         """
         Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the docker container create command and the ``--volumes-from`` option to docker run.
@@ -3609,6 +3612,7 @@ class TaskDefinitionContainerDefinitionArgs:
                  +   ``uid:group`` 
                  
                  This parameter is not supported for Windows containers.
+        :param pulumi.Input['TaskDefinitionContainerDefinitionVersionConsistency'] version_consistency: Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is `enabled` . If you set the value for a container as `disabled` , Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeFromArgs']]] volumes_from: Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the docker container create command and the ``--volumes-from`` option to docker run.
         :param pulumi.Input[str] working_directory: The working directory to run commands inside the container in. This parameter maps to ``WorkingDir`` in the docker container create command and the ``--workdir`` option to docker run.
         """
@@ -4253,6 +4257,9 @@ class TaskDefinitionContainerDefinitionArgs:
     @property
     @pulumi.getter(name="versionConsistency")
     def version_consistency(self) -> Optional[pulumi.Input['TaskDefinitionContainerDefinitionVersionConsistency']]:
+        """
+        Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is `enabled` . If you set the value for a container as `disabled` , Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide* .
+        """
         return pulumi.get(self, "version_consistency")
 
     @version_consistency.setter

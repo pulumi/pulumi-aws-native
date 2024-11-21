@@ -676,7 +676,8 @@ func (in *lifecyclePolicyTypePtr) ToLifecyclePolicyTypePtrOutputWithContext(ctx 
 type SecurityConfigType string
 
 const (
-	SecurityConfigTypeSaml = SecurityConfigType("saml")
+	SecurityConfigTypeSaml              = SecurityConfigType("saml")
+	SecurityConfigTypeIamidentitycenter = SecurityConfigType("iamidentitycenter")
 )
 
 func (SecurityConfigType) ElementType() reflect.Type {
@@ -802,6 +803,7 @@ func (o SecurityConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // A concrete instance of `SecurityConfigTypeInput` can be one of the following:
 //
 //	SecurityConfigTypeSaml
+//	SecurityConfigTypeIamidentitycenter
 type SecurityConfigTypeInput interface {
 	pulumi.Input
 

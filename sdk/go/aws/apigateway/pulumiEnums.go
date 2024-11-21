@@ -196,6 +196,170 @@ func (in *documentationPartLocationTypePtr) ToDocumentationPartLocationTypePtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentationPartLocationTypePtrOutput)
 }
 
+// The source type of the domain name access association resource.
+type DomainNameAccessAssociationAccessAssociationSourceType string
+
+const (
+	DomainNameAccessAssociationAccessAssociationSourceTypeVpce = DomainNameAccessAssociationAccessAssociationSourceType("VPCE")
+)
+
+func (DomainNameAccessAssociationAccessAssociationSourceType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameAccessAssociationAccessAssociationSourceType)(nil)).Elem()
+}
+
+func (e DomainNameAccessAssociationAccessAssociationSourceType) ToDomainNameAccessAssociationAccessAssociationSourceTypeOutput() DomainNameAccessAssociationAccessAssociationSourceTypeOutput {
+	return pulumi.ToOutput(e).(DomainNameAccessAssociationAccessAssociationSourceTypeOutput)
+}
+
+func (e DomainNameAccessAssociationAccessAssociationSourceType) ToDomainNameAccessAssociationAccessAssociationSourceTypeOutputWithContext(ctx context.Context) DomainNameAccessAssociationAccessAssociationSourceTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainNameAccessAssociationAccessAssociationSourceTypeOutput)
+}
+
+func (e DomainNameAccessAssociationAccessAssociationSourceType) ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutput() DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput {
+	return e.ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainNameAccessAssociationAccessAssociationSourceType) ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutputWithContext(ctx context.Context) DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput {
+	return DomainNameAccessAssociationAccessAssociationSourceType(e).ToDomainNameAccessAssociationAccessAssociationSourceTypeOutputWithContext(ctx).ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainNameAccessAssociationAccessAssociationSourceType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainNameAccessAssociationAccessAssociationSourceType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainNameAccessAssociationAccessAssociationSourceType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainNameAccessAssociationAccessAssociationSourceType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainNameAccessAssociationAccessAssociationSourceTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNameAccessAssociationAccessAssociationSourceType)(nil)).Elem()
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ToDomainNameAccessAssociationAccessAssociationSourceTypeOutput() DomainNameAccessAssociationAccessAssociationSourceTypeOutput {
+	return o
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ToDomainNameAccessAssociationAccessAssociationSourceTypeOutputWithContext(ctx context.Context) DomainNameAccessAssociationAccessAssociationSourceTypeOutput {
+	return o
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutput() DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput {
+	return o.ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutputWithContext(ctx context.Context) DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameAccessAssociationAccessAssociationSourceType) *DomainNameAccessAssociationAccessAssociationSourceType {
+		return &v
+	}).(DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput)
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainNameAccessAssociationAccessAssociationSourceType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainNameAccessAssociationAccessAssociationSourceType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNameAccessAssociationAccessAssociationSourceType)(nil)).Elem()
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput) ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutput() DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput {
+	return o
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput) ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutputWithContext(ctx context.Context) DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput {
+	return o
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput) Elem() DomainNameAccessAssociationAccessAssociationSourceTypeOutput {
+	return o.ApplyT(func(v *DomainNameAccessAssociationAccessAssociationSourceType) DomainNameAccessAssociationAccessAssociationSourceType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNameAccessAssociationAccessAssociationSourceType
+		return ret
+	}).(DomainNameAccessAssociationAccessAssociationSourceTypeOutput)
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainNameAccessAssociationAccessAssociationSourceType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainNameAccessAssociationAccessAssociationSourceTypeInput is an input type that accepts values of the DomainNameAccessAssociationAccessAssociationSourceType enum
+// A concrete instance of `DomainNameAccessAssociationAccessAssociationSourceTypeInput` can be one of the following:
+//
+//	DomainNameAccessAssociationAccessAssociationSourceTypeVpce
+type DomainNameAccessAssociationAccessAssociationSourceTypeInput interface {
+	pulumi.Input
+
+	ToDomainNameAccessAssociationAccessAssociationSourceTypeOutput() DomainNameAccessAssociationAccessAssociationSourceTypeOutput
+	ToDomainNameAccessAssociationAccessAssociationSourceTypeOutputWithContext(context.Context) DomainNameAccessAssociationAccessAssociationSourceTypeOutput
+}
+
+var domainNameAccessAssociationAccessAssociationSourceTypePtrType = reflect.TypeOf((**DomainNameAccessAssociationAccessAssociationSourceType)(nil)).Elem()
+
+type DomainNameAccessAssociationAccessAssociationSourceTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutput() DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput
+	ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutputWithContext(context.Context) DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput
+}
+
+type domainNameAccessAssociationAccessAssociationSourceTypePtr string
+
+func DomainNameAccessAssociationAccessAssociationSourceTypePtr(v string) DomainNameAccessAssociationAccessAssociationSourceTypePtrInput {
+	return (*domainNameAccessAssociationAccessAssociationSourceTypePtr)(&v)
+}
+
+func (*domainNameAccessAssociationAccessAssociationSourceTypePtr) ElementType() reflect.Type {
+	return domainNameAccessAssociationAccessAssociationSourceTypePtrType
+}
+
+func (in *domainNameAccessAssociationAccessAssociationSourceTypePtr) ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutput() DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput)
+}
+
+func (in *domainNameAccessAssociationAccessAssociationSourceTypePtr) ToDomainNameAccessAssociationAccessAssociationSourceTypePtrOutputWithContext(ctx context.Context) DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput)
+}
+
 // The type of the network connection to the integration endpoint. The valid value is `INTERNET` for connections through the public routable internet or `VPC_LINK` for private connections between API Gateway and a network load balancer in a VPC. The default value is `INTERNET` .
 type MethodIntegrationConnectionType string
 
@@ -1207,6 +1371,8 @@ func (in *usagePlanKeyKeyTypePtr) ToUsagePlanKeyKeyTypePtrOutputWithContext(ctx 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationTypeInput)(nil)).Elem(), DocumentationPartLocationType("API"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationTypePtrInput)(nil)).Elem(), DocumentationPartLocationType("API"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameAccessAssociationAccessAssociationSourceTypeInput)(nil)).Elem(), DomainNameAccessAssociationAccessAssociationSourceType("VPCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameAccessAssociationAccessAssociationSourceTypePtrInput)(nil)).Elem(), DomainNameAccessAssociationAccessAssociationSourceType("VPCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypeInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationConnectionTypePtrInput)(nil)).Elem(), MethodIntegrationConnectionType("INTERNET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodIntegrationContentHandlingInput)(nil)).Elem(), MethodIntegrationContentHandling("CONVERT_TO_BINARY"))
@@ -1221,6 +1387,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyKeyTypePtrInput)(nil)).Elem(), UsagePlanKeyKeyType("API_KEY"))
 	pulumi.RegisterOutputType(DocumentationPartLocationTypeOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainNameAccessAssociationAccessAssociationSourceTypeOutput{})
+	pulumi.RegisterOutputType(DomainNameAccessAssociationAccessAssociationSourceTypePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationConnectionTypeOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationConnectionTypePtrOutput{})
 	pulumi.RegisterOutputType(MethodIntegrationContentHandlingOutput{})

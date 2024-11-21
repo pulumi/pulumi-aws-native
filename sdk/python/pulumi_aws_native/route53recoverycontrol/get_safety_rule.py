@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetSafetyRuleResult:
-    def __init__(__self__, assertion_rule=None, control_panel_arn=None, gating_rule=None, name=None, rule_config=None, safety_rule_arn=None, status=None):
+    def __init__(__self__, assertion_rule=None, control_panel_arn=None, gating_rule=None, name=None, rule_config=None, safety_rule_arn=None, status=None, tags=None):
         if assertion_rule and not isinstance(assertion_rule, dict):
             raise TypeError("Expected argument 'assertion_rule' to be a dict")
         pulumi.set(__self__, "assertion_rule", assertion_rule)
@@ -47,6 +48,9 @@ class GetSafetyRuleResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="assertionRule")
@@ -106,6 +110,14 @@ class GetSafetyRuleResult:
         """
         return pulumi.get(self, "status")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A collection of tags associated with a resource
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetSafetyRuleResult(GetSafetyRuleResult):
     # pylint: disable=using-constant-test
@@ -119,7 +131,8 @@ class AwaitableGetSafetyRuleResult(GetSafetyRuleResult):
             name=self.name,
             rule_config=self.rule_config,
             safety_rule_arn=self.safety_rule_arn,
-            status=self.status)
+            status=self.status,
+            tags=self.tags)
 
 
 def get_safety_rule(safety_rule_arn: Optional[str] = None,
@@ -142,7 +155,8 @@ def get_safety_rule(safety_rule_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         rule_config=pulumi.get(__ret__, 'rule_config'),
         safety_rule_arn=pulumi.get(__ret__, 'safety_rule_arn'),
-        status=pulumi.get(__ret__, 'status'))
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_safety_rule_output(safety_rule_arn: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSafetyRuleResult]:
     """
@@ -162,4 +176,5 @@ def get_safety_rule_output(safety_rule_arn: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         rule_config=pulumi.get(__response__, 'rule_config'),
         safety_rule_arn=pulumi.get(__response__, 'safety_rule_arn'),
-        status=pulumi.get(__response__, 'status')))
+        status=pulumi.get(__response__, 'status'),
+        tags=pulumi.get(__response__, 'tags')))

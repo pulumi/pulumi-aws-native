@@ -66,6 +66,8 @@ __all__ = [
     'SpotFleetSpotCapacityRebalanceReplacementStrategy',
     'SpotFleetSpotPlacementTenancy',
     'SpotFleetTagSpecificationResourceType',
+    'VpcBlockPublicAccessExclusionInternetGatewayExclusionMode',
+    'VpcBlockPublicAccessOptionsInternetGatewayBlockMode',
     'VpcEndpointType',
     'VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat',
     'VpnConnectionIkeVersionsRequestListValueValue',
@@ -765,6 +767,22 @@ class SpotFleetTagSpecificationResourceType(str, Enum):
     VPC_PEERING_CONNECTION = "vpc-peering-connection"
     VPN_CONNECTION = "vpn-connection"
     VPN_GATEWAY = "vpn-gateway"
+
+
+class VpcBlockPublicAccessExclusionInternetGatewayExclusionMode(str, Enum):
+    """
+    The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
+    """
+    ALLOW_BIDIRECTIONAL = "allow-bidirectional"
+    ALLOW_EGRESS = "allow-egress"
+
+
+class VpcBlockPublicAccessOptionsInternetGatewayBlockMode(str, Enum):
+    """
+    The desired Block Public Access mode for Internet Gateways in your account. We do not allow to create in a off mode as this is the default value
+    """
+    BLOCK_BIDIRECTIONAL = "block-bidirectional"
+    BLOCK_INGRESS = "block-ingress"
 
 
 class VpcEndpointType(str, Enum):

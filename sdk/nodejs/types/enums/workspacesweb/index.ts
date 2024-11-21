@@ -2,6 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const DataProtectionSettingsRedactionPlaceHolderType = {
+    CustomText: "CustomText",
+} as const;
+
+export type DataProtectionSettingsRedactionPlaceHolderType = (typeof DataProtectionSettingsRedactionPlaceHolderType)[keyof typeof DataProtectionSettingsRedactionPlaceHolderType];
+
 export const IdentityProviderType = {
     Saml: "SAML",
     Facebook: "Facebook",

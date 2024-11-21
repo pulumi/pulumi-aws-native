@@ -2198,6 +2198,143 @@ type EventSubscriptionTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type GlobalClusterGlobalEndpoint struct {
+	// The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+	Address *string `pulumi:"address"`
+}
+
+// GlobalClusterGlobalEndpointInput is an input type that accepts GlobalClusterGlobalEndpointArgs and GlobalClusterGlobalEndpointOutput values.
+// You can construct a concrete instance of `GlobalClusterGlobalEndpointInput` via:
+//
+//	GlobalClusterGlobalEndpointArgs{...}
+type GlobalClusterGlobalEndpointInput interface {
+	pulumi.Input
+
+	ToGlobalClusterGlobalEndpointOutput() GlobalClusterGlobalEndpointOutput
+	ToGlobalClusterGlobalEndpointOutputWithContext(context.Context) GlobalClusterGlobalEndpointOutput
+}
+
+type GlobalClusterGlobalEndpointArgs struct {
+	// The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+}
+
+func (GlobalClusterGlobalEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterGlobalEndpoint)(nil)).Elem()
+}
+
+func (i GlobalClusterGlobalEndpointArgs) ToGlobalClusterGlobalEndpointOutput() GlobalClusterGlobalEndpointOutput {
+	return i.ToGlobalClusterGlobalEndpointOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterGlobalEndpointArgs) ToGlobalClusterGlobalEndpointOutputWithContext(ctx context.Context) GlobalClusterGlobalEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalEndpointOutput)
+}
+
+func (i GlobalClusterGlobalEndpointArgs) ToGlobalClusterGlobalEndpointPtrOutput() GlobalClusterGlobalEndpointPtrOutput {
+	return i.ToGlobalClusterGlobalEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i GlobalClusterGlobalEndpointArgs) ToGlobalClusterGlobalEndpointPtrOutputWithContext(ctx context.Context) GlobalClusterGlobalEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalEndpointOutput).ToGlobalClusterGlobalEndpointPtrOutputWithContext(ctx)
+}
+
+// GlobalClusterGlobalEndpointPtrInput is an input type that accepts GlobalClusterGlobalEndpointArgs, GlobalClusterGlobalEndpointPtr and GlobalClusterGlobalEndpointPtrOutput values.
+// You can construct a concrete instance of `GlobalClusterGlobalEndpointPtrInput` via:
+//
+//	        GlobalClusterGlobalEndpointArgs{...}
+//
+//	or:
+//
+//	        nil
+type GlobalClusterGlobalEndpointPtrInput interface {
+	pulumi.Input
+
+	ToGlobalClusterGlobalEndpointPtrOutput() GlobalClusterGlobalEndpointPtrOutput
+	ToGlobalClusterGlobalEndpointPtrOutputWithContext(context.Context) GlobalClusterGlobalEndpointPtrOutput
+}
+
+type globalClusterGlobalEndpointPtrType GlobalClusterGlobalEndpointArgs
+
+func GlobalClusterGlobalEndpointPtr(v *GlobalClusterGlobalEndpointArgs) GlobalClusterGlobalEndpointPtrInput {
+	return (*globalClusterGlobalEndpointPtrType)(v)
+}
+
+func (*globalClusterGlobalEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalClusterGlobalEndpoint)(nil)).Elem()
+}
+
+func (i *globalClusterGlobalEndpointPtrType) ToGlobalClusterGlobalEndpointPtrOutput() GlobalClusterGlobalEndpointPtrOutput {
+	return i.ToGlobalClusterGlobalEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *globalClusterGlobalEndpointPtrType) ToGlobalClusterGlobalEndpointPtrOutputWithContext(ctx context.Context) GlobalClusterGlobalEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalEndpointPtrOutput)
+}
+
+type GlobalClusterGlobalEndpointOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterGlobalEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GlobalClusterGlobalEndpoint)(nil)).Elem()
+}
+
+func (o GlobalClusterGlobalEndpointOutput) ToGlobalClusterGlobalEndpointOutput() GlobalClusterGlobalEndpointOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalEndpointOutput) ToGlobalClusterGlobalEndpointOutputWithContext(ctx context.Context) GlobalClusterGlobalEndpointOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalEndpointOutput) ToGlobalClusterGlobalEndpointPtrOutput() GlobalClusterGlobalEndpointPtrOutput {
+	return o.ToGlobalClusterGlobalEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o GlobalClusterGlobalEndpointOutput) ToGlobalClusterGlobalEndpointPtrOutputWithContext(ctx context.Context) GlobalClusterGlobalEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GlobalClusterGlobalEndpoint) *GlobalClusterGlobalEndpoint {
+		return &v
+	}).(GlobalClusterGlobalEndpointPtrOutput)
+}
+
+// The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+func (o GlobalClusterGlobalEndpointOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GlobalClusterGlobalEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+type GlobalClusterGlobalEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (GlobalClusterGlobalEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GlobalClusterGlobalEndpoint)(nil)).Elem()
+}
+
+func (o GlobalClusterGlobalEndpointPtrOutput) ToGlobalClusterGlobalEndpointPtrOutput() GlobalClusterGlobalEndpointPtrOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalEndpointPtrOutput) ToGlobalClusterGlobalEndpointPtrOutputWithContext(ctx context.Context) GlobalClusterGlobalEndpointPtrOutput {
+	return o
+}
+
+func (o GlobalClusterGlobalEndpointPtrOutput) Elem() GlobalClusterGlobalEndpointOutput {
+	return o.ApplyT(func(v *GlobalClusterGlobalEndpoint) GlobalClusterGlobalEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret GlobalClusterGlobalEndpoint
+		return ret
+	}).(GlobalClusterGlobalEndpointOutput)
+}
+
+// The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+func (o GlobalClusterGlobalEndpointPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalClusterGlobalEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type GlobalClusterTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -2505,6 +2642,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyAuthFormatArrayInput)(nil)).Elem(), DbProxyAuthFormatArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupConnectionPoolConfigurationInfoFormatInput)(nil)).Elem(), DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrInput)(nil)).Elem(), DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalEndpointInput)(nil)).Elem(), GlobalClusterGlobalEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalEndpointPtrInput)(nil)).Elem(), GlobalClusterGlobalEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationInput)(nil)).Elem(), OptionGroupOptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionConfigurationArrayInput)(nil)).Elem(), OptionGroupOptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupOptionSettingInput)(nil)).Elem(), OptionGroupOptionSettingArgs{})
@@ -2535,6 +2674,8 @@ func init() {
 	pulumi.RegisterOutputType(DbProxyAuthFormatArrayOutput{})
 	pulumi.RegisterOutputType(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatOutput{})
 	pulumi.RegisterOutputType(DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput{})
+	pulumi.RegisterOutputType(GlobalClusterGlobalEndpointOutput{})
+	pulumi.RegisterOutputType(GlobalClusterGlobalEndpointPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(OptionGroupOptionSettingOutput{})

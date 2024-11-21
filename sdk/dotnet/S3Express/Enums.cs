@@ -37,6 +37,34 @@ namespace Pulumi.AwsNative.S3Express
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DirectoryBucketRuleStatus : IEquatable<DirectoryBucketRuleStatus>
+    {
+        private readonly string _value;
+
+        private DirectoryBucketRuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DirectoryBucketRuleStatus Enabled { get; } = new DirectoryBucketRuleStatus("Enabled");
+        public static DirectoryBucketRuleStatus Disabled { get; } = new DirectoryBucketRuleStatus("Disabled");
+
+        public static bool operator ==(DirectoryBucketRuleStatus left, DirectoryBucketRuleStatus right) => left.Equals(right);
+        public static bool operator !=(DirectoryBucketRuleStatus left, DirectoryBucketRuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DirectoryBucketRuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DirectoryBucketRuleStatus other && Equals(other);
+        public bool Equals(DirectoryBucketRuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Server-side encryption algorithm to use for the default encryption.
     /// 

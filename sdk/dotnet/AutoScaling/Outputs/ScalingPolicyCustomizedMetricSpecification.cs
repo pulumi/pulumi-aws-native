@@ -31,6 +31,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         /// The namespace of the metric.
         /// </summary>
         public readonly string? Namespace;
+        public readonly int? Period;
         /// <summary>
         /// The statistic of the metric.
         /// </summary>
@@ -50,6 +51,8 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             string? @namespace,
 
+            int? period,
+
             string? statistic,
 
             string? unit)
@@ -58,6 +61,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
             MetricName = metricName;
             Metrics = metrics;
             Namespace = @namespace;
+            Period = period;
             Statistic = statistic;
             Unit = unit;
         }

@@ -34,6 +34,8 @@ type LookupDirectoryBucketResult struct {
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
 	BucketEncryption *DirectoryBucketBucketEncryption `pulumi:"bucketEncryption"`
+	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+	LifecycleConfiguration *DirectoryBucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 }
 
 func LookupDirectoryBucketOutput(ctx *pulumi.Context, args LookupDirectoryBucketOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryBucketResultOutput {
@@ -91,6 +93,13 @@ func (o LookupDirectoryBucketResultOutput) AvailabilityZoneName() pulumi.StringP
 // Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
 func (o LookupDirectoryBucketResultOutput) BucketEncryption() DirectoryBucketBucketEncryptionPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryBucketResult) *DirectoryBucketBucketEncryption { return v.BucketEncryption }).(DirectoryBucketBucketEncryptionPtrOutput)
+}
+
+// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+func (o LookupDirectoryBucketResultOutput) LifecycleConfiguration() DirectoryBucketLifecycleConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDirectoryBucketResult) *DirectoryBucketLifecycleConfiguration {
+		return v.LifecycleConfiguration
+	}).(DirectoryBucketLifecycleConfigurationPtrOutput)
 }
 
 func init() {

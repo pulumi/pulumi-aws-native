@@ -61,7 +61,13 @@ export class GuardHook extends pulumi.CustomResource {
      * S3 Bucket where the guard validate report will be uploaded to
      */
     public readonly logBucket!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the S3 location of your input parameters.
+     */
     public readonly options!: pulumi.Output<outputs.cloudformation.OptionsProperties | undefined>;
+    /**
+     * Specifies the S3 location of your Guard rules.
+     */
     public readonly ruleLocation!: pulumi.Output<outputs.cloudformation.GuardHookS3Location>;
     /**
      * Filters to allow hooks to target specific stack attributes
@@ -160,7 +166,13 @@ export interface GuardHookArgs {
      * S3 Bucket where the guard validate report will be uploaded to
      */
     logBucket?: pulumi.Input<string>;
+    /**
+     * Specifies the S3 location of your input parameters.
+     */
     options?: pulumi.Input<inputs.cloudformation.OptionsPropertiesArgs>;
+    /**
+     * Specifies the S3 location of your Guard rules.
+     */
     ruleLocation: pulumi.Input<inputs.cloudformation.GuardHookS3LocationArgs>;
     /**
      * Filters to allow hooks to target specific stack attributes

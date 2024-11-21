@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+type CanaryProvisionedResourceCleanup string
+
+const (
+	CanaryProvisionedResourceCleanupAutomatic = CanaryProvisionedResourceCleanup("AUTOMATIC")
+	CanaryProvisionedResourceCleanupOff       = CanaryProvisionedResourceCleanup("OFF")
+)
+
+func (CanaryProvisionedResourceCleanup) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryProvisionedResourceCleanup)(nil)).Elem()
+}
+
+func (e CanaryProvisionedResourceCleanup) ToCanaryProvisionedResourceCleanupOutput() CanaryProvisionedResourceCleanupOutput {
+	return pulumi.ToOutput(e).(CanaryProvisionedResourceCleanupOutput)
+}
+
+func (e CanaryProvisionedResourceCleanup) ToCanaryProvisionedResourceCleanupOutputWithContext(ctx context.Context) CanaryProvisionedResourceCleanupOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CanaryProvisionedResourceCleanupOutput)
+}
+
+func (e CanaryProvisionedResourceCleanup) ToCanaryProvisionedResourceCleanupPtrOutput() CanaryProvisionedResourceCleanupPtrOutput {
+	return e.ToCanaryProvisionedResourceCleanupPtrOutputWithContext(context.Background())
+}
+
+func (e CanaryProvisionedResourceCleanup) ToCanaryProvisionedResourceCleanupPtrOutputWithContext(ctx context.Context) CanaryProvisionedResourceCleanupPtrOutput {
+	return CanaryProvisionedResourceCleanup(e).ToCanaryProvisionedResourceCleanupOutputWithContext(ctx).ToCanaryProvisionedResourceCleanupPtrOutputWithContext(ctx)
+}
+
+func (e CanaryProvisionedResourceCleanup) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CanaryProvisionedResourceCleanup) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CanaryProvisionedResourceCleanup) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CanaryProvisionedResourceCleanup) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CanaryProvisionedResourceCleanupOutput struct{ *pulumi.OutputState }
+
+func (CanaryProvisionedResourceCleanupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CanaryProvisionedResourceCleanup)(nil)).Elem()
+}
+
+func (o CanaryProvisionedResourceCleanupOutput) ToCanaryProvisionedResourceCleanupOutput() CanaryProvisionedResourceCleanupOutput {
+	return o
+}
+
+func (o CanaryProvisionedResourceCleanupOutput) ToCanaryProvisionedResourceCleanupOutputWithContext(ctx context.Context) CanaryProvisionedResourceCleanupOutput {
+	return o
+}
+
+func (o CanaryProvisionedResourceCleanupOutput) ToCanaryProvisionedResourceCleanupPtrOutput() CanaryProvisionedResourceCleanupPtrOutput {
+	return o.ToCanaryProvisionedResourceCleanupPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryProvisionedResourceCleanupOutput) ToCanaryProvisionedResourceCleanupPtrOutputWithContext(ctx context.Context) CanaryProvisionedResourceCleanupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanaryProvisionedResourceCleanup) *CanaryProvisionedResourceCleanup {
+		return &v
+	}).(CanaryProvisionedResourceCleanupPtrOutput)
+}
+
+func (o CanaryProvisionedResourceCleanupOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CanaryProvisionedResourceCleanupOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CanaryProvisionedResourceCleanup) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CanaryProvisionedResourceCleanupOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryProvisionedResourceCleanupOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CanaryProvisionedResourceCleanup) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CanaryProvisionedResourceCleanupPtrOutput struct{ *pulumi.OutputState }
+
+func (CanaryProvisionedResourceCleanupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CanaryProvisionedResourceCleanup)(nil)).Elem()
+}
+
+func (o CanaryProvisionedResourceCleanupPtrOutput) ToCanaryProvisionedResourceCleanupPtrOutput() CanaryProvisionedResourceCleanupPtrOutput {
+	return o
+}
+
+func (o CanaryProvisionedResourceCleanupPtrOutput) ToCanaryProvisionedResourceCleanupPtrOutputWithContext(ctx context.Context) CanaryProvisionedResourceCleanupPtrOutput {
+	return o
+}
+
+func (o CanaryProvisionedResourceCleanupPtrOutput) Elem() CanaryProvisionedResourceCleanupOutput {
+	return o.ApplyT(func(v *CanaryProvisionedResourceCleanup) CanaryProvisionedResourceCleanup {
+		if v != nil {
+			return *v
+		}
+		var ret CanaryProvisionedResourceCleanup
+		return ret
+	}).(CanaryProvisionedResourceCleanupOutput)
+}
+
+func (o CanaryProvisionedResourceCleanupPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CanaryProvisionedResourceCleanupPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CanaryProvisionedResourceCleanup) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CanaryProvisionedResourceCleanupInput is an input type that accepts values of the CanaryProvisionedResourceCleanup enum
+// A concrete instance of `CanaryProvisionedResourceCleanupInput` can be one of the following:
+//
+//	CanaryProvisionedResourceCleanupAutomatic
+//	CanaryProvisionedResourceCleanupOff
+type CanaryProvisionedResourceCleanupInput interface {
+	pulumi.Input
+
+	ToCanaryProvisionedResourceCleanupOutput() CanaryProvisionedResourceCleanupOutput
+	ToCanaryProvisionedResourceCleanupOutputWithContext(context.Context) CanaryProvisionedResourceCleanupOutput
+}
+
+var canaryProvisionedResourceCleanupPtrType = reflect.TypeOf((**CanaryProvisionedResourceCleanup)(nil)).Elem()
+
+type CanaryProvisionedResourceCleanupPtrInput interface {
+	pulumi.Input
+
+	ToCanaryProvisionedResourceCleanupPtrOutput() CanaryProvisionedResourceCleanupPtrOutput
+	ToCanaryProvisionedResourceCleanupPtrOutputWithContext(context.Context) CanaryProvisionedResourceCleanupPtrOutput
+}
+
+type canaryProvisionedResourceCleanupPtr string
+
+func CanaryProvisionedResourceCleanupPtr(v string) CanaryProvisionedResourceCleanupPtrInput {
+	return (*canaryProvisionedResourceCleanupPtr)(&v)
+}
+
+func (*canaryProvisionedResourceCleanupPtr) ElementType() reflect.Type {
+	return canaryProvisionedResourceCleanupPtrType
+}
+
+func (in *canaryProvisionedResourceCleanupPtr) ToCanaryProvisionedResourceCleanupPtrOutput() CanaryProvisionedResourceCleanupPtrOutput {
+	return pulumi.ToOutput(in).(CanaryProvisionedResourceCleanupPtrOutput)
+}
+
+func (in *canaryProvisionedResourceCleanupPtr) ToCanaryProvisionedResourceCleanupPtrOutputWithContext(ctx context.Context) CanaryProvisionedResourceCleanupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CanaryProvisionedResourceCleanupPtrOutput)
+}
+
 // Specifies which resources canary tags should be replicated to.
 type CanaryResourceToTag string
 
@@ -220,9 +386,13 @@ func (o CanaryResourceToTagArrayOutput) Index(i pulumi.IntInput) CanaryResourceT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryProvisionedResourceCleanupInput)(nil)).Elem(), CanaryProvisionedResourceCleanup("AUTOMATIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryProvisionedResourceCleanupPtrInput)(nil)).Elem(), CanaryProvisionedResourceCleanup("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagInput)(nil)).Elem(), CanaryResourceToTag("lambda-function"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagPtrInput)(nil)).Elem(), CanaryResourceToTag("lambda-function"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryResourceToTagArrayInput)(nil)).Elem(), CanaryResourceToTagArray{})
+	pulumi.RegisterOutputType(CanaryProvisionedResourceCleanupOutput{})
+	pulumi.RegisterOutputType(CanaryProvisionedResourceCleanupPtrOutput{})
 	pulumi.RegisterOutputType(CanaryResourceToTagOutput{})
 	pulumi.RegisterOutputType(CanaryResourceToTagPtrOutput{})
 	pulumi.RegisterOutputType(CanaryResourceToTagArrayOutput{})

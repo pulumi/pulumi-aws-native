@@ -96,6 +96,33 @@ namespace Pulumi.AwsNative.Lambda
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct EventSourceMappingMetricsConfigMetricsItem : IEquatable<EventSourceMappingMetricsConfigMetricsItem>
+    {
+        private readonly string _value;
+
+        private EventSourceMappingMetricsConfigMetricsItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventSourceMappingMetricsConfigMetricsItem EventCount { get; } = new EventSourceMappingMetricsConfigMetricsItem("EventCount");
+
+        public static bool operator ==(EventSourceMappingMetricsConfigMetricsItem left, EventSourceMappingMetricsConfigMetricsItem right) => left.Equals(right);
+        public static bool operator !=(EventSourceMappingMetricsConfigMetricsItem left, EventSourceMappingMetricsConfigMetricsItem right) => !left.Equals(right);
+
+        public static explicit operator string(EventSourceMappingMetricsConfigMetricsItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventSourceMappingMetricsConfigMetricsItem other && Equals(other);
+        public bool Equals(EventSourceMappingMetricsConfigMetricsItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of authentication protocol, VPC components, or virtual host for your event source. For example: ``"Type":"SASL_SCRAM_512_AUTH"``.
     ///   +   ``BASIC_AUTH`` – (Amazon MQ) The ASMlong secret that stores your broker credentials.

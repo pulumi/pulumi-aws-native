@@ -54,6 +54,20 @@ __all__ = [
     'ObjectTypeFieldMap',
     'ObjectTypeKey',
     'ObjectTypeKeyMap',
+    'SegmentDefinitionAddressDimension',
+    'SegmentDefinitionAttributeDimension',
+    'SegmentDefinitionCalculatedAttributeDimension',
+    'SegmentDefinitionConditionOverrides',
+    'SegmentDefinitionDateDimension',
+    'SegmentDefinitionDimension0Properties',
+    'SegmentDefinitionDimension1Properties',
+    'SegmentDefinitionExtraLengthValueProfileDimension',
+    'SegmentDefinitionGroup',
+    'SegmentDefinitionProfileAttributes',
+    'SegmentDefinitionProfileDimension',
+    'SegmentDefinitionRangeOverride',
+    'SegmentDefinitionSegmentGroup',
+    'SegmentDefinitionSourceSegment',
 ]
 
 @pulumi.output_type
@@ -2076,5 +2090,787 @@ class ObjectTypeKeyMap(dict):
         A list of ObjectTypeKey.
         """
         return pulumi.get(self, "object_type_key_list")
+
+
+@pulumi.output_type
+class SegmentDefinitionAddressDimension(dict):
+    """
+    The address based criteria for the segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "postalCode":
+            suggest = "postal_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionAddressDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionAddressDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionAddressDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 city: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 country: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 county: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 postal_code: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 province: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 state: Optional['outputs.SegmentDefinitionProfileDimension'] = None):
+        """
+        The address based criteria for the segment.
+        """
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if county is not None:
+            pulumi.set(__self__, "county", county)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if province is not None:
+            pulumi.set(__self__, "province", province)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "city")
+
+    @property
+    @pulumi.getter
+    def country(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "country")
+
+    @property
+    @pulumi.getter
+    def county(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "county")
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "postal_code")
+
+    @property
+    @pulumi.getter
+    def province(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "province")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class SegmentDefinitionAttributeDimension(dict):
+    """
+    Specifies attribute based criteria for a segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionType":
+            suggest = "dimension_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionAttributeDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionAttributeDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionAttributeDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_type: 'SegmentDefinitionAttributeDimensionType',
+                 values: Sequence[str]):
+        """
+        Specifies attribute based criteria for a segment.
+        """
+        pulumi.set(__self__, "dimension_type", dimension_type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="dimensionType")
+    def dimension_type(self) -> 'SegmentDefinitionAttributeDimensionType':
+        return pulumi.get(self, "dimension_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class SegmentDefinitionCalculatedAttributeDimension(dict):
+    """
+    Specifies calculated attribute based criteria for a segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionType":
+            suggest = "dimension_type"
+        elif key == "conditionOverrides":
+            suggest = "condition_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionCalculatedAttributeDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionCalculatedAttributeDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionCalculatedAttributeDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_type: 'SegmentDefinitionAttributeDimensionType',
+                 values: Sequence[str],
+                 condition_overrides: Optional['outputs.SegmentDefinitionConditionOverrides'] = None):
+        """
+        Specifies calculated attribute based criteria for a segment.
+        """
+        pulumi.set(__self__, "dimension_type", dimension_type)
+        pulumi.set(__self__, "values", values)
+        if condition_overrides is not None:
+            pulumi.set(__self__, "condition_overrides", condition_overrides)
+
+    @property
+    @pulumi.getter(name="dimensionType")
+    def dimension_type(self) -> 'SegmentDefinitionAttributeDimensionType':
+        return pulumi.get(self, "dimension_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter(name="conditionOverrides")
+    def condition_overrides(self) -> Optional['outputs.SegmentDefinitionConditionOverrides']:
+        return pulumi.get(self, "condition_overrides")
+
+
+@pulumi.output_type
+class SegmentDefinitionConditionOverrides(dict):
+    """
+    Overrides the condition block within the original calculated attribute definition.
+    """
+    def __init__(__self__, *,
+                 range: Optional['outputs.SegmentDefinitionRangeOverride'] = None):
+        """
+        Overrides the condition block within the original calculated attribute definition.
+        """
+        if range is not None:
+            pulumi.set(__self__, "range", range)
+
+    @property
+    @pulumi.getter
+    def range(self) -> Optional['outputs.SegmentDefinitionRangeOverride']:
+        return pulumi.get(self, "range")
+
+
+@pulumi.output_type
+class SegmentDefinitionDateDimension(dict):
+    """
+    Specifies date based criteria for a segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionType":
+            suggest = "dimension_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionDateDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionDateDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionDateDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_type: 'SegmentDefinitionDateDimensionType',
+                 values: Sequence[str]):
+        """
+        Specifies date based criteria for a segment.
+        """
+        pulumi.set(__self__, "dimension_type", dimension_type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="dimensionType")
+    def dimension_type(self) -> 'SegmentDefinitionDateDimensionType':
+        return pulumi.get(self, "dimension_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class SegmentDefinitionDimension0Properties(dict):
+    """
+    The criteria that define the dimensions for the segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "profileAttributes":
+            suggest = "profile_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionDimension0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionDimension0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionDimension0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 profile_attributes: 'outputs.SegmentDefinitionProfileAttributes'):
+        """
+        The criteria that define the dimensions for the segment.
+        """
+        pulumi.set(__self__, "profile_attributes", profile_attributes)
+
+    @property
+    @pulumi.getter(name="profileAttributes")
+    def profile_attributes(self) -> 'outputs.SegmentDefinitionProfileAttributes':
+        return pulumi.get(self, "profile_attributes")
+
+
+@pulumi.output_type
+class SegmentDefinitionDimension1Properties(dict):
+    """
+    The criteria that define the dimensions for the segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "calculatedAttributes":
+            suggest = "calculated_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionDimension1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionDimension1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionDimension1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 calculated_attributes: Optional[Mapping[str, 'outputs.SegmentDefinitionCalculatedAttributeDimension']] = None):
+        """
+        The criteria that define the dimensions for the segment.
+        """
+        if calculated_attributes is not None:
+            pulumi.set(__self__, "calculated_attributes", calculated_attributes)
+
+    @property
+    @pulumi.getter(name="calculatedAttributes")
+    def calculated_attributes(self) -> Optional[Mapping[str, 'outputs.SegmentDefinitionCalculatedAttributeDimension']]:
+        return pulumi.get(self, "calculated_attributes")
+
+
+@pulumi.output_type
+class SegmentDefinitionExtraLengthValueProfileDimension(dict):
+    """
+    Specifies criteria for a segment using extended-length string values.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionType":
+            suggest = "dimension_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionExtraLengthValueProfileDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionExtraLengthValueProfileDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionExtraLengthValueProfileDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_type: 'SegmentDefinitionStringDimensionType',
+                 values: Sequence[str]):
+        """
+        Specifies criteria for a segment using extended-length string values.
+        """
+        pulumi.set(__self__, "dimension_type", dimension_type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="dimensionType")
+    def dimension_type(self) -> 'SegmentDefinitionStringDimensionType':
+        return pulumi.get(self, "dimension_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class SegmentDefinitionGroup(dict):
+    """
+    An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceSegments":
+            suggest = "source_segments"
+        elif key == "sourceType":
+            suggest = "source_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimensions: Optional[Sequence[Any]] = None,
+                 source_segments: Optional[Sequence['outputs.SegmentDefinitionSourceSegment']] = None,
+                 source_type: Optional['SegmentDefinitionIncludeOptions'] = None,
+                 type: Optional['SegmentDefinitionIncludeOptions'] = None):
+        """
+        An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if source_segments is not None:
+            pulumi.set(__self__, "source_segments", source_segments)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="sourceSegments")
+    def source_segments(self) -> Optional[Sequence['outputs.SegmentDefinitionSourceSegment']]:
+        return pulumi.get(self, "source_segments")
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional['SegmentDefinitionIncludeOptions']:
+        return pulumi.get(self, "source_type")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional['SegmentDefinitionIncludeOptions']:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SegmentDefinitionProfileAttributes(dict):
+    """
+    Specifies the dimension settings within profile attributes for a segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountNumber":
+            suggest = "account_number"
+        elif key == "additionalInformation":
+            suggest = "additional_information"
+        elif key == "billingAddress":
+            suggest = "billing_address"
+        elif key == "birthDate":
+            suggest = "birth_date"
+        elif key == "businessEmailAddress":
+            suggest = "business_email_address"
+        elif key == "businessName":
+            suggest = "business_name"
+        elif key == "businessPhoneNumber":
+            suggest = "business_phone_number"
+        elif key == "emailAddress":
+            suggest = "email_address"
+        elif key == "firstName":
+            suggest = "first_name"
+        elif key == "genderString":
+            suggest = "gender_string"
+        elif key == "homePhoneNumber":
+            suggest = "home_phone_number"
+        elif key == "lastName":
+            suggest = "last_name"
+        elif key == "mailingAddress":
+            suggest = "mailing_address"
+        elif key == "middleName":
+            suggest = "middle_name"
+        elif key == "mobilePhoneNumber":
+            suggest = "mobile_phone_number"
+        elif key == "partyTypeString":
+            suggest = "party_type_string"
+        elif key == "personalEmailAddress":
+            suggest = "personal_email_address"
+        elif key == "phoneNumber":
+            suggest = "phone_number"
+        elif key == "shippingAddress":
+            suggest = "shipping_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionProfileAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionProfileAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionProfileAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_number: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 additional_information: Optional['outputs.SegmentDefinitionExtraLengthValueProfileDimension'] = None,
+                 address: Optional['outputs.SegmentDefinitionAddressDimension'] = None,
+                 attributes: Optional[Mapping[str, 'outputs.SegmentDefinitionAttributeDimension']] = None,
+                 billing_address: Optional['outputs.SegmentDefinitionAddressDimension'] = None,
+                 birth_date: Optional['outputs.SegmentDefinitionDateDimension'] = None,
+                 business_email_address: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 business_name: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 business_phone_number: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 email_address: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 first_name: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 gender_string: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 home_phone_number: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 last_name: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 mailing_address: Optional['outputs.SegmentDefinitionAddressDimension'] = None,
+                 middle_name: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 mobile_phone_number: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 party_type_string: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 personal_email_address: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 phone_number: Optional['outputs.SegmentDefinitionProfileDimension'] = None,
+                 shipping_address: Optional['outputs.SegmentDefinitionAddressDimension'] = None):
+        """
+        Specifies the dimension settings within profile attributes for a segment.
+        """
+        if account_number is not None:
+            pulumi.set(__self__, "account_number", account_number)
+        if additional_information is not None:
+            pulumi.set(__self__, "additional_information", additional_information)
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if billing_address is not None:
+            pulumi.set(__self__, "billing_address", billing_address)
+        if birth_date is not None:
+            pulumi.set(__self__, "birth_date", birth_date)
+        if business_email_address is not None:
+            pulumi.set(__self__, "business_email_address", business_email_address)
+        if business_name is not None:
+            pulumi.set(__self__, "business_name", business_name)
+        if business_phone_number is not None:
+            pulumi.set(__self__, "business_phone_number", business_phone_number)
+        if email_address is not None:
+            pulumi.set(__self__, "email_address", email_address)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if gender_string is not None:
+            pulumi.set(__self__, "gender_string", gender_string)
+        if home_phone_number is not None:
+            pulumi.set(__self__, "home_phone_number", home_phone_number)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if mailing_address is not None:
+            pulumi.set(__self__, "mailing_address", mailing_address)
+        if middle_name is not None:
+            pulumi.set(__self__, "middle_name", middle_name)
+        if mobile_phone_number is not None:
+            pulumi.set(__self__, "mobile_phone_number", mobile_phone_number)
+        if party_type_string is not None:
+            pulumi.set(__self__, "party_type_string", party_type_string)
+        if personal_email_address is not None:
+            pulumi.set(__self__, "personal_email_address", personal_email_address)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+        if shipping_address is not None:
+            pulumi.set(__self__, "shipping_address", shipping_address)
+
+    @property
+    @pulumi.getter(name="accountNumber")
+    def account_number(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "account_number")
+
+    @property
+    @pulumi.getter(name="additionalInformation")
+    def additional_information(self) -> Optional['outputs.SegmentDefinitionExtraLengthValueProfileDimension']:
+        return pulumi.get(self, "additional_information")
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional['outputs.SegmentDefinitionAddressDimension']:
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[Mapping[str, 'outputs.SegmentDefinitionAttributeDimension']]:
+        return pulumi.get(self, "attributes")
+
+    @property
+    @pulumi.getter(name="billingAddress")
+    def billing_address(self) -> Optional['outputs.SegmentDefinitionAddressDimension']:
+        return pulumi.get(self, "billing_address")
+
+    @property
+    @pulumi.getter(name="birthDate")
+    def birth_date(self) -> Optional['outputs.SegmentDefinitionDateDimension']:
+        return pulumi.get(self, "birth_date")
+
+    @property
+    @pulumi.getter(name="businessEmailAddress")
+    def business_email_address(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "business_email_address")
+
+    @property
+    @pulumi.getter(name="businessName")
+    def business_name(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "business_name")
+
+    @property
+    @pulumi.getter(name="businessPhoneNumber")
+    def business_phone_number(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "business_phone_number")
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "email_address")
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "first_name")
+
+    @property
+    @pulumi.getter(name="genderString")
+    def gender_string(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "gender_string")
+
+    @property
+    @pulumi.getter(name="homePhoneNumber")
+    def home_phone_number(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "home_phone_number")
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "last_name")
+
+    @property
+    @pulumi.getter(name="mailingAddress")
+    def mailing_address(self) -> Optional['outputs.SegmentDefinitionAddressDimension']:
+        return pulumi.get(self, "mailing_address")
+
+    @property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "middle_name")
+
+    @property
+    @pulumi.getter(name="mobilePhoneNumber")
+    def mobile_phone_number(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "mobile_phone_number")
+
+    @property
+    @pulumi.getter(name="partyTypeString")
+    def party_type_string(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "party_type_string")
+
+    @property
+    @pulumi.getter(name="personalEmailAddress")
+    def personal_email_address(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "personal_email_address")
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional['outputs.SegmentDefinitionProfileDimension']:
+        return pulumi.get(self, "phone_number")
+
+    @property
+    @pulumi.getter(name="shippingAddress")
+    def shipping_address(self) -> Optional['outputs.SegmentDefinitionAddressDimension']:
+        return pulumi.get(self, "shipping_address")
+
+
+@pulumi.output_type
+class SegmentDefinitionProfileDimension(dict):
+    """
+    Specifies profile based criteria for a segment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dimensionType":
+            suggest = "dimension_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionProfileDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionProfileDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionProfileDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dimension_type: 'SegmentDefinitionStringDimensionType',
+                 values: Sequence[str]):
+        """
+        Specifies profile based criteria for a segment.
+        """
+        pulumi.set(__self__, "dimension_type", dimension_type)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="dimensionType")
+    def dimension_type(self) -> 'SegmentDefinitionStringDimensionType':
+        return pulumi.get(self, "dimension_type")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class SegmentDefinitionRangeOverride(dict):
+    """
+    Defines the range to be applied to the calculated attribute definition.
+    """
+    def __init__(__self__, *,
+                 start: int,
+                 unit: 'SegmentDefinitionRangeOverrideUnit',
+                 end: Optional[int] = None):
+        """
+        Defines the range to be applied to the calculated attribute definition.
+        :param int start: The starting point for this overridden range.
+        :param 'SegmentDefinitionRangeOverrideUnit' unit: The unit to be applied to the range.
+        :param int end: The ending point for this overridden range.
+        """
+        pulumi.set(__self__, "start", start)
+        pulumi.set(__self__, "unit", unit)
+        if end is not None:
+            pulumi.set(__self__, "end", end)
+
+    @property
+    @pulumi.getter
+    def start(self) -> int:
+        """
+        The starting point for this overridden range.
+        """
+        return pulumi.get(self, "start")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'SegmentDefinitionRangeOverrideUnit':
+        """
+        The unit to be applied to the range.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def end(self) -> Optional[int]:
+        """
+        The ending point for this overridden range.
+        """
+        return pulumi.get(self, "end")
+
+
+@pulumi.output_type
+class SegmentDefinitionSegmentGroup(dict):
+    def __init__(__self__, *,
+                 groups: Optional[Sequence['outputs.SegmentDefinitionGroup']] = None,
+                 include: Optional['SegmentDefinitionIncludeOptions'] = None):
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if include is not None:
+            pulumi.set(__self__, "include", include)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[Sequence['outputs.SegmentDefinitionGroup']]:
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def include(self) -> Optional['SegmentDefinitionIncludeOptions']:
+        return pulumi.get(self, "include")
+
+
+@pulumi.output_type
+class SegmentDefinitionSourceSegment(dict):
+    """
+    The base segment to build the segment on.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "segmentDefinitionName":
+            suggest = "segment_definition_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SegmentDefinitionSourceSegment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SegmentDefinitionSourceSegment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SegmentDefinitionSourceSegment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 segment_definition_name: Optional[str] = None):
+        """
+        The base segment to build the segment on.
+        """
+        if segment_definition_name is not None:
+            pulumi.set(__self__, "segment_definition_name", segment_definition_name)
+
+    @property
+    @pulumi.getter(name="segmentDefinitionName")
+    def segment_definition_name(self) -> Optional[str]:
+        return pulumi.get(self, "segment_definition_name")
 
 

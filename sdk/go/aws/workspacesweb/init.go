@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:workspacesweb:BrowserSettings":
 		r = &BrowserSettings{}
+	case "aws-native:workspacesweb:DataProtectionSettings":
+		r = &DataProtectionSettings{}
 	case "aws-native:workspacesweb:IdentityProvider":
 		r = &IdentityProvider{}
 	case "aws-native:workspacesweb:IpAccessSettings":

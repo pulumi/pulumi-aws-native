@@ -27,6 +27,7 @@ class RuleArgs:
                  resource_type: pulumi.Input['RuleResourceType'],
                  retention_period: pulumi.Input['RuleRetentionPeriodArgs'],
                  description: Optional[pulumi.Input[str]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]] = None,
                  lock_configuration: Optional[pulumi.Input['RuleUnlockDelayArgs']] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class RuleArgs:
         :param pulumi.Input['RuleResourceType'] resource_type: The resource type retained by the retention rule.
         :param pulumi.Input['RuleRetentionPeriodArgs'] retention_period: Information about the retention period for which the retention rule is to retain resources.
         :param pulumi.Input[str] description: The description of the retention rule.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] exclude_resource_tags: Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
         :param pulumi.Input['RuleUnlockDelayArgs'] lock_configuration: Information about the retention rule lock configuration.
         :param pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]] resource_tags: Information about the resource tags used to identify resources that are retained by the retention rule.
         :param pulumi.Input[str] status: The state of the retention rule. Only retention rules that are in the available state retain resources.
@@ -45,6 +47,8 @@ class RuleArgs:
         pulumi.set(__self__, "retention_period", retention_period)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if exclude_resource_tags is not None:
+            pulumi.set(__self__, "exclude_resource_tags", exclude_resource_tags)
         if lock_configuration is not None:
             pulumi.set(__self__, "lock_configuration", lock_configuration)
         if resource_tags is not None:
@@ -89,6 +93,18 @@ class RuleArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="excludeResourceTags")
+    def exclude_resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]]:
+        """
+        Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+        """
+        return pulumi.get(self, "exclude_resource_tags")
+
+    @exclude_resource_tags.setter
+    def exclude_resource_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleResourceTagArgs']]]]):
+        pulumi.set(self, "exclude_resource_tags", value)
 
     @property
     @pulumi.getter(name="lockConfiguration")
@@ -145,6 +161,7 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
                  lock_configuration: Optional[pulumi.Input[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict']]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input['RuleResourceType']] = None,
@@ -158,6 +175,7 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the retention rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] exclude_resource_tags: Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
         :param pulumi.Input[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict']] lock_configuration: Information about the retention rule lock configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]] resource_tags: Information about the resource tags used to identify resources that are retained by the retention rule.
         :param pulumi.Input['RuleResourceType'] resource_type: The resource type retained by the retention rule.
@@ -190,6 +208,7 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 exclude_resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
                  lock_configuration: Optional[pulumi.Input[Union['RuleUnlockDelayArgs', 'RuleUnlockDelayArgsDict']]] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RuleResourceTagArgs', 'RuleResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input['RuleResourceType']] = None,
@@ -206,6 +225,7 @@ class Rule(pulumi.CustomResource):
             __props__ = RuleArgs.__new__(RuleArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["exclude_resource_tags"] = exclude_resource_tags
             __props__.__dict__["lock_configuration"] = lock_configuration
             __props__.__dict__["resource_tags"] = resource_tags
             if resource_type is None and not opts.urn:
@@ -245,6 +265,7 @@ class Rule(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["exclude_resource_tags"] = None
         __props__.__dict__["identifier"] = None
         __props__.__dict__["lock_configuration"] = None
         __props__.__dict__["lock_state"] = None
@@ -270,6 +291,14 @@ class Rule(pulumi.CustomResource):
         The description of the retention rule.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="excludeResourceTags")
+    def exclude_resource_tags(self) -> pulumi.Output[Optional[Sequence['outputs.RuleResourceTag']]]:
+        """
+        Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+        """
+        return pulumi.get(self, "exclude_resource_tags")
 
     @property
     @pulumi.getter

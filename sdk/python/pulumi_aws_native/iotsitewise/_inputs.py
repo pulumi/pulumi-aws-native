@@ -70,6 +70,8 @@ __all__ = [
     'GatewayPlatformArgsDict',
     'GatewaySiemensIeArgs',
     'GatewaySiemensIeArgsDict',
+    'PortalTypeEntryArgs',
+    'PortalTypeEntryArgsDict',
 ]
 
 MYPY = False
@@ -2046,5 +2048,33 @@ class GatewaySiemensIeArgs:
     @iot_core_thing_name.setter
     def iot_core_thing_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "iot_core_thing_name", value)
+
+
+if not MYPY:
+    class PortalTypeEntryArgsDict(TypedDict):
+        """
+        Container associated a certain PortalType.
+        """
+        portal_tools: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    PortalTypeEntryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PortalTypeEntryArgs:
+    def __init__(__self__, *,
+                 portal_tools: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Container associated a certain PortalType.
+        """
+        pulumi.set(__self__, "portal_tools", portal_tools)
+
+    @property
+    @pulumi.getter(name="portalTools")
+    def portal_tools(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "portal_tools")
+
+    @portal_tools.setter
+    def portal_tools(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "portal_tools", value)
 
 

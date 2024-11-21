@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudFormation.Inputs
 {
 
+    /// <summary>
+    /// Specifies the S3 location of your input parameters.
+    /// </summary>
     public sealed class OptionsPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the S3 location where your input parameters are located.
+        /// </summary>
         [Input("inputParams")]
         public Input<Inputs.GuardHookS3LocationArgs>? InputParams { get; set; }
 

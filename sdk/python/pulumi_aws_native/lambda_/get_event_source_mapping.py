@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetEventSourceMappingResult:
-    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, event_source_mapping_arn=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, parallelization_factor=None, queues=None, scaling_config=None, source_access_configurations=None, tags=None, topics=None, tumbling_window_in_seconds=None):
+    def __init__(__self__, batch_size=None, bisect_batch_on_function_error=None, destination_config=None, document_db_event_source_config=None, enabled=None, event_source_mapping_arn=None, filter_criteria=None, function_name=None, function_response_types=None, id=None, kms_key_arn=None, maximum_batching_window_in_seconds=None, maximum_record_age_in_seconds=None, maximum_retry_attempts=None, metrics_config=None, parallelization_factor=None, provisioned_poller_config=None, queues=None, scaling_config=None, source_access_configurations=None, tags=None, topics=None, tumbling_window_in_seconds=None):
         if batch_size and not isinstance(batch_size, int):
             raise TypeError("Expected argument 'batch_size' to be a int")
         pulumi.set(__self__, "batch_size", batch_size)
@@ -69,9 +69,15 @@ class GetEventSourceMappingResult:
         if maximum_retry_attempts and not isinstance(maximum_retry_attempts, int):
             raise TypeError("Expected argument 'maximum_retry_attempts' to be a int")
         pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+        if metrics_config and not isinstance(metrics_config, dict):
+            raise TypeError("Expected argument 'metrics_config' to be a dict")
+        pulumi.set(__self__, "metrics_config", metrics_config)
         if parallelization_factor and not isinstance(parallelization_factor, int):
             raise TypeError("Expected argument 'parallelization_factor' to be a int")
         pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+        if provisioned_poller_config and not isinstance(provisioned_poller_config, dict):
+            raise TypeError("Expected argument 'provisioned_poller_config' to be a dict")
+        pulumi.set(__self__, "provisioned_poller_config", provisioned_poller_config)
         if queues and not isinstance(queues, list):
             raise TypeError("Expected argument 'queues' to be a list")
         pulumi.set(__self__, "queues", queues)
@@ -224,12 +230,22 @@ class GetEventSourceMappingResult:
         return pulumi.get(self, "maximum_retry_attempts")
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> Optional['outputs.EventSourceMappingMetricsConfig']:
+        return pulumi.get(self, "metrics_config")
+
+    @property
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> Optional[int]:
         """
         (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
         """
         return pulumi.get(self, "parallelization_factor")
+
+    @property
+    @pulumi.getter(name="provisionedPollerConfig")
+    def provisioned_poller_config(self) -> Optional['outputs.EventSourceMappingProvisionedPollerConfig']:
+        return pulumi.get(self, "provisioned_poller_config")
 
     @property
     @pulumi.getter
@@ -301,7 +317,9 @@ class AwaitableGetEventSourceMappingResult(GetEventSourceMappingResult):
             maximum_batching_window_in_seconds=self.maximum_batching_window_in_seconds,
             maximum_record_age_in_seconds=self.maximum_record_age_in_seconds,
             maximum_retry_attempts=self.maximum_retry_attempts,
+            metrics_config=self.metrics_config,
             parallelization_factor=self.parallelization_factor,
+            provisioned_poller_config=self.provisioned_poller_config,
             queues=self.queues,
             scaling_config=self.scaling_config,
             source_access_configurations=self.source_access_configurations,
@@ -346,7 +364,9 @@ def get_event_source_mapping(id: Optional[str] = None,
         maximum_batching_window_in_seconds=pulumi.get(__ret__, 'maximum_batching_window_in_seconds'),
         maximum_record_age_in_seconds=pulumi.get(__ret__, 'maximum_record_age_in_seconds'),
         maximum_retry_attempts=pulumi.get(__ret__, 'maximum_retry_attempts'),
+        metrics_config=pulumi.get(__ret__, 'metrics_config'),
         parallelization_factor=pulumi.get(__ret__, 'parallelization_factor'),
+        provisioned_poller_config=pulumi.get(__ret__, 'provisioned_poller_config'),
         queues=pulumi.get(__ret__, 'queues'),
         scaling_config=pulumi.get(__ret__, 'scaling_config'),
         source_access_configurations=pulumi.get(__ret__, 'source_access_configurations'),
@@ -388,7 +408,9 @@ def get_event_source_mapping_output(id: Optional[pulumi.Input[str]] = None,
         maximum_batching_window_in_seconds=pulumi.get(__response__, 'maximum_batching_window_in_seconds'),
         maximum_record_age_in_seconds=pulumi.get(__response__, 'maximum_record_age_in_seconds'),
         maximum_retry_attempts=pulumi.get(__response__, 'maximum_retry_attempts'),
+        metrics_config=pulumi.get(__response__, 'metrics_config'),
         parallelization_factor=pulumi.get(__response__, 'parallelization_factor'),
+        provisioned_poller_config=pulumi.get(__response__, 'provisioned_poller_config'),
         queues=pulumi.get(__response__, 'queues'),
         scaling_config=pulumi.get(__response__, 'scaling_config'),
         source_access_configurations=pulumi.get(__response__, 'source_access_configurations'),

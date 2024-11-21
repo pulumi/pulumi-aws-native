@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         [Input("metric", required: true)]
         public Input<Inputs.ScalingPolicyMetricArgs> Metric { get; set; } = null!;
 
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
         /// <summary>
         /// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
         /// 

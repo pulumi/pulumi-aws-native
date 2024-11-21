@@ -213,9 +213,20 @@
   "required" : [ "EndpointDetails" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ],
   "primaryIdentifier" : [ "/properties/Id" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "groundstation:TagResource", "groundstation:UntagResource", "groundstation:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "groundstation:CreateDataflowEndpointGroup", "groundstation:GetDataflowEndpointGroup", "groundstation:TagResource", "iam:PassRole", "ec2:describeAddresses", "ec2:describeNetworkInterfaces", "iam:createServiceLinkedRole" ]
+    },
+    "update" : {
+      "permissions" : [ "groundstation:ListTagsForResource", "groundstation:TagResource", "groundstation:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "groundstation:GetDataflowEndpointGroup", "groundstation:ListTagsForResource" ]

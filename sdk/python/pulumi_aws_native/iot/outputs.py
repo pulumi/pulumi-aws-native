@@ -58,7 +58,9 @@ __all__ = [
     'ThingAttributePayload',
     'ThingGroupAttributePayload',
     'ThingGroupPropertiesProperties',
+    'ThingTypePropagatingAttribute',
     'ThingTypePropertiesProperties',
+    'ThingTypePropertiesPropertiesMqtt5ConfigurationProperties',
     'TimeoutConfigProperties',
     'TopicRuleAction',
     'TopicRuleAssetPropertyTimestamp',
@@ -2391,6 +2393,55 @@ class ThingGroupPropertiesProperties(dict):
 
 
 @pulumi.output_type
+class ThingTypePropagatingAttribute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userPropertyKey":
+            suggest = "user_property_key"
+        elif key == "connectionAttribute":
+            suggest = "connection_attribute"
+        elif key == "thingAttribute":
+            suggest = "thing_attribute"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThingTypePropagatingAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThingTypePropagatingAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThingTypePropagatingAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_property_key: str,
+                 connection_attribute: Optional['ThingTypePropagatingAttributeConnectionAttribute'] = None,
+                 thing_attribute: Optional[str] = None):
+        pulumi.set(__self__, "user_property_key", user_property_key)
+        if connection_attribute is not None:
+            pulumi.set(__self__, "connection_attribute", connection_attribute)
+        if thing_attribute is not None:
+            pulumi.set(__self__, "thing_attribute", thing_attribute)
+
+    @property
+    @pulumi.getter(name="userPropertyKey")
+    def user_property_key(self) -> str:
+        return pulumi.get(self, "user_property_key")
+
+    @property
+    @pulumi.getter(name="connectionAttribute")
+    def connection_attribute(self) -> Optional['ThingTypePropagatingAttributeConnectionAttribute']:
+        return pulumi.get(self, "connection_attribute")
+
+    @property
+    @pulumi.getter(name="thingAttribute")
+    def thing_attribute(self) -> Optional[str]:
+        return pulumi.get(self, "thing_attribute")
+
+
+@pulumi.output_type
 class ThingTypePropertiesProperties(dict):
     """
     The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
@@ -2398,7 +2449,9 @@ class ThingTypePropertiesProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "searchableAttributes":
+        if key == "mqtt5Configuration":
+            suggest = "mqtt5_configuration"
+        elif key == "searchableAttributes":
             suggest = "searchable_attributes"
         elif key == "thingTypeDescription":
             suggest = "thing_type_description"
@@ -2415,6 +2468,7 @@ class ThingTypePropertiesProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 mqtt5_configuration: Optional['outputs.ThingTypePropertiesPropertiesMqtt5ConfigurationProperties'] = None,
                  searchable_attributes: Optional[Sequence[str]] = None,
                  thing_type_description: Optional[str] = None):
         """
@@ -2422,10 +2476,17 @@ class ThingTypePropertiesProperties(dict):
         :param Sequence[str] searchable_attributes: A list of searchable thing attribute names.
         :param str thing_type_description: The description of the thing type.
         """
+        if mqtt5_configuration is not None:
+            pulumi.set(__self__, "mqtt5_configuration", mqtt5_configuration)
         if searchable_attributes is not None:
             pulumi.set(__self__, "searchable_attributes", searchable_attributes)
         if thing_type_description is not None:
             pulumi.set(__self__, "thing_type_description", thing_type_description)
+
+    @property
+    @pulumi.getter(name="mqtt5Configuration")
+    def mqtt5_configuration(self) -> Optional['outputs.ThingTypePropertiesPropertiesMqtt5ConfigurationProperties']:
+        return pulumi.get(self, "mqtt5_configuration")
 
     @property
     @pulumi.getter(name="searchableAttributes")
@@ -2442,6 +2503,36 @@ class ThingTypePropertiesProperties(dict):
         The description of the thing type.
         """
         return pulumi.get(self, "thing_type_description")
+
+
+@pulumi.output_type
+class ThingTypePropertiesPropertiesMqtt5ConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propagatingAttributes":
+            suggest = "propagating_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThingTypePropertiesPropertiesMqtt5ConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThingTypePropertiesPropertiesMqtt5ConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThingTypePropertiesPropertiesMqtt5ConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 propagating_attributes: Optional[Sequence['outputs.ThingTypePropagatingAttribute']] = None):
+        if propagating_attributes is not None:
+            pulumi.set(__self__, "propagating_attributes", propagating_attributes)
+
+    @property
+    @pulumi.getter(name="propagatingAttributes")
+    def propagating_attributes(self) -> Optional[Sequence['outputs.ThingTypePropagatingAttribute']]:
+        return pulumi.get(self, "propagating_attributes")
 
 
 @pulumi.output_type

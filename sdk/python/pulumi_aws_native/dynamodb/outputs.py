@@ -1666,7 +1666,7 @@ class TableGlobalSecondaryIndex(dict):
         :param 'TableOnDemandThroughput' on_demand_throughput: The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
         :param 'TableProvisionedThroughput' provisioned_throughput: Represents the provisioned throughput settings for the specified global secondary index.
                 For current minimum and maximum provisioned throughput values, see [Service, Account, and Table Quotas](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html) in the *Amazon DynamoDB Developer Guide*.
-        :param 'TableWarmThroughput' warm_throughput: Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        :param 'TableWarmThroughput' warm_throughput: Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "key_schema", key_schema)
@@ -1738,7 +1738,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="warmThroughput")
     def warm_throughput(self) -> Optional['outputs.TableWarmThroughput']:
         """
-        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify `ReadUnitsPerSecond` , `WriteUnitsPerSecond` , or both.
+        Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.
         """
         return pulumi.get(self, "warm_throughput")
 
@@ -2573,6 +2573,9 @@ class TableTimeToLiveSpecification(dict):
 
 @pulumi.output_type
 class TableWarmThroughput(dict):
+    """
+    Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2596,6 +2599,7 @@ class TableWarmThroughput(dict):
                  read_units_per_second: Optional[int] = None,
                  write_units_per_second: Optional[int] = None):
         """
+        Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.
         :param int read_units_per_second: Represents the number of read operations your base table can instantaneously support.
         :param int write_units_per_second: Represents the number of write operations your base table can instantaneously support.
         """

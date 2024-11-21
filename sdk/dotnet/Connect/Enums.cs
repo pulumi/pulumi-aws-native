@@ -408,6 +408,42 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
+    /// The day that the hours of operation override applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct HoursOfOperationOverrideConfigDay : IEquatable<HoursOfOperationOverrideConfigDay>
+    {
+        private readonly string _value;
+
+        private HoursOfOperationOverrideConfigDay(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HoursOfOperationOverrideConfigDay Sunday { get; } = new HoursOfOperationOverrideConfigDay("SUNDAY");
+        public static HoursOfOperationOverrideConfigDay Monday { get; } = new HoursOfOperationOverrideConfigDay("MONDAY");
+        public static HoursOfOperationOverrideConfigDay Tuesday { get; } = new HoursOfOperationOverrideConfigDay("TUESDAY");
+        public static HoursOfOperationOverrideConfigDay Wednesday { get; } = new HoursOfOperationOverrideConfigDay("WEDNESDAY");
+        public static HoursOfOperationOverrideConfigDay Thursday { get; } = new HoursOfOperationOverrideConfigDay("THURSDAY");
+        public static HoursOfOperationOverrideConfigDay Friday { get; } = new HoursOfOperationOverrideConfigDay("FRIDAY");
+        public static HoursOfOperationOverrideConfigDay Saturday { get; } = new HoursOfOperationOverrideConfigDay("SATURDAY");
+
+        public static bool operator ==(HoursOfOperationOverrideConfigDay left, HoursOfOperationOverrideConfigDay right) => left.Equals(right);
+        public static bool operator !=(HoursOfOperationOverrideConfigDay left, HoursOfOperationOverrideConfigDay right) => !left.Equals(right);
+
+        public static explicit operator string(HoursOfOperationOverrideConfigDay value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HoursOfOperationOverrideConfigDay other && Equals(other);
+        public bool Equals(HoursOfOperationOverrideConfigDay other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the type of directory integration for new instance.
     /// </summary>
     [EnumType]

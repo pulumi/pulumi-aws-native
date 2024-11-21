@@ -85,6 +85,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The creation date of the web portal.
         /// </summary>
         public readonly string? CreationDate;
+        public readonly string? DataProtectionSettingsArn;
         /// <summary>
         /// The name of the web portal.
         /// </summary>
@@ -156,6 +157,8 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
             string? creationDate,
 
+            string? dataProtectionSettingsArn,
+
             string? displayName,
 
             Pulumi.AwsNative.WorkSpacesWeb.PortalInstanceType? instanceType,
@@ -190,6 +193,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
             BrowserSettingsArn = browserSettingsArn;
             BrowserType = browserType;
             CreationDate = creationDate;
+            DataProtectionSettingsArn = dataProtectionSettingsArn;
             DisplayName = displayName;
             InstanceType = instanceType;
             IpAccessSettingsArn = ipAccessSettingsArn;

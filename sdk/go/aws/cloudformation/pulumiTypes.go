@@ -608,7 +608,9 @@ func (o ManagedExecutionPropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Specifies the S3 location of your input parameters.
 type OptionsProperties struct {
+	// Specifies the S3 location where your input parameters are located.
 	InputParams *GuardHookS3Location `pulumi:"inputParams"`
 }
 
@@ -623,7 +625,9 @@ type OptionsPropertiesInput interface {
 	ToOptionsPropertiesOutputWithContext(context.Context) OptionsPropertiesOutput
 }
 
+// Specifies the S3 location of your input parameters.
 type OptionsPropertiesArgs struct {
+	// Specifies the S3 location where your input parameters are located.
 	InputParams GuardHookS3LocationPtrInput `pulumi:"inputParams"`
 }
 
@@ -680,6 +684,7 @@ func (i *optionsPropertiesPtrType) ToOptionsPropertiesPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(OptionsPropertiesPtrOutput)
 }
 
+// Specifies the S3 location of your input parameters.
 type OptionsPropertiesOutput struct{ *pulumi.OutputState }
 
 func (OptionsPropertiesOutput) ElementType() reflect.Type {
@@ -704,6 +709,7 @@ func (o OptionsPropertiesOutput) ToOptionsPropertiesPtrOutputWithContext(ctx con
 	}).(OptionsPropertiesPtrOutput)
 }
 
+// Specifies the S3 location where your input parameters are located.
 func (o OptionsPropertiesOutput) InputParams() GuardHookS3LocationPtrOutput {
 	return o.ApplyT(func(v OptionsProperties) *GuardHookS3Location { return v.InputParams }).(GuardHookS3LocationPtrOutput)
 }
@@ -732,6 +738,7 @@ func (o OptionsPropertiesPtrOutput) Elem() OptionsPropertiesOutput {
 	}).(OptionsPropertiesOutput)
 }
 
+// Specifies the S3 location where your input parameters are located.
 func (o OptionsPropertiesPtrOutput) InputParams() GuardHookS3LocationPtrOutput {
 	return o.ApplyT(func(v *OptionsProperties) *GuardHookS3Location {
 		if v == nil {

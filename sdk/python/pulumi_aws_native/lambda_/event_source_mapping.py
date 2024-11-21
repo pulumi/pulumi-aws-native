@@ -38,7 +38,9 @@ class EventSourceMappingArgs:
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 provisioned_poller_config: Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scaling_config: Optional[pulumi.Input['EventSourceMappingScalingConfigArgs']] = None,
                  self_managed_event_source: Optional[pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs']] = None,
@@ -134,8 +136,12 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "maximum_record_age_in_seconds", maximum_record_age_in_seconds)
         if maximum_retry_attempts is not None:
             pulumi.set(__self__, "maximum_retry_attempts", maximum_retry_attempts)
+        if metrics_config is not None:
+            pulumi.set(__self__, "metrics_config", metrics_config)
         if parallelization_factor is not None:
             pulumi.set(__self__, "parallelization_factor", parallelization_factor)
+        if provisioned_poller_config is not None:
+            pulumi.set(__self__, "provisioned_poller_config", provisioned_poller_config)
         if queues is not None:
             pulumi.set(__self__, "queues", queues)
         if scaling_config is not None:
@@ -352,6 +358,15 @@ class EventSourceMappingArgs:
         pulumi.set(self, "maximum_retry_attempts", value)
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']]:
+        return pulumi.get(self, "metrics_config")
+
+    @metrics_config.setter
+    def metrics_config(self, value: Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']]):
+        pulumi.set(self, "metrics_config", value)
+
+    @property
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> Optional[pulumi.Input[int]]:
         """
@@ -362,6 +377,15 @@ class EventSourceMappingArgs:
     @parallelization_factor.setter
     def parallelization_factor(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "parallelization_factor", value)
+
+    @property
+    @pulumi.getter(name="provisionedPollerConfig")
+    def provisioned_poller_config(self) -> Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']]:
+        return pulumi.get(self, "provisioned_poller_config")
+
+    @provisioned_poller_config.setter
+    def provisioned_poller_config(self, value: Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']]):
+        pulumi.set(self, "provisioned_poller_config", value)
 
     @property
     @pulumi.getter
@@ -507,7 +531,9 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 provisioned_poller_config: Optional[pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scaling_config: Optional[pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']]] = None,
@@ -634,7 +660,9 @@ class EventSourceMapping(pulumi.CustomResource):
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_retry_attempts: Optional[pulumi.Input[int]] = None,
+                 metrics_config: Optional[pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']]] = None,
                  parallelization_factor: Optional[pulumi.Input[int]] = None,
+                 provisioned_poller_config: Optional[pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']]] = None,
                  queues: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  scaling_config: Optional[pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']]] = None,
                  self_managed_event_source: Optional[pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']]] = None,
@@ -670,7 +698,9 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["maximum_batching_window_in_seconds"] = maximum_batching_window_in_seconds
             __props__.__dict__["maximum_record_age_in_seconds"] = maximum_record_age_in_seconds
             __props__.__dict__["maximum_retry_attempts"] = maximum_retry_attempts
+            __props__.__dict__["metrics_config"] = metrics_config
             __props__.__dict__["parallelization_factor"] = parallelization_factor
+            __props__.__dict__["provisioned_poller_config"] = provisioned_poller_config
             __props__.__dict__["queues"] = queues
             __props__.__dict__["scaling_config"] = scaling_config
             __props__.__dict__["self_managed_event_source"] = self_managed_event_source
@@ -723,7 +753,9 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["maximum_batching_window_in_seconds"] = None
         __props__.__dict__["maximum_record_age_in_seconds"] = None
         __props__.__dict__["maximum_retry_attempts"] = None
+        __props__.__dict__["metrics_config"] = None
         __props__.__dict__["parallelization_factor"] = None
+        __props__.__dict__["provisioned_poller_config"] = None
         __props__.__dict__["queues"] = None
         __props__.__dict__["scaling_config"] = None
         __props__.__dict__["self_managed_event_source"] = None
@@ -891,12 +923,22 @@ class EventSourceMapping(pulumi.CustomResource):
         return pulumi.get(self, "maximum_retry_attempts")
 
     @property
+    @pulumi.getter(name="metricsConfig")
+    def metrics_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingMetricsConfig']]:
+        return pulumi.get(self, "metrics_config")
+
+    @property
     @pulumi.getter(name="parallelizationFactor")
     def parallelization_factor(self) -> pulumi.Output[Optional[int]]:
         """
         (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
         """
         return pulumi.get(self, "parallelization_factor")
+
+    @property
+    @pulumi.getter(name="provisionedPollerConfig")
+    def provisioned_poller_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingProvisionedPollerConfig']]:
+        return pulumi.get(self, "provisioned_poller_config")
 
     @property
     @pulumi.getter

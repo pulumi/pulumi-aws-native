@@ -3063,6 +3063,7 @@ if not MYPY:
         """
         The namespace of the metric.
         """
+        period: NotRequired[pulumi.Input[int]]
         statistic: NotRequired[pulumi.Input[str]]
         """
         The statistic of the metric.
@@ -3081,6 +3082,7 @@ class ScalingPolicyCustomizedMetricSpecificationArgs:
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metrics: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPolicyTargetTrackingMetricDataQueryArgs']]]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
+                 period: Optional[pulumi.Input[int]] = None,
                  statistic: Optional[pulumi.Input[str]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
@@ -3101,6 +3103,8 @@ class ScalingPolicyCustomizedMetricSpecificationArgs:
             pulumi.set(__self__, "metrics", metrics)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if statistic is not None:
             pulumi.set(__self__, "statistic", statistic)
         if unit is not None:
@@ -3155,6 +3159,15 @@ class ScalingPolicyCustomizedMetricSpecificationArgs:
     @namespace.setter
     def namespace(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "namespace", value)
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period", value)
 
     @property
     @pulumi.getter
@@ -4471,6 +4484,7 @@ if not MYPY:
 
         Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
         """
+        period: NotRequired[pulumi.Input[int]]
         return_data: NotRequired[pulumi.Input[bool]]
         """
         Indicates whether to return the timestamps and raw data values of this metric.
@@ -4489,6 +4503,7 @@ class ScalingPolicyTargetTrackingMetricDataQueryArgs:
                  expression: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  metric_stat: Optional[pulumi.Input['ScalingPolicyTargetTrackingMetricStatArgs']] = None,
+                 period: Optional[pulumi.Input[int]] = None,
                  return_data: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] id: A short name that identifies the object's results in the response. This name must be unique among all `TargetTrackingMetricDataQuery` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
@@ -4512,6 +4527,8 @@ class ScalingPolicyTargetTrackingMetricDataQueryArgs:
             pulumi.set(__self__, "label", label)
         if metric_stat is not None:
             pulumi.set(__self__, "metric_stat", metric_stat)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if return_data is not None:
             pulumi.set(__self__, "return_data", return_data)
 
@@ -4568,6 +4585,15 @@ class ScalingPolicyTargetTrackingMetricDataQueryArgs:
         pulumi.set(self, "metric_stat", value)
 
     @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period", value)
+
+    @property
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -4596,6 +4622,7 @@ if not MYPY:
 
         The most commonly used metric for scaling is `Average` .
         """
+        period: NotRequired[pulumi.Input[int]]
         unit: NotRequired[pulumi.Input[str]]
         """
         The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
@@ -4608,6 +4635,7 @@ class ScalingPolicyTargetTrackingMetricStatArgs:
     def __init__(__self__, *,
                  metric: pulumi.Input['ScalingPolicyMetricArgs'],
                  stat: pulumi.Input[str],
+                 period: Optional[pulumi.Input[int]] = None,
                  unit: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input['ScalingPolicyMetricArgs'] metric: The metric to use.
@@ -4618,6 +4646,8 @@ class ScalingPolicyTargetTrackingMetricStatArgs:
         """
         pulumi.set(__self__, "metric", metric)
         pulumi.set(__self__, "stat", stat)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
 
@@ -4646,6 +4676,15 @@ class ScalingPolicyTargetTrackingMetricStatArgs:
     @stat.setter
     def stat(self, value: pulumi.Input[str]):
         pulumi.set(self, "stat", value)
+
+    @property
+    @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "period", value)
 
     @property
     @pulumi.getter

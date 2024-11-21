@@ -478,6 +478,9 @@ if not MYPY:
         The AWS-Region in which the destination file system is located.
           For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
         """
+        role_arn: NotRequired[pulumi.Input[str]]
+        status: NotRequired[pulumi.Input[str]]
+        status_message: NotRequired[pulumi.Input[str]]
 elif False:
     FileSystemReplicationDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -487,7 +490,10 @@ class FileSystemReplicationDestinationArgs:
                  availability_zone_name: Optional[pulumi.Input[str]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input[str]] = None):
+                 region: Optional[pulumi.Input[str]] = None,
+                 role_arn: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None,
+                 status_message: Optional[pulumi.Input[str]] = None):
         """
         Describes the destination file system in the replication configuration.
         :param pulumi.Input[str] availability_zone_name: For One Zone file systems, the replication configuration must specify the Availability Zone in which the destination file system is located. 
@@ -506,6 +512,12 @@ class FileSystemReplicationDestinationArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
 
     @property
     @pulumi.getter(name="availabilityZoneName")
@@ -557,5 +569,32 @@ class FileSystemReplicationDestinationArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status_message")
+
+    @status_message.setter
+    def status_message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status_message", value)
 
 

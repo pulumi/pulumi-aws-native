@@ -125,4 +125,35 @@ namespace Pulumi.AwsNative.IoTSiteWise
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of portal
+    /// </summary>
+    [EnumType]
+    public readonly struct PortalType : IEquatable<PortalType>
+    {
+        private readonly string _value;
+
+        private PortalType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PortalType SitewisePortalV1 { get; } = new PortalType("SITEWISE_PORTAL_V1");
+        public static PortalType SitewisePortalV2 { get; } = new PortalType("SITEWISE_PORTAL_V2");
+
+        public static bool operator ==(PortalType left, PortalType right) => left.Equals(right);
+        public static bool operator !=(PortalType left, PortalType right) => !left.Equals(right);
+
+        public static explicit operator string(PortalType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PortalType other && Equals(other);
+        public bool Equals(PortalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

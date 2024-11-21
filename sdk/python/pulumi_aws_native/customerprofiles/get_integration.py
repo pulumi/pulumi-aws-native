@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetIntegrationResult:
-    def __init__(__self__, created_at=None, last_updated_at=None, object_type_name=None, object_type_names=None, tags=None):
+    def __init__(__self__, created_at=None, event_trigger_names=None, last_updated_at=None, object_type_name=None, object_type_names=None, tags=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if event_trigger_names and not isinstance(event_trigger_names, list):
+            raise TypeError("Expected argument 'event_trigger_names' to be a list")
+        pulumi.set(__self__, "event_trigger_names", event_trigger_names)
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
@@ -49,6 +52,14 @@ class GetIntegrationResult:
         The time of this integration got created
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="eventTriggerNames")
+    def event_trigger_names(self) -> Optional[Sequence[str]]:
+        """
+        A list of unique names for active event triggers associated with the integration.
+        """
+        return pulumi.get(self, "event_trigger_names")
 
     @property
     @pulumi.getter(name="lastUpdatedAt")
@@ -90,6 +101,7 @@ class AwaitableGetIntegrationResult(GetIntegrationResult):
             yield self
         return GetIntegrationResult(
             created_at=self.created_at,
+            event_trigger_names=self.event_trigger_names,
             last_updated_at=self.last_updated_at,
             object_type_name=self.object_type_name,
             object_type_names=self.object_type_names,
@@ -114,6 +126,7 @@ def get_integration(domain_name: Optional[str] = None,
 
     return AwaitableGetIntegrationResult(
         created_at=pulumi.get(__ret__, 'created_at'),
+        event_trigger_names=pulumi.get(__ret__, 'event_trigger_names'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
         object_type_name=pulumi.get(__ret__, 'object_type_name'),
         object_type_names=pulumi.get(__ret__, 'object_type_names'),
@@ -135,6 +148,7 @@ def get_integration_output(domain_name: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getIntegration', __args__, opts=opts, typ=GetIntegrationResult)
     return __ret__.apply(lambda __response__: GetIntegrationResult(
         created_at=pulumi.get(__response__, 'created_at'),
+        event_trigger_names=pulumi.get(__response__, 'event_trigger_names'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
         object_type_name=pulumi.get(__response__, 'object_type_name'),
         object_type_names=pulumi.get(__response__, 'object_type_names'),

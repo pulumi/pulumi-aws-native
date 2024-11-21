@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPortalResult:
-    def __init__(__self__, authentication_type=None, browser_settings_arn=None, browser_type=None, creation_date=None, display_name=None, instance_type=None, ip_access_settings_arn=None, max_concurrent_sessions=None, network_settings_arn=None, portal_arn=None, portal_endpoint=None, portal_status=None, renderer_type=None, service_provider_saml_metadata=None, status_reason=None, tags=None, trust_store_arn=None, user_access_logging_settings_arn=None, user_settings_arn=None):
+    def __init__(__self__, authentication_type=None, browser_settings_arn=None, browser_type=None, creation_date=None, data_protection_settings_arn=None, display_name=None, instance_type=None, ip_access_settings_arn=None, max_concurrent_sessions=None, network_settings_arn=None, portal_arn=None, portal_endpoint=None, portal_status=None, renderer_type=None, service_provider_saml_metadata=None, status_reason=None, tags=None, trust_store_arn=None, user_access_logging_settings_arn=None, user_settings_arn=None):
         if authentication_type and not isinstance(authentication_type, str):
             raise TypeError("Expected argument 'authentication_type' to be a str")
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -38,6 +38,9 @@ class GetPortalResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if data_protection_settings_arn and not isinstance(data_protection_settings_arn, str):
+            raise TypeError("Expected argument 'data_protection_settings_arn' to be a str")
+        pulumi.set(__self__, "data_protection_settings_arn", data_protection_settings_arn)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -127,6 +130,11 @@ class GetPortalResult:
         The creation date of the web portal.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="dataProtectionSettingsArn")
+    def data_protection_settings_arn(self) -> Optional[str]:
+        return pulumi.get(self, "data_protection_settings_arn")
 
     @property
     @pulumi.getter(name="displayName")
@@ -259,6 +267,7 @@ class AwaitableGetPortalResult(GetPortalResult):
             browser_settings_arn=self.browser_settings_arn,
             browser_type=self.browser_type,
             creation_date=self.creation_date,
+            data_protection_settings_arn=self.data_protection_settings_arn,
             display_name=self.display_name,
             instance_type=self.instance_type,
             ip_access_settings_arn=self.ip_access_settings_arn,
@@ -294,6 +303,7 @@ def get_portal(portal_arn: Optional[str] = None,
         browser_settings_arn=pulumi.get(__ret__, 'browser_settings_arn'),
         browser_type=pulumi.get(__ret__, 'browser_type'),
         creation_date=pulumi.get(__ret__, 'creation_date'),
+        data_protection_settings_arn=pulumi.get(__ret__, 'data_protection_settings_arn'),
         display_name=pulumi.get(__ret__, 'display_name'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
         ip_access_settings_arn=pulumi.get(__ret__, 'ip_access_settings_arn'),
@@ -326,6 +336,7 @@ def get_portal_output(portal_arn: Optional[pulumi.Input[str]] = None,
         browser_settings_arn=pulumi.get(__response__, 'browser_settings_arn'),
         browser_type=pulumi.get(__response__, 'browser_type'),
         creation_date=pulumi.get(__response__, 'creation_date'),
+        data_protection_settings_arn=pulumi.get(__response__, 'data_protection_settings_arn'),
         display_name=pulumi.get(__response__, 'display_name'),
         instance_type=pulumi.get(__response__, 'instance_type'),
         ip_access_settings_arn=pulumi.get(__response__, 'ip_access_settings_arn'),

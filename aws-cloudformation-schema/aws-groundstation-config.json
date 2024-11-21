@@ -277,6 +277,14 @@
   "required" : [ "Name", "ConfigData" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Id", "/properties/Type" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "groundstation:TagResource", "groundstation:UntagResource", "groundstation:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "groundstation:CreateConfig", "groundstation:TagResource", "iam:PassRole" ]

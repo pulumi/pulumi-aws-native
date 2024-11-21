@@ -46,6 +46,10 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
+     * A list of unique names for active event triggers associated with the integration.
+     */
+    public readonly eventTriggerNames!: pulumi.Output<string[] | undefined>;
+    /**
      * The configuration that controls how Customer Profiles retrieves data from the source.
      */
     public readonly flowDefinition!: pulumi.Output<outputs.customerprofiles.IntegrationFlowDefinition | undefined>;
@@ -85,6 +89,7 @@ export class Integration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'domainName'");
             }
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["eventTriggerNames"] = args ? args.eventTriggerNames : undefined;
             resourceInputs["flowDefinition"] = args ? args.flowDefinition : undefined;
             resourceInputs["objectTypeName"] = args ? args.objectTypeName : undefined;
             resourceInputs["objectTypeNames"] = args ? args.objectTypeNames : undefined;
@@ -95,6 +100,7 @@ export class Integration extends pulumi.CustomResource {
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["eventTriggerNames"] = undefined /*out*/;
             resourceInputs["flowDefinition"] = undefined /*out*/;
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["objectTypeName"] = undefined /*out*/;
@@ -117,6 +123,10 @@ export interface IntegrationArgs {
      * The unique name of the domain.
      */
     domainName: pulumi.Input<string>;
+    /**
+     * A list of unique names for active event triggers associated with the integration.
+     */
+    eventTriggerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The configuration that controls how Customer Profiles retrieves data from the source.
      */

@@ -150,6 +150,21 @@ export const HoursOfOperationConfigDay = {
  */
 export type HoursOfOperationConfigDay = (typeof HoursOfOperationConfigDay)[keyof typeof HoursOfOperationConfigDay];
 
+export const HoursOfOperationOverrideConfigDay = {
+    Sunday: "SUNDAY",
+    Monday: "MONDAY",
+    Tuesday: "TUESDAY",
+    Wednesday: "WEDNESDAY",
+    Thursday: "THURSDAY",
+    Friday: "FRIDAY",
+    Saturday: "SATURDAY",
+} as const;
+
+/**
+ * The day that the hours of operation override applies to.
+ */
+export type HoursOfOperationOverrideConfigDay = (typeof HoursOfOperationOverrideConfigDay)[keyof typeof HoursOfOperationOverrideConfigDay];
+
 export const InstanceIdentityManagementType = {
     Saml: "SAML",
     ConnectManaged: "CONNECT_MANAGED",

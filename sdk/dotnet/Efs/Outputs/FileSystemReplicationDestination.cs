@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.Efs.Outputs
         ///   For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
         /// </summary>
         public readonly string? Region;
+        public readonly string? RoleArn;
+        public readonly string? Status;
+        public readonly string? StatusMessage;
 
         [OutputConstructor]
         private FileSystemReplicationDestination(
@@ -44,12 +47,21 @@ namespace Pulumi.AwsNative.Efs.Outputs
 
             string? kmsKeyId,
 
-            string? region)
+            string? region,
+
+            string? roleArn,
+
+            string? status,
+
+            string? statusMessage)
         {
             AvailabilityZoneName = availabilityZoneName;
             FileSystemId = fileSystemId;
             KmsKeyId = kmsKeyId;
             Region = region;
+            RoleArn = roleArn;
+            Status = status;
+            StatusMessage = statusMessage;
         }
     }
 }

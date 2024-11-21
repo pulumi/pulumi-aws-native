@@ -39,6 +39,8 @@ type LookupThingTypeResult struct {
 	Id *string `pulumi:"id"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+	ThingTypeProperties *ThingTypePropertiesProperties `pulumi:"thingTypeProperties"`
 }
 
 func LookupThingTypeOutput(ctx *pulumi.Context, args LookupThingTypeOutputArgs, opts ...pulumi.InvokeOption) LookupThingTypeResultOutput {
@@ -103,6 +105,11 @@ func (o LookupThingTypeResultOutput) Id() pulumi.StringPtrOutput {
 // An array of key-value pairs to apply to this resource.
 func (o LookupThingTypeResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupThingTypeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+func (o LookupThingTypeResultOutput) ThingTypeProperties() ThingTypePropertiesPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupThingTypeResult) *ThingTypePropertiesProperties { return v.ThingTypeProperties }).(ThingTypePropertiesPropertiesPtrOutput)
 }
 
 func init() {

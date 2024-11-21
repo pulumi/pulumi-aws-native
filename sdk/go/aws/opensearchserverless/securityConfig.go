@@ -86,7 +86,8 @@ type SecurityConfig struct {
 	// The identifier of the security config
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Security config description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description              pulumi.StringPtrOutput                                `pulumi:"description"`
+	IamIdentityCenterOptions SecurityConfigIamIdentityCenterConfigOptionsPtrOutput `pulumi:"iamIdentityCenterOptions"`
 	// The friendly name of the security config
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// SAML options for the security configuration in the form of a key-value map.
@@ -103,6 +104,7 @@ func NewSecurityConfig(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"iamIdentityCenterOptions.instanceArn",
 		"name",
 		"type",
 	})
@@ -141,7 +143,8 @@ func (SecurityConfigState) ElementType() reflect.Type {
 
 type securityConfigArgs struct {
 	// Security config description
-	Description *string `pulumi:"description"`
+	Description              *string                                       `pulumi:"description"`
+	IamIdentityCenterOptions *SecurityConfigIamIdentityCenterConfigOptions `pulumi:"iamIdentityCenterOptions"`
 	// The friendly name of the security config
 	Name *string `pulumi:"name"`
 	// SAML options for the security configuration in the form of a key-value map.
@@ -153,7 +156,8 @@ type securityConfigArgs struct {
 // The set of arguments for constructing a SecurityConfig resource.
 type SecurityConfigArgs struct {
 	// Security config description
-	Description pulumi.StringPtrInput
+	Description              pulumi.StringPtrInput
+	IamIdentityCenterOptions SecurityConfigIamIdentityCenterConfigOptionsPtrInput
 	// The friendly name of the security config
 	Name pulumi.StringPtrInput
 	// SAML options for the security configuration in the form of a key-value map.
@@ -207,6 +211,12 @@ func (o SecurityConfigOutput) AwsId() pulumi.StringOutput {
 // Security config description
 func (o SecurityConfigOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfig) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigOutput) IamIdentityCenterOptions() SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return o.ApplyT(func(v *SecurityConfig) SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+		return v.IamIdentityCenterOptions
+	}).(SecurityConfigIamIdentityCenterConfigOptionsPtrOutput)
 }
 
 // The friendly name of the security config

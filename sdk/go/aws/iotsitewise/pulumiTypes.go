@@ -3761,6 +3761,103 @@ type PortalTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Container associated a certain PortalType.
+type PortalTypeEntry struct {
+	PortalTools []string `pulumi:"portalTools"`
+}
+
+// PortalTypeEntryInput is an input type that accepts PortalTypeEntryArgs and PortalTypeEntryOutput values.
+// You can construct a concrete instance of `PortalTypeEntryInput` via:
+//
+//	PortalTypeEntryArgs{...}
+type PortalTypeEntryInput interface {
+	pulumi.Input
+
+	ToPortalTypeEntryOutput() PortalTypeEntryOutput
+	ToPortalTypeEntryOutputWithContext(context.Context) PortalTypeEntryOutput
+}
+
+// Container associated a certain PortalType.
+type PortalTypeEntryArgs struct {
+	PortalTools pulumi.StringArrayInput `pulumi:"portalTools"`
+}
+
+func (PortalTypeEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalTypeEntry)(nil)).Elem()
+}
+
+func (i PortalTypeEntryArgs) ToPortalTypeEntryOutput() PortalTypeEntryOutput {
+	return i.ToPortalTypeEntryOutputWithContext(context.Background())
+}
+
+func (i PortalTypeEntryArgs) ToPortalTypeEntryOutputWithContext(ctx context.Context) PortalTypeEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortalTypeEntryOutput)
+}
+
+// PortalTypeEntryMapInput is an input type that accepts PortalTypeEntryMap and PortalTypeEntryMapOutput values.
+// You can construct a concrete instance of `PortalTypeEntryMapInput` via:
+//
+//	PortalTypeEntryMap{ "key": PortalTypeEntryArgs{...} }
+type PortalTypeEntryMapInput interface {
+	pulumi.Input
+
+	ToPortalTypeEntryMapOutput() PortalTypeEntryMapOutput
+	ToPortalTypeEntryMapOutputWithContext(context.Context) PortalTypeEntryMapOutput
+}
+
+type PortalTypeEntryMap map[string]PortalTypeEntryInput
+
+func (PortalTypeEntryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PortalTypeEntry)(nil)).Elem()
+}
+
+func (i PortalTypeEntryMap) ToPortalTypeEntryMapOutput() PortalTypeEntryMapOutput {
+	return i.ToPortalTypeEntryMapOutputWithContext(context.Background())
+}
+
+func (i PortalTypeEntryMap) ToPortalTypeEntryMapOutputWithContext(ctx context.Context) PortalTypeEntryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PortalTypeEntryMapOutput)
+}
+
+// Container associated a certain PortalType.
+type PortalTypeEntryOutput struct{ *pulumi.OutputState }
+
+func (PortalTypeEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PortalTypeEntry)(nil)).Elem()
+}
+
+func (o PortalTypeEntryOutput) ToPortalTypeEntryOutput() PortalTypeEntryOutput {
+	return o
+}
+
+func (o PortalTypeEntryOutput) ToPortalTypeEntryOutputWithContext(ctx context.Context) PortalTypeEntryOutput {
+	return o
+}
+
+func (o PortalTypeEntryOutput) PortalTools() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PortalTypeEntry) []string { return v.PortalTools }).(pulumi.StringArrayOutput)
+}
+
+type PortalTypeEntryMapOutput struct{ *pulumi.OutputState }
+
+func (PortalTypeEntryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PortalTypeEntry)(nil)).Elem()
+}
+
+func (o PortalTypeEntryMapOutput) ToPortalTypeEntryMapOutput() PortalTypeEntryMapOutput {
+	return o
+}
+
+func (o PortalTypeEntryMapOutput) ToPortalTypeEntryMapOutputWithContext(ctx context.Context) PortalTypeEntryMapOutput {
+	return o
+}
+
+func (o PortalTypeEntryMapOutput) MapIndex(k pulumi.StringInput) PortalTypeEntryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PortalTypeEntry {
+		return vs[0].(map[string]PortalTypeEntry)[vs[1].(string)]
+	}).(PortalTypeEntryOutput)
+}
+
 // To add or update tag, provide both key and value. To delete tag, provide only tag key to be deleted
 type ProjectTag struct {
 	// The key or name that identifies the tag.
@@ -3819,6 +3916,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayPlatformInput)(nil)).Elem(), GatewayPlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySiemensIeInput)(nil)).Elem(), GatewaySiemensIeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySiemensIePtrInput)(nil)).Elem(), GatewaySiemensIeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTypeEntryInput)(nil)).Elem(), PortalTypeEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortalTypeEntryMapInput)(nil)).Elem(), PortalTypeEntryMap{})
 	pulumi.RegisterOutputType(AccessPolicyIamRoleOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamRolePtrOutput{})
 	pulumi.RegisterOutputType(AccessPolicyIamUserOutput{})
@@ -3870,4 +3969,6 @@ func init() {
 	pulumi.RegisterOutputType(GatewayPlatformOutput{})
 	pulumi.RegisterOutputType(GatewaySiemensIeOutput{})
 	pulumi.RegisterOutputType(GatewaySiemensIePtrOutput{})
+	pulumi.RegisterOutputType(PortalTypeEntryOutput{})
+	pulumi.RegisterOutputType(PortalTypeEntryMapOutput{})
 }

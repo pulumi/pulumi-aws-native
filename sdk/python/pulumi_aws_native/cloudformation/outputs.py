@@ -226,6 +226,9 @@ class ManagedExecutionProperties(dict):
 
 @pulumi.output_type
 class OptionsProperties(dict):
+    """
+    Specifies the S3 location of your input parameters.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -245,12 +248,19 @@ class OptionsProperties(dict):
 
     def __init__(__self__, *,
                  input_params: Optional['outputs.GuardHookS3Location'] = None):
+        """
+        Specifies the S3 location of your input parameters.
+        :param 'GuardHookS3Location' input_params: Specifies the S3 location where your input parameters are located.
+        """
         if input_params is not None:
             pulumi.set(__self__, "input_params", input_params)
 
     @property
     @pulumi.getter(name="inputParams")
     def input_params(self) -> Optional['outputs.GuardHookS3Location']:
+        """
+        Specifies the S3 location where your input parameters are located.
+        """
         return pulumi.get(self, "input_params")
 
 

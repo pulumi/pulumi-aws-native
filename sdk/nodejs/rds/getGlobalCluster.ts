@@ -37,6 +37,7 @@ export interface GetGlobalClusterResult {
      * The version number of the database engine to use. If you specify the SourceDBClusterIdentifier property, don't specify this property. The value is inherited from the cluster.
      */
     readonly engineVersion?: string;
+    readonly globalEndpoint?: outputs.rds.GlobalClusterGlobalEndpoint;
     /**
      * An array of key-value pairs to apply to this resource.
      */

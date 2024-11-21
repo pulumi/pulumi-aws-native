@@ -16,8 +16,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DirectoryBucketAbortIncompleteMultipartUploadArgs',
+    'DirectoryBucketAbortIncompleteMultipartUploadArgsDict',
     'DirectoryBucketBucketEncryptionArgs',
     'DirectoryBucketBucketEncryptionArgsDict',
+    'DirectoryBucketLifecycleConfigurationArgs',
+    'DirectoryBucketLifecycleConfigurationArgsDict',
+    'DirectoryBucketRuleArgs',
+    'DirectoryBucketRuleArgsDict',
     'DirectoryBucketServerSideEncryptionByDefaultArgs',
     'DirectoryBucketServerSideEncryptionByDefaultArgsDict',
     'DirectoryBucketServerSideEncryptionRuleArgs',
@@ -25,6 +31,41 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class DirectoryBucketAbortIncompleteMultipartUploadArgsDict(TypedDict):
+        """
+        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+        """
+        days_after_initiation: pulumi.Input[int]
+        """
+        Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+        """
+elif False:
+    DirectoryBucketAbortIncompleteMultipartUploadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DirectoryBucketAbortIncompleteMultipartUploadArgs:
+    def __init__(__self__, *,
+                 days_after_initiation: pulumi.Input[int]):
+        """
+        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+        :param pulumi.Input[int] days_after_initiation: Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+        """
+        pulumi.set(__self__, "days_after_initiation", days_after_initiation)
+
+    @property
+    @pulumi.getter(name="daysAfterInitiation")
+    def days_after_initiation(self) -> pulumi.Input[int]:
+        """
+        Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
+        """
+        return pulumi.get(self, "days_after_initiation")
+
+    @days_after_initiation.setter
+    def days_after_initiation(self, value: pulumi.Input[int]):
+        pulumi.set(self, "days_after_initiation", value)
+
 
 if not MYPY:
     class DirectoryBucketBucketEncryptionArgsDict(TypedDict):
@@ -59,6 +100,143 @@ class DirectoryBucketBucketEncryptionArgs:
     @server_side_encryption_configuration.setter
     def server_side_encryption_configuration(self, value: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketServerSideEncryptionRuleArgs']]]):
         pulumi.set(self, "server_side_encryption_configuration", value)
+
+
+if not MYPY:
+    class DirectoryBucketLifecycleConfigurationArgsDict(TypedDict):
+        rules: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketRuleArgsDict']]]
+        """
+        A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+        """
+elif False:
+    DirectoryBucketLifecycleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DirectoryBucketLifecycleConfigurationArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketRuleArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DirectoryBucketRuleArgs']]] rules: A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+        """
+        pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DirectoryBucketRuleArgs']]]:
+        """
+        A lifecycle rule for individual objects in an Amazon S3 Express bucket.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['DirectoryBucketRuleArgs']]]):
+        pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class DirectoryBucketRuleArgsDict(TypedDict):
+        """
+        You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+        """
+        status: pulumi.Input['DirectoryBucketRuleStatus']
+        abort_incomplete_multipart_upload: NotRequired[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgsDict']]
+        expiration_in_days: NotRequired[pulumi.Input[int]]
+        id: NotRequired[pulumi.Input[str]]
+        object_size_greater_than: NotRequired[pulumi.Input[str]]
+        object_size_less_than: NotRequired[pulumi.Input[str]]
+        prefix: NotRequired[pulumi.Input[str]]
+elif False:
+    DirectoryBucketRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DirectoryBucketRuleArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['DirectoryBucketRuleStatus'],
+                 abort_incomplete_multipart_upload: Optional[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs']] = None,
+                 expiration_in_days: Optional[pulumi.Input[int]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 object_size_greater_than: Optional[pulumi.Input[str]] = None,
+                 object_size_less_than: Optional[pulumi.Input[str]] = None,
+                 prefix: Optional[pulumi.Input[str]] = None):
+        """
+        You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+        """
+        pulumi.set(__self__, "status", status)
+        if abort_incomplete_multipart_upload is not None:
+            pulumi.set(__self__, "abort_incomplete_multipart_upload", abort_incomplete_multipart_upload)
+        if expiration_in_days is not None:
+            pulumi.set(__self__, "expiration_in_days", expiration_in_days)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if object_size_greater_than is not None:
+            pulumi.set(__self__, "object_size_greater_than", object_size_greater_than)
+        if object_size_less_than is not None:
+            pulumi.set(__self__, "object_size_less_than", object_size_less_than)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['DirectoryBucketRuleStatus']:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['DirectoryBucketRuleStatus']):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="abortIncompleteMultipartUpload")
+    def abort_incomplete_multipart_upload(self) -> Optional[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs']]:
+        return pulumi.get(self, "abort_incomplete_multipart_upload")
+
+    @abort_incomplete_multipart_upload.setter
+    def abort_incomplete_multipart_upload(self, value: Optional[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs']]):
+        pulumi.set(self, "abort_incomplete_multipart_upload", value)
+
+    @property
+    @pulumi.getter(name="expirationInDays")
+    def expiration_in_days(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "expiration_in_days")
+
+    @expiration_in_days.setter
+    def expiration_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "expiration_in_days", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="objectSizeGreaterThan")
+    def object_size_greater_than(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "object_size_greater_than")
+
+    @object_size_greater_than.setter
+    def object_size_greater_than(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_size_greater_than", value)
+
+    @property
+    @pulumi.getter(name="objectSizeLessThan")
+    def object_size_less_than(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "object_size_less_than")
+
+    @object_size_less_than.setter
+    def object_size_less_than(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_size_less_than", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
 
 
 if not MYPY:

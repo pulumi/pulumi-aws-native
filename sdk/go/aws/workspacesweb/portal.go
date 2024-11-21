@@ -41,7 +41,8 @@ type Portal struct {
 	// The customer managed key of the web portal.
 	//
 	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
-	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
+	CustomerManagedKey        pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
+	DataProtectionSettingsArn pulumi.StringPtrOutput `pulumi:"dataProtectionSettingsArn"`
 	// The name of the web portal.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The type and resources of the underlying instance.
@@ -140,7 +141,8 @@ type portalArgs struct {
 	// The customer managed key of the web portal.
 	//
 	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
-	CustomerManagedKey *string `pulumi:"customerManagedKey"`
+	CustomerManagedKey        *string `pulumi:"customerManagedKey"`
+	DataProtectionSettingsArn *string `pulumi:"dataProtectionSettingsArn"`
 	// The name of the web portal.
 	DisplayName *string `pulumi:"displayName"`
 	// The type and resources of the underlying instance.
@@ -184,7 +186,8 @@ type PortalArgs struct {
 	// The customer managed key of the web portal.
 	//
 	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
-	CustomerManagedKey pulumi.StringPtrInput
+	CustomerManagedKey        pulumi.StringPtrInput
+	DataProtectionSettingsArn pulumi.StringPtrInput
 	// The name of the web portal.
 	DisplayName pulumi.StringPtrInput
 	// The type and resources of the underlying instance.
@@ -284,6 +287,10 @@ func (o PortalOutput) CreationDate() pulumi.StringOutput {
 // *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
 func (o PortalOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
+}
+
+func (o PortalOutput) DataProtectionSettingsArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Portal) pulumi.StringPtrOutput { return v.DataProtectionSettingsArn }).(pulumi.StringPtrOutput)
 }
 
 // The name of the web portal.

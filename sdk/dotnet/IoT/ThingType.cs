@@ -79,7 +79,6 @@ namespace Pulumi.AwsNative.IoT
                 ReplaceOnChanges =
                 {
                     "thingTypeName",
-                    "thingTypeProperties",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

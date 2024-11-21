@@ -41,6 +41,8 @@ type LookupCanaryResult struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Id of the canary
 	Id *string `pulumi:"id"`
+	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+	ProvisionedResourceCleanup *CanaryProvisionedResourceCleanup `pulumi:"provisionedResourceCleanup"`
 	// Provide canary run configuration
 	RunConfig *CanaryRunConfig `pulumi:"runConfig"`
 	// Runtime version of Synthetics Library
@@ -127,6 +129,11 @@ func (o LookupCanaryResultOutput) FailureRetentionPeriod() pulumi.IntPtrOutput {
 // Id of the canary
 func (o LookupCanaryResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCanaryResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+func (o LookupCanaryResultOutput) ProvisionedResourceCleanup() CanaryProvisionedResourceCleanupPtrOutput {
+	return o.ApplyT(func(v LookupCanaryResult) *CanaryProvisionedResourceCleanup { return v.ProvisionedResourceCleanup }).(CanaryProvisionedResourceCleanupPtrOutput)
 }
 
 // Provide canary run configuration

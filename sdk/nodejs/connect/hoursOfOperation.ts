@@ -81,6 +81,10 @@ export class HoursOfOperation extends pulumi.CustomResource {
      */
     public /*out*/ readonly hoursOfOperationArn!: pulumi.Output<string>;
     /**
+     * One or more hours of operation overrides assigned to an hour of operation.
+     */
+    public readonly hoursOfOperationOverrides!: pulumi.Output<outputs.connect.HoursOfOperationOverride[] | undefined>;
+    /**
      * The identifier of the Amazon Connect instance.
      */
     public readonly instanceArn!: pulumi.Output<string>;
@@ -119,6 +123,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
             }
             resourceInputs["config"] = args ? args.config : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["hoursOfOperationOverrides"] = args ? args.hoursOfOperationOverrides : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -128,6 +133,7 @@ export class HoursOfOperation extends pulumi.CustomResource {
             resourceInputs["config"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
+            resourceInputs["hoursOfOperationOverrides"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -150,6 +156,10 @@ export interface HoursOfOperationArgs {
      * The description of the hours of operation.
      */
     description?: pulumi.Input<string>;
+    /**
+     * One or more hours of operation overrides assigned to an hour of operation.
+     */
+    hoursOfOperationOverrides?: pulumi.Input<pulumi.Input<inputs.connect.HoursOfOperationOverrideArgs>[]>;
     /**
      * The identifier of the Amazon Connect instance.
      */

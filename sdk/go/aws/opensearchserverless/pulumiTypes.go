@@ -21,6 +21,225 @@ type CollectionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+type SecurityConfigIamIdentityCenterConfigOptions struct {
+	ApplicationArn *string `pulumi:"applicationArn"`
+	// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+	ApplicationDescription *string `pulumi:"applicationDescription"`
+	// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+	ApplicationName *string `pulumi:"applicationName"`
+	GroupAttribute  *string `pulumi:"groupAttribute"`
+	InstanceArn     string  `pulumi:"instanceArn"`
+	UserAttribute   *string `pulumi:"userAttribute"`
+}
+
+// SecurityConfigIamIdentityCenterConfigOptionsInput is an input type that accepts SecurityConfigIamIdentityCenterConfigOptionsArgs and SecurityConfigIamIdentityCenterConfigOptionsOutput values.
+// You can construct a concrete instance of `SecurityConfigIamIdentityCenterConfigOptionsInput` via:
+//
+//	SecurityConfigIamIdentityCenterConfigOptionsArgs{...}
+type SecurityConfigIamIdentityCenterConfigOptionsInput interface {
+	pulumi.Input
+
+	ToSecurityConfigIamIdentityCenterConfigOptionsOutput() SecurityConfigIamIdentityCenterConfigOptionsOutput
+	ToSecurityConfigIamIdentityCenterConfigOptionsOutputWithContext(context.Context) SecurityConfigIamIdentityCenterConfigOptionsOutput
+}
+
+// Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+type SecurityConfigIamIdentityCenterConfigOptionsArgs struct {
+	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
+	// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+	ApplicationDescription pulumi.StringPtrInput `pulumi:"applicationDescription"`
+	// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+	ApplicationName pulumi.StringPtrInput `pulumi:"applicationName"`
+	GroupAttribute  pulumi.StringPtrInput `pulumi:"groupAttribute"`
+	InstanceArn     pulumi.StringInput    `pulumi:"instanceArn"`
+	UserAttribute   pulumi.StringPtrInput `pulumi:"userAttribute"`
+}
+
+func (SecurityConfigIamIdentityCenterConfigOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptions)(nil)).Elem()
+}
+
+func (i SecurityConfigIamIdentityCenterConfigOptionsArgs) ToSecurityConfigIamIdentityCenterConfigOptionsOutput() SecurityConfigIamIdentityCenterConfigOptionsOutput {
+	return i.ToSecurityConfigIamIdentityCenterConfigOptionsOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigIamIdentityCenterConfigOptionsArgs) ToSecurityConfigIamIdentityCenterConfigOptionsOutputWithContext(ctx context.Context) SecurityConfigIamIdentityCenterConfigOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigIamIdentityCenterConfigOptionsOutput)
+}
+
+func (i SecurityConfigIamIdentityCenterConfigOptionsArgs) ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutput() SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return i.ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SecurityConfigIamIdentityCenterConfigOptionsArgs) ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigIamIdentityCenterConfigOptionsOutput).ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(ctx)
+}
+
+// SecurityConfigIamIdentityCenterConfigOptionsPtrInput is an input type that accepts SecurityConfigIamIdentityCenterConfigOptionsArgs, SecurityConfigIamIdentityCenterConfigOptionsPtr and SecurityConfigIamIdentityCenterConfigOptionsPtrOutput values.
+// You can construct a concrete instance of `SecurityConfigIamIdentityCenterConfigOptionsPtrInput` via:
+//
+//	        SecurityConfigIamIdentityCenterConfigOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityConfigIamIdentityCenterConfigOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutput() SecurityConfigIamIdentityCenterConfigOptionsPtrOutput
+	ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(context.Context) SecurityConfigIamIdentityCenterConfigOptionsPtrOutput
+}
+
+type securityConfigIamIdentityCenterConfigOptionsPtrType SecurityConfigIamIdentityCenterConfigOptionsArgs
+
+func SecurityConfigIamIdentityCenterConfigOptionsPtr(v *SecurityConfigIamIdentityCenterConfigOptionsArgs) SecurityConfigIamIdentityCenterConfigOptionsPtrInput {
+	return (*securityConfigIamIdentityCenterConfigOptionsPtrType)(v)
+}
+
+func (*securityConfigIamIdentityCenterConfigOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigIamIdentityCenterConfigOptions)(nil)).Elem()
+}
+
+func (i *securityConfigIamIdentityCenterConfigOptionsPtrType) ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutput() SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return i.ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *securityConfigIamIdentityCenterConfigOptionsPtrType) ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigIamIdentityCenterConfigOptionsPtrOutput)
+}
+
+// Describes IAM Identity Center options for an OpenSearch Serverless security configuration in the form of a key-value map
+type SecurityConfigIamIdentityCenterConfigOptionsOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigIamIdentityCenterConfigOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptions)(nil)).Elem()
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ToSecurityConfigIamIdentityCenterConfigOptionsOutput() SecurityConfigIamIdentityCenterConfigOptionsOutput {
+	return o
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ToSecurityConfigIamIdentityCenterConfigOptionsOutputWithContext(ctx context.Context) SecurityConfigIamIdentityCenterConfigOptionsOutput {
+	return o
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutput() SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return o.ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigIamIdentityCenterConfigOptions) *SecurityConfigIamIdentityCenterConfigOptions {
+		return &v
+	}).(SecurityConfigIamIdentityCenterConfigOptionsPtrOutput)
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ApplicationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.ApplicationDescription }).(pulumi.StringPtrOutput)
+}
+
+// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) InstanceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) string { return v.InstanceArn }).(pulumi.StringOutput)
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityConfigIamIdentityCenterConfigOptions) *string { return v.UserAttribute }).(pulumi.StringPtrOutput)
+}
+
+type SecurityConfigIamIdentityCenterConfigOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityConfigIamIdentityCenterConfigOptions)(nil)).Elem()
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutput() SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ToSecurityConfigIamIdentityCenterConfigOptionsPtrOutputWithContext(ctx context.Context) SecurityConfigIamIdentityCenterConfigOptionsPtrOutput {
+	return o
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) Elem() SecurityConfigIamIdentityCenterConfigOptionsOutput {
+	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) SecurityConfigIamIdentityCenterConfigOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityConfigIamIdentityCenterConfigOptions
+		return ret
+	}).(SecurityConfigIamIdentityCenterConfigOptionsOutput)
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The description of the IAM Identity Center application used to integrate with OpenSearch Serverless
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ApplicationDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the IAM Identity Center application used to integrate with OpenSearch Serverless
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) GroupAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) InstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SecurityConfigIamIdentityCenterConfigOptionsPtrOutput) UserAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityConfigIamIdentityCenterConfigOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
 // Describes saml options in form of key value map
 type SecurityConfigSamlConfigOptions struct {
 	// Group attribute for this saml integration
@@ -219,8 +438,12 @@ func (o SecurityConfigSamlConfigOptionsPtrOutput) UserAttribute() pulumi.StringP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptionsInput)(nil)).Elem(), SecurityConfigIamIdentityCenterConfigOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigIamIdentityCenterConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigIamIdentityCenterConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigSamlConfigOptionsPtrInput)(nil)).Elem(), SecurityConfigSamlConfigOptionsArgs{})
+	pulumi.RegisterOutputType(SecurityConfigIamIdentityCenterConfigOptionsOutput{})
+	pulumi.RegisterOutputType(SecurityConfigIamIdentityCenterConfigOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigSamlConfigOptionsOutput{})
 	pulumi.RegisterOutputType(SecurityConfigSamlConfigOptionsPtrOutput{})
 }

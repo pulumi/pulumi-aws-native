@@ -34,6 +34,9 @@ __all__ = [
     'EvaluationFormSingleSelectQuestionProperties',
     'EvaluationFormSingleSelectQuestionRuleCategoryAutomation',
     'HoursOfOperationConfig',
+    'HoursOfOperationOverride',
+    'HoursOfOperationOverrideConfig',
+    'HoursOfOperationOverrideTimeSlice',
     'HoursOfOperationTimeSlice',
     'InstanceAttributes',
     'InstanceStorageConfigEncryptionConfig',
@@ -1123,6 +1126,184 @@ class HoursOfOperationConfig(dict):
         The start time that your contact center opens.
         """
         return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class HoursOfOperationOverride(dict):
+    """
+    Overrides attached to the hours of operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "effectiveFrom":
+            suggest = "effective_from"
+        elif key == "effectiveTill":
+            suggest = "effective_till"
+        elif key == "overrideConfig":
+            suggest = "override_config"
+        elif key == "overrideName":
+            suggest = "override_name"
+        elif key == "hoursOfOperationOverrideId":
+            suggest = "hours_of_operation_override_id"
+        elif key == "overrideDescription":
+            suggest = "override_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HoursOfOperationOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HoursOfOperationOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HoursOfOperationOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 effective_from: str,
+                 effective_till: str,
+                 override_config: Sequence['outputs.HoursOfOperationOverrideConfig'],
+                 override_name: str,
+                 hours_of_operation_override_id: Optional[str] = None,
+                 override_description: Optional[str] = None):
+        """
+        Overrides attached to the hours of operation.
+        """
+        pulumi.set(__self__, "effective_from", effective_from)
+        pulumi.set(__self__, "effective_till", effective_till)
+        pulumi.set(__self__, "override_config", override_config)
+        pulumi.set(__self__, "override_name", override_name)
+        if hours_of_operation_override_id is not None:
+            pulumi.set(__self__, "hours_of_operation_override_id", hours_of_operation_override_id)
+        if override_description is not None:
+            pulumi.set(__self__, "override_description", override_description)
+
+    @property
+    @pulumi.getter(name="effectiveFrom")
+    def effective_from(self) -> str:
+        return pulumi.get(self, "effective_from")
+
+    @property
+    @pulumi.getter(name="effectiveTill")
+    def effective_till(self) -> str:
+        return pulumi.get(self, "effective_till")
+
+    @property
+    @pulumi.getter(name="overrideConfig")
+    def override_config(self) -> Sequence['outputs.HoursOfOperationOverrideConfig']:
+        return pulumi.get(self, "override_config")
+
+    @property
+    @pulumi.getter(name="overrideName")
+    def override_name(self) -> str:
+        return pulumi.get(self, "override_name")
+
+    @property
+    @pulumi.getter(name="hoursOfOperationOverrideId")
+    def hours_of_operation_override_id(self) -> Optional[str]:
+        return pulumi.get(self, "hours_of_operation_override_id")
+
+    @property
+    @pulumi.getter(name="overrideDescription")
+    def override_description(self) -> Optional[str]:
+        return pulumi.get(self, "override_description")
+
+
+@pulumi.output_type
+class HoursOfOperationOverrideConfig(dict):
+    """
+    Contains information about the hours of operation override.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HoursOfOperationOverrideConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HoursOfOperationOverrideConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HoursOfOperationOverrideConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day: 'HoursOfOperationOverrideConfigDay',
+                 end_time: 'outputs.HoursOfOperationOverrideTimeSlice',
+                 start_time: 'outputs.HoursOfOperationOverrideTimeSlice'):
+        """
+        Contains information about the hours of operation override.
+        :param 'HoursOfOperationOverrideConfigDay' day: The day that the hours of operation override applies to.
+        :param 'HoursOfOperationOverrideTimeSlice' end_time: The new end time that your contact center closes for the overriden days.
+        :param 'HoursOfOperationOverrideTimeSlice' start_time: The new start time that your contact center opens for the overriden days.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter
+    def day(self) -> 'HoursOfOperationOverrideConfigDay':
+        """
+        The day that the hours of operation override applies to.
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> 'outputs.HoursOfOperationOverrideTimeSlice':
+        """
+        The new end time that your contact center closes for the overriden days.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> 'outputs.HoursOfOperationOverrideTimeSlice':
+        """
+        The new start time that your contact center opens for the overriden days.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class HoursOfOperationOverrideTimeSlice(dict):
+    """
+    The start time or end time for an an hours of operation override.
+    """
+    def __init__(__self__, *,
+                 hours: int,
+                 minutes: int):
+        """
+        The start time or end time for an an hours of operation override.
+        :param int hours: The hours.
+        :param int minutes: The minutes.
+        """
+        pulumi.set(__self__, "hours", hours)
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def hours(self) -> int:
+        """
+        The hours.
+        """
+        return pulumi.get(self, "hours")
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> int:
+        """
+        The minutes.
+        """
+        return pulumi.get(self, "minutes")
 
 
 @pulumi.output_type

@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.Rds
         [Output("globalClusterIdentifier")]
         public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
 
+        [Output("globalEndpoint")]
+        public Output<Outputs.GlobalClusterGlobalEndpoint?> GlobalEndpoint { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
         /// </summary>
@@ -147,6 +150,9 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
+
+        [Input("globalEndpoint")]
+        public Input<Inputs.GlobalClusterGlobalEndpointArgs>? GlobalEndpoint { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.

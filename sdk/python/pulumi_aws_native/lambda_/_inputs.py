@@ -44,8 +44,12 @@ __all__ = [
     'EventSourceMappingFilterCriteriaArgsDict',
     'EventSourceMappingFilterArgs',
     'EventSourceMappingFilterArgsDict',
+    'EventSourceMappingMetricsConfigArgs',
+    'EventSourceMappingMetricsConfigArgsDict',
     'EventSourceMappingOnFailureArgs',
     'EventSourceMappingOnFailureArgsDict',
+    'EventSourceMappingProvisionedPollerConfigArgs',
+    'EventSourceMappingProvisionedPollerConfigArgsDict',
     'EventSourceMappingScalingConfigArgs',
     'EventSourceMappingScalingConfigArgsDict',
     'EventSourceMappingSelfManagedEventSourceArgs',
@@ -666,6 +670,38 @@ class EventSourceMappingFilterArgs:
 
 
 if not MYPY:
+    class EventSourceMappingMetricsConfigArgsDict(TypedDict):
+        metrics: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]
+        """
+        Metric groups to enable.
+        """
+elif False:
+    EventSourceMappingMetricsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventSourceMappingMetricsConfigArgs:
+    def __init__(__self__, *,
+                 metrics: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]] metrics: Metric groups to enable.
+        """
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]:
+        """
+        Metric groups to enable.
+        """
+        return pulumi.get(self, "metrics")
+
+    @metrics.setter
+    def metrics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingMetricsConfigMetricsItem']]]]):
+        pulumi.set(self, "metrics", value)
+
+
+if not MYPY:
     class EventSourceMappingOnFailureArgsDict(TypedDict):
         """
         A destination for events that failed processing.
@@ -708,6 +744,58 @@ class EventSourceMappingOnFailureArgs:
     @destination.setter
     def destination(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "destination", value)
+
+
+if not MYPY:
+    class EventSourceMappingProvisionedPollerConfigArgsDict(TypedDict):
+        maximum_pollers: NotRequired[pulumi.Input[int]]
+        """
+        The maximum number of event pollers this event source can scale up to.
+        """
+        minimum_pollers: NotRequired[pulumi.Input[int]]
+        """
+        The minimum number of event pollers this event source can scale down to.
+        """
+elif False:
+    EventSourceMappingProvisionedPollerConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventSourceMappingProvisionedPollerConfigArgs:
+    def __init__(__self__, *,
+                 maximum_pollers: Optional[pulumi.Input[int]] = None,
+                 minimum_pollers: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] maximum_pollers: The maximum number of event pollers this event source can scale up to.
+        :param pulumi.Input[int] minimum_pollers: The minimum number of event pollers this event source can scale down to.
+        """
+        if maximum_pollers is not None:
+            pulumi.set(__self__, "maximum_pollers", maximum_pollers)
+        if minimum_pollers is not None:
+            pulumi.set(__self__, "minimum_pollers", minimum_pollers)
+
+    @property
+    @pulumi.getter(name="maximumPollers")
+    def maximum_pollers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of event pollers this event source can scale up to.
+        """
+        return pulumi.get(self, "maximum_pollers")
+
+    @maximum_pollers.setter
+    def maximum_pollers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum_pollers", value)
+
+    @property
+    @pulumi.getter(name="minimumPollers")
+    def minimum_pollers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of event pollers this event source can scale down to.
+        """
+        return pulumi.get(self, "minimum_pollers")
+
+    @minimum_pollers.setter
+    def minimum_pollers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_pollers", value)
 
 
 if not MYPY:

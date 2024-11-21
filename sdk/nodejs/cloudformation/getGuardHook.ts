@@ -41,7 +41,13 @@ export interface GetGuardHookResult {
      * S3 Bucket where the guard validate report will be uploaded to
      */
     readonly logBucket?: string;
+    /**
+     * Specifies the S3 location of your input parameters.
+     */
     readonly options?: outputs.cloudformation.OptionsProperties;
+    /**
+     * Specifies the S3 location of your Guard rules.
+     */
     readonly ruleLocation?: outputs.cloudformation.GuardHookS3Location;
     /**
      * Filters to allow hooks to target specific stack attributes

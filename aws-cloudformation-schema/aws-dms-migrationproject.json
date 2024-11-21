@@ -7,7 +7,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : false,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "dms:AddTagsToResource", "dms:RemoveTagsFromResource", "dms:ListTagsForResource" ]
   },
   "definitions" : {
     "Tag" : {
@@ -161,7 +162,7 @@
       "permissions" : [ "dms:DescribeMigrationProjects", "dms:ListMigrationProjects", "dms:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "dms:UpdateMigrationProject", "dms:ModifyMigrationProject", "dms:AddTagsToResource", "dms:RemoveTagsToResource", "dms:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "dms:UpdateMigrationProject", "dms:ModifyMigrationProject", "dms:AddTagsToResource", "dms:RemoveTagsFromResource", "dms:ListTagsForResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "dms:DeleteMigrationProject" ]

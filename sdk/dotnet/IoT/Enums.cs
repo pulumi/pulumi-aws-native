@@ -1088,6 +1088,34 @@ namespace Pulumi.AwsNative.IoT
     }
 
     [EnumType]
+    public readonly struct ThingTypePropagatingAttributeConnectionAttribute : IEquatable<ThingTypePropagatingAttributeConnectionAttribute>
+    {
+        private readonly string _value;
+
+        private ThingTypePropagatingAttributeConnectionAttribute(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ThingTypePropagatingAttributeConnectionAttribute IotClientId { get; } = new ThingTypePropagatingAttributeConnectionAttribute("iot:ClientId");
+        public static ThingTypePropagatingAttributeConnectionAttribute IotThingThingName { get; } = new ThingTypePropagatingAttributeConnectionAttribute("iot:Thing.ThingName");
+
+        public static bool operator ==(ThingTypePropagatingAttributeConnectionAttribute left, ThingTypePropagatingAttributeConnectionAttribute right) => left.Equals(right);
+        public static bool operator !=(ThingTypePropagatingAttributeConnectionAttribute left, ThingTypePropagatingAttributeConnectionAttribute right) => !left.Equals(right);
+
+        public static explicit operator string(ThingTypePropagatingAttributeConnectionAttribute value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThingTypePropagatingAttributeConnectionAttribute other && Equals(other);
+        public bool Equals(ThingTypePropagatingAttributeConnectionAttribute other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TopicRuleCannedAccessControlList : IEquatable<TopicRuleCannedAccessControlList>
     {
         private readonly string _value;

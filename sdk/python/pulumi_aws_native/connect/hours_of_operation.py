@@ -28,6 +28,7 @@ class HoursOfOperationArgs:
                  instance_arn: pulumi.Input[str],
                  time_zone: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 hours_of_operation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -36,6 +37,7 @@ class HoursOfOperationArgs:
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] time_zone: The time zone of the hours of operation.
         :param pulumi.Input[str] description: The description of the hours of operation.
+        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideArgs']]] hours_of_operation_overrides: One or more hours of operation overrides assigned to an hour of operation.
         :param pulumi.Input[str] name: The name of the hours of operation.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
@@ -44,6 +46,8 @@ class HoursOfOperationArgs:
         pulumi.set(__self__, "time_zone", time_zone)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if hours_of_operation_overrides is not None:
+            pulumi.set(__self__, "hours_of_operation_overrides", hours_of_operation_overrides)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -98,6 +102,18 @@ class HoursOfOperationArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="hoursOfOperationOverrides")
+    def hours_of_operation_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideArgs']]]]:
+        """
+        One or more hours of operation overrides assigned to an hour of operation.
+        """
+        return pulumi.get(self, "hours_of_operation_overrides")
+
+    @hours_of_operation_overrides.setter
+    def hours_of_operation_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationOverrideArgs']]]]):
+        pulumi.set(self, "hours_of_operation_overrides", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -129,6 +145,7 @@ class HoursOfOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 hours_of_operation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationOverrideArgs', 'HoursOfOperationOverrideArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -171,6 +188,7 @@ class HoursOfOperation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]] config: Configuration information for the hours of operation: day, start time, and end time.
         :param pulumi.Input[str] description: The description of the hours of operation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationOverrideArgs', 'HoursOfOperationOverrideArgsDict']]]] hours_of_operation_overrides: One or more hours of operation overrides assigned to an hour of operation.
         :param pulumi.Input[str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[str] name: The name of the hours of operation.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
@@ -232,6 +250,7 @@ class HoursOfOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationConfigArgs', 'HoursOfOperationConfigArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 hours_of_operation_overrides: Optional[pulumi.Input[Sequence[pulumi.Input[Union['HoursOfOperationOverrideArgs', 'HoursOfOperationOverrideArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -249,6 +268,7 @@ class HoursOfOperation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'config'")
             __props__.__dict__["config"] = config
             __props__.__dict__["description"] = description
+            __props__.__dict__["hours_of_operation_overrides"] = hours_of_operation_overrides
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
@@ -283,6 +303,7 @@ class HoursOfOperation(pulumi.CustomResource):
         __props__.__dict__["config"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["hours_of_operation_arn"] = None
+        __props__.__dict__["hours_of_operation_overrides"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -312,6 +333,14 @@ class HoursOfOperation(pulumi.CustomResource):
         The Amazon Resource Name (ARN) for the hours of operation.
         """
         return pulumi.get(self, "hours_of_operation_arn")
+
+    @property
+    @pulumi.getter(name="hoursOfOperationOverrides")
+    def hours_of_operation_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.HoursOfOperationOverride']]]:
+        """
+        One or more hours of operation overrides assigned to an hour of operation.
+        """
+        return pulumi.get(self, "hours_of_operation_overrides")
 
     @property
     @pulumi.getter(name="instanceArn")

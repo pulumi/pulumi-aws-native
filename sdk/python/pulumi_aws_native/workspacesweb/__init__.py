@@ -7,7 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .browser_settings import *
+from .data_protection_settings import *
 from .get_browser_settings import *
+from .get_data_protection_settings import *
 from .get_identity_provider import *
 from .get_ip_access_settings import *
 from .get_network_settings import *

@@ -27,6 +27,7 @@ __all__ = [
     'DocumentationPartLocation',
     'DomainNameEndpointConfiguration',
     'DomainNameMutualTlsAuthentication',
+    'DomainNameV2EndpointConfiguration',
     'MethodIntegration',
     'MethodIntegrationResponse',
     'MethodResponse',
@@ -928,6 +929,19 @@ class DomainNameMutualTlsAuthentication(dict):
         The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.
         """
         return pulumi.get(self, "truststore_version")
+
+
+@pulumi.output_type
+class DomainNameV2EndpointConfiguration(dict):
+    def __init__(__self__, *,
+                 types: Optional[Sequence[str]] = None):
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "types")
 
 
 @pulumi.output_type

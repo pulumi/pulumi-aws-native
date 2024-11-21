@@ -160,6 +160,8 @@ type Canary struct {
 	FailureRetentionPeriod pulumi.IntPtrOutput `pulumi:"failureRetentionPeriod"`
 	// Name of the canary.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+	ProvisionedResourceCleanup CanaryProvisionedResourceCleanupPtrOutput `pulumi:"provisionedResourceCleanup"`
 	// List of resources which canary tags should be replicated to.
 	ResourcesToReplicateTags CanaryResourceToTagArrayOutput `pulumi:"resourcesToReplicateTags"`
 	// Provide canary run configuration
@@ -255,6 +257,8 @@ type canaryArgs struct {
 	FailureRetentionPeriod *int `pulumi:"failureRetentionPeriod"`
 	// Name of the canary.
 	Name *string `pulumi:"name"`
+	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+	ProvisionedResourceCleanup *CanaryProvisionedResourceCleanup `pulumi:"provisionedResourceCleanup"`
 	// List of resources which canary tags should be replicated to.
 	ResourcesToReplicateTags []CanaryResourceToTag `pulumi:"resourcesToReplicateTags"`
 	// Provide canary run configuration
@@ -291,6 +295,8 @@ type CanaryArgs struct {
 	FailureRetentionPeriod pulumi.IntPtrInput
 	// Name of the canary.
 	Name pulumi.StringPtrInput
+	// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+	ProvisionedResourceCleanup CanaryProvisionedResourceCleanupPtrInput
 	// List of resources which canary tags should be replicated to.
 	ResourcesToReplicateTags CanaryResourceToTagArrayInput
 	// Provide canary run configuration
@@ -386,6 +392,11 @@ func (o CanaryOutput) FailureRetentionPeriod() pulumi.IntPtrOutput {
 // Name of the canary.
 func (o CanaryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+func (o CanaryOutput) ProvisionedResourceCleanup() CanaryProvisionedResourceCleanupPtrOutput {
+	return o.ApplyT(func(v *Canary) CanaryProvisionedResourceCleanupPtrOutput { return v.ProvisionedResourceCleanup }).(CanaryProvisionedResourceCleanupPtrOutput)
 }
 
 // List of resources which canary tags should be replicated to.

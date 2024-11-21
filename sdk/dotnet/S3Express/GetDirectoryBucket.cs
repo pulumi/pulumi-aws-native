@@ -69,6 +69,10 @@ namespace Pulumi.AwsNative.S3Express
         /// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
         /// </summary>
         public readonly Outputs.DirectoryBucketBucketEncryption? BucketEncryption;
+        /// <summary>
+        /// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
+        /// </summary>
+        public readonly Outputs.DirectoryBucketLifecycleConfiguration? LifecycleConfiguration;
 
         [OutputConstructor]
         private GetDirectoryBucketResult(
@@ -76,11 +80,14 @@ namespace Pulumi.AwsNative.S3Express
 
             string? availabilityZoneName,
 
-            Outputs.DirectoryBucketBucketEncryption? bucketEncryption)
+            Outputs.DirectoryBucketBucketEncryption? bucketEncryption,
+
+            Outputs.DirectoryBucketLifecycleConfiguration? lifecycleConfiguration)
         {
             Arn = arn;
             AvailabilityZoneName = availabilityZoneName;
             BucketEncryption = bucketEncryption;
+            LifecycleConfiguration = lifecycleConfiguration;
         }
     }
 }

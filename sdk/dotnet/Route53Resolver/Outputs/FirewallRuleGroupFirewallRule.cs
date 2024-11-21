@@ -37,13 +37,25 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockResponse? BlockResponse;
         /// <summary>
+        /// FirewallDomainRedirectionAction
+        /// </summary>
+        public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleConfidenceThreshold? ConfidenceThreshold;
+        /// <summary>
+        /// FirewallDomainRedirectionAction
+        /// </summary>
+        public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleDnsThreatProtection? DnsThreatProtection;
+        /// <summary>
         /// ResourceId
         /// </summary>
-        public readonly string FirewallDomainListId;
+        public readonly string? FirewallDomainListId;
         /// <summary>
         /// FirewallDomainRedirectionAction
         /// </summary>
         public readonly Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction? FirewallDomainRedirectionAction;
+        /// <summary>
+        /// ResourceId
+        /// </summary>
+        public readonly string? FirewallThreatProtectionId;
         /// <summary>
         /// Rule Priority
         /// </summary>
@@ -65,9 +77,15 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
 
             Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleBlockResponse? blockResponse,
 
-            string firewallDomainListId,
+            Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleConfidenceThreshold? confidenceThreshold,
+
+            Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleDnsThreatProtection? dnsThreatProtection,
+
+            string? firewallDomainListId,
 
             Pulumi.AwsNative.Route53Resolver.FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction? firewallDomainRedirectionAction,
+
+            string? firewallThreatProtectionId,
 
             int priority,
 
@@ -78,8 +96,11 @@ namespace Pulumi.AwsNative.Route53Resolver.Outputs
             BlockOverrideDomain = blockOverrideDomain;
             BlockOverrideTtl = blockOverrideTtl;
             BlockResponse = blockResponse;
+            ConfidenceThreshold = confidenceThreshold;
+            DnsThreatProtection = dnsThreatProtection;
             FirewallDomainListId = firewallDomainListId;
             FirewallDomainRedirectionAction = firewallDomainRedirectionAction;
+            FirewallThreatProtectionId = firewallThreatProtectionId;
             Priority = priority;
             Qtype = qtype;
         }

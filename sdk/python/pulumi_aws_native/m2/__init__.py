@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .application import *
+from .deployment import *
 from .environment import *
 from .get_application import *
+from .get_deployment import *
 from .get_environment import *
 from ._inputs import *
 from . import outputs

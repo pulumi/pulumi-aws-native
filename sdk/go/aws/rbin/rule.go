@@ -21,6 +21,8 @@ type Rule struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the retention rule.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+	ExcludeResourceTags RuleResourceTagArrayOutput `pulumi:"excludeResourceTags"`
 	// The unique ID of the retention rule.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// Information about the retention rule lock configuration.
@@ -91,6 +93,8 @@ func (RuleState) ElementType() reflect.Type {
 type ruleArgs struct {
 	// The description of the retention rule.
 	Description *string `pulumi:"description"`
+	// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+	ExcludeResourceTags []RuleResourceTag `pulumi:"excludeResourceTags"`
 	// Information about the retention rule lock configuration.
 	LockConfiguration *RuleUnlockDelay `pulumi:"lockConfiguration"`
 	// Information about the resource tags used to identify resources that are retained by the retention rule.
@@ -109,6 +113,8 @@ type ruleArgs struct {
 type RuleArgs struct {
 	// The description of the retention rule.
 	Description pulumi.StringPtrInput
+	// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+	ExcludeResourceTags RuleResourceTagArrayInput
 	// Information about the retention rule lock configuration.
 	LockConfiguration RuleUnlockDelayPtrInput
 	// Information about the resource tags used to identify resources that are retained by the retention rule.
@@ -168,6 +174,11 @@ func (o RuleOutput) Arn() pulumi.StringOutput {
 // The description of the retention rule.
 func (o RuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Information about the exclude resource tags used to identify resources that are excluded by the retention rule.
+func (o RuleOutput) ExcludeResourceTags() RuleResourceTagArrayOutput {
+	return o.ApplyT(func(v *Rule) RuleResourceTagArrayOutput { return v.ExcludeResourceTags }).(RuleResourceTagArrayOutput)
 }
 
 // The unique ID of the retention rule.

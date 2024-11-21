@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:m2:Application":
 		r = &Application{}
+	case "aws-native:m2:Deployment":
+		r = &Deployment{}
 	case "aws-native:m2:Environment":
 		r = &Environment{}
 	default:

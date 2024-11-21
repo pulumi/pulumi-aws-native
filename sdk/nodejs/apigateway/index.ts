@@ -25,6 +25,11 @@ export type BasePathMapping = import("./basePathMapping").BasePathMapping;
 export const BasePathMapping: typeof import("./basePathMapping").BasePathMapping = null as any;
 utilities.lazyLoad(exports, ["BasePathMapping"], () => require("./basePathMapping"));
 
+export { BasePathMappingV2Args } from "./basePathMappingV2";
+export type BasePathMappingV2 = import("./basePathMappingV2").BasePathMappingV2;
+export const BasePathMappingV2: typeof import("./basePathMappingV2").BasePathMappingV2 = null as any;
+utilities.lazyLoad(exports, ["BasePathMappingV2"], () => require("./basePathMappingV2"));
+
 export { ClientCertificateArgs } from "./clientCertificate";
 export type ClientCertificate = import("./clientCertificate").ClientCertificate;
 export const ClientCertificate: typeof import("./clientCertificate").ClientCertificate = null as any;
@@ -49,6 +54,16 @@ export { DomainNameArgs } from "./domainName";
 export type DomainName = import("./domainName").DomainName;
 export const DomainName: typeof import("./domainName").DomainName = null as any;
 utilities.lazyLoad(exports, ["DomainName"], () => require("./domainName"));
+
+export { DomainNameAccessAssociationArgs } from "./domainNameAccessAssociation";
+export type DomainNameAccessAssociation = import("./domainNameAccessAssociation").DomainNameAccessAssociation;
+export const DomainNameAccessAssociation: typeof import("./domainNameAccessAssociation").DomainNameAccessAssociation = null as any;
+utilities.lazyLoad(exports, ["DomainNameAccessAssociation"], () => require("./domainNameAccessAssociation"));
+
+export { DomainNameV2Args } from "./domainNameV2";
+export type DomainNameV2 = import("./domainNameV2").DomainNameV2;
+export const DomainNameV2: typeof import("./domainNameV2").DomainNameV2 = null as any;
+utilities.lazyLoad(exports, ["DomainNameV2"], () => require("./domainNameV2"));
 
 export { GatewayResponseArgs } from "./gatewayResponse";
 export type GatewayResponse = import("./gatewayResponse").GatewayResponse;
@@ -75,6 +90,11 @@ export const getBasePathMapping: typeof import("./getBasePathMapping").getBasePa
 export const getBasePathMappingOutput: typeof import("./getBasePathMapping").getBasePathMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getBasePathMapping","getBasePathMappingOutput"], () => require("./getBasePathMapping"));
 
+export { GetBasePathMappingV2Args, GetBasePathMappingV2Result, GetBasePathMappingV2OutputArgs } from "./getBasePathMappingV2";
+export const getBasePathMappingV2: typeof import("./getBasePathMappingV2").getBasePathMappingV2 = null as any;
+export const getBasePathMappingV2Output: typeof import("./getBasePathMappingV2").getBasePathMappingV2Output = null as any;
+utilities.lazyLoad(exports, ["getBasePathMappingV2","getBasePathMappingV2Output"], () => require("./getBasePathMappingV2"));
+
 export { GetClientCertificateArgs, GetClientCertificateResult, GetClientCertificateOutputArgs } from "./getClientCertificate";
 export const getClientCertificate: typeof import("./getClientCertificate").getClientCertificate = null as any;
 export const getClientCertificateOutput: typeof import("./getClientCertificate").getClientCertificateOutput = null as any;
@@ -99,6 +119,16 @@ export { GetDomainNameArgs, GetDomainNameResult, GetDomainNameOutputArgs } from 
 export const getDomainName: typeof import("./getDomainName").getDomainName = null as any;
 export const getDomainNameOutput: typeof import("./getDomainName").getDomainNameOutput = null as any;
 utilities.lazyLoad(exports, ["getDomainName","getDomainNameOutput"], () => require("./getDomainName"));
+
+export { GetDomainNameAccessAssociationArgs, GetDomainNameAccessAssociationResult, GetDomainNameAccessAssociationOutputArgs } from "./getDomainNameAccessAssociation";
+export const getDomainNameAccessAssociation: typeof import("./getDomainNameAccessAssociation").getDomainNameAccessAssociation = null as any;
+export const getDomainNameAccessAssociationOutput: typeof import("./getDomainNameAccessAssociation").getDomainNameAccessAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getDomainNameAccessAssociation","getDomainNameAccessAssociationOutput"], () => require("./getDomainNameAccessAssociation"));
+
+export { GetDomainNameV2Args, GetDomainNameV2Result, GetDomainNameV2OutputArgs } from "./getDomainNameV2";
+export const getDomainNameV2: typeof import("./getDomainNameV2").getDomainNameV2 = null as any;
+export const getDomainNameV2Output: typeof import("./getDomainNameV2").getDomainNameV2Output = null as any;
+utilities.lazyLoad(exports, ["getDomainNameV2","getDomainNameV2Output"], () => require("./getDomainNameV2"));
 
 export { GetGatewayResponseArgs, GetGatewayResponseResult, GetGatewayResponseOutputArgs } from "./getGatewayResponse";
 export const getGatewayResponse: typeof import("./getGatewayResponse").getGatewayResponse = null as any;
@@ -211,6 +241,8 @@ const _module = {
                 return new Authorizer(name, <any>undefined, { urn })
             case "aws-native:apigateway:BasePathMapping":
                 return new BasePathMapping(name, <any>undefined, { urn })
+            case "aws-native:apigateway:BasePathMappingV2":
+                return new BasePathMappingV2(name, <any>undefined, { urn })
             case "aws-native:apigateway:ClientCertificate":
                 return new ClientCertificate(name, <any>undefined, { urn })
             case "aws-native:apigateway:Deployment":
@@ -221,6 +253,10 @@ const _module = {
                 return new DocumentationVersion(name, <any>undefined, { urn })
             case "aws-native:apigateway:DomainName":
                 return new DomainName(name, <any>undefined, { urn })
+            case "aws-native:apigateway:DomainNameAccessAssociation":
+                return new DomainNameAccessAssociation(name, <any>undefined, { urn })
+            case "aws-native:apigateway:DomainNameV2":
+                return new DomainNameV2(name, <any>undefined, { urn })
             case "aws-native:apigateway:GatewayResponse":
                 return new GatewayResponse(name, <any>undefined, { urn })
             case "aws-native:apigateway:Method":

@@ -73,6 +73,8 @@ type HoursOfOperation struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Resource Name (ARN) for the hours of operation.
 	HoursOfOperationArn pulumi.StringOutput `pulumi:"hoursOfOperationArn"`
+	// One or more hours of operation overrides assigned to an hour of operation.
+	HoursOfOperationOverrides HoursOfOperationOverrideArrayOutput `pulumi:"hoursOfOperationOverrides"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the hours of operation.
@@ -136,6 +138,8 @@ type hoursOfOperationArgs struct {
 	Config []HoursOfOperationConfig `pulumi:"config"`
 	// The description of the hours of operation.
 	Description *string `pulumi:"description"`
+	// One or more hours of operation overrides assigned to an hour of operation.
+	HoursOfOperationOverrides []HoursOfOperationOverride `pulumi:"hoursOfOperationOverrides"`
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the hours of operation.
@@ -152,6 +156,8 @@ type HoursOfOperationArgs struct {
 	Config HoursOfOperationConfigArrayInput
 	// The description of the hours of operation.
 	Description pulumi.StringPtrInput
+	// One or more hours of operation overrides assigned to an hour of operation.
+	HoursOfOperationOverrides HoursOfOperationOverrideArrayInput
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
 	// The name of the hours of operation.
@@ -212,6 +218,11 @@ func (o HoursOfOperationOutput) Description() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) for the hours of operation.
 func (o HoursOfOperationOutput) HoursOfOperationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.HoursOfOperationArn }).(pulumi.StringOutput)
+}
+
+// One or more hours of operation overrides assigned to an hour of operation.
+func (o HoursOfOperationOutput) HoursOfOperationOverrides() HoursOfOperationOverrideArrayOutput {
+	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperationOverrideArrayOutput { return v.HoursOfOperationOverrides }).(HoursOfOperationOverrideArrayOutput)
 }
 
 // The identifier of the Amazon Connect instance.

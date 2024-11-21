@@ -75,6 +75,7 @@ export class Portal extends pulumi.CustomResource {
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    public readonly dataProtectionSettingsArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the web portal.
      */
@@ -151,6 +152,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
             resourceInputs["browserSettingsArn"] = args ? args.browserSettingsArn : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["dataProtectionSettingsArn"] = args ? args.dataProtectionSettingsArn : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["ipAccessSettingsArn"] = args ? args.ipAccessSettingsArn : undefined;
@@ -175,6 +177,7 @@ export class Portal extends pulumi.CustomResource {
             resourceInputs["browserType"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["customerManagedKey"] = undefined /*out*/;
+            resourceInputs["dataProtectionSettingsArn"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["ipAccessSettingsArn"] = undefined /*out*/;
@@ -232,6 +235,7 @@ export interface PortalArgs {
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
     customerManagedKey?: pulumi.Input<string>;
+    dataProtectionSettingsArn?: pulumi.Input<string>;
     /**
      * The name of the web portal.
      */

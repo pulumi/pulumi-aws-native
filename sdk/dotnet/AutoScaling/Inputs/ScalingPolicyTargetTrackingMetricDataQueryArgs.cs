@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         [Input("metricStat")]
         public Input<Inputs.ScalingPolicyTargetTrackingMetricStatArgs>? MetricStat { get; set; }
 
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
         /// <summary>
         /// Indicates whether to return the timestamps and raw data values of this metric.
         /// 

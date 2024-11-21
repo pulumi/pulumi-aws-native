@@ -22,6 +22,15 @@ export const DocumentationPartLocationType = {
  */
 export type DocumentationPartLocationType = (typeof DocumentationPartLocationType)[keyof typeof DocumentationPartLocationType];
 
+export const DomainNameAccessAssociationAccessAssociationSourceType = {
+    Vpce: "VPCE",
+} as const;
+
+/**
+ * The source type of the domain name access association resource.
+ */
+export type DomainNameAccessAssociationAccessAssociationSourceType = (typeof DomainNameAccessAssociationAccessAssociationSourceType)[keyof typeof DomainNameAccessAssociationAccessAssociationSourceType];
+
 export const MethodIntegrationConnectionType = {
     Internet: "INTERNET",
     VpcLink: "VPC_LINK",

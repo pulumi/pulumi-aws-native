@@ -85,6 +85,8 @@ from .get_verified_access_instance import *
 from .get_verified_access_trust_provider import *
 from .get_volume import *
 from .get_vpc import *
+from .get_vpc_block_public_access_exclusion import *
+from .get_vpc_block_public_access_options import *
 from .get_vpc_cidr_block import *
 from .get_vpc_endpoint import *
 from .get_vpc_endpoint_connection_notification import *
@@ -154,6 +156,8 @@ from .verified_access_trust_provider import *
 from .volume import *
 from .volume_attachment import *
 from .vpc import *
+from .vpc_block_public_access_exclusion import *
+from .vpc_block_public_access_options import *
 from .vpc_cidr_block import *
 from .vpc_endpoint import *
 from .vpc_endpoint_connection_notification import *

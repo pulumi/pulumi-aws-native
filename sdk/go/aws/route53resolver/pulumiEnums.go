@@ -865,6 +865,340 @@ func (in *firewallRuleGroupFirewallRuleBlockResponsePtr) ToFirewallRuleGroupFire
 }
 
 // FirewallDomainRedirectionAction
+type FirewallRuleGroupFirewallRuleConfidenceThreshold string
+
+const (
+	FirewallRuleGroupFirewallRuleConfidenceThresholdLow    = FirewallRuleGroupFirewallRuleConfidenceThreshold("LOW")
+	FirewallRuleGroupFirewallRuleConfidenceThresholdMedium = FirewallRuleGroupFirewallRuleConfidenceThreshold("MEDIUM")
+	FirewallRuleGroupFirewallRuleConfidenceThresholdHigh   = FirewallRuleGroupFirewallRuleConfidenceThreshold("HIGH")
+)
+
+func (FirewallRuleGroupFirewallRuleConfidenceThreshold) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleConfidenceThreshold)(nil)).Elem()
+}
+
+func (e FirewallRuleGroupFirewallRuleConfidenceThreshold) ToFirewallRuleGroupFirewallRuleConfidenceThresholdOutput() FirewallRuleGroupFirewallRuleConfidenceThresholdOutput {
+	return pulumi.ToOutput(e).(FirewallRuleGroupFirewallRuleConfidenceThresholdOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleConfidenceThreshold) ToFirewallRuleGroupFirewallRuleConfidenceThresholdOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleConfidenceThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallRuleGroupFirewallRuleConfidenceThresholdOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleConfidenceThreshold) ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput() FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return e.ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallRuleGroupFirewallRuleConfidenceThreshold) ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return FirewallRuleGroupFirewallRuleConfidenceThreshold(e).ToFirewallRuleGroupFirewallRuleConfidenceThresholdOutputWithContext(ctx).ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutputWithContext(ctx)
+}
+
+func (e FirewallRuleGroupFirewallRuleConfidenceThreshold) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleConfidenceThreshold) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleConfidenceThreshold) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallRuleGroupFirewallRuleConfidenceThreshold) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallRuleGroupFirewallRuleConfidenceThresholdOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleConfidenceThreshold)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ToFirewallRuleGroupFirewallRuleConfidenceThresholdOutput() FirewallRuleGroupFirewallRuleConfidenceThresholdOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ToFirewallRuleGroupFirewallRuleConfidenceThresholdOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleConfidenceThresholdOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput() FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return o.ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleGroupFirewallRuleConfidenceThreshold) *FirewallRuleGroupFirewallRuleConfidenceThreshold {
+		return &v
+	}).(FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleGroupFirewallRuleConfidenceThreshold) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleGroupFirewallRuleConfidenceThreshold) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallRuleConfidenceThreshold)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput) ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput() FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput) ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput) Elem() FirewallRuleGroupFirewallRuleConfidenceThresholdOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleConfidenceThreshold) FirewallRuleGroupFirewallRuleConfidenceThreshold {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallRuleGroupFirewallRuleConfidenceThreshold
+		return ret
+	}).(FirewallRuleGroupFirewallRuleConfidenceThresholdOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallRuleGroupFirewallRuleConfidenceThreshold) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallRuleGroupFirewallRuleConfidenceThresholdInput is an input type that accepts values of the FirewallRuleGroupFirewallRuleConfidenceThreshold enum
+// A concrete instance of `FirewallRuleGroupFirewallRuleConfidenceThresholdInput` can be one of the following:
+//
+//	FirewallRuleGroupFirewallRuleConfidenceThresholdLow
+//	FirewallRuleGroupFirewallRuleConfidenceThresholdMedium
+//	FirewallRuleGroupFirewallRuleConfidenceThresholdHigh
+type FirewallRuleGroupFirewallRuleConfidenceThresholdInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleConfidenceThresholdOutput() FirewallRuleGroupFirewallRuleConfidenceThresholdOutput
+	ToFirewallRuleGroupFirewallRuleConfidenceThresholdOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleConfidenceThresholdOutput
+}
+
+var firewallRuleGroupFirewallRuleConfidenceThresholdPtrType = reflect.TypeOf((**FirewallRuleGroupFirewallRuleConfidenceThreshold)(nil)).Elem()
+
+type FirewallRuleGroupFirewallRuleConfidenceThresholdPtrInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput() FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput
+	ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput
+}
+
+type firewallRuleGroupFirewallRuleConfidenceThresholdPtr string
+
+func FirewallRuleGroupFirewallRuleConfidenceThresholdPtr(v string) FirewallRuleGroupFirewallRuleConfidenceThresholdPtrInput {
+	return (*firewallRuleGroupFirewallRuleConfidenceThresholdPtr)(&v)
+}
+
+func (*firewallRuleGroupFirewallRuleConfidenceThresholdPtr) ElementType() reflect.Type {
+	return firewallRuleGroupFirewallRuleConfidenceThresholdPtrType
+}
+
+func (in *firewallRuleGroupFirewallRuleConfidenceThresholdPtr) ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput() FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return pulumi.ToOutput(in).(FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput)
+}
+
+func (in *firewallRuleGroupFirewallRuleConfidenceThresholdPtr) ToFirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput)
+}
+
+// FirewallDomainRedirectionAction
+type FirewallRuleGroupFirewallRuleDnsThreatProtection string
+
+const (
+	FirewallRuleGroupFirewallRuleDnsThreatProtectionDga          = FirewallRuleGroupFirewallRuleDnsThreatProtection("DGA")
+	FirewallRuleGroupFirewallRuleDnsThreatProtectionDnsTunneling = FirewallRuleGroupFirewallRuleDnsThreatProtection("DNS_TUNNELING")
+)
+
+func (FirewallRuleGroupFirewallRuleDnsThreatProtection) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleDnsThreatProtection)(nil)).Elem()
+}
+
+func (e FirewallRuleGroupFirewallRuleDnsThreatProtection) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionOutput() FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput {
+	return pulumi.ToOutput(e).(FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleDnsThreatProtection) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleDnsThreatProtection) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput() FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return e.ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallRuleGroupFirewallRuleDnsThreatProtection) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return FirewallRuleGroupFirewallRuleDnsThreatProtection(e).ToFirewallRuleGroupFirewallRuleDnsThreatProtectionOutputWithContext(ctx).ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutputWithContext(ctx)
+}
+
+func (e FirewallRuleGroupFirewallRuleDnsThreatProtection) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleDnsThreatProtection) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FirewallRuleGroupFirewallRuleDnsThreatProtection) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FirewallRuleGroupFirewallRuleDnsThreatProtection) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirewallRuleGroupFirewallRuleDnsThreatProtection)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionOutput() FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput() FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return o.ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallRuleGroupFirewallRuleDnsThreatProtection) *FirewallRuleGroupFirewallRuleDnsThreatProtection {
+		return &v
+	}).(FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleGroupFirewallRuleDnsThreatProtection) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FirewallRuleGroupFirewallRuleDnsThreatProtection) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput struct{ *pulumi.OutputState }
+
+func (FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirewallRuleGroupFirewallRuleDnsThreatProtection)(nil)).Elem()
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput() FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return o
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput) Elem() FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput {
+	return o.ApplyT(func(v *FirewallRuleGroupFirewallRuleDnsThreatProtection) FirewallRuleGroupFirewallRuleDnsThreatProtection {
+		if v != nil {
+			return *v
+		}
+		var ret FirewallRuleGroupFirewallRuleDnsThreatProtection
+		return ret
+	}).(FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput)
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FirewallRuleGroupFirewallRuleDnsThreatProtection) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FirewallRuleGroupFirewallRuleDnsThreatProtectionInput is an input type that accepts values of the FirewallRuleGroupFirewallRuleDnsThreatProtection enum
+// A concrete instance of `FirewallRuleGroupFirewallRuleDnsThreatProtectionInput` can be one of the following:
+//
+//	FirewallRuleGroupFirewallRuleDnsThreatProtectionDga
+//	FirewallRuleGroupFirewallRuleDnsThreatProtectionDnsTunneling
+type FirewallRuleGroupFirewallRuleDnsThreatProtectionInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleDnsThreatProtectionOutput() FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput
+	ToFirewallRuleGroupFirewallRuleDnsThreatProtectionOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput
+}
+
+var firewallRuleGroupFirewallRuleDnsThreatProtectionPtrType = reflect.TypeOf((**FirewallRuleGroupFirewallRuleDnsThreatProtection)(nil)).Elem()
+
+type FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrInput interface {
+	pulumi.Input
+
+	ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput() FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput
+	ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutputWithContext(context.Context) FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput
+}
+
+type firewallRuleGroupFirewallRuleDnsThreatProtectionPtr string
+
+func FirewallRuleGroupFirewallRuleDnsThreatProtectionPtr(v string) FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrInput {
+	return (*firewallRuleGroupFirewallRuleDnsThreatProtectionPtr)(&v)
+}
+
+func (*firewallRuleGroupFirewallRuleDnsThreatProtectionPtr) ElementType() reflect.Type {
+	return firewallRuleGroupFirewallRuleDnsThreatProtectionPtrType
+}
+
+func (in *firewallRuleGroupFirewallRuleDnsThreatProtectionPtr) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput() FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return pulumi.ToOutput(in).(FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput)
+}
+
+func (in *firewallRuleGroupFirewallRuleDnsThreatProtectionPtr) ToFirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutputWithContext(ctx context.Context) FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput)
+}
+
+// FirewallDomainRedirectionAction
 type FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction string
 
 const (
@@ -2378,6 +2712,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockOverrideDnsType("CNAME"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockResponseInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockResponse("NODATA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleBlockResponsePtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleBlockResponse("NODATA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleConfidenceThresholdInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleConfidenceThreshold("LOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleConfidenceThresholdPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleConfidenceThreshold("LOW"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleDnsThreatProtectionInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleDnsThreatProtection("DGA"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleDnsThreatProtection("DGA"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrInput)(nil)).Elem(), FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction("INSPECT_REDIRECTION_DOMAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverConfigAutodefinedReverseFlagInput)(nil)).Elem(), ResolverConfigAutodefinedReverseFlag("DISABLE"))
@@ -2398,6 +2736,10 @@ func init() {
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleBlockOverrideDnsTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleBlockResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleBlockResponsePtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleConfidenceThresholdOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleConfidenceThresholdPtrOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleDnsThreatProtectionOutput{})
+	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleDnsThreatProtectionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupFirewallRuleFirewallDomainRedirectionActionPtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleGroupShareStatusOutput{})

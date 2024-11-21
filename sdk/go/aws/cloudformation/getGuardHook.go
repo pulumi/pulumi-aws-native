@@ -35,8 +35,10 @@ type LookupGuardHookResult struct {
 	// Attribute to specify which stacks this hook applies to or should get invoked for
 	HookStatus *GuardHookHookStatus `pulumi:"hookStatus"`
 	// S3 Bucket where the guard validate report will be uploaded to
-	LogBucket    *string              `pulumi:"logBucket"`
-	Options      *OptionsProperties   `pulumi:"options"`
+	LogBucket *string `pulumi:"logBucket"`
+	// Specifies the S3 location of your input parameters.
+	Options *OptionsProperties `pulumi:"options"`
+	// Specifies the S3 location of your Guard rules.
 	RuleLocation *GuardHookS3Location `pulumi:"ruleLocation"`
 	// Filters to allow hooks to target specific stack attributes
 	StackFilters *StackFiltersProperties `pulumi:"stackFilters"`
@@ -108,10 +110,12 @@ func (o LookupGuardHookResultOutput) LogBucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGuardHookResult) *string { return v.LogBucket }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the S3 location of your input parameters.
 func (o LookupGuardHookResultOutput) Options() OptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupGuardHookResult) *OptionsProperties { return v.Options }).(OptionsPropertiesPtrOutput)
 }
 
+// Specifies the S3 location of your Guard rules.
 func (o LookupGuardHookResultOutput) RuleLocation() GuardHookS3LocationPtrOutput {
 	return o.ApplyT(func(v LookupGuardHookResult) *GuardHookS3Location { return v.RuleLocation }).(GuardHookS3LocationPtrOutput)
 }

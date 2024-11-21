@@ -321,6 +321,11 @@ class DomainMlTools(str, Enum):
     ENDPOINTS = "Endpoints"
     PROJECTS = "Projects"
     INFERENCE_OPTIMIZATION = "InferenceOptimization"
+    HYPER_POD_CLUSTERS = "HyperPodClusters"
+    COMET = "Comet"
+    DEEPCHECKS_LLM_EVALUATION = "DeepchecksLLMEvaluation"
+    FIDDLER = "Fiddler"
+    LAKERA_GUARD = "LakeraGuard"
 
 
 class DomainRStudioServerProAppSettingsAccessStatus(str, Enum):
@@ -1116,6 +1121,11 @@ class UserProfileMlTools(str, Enum):
     ENDPOINTS = "Endpoints"
     PROJECTS = "Projects"
     INFERENCE_OPTIMIZATION = "InferenceOptimization"
+    HYPER_POD_CLUSTERS = "HyperPodClusters"
+    COMET = "Comet"
+    DEEPCHECKS_LLM_EVALUATION = "DeepchecksLLMEvaluation"
+    FIDDLER = "Fiddler"
+    LAKERA_GUARD = "LakeraGuard"
 
 
 class UserProfileRStudioServerProAppSettingsAccessStatus(str, Enum):

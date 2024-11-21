@@ -96,6 +96,10 @@ __all__ = [
     'ThingGroupAttributePayloadArgsDict',
     'ThingGroupPropertiesPropertiesArgs',
     'ThingGroupPropertiesPropertiesArgsDict',
+    'ThingTypePropagatingAttributeArgs',
+    'ThingTypePropagatingAttributeArgsDict',
+    'ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs',
+    'ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict',
     'ThingTypePropertiesPropertiesArgs',
     'ThingTypePropertiesPropertiesArgsDict',
     'TimeoutConfigPropertiesArgs',
@@ -2804,10 +2808,82 @@ class ThingGroupPropertiesPropertiesArgs:
 
 
 if not MYPY:
+    class ThingTypePropagatingAttributeArgsDict(TypedDict):
+        user_property_key: pulumi.Input[str]
+        connection_attribute: NotRequired[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]
+        thing_attribute: NotRequired[pulumi.Input[str]]
+elif False:
+    ThingTypePropagatingAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ThingTypePropagatingAttributeArgs:
+    def __init__(__self__, *,
+                 user_property_key: pulumi.Input[str],
+                 connection_attribute: Optional[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']] = None,
+                 thing_attribute: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "user_property_key", user_property_key)
+        if connection_attribute is not None:
+            pulumi.set(__self__, "connection_attribute", connection_attribute)
+        if thing_attribute is not None:
+            pulumi.set(__self__, "thing_attribute", thing_attribute)
+
+    @property
+    @pulumi.getter(name="userPropertyKey")
+    def user_property_key(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "user_property_key")
+
+    @user_property_key.setter
+    def user_property_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user_property_key", value)
+
+    @property
+    @pulumi.getter(name="connectionAttribute")
+    def connection_attribute(self) -> Optional[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]:
+        return pulumi.get(self, "connection_attribute")
+
+    @connection_attribute.setter
+    def connection_attribute(self, value: Optional[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]):
+        pulumi.set(self, "connection_attribute", value)
+
+    @property
+    @pulumi.getter(name="thingAttribute")
+    def thing_attribute(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "thing_attribute")
+
+    @thing_attribute.setter
+    def thing_attribute(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "thing_attribute", value)
+
+
+if not MYPY:
+    class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict(TypedDict):
+        propagating_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgsDict']]]]
+elif False:
+    ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 propagating_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]] = None):
+        if propagating_attributes is not None:
+            pulumi.set(__self__, "propagating_attributes", propagating_attributes)
+
+    @property
+    @pulumi.getter(name="propagatingAttributes")
+    def propagating_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]]:
+        return pulumi.get(self, "propagating_attributes")
+
+    @propagating_attributes.setter
+    def propagating_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]]):
+        pulumi.set(self, "propagating_attributes", value)
+
+
+if not MYPY:
     class ThingTypePropertiesPropertiesArgsDict(TypedDict):
         """
         The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
         """
+        mqtt5_configuration: NotRequired[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict']]
         searchable_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         A list of searchable thing attribute names.
@@ -2822,6 +2898,7 @@ elif False:
 @pulumi.input_type
 class ThingTypePropertiesPropertiesArgs:
     def __init__(__self__, *,
+                 mqtt5_configuration: Optional[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']] = None,
                  searchable_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  thing_type_description: Optional[pulumi.Input[str]] = None):
         """
@@ -2829,10 +2906,21 @@ class ThingTypePropertiesPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] searchable_attributes: A list of searchable thing attribute names.
         :param pulumi.Input[str] thing_type_description: The description of the thing type.
         """
+        if mqtt5_configuration is not None:
+            pulumi.set(__self__, "mqtt5_configuration", mqtt5_configuration)
         if searchable_attributes is not None:
             pulumi.set(__self__, "searchable_attributes", searchable_attributes)
         if thing_type_description is not None:
             pulumi.set(__self__, "thing_type_description", thing_type_description)
+
+    @property
+    @pulumi.getter(name="mqtt5Configuration")
+    def mqtt5_configuration(self) -> Optional[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']]:
+        return pulumi.get(self, "mqtt5_configuration")
+
+    @mqtt5_configuration.setter
+    def mqtt5_configuration(self, value: Optional[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']]):
+        pulumi.set(self, "mqtt5_configuration", value)
 
     @property
     @pulumi.getter(name="searchableAttributes")

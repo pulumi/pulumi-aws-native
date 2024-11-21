@@ -40,6 +40,8 @@ __all__ = [
     'DbProxyAuthFormatArgsDict',
     'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs',
     'DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgsDict',
+    'GlobalClusterGlobalEndpointArgs',
+    'GlobalClusterGlobalEndpointArgsDict',
     'OptionGroupOptionConfigurationArgs',
     'OptionGroupOptionConfigurationArgsDict',
     'OptionGroupOptionSettingArgs',
@@ -986,6 +988,38 @@ class DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs:
     @session_pinning_filters.setter
     def session_pinning_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "session_pinning_filters", value)
+
+
+if not MYPY:
+    class GlobalClusterGlobalEndpointArgsDict(TypedDict):
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+        """
+elif False:
+    GlobalClusterGlobalEndpointArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GlobalClusterGlobalEndpointArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] address: The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The writer endpoint for the global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
 
 
 if not MYPY:

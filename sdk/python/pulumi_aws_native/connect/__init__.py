@@ -10,10 +10,12 @@ from .agent_status import *
 from .approved_origin import *
 from .contact_flow import *
 from .contact_flow_module import *
+from .email_address import *
 from .evaluation_form import *
 from .get_agent_status import *
 from .get_contact_flow import *
 from .get_contact_flow_module import *
+from .get_email_address import *
 from .get_evaluation_form import *
 from .get_hours_of_operation import *
 from .get_instance import *

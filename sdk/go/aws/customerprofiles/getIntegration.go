@@ -33,6 +33,8 @@ type LookupIntegrationArgs struct {
 type LookupIntegrationResult struct {
 	// The time of this integration got created
 	CreatedAt *string `pulumi:"createdAt"`
+	// A list of unique names for active event triggers associated with the integration.
+	EventTriggerNames []string `pulumi:"eventTriggerNames"`
 	// The time of this integration got last updated at
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The name of the ObjectType defined for the 3rd party data in Profile Service
@@ -90,6 +92,11 @@ func (o LookupIntegrationResultOutput) ToLookupIntegrationResultOutputWithContex
 // The time of this integration got created
 func (o LookupIntegrationResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIntegrationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// A list of unique names for active event triggers associated with the integration.
+func (o LookupIntegrationResultOutput) EventTriggerNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupIntegrationResult) []string { return v.EventTriggerNames }).(pulumi.StringArrayOutput)
 }
 
 // The time of this integration got last updated at

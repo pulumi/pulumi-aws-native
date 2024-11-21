@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AwsNative.Synthetics
 {
     /// <summary>
+    /// Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+    /// </summary>
+    [EnumType]
+    public readonly struct CanaryProvisionedResourceCleanup : IEquatable<CanaryProvisionedResourceCleanup>
+    {
+        private readonly string _value;
+
+        private CanaryProvisionedResourceCleanup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CanaryProvisionedResourceCleanup Automatic { get; } = new CanaryProvisionedResourceCleanup("AUTOMATIC");
+        public static CanaryProvisionedResourceCleanup Off { get; } = new CanaryProvisionedResourceCleanup("OFF");
+
+        public static bool operator ==(CanaryProvisionedResourceCleanup left, CanaryProvisionedResourceCleanup right) => left.Equals(right);
+        public static bool operator !=(CanaryProvisionedResourceCleanup left, CanaryProvisionedResourceCleanup right) => !left.Equals(right);
+
+        public static explicit operator string(CanaryProvisionedResourceCleanup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CanaryProvisionedResourceCleanup other && Equals(other);
+        public bool Equals(CanaryProvisionedResourceCleanup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies which resources canary tags should be replicated to.
     /// </summary>
     [EnumType]

@@ -28,9 +28,7 @@ class FirewallRuleGroupFirewallRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "firewallDomainListId":
-            suggest = "firewall_domain_list_id"
-        elif key == "blockOverrideDnsType":
+        if key == "blockOverrideDnsType":
             suggest = "block_override_dns_type"
         elif key == "blockOverrideDomain":
             suggest = "block_override_domain"
@@ -38,8 +36,16 @@ class FirewallRuleGroupFirewallRule(dict):
             suggest = "block_override_ttl"
         elif key == "blockResponse":
             suggest = "block_response"
+        elif key == "confidenceThreshold":
+            suggest = "confidence_threshold"
+        elif key == "dnsThreatProtection":
+            suggest = "dns_threat_protection"
+        elif key == "firewallDomainListId":
+            suggest = "firewall_domain_list_id"
         elif key == "firewallDomainRedirectionAction":
             suggest = "firewall_domain_redirection_action"
+        elif key == "firewallThreatProtectionId":
+            suggest = "firewall_threat_protection_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FirewallRuleGroupFirewallRule. Access the value via the '{suggest}' property getter instead.")
@@ -54,28 +60,33 @@ class FirewallRuleGroupFirewallRule(dict):
 
     def __init__(__self__, *,
                  action: 'FirewallRuleGroupFirewallRuleAction',
-                 firewall_domain_list_id: str,
                  priority: int,
                  block_override_dns_type: Optional['FirewallRuleGroupFirewallRuleBlockOverrideDnsType'] = None,
                  block_override_domain: Optional[str] = None,
                  block_override_ttl: Optional[int] = None,
                  block_response: Optional['FirewallRuleGroupFirewallRuleBlockResponse'] = None,
+                 confidence_threshold: Optional['FirewallRuleGroupFirewallRuleConfidenceThreshold'] = None,
+                 dns_threat_protection: Optional['FirewallRuleGroupFirewallRuleDnsThreatProtection'] = None,
+                 firewall_domain_list_id: Optional[str] = None,
                  firewall_domain_redirection_action: Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction'] = None,
+                 firewall_threat_protection_id: Optional[str] = None,
                  qtype: Optional[str] = None):
         """
         Firewall Rule associating the Rule Group to a Domain List
         :param 'FirewallRuleGroupFirewallRuleAction' action: Rule Action
-        :param str firewall_domain_list_id: ResourceId
         :param int priority: Rule Priority
         :param 'FirewallRuleGroupFirewallRuleBlockOverrideDnsType' block_override_dns_type: BlockOverrideDnsType
         :param str block_override_domain: BlockOverrideDomain
         :param int block_override_ttl: BlockOverrideTtl
         :param 'FirewallRuleGroupFirewallRuleBlockResponse' block_response: BlockResponse
+        :param 'FirewallRuleGroupFirewallRuleConfidenceThreshold' confidence_threshold: FirewallDomainRedirectionAction
+        :param 'FirewallRuleGroupFirewallRuleDnsThreatProtection' dns_threat_protection: FirewallDomainRedirectionAction
+        :param str firewall_domain_list_id: ResourceId
         :param 'FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction' firewall_domain_redirection_action: FirewallDomainRedirectionAction
+        :param str firewall_threat_protection_id: ResourceId
         :param str qtype: Qtype
         """
         pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
         pulumi.set(__self__, "priority", priority)
         if block_override_dns_type is not None:
             pulumi.set(__self__, "block_override_dns_type", block_override_dns_type)
@@ -85,8 +96,16 @@ class FirewallRuleGroupFirewallRule(dict):
             pulumi.set(__self__, "block_override_ttl", block_override_ttl)
         if block_response is not None:
             pulumi.set(__self__, "block_response", block_response)
+        if confidence_threshold is not None:
+            pulumi.set(__self__, "confidence_threshold", confidence_threshold)
+        if dns_threat_protection is not None:
+            pulumi.set(__self__, "dns_threat_protection", dns_threat_protection)
+        if firewall_domain_list_id is not None:
+            pulumi.set(__self__, "firewall_domain_list_id", firewall_domain_list_id)
         if firewall_domain_redirection_action is not None:
             pulumi.set(__self__, "firewall_domain_redirection_action", firewall_domain_redirection_action)
+        if firewall_threat_protection_id is not None:
+            pulumi.set(__self__, "firewall_threat_protection_id", firewall_threat_protection_id)
         if qtype is not None:
             pulumi.set(__self__, "qtype", qtype)
 
@@ -97,14 +116,6 @@ class FirewallRuleGroupFirewallRule(dict):
         Rule Action
         """
         return pulumi.get(self, "action")
-
-    @property
-    @pulumi.getter(name="firewallDomainListId")
-    def firewall_domain_list_id(self) -> str:
-        """
-        ResourceId
-        """
-        return pulumi.get(self, "firewall_domain_list_id")
 
     @property
     @pulumi.getter
@@ -147,12 +158,44 @@ class FirewallRuleGroupFirewallRule(dict):
         return pulumi.get(self, "block_response")
 
     @property
+    @pulumi.getter(name="confidenceThreshold")
+    def confidence_threshold(self) -> Optional['FirewallRuleGroupFirewallRuleConfidenceThreshold']:
+        """
+        FirewallDomainRedirectionAction
+        """
+        return pulumi.get(self, "confidence_threshold")
+
+    @property
+    @pulumi.getter(name="dnsThreatProtection")
+    def dns_threat_protection(self) -> Optional['FirewallRuleGroupFirewallRuleDnsThreatProtection']:
+        """
+        FirewallDomainRedirectionAction
+        """
+        return pulumi.get(self, "dns_threat_protection")
+
+    @property
+    @pulumi.getter(name="firewallDomainListId")
+    def firewall_domain_list_id(self) -> Optional[str]:
+        """
+        ResourceId
+        """
+        return pulumi.get(self, "firewall_domain_list_id")
+
+    @property
     @pulumi.getter(name="firewallDomainRedirectionAction")
     def firewall_domain_redirection_action(self) -> Optional['FirewallRuleGroupFirewallRuleFirewallDomainRedirectionAction']:
         """
         FirewallDomainRedirectionAction
         """
         return pulumi.get(self, "firewall_domain_redirection_action")
+
+    @property
+    @pulumi.getter(name="firewallThreatProtectionId")
+    def firewall_threat_protection_id(self) -> Optional[str]:
+        """
+        ResourceId
+        """
+        return pulumi.get(self, "firewall_threat_protection_id")
 
     @property
     @pulumi.getter

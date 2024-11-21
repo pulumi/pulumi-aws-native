@@ -728,6 +728,8 @@ class ClusterInstanceGroup(dict):
             suggest = "life_cycle_config"
         elif key == "currentCount":
             suggest = "current_count"
+        elif key == "customMetadata":
+            suggest = "custom_metadata"
         elif key == "instanceStorageConfigs":
             suggest = "instance_storage_configs"
         elif key == "onStartDeepHealthChecks":
@@ -755,6 +757,7 @@ class ClusterInstanceGroup(dict):
                  instance_type: str,
                  life_cycle_config: 'outputs.ClusterLifeCycleConfig',
                  current_count: Optional[int] = None,
+                 custom_metadata: Optional[Any] = None,
                  instance_storage_configs: Optional[Sequence['outputs.ClusterInstanceStorageConfig']] = None,
                  on_start_deep_health_checks: Optional[Sequence['ClusterDeepHealthCheckType']] = None,
                  override_vpc_config: Optional['outputs.ClusterVpcConfig'] = None,
@@ -772,6 +775,8 @@ class ClusterInstanceGroup(dict):
         pulumi.set(__self__, "life_cycle_config", life_cycle_config)
         if current_count is not None:
             pulumi.set(__self__, "current_count", current_count)
+        if custom_metadata is not None:
+            pulumi.set(__self__, "custom_metadata", custom_metadata)
         if instance_storage_configs is not None:
             pulumi.set(__self__, "instance_storage_configs", instance_storage_configs)
         if on_start_deep_health_checks is not None:
@@ -816,6 +821,11 @@ class ClusterInstanceGroup(dict):
         The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
         """
         return pulumi.get(self, "current_count")
+
+    @property
+    @pulumi.getter(name="customMetadata")
+    def custom_metadata(self) -> Optional[Any]:
+        return pulumi.get(self, "custom_metadata")
 
     @property
     @pulumi.getter(name="instanceStorageConfigs")

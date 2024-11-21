@@ -269,7 +269,13 @@ class ManagedExecutionPropertiesArgs:
 
 if not MYPY:
     class OptionsPropertiesArgsDict(TypedDict):
+        """
+        Specifies the S3 location of your input parameters.
+        """
         input_params: NotRequired[pulumi.Input['GuardHookS3LocationArgsDict']]
+        """
+        Specifies the S3 location where your input parameters are located.
+        """
 elif False:
     OptionsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -277,12 +283,19 @@ elif False:
 class OptionsPropertiesArgs:
     def __init__(__self__, *,
                  input_params: Optional[pulumi.Input['GuardHookS3LocationArgs']] = None):
+        """
+        Specifies the S3 location of your input parameters.
+        :param pulumi.Input['GuardHookS3LocationArgs'] input_params: Specifies the S3 location where your input parameters are located.
+        """
         if input_params is not None:
             pulumi.set(__self__, "input_params", input_params)
 
     @property
     @pulumi.getter(name="inputParams")
     def input_params(self) -> Optional[pulumi.Input['GuardHookS3LocationArgs']]:
+        """
+        Specifies the S3 location where your input parameters are located.
+        """
         return pulumi.get(self, "input_params")
 
     @input_params.setter

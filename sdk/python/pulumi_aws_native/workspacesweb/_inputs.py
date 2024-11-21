@@ -16,6 +16,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DataProtectionSettingsCustomPatternArgs',
+    'DataProtectionSettingsCustomPatternArgsDict',
+    'DataProtectionSettingsInlineRedactionConfigurationArgs',
+    'DataProtectionSettingsInlineRedactionConfigurationArgsDict',
+    'DataProtectionSettingsInlineRedactionPatternArgs',
+    'DataProtectionSettingsInlineRedactionPatternArgsDict',
+    'DataProtectionSettingsRedactionPlaceHolderArgs',
+    'DataProtectionSettingsRedactionPlaceHolderArgsDict',
     'IpAccessSettingsIpRuleArgs',
     'IpAccessSettingsIpRuleArgsDict',
     'UserSettingsCookieSpecificationArgs',
@@ -25,6 +33,249 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class DataProtectionSettingsCustomPatternArgsDict(TypedDict):
+        pattern_name: pulumi.Input[str]
+        pattern_regex: pulumi.Input[str]
+        keyword_regex: NotRequired[pulumi.Input[str]]
+        pattern_description: NotRequired[pulumi.Input[str]]
+elif False:
+    DataProtectionSettingsCustomPatternArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataProtectionSettingsCustomPatternArgs:
+    def __init__(__self__, *,
+                 pattern_name: pulumi.Input[str],
+                 pattern_regex: pulumi.Input[str],
+                 keyword_regex: Optional[pulumi.Input[str]] = None,
+                 pattern_description: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "pattern_name", pattern_name)
+        pulumi.set(__self__, "pattern_regex", pattern_regex)
+        if keyword_regex is not None:
+            pulumi.set(__self__, "keyword_regex", keyword_regex)
+        if pattern_description is not None:
+            pulumi.set(__self__, "pattern_description", pattern_description)
+
+    @property
+    @pulumi.getter(name="patternName")
+    def pattern_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "pattern_name")
+
+    @pattern_name.setter
+    def pattern_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pattern_name", value)
+
+    @property
+    @pulumi.getter(name="patternRegex")
+    def pattern_regex(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "pattern_regex")
+
+    @pattern_regex.setter
+    def pattern_regex(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pattern_regex", value)
+
+    @property
+    @pulumi.getter(name="keywordRegex")
+    def keyword_regex(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "keyword_regex")
+
+    @keyword_regex.setter
+    def keyword_regex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "keyword_regex", value)
+
+    @property
+    @pulumi.getter(name="patternDescription")
+    def pattern_description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pattern_description")
+
+    @pattern_description.setter
+    def pattern_description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern_description", value)
+
+
+if not MYPY:
+    class DataProtectionSettingsInlineRedactionConfigurationArgsDict(TypedDict):
+        inline_redaction_patterns: pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgsDict']]]
+        global_confidence_level: NotRequired[pulumi.Input[float]]
+        global_enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        global_exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DataProtectionSettingsInlineRedactionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataProtectionSettingsInlineRedactionConfigurationArgs:
+    def __init__(__self__, *,
+                 inline_redaction_patterns: pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgs']]],
+                 global_confidence_level: Optional[pulumi.Input[float]] = None,
+                 global_enforced_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 global_exempt_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "inline_redaction_patterns", inline_redaction_patterns)
+        if global_confidence_level is not None:
+            pulumi.set(__self__, "global_confidence_level", global_confidence_level)
+        if global_enforced_urls is not None:
+            pulumi.set(__self__, "global_enforced_urls", global_enforced_urls)
+        if global_exempt_urls is not None:
+            pulumi.set(__self__, "global_exempt_urls", global_exempt_urls)
+
+    @property
+    @pulumi.getter(name="inlineRedactionPatterns")
+    def inline_redaction_patterns(self) -> pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgs']]]:
+        return pulumi.get(self, "inline_redaction_patterns")
+
+    @inline_redaction_patterns.setter
+    def inline_redaction_patterns(self, value: pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgs']]]):
+        pulumi.set(self, "inline_redaction_patterns", value)
+
+    @property
+    @pulumi.getter(name="globalConfidenceLevel")
+    def global_confidence_level(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "global_confidence_level")
+
+    @global_confidence_level.setter
+    def global_confidence_level(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "global_confidence_level", value)
+
+    @property
+    @pulumi.getter(name="globalEnforcedUrls")
+    def global_enforced_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "global_enforced_urls")
+
+    @global_enforced_urls.setter
+    def global_enforced_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "global_enforced_urls", value)
+
+    @property
+    @pulumi.getter(name="globalExemptUrls")
+    def global_exempt_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "global_exempt_urls")
+
+    @global_exempt_urls.setter
+    def global_exempt_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "global_exempt_urls", value)
+
+
+if not MYPY:
+    class DataProtectionSettingsInlineRedactionPatternArgsDict(TypedDict):
+        redaction_place_holder: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgsDict']
+        built_in_pattern_id: NotRequired[pulumi.Input[str]]
+        confidence_level: NotRequired[pulumi.Input[float]]
+        custom_pattern: NotRequired[pulumi.Input['DataProtectionSettingsCustomPatternArgsDict']]
+        enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    DataProtectionSettingsInlineRedactionPatternArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataProtectionSettingsInlineRedactionPatternArgs:
+    def __init__(__self__, *,
+                 redaction_place_holder: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgs'],
+                 built_in_pattern_id: Optional[pulumi.Input[str]] = None,
+                 confidence_level: Optional[pulumi.Input[float]] = None,
+                 custom_pattern: Optional[pulumi.Input['DataProtectionSettingsCustomPatternArgs']] = None,
+                 enforced_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 exempt_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        pulumi.set(__self__, "redaction_place_holder", redaction_place_holder)
+        if built_in_pattern_id is not None:
+            pulumi.set(__self__, "built_in_pattern_id", built_in_pattern_id)
+        if confidence_level is not None:
+            pulumi.set(__self__, "confidence_level", confidence_level)
+        if custom_pattern is not None:
+            pulumi.set(__self__, "custom_pattern", custom_pattern)
+        if enforced_urls is not None:
+            pulumi.set(__self__, "enforced_urls", enforced_urls)
+        if exempt_urls is not None:
+            pulumi.set(__self__, "exempt_urls", exempt_urls)
+
+    @property
+    @pulumi.getter(name="redactionPlaceHolder")
+    def redaction_place_holder(self) -> pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgs']:
+        return pulumi.get(self, "redaction_place_holder")
+
+    @redaction_place_holder.setter
+    def redaction_place_holder(self, value: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgs']):
+        pulumi.set(self, "redaction_place_holder", value)
+
+    @property
+    @pulumi.getter(name="builtInPatternId")
+    def built_in_pattern_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "built_in_pattern_id")
+
+    @built_in_pattern_id.setter
+    def built_in_pattern_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "built_in_pattern_id", value)
+
+    @property
+    @pulumi.getter(name="confidenceLevel")
+    def confidence_level(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "confidence_level")
+
+    @confidence_level.setter
+    def confidence_level(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "confidence_level", value)
+
+    @property
+    @pulumi.getter(name="customPattern")
+    def custom_pattern(self) -> Optional[pulumi.Input['DataProtectionSettingsCustomPatternArgs']]:
+        return pulumi.get(self, "custom_pattern")
+
+    @custom_pattern.setter
+    def custom_pattern(self, value: Optional[pulumi.Input['DataProtectionSettingsCustomPatternArgs']]):
+        pulumi.set(self, "custom_pattern", value)
+
+    @property
+    @pulumi.getter(name="enforcedUrls")
+    def enforced_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "enforced_urls")
+
+    @enforced_urls.setter
+    def enforced_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enforced_urls", value)
+
+    @property
+    @pulumi.getter(name="exemptUrls")
+    def exempt_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "exempt_urls")
+
+    @exempt_urls.setter
+    def exempt_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "exempt_urls", value)
+
+
+if not MYPY:
+    class DataProtectionSettingsRedactionPlaceHolderArgsDict(TypedDict):
+        redaction_place_holder_type: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType']
+        redaction_place_holder_text: NotRequired[pulumi.Input[str]]
+elif False:
+    DataProtectionSettingsRedactionPlaceHolderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataProtectionSettingsRedactionPlaceHolderArgs:
+    def __init__(__self__, *,
+                 redaction_place_holder_type: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType'],
+                 redaction_place_holder_text: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "redaction_place_holder_type", redaction_place_holder_type)
+        if redaction_place_holder_text is not None:
+            pulumi.set(__self__, "redaction_place_holder_text", redaction_place_holder_text)
+
+    @property
+    @pulumi.getter(name="redactionPlaceHolderType")
+    def redaction_place_holder_type(self) -> pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType']:
+        return pulumi.get(self, "redaction_place_holder_type")
+
+    @redaction_place_holder_type.setter
+    def redaction_place_holder_type(self, value: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType']):
+        pulumi.set(self, "redaction_place_holder_type", value)
+
+    @property
+    @pulumi.getter(name="redactionPlaceHolderText")
+    def redaction_place_holder_text(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "redaction_place_holder_text")
+
+    @redaction_place_holder_text.setter
+    def redaction_place_holder_text(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "redaction_place_holder_text", value)
+
 
 if not MYPY:
     class IpAccessSettingsIpRuleArgsDict(TypedDict):

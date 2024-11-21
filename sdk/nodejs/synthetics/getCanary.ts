@@ -50,6 +50,10 @@ export interface GetCanaryResult {
      */
     readonly id?: string;
     /**
+     * Setting to control if provisioned resources created by Synthetics are deleted alongside the canary. Default is AUTOMATIC.
+     */
+    readonly provisionedResourceCleanup?: enums.synthetics.CanaryProvisionedResourceCleanup;
+    /**
      * Provide canary run configuration
      */
     readonly runConfig?: outputs.synthetics.CanaryRunConfig;

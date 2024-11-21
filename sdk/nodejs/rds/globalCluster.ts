@@ -58,6 +58,7 @@ export class GlobalCluster extends pulumi.CustomResource {
      * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
      */
     public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
+    public readonly globalEndpoint!: pulumi.Output<outputs.rds.GlobalClusterGlobalEndpoint | undefined>;
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
      */
@@ -88,6 +89,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["engineLifecycleSupport"] = args ? args.engineLifecycleSupport : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
+            resourceInputs["globalEndpoint"] = args ? args.globalEndpoint : undefined;
             resourceInputs["sourceDbClusterIdentifier"] = args ? args.sourceDbClusterIdentifier : undefined;
             resourceInputs["storageEncrypted"] = args ? args.storageEncrypted : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -97,6 +99,7 @@ export class GlobalCluster extends pulumi.CustomResource {
             resourceInputs["engineLifecycleSupport"] = undefined /*out*/;
             resourceInputs["engineVersion"] = undefined /*out*/;
             resourceInputs["globalClusterIdentifier"] = undefined /*out*/;
+            resourceInputs["globalEndpoint"] = undefined /*out*/;
             resourceInputs["sourceDbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -133,6 +136,7 @@ export interface GlobalClusterArgs {
      * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
      */
     globalClusterIdentifier?: pulumi.Input<string>;
+    globalEndpoint?: pulumi.Input<inputs.rds.GlobalClusterGlobalEndpointArgs>;
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
      */
