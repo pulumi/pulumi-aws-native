@@ -111,7 +111,9 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : false
+  },
   "required" : [ "AccessPolicyIdentity", "AccessPolicyPermission", "AccessPolicyResource" ],
   "readOnlyProperties" : [ "/properties/AccessPolicyArn", "/properties/AccessPolicyId" ],
   "primaryIdentifier" : [ "/properties/AccessPolicyId" ],
@@ -129,7 +131,7 @@
       "permissions" : [ "iotsitewise:DescribeAccessPolicy", "iotsitewise:DeleteAccessPolicy" ]
     },
     "list" : {
-      "permissions" : [ "iotsitewise:ListAccessPolicies" ]
+      "permissions" : [ "iotsitewise:ListAccessPolicies", "iotsitewise:ListProjects", "iotsitewise:ListPortals" ]
     }
   }
 }

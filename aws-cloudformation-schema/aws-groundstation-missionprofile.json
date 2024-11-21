@@ -108,6 +108,14 @@
   "required" : [ "Name", "MinimumViableContactDurationSeconds", "DataflowEdges", "TrackingConfigArn" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/Region" ],
   "primaryIdentifier" : [ "/properties/Id", "/properties/Arn" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "groundstation:TagResource", "groundstation:UntagResource", "groundstation:ListTagsForResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "groundstation:CreateMissionProfile", "groundstation:GetMissionProfile", "groundstation:TagResource", "iam:PassRole", "kms:DescribeKey", "kms:CreateGrant" ]

@@ -11,7 +11,7 @@
       "permissions" : [ "ecs:DescribeClusters" ]
     },
     "create" : {
-      "permissions" : [ "ecs:DescribeClusters", "ecs:PutClusterCapacityProviders" ]
+      "permissions" : [ "ecs:DescribeClusters", "ecs:PutClusterCapacityProviders", "ecs:DescribeCapacityProviders" ]
     },
     "update" : {
       "permissions" : [ "ecs:DescribeClusters", "ecs:PutClusterCapacityProviders" ]

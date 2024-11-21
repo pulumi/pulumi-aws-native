@@ -541,7 +541,7 @@
     },
     "MlTools" : {
       "type" : "string",
-      "enum" : [ "DataWrangler", "FeatureStore", "EmrClusters", "AutoMl", "Experiments", "Training", "ModelEvaluation", "Pipelines", "Models", "JumpStart", "InferenceRecommender", "Endpoints", "Projects", "InferenceOptimization" ]
+      "enum" : [ "DataWrangler", "FeatureStore", "EmrClusters", "AutoMl", "Experiments", "Training", "ModelEvaluation", "Pipelines", "Models", "JumpStart", "InferenceRecommender", "Endpoints", "Projects", "InferenceOptimization", "HyperPodClusters", "Comet", "DeepchecksLLMEvaluation", "Fiddler", "LakeraGuard" ]
     },
     "AppType" : {
       "type" : "string",

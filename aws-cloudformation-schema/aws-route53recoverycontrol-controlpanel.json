@@ -63,7 +63,6 @@
   "required" : [ "Name" ],
   "additionalProperties" : false,
   "createOnlyProperties" : [ "/properties/ClusterArn", "/properties/Tags" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
   "primaryIdentifier" : [ "/properties/ControlPanelArn" ],
   "readOnlyProperties" : [ "/properties/ControlPanelArn", "/properties/Status", "/properties/RoutingControlCount", "/properties/DefaultControlPanel" ],
   "handlers" : {
@@ -88,6 +87,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "tagProperty" : "/properties/Tags",
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : false,
+    "permissions" : [ "route53-recovery-control-config:TagResource", "route53-recovery-control-config:UntagResource", "route53-recovery-control-config:ListTagsForResource" ]
   }
 }

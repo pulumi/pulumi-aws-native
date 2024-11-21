@@ -19,11 +19,14 @@ AWS::ApiGateway::Account
 AWS::ApiGateway::ApiKey
 AWS::ApiGateway::Authorizer
 AWS::ApiGateway::BasePathMapping
+AWS::ApiGateway::BasePathMappingV2
 AWS::ApiGateway::ClientCertificate
 AWS::ApiGateway::Deployment
 AWS::ApiGateway::DocumentationPart
 AWS::ApiGateway::DocumentationVersion
 AWS::ApiGateway::DomainName
+AWS::ApiGateway::DomainNameAccessAssociation
+AWS::ApiGateway::DomainNameV2
 AWS::ApiGateway::GatewayResponse
 AWS::ApiGateway::Method
 AWS::ApiGateway::Model
@@ -251,6 +254,7 @@ AWS::CustomerProfiles::Domain
 AWS::CustomerProfiles::EventStream
 AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
+AWS::CustomerProfiles::SegmentDefinition
 AWS::DMS::DataMigration
 AWS::DMS::DataProvider
 AWS::DMS::InstanceProfile
@@ -379,6 +383,8 @@ AWS::EC2::TransitGatewayRouteTableAssociation
 AWS::EC2::TransitGatewayRouteTablePropagation
 AWS::EC2::TransitGatewayVpcAttachment
 AWS::EC2::VPC
+AWS::EC2::VPCBlockPublicAccessExclusion
+AWS::EC2::VPCBlockPublicAccessOptions
 AWS::EC2::VPCCidrBlock
 AWS::EC2::VPCDHCPOptionsAssociation
 AWS::EC2::VPCEndpoint
@@ -685,6 +691,7 @@ AWS::LookoutMetrics::Alert
 AWS::LookoutMetrics::AnomalyDetector
 AWS::LookoutVision::Project
 AWS::M2::Application
+AWS::M2::Deployment
 AWS::M2::Environment
 AWS::MSK::BatchScramSecret
 AWS::MSK::Cluster
@@ -1073,6 +1080,7 @@ AWS::WorkSpaces::ConnectionAlias
 AWS::WorkSpaces::WorkspacesPool
 AWS::WorkSpacesThinClient::Environment
 AWS::WorkSpacesWeb::BrowserSettings
+AWS::WorkSpacesWeb::DataProtectionSettings
 AWS::WorkSpacesWeb::IdentityProvider
 AWS::WorkSpacesWeb::IpAccessSettings
 AWS::WorkSpacesWeb::NetworkSettings

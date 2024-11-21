@@ -89,6 +89,9 @@
         },
         "Namespace" : {
           "type" : "string"
+        },
+        "Period" : {
+          "type" : "integer"
         }
       },
       "required" : [ ]
@@ -272,6 +275,9 @@
         },
         "Unit" : {
           "type" : "string"
+        },
+        "Period" : {
+          "type" : "integer"
         }
       },
       "required" : [ "Stat", "Metric" ]
@@ -310,6 +316,9 @@
         },
         "Expression" : {
           "type" : "string"
+        },
+        "Period" : {
+          "type" : "integer"
         }
       },
       "required" : [ "Id" ]

@@ -288,15 +288,17 @@
       }, {
         "required" : [ "WriteUnitsPerSecond" ]
       } ],
-      "description" : "",
+      "description" : "Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the ``UpdateTable`` operation to meet the throughput requirements of an upcoming peak event.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
         "ReadUnitsPerSecond" : {
+          "description" : "Represents the number of read operations your base table can instantaneously support.",
           "type" : "integer",
           "minimum" : 1
         },
         "WriteUnitsPerSecond" : {
+          "description" : "Represents the number of write operations your base table can instantaneously support.",
           "type" : "integer",
           "minimum" : 1
         }
@@ -336,7 +338,7 @@
           }
         },
         "WarmThroughput" : {
-          "description" : "",
+          "description" : "Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify ``ReadUnitsPerSecond``, ``WriteUnitsPerSecond``, or both.",
           "$ref" : "#/definitions/WarmThroughput"
         }
       },
@@ -486,7 +488,7 @@
       "$ref" : "#/definitions/ProvisionedThroughput"
     },
     "WarmThroughput" : {
-      "description" : "",
+      "description" : "Represents the warm throughput (in read units per second and write units per second) for creating a table.",
       "$ref" : "#/definitions/WarmThroughput"
     },
     "TableName" : {
