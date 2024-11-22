@@ -46,6 +46,10 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
      */
     public readonly configurationName!: pulumi.Output<string>;
     /**
+     * ARNs of Custom Actions to associate with notifications in the provided chat channel.
+     */
+    public readonly customizationResourceArns!: pulumi.Output<string[] | undefined>;
+    /**
      * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
      */
     public readonly guardrailPolicies!: pulumi.Output<string[] | undefined>;
@@ -99,6 +103,7 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'slackWorkspaceId'");
             }
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["customizationResourceArns"] = args ? args.customizationResourceArns : undefined;
             resourceInputs["guardrailPolicies"] = args ? args.guardrailPolicies : undefined;
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             resourceInputs["loggingLevel"] = args ? args.loggingLevel : undefined;
@@ -111,6 +116,7 @@ export class SlackChannelConfiguration extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["configurationName"] = undefined /*out*/;
+            resourceInputs["customizationResourceArns"] = undefined /*out*/;
             resourceInputs["guardrailPolicies"] = undefined /*out*/;
             resourceInputs["iamRoleArn"] = undefined /*out*/;
             resourceInputs["loggingLevel"] = undefined /*out*/;
@@ -135,6 +141,10 @@ export interface SlackChannelConfigurationArgs {
      * The name of the configuration
      */
     configurationName?: pulumi.Input<string>;
+    /**
+     * ARNs of Custom Actions to associate with notifications in the provided chat channel.
+     */
+    customizationResourceArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
      */

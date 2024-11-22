@@ -40,8 +40,8 @@ class ListenerArgs:
                 To create a certificate list for a secure listener, use [AWS::ElasticLoadBalancingV2::ListenerCertificate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html).
         :param pulumi.Input[Sequence[pulumi.Input['ListenerAttributeArgs']]] listener_attributes: The listener attributes.
         :param pulumi.Input['ListenerMutualAuthenticationArgs'] mutual_authentication: The mutual authentication configuration information.
-        :param pulumi.Input[int] port: The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
-        :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        :param pulumi.Input[int] port: The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
+        :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
         :param pulumi.Input[str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
                 Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
                 For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
@@ -141,7 +141,7 @@ class ListenerArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
         """
         return pulumi.get(self, "port")
 
@@ -153,7 +153,7 @@ class ListenerArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
         """
         return pulumi.get(self, "protocol")
 
@@ -204,8 +204,8 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerAttributeArgs', 'ListenerAttributeArgsDict']]]] listener_attributes: The listener attributes.
         :param pulumi.Input[str] load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
         :param pulumi.Input[Union['ListenerMutualAuthenticationArgs', 'ListenerMutualAuthenticationArgsDict']] mutual_authentication: The mutual authentication configuration information.
-        :param pulumi.Input[int] port: The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
-        :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        :param pulumi.Input[int] port: The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
+        :param pulumi.Input[str] protocol: The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
         :param pulumi.Input[str] ssl_policy: [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
                 Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
                 For more information, see [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies) in the *Application Load Balancers Guide* and [Security policies](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies) in the *Network Load Balancers Guide*.
@@ -364,7 +364,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
-        The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+        The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
         """
         return pulumi.get(self, "port")
 
@@ -372,7 +372,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+        The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
         """
         return pulumi.get(self, "protocol")
 

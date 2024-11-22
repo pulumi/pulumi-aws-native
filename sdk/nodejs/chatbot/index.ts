@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CustomActionArgs } from "./customAction";
+export type CustomAction = import("./customAction").CustomAction;
+export const CustomAction: typeof import("./customAction").CustomAction = null as any;
+utilities.lazyLoad(exports, ["CustomAction"], () => require("./customAction"));
+
+export { GetCustomActionArgs, GetCustomActionResult, GetCustomActionOutputArgs } from "./getCustomAction";
+export const getCustomAction: typeof import("./getCustomAction").getCustomAction = null as any;
+export const getCustomActionOutput: typeof import("./getCustomAction").getCustomActionOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomAction","getCustomActionOutput"], () => require("./getCustomAction"));
+
 export { GetMicrosoftTeamsChannelConfigurationArgs, GetMicrosoftTeamsChannelConfigurationResult, GetMicrosoftTeamsChannelConfigurationOutputArgs } from "./getMicrosoftTeamsChannelConfiguration";
 export const getMicrosoftTeamsChannelConfiguration: typeof import("./getMicrosoftTeamsChannelConfiguration").getMicrosoftTeamsChannelConfiguration = null as any;
 export const getMicrosoftTeamsChannelConfigurationOutput: typeof import("./getMicrosoftTeamsChannelConfiguration").getMicrosoftTeamsChannelConfigurationOutput = null as any;
@@ -26,10 +36,15 @@ export const SlackChannelConfiguration: typeof import("./slackChannelConfigurati
 utilities.lazyLoad(exports, ["SlackChannelConfiguration"], () => require("./slackChannelConfiguration"));
 
 
+// Export enums:
+export * from "../types/enums/chatbot";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:chatbot:CustomAction":
+                return new CustomAction(name, <any>undefined, { urn })
             case "aws-native:chatbot:MicrosoftTeamsChannelConfiguration":
                 return new MicrosoftTeamsChannelConfiguration(name, <any>undefined, { urn })
             case "aws-native:chatbot:SlackChannelConfiguration":

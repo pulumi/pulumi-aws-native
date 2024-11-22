@@ -158,6 +158,9 @@ class GetAutoScalingGroupResult:
     @property
     @pulumi.getter(name="capacityReservationSpecification")
     def capacity_reservation_specification(self) -> Optional['outputs.AutoScalingGroupCapacityReservationSpecification']:
+        """
+        The capacity reservation specification.
+        """
         return pulumi.get(self, "capacity_reservation_specification")
 
     @property

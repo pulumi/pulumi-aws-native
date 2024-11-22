@@ -14,3 +14,13 @@ export const GroupResourceQueryType = {
  * - `CLOUDFORMATION_STACK_1_0` , the default, indicates that the group is a CloudFormation stack-based group. Group membership is based on the CloudFormation stack. You must specify the `StackIdentifier` property in the query to define which stack to associate the group with, or leave it empty to default to the stack where the group is defined.
  */
 export type GroupResourceQueryType = (typeof GroupResourceQueryType)[keyof typeof GroupResourceQueryType];
+
+export const TagSyncTaskStatus = {
+    Active: "ACTIVE",
+    Error: "ERROR",
+} as const;
+
+/**
+ * The status of the TagSyncTask
+ */
+export type TagSyncTaskStatus = (typeof TagSyncTaskStatus)[keyof typeof TagSyncTaskStatus];

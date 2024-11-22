@@ -62,6 +62,10 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+        /// </summary>
+        public readonly ImmutableArray<string> CustomizationResourceArns;
+        /// <summary>
         /// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         /// </summary>
         public readonly ImmutableArray<string> GuardrailPolicies;
@@ -94,6 +98,8 @@ namespace Pulumi.AwsNative.Chatbot
         private GetMicrosoftTeamsChannelConfigurationResult(
             string? arn,
 
+            ImmutableArray<string> customizationResourceArns,
+
             ImmutableArray<string> guardrailPolicies,
 
             string? iamRoleArn,
@@ -109,6 +115,7 @@ namespace Pulumi.AwsNative.Chatbot
             bool? userRoleRequired)
         {
             Arn = arn;
+            CustomizationResourceArns = customizationResourceArns;
             GuardrailPolicies = guardrailPolicies;
             IamRoleArn = iamRoleArn;
             LoggingLevel = loggingLevel;

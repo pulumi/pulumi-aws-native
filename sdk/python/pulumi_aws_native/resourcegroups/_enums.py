@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'GroupResourceQueryType',
+    'TagSyncTaskStatus',
 ]
 
 
@@ -18,3 +19,11 @@ class GroupResourceQueryType(str, Enum):
     """
     TAG_FILTERS10 = "TAG_FILTERS_1_0"
     CLOUDFORMATION_STACK10 = "CLOUDFORMATION_STACK_1_0"
+
+
+class TagSyncTaskStatus(str, Enum):
+    """
+    The status of the TagSyncTask
+    """
+    ACTIVE = "ACTIVE"
+    ERROR = "ERROR"

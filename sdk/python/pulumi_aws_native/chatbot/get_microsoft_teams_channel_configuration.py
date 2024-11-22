@@ -24,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetMicrosoftTeamsChannelConfigurationResult:
-    def __init__(__self__, arn=None, guardrail_policies=None, iam_role_arn=None, logging_level=None, sns_topic_arns=None, tags=None, teams_channel_id=None, user_role_required=None):
+    def __init__(__self__, arn=None, customization_resource_arns=None, guardrail_policies=None, iam_role_arn=None, logging_level=None, sns_topic_arns=None, tags=None, teams_channel_id=None, user_role_required=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if customization_resource_arns and not isinstance(customization_resource_arns, list):
+            raise TypeError("Expected argument 'customization_resource_arns' to be a list")
+        pulumi.set(__self__, "customization_resource_arns", customization_resource_arns)
         if guardrail_policies and not isinstance(guardrail_policies, list):
             raise TypeError("Expected argument 'guardrail_policies' to be a list")
         pulumi.set(__self__, "guardrail_policies", guardrail_policies)
@@ -57,6 +60,14 @@ class GetMicrosoftTeamsChannelConfigurationResult:
         Amazon Resource Name (ARN) of the configuration
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="customizationResourceArns")
+    def customization_resource_arns(self) -> Optional[Sequence[str]]:
+        """
+        ARNs of Custom Actions to associate with notifications in the provided chat channel.
+        """
+        return pulumi.get(self, "customization_resource_arns")
 
     @property
     @pulumi.getter(name="guardrailPolicies")
@@ -122,6 +133,7 @@ class AwaitableGetMicrosoftTeamsChannelConfigurationResult(GetMicrosoftTeamsChan
             yield self
         return GetMicrosoftTeamsChannelConfigurationResult(
             arn=self.arn,
+            customization_resource_arns=self.customization_resource_arns,
             guardrail_policies=self.guardrail_policies,
             iam_role_arn=self.iam_role_arn,
             logging_level=self.logging_level,
@@ -146,6 +158,7 @@ def get_microsoft_teams_channel_configuration(arn: Optional[str] = None,
 
     return AwaitableGetMicrosoftTeamsChannelConfigurationResult(
         arn=pulumi.get(__ret__, 'arn'),
+        customization_resource_arns=pulumi.get(__ret__, 'customization_resource_arns'),
         guardrail_policies=pulumi.get(__ret__, 'guardrail_policies'),
         iam_role_arn=pulumi.get(__ret__, 'iam_role_arn'),
         logging_level=pulumi.get(__ret__, 'logging_level'),
@@ -167,6 +180,7 @@ def get_microsoft_teams_channel_configuration_output(arn: Optional[pulumi.Input[
     __ret__ = pulumi.runtime.invoke_output('aws-native:chatbot:getMicrosoftTeamsChannelConfiguration', __args__, opts=opts, typ=GetMicrosoftTeamsChannelConfigurationResult)
     return __ret__.apply(lambda __response__: GetMicrosoftTeamsChannelConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),
+        customization_resource_arns=pulumi.get(__response__, 'customization_resource_arns'),
         guardrail_policies=pulumi.get(__response__, 'guardrail_policies'),
         iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),
         logging_level=pulumi.get(__response__, 'logging_level'),

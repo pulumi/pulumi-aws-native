@@ -63,6 +63,11 @@ export const ServiceAvailabilityZoneRebalancing = {
     Disabled: "DISABLED",
 } as const;
 
+/**
+ * Indicates whether to use Availability Zone rebalancing for the service.
+ *
+ * For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+ */
 export type ServiceAvailabilityZoneRebalancing = (typeof ServiceAvailabilityZoneRebalancing)[keyof typeof ServiceAvailabilityZoneRebalancing];
 
 export const ServiceAwsVpcConfigurationAssignPublicIp = {

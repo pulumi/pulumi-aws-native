@@ -436,11 +436,16 @@ func (o DirectoryBucketLifecycleConfigurationPtrOutput) Rules() DirectoryBucketR
 type DirectoryBucketRule struct {
 	AbortIncompleteMultipartUpload *DirectoryBucketAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
 	ExpirationInDays               *int                                           `pulumi:"expirationInDays"`
-	Id                             *string                                        `pulumi:"id"`
-	ObjectSizeGreaterThan          *string                                        `pulumi:"objectSizeGreaterThan"`
-	ObjectSizeLessThan             *string                                        `pulumi:"objectSizeLessThan"`
-	Prefix                         *string                                        `pulumi:"prefix"`
-	Status                         DirectoryBucketRuleStatus                      `pulumi:"status"`
+	// Unique identifier for the rule. The value can't be longer than 255 characters.
+	Id                    *string `pulumi:"id"`
+	ObjectSizeGreaterThan *string `pulumi:"objectSizeGreaterThan"`
+	ObjectSizeLessThan    *string `pulumi:"objectSizeLessThan"`
+	// Object key prefix that identifies one or more objects to which this rule applies.
+	//
+	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
+	Prefix *string `pulumi:"prefix"`
+	// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+	Status DirectoryBucketRuleStatus `pulumi:"status"`
 }
 
 // DirectoryBucketRuleInput is an input type that accepts DirectoryBucketRuleArgs and DirectoryBucketRuleOutput values.
@@ -458,11 +463,16 @@ type DirectoryBucketRuleInput interface {
 type DirectoryBucketRuleArgs struct {
 	AbortIncompleteMultipartUpload DirectoryBucketAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
 	ExpirationInDays               pulumi.IntPtrInput                                    `pulumi:"expirationInDays"`
-	Id                             pulumi.StringPtrInput                                 `pulumi:"id"`
-	ObjectSizeGreaterThan          pulumi.StringPtrInput                                 `pulumi:"objectSizeGreaterThan"`
-	ObjectSizeLessThan             pulumi.StringPtrInput                                 `pulumi:"objectSizeLessThan"`
-	Prefix                         pulumi.StringPtrInput                                 `pulumi:"prefix"`
-	Status                         DirectoryBucketRuleStatusInput                        `pulumi:"status"`
+	// Unique identifier for the rule. The value can't be longer than 255 characters.
+	Id                    pulumi.StringPtrInput `pulumi:"id"`
+	ObjectSizeGreaterThan pulumi.StringPtrInput `pulumi:"objectSizeGreaterThan"`
+	ObjectSizeLessThan    pulumi.StringPtrInput `pulumi:"objectSizeLessThan"`
+	// Object key prefix that identifies one or more objects to which this rule applies.
+	//
+	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+	Status DirectoryBucketRuleStatusInput `pulumi:"status"`
 }
 
 func (DirectoryBucketRuleArgs) ElementType() reflect.Type {
@@ -527,6 +537,7 @@ func (o DirectoryBucketRuleOutput) ExpirationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *int { return v.ExpirationInDays }).(pulumi.IntPtrOutput)
 }
 
+// Unique identifier for the rule. The value can't be longer than 255 characters.
 func (o DirectoryBucketRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -539,10 +550,14 @@ func (o DirectoryBucketRuleOutput) ObjectSizeLessThan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.ObjectSizeLessThan }).(pulumi.StringPtrOutput)
 }
 
+// Object key prefix that identifies one or more objects to which this rule applies.
+//
+// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
 func (o DirectoryBucketRuleOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
+// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
 func (o DirectoryBucketRuleOutput) Status() DirectoryBucketRuleStatusOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) DirectoryBucketRuleStatus { return v.Status }).(DirectoryBucketRuleStatusOutput)
 }

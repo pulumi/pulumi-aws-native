@@ -37,6 +37,9 @@ namespace Pulumi.AwsNative.S3Express
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+    /// </summary>
     [EnumType]
     public readonly struct DirectoryBucketRuleStatus : IEquatable<DirectoryBucketRuleStatus>
     {

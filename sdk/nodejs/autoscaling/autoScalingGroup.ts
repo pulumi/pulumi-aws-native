@@ -62,6 +62,9 @@ export class AutoScalingGroup extends pulumi.CustomResource {
      * Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
      */
     public readonly capacityRebalance!: pulumi.Output<boolean | undefined>;
+    /**
+     * The capacity reservation specification.
+     */
     public readonly capacityReservationSpecification!: pulumi.Output<outputs.autoscaling.AutoScalingGroupCapacityReservationSpecification | undefined>;
     /**
      * Reserved.
@@ -319,6 +322,9 @@ export interface AutoScalingGroupArgs {
      * Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
      */
     capacityRebalance?: pulumi.Input<boolean>;
+    /**
+     * The capacity reservation specification.
+     */
     capacityReservationSpecification?: pulumi.Input<inputs.autoscaling.AutoScalingGroupCapacityReservationSpecificationArgs>;
     /**
      * Reserved.

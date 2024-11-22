@@ -130,6 +130,464 @@ type ChannelTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+type DashboardRefreshSchedule struct {
+	Frequency *DashboardRefreshScheduleFrequencyProperties `pulumi:"frequency"`
+	// The status of the schedule. Supported values are ENABLED and DISABLED.
+	Status *DashboardRefreshScheduleStatus `pulumi:"status"`
+	// StartTime of the automatic schedule refresh.
+	TimeOfDay *string `pulumi:"timeOfDay"`
+}
+
+// DashboardRefreshScheduleInput is an input type that accepts DashboardRefreshScheduleArgs and DashboardRefreshScheduleOutput values.
+// You can construct a concrete instance of `DashboardRefreshScheduleInput` via:
+//
+//	DashboardRefreshScheduleArgs{...}
+type DashboardRefreshScheduleInput interface {
+	pulumi.Input
+
+	ToDashboardRefreshScheduleOutput() DashboardRefreshScheduleOutput
+	ToDashboardRefreshScheduleOutputWithContext(context.Context) DashboardRefreshScheduleOutput
+}
+
+// Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+type DashboardRefreshScheduleArgs struct {
+	Frequency DashboardRefreshScheduleFrequencyPropertiesPtrInput `pulumi:"frequency"`
+	// The status of the schedule. Supported values are ENABLED and DISABLED.
+	Status DashboardRefreshScheduleStatusPtrInput `pulumi:"status"`
+	// StartTime of the automatic schedule refresh.
+	TimeOfDay pulumi.StringPtrInput `pulumi:"timeOfDay"`
+}
+
+func (DashboardRefreshScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardRefreshSchedule)(nil)).Elem()
+}
+
+func (i DashboardRefreshScheduleArgs) ToDashboardRefreshScheduleOutput() DashboardRefreshScheduleOutput {
+	return i.ToDashboardRefreshScheduleOutputWithContext(context.Background())
+}
+
+func (i DashboardRefreshScheduleArgs) ToDashboardRefreshScheduleOutputWithContext(ctx context.Context) DashboardRefreshScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRefreshScheduleOutput)
+}
+
+func (i DashboardRefreshScheduleArgs) ToDashboardRefreshSchedulePtrOutput() DashboardRefreshSchedulePtrOutput {
+	return i.ToDashboardRefreshSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardRefreshScheduleArgs) ToDashboardRefreshSchedulePtrOutputWithContext(ctx context.Context) DashboardRefreshSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRefreshScheduleOutput).ToDashboardRefreshSchedulePtrOutputWithContext(ctx)
+}
+
+// DashboardRefreshSchedulePtrInput is an input type that accepts DashboardRefreshScheduleArgs, DashboardRefreshSchedulePtr and DashboardRefreshSchedulePtrOutput values.
+// You can construct a concrete instance of `DashboardRefreshSchedulePtrInput` via:
+//
+//	        DashboardRefreshScheduleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardRefreshSchedulePtrInput interface {
+	pulumi.Input
+
+	ToDashboardRefreshSchedulePtrOutput() DashboardRefreshSchedulePtrOutput
+	ToDashboardRefreshSchedulePtrOutputWithContext(context.Context) DashboardRefreshSchedulePtrOutput
+}
+
+type dashboardRefreshSchedulePtrType DashboardRefreshScheduleArgs
+
+func DashboardRefreshSchedulePtr(v *DashboardRefreshScheduleArgs) DashboardRefreshSchedulePtrInput {
+	return (*dashboardRefreshSchedulePtrType)(v)
+}
+
+func (*dashboardRefreshSchedulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardRefreshSchedule)(nil)).Elem()
+}
+
+func (i *dashboardRefreshSchedulePtrType) ToDashboardRefreshSchedulePtrOutput() DashboardRefreshSchedulePtrOutput {
+	return i.ToDashboardRefreshSchedulePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardRefreshSchedulePtrType) ToDashboardRefreshSchedulePtrOutputWithContext(ctx context.Context) DashboardRefreshSchedulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRefreshSchedulePtrOutput)
+}
+
+// Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+type DashboardRefreshScheduleOutput struct{ *pulumi.OutputState }
+
+func (DashboardRefreshScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardRefreshSchedule)(nil)).Elem()
+}
+
+func (o DashboardRefreshScheduleOutput) ToDashboardRefreshScheduleOutput() DashboardRefreshScheduleOutput {
+	return o
+}
+
+func (o DashboardRefreshScheduleOutput) ToDashboardRefreshScheduleOutputWithContext(ctx context.Context) DashboardRefreshScheduleOutput {
+	return o
+}
+
+func (o DashboardRefreshScheduleOutput) ToDashboardRefreshSchedulePtrOutput() DashboardRefreshSchedulePtrOutput {
+	return o.ToDashboardRefreshSchedulePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardRefreshScheduleOutput) ToDashboardRefreshSchedulePtrOutputWithContext(ctx context.Context) DashboardRefreshSchedulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRefreshSchedule) *DashboardRefreshSchedule {
+		return &v
+	}).(DashboardRefreshSchedulePtrOutput)
+}
+
+func (o DashboardRefreshScheduleOutput) Frequency() DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return o.ApplyT(func(v DashboardRefreshSchedule) *DashboardRefreshScheduleFrequencyProperties { return v.Frequency }).(DashboardRefreshScheduleFrequencyPropertiesPtrOutput)
+}
+
+// The status of the schedule. Supported values are ENABLED and DISABLED.
+func (o DashboardRefreshScheduleOutput) Status() DashboardRefreshScheduleStatusPtrOutput {
+	return o.ApplyT(func(v DashboardRefreshSchedule) *DashboardRefreshScheduleStatus { return v.Status }).(DashboardRefreshScheduleStatusPtrOutput)
+}
+
+// StartTime of the automatic schedule refresh.
+func (o DashboardRefreshScheduleOutput) TimeOfDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardRefreshSchedule) *string { return v.TimeOfDay }).(pulumi.StringPtrOutput)
+}
+
+type DashboardRefreshSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardRefreshSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardRefreshSchedule)(nil)).Elem()
+}
+
+func (o DashboardRefreshSchedulePtrOutput) ToDashboardRefreshSchedulePtrOutput() DashboardRefreshSchedulePtrOutput {
+	return o
+}
+
+func (o DashboardRefreshSchedulePtrOutput) ToDashboardRefreshSchedulePtrOutputWithContext(ctx context.Context) DashboardRefreshSchedulePtrOutput {
+	return o
+}
+
+func (o DashboardRefreshSchedulePtrOutput) Elem() DashboardRefreshScheduleOutput {
+	return o.ApplyT(func(v *DashboardRefreshSchedule) DashboardRefreshSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardRefreshSchedule
+		return ret
+	}).(DashboardRefreshScheduleOutput)
+}
+
+func (o DashboardRefreshSchedulePtrOutput) Frequency() DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return o.ApplyT(func(v *DashboardRefreshSchedule) *DashboardRefreshScheduleFrequencyProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Frequency
+	}).(DashboardRefreshScheduleFrequencyPropertiesPtrOutput)
+}
+
+// The status of the schedule. Supported values are ENABLED and DISABLED.
+func (o DashboardRefreshSchedulePtrOutput) Status() DashboardRefreshScheduleStatusPtrOutput {
+	return o.ApplyT(func(v *DashboardRefreshSchedule) *DashboardRefreshScheduleStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(DashboardRefreshScheduleStatusPtrOutput)
+}
+
+// StartTime of the automatic schedule refresh.
+func (o DashboardRefreshSchedulePtrOutput) TimeOfDay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardRefreshSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeOfDay
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardRefreshScheduleFrequencyProperties struct {
+	// The frequency unit. Supported values are HOURS and DAYS.
+	Unit DashboardRefreshScheduleFrequencyPropertiesUnit `pulumi:"unit"`
+	// The frequency value.
+	Value int `pulumi:"value"`
+}
+
+// DashboardRefreshScheduleFrequencyPropertiesInput is an input type that accepts DashboardRefreshScheduleFrequencyPropertiesArgs and DashboardRefreshScheduleFrequencyPropertiesOutput values.
+// You can construct a concrete instance of `DashboardRefreshScheduleFrequencyPropertiesInput` via:
+//
+//	DashboardRefreshScheduleFrequencyPropertiesArgs{...}
+type DashboardRefreshScheduleFrequencyPropertiesInput interface {
+	pulumi.Input
+
+	ToDashboardRefreshScheduleFrequencyPropertiesOutput() DashboardRefreshScheduleFrequencyPropertiesOutput
+	ToDashboardRefreshScheduleFrequencyPropertiesOutputWithContext(context.Context) DashboardRefreshScheduleFrequencyPropertiesOutput
+}
+
+type DashboardRefreshScheduleFrequencyPropertiesArgs struct {
+	// The frequency unit. Supported values are HOURS and DAYS.
+	Unit DashboardRefreshScheduleFrequencyPropertiesUnitInput `pulumi:"unit"`
+	// The frequency value.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (DashboardRefreshScheduleFrequencyPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardRefreshScheduleFrequencyProperties)(nil)).Elem()
+}
+
+func (i DashboardRefreshScheduleFrequencyPropertiesArgs) ToDashboardRefreshScheduleFrequencyPropertiesOutput() DashboardRefreshScheduleFrequencyPropertiesOutput {
+	return i.ToDashboardRefreshScheduleFrequencyPropertiesOutputWithContext(context.Background())
+}
+
+func (i DashboardRefreshScheduleFrequencyPropertiesArgs) ToDashboardRefreshScheduleFrequencyPropertiesOutputWithContext(ctx context.Context) DashboardRefreshScheduleFrequencyPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRefreshScheduleFrequencyPropertiesOutput)
+}
+
+func (i DashboardRefreshScheduleFrequencyPropertiesArgs) ToDashboardRefreshScheduleFrequencyPropertiesPtrOutput() DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return i.ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardRefreshScheduleFrequencyPropertiesArgs) ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(ctx context.Context) DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRefreshScheduleFrequencyPropertiesOutput).ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(ctx)
+}
+
+// DashboardRefreshScheduleFrequencyPropertiesPtrInput is an input type that accepts DashboardRefreshScheduleFrequencyPropertiesArgs, DashboardRefreshScheduleFrequencyPropertiesPtr and DashboardRefreshScheduleFrequencyPropertiesPtrOutput values.
+// You can construct a concrete instance of `DashboardRefreshScheduleFrequencyPropertiesPtrInput` via:
+//
+//	        DashboardRefreshScheduleFrequencyPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardRefreshScheduleFrequencyPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDashboardRefreshScheduleFrequencyPropertiesPtrOutput() DashboardRefreshScheduleFrequencyPropertiesPtrOutput
+	ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(context.Context) DashboardRefreshScheduleFrequencyPropertiesPtrOutput
+}
+
+type dashboardRefreshScheduleFrequencyPropertiesPtrType DashboardRefreshScheduleFrequencyPropertiesArgs
+
+func DashboardRefreshScheduleFrequencyPropertiesPtr(v *DashboardRefreshScheduleFrequencyPropertiesArgs) DashboardRefreshScheduleFrequencyPropertiesPtrInput {
+	return (*dashboardRefreshScheduleFrequencyPropertiesPtrType)(v)
+}
+
+func (*dashboardRefreshScheduleFrequencyPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardRefreshScheduleFrequencyProperties)(nil)).Elem()
+}
+
+func (i *dashboardRefreshScheduleFrequencyPropertiesPtrType) ToDashboardRefreshScheduleFrequencyPropertiesPtrOutput() DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return i.ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardRefreshScheduleFrequencyPropertiesPtrType) ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(ctx context.Context) DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardRefreshScheduleFrequencyPropertiesPtrOutput)
+}
+
+type DashboardRefreshScheduleFrequencyPropertiesOutput struct{ *pulumi.OutputState }
+
+func (DashboardRefreshScheduleFrequencyPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardRefreshScheduleFrequencyProperties)(nil)).Elem()
+}
+
+func (o DashboardRefreshScheduleFrequencyPropertiesOutput) ToDashboardRefreshScheduleFrequencyPropertiesOutput() DashboardRefreshScheduleFrequencyPropertiesOutput {
+	return o
+}
+
+func (o DashboardRefreshScheduleFrequencyPropertiesOutput) ToDashboardRefreshScheduleFrequencyPropertiesOutputWithContext(ctx context.Context) DashboardRefreshScheduleFrequencyPropertiesOutput {
+	return o
+}
+
+func (o DashboardRefreshScheduleFrequencyPropertiesOutput) ToDashboardRefreshScheduleFrequencyPropertiesPtrOutput() DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return o.ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardRefreshScheduleFrequencyPropertiesOutput) ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(ctx context.Context) DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardRefreshScheduleFrequencyProperties) *DashboardRefreshScheduleFrequencyProperties {
+		return &v
+	}).(DashboardRefreshScheduleFrequencyPropertiesPtrOutput)
+}
+
+// The frequency unit. Supported values are HOURS and DAYS.
+func (o DashboardRefreshScheduleFrequencyPropertiesOutput) Unit() DashboardRefreshScheduleFrequencyPropertiesUnitOutput {
+	return o.ApplyT(func(v DashboardRefreshScheduleFrequencyProperties) DashboardRefreshScheduleFrequencyPropertiesUnit {
+		return v.Unit
+	}).(DashboardRefreshScheduleFrequencyPropertiesUnitOutput)
+}
+
+// The frequency value.
+func (o DashboardRefreshScheduleFrequencyPropertiesOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardRefreshScheduleFrequencyProperties) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type DashboardRefreshScheduleFrequencyPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardRefreshScheduleFrequencyPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardRefreshScheduleFrequencyProperties)(nil)).Elem()
+}
+
+func (o DashboardRefreshScheduleFrequencyPropertiesPtrOutput) ToDashboardRefreshScheduleFrequencyPropertiesPtrOutput() DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return o
+}
+
+func (o DashboardRefreshScheduleFrequencyPropertiesPtrOutput) ToDashboardRefreshScheduleFrequencyPropertiesPtrOutputWithContext(ctx context.Context) DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
+	return o
+}
+
+func (o DashboardRefreshScheduleFrequencyPropertiesPtrOutput) Elem() DashboardRefreshScheduleFrequencyPropertiesOutput {
+	return o.ApplyT(func(v *DashboardRefreshScheduleFrequencyProperties) DashboardRefreshScheduleFrequencyProperties {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardRefreshScheduleFrequencyProperties
+		return ret
+	}).(DashboardRefreshScheduleFrequencyPropertiesOutput)
+}
+
+// The frequency unit. Supported values are HOURS and DAYS.
+func (o DashboardRefreshScheduleFrequencyPropertiesPtrOutput) Unit() DashboardRefreshScheduleFrequencyPropertiesUnitPtrOutput {
+	return o.ApplyT(func(v *DashboardRefreshScheduleFrequencyProperties) *DashboardRefreshScheduleFrequencyPropertiesUnit {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(DashboardRefreshScheduleFrequencyPropertiesUnitPtrOutput)
+}
+
+// The frequency value.
+func (o DashboardRefreshScheduleFrequencyPropertiesPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardRefreshScheduleFrequencyProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) for this dashboard.
+type DashboardTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 1 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// The dashboard widget
+type DashboardWidget struct {
+	// The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
+	QueryParameters []string `pulumi:"queryParameters"`
+	// The SQL query statement on one or more event data stores.
+	QueryStatement string `pulumi:"queryStatement"`
+	// The view properties of the widget.
+	ViewProperties map[string]string `pulumi:"viewProperties"`
+}
+
+// DashboardWidgetInput is an input type that accepts DashboardWidgetArgs and DashboardWidgetOutput values.
+// You can construct a concrete instance of `DashboardWidgetInput` via:
+//
+//	DashboardWidgetArgs{...}
+type DashboardWidgetInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetOutput() DashboardWidgetOutput
+	ToDashboardWidgetOutputWithContext(context.Context) DashboardWidgetOutput
+}
+
+// The dashboard widget
+type DashboardWidgetArgs struct {
+	// The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
+	QueryParameters pulumi.StringArrayInput `pulumi:"queryParameters"`
+	// The SQL query statement on one or more event data stores.
+	QueryStatement pulumi.StringInput `pulumi:"queryStatement"`
+	// The view properties of the widget.
+	ViewProperties pulumi.StringMapInput `pulumi:"viewProperties"`
+}
+
+func (DashboardWidgetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidget)(nil)).Elem()
+}
+
+func (i DashboardWidgetArgs) ToDashboardWidgetOutput() DashboardWidgetOutput {
+	return i.ToDashboardWidgetOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetArgs) ToDashboardWidgetOutputWithContext(ctx context.Context) DashboardWidgetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetOutput)
+}
+
+// DashboardWidgetArrayInput is an input type that accepts DashboardWidgetArray and DashboardWidgetArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetArrayInput` via:
+//
+//	DashboardWidgetArray{ DashboardWidgetArgs{...} }
+type DashboardWidgetArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetArrayOutput() DashboardWidgetArrayOutput
+	ToDashboardWidgetArrayOutputWithContext(context.Context) DashboardWidgetArrayOutput
+}
+
+type DashboardWidgetArray []DashboardWidgetInput
+
+func (DashboardWidgetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidget)(nil)).Elem()
+}
+
+func (i DashboardWidgetArray) ToDashboardWidgetArrayOutput() DashboardWidgetArrayOutput {
+	return i.ToDashboardWidgetArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetArray) ToDashboardWidgetArrayOutputWithContext(ctx context.Context) DashboardWidgetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetArrayOutput)
+}
+
+// The dashboard widget
+type DashboardWidgetOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidget)(nil)).Elem()
+}
+
+func (o DashboardWidgetOutput) ToDashboardWidgetOutput() DashboardWidgetOutput {
+	return o
+}
+
+func (o DashboardWidgetOutput) ToDashboardWidgetOutputWithContext(ctx context.Context) DashboardWidgetOutput {
+	return o
+}
+
+// The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
+func (o DashboardWidgetOutput) QueryParameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardWidget) []string { return v.QueryParameters }).(pulumi.StringArrayOutput)
+}
+
+// The SQL query statement on one or more event data stores.
+func (o DashboardWidgetOutput) QueryStatement() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidget) string { return v.QueryStatement }).(pulumi.StringOutput)
+}
+
+// The view properties of the widget.
+func (o DashboardWidgetOutput) ViewProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DashboardWidget) map[string]string { return v.ViewProperties }).(pulumi.StringMapOutput)
+}
+
+type DashboardWidgetArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidget)(nil)).Elem()
+}
+
+func (o DashboardWidgetArrayOutput) ToDashboardWidgetArrayOutput() DashboardWidgetArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetArrayOutput) ToDashboardWidgetArrayOutputWithContext(ctx context.Context) DashboardWidgetArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetArrayOutput) Index(i pulumi.IntInput) DashboardWidgetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidget {
+		return vs[0].([]DashboardWidget)[vs[1].(int)]
+	}).(DashboardWidgetOutput)
+}
+
 // Advanced event selectors let you create fine-grained selectors for the following AWS CloudTrail event record ﬁelds. They help you control costs by logging only those events that are important to you.
 type EventDataStoreAdvancedEventSelector struct {
 	// Contains all selector statements in an advanced event selector.
@@ -1125,6 +1583,12 @@ type TrailTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDestinationInput)(nil)).Elem(), ChannelDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDestinationArrayInput)(nil)).Elem(), ChannelDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRefreshScheduleInput)(nil)).Elem(), DashboardRefreshScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRefreshSchedulePtrInput)(nil)).Elem(), DashboardRefreshScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRefreshScheduleFrequencyPropertiesInput)(nil)).Elem(), DashboardRefreshScheduleFrequencyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRefreshScheduleFrequencyPropertiesPtrInput)(nil)).Elem(), DashboardRefreshScheduleFrequencyPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetInput)(nil)).Elem(), DashboardWidgetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetArrayInput)(nil)).Elem(), DashboardWidgetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedEventSelectorArrayInput)(nil)).Elem(), EventDataStoreAdvancedEventSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventDataStoreAdvancedFieldSelectorInput)(nil)).Elem(), EventDataStoreAdvancedFieldSelectorArgs{})
@@ -1143,6 +1607,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorArrayInput)(nil)).Elem(), TrailInsightSelectorArray{})
 	pulumi.RegisterOutputType(ChannelDestinationOutput{})
 	pulumi.RegisterOutputType(ChannelDestinationArrayOutput{})
+	pulumi.RegisterOutputType(DashboardRefreshScheduleOutput{})
+	pulumi.RegisterOutputType(DashboardRefreshSchedulePtrOutput{})
+	pulumi.RegisterOutputType(DashboardRefreshScheduleFrequencyPropertiesOutput{})
+	pulumi.RegisterOutputType(DashboardRefreshScheduleFrequencyPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(EventDataStoreAdvancedFieldSelectorOutput{})

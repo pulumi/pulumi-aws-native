@@ -71,6 +71,8 @@ __all__ = [
     'ListenerTargetGroupTupleArgsDict',
     'LoadBalancerAttributeArgs',
     'LoadBalancerAttributeArgsDict',
+    'LoadBalancerMinimumLoadBalancerCapacityArgs',
+    'LoadBalancerMinimumLoadBalancerCapacityArgsDict',
     'LoadBalancerSubnetMappingArgs',
     'LoadBalancerSubnetMappingArgsDict',
     'TargetGroupAttributeArgs',
@@ -1048,7 +1050,7 @@ if not MYPY:
         """
         protocol: NotRequired[pulumi.Input[str]]
         """
-        The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+        The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
         """
         query: NotRequired[pulumi.Input[str]]
         """
@@ -1081,7 +1083,7 @@ class ListenerRedirectConfigArgs:
         :param pulumi.Input[str] host: The hostname. This component is not percent-encoded. The hostname can contain #{host}.
         :param pulumi.Input[str] path: The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         :param pulumi.Input[str] port: The port. You can specify a value from 1 to 65535 or #{port}.
-        :param pulumi.Input[str] protocol: The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+        :param pulumi.Input[str] protocol: The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
         :param pulumi.Input[str] query: The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
         """
         pulumi.set(__self__, "status_code", status_code)
@@ -1148,7 +1150,7 @@ class ListenerRedirectConfigArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+        The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
         """
         return pulumi.get(self, "protocol")
 
@@ -2238,7 +2240,7 @@ if not MYPY:
         """
         protocol: NotRequired[pulumi.Input[str]]
         """
-        The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+        The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
         """
         query: NotRequired[pulumi.Input[str]]
         """
@@ -2271,7 +2273,7 @@ class ListenerRuleRedirectConfigArgs:
         :param pulumi.Input[str] host: The hostname. This component is not percent-encoded. The hostname can contain #{host}.
         :param pulumi.Input[str] path: The absolute path, starting with the leading "/". This component is not percent-encoded. The path can contain #{host}, #{path}, and #{port}.
         :param pulumi.Input[str] port: The port. You can specify a value from 1 to 65535 or #{port}.
-        :param pulumi.Input[str] protocol: The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+        :param pulumi.Input[str] protocol: The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
         :param pulumi.Input[str] query: The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
         """
         pulumi.set(__self__, "status_code", status_code)
@@ -2338,7 +2340,7 @@ class ListenerRuleRedirectConfigArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+        The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
         """
         return pulumi.get(self, "protocol")
 
@@ -2864,7 +2866,7 @@ if not MYPY:
         The name of the attribute.
          The following attributes are supported by all load balancers:
           +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
-          +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+          +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and can't be changed.
           
          The following attributes are supported by both Application Load Balancers and Network Load Balancers:
           +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
@@ -2912,7 +2914,7 @@ class LoadBalancerAttributeArgs:
         :param pulumi.Input[str] key: The name of the attribute.
                 The following attributes are supported by all load balancers:
                  +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
-                 +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+                 +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and can't be changed.
                  
                 The following attributes are supported by both Application Load Balancers and Network Load Balancers:
                  +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
@@ -2956,7 +2958,7 @@ class LoadBalancerAttributeArgs:
         The name of the attribute.
          The following attributes are supported by all load balancers:
           +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
-          +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+          +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and can't be changed.
           
          The following attributes are supported by both Application Load Balancers and Network Load Balancers:
           +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
@@ -3007,6 +3009,28 @@ class LoadBalancerAttributeArgs:
 
 
 if not MYPY:
+    class LoadBalancerMinimumLoadBalancerCapacityArgsDict(TypedDict):
+        capacity_units: pulumi.Input[int]
+elif False:
+    LoadBalancerMinimumLoadBalancerCapacityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerMinimumLoadBalancerCapacityArgs:
+    def __init__(__self__, *,
+                 capacity_units: pulumi.Input[int]):
+        pulumi.set(__self__, "capacity_units", capacity_units)
+
+    @property
+    @pulumi.getter(name="capacityUnits")
+    def capacity_units(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "capacity_units")
+
+    @capacity_units.setter
+    def capacity_units(self, value: pulumi.Input[int]):
+        pulumi.set(self, "capacity_units", value)
+
+
+if not MYPY:
     class LoadBalancerSubnetMappingArgsDict(TypedDict):
         """
         Specifies a subnet for a load balancer.
@@ -3029,7 +3053,7 @@ if not MYPY:
         """
         source_nat_ipv6_prefix: NotRequired[pulumi.Input[str]]
         """
-        [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+        [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or ``auto_assigned`` to use an IPv6 prefix selected at random from the subnet CIDR block.
         """
 elif False:
     LoadBalancerSubnetMappingArgsDict: TypeAlias = Mapping[str, Any]
@@ -3048,7 +3072,7 @@ class LoadBalancerSubnetMappingArgs:
         :param pulumi.Input[str] allocation_id: [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
         :param pulumi.Input[str] i_pv6_address: [Network Load Balancers] The IPv6 address.
         :param pulumi.Input[str] private_i_pv4_address: [Network Load Balancers] The private IPv4 address for an internal load balancer.
-        :param pulumi.Input[str] source_nat_ipv6_prefix: [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+        :param pulumi.Input[str] source_nat_ipv6_prefix: [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or ``auto_assigned`` to use an IPv6 prefix selected at random from the subnet CIDR block.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if allocation_id is not None:
@@ -3112,7 +3136,7 @@ class LoadBalancerSubnetMappingArgs:
     @pulumi.getter(name="sourceNatIpv6Prefix")
     def source_nat_ipv6_prefix(self) -> Optional[pulumi.Input[str]]:
         """
-        [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+        [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or ``auto_assigned`` to use an IPv6 prefix selected at random from the subnet CIDR block.
         """
         return pulumi.get(self, "source_nat_ipv6_prefix")
 

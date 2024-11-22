@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupBaselinePerformanceFactorsRequest
     {
+        /// <summary>
+        /// The CPU performance to consider, using an instance family as the baseline reference.
+        /// </summary>
         public readonly Outputs.AutoScalingGroupCpuPerformanceFactorRequest? Cpu;
 
         [OutputConstructor]

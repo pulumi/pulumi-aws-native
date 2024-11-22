@@ -20,15 +20,14 @@ type LoadBalancer struct {
 	CanonicalHostedZoneId pulumi.StringOutput `pulumi:"canonicalHostedZoneId"`
 	// The DNS name for the load balancer. For example, `my-load-balancer-424835706.us-west-2.elb.amazonaws.com` .
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
-	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat pulumi.StringPtrOutput `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrOutput `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
-	// Note: Internal load balancers must use the ``ipv4`` IP address type.
-	//  [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
-	//  Note: Application Load Balancer authentication only supports IPv4 addresses when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer cannot complete the authentication process, resulting in HTTP 500 errors.
-	//  [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
-	//  [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
+	// The IP address type. Internal load balancers must use ``ipv4``.
+	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+	//  Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
+	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// The Amazon Resource Name (ARN) of the load balancer.
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
@@ -37,30 +36,30 @@ type LoadBalancer struct {
 	// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
 	LoadBalancerFullName pulumi.StringOutput `pulumi:"loadBalancerFullName"`
 	// The name of the load balancer. For example, `my-load-balancer` .
-	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
+	LoadBalancerName            pulumi.StringOutput                              `pulumi:"loadBalancerName"`
+	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrOutput `pulumi:"minimumLoadBalancerCapacity"`
 	// The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//  If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
 	//  The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
 	//  The default is an Internet-facing load balancer.
-	//  You cannot specify a scheme for a Gateway Load Balancer.
+	//  You can't specify a scheme for a Gateway Load Balancer.
 	Scheme pulumi.StringPtrOutput `pulumi:"scheme"`
 	// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
 	// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
-	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
 	//  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
 	//  [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets.
 	SubnetMappings LoadBalancerSubnetMappingArrayOutput `pulumi:"subnetMappings"`
 	// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones.
 	//  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
-	//  [Network Load Balancers] You can specify subnets from one or more Availability Zones.
-	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+	//  [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	// The tags to assign to the load balancer.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -114,41 +113,40 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
-	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat *string `pulumi:"enablePrefixForIpv6SourceNat"`
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic *string `pulumi:"enforceSecurityGroupInboundRulesOnPrivateLinkTraffic"`
-	// Note: Internal load balancers must use the ``ipv4`` IP address type.
-	//  [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
-	//  Note: Application Load Balancer authentication only supports IPv4 addresses when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer cannot complete the authentication process, resulting in HTTP 500 errors.
-	//  [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
-	//  [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
+	// The IP address type. Internal load balancers must use ``ipv4``.
+	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+	//  Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
+	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The load balancer attributes.
-	LoadBalancerAttributes []LoadBalancerAttribute `pulumi:"loadBalancerAttributes"`
+	LoadBalancerAttributes      []LoadBalancerAttribute                  `pulumi:"loadBalancerAttributes"`
+	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//  If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	Name *string `pulumi:"name"`
 	// The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
 	//  The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
 	//  The default is an Internet-facing load balancer.
-	//  You cannot specify a scheme for a Gateway Load Balancer.
+	//  You can't specify a scheme for a Gateway Load Balancer.
 	Scheme *string `pulumi:"scheme"`
 	// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
-	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
 	//  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
 	//  [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets.
 	SubnetMappings []LoadBalancerSubnetMapping `pulumi:"subnetMappings"`
 	// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones.
 	//  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
-	//  [Network Load Balancers] You can specify subnets from one or more Availability Zones.
-	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+	//  [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 	Subnets []string `pulumi:"subnets"`
 	// The tags to assign to the load balancer.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -158,41 +156,40 @@ type loadBalancerArgs struct {
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
-	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+	// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
 	EnablePrefixForIpv6SourceNat pulumi.StringPtrInput
 	// Indicates whether to evaluate inbound security group rules for traffic sent to a Network Load Balancer through privatelink.
 	EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic pulumi.StringPtrInput
-	// Note: Internal load balancers must use the ``ipv4`` IP address type.
-	//  [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
-	//  Note: Application Load Balancer authentication only supports IPv4 addresses when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer cannot complete the authentication process, resulting in HTTP 500 errors.
-	//  [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
-	//  [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
+	// The IP address type. Internal load balancers must use ``ipv4``.
+	//  [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+	//  Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
+	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
 	IpAddressType pulumi.StringPtrInput
 	// The load balancer attributes.
-	LoadBalancerAttributes LoadBalancerAttributeArrayInput
+	LoadBalancerAttributes      LoadBalancerAttributeArrayInput
+	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
 	// The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//  If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
 	Name pulumi.StringPtrInput
 	// The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
 	//  The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
 	//  The default is an Internet-facing load balancer.
-	//  You cannot specify a scheme for a Gateway Load Balancer.
+	//  You can't specify a scheme for a Gateway Load Balancer.
 	Scheme pulumi.StringPtrInput
 	// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
 	SecurityGroups pulumi.StringArrayInput
 	// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
-	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
 	//  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
 	//  [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets.
 	SubnetMappings LoadBalancerSubnetMappingArrayInput
 	// The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both. To specify an Elastic IP address, specify subnet mappings instead of subnets.
 	//  [Application Load Balancers] You must specify subnets from at least two Availability Zones.
 	//  [Application Load Balancers on Outposts] You must specify one Outpost subnet.
 	//  [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
-	//  [Network Load Balancers] You can specify subnets from one or more Availability Zones.
-	//  [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+	//  [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 	Subnets pulumi.StringArrayInput
 	// The tags to assign to the load balancer.
 	Tags aws.TagArrayInput
@@ -247,7 +244,7 @@ func (o LoadBalancerOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+// [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be “dualstack“. The default value is “off“.
 func (o LoadBalancerOutput) EnablePrefixForIpv6SourceNat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.EnablePrefixForIpv6SourceNat }).(pulumi.StringPtrOutput)
 }
@@ -259,12 +256,11 @@ func (o LoadBalancerOutput) EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic
 	}).(pulumi.StringPtrOutput)
 }
 
-// Note: Internal load balancers must use the “ipv4“ IP address type.
+// The IP address type. Internal load balancers must use “ipv4“.
 //
-//	[Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
-//	Note: Application Load Balancer authentication only supports IPv4 addresses when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer cannot complete the authentication process, resulting in HTTP 500 errors.
-//	[Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
-//	[Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
+//	[Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+//	Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
+//	[Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
 func (o LoadBalancerOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -289,6 +285,12 @@ func (o LoadBalancerOutput) LoadBalancerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
 }
 
+func (o LoadBalancerOutput) MinimumLoadBalancerCapacity() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o.ApplyT(func(v *LoadBalancer) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+		return v.MinimumLoadBalancerCapacity
+	}).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
+}
+
 // The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 //
 //	If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
@@ -300,7 +302,7 @@ func (o LoadBalancerOutput) Name() pulumi.StringPtrOutput {
 //
 //	The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.
 //	The default is an Internet-facing load balancer.
-//	You cannot specify a scheme for a Gateway Load Balancer.
+//	You can't specify a scheme for a Gateway Load Balancer.
 func (o LoadBalancerOutput) Scheme() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringPtrOutput { return v.Scheme }).(pulumi.StringPtrOutput)
 }
@@ -312,11 +314,11 @@ func (o LoadBalancerOutput) SecurityGroups() pulumi.StringArrayOutput {
 
 // The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
 //
-//	[Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+//	[Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
 //	[Application Load Balancers on Outposts] You must specify one Outpost subnet.
 //	[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
 //	[Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-//	[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+//	[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets.
 func (o LoadBalancerOutput) SubnetMappings() LoadBalancerSubnetMappingArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerSubnetMappingArrayOutput { return v.SubnetMappings }).(LoadBalancerSubnetMappingArrayOutput)
 }
@@ -326,8 +328,7 @@ func (o LoadBalancerOutput) SubnetMappings() LoadBalancerSubnetMappingArrayOutpu
 //	[Application Load Balancers] You must specify subnets from at least two Availability Zones.
 //	[Application Load Balancers on Outposts] You must specify one Outpost subnet.
 //	[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
-//	[Network Load Balancers] You can specify subnets from one or more Availability Zones.
-//	[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+//	[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
 func (o LoadBalancerOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }

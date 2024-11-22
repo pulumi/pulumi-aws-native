@@ -14,6 +14,7 @@ __all__ = [
     'AssistantAssociationAssociationType',
     'AssistantType',
     'KnowledgeBaseType',
+    'MessageTemplateChannelSubtype',
 ]
 
 
@@ -58,3 +59,11 @@ class KnowledgeBaseType(str, Enum):
     EXTERNAL = "EXTERNAL"
     CUSTOM = "CUSTOM"
     MESSAGE_TEMPLATES = "MESSAGE_TEMPLATES"
+
+
+class MessageTemplateChannelSubtype(str, Enum):
+    """
+    The channel subtype this message template applies to.
+    """
+    EMAIL = "EMAIL"
+    SMS = "SMS"

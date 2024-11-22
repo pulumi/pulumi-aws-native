@@ -21,6 +21,8 @@ type SlackChannelConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the configuration
 	ConfigurationName pulumi.StringOutput `pulumi:"configurationName"`
+	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	CustomizationResourceArns pulumi.StringArrayOutput `pulumi:"customizationResourceArns"`
 	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies pulumi.StringArrayOutput `pulumi:"guardrailPolicies"`
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot
@@ -95,6 +97,8 @@ func (SlackChannelConfigurationState) ElementType() reflect.Type {
 type slackChannelConfigurationArgs struct {
 	// The name of the configuration
 	ConfigurationName *string `pulumi:"configurationName"`
+	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	CustomizationResourceArns []string `pulumi:"customizationResourceArns"`
 	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies []string `pulumi:"guardrailPolicies"`
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot
@@ -117,6 +121,8 @@ type slackChannelConfigurationArgs struct {
 type SlackChannelConfigurationArgs struct {
 	// The name of the configuration
 	ConfigurationName pulumi.StringPtrInput
+	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	CustomizationResourceArns pulumi.StringArrayInput
 	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies pulumi.StringArrayInput
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot
@@ -180,6 +186,11 @@ func (o SlackChannelConfigurationOutput) Arn() pulumi.StringOutput {
 // The name of the configuration
 func (o SlackChannelConfigurationOutput) ConfigurationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringOutput { return v.ConfigurationName }).(pulumi.StringOutput)
+}
+
+// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+func (o SlackChannelConfigurationOutput) CustomizationResourceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SlackChannelConfiguration) pulumi.StringArrayOutput { return v.CustomizationResourceArns }).(pulumi.StringArrayOutput)
 }
 
 // The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.

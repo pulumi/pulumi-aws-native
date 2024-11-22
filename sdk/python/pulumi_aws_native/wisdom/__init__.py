@@ -19,6 +19,10 @@ from .get_ai_prompt_version import *
 from .get_assistant import *
 from .get_assistant_association import *
 from .get_knowledge_base import *
+from .get_message_template import *
+from .get_message_template_version import *
 from .knowledge_base import *
+from .message_template import *
+from .message_template_version import *
 from ._inputs import *
 from . import outputs

@@ -22,6 +22,7 @@ import * as bedrock from "./bedrock";
 import * as budgets from "./budgets";
 import * as cassandra from "./cassandra";
 import * as ce from "./ce";
+import * as chatbot from "./chatbot";
 import * as cleanrooms from "./cleanrooms";
 import * as cleanroomsml from "./cleanroomsml";
 import * as cloudformation from "./cloudformation";
@@ -193,6 +194,7 @@ export {
     budgets,
     cassandra,
     ce,
+    chatbot,
     cleanrooms,
     cleanroomsml,
     cloudformation,

@@ -139,12 +139,23 @@ if not MYPY:
         You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
         """
         status: pulumi.Input['DirectoryBucketRuleStatus']
+        """
+        If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        """
         abort_incomplete_multipart_upload: NotRequired[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgsDict']]
         expiration_in_days: NotRequired[pulumi.Input[int]]
         id: NotRequired[pulumi.Input[str]]
+        """
+        Unique identifier for the rule. The value can't be longer than 255 characters.
+        """
         object_size_greater_than: NotRequired[pulumi.Input[str]]
         object_size_less_than: NotRequired[pulumi.Input[str]]
         prefix: NotRequired[pulumi.Input[str]]
+        """
+        Object key prefix that identifies one or more objects to which this rule applies.
+
+        > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
+        """
 elif False:
     DirectoryBucketRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -160,6 +171,11 @@ class DirectoryBucketRuleArgs:
                  prefix: Optional[pulumi.Input[str]] = None):
         """
         You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+        :param pulumi.Input['DirectoryBucketRuleStatus'] status: If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        :param pulumi.Input[str] id: Unique identifier for the rule. The value can't be longer than 255 characters.
+        :param pulumi.Input[str] prefix: Object key prefix that identifies one or more objects to which this rule applies.
+               
+               > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
         """
         pulumi.set(__self__, "status", status)
         if abort_incomplete_multipart_upload is not None:
@@ -178,6 +194,9 @@ class DirectoryBucketRuleArgs:
     @property
     @pulumi.getter
     def status(self) -> pulumi.Input['DirectoryBucketRuleStatus']:
+        """
+        If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -205,6 +224,9 @@ class DirectoryBucketRuleArgs:
     @property
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Unique identifier for the rule. The value can't be longer than 255 characters.
+        """
         return pulumi.get(self, "id")
 
     @id.setter
@@ -232,6 +254,11 @@ class DirectoryBucketRuleArgs:
     @property
     @pulumi.getter
     def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Object key prefix that identifies one or more objects to which this rule applies.
+
+        > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
+        """
         return pulumi.get(self, "prefix")
 
     @prefix.setter

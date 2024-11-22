@@ -31,6 +31,8 @@ type LookupMicrosoftTeamsChannelConfigurationArgs struct {
 type LookupMicrosoftTeamsChannelConfigurationResult struct {
 	// Amazon Resource Name (ARN) of the configuration
 	Arn *string `pulumi:"arn"`
+	// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+	CustomizationResourceArns []string `pulumi:"customizationResourceArns"`
 	// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
 	GuardrailPolicies []string `pulumi:"guardrailPolicies"`
 	// The ARN of the IAM role that defines the permissions for AWS Chatbot
@@ -92,6 +94,11 @@ func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) ToLookupMicrosoftT
 // Amazon Resource Name (ARN) of the configuration
 func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupMicrosoftTeamsChannelConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+func (o LookupMicrosoftTeamsChannelConfigurationResultOutput) CustomizationResourceArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupMicrosoftTeamsChannelConfigurationResult) []string { return v.CustomizationResourceArns }).(pulumi.StringArrayOutput)
 }
 
 // The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.

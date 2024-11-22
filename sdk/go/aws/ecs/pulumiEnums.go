@@ -688,6 +688,9 @@ const (
 	ClusterCapacityProviderAssociationsCapacityProvider0FargateSpot = ClusterCapacityProviderAssociationsCapacityProvider0("FARGATE_SPOT")
 )
 
+// Indicates whether to use Availability Zone rebalancing for the service.
+//
+// For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
 type ServiceAvailabilityZoneRebalancing string
 
 const (

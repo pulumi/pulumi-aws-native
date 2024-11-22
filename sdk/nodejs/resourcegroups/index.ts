@@ -10,10 +10,20 @@ export const getGroup: typeof import("./getGroup").getGroup = null as any;
 export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
+export { GetTagSyncTaskArgs, GetTagSyncTaskResult, GetTagSyncTaskOutputArgs } from "./getTagSyncTask";
+export const getTagSyncTask: typeof import("./getTagSyncTask").getTagSyncTask = null as any;
+export const getTagSyncTaskOutput: typeof import("./getTagSyncTask").getTagSyncTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getTagSyncTask","getTagSyncTaskOutput"], () => require("./getTagSyncTask"));
+
 export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { TagSyncTaskArgs } from "./tagSyncTask";
+export type TagSyncTask = import("./tagSyncTask").TagSyncTask;
+export const TagSyncTask: typeof import("./tagSyncTask").TagSyncTask = null as any;
+utilities.lazyLoad(exports, ["TagSyncTask"], () => require("./tagSyncTask"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:resourcegroups:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "aws-native:resourcegroups:TagSyncTask":
+                return new TagSyncTask(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

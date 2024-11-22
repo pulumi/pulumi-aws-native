@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.Chatbot
         public Output<string> ConfigurationName { get; private set; } = null!;
 
         /// <summary>
+        /// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+        /// </summary>
+        [Output("customizationResourceArns")]
+        public Output<ImmutableArray<string>> CustomizationResourceArns { get; private set; } = null!;
+
+        /// <summary>
         /// The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         /// </summary>
         [Output("guardrailPolicies")]
@@ -137,6 +143,18 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
+
+        [Input("customizationResourceArns")]
+        private InputList<string>? _customizationResourceArns;
+
+        /// <summary>
+        /// ARNs of Custom Actions to associate with notifications in the provided chat channel.
+        /// </summary>
+        public InputList<string> CustomizationResourceArns
+        {
+            get => _customizationResourceArns ?? (_customizationResourceArns = new InputList<string>());
+            set => _customizationResourceArns = value;
+        }
 
         [Input("guardrailPolicies")]
         private InputList<string>? _guardrailPolicies;

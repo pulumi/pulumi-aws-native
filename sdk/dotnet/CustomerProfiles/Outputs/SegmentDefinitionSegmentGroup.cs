@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class SegmentDefinitionSegmentGroup
     {
+        /// <summary>
+        /// Holds the list of groups within the segment definition.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SegmentDefinitionGroup> Groups;
+        /// <summary>
+        /// Defines whether to include or exclude the profiles that fit the segment criteria.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionIncludeOptions? Include;
 
         [OutputConstructor]

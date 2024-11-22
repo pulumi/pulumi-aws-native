@@ -135,6 +135,7 @@ AWS::CE::CostCategory
 AWS::Cassandra::Keyspace
 AWS::Cassandra::Table
 AWS::CertificateManager::Account
+AWS::Chatbot::CustomAction
 AWS::Chatbot::MicrosoftTeamsChannelConfiguration
 AWS::Chatbot::SlackChannelConfiguration
 AWS::CleanRooms::AnalysisTemplate
@@ -174,6 +175,7 @@ AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
 AWS::CloudTrail::Channel
+AWS::CloudTrail::Dashboard
 AWS::CloudTrail::EventDataStore
 AWS::CloudTrail::ResourcePolicy
 AWS::CloudTrail::Trail
@@ -873,6 +875,7 @@ AWS::ResourceExplorer2::DefaultViewAssociation
 AWS::ResourceExplorer2::Index
 AWS::ResourceExplorer2::View
 AWS::ResourceGroups::Group
+AWS::ResourceGroups::TagSyncTask
 AWS::RoboMaker::Fleet
 AWS::RoboMaker::Robot
 AWS::RoboMaker::RobotApplication
@@ -1076,6 +1079,8 @@ AWS::Wisdom::AIPromptVersion
 AWS::Wisdom::Assistant
 AWS::Wisdom::AssistantAssociation
 AWS::Wisdom::KnowledgeBase
+AWS::Wisdom::MessageTemplate
+AWS::Wisdom::MessageTemplateVersion
 AWS::WorkSpaces::ConnectionAlias
 AWS::WorkSpaces::WorkspacesPool
 AWS::WorkSpacesThinClient::Environment

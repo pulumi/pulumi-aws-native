@@ -19,6 +19,9 @@ class DirectoryBucketDataRedundancy(str, Enum):
 
 
 class DirectoryBucketRuleStatus(str, Enum):
+    """
+    If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+    """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 

@@ -68,11 +68,11 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly mutualAuthentication!: pulumi.Output<outputs.elasticloadbalancingv2.ListenerMutualAuthentication | undefined>;
     /**
-     * The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+     * The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+     * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
      */
     public readonly protocol!: pulumi.Output<string | undefined>;
     /**
@@ -159,11 +159,11 @@ export interface ListenerArgs {
      */
     mutualAuthentication?: pulumi.Input<inputs.elasticloadbalancingv2.ListenerMutualAuthenticationArgs>;
     /**
-     * The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+     * The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
      */
     port?: pulumi.Input<number>;
     /**
-     * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+     * The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
      */
     protocol?: pulumi.Input<string>;
     /**

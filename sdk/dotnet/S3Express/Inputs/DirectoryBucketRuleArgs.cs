@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.S3Express.Inputs
         [Input("expirationInDays")]
         public Input<int>? ExpirationInDays { get; set; }
 
+        /// <summary>
+        /// Unique identifier for the rule. The value can't be longer than 255 characters.
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
@@ -30,9 +33,17 @@ namespace Pulumi.AwsNative.S3Express.Inputs
         [Input("objectSizeLessThan")]
         public Input<string>? ObjectSizeLessThan { get; set; }
 
+        /// <summary>
+        /// Object key prefix that identifies one or more objects to which this rule applies.
+        /// 
+        /// &gt; Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
+        /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
 
+        /// <summary>
+        /// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        /// </summary>
         [Input("status", required: true)]
         public Input<Pulumi.AwsNative.S3Express.DirectoryBucketRuleStatus> Status { get; set; } = null!;
 

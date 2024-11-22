@@ -38,6 +38,133 @@ namespace Pulumi.AwsNative.CloudTrail
     }
 
     /// <summary>
+    /// The frequency unit. Supported values are HOURS and DAYS.
+    /// </summary>
+    [EnumType]
+    public readonly struct DashboardRefreshScheduleFrequencyPropertiesUnit : IEquatable<DashboardRefreshScheduleFrequencyPropertiesUnit>
+    {
+        private readonly string _value;
+
+        private DashboardRefreshScheduleFrequencyPropertiesUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardRefreshScheduleFrequencyPropertiesUnit Hours { get; } = new DashboardRefreshScheduleFrequencyPropertiesUnit("HOURS");
+        public static DashboardRefreshScheduleFrequencyPropertiesUnit Days { get; } = new DashboardRefreshScheduleFrequencyPropertiesUnit("DAYS");
+
+        public static bool operator ==(DashboardRefreshScheduleFrequencyPropertiesUnit left, DashboardRefreshScheduleFrequencyPropertiesUnit right) => left.Equals(right);
+        public static bool operator !=(DashboardRefreshScheduleFrequencyPropertiesUnit left, DashboardRefreshScheduleFrequencyPropertiesUnit right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardRefreshScheduleFrequencyPropertiesUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardRefreshScheduleFrequencyPropertiesUnit other && Equals(other);
+        public bool Equals(DashboardRefreshScheduleFrequencyPropertiesUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the schedule. Supported values are ENABLED and DISABLED.
+    /// </summary>
+    [EnumType]
+    public readonly struct DashboardRefreshScheduleStatus : IEquatable<DashboardRefreshScheduleStatus>
+    {
+        private readonly string _value;
+
+        private DashboardRefreshScheduleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardRefreshScheduleStatus Enabled { get; } = new DashboardRefreshScheduleStatus("ENABLED");
+        public static DashboardRefreshScheduleStatus Disabled { get; } = new DashboardRefreshScheduleStatus("DISABLED");
+
+        public static bool operator ==(DashboardRefreshScheduleStatus left, DashboardRefreshScheduleStatus right) => left.Equals(right);
+        public static bool operator !=(DashboardRefreshScheduleStatus left, DashboardRefreshScheduleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardRefreshScheduleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardRefreshScheduleStatus other && Equals(other);
+        public bool Equals(DashboardRefreshScheduleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
+    /// </summary>
+    [EnumType]
+    public readonly struct DashboardStatus : IEquatable<DashboardStatus>
+    {
+        private readonly string _value;
+
+        private DashboardStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardStatus Creating { get; } = new DashboardStatus("CREATING");
+        public static DashboardStatus Created { get; } = new DashboardStatus("CREATED");
+        public static DashboardStatus Updating { get; } = new DashboardStatus("UPDATING");
+        public static DashboardStatus Updated { get; } = new DashboardStatus("UPDATED");
+        public static DashboardStatus Deleting { get; } = new DashboardStatus("DELETING");
+
+        public static bool operator ==(DashboardStatus left, DashboardStatus right) => left.Equals(right);
+        public static bool operator !=(DashboardStatus left, DashboardStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardStatus other && Equals(other);
+        public bool Equals(DashboardStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the dashboard. Values are CUSTOM and MANAGED.
+    /// </summary>
+    [EnumType]
+    public readonly struct DashboardType : IEquatable<DashboardType>
+    {
+        private readonly string _value;
+
+        private DashboardType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardType Managed { get; } = new DashboardType("MANAGED");
+        public static DashboardType Custom { get; } = new DashboardType("CUSTOM");
+
+        public static bool operator ==(DashboardType left, DashboardType right) => left.Equals(right);
+        public static bool operator !=(DashboardType left, DashboardType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardType other && Equals(other);
+        public bool Equals(DashboardType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specify if you want your trail to log read-only events, write-only events, or all. For example, the EC2 GetConsoleOutput is a read-only API operation and RunInstances is a write-only API operation.
     /// </summary>
     [EnumType]

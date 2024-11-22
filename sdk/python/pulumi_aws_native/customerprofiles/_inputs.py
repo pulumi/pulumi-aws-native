@@ -2834,9 +2834,21 @@ if not MYPY:
         An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
         """
         dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgsDict', 'SegmentDefinitionDimension1PropertiesArgsDict']]]]]
+        """
+        Defines the attributes to segment on.
+        """
         source_segments: NotRequired[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgsDict']]]]
+        """
+        Defines the starting source of data.
+        """
         source_type: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+        """
+        Defines how to interact with the source data.
+        """
         type: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+        """
+        Defines how to interact with the profiles found in the current filtering.
+        """
 elif False:
     SegmentDefinitionGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2849,6 +2861,10 @@ class SegmentDefinitionGroupArgs:
                  type: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']] = None):
         """
         An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]] dimensions: Defines the attributes to segment on.
+        :param pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]] source_segments: Defines the starting source of data.
+        :param pulumi.Input['SegmentDefinitionIncludeOptions'] source_type: Defines how to interact with the source data.
+        :param pulumi.Input['SegmentDefinitionIncludeOptions'] type: Defines how to interact with the profiles found in the current filtering.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -2862,6 +2878,9 @@ class SegmentDefinitionGroupArgs:
     @property
     @pulumi.getter
     def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['SegmentDefinitionDimension0PropertiesArgs', 'SegmentDefinitionDimension1PropertiesArgs']]]]]:
+        """
+        Defines the attributes to segment on.
+        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -2871,6 +2890,9 @@ class SegmentDefinitionGroupArgs:
     @property
     @pulumi.getter(name="sourceSegments")
     def source_segments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionSourceSegmentArgs']]]]:
+        """
+        Defines the starting source of data.
+        """
         return pulumi.get(self, "source_segments")
 
     @source_segments.setter
@@ -2880,6 +2902,9 @@ class SegmentDefinitionGroupArgs:
     @property
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]:
+        """
+        Defines how to interact with the source data.
+        """
         return pulumi.get(self, "source_type")
 
     @source_type.setter
@@ -2889,6 +2914,9 @@ class SegmentDefinitionGroupArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]:
+        """
+        Defines how to interact with the profiles found in the current filtering.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -3302,7 +3330,13 @@ class SegmentDefinitionRangeOverrideArgs:
 if not MYPY:
     class SegmentDefinitionSegmentGroupArgsDict(TypedDict):
         groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgsDict']]]]
+        """
+        Holds the list of groups within the segment definition.
+        """
         include: NotRequired[pulumi.Input['SegmentDefinitionIncludeOptions']]
+        """
+        Defines whether to include or exclude the profiles that fit the segment criteria.
+        """
 elif False:
     SegmentDefinitionSegmentGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3311,6 +3345,10 @@ class SegmentDefinitionSegmentGroupArgs:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]]] = None,
                  include: Optional[pulumi.Input['SegmentDefinitionIncludeOptions']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]] groups: Holds the list of groups within the segment definition.
+        :param pulumi.Input['SegmentDefinitionIncludeOptions'] include: Defines whether to include or exclude the profiles that fit the segment criteria.
+        """
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
         if include is not None:
@@ -3319,6 +3357,9 @@ class SegmentDefinitionSegmentGroupArgs:
     @property
     @pulumi.getter
     def groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SegmentDefinitionGroupArgs']]]]:
+        """
+        Holds the list of groups within the segment definition.
+        """
         return pulumi.get(self, "groups")
 
     @groups.setter
@@ -3328,6 +3369,9 @@ class SegmentDefinitionSegmentGroupArgs:
     @property
     @pulumi.getter
     def include(self) -> Optional[pulumi.Input['SegmentDefinitionIncludeOptions']]:
+        """
+        Defines whether to include or exclude the profiles that fit the segment criteria.
+        """
         return pulumi.get(self, "include")
 
     @include.setter
@@ -3341,6 +3385,9 @@ if not MYPY:
         The base segment to build the segment on.
         """
         segment_definition_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the source segment.
+        """
 elif False:
     SegmentDefinitionSourceSegmentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3350,6 +3397,7 @@ class SegmentDefinitionSourceSegmentArgs:
                  segment_definition_name: Optional[pulumi.Input[str]] = None):
         """
         The base segment to build the segment on.
+        :param pulumi.Input[str] segment_definition_name: The name of the source segment.
         """
         if segment_definition_name is not None:
             pulumi.set(__self__, "segment_definition_name", segment_definition_name)
@@ -3357,6 +3405,9 @@ class SegmentDefinitionSourceSegmentArgs:
     @property
     @pulumi.getter(name="segmentDefinitionName")
     def segment_definition_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the source segment.
+        """
         return pulumi.get(self, "segment_definition_name")
 
     @segment_definition_name.setter

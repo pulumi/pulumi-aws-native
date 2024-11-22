@@ -11,6 +11,49 @@ export const ChannelDestinationType = {
  */
 export type ChannelDestinationType = (typeof ChannelDestinationType)[keyof typeof ChannelDestinationType];
 
+export const DashboardRefreshScheduleFrequencyPropertiesUnit = {
+    Hours: "HOURS",
+    Days: "DAYS",
+} as const;
+
+/**
+ * The frequency unit. Supported values are HOURS and DAYS.
+ */
+export type DashboardRefreshScheduleFrequencyPropertiesUnit = (typeof DashboardRefreshScheduleFrequencyPropertiesUnit)[keyof typeof DashboardRefreshScheduleFrequencyPropertiesUnit];
+
+export const DashboardRefreshScheduleStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * The status of the schedule. Supported values are ENABLED and DISABLED.
+ */
+export type DashboardRefreshScheduleStatus = (typeof DashboardRefreshScheduleStatus)[keyof typeof DashboardRefreshScheduleStatus];
+
+export const DashboardStatus = {
+    Creating: "CREATING",
+    Created: "CREATED",
+    Updating: "UPDATING",
+    Updated: "UPDATED",
+    Deleting: "DELETING",
+} as const;
+
+/**
+ * The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
+ */
+export type DashboardStatus = (typeof DashboardStatus)[keyof typeof DashboardStatus];
+
+export const DashboardType = {
+    Managed: "MANAGED",
+    Custom: "CUSTOM",
+} as const;
+
+/**
+ * The type of the dashboard. Values are CUSTOM and MANAGED.
+ */
+export type DashboardType = (typeof DashboardType)[keyof typeof DashboardType];
+
 export const TrailEventSelectorReadWriteType = {
     All: "All",
     ReadOnly: "ReadOnly",

@@ -56,6 +56,32 @@ __all__ = [
     'KnowledgeBaseServerSideEncryptionConfigurationArgsDict',
     'KnowledgeBaseSourceConfigurationArgs',
     'KnowledgeBaseSourceConfigurationArgsDict',
+    'MessageTemplateAgentAttributesArgs',
+    'MessageTemplateAgentAttributesArgsDict',
+    'MessageTemplateAttributesArgs',
+    'MessageTemplateAttributesArgsDict',
+    'MessageTemplateBodyContentProviderArgs',
+    'MessageTemplateBodyContentProviderArgsDict',
+    'MessageTemplateContentArgs',
+    'MessageTemplateContentArgsDict',
+    'MessageTemplateCustomerProfileAttributesArgs',
+    'MessageTemplateCustomerProfileAttributesArgsDict',
+    'MessageTemplateEmailMessageTemplateContentBodyArgs',
+    'MessageTemplateEmailMessageTemplateContentBodyArgsDict',
+    'MessageTemplateEmailMessageTemplateContentArgs',
+    'MessageTemplateEmailMessageTemplateContentArgsDict',
+    'MessageTemplateEmailMessageTemplateHeaderArgs',
+    'MessageTemplateEmailMessageTemplateHeaderArgsDict',
+    'MessageTemplateGroupingConfigurationArgs',
+    'MessageTemplateGroupingConfigurationArgsDict',
+    'MessageTemplateSmsMessageTemplateContentBodyArgs',
+    'MessageTemplateSmsMessageTemplateContentBodyArgsDict',
+    'MessageTemplateSmsMessageTemplateContentArgs',
+    'MessageTemplateSmsMessageTemplateContentArgsDict',
+    'MessageTemplateSystemAttributesArgs',
+    'MessageTemplateSystemAttributesArgsDict',
+    'MessageTemplateSystemEndpointAttributesArgs',
+    'MessageTemplateSystemEndpointAttributesArgsDict',
 ]
 
 MYPY = False
@@ -759,5 +785,1770 @@ class KnowledgeBaseSourceConfigurationArgs:
     @app_integrations.setter
     def app_integrations(self, value: Optional[pulumi.Input['KnowledgeBaseAppIntegrationsConfigurationArgs']]):
         pulumi.set(self, "app_integrations", value)
+
+
+if not MYPY:
+    class MessageTemplateAgentAttributesArgsDict(TypedDict):
+        """
+        The agent attributes that are used with the message template.
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        The agent’s first name as entered in their Amazon Connect user account.
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        The agent’s last name as entered in their Amazon Connect user account.
+        """
+elif False:
+    MessageTemplateAgentAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateAgentAttributesArgs:
+    def __init__(__self__, *,
+                 first_name: Optional[pulumi.Input[str]] = None,
+                 last_name: Optional[pulumi.Input[str]] = None):
+        """
+        The agent attributes that are used with the message template.
+        :param pulumi.Input[str] first_name: The agent’s first name as entered in their Amazon Connect user account.
+        :param pulumi.Input[str] last_name: The agent’s last name as entered in their Amazon Connect user account.
+        """
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The agent’s first name as entered in their Amazon Connect user account.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "first_name", value)
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The agent’s last name as entered in their Amazon Connect user account.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_name", value)
+
+
+if not MYPY:
+    class MessageTemplateAttributesArgsDict(TypedDict):
+        """
+        An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+        """
+        agent_attributes: NotRequired[pulumi.Input['MessageTemplateAgentAttributesArgsDict']]
+        custom_attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        customer_profile_attributes: NotRequired[pulumi.Input['MessageTemplateCustomerProfileAttributesArgsDict']]
+        system_attributes: NotRequired[pulumi.Input['MessageTemplateSystemAttributesArgsDict']]
+elif False:
+    MessageTemplateAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateAttributesArgs:
+    def __init__(__self__, *,
+                 agent_attributes: Optional[pulumi.Input['MessageTemplateAgentAttributesArgs']] = None,
+                 custom_attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 customer_profile_attributes: Optional[pulumi.Input['MessageTemplateCustomerProfileAttributesArgs']] = None,
+                 system_attributes: Optional[pulumi.Input['MessageTemplateSystemAttributesArgs']] = None):
+        """
+        An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+        """
+        if agent_attributes is not None:
+            pulumi.set(__self__, "agent_attributes", agent_attributes)
+        if custom_attributes is not None:
+            pulumi.set(__self__, "custom_attributes", custom_attributes)
+        if customer_profile_attributes is not None:
+            pulumi.set(__self__, "customer_profile_attributes", customer_profile_attributes)
+        if system_attributes is not None:
+            pulumi.set(__self__, "system_attributes", system_attributes)
+
+    @property
+    @pulumi.getter(name="agentAttributes")
+    def agent_attributes(self) -> Optional[pulumi.Input['MessageTemplateAgentAttributesArgs']]:
+        return pulumi.get(self, "agent_attributes")
+
+    @agent_attributes.setter
+    def agent_attributes(self, value: Optional[pulumi.Input['MessageTemplateAgentAttributesArgs']]):
+        pulumi.set(self, "agent_attributes", value)
+
+    @property
+    @pulumi.getter(name="customAttributes")
+    def custom_attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "custom_attributes")
+
+    @custom_attributes.setter
+    def custom_attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom_attributes", value)
+
+    @property
+    @pulumi.getter(name="customerProfileAttributes")
+    def customer_profile_attributes(self) -> Optional[pulumi.Input['MessageTemplateCustomerProfileAttributesArgs']]:
+        return pulumi.get(self, "customer_profile_attributes")
+
+    @customer_profile_attributes.setter
+    def customer_profile_attributes(self, value: Optional[pulumi.Input['MessageTemplateCustomerProfileAttributesArgs']]):
+        pulumi.set(self, "customer_profile_attributes", value)
+
+    @property
+    @pulumi.getter(name="systemAttributes")
+    def system_attributes(self) -> Optional[pulumi.Input['MessageTemplateSystemAttributesArgs']]:
+        return pulumi.get(self, "system_attributes")
+
+    @system_attributes.setter
+    def system_attributes(self, value: Optional[pulumi.Input['MessageTemplateSystemAttributesArgs']]):
+        pulumi.set(self, "system_attributes", value)
+
+
+if not MYPY:
+    class MessageTemplateBodyContentProviderArgsDict(TypedDict):
+        """
+        The container of message template body.
+        """
+        content: NotRequired[pulumi.Input[str]]
+elif False:
+    MessageTemplateBodyContentProviderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateBodyContentProviderArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input[str]] = None):
+        """
+        The container of message template body.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+
+if not MYPY:
+    class MessageTemplateContentArgsDict(TypedDict):
+        """
+        The content of the message template.
+        """
+        email_message_template_content: NotRequired[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgsDict']]
+        sms_message_template_content: NotRequired[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgsDict']]
+elif False:
+    MessageTemplateContentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateContentArgs:
+    def __init__(__self__, *,
+                 email_message_template_content: Optional[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgs']] = None,
+                 sms_message_template_content: Optional[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgs']] = None):
+        """
+        The content of the message template.
+        """
+        if email_message_template_content is not None:
+            pulumi.set(__self__, "email_message_template_content", email_message_template_content)
+        if sms_message_template_content is not None:
+            pulumi.set(__self__, "sms_message_template_content", sms_message_template_content)
+
+    @property
+    @pulumi.getter(name="emailMessageTemplateContent")
+    def email_message_template_content(self) -> Optional[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgs']]:
+        return pulumi.get(self, "email_message_template_content")
+
+    @email_message_template_content.setter
+    def email_message_template_content(self, value: Optional[pulumi.Input['MessageTemplateEmailMessageTemplateContentArgs']]):
+        pulumi.set(self, "email_message_template_content", value)
+
+    @property
+    @pulumi.getter(name="smsMessageTemplateContent")
+    def sms_message_template_content(self) -> Optional[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgs']]:
+        return pulumi.get(self, "sms_message_template_content")
+
+    @sms_message_template_content.setter
+    def sms_message_template_content(self, value: Optional[pulumi.Input['MessageTemplateSmsMessageTemplateContentArgs']]):
+        pulumi.set(self, "sms_message_template_content", value)
+
+
+if not MYPY:
+    class MessageTemplateCustomerProfileAttributesArgsDict(TypedDict):
+        """
+        The customer profile attributes that are used with the message template.
+        """
+        account_number: NotRequired[pulumi.Input[str]]
+        """
+        A unique account number that you have given to the customer.
+        """
+        additional_information: NotRequired[pulumi.Input[str]]
+        """
+        Any additional information relevant to the customer's profile.
+        """
+        address1: NotRequired[pulumi.Input[str]]
+        """
+        The first line of a customer address.
+        """
+        address2: NotRequired[pulumi.Input[str]]
+        """
+        The second line of a customer address.
+        """
+        address3: NotRequired[pulumi.Input[str]]
+        """
+        The third line of a customer address.
+        """
+        address4: NotRequired[pulumi.Input[str]]
+        """
+        The fourth line of a customer address.
+        """
+        billing_address1: NotRequired[pulumi.Input[str]]
+        """
+        The first line of a customer’s billing address.
+        """
+        billing_address2: NotRequired[pulumi.Input[str]]
+        """
+        The second line of a customer’s billing address.
+        """
+        billing_address3: NotRequired[pulumi.Input[str]]
+        """
+        The third line of a customer’s billing address.
+        """
+        billing_address4: NotRequired[pulumi.Input[str]]
+        """
+        The fourth line of a customer’s billing address.
+        """
+        billing_city: NotRequired[pulumi.Input[str]]
+        """
+        The city of a customer’s billing address.
+        """
+        billing_country: NotRequired[pulumi.Input[str]]
+        """
+        The country of a customer’s billing address.
+        """
+        billing_county: NotRequired[pulumi.Input[str]]
+        """
+        The county of a customer’s billing address.
+        """
+        billing_postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code of a customer’s billing address.
+        """
+        billing_province: NotRequired[pulumi.Input[str]]
+        """
+        The province of a customer’s billing address.
+        """
+        billing_state: NotRequired[pulumi.Input[str]]
+        """
+        The state of a customer’s billing address.
+        """
+        birth_date: NotRequired[pulumi.Input[str]]
+        """
+        The customer's birth date.
+        """
+        business_email_address: NotRequired[pulumi.Input[str]]
+        """
+        The customer's business email address.
+        """
+        business_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the customer's business.
+        """
+        business_phone_number: NotRequired[pulumi.Input[str]]
+        """
+        The customer's business phone number.
+        """
+        city: NotRequired[pulumi.Input[str]]
+        """
+        The city in which a customer lives.
+        """
+        country: NotRequired[pulumi.Input[str]]
+        """
+        The country in which a customer lives.
+        """
+        county: NotRequired[pulumi.Input[str]]
+        """
+        The county in which a customer lives.
+        """
+        custom: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        email_address: NotRequired[pulumi.Input[str]]
+        """
+        The customer's email address, which has not been specified as a personal or business address.
+        """
+        first_name: NotRequired[pulumi.Input[str]]
+        """
+        The customer's first name.
+        """
+        gender: NotRequired[pulumi.Input[str]]
+        """
+        The customer's gender.
+        """
+        home_phone_number: NotRequired[pulumi.Input[str]]
+        """
+        The customer's home phone number.
+        """
+        last_name: NotRequired[pulumi.Input[str]]
+        """
+        The customer's last name.
+        """
+        mailing_address1: NotRequired[pulumi.Input[str]]
+        """
+        The first line of a customer’s mailing address.
+        """
+        mailing_address2: NotRequired[pulumi.Input[str]]
+        """
+        The second line of a customer’s mailing address.
+        """
+        mailing_address3: NotRequired[pulumi.Input[str]]
+        """
+        The third line of a customer’s mailing address.
+        """
+        mailing_address4: NotRequired[pulumi.Input[str]]
+        """
+        The fourth line of a customer’s mailing address.
+        """
+        mailing_city: NotRequired[pulumi.Input[str]]
+        """
+        The city of a customer’s mailing address.
+        """
+        mailing_country: NotRequired[pulumi.Input[str]]
+        """
+        The country of a customer’s mailing address.
+        """
+        mailing_county: NotRequired[pulumi.Input[str]]
+        """
+        The county of a customer’s mailing address.
+        """
+        mailing_postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code of a customer’s mailing address
+        """
+        mailing_province: NotRequired[pulumi.Input[str]]
+        """
+        The province of a customer’s mailing address.
+        """
+        mailing_state: NotRequired[pulumi.Input[str]]
+        """
+        The state of a customer’s mailing address.
+        """
+        middle_name: NotRequired[pulumi.Input[str]]
+        """
+        The customer's middle name.
+        """
+        mobile_phone_number: NotRequired[pulumi.Input[str]]
+        """
+        The customer's mobile phone number.
+        """
+        party_type: NotRequired[pulumi.Input[str]]
+        """
+        The customer's party type.
+        """
+        phone_number: NotRequired[pulumi.Input[str]]
+        """
+        The customer's phone number, which has not been specified as a mobile, home, or business number.
+        """
+        postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code of a customer address.
+        """
+        profile_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of a customer profile.
+        """
+        profile_id: NotRequired[pulumi.Input[str]]
+        """
+        The unique identifier of a customer profile.
+        """
+        province: NotRequired[pulumi.Input[str]]
+        """
+        The province in which a customer lives.
+        """
+        shipping_address1: NotRequired[pulumi.Input[str]]
+        """
+        The first line of a customer’s shipping address.
+        """
+        shipping_address2: NotRequired[pulumi.Input[str]]
+        """
+        The second line of a customer’s shipping address.
+        """
+        shipping_address3: NotRequired[pulumi.Input[str]]
+        """
+        The third line of a customer’s shipping address.
+        """
+        shipping_address4: NotRequired[pulumi.Input[str]]
+        """
+        The fourth line of a customer’s shipping address
+        """
+        shipping_city: NotRequired[pulumi.Input[str]]
+        """
+        The city of a customer’s shipping address.
+        """
+        shipping_country: NotRequired[pulumi.Input[str]]
+        """
+        The country of a customer’s shipping address.
+        """
+        shipping_county: NotRequired[pulumi.Input[str]]
+        """
+        The county of a customer’s shipping address.
+        """
+        shipping_postal_code: NotRequired[pulumi.Input[str]]
+        """
+        The postal code of a customer’s shipping address.
+        """
+        shipping_province: NotRequired[pulumi.Input[str]]
+        """
+        The province of a customer’s shipping address.
+        """
+        shipping_state: NotRequired[pulumi.Input[str]]
+        """
+        The state of a customer’s shipping address.
+        """
+        state: NotRequired[pulumi.Input[str]]
+        """
+        The state in which a customer lives.
+        """
+elif False:
+    MessageTemplateCustomerProfileAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateCustomerProfileAttributesArgs:
+    def __init__(__self__, *,
+                 account_number: Optional[pulumi.Input[str]] = None,
+                 additional_information: Optional[pulumi.Input[str]] = None,
+                 address1: Optional[pulumi.Input[str]] = None,
+                 address2: Optional[pulumi.Input[str]] = None,
+                 address3: Optional[pulumi.Input[str]] = None,
+                 address4: Optional[pulumi.Input[str]] = None,
+                 billing_address1: Optional[pulumi.Input[str]] = None,
+                 billing_address2: Optional[pulumi.Input[str]] = None,
+                 billing_address3: Optional[pulumi.Input[str]] = None,
+                 billing_address4: Optional[pulumi.Input[str]] = None,
+                 billing_city: Optional[pulumi.Input[str]] = None,
+                 billing_country: Optional[pulumi.Input[str]] = None,
+                 billing_county: Optional[pulumi.Input[str]] = None,
+                 billing_postal_code: Optional[pulumi.Input[str]] = None,
+                 billing_province: Optional[pulumi.Input[str]] = None,
+                 billing_state: Optional[pulumi.Input[str]] = None,
+                 birth_date: Optional[pulumi.Input[str]] = None,
+                 business_email_address: Optional[pulumi.Input[str]] = None,
+                 business_name: Optional[pulumi.Input[str]] = None,
+                 business_phone_number: Optional[pulumi.Input[str]] = None,
+                 city: Optional[pulumi.Input[str]] = None,
+                 country: Optional[pulumi.Input[str]] = None,
+                 county: Optional[pulumi.Input[str]] = None,
+                 custom: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 email_address: Optional[pulumi.Input[str]] = None,
+                 first_name: Optional[pulumi.Input[str]] = None,
+                 gender: Optional[pulumi.Input[str]] = None,
+                 home_phone_number: Optional[pulumi.Input[str]] = None,
+                 last_name: Optional[pulumi.Input[str]] = None,
+                 mailing_address1: Optional[pulumi.Input[str]] = None,
+                 mailing_address2: Optional[pulumi.Input[str]] = None,
+                 mailing_address3: Optional[pulumi.Input[str]] = None,
+                 mailing_address4: Optional[pulumi.Input[str]] = None,
+                 mailing_city: Optional[pulumi.Input[str]] = None,
+                 mailing_country: Optional[pulumi.Input[str]] = None,
+                 mailing_county: Optional[pulumi.Input[str]] = None,
+                 mailing_postal_code: Optional[pulumi.Input[str]] = None,
+                 mailing_province: Optional[pulumi.Input[str]] = None,
+                 mailing_state: Optional[pulumi.Input[str]] = None,
+                 middle_name: Optional[pulumi.Input[str]] = None,
+                 mobile_phone_number: Optional[pulumi.Input[str]] = None,
+                 party_type: Optional[pulumi.Input[str]] = None,
+                 phone_number: Optional[pulumi.Input[str]] = None,
+                 postal_code: Optional[pulumi.Input[str]] = None,
+                 profile_arn: Optional[pulumi.Input[str]] = None,
+                 profile_id: Optional[pulumi.Input[str]] = None,
+                 province: Optional[pulumi.Input[str]] = None,
+                 shipping_address1: Optional[pulumi.Input[str]] = None,
+                 shipping_address2: Optional[pulumi.Input[str]] = None,
+                 shipping_address3: Optional[pulumi.Input[str]] = None,
+                 shipping_address4: Optional[pulumi.Input[str]] = None,
+                 shipping_city: Optional[pulumi.Input[str]] = None,
+                 shipping_country: Optional[pulumi.Input[str]] = None,
+                 shipping_county: Optional[pulumi.Input[str]] = None,
+                 shipping_postal_code: Optional[pulumi.Input[str]] = None,
+                 shipping_province: Optional[pulumi.Input[str]] = None,
+                 shipping_state: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        """
+        The customer profile attributes that are used with the message template.
+        :param pulumi.Input[str] account_number: A unique account number that you have given to the customer.
+        :param pulumi.Input[str] additional_information: Any additional information relevant to the customer's profile.
+        :param pulumi.Input[str] address1: The first line of a customer address.
+        :param pulumi.Input[str] address2: The second line of a customer address.
+        :param pulumi.Input[str] address3: The third line of a customer address.
+        :param pulumi.Input[str] address4: The fourth line of a customer address.
+        :param pulumi.Input[str] billing_address1: The first line of a customer’s billing address.
+        :param pulumi.Input[str] billing_address2: The second line of a customer’s billing address.
+        :param pulumi.Input[str] billing_address3: The third line of a customer’s billing address.
+        :param pulumi.Input[str] billing_address4: The fourth line of a customer’s billing address.
+        :param pulumi.Input[str] billing_city: The city of a customer’s billing address.
+        :param pulumi.Input[str] billing_country: The country of a customer’s billing address.
+        :param pulumi.Input[str] billing_county: The county of a customer’s billing address.
+        :param pulumi.Input[str] billing_postal_code: The postal code of a customer’s billing address.
+        :param pulumi.Input[str] billing_province: The province of a customer’s billing address.
+        :param pulumi.Input[str] billing_state: The state of a customer’s billing address.
+        :param pulumi.Input[str] birth_date: The customer's birth date.
+        :param pulumi.Input[str] business_email_address: The customer's business email address.
+        :param pulumi.Input[str] business_name: The name of the customer's business.
+        :param pulumi.Input[str] business_phone_number: The customer's business phone number.
+        :param pulumi.Input[str] city: The city in which a customer lives.
+        :param pulumi.Input[str] country: The country in which a customer lives.
+        :param pulumi.Input[str] county: The county in which a customer lives.
+        :param pulumi.Input[str] email_address: The customer's email address, which has not been specified as a personal or business address.
+        :param pulumi.Input[str] first_name: The customer's first name.
+        :param pulumi.Input[str] gender: The customer's gender.
+        :param pulumi.Input[str] home_phone_number: The customer's home phone number.
+        :param pulumi.Input[str] last_name: The customer's last name.
+        :param pulumi.Input[str] mailing_address1: The first line of a customer’s mailing address.
+        :param pulumi.Input[str] mailing_address2: The second line of a customer’s mailing address.
+        :param pulumi.Input[str] mailing_address3: The third line of a customer’s mailing address.
+        :param pulumi.Input[str] mailing_address4: The fourth line of a customer’s mailing address.
+        :param pulumi.Input[str] mailing_city: The city of a customer’s mailing address.
+        :param pulumi.Input[str] mailing_country: The country of a customer’s mailing address.
+        :param pulumi.Input[str] mailing_county: The county of a customer’s mailing address.
+        :param pulumi.Input[str] mailing_postal_code: The postal code of a customer’s mailing address
+        :param pulumi.Input[str] mailing_province: The province of a customer’s mailing address.
+        :param pulumi.Input[str] mailing_state: The state of a customer’s mailing address.
+        :param pulumi.Input[str] middle_name: The customer's middle name.
+        :param pulumi.Input[str] mobile_phone_number: The customer's mobile phone number.
+        :param pulumi.Input[str] party_type: The customer's party type.
+        :param pulumi.Input[str] phone_number: The customer's phone number, which has not been specified as a mobile, home, or business number.
+        :param pulumi.Input[str] postal_code: The postal code of a customer address.
+        :param pulumi.Input[str] profile_arn: The ARN of a customer profile.
+        :param pulumi.Input[str] profile_id: The unique identifier of a customer profile.
+        :param pulumi.Input[str] province: The province in which a customer lives.
+        :param pulumi.Input[str] shipping_address1: The first line of a customer’s shipping address.
+        :param pulumi.Input[str] shipping_address2: The second line of a customer’s shipping address.
+        :param pulumi.Input[str] shipping_address3: The third line of a customer’s shipping address.
+        :param pulumi.Input[str] shipping_address4: The fourth line of a customer’s shipping address
+        :param pulumi.Input[str] shipping_city: The city of a customer’s shipping address.
+        :param pulumi.Input[str] shipping_country: The country of a customer’s shipping address.
+        :param pulumi.Input[str] shipping_county: The county of a customer’s shipping address.
+        :param pulumi.Input[str] shipping_postal_code: The postal code of a customer’s shipping address.
+        :param pulumi.Input[str] shipping_province: The province of a customer’s shipping address.
+        :param pulumi.Input[str] shipping_state: The state of a customer’s shipping address.
+        :param pulumi.Input[str] state: The state in which a customer lives.
+        """
+        if account_number is not None:
+            pulumi.set(__self__, "account_number", account_number)
+        if additional_information is not None:
+            pulumi.set(__self__, "additional_information", additional_information)
+        if address1 is not None:
+            pulumi.set(__self__, "address1", address1)
+        if address2 is not None:
+            pulumi.set(__self__, "address2", address2)
+        if address3 is not None:
+            pulumi.set(__self__, "address3", address3)
+        if address4 is not None:
+            pulumi.set(__self__, "address4", address4)
+        if billing_address1 is not None:
+            pulumi.set(__self__, "billing_address1", billing_address1)
+        if billing_address2 is not None:
+            pulumi.set(__self__, "billing_address2", billing_address2)
+        if billing_address3 is not None:
+            pulumi.set(__self__, "billing_address3", billing_address3)
+        if billing_address4 is not None:
+            pulumi.set(__self__, "billing_address4", billing_address4)
+        if billing_city is not None:
+            pulumi.set(__self__, "billing_city", billing_city)
+        if billing_country is not None:
+            pulumi.set(__self__, "billing_country", billing_country)
+        if billing_county is not None:
+            pulumi.set(__self__, "billing_county", billing_county)
+        if billing_postal_code is not None:
+            pulumi.set(__self__, "billing_postal_code", billing_postal_code)
+        if billing_province is not None:
+            pulumi.set(__self__, "billing_province", billing_province)
+        if billing_state is not None:
+            pulumi.set(__self__, "billing_state", billing_state)
+        if birth_date is not None:
+            pulumi.set(__self__, "birth_date", birth_date)
+        if business_email_address is not None:
+            pulumi.set(__self__, "business_email_address", business_email_address)
+        if business_name is not None:
+            pulumi.set(__self__, "business_name", business_name)
+        if business_phone_number is not None:
+            pulumi.set(__self__, "business_phone_number", business_phone_number)
+        if city is not None:
+            pulumi.set(__self__, "city", city)
+        if country is not None:
+            pulumi.set(__self__, "country", country)
+        if county is not None:
+            pulumi.set(__self__, "county", county)
+        if custom is not None:
+            pulumi.set(__self__, "custom", custom)
+        if email_address is not None:
+            pulumi.set(__self__, "email_address", email_address)
+        if first_name is not None:
+            pulumi.set(__self__, "first_name", first_name)
+        if gender is not None:
+            pulumi.set(__self__, "gender", gender)
+        if home_phone_number is not None:
+            pulumi.set(__self__, "home_phone_number", home_phone_number)
+        if last_name is not None:
+            pulumi.set(__self__, "last_name", last_name)
+        if mailing_address1 is not None:
+            pulumi.set(__self__, "mailing_address1", mailing_address1)
+        if mailing_address2 is not None:
+            pulumi.set(__self__, "mailing_address2", mailing_address2)
+        if mailing_address3 is not None:
+            pulumi.set(__self__, "mailing_address3", mailing_address3)
+        if mailing_address4 is not None:
+            pulumi.set(__self__, "mailing_address4", mailing_address4)
+        if mailing_city is not None:
+            pulumi.set(__self__, "mailing_city", mailing_city)
+        if mailing_country is not None:
+            pulumi.set(__self__, "mailing_country", mailing_country)
+        if mailing_county is not None:
+            pulumi.set(__self__, "mailing_county", mailing_county)
+        if mailing_postal_code is not None:
+            pulumi.set(__self__, "mailing_postal_code", mailing_postal_code)
+        if mailing_province is not None:
+            pulumi.set(__self__, "mailing_province", mailing_province)
+        if mailing_state is not None:
+            pulumi.set(__self__, "mailing_state", mailing_state)
+        if middle_name is not None:
+            pulumi.set(__self__, "middle_name", middle_name)
+        if mobile_phone_number is not None:
+            pulumi.set(__self__, "mobile_phone_number", mobile_phone_number)
+        if party_type is not None:
+            pulumi.set(__self__, "party_type", party_type)
+        if phone_number is not None:
+            pulumi.set(__self__, "phone_number", phone_number)
+        if postal_code is not None:
+            pulumi.set(__self__, "postal_code", postal_code)
+        if profile_arn is not None:
+            pulumi.set(__self__, "profile_arn", profile_arn)
+        if profile_id is not None:
+            pulumi.set(__self__, "profile_id", profile_id)
+        if province is not None:
+            pulumi.set(__self__, "province", province)
+        if shipping_address1 is not None:
+            pulumi.set(__self__, "shipping_address1", shipping_address1)
+        if shipping_address2 is not None:
+            pulumi.set(__self__, "shipping_address2", shipping_address2)
+        if shipping_address3 is not None:
+            pulumi.set(__self__, "shipping_address3", shipping_address3)
+        if shipping_address4 is not None:
+            pulumi.set(__self__, "shipping_address4", shipping_address4)
+        if shipping_city is not None:
+            pulumi.set(__self__, "shipping_city", shipping_city)
+        if shipping_country is not None:
+            pulumi.set(__self__, "shipping_country", shipping_country)
+        if shipping_county is not None:
+            pulumi.set(__self__, "shipping_county", shipping_county)
+        if shipping_postal_code is not None:
+            pulumi.set(__self__, "shipping_postal_code", shipping_postal_code)
+        if shipping_province is not None:
+            pulumi.set(__self__, "shipping_province", shipping_province)
+        if shipping_state is not None:
+            pulumi.set(__self__, "shipping_state", shipping_state)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="accountNumber")
+    def account_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique account number that you have given to the customer.
+        """
+        return pulumi.get(self, "account_number")
+
+    @account_number.setter
+    def account_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_number", value)
+
+    @property
+    @pulumi.getter(name="additionalInformation")
+    def additional_information(self) -> Optional[pulumi.Input[str]]:
+        """
+        Any additional information relevant to the customer's profile.
+        """
+        return pulumi.get(self, "additional_information")
+
+    @additional_information.setter
+    def additional_information(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_information", value)
+
+    @property
+    @pulumi.getter
+    def address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of a customer address.
+        """
+        return pulumi.get(self, "address1")
+
+    @address1.setter
+    def address1(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address1", value)
+
+    @property
+    @pulumi.getter
+    def address2(self) -> Optional[pulumi.Input[str]]:
+        """
+        The second line of a customer address.
+        """
+        return pulumi.get(self, "address2")
+
+    @address2.setter
+    def address2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address2", value)
+
+    @property
+    @pulumi.getter
+    def address3(self) -> Optional[pulumi.Input[str]]:
+        """
+        The third line of a customer address.
+        """
+        return pulumi.get(self, "address3")
+
+    @address3.setter
+    def address3(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address3", value)
+
+    @property
+    @pulumi.getter
+    def address4(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fourth line of a customer address.
+        """
+        return pulumi.get(self, "address4")
+
+    @address4.setter
+    def address4(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address4", value)
+
+    @property
+    @pulumi.getter(name="billingAddress1")
+    def billing_address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_address1")
+
+    @billing_address1.setter
+    def billing_address1(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_address1", value)
+
+    @property
+    @pulumi.getter(name="billingAddress2")
+    def billing_address2(self) -> Optional[pulumi.Input[str]]:
+        """
+        The second line of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_address2")
+
+    @billing_address2.setter
+    def billing_address2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_address2", value)
+
+    @property
+    @pulumi.getter(name="billingAddress3")
+    def billing_address3(self) -> Optional[pulumi.Input[str]]:
+        """
+        The third line of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_address3")
+
+    @billing_address3.setter
+    def billing_address3(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_address3", value)
+
+    @property
+    @pulumi.getter(name="billingAddress4")
+    def billing_address4(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fourth line of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_address4")
+
+    @billing_address4.setter
+    def billing_address4(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_address4", value)
+
+    @property
+    @pulumi.getter(name="billingCity")
+    def billing_city(self) -> Optional[pulumi.Input[str]]:
+        """
+        The city of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_city")
+
+    @billing_city.setter
+    def billing_city(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_city", value)
+
+    @property
+    @pulumi.getter(name="billingCountry")
+    def billing_country(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_country")
+
+    @billing_country.setter
+    def billing_country(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_country", value)
+
+    @property
+    @pulumi.getter(name="billingCounty")
+    def billing_county(self) -> Optional[pulumi.Input[str]]:
+        """
+        The county of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_county")
+
+    @billing_county.setter
+    def billing_county(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_county", value)
+
+    @property
+    @pulumi.getter(name="billingPostalCode")
+    def billing_postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_postal_code")
+
+    @billing_postal_code.setter
+    def billing_postal_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_postal_code", value)
+
+    @property
+    @pulumi.getter(name="billingProvince")
+    def billing_province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The province of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_province")
+
+    @billing_province.setter
+    def billing_province(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_province", value)
+
+    @property
+    @pulumi.getter(name="billingState")
+    def billing_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of a customer’s billing address.
+        """
+        return pulumi.get(self, "billing_state")
+
+    @billing_state.setter
+    def billing_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "billing_state", value)
+
+    @property
+    @pulumi.getter(name="birthDate")
+    def birth_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's birth date.
+        """
+        return pulumi.get(self, "birth_date")
+
+    @birth_date.setter
+    def birth_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "birth_date", value)
+
+    @property
+    @pulumi.getter(name="businessEmailAddress")
+    def business_email_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's business email address.
+        """
+        return pulumi.get(self, "business_email_address")
+
+    @business_email_address.setter
+    def business_email_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "business_email_address", value)
+
+    @property
+    @pulumi.getter(name="businessName")
+    def business_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the customer's business.
+        """
+        return pulumi.get(self, "business_name")
+
+    @business_name.setter
+    def business_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "business_name", value)
+
+    @property
+    @pulumi.getter(name="businessPhoneNumber")
+    def business_phone_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's business phone number.
+        """
+        return pulumi.get(self, "business_phone_number")
+
+    @business_phone_number.setter
+    def business_phone_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "business_phone_number", value)
+
+    @property
+    @pulumi.getter
+    def city(self) -> Optional[pulumi.Input[str]]:
+        """
+        The city in which a customer lives.
+        """
+        return pulumi.get(self, "city")
+
+    @city.setter
+    def city(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "city", value)
+
+    @property
+    @pulumi.getter
+    def country(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country in which a customer lives.
+        """
+        return pulumi.get(self, "country")
+
+    @country.setter
+    def country(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "country", value)
+
+    @property
+    @pulumi.getter
+    def county(self) -> Optional[pulumi.Input[str]]:
+        """
+        The county in which a customer lives.
+        """
+        return pulumi.get(self, "county")
+
+    @county.setter
+    def county(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "county", value)
+
+    @property
+    @pulumi.getter
+    def custom(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "custom")
+
+    @custom.setter
+    def custom(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "custom", value)
+
+    @property
+    @pulumi.getter(name="emailAddress")
+    def email_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's email address, which has not been specified as a personal or business address.
+        """
+        return pulumi.get(self, "email_address")
+
+    @email_address.setter
+    def email_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "email_address", value)
+
+    @property
+    @pulumi.getter(name="firstName")
+    def first_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's first name.
+        """
+        return pulumi.get(self, "first_name")
+
+    @first_name.setter
+    def first_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "first_name", value)
+
+    @property
+    @pulumi.getter
+    def gender(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's gender.
+        """
+        return pulumi.get(self, "gender")
+
+    @gender.setter
+    def gender(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gender", value)
+
+    @property
+    @pulumi.getter(name="homePhoneNumber")
+    def home_phone_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's home phone number.
+        """
+        return pulumi.get(self, "home_phone_number")
+
+    @home_phone_number.setter
+    def home_phone_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "home_phone_number", value)
+
+    @property
+    @pulumi.getter(name="lastName")
+    def last_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's last name.
+        """
+        return pulumi.get(self, "last_name")
+
+    @last_name.setter
+    def last_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_name", value)
+
+    @property
+    @pulumi.getter(name="mailingAddress1")
+    def mailing_address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_address1")
+
+    @mailing_address1.setter
+    def mailing_address1(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_address1", value)
+
+    @property
+    @pulumi.getter(name="mailingAddress2")
+    def mailing_address2(self) -> Optional[pulumi.Input[str]]:
+        """
+        The second line of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_address2")
+
+    @mailing_address2.setter
+    def mailing_address2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_address2", value)
+
+    @property
+    @pulumi.getter(name="mailingAddress3")
+    def mailing_address3(self) -> Optional[pulumi.Input[str]]:
+        """
+        The third line of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_address3")
+
+    @mailing_address3.setter
+    def mailing_address3(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_address3", value)
+
+    @property
+    @pulumi.getter(name="mailingAddress4")
+    def mailing_address4(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fourth line of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_address4")
+
+    @mailing_address4.setter
+    def mailing_address4(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_address4", value)
+
+    @property
+    @pulumi.getter(name="mailingCity")
+    def mailing_city(self) -> Optional[pulumi.Input[str]]:
+        """
+        The city of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_city")
+
+    @mailing_city.setter
+    def mailing_city(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_city", value)
+
+    @property
+    @pulumi.getter(name="mailingCountry")
+    def mailing_country(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_country")
+
+    @mailing_country.setter
+    def mailing_country(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_country", value)
+
+    @property
+    @pulumi.getter(name="mailingCounty")
+    def mailing_county(self) -> Optional[pulumi.Input[str]]:
+        """
+        The county of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_county")
+
+    @mailing_county.setter
+    def mailing_county(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_county", value)
+
+    @property
+    @pulumi.getter(name="mailingPostalCode")
+    def mailing_postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code of a customer’s mailing address
+        """
+        return pulumi.get(self, "mailing_postal_code")
+
+    @mailing_postal_code.setter
+    def mailing_postal_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_postal_code", value)
+
+    @property
+    @pulumi.getter(name="mailingProvince")
+    def mailing_province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The province of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_province")
+
+    @mailing_province.setter
+    def mailing_province(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_province", value)
+
+    @property
+    @pulumi.getter(name="mailingState")
+    def mailing_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of a customer’s mailing address.
+        """
+        return pulumi.get(self, "mailing_state")
+
+    @mailing_state.setter
+    def mailing_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mailing_state", value)
+
+    @property
+    @pulumi.getter(name="middleName")
+    def middle_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's middle name.
+        """
+        return pulumi.get(self, "middle_name")
+
+    @middle_name.setter
+    def middle_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "middle_name", value)
+
+    @property
+    @pulumi.getter(name="mobilePhoneNumber")
+    def mobile_phone_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's mobile phone number.
+        """
+        return pulumi.get(self, "mobile_phone_number")
+
+    @mobile_phone_number.setter
+    def mobile_phone_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mobile_phone_number", value)
+
+    @property
+    @pulumi.getter(name="partyType")
+    def party_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's party type.
+        """
+        return pulumi.get(self, "party_type")
+
+    @party_type.setter
+    def party_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "party_type", value)
+
+    @property
+    @pulumi.getter(name="phoneNumber")
+    def phone_number(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's phone number, which has not been specified as a mobile, home, or business number.
+        """
+        return pulumi.get(self, "phone_number")
+
+    @phone_number.setter
+    def phone_number(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "phone_number", value)
+
+    @property
+    @pulumi.getter(name="postalCode")
+    def postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code of a customer address.
+        """
+        return pulumi.get(self, "postal_code")
+
+    @postal_code.setter
+    def postal_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "postal_code", value)
+
+    @property
+    @pulumi.getter(name="profileArn")
+    def profile_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of a customer profile.
+        """
+        return pulumi.get(self, "profile_arn")
+
+    @profile_arn.setter
+    def profile_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile_arn", value)
+
+    @property
+    @pulumi.getter(name="profileId")
+    def profile_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of a customer profile.
+        """
+        return pulumi.get(self, "profile_id")
+
+    @profile_id.setter
+    def profile_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "profile_id", value)
+
+    @property
+    @pulumi.getter
+    def province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The province in which a customer lives.
+        """
+        return pulumi.get(self, "province")
+
+    @province.setter
+    def province(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "province", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress1")
+    def shipping_address1(self) -> Optional[pulumi.Input[str]]:
+        """
+        The first line of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_address1")
+
+    @shipping_address1.setter
+    def shipping_address1(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_address1", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress2")
+    def shipping_address2(self) -> Optional[pulumi.Input[str]]:
+        """
+        The second line of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_address2")
+
+    @shipping_address2.setter
+    def shipping_address2(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_address2", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress3")
+    def shipping_address3(self) -> Optional[pulumi.Input[str]]:
+        """
+        The third line of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_address3")
+
+    @shipping_address3.setter
+    def shipping_address3(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_address3", value)
+
+    @property
+    @pulumi.getter(name="shippingAddress4")
+    def shipping_address4(self) -> Optional[pulumi.Input[str]]:
+        """
+        The fourth line of a customer’s shipping address
+        """
+        return pulumi.get(self, "shipping_address4")
+
+    @shipping_address4.setter
+    def shipping_address4(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_address4", value)
+
+    @property
+    @pulumi.getter(name="shippingCity")
+    def shipping_city(self) -> Optional[pulumi.Input[str]]:
+        """
+        The city of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_city")
+
+    @shipping_city.setter
+    def shipping_city(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_city", value)
+
+    @property
+    @pulumi.getter(name="shippingCountry")
+    def shipping_country(self) -> Optional[pulumi.Input[str]]:
+        """
+        The country of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_country")
+
+    @shipping_country.setter
+    def shipping_country(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_country", value)
+
+    @property
+    @pulumi.getter(name="shippingCounty")
+    def shipping_county(self) -> Optional[pulumi.Input[str]]:
+        """
+        The county of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_county")
+
+    @shipping_county.setter
+    def shipping_county(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_county", value)
+
+    @property
+    @pulumi.getter(name="shippingPostalCode")
+    def shipping_postal_code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The postal code of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_postal_code")
+
+    @shipping_postal_code.setter
+    def shipping_postal_code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_postal_code", value)
+
+    @property
+    @pulumi.getter(name="shippingProvince")
+    def shipping_province(self) -> Optional[pulumi.Input[str]]:
+        """
+        The province of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_province")
+
+    @shipping_province.setter
+    def shipping_province(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_province", value)
+
+    @property
+    @pulumi.getter(name="shippingState")
+    def shipping_state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state of a customer’s shipping address.
+        """
+        return pulumi.get(self, "shipping_state")
+
+    @shipping_state.setter
+    def shipping_state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "shipping_state", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        The state in which a customer lives.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class MessageTemplateEmailMessageTemplateContentBodyArgsDict(TypedDict):
+        """
+        The body to use in email messages.
+        """
+        html: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+        """
+        The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        """
+        plain_text: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+        """
+        The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+        """
+elif False:
+    MessageTemplateEmailMessageTemplateContentBodyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateEmailMessageTemplateContentBodyArgs:
+    def __init__(__self__, *,
+                 html: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']] = None,
+                 plain_text: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']] = None):
+        """
+        The body to use in email messages.
+        :param pulumi.Input['MessageTemplateBodyContentProviderArgs'] html: The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        :param pulumi.Input['MessageTemplateBodyContentProviderArgs'] plain_text: The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+        """
+        if html is not None:
+            pulumi.set(__self__, "html", html)
+        if plain_text is not None:
+            pulumi.set(__self__, "plain_text", plain_text)
+
+    @property
+    @pulumi.getter
+    def html(self) -> Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]:
+        """
+        The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        """
+        return pulumi.get(self, "html")
+
+    @html.setter
+    def html(self, value: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]):
+        pulumi.set(self, "html", value)
+
+    @property
+    @pulumi.getter(name="plainText")
+    def plain_text(self) -> Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]:
+        """
+        The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+        """
+        return pulumi.get(self, "plain_text")
+
+    @plain_text.setter
+    def plain_text(self, value: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]):
+        pulumi.set(self, "plain_text", value)
+
+
+if not MYPY:
+    class MessageTemplateEmailMessageTemplateContentArgsDict(TypedDict):
+        """
+        The content of message template that applies to email channel subtype.
+        """
+        body: pulumi.Input['MessageTemplateEmailMessageTemplateContentBodyArgsDict']
+        headers: pulumi.Input[Sequence[pulumi.Input['MessageTemplateEmailMessageTemplateHeaderArgsDict']]]
+        """
+        The email headers to include in email messages.
+        """
+        subject: pulumi.Input[str]
+        """
+        The subject line, or title, to use in email messages.
+        """
+elif False:
+    MessageTemplateEmailMessageTemplateContentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateEmailMessageTemplateContentArgs:
+    def __init__(__self__, *,
+                 body: pulumi.Input['MessageTemplateEmailMessageTemplateContentBodyArgs'],
+                 headers: pulumi.Input[Sequence[pulumi.Input['MessageTemplateEmailMessageTemplateHeaderArgs']]],
+                 subject: pulumi.Input[str]):
+        """
+        The content of message template that applies to email channel subtype.
+        :param pulumi.Input[Sequence[pulumi.Input['MessageTemplateEmailMessageTemplateHeaderArgs']]] headers: The email headers to include in email messages.
+        :param pulumi.Input[str] subject: The subject line, or title, to use in email messages.
+        """
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "headers", headers)
+        pulumi.set(__self__, "subject", subject)
+
+    @property
+    @pulumi.getter
+    def body(self) -> pulumi.Input['MessageTemplateEmailMessageTemplateContentBodyArgs']:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input['MessageTemplateEmailMessageTemplateContentBodyArgs']):
+        pulumi.set(self, "body", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> pulumi.Input[Sequence[pulumi.Input['MessageTemplateEmailMessageTemplateHeaderArgs']]]:
+        """
+        The email headers to include in email messages.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: pulumi.Input[Sequence[pulumi.Input['MessageTemplateEmailMessageTemplateHeaderArgs']]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[str]:
+        """
+        The subject line, or title, to use in email messages.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subject", value)
+
+
+if not MYPY:
+    class MessageTemplateEmailMessageTemplateHeaderArgsDict(TypedDict):
+        """
+        The email header to include in email messages.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the email header.
+        """
+        value: NotRequired[pulumi.Input[str]]
+        """
+        The value of the email header.
+        """
+elif False:
+    MessageTemplateEmailMessageTemplateHeaderArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateEmailMessageTemplateHeaderArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The email header to include in email messages.
+        :param pulumi.Input[str] name: The name of the email header.
+        :param pulumi.Input[str] value: The value of the email header.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the email header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the email header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class MessageTemplateGroupingConfigurationArgsDict(TypedDict):
+        """
+        The configuration information of the user groups that the message template is accessible to.
+        """
+        criteria: pulumi.Input[str]
+        """
+        The criteria used for grouping Amazon Q in Connect users.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of values that define different groups of Amazon Q in Connect users.
+        """
+elif False:
+    MessageTemplateGroupingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateGroupingConfigurationArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input[str],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The configuration information of the user groups that the message template is accessible to.
+        :param pulumi.Input[str] criteria: The criteria used for grouping Amazon Q in Connect users.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: The list of values that define different groups of Amazon Q in Connect users.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input[str]:
+        """
+        The criteria used for grouping Amazon Q in Connect users.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input[str]):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of values that define different groups of Amazon Q in Connect users.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class MessageTemplateSmsMessageTemplateContentBodyArgsDict(TypedDict):
+        """
+        The body to use in SMS messages.
+        """
+        plain_text: NotRequired[pulumi.Input['MessageTemplateBodyContentProviderArgsDict']]
+elif False:
+    MessageTemplateSmsMessageTemplateContentBodyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateSmsMessageTemplateContentBodyArgs:
+    def __init__(__self__, *,
+                 plain_text: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']] = None):
+        """
+        The body to use in SMS messages.
+        """
+        if plain_text is not None:
+            pulumi.set(__self__, "plain_text", plain_text)
+
+    @property
+    @pulumi.getter(name="plainText")
+    def plain_text(self) -> Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]:
+        return pulumi.get(self, "plain_text")
+
+    @plain_text.setter
+    def plain_text(self, value: Optional[pulumi.Input['MessageTemplateBodyContentProviderArgs']]):
+        pulumi.set(self, "plain_text", value)
+
+
+if not MYPY:
+    class MessageTemplateSmsMessageTemplateContentArgsDict(TypedDict):
+        """
+        The content of message template that applies to SMS channel subtype.
+        """
+        body: pulumi.Input['MessageTemplateSmsMessageTemplateContentBodyArgsDict']
+elif False:
+    MessageTemplateSmsMessageTemplateContentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateSmsMessageTemplateContentArgs:
+    def __init__(__self__, *,
+                 body: pulumi.Input['MessageTemplateSmsMessageTemplateContentBodyArgs']):
+        """
+        The content of message template that applies to SMS channel subtype.
+        """
+        pulumi.set(__self__, "body", body)
+
+    @property
+    @pulumi.getter
+    def body(self) -> pulumi.Input['MessageTemplateSmsMessageTemplateContentBodyArgs']:
+        return pulumi.get(self, "body")
+
+    @body.setter
+    def body(self, value: pulumi.Input['MessageTemplateSmsMessageTemplateContentBodyArgs']):
+        pulumi.set(self, "body", value)
+
+
+if not MYPY:
+    class MessageTemplateSystemAttributesArgsDict(TypedDict):
+        """
+        The system attributes that are used with the message template.
+        """
+        customer_endpoint: NotRequired[pulumi.Input['MessageTemplateSystemEndpointAttributesArgsDict']]
+        """
+        The CustomerEndpoint attribute.
+        """
+        name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the task.
+        """
+        system_endpoint: NotRequired[pulumi.Input['MessageTemplateSystemEndpointAttributesArgsDict']]
+        """
+        The SystemEndpoint attribute.
+        """
+elif False:
+    MessageTemplateSystemAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateSystemAttributesArgs:
+    def __init__(__self__, *,
+                 customer_endpoint: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 system_endpoint: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']] = None):
+        """
+        The system attributes that are used with the message template.
+        :param pulumi.Input['MessageTemplateSystemEndpointAttributesArgs'] customer_endpoint: The CustomerEndpoint attribute.
+        :param pulumi.Input[str] name: The name of the task.
+        :param pulumi.Input['MessageTemplateSystemEndpointAttributesArgs'] system_endpoint: The SystemEndpoint attribute.
+        """
+        if customer_endpoint is not None:
+            pulumi.set(__self__, "customer_endpoint", customer_endpoint)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if system_endpoint is not None:
+            pulumi.set(__self__, "system_endpoint", system_endpoint)
+
+    @property
+    @pulumi.getter(name="customerEndpoint")
+    def customer_endpoint(self) -> Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']]:
+        """
+        The CustomerEndpoint attribute.
+        """
+        return pulumi.get(self, "customer_endpoint")
+
+    @customer_endpoint.setter
+    def customer_endpoint(self, value: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']]):
+        pulumi.set(self, "customer_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the task.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="systemEndpoint")
+    def system_endpoint(self) -> Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']]:
+        """
+        The SystemEndpoint attribute.
+        """
+        return pulumi.get(self, "system_endpoint")
+
+    @system_endpoint.setter
+    def system_endpoint(self, value: Optional[pulumi.Input['MessageTemplateSystemEndpointAttributesArgs']]):
+        pulumi.set(self, "system_endpoint", value)
+
+
+if not MYPY:
+    class MessageTemplateSystemEndpointAttributesArgsDict(TypedDict):
+        """
+        The system endpoint attributes that are used with the message template.
+        """
+        address: NotRequired[pulumi.Input[str]]
+        """
+        The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+        """
+elif False:
+    MessageTemplateSystemEndpointAttributesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MessageTemplateSystemEndpointAttributesArgs:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None):
+        """
+        The system endpoint attributes that are used with the message template.
+        :param pulumi.Input[str] address: The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
 
 

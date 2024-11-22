@@ -6944,11 +6944,11 @@
       },
       "port": {
         "type": "integer",
-        "description": "The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer."
+        "description": "The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer."
       },
       "protocol": {
         "type": "string",
-        "description": "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer."
+        "description": "The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer."
       },
       "sslPolicy": {
         "type": "string",
@@ -8444,7 +8444,7 @@
     "properties": {
       "destinationConfig": {
         "$ref": "#/types/aws-native:lambda:EventInvokeConfigDestinationConfig",
-        "description": "A destination for events after they have been sent to a function for processing.\n\n**Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.\n- *Queue* - The ARN of a standard SQS queue.\n- *Topic* - The ARN of a standard SNS topic.\n- *Event Bus* - The ARN of an Amazon EventBridge event bus."
+        "description": "A destination for events after they have been sent to a function for processing.\n\n**Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.\n- *Queue* - The ARN of a standard SQS queue.\n- *Bucket* - The ARN of an Amazon S3 bucket.\n- *Topic* - The ARN of a standard SNS topic.\n- *Event Bus* - The ARN of an Amazon EventBridge event bus.\n\n\u003e S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type."
       },
       "functionName": {
         "type": "string",
@@ -11201,7 +11201,8 @@
         "description": "The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string."
       },
       "globalEndpoint": {
-        "$ref": "#/types/aws-native:rds:GlobalClusterGlobalEndpoint"
+        "$ref": "#/types/aws-native:rds:GlobalClusterGlobalEndpoint",
+        "description": "The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster."
       },
       "sourceDbClusterIdentifier": {
         "type": "string",
@@ -11594,6 +11595,27 @@
       "type": {
         "$ref": "#/types/aws-native:resourceexplorer2:IndexType",
         "description": "Specifies the type of the index in this Region. For information about the aggregator index and how it differs from a local index, see [Turning on cross-Region search by creating an aggregator index](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html) in the *AWS Resource Explorer User Guide.* ."
+      }
+    }
+  },
+  "aws-native:resourcegroups:TagSyncTask": {
+    "cfTypeName": "AWS::ResourceGroups::TagSyncTask",
+    "properties": {
+      "group": {
+        "type": "string",
+        "description": "The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task"
+      },
+      "roleArn": {
+        "type": "string",
+        "description": "The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf."
+      },
+      "tagKey": {
+        "type": "string",
+        "description": "The tag key. Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application."
+      },
+      "tagValue": {
+        "type": "string",
+        "description": "The tag value. Resources tagged with this tag key-value pair will be added to the application. If a resource with this tag is later untagged, the tag-sync task removes the resource from the application."
       }
     }
   },
@@ -13377,6 +13399,19 @@
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
         "description": "The tags used to organize, track, or control access for this resource."
+      }
+    }
+  },
+  "aws-native:wisdom:MessageTemplateVersion": {
+    "cfTypeName": "AWS::Wisdom::MessageTemplateVersion",
+    "properties": {
+      "messageTemplateArn": {
+        "type": "string",
+        "description": "The unqualified Amazon Resource Name (ARN) of the message template."
+      },
+      "messageTemplateContentSha256": {
+        "type": "string",
+        "description": "The content SHA256 of the message template."
       }
     }
   },

@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     {
         [Input("capacityReservationIds")]
         private InputList<string>? _capacityReservationIds;
+
+        /// <summary>
+        /// The Capacity Reservation IDs to launch instances into.
+        /// </summary>
         public InputList<string> CapacityReservationIds
         {
             get => _capacityReservationIds ?? (_capacityReservationIds = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
         [Input("capacityReservationResourceGroupArns")]
         private InputList<string>? _capacityReservationResourceGroupArns;
+
+        /// <summary>
+        /// The resource group ARNs of the Capacity Reservation to launch instances into.
+        /// </summary>
         public InputList<string> CapacityReservationResourceGroupArns
         {
             get => _capacityReservationResourceGroupArns ?? (_capacityReservationResourceGroupArns = new InputList<string>());

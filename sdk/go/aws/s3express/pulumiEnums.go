@@ -174,6 +174,7 @@ func (in *directoryBucketDataRedundancyPtr) ToDirectoryBucketDataRedundancyPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DirectoryBucketDataRedundancyPtrOutput)
 }
 
+// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
 type DirectoryBucketRuleStatus string
 
 const (

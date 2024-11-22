@@ -26,6 +26,7 @@ class MicrosoftTeamsChannelConfigurationArgs:
                  teams_channel_id: pulumi.Input[str],
                  teams_tenant_id: pulumi.Input[str],
                  configuration_name: Optional[pulumi.Input[str]] = None,
+                 customization_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
                  sns_topic_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -38,6 +39,7 @@ class MicrosoftTeamsChannelConfigurationArgs:
         :param pulumi.Input[str] teams_channel_id: The id of the Microsoft Teams channel
         :param pulumi.Input[str] teams_tenant_id: The id of the Microsoft Teams tenant
         :param pulumi.Input[str] configuration_name: The name of the configuration
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] customization_resource_arns: ARNs of Custom Actions to associate with notifications in the provided chat channel.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] guardrail_policies: The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
@@ -50,6 +52,8 @@ class MicrosoftTeamsChannelConfigurationArgs:
         pulumi.set(__self__, "teams_tenant_id", teams_tenant_id)
         if configuration_name is not None:
             pulumi.set(__self__, "configuration_name", configuration_name)
+        if customization_resource_arns is not None:
+            pulumi.set(__self__, "customization_resource_arns", customization_resource_arns)
         if guardrail_policies is not None:
             pulumi.set(__self__, "guardrail_policies", guardrail_policies)
         if logging_level is not None:
@@ -122,6 +126,18 @@ class MicrosoftTeamsChannelConfigurationArgs:
         pulumi.set(self, "configuration_name", value)
 
     @property
+    @pulumi.getter(name="customizationResourceArns")
+    def customization_resource_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        ARNs of Custom Actions to associate with notifications in the provided chat channel.
+        """
+        return pulumi.get(self, "customization_resource_arns")
+
+    @customization_resource_arns.setter
+    def customization_resource_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "customization_resource_arns", value)
+
+    @property
     @pulumi.getter(name="guardrailPolicies")
     def guardrail_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -188,6 +204,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
+                 customization_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
@@ -204,6 +221,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the configuration
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] customization_resource_arns: ARNs of Custom Actions to associate with notifications in the provided chat channel.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] guardrail_policies: The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
@@ -239,6 +257,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
+                 customization_resource_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  guardrail_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  logging_level: Optional[pulumi.Input[str]] = None,
@@ -258,6 +277,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
             __props__ = MicrosoftTeamsChannelConfigurationArgs.__new__(MicrosoftTeamsChannelConfigurationArgs)
 
             __props__.__dict__["configuration_name"] = configuration_name
+            __props__.__dict__["customization_resource_arns"] = customization_resource_arns
             __props__.__dict__["guardrail_policies"] = guardrail_policies
             if iam_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'iam_role_arn'")
@@ -302,6 +322,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["configuration_name"] = None
+        __props__.__dict__["customization_resource_arns"] = None
         __props__.__dict__["guardrail_policies"] = None
         __props__.__dict__["iam_role_arn"] = None
         __props__.__dict__["logging_level"] = None
@@ -328,6 +349,14 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         The name of the configuration
         """
         return pulumi.get(self, "configuration_name")
+
+    @property
+    @pulumi.getter(name="customizationResourceArns")
+    def customization_resource_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        ARNs of Custom Actions to associate with notifications in the provided chat channel.
+        """
+        return pulumi.get(self, "customization_resource_arns")
 
     @property
     @pulumi.getter(name="guardrailPolicies")

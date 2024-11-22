@@ -16,6 +16,9 @@ export const DirectoryBucketRuleStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+ */
 export type DirectoryBucketRuleStatus = (typeof DirectoryBucketRuleStatus)[keyof typeof DirectoryBucketRuleStatus];
 
 export const DirectoryBucketServerSideEncryptionByDefaultSseAlgorithm = {

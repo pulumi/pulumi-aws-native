@@ -1491,6 +1491,172 @@ func (in *knowledgeBaseTypePtr) ToKnowledgeBaseTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseTypePtrOutput)
 }
 
+// The channel subtype this message template applies to.
+type MessageTemplateChannelSubtype string
+
+const (
+	MessageTemplateChannelSubtypeEmail = MessageTemplateChannelSubtype("EMAIL")
+	MessageTemplateChannelSubtypeSms   = MessageTemplateChannelSubtype("SMS")
+)
+
+func (MessageTemplateChannelSubtype) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateChannelSubtype)(nil)).Elem()
+}
+
+func (e MessageTemplateChannelSubtype) ToMessageTemplateChannelSubtypeOutput() MessageTemplateChannelSubtypeOutput {
+	return pulumi.ToOutput(e).(MessageTemplateChannelSubtypeOutput)
+}
+
+func (e MessageTemplateChannelSubtype) ToMessageTemplateChannelSubtypeOutputWithContext(ctx context.Context) MessageTemplateChannelSubtypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MessageTemplateChannelSubtypeOutput)
+}
+
+func (e MessageTemplateChannelSubtype) ToMessageTemplateChannelSubtypePtrOutput() MessageTemplateChannelSubtypePtrOutput {
+	return e.ToMessageTemplateChannelSubtypePtrOutputWithContext(context.Background())
+}
+
+func (e MessageTemplateChannelSubtype) ToMessageTemplateChannelSubtypePtrOutputWithContext(ctx context.Context) MessageTemplateChannelSubtypePtrOutput {
+	return MessageTemplateChannelSubtype(e).ToMessageTemplateChannelSubtypeOutputWithContext(ctx).ToMessageTemplateChannelSubtypePtrOutputWithContext(ctx)
+}
+
+func (e MessageTemplateChannelSubtype) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MessageTemplateChannelSubtype) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MessageTemplateChannelSubtype) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MessageTemplateChannelSubtype) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MessageTemplateChannelSubtypeOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateChannelSubtypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateChannelSubtype)(nil)).Elem()
+}
+
+func (o MessageTemplateChannelSubtypeOutput) ToMessageTemplateChannelSubtypeOutput() MessageTemplateChannelSubtypeOutput {
+	return o
+}
+
+func (o MessageTemplateChannelSubtypeOutput) ToMessageTemplateChannelSubtypeOutputWithContext(ctx context.Context) MessageTemplateChannelSubtypeOutput {
+	return o
+}
+
+func (o MessageTemplateChannelSubtypeOutput) ToMessageTemplateChannelSubtypePtrOutput() MessageTemplateChannelSubtypePtrOutput {
+	return o.ToMessageTemplateChannelSubtypePtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateChannelSubtypeOutput) ToMessageTemplateChannelSubtypePtrOutputWithContext(ctx context.Context) MessageTemplateChannelSubtypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateChannelSubtype) *MessageTemplateChannelSubtype {
+		return &v
+	}).(MessageTemplateChannelSubtypePtrOutput)
+}
+
+func (o MessageTemplateChannelSubtypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateChannelSubtypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MessageTemplateChannelSubtype) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MessageTemplateChannelSubtypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateChannelSubtypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MessageTemplateChannelSubtype) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MessageTemplateChannelSubtypePtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateChannelSubtypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateChannelSubtype)(nil)).Elem()
+}
+
+func (o MessageTemplateChannelSubtypePtrOutput) ToMessageTemplateChannelSubtypePtrOutput() MessageTemplateChannelSubtypePtrOutput {
+	return o
+}
+
+func (o MessageTemplateChannelSubtypePtrOutput) ToMessageTemplateChannelSubtypePtrOutputWithContext(ctx context.Context) MessageTemplateChannelSubtypePtrOutput {
+	return o
+}
+
+func (o MessageTemplateChannelSubtypePtrOutput) Elem() MessageTemplateChannelSubtypeOutput {
+	return o.ApplyT(func(v *MessageTemplateChannelSubtype) MessageTemplateChannelSubtype {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateChannelSubtype
+		return ret
+	}).(MessageTemplateChannelSubtypeOutput)
+}
+
+func (o MessageTemplateChannelSubtypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateChannelSubtypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MessageTemplateChannelSubtype) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MessageTemplateChannelSubtypeInput is an input type that accepts values of the MessageTemplateChannelSubtype enum
+// A concrete instance of `MessageTemplateChannelSubtypeInput` can be one of the following:
+//
+//	MessageTemplateChannelSubtypeEmail
+//	MessageTemplateChannelSubtypeSms
+type MessageTemplateChannelSubtypeInput interface {
+	pulumi.Input
+
+	ToMessageTemplateChannelSubtypeOutput() MessageTemplateChannelSubtypeOutput
+	ToMessageTemplateChannelSubtypeOutputWithContext(context.Context) MessageTemplateChannelSubtypeOutput
+}
+
+var messageTemplateChannelSubtypePtrType = reflect.TypeOf((**MessageTemplateChannelSubtype)(nil)).Elem()
+
+type MessageTemplateChannelSubtypePtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateChannelSubtypePtrOutput() MessageTemplateChannelSubtypePtrOutput
+	ToMessageTemplateChannelSubtypePtrOutputWithContext(context.Context) MessageTemplateChannelSubtypePtrOutput
+}
+
+type messageTemplateChannelSubtypePtr string
+
+func MessageTemplateChannelSubtypePtr(v string) MessageTemplateChannelSubtypePtrInput {
+	return (*messageTemplateChannelSubtypePtr)(&v)
+}
+
+func (*messageTemplateChannelSubtypePtr) ElementType() reflect.Type {
+	return messageTemplateChannelSubtypePtrType
+}
+
+func (in *messageTemplateChannelSubtypePtr) ToMessageTemplateChannelSubtypePtrOutput() MessageTemplateChannelSubtypePtrOutput {
+	return pulumi.ToOutput(in).(MessageTemplateChannelSubtypePtrOutput)
+}
+
+func (in *messageTemplateChannelSubtypePtr) ToMessageTemplateChannelSubtypePtrOutputWithContext(ctx context.Context) MessageTemplateChannelSubtypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MessageTemplateChannelSubtypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentAssociationConfigurationTypeInput)(nil)).Elem(), AiAgentAiAgentAssociationConfigurationType("KNOWLEDGE_BASE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentAssociationConfigurationTypePtrInput)(nil)).Elem(), AiAgentAiAgentAssociationConfigurationType("KNOWLEDGE_BASE"))
@@ -1510,6 +1676,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantTypePtrInput)(nil)).Elem(), AssistantType("AGENT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("EXTERNAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateChannelSubtypeInput)(nil)).Elem(), MessageTemplateChannelSubtype("EMAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateChannelSubtypePtrInput)(nil)).Elem(), MessageTemplateChannelSubtype("EMAIL"))
 	pulumi.RegisterOutputType(AiAgentAiAgentAssociationConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentAssociationConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentTypeOutput{})
@@ -1528,4 +1696,6 @@ func init() {
 	pulumi.RegisterOutputType(AssistantTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypePtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateChannelSubtypeOutput{})
+	pulumi.RegisterOutputType(MessageTemplateChannelSubtypePtrOutput{})
 }

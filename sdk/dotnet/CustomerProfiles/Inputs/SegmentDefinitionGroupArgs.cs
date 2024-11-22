@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     {
         [Input("dimensions")]
         private InputList<Union<Inputs.SegmentDefinitionDimension0PropertiesArgs, Inputs.SegmentDefinitionDimension1PropertiesArgs>>? _dimensions;
+
+        /// <summary>
+        /// Defines the attributes to segment on.
+        /// </summary>
         public InputList<Union<Inputs.SegmentDefinitionDimension0PropertiesArgs, Inputs.SegmentDefinitionDimension1PropertiesArgs>> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Union<Inputs.SegmentDefinitionDimension0PropertiesArgs, Inputs.SegmentDefinitionDimension1PropertiesArgs>>());
@@ -25,15 +29,25 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
 
         [Input("sourceSegments")]
         private InputList<Inputs.SegmentDefinitionSourceSegmentArgs>? _sourceSegments;
+
+        /// <summary>
+        /// Defines the starting source of data.
+        /// </summary>
         public InputList<Inputs.SegmentDefinitionSourceSegmentArgs> SourceSegments
         {
             get => _sourceSegments ?? (_sourceSegments = new InputList<Inputs.SegmentDefinitionSourceSegmentArgs>());
             set => _sourceSegments = value;
         }
 
+        /// <summary>
+        /// Defines how to interact with the source data.
+        /// </summary>
         [Input("sourceType")]
         public Input<Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionIncludeOptions>? SourceType { get; set; }
 
+        /// <summary>
+        /// Defines how to interact with the profiles found in the current filtering.
+        /// </summary>
         [Input("type")]
         public Input<Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionIncludeOptions>? Type { get; set; }
 

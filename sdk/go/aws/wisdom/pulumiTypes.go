@@ -2457,6 +2457,3022 @@ type KnowledgeBaseTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The agent attributes that are used with the message template.
+type MessageTemplateAgentAttributes struct {
+	// The agent’s first name as entered in their Amazon Connect user account.
+	FirstName *string `pulumi:"firstName"`
+	// The agent’s last name as entered in their Amazon Connect user account.
+	LastName *string `pulumi:"lastName"`
+}
+
+// MessageTemplateAgentAttributesInput is an input type that accepts MessageTemplateAgentAttributesArgs and MessageTemplateAgentAttributesOutput values.
+// You can construct a concrete instance of `MessageTemplateAgentAttributesInput` via:
+//
+//	MessageTemplateAgentAttributesArgs{...}
+type MessageTemplateAgentAttributesInput interface {
+	pulumi.Input
+
+	ToMessageTemplateAgentAttributesOutput() MessageTemplateAgentAttributesOutput
+	ToMessageTemplateAgentAttributesOutputWithContext(context.Context) MessageTemplateAgentAttributesOutput
+}
+
+// The agent attributes that are used with the message template.
+type MessageTemplateAgentAttributesArgs struct {
+	// The agent’s first name as entered in their Amazon Connect user account.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// The agent’s last name as entered in their Amazon Connect user account.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+}
+
+func (MessageTemplateAgentAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateAgentAttributes)(nil)).Elem()
+}
+
+func (i MessageTemplateAgentAttributesArgs) ToMessageTemplateAgentAttributesOutput() MessageTemplateAgentAttributesOutput {
+	return i.ToMessageTemplateAgentAttributesOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateAgentAttributesArgs) ToMessageTemplateAgentAttributesOutputWithContext(ctx context.Context) MessageTemplateAgentAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateAgentAttributesOutput)
+}
+
+func (i MessageTemplateAgentAttributesArgs) ToMessageTemplateAgentAttributesPtrOutput() MessageTemplateAgentAttributesPtrOutput {
+	return i.ToMessageTemplateAgentAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateAgentAttributesArgs) ToMessageTemplateAgentAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateAgentAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateAgentAttributesOutput).ToMessageTemplateAgentAttributesPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateAgentAttributesPtrInput is an input type that accepts MessageTemplateAgentAttributesArgs, MessageTemplateAgentAttributesPtr and MessageTemplateAgentAttributesPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateAgentAttributesPtrInput` via:
+//
+//	        MessageTemplateAgentAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateAgentAttributesPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateAgentAttributesPtrOutput() MessageTemplateAgentAttributesPtrOutput
+	ToMessageTemplateAgentAttributesPtrOutputWithContext(context.Context) MessageTemplateAgentAttributesPtrOutput
+}
+
+type messageTemplateAgentAttributesPtrType MessageTemplateAgentAttributesArgs
+
+func MessageTemplateAgentAttributesPtr(v *MessageTemplateAgentAttributesArgs) MessageTemplateAgentAttributesPtrInput {
+	return (*messageTemplateAgentAttributesPtrType)(v)
+}
+
+func (*messageTemplateAgentAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateAgentAttributes)(nil)).Elem()
+}
+
+func (i *messageTemplateAgentAttributesPtrType) ToMessageTemplateAgentAttributesPtrOutput() MessageTemplateAgentAttributesPtrOutput {
+	return i.ToMessageTemplateAgentAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateAgentAttributesPtrType) ToMessageTemplateAgentAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateAgentAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateAgentAttributesPtrOutput)
+}
+
+// The agent attributes that are used with the message template.
+type MessageTemplateAgentAttributesOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateAgentAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateAgentAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateAgentAttributesOutput) ToMessageTemplateAgentAttributesOutput() MessageTemplateAgentAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateAgentAttributesOutput) ToMessageTemplateAgentAttributesOutputWithContext(ctx context.Context) MessageTemplateAgentAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateAgentAttributesOutput) ToMessageTemplateAgentAttributesPtrOutput() MessageTemplateAgentAttributesPtrOutput {
+	return o.ToMessageTemplateAgentAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateAgentAttributesOutput) ToMessageTemplateAgentAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateAgentAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateAgentAttributes) *MessageTemplateAgentAttributes {
+		return &v
+	}).(MessageTemplateAgentAttributesPtrOutput)
+}
+
+// The agent’s first name as entered in their Amazon Connect user account.
+func (o MessageTemplateAgentAttributesOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateAgentAttributes) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// The agent’s last name as entered in their Amazon Connect user account.
+func (o MessageTemplateAgentAttributesOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateAgentAttributes) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+type MessageTemplateAgentAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateAgentAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateAgentAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateAgentAttributesPtrOutput) ToMessageTemplateAgentAttributesPtrOutput() MessageTemplateAgentAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateAgentAttributesPtrOutput) ToMessageTemplateAgentAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateAgentAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateAgentAttributesPtrOutput) Elem() MessageTemplateAgentAttributesOutput {
+	return o.ApplyT(func(v *MessageTemplateAgentAttributes) MessageTemplateAgentAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateAgentAttributes
+		return ret
+	}).(MessageTemplateAgentAttributesOutput)
+}
+
+// The agent’s first name as entered in their Amazon Connect user account.
+func (o MessageTemplateAgentAttributesPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateAgentAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The agent’s last name as entered in their Amazon Connect user account.
+func (o MessageTemplateAgentAttributesPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateAgentAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+type MessageTemplateAttributes struct {
+	AgentAttributes           *MessageTemplateAgentAttributes           `pulumi:"agentAttributes"`
+	CustomAttributes          map[string]string                         `pulumi:"customAttributes"`
+	CustomerProfileAttributes *MessageTemplateCustomerProfileAttributes `pulumi:"customerProfileAttributes"`
+	SystemAttributes          *MessageTemplateSystemAttributes          `pulumi:"systemAttributes"`
+}
+
+// MessageTemplateAttributesInput is an input type that accepts MessageTemplateAttributesArgs and MessageTemplateAttributesOutput values.
+// You can construct a concrete instance of `MessageTemplateAttributesInput` via:
+//
+//	MessageTemplateAttributesArgs{...}
+type MessageTemplateAttributesInput interface {
+	pulumi.Input
+
+	ToMessageTemplateAttributesOutput() MessageTemplateAttributesOutput
+	ToMessageTemplateAttributesOutputWithContext(context.Context) MessageTemplateAttributesOutput
+}
+
+// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+type MessageTemplateAttributesArgs struct {
+	AgentAttributes           MessageTemplateAgentAttributesPtrInput           `pulumi:"agentAttributes"`
+	CustomAttributes          pulumi.StringMapInput                            `pulumi:"customAttributes"`
+	CustomerProfileAttributes MessageTemplateCustomerProfileAttributesPtrInput `pulumi:"customerProfileAttributes"`
+	SystemAttributes          MessageTemplateSystemAttributesPtrInput          `pulumi:"systemAttributes"`
+}
+
+func (MessageTemplateAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateAttributes)(nil)).Elem()
+}
+
+func (i MessageTemplateAttributesArgs) ToMessageTemplateAttributesOutput() MessageTemplateAttributesOutput {
+	return i.ToMessageTemplateAttributesOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateAttributesArgs) ToMessageTemplateAttributesOutputWithContext(ctx context.Context) MessageTemplateAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateAttributesOutput)
+}
+
+func (i MessageTemplateAttributesArgs) ToMessageTemplateAttributesPtrOutput() MessageTemplateAttributesPtrOutput {
+	return i.ToMessageTemplateAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateAttributesArgs) ToMessageTemplateAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateAttributesOutput).ToMessageTemplateAttributesPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateAttributesPtrInput is an input type that accepts MessageTemplateAttributesArgs, MessageTemplateAttributesPtr and MessageTemplateAttributesPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateAttributesPtrInput` via:
+//
+//	        MessageTemplateAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateAttributesPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateAttributesPtrOutput() MessageTemplateAttributesPtrOutput
+	ToMessageTemplateAttributesPtrOutputWithContext(context.Context) MessageTemplateAttributesPtrOutput
+}
+
+type messageTemplateAttributesPtrType MessageTemplateAttributesArgs
+
+func MessageTemplateAttributesPtr(v *MessageTemplateAttributesArgs) MessageTemplateAttributesPtrInput {
+	return (*messageTemplateAttributesPtrType)(v)
+}
+
+func (*messageTemplateAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateAttributes)(nil)).Elem()
+}
+
+func (i *messageTemplateAttributesPtrType) ToMessageTemplateAttributesPtrOutput() MessageTemplateAttributesPtrOutput {
+	return i.ToMessageTemplateAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateAttributesPtrType) ToMessageTemplateAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateAttributesPtrOutput)
+}
+
+// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+type MessageTemplateAttributesOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateAttributesOutput) ToMessageTemplateAttributesOutput() MessageTemplateAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateAttributesOutput) ToMessageTemplateAttributesOutputWithContext(ctx context.Context) MessageTemplateAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateAttributesOutput) ToMessageTemplateAttributesPtrOutput() MessageTemplateAttributesPtrOutput {
+	return o.ToMessageTemplateAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateAttributesOutput) ToMessageTemplateAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateAttributes) *MessageTemplateAttributes {
+		return &v
+	}).(MessageTemplateAttributesPtrOutput)
+}
+
+func (o MessageTemplateAttributesOutput) AgentAttributes() MessageTemplateAgentAttributesPtrOutput {
+	return o.ApplyT(func(v MessageTemplateAttributes) *MessageTemplateAgentAttributes { return v.AgentAttributes }).(MessageTemplateAgentAttributesPtrOutput)
+}
+
+func (o MessageTemplateAttributesOutput) CustomAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MessageTemplateAttributes) map[string]string { return v.CustomAttributes }).(pulumi.StringMapOutput)
+}
+
+func (o MessageTemplateAttributesOutput) CustomerProfileAttributes() MessageTemplateCustomerProfileAttributesPtrOutput {
+	return o.ApplyT(func(v MessageTemplateAttributes) *MessageTemplateCustomerProfileAttributes {
+		return v.CustomerProfileAttributes
+	}).(MessageTemplateCustomerProfileAttributesPtrOutput)
+}
+
+func (o MessageTemplateAttributesOutput) SystemAttributes() MessageTemplateSystemAttributesPtrOutput {
+	return o.ApplyT(func(v MessageTemplateAttributes) *MessageTemplateSystemAttributes { return v.SystemAttributes }).(MessageTemplateSystemAttributesPtrOutput)
+}
+
+type MessageTemplateAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateAttributesPtrOutput) ToMessageTemplateAttributesPtrOutput() MessageTemplateAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateAttributesPtrOutput) ToMessageTemplateAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateAttributesPtrOutput) Elem() MessageTemplateAttributesOutput {
+	return o.ApplyT(func(v *MessageTemplateAttributes) MessageTemplateAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateAttributes
+		return ret
+	}).(MessageTemplateAttributesOutput)
+}
+
+func (o MessageTemplateAttributesPtrOutput) AgentAttributes() MessageTemplateAgentAttributesPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateAttributes) *MessageTemplateAgentAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.AgentAttributes
+	}).(MessageTemplateAgentAttributesPtrOutput)
+}
+
+func (o MessageTemplateAttributesPtrOutput) CustomAttributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MessageTemplateAttributes) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAttributes
+	}).(pulumi.StringMapOutput)
+}
+
+func (o MessageTemplateAttributesPtrOutput) CustomerProfileAttributes() MessageTemplateCustomerProfileAttributesPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateAttributes) *MessageTemplateCustomerProfileAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerProfileAttributes
+	}).(MessageTemplateCustomerProfileAttributesPtrOutput)
+}
+
+func (o MessageTemplateAttributesPtrOutput) SystemAttributes() MessageTemplateSystemAttributesPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateAttributes) *MessageTemplateSystemAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.SystemAttributes
+	}).(MessageTemplateSystemAttributesPtrOutput)
+}
+
+// The container of message template body.
+type MessageTemplateBodyContentProvider struct {
+	Content *string `pulumi:"content"`
+}
+
+// MessageTemplateBodyContentProviderInput is an input type that accepts MessageTemplateBodyContentProviderArgs and MessageTemplateBodyContentProviderOutput values.
+// You can construct a concrete instance of `MessageTemplateBodyContentProviderInput` via:
+//
+//	MessageTemplateBodyContentProviderArgs{...}
+type MessageTemplateBodyContentProviderInput interface {
+	pulumi.Input
+
+	ToMessageTemplateBodyContentProviderOutput() MessageTemplateBodyContentProviderOutput
+	ToMessageTemplateBodyContentProviderOutputWithContext(context.Context) MessageTemplateBodyContentProviderOutput
+}
+
+// The container of message template body.
+type MessageTemplateBodyContentProviderArgs struct {
+	Content pulumi.StringPtrInput `pulumi:"content"`
+}
+
+func (MessageTemplateBodyContentProviderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateBodyContentProvider)(nil)).Elem()
+}
+
+func (i MessageTemplateBodyContentProviderArgs) ToMessageTemplateBodyContentProviderOutput() MessageTemplateBodyContentProviderOutput {
+	return i.ToMessageTemplateBodyContentProviderOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateBodyContentProviderArgs) ToMessageTemplateBodyContentProviderOutputWithContext(ctx context.Context) MessageTemplateBodyContentProviderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateBodyContentProviderOutput)
+}
+
+func (i MessageTemplateBodyContentProviderArgs) ToMessageTemplateBodyContentProviderPtrOutput() MessageTemplateBodyContentProviderPtrOutput {
+	return i.ToMessageTemplateBodyContentProviderPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateBodyContentProviderArgs) ToMessageTemplateBodyContentProviderPtrOutputWithContext(ctx context.Context) MessageTemplateBodyContentProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateBodyContentProviderOutput).ToMessageTemplateBodyContentProviderPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateBodyContentProviderPtrInput is an input type that accepts MessageTemplateBodyContentProviderArgs, MessageTemplateBodyContentProviderPtr and MessageTemplateBodyContentProviderPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateBodyContentProviderPtrInput` via:
+//
+//	        MessageTemplateBodyContentProviderArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateBodyContentProviderPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateBodyContentProviderPtrOutput() MessageTemplateBodyContentProviderPtrOutput
+	ToMessageTemplateBodyContentProviderPtrOutputWithContext(context.Context) MessageTemplateBodyContentProviderPtrOutput
+}
+
+type messageTemplateBodyContentProviderPtrType MessageTemplateBodyContentProviderArgs
+
+func MessageTemplateBodyContentProviderPtr(v *MessageTemplateBodyContentProviderArgs) MessageTemplateBodyContentProviderPtrInput {
+	return (*messageTemplateBodyContentProviderPtrType)(v)
+}
+
+func (*messageTemplateBodyContentProviderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateBodyContentProvider)(nil)).Elem()
+}
+
+func (i *messageTemplateBodyContentProviderPtrType) ToMessageTemplateBodyContentProviderPtrOutput() MessageTemplateBodyContentProviderPtrOutput {
+	return i.ToMessageTemplateBodyContentProviderPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateBodyContentProviderPtrType) ToMessageTemplateBodyContentProviderPtrOutputWithContext(ctx context.Context) MessageTemplateBodyContentProviderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateBodyContentProviderPtrOutput)
+}
+
+// The container of message template body.
+type MessageTemplateBodyContentProviderOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateBodyContentProviderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateBodyContentProvider)(nil)).Elem()
+}
+
+func (o MessageTemplateBodyContentProviderOutput) ToMessageTemplateBodyContentProviderOutput() MessageTemplateBodyContentProviderOutput {
+	return o
+}
+
+func (o MessageTemplateBodyContentProviderOutput) ToMessageTemplateBodyContentProviderOutputWithContext(ctx context.Context) MessageTemplateBodyContentProviderOutput {
+	return o
+}
+
+func (o MessageTemplateBodyContentProviderOutput) ToMessageTemplateBodyContentProviderPtrOutput() MessageTemplateBodyContentProviderPtrOutput {
+	return o.ToMessageTemplateBodyContentProviderPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateBodyContentProviderOutput) ToMessageTemplateBodyContentProviderPtrOutputWithContext(ctx context.Context) MessageTemplateBodyContentProviderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateBodyContentProvider) *MessageTemplateBodyContentProvider {
+		return &v
+	}).(MessageTemplateBodyContentProviderPtrOutput)
+}
+
+func (o MessageTemplateBodyContentProviderOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateBodyContentProvider) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+type MessageTemplateBodyContentProviderPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateBodyContentProviderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateBodyContentProvider)(nil)).Elem()
+}
+
+func (o MessageTemplateBodyContentProviderPtrOutput) ToMessageTemplateBodyContentProviderPtrOutput() MessageTemplateBodyContentProviderPtrOutput {
+	return o
+}
+
+func (o MessageTemplateBodyContentProviderPtrOutput) ToMessageTemplateBodyContentProviderPtrOutputWithContext(ctx context.Context) MessageTemplateBodyContentProviderPtrOutput {
+	return o
+}
+
+func (o MessageTemplateBodyContentProviderPtrOutput) Elem() MessageTemplateBodyContentProviderOutput {
+	return o.ApplyT(func(v *MessageTemplateBodyContentProvider) MessageTemplateBodyContentProvider {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateBodyContentProvider
+		return ret
+	}).(MessageTemplateBodyContentProviderOutput)
+}
+
+func (o MessageTemplateBodyContentProviderPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateBodyContentProvider) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the message template.
+type MessageTemplateContent struct {
+	EmailMessageTemplateContent *MessageTemplateEmailMessageTemplateContent `pulumi:"emailMessageTemplateContent"`
+	SmsMessageTemplateContent   *MessageTemplateSmsMessageTemplateContent   `pulumi:"smsMessageTemplateContent"`
+}
+
+// MessageTemplateContentInput is an input type that accepts MessageTemplateContentArgs and MessageTemplateContentOutput values.
+// You can construct a concrete instance of `MessageTemplateContentInput` via:
+//
+//	MessageTemplateContentArgs{...}
+type MessageTemplateContentInput interface {
+	pulumi.Input
+
+	ToMessageTemplateContentOutput() MessageTemplateContentOutput
+	ToMessageTemplateContentOutputWithContext(context.Context) MessageTemplateContentOutput
+}
+
+// The content of the message template.
+type MessageTemplateContentArgs struct {
+	EmailMessageTemplateContent MessageTemplateEmailMessageTemplateContentPtrInput `pulumi:"emailMessageTemplateContent"`
+	SmsMessageTemplateContent   MessageTemplateSmsMessageTemplateContentPtrInput   `pulumi:"smsMessageTemplateContent"`
+}
+
+func (MessageTemplateContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateContent)(nil)).Elem()
+}
+
+func (i MessageTemplateContentArgs) ToMessageTemplateContentOutput() MessageTemplateContentOutput {
+	return i.ToMessageTemplateContentOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateContentArgs) ToMessageTemplateContentOutputWithContext(ctx context.Context) MessageTemplateContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateContentOutput)
+}
+
+// The content of the message template.
+type MessageTemplateContentOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateContent)(nil)).Elem()
+}
+
+func (o MessageTemplateContentOutput) ToMessageTemplateContentOutput() MessageTemplateContentOutput {
+	return o
+}
+
+func (o MessageTemplateContentOutput) ToMessageTemplateContentOutputWithContext(ctx context.Context) MessageTemplateContentOutput {
+	return o
+}
+
+func (o MessageTemplateContentOutput) EmailMessageTemplateContent() MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return o.ApplyT(func(v MessageTemplateContent) *MessageTemplateEmailMessageTemplateContent {
+		return v.EmailMessageTemplateContent
+	}).(MessageTemplateEmailMessageTemplateContentPtrOutput)
+}
+
+func (o MessageTemplateContentOutput) SmsMessageTemplateContent() MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return o.ApplyT(func(v MessageTemplateContent) *MessageTemplateSmsMessageTemplateContent {
+		return v.SmsMessageTemplateContent
+	}).(MessageTemplateSmsMessageTemplateContentPtrOutput)
+}
+
+type MessageTemplateContentPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateContent)(nil)).Elem()
+}
+
+func (o MessageTemplateContentPtrOutput) ToMessageTemplateContentPtrOutput() MessageTemplateContentPtrOutput {
+	return o
+}
+
+func (o MessageTemplateContentPtrOutput) ToMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateContentPtrOutput {
+	return o
+}
+
+func (o MessageTemplateContentPtrOutput) Elem() MessageTemplateContentOutput {
+	return o.ApplyT(func(v *MessageTemplateContent) MessageTemplateContent {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateContent
+		return ret
+	}).(MessageTemplateContentOutput)
+}
+
+func (o MessageTemplateContentPtrOutput) EmailMessageTemplateContent() MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateContent) *MessageTemplateEmailMessageTemplateContent {
+		if v == nil {
+			return nil
+		}
+		return v.EmailMessageTemplateContent
+	}).(MessageTemplateEmailMessageTemplateContentPtrOutput)
+}
+
+func (o MessageTemplateContentPtrOutput) SmsMessageTemplateContent() MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateContent) *MessageTemplateSmsMessageTemplateContent {
+		if v == nil {
+			return nil
+		}
+		return v.SmsMessageTemplateContent
+	}).(MessageTemplateSmsMessageTemplateContentPtrOutput)
+}
+
+// The customer profile attributes that are used with the message template.
+type MessageTemplateCustomerProfileAttributes struct {
+	// A unique account number that you have given to the customer.
+	AccountNumber *string `pulumi:"accountNumber"`
+	// Any additional information relevant to the customer's profile.
+	AdditionalInformation *string `pulumi:"additionalInformation"`
+	// The first line of a customer address.
+	Address1 *string `pulumi:"address1"`
+	// The second line of a customer address.
+	Address2 *string `pulumi:"address2"`
+	// The third line of a customer address.
+	Address3 *string `pulumi:"address3"`
+	// The fourth line of a customer address.
+	Address4 *string `pulumi:"address4"`
+	// The first line of a customer’s billing address.
+	BillingAddress1 *string `pulumi:"billingAddress1"`
+	// The second line of a customer’s billing address.
+	BillingAddress2 *string `pulumi:"billingAddress2"`
+	// The third line of a customer’s billing address.
+	BillingAddress3 *string `pulumi:"billingAddress3"`
+	// The fourth line of a customer’s billing address.
+	BillingAddress4 *string `pulumi:"billingAddress4"`
+	// The city of a customer’s billing address.
+	BillingCity *string `pulumi:"billingCity"`
+	// The country of a customer’s billing address.
+	BillingCountry *string `pulumi:"billingCountry"`
+	// The county of a customer’s billing address.
+	BillingCounty *string `pulumi:"billingCounty"`
+	// The postal code of a customer’s billing address.
+	BillingPostalCode *string `pulumi:"billingPostalCode"`
+	// The province of a customer’s billing address.
+	BillingProvince *string `pulumi:"billingProvince"`
+	// The state of a customer’s billing address.
+	BillingState *string `pulumi:"billingState"`
+	// The customer's birth date.
+	BirthDate *string `pulumi:"birthDate"`
+	// The customer's business email address.
+	BusinessEmailAddress *string `pulumi:"businessEmailAddress"`
+	// The name of the customer's business.
+	BusinessName *string `pulumi:"businessName"`
+	// The customer's business phone number.
+	BusinessPhoneNumber *string `pulumi:"businessPhoneNumber"`
+	// The city in which a customer lives.
+	City *string `pulumi:"city"`
+	// The country in which a customer lives.
+	Country *string `pulumi:"country"`
+	// The county in which a customer lives.
+	County *string           `pulumi:"county"`
+	Custom map[string]string `pulumi:"custom"`
+	// The customer's email address, which has not been specified as a personal or business address.
+	EmailAddress *string `pulumi:"emailAddress"`
+	// The customer's first name.
+	FirstName *string `pulumi:"firstName"`
+	// The customer's gender.
+	Gender *string `pulumi:"gender"`
+	// The customer's home phone number.
+	HomePhoneNumber *string `pulumi:"homePhoneNumber"`
+	// The customer's last name.
+	LastName *string `pulumi:"lastName"`
+	// The first line of a customer’s mailing address.
+	MailingAddress1 *string `pulumi:"mailingAddress1"`
+	// The second line of a customer’s mailing address.
+	MailingAddress2 *string `pulumi:"mailingAddress2"`
+	// The third line of a customer’s mailing address.
+	MailingAddress3 *string `pulumi:"mailingAddress3"`
+	// The fourth line of a customer’s mailing address.
+	MailingAddress4 *string `pulumi:"mailingAddress4"`
+	// The city of a customer’s mailing address.
+	MailingCity *string `pulumi:"mailingCity"`
+	// The country of a customer’s mailing address.
+	MailingCountry *string `pulumi:"mailingCountry"`
+	// The county of a customer’s mailing address.
+	MailingCounty *string `pulumi:"mailingCounty"`
+	// The postal code of a customer’s mailing address
+	MailingPostalCode *string `pulumi:"mailingPostalCode"`
+	// The province of a customer’s mailing address.
+	MailingProvince *string `pulumi:"mailingProvince"`
+	// The state of a customer’s mailing address.
+	MailingState *string `pulumi:"mailingState"`
+	// The customer's middle name.
+	MiddleName *string `pulumi:"middleName"`
+	// The customer's mobile phone number.
+	MobilePhoneNumber *string `pulumi:"mobilePhoneNumber"`
+	// The customer's party type.
+	PartyType *string `pulumi:"partyType"`
+	// The customer's phone number, which has not been specified as a mobile, home, or business number.
+	PhoneNumber *string `pulumi:"phoneNumber"`
+	// The postal code of a customer address.
+	PostalCode *string `pulumi:"postalCode"`
+	// The ARN of a customer profile.
+	ProfileArn *string `pulumi:"profileArn"`
+	// The unique identifier of a customer profile.
+	ProfileId *string `pulumi:"profileId"`
+	// The province in which a customer lives.
+	Province *string `pulumi:"province"`
+	// The first line of a customer’s shipping address.
+	ShippingAddress1 *string `pulumi:"shippingAddress1"`
+	// The second line of a customer’s shipping address.
+	ShippingAddress2 *string `pulumi:"shippingAddress2"`
+	// The third line of a customer’s shipping address.
+	ShippingAddress3 *string `pulumi:"shippingAddress3"`
+	// The fourth line of a customer’s shipping address
+	ShippingAddress4 *string `pulumi:"shippingAddress4"`
+	// The city of a customer’s shipping address.
+	ShippingCity *string `pulumi:"shippingCity"`
+	// The country of a customer’s shipping address.
+	ShippingCountry *string `pulumi:"shippingCountry"`
+	// The county of a customer’s shipping address.
+	ShippingCounty *string `pulumi:"shippingCounty"`
+	// The postal code of a customer’s shipping address.
+	ShippingPostalCode *string `pulumi:"shippingPostalCode"`
+	// The province of a customer’s shipping address.
+	ShippingProvince *string `pulumi:"shippingProvince"`
+	// The state of a customer’s shipping address.
+	ShippingState *string `pulumi:"shippingState"`
+	// The state in which a customer lives.
+	State *string `pulumi:"state"`
+}
+
+// MessageTemplateCustomerProfileAttributesInput is an input type that accepts MessageTemplateCustomerProfileAttributesArgs and MessageTemplateCustomerProfileAttributesOutput values.
+// You can construct a concrete instance of `MessageTemplateCustomerProfileAttributesInput` via:
+//
+//	MessageTemplateCustomerProfileAttributesArgs{...}
+type MessageTemplateCustomerProfileAttributesInput interface {
+	pulumi.Input
+
+	ToMessageTemplateCustomerProfileAttributesOutput() MessageTemplateCustomerProfileAttributesOutput
+	ToMessageTemplateCustomerProfileAttributesOutputWithContext(context.Context) MessageTemplateCustomerProfileAttributesOutput
+}
+
+// The customer profile attributes that are used with the message template.
+type MessageTemplateCustomerProfileAttributesArgs struct {
+	// A unique account number that you have given to the customer.
+	AccountNumber pulumi.StringPtrInput `pulumi:"accountNumber"`
+	// Any additional information relevant to the customer's profile.
+	AdditionalInformation pulumi.StringPtrInput `pulumi:"additionalInformation"`
+	// The first line of a customer address.
+	Address1 pulumi.StringPtrInput `pulumi:"address1"`
+	// The second line of a customer address.
+	Address2 pulumi.StringPtrInput `pulumi:"address2"`
+	// The third line of a customer address.
+	Address3 pulumi.StringPtrInput `pulumi:"address3"`
+	// The fourth line of a customer address.
+	Address4 pulumi.StringPtrInput `pulumi:"address4"`
+	// The first line of a customer’s billing address.
+	BillingAddress1 pulumi.StringPtrInput `pulumi:"billingAddress1"`
+	// The second line of a customer’s billing address.
+	BillingAddress2 pulumi.StringPtrInput `pulumi:"billingAddress2"`
+	// The third line of a customer’s billing address.
+	BillingAddress3 pulumi.StringPtrInput `pulumi:"billingAddress3"`
+	// The fourth line of a customer’s billing address.
+	BillingAddress4 pulumi.StringPtrInput `pulumi:"billingAddress4"`
+	// The city of a customer’s billing address.
+	BillingCity pulumi.StringPtrInput `pulumi:"billingCity"`
+	// The country of a customer’s billing address.
+	BillingCountry pulumi.StringPtrInput `pulumi:"billingCountry"`
+	// The county of a customer’s billing address.
+	BillingCounty pulumi.StringPtrInput `pulumi:"billingCounty"`
+	// The postal code of a customer’s billing address.
+	BillingPostalCode pulumi.StringPtrInput `pulumi:"billingPostalCode"`
+	// The province of a customer’s billing address.
+	BillingProvince pulumi.StringPtrInput `pulumi:"billingProvince"`
+	// The state of a customer’s billing address.
+	BillingState pulumi.StringPtrInput `pulumi:"billingState"`
+	// The customer's birth date.
+	BirthDate pulumi.StringPtrInput `pulumi:"birthDate"`
+	// The customer's business email address.
+	BusinessEmailAddress pulumi.StringPtrInput `pulumi:"businessEmailAddress"`
+	// The name of the customer's business.
+	BusinessName pulumi.StringPtrInput `pulumi:"businessName"`
+	// The customer's business phone number.
+	BusinessPhoneNumber pulumi.StringPtrInput `pulumi:"businessPhoneNumber"`
+	// The city in which a customer lives.
+	City pulumi.StringPtrInput `pulumi:"city"`
+	// The country in which a customer lives.
+	Country pulumi.StringPtrInput `pulumi:"country"`
+	// The county in which a customer lives.
+	County pulumi.StringPtrInput `pulumi:"county"`
+	Custom pulumi.StringMapInput `pulumi:"custom"`
+	// The customer's email address, which has not been specified as a personal or business address.
+	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
+	// The customer's first name.
+	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
+	// The customer's gender.
+	Gender pulumi.StringPtrInput `pulumi:"gender"`
+	// The customer's home phone number.
+	HomePhoneNumber pulumi.StringPtrInput `pulumi:"homePhoneNumber"`
+	// The customer's last name.
+	LastName pulumi.StringPtrInput `pulumi:"lastName"`
+	// The first line of a customer’s mailing address.
+	MailingAddress1 pulumi.StringPtrInput `pulumi:"mailingAddress1"`
+	// The second line of a customer’s mailing address.
+	MailingAddress2 pulumi.StringPtrInput `pulumi:"mailingAddress2"`
+	// The third line of a customer’s mailing address.
+	MailingAddress3 pulumi.StringPtrInput `pulumi:"mailingAddress3"`
+	// The fourth line of a customer’s mailing address.
+	MailingAddress4 pulumi.StringPtrInput `pulumi:"mailingAddress4"`
+	// The city of a customer’s mailing address.
+	MailingCity pulumi.StringPtrInput `pulumi:"mailingCity"`
+	// The country of a customer’s mailing address.
+	MailingCountry pulumi.StringPtrInput `pulumi:"mailingCountry"`
+	// The county of a customer’s mailing address.
+	MailingCounty pulumi.StringPtrInput `pulumi:"mailingCounty"`
+	// The postal code of a customer’s mailing address
+	MailingPostalCode pulumi.StringPtrInput `pulumi:"mailingPostalCode"`
+	// The province of a customer’s mailing address.
+	MailingProvince pulumi.StringPtrInput `pulumi:"mailingProvince"`
+	// The state of a customer’s mailing address.
+	MailingState pulumi.StringPtrInput `pulumi:"mailingState"`
+	// The customer's middle name.
+	MiddleName pulumi.StringPtrInput `pulumi:"middleName"`
+	// The customer's mobile phone number.
+	MobilePhoneNumber pulumi.StringPtrInput `pulumi:"mobilePhoneNumber"`
+	// The customer's party type.
+	PartyType pulumi.StringPtrInput `pulumi:"partyType"`
+	// The customer's phone number, which has not been specified as a mobile, home, or business number.
+	PhoneNumber pulumi.StringPtrInput `pulumi:"phoneNumber"`
+	// The postal code of a customer address.
+	PostalCode pulumi.StringPtrInput `pulumi:"postalCode"`
+	// The ARN of a customer profile.
+	ProfileArn pulumi.StringPtrInput `pulumi:"profileArn"`
+	// The unique identifier of a customer profile.
+	ProfileId pulumi.StringPtrInput `pulumi:"profileId"`
+	// The province in which a customer lives.
+	Province pulumi.StringPtrInput `pulumi:"province"`
+	// The first line of a customer’s shipping address.
+	ShippingAddress1 pulumi.StringPtrInput `pulumi:"shippingAddress1"`
+	// The second line of a customer’s shipping address.
+	ShippingAddress2 pulumi.StringPtrInput `pulumi:"shippingAddress2"`
+	// The third line of a customer’s shipping address.
+	ShippingAddress3 pulumi.StringPtrInput `pulumi:"shippingAddress3"`
+	// The fourth line of a customer’s shipping address
+	ShippingAddress4 pulumi.StringPtrInput `pulumi:"shippingAddress4"`
+	// The city of a customer’s shipping address.
+	ShippingCity pulumi.StringPtrInput `pulumi:"shippingCity"`
+	// The country of a customer’s shipping address.
+	ShippingCountry pulumi.StringPtrInput `pulumi:"shippingCountry"`
+	// The county of a customer’s shipping address.
+	ShippingCounty pulumi.StringPtrInput `pulumi:"shippingCounty"`
+	// The postal code of a customer’s shipping address.
+	ShippingPostalCode pulumi.StringPtrInput `pulumi:"shippingPostalCode"`
+	// The province of a customer’s shipping address.
+	ShippingProvince pulumi.StringPtrInput `pulumi:"shippingProvince"`
+	// The state of a customer’s shipping address.
+	ShippingState pulumi.StringPtrInput `pulumi:"shippingState"`
+	// The state in which a customer lives.
+	State pulumi.StringPtrInput `pulumi:"state"`
+}
+
+func (MessageTemplateCustomerProfileAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateCustomerProfileAttributes)(nil)).Elem()
+}
+
+func (i MessageTemplateCustomerProfileAttributesArgs) ToMessageTemplateCustomerProfileAttributesOutput() MessageTemplateCustomerProfileAttributesOutput {
+	return i.ToMessageTemplateCustomerProfileAttributesOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateCustomerProfileAttributesArgs) ToMessageTemplateCustomerProfileAttributesOutputWithContext(ctx context.Context) MessageTemplateCustomerProfileAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateCustomerProfileAttributesOutput)
+}
+
+func (i MessageTemplateCustomerProfileAttributesArgs) ToMessageTemplateCustomerProfileAttributesPtrOutput() MessageTemplateCustomerProfileAttributesPtrOutput {
+	return i.ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateCustomerProfileAttributesArgs) ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateCustomerProfileAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateCustomerProfileAttributesOutput).ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateCustomerProfileAttributesPtrInput is an input type that accepts MessageTemplateCustomerProfileAttributesArgs, MessageTemplateCustomerProfileAttributesPtr and MessageTemplateCustomerProfileAttributesPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateCustomerProfileAttributesPtrInput` via:
+//
+//	        MessageTemplateCustomerProfileAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateCustomerProfileAttributesPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateCustomerProfileAttributesPtrOutput() MessageTemplateCustomerProfileAttributesPtrOutput
+	ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(context.Context) MessageTemplateCustomerProfileAttributesPtrOutput
+}
+
+type messageTemplateCustomerProfileAttributesPtrType MessageTemplateCustomerProfileAttributesArgs
+
+func MessageTemplateCustomerProfileAttributesPtr(v *MessageTemplateCustomerProfileAttributesArgs) MessageTemplateCustomerProfileAttributesPtrInput {
+	return (*messageTemplateCustomerProfileAttributesPtrType)(v)
+}
+
+func (*messageTemplateCustomerProfileAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateCustomerProfileAttributes)(nil)).Elem()
+}
+
+func (i *messageTemplateCustomerProfileAttributesPtrType) ToMessageTemplateCustomerProfileAttributesPtrOutput() MessageTemplateCustomerProfileAttributesPtrOutput {
+	return i.ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateCustomerProfileAttributesPtrType) ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateCustomerProfileAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateCustomerProfileAttributesPtrOutput)
+}
+
+// The customer profile attributes that are used with the message template.
+type MessageTemplateCustomerProfileAttributesOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateCustomerProfileAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateCustomerProfileAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateCustomerProfileAttributesOutput) ToMessageTemplateCustomerProfileAttributesOutput() MessageTemplateCustomerProfileAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateCustomerProfileAttributesOutput) ToMessageTemplateCustomerProfileAttributesOutputWithContext(ctx context.Context) MessageTemplateCustomerProfileAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateCustomerProfileAttributesOutput) ToMessageTemplateCustomerProfileAttributesPtrOutput() MessageTemplateCustomerProfileAttributesPtrOutput {
+	return o.ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateCustomerProfileAttributesOutput) ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateCustomerProfileAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateCustomerProfileAttributes) *MessageTemplateCustomerProfileAttributes {
+		return &v
+	}).(MessageTemplateCustomerProfileAttributesPtrOutput)
+}
+
+// A unique account number that you have given to the customer.
+func (o MessageTemplateCustomerProfileAttributesOutput) AccountNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.AccountNumber }).(pulumi.StringPtrOutput)
+}
+
+// Any additional information relevant to the customer's profile.
+func (o MessageTemplateCustomerProfileAttributesOutput) AdditionalInformation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.AdditionalInformation }).(pulumi.StringPtrOutput)
+}
+
+// The first line of a customer address.
+func (o MessageTemplateCustomerProfileAttributesOutput) Address1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.Address1 }).(pulumi.StringPtrOutput)
+}
+
+// The second line of a customer address.
+func (o MessageTemplateCustomerProfileAttributesOutput) Address2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.Address2 }).(pulumi.StringPtrOutput)
+}
+
+// The third line of a customer address.
+func (o MessageTemplateCustomerProfileAttributesOutput) Address3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.Address3 }).(pulumi.StringPtrOutput)
+}
+
+// The fourth line of a customer address.
+func (o MessageTemplateCustomerProfileAttributesOutput) Address4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.Address4 }).(pulumi.StringPtrOutput)
+}
+
+// The first line of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingAddress1 }).(pulumi.StringPtrOutput)
+}
+
+// The second line of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingAddress2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingAddress2 }).(pulumi.StringPtrOutput)
+}
+
+// The third line of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingAddress3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingAddress3 }).(pulumi.StringPtrOutput)
+}
+
+// The fourth line of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingAddress4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingAddress4 }).(pulumi.StringPtrOutput)
+}
+
+// The city of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingCity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingCity }).(pulumi.StringPtrOutput)
+}
+
+// The country of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingCountry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingCountry }).(pulumi.StringPtrOutput)
+}
+
+// The county of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingCounty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingCounty }).(pulumi.StringPtrOutput)
+}
+
+// The postal code of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingPostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingPostalCode }).(pulumi.StringPtrOutput)
+}
+
+// The province of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingProvince }).(pulumi.StringPtrOutput)
+}
+
+// The state of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BillingState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BillingState }).(pulumi.StringPtrOutput)
+}
+
+// The customer's birth date.
+func (o MessageTemplateCustomerProfileAttributesOutput) BirthDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BirthDate }).(pulumi.StringPtrOutput)
+}
+
+// The customer's business email address.
+func (o MessageTemplateCustomerProfileAttributesOutput) BusinessEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BusinessEmailAddress }).(pulumi.StringPtrOutput)
+}
+
+// The name of the customer's business.
+func (o MessageTemplateCustomerProfileAttributesOutput) BusinessName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BusinessName }).(pulumi.StringPtrOutput)
+}
+
+// The customer's business phone number.
+func (o MessageTemplateCustomerProfileAttributesOutput) BusinessPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.BusinessPhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// The city in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.City }).(pulumi.StringPtrOutput)
+}
+
+// The country in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.Country }).(pulumi.StringPtrOutput)
+}
+
+// The county in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesOutput) County() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.County }).(pulumi.StringPtrOutput)
+}
+
+func (o MessageTemplateCustomerProfileAttributesOutput) Custom() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) map[string]string { return v.Custom }).(pulumi.StringMapOutput)
+}
+
+// The customer's email address, which has not been specified as a personal or business address.
+func (o MessageTemplateCustomerProfileAttributesOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.EmailAddress }).(pulumi.StringPtrOutput)
+}
+
+// The customer's first name.
+func (o MessageTemplateCustomerProfileAttributesOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.FirstName }).(pulumi.StringPtrOutput)
+}
+
+// The customer's gender.
+func (o MessageTemplateCustomerProfileAttributesOutput) Gender() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.Gender }).(pulumi.StringPtrOutput)
+}
+
+// The customer's home phone number.
+func (o MessageTemplateCustomerProfileAttributesOutput) HomePhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.HomePhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// The customer's last name.
+func (o MessageTemplateCustomerProfileAttributesOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.LastName }).(pulumi.StringPtrOutput)
+}
+
+// The first line of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingAddress1 }).(pulumi.StringPtrOutput)
+}
+
+// The second line of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingAddress2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingAddress2 }).(pulumi.StringPtrOutput)
+}
+
+// The third line of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingAddress3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingAddress3 }).(pulumi.StringPtrOutput)
+}
+
+// The fourth line of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingAddress4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingAddress4 }).(pulumi.StringPtrOutput)
+}
+
+// The city of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingCity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingCity }).(pulumi.StringPtrOutput)
+}
+
+// The country of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingCountry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingCountry }).(pulumi.StringPtrOutput)
+}
+
+// The county of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingCounty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingCounty }).(pulumi.StringPtrOutput)
+}
+
+// The postal code of a customer’s mailing address
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingPostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingPostalCode }).(pulumi.StringPtrOutput)
+}
+
+// The province of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingProvince }).(pulumi.StringPtrOutput)
+}
+
+// The state of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesOutput) MailingState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MailingState }).(pulumi.StringPtrOutput)
+}
+
+// The customer's middle name.
+func (o MessageTemplateCustomerProfileAttributesOutput) MiddleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MiddleName }).(pulumi.StringPtrOutput)
+}
+
+// The customer's mobile phone number.
+func (o MessageTemplateCustomerProfileAttributesOutput) MobilePhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.MobilePhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// The customer's party type.
+func (o MessageTemplateCustomerProfileAttributesOutput) PartyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.PartyType }).(pulumi.StringPtrOutput)
+}
+
+// The customer's phone number, which has not been specified as a mobile, home, or business number.
+func (o MessageTemplateCustomerProfileAttributesOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.PhoneNumber }).(pulumi.StringPtrOutput)
+}
+
+// The postal code of a customer address.
+func (o MessageTemplateCustomerProfileAttributesOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.PostalCode }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of a customer profile.
+func (o MessageTemplateCustomerProfileAttributesOutput) ProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ProfileArn }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a customer profile.
+func (o MessageTemplateCustomerProfileAttributesOutput) ProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ProfileId }).(pulumi.StringPtrOutput)
+}
+
+// The province in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesOutput) Province() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.Province }).(pulumi.StringPtrOutput)
+}
+
+// The first line of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingAddress1 }).(pulumi.StringPtrOutput)
+}
+
+// The second line of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingAddress2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingAddress2 }).(pulumi.StringPtrOutput)
+}
+
+// The third line of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingAddress3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingAddress3 }).(pulumi.StringPtrOutput)
+}
+
+// The fourth line of a customer’s shipping address
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingAddress4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingAddress4 }).(pulumi.StringPtrOutput)
+}
+
+// The city of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingCity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingCity }).(pulumi.StringPtrOutput)
+}
+
+// The country of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingCountry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingCountry }).(pulumi.StringPtrOutput)
+}
+
+// The county of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingCounty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingCounty }).(pulumi.StringPtrOutput)
+}
+
+// The postal code of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingPostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingPostalCode }).(pulumi.StringPtrOutput)
+}
+
+// The province of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingProvince }).(pulumi.StringPtrOutput)
+}
+
+// The state of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesOutput) ShippingState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.ShippingState }).(pulumi.StringPtrOutput)
+}
+
+// The state in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+type MessageTemplateCustomerProfileAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateCustomerProfileAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateCustomerProfileAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ToMessageTemplateCustomerProfileAttributesPtrOutput() MessageTemplateCustomerProfileAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ToMessageTemplateCustomerProfileAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateCustomerProfileAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Elem() MessageTemplateCustomerProfileAttributesOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) MessageTemplateCustomerProfileAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateCustomerProfileAttributes
+		return ret
+	}).(MessageTemplateCustomerProfileAttributesOutput)
+}
+
+// A unique account number that you have given to the customer.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) AccountNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// Any additional information relevant to the customer's profile.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) AdditionalInformation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalInformation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The first line of a customer address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Address1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address1
+	}).(pulumi.StringPtrOutput)
+}
+
+// The second line of a customer address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Address2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The third line of a customer address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Address3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address3
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fourth line of a customer address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Address4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address4
+	}).(pulumi.StringPtrOutput)
+}
+
+// The first line of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingAddress1
+	}).(pulumi.StringPtrOutput)
+}
+
+// The second line of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingAddress2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingAddress2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The third line of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingAddress3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingAddress3
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fourth line of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingAddress4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingAddress4
+	}).(pulumi.StringPtrOutput)
+}
+
+// The city of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingCity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingCity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The country of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingCountry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingCountry
+	}).(pulumi.StringPtrOutput)
+}
+
+// The county of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingCounty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingCounty
+	}).(pulumi.StringPtrOutput)
+}
+
+// The postal code of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingPostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingPostalCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The province of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingProvince
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of a customer’s billing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BillingState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BillingState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's birth date.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BirthDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BirthDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's business email address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BusinessEmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BusinessEmailAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the customer's business.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BusinessName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BusinessName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's business phone number.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) BusinessPhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BusinessPhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The city in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) City() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.City
+	}).(pulumi.StringPtrOutput)
+}
+
+// The country in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Country
+	}).(pulumi.StringPtrOutput)
+}
+
+// The county in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) County() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.County
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Custom() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Custom
+	}).(pulumi.StringMapOutput)
+}
+
+// The customer's email address, which has not been specified as a personal or business address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) EmailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EmailAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's first name.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) FirstName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's gender.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Gender() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Gender
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's home phone number.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) HomePhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HomePhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's last name.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) LastName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LastName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The first line of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingAddress1
+	}).(pulumi.StringPtrOutput)
+}
+
+// The second line of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingAddress2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingAddress2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The third line of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingAddress3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingAddress3
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fourth line of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingAddress4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingAddress4
+	}).(pulumi.StringPtrOutput)
+}
+
+// The city of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingCity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingCity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The country of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingCountry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingCountry
+	}).(pulumi.StringPtrOutput)
+}
+
+// The county of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingCounty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingCounty
+	}).(pulumi.StringPtrOutput)
+}
+
+// The postal code of a customer’s mailing address
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingPostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingPostalCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The province of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingProvince
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of a customer’s mailing address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MailingState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MailingState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's middle name.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MiddleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MiddleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's mobile phone number.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) MobilePhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MobilePhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's party type.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) PartyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PartyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The customer's phone number, which has not been specified as a mobile, home, or business number.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) PhoneNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PhoneNumber
+	}).(pulumi.StringPtrOutput)
+}
+
+// The postal code of a customer address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) PostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostalCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of a customer profile.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ProfileArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProfileArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of a customer profile.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The province in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) Province() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Province
+	}).(pulumi.StringPtrOutput)
+}
+
+// The first line of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingAddress1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingAddress1
+	}).(pulumi.StringPtrOutput)
+}
+
+// The second line of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingAddress2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingAddress2
+	}).(pulumi.StringPtrOutput)
+}
+
+// The third line of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingAddress3() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingAddress3
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fourth line of a customer’s shipping address
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingAddress4() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingAddress4
+	}).(pulumi.StringPtrOutput)
+}
+
+// The city of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingCity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingCity
+	}).(pulumi.StringPtrOutput)
+}
+
+// The country of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingCountry() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingCountry
+	}).(pulumi.StringPtrOutput)
+}
+
+// The county of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingCounty() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingCounty
+	}).(pulumi.StringPtrOutput)
+}
+
+// The postal code of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingPostalCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingPostalCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The province of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingProvince() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingProvince
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state of a customer’s shipping address.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) ShippingState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShippingState
+	}).(pulumi.StringPtrOutput)
+}
+
+// The state in which a customer lives.
+func (o MessageTemplateCustomerProfileAttributesPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of message template that applies to email channel subtype.
+type MessageTemplateEmailMessageTemplateContent struct {
+	Body MessageTemplateEmailMessageTemplateContentBody `pulumi:"body"`
+	// The email headers to include in email messages.
+	Headers []MessageTemplateEmailMessageTemplateHeader `pulumi:"headers"`
+	// The subject line, or title, to use in email messages.
+	Subject string `pulumi:"subject"`
+}
+
+// MessageTemplateEmailMessageTemplateContentInput is an input type that accepts MessageTemplateEmailMessageTemplateContentArgs and MessageTemplateEmailMessageTemplateContentOutput values.
+// You can construct a concrete instance of `MessageTemplateEmailMessageTemplateContentInput` via:
+//
+//	MessageTemplateEmailMessageTemplateContentArgs{...}
+type MessageTemplateEmailMessageTemplateContentInput interface {
+	pulumi.Input
+
+	ToMessageTemplateEmailMessageTemplateContentOutput() MessageTemplateEmailMessageTemplateContentOutput
+	ToMessageTemplateEmailMessageTemplateContentOutputWithContext(context.Context) MessageTemplateEmailMessageTemplateContentOutput
+}
+
+// The content of message template that applies to email channel subtype.
+type MessageTemplateEmailMessageTemplateContentArgs struct {
+	Body MessageTemplateEmailMessageTemplateContentBodyInput `pulumi:"body"`
+	// The email headers to include in email messages.
+	Headers MessageTemplateEmailMessageTemplateHeaderArrayInput `pulumi:"headers"`
+	// The subject line, or title, to use in email messages.
+	Subject pulumi.StringInput `pulumi:"subject"`
+}
+
+func (MessageTemplateEmailMessageTemplateContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateEmailMessageTemplateContent)(nil)).Elem()
+}
+
+func (i MessageTemplateEmailMessageTemplateContentArgs) ToMessageTemplateEmailMessageTemplateContentOutput() MessageTemplateEmailMessageTemplateContentOutput {
+	return i.ToMessageTemplateEmailMessageTemplateContentOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateEmailMessageTemplateContentArgs) ToMessageTemplateEmailMessageTemplateContentOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateEmailMessageTemplateContentOutput)
+}
+
+func (i MessageTemplateEmailMessageTemplateContentArgs) ToMessageTemplateEmailMessageTemplateContentPtrOutput() MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return i.ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateEmailMessageTemplateContentArgs) ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateEmailMessageTemplateContentOutput).ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateEmailMessageTemplateContentPtrInput is an input type that accepts MessageTemplateEmailMessageTemplateContentArgs, MessageTemplateEmailMessageTemplateContentPtr and MessageTemplateEmailMessageTemplateContentPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateEmailMessageTemplateContentPtrInput` via:
+//
+//	        MessageTemplateEmailMessageTemplateContentArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateEmailMessageTemplateContentPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateEmailMessageTemplateContentPtrOutput() MessageTemplateEmailMessageTemplateContentPtrOutput
+	ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(context.Context) MessageTemplateEmailMessageTemplateContentPtrOutput
+}
+
+type messageTemplateEmailMessageTemplateContentPtrType MessageTemplateEmailMessageTemplateContentArgs
+
+func MessageTemplateEmailMessageTemplateContentPtr(v *MessageTemplateEmailMessageTemplateContentArgs) MessageTemplateEmailMessageTemplateContentPtrInput {
+	return (*messageTemplateEmailMessageTemplateContentPtrType)(v)
+}
+
+func (*messageTemplateEmailMessageTemplateContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateEmailMessageTemplateContent)(nil)).Elem()
+}
+
+func (i *messageTemplateEmailMessageTemplateContentPtrType) ToMessageTemplateEmailMessageTemplateContentPtrOutput() MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return i.ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateEmailMessageTemplateContentPtrType) ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateEmailMessageTemplateContentPtrOutput)
+}
+
+// The content of message template that applies to email channel subtype.
+type MessageTemplateEmailMessageTemplateContentOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateEmailMessageTemplateContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateEmailMessageTemplateContent)(nil)).Elem()
+}
+
+func (o MessageTemplateEmailMessageTemplateContentOutput) ToMessageTemplateEmailMessageTemplateContentOutput() MessageTemplateEmailMessageTemplateContentOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateContentOutput) ToMessageTemplateEmailMessageTemplateContentOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateContentOutput) ToMessageTemplateEmailMessageTemplateContentPtrOutput() MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return o.ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateEmailMessageTemplateContentOutput) ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateEmailMessageTemplateContent) *MessageTemplateEmailMessageTemplateContent {
+		return &v
+	}).(MessageTemplateEmailMessageTemplateContentPtrOutput)
+}
+
+func (o MessageTemplateEmailMessageTemplateContentOutput) Body() MessageTemplateEmailMessageTemplateContentBodyOutput {
+	return o.ApplyT(func(v MessageTemplateEmailMessageTemplateContent) MessageTemplateEmailMessageTemplateContentBody {
+		return v.Body
+	}).(MessageTemplateEmailMessageTemplateContentBodyOutput)
+}
+
+// The email headers to include in email messages.
+func (o MessageTemplateEmailMessageTemplateContentOutput) Headers() MessageTemplateEmailMessageTemplateHeaderArrayOutput {
+	return o.ApplyT(func(v MessageTemplateEmailMessageTemplateContent) []MessageTemplateEmailMessageTemplateHeader {
+		return v.Headers
+	}).(MessageTemplateEmailMessageTemplateHeaderArrayOutput)
+}
+
+// The subject line, or title, to use in email messages.
+func (o MessageTemplateEmailMessageTemplateContentOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v MessageTemplateEmailMessageTemplateContent) string { return v.Subject }).(pulumi.StringOutput)
+}
+
+type MessageTemplateEmailMessageTemplateContentPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateEmailMessageTemplateContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateEmailMessageTemplateContent)(nil)).Elem()
+}
+
+func (o MessageTemplateEmailMessageTemplateContentPtrOutput) ToMessageTemplateEmailMessageTemplateContentPtrOutput() MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateContentPtrOutput) ToMessageTemplateEmailMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentPtrOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateContentPtrOutput) Elem() MessageTemplateEmailMessageTemplateContentOutput {
+	return o.ApplyT(func(v *MessageTemplateEmailMessageTemplateContent) MessageTemplateEmailMessageTemplateContent {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateEmailMessageTemplateContent
+		return ret
+	}).(MessageTemplateEmailMessageTemplateContentOutput)
+}
+
+func (o MessageTemplateEmailMessageTemplateContentPtrOutput) Body() MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateEmailMessageTemplateContent) *MessageTemplateEmailMessageTemplateContentBody {
+		if v == nil {
+			return nil
+		}
+		return &v.Body
+	}).(MessageTemplateEmailMessageTemplateContentBodyPtrOutput)
+}
+
+// The email headers to include in email messages.
+func (o MessageTemplateEmailMessageTemplateContentPtrOutput) Headers() MessageTemplateEmailMessageTemplateHeaderArrayOutput {
+	return o.ApplyT(func(v *MessageTemplateEmailMessageTemplateContent) []MessageTemplateEmailMessageTemplateHeader {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(MessageTemplateEmailMessageTemplateHeaderArrayOutput)
+}
+
+// The subject line, or title, to use in email messages.
+func (o MessageTemplateEmailMessageTemplateContentPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateEmailMessageTemplateContent) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Subject
+	}).(pulumi.StringPtrOutput)
+}
+
+// The body to use in email messages.
+type MessageTemplateEmailMessageTemplateContentBody struct {
+	// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+	Html *MessageTemplateBodyContentProvider `pulumi:"html"`
+	// The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+	PlainText *MessageTemplateBodyContentProvider `pulumi:"plainText"`
+}
+
+// MessageTemplateEmailMessageTemplateContentBodyInput is an input type that accepts MessageTemplateEmailMessageTemplateContentBodyArgs and MessageTemplateEmailMessageTemplateContentBodyOutput values.
+// You can construct a concrete instance of `MessageTemplateEmailMessageTemplateContentBodyInput` via:
+//
+//	MessageTemplateEmailMessageTemplateContentBodyArgs{...}
+type MessageTemplateEmailMessageTemplateContentBodyInput interface {
+	pulumi.Input
+
+	ToMessageTemplateEmailMessageTemplateContentBodyOutput() MessageTemplateEmailMessageTemplateContentBodyOutput
+	ToMessageTemplateEmailMessageTemplateContentBodyOutputWithContext(context.Context) MessageTemplateEmailMessageTemplateContentBodyOutput
+}
+
+// The body to use in email messages.
+type MessageTemplateEmailMessageTemplateContentBodyArgs struct {
+	// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+	Html MessageTemplateBodyContentProviderPtrInput `pulumi:"html"`
+	// The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+	PlainText MessageTemplateBodyContentProviderPtrInput `pulumi:"plainText"`
+}
+
+func (MessageTemplateEmailMessageTemplateContentBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateEmailMessageTemplateContentBody)(nil)).Elem()
+}
+
+func (i MessageTemplateEmailMessageTemplateContentBodyArgs) ToMessageTemplateEmailMessageTemplateContentBodyOutput() MessageTemplateEmailMessageTemplateContentBodyOutput {
+	return i.ToMessageTemplateEmailMessageTemplateContentBodyOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateEmailMessageTemplateContentBodyArgs) ToMessageTemplateEmailMessageTemplateContentBodyOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateEmailMessageTemplateContentBodyOutput)
+}
+
+func (i MessageTemplateEmailMessageTemplateContentBodyArgs) ToMessageTemplateEmailMessageTemplateContentBodyPtrOutput() MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return i.ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateEmailMessageTemplateContentBodyArgs) ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateEmailMessageTemplateContentBodyOutput).ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateEmailMessageTemplateContentBodyPtrInput is an input type that accepts MessageTemplateEmailMessageTemplateContentBodyArgs, MessageTemplateEmailMessageTemplateContentBodyPtr and MessageTemplateEmailMessageTemplateContentBodyPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateEmailMessageTemplateContentBodyPtrInput` via:
+//
+//	        MessageTemplateEmailMessageTemplateContentBodyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateEmailMessageTemplateContentBodyPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateEmailMessageTemplateContentBodyPtrOutput() MessageTemplateEmailMessageTemplateContentBodyPtrOutput
+	ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(context.Context) MessageTemplateEmailMessageTemplateContentBodyPtrOutput
+}
+
+type messageTemplateEmailMessageTemplateContentBodyPtrType MessageTemplateEmailMessageTemplateContentBodyArgs
+
+func MessageTemplateEmailMessageTemplateContentBodyPtr(v *MessageTemplateEmailMessageTemplateContentBodyArgs) MessageTemplateEmailMessageTemplateContentBodyPtrInput {
+	return (*messageTemplateEmailMessageTemplateContentBodyPtrType)(v)
+}
+
+func (*messageTemplateEmailMessageTemplateContentBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateEmailMessageTemplateContentBody)(nil)).Elem()
+}
+
+func (i *messageTemplateEmailMessageTemplateContentBodyPtrType) ToMessageTemplateEmailMessageTemplateContentBodyPtrOutput() MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return i.ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateEmailMessageTemplateContentBodyPtrType) ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateEmailMessageTemplateContentBodyPtrOutput)
+}
+
+// The body to use in email messages.
+type MessageTemplateEmailMessageTemplateContentBodyOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateEmailMessageTemplateContentBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateEmailMessageTemplateContentBody)(nil)).Elem()
+}
+
+func (o MessageTemplateEmailMessageTemplateContentBodyOutput) ToMessageTemplateEmailMessageTemplateContentBodyOutput() MessageTemplateEmailMessageTemplateContentBodyOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateContentBodyOutput) ToMessageTemplateEmailMessageTemplateContentBodyOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentBodyOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateContentBodyOutput) ToMessageTemplateEmailMessageTemplateContentBodyPtrOutput() MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return o.ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateEmailMessageTemplateContentBodyOutput) ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateEmailMessageTemplateContentBody) *MessageTemplateEmailMessageTemplateContentBody {
+		return &v
+	}).(MessageTemplateEmailMessageTemplateContentBodyPtrOutput)
+}
+
+// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+func (o MessageTemplateEmailMessageTemplateContentBodyOutput) Html() MessageTemplateBodyContentProviderPtrOutput {
+	return o.ApplyT(func(v MessageTemplateEmailMessageTemplateContentBody) *MessageTemplateBodyContentProvider {
+		return v.Html
+	}).(MessageTemplateBodyContentProviderPtrOutput)
+}
+
+// The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+func (o MessageTemplateEmailMessageTemplateContentBodyOutput) PlainText() MessageTemplateBodyContentProviderPtrOutput {
+	return o.ApplyT(func(v MessageTemplateEmailMessageTemplateContentBody) *MessageTemplateBodyContentProvider {
+		return v.PlainText
+	}).(MessageTemplateBodyContentProviderPtrOutput)
+}
+
+type MessageTemplateEmailMessageTemplateContentBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateEmailMessageTemplateContentBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateEmailMessageTemplateContentBody)(nil)).Elem()
+}
+
+func (o MessageTemplateEmailMessageTemplateContentBodyPtrOutput) ToMessageTemplateEmailMessageTemplateContentBodyPtrOutput() MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateContentBodyPtrOutput) ToMessageTemplateEmailMessageTemplateContentBodyPtrOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateContentBodyPtrOutput) Elem() MessageTemplateEmailMessageTemplateContentBodyOutput {
+	return o.ApplyT(func(v *MessageTemplateEmailMessageTemplateContentBody) MessageTemplateEmailMessageTemplateContentBody {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateEmailMessageTemplateContentBody
+		return ret
+	}).(MessageTemplateEmailMessageTemplateContentBodyOutput)
+}
+
+// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+func (o MessageTemplateEmailMessageTemplateContentBodyPtrOutput) Html() MessageTemplateBodyContentProviderPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateEmailMessageTemplateContentBody) *MessageTemplateBodyContentProvider {
+		if v == nil {
+			return nil
+		}
+		return v.Html
+	}).(MessageTemplateBodyContentProviderPtrOutput)
+}
+
+// The message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+func (o MessageTemplateEmailMessageTemplateContentBodyPtrOutput) PlainText() MessageTemplateBodyContentProviderPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateEmailMessageTemplateContentBody) *MessageTemplateBodyContentProvider {
+		if v == nil {
+			return nil
+		}
+		return v.PlainText
+	}).(MessageTemplateBodyContentProviderPtrOutput)
+}
+
+// The email header to include in email messages.
+type MessageTemplateEmailMessageTemplateHeader struct {
+	// The name of the email header.
+	Name *string `pulumi:"name"`
+	// The value of the email header.
+	Value *string `pulumi:"value"`
+}
+
+// MessageTemplateEmailMessageTemplateHeaderInput is an input type that accepts MessageTemplateEmailMessageTemplateHeaderArgs and MessageTemplateEmailMessageTemplateHeaderOutput values.
+// You can construct a concrete instance of `MessageTemplateEmailMessageTemplateHeaderInput` via:
+//
+//	MessageTemplateEmailMessageTemplateHeaderArgs{...}
+type MessageTemplateEmailMessageTemplateHeaderInput interface {
+	pulumi.Input
+
+	ToMessageTemplateEmailMessageTemplateHeaderOutput() MessageTemplateEmailMessageTemplateHeaderOutput
+	ToMessageTemplateEmailMessageTemplateHeaderOutputWithContext(context.Context) MessageTemplateEmailMessageTemplateHeaderOutput
+}
+
+// The email header to include in email messages.
+type MessageTemplateEmailMessageTemplateHeaderArgs struct {
+	// The name of the email header.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the email header.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (MessageTemplateEmailMessageTemplateHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateEmailMessageTemplateHeader)(nil)).Elem()
+}
+
+func (i MessageTemplateEmailMessageTemplateHeaderArgs) ToMessageTemplateEmailMessageTemplateHeaderOutput() MessageTemplateEmailMessageTemplateHeaderOutput {
+	return i.ToMessageTemplateEmailMessageTemplateHeaderOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateEmailMessageTemplateHeaderArgs) ToMessageTemplateEmailMessageTemplateHeaderOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateEmailMessageTemplateHeaderOutput)
+}
+
+// MessageTemplateEmailMessageTemplateHeaderArrayInput is an input type that accepts MessageTemplateEmailMessageTemplateHeaderArray and MessageTemplateEmailMessageTemplateHeaderArrayOutput values.
+// You can construct a concrete instance of `MessageTemplateEmailMessageTemplateHeaderArrayInput` via:
+//
+//	MessageTemplateEmailMessageTemplateHeaderArray{ MessageTemplateEmailMessageTemplateHeaderArgs{...} }
+type MessageTemplateEmailMessageTemplateHeaderArrayInput interface {
+	pulumi.Input
+
+	ToMessageTemplateEmailMessageTemplateHeaderArrayOutput() MessageTemplateEmailMessageTemplateHeaderArrayOutput
+	ToMessageTemplateEmailMessageTemplateHeaderArrayOutputWithContext(context.Context) MessageTemplateEmailMessageTemplateHeaderArrayOutput
+}
+
+type MessageTemplateEmailMessageTemplateHeaderArray []MessageTemplateEmailMessageTemplateHeaderInput
+
+func (MessageTemplateEmailMessageTemplateHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MessageTemplateEmailMessageTemplateHeader)(nil)).Elem()
+}
+
+func (i MessageTemplateEmailMessageTemplateHeaderArray) ToMessageTemplateEmailMessageTemplateHeaderArrayOutput() MessageTemplateEmailMessageTemplateHeaderArrayOutput {
+	return i.ToMessageTemplateEmailMessageTemplateHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateEmailMessageTemplateHeaderArray) ToMessageTemplateEmailMessageTemplateHeaderArrayOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateEmailMessageTemplateHeaderArrayOutput)
+}
+
+// The email header to include in email messages.
+type MessageTemplateEmailMessageTemplateHeaderOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateEmailMessageTemplateHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateEmailMessageTemplateHeader)(nil)).Elem()
+}
+
+func (o MessageTemplateEmailMessageTemplateHeaderOutput) ToMessageTemplateEmailMessageTemplateHeaderOutput() MessageTemplateEmailMessageTemplateHeaderOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateHeaderOutput) ToMessageTemplateEmailMessageTemplateHeaderOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateHeaderOutput {
+	return o
+}
+
+// The name of the email header.
+func (o MessageTemplateEmailMessageTemplateHeaderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateEmailMessageTemplateHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The value of the email header.
+func (o MessageTemplateEmailMessageTemplateHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateEmailMessageTemplateHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type MessageTemplateEmailMessageTemplateHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateEmailMessageTemplateHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MessageTemplateEmailMessageTemplateHeader)(nil)).Elem()
+}
+
+func (o MessageTemplateEmailMessageTemplateHeaderArrayOutput) ToMessageTemplateEmailMessageTemplateHeaderArrayOutput() MessageTemplateEmailMessageTemplateHeaderArrayOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateHeaderArrayOutput) ToMessageTemplateEmailMessageTemplateHeaderArrayOutputWithContext(ctx context.Context) MessageTemplateEmailMessageTemplateHeaderArrayOutput {
+	return o
+}
+
+func (o MessageTemplateEmailMessageTemplateHeaderArrayOutput) Index(i pulumi.IntInput) MessageTemplateEmailMessageTemplateHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MessageTemplateEmailMessageTemplateHeader {
+		return vs[0].([]MessageTemplateEmailMessageTemplateHeader)[vs[1].(int)]
+	}).(MessageTemplateEmailMessageTemplateHeaderOutput)
+}
+
+// The configuration information of the user groups that the message template is accessible to.
+type MessageTemplateGroupingConfiguration struct {
+	// The criteria used for grouping Amazon Q in Connect users.
+	Criteria string `pulumi:"criteria"`
+	// The list of values that define different groups of Amazon Q in Connect users.
+	Values []string `pulumi:"values"`
+}
+
+// MessageTemplateGroupingConfigurationInput is an input type that accepts MessageTemplateGroupingConfigurationArgs and MessageTemplateGroupingConfigurationOutput values.
+// You can construct a concrete instance of `MessageTemplateGroupingConfigurationInput` via:
+//
+//	MessageTemplateGroupingConfigurationArgs{...}
+type MessageTemplateGroupingConfigurationInput interface {
+	pulumi.Input
+
+	ToMessageTemplateGroupingConfigurationOutput() MessageTemplateGroupingConfigurationOutput
+	ToMessageTemplateGroupingConfigurationOutputWithContext(context.Context) MessageTemplateGroupingConfigurationOutput
+}
+
+// The configuration information of the user groups that the message template is accessible to.
+type MessageTemplateGroupingConfigurationArgs struct {
+	// The criteria used for grouping Amazon Q in Connect users.
+	Criteria pulumi.StringInput `pulumi:"criteria"`
+	// The list of values that define different groups of Amazon Q in Connect users.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (MessageTemplateGroupingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateGroupingConfiguration)(nil)).Elem()
+}
+
+func (i MessageTemplateGroupingConfigurationArgs) ToMessageTemplateGroupingConfigurationOutput() MessageTemplateGroupingConfigurationOutput {
+	return i.ToMessageTemplateGroupingConfigurationOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateGroupingConfigurationArgs) ToMessageTemplateGroupingConfigurationOutputWithContext(ctx context.Context) MessageTemplateGroupingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateGroupingConfigurationOutput)
+}
+
+func (i MessageTemplateGroupingConfigurationArgs) ToMessageTemplateGroupingConfigurationPtrOutput() MessageTemplateGroupingConfigurationPtrOutput {
+	return i.ToMessageTemplateGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateGroupingConfigurationArgs) ToMessageTemplateGroupingConfigurationPtrOutputWithContext(ctx context.Context) MessageTemplateGroupingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateGroupingConfigurationOutput).ToMessageTemplateGroupingConfigurationPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateGroupingConfigurationPtrInput is an input type that accepts MessageTemplateGroupingConfigurationArgs, MessageTemplateGroupingConfigurationPtr and MessageTemplateGroupingConfigurationPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateGroupingConfigurationPtrInput` via:
+//
+//	        MessageTemplateGroupingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateGroupingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateGroupingConfigurationPtrOutput() MessageTemplateGroupingConfigurationPtrOutput
+	ToMessageTemplateGroupingConfigurationPtrOutputWithContext(context.Context) MessageTemplateGroupingConfigurationPtrOutput
+}
+
+type messageTemplateGroupingConfigurationPtrType MessageTemplateGroupingConfigurationArgs
+
+func MessageTemplateGroupingConfigurationPtr(v *MessageTemplateGroupingConfigurationArgs) MessageTemplateGroupingConfigurationPtrInput {
+	return (*messageTemplateGroupingConfigurationPtrType)(v)
+}
+
+func (*messageTemplateGroupingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateGroupingConfiguration)(nil)).Elem()
+}
+
+func (i *messageTemplateGroupingConfigurationPtrType) ToMessageTemplateGroupingConfigurationPtrOutput() MessageTemplateGroupingConfigurationPtrOutput {
+	return i.ToMessageTemplateGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateGroupingConfigurationPtrType) ToMessageTemplateGroupingConfigurationPtrOutputWithContext(ctx context.Context) MessageTemplateGroupingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateGroupingConfigurationPtrOutput)
+}
+
+// The configuration information of the user groups that the message template is accessible to.
+type MessageTemplateGroupingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateGroupingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateGroupingConfiguration)(nil)).Elem()
+}
+
+func (o MessageTemplateGroupingConfigurationOutput) ToMessageTemplateGroupingConfigurationOutput() MessageTemplateGroupingConfigurationOutput {
+	return o
+}
+
+func (o MessageTemplateGroupingConfigurationOutput) ToMessageTemplateGroupingConfigurationOutputWithContext(ctx context.Context) MessageTemplateGroupingConfigurationOutput {
+	return o
+}
+
+func (o MessageTemplateGroupingConfigurationOutput) ToMessageTemplateGroupingConfigurationPtrOutput() MessageTemplateGroupingConfigurationPtrOutput {
+	return o.ToMessageTemplateGroupingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateGroupingConfigurationOutput) ToMessageTemplateGroupingConfigurationPtrOutputWithContext(ctx context.Context) MessageTemplateGroupingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateGroupingConfiguration) *MessageTemplateGroupingConfiguration {
+		return &v
+	}).(MessageTemplateGroupingConfigurationPtrOutput)
+}
+
+// The criteria used for grouping Amazon Q in Connect users.
+func (o MessageTemplateGroupingConfigurationOutput) Criteria() pulumi.StringOutput {
+	return o.ApplyT(func(v MessageTemplateGroupingConfiguration) string { return v.Criteria }).(pulumi.StringOutput)
+}
+
+// The list of values that define different groups of Amazon Q in Connect users.
+func (o MessageTemplateGroupingConfigurationOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MessageTemplateGroupingConfiguration) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MessageTemplateGroupingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateGroupingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateGroupingConfiguration)(nil)).Elem()
+}
+
+func (o MessageTemplateGroupingConfigurationPtrOutput) ToMessageTemplateGroupingConfigurationPtrOutput() MessageTemplateGroupingConfigurationPtrOutput {
+	return o
+}
+
+func (o MessageTemplateGroupingConfigurationPtrOutput) ToMessageTemplateGroupingConfigurationPtrOutputWithContext(ctx context.Context) MessageTemplateGroupingConfigurationPtrOutput {
+	return o
+}
+
+func (o MessageTemplateGroupingConfigurationPtrOutput) Elem() MessageTemplateGroupingConfigurationOutput {
+	return o.ApplyT(func(v *MessageTemplateGroupingConfiguration) MessageTemplateGroupingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateGroupingConfiguration
+		return ret
+	}).(MessageTemplateGroupingConfigurationOutput)
+}
+
+// The criteria used for grouping Amazon Q in Connect users.
+func (o MessageTemplateGroupingConfigurationPtrOutput) Criteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateGroupingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Criteria
+	}).(pulumi.StringPtrOutput)
+}
+
+// The list of values that define different groups of Amazon Q in Connect users.
+func (o MessageTemplateGroupingConfigurationPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MessageTemplateGroupingConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// The content of message template that applies to SMS channel subtype.
+type MessageTemplateSmsMessageTemplateContent struct {
+	Body MessageTemplateSmsMessageTemplateContentBody `pulumi:"body"`
+}
+
+// MessageTemplateSmsMessageTemplateContentInput is an input type that accepts MessageTemplateSmsMessageTemplateContentArgs and MessageTemplateSmsMessageTemplateContentOutput values.
+// You can construct a concrete instance of `MessageTemplateSmsMessageTemplateContentInput` via:
+//
+//	MessageTemplateSmsMessageTemplateContentArgs{...}
+type MessageTemplateSmsMessageTemplateContentInput interface {
+	pulumi.Input
+
+	ToMessageTemplateSmsMessageTemplateContentOutput() MessageTemplateSmsMessageTemplateContentOutput
+	ToMessageTemplateSmsMessageTemplateContentOutputWithContext(context.Context) MessageTemplateSmsMessageTemplateContentOutput
+}
+
+// The content of message template that applies to SMS channel subtype.
+type MessageTemplateSmsMessageTemplateContentArgs struct {
+	Body MessageTemplateSmsMessageTemplateContentBodyInput `pulumi:"body"`
+}
+
+func (MessageTemplateSmsMessageTemplateContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateSmsMessageTemplateContent)(nil)).Elem()
+}
+
+func (i MessageTemplateSmsMessageTemplateContentArgs) ToMessageTemplateSmsMessageTemplateContentOutput() MessageTemplateSmsMessageTemplateContentOutput {
+	return i.ToMessageTemplateSmsMessageTemplateContentOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateSmsMessageTemplateContentArgs) ToMessageTemplateSmsMessageTemplateContentOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSmsMessageTemplateContentOutput)
+}
+
+func (i MessageTemplateSmsMessageTemplateContentArgs) ToMessageTemplateSmsMessageTemplateContentPtrOutput() MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return i.ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateSmsMessageTemplateContentArgs) ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSmsMessageTemplateContentOutput).ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateSmsMessageTemplateContentPtrInput is an input type that accepts MessageTemplateSmsMessageTemplateContentArgs, MessageTemplateSmsMessageTemplateContentPtr and MessageTemplateSmsMessageTemplateContentPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateSmsMessageTemplateContentPtrInput` via:
+//
+//	        MessageTemplateSmsMessageTemplateContentArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateSmsMessageTemplateContentPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateSmsMessageTemplateContentPtrOutput() MessageTemplateSmsMessageTemplateContentPtrOutput
+	ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(context.Context) MessageTemplateSmsMessageTemplateContentPtrOutput
+}
+
+type messageTemplateSmsMessageTemplateContentPtrType MessageTemplateSmsMessageTemplateContentArgs
+
+func MessageTemplateSmsMessageTemplateContentPtr(v *MessageTemplateSmsMessageTemplateContentArgs) MessageTemplateSmsMessageTemplateContentPtrInput {
+	return (*messageTemplateSmsMessageTemplateContentPtrType)(v)
+}
+
+func (*messageTemplateSmsMessageTemplateContentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateSmsMessageTemplateContent)(nil)).Elem()
+}
+
+func (i *messageTemplateSmsMessageTemplateContentPtrType) ToMessageTemplateSmsMessageTemplateContentPtrOutput() MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return i.ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateSmsMessageTemplateContentPtrType) ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSmsMessageTemplateContentPtrOutput)
+}
+
+// The content of message template that applies to SMS channel subtype.
+type MessageTemplateSmsMessageTemplateContentOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateSmsMessageTemplateContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateSmsMessageTemplateContent)(nil)).Elem()
+}
+
+func (o MessageTemplateSmsMessageTemplateContentOutput) ToMessageTemplateSmsMessageTemplateContentOutput() MessageTemplateSmsMessageTemplateContentOutput {
+	return o
+}
+
+func (o MessageTemplateSmsMessageTemplateContentOutput) ToMessageTemplateSmsMessageTemplateContentOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentOutput {
+	return o
+}
+
+func (o MessageTemplateSmsMessageTemplateContentOutput) ToMessageTemplateSmsMessageTemplateContentPtrOutput() MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return o.ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateSmsMessageTemplateContentOutput) ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateSmsMessageTemplateContent) *MessageTemplateSmsMessageTemplateContent {
+		return &v
+	}).(MessageTemplateSmsMessageTemplateContentPtrOutput)
+}
+
+func (o MessageTemplateSmsMessageTemplateContentOutput) Body() MessageTemplateSmsMessageTemplateContentBodyOutput {
+	return o.ApplyT(func(v MessageTemplateSmsMessageTemplateContent) MessageTemplateSmsMessageTemplateContentBody {
+		return v.Body
+	}).(MessageTemplateSmsMessageTemplateContentBodyOutput)
+}
+
+type MessageTemplateSmsMessageTemplateContentPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateSmsMessageTemplateContentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateSmsMessageTemplateContent)(nil)).Elem()
+}
+
+func (o MessageTemplateSmsMessageTemplateContentPtrOutput) ToMessageTemplateSmsMessageTemplateContentPtrOutput() MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return o
+}
+
+func (o MessageTemplateSmsMessageTemplateContentPtrOutput) ToMessageTemplateSmsMessageTemplateContentPtrOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentPtrOutput {
+	return o
+}
+
+func (o MessageTemplateSmsMessageTemplateContentPtrOutput) Elem() MessageTemplateSmsMessageTemplateContentOutput {
+	return o.ApplyT(func(v *MessageTemplateSmsMessageTemplateContent) MessageTemplateSmsMessageTemplateContent {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateSmsMessageTemplateContent
+		return ret
+	}).(MessageTemplateSmsMessageTemplateContentOutput)
+}
+
+func (o MessageTemplateSmsMessageTemplateContentPtrOutput) Body() MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateSmsMessageTemplateContent) *MessageTemplateSmsMessageTemplateContentBody {
+		if v == nil {
+			return nil
+		}
+		return &v.Body
+	}).(MessageTemplateSmsMessageTemplateContentBodyPtrOutput)
+}
+
+// The body to use in SMS messages.
+type MessageTemplateSmsMessageTemplateContentBody struct {
+	PlainText *MessageTemplateBodyContentProvider `pulumi:"plainText"`
+}
+
+// MessageTemplateSmsMessageTemplateContentBodyInput is an input type that accepts MessageTemplateSmsMessageTemplateContentBodyArgs and MessageTemplateSmsMessageTemplateContentBodyOutput values.
+// You can construct a concrete instance of `MessageTemplateSmsMessageTemplateContentBodyInput` via:
+//
+//	MessageTemplateSmsMessageTemplateContentBodyArgs{...}
+type MessageTemplateSmsMessageTemplateContentBodyInput interface {
+	pulumi.Input
+
+	ToMessageTemplateSmsMessageTemplateContentBodyOutput() MessageTemplateSmsMessageTemplateContentBodyOutput
+	ToMessageTemplateSmsMessageTemplateContentBodyOutputWithContext(context.Context) MessageTemplateSmsMessageTemplateContentBodyOutput
+}
+
+// The body to use in SMS messages.
+type MessageTemplateSmsMessageTemplateContentBodyArgs struct {
+	PlainText MessageTemplateBodyContentProviderPtrInput `pulumi:"plainText"`
+}
+
+func (MessageTemplateSmsMessageTemplateContentBodyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateSmsMessageTemplateContentBody)(nil)).Elem()
+}
+
+func (i MessageTemplateSmsMessageTemplateContentBodyArgs) ToMessageTemplateSmsMessageTemplateContentBodyOutput() MessageTemplateSmsMessageTemplateContentBodyOutput {
+	return i.ToMessageTemplateSmsMessageTemplateContentBodyOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateSmsMessageTemplateContentBodyArgs) ToMessageTemplateSmsMessageTemplateContentBodyOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentBodyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSmsMessageTemplateContentBodyOutput)
+}
+
+func (i MessageTemplateSmsMessageTemplateContentBodyArgs) ToMessageTemplateSmsMessageTemplateContentBodyPtrOutput() MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return i.ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateSmsMessageTemplateContentBodyArgs) ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSmsMessageTemplateContentBodyOutput).ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateSmsMessageTemplateContentBodyPtrInput is an input type that accepts MessageTemplateSmsMessageTemplateContentBodyArgs, MessageTemplateSmsMessageTemplateContentBodyPtr and MessageTemplateSmsMessageTemplateContentBodyPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateSmsMessageTemplateContentBodyPtrInput` via:
+//
+//	        MessageTemplateSmsMessageTemplateContentBodyArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateSmsMessageTemplateContentBodyPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateSmsMessageTemplateContentBodyPtrOutput() MessageTemplateSmsMessageTemplateContentBodyPtrOutput
+	ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(context.Context) MessageTemplateSmsMessageTemplateContentBodyPtrOutput
+}
+
+type messageTemplateSmsMessageTemplateContentBodyPtrType MessageTemplateSmsMessageTemplateContentBodyArgs
+
+func MessageTemplateSmsMessageTemplateContentBodyPtr(v *MessageTemplateSmsMessageTemplateContentBodyArgs) MessageTemplateSmsMessageTemplateContentBodyPtrInput {
+	return (*messageTemplateSmsMessageTemplateContentBodyPtrType)(v)
+}
+
+func (*messageTemplateSmsMessageTemplateContentBodyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateSmsMessageTemplateContentBody)(nil)).Elem()
+}
+
+func (i *messageTemplateSmsMessageTemplateContentBodyPtrType) ToMessageTemplateSmsMessageTemplateContentBodyPtrOutput() MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return i.ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateSmsMessageTemplateContentBodyPtrType) ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSmsMessageTemplateContentBodyPtrOutput)
+}
+
+// The body to use in SMS messages.
+type MessageTemplateSmsMessageTemplateContentBodyOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateSmsMessageTemplateContentBodyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateSmsMessageTemplateContentBody)(nil)).Elem()
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyOutput) ToMessageTemplateSmsMessageTemplateContentBodyOutput() MessageTemplateSmsMessageTemplateContentBodyOutput {
+	return o
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyOutput) ToMessageTemplateSmsMessageTemplateContentBodyOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentBodyOutput {
+	return o
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyOutput) ToMessageTemplateSmsMessageTemplateContentBodyPtrOutput() MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return o.ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyOutput) ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateSmsMessageTemplateContentBody) *MessageTemplateSmsMessageTemplateContentBody {
+		return &v
+	}).(MessageTemplateSmsMessageTemplateContentBodyPtrOutput)
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyOutput) PlainText() MessageTemplateBodyContentProviderPtrOutput {
+	return o.ApplyT(func(v MessageTemplateSmsMessageTemplateContentBody) *MessageTemplateBodyContentProvider {
+		return v.PlainText
+	}).(MessageTemplateBodyContentProviderPtrOutput)
+}
+
+type MessageTemplateSmsMessageTemplateContentBodyPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateSmsMessageTemplateContentBodyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateSmsMessageTemplateContentBody)(nil)).Elem()
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyPtrOutput) ToMessageTemplateSmsMessageTemplateContentBodyPtrOutput() MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return o
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyPtrOutput) ToMessageTemplateSmsMessageTemplateContentBodyPtrOutputWithContext(ctx context.Context) MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
+	return o
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyPtrOutput) Elem() MessageTemplateSmsMessageTemplateContentBodyOutput {
+	return o.ApplyT(func(v *MessageTemplateSmsMessageTemplateContentBody) MessageTemplateSmsMessageTemplateContentBody {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateSmsMessageTemplateContentBody
+		return ret
+	}).(MessageTemplateSmsMessageTemplateContentBodyOutput)
+}
+
+func (o MessageTemplateSmsMessageTemplateContentBodyPtrOutput) PlainText() MessageTemplateBodyContentProviderPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateSmsMessageTemplateContentBody) *MessageTemplateBodyContentProvider {
+		if v == nil {
+			return nil
+		}
+		return v.PlainText
+	}).(MessageTemplateBodyContentProviderPtrOutput)
+}
+
+// The system attributes that are used with the message template.
+type MessageTemplateSystemAttributes struct {
+	// The CustomerEndpoint attribute.
+	CustomerEndpoint *MessageTemplateSystemEndpointAttributes `pulumi:"customerEndpoint"`
+	// The name of the task.
+	Name *string `pulumi:"name"`
+	// The SystemEndpoint attribute.
+	SystemEndpoint *MessageTemplateSystemEndpointAttributes `pulumi:"systemEndpoint"`
+}
+
+// MessageTemplateSystemAttributesInput is an input type that accepts MessageTemplateSystemAttributesArgs and MessageTemplateSystemAttributesOutput values.
+// You can construct a concrete instance of `MessageTemplateSystemAttributesInput` via:
+//
+//	MessageTemplateSystemAttributesArgs{...}
+type MessageTemplateSystemAttributesInput interface {
+	pulumi.Input
+
+	ToMessageTemplateSystemAttributesOutput() MessageTemplateSystemAttributesOutput
+	ToMessageTemplateSystemAttributesOutputWithContext(context.Context) MessageTemplateSystemAttributesOutput
+}
+
+// The system attributes that are used with the message template.
+type MessageTemplateSystemAttributesArgs struct {
+	// The CustomerEndpoint attribute.
+	CustomerEndpoint MessageTemplateSystemEndpointAttributesPtrInput `pulumi:"customerEndpoint"`
+	// The name of the task.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The SystemEndpoint attribute.
+	SystemEndpoint MessageTemplateSystemEndpointAttributesPtrInput `pulumi:"systemEndpoint"`
+}
+
+func (MessageTemplateSystemAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateSystemAttributes)(nil)).Elem()
+}
+
+func (i MessageTemplateSystemAttributesArgs) ToMessageTemplateSystemAttributesOutput() MessageTemplateSystemAttributesOutput {
+	return i.ToMessageTemplateSystemAttributesOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateSystemAttributesArgs) ToMessageTemplateSystemAttributesOutputWithContext(ctx context.Context) MessageTemplateSystemAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSystemAttributesOutput)
+}
+
+func (i MessageTemplateSystemAttributesArgs) ToMessageTemplateSystemAttributesPtrOutput() MessageTemplateSystemAttributesPtrOutput {
+	return i.ToMessageTemplateSystemAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateSystemAttributesArgs) ToMessageTemplateSystemAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateSystemAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSystemAttributesOutput).ToMessageTemplateSystemAttributesPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateSystemAttributesPtrInput is an input type that accepts MessageTemplateSystemAttributesArgs, MessageTemplateSystemAttributesPtr and MessageTemplateSystemAttributesPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateSystemAttributesPtrInput` via:
+//
+//	        MessageTemplateSystemAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateSystemAttributesPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateSystemAttributesPtrOutput() MessageTemplateSystemAttributesPtrOutput
+	ToMessageTemplateSystemAttributesPtrOutputWithContext(context.Context) MessageTemplateSystemAttributesPtrOutput
+}
+
+type messageTemplateSystemAttributesPtrType MessageTemplateSystemAttributesArgs
+
+func MessageTemplateSystemAttributesPtr(v *MessageTemplateSystemAttributesArgs) MessageTemplateSystemAttributesPtrInput {
+	return (*messageTemplateSystemAttributesPtrType)(v)
+}
+
+func (*messageTemplateSystemAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateSystemAttributes)(nil)).Elem()
+}
+
+func (i *messageTemplateSystemAttributesPtrType) ToMessageTemplateSystemAttributesPtrOutput() MessageTemplateSystemAttributesPtrOutput {
+	return i.ToMessageTemplateSystemAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateSystemAttributesPtrType) ToMessageTemplateSystemAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateSystemAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSystemAttributesPtrOutput)
+}
+
+// The system attributes that are used with the message template.
+type MessageTemplateSystemAttributesOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateSystemAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateSystemAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateSystemAttributesOutput) ToMessageTemplateSystemAttributesOutput() MessageTemplateSystemAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateSystemAttributesOutput) ToMessageTemplateSystemAttributesOutputWithContext(ctx context.Context) MessageTemplateSystemAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateSystemAttributesOutput) ToMessageTemplateSystemAttributesPtrOutput() MessageTemplateSystemAttributesPtrOutput {
+	return o.ToMessageTemplateSystemAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateSystemAttributesOutput) ToMessageTemplateSystemAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateSystemAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateSystemAttributes) *MessageTemplateSystemAttributes {
+		return &v
+	}).(MessageTemplateSystemAttributesPtrOutput)
+}
+
+// The CustomerEndpoint attribute.
+func (o MessageTemplateSystemAttributesOutput) CustomerEndpoint() MessageTemplateSystemEndpointAttributesPtrOutput {
+	return o.ApplyT(func(v MessageTemplateSystemAttributes) *MessageTemplateSystemEndpointAttributes {
+		return v.CustomerEndpoint
+	}).(MessageTemplateSystemEndpointAttributesPtrOutput)
+}
+
+// The name of the task.
+func (o MessageTemplateSystemAttributesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateSystemAttributes) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The SystemEndpoint attribute.
+func (o MessageTemplateSystemAttributesOutput) SystemEndpoint() MessageTemplateSystemEndpointAttributesPtrOutput {
+	return o.ApplyT(func(v MessageTemplateSystemAttributes) *MessageTemplateSystemEndpointAttributes {
+		return v.SystemEndpoint
+	}).(MessageTemplateSystemEndpointAttributesPtrOutput)
+}
+
+type MessageTemplateSystemAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateSystemAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateSystemAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateSystemAttributesPtrOutput) ToMessageTemplateSystemAttributesPtrOutput() MessageTemplateSystemAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateSystemAttributesPtrOutput) ToMessageTemplateSystemAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateSystemAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateSystemAttributesPtrOutput) Elem() MessageTemplateSystemAttributesOutput {
+	return o.ApplyT(func(v *MessageTemplateSystemAttributes) MessageTemplateSystemAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateSystemAttributes
+		return ret
+	}).(MessageTemplateSystemAttributesOutput)
+}
+
+// The CustomerEndpoint attribute.
+func (o MessageTemplateSystemAttributesPtrOutput) CustomerEndpoint() MessageTemplateSystemEndpointAttributesPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateSystemAttributes) *MessageTemplateSystemEndpointAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerEndpoint
+	}).(MessageTemplateSystemEndpointAttributesPtrOutput)
+}
+
+// The name of the task.
+func (o MessageTemplateSystemAttributesPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateSystemAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SystemEndpoint attribute.
+func (o MessageTemplateSystemAttributesPtrOutput) SystemEndpoint() MessageTemplateSystemEndpointAttributesPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateSystemAttributes) *MessageTemplateSystemEndpointAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.SystemEndpoint
+	}).(MessageTemplateSystemEndpointAttributesPtrOutput)
+}
+
+// The system endpoint attributes that are used with the message template.
+type MessageTemplateSystemEndpointAttributes struct {
+	// The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+	Address *string `pulumi:"address"`
+}
+
+// MessageTemplateSystemEndpointAttributesInput is an input type that accepts MessageTemplateSystemEndpointAttributesArgs and MessageTemplateSystemEndpointAttributesOutput values.
+// You can construct a concrete instance of `MessageTemplateSystemEndpointAttributesInput` via:
+//
+//	MessageTemplateSystemEndpointAttributesArgs{...}
+type MessageTemplateSystemEndpointAttributesInput interface {
+	pulumi.Input
+
+	ToMessageTemplateSystemEndpointAttributesOutput() MessageTemplateSystemEndpointAttributesOutput
+	ToMessageTemplateSystemEndpointAttributesOutputWithContext(context.Context) MessageTemplateSystemEndpointAttributesOutput
+}
+
+// The system endpoint attributes that are used with the message template.
+type MessageTemplateSystemEndpointAttributesArgs struct {
+	// The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+}
+
+func (MessageTemplateSystemEndpointAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateSystemEndpointAttributes)(nil)).Elem()
+}
+
+func (i MessageTemplateSystemEndpointAttributesArgs) ToMessageTemplateSystemEndpointAttributesOutput() MessageTemplateSystemEndpointAttributesOutput {
+	return i.ToMessageTemplateSystemEndpointAttributesOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateSystemEndpointAttributesArgs) ToMessageTemplateSystemEndpointAttributesOutputWithContext(ctx context.Context) MessageTemplateSystemEndpointAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSystemEndpointAttributesOutput)
+}
+
+func (i MessageTemplateSystemEndpointAttributesArgs) ToMessageTemplateSystemEndpointAttributesPtrOutput() MessageTemplateSystemEndpointAttributesPtrOutput {
+	return i.ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i MessageTemplateSystemEndpointAttributesArgs) ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateSystemEndpointAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSystemEndpointAttributesOutput).ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(ctx)
+}
+
+// MessageTemplateSystemEndpointAttributesPtrInput is an input type that accepts MessageTemplateSystemEndpointAttributesArgs, MessageTemplateSystemEndpointAttributesPtr and MessageTemplateSystemEndpointAttributesPtrOutput values.
+// You can construct a concrete instance of `MessageTemplateSystemEndpointAttributesPtrInput` via:
+//
+//	        MessageTemplateSystemEndpointAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MessageTemplateSystemEndpointAttributesPtrInput interface {
+	pulumi.Input
+
+	ToMessageTemplateSystemEndpointAttributesPtrOutput() MessageTemplateSystemEndpointAttributesPtrOutput
+	ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(context.Context) MessageTemplateSystemEndpointAttributesPtrOutput
+}
+
+type messageTemplateSystemEndpointAttributesPtrType MessageTemplateSystemEndpointAttributesArgs
+
+func MessageTemplateSystemEndpointAttributesPtr(v *MessageTemplateSystemEndpointAttributesArgs) MessageTemplateSystemEndpointAttributesPtrInput {
+	return (*messageTemplateSystemEndpointAttributesPtrType)(v)
+}
+
+func (*messageTemplateSystemEndpointAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateSystemEndpointAttributes)(nil)).Elem()
+}
+
+func (i *messageTemplateSystemEndpointAttributesPtrType) ToMessageTemplateSystemEndpointAttributesPtrOutput() MessageTemplateSystemEndpointAttributesPtrOutput {
+	return i.ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *messageTemplateSystemEndpointAttributesPtrType) ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateSystemEndpointAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MessageTemplateSystemEndpointAttributesPtrOutput)
+}
+
+// The system endpoint attributes that are used with the message template.
+type MessageTemplateSystemEndpointAttributesOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateSystemEndpointAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MessageTemplateSystemEndpointAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateSystemEndpointAttributesOutput) ToMessageTemplateSystemEndpointAttributesOutput() MessageTemplateSystemEndpointAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateSystemEndpointAttributesOutput) ToMessageTemplateSystemEndpointAttributesOutputWithContext(ctx context.Context) MessageTemplateSystemEndpointAttributesOutput {
+	return o
+}
+
+func (o MessageTemplateSystemEndpointAttributesOutput) ToMessageTemplateSystemEndpointAttributesPtrOutput() MessageTemplateSystemEndpointAttributesPtrOutput {
+	return o.ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o MessageTemplateSystemEndpointAttributesOutput) ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateSystemEndpointAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MessageTemplateSystemEndpointAttributes) *MessageTemplateSystemEndpointAttributes {
+		return &v
+	}).(MessageTemplateSystemEndpointAttributesPtrOutput)
+}
+
+// The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+func (o MessageTemplateSystemEndpointAttributesOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MessageTemplateSystemEndpointAttributes) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+type MessageTemplateSystemEndpointAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (MessageTemplateSystemEndpointAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MessageTemplateSystemEndpointAttributes)(nil)).Elem()
+}
+
+func (o MessageTemplateSystemEndpointAttributesPtrOutput) ToMessageTemplateSystemEndpointAttributesPtrOutput() MessageTemplateSystemEndpointAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateSystemEndpointAttributesPtrOutput) ToMessageTemplateSystemEndpointAttributesPtrOutputWithContext(ctx context.Context) MessageTemplateSystemEndpointAttributesPtrOutput {
+	return o
+}
+
+func (o MessageTemplateSystemEndpointAttributesPtrOutput) Elem() MessageTemplateSystemEndpointAttributesOutput {
+	return o.ApplyT(func(v *MessageTemplateSystemEndpointAttributes) MessageTemplateSystemEndpointAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret MessageTemplateSystemEndpointAttributes
+		return ret
+	}).(MessageTemplateSystemEndpointAttributesOutput)
+}
+
+// The customer's phone number if used with customerEndpoint, or the number the customer dialed to call your contact center if used with systemEndpoint.
+func (o MessageTemplateSystemEndpointAttributesPtrOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MessageTemplateSystemEndpointAttributes) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Address
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type MessageTemplateTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration0PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration1PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration1PropertiesArgs{})
@@ -2491,6 +5507,31 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfigurationInput)(nil)).Elem(), KnowledgeBaseSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAgentAttributesInput)(nil)).Elem(), MessageTemplateAgentAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAgentAttributesPtrInput)(nil)).Elem(), MessageTemplateAgentAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAttributesInput)(nil)).Elem(), MessageTemplateAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAttributesPtrInput)(nil)).Elem(), MessageTemplateAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateBodyContentProviderInput)(nil)).Elem(), MessageTemplateBodyContentProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateBodyContentProviderPtrInput)(nil)).Elem(), MessageTemplateBodyContentProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateContentInput)(nil)).Elem(), MessageTemplateContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateCustomerProfileAttributesInput)(nil)).Elem(), MessageTemplateCustomerProfileAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateCustomerProfileAttributesPtrInput)(nil)).Elem(), MessageTemplateCustomerProfileAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateEmailMessageTemplateContentInput)(nil)).Elem(), MessageTemplateEmailMessageTemplateContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateEmailMessageTemplateContentPtrInput)(nil)).Elem(), MessageTemplateEmailMessageTemplateContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateEmailMessageTemplateContentBodyInput)(nil)).Elem(), MessageTemplateEmailMessageTemplateContentBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateEmailMessageTemplateContentBodyPtrInput)(nil)).Elem(), MessageTemplateEmailMessageTemplateContentBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateEmailMessageTemplateHeaderInput)(nil)).Elem(), MessageTemplateEmailMessageTemplateHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateEmailMessageTemplateHeaderArrayInput)(nil)).Elem(), MessageTemplateEmailMessageTemplateHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateGroupingConfigurationInput)(nil)).Elem(), MessageTemplateGroupingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateGroupingConfigurationPtrInput)(nil)).Elem(), MessageTemplateGroupingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSmsMessageTemplateContentInput)(nil)).Elem(), MessageTemplateSmsMessageTemplateContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSmsMessageTemplateContentPtrInput)(nil)).Elem(), MessageTemplateSmsMessageTemplateContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSmsMessageTemplateContentBodyInput)(nil)).Elem(), MessageTemplateSmsMessageTemplateContentBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSmsMessageTemplateContentBodyPtrInput)(nil)).Elem(), MessageTemplateSmsMessageTemplateContentBodyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSystemAttributesInput)(nil)).Elem(), MessageTemplateSystemAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSystemAttributesPtrInput)(nil)).Elem(), MessageTemplateSystemAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSystemEndpointAttributesInput)(nil)).Elem(), MessageTemplateSystemEndpointAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateSystemEndpointAttributesPtrInput)(nil)).Elem(), MessageTemplateSystemEndpointAttributesArgs{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration1PropertiesOutput{})
@@ -2529,4 +5570,30 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateAgentAttributesOutput{})
+	pulumi.RegisterOutputType(MessageTemplateAgentAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateAttributesOutput{})
+	pulumi.RegisterOutputType(MessageTemplateAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateBodyContentProviderOutput{})
+	pulumi.RegisterOutputType(MessageTemplateBodyContentProviderPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateContentOutput{})
+	pulumi.RegisterOutputType(MessageTemplateContentPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateCustomerProfileAttributesOutput{})
+	pulumi.RegisterOutputType(MessageTemplateCustomerProfileAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateEmailMessageTemplateContentOutput{})
+	pulumi.RegisterOutputType(MessageTemplateEmailMessageTemplateContentPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateEmailMessageTemplateContentBodyOutput{})
+	pulumi.RegisterOutputType(MessageTemplateEmailMessageTemplateContentBodyPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateEmailMessageTemplateHeaderOutput{})
+	pulumi.RegisterOutputType(MessageTemplateEmailMessageTemplateHeaderArrayOutput{})
+	pulumi.RegisterOutputType(MessageTemplateGroupingConfigurationOutput{})
+	pulumi.RegisterOutputType(MessageTemplateGroupingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateSmsMessageTemplateContentOutput{})
+	pulumi.RegisterOutputType(MessageTemplateSmsMessageTemplateContentPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateSmsMessageTemplateContentBodyOutput{})
+	pulumi.RegisterOutputType(MessageTemplateSmsMessageTemplateContentBodyPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateSystemAttributesOutput{})
+	pulumi.RegisterOutputType(MessageTemplateSystemAttributesPtrOutput{})
+	pulumi.RegisterOutputType(MessageTemplateSystemEndpointAttributesOutput{})
+	pulumi.RegisterOutputType(MessageTemplateSystemEndpointAttributesPtrOutput{})
 }

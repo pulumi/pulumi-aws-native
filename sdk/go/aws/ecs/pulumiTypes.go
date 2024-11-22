@@ -8311,7 +8311,7 @@ type TaskDefinitionHealthCheck struct {
 	//   ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``
 	//  You don't include the double quotes and brackets when you use the AWS Management Console.
 	//   ``CMD-SHELL, curl -f http://localhost/ || exit 1``
-	//  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command
+	//  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
 	Command []string `pulumi:"command"`
 	// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
 	Interval *int `pulumi:"interval"`
@@ -8349,7 +8349,7 @@ type TaskDefinitionHealthCheckArgs struct {
 	//   ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``
 	//  You don't include the double quotes and brackets when you use the AWS Management Console.
 	//   ``CMD-SHELL, curl -f http://localhost/ || exit 1``
-	//  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command
+	//  An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
 	Command pulumi.StringArrayInput `pulumi:"command"`
 	// The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
@@ -8453,7 +8453,7 @@ func (o TaskDefinitionHealthCheckOutput) ToTaskDefinitionHealthCheckPtrOutputWit
 //	 ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``
 //	You don't include the double quotes and brackets when you use the AWS Management Console.
 //	 ``CMD-SHELL, curl -f http://localhost/ || exit 1``
-//	An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command
+//	An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
 func (o TaskDefinitionHealthCheckOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v TaskDefinitionHealthCheck) []string { return v.Command }).(pulumi.StringArrayOutput)
 }
@@ -8510,7 +8510,7 @@ func (o TaskDefinitionHealthCheckPtrOutput) Elem() TaskDefinitionHealthCheckOutp
 //	 ``[ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]``
 //	You don't include the double quotes and brackets when you use the AWS Management Console.
 //	 ``CMD-SHELL, curl -f http://localhost/ || exit 1``
-//	An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command
+//	An exit code of 0 indicates success, and non-zero exit code indicates failure. For more information, see ``HealthCheck`` in the docker container create command.
 func (o TaskDefinitionHealthCheckPtrOutput) Command() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TaskDefinitionHealthCheck) []string {
 		if v == nil {
@@ -10028,8 +10028,7 @@ type TaskDefinitionPortMapping struct {
 	//  The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under ``/proc/sys/net/ipv4/ip_local_port_range``. If this kernel parameter is unavailable, the default ephemeral port range from 49153 through 65535 (Linux) or 49152 through 65535 (Windows) is used. Do not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range.
 	//  The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running. That is, after a task stops, the host port is released. The current reserved ports are displayed in the ``remainingResources`` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time. This number includes the default reserved ports. Automatically assigned ports aren't included in the 100 reserved ports quota.
 	HostPort *int `pulumi:"hostPort"`
-	// The name that's used for the port mapping. This parameter only applies to Service Connect. This parameter is the name that you use in the ``serviceConnectConfiguration`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
-	//  For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+	// The name that's used for the port mapping. This parameter is the name that you use in the ``serviceConnectConfiguration`` and the ``vpcLatticeConfigurations`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
 	Name *string `pulumi:"name"`
 	// The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
 	Protocol *string `pulumi:"protocol"`
@@ -10091,8 +10090,7 @@ type TaskDefinitionPortMappingArgs struct {
 	//  The default ephemeral port range for Docker version 1.6.0 and later is listed on the instance under ``/proc/sys/net/ipv4/ip_local_port_range``. If this kernel parameter is unavailable, the default ephemeral port range from 49153 through 65535 (Linux) or 49152 through 65535 (Windows) is used. Do not attempt to specify a host port in the ephemeral port range as these are reserved for automatic assignment. In general, ports below 32768 are outside of the ephemeral port range.
 	//  The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376, and the Amazon ECS container agent ports 51678-51680. Any host port that was previously specified in a running task is also reserved while the task is running. That is, after a task stops, the host port is released. The current reserved ports are displayed in the ``remainingResources`` of [DescribeContainerInstances](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeContainerInstances.html) output. A container instance can have up to 100 reserved ports at a time. This number includes the default reserved ports. Automatically assigned ports aren't included in the 100 reserved ports quota.
 	HostPort pulumi.IntPtrInput `pulumi:"hostPort"`
-	// The name that's used for the port mapping. This parameter only applies to Service Connect. This parameter is the name that you use in the ``serviceConnectConfiguration`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
-	//  For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+	// The name that's used for the port mapping. This parameter is the name that you use in the ``serviceConnectConfiguration`` and the ``vpcLatticeConfigurations`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
@@ -10209,9 +10207,7 @@ func (o TaskDefinitionPortMappingOutput) HostPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *int { return v.HostPort }).(pulumi.IntPtrOutput)
 }
 
-// The name that's used for the port mapping. This parameter only applies to Service Connect. This parameter is the name that you use in the “serviceConnectConfiguration“ of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
-//
-//	For more information, see [Service Connect](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The name that's used for the port mapping. This parameter is the name that you use in the “serviceConnectConfiguration“ and the “vpcLatticeConfigurations“ of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
 func (o TaskDefinitionPortMappingOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

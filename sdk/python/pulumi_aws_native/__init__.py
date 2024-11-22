@@ -1036,6 +1036,7 @@ _utilities.register(
   "mod": "chatbot",
   "fqn": "pulumi_aws_native.chatbot",
   "classes": {
+   "aws-native:chatbot:CustomAction": "CustomAction",
    "aws-native:chatbot:MicrosoftTeamsChannelConfiguration": "MicrosoftTeamsChannelConfiguration",
    "aws-native:chatbot:SlackChannelConfiguration": "SlackChannelConfiguration"
   }
@@ -1111,6 +1112,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.cloudtrail",
   "classes": {
    "aws-native:cloudtrail:Channel": "Channel",
+   "aws-native:cloudtrail:Dashboard": "Dashboard",
    "aws-native:cloudtrail:EventDataStore": "EventDataStore",
    "aws-native:cloudtrail:ResourcePolicy": "ResourcePolicy",
    "aws-native:cloudtrail:Trail": "Trail"
@@ -2773,7 +2775,8 @@ _utilities.register(
   "mod": "resourcegroups",
   "fqn": "pulumi_aws_native.resourcegroups",
   "classes": {
-   "aws-native:resourcegroups:Group": "Group"
+   "aws-native:resourcegroups:Group": "Group",
+   "aws-native:resourcegroups:TagSyncTask": "TagSyncTask"
   }
  },
  {
@@ -3263,7 +3266,9 @@ _utilities.register(
    "aws-native:wisdom:AiPromptVersion": "AiPromptVersion",
    "aws-native:wisdom:Assistant": "Assistant",
    "aws-native:wisdom:AssistantAssociation": "AssistantAssociation",
-   "aws-native:wisdom:KnowledgeBase": "KnowledgeBase"
+   "aws-native:wisdom:KnowledgeBase": "KnowledgeBase",
+   "aws-native:wisdom:MessageTemplate": "MessageTemplate",
+   "aws-native:wisdom:MessageTemplateVersion": "MessageTemplateVersion"
   }
  },
  {

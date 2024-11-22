@@ -125,6 +125,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         [Input("baselineEbsBandwidthMbps")]
         public Input<Inputs.AutoScalingGroupBaselineEbsBandwidthMbpsRequestArgs>? BaselineEbsBandwidthMbps { get; set; }
 
+        /// <summary>
+        /// The baseline performance factors for the instance requirements.
+        /// </summary>
         [Input("baselinePerformanceFactors")]
         public Input<Inputs.AutoScalingGroupBaselinePerformanceFactorsRequestArgs>? BaselinePerformanceFactors { get; set; }
 

@@ -179,9 +179,102 @@ func (in *groupResourceQueryTypePtr) ToGroupResourceQueryTypePtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(GroupResourceQueryTypePtrOutput)
 }
 
+// The status of the TagSyncTask
+type TagSyncTaskStatus string
+
+const (
+	TagSyncTaskStatusActive = TagSyncTaskStatus("ACTIVE")
+	TagSyncTaskStatusError  = TagSyncTaskStatus("ERROR")
+)
+
+type TagSyncTaskStatusOutput struct{ *pulumi.OutputState }
+
+func (TagSyncTaskStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TagSyncTaskStatus)(nil)).Elem()
+}
+
+func (o TagSyncTaskStatusOutput) ToTagSyncTaskStatusOutput() TagSyncTaskStatusOutput {
+	return o
+}
+
+func (o TagSyncTaskStatusOutput) ToTagSyncTaskStatusOutputWithContext(ctx context.Context) TagSyncTaskStatusOutput {
+	return o
+}
+
+func (o TagSyncTaskStatusOutput) ToTagSyncTaskStatusPtrOutput() TagSyncTaskStatusPtrOutput {
+	return o.ToTagSyncTaskStatusPtrOutputWithContext(context.Background())
+}
+
+func (o TagSyncTaskStatusOutput) ToTagSyncTaskStatusPtrOutputWithContext(ctx context.Context) TagSyncTaskStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagSyncTaskStatus) *TagSyncTaskStatus {
+		return &v
+	}).(TagSyncTaskStatusPtrOutput)
+}
+
+func (o TagSyncTaskStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TagSyncTaskStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TagSyncTaskStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TagSyncTaskStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TagSyncTaskStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TagSyncTaskStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TagSyncTaskStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (TagSyncTaskStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TagSyncTaskStatus)(nil)).Elem()
+}
+
+func (o TagSyncTaskStatusPtrOutput) ToTagSyncTaskStatusPtrOutput() TagSyncTaskStatusPtrOutput {
+	return o
+}
+
+func (o TagSyncTaskStatusPtrOutput) ToTagSyncTaskStatusPtrOutputWithContext(ctx context.Context) TagSyncTaskStatusPtrOutput {
+	return o
+}
+
+func (o TagSyncTaskStatusPtrOutput) Elem() TagSyncTaskStatusOutput {
+	return o.ApplyT(func(v *TagSyncTaskStatus) TagSyncTaskStatus {
+		if v != nil {
+			return *v
+		}
+		var ret TagSyncTaskStatus
+		return ret
+	}).(TagSyncTaskStatusOutput)
+}
+
+func (o TagSyncTaskStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TagSyncTaskStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TagSyncTaskStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryTypeInput)(nil)).Elem(), GroupResourceQueryType("TAG_FILTERS_1_0"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryTypePtrInput)(nil)).Elem(), GroupResourceQueryType("TAG_FILTERS_1_0"))
 	pulumi.RegisterOutputType(GroupResourceQueryTypeOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryTypePtrOutput{})
+	pulumi.RegisterOutputType(TagSyncTaskStatusOutput{})
+	pulumi.RegisterOutputType(TagSyncTaskStatusPtrOutput{})
 }

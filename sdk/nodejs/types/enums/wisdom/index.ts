@@ -62,3 +62,13 @@ export const KnowledgeBaseType = {
 } as const;
 
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
+
+export const MessageTemplateChannelSubtype = {
+    Email: "EMAIL",
+    Sms: "SMS",
+} as const;
+
+/**
+ * The channel subtype this message template applies to.
+ */
+export type MessageTemplateChannelSubtype = (typeof MessageTemplateChannelSubtype)[keyof typeof MessageTemplateChannelSubtype];

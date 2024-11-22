@@ -51,6 +51,9 @@ class ServiceArgs:
                  vpc_lattice_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceVpcLatticeConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Service resource.
+        :param pulumi.Input['ServiceAvailabilityZoneRebalancing'] availability_zone_rebalancing: Indicates whether to use Availability Zone rebalancing for the service.
+               
+               For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: The capacity provider strategy to use for the service.
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
                 A capacity provider strategy may contain a maximum of 6 capacity providers.
@@ -158,6 +161,11 @@ class ServiceArgs:
     @property
     @pulumi.getter(name="availabilityZoneRebalancing")
     def availability_zone_rebalancing(self) -> Optional[pulumi.Input['ServiceAvailabilityZoneRebalancing']]:
+        """
+        Indicates whether to use Availability Zone rebalancing for the service.
+
+        For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
         return pulumi.get(self, "availability_zone_rebalancing")
 
     @availability_zone_rebalancing.setter
@@ -519,6 +527,9 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['ServiceAvailabilityZoneRebalancing'] availability_zone_rebalancing: Indicates whether to use Availability Zone rebalancing for the service.
+               
+               For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceCapacityProviderStrategyItemArgs', 'ServiceCapacityProviderStrategyItemArgsDict']]]] capacity_provider_strategy: The capacity provider strategy to use for the service.
                 If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
                 A capacity provider strategy may contain a maximum of 6 capacity providers.
@@ -715,6 +726,11 @@ class Service(pulumi.CustomResource):
     @property
     @pulumi.getter(name="availabilityZoneRebalancing")
     def availability_zone_rebalancing(self) -> pulumi.Output[Optional['ServiceAvailabilityZoneRebalancing']]:
+        """
+        Indicates whether to use Availability Zone rebalancing for the service.
+
+        For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+        """
         return pulumi.get(self, "availability_zone_rebalancing")
 
     @property

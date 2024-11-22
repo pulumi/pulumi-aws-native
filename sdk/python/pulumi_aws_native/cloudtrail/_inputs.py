@@ -18,6 +18,12 @@ from ._enums import *
 __all__ = [
     'ChannelDestinationArgs',
     'ChannelDestinationArgsDict',
+    'DashboardRefreshScheduleFrequencyPropertiesArgs',
+    'DashboardRefreshScheduleFrequencyPropertiesArgsDict',
+    'DashboardRefreshScheduleArgs',
+    'DashboardRefreshScheduleArgsDict',
+    'DashboardWidgetArgs',
+    'DashboardWidgetArgsDict',
     'EventDataStoreAdvancedEventSelectorArgs',
     'EventDataStoreAdvancedEventSelectorArgsDict',
     'EventDataStoreAdvancedFieldSelectorArgs',
@@ -90,6 +96,200 @@ class ChannelDestinationArgs:
     @type.setter
     def type(self, value: pulumi.Input['ChannelDestinationType']):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class DashboardRefreshScheduleFrequencyPropertiesArgsDict(TypedDict):
+        unit: pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesUnit']
+        """
+        The frequency unit. Supported values are HOURS and DAYS.
+        """
+        value: pulumi.Input[int]
+        """
+        The frequency value.
+        """
+elif False:
+    DashboardRefreshScheduleFrequencyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DashboardRefreshScheduleFrequencyPropertiesArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesUnit'],
+                 value: pulumi.Input[int]):
+        """
+        :param pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesUnit'] unit: The frequency unit. Supported values are HOURS and DAYS.
+        :param pulumi.Input[int] value: The frequency value.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesUnit']:
+        """
+        The frequency unit. Supported values are HOURS and DAYS.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesUnit']):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The frequency value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class DashboardRefreshScheduleArgsDict(TypedDict):
+        """
+        Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+        """
+        frequency: NotRequired[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgsDict']]
+        status: NotRequired[pulumi.Input['DashboardRefreshScheduleStatus']]
+        """
+        The status of the schedule. Supported values are ENABLED and DISABLED.
+        """
+        time_of_day: NotRequired[pulumi.Input[str]]
+        """
+        StartTime of the automatic schedule refresh.
+        """
+elif False:
+    DashboardRefreshScheduleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DashboardRefreshScheduleArgs:
+    def __init__(__self__, *,
+                 frequency: Optional[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgs']] = None,
+                 status: Optional[pulumi.Input['DashboardRefreshScheduleStatus']] = None,
+                 time_of_day: Optional[pulumi.Input[str]] = None):
+        """
+        Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+        :param pulumi.Input['DashboardRefreshScheduleStatus'] status: The status of the schedule. Supported values are ENABLED and DISABLED.
+        :param pulumi.Input[str] time_of_day: StartTime of the automatic schedule refresh.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if time_of_day is not None:
+            pulumi.set(__self__, "time_of_day", time_of_day)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgs']]:
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgs']]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['DashboardRefreshScheduleStatus']]:
+        """
+        The status of the schedule. Supported values are ENABLED and DISABLED.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['DashboardRefreshScheduleStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="timeOfDay")
+    def time_of_day(self) -> Optional[pulumi.Input[str]]:
+        """
+        StartTime of the automatic schedule refresh.
+        """
+        return pulumi.get(self, "time_of_day")
+
+    @time_of_day.setter
+    def time_of_day(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_of_day", value)
+
+
+if not MYPY:
+    class DashboardWidgetArgsDict(TypedDict):
+        """
+        The dashboard widget
+        """
+        query_statement: pulumi.Input[str]
+        """
+        The SQL query statement on one or more event data stores.
+        """
+        query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
+        """
+        view_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The view properties of the widget.
+        """
+elif False:
+    DashboardWidgetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DashboardWidgetArgs:
+    def __init__(__self__, *,
+                 query_statement: pulumi.Input[str],
+                 query_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 view_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        The dashboard widget
+        :param pulumi.Input[str] query_statement: The SQL query statement on one or more event data stores.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] query_parameters: The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] view_properties: The view properties of the widget.
+        """
+        pulumi.set(__self__, "query_statement", query_statement)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+        if view_properties is not None:
+            pulumi.set(__self__, "view_properties", view_properties)
+
+    @property
+    @pulumi.getter(name="queryStatement")
+    def query_statement(self) -> pulumi.Input[str]:
+        """
+        The SQL query statement on one or more event data stores.
+        """
+        return pulumi.get(self, "query_statement")
+
+    @query_statement.setter
+    def query_statement(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query_statement", value)
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
+        """
+        return pulumi.get(self, "query_parameters")
+
+    @query_parameters.setter
+    def query_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "query_parameters", value)
+
+    @property
+    @pulumi.getter(name="viewProperties")
+    def view_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The view properties of the widget.
+        """
+        return pulumi.get(self, "view_properties")
+
+    @view_properties.setter
+    def view_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "view_properties", value)
 
 
 if not MYPY:

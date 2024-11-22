@@ -30,6 +30,10 @@ export interface GetSlackChannelConfigurationResult {
      */
     readonly arn?: string;
     /**
+     * ARNs of Custom Actions to associate with notifications in the provided chat channel.
+     */
+    readonly customizationResourceArns?: string[];
+    /**
      * The list of IAM policy ARNs that are applied as channel guardrails. The AWS managed 'AdministratorAccess' policy is applied as a default if this is not set.
      */
     readonly guardrailPolicies?: string[];

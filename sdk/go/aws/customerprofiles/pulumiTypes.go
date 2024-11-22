@@ -6770,10 +6770,14 @@ func (o SegmentDefinitionExtraLengthValueProfileDimensionPtrOutput) Values() pul
 
 // An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 type SegmentDefinitionGroup struct {
-	Dimensions     []interface{}                    `pulumi:"dimensions"`
+	// Defines the attributes to segment on.
+	Dimensions []interface{} `pulumi:"dimensions"`
+	// Defines the starting source of data.
 	SourceSegments []SegmentDefinitionSourceSegment `pulumi:"sourceSegments"`
-	SourceType     *SegmentDefinitionIncludeOptions `pulumi:"sourceType"`
-	Type           *SegmentDefinitionIncludeOptions `pulumi:"type"`
+	// Defines how to interact with the source data.
+	SourceType *SegmentDefinitionIncludeOptions `pulumi:"sourceType"`
+	// Defines how to interact with the profiles found in the current filtering.
+	Type *SegmentDefinitionIncludeOptions `pulumi:"type"`
 }
 
 // SegmentDefinitionGroupInput is an input type that accepts SegmentDefinitionGroupArgs and SegmentDefinitionGroupOutput values.
@@ -6789,10 +6793,14 @@ type SegmentDefinitionGroupInput interface {
 
 // An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
 type SegmentDefinitionGroupArgs struct {
-	Dimensions     pulumi.ArrayInput                        `pulumi:"dimensions"`
+	// Defines the attributes to segment on.
+	Dimensions pulumi.ArrayInput `pulumi:"dimensions"`
+	// Defines the starting source of data.
 	SourceSegments SegmentDefinitionSourceSegmentArrayInput `pulumi:"sourceSegments"`
-	SourceType     SegmentDefinitionIncludeOptionsPtrInput  `pulumi:"sourceType"`
-	Type           SegmentDefinitionIncludeOptionsPtrInput  `pulumi:"type"`
+	// Defines how to interact with the source data.
+	SourceType SegmentDefinitionIncludeOptionsPtrInput `pulumi:"sourceType"`
+	// Defines how to interact with the profiles found in the current filtering.
+	Type SegmentDefinitionIncludeOptionsPtrInput `pulumi:"type"`
 }
 
 func (SegmentDefinitionGroupArgs) ElementType() reflect.Type {
@@ -6847,18 +6855,22 @@ func (o SegmentDefinitionGroupOutput) ToSegmentDefinitionGroupOutputWithContext(
 	return o
 }
 
+// Defines the attributes to segment on.
 func (o SegmentDefinitionGroupOutput) Dimensions() pulumi.ArrayOutput {
 	return o.ApplyT(func(v SegmentDefinitionGroup) []interface{} { return v.Dimensions }).(pulumi.ArrayOutput)
 }
 
+// Defines the starting source of data.
 func (o SegmentDefinitionGroupOutput) SourceSegments() SegmentDefinitionSourceSegmentArrayOutput {
 	return o.ApplyT(func(v SegmentDefinitionGroup) []SegmentDefinitionSourceSegment { return v.SourceSegments }).(SegmentDefinitionSourceSegmentArrayOutput)
 }
 
+// Defines how to interact with the source data.
 func (o SegmentDefinitionGroupOutput) SourceType() SegmentDefinitionIncludeOptionsPtrOutput {
 	return o.ApplyT(func(v SegmentDefinitionGroup) *SegmentDefinitionIncludeOptions { return v.SourceType }).(SegmentDefinitionIncludeOptionsPtrOutput)
 }
 
+// Defines how to interact with the profiles found in the current filtering.
 func (o SegmentDefinitionGroupOutput) Type() SegmentDefinitionIncludeOptionsPtrOutput {
 	return o.ApplyT(func(v SegmentDefinitionGroup) *SegmentDefinitionIncludeOptions { return v.Type }).(SegmentDefinitionIncludeOptionsPtrOutput)
 }
@@ -7403,7 +7415,9 @@ func (o SegmentDefinitionRangeOverridePtrOutput) Unit() SegmentDefinitionRangeOv
 }
 
 type SegmentDefinitionSegmentGroup struct {
-	Groups  []SegmentDefinitionGroup         `pulumi:"groups"`
+	// Holds the list of groups within the segment definition.
+	Groups []SegmentDefinitionGroup `pulumi:"groups"`
+	// Defines whether to include or exclude the profiles that fit the segment criteria.
 	Include *SegmentDefinitionIncludeOptions `pulumi:"include"`
 }
 
@@ -7419,7 +7433,9 @@ type SegmentDefinitionSegmentGroupInput interface {
 }
 
 type SegmentDefinitionSegmentGroupArgs struct {
-	Groups  SegmentDefinitionGroupArrayInput        `pulumi:"groups"`
+	// Holds the list of groups within the segment definition.
+	Groups SegmentDefinitionGroupArrayInput `pulumi:"groups"`
+	// Defines whether to include or exclude the profiles that fit the segment criteria.
 	Include SegmentDefinitionIncludeOptionsPtrInput `pulumi:"include"`
 }
 
@@ -7449,16 +7465,19 @@ func (o SegmentDefinitionSegmentGroupOutput) ToSegmentDefinitionSegmentGroupOutp
 	return o
 }
 
+// Holds the list of groups within the segment definition.
 func (o SegmentDefinitionSegmentGroupOutput) Groups() SegmentDefinitionGroupArrayOutput {
 	return o.ApplyT(func(v SegmentDefinitionSegmentGroup) []SegmentDefinitionGroup { return v.Groups }).(SegmentDefinitionGroupArrayOutput)
 }
 
+// Defines whether to include or exclude the profiles that fit the segment criteria.
 func (o SegmentDefinitionSegmentGroupOutput) Include() SegmentDefinitionIncludeOptionsPtrOutput {
 	return o.ApplyT(func(v SegmentDefinitionSegmentGroup) *SegmentDefinitionIncludeOptions { return v.Include }).(SegmentDefinitionIncludeOptionsPtrOutput)
 }
 
 // The base segment to build the segment on.
 type SegmentDefinitionSourceSegment struct {
+	// The name of the source segment.
 	SegmentDefinitionName *string `pulumi:"segmentDefinitionName"`
 }
 
@@ -7475,6 +7494,7 @@ type SegmentDefinitionSourceSegmentInput interface {
 
 // The base segment to build the segment on.
 type SegmentDefinitionSourceSegmentArgs struct {
+	// The name of the source segment.
 	SegmentDefinitionName pulumi.StringPtrInput `pulumi:"segmentDefinitionName"`
 }
 
@@ -7530,6 +7550,7 @@ func (o SegmentDefinitionSourceSegmentOutput) ToSegmentDefinitionSourceSegmentOu
 	return o
 }
 
+// The name of the source segment.
 func (o SegmentDefinitionSourceSegmentOutput) SegmentDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SegmentDefinitionSourceSegment) *string { return v.SegmentDefinitionName }).(pulumi.StringPtrOutput)
 }

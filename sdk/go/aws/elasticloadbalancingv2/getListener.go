@@ -42,9 +42,9 @@ type LookupListenerResult struct {
 	ListenerAttributes []ListenerAttribute `pulumi:"listenerAttributes"`
 	// The mutual authentication configuration information.
 	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
-	// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+	// The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
 	Port *int `pulumi:"port"`
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
 	Protocol *string `pulumi:"protocol"`
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
 	//  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
@@ -128,12 +128,12 @@ func (o LookupListenerResultOutput) MutualAuthentication() ListenerMutualAuthent
 	return o.ApplyT(func(v LookupListenerResult) *ListenerMutualAuthentication { return v.MutualAuthentication }).(ListenerMutualAuthenticationPtrOutput)
 }
 
-// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+// The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
 func (o LookupListenerResultOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
 func (o LookupListenerResultOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }

@@ -1591,7 +1591,7 @@ type ListenerRedirectConfig struct {
 	Path *string `pulumi:"path"`
 	// The port. You can specify a value from 1 to 65535 or #{port}.
 	Port *string `pulumi:"port"`
-	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 	Protocol *string `pulumi:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 	Query *string `pulumi:"query"`
@@ -1628,7 +1628,7 @@ type ListenerRedirectConfigArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port. You can specify a value from 1 to 65535 or #{port}.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 	Query pulumi.StringPtrInput `pulumi:"query"`
@@ -1739,7 +1739,7 @@ func (o ListenerRedirectConfigOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRedirectConfig) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 func (o ListenerRedirectConfigOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRedirectConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -1808,7 +1808,7 @@ func (o ListenerRedirectConfigPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 func (o ListenerRedirectConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRedirectConfig) *string {
 		if v == nil {
@@ -3906,7 +3906,7 @@ type ListenerRuleRedirectConfig struct {
 	Path *string `pulumi:"path"`
 	// The port. You can specify a value from 1 to 65535 or #{port}.
 	Port *string `pulumi:"port"`
-	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 	Protocol *string `pulumi:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 	Query *string `pulumi:"query"`
@@ -3943,7 +3943,7 @@ type ListenerRuleRedirectConfigArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port. You can specify a value from 1 to 65535 or #{port}.
 	Port pulumi.StringPtrInput `pulumi:"port"`
-	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+	// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 	// The query parameters, URL-encoded when necessary, but not percent-encoded. Do not include the leading "?", as it is automatically added. You can specify any of the reserved keywords.
 	Query pulumi.StringPtrInput `pulumi:"query"`
@@ -4054,7 +4054,7 @@ func (o ListenerRuleRedirectConfigOutput) Port() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRedirectConfig) *string { return v.Port }).(pulumi.StringPtrOutput)
 }
 
-// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 func (o ListenerRuleRedirectConfigOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerRuleRedirectConfig) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
@@ -4123,7 +4123,7 @@ func (o ListenerRuleRedirectConfigPtrOutput) Port() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
+// The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP, HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.
 func (o ListenerRuleRedirectConfigPtrOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ListenerRuleRedirectConfig) *string {
 		if v == nil {
@@ -5066,7 +5066,7 @@ type LoadBalancerAttribute struct {
 	// The name of the attribute.
 	//  The following attributes are supported by all load balancers:
 	//   +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
-	//   +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+	//   +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and can't be changed.
 	//
 	//  The following attributes are supported by both Application Load Balancers and Network Load Balancers:
 	//   +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
@@ -5117,7 +5117,7 @@ type LoadBalancerAttributeArgs struct {
 	// The name of the attribute.
 	//  The following attributes are supported by all load balancers:
 	//   +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
-	//   +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+	//   +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and can't be changed.
 	//
 	//  The following attributes are supported by both Application Load Balancers and Network Load Balancers:
 	//   +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
@@ -5208,7 +5208,7 @@ func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ct
 //
 //	The following attributes are supported by all load balancers:
 //	 +   ``deletion_protection.enabled`` - Indicates whether deletion protection is enabled. The value is ``true`` or ``false``. The default is ``false``.
-//	 +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and cannot be changed.
+//	 +   ``load_balancing.cross_zone.enabled`` - Indicates whether cross-zone load balancing is enabled. The possible values are ``true`` and ``false``. The default for Network Load Balancers and Gateway Load Balancers is ``false``. The default for Application Load Balancers is ``true``, and can't be changed.
 //
 //	The following attributes are supported by both Application Load Balancers and Network Load Balancers:
 //	 +   ``access_logs.s3.enabled`` - Indicates whether access logs are enabled. The value is ``true`` or ``false``. The default is ``false``.
@@ -5267,6 +5267,139 @@ func (o LoadBalancerAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerA
 	}).(LoadBalancerAttributeOutput)
 }
 
+type LoadBalancerMinimumLoadBalancerCapacity struct {
+	CapacityUnits int `pulumi:"capacityUnits"`
+}
+
+// LoadBalancerMinimumLoadBalancerCapacityInput is an input type that accepts LoadBalancerMinimumLoadBalancerCapacityArgs and LoadBalancerMinimumLoadBalancerCapacityOutput values.
+// You can construct a concrete instance of `LoadBalancerMinimumLoadBalancerCapacityInput` via:
+//
+//	LoadBalancerMinimumLoadBalancerCapacityArgs{...}
+type LoadBalancerMinimumLoadBalancerCapacityInput interface {
+	pulumi.Input
+
+	ToLoadBalancerMinimumLoadBalancerCapacityOutput() LoadBalancerMinimumLoadBalancerCapacityOutput
+	ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(context.Context) LoadBalancerMinimumLoadBalancerCapacityOutput
+}
+
+type LoadBalancerMinimumLoadBalancerCapacityArgs struct {
+	CapacityUnits pulumi.IntInput `pulumi:"capacityUnits"`
+}
+
+func (LoadBalancerMinimumLoadBalancerCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacity)(nil)).Elem()
+}
+
+func (i LoadBalancerMinimumLoadBalancerCapacityArgs) ToLoadBalancerMinimumLoadBalancerCapacityOutput() LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return i.ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerMinimumLoadBalancerCapacityArgs) ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMinimumLoadBalancerCapacityOutput)
+}
+
+func (i LoadBalancerMinimumLoadBalancerCapacityArgs) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return i.ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i LoadBalancerMinimumLoadBalancerCapacityArgs) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMinimumLoadBalancerCapacityOutput).ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx)
+}
+
+// LoadBalancerMinimumLoadBalancerCapacityPtrInput is an input type that accepts LoadBalancerMinimumLoadBalancerCapacityArgs, LoadBalancerMinimumLoadBalancerCapacityPtr and LoadBalancerMinimumLoadBalancerCapacityPtrOutput values.
+// You can construct a concrete instance of `LoadBalancerMinimumLoadBalancerCapacityPtrInput` via:
+//
+//	        LoadBalancerMinimumLoadBalancerCapacityArgs{...}
+//
+//	or:
+//
+//	        nil
+type LoadBalancerMinimumLoadBalancerCapacityPtrInput interface {
+	pulumi.Input
+
+	ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput
+	ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput
+}
+
+type loadBalancerMinimumLoadBalancerCapacityPtrType LoadBalancerMinimumLoadBalancerCapacityArgs
+
+func LoadBalancerMinimumLoadBalancerCapacityPtr(v *LoadBalancerMinimumLoadBalancerCapacityArgs) LoadBalancerMinimumLoadBalancerCapacityPtrInput {
+	return (*loadBalancerMinimumLoadBalancerCapacityPtrType)(v)
+}
+
+func (*loadBalancerMinimumLoadBalancerCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerMinimumLoadBalancerCapacity)(nil)).Elem()
+}
+
+func (i *loadBalancerMinimumLoadBalancerCapacityPtrType) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return i.ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *loadBalancerMinimumLoadBalancerCapacityPtrType) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
+}
+
+type LoadBalancerMinimumLoadBalancerCapacityOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerMinimumLoadBalancerCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacity)(nil)).Elem()
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoadBalancerCapacityOutput() LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return o
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return o
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o.ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoadBalancerMinimumLoadBalancerCapacity) *LoadBalancerMinimumLoadBalancerCapacity {
+		return &v
+	}).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityOutput) CapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v LoadBalancerMinimumLoadBalancerCapacity) int { return v.CapacityUnits }).(pulumi.IntOutput)
+}
+
+type LoadBalancerMinimumLoadBalancerCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (LoadBalancerMinimumLoadBalancerCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LoadBalancerMinimumLoadBalancerCapacity)(nil)).Elem()
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutput() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) ToLoadBalancerMinimumLoadBalancerCapacityPtrOutputWithContext(ctx context.Context) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
+	return o
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) Elem() LoadBalancerMinimumLoadBalancerCapacityOutput {
+	return o.ApplyT(func(v *LoadBalancerMinimumLoadBalancerCapacity) LoadBalancerMinimumLoadBalancerCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret LoadBalancerMinimumLoadBalancerCapacity
+		return ret
+	}).(LoadBalancerMinimumLoadBalancerCapacityOutput)
+}
+
+func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) CapacityUnits() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LoadBalancerMinimumLoadBalancerCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.CapacityUnits
+	}).(pulumi.IntPtrOutput)
+}
+
 // Specifies a subnet for a load balancer.
 type LoadBalancerSubnetMapping struct {
 	// [Network Load Balancers] The allocation ID of the Elastic IP address for an internet-facing load balancer.
@@ -5275,7 +5408,7 @@ type LoadBalancerSubnetMapping struct {
 	IPv6Address *string `pulumi:"iPv6Address"`
 	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
 	PrivateIPv4Address *string `pulumi:"privateIPv4Address"`
-	// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+	// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or ``auto_assigned`` to use an IPv6 prefix selected at random from the subnet CIDR block.
 	SourceNatIpv6Prefix *string `pulumi:"sourceNatIpv6Prefix"`
 	// The ID of the subnet.
 	SubnetId string `pulumi:"subnetId"`
@@ -5300,7 +5433,7 @@ type LoadBalancerSubnetMappingArgs struct {
 	IPv6Address pulumi.StringPtrInput `pulumi:"iPv6Address"`
 	// [Network Load Balancers] The private IPv4 address for an internal load balancer.
 	PrivateIPv4Address pulumi.StringPtrInput `pulumi:"privateIPv4Address"`
-	// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+	// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or ``auto_assigned`` to use an IPv6 prefix selected at random from the subnet CIDR block.
 	SourceNatIpv6Prefix pulumi.StringPtrInput `pulumi:"sourceNatIpv6Prefix"`
 	// The ID of the subnet.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
@@ -5373,7 +5506,7 @@ func (o LoadBalancerSubnetMappingOutput) PrivateIPv4Address() pulumi.StringPtrOu
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.PrivateIPv4Address }).(pulumi.StringPtrOutput)
 }
 
-// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or `auto_assigned` to use an IPv6 prefix selected at random from the subnet CIDR block.
+// [Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT. Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or “auto_assigned“ to use an IPv6 prefix selected at random from the subnet CIDR block.
 func (o LoadBalancerSubnetMappingOutput) SourceNatIpv6Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerSubnetMapping) *string { return v.SourceNatIpv6Prefix }).(pulumi.StringPtrOutput)
 }
@@ -6048,6 +6181,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerTargetGroupTupleArrayInput)(nil)).Elem(), ListenerTargetGroupTupleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAttributeInput)(nil)).Elem(), LoadBalancerAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAttributeArrayInput)(nil)).Elem(), LoadBalancerAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacityInput)(nil)).Elem(), LoadBalancerMinimumLoadBalancerCapacityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerMinimumLoadBalancerCapacityPtrInput)(nil)).Elem(), LoadBalancerMinimumLoadBalancerCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingInput)(nil)).Elem(), LoadBalancerSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerSubnetMappingArrayInput)(nil)).Elem(), LoadBalancerSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttributeInput)(nil)).Elem(), TargetGroupAttributeArgs{})
@@ -6114,6 +6249,8 @@ func init() {
 	pulumi.RegisterOutputType(ListenerTargetGroupTupleArrayOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAttributeOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAttributeArrayOutput{})
+	pulumi.RegisterOutputType(LoadBalancerMinimumLoadBalancerCapacityOutput{})
+	pulumi.RegisterOutputType(LoadBalancerMinimumLoadBalancerCapacityPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingOutput{})
 	pulumi.RegisterOutputType(LoadBalancerSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(TargetGroupAttributeOutput{})

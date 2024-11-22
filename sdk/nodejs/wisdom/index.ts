@@ -70,10 +70,30 @@ export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeB
 export const getKnowledgeBaseOutput: typeof import("./getKnowledgeBase").getKnowledgeBaseOutput = null as any;
 utilities.lazyLoad(exports, ["getKnowledgeBase","getKnowledgeBaseOutput"], () => require("./getKnowledgeBase"));
 
+export { GetMessageTemplateArgs, GetMessageTemplateResult, GetMessageTemplateOutputArgs } from "./getMessageTemplate";
+export const getMessageTemplate: typeof import("./getMessageTemplate").getMessageTemplate = null as any;
+export const getMessageTemplateOutput: typeof import("./getMessageTemplate").getMessageTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getMessageTemplate","getMessageTemplateOutput"], () => require("./getMessageTemplate"));
+
+export { GetMessageTemplateVersionArgs, GetMessageTemplateVersionResult, GetMessageTemplateVersionOutputArgs } from "./getMessageTemplateVersion";
+export const getMessageTemplateVersion: typeof import("./getMessageTemplateVersion").getMessageTemplateVersion = null as any;
+export const getMessageTemplateVersionOutput: typeof import("./getMessageTemplateVersion").getMessageTemplateVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getMessageTemplateVersion","getMessageTemplateVersionOutput"], () => require("./getMessageTemplateVersion"));
+
 export { KnowledgeBaseArgs } from "./knowledgeBase";
 export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
 export const KnowledgeBase: typeof import("./knowledgeBase").KnowledgeBase = null as any;
 utilities.lazyLoad(exports, ["KnowledgeBase"], () => require("./knowledgeBase"));
+
+export { MessageTemplateArgs } from "./messageTemplate";
+export type MessageTemplate = import("./messageTemplate").MessageTemplate;
+export const MessageTemplate: typeof import("./messageTemplate").MessageTemplate = null as any;
+utilities.lazyLoad(exports, ["MessageTemplate"], () => require("./messageTemplate"));
+
+export { MessageTemplateVersionArgs } from "./messageTemplateVersion";
+export type MessageTemplateVersion = import("./messageTemplateVersion").MessageTemplateVersion;
+export const MessageTemplateVersion: typeof import("./messageTemplateVersion").MessageTemplateVersion = null as any;
+utilities.lazyLoad(exports, ["MessageTemplateVersion"], () => require("./messageTemplateVersion"));
 
 
 // Export enums:
@@ -97,6 +117,10 @@ const _module = {
                 return new AssistantAssociation(name, <any>undefined, { urn })
             case "aws-native:wisdom:KnowledgeBase":
                 return new KnowledgeBase(name, <any>undefined, { urn })
+            case "aws-native:wisdom:MessageTemplate":
+                return new MessageTemplate(name, <any>undefined, { urn })
+            case "aws-native:wisdom:MessageTemplateVersion":
+                return new MessageTemplateVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

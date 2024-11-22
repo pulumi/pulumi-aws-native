@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_group import *
+from .get_tag_sync_task import *
 from .group import *
+from .tag_sync_task import *
 from ._inputs import *
 from . import outputs

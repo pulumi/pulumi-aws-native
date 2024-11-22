@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         ///  Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.AutoScalingGroupBaselineEbsBandwidthMbpsRequest? BaselineEbsBandwidthMbps;
+        /// <summary>
+        /// The baseline performance factors for the instance requirements.
+        /// </summary>
         public readonly Outputs.AutoScalingGroupBaselinePerformanceFactorsRequest? BaselinePerformanceFactors;
         /// <summary>
         /// Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.

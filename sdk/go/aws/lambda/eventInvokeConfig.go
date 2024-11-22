@@ -20,8 +20,11 @@ type EventInvokeConfig struct {
 	//
 	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
 	// - *Queue* - The ARN of a standard SQS queue.
+	// - *Bucket* - The ARN of an Amazon S3 bucket.
 	// - *Topic* - The ARN of a standard SNS topic.
 	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
+	//
+	// > S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
 	DestinationConfig EventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// The name of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
@@ -88,8 +91,11 @@ type eventInvokeConfigArgs struct {
 	//
 	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
 	// - *Queue* - The ARN of a standard SQS queue.
+	// - *Bucket* - The ARN of an Amazon S3 bucket.
 	// - *Topic* - The ARN of a standard SNS topic.
 	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
+	//
+	// > S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
 	DestinationConfig *EventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// The name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
@@ -107,8 +113,11 @@ type EventInvokeConfigArgs struct {
 	//
 	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
 	// - *Queue* - The ARN of a standard SQS queue.
+	// - *Bucket* - The ARN of an Amazon S3 bucket.
 	// - *Topic* - The ARN of a standard SNS topic.
 	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
+	//
+	// > S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
 	DestinationConfig EventInvokeConfigDestinationConfigPtrInput
 	// The name of the Lambda function.
 	FunctionName pulumi.StringInput
@@ -161,8 +170,11 @@ func (o EventInvokeConfigOutput) ToEventInvokeConfigOutputWithContext(ctx contex
 //
 // **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
 // - *Queue* - The ARN of a standard SQS queue.
+// - *Bucket* - The ARN of an Amazon S3 bucket.
 // - *Topic* - The ARN of a standard SNS topic.
 // - *Event Bus* - The ARN of an Amazon EventBridge event bus.
+//
+// > S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
 func (o EventInvokeConfigOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfig) EventInvokeConfigDestinationConfigPtrOutput { return v.DestinationConfig }).(EventInvokeConfigDestinationConfigPtrOutput)
 }

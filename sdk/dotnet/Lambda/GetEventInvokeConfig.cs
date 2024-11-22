@@ -74,8 +74,11 @@ namespace Pulumi.AwsNative.Lambda
         /// 
         /// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
         /// - *Queue* - The ARN of a standard SQS queue.
+        /// - *Bucket* - The ARN of an Amazon S3 bucket.
         /// - *Topic* - The ARN of a standard SNS topic.
         /// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
+        /// 
+        /// &gt; S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.
         /// </summary>
         public readonly Outputs.EventInvokeConfigDestinationConfig? DestinationConfig;
         /// <summary>

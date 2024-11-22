@@ -256,4 +256,35 @@ namespace Pulumi.AwsNative.Wisdom
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The channel subtype this message template applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct MessageTemplateChannelSubtype : IEquatable<MessageTemplateChannelSubtype>
+    {
+        private readonly string _value;
+
+        private MessageTemplateChannelSubtype(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MessageTemplateChannelSubtype Email { get; } = new MessageTemplateChannelSubtype("EMAIL");
+        public static MessageTemplateChannelSubtype Sms { get; } = new MessageTemplateChannelSubtype("SMS");
+
+        public static bool operator ==(MessageTemplateChannelSubtype left, MessageTemplateChannelSubtype right) => left.Equals(right);
+        public static bool operator !=(MessageTemplateChannelSubtype left, MessageTemplateChannelSubtype right) => !left.Equals(right);
+
+        public static explicit operator string(MessageTemplateChannelSubtype value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MessageTemplateChannelSubtype other && Equals(other);
+        public bool Equals(MessageTemplateChannelSubtype other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

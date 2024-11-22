@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupCapacityReservationTarget
     {
+        /// <summary>
+        /// The Capacity Reservation IDs to launch instances into.
+        /// </summary>
         public readonly ImmutableArray<string> CapacityReservationIds;
+        /// <summary>
+        /// The resource group ARNs of the Capacity Reservation to launch instances into.
+        /// </summary>
         public readonly ImmutableArray<string> CapacityReservationResourceGroupArns;
 
         [OutputConstructor]

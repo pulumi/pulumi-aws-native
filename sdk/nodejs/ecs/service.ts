@@ -39,6 +39,11 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
+    /**
+     * Indicates whether to use Availability Zone rebalancing for the service.
+     *
+     * For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+     */
     public readonly availabilityZoneRebalancing!: pulumi.Output<enums.ecs.ServiceAvailabilityZoneRebalancing | undefined>;
     /**
      * The capacity provider strategy to use for the service.
@@ -251,6 +256,11 @@ export class Service extends pulumi.CustomResource {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * Indicates whether to use Availability Zone rebalancing for the service.
+     *
+     * For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+     */
     availabilityZoneRebalancing?: pulumi.Input<enums.ecs.ServiceAvailabilityZoneRebalancing>;
     /**
      * The capacity provider strategy to use for the service.

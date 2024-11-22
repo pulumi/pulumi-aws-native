@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.AutoScaling
         /// Indicates whether Capacity Rebalancing is enabled. Otherwise, Capacity Rebalancing is disabled. When you turn on Capacity Rebalancing, Amazon EC2 Auto Scaling attempts to launch a Spot Instance whenever Amazon EC2 notifies that a Spot Instance is at an elevated risk of interruption. After launching a new instance, it then terminates an old instance. For more information, see [Use Capacity Rebalancing to handle Amazon EC2 Spot Interruptions](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-capacity-rebalancing.html) in the in the *Amazon EC2 Auto Scaling User Guide*.
         /// </summary>
         public readonly bool? CapacityRebalance;
+        /// <summary>
+        /// The capacity reservation specification.
+        /// </summary>
         public readonly Outputs.AutoScalingGroupCapacityReservationSpecification? CapacityReservationSpecification;
         /// <summary>
         /// Reserved.

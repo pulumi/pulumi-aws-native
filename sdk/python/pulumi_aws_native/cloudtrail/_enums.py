@@ -6,6 +6,10 @@ from enum import Enum
 
 __all__ = [
     'ChannelDestinationType',
+    'DashboardRefreshScheduleFrequencyPropertiesUnit',
+    'DashboardRefreshScheduleStatus',
+    'DashboardStatus',
+    'DashboardType',
     'TrailEventSelectorReadWriteType',
 ]
 
@@ -15,6 +19,41 @@ class ChannelDestinationType(str, Enum):
     The type of destination for events arriving from a channel.
     """
     EVENT_DATA_STORE = "EVENT_DATA_STORE"
+
+
+class DashboardRefreshScheduleFrequencyPropertiesUnit(str, Enum):
+    """
+    The frequency unit. Supported values are HOURS and DAYS.
+    """
+    HOURS = "HOURS"
+    DAYS = "DAYS"
+
+
+class DashboardRefreshScheduleStatus(str, Enum):
+    """
+    The status of the schedule. Supported values are ENABLED and DISABLED.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class DashboardStatus(str, Enum):
+    """
+    The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
+    """
+    CREATING = "CREATING"
+    CREATED = "CREATED"
+    UPDATING = "UPDATING"
+    UPDATED = "UPDATED"
+    DELETING = "DELETING"
+
+
+class DashboardType(str, Enum):
+    """
+    The type of the dashboard. Values are CUSTOM and MANAGED.
+    """
+    MANAGED = "MANAGED"
+    CUSTOM = "CUSTOM"
 
 
 class TrailEventSelectorReadWriteType(str, Enum):

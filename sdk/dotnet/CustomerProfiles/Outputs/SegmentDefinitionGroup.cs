@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class SegmentDefinitionGroup
     {
+        /// <summary>
+        /// Defines the attributes to segment on.
+        /// </summary>
         public readonly ImmutableArray<Union<Outputs.SegmentDefinitionDimension0Properties, Outputs.SegmentDefinitionDimension1Properties>> Dimensions;
+        /// <summary>
+        /// Defines the starting source of data.
+        /// </summary>
         public readonly ImmutableArray<Outputs.SegmentDefinitionSourceSegment> SourceSegments;
+        /// <summary>
+        /// Defines how to interact with the source data.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionIncludeOptions? SourceType;
+        /// <summary>
+        /// Defines how to interact with the profiles found in the current filtering.
+        /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionIncludeOptions? Type;
 
         [OutputConstructor]

@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:cloudtrail:Channel":
 		r = &Channel{}
+	case "aws-native:cloudtrail:Dashboard":
+		r = &Dashboard{}
 	case "aws-native:cloudtrail:EventDataStore":
 		r = &EventDataStore{}
 	case "aws-native:cloudtrail:ResourcePolicy":

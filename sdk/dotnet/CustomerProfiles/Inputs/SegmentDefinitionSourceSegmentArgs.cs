@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// </summary>
     public sealed class SegmentDefinitionSourceSegmentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the source segment.
+        /// </summary>
         [Input("segmentDefinitionName")]
         public Input<string>? SegmentDefinitionName { get; set; }
 

@@ -18,6 +18,9 @@ from ._enums import *
 
 __all__ = [
     'ChannelDestination',
+    'DashboardRefreshSchedule',
+    'DashboardRefreshScheduleFrequencyProperties',
+    'DashboardWidget',
     'EventDataStoreAdvancedEventSelector',
     'EventDataStoreAdvancedFieldSelector',
     'EventDataStoreInsightSelector',
@@ -59,6 +62,162 @@ class ChannelDestination(dict):
         The type of destination for events arriving from a channel.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DashboardRefreshSchedule(dict):
+    """
+    Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeOfDay":
+            suggest = "time_of_day"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardRefreshSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardRefreshSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardRefreshSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frequency: Optional['outputs.DashboardRefreshScheduleFrequencyProperties'] = None,
+                 status: Optional['DashboardRefreshScheduleStatus'] = None,
+                 time_of_day: Optional[str] = None):
+        """
+        Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+        :param 'DashboardRefreshScheduleStatus' status: The status of the schedule. Supported values are ENABLED and DISABLED.
+        :param str time_of_day: StartTime of the automatic schedule refresh.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if time_of_day is not None:
+            pulumi.set(__self__, "time_of_day", time_of_day)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional['outputs.DashboardRefreshScheduleFrequencyProperties']:
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['DashboardRefreshScheduleStatus']:
+        """
+        The status of the schedule. Supported values are ENABLED and DISABLED.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="timeOfDay")
+    def time_of_day(self) -> Optional[str]:
+        """
+        StartTime of the automatic schedule refresh.
+        """
+        return pulumi.get(self, "time_of_day")
+
+
+@pulumi.output_type
+class DashboardRefreshScheduleFrequencyProperties(dict):
+    def __init__(__self__, *,
+                 unit: 'DashboardRefreshScheduleFrequencyPropertiesUnit',
+                 value: int):
+        """
+        :param 'DashboardRefreshScheduleFrequencyPropertiesUnit' unit: The frequency unit. Supported values are HOURS and DAYS.
+        :param int value: The frequency value.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'DashboardRefreshScheduleFrequencyPropertiesUnit':
+        """
+        The frequency unit. Supported values are HOURS and DAYS.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The frequency value.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DashboardWidget(dict):
+    """
+    The dashboard widget
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryStatement":
+            suggest = "query_statement"
+        elif key == "queryParameters":
+            suggest = "query_parameters"
+        elif key == "viewProperties":
+            suggest = "view_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DashboardWidget. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DashboardWidget.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DashboardWidget.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query_statement: str,
+                 query_parameters: Optional[Sequence[str]] = None,
+                 view_properties: Optional[Mapping[str, str]] = None):
+        """
+        The dashboard widget
+        :param str query_statement: The SQL query statement on one or more event data stores.
+        :param Sequence[str] query_parameters: The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
+        :param Mapping[str, str] view_properties: The view properties of the widget.
+        """
+        pulumi.set(__self__, "query_statement", query_statement)
+        if query_parameters is not None:
+            pulumi.set(__self__, "query_parameters", query_parameters)
+        if view_properties is not None:
+            pulumi.set(__self__, "view_properties", view_properties)
+
+    @property
+    @pulumi.getter(name="queryStatement")
+    def query_statement(self) -> str:
+        """
+        The SQL query statement on one or more event data stores.
+        """
+        return pulumi.get(self, "query_statement")
+
+    @property
+    @pulumi.getter(name="queryParameters")
+    def query_parameters(self) -> Optional[Sequence[str]]:
+        """
+        The placeholder keys in the QueryStatement. For example: $StartTime$, $EndTime$, $Period$.
+        """
+        return pulumi.get(self, "query_parameters")
+
+    @property
+    @pulumi.getter(name="viewProperties")
+    def view_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The view properties of the widget.
+        """
+        return pulumi.get(self, "view_properties")
 
 
 @pulumi.output_type

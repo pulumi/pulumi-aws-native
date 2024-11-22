@@ -40,4 +40,35 @@ namespace Pulumi.AwsNative.ResourceGroups
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The status of the TagSyncTask
+    /// </summary>
+    [EnumType]
+    public readonly struct TagSyncTaskStatus : IEquatable<TagSyncTaskStatus>
+    {
+        private readonly string _value;
+
+        private TagSyncTaskStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TagSyncTaskStatus Active { get; } = new TagSyncTaskStatus("ACTIVE");
+        public static TagSyncTaskStatus Error { get; } = new TagSyncTaskStatus("ERROR");
+
+        public static bool operator ==(TagSyncTaskStatus left, TagSyncTaskStatus right) => left.Equals(right);
+        public static bool operator !=(TagSyncTaskStatus left, TagSyncTaskStatus right) => !left.Equals(right);
+
+        public static explicit operator string(TagSyncTaskStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TagSyncTaskStatus other && Equals(other);
+        public bool Equals(TagSyncTaskStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

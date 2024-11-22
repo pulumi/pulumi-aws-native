@@ -17,6 +17,11 @@ namespace Pulumi.AwsNative.Ecs
     [AwsNativeResourceType("aws-native:ecs:Service")]
     public partial class Service : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Indicates whether to use Availability Zone rebalancing for the service.
+        /// 
+        /// For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         [Output("availabilityZoneRebalancing")]
         public Output<Pulumi.AwsNative.Ecs.ServiceAvailabilityZoneRebalancing?> AvailabilityZoneRebalancing { get; private set; } = null!;
 
@@ -258,6 +263,11 @@ namespace Pulumi.AwsNative.Ecs
 
     public sealed class ServiceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether to use Availability Zone rebalancing for the service.
+        /// 
+        /// For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// </summary>
         [Input("availabilityZoneRebalancing")]
         public Input<Pulumi.AwsNative.Ecs.ServiceAvailabilityZoneRebalancing>? AvailabilityZoneRebalancing { get; set; }
 

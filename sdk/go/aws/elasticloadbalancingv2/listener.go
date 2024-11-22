@@ -32,9 +32,9 @@ type Listener struct {
 	LoadBalancerArn pulumi.StringOutput `pulumi:"loadBalancerArn"`
 	// The mutual authentication configuration information.
 	MutualAuthentication ListenerMutualAuthenticationPtrOutput `pulumi:"mutualAuthentication"`
-	// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+	// The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
 	Protocol pulumi.StringPtrOutput `pulumi:"protocol"`
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
 	//  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
@@ -106,9 +106,9 @@ type listenerArgs struct {
 	LoadBalancerArn string `pulumi:"loadBalancerArn"`
 	// The mutual authentication configuration information.
 	MutualAuthentication *ListenerMutualAuthentication `pulumi:"mutualAuthentication"`
-	// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+	// The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
 	Port *int `pulumi:"port"`
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
 	Protocol *string `pulumi:"protocol"`
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
 	//  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
@@ -132,9 +132,9 @@ type ListenerArgs struct {
 	LoadBalancerArn pulumi.StringInput
 	// The mutual authentication configuration information.
 	MutualAuthentication ListenerMutualAuthenticationPtrInput
-	// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+	// The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
 	Port pulumi.IntPtrInput
-	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+	// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
 	Protocol pulumi.StringPtrInput
 	// [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
 	//  Updating the security policy can result in interruptions if the load balancer is handling a high volume of traffic.
@@ -218,12 +218,12 @@ func (o ListenerOutput) MutualAuthentication() ListenerMutualAuthenticationPtrOu
 	return o.ApplyT(func(v *Listener) ListenerMutualAuthenticationPtrOutput { return v.MutualAuthentication }).(ListenerMutualAuthenticationPtrOutput)
 }
 
-// The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+// The port on which the load balancer is listening. You can't specify a port for a Gateway Load Balancer.
 func (o ListenerOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+// The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load Balancer.
 func (o ListenerOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.Protocol }).(pulumi.StringPtrOutput)
 }

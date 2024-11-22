@@ -58,6 +58,9 @@ export class GlobalCluster extends pulumi.CustomResource {
      * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
      */
     public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+     */
     public readonly globalEndpoint!: pulumi.Output<outputs.rds.GlobalClusterGlobalEndpoint | undefined>;
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.
@@ -136,6 +139,9 @@ export interface GlobalClusterArgs {
      * The cluster identifier of the new global database cluster. This parameter is stored as a lowercase string.
      */
     globalClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * The writer endpoint for the new global database cluster. This endpoint always points to the writer DB instance in the current primary cluster.
+     */
     globalEndpoint?: pulumi.Input<inputs.rds.GlobalClusterGlobalEndpointArgs>;
     /**
      * The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional. This parameter is stored as a lowercase string.

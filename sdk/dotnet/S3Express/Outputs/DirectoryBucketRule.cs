@@ -18,10 +18,21 @@ namespace Pulumi.AwsNative.S3Express.Outputs
     {
         public readonly Outputs.DirectoryBucketAbortIncompleteMultipartUpload? AbortIncompleteMultipartUpload;
         public readonly int? ExpirationInDays;
+        /// <summary>
+        /// Unique identifier for the rule. The value can't be longer than 255 characters.
+        /// </summary>
         public readonly string? Id;
         public readonly string? ObjectSizeGreaterThan;
         public readonly string? ObjectSizeLessThan;
+        /// <summary>
+        /// Object key prefix that identifies one or more objects to which this rule applies.
+        /// 
+        /// &gt; Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
+        /// </summary>
         public readonly string? Prefix;
+        /// <summary>
+        /// If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        /// </summary>
         public readonly Pulumi.AwsNative.S3Express.DirectoryBucketRuleStatus Status;
 
         [OutputConstructor]

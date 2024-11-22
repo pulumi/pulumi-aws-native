@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     {
         [Input("groups")]
         private InputList<Inputs.SegmentDefinitionGroupArgs>? _groups;
+
+        /// <summary>
+        /// Holds the list of groups within the segment definition.
+        /// </summary>
         public InputList<Inputs.SegmentDefinitionGroupArgs> Groups
         {
             get => _groups ?? (_groups = new InputList<Inputs.SegmentDefinitionGroupArgs>());
             set => _groups = value;
         }
 
+        /// <summary>
+        /// Defines whether to include or exclude the profiles that fit the segment criteria.
+        /// </summary>
         [Input("include")]
         public Input<Pulumi.AwsNative.CustomerProfiles.SegmentDefinitionIncludeOptions>? Include { get; set; }
 

@@ -800,6 +800,7 @@ func (o AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.I
 }
 
 type AutoScalingGroupBaselinePerformanceFactorsRequest struct {
+	// The CPU performance to consider, using an instance family as the baseline reference.
 	Cpu *AutoScalingGroupCpuPerformanceFactorRequest `pulumi:"cpu"`
 }
 
@@ -815,6 +816,7 @@ type AutoScalingGroupBaselinePerformanceFactorsRequestInput interface {
 }
 
 type AutoScalingGroupBaselinePerformanceFactorsRequestArgs struct {
+	// The CPU performance to consider, using an instance family as the baseline reference.
 	Cpu AutoScalingGroupCpuPerformanceFactorRequestPtrInput `pulumi:"cpu"`
 }
 
@@ -895,6 +897,7 @@ func (o AutoScalingGroupBaselinePerformanceFactorsRequestOutput) ToAutoScalingGr
 	}).(AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput)
 }
 
+// The CPU performance to consider, using an instance family as the baseline reference.
 func (o AutoScalingGroupBaselinePerformanceFactorsRequestOutput) Cpu() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupBaselinePerformanceFactorsRequest) *AutoScalingGroupCpuPerformanceFactorRequest {
 		return v.Cpu
@@ -925,6 +928,7 @@ func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) Elem() AutoS
 	}).(AutoScalingGroupBaselinePerformanceFactorsRequestOutput)
 }
 
+// The CPU performance to consider, using an instance family as the baseline reference.
 func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) Cpu() AutoScalingGroupCpuPerformanceFactorRequestPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupBaselinePerformanceFactorsRequest) *AutoScalingGroupCpuPerformanceFactorRequest {
 		if v == nil {
@@ -935,8 +939,15 @@ func (o AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput) Cpu() AutoSc
 }
 
 type AutoScalingGroupCapacityReservationSpecification struct {
-	CapacityReservationPreference string                                     `pulumi:"capacityReservationPreference"`
-	CapacityReservationTarget     *AutoScalingGroupCapacityReservationTarget `pulumi:"capacityReservationTarget"`
+	// The capacity reservation preference. The following options are available:
+	//
+	// - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+	// - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+	// - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+	// - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+	CapacityReservationPreference string `pulumi:"capacityReservationPreference"`
+	// Describes a target Capacity Reservation or Capacity Reservation resource group.
+	CapacityReservationTarget *AutoScalingGroupCapacityReservationTarget `pulumi:"capacityReservationTarget"`
 }
 
 // AutoScalingGroupCapacityReservationSpecificationInput is an input type that accepts AutoScalingGroupCapacityReservationSpecificationArgs and AutoScalingGroupCapacityReservationSpecificationOutput values.
@@ -951,8 +962,15 @@ type AutoScalingGroupCapacityReservationSpecificationInput interface {
 }
 
 type AutoScalingGroupCapacityReservationSpecificationArgs struct {
-	CapacityReservationPreference pulumi.StringInput                                `pulumi:"capacityReservationPreference"`
-	CapacityReservationTarget     AutoScalingGroupCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
+	// The capacity reservation preference. The following options are available:
+	//
+	// - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+	// - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+	// - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+	// - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+	CapacityReservationPreference pulumi.StringInput `pulumi:"capacityReservationPreference"`
+	// Describes a target Capacity Reservation or Capacity Reservation resource group.
+	CapacityReservationTarget AutoScalingGroupCapacityReservationTargetPtrInput `pulumi:"capacityReservationTarget"`
 }
 
 func (AutoScalingGroupCapacityReservationSpecificationArgs) ElementType() reflect.Type {
@@ -1032,12 +1050,19 @@ func (o AutoScalingGroupCapacityReservationSpecificationOutput) ToAutoScalingGro
 	}).(AutoScalingGroupCapacityReservationSpecificationPtrOutput)
 }
 
+// The capacity reservation preference. The following options are available:
+//
+// - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+// - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+// - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+// - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
 func (o AutoScalingGroupCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringOutput {
 	return o.ApplyT(func(v AutoScalingGroupCapacityReservationSpecification) string {
 		return v.CapacityReservationPreference
 	}).(pulumi.StringOutput)
 }
 
+// Describes a target Capacity Reservation or Capacity Reservation resource group.
 func (o AutoScalingGroupCapacityReservationSpecificationOutput) CapacityReservationTarget() AutoScalingGroupCapacityReservationTargetPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupCapacityReservationSpecification) *AutoScalingGroupCapacityReservationTarget {
 		return v.CapacityReservationTarget
@@ -1068,6 +1093,12 @@ func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) Elem() AutoSc
 	}).(AutoScalingGroupCapacityReservationSpecificationOutput)
 }
 
+// The capacity reservation preference. The following options are available:
+//
+// - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+// - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+// - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+// - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
 func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationSpecification) *string {
 		if v == nil {
@@ -1077,6 +1108,7 @@ func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) CapacityReser
 	}).(pulumi.StringPtrOutput)
 }
 
+// Describes a target Capacity Reservation or Capacity Reservation resource group.
 func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) CapacityReservationTarget() AutoScalingGroupCapacityReservationTargetPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationSpecification) *AutoScalingGroupCapacityReservationTarget {
 		if v == nil {
@@ -1087,7 +1119,9 @@ func (o AutoScalingGroupCapacityReservationSpecificationPtrOutput) CapacityReser
 }
 
 type AutoScalingGroupCapacityReservationTarget struct {
-	CapacityReservationIds               []string `pulumi:"capacityReservationIds"`
+	// The Capacity Reservation IDs to launch instances into.
+	CapacityReservationIds []string `pulumi:"capacityReservationIds"`
+	// The resource group ARNs of the Capacity Reservation to launch instances into.
 	CapacityReservationResourceGroupArns []string `pulumi:"capacityReservationResourceGroupArns"`
 }
 
@@ -1103,7 +1137,9 @@ type AutoScalingGroupCapacityReservationTargetInput interface {
 }
 
 type AutoScalingGroupCapacityReservationTargetArgs struct {
-	CapacityReservationIds               pulumi.StringArrayInput `pulumi:"capacityReservationIds"`
+	// The Capacity Reservation IDs to launch instances into.
+	CapacityReservationIds pulumi.StringArrayInput `pulumi:"capacityReservationIds"`
+	// The resource group ARNs of the Capacity Reservation to launch instances into.
 	CapacityReservationResourceGroupArns pulumi.StringArrayInput `pulumi:"capacityReservationResourceGroupArns"`
 }
 
@@ -1184,10 +1220,12 @@ func (o AutoScalingGroupCapacityReservationTargetOutput) ToAutoScalingGroupCapac
 	}).(AutoScalingGroupCapacityReservationTargetPtrOutput)
 }
 
+// The Capacity Reservation IDs to launch instances into.
 func (o AutoScalingGroupCapacityReservationTargetOutput) CapacityReservationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupCapacityReservationTarget) []string { return v.CapacityReservationIds }).(pulumi.StringArrayOutput)
 }
 
+// The resource group ARNs of the Capacity Reservation to launch instances into.
 func (o AutoScalingGroupCapacityReservationTargetOutput) CapacityReservationResourceGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupCapacityReservationTarget) []string {
 		return v.CapacityReservationResourceGroupArns
@@ -1218,6 +1256,7 @@ func (o AutoScalingGroupCapacityReservationTargetPtrOutput) Elem() AutoScalingGr
 	}).(AutoScalingGroupCapacityReservationTargetOutput)
 }
 
+// The Capacity Reservation IDs to launch instances into.
 func (o AutoScalingGroupCapacityReservationTargetPtrOutput) CapacityReservationIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationTarget) []string {
 		if v == nil {
@@ -1227,6 +1266,7 @@ func (o AutoScalingGroupCapacityReservationTargetPtrOutput) CapacityReservationI
 	}).(pulumi.StringArrayOutput)
 }
 
+// The resource group ARNs of the Capacity Reservation to launch instances into.
 func (o AutoScalingGroupCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroupCapacityReservationTarget) []string {
 		if v == nil {
@@ -1237,6 +1277,9 @@ func (o AutoScalingGroupCapacityReservationTargetPtrOutput) CapacityReservationR
 }
 
 type AutoScalingGroupCpuPerformanceFactorRequest struct {
+	// Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+	//
+	// > Currently only one instance family can be specified in the list.
 	References []AutoScalingGroupPerformanceFactorReferenceRequest `pulumi:"references"`
 }
 
@@ -1252,6 +1295,9 @@ type AutoScalingGroupCpuPerformanceFactorRequestInput interface {
 }
 
 type AutoScalingGroupCpuPerformanceFactorRequestArgs struct {
+	// Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+	//
+	// > Currently only one instance family can be specified in the list.
 	References AutoScalingGroupPerformanceFactorReferenceRequestArrayInput `pulumi:"references"`
 }
 
@@ -1332,6 +1378,9 @@ func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) ToAutoScalingGroupCpu
 	}).(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput)
 }
 
+// Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+//
+// > Currently only one instance family can be specified in the list.
 func (o AutoScalingGroupCpuPerformanceFactorRequestOutput) References() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupCpuPerformanceFactorRequest) []AutoScalingGroupPerformanceFactorReferenceRequest {
 		return v.References
@@ -1362,6 +1411,9 @@ func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) Elem() AutoScaling
 	}).(AutoScalingGroupCpuPerformanceFactorRequestOutput)
 }
 
+// Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+//
+// > Currently only one instance family can be specified in the list.
 func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) References() AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroupCpuPerformanceFactorRequest) []AutoScalingGroupPerformanceFactorReferenceRequest {
 		if v == nil {
@@ -1598,7 +1650,8 @@ type AutoScalingGroupInstanceRequirements struct {
 	BareMetal *string `pulumi:"bareMetal"`
 	// The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps   *AutoScalingGroupBaselineEbsBandwidthMbpsRequest   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps *AutoScalingGroupBaselineEbsBandwidthMbpsRequest `pulumi:"baselineEbsBandwidthMbps"`
+	// The baseline performance factors for the instance requirements.
 	BaselinePerformanceFactors *AutoScalingGroupBaselinePerformanceFactorsRequest `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  Default: ``excluded``
@@ -1735,7 +1788,8 @@ type AutoScalingGroupInstanceRequirementsArgs struct {
 	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
 	// The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps   AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// The baseline performance factors for the instance requirements.
 	BaselinePerformanceFactors AutoScalingGroupBaselinePerformanceFactorsRequestPtrInput `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
 	//  Default: ``excluded``
@@ -1987,6 +2041,7 @@ func (o AutoScalingGroupInstanceRequirementsOutput) BaselineEbsBandwidthMbps() A
 	}).(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// The baseline performance factors for the instance requirements.
 func (o AutoScalingGroupInstanceRequirementsOutput) BaselinePerformanceFactors() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupInstanceRequirements) *AutoScalingGroupBaselinePerformanceFactorsRequest {
 		return v.BaselinePerformanceFactors
@@ -2287,6 +2342,7 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps(
 	}).(AutoScalingGroupBaselineEbsBandwidthMbpsRequestPtrOutput)
 }
 
+// The baseline performance factors for the instance requirements.
 func (o AutoScalingGroupInstanceRequirementsPtrOutput) BaselinePerformanceFactors() AutoScalingGroupBaselinePerformanceFactorsRequestPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupInstanceRequirements) *AutoScalingGroupBaselinePerformanceFactorsRequest {
 		if v == nil {

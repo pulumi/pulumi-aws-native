@@ -35,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AssistantAssociation{}
 	case "aws-native:wisdom:KnowledgeBase":
 		r = &KnowledgeBase{}
+	case "aws-native:wisdom:MessageTemplate":
+		r = &MessageTemplate{}
+	case "aws-native:wisdom:MessageTemplateVersion":
+		r = &MessageTemplateVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

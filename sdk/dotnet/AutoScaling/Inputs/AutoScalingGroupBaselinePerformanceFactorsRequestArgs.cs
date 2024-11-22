@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
 
     public sealed class AutoScalingGroupBaselinePerformanceFactorsRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CPU performance to consider, using an instance family as the baseline reference.
+        /// </summary>
         [Input("cpu")]
         public Input<Inputs.AutoScalingGroupCpuPerformanceFactorRequestArgs>? Cpu { get; set; }
 

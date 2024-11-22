@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLoadBalancerResult:
-    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, enable_prefix_for_ipv6_source_nat=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, ip_address_type=None, load_balancer_arn=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
+    def __init__(__self__, canonical_hosted_zone_id=None, dns_name=None, enable_prefix_for_ipv6_source_nat=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, ip_address_type=None, load_balancer_arn=None, load_balancer_attributes=None, load_balancer_full_name=None, load_balancer_name=None, minimum_load_balancer_capacity=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None):
         if canonical_hosted_zone_id and not isinstance(canonical_hosted_zone_id, str):
             raise TypeError("Expected argument 'canonical_hosted_zone_id' to be a str")
         pulumi.set(__self__, "canonical_hosted_zone_id", canonical_hosted_zone_id)
@@ -53,6 +53,9 @@ class GetLoadBalancerResult:
         if load_balancer_name and not isinstance(load_balancer_name, str):
             raise TypeError("Expected argument 'load_balancer_name' to be a str")
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+        if minimum_load_balancer_capacity and not isinstance(minimum_load_balancer_capacity, dict):
+            raise TypeError("Expected argument 'minimum_load_balancer_capacity' to be a dict")
+        pulumi.set(__self__, "minimum_load_balancer_capacity", minimum_load_balancer_capacity)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
@@ -86,7 +89,7 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="enablePrefixForIpv6SourceNat")
     def enable_prefix_for_ipv6_source_nat(self) -> Optional[str]:
         """
-        [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be `dualstack` . The default value is `off` .
+        [Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix from each subnet for source NAT. The IP address type must be ``dualstack``. The default value is ``off``.
         """
         return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
 
@@ -102,11 +105,10 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[str]:
         """
-        Note: Internal load balancers must use the ``ipv4`` IP address type.
-         [Application Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses), ``dualstack`` (for IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (for IPv6 only public addresses, with private IPv4 and IPv6 addresses).
-         Note: Application Load Balancer authentication only supports IPv4 addresses when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer cannot complete the authentication process, resulting in HTTP 500 errors.
-         [Network Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses). You can’t specify ``dualstack`` for a load balancer with a UDP or TCP_UDP listener.
-         [Gateway Load Balancers] The IP address type. The possible values are ``ipv4`` (for only IPv4 addresses) and ``dualstack`` (for IPv4 and IPv6 addresses).
+        The IP address type. Internal load balancers must use ``ipv4``.
+         [Application Load Balancers] The possible values are ``ipv4`` (IPv4 addresses), ``dualstack`` (IPv4 and IPv6 addresses), and ``dualstack-without-public-ipv4`` (public IPv6 addresses and private IPv4 and IPv6 addresses).
+         Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
+         [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         """
         return pulumi.get(self, "ip_address_type")
 
@@ -143,6 +145,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "load_balancer_name")
 
     @property
+    @pulumi.getter(name="minimumLoadBalancerCapacity")
+    def minimum_load_balancer_capacity(self) -> Optional['outputs.LoadBalancerMinimumLoadBalancerCapacity']:
+        return pulumi.get(self, "minimum_load_balancer_capacity")
+
+    @property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence[str]]:
         """
@@ -155,11 +162,11 @@ class GetLoadBalancerResult:
     def subnet_mappings(self) -> Optional[Sequence['outputs.LoadBalancerSubnetMapping']]:
         """
         The IDs of the subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings, but not both.
-         [Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+         [Application Load Balancers] You must specify subnets from at least two Availability Zones. You can't specify Elastic IP addresses for your subnets.
          [Application Load Balancers on Outposts] You must specify one Outpost subnet.
          [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
          [Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you can specify one IPv6 address per subnet.
-         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.
+         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You can't specify Elastic IP addresses for your subnets.
         """
         return pulumi.get(self, "subnet_mappings")
 
@@ -171,8 +178,7 @@ class GetLoadBalancerResult:
          [Application Load Balancers] You must specify subnets from at least two Availability Zones.
          [Application Load Balancers on Outposts] You must specify one Outpost subnet.
          [Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.
-         [Network Load Balancers] You can specify subnets from one or more Availability Zones.
-         [Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
+         [Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more Availability Zones.
         """
         return pulumi.get(self, "subnets")
 
@@ -200,6 +206,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             load_balancer_attributes=self.load_balancer_attributes,
             load_balancer_full_name=self.load_balancer_full_name,
             load_balancer_name=self.load_balancer_name,
+            minimum_load_balancer_capacity=self.minimum_load_balancer_capacity,
             security_groups=self.security_groups,
             subnet_mappings=self.subnet_mappings,
             subnets=self.subnets,
@@ -229,6 +236,7 @@ def get_load_balancer(load_balancer_arn: Optional[str] = None,
         load_balancer_attributes=pulumi.get(__ret__, 'load_balancer_attributes'),
         load_balancer_full_name=pulumi.get(__ret__, 'load_balancer_full_name'),
         load_balancer_name=pulumi.get(__ret__, 'load_balancer_name'),
+        minimum_load_balancer_capacity=pulumi.get(__ret__, 'minimum_load_balancer_capacity'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         subnets=pulumi.get(__ret__, 'subnets'),
@@ -255,6 +263,7 @@ def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = No
         load_balancer_attributes=pulumi.get(__response__, 'load_balancer_attributes'),
         load_balancer_full_name=pulumi.get(__response__, 'load_balancer_full_name'),
         load_balancer_name=pulumi.get(__response__, 'load_balancer_name'),
+        minimum_load_balancer_capacity=pulumi.get(__response__, 'minimum_load_balancer_capacity'),
         security_groups=pulumi.get(__response__, 'security_groups'),
         subnet_mappings=pulumi.get(__response__, 'subnet_mappings'),
         subnets=pulumi.get(__response__, 'subnets'),

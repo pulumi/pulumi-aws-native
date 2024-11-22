@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class SegmentDefinitionSourceSegment
     {
+        /// <summary>
+        /// The name of the source segment.
+        /// </summary>
         public readonly string? SegmentDefinitionName;
 
         [OutputConstructor]

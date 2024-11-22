@@ -10,6 +10,11 @@ export type Channel = import("./channel").Channel;
 export const Channel: typeof import("./channel").Channel = null as any;
 utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
 
+export { DashboardArgs } from "./dashboard";
+export type Dashboard = import("./dashboard").Dashboard;
+export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
+utilities.lazyLoad(exports, ["Dashboard"], () => require("./dashboard"));
+
 export { EventDataStoreArgs } from "./eventDataStore";
 export type EventDataStore = import("./eventDataStore").EventDataStore;
 export const EventDataStore: typeof import("./eventDataStore").EventDataStore = null as any;
@@ -19,6 +24,11 @@ export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getCha
 export const getChannel: typeof import("./getChannel").getChannel = null as any;
 export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
 utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
+
+export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
+export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
+export const getDashboardOutput: typeof import("./getDashboard").getDashboardOutput = null as any;
+utilities.lazyLoad(exports, ["getDashboard","getDashboardOutput"], () => require("./getDashboard"));
 
 export { GetEventDataStoreArgs, GetEventDataStoreResult, GetEventDataStoreOutputArgs } from "./getEventDataStore";
 export const getEventDataStore: typeof import("./getEventDataStore").getEventDataStore = null as any;
@@ -55,6 +65,8 @@ const _module = {
         switch (type) {
             case "aws-native:cloudtrail:Channel":
                 return new Channel(name, <any>undefined, { urn })
+            case "aws-native:cloudtrail:Dashboard":
+                return new Dashboard(name, <any>undefined, { urn })
             case "aws-native:cloudtrail:EventDataStore":
                 return new EventDataStore(name, <any>undefined, { urn })
             case "aws-native:cloudtrail:ResourcePolicy":

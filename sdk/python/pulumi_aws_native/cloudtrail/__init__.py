@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .channel import *
+from .dashboard import *
 from .event_data_store import *
 from .get_channel import *
+from .get_dashboard import *
 from .get_event_data_store import *
 from .get_resource_policy import *
 from .get_trail import *

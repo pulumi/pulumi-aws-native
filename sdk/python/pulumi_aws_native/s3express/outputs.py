@@ -159,6 +159,11 @@ class DirectoryBucketRule(dict):
                  prefix: Optional[str] = None):
         """
         You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
+        :param 'DirectoryBucketRuleStatus' status: If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        :param str id: Unique identifier for the rule. The value can't be longer than 255 characters.
+        :param str prefix: Object key prefix that identifies one or more objects to which this rule applies.
+               
+               > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
         """
         pulumi.set(__self__, "status", status)
         if abort_incomplete_multipart_upload is not None:
@@ -177,6 +182,9 @@ class DirectoryBucketRule(dict):
     @property
     @pulumi.getter
     def status(self) -> 'DirectoryBucketRuleStatus':
+        """
+        If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        """
         return pulumi.get(self, "status")
 
     @property
@@ -192,6 +200,9 @@ class DirectoryBucketRule(dict):
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        Unique identifier for the rule. The value can't be longer than 255 characters.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -207,6 +218,11 @@ class DirectoryBucketRule(dict):
     @property
     @pulumi.getter
     def prefix(self) -> Optional[str]:
+        """
+        Object key prefix that identifies one or more objects to which this rule applies.
+
+        > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
+        """
         return pulumi.get(self, "prefix")
 
 

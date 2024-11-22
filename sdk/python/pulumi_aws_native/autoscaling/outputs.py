@@ -268,12 +268,18 @@ class AutoScalingGroupBaselineEbsBandwidthMbpsRequest(dict):
 class AutoScalingGroupBaselinePerformanceFactorsRequest(dict):
     def __init__(__self__, *,
                  cpu: Optional['outputs.AutoScalingGroupCpuPerformanceFactorRequest'] = None):
+        """
+        :param 'AutoScalingGroupCpuPerformanceFactorRequest' cpu: The CPU performance to consider, using an instance family as the baseline reference.
+        """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
 
     @property
     @pulumi.getter
     def cpu(self) -> Optional['outputs.AutoScalingGroupCpuPerformanceFactorRequest']:
+        """
+        The CPU performance to consider, using an instance family as the baseline reference.
+        """
         return pulumi.get(self, "cpu")
 
 
@@ -301,6 +307,15 @@ class AutoScalingGroupCapacityReservationSpecification(dict):
     def __init__(__self__, *,
                  capacity_reservation_preference: str,
                  capacity_reservation_target: Optional['outputs.AutoScalingGroupCapacityReservationTarget'] = None):
+        """
+        :param str capacity_reservation_preference: The capacity reservation preference. The following options are available:
+               
+               - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+               - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+               - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+               - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+        :param 'AutoScalingGroupCapacityReservationTarget' capacity_reservation_target: Describes a target Capacity Reservation or Capacity Reservation resource group.
+        """
         pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
         if capacity_reservation_target is not None:
             pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
@@ -308,11 +323,22 @@ class AutoScalingGroupCapacityReservationSpecification(dict):
     @property
     @pulumi.getter(name="capacityReservationPreference")
     def capacity_reservation_preference(self) -> str:
+        """
+        The capacity reservation preference. The following options are available:
+
+        - `capacity-reservations-only` - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.
+        - `capacity-reservations-first` - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.
+        - `none` - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity.
+        - `default` - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.
+        """
         return pulumi.get(self, "capacity_reservation_preference")
 
     @property
     @pulumi.getter(name="capacityReservationTarget")
     def capacity_reservation_target(self) -> Optional['outputs.AutoScalingGroupCapacityReservationTarget']:
+        """
+        Describes a target Capacity Reservation or Capacity Reservation resource group.
+        """
         return pulumi.get(self, "capacity_reservation_target")
 
 
@@ -340,6 +366,10 @@ class AutoScalingGroupCapacityReservationTarget(dict):
     def __init__(__self__, *,
                  capacity_reservation_ids: Optional[Sequence[str]] = None,
                  capacity_reservation_resource_group_arns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] capacity_reservation_ids: The Capacity Reservation IDs to launch instances into.
+        :param Sequence[str] capacity_reservation_resource_group_arns: The resource group ARNs of the Capacity Reservation to launch instances into.
+        """
         if capacity_reservation_ids is not None:
             pulumi.set(__self__, "capacity_reservation_ids", capacity_reservation_ids)
         if capacity_reservation_resource_group_arns is not None:
@@ -348,11 +378,17 @@ class AutoScalingGroupCapacityReservationTarget(dict):
     @property
     @pulumi.getter(name="capacityReservationIds")
     def capacity_reservation_ids(self) -> Optional[Sequence[str]]:
+        """
+        The Capacity Reservation IDs to launch instances into.
+        """
         return pulumi.get(self, "capacity_reservation_ids")
 
     @property
     @pulumi.getter(name="capacityReservationResourceGroupArns")
     def capacity_reservation_resource_group_arns(self) -> Optional[Sequence[str]]:
+        """
+        The resource group ARNs of the Capacity Reservation to launch instances into.
+        """
         return pulumi.get(self, "capacity_reservation_resource_group_arns")
 
 
@@ -360,12 +396,22 @@ class AutoScalingGroupCapacityReservationTarget(dict):
 class AutoScalingGroupCpuPerformanceFactorRequest(dict):
     def __init__(__self__, *,
                  references: Optional[Sequence['outputs.AutoScalingGroupPerformanceFactorReferenceRequest']] = None):
+        """
+        :param Sequence['AutoScalingGroupPerformanceFactorReferenceRequest'] references: Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+               
+               > Currently only one instance family can be specified in the list.
+        """
         if references is not None:
             pulumi.set(__self__, "references", references)
 
     @property
     @pulumi.getter
     def references(self) -> Optional[Sequence['outputs.AutoScalingGroupPerformanceFactorReferenceRequest']]:
+        """
+        Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+
+        > Currently only one instance family can be specified in the list.
+        """
         return pulumi.get(self, "references")
 
 
@@ -582,6 +628,7 @@ class AutoScalingGroupInstanceRequirements(dict):
                 Default: ``excluded``
         :param 'AutoScalingGroupBaselineEbsBandwidthMbpsRequest' baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth performance for an instance type, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide for Linux Instances*.
                 Default: No minimum or maximum limits
+        :param 'AutoScalingGroupBaselinePerformanceFactorsRequest' baseline_performance_factors: The baseline performance factors for the instance requirements.
         :param str burstable_performance: Indicates whether burstable performance instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) in the *Amazon EC2 User Guide for Linux Instances*.
                 Default: ``excluded``
         :param Sequence[str] cpu_manufacturers: Lists which specific CPU manufacturers to include.
@@ -792,6 +839,9 @@ class AutoScalingGroupInstanceRequirements(dict):
     @property
     @pulumi.getter(name="baselinePerformanceFactors")
     def baseline_performance_factors(self) -> Optional['outputs.AutoScalingGroupBaselinePerformanceFactorsRequest']:
+        """
+        The baseline performance factors for the instance requirements.
+        """
         return pulumi.get(self, "baseline_performance_factors")
 
     @property
