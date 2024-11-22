@@ -665,6 +665,11 @@
         "heuristic": "RefReturnsName"
       }
     },
+    "AWS::Connect::EvaluationForm": {
+      "refReturns": {
+        "property": "Title"
+      }
+    },
     "AWS::Connect::Instance": {
       "refReturns": {
         "property": "Id"
@@ -1203,6 +1208,11 @@
     "AWS::EC2::Volume": {
       "refReturns": {
         "property": "VolumeId"
+      }
+    },
+    "AWS::ECR::PublicRepository": {
+      "refReturns": {
+        "property": "RepositoryName"
       }
     },
     "AWS::ECR::Repository": {
@@ -1907,6 +1917,11 @@
       "refReturns": {
         "property": "InputName",
         "heuristic": "RefReturnsName"
+      }
+    },
+    "AWS::IoTSiteWise::AssetModel": {
+      "refReturns": {
+        "property": "AssetModelId"
       }
     },
     "AWS::IoTWireless::Destination": {
@@ -2779,6 +2794,11 @@
       "refReturns": {
         "property": "EndpointArn",
         "heuristic": "RefReturnsArn"
+      }
+    },
+    "AWS::SageMaker::ImageVersion": {
+      "refReturns": {
+        "property": "ImageVersionArn"
       }
     },
     "AWS::SageMaker::ModelCard": {
