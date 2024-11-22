@@ -31,6 +31,7 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 		}
 
 		switch {
+		// primaryIdentifier is "arn" and docs indicate Ref returns the ARN.
 		case Categorize(res.RefSection).Name() == RefReturnsArn.Name() &&
 			len(sch.PrimaryIdentifier) == 1 &&
 			strings.Contains(strings.ToLower(sch.PrimaryIdentifier[0]), "arn"):
@@ -41,6 +42,7 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 			}); err != nil {
 				return err
 			}
+		// there is only one property called "ARN" or "FooARN" and docs indicate Ref returns the ARN.
 		case Categorize(res.RefSection).Name() == RefReturnsArn.Name():
 			if nameProp, ok := findUniqueProperty(sch, r, "ARN"); ok {
 				if err := gs.edit(r, "heuristic", func(ri *metadata.RefDBResource) {
@@ -50,6 +52,7 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 					return err
 				}
 			}
+		// there is only one property called "Name" or "FooName" and docs indicate Ref returns the Name.
 		case Categorize(res.RefSection).Name() == RefReturnsName.Name():
 			if nameProp, ok := findUniqueProperty(sch, r, "Name"); ok {
 				if err := gs.edit(r, "heuristic", func(ri *metadata.RefDBResource) {
@@ -59,6 +62,7 @@ func autoLabel(schemaAbsPath, dbFile string, allResources map[string]resourceFil
 					return err
 				}
 			}
+		// there is a property called "Id" or "FooId" and docs indicate Ref returns the ID.
 		case Categorize(res.RefSection).Name() == RefReturnsID.Name():
 			idProp := "Id"
 			_, hasID := sch.Properties[idProp]

@@ -87,21 +87,6 @@ var categorizationRules = []categorizationRule{
 		Category: RefReturnsID,
 		Pattern:  regexp.MustCompile("When you pass the logical ID of this resource to the intrinsic .Ref.?.?function, .Ref.?.?returns a .* ID"),
 	},
-	// {
-	// 	Name: "RefReturnsArn",
-	// 	Pattern: regexp.MustCompile("When you pass the logical ID of an [^ ]+ resource to the intrinsic " +
-	// 		"[`]Ref[`] function, the function returns the (ARN)"),
-	// },
-	// {
-	// 	Name: "RefReturnsArn",
-	// 	Pattern: regexp.MustCompile("When the logical ID of this resource is provided to the `Ref` " +
-	// 		"intrinsic function, `Ref` returns the (ARN)"),
-	// },
-	// {
-	// 	Name: "RefReturnsSomething",
-	// 	Pattern: regexp.MustCompile("When you pass the logical ID of this resource to the intrinsic" +
-	// 		" [`]Ref[`]function, `Ref`returns ([^,.]+)[,.]"),
-	// },
 }
 
 func Categorize(rawRefSection string) Category {
