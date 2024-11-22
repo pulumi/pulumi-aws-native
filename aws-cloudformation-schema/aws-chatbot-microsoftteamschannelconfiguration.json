@@ -93,6 +93,15 @@
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
+    },
+    "CustomizationResourceArns" : {
+      "description" : "ARNs of Custom Actions to associate with notifications in the provided chat channel.",
+      "type" : "array",
+      "insertionOrder" : false,
+      "items" : {
+        "type" : "string",
+        "pattern" : "^arn:aws:chatbot:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:custom-action/[a-zA-Z0-9_-]{1,64}$"
+      }
     }
   },
   "required" : [ "TeamId", "TeamsChannelId", "TeamsTenantId", "ConfigurationName", "IamRoleArn" ],
@@ -102,19 +111,19 @@
   "additionalProperties" : false,
   "handlers" : {
     "create" : {
-      "permissions" : [ "chatbot:CreateMicrosoftTeamsChannelConfiguration", "chatbot:TagResource", "iam:PassRole", "iam:CreateServiceLinkedRole" ]
+      "permissions" : [ "chatbot:CreateMicrosoftTeamsChannelConfiguration", "chatbot:TagResource", "chatbot:AssociateToConfiguration", "chatbot:ListAssociations", "iam:PassRole", "iam:CreateServiceLinkedRole" ]
     },
     "read" : {
-      "permissions" : [ "chatbot:GetMicrosoftTeamsChannelConfiguration" ]
+      "permissions" : [ "chatbot:GetMicrosoftTeamsChannelConfiguration", "chatbot:ListAssociations" ]
     },
     "update" : {
-      "permissions" : [ "chatbot:UpdateMicrosoftTeamsChannelConfiguration", "chatbot:TagResource", "chatbot:UntagResource", "chatbot:ListTagsForResource", "iam:PassRole" ]
+      "permissions" : [ "chatbot:UpdateMicrosoftTeamsChannelConfiguration", "chatbot:TagResource", "chatbot:UntagResource", "chatbot:ListTagsForResource", "chatbot:AssociateToConfiguration", "chatbot:DisassociateFromConfiguration", "chatbot:ListAssociations", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "chatbot:GetMicrosoftTeamsChannelConfiguration", "chatbot:DeleteMicrosoftTeamsChannelConfiguration" ]
+      "permissions" : [ "chatbot:GetMicrosoftTeamsChannelConfiguration", "chatbot:DeleteMicrosoftTeamsChannelConfiguration", "chatbot:DisassociateFromConfiguration", "chatbot:ListAssociations" ]
     },
     "list" : {
-      "permissions" : [ "chatbot:ListMicrosoftTeamsChannelConfigurations" ]
+      "permissions" : [ "chatbot:ListMicrosoftTeamsChannelConfigurations", "chatbot:ListAssociations" ]
     }
   },
   "tagging" : {
@@ -122,6 +131,7 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "chatbot:TagResource", "chatbot:ListTagsForResource", "chatbot:UntagResource" ]
   }
 }
