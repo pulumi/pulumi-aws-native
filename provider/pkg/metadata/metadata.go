@@ -26,6 +26,9 @@ type CloudAPIResource struct {
 	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
 	TagsProperty      string                          `json:"tagsProperty,omitempty"`
 	TagsStyle         default_tags.TagsStyle          `json:"tagsStyle,omitempty"`
+
+	// Describes the behavior of the CF Ref intrinsic for this resource.
+	CfRef *CfRefBehavior `json:"cfRef,omitempty"`
 }
 
 type AutoNamingSpec struct {
@@ -54,3 +57,28 @@ const ExtensionResourceToken = "aws-native:index:ExtensionResource"
 // CfnCustomResourceToken is a Pulumi token for the resource to deploy
 // CloudFormation custom resources.
 const CfnCustomResourceToken = "aws-native:cloudformation:CustomResourceEmulator"
+
+// Describes the behavior of CloudFormation Ref intrinsic for a given resource.
+//
+// One and only one of [Property], [Properties], [NotSupported], [NotSupportedYet] must be set.
+type CfRefBehavior struct {
+	// If set, indicates that Ref will return the value of the given Resource property directly.
+	Property string `json:"property,omitempty"`
+
+	// If set, indicates that Ref will return a string value obtained by joining several Resource properties with a
+	// delimiter, typically "|".
+	//
+	// Usually these properties are strings, but they can also be objects, in which case their values are
+	// JSON-encoded. See AWS::LakeFormation::PrincipalPermissions for an example of this.
+	Properties []string `json:"properties,omitempty"`
+
+	// Delimiter, typically "|". See [Properties].
+	Delimiter string `json:"delimiter,omitempty"`
+
+	// If set, Ref is not supported for this resource in CF.
+	NotSupported bool `json:"notSupported,omitempty"`
+
+	// If set, Ref is supported in CF but this metadata is not yet available in the Pulumi provider but might be
+	// added in a later version.
+	NotSupportedYet bool `json:"notSupportedYet,omitempty"`
+}

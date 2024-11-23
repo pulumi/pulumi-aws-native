@@ -36,7 +36,15 @@ func runTestWithRegions(t *testing.T, spec map[string]interface{}, docs Docs, re
 	if err != nil {
 		t.Fatalf("Error gathering semantics: %v", err)
 	}
-	packageSpec, _, reports, err := GatherPackage([]string{s.Extras["typeName"].(string)}, []*jsschema.Schema{s}, false, &semanticsDocument, &docs, regions)
+	packageSpec, _, reports, err := GatherPackage(
+		[]string{s.Extras["typeName"].(string)},
+		[]*jsschema.Schema{s},
+		false,
+		&semanticsDocument,
+		&docs,
+		regions,
+		nil, /*refdb*/
+	)
 	if err != nil {
 		t.Fatalf("GatherPackage failed: %v", err)
 	}

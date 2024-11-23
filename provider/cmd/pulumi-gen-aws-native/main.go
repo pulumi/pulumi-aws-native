@@ -27,6 +27,7 @@ import (
 	"github.com/pkg/errors"
 	jsschema "github.com/pulumi/jsschema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
@@ -103,6 +104,7 @@ func main() {
 		fmt.Println("Error reading autonaming overlay file: ", err)
 		return
 	}
+	refDBFile := filepath.Join(".", "meta", "ref-db.json")
 
 	switch operation {
 	case "docs":
@@ -147,7 +149,12 @@ func main() {
 			fatalf("error reading regions: %v", err)
 		}
 
-		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes, regions)
+		refDB := new(refdb.RefDB)
+		if err := refDB.LoadJSONFile(refDBFile); err != nil {
+			fatalf("error reading %q", refDBFile)
+		}
+
+		packageSpec, meta, reports, err := schema.GatherPackage(supportedTypes, jsonSchemas, false, &semanticsDocument, docsTypes, regions, refDB)
 		if err != nil {
 			fatalf("error generating schema: %v", err)
 		}
