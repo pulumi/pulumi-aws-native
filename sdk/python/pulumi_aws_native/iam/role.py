@@ -469,7 +469,7 @@ class Role(pulumi.CustomResource):
             actions=[{
                 "job_name": my_job.id,
                 "arguments": {
-                    "--job-bookmark-option": "job-bookmark-enable",
+                    "__job_bookmark_option": "job-bookmark-enable",
                 },
             }],
             predicate={
@@ -529,7 +529,7 @@ class Role(pulumi.CustomResource):
             actions=[{
                 "job_name": my_job.id,
                 "arguments": {
-                    "--job-bookmark-option": "job-bookmark-enable",
+                    "__job_bookmark_option": "job-bookmark-enable",
                 },
             }],
             predicate={
@@ -1021,7 +1021,7 @@ class Role(pulumi.CustomResource):
             actions=[{
                 "job_name": my_job.id,
                 "arguments": {
-                    "--job-bookmark-option": "job-bookmark-enable",
+                    "__job_bookmark_option": "job-bookmark-enable",
                 },
             }],
             predicate={
@@ -1081,7 +1081,7 @@ class Role(pulumi.CustomResource):
             actions=[{
                 "job_name": my_job.id,
                 "arguments": {
-                    "--job-bookmark-option": "job-bookmark-enable",
+                    "__job_bookmark_option": "job-bookmark-enable",
                 },
             }],
             predicate={

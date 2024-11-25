@@ -118,9 +118,9 @@ class Recipe(pulumi.CustomResource):
                 "action": {
                     "operation": "EXTRACT_PATTERN",
                     "parameters": {
-                        "sourceColumn": "Consulate",
+                        "source_column": "Consulate",
                         "pattern": "A",
-                        "targetColumn": "extract_pattern",
+                        "target_column": "extract_pattern",
                     },
                 },
                 "condition_expressions": [{
@@ -166,9 +166,9 @@ class Recipe(pulumi.CustomResource):
                 "action": {
                     "operation": "EXTRACT_PATTERN",
                     "parameters": {
-                        "sourceColumn": "Consulate",
+                        "source_column": "Consulate",
                         "pattern": "A",
-                        "targetColumn": "extract_pattern",
+                        "target_column": "extract_pattern",
                     },
                 },
                 "condition_expressions": [{

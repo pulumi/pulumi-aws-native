@@ -224,7 +224,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                 "stopInstances": {
                     "action_id": "aws:ec2:stop-instances",
                     "parameters": {
-                        "startInstancesAfterDuration": "PT2M",
+                        "start_instances_after_duration": "PT2M",
                     },
                     "targets": {
                         "instances": "oneRandomInstance",
@@ -311,7 +311,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                 "stopInstances": {
                     "action_id": "aws:ec2:stop-instances",
                     "parameters": {
-                        "startInstancesAfterDuration": "PT2M",
+                        "start_instances_after_duration": "PT2M",
                     },
                     "targets": {
                         "instances": "oneRandomInstance",

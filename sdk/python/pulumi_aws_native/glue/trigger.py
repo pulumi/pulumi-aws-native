@@ -255,7 +255,7 @@ class Trigger(pulumi.CustomResource):
                 {
                     "job_name": "prod-job3",
                     "arguments": {
-                        "--job-bookmark-option": "job-bookmark-enable",
+                        "__job_bookmark_option": "job-bookmark-enable",
                     },
                 },
             ],
@@ -279,7 +279,7 @@ class Trigger(pulumi.CustomResource):
                 {
                     "job_name": "prod-job3",
                     "arguments": {
-                        "--job-bookmark-option": "job-bookmark-enable",
+                        "__job_bookmark_option": "job-bookmark-enable",
                     },
                 },
             ],
@@ -359,7 +359,7 @@ class Trigger(pulumi.CustomResource):
                 {
                     "job_name": "prod-job3",
                     "arguments": {
-                        "--job-bookmark-option": "job-bookmark-enable",
+                        "__job_bookmark_option": "job-bookmark-enable",
                     },
                 },
             ],
@@ -383,7 +383,7 @@ class Trigger(pulumi.CustomResource):
                 {
                     "job_name": "prod-job3",
                     "arguments": {
-                        "--job-bookmark-option": "job-bookmark-enable",
+                        "__job_bookmark_option": "job-bookmark-enable",
                     },
                 },
             ],

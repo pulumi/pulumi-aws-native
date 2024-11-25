@@ -445,12 +445,12 @@ class Table(pulumi.CustomResource):
             ],
             key_schema=[
                 {
-                    "attributeName": "Album",
-                    "keyType": "HASH",
+                    "attribute_name": "Album",
+                    "key_type": "HASH",
                 },
                 {
-                    "attributeName": "Artist",
-                    "keyType": "RANGE",
+                    "attribute_name": "Artist",
+                    "key_type": "RANGE",
                 },
             ],
             provisioned_throughput={
@@ -557,12 +557,12 @@ class Table(pulumi.CustomResource):
             ],
             key_schema=[
                 {
-                    "attributeName": "Album",
-                    "keyType": "HASH",
+                    "attribute_name": "Album",
+                    "key_type": "HASH",
                 },
                 {
-                    "attributeName": "Artist",
-                    "keyType": "RANGE",
+                    "attribute_name": "Artist",
+                    "key_type": "RANGE",
                 },
             ],
             provisioned_throughput={
@@ -725,12 +725,12 @@ class Table(pulumi.CustomResource):
             ],
             key_schema=[
                 {
-                    "attributeName": "Album",
-                    "keyType": "HASH",
+                    "attribute_name": "Album",
+                    "key_type": "HASH",
                 },
                 {
-                    "attributeName": "Artist",
-                    "keyType": "RANGE",
+                    "attribute_name": "Artist",
+                    "key_type": "RANGE",
                 },
             ],
             provisioned_throughput={
@@ -837,12 +837,12 @@ class Table(pulumi.CustomResource):
             ],
             key_schema=[
                 {
-                    "attributeName": "Album",
-                    "keyType": "HASH",
+                    "attribute_name": "Album",
+                    "key_type": "HASH",
                 },
                 {
-                    "attributeName": "Artist",
-                    "keyType": "RANGE",
+                    "attribute_name": "Artist",
+                    "key_type": "RANGE",
                 },
             ],
             provisioned_throughput={
