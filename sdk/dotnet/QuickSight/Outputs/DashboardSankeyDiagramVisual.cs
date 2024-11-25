@@ -29,6 +29,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The title that is displayed on the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualTitleLabelOptions? Title;
+        public readonly string? VisualContentAltText;
         /// <summary>
         /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
         /// </summary>
@@ -44,12 +45,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardVisualTitleLabelOptions? title,
 
+            string? visualContentAltText,
+
             string visualId)
         {
             Actions = actions;
             ChartConfiguration = chartConfiguration;
             Subtitle = subtitle;
             Title = title;
+            VisualContentAltText = visualContentAltText;
             VisualId = visualId;
         }
     }

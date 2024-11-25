@@ -60,6 +60,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("title")]
         public Input<Inputs.AnalysisVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        [Input("visualContentAltText")]
+        public Input<string>? VisualContentAltText { get; set; }
+
         /// <summary>
         /// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
         /// </summary>

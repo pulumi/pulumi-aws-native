@@ -241,6 +241,7 @@ namespace Pulumi.AwsNative.Wisdom
         public static KnowledgeBaseType External { get; } = new KnowledgeBaseType("EXTERNAL");
         public static KnowledgeBaseType Custom { get; } = new KnowledgeBaseType("CUSTOM");
         public static KnowledgeBaseType MessageTemplates { get; } = new KnowledgeBaseType("MESSAGE_TEMPLATES");
+        public static KnowledgeBaseType Managed { get; } = new KnowledgeBaseType("MANAGED");
 
         public static bool operator ==(KnowledgeBaseType left, KnowledgeBaseType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseType left, KnowledgeBaseType right) => !left.Equals(right);
@@ -250,6 +251,91 @@ namespace Pulumi.AwsNative.Wisdom
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KnowledgeBaseType other && Equals(other);
         public bool Equals(KnowledgeBaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy : IEquatable<KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy FixedSize { get; } = new KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy("FIXED_SIZE");
+        public static KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy None { get; } = new KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy("NONE");
+        public static KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy Hierarchical { get; } = new KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy("HIERARCHICAL");
+        public static KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy Semantic { get; } = new KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy("SEMANTIC");
+
+        public static bool operator ==(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy left, KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy left, KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy other && Equals(other);
+        public bool Equals(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy : IEquatable<KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy BedrockFoundationModel { get; } = new KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy("BEDROCK_FOUNDATION_MODEL");
+
+        public static bool operator ==(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy left, KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy left, KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy other && Equals(other);
+        public bool Equals(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct KnowledgeBaseWebCrawlerConfigurationScope : IEquatable<KnowledgeBaseWebCrawlerConfigurationScope>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseWebCrawlerConfigurationScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseWebCrawlerConfigurationScope HostOnly { get; } = new KnowledgeBaseWebCrawlerConfigurationScope("HOST_ONLY");
+        public static KnowledgeBaseWebCrawlerConfigurationScope Subdomains { get; } = new KnowledgeBaseWebCrawlerConfigurationScope("SUBDOMAINS");
+
+        public static bool operator ==(KnowledgeBaseWebCrawlerConfigurationScope left, KnowledgeBaseWebCrawlerConfigurationScope right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseWebCrawlerConfigurationScope left, KnowledgeBaseWebCrawlerConfigurationScope right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseWebCrawlerConfigurationScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseWebCrawlerConfigurationScope other && Equals(other);
+        public bool Equals(KnowledgeBaseWebCrawlerConfigurationScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

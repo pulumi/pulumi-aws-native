@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectionResult:
-    def __init__(__self__, arn=None, auth_parameters=None, authorization_type=None, description=None, secret_arn=None):
+    def __init__(__self__, arn=None, auth_parameters=None, authorization_type=None, description=None, invocation_connectivity_parameters=None, secret_arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetConnectionResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if invocation_connectivity_parameters and not isinstance(invocation_connectivity_parameters, dict):
+            raise TypeError("Expected argument 'invocation_connectivity_parameters' to be a dict")
+        pulumi.set(__self__, "invocation_connectivity_parameters", invocation_connectivity_parameters)
         if secret_arn and not isinstance(secret_arn, str):
             raise TypeError("Expected argument 'secret_arn' to be a str")
         pulumi.set(__self__, "secret_arn", secret_arn)
@@ -77,6 +80,14 @@ class GetConnectionResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="invocationConnectivityParameters")
+    def invocation_connectivity_parameters(self) -> Optional['outputs.InvocationConnectivityParametersProperties']:
+        """
+        The private resource the HTTP request will be sent to.
+        """
+        return pulumi.get(self, "invocation_connectivity_parameters")
+
+    @property
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> Optional[str]:
         """
@@ -95,6 +106,7 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             auth_parameters=self.auth_parameters,
             authorization_type=self.authorization_type,
             description=self.description,
+            invocation_connectivity_parameters=self.invocation_connectivity_parameters,
             secret_arn=self.secret_arn)
 
 
@@ -116,6 +128,7 @@ def get_connection(name: Optional[str] = None,
         auth_parameters=pulumi.get(__ret__, 'auth_parameters'),
         authorization_type=pulumi.get(__ret__, 'authorization_type'),
         description=pulumi.get(__ret__, 'description'),
+        invocation_connectivity_parameters=pulumi.get(__ret__, 'invocation_connectivity_parameters'),
         secret_arn=pulumi.get(__ret__, 'secret_arn'))
 def get_connection_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
@@ -134,4 +147,5 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
         auth_parameters=pulumi.get(__response__, 'auth_parameters'),
         authorization_type=pulumi.get(__response__, 'authorization_type'),
         description=pulumi.get(__response__, 'description'),
+        invocation_connectivity_parameters=pulumi.get(__response__, 'invocation_connectivity_parameters'),
         secret_arn=pulumi.get(__response__, 'secret_arn')))

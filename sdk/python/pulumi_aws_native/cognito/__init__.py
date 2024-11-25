@@ -5,10 +5,12 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .get_identity_pool import *
 from .get_identity_pool_principal_tag import *
 from .get_identity_pool_role_attachment import *
 from .get_log_delivery_configuration import *
+from .get_managed_login_branding import *
 from .get_user_pool import *
 from .get_user_pool_client import *
 from .get_user_pool_domain import *
@@ -21,6 +23,7 @@ from .identity_pool import *
 from .identity_pool_principal_tag import *
 from .identity_pool_role_attachment import *
 from .log_delivery_configuration import *
+from .managed_login_branding import *
 from .user_pool import *
 from .user_pool_client import *
 from .user_pool_domain import *

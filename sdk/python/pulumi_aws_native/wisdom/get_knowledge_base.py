@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetKnowledgeBaseResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetKnowledgeBaseResult:
-    def __init__(__self__, knowledge_base_arn=None, knowledge_base_id=None, rendering_configuration=None):
+    def __init__(__self__, knowledge_base_arn=None, knowledge_base_id=None, rendering_configuration=None, vector_ingestion_configuration=None):
         if knowledge_base_arn and not isinstance(knowledge_base_arn, str):
             raise TypeError("Expected argument 'knowledge_base_arn' to be a str")
         pulumi.set(__self__, "knowledge_base_arn", knowledge_base_arn)
@@ -34,6 +35,9 @@ class GetKnowledgeBaseResult:
         if rendering_configuration and not isinstance(rendering_configuration, dict):
             raise TypeError("Expected argument 'rendering_configuration' to be a dict")
         pulumi.set(__self__, "rendering_configuration", rendering_configuration)
+        if vector_ingestion_configuration and not isinstance(vector_ingestion_configuration, dict):
+            raise TypeError("Expected argument 'vector_ingestion_configuration' to be a dict")
+        pulumi.set(__self__, "vector_ingestion_configuration", vector_ingestion_configuration)
 
     @property
     @pulumi.getter(name="knowledgeBaseArn")
@@ -59,6 +63,11 @@ class GetKnowledgeBaseResult:
         """
         return pulumi.get(self, "rendering_configuration")
 
+    @property
+    @pulumi.getter(name="vectorIngestionConfiguration")
+    def vector_ingestion_configuration(self) -> Optional['outputs.KnowledgeBaseVectorIngestionConfiguration']:
+        return pulumi.get(self, "vector_ingestion_configuration")
+
 
 class AwaitableGetKnowledgeBaseResult(GetKnowledgeBaseResult):
     # pylint: disable=using-constant-test
@@ -68,7 +77,8 @@ class AwaitableGetKnowledgeBaseResult(GetKnowledgeBaseResult):
         return GetKnowledgeBaseResult(
             knowledge_base_arn=self.knowledge_base_arn,
             knowledge_base_id=self.knowledge_base_id,
-            rendering_configuration=self.rendering_configuration)
+            rendering_configuration=self.rendering_configuration,
+            vector_ingestion_configuration=self.vector_ingestion_configuration)
 
 
 def get_knowledge_base(knowledge_base_id: Optional[str] = None,
@@ -87,7 +97,8 @@ def get_knowledge_base(knowledge_base_id: Optional[str] = None,
     return AwaitableGetKnowledgeBaseResult(
         knowledge_base_arn=pulumi.get(__ret__, 'knowledge_base_arn'),
         knowledge_base_id=pulumi.get(__ret__, 'knowledge_base_id'),
-        rendering_configuration=pulumi.get(__ret__, 'rendering_configuration'))
+        rendering_configuration=pulumi.get(__ret__, 'rendering_configuration'),
+        vector_ingestion_configuration=pulumi.get(__ret__, 'vector_ingestion_configuration'))
 def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
     """
@@ -103,4 +114,5 @@ def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = N
     return __ret__.apply(lambda __response__: GetKnowledgeBaseResult(
         knowledge_base_arn=pulumi.get(__response__, 'knowledge_base_arn'),
         knowledge_base_id=pulumi.get(__response__, 'knowledge_base_id'),
-        rendering_configuration=pulumi.get(__response__, 'rendering_configuration')))
+        rendering_configuration=pulumi.get(__response__, 'rendering_configuration'),
+        vector_ingestion_configuration=pulumi.get(__response__, 'vector_ingestion_configuration')))

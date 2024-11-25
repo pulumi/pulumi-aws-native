@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// The password policy settings for a user pool, including complexity, history, and length requirements.
         /// </summary>
         public readonly Outputs.UserPoolPasswordPolicy? PasswordPolicy;
+        public readonly Outputs.UserPoolSignInPolicy? SignInPolicy;
 
         [OutputConstructor]
-        private UserPoolPolicies(Outputs.UserPoolPasswordPolicy? passwordPolicy)
+        private UserPoolPolicies(
+            Outputs.UserPoolPasswordPolicy? passwordPolicy,
+
+            Outputs.UserPoolSignInPolicy? signInPolicy)
         {
             PasswordPolicy = passwordPolicy;
+            SignInPolicy = signInPolicy;
         }
     }
 }

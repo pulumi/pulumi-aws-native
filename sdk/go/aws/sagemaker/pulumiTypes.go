@@ -11113,6 +11113,47 @@ func (i InferenceComponentComputeResourceRequirementsArgs) ToInferenceComponentC
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentComputeResourceRequirementsOutput)
 }
 
+func (i InferenceComponentComputeResourceRequirementsArgs) ToInferenceComponentComputeResourceRequirementsPtrOutput() InferenceComponentComputeResourceRequirementsPtrOutput {
+	return i.ToInferenceComponentComputeResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentComputeResourceRequirementsArgs) ToInferenceComponentComputeResourceRequirementsPtrOutputWithContext(ctx context.Context) InferenceComponentComputeResourceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentComputeResourceRequirementsOutput).ToInferenceComponentComputeResourceRequirementsPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentComputeResourceRequirementsPtrInput is an input type that accepts InferenceComponentComputeResourceRequirementsArgs, InferenceComponentComputeResourceRequirementsPtr and InferenceComponentComputeResourceRequirementsPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentComputeResourceRequirementsPtrInput` via:
+//
+//	        InferenceComponentComputeResourceRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentComputeResourceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentComputeResourceRequirementsPtrOutput() InferenceComponentComputeResourceRequirementsPtrOutput
+	ToInferenceComponentComputeResourceRequirementsPtrOutputWithContext(context.Context) InferenceComponentComputeResourceRequirementsPtrOutput
+}
+
+type inferenceComponentComputeResourceRequirementsPtrType InferenceComponentComputeResourceRequirementsArgs
+
+func InferenceComponentComputeResourceRequirementsPtr(v *InferenceComponentComputeResourceRequirementsArgs) InferenceComponentComputeResourceRequirementsPtrInput {
+	return (*inferenceComponentComputeResourceRequirementsPtrType)(v)
+}
+
+func (*inferenceComponentComputeResourceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentComputeResourceRequirements)(nil)).Elem()
+}
+
+func (i *inferenceComponentComputeResourceRequirementsPtrType) ToInferenceComponentComputeResourceRequirementsPtrOutput() InferenceComponentComputeResourceRequirementsPtrOutput {
+	return i.ToInferenceComponentComputeResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentComputeResourceRequirementsPtrType) ToInferenceComponentComputeResourceRequirementsPtrOutputWithContext(ctx context.Context) InferenceComponentComputeResourceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentComputeResourceRequirementsPtrOutput)
+}
+
 type InferenceComponentComputeResourceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (InferenceComponentComputeResourceRequirementsOutput) ElementType() reflect.Type {
@@ -11125,6 +11166,16 @@ func (o InferenceComponentComputeResourceRequirementsOutput) ToInferenceComponen
 
 func (o InferenceComponentComputeResourceRequirementsOutput) ToInferenceComponentComputeResourceRequirementsOutputWithContext(ctx context.Context) InferenceComponentComputeResourceRequirementsOutput {
 	return o
+}
+
+func (o InferenceComponentComputeResourceRequirementsOutput) ToInferenceComponentComputeResourceRequirementsPtrOutput() InferenceComponentComputeResourceRequirementsPtrOutput {
+	return o.ToInferenceComponentComputeResourceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentComputeResourceRequirementsOutput) ToInferenceComponentComputeResourceRequirementsPtrOutputWithContext(ctx context.Context) InferenceComponentComputeResourceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentComputeResourceRequirements) *InferenceComponentComputeResourceRequirements {
+		return &v
+	}).(InferenceComponentComputeResourceRequirementsPtrOutput)
 }
 
 // The maximum MB of memory to allocate to run a model that you assign to an inference component.
@@ -11619,6 +11670,47 @@ func (i InferenceComponentRuntimeConfigArgs) ToInferenceComponentRuntimeConfigOu
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentRuntimeConfigOutput)
 }
 
+func (i InferenceComponentRuntimeConfigArgs) ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput {
+	return i.ToInferenceComponentRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InferenceComponentRuntimeConfigArgs) ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentRuntimeConfigOutput).ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx)
+}
+
+// InferenceComponentRuntimeConfigPtrInput is an input type that accepts InferenceComponentRuntimeConfigArgs, InferenceComponentRuntimeConfigPtr and InferenceComponentRuntimeConfigPtrOutput values.
+// You can construct a concrete instance of `InferenceComponentRuntimeConfigPtrInput` via:
+//
+//	        InferenceComponentRuntimeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InferenceComponentRuntimeConfigPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput
+	ToInferenceComponentRuntimeConfigPtrOutputWithContext(context.Context) InferenceComponentRuntimeConfigPtrOutput
+}
+
+type inferenceComponentRuntimeConfigPtrType InferenceComponentRuntimeConfigArgs
+
+func InferenceComponentRuntimeConfigPtr(v *InferenceComponentRuntimeConfigArgs) InferenceComponentRuntimeConfigPtrInput {
+	return (*inferenceComponentRuntimeConfigPtrType)(v)
+}
+
+func (*inferenceComponentRuntimeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentRuntimeConfig)(nil)).Elem()
+}
+
+func (i *inferenceComponentRuntimeConfigPtrType) ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput {
+	return i.ToInferenceComponentRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *inferenceComponentRuntimeConfigPtrType) ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InferenceComponentRuntimeConfigPtrOutput)
+}
+
 // The runtime config for the inference component
 type InferenceComponentRuntimeConfigOutput struct{ *pulumi.OutputState }
 
@@ -11632,6 +11724,16 @@ func (o InferenceComponentRuntimeConfigOutput) ToInferenceComponentRuntimeConfig
 
 func (o InferenceComponentRuntimeConfigOutput) ToInferenceComponentRuntimeConfigOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigOutput {
 	return o
+}
+
+func (o InferenceComponentRuntimeConfigOutput) ToInferenceComponentRuntimeConfigPtrOutput() InferenceComponentRuntimeConfigPtrOutput {
+	return o.ToInferenceComponentRuntimeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentRuntimeConfigOutput) ToInferenceComponentRuntimeConfigPtrOutputWithContext(ctx context.Context) InferenceComponentRuntimeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentRuntimeConfig) *InferenceComponentRuntimeConfig {
+		return &v
+	}).(InferenceComponentRuntimeConfigPtrOutput)
 }
 
 // The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
@@ -11701,8 +11803,9 @@ func (o InferenceComponentRuntimeConfigPtrOutput) DesiredCopyCount() pulumi.IntP
 
 // The specification for the inference component
 type InferenceComponentSpecification struct {
+	BaseInferenceComponentName *string `pulumi:"baseInferenceComponentName"`
 	// The compute resources allocated to run the model assigned to the inference component.
-	ComputeResourceRequirements InferenceComponentComputeResourceRequirements `pulumi:"computeResourceRequirements"`
+	ComputeResourceRequirements *InferenceComponentComputeResourceRequirements `pulumi:"computeResourceRequirements"`
 	// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
 	Container *InferenceComponentContainerSpecification `pulumi:"container"`
 	// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
@@ -11724,8 +11827,9 @@ type InferenceComponentSpecificationInput interface {
 
 // The specification for the inference component
 type InferenceComponentSpecificationArgs struct {
+	BaseInferenceComponentName pulumi.StringPtrInput `pulumi:"baseInferenceComponentName"`
 	// The compute resources allocated to run the model assigned to the inference component.
-	ComputeResourceRequirements InferenceComponentComputeResourceRequirementsInput `pulumi:"computeResourceRequirements"`
+	ComputeResourceRequirements InferenceComponentComputeResourceRequirementsPtrInput `pulumi:"computeResourceRequirements"`
 	// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
 	Container InferenceComponentContainerSpecificationPtrInput `pulumi:"container"`
 	// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
@@ -11761,11 +11865,15 @@ func (o InferenceComponentSpecificationOutput) ToInferenceComponentSpecification
 	return o
 }
 
+func (o InferenceComponentSpecificationOutput) BaseInferenceComponentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *string { return v.BaseInferenceComponentName }).(pulumi.StringPtrOutput)
+}
+
 // The compute resources allocated to run the model assigned to the inference component.
-func (o InferenceComponentSpecificationOutput) ComputeResourceRequirements() InferenceComponentComputeResourceRequirementsOutput {
-	return o.ApplyT(func(v InferenceComponentSpecification) InferenceComponentComputeResourceRequirements {
+func (o InferenceComponentSpecificationOutput) ComputeResourceRequirements() InferenceComponentComputeResourceRequirementsPtrOutput {
+	return o.ApplyT(func(v InferenceComponentSpecification) *InferenceComponentComputeResourceRequirements {
 		return v.ComputeResourceRequirements
-	}).(InferenceComponentComputeResourceRequirementsOutput)
+	}).(InferenceComponentComputeResourceRequirementsPtrOutput)
 }
 
 // Defines a container that provides the runtime environment for a model that you deploy with an inference component.
@@ -11809,13 +11917,22 @@ func (o InferenceComponentSpecificationPtrOutput) Elem() InferenceComponentSpeci
 	}).(InferenceComponentSpecificationOutput)
 }
 
+func (o InferenceComponentSpecificationPtrOutput) BaseInferenceComponentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponentSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseInferenceComponentName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The compute resources allocated to run the model assigned to the inference component.
 func (o InferenceComponentSpecificationPtrOutput) ComputeResourceRequirements() InferenceComponentComputeResourceRequirementsPtrOutput {
 	return o.ApplyT(func(v *InferenceComponentSpecification) *InferenceComponentComputeResourceRequirements {
 		if v == nil {
 			return nil
 		}
-		return &v.ComputeResourceRequirements
+		return v.ComputeResourceRequirements
 	}).(InferenceComponentComputeResourceRequirementsPtrOutput)
 }
 
@@ -40392,11 +40509,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTtlDurationInput)(nil)).Elem(), FeatureGroupTtlDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupTtlDurationPtrInput)(nil)).Elem(), FeatureGroupTtlDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentComputeResourceRequirementsInput)(nil)).Elem(), InferenceComponentComputeResourceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentComputeResourceRequirementsPtrInput)(nil)).Elem(), InferenceComponentComputeResourceRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentContainerSpecificationInput)(nil)).Elem(), InferenceComponentContainerSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentContainerSpecificationPtrInput)(nil)).Elem(), InferenceComponentContainerSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeployedImageInput)(nil)).Elem(), InferenceComponentDeployedImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentDeployedImagePtrInput)(nil)).Elem(), InferenceComponentDeployedImageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentRuntimeConfigInput)(nil)).Elem(), InferenceComponentRuntimeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentRuntimeConfigPtrInput)(nil)).Elem(), InferenceComponentRuntimeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentSpecificationInput)(nil)).Elem(), InferenceComponentSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentStartupParametersInput)(nil)).Elem(), InferenceComponentStartupParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentStartupParametersPtrInput)(nil)).Elem(), InferenceComponentStartupParametersArgs{})

@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The custom title for the legend.
         /// </summary>
         public readonly Outputs.AnalysisLabelOptions? Title;
+        public readonly Outputs.AnalysisFontConfiguration? ValueFontConfiguration;
         /// <summary>
         /// Determines whether or not the legend is visible.
         /// </summary>
@@ -47,6 +48,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisLabelOptions? title,
 
+            Outputs.AnalysisFontConfiguration? valueFontConfiguration,
+
             Pulumi.AwsNative.QuickSight.AnalysisVisibility? visibility,
 
             string? width)
@@ -54,6 +57,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Height = height;
             Position = position;
             Title = title;
+            ValueFontConfiguration = valueFontConfiguration;
             Visibility = visibility;
             Width = width;
         }

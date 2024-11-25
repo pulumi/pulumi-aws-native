@@ -25,29 +25,31 @@ __all__ = ['InferenceComponentArgs', 'InferenceComponent']
 class InferenceComponentArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[str],
-                 runtime_config: pulumi.Input['InferenceComponentRuntimeConfigArgs'],
                  specification: pulumi.Input['InferenceComponentSpecificationArgs'],
-                 variant_name: pulumi.Input[str],
                  endpoint_arn: Optional[pulumi.Input[str]] = None,
                  inference_component_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 runtime_config: Optional[pulumi.Input['InferenceComponentRuntimeConfigArgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 variant_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a InferenceComponent resource.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint that hosts the inference component.
-        :param pulumi.Input[str] variant_name: The name of the production variant that hosts the inference component.
         :param pulumi.Input[str] endpoint_arn: The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
         :param pulumi.Input[str] inference_component_name: The name of the inference component.
+        :param pulumi.Input[str] variant_name: The name of the production variant that hosts the inference component.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "runtime_config", runtime_config)
         pulumi.set(__self__, "specification", specification)
-        pulumi.set(__self__, "variant_name", variant_name)
         if endpoint_arn is not None:
             pulumi.set(__self__, "endpoint_arn", endpoint_arn)
         if inference_component_name is not None:
             pulumi.set(__self__, "inference_component_name", inference_component_name)
+        if runtime_config is not None:
+            pulumi.set(__self__, "runtime_config", runtime_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if variant_name is not None:
+            pulumi.set(__self__, "variant_name", variant_name)
 
     @property
     @pulumi.getter(name="endpointName")
@@ -62,15 +64,6 @@ class InferenceComponentArgs:
         pulumi.set(self, "endpoint_name", value)
 
     @property
-    @pulumi.getter(name="runtimeConfig")
-    def runtime_config(self) -> pulumi.Input['InferenceComponentRuntimeConfigArgs']:
-        return pulumi.get(self, "runtime_config")
-
-    @runtime_config.setter
-    def runtime_config(self, value: pulumi.Input['InferenceComponentRuntimeConfigArgs']):
-        pulumi.set(self, "runtime_config", value)
-
-    @property
     @pulumi.getter
     def specification(self) -> pulumi.Input['InferenceComponentSpecificationArgs']:
         return pulumi.get(self, "specification")
@@ -78,18 +71,6 @@ class InferenceComponentArgs:
     @specification.setter
     def specification(self, value: pulumi.Input['InferenceComponentSpecificationArgs']):
         pulumi.set(self, "specification", value)
-
-    @property
-    @pulumi.getter(name="variantName")
-    def variant_name(self) -> pulumi.Input[str]:
-        """
-        The name of the production variant that hosts the inference component.
-        """
-        return pulumi.get(self, "variant_name")
-
-    @variant_name.setter
-    def variant_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "variant_name", value)
 
     @property
     @pulumi.getter(name="endpointArn")
@@ -116,6 +97,15 @@ class InferenceComponentArgs:
         pulumi.set(self, "inference_component_name", value)
 
     @property
+    @pulumi.getter(name="runtimeConfig")
+    def runtime_config(self) -> Optional[pulumi.Input['InferenceComponentRuntimeConfigArgs']]:
+        return pulumi.get(self, "runtime_config")
+
+    @runtime_config.setter
+    def runtime_config(self, value: Optional[pulumi.Input['InferenceComponentRuntimeConfigArgs']]):
+        pulumi.set(self, "runtime_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         return pulumi.get(self, "tags")
@@ -123,6 +113,18 @@ class InferenceComponentArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="variantName")
+    def variant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the production variant that hosts the inference component.
+        """
+        return pulumi.get(self, "variant_name")
+
+    @variant_name.setter
+    def variant_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "variant_name", value)
 
 
 class InferenceComponent(pulumi.CustomResource):
@@ -193,15 +195,11 @@ class InferenceComponent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["inference_component_name"] = inference_component_name
-            if runtime_config is None and not opts.urn:
-                raise TypeError("Missing required property 'runtime_config'")
             __props__.__dict__["runtime_config"] = runtime_config
             if specification is None and not opts.urn:
                 raise TypeError("Missing required property 'specification'")
             __props__.__dict__["specification"] = specification
             __props__.__dict__["tags"] = tags
-            if variant_name is None and not opts.urn:
-                raise TypeError("Missing required property 'variant_name'")
             __props__.__dict__["variant_name"] = variant_name
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["failure_reason"] = None
@@ -307,7 +305,7 @@ class InferenceComponent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="runtimeConfig")
-    def runtime_config(self) -> pulumi.Output['outputs.InferenceComponentRuntimeConfig']:
+    def runtime_config(self) -> pulumi.Output[Optional['outputs.InferenceComponentRuntimeConfig']]:
         return pulumi.get(self, "runtime_config")
 
     @property
@@ -322,7 +320,7 @@ class InferenceComponent(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="variantName")
-    def variant_name(self) -> pulumi.Output[str]:
+    def variant_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the production variant that hosts the inference component.
         """

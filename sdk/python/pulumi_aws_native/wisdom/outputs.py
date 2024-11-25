@@ -34,9 +34,24 @@ __all__ = [
     'AssistantAssociationAssociationData',
     'AssistantServerSideEncryptionConfiguration',
     'KnowledgeBaseAppIntegrationsConfiguration',
+    'KnowledgeBaseBedrockFoundationModelConfiguration',
+    'KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties',
+    'KnowledgeBaseFixedSizeChunkingConfiguration',
+    'KnowledgeBaseHierarchicalChunkingConfiguration',
+    'KnowledgeBaseHierarchicalChunkingLevelConfiguration',
+    'KnowledgeBaseManagedSourceConfigurationProperties',
     'KnowledgeBaseRenderingConfiguration',
+    'KnowledgeBaseSeedUrl',
+    'KnowledgeBaseSemanticChunkingConfiguration',
     'KnowledgeBaseServerSideEncryptionConfiguration',
-    'KnowledgeBaseSourceConfiguration',
+    'KnowledgeBaseSourceConfiguration0Properties',
+    'KnowledgeBaseSourceConfiguration1Properties',
+    'KnowledgeBaseVectorIngestionConfiguration',
+    'KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties',
+    'KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties',
+    'KnowledgeBaseWebCrawlerConfiguration',
+    'KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties',
+    'KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties',
     'MessageTemplateAgentAttributes',
     'MessageTemplateAttributes',
     'MessageTemplateBodyContentProvider',
@@ -605,24 +620,6 @@ class KnowledgeBaseAppIntegrationsConfiguration(dict):
     def __init__(__self__, *,
                  app_integration_arn: str,
                  object_fields: Optional[Sequence[str]] = None):
-        """
-        :param str app_integration_arn: The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
-               
-               - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
-               - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
-               - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
-               - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
-               - For [Amazon S3](https://docs.aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
-               
-               > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
-        :param Sequence[str] object_fields: The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
-               
-               - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
-               - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
-               - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
-               
-               Make sure to include additional fields. These fields are indexed and used to source recommendations.
-        """
         pulumi.set(__self__, "app_integration_arn", app_integration_arn)
         if object_fields is not None:
             pulumi.set(__self__, "object_fields", object_fields)
@@ -630,32 +627,214 @@ class KnowledgeBaseAppIntegrationsConfiguration(dict):
     @property
     @pulumi.getter(name="appIntegrationArn")
     def app_integration_arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
-
-        - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
-        - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
-        - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
-        - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
-        - For [Amazon S3](https://docs.aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
-
-        > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
-        """
         return pulumi.get(self, "app_integration_arn")
 
     @property
     @pulumi.getter(name="objectFields")
     def object_fields(self) -> Optional[Sequence[str]]:
-        """
-        The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
-
-        - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
-        - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
-        - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
-
-        Make sure to include additional fields. These fields are indexed and used to source recommendations.
-        """
         return pulumi.get(self, "object_fields")
+
+
+@pulumi.output_type
+class KnowledgeBaseBedrockFoundationModelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelArn":
+            suggest = "model_arn"
+        elif key == "parsingPrompt":
+            suggest = "parsing_prompt"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseBedrockFoundationModelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseBedrockFoundationModelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseBedrockFoundationModelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_arn: str,
+                 parsing_prompt: Optional['outputs.KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties'] = None):
+        pulumi.set(__self__, "model_arn", model_arn)
+        if parsing_prompt is not None:
+            pulumi.set(__self__, "parsing_prompt", parsing_prompt)
+
+    @property
+    @pulumi.getter(name="modelArn")
+    def model_arn(self) -> str:
+        return pulumi.get(self, "model_arn")
+
+    @property
+    @pulumi.getter(name="parsingPrompt")
+    def parsing_prompt(self) -> Optional['outputs.KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties']:
+        return pulumi.get(self, "parsing_prompt")
+
+
+@pulumi.output_type
+class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parsingPromptText":
+            suggest = "parsing_prompt_text"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parsing_prompt_text: str):
+        pulumi.set(__self__, "parsing_prompt_text", parsing_prompt_text)
+
+    @property
+    @pulumi.getter(name="parsingPromptText")
+    def parsing_prompt_text(self) -> str:
+        return pulumi.get(self, "parsing_prompt_text")
+
+
+@pulumi.output_type
+class KnowledgeBaseFixedSizeChunkingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTokens":
+            suggest = "max_tokens"
+        elif key == "overlapPercentage":
+            suggest = "overlap_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseFixedSizeChunkingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseFixedSizeChunkingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseFixedSizeChunkingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_tokens: float,
+                 overlap_percentage: float):
+        pulumi.set(__self__, "max_tokens", max_tokens)
+        pulumi.set(__self__, "overlap_percentage", overlap_percentage)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> float:
+        return pulumi.get(self, "max_tokens")
+
+    @property
+    @pulumi.getter(name="overlapPercentage")
+    def overlap_percentage(self) -> float:
+        return pulumi.get(self, "overlap_percentage")
+
+
+@pulumi.output_type
+class KnowledgeBaseHierarchicalChunkingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "levelConfigurations":
+            suggest = "level_configurations"
+        elif key == "overlapTokens":
+            suggest = "overlap_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseHierarchicalChunkingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseHierarchicalChunkingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseHierarchicalChunkingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 level_configurations: Sequence['outputs.KnowledgeBaseHierarchicalChunkingLevelConfiguration'],
+                 overlap_tokens: float):
+        pulumi.set(__self__, "level_configurations", level_configurations)
+        pulumi.set(__self__, "overlap_tokens", overlap_tokens)
+
+    @property
+    @pulumi.getter(name="levelConfigurations")
+    def level_configurations(self) -> Sequence['outputs.KnowledgeBaseHierarchicalChunkingLevelConfiguration']:
+        return pulumi.get(self, "level_configurations")
+
+    @property
+    @pulumi.getter(name="overlapTokens")
+    def overlap_tokens(self) -> float:
+        return pulumi.get(self, "overlap_tokens")
+
+
+@pulumi.output_type
+class KnowledgeBaseHierarchicalChunkingLevelConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxTokens":
+            suggest = "max_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseHierarchicalChunkingLevelConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseHierarchicalChunkingLevelConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseHierarchicalChunkingLevelConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_tokens: float):
+        pulumi.set(__self__, "max_tokens", max_tokens)
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> float:
+        return pulumi.get(self, "max_tokens")
+
+
+@pulumi.output_type
+class KnowledgeBaseManagedSourceConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "webCrawlerConfiguration":
+            suggest = "web_crawler_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseManagedSourceConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseManagedSourceConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseManagedSourceConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 web_crawler_configuration: 'outputs.KnowledgeBaseWebCrawlerConfiguration'):
+        pulumi.set(__self__, "web_crawler_configuration", web_crawler_configuration)
+
+    @property
+    @pulumi.getter(name="webCrawlerConfiguration")
+    def web_crawler_configuration(self) -> 'outputs.KnowledgeBaseWebCrawlerConfiguration':
+        return pulumi.get(self, "web_crawler_configuration")
 
 
 @pulumi.output_type
@@ -707,6 +886,66 @@ class KnowledgeBaseRenderingConfiguration(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseSeedUrl(dict):
+    def __init__(__self__, *,
+                 url: Optional[str] = None):
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[str]:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class KnowledgeBaseSemanticChunkingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "breakpointPercentileThreshold":
+            suggest = "breakpoint_percentile_threshold"
+        elif key == "bufferSize":
+            suggest = "buffer_size"
+        elif key == "maxTokens":
+            suggest = "max_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseSemanticChunkingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseSemanticChunkingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseSemanticChunkingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 breakpoint_percentile_threshold: float,
+                 buffer_size: float,
+                 max_tokens: float):
+        pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
+        pulumi.set(__self__, "buffer_size", buffer_size)
+        pulumi.set(__self__, "max_tokens", max_tokens)
+
+    @property
+    @pulumi.getter(name="breakpointPercentileThreshold")
+    def breakpoint_percentile_threshold(self) -> float:
+        return pulumi.get(self, "breakpoint_percentile_threshold")
+
+    @property
+    @pulumi.getter(name="bufferSize")
+    def buffer_size(self) -> float:
+        return pulumi.get(self, "buffer_size")
+
+    @property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> float:
+        return pulumi.get(self, "max_tokens")
+
+
+@pulumi.output_type
 class KnowledgeBaseServerSideEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -751,7 +990,7 @@ class KnowledgeBaseServerSideEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class KnowledgeBaseSourceConfiguration(dict):
+class KnowledgeBaseSourceConfiguration0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -759,31 +998,318 @@ class KnowledgeBaseSourceConfiguration(dict):
             suggest = "app_integrations"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseSourceConfiguration0Properties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        KnowledgeBaseSourceConfiguration.__key_warning(key)
+        KnowledgeBaseSourceConfiguration0Properties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        KnowledgeBaseSourceConfiguration.__key_warning(key)
+        KnowledgeBaseSourceConfiguration0Properties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 app_integrations: Optional['outputs.KnowledgeBaseAppIntegrationsConfiguration'] = None):
-        """
-        :param 'KnowledgeBaseAppIntegrationsConfiguration' app_integrations: Configuration information for Amazon AppIntegrations to automatically ingest content.
-        """
-        if app_integrations is not None:
-            pulumi.set(__self__, "app_integrations", app_integrations)
+                 app_integrations: 'outputs.KnowledgeBaseAppIntegrationsConfiguration'):
+        pulumi.set(__self__, "app_integrations", app_integrations)
 
     @property
     @pulumi.getter(name="appIntegrations")
-    def app_integrations(self) -> Optional['outputs.KnowledgeBaseAppIntegrationsConfiguration']:
-        """
-        Configuration information for Amazon AppIntegrations to automatically ingest content.
-        """
+    def app_integrations(self) -> 'outputs.KnowledgeBaseAppIntegrationsConfiguration':
         return pulumi.get(self, "app_integrations")
+
+
+@pulumi.output_type
+class KnowledgeBaseSourceConfiguration1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedSourceConfiguration":
+            suggest = "managed_source_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseSourceConfiguration1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseSourceConfiguration1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseSourceConfiguration1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_source_configuration: 'outputs.KnowledgeBaseManagedSourceConfigurationProperties'):
+        pulumi.set(__self__, "managed_source_configuration", managed_source_configuration)
+
+    @property
+    @pulumi.getter(name="managedSourceConfiguration")
+    def managed_source_configuration(self) -> 'outputs.KnowledgeBaseManagedSourceConfigurationProperties':
+        return pulumi.get(self, "managed_source_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseVectorIngestionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chunkingConfiguration":
+            suggest = "chunking_configuration"
+        elif key == "parsingConfiguration":
+            suggest = "parsing_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseVectorIngestionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseVectorIngestionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseVectorIngestionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chunking_configuration: Optional['outputs.KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties'] = None,
+                 parsing_configuration: Optional['outputs.KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties'] = None):
+        if chunking_configuration is not None:
+            pulumi.set(__self__, "chunking_configuration", chunking_configuration)
+        if parsing_configuration is not None:
+            pulumi.set(__self__, "parsing_configuration", parsing_configuration)
+
+    @property
+    @pulumi.getter(name="chunkingConfiguration")
+    def chunking_configuration(self) -> Optional['outputs.KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties']:
+        return pulumi.get(self, "chunking_configuration")
+
+    @property
+    @pulumi.getter(name="parsingConfiguration")
+    def parsing_configuration(self) -> Optional['outputs.KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties']:
+        return pulumi.get(self, "parsing_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "chunkingStrategy":
+            suggest = "chunking_strategy"
+        elif key == "fixedSizeChunkingConfiguration":
+            suggest = "fixed_size_chunking_configuration"
+        elif key == "hierarchicalChunkingConfiguration":
+            suggest = "hierarchical_chunking_configuration"
+        elif key == "semanticChunkingConfiguration":
+            suggest = "semantic_chunking_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 chunking_strategy: 'KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy',
+                 fixed_size_chunking_configuration: Optional['outputs.KnowledgeBaseFixedSizeChunkingConfiguration'] = None,
+                 hierarchical_chunking_configuration: Optional['outputs.KnowledgeBaseHierarchicalChunkingConfiguration'] = None,
+                 semantic_chunking_configuration: Optional['outputs.KnowledgeBaseSemanticChunkingConfiguration'] = None):
+        pulumi.set(__self__, "chunking_strategy", chunking_strategy)
+        if fixed_size_chunking_configuration is not None:
+            pulumi.set(__self__, "fixed_size_chunking_configuration", fixed_size_chunking_configuration)
+        if hierarchical_chunking_configuration is not None:
+            pulumi.set(__self__, "hierarchical_chunking_configuration", hierarchical_chunking_configuration)
+        if semantic_chunking_configuration is not None:
+            pulumi.set(__self__, "semantic_chunking_configuration", semantic_chunking_configuration)
+
+    @property
+    @pulumi.getter(name="chunkingStrategy")
+    def chunking_strategy(self) -> 'KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy':
+        return pulumi.get(self, "chunking_strategy")
+
+    @property
+    @pulumi.getter(name="fixedSizeChunkingConfiguration")
+    def fixed_size_chunking_configuration(self) -> Optional['outputs.KnowledgeBaseFixedSizeChunkingConfiguration']:
+        return pulumi.get(self, "fixed_size_chunking_configuration")
+
+    @property
+    @pulumi.getter(name="hierarchicalChunkingConfiguration")
+    def hierarchical_chunking_configuration(self) -> Optional['outputs.KnowledgeBaseHierarchicalChunkingConfiguration']:
+        return pulumi.get(self, "hierarchical_chunking_configuration")
+
+    @property
+    @pulumi.getter(name="semanticChunkingConfiguration")
+    def semantic_chunking_configuration(self) -> Optional['outputs.KnowledgeBaseSemanticChunkingConfiguration']:
+        return pulumi.get(self, "semantic_chunking_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parsingStrategy":
+            suggest = "parsing_strategy"
+        elif key == "bedrockFoundationModelConfiguration":
+            suggest = "bedrock_foundation_model_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parsing_strategy: 'KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy',
+                 bedrock_foundation_model_configuration: Optional['outputs.KnowledgeBaseBedrockFoundationModelConfiguration'] = None):
+        pulumi.set(__self__, "parsing_strategy", parsing_strategy)
+        if bedrock_foundation_model_configuration is not None:
+            pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
+
+    @property
+    @pulumi.getter(name="parsingStrategy")
+    def parsing_strategy(self) -> 'KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy':
+        return pulumi.get(self, "parsing_strategy")
+
+    @property
+    @pulumi.getter(name="bedrockFoundationModelConfiguration")
+    def bedrock_foundation_model_configuration(self) -> Optional['outputs.KnowledgeBaseBedrockFoundationModelConfiguration']:
+        return pulumi.get(self, "bedrock_foundation_model_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseWebCrawlerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "urlConfiguration":
+            suggest = "url_configuration"
+        elif key == "crawlerLimits":
+            suggest = "crawler_limits"
+        elif key == "exclusionFilters":
+            suggest = "exclusion_filters"
+        elif key == "inclusionFilters":
+            suggest = "inclusion_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseWebCrawlerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseWebCrawlerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseWebCrawlerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url_configuration: 'outputs.KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties',
+                 crawler_limits: Optional['outputs.KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties'] = None,
+                 exclusion_filters: Optional[Sequence[str]] = None,
+                 inclusion_filters: Optional[Sequence[str]] = None,
+                 scope: Optional['KnowledgeBaseWebCrawlerConfigurationScope'] = None):
+        pulumi.set(__self__, "url_configuration", url_configuration)
+        if crawler_limits is not None:
+            pulumi.set(__self__, "crawler_limits", crawler_limits)
+        if exclusion_filters is not None:
+            pulumi.set(__self__, "exclusion_filters", exclusion_filters)
+        if inclusion_filters is not None:
+            pulumi.set(__self__, "inclusion_filters", inclusion_filters)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="urlConfiguration")
+    def url_configuration(self) -> 'outputs.KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties':
+        return pulumi.get(self, "url_configuration")
+
+    @property
+    @pulumi.getter(name="crawlerLimits")
+    def crawler_limits(self) -> Optional['outputs.KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties']:
+        return pulumi.get(self, "crawler_limits")
+
+    @property
+    @pulumi.getter(name="exclusionFilters")
+    def exclusion_filters(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "exclusion_filters")
+
+    @property
+    @pulumi.getter(name="inclusionFilters")
+    def inclusion_filters(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "inclusion_filters")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional['KnowledgeBaseWebCrawlerConfigurationScope']:
+        return pulumi.get(self, "scope")
+
+
+@pulumi.output_type
+class KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rateLimit":
+            suggest = "rate_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rate_limit: Optional[float] = None):
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[float]:
+        return pulumi.get(self, "rate_limit")
+
+
+@pulumi.output_type
+class KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "seedUrls":
+            suggest = "seed_urls"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 seed_urls: Optional[Sequence['outputs.KnowledgeBaseSeedUrl']] = None):
+        if seed_urls is not None:
+            pulumi.set(__self__, "seed_urls", seed_urls)
+
+    @property
+    @pulumi.getter(name="seedUrls")
+    def seed_urls(self) -> Optional[Sequence['outputs.KnowledgeBaseSeedUrl']]:
+        return pulumi.get(self, "seed_urls")
 
 
 @pulumi.output_type

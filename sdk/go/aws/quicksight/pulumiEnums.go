@@ -5541,6 +5541,504 @@ func (in *analysisFunnelChartMeasureDataLabelStylePtr) ToAnalysisFunnelChartMeas
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
+// Defines view state of the color
+type AnalysisGeospatialColorState string
+
+const (
+	AnalysisGeospatialColorStateEnabled  = AnalysisGeospatialColorState("ENABLED")
+	AnalysisGeospatialColorStateDisabled = AnalysisGeospatialColorState("DISABLED")
+)
+
+func (AnalysisGeospatialColorState) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialColorState)(nil)).Elem()
+}
+
+func (e AnalysisGeospatialColorState) ToAnalysisGeospatialColorStateOutput() AnalysisGeospatialColorStateOutput {
+	return pulumi.ToOutput(e).(AnalysisGeospatialColorStateOutput)
+}
+
+func (e AnalysisGeospatialColorState) ToAnalysisGeospatialColorStateOutputWithContext(ctx context.Context) AnalysisGeospatialColorStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisGeospatialColorStateOutput)
+}
+
+func (e AnalysisGeospatialColorState) ToAnalysisGeospatialColorStatePtrOutput() AnalysisGeospatialColorStatePtrOutput {
+	return e.ToAnalysisGeospatialColorStatePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisGeospatialColorState) ToAnalysisGeospatialColorStatePtrOutputWithContext(ctx context.Context) AnalysisGeospatialColorStatePtrOutput {
+	return AnalysisGeospatialColorState(e).ToAnalysisGeospatialColorStateOutputWithContext(ctx).ToAnalysisGeospatialColorStatePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisGeospatialColorState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisGeospatialColorState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisGeospatialColorState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisGeospatialColorState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisGeospatialColorStateOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialColorStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialColorState)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialColorStateOutput) ToAnalysisGeospatialColorStateOutput() AnalysisGeospatialColorStateOutput {
+	return o
+}
+
+func (o AnalysisGeospatialColorStateOutput) ToAnalysisGeospatialColorStateOutputWithContext(ctx context.Context) AnalysisGeospatialColorStateOutput {
+	return o
+}
+
+func (o AnalysisGeospatialColorStateOutput) ToAnalysisGeospatialColorStatePtrOutput() AnalysisGeospatialColorStatePtrOutput {
+	return o.ToAnalysisGeospatialColorStatePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialColorStateOutput) ToAnalysisGeospatialColorStatePtrOutputWithContext(ctx context.Context) AnalysisGeospatialColorStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisGeospatialColorState) *AnalysisGeospatialColorState {
+		return &v
+	}).(AnalysisGeospatialColorStatePtrOutput)
+}
+
+func (o AnalysisGeospatialColorStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialColorStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisGeospatialColorState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisGeospatialColorStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialColorStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisGeospatialColorState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisGeospatialColorStatePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialColorStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGeospatialColorState)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialColorStatePtrOutput) ToAnalysisGeospatialColorStatePtrOutput() AnalysisGeospatialColorStatePtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialColorStatePtrOutput) ToAnalysisGeospatialColorStatePtrOutputWithContext(ctx context.Context) AnalysisGeospatialColorStatePtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialColorStatePtrOutput) Elem() AnalysisGeospatialColorStateOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialColorState) AnalysisGeospatialColorState {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisGeospatialColorState
+		return ret
+	}).(AnalysisGeospatialColorStateOutput)
+}
+
+func (o AnalysisGeospatialColorStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialColorStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisGeospatialColorState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisGeospatialColorStateInput is an input type that accepts values of the AnalysisGeospatialColorState enum
+// A concrete instance of `AnalysisGeospatialColorStateInput` can be one of the following:
+//
+//	AnalysisGeospatialColorStateEnabled
+//	AnalysisGeospatialColorStateDisabled
+type AnalysisGeospatialColorStateInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialColorStateOutput() AnalysisGeospatialColorStateOutput
+	ToAnalysisGeospatialColorStateOutputWithContext(context.Context) AnalysisGeospatialColorStateOutput
+}
+
+var analysisGeospatialColorStatePtrType = reflect.TypeOf((**AnalysisGeospatialColorState)(nil)).Elem()
+
+type AnalysisGeospatialColorStatePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialColorStatePtrOutput() AnalysisGeospatialColorStatePtrOutput
+	ToAnalysisGeospatialColorStatePtrOutputWithContext(context.Context) AnalysisGeospatialColorStatePtrOutput
+}
+
+type analysisGeospatialColorStatePtr string
+
+func AnalysisGeospatialColorStatePtr(v string) AnalysisGeospatialColorStatePtrInput {
+	return (*analysisGeospatialColorStatePtr)(&v)
+}
+
+func (*analysisGeospatialColorStatePtr) ElementType() reflect.Type {
+	return analysisGeospatialColorStatePtrType
+}
+
+func (in *analysisGeospatialColorStatePtr) ToAnalysisGeospatialColorStatePtrOutput() AnalysisGeospatialColorStatePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisGeospatialColorStatePtrOutput)
+}
+
+func (in *analysisGeospatialColorStatePtr) ToAnalysisGeospatialColorStatePtrOutputWithContext(ctx context.Context) AnalysisGeospatialColorStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisGeospatialColorStatePtrOutput)
+}
+
+type AnalysisGeospatialLayerType string
+
+const (
+	AnalysisGeospatialLayerTypePoint   = AnalysisGeospatialLayerType("POINT")
+	AnalysisGeospatialLayerTypeLine    = AnalysisGeospatialLayerType("LINE")
+	AnalysisGeospatialLayerTypePolygon = AnalysisGeospatialLayerType("POLYGON")
+)
+
+func (AnalysisGeospatialLayerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialLayerType)(nil)).Elem()
+}
+
+func (e AnalysisGeospatialLayerType) ToAnalysisGeospatialLayerTypeOutput() AnalysisGeospatialLayerTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisGeospatialLayerTypeOutput)
+}
+
+func (e AnalysisGeospatialLayerType) ToAnalysisGeospatialLayerTypeOutputWithContext(ctx context.Context) AnalysisGeospatialLayerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisGeospatialLayerTypeOutput)
+}
+
+func (e AnalysisGeospatialLayerType) ToAnalysisGeospatialLayerTypePtrOutput() AnalysisGeospatialLayerTypePtrOutput {
+	return e.ToAnalysisGeospatialLayerTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisGeospatialLayerType) ToAnalysisGeospatialLayerTypePtrOutputWithContext(ctx context.Context) AnalysisGeospatialLayerTypePtrOutput {
+	return AnalysisGeospatialLayerType(e).ToAnalysisGeospatialLayerTypeOutputWithContext(ctx).ToAnalysisGeospatialLayerTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisGeospatialLayerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisGeospatialLayerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisGeospatialLayerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisGeospatialLayerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisGeospatialLayerTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialLayerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialLayerType)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialLayerTypeOutput) ToAnalysisGeospatialLayerTypeOutput() AnalysisGeospatialLayerTypeOutput {
+	return o
+}
+
+func (o AnalysisGeospatialLayerTypeOutput) ToAnalysisGeospatialLayerTypeOutputWithContext(ctx context.Context) AnalysisGeospatialLayerTypeOutput {
+	return o
+}
+
+func (o AnalysisGeospatialLayerTypeOutput) ToAnalysisGeospatialLayerTypePtrOutput() AnalysisGeospatialLayerTypePtrOutput {
+	return o.ToAnalysisGeospatialLayerTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialLayerTypeOutput) ToAnalysisGeospatialLayerTypePtrOutputWithContext(ctx context.Context) AnalysisGeospatialLayerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisGeospatialLayerType) *AnalysisGeospatialLayerType {
+		return &v
+	}).(AnalysisGeospatialLayerTypePtrOutput)
+}
+
+func (o AnalysisGeospatialLayerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialLayerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisGeospatialLayerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisGeospatialLayerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialLayerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisGeospatialLayerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisGeospatialLayerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialLayerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGeospatialLayerType)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialLayerTypePtrOutput) ToAnalysisGeospatialLayerTypePtrOutput() AnalysisGeospatialLayerTypePtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialLayerTypePtrOutput) ToAnalysisGeospatialLayerTypePtrOutputWithContext(ctx context.Context) AnalysisGeospatialLayerTypePtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialLayerTypePtrOutput) Elem() AnalysisGeospatialLayerTypeOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialLayerType) AnalysisGeospatialLayerType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisGeospatialLayerType
+		return ret
+	}).(AnalysisGeospatialLayerTypeOutput)
+}
+
+func (o AnalysisGeospatialLayerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialLayerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisGeospatialLayerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisGeospatialLayerTypeInput is an input type that accepts values of the AnalysisGeospatialLayerType enum
+// A concrete instance of `AnalysisGeospatialLayerTypeInput` can be one of the following:
+//
+//	AnalysisGeospatialLayerTypePoint
+//	AnalysisGeospatialLayerTypeLine
+//	AnalysisGeospatialLayerTypePolygon
+type AnalysisGeospatialLayerTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialLayerTypeOutput() AnalysisGeospatialLayerTypeOutput
+	ToAnalysisGeospatialLayerTypeOutputWithContext(context.Context) AnalysisGeospatialLayerTypeOutput
+}
+
+var analysisGeospatialLayerTypePtrType = reflect.TypeOf((**AnalysisGeospatialLayerType)(nil)).Elem()
+
+type AnalysisGeospatialLayerTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialLayerTypePtrOutput() AnalysisGeospatialLayerTypePtrOutput
+	ToAnalysisGeospatialLayerTypePtrOutputWithContext(context.Context) AnalysisGeospatialLayerTypePtrOutput
+}
+
+type analysisGeospatialLayerTypePtr string
+
+func AnalysisGeospatialLayerTypePtr(v string) AnalysisGeospatialLayerTypePtrInput {
+	return (*analysisGeospatialLayerTypePtr)(&v)
+}
+
+func (*analysisGeospatialLayerTypePtr) ElementType() reflect.Type {
+	return analysisGeospatialLayerTypePtrType
+}
+
+func (in *analysisGeospatialLayerTypePtr) ToAnalysisGeospatialLayerTypePtrOutput() AnalysisGeospatialLayerTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisGeospatialLayerTypePtrOutput)
+}
+
+func (in *analysisGeospatialLayerTypePtr) ToAnalysisGeospatialLayerTypePtrOutputWithContext(ctx context.Context) AnalysisGeospatialLayerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisGeospatialLayerTypePtrOutput)
+}
+
+type AnalysisGeospatialMapNavigation string
+
+const (
+	AnalysisGeospatialMapNavigationEnabled  = AnalysisGeospatialMapNavigation("ENABLED")
+	AnalysisGeospatialMapNavigationDisabled = AnalysisGeospatialMapNavigation("DISABLED")
+)
+
+func (AnalysisGeospatialMapNavigation) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (e AnalysisGeospatialMapNavigation) ToAnalysisGeospatialMapNavigationOutput() AnalysisGeospatialMapNavigationOutput {
+	return pulumi.ToOutput(e).(AnalysisGeospatialMapNavigationOutput)
+}
+
+func (e AnalysisGeospatialMapNavigation) ToAnalysisGeospatialMapNavigationOutputWithContext(ctx context.Context) AnalysisGeospatialMapNavigationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisGeospatialMapNavigationOutput)
+}
+
+func (e AnalysisGeospatialMapNavigation) ToAnalysisGeospatialMapNavigationPtrOutput() AnalysisGeospatialMapNavigationPtrOutput {
+	return e.ToAnalysisGeospatialMapNavigationPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisGeospatialMapNavigation) ToAnalysisGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) AnalysisGeospatialMapNavigationPtrOutput {
+	return AnalysisGeospatialMapNavigation(e).ToAnalysisGeospatialMapNavigationOutputWithContext(ctx).ToAnalysisGeospatialMapNavigationPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisGeospatialMapNavigation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisGeospatialMapNavigation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisGeospatialMapNavigation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisGeospatialMapNavigation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisGeospatialMapNavigationOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialMapNavigationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialMapNavigationOutput) ToAnalysisGeospatialMapNavigationOutput() AnalysisGeospatialMapNavigationOutput {
+	return o
+}
+
+func (o AnalysisGeospatialMapNavigationOutput) ToAnalysisGeospatialMapNavigationOutputWithContext(ctx context.Context) AnalysisGeospatialMapNavigationOutput {
+	return o
+}
+
+func (o AnalysisGeospatialMapNavigationOutput) ToAnalysisGeospatialMapNavigationPtrOutput() AnalysisGeospatialMapNavigationPtrOutput {
+	return o.ToAnalysisGeospatialMapNavigationPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialMapNavigationOutput) ToAnalysisGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) AnalysisGeospatialMapNavigationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisGeospatialMapNavigation) *AnalysisGeospatialMapNavigation {
+		return &v
+	}).(AnalysisGeospatialMapNavigationPtrOutput)
+}
+
+func (o AnalysisGeospatialMapNavigationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialMapNavigationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisGeospatialMapNavigation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisGeospatialMapNavigationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialMapNavigationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisGeospatialMapNavigation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisGeospatialMapNavigationPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisGeospatialMapNavigationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (o AnalysisGeospatialMapNavigationPtrOutput) ToAnalysisGeospatialMapNavigationPtrOutput() AnalysisGeospatialMapNavigationPtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialMapNavigationPtrOutput) ToAnalysisGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) AnalysisGeospatialMapNavigationPtrOutput {
+	return o
+}
+
+func (o AnalysisGeospatialMapNavigationPtrOutput) Elem() AnalysisGeospatialMapNavigationOutput {
+	return o.ApplyT(func(v *AnalysisGeospatialMapNavigation) AnalysisGeospatialMapNavigation {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisGeospatialMapNavigation
+		return ret
+	}).(AnalysisGeospatialMapNavigationOutput)
+}
+
+func (o AnalysisGeospatialMapNavigationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisGeospatialMapNavigationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisGeospatialMapNavigation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisGeospatialMapNavigationInput is an input type that accepts values of the AnalysisGeospatialMapNavigation enum
+// A concrete instance of `AnalysisGeospatialMapNavigationInput` can be one of the following:
+//
+//	AnalysisGeospatialMapNavigationEnabled
+//	AnalysisGeospatialMapNavigationDisabled
+type AnalysisGeospatialMapNavigationInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialMapNavigationOutput() AnalysisGeospatialMapNavigationOutput
+	ToAnalysisGeospatialMapNavigationOutputWithContext(context.Context) AnalysisGeospatialMapNavigationOutput
+}
+
+var analysisGeospatialMapNavigationPtrType = reflect.TypeOf((**AnalysisGeospatialMapNavigation)(nil)).Elem()
+
+type AnalysisGeospatialMapNavigationPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisGeospatialMapNavigationPtrOutput() AnalysisGeospatialMapNavigationPtrOutput
+	ToAnalysisGeospatialMapNavigationPtrOutputWithContext(context.Context) AnalysisGeospatialMapNavigationPtrOutput
+}
+
+type analysisGeospatialMapNavigationPtr string
+
+func AnalysisGeospatialMapNavigationPtr(v string) AnalysisGeospatialMapNavigationPtrInput {
+	return (*analysisGeospatialMapNavigationPtr)(&v)
+}
+
+func (*analysisGeospatialMapNavigationPtr) ElementType() reflect.Type {
+	return analysisGeospatialMapNavigationPtrType
+}
+
+func (in *analysisGeospatialMapNavigationPtr) ToAnalysisGeospatialMapNavigationPtrOutput() AnalysisGeospatialMapNavigationPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisGeospatialMapNavigationPtrOutput)
+}
+
+func (in *analysisGeospatialMapNavigationPtr) ToAnalysisGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) AnalysisGeospatialMapNavigationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisGeospatialMapNavigationPtrOutput)
+}
+
 type AnalysisGeospatialSelectedPointStyle string
 
 const (
@@ -6255,6 +6753,171 @@ func (in *analysisIconPtr) ToAnalysisIconPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisIconPtrOutput)
 }
 
+type AnalysisImageCustomActionTrigger string
+
+const (
+	AnalysisImageCustomActionTriggerClick = AnalysisImageCustomActionTrigger("CLICK")
+	AnalysisImageCustomActionTriggerMenu  = AnalysisImageCustomActionTrigger("MENU")
+)
+
+func (AnalysisImageCustomActionTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (e AnalysisImageCustomActionTrigger) ToAnalysisImageCustomActionTriggerOutput() AnalysisImageCustomActionTriggerOutput {
+	return pulumi.ToOutput(e).(AnalysisImageCustomActionTriggerOutput)
+}
+
+func (e AnalysisImageCustomActionTrigger) ToAnalysisImageCustomActionTriggerOutputWithContext(ctx context.Context) AnalysisImageCustomActionTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisImageCustomActionTriggerOutput)
+}
+
+func (e AnalysisImageCustomActionTrigger) ToAnalysisImageCustomActionTriggerPtrOutput() AnalysisImageCustomActionTriggerPtrOutput {
+	return e.ToAnalysisImageCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisImageCustomActionTrigger) ToAnalysisImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisImageCustomActionTriggerPtrOutput {
+	return AnalysisImageCustomActionTrigger(e).ToAnalysisImageCustomActionTriggerOutputWithContext(ctx).ToAnalysisImageCustomActionTriggerPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisImageCustomActionTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisImageCustomActionTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisImageCustomActionTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisImageCustomActionTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisImageCustomActionTriggerOutput struct{ *pulumi.OutputState }
+
+func (AnalysisImageCustomActionTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (o AnalysisImageCustomActionTriggerOutput) ToAnalysisImageCustomActionTriggerOutput() AnalysisImageCustomActionTriggerOutput {
+	return o
+}
+
+func (o AnalysisImageCustomActionTriggerOutput) ToAnalysisImageCustomActionTriggerOutputWithContext(ctx context.Context) AnalysisImageCustomActionTriggerOutput {
+	return o
+}
+
+func (o AnalysisImageCustomActionTriggerOutput) ToAnalysisImageCustomActionTriggerPtrOutput() AnalysisImageCustomActionTriggerPtrOutput {
+	return o.ToAnalysisImageCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisImageCustomActionTriggerOutput) ToAnalysisImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisImageCustomActionTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisImageCustomActionTrigger) *AnalysisImageCustomActionTrigger {
+		return &v
+	}).(AnalysisImageCustomActionTriggerPtrOutput)
+}
+
+func (o AnalysisImageCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisImageCustomActionTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisImageCustomActionTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisImageCustomActionTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisImageCustomActionTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisImageCustomActionTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisImageCustomActionTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisImageCustomActionTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (o AnalysisImageCustomActionTriggerPtrOutput) ToAnalysisImageCustomActionTriggerPtrOutput() AnalysisImageCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o AnalysisImageCustomActionTriggerPtrOutput) ToAnalysisImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisImageCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o AnalysisImageCustomActionTriggerPtrOutput) Elem() AnalysisImageCustomActionTriggerOutput {
+	return o.ApplyT(func(v *AnalysisImageCustomActionTrigger) AnalysisImageCustomActionTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisImageCustomActionTrigger
+		return ret
+	}).(AnalysisImageCustomActionTriggerOutput)
+}
+
+func (o AnalysisImageCustomActionTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisImageCustomActionTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisImageCustomActionTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisImageCustomActionTriggerInput is an input type that accepts values of the AnalysisImageCustomActionTrigger enum
+// A concrete instance of `AnalysisImageCustomActionTriggerInput` can be one of the following:
+//
+//	AnalysisImageCustomActionTriggerClick
+//	AnalysisImageCustomActionTriggerMenu
+type AnalysisImageCustomActionTriggerInput interface {
+	pulumi.Input
+
+	ToAnalysisImageCustomActionTriggerOutput() AnalysisImageCustomActionTriggerOutput
+	ToAnalysisImageCustomActionTriggerOutputWithContext(context.Context) AnalysisImageCustomActionTriggerOutput
+}
+
+var analysisImageCustomActionTriggerPtrType = reflect.TypeOf((**AnalysisImageCustomActionTrigger)(nil)).Elem()
+
+type AnalysisImageCustomActionTriggerPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisImageCustomActionTriggerPtrOutput() AnalysisImageCustomActionTriggerPtrOutput
+	ToAnalysisImageCustomActionTriggerPtrOutputWithContext(context.Context) AnalysisImageCustomActionTriggerPtrOutput
+}
+
+type analysisImageCustomActionTriggerPtr string
+
+func AnalysisImageCustomActionTriggerPtr(v string) AnalysisImageCustomActionTriggerPtrInput {
+	return (*analysisImageCustomActionTriggerPtr)(&v)
+}
+
+func (*analysisImageCustomActionTriggerPtr) ElementType() reflect.Type {
+	return analysisImageCustomActionTriggerPtrType
+}
+
+func (in *analysisImageCustomActionTriggerPtr) ToAnalysisImageCustomActionTriggerPtrOutput() AnalysisImageCustomActionTriggerPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisImageCustomActionTriggerPtrOutput)
+}
+
+func (in *analysisImageCustomActionTriggerPtr) ToAnalysisImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisImageCustomActionTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisImageCustomActionTriggerPtrOutput)
+}
+
 type AnalysisKpiSparklineType string
 
 const (
@@ -6583,6 +7246,171 @@ func (in *analysisKpiVisualStandardLayoutTypePtr) ToAnalysisKpiVisualStandardLay
 
 func (in *analysisKpiVisualStandardLayoutTypePtr) ToAnalysisKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) AnalysisKpiVisualStandardLayoutTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisKpiVisualStandardLayoutTypePtrOutput)
+}
+
+type AnalysisLayerCustomActionTrigger string
+
+const (
+	AnalysisLayerCustomActionTriggerDataPointClick = AnalysisLayerCustomActionTrigger("DATA_POINT_CLICK")
+	AnalysisLayerCustomActionTriggerDataPointMenu  = AnalysisLayerCustomActionTrigger("DATA_POINT_MENU")
+)
+
+func (AnalysisLayerCustomActionTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (e AnalysisLayerCustomActionTrigger) ToAnalysisLayerCustomActionTriggerOutput() AnalysisLayerCustomActionTriggerOutput {
+	return pulumi.ToOutput(e).(AnalysisLayerCustomActionTriggerOutput)
+}
+
+func (e AnalysisLayerCustomActionTrigger) ToAnalysisLayerCustomActionTriggerOutputWithContext(ctx context.Context) AnalysisLayerCustomActionTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisLayerCustomActionTriggerOutput)
+}
+
+func (e AnalysisLayerCustomActionTrigger) ToAnalysisLayerCustomActionTriggerPtrOutput() AnalysisLayerCustomActionTriggerPtrOutput {
+	return e.ToAnalysisLayerCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisLayerCustomActionTrigger) ToAnalysisLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisLayerCustomActionTriggerPtrOutput {
+	return AnalysisLayerCustomActionTrigger(e).ToAnalysisLayerCustomActionTriggerOutputWithContext(ctx).ToAnalysisLayerCustomActionTriggerPtrOutputWithContext(ctx)
+}
+
+func (e AnalysisLayerCustomActionTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisLayerCustomActionTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisLayerCustomActionTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisLayerCustomActionTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisLayerCustomActionTriggerOutput struct{ *pulumi.OutputState }
+
+func (AnalysisLayerCustomActionTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (o AnalysisLayerCustomActionTriggerOutput) ToAnalysisLayerCustomActionTriggerOutput() AnalysisLayerCustomActionTriggerOutput {
+	return o
+}
+
+func (o AnalysisLayerCustomActionTriggerOutput) ToAnalysisLayerCustomActionTriggerOutputWithContext(ctx context.Context) AnalysisLayerCustomActionTriggerOutput {
+	return o
+}
+
+func (o AnalysisLayerCustomActionTriggerOutput) ToAnalysisLayerCustomActionTriggerPtrOutput() AnalysisLayerCustomActionTriggerPtrOutput {
+	return o.ToAnalysisLayerCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisLayerCustomActionTriggerOutput) ToAnalysisLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisLayerCustomActionTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisLayerCustomActionTrigger) *AnalysisLayerCustomActionTrigger {
+		return &v
+	}).(AnalysisLayerCustomActionTriggerPtrOutput)
+}
+
+func (o AnalysisLayerCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisLayerCustomActionTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisLayerCustomActionTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisLayerCustomActionTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisLayerCustomActionTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisLayerCustomActionTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisLayerCustomActionTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisLayerCustomActionTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (o AnalysisLayerCustomActionTriggerPtrOutput) ToAnalysisLayerCustomActionTriggerPtrOutput() AnalysisLayerCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o AnalysisLayerCustomActionTriggerPtrOutput) ToAnalysisLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisLayerCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o AnalysisLayerCustomActionTriggerPtrOutput) Elem() AnalysisLayerCustomActionTriggerOutput {
+	return o.ApplyT(func(v *AnalysisLayerCustomActionTrigger) AnalysisLayerCustomActionTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisLayerCustomActionTrigger
+		return ret
+	}).(AnalysisLayerCustomActionTriggerOutput)
+}
+
+func (o AnalysisLayerCustomActionTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisLayerCustomActionTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisLayerCustomActionTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisLayerCustomActionTriggerInput is an input type that accepts values of the AnalysisLayerCustomActionTrigger enum
+// A concrete instance of `AnalysisLayerCustomActionTriggerInput` can be one of the following:
+//
+//	AnalysisLayerCustomActionTriggerDataPointClick
+//	AnalysisLayerCustomActionTriggerDataPointMenu
+type AnalysisLayerCustomActionTriggerInput interface {
+	pulumi.Input
+
+	ToAnalysisLayerCustomActionTriggerOutput() AnalysisLayerCustomActionTriggerOutput
+	ToAnalysisLayerCustomActionTriggerOutputWithContext(context.Context) AnalysisLayerCustomActionTriggerOutput
+}
+
+var analysisLayerCustomActionTriggerPtrType = reflect.TypeOf((**AnalysisLayerCustomActionTrigger)(nil)).Elem()
+
+type AnalysisLayerCustomActionTriggerPtrInput interface {
+	pulumi.Input
+
+	ToAnalysisLayerCustomActionTriggerPtrOutput() AnalysisLayerCustomActionTriggerPtrOutput
+	ToAnalysisLayerCustomActionTriggerPtrOutputWithContext(context.Context) AnalysisLayerCustomActionTriggerPtrOutput
+}
+
+type analysisLayerCustomActionTriggerPtr string
+
+func AnalysisLayerCustomActionTriggerPtr(v string) AnalysisLayerCustomActionTriggerPtrInput {
+	return (*analysisLayerCustomActionTriggerPtr)(&v)
+}
+
+func (*analysisLayerCustomActionTriggerPtr) ElementType() reflect.Type {
+	return analysisLayerCustomActionTriggerPtrType
+}
+
+func (in *analysisLayerCustomActionTriggerPtr) ToAnalysisLayerCustomActionTriggerPtrOutput() AnalysisLayerCustomActionTriggerPtrOutput {
+	return pulumi.ToOutput(in).(AnalysisLayerCustomActionTriggerPtrOutput)
+}
+
+func (in *analysisLayerCustomActionTriggerPtr) ToAnalysisLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) AnalysisLayerCustomActionTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisLayerCustomActionTriggerPtrOutput)
 }
 
 type AnalysisLayoutElementType string
@@ -10770,6 +11598,171 @@ func (in *analysisPivotTableSubtotalLevelPtr) ToAnalysisPivotTableSubtotalLevelP
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPivotTableSubtotalLevelPtrOutput)
 }
 
+type AnalysisPluginVisualAxisName string
+
+const (
+	AnalysisPluginVisualAxisNameGroupBy = AnalysisPluginVisualAxisName("GROUP_BY")
+	AnalysisPluginVisualAxisNameValue   = AnalysisPluginVisualAxisName("VALUE")
+)
+
+func (AnalysisPluginVisualAxisName) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPluginVisualAxisName)(nil)).Elem()
+}
+
+func (e AnalysisPluginVisualAxisName) ToAnalysisPluginVisualAxisNameOutput() AnalysisPluginVisualAxisNameOutput {
+	return pulumi.ToOutput(e).(AnalysisPluginVisualAxisNameOutput)
+}
+
+func (e AnalysisPluginVisualAxisName) ToAnalysisPluginVisualAxisNameOutputWithContext(ctx context.Context) AnalysisPluginVisualAxisNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisPluginVisualAxisNameOutput)
+}
+
+func (e AnalysisPluginVisualAxisName) ToAnalysisPluginVisualAxisNamePtrOutput() AnalysisPluginVisualAxisNamePtrOutput {
+	return e.ToAnalysisPluginVisualAxisNamePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisPluginVisualAxisName) ToAnalysisPluginVisualAxisNamePtrOutputWithContext(ctx context.Context) AnalysisPluginVisualAxisNamePtrOutput {
+	return AnalysisPluginVisualAxisName(e).ToAnalysisPluginVisualAxisNameOutputWithContext(ctx).ToAnalysisPluginVisualAxisNamePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisPluginVisualAxisName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisPluginVisualAxisName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisPluginVisualAxisName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisPluginVisualAxisName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisPluginVisualAxisNameOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPluginVisualAxisNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisPluginVisualAxisName)(nil)).Elem()
+}
+
+func (o AnalysisPluginVisualAxisNameOutput) ToAnalysisPluginVisualAxisNameOutput() AnalysisPluginVisualAxisNameOutput {
+	return o
+}
+
+func (o AnalysisPluginVisualAxisNameOutput) ToAnalysisPluginVisualAxisNameOutputWithContext(ctx context.Context) AnalysisPluginVisualAxisNameOutput {
+	return o
+}
+
+func (o AnalysisPluginVisualAxisNameOutput) ToAnalysisPluginVisualAxisNamePtrOutput() AnalysisPluginVisualAxisNamePtrOutput {
+	return o.ToAnalysisPluginVisualAxisNamePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPluginVisualAxisNameOutput) ToAnalysisPluginVisualAxisNamePtrOutputWithContext(ctx context.Context) AnalysisPluginVisualAxisNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisPluginVisualAxisName) *AnalysisPluginVisualAxisName {
+		return &v
+	}).(AnalysisPluginVisualAxisNamePtrOutput)
+}
+
+func (o AnalysisPluginVisualAxisNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisPluginVisualAxisNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisPluginVisualAxisName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisPluginVisualAxisNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPluginVisualAxisNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisPluginVisualAxisName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisPluginVisualAxisNamePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisPluginVisualAxisNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisPluginVisualAxisName)(nil)).Elem()
+}
+
+func (o AnalysisPluginVisualAxisNamePtrOutput) ToAnalysisPluginVisualAxisNamePtrOutput() AnalysisPluginVisualAxisNamePtrOutput {
+	return o
+}
+
+func (o AnalysisPluginVisualAxisNamePtrOutput) ToAnalysisPluginVisualAxisNamePtrOutputWithContext(ctx context.Context) AnalysisPluginVisualAxisNamePtrOutput {
+	return o
+}
+
+func (o AnalysisPluginVisualAxisNamePtrOutput) Elem() AnalysisPluginVisualAxisNameOutput {
+	return o.ApplyT(func(v *AnalysisPluginVisualAxisName) AnalysisPluginVisualAxisName {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisPluginVisualAxisName
+		return ret
+	}).(AnalysisPluginVisualAxisNameOutput)
+}
+
+func (o AnalysisPluginVisualAxisNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisPluginVisualAxisNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisPluginVisualAxisName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisPluginVisualAxisNameInput is an input type that accepts values of the AnalysisPluginVisualAxisName enum
+// A concrete instance of `AnalysisPluginVisualAxisNameInput` can be one of the following:
+//
+//	AnalysisPluginVisualAxisNameGroupBy
+//	AnalysisPluginVisualAxisNameValue
+type AnalysisPluginVisualAxisNameInput interface {
+	pulumi.Input
+
+	ToAnalysisPluginVisualAxisNameOutput() AnalysisPluginVisualAxisNameOutput
+	ToAnalysisPluginVisualAxisNameOutputWithContext(context.Context) AnalysisPluginVisualAxisNameOutput
+}
+
+var analysisPluginVisualAxisNamePtrType = reflect.TypeOf((**AnalysisPluginVisualAxisName)(nil)).Elem()
+
+type AnalysisPluginVisualAxisNamePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisPluginVisualAxisNamePtrOutput() AnalysisPluginVisualAxisNamePtrOutput
+	ToAnalysisPluginVisualAxisNamePtrOutputWithContext(context.Context) AnalysisPluginVisualAxisNamePtrOutput
+}
+
+type analysisPluginVisualAxisNamePtr string
+
+func AnalysisPluginVisualAxisNamePtr(v string) AnalysisPluginVisualAxisNamePtrInput {
+	return (*analysisPluginVisualAxisNamePtr)(&v)
+}
+
+func (*analysisPluginVisualAxisNamePtr) ElementType() reflect.Type {
+	return analysisPluginVisualAxisNamePtrType
+}
+
+func (in *analysisPluginVisualAxisNamePtr) ToAnalysisPluginVisualAxisNamePtrOutput() AnalysisPluginVisualAxisNamePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisPluginVisualAxisNamePtrOutput)
+}
+
+func (in *analysisPluginVisualAxisNamePtr) ToAnalysisPluginVisualAxisNamePtrOutputWithContext(ctx context.Context) AnalysisPluginVisualAxisNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisPluginVisualAxisNamePtrOutput)
+}
+
 type AnalysisPrimaryValueDisplayType string
 
 const (
@@ -14259,6 +15252,175 @@ func (in *analysisSheetControlSliderTypePtr) ToAnalysisSheetControlSliderTypePtr
 
 func (in *analysisSheetControlSliderTypePtr) ToAnalysisSheetControlSliderTypePtrOutputWithContext(ctx context.Context) AnalysisSheetControlSliderTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetControlSliderTypePtrOutput)
+}
+
+type AnalysisSheetImageScalingType string
+
+const (
+	AnalysisSheetImageScalingTypeScaleToWidth     = AnalysisSheetImageScalingType("SCALE_TO_WIDTH")
+	AnalysisSheetImageScalingTypeScaleToHeight    = AnalysisSheetImageScalingType("SCALE_TO_HEIGHT")
+	AnalysisSheetImageScalingTypeScaleToContainer = AnalysisSheetImageScalingType("SCALE_TO_CONTAINER")
+	AnalysisSheetImageScalingTypeScaleNone        = AnalysisSheetImageScalingType("SCALE_NONE")
+)
+
+func (AnalysisSheetImageScalingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSheetImageScalingType)(nil)).Elem()
+}
+
+func (e AnalysisSheetImageScalingType) ToAnalysisSheetImageScalingTypeOutput() AnalysisSheetImageScalingTypeOutput {
+	return pulumi.ToOutput(e).(AnalysisSheetImageScalingTypeOutput)
+}
+
+func (e AnalysisSheetImageScalingType) ToAnalysisSheetImageScalingTypeOutputWithContext(ctx context.Context) AnalysisSheetImageScalingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AnalysisSheetImageScalingTypeOutput)
+}
+
+func (e AnalysisSheetImageScalingType) ToAnalysisSheetImageScalingTypePtrOutput() AnalysisSheetImageScalingTypePtrOutput {
+	return e.ToAnalysisSheetImageScalingTypePtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSheetImageScalingType) ToAnalysisSheetImageScalingTypePtrOutputWithContext(ctx context.Context) AnalysisSheetImageScalingTypePtrOutput {
+	return AnalysisSheetImageScalingType(e).ToAnalysisSheetImageScalingTypeOutputWithContext(ctx).ToAnalysisSheetImageScalingTypePtrOutputWithContext(ctx)
+}
+
+func (e AnalysisSheetImageScalingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSheetImageScalingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AnalysisSheetImageScalingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AnalysisSheetImageScalingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AnalysisSheetImageScalingTypeOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSheetImageScalingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnalysisSheetImageScalingType)(nil)).Elem()
+}
+
+func (o AnalysisSheetImageScalingTypeOutput) ToAnalysisSheetImageScalingTypeOutput() AnalysisSheetImageScalingTypeOutput {
+	return o
+}
+
+func (o AnalysisSheetImageScalingTypeOutput) ToAnalysisSheetImageScalingTypeOutputWithContext(ctx context.Context) AnalysisSheetImageScalingTypeOutput {
+	return o
+}
+
+func (o AnalysisSheetImageScalingTypeOutput) ToAnalysisSheetImageScalingTypePtrOutput() AnalysisSheetImageScalingTypePtrOutput {
+	return o.ToAnalysisSheetImageScalingTypePtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSheetImageScalingTypeOutput) ToAnalysisSheetImageScalingTypePtrOutputWithContext(ctx context.Context) AnalysisSheetImageScalingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalysisSheetImageScalingType) *AnalysisSheetImageScalingType {
+		return &v
+	}).(AnalysisSheetImageScalingTypePtrOutput)
+}
+
+func (o AnalysisSheetImageScalingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AnalysisSheetImageScalingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSheetImageScalingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AnalysisSheetImageScalingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSheetImageScalingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AnalysisSheetImageScalingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AnalysisSheetImageScalingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AnalysisSheetImageScalingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnalysisSheetImageScalingType)(nil)).Elem()
+}
+
+func (o AnalysisSheetImageScalingTypePtrOutput) ToAnalysisSheetImageScalingTypePtrOutput() AnalysisSheetImageScalingTypePtrOutput {
+	return o
+}
+
+func (o AnalysisSheetImageScalingTypePtrOutput) ToAnalysisSheetImageScalingTypePtrOutputWithContext(ctx context.Context) AnalysisSheetImageScalingTypePtrOutput {
+	return o
+}
+
+func (o AnalysisSheetImageScalingTypePtrOutput) Elem() AnalysisSheetImageScalingTypeOutput {
+	return o.ApplyT(func(v *AnalysisSheetImageScalingType) AnalysisSheetImageScalingType {
+		if v != nil {
+			return *v
+		}
+		var ret AnalysisSheetImageScalingType
+		return ret
+	}).(AnalysisSheetImageScalingTypeOutput)
+}
+
+func (o AnalysisSheetImageScalingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AnalysisSheetImageScalingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AnalysisSheetImageScalingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AnalysisSheetImageScalingTypeInput is an input type that accepts values of the AnalysisSheetImageScalingType enum
+// A concrete instance of `AnalysisSheetImageScalingTypeInput` can be one of the following:
+//
+//	AnalysisSheetImageScalingTypeScaleToWidth
+//	AnalysisSheetImageScalingTypeScaleToHeight
+//	AnalysisSheetImageScalingTypeScaleToContainer
+//	AnalysisSheetImageScalingTypeScaleNone
+type AnalysisSheetImageScalingTypeInput interface {
+	pulumi.Input
+
+	ToAnalysisSheetImageScalingTypeOutput() AnalysisSheetImageScalingTypeOutput
+	ToAnalysisSheetImageScalingTypeOutputWithContext(context.Context) AnalysisSheetImageScalingTypeOutput
+}
+
+var analysisSheetImageScalingTypePtrType = reflect.TypeOf((**AnalysisSheetImageScalingType)(nil)).Elem()
+
+type AnalysisSheetImageScalingTypePtrInput interface {
+	pulumi.Input
+
+	ToAnalysisSheetImageScalingTypePtrOutput() AnalysisSheetImageScalingTypePtrOutput
+	ToAnalysisSheetImageScalingTypePtrOutputWithContext(context.Context) AnalysisSheetImageScalingTypePtrOutput
+}
+
+type analysisSheetImageScalingTypePtr string
+
+func AnalysisSheetImageScalingTypePtr(v string) AnalysisSheetImageScalingTypePtrInput {
+	return (*analysisSheetImageScalingTypePtr)(&v)
+}
+
+func (*analysisSheetImageScalingTypePtr) ElementType() reflect.Type {
+	return analysisSheetImageScalingTypePtrType
+}
+
+func (in *analysisSheetImageScalingTypePtr) ToAnalysisSheetImageScalingTypePtrOutput() AnalysisSheetImageScalingTypePtrOutput {
+	return pulumi.ToOutput(in).(AnalysisSheetImageScalingTypePtrOutput)
+}
+
+func (in *analysisSheetImageScalingTypePtr) ToAnalysisSheetImageScalingTypePtrOutputWithContext(ctx context.Context) AnalysisSheetImageScalingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AnalysisSheetImageScalingTypePtrOutput)
 }
 
 type AnalysisSimpleAttributeAggregationFunction string
@@ -25536,6 +26698,504 @@ func (in *dashboardFunnelChartMeasureDataLabelStylePtr) ToDashboardFunnelChartMe
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardFunnelChartMeasureDataLabelStylePtrOutput)
 }
 
+// Defines view state of the color
+type DashboardGeospatialColorState string
+
+const (
+	DashboardGeospatialColorStateEnabled  = DashboardGeospatialColorState("ENABLED")
+	DashboardGeospatialColorStateDisabled = DashboardGeospatialColorState("DISABLED")
+)
+
+func (DashboardGeospatialColorState) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardGeospatialColorState)(nil)).Elem()
+}
+
+func (e DashboardGeospatialColorState) ToDashboardGeospatialColorStateOutput() DashboardGeospatialColorStateOutput {
+	return pulumi.ToOutput(e).(DashboardGeospatialColorStateOutput)
+}
+
+func (e DashboardGeospatialColorState) ToDashboardGeospatialColorStateOutputWithContext(ctx context.Context) DashboardGeospatialColorStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardGeospatialColorStateOutput)
+}
+
+func (e DashboardGeospatialColorState) ToDashboardGeospatialColorStatePtrOutput() DashboardGeospatialColorStatePtrOutput {
+	return e.ToDashboardGeospatialColorStatePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardGeospatialColorState) ToDashboardGeospatialColorStatePtrOutputWithContext(ctx context.Context) DashboardGeospatialColorStatePtrOutput {
+	return DashboardGeospatialColorState(e).ToDashboardGeospatialColorStateOutputWithContext(ctx).ToDashboardGeospatialColorStatePtrOutputWithContext(ctx)
+}
+
+func (e DashboardGeospatialColorState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardGeospatialColorState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardGeospatialColorState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardGeospatialColorState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardGeospatialColorStateOutput struct{ *pulumi.OutputState }
+
+func (DashboardGeospatialColorStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardGeospatialColorState)(nil)).Elem()
+}
+
+func (o DashboardGeospatialColorStateOutput) ToDashboardGeospatialColorStateOutput() DashboardGeospatialColorStateOutput {
+	return o
+}
+
+func (o DashboardGeospatialColorStateOutput) ToDashboardGeospatialColorStateOutputWithContext(ctx context.Context) DashboardGeospatialColorStateOutput {
+	return o
+}
+
+func (o DashboardGeospatialColorStateOutput) ToDashboardGeospatialColorStatePtrOutput() DashboardGeospatialColorStatePtrOutput {
+	return o.ToDashboardGeospatialColorStatePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialColorStateOutput) ToDashboardGeospatialColorStatePtrOutputWithContext(ctx context.Context) DashboardGeospatialColorStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardGeospatialColorState) *DashboardGeospatialColorState {
+		return &v
+	}).(DashboardGeospatialColorStatePtrOutput)
+}
+
+func (o DashboardGeospatialColorStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialColorStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardGeospatialColorState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardGeospatialColorStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialColorStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardGeospatialColorState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardGeospatialColorStatePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardGeospatialColorStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardGeospatialColorState)(nil)).Elem()
+}
+
+func (o DashboardGeospatialColorStatePtrOutput) ToDashboardGeospatialColorStatePtrOutput() DashboardGeospatialColorStatePtrOutput {
+	return o
+}
+
+func (o DashboardGeospatialColorStatePtrOutput) ToDashboardGeospatialColorStatePtrOutputWithContext(ctx context.Context) DashboardGeospatialColorStatePtrOutput {
+	return o
+}
+
+func (o DashboardGeospatialColorStatePtrOutput) Elem() DashboardGeospatialColorStateOutput {
+	return o.ApplyT(func(v *DashboardGeospatialColorState) DashboardGeospatialColorState {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardGeospatialColorState
+		return ret
+	}).(DashboardGeospatialColorStateOutput)
+}
+
+func (o DashboardGeospatialColorStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialColorStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardGeospatialColorState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardGeospatialColorStateInput is an input type that accepts values of the DashboardGeospatialColorState enum
+// A concrete instance of `DashboardGeospatialColorStateInput` can be one of the following:
+//
+//	DashboardGeospatialColorStateEnabled
+//	DashboardGeospatialColorStateDisabled
+type DashboardGeospatialColorStateInput interface {
+	pulumi.Input
+
+	ToDashboardGeospatialColorStateOutput() DashboardGeospatialColorStateOutput
+	ToDashboardGeospatialColorStateOutputWithContext(context.Context) DashboardGeospatialColorStateOutput
+}
+
+var dashboardGeospatialColorStatePtrType = reflect.TypeOf((**DashboardGeospatialColorState)(nil)).Elem()
+
+type DashboardGeospatialColorStatePtrInput interface {
+	pulumi.Input
+
+	ToDashboardGeospatialColorStatePtrOutput() DashboardGeospatialColorStatePtrOutput
+	ToDashboardGeospatialColorStatePtrOutputWithContext(context.Context) DashboardGeospatialColorStatePtrOutput
+}
+
+type dashboardGeospatialColorStatePtr string
+
+func DashboardGeospatialColorStatePtr(v string) DashboardGeospatialColorStatePtrInput {
+	return (*dashboardGeospatialColorStatePtr)(&v)
+}
+
+func (*dashboardGeospatialColorStatePtr) ElementType() reflect.Type {
+	return dashboardGeospatialColorStatePtrType
+}
+
+func (in *dashboardGeospatialColorStatePtr) ToDashboardGeospatialColorStatePtrOutput() DashboardGeospatialColorStatePtrOutput {
+	return pulumi.ToOutput(in).(DashboardGeospatialColorStatePtrOutput)
+}
+
+func (in *dashboardGeospatialColorStatePtr) ToDashboardGeospatialColorStatePtrOutputWithContext(ctx context.Context) DashboardGeospatialColorStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardGeospatialColorStatePtrOutput)
+}
+
+type DashboardGeospatialLayerType string
+
+const (
+	DashboardGeospatialLayerTypePoint   = DashboardGeospatialLayerType("POINT")
+	DashboardGeospatialLayerTypeLine    = DashboardGeospatialLayerType("LINE")
+	DashboardGeospatialLayerTypePolygon = DashboardGeospatialLayerType("POLYGON")
+)
+
+func (DashboardGeospatialLayerType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardGeospatialLayerType)(nil)).Elem()
+}
+
+func (e DashboardGeospatialLayerType) ToDashboardGeospatialLayerTypeOutput() DashboardGeospatialLayerTypeOutput {
+	return pulumi.ToOutput(e).(DashboardGeospatialLayerTypeOutput)
+}
+
+func (e DashboardGeospatialLayerType) ToDashboardGeospatialLayerTypeOutputWithContext(ctx context.Context) DashboardGeospatialLayerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardGeospatialLayerTypeOutput)
+}
+
+func (e DashboardGeospatialLayerType) ToDashboardGeospatialLayerTypePtrOutput() DashboardGeospatialLayerTypePtrOutput {
+	return e.ToDashboardGeospatialLayerTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardGeospatialLayerType) ToDashboardGeospatialLayerTypePtrOutputWithContext(ctx context.Context) DashboardGeospatialLayerTypePtrOutput {
+	return DashboardGeospatialLayerType(e).ToDashboardGeospatialLayerTypeOutputWithContext(ctx).ToDashboardGeospatialLayerTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardGeospatialLayerType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardGeospatialLayerType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardGeospatialLayerType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardGeospatialLayerType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardGeospatialLayerTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardGeospatialLayerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardGeospatialLayerType)(nil)).Elem()
+}
+
+func (o DashboardGeospatialLayerTypeOutput) ToDashboardGeospatialLayerTypeOutput() DashboardGeospatialLayerTypeOutput {
+	return o
+}
+
+func (o DashboardGeospatialLayerTypeOutput) ToDashboardGeospatialLayerTypeOutputWithContext(ctx context.Context) DashboardGeospatialLayerTypeOutput {
+	return o
+}
+
+func (o DashboardGeospatialLayerTypeOutput) ToDashboardGeospatialLayerTypePtrOutput() DashboardGeospatialLayerTypePtrOutput {
+	return o.ToDashboardGeospatialLayerTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialLayerTypeOutput) ToDashboardGeospatialLayerTypePtrOutputWithContext(ctx context.Context) DashboardGeospatialLayerTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardGeospatialLayerType) *DashboardGeospatialLayerType {
+		return &v
+	}).(DashboardGeospatialLayerTypePtrOutput)
+}
+
+func (o DashboardGeospatialLayerTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialLayerTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardGeospatialLayerType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardGeospatialLayerTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialLayerTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardGeospatialLayerType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardGeospatialLayerTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardGeospatialLayerTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardGeospatialLayerType)(nil)).Elem()
+}
+
+func (o DashboardGeospatialLayerTypePtrOutput) ToDashboardGeospatialLayerTypePtrOutput() DashboardGeospatialLayerTypePtrOutput {
+	return o
+}
+
+func (o DashboardGeospatialLayerTypePtrOutput) ToDashboardGeospatialLayerTypePtrOutputWithContext(ctx context.Context) DashboardGeospatialLayerTypePtrOutput {
+	return o
+}
+
+func (o DashboardGeospatialLayerTypePtrOutput) Elem() DashboardGeospatialLayerTypeOutput {
+	return o.ApplyT(func(v *DashboardGeospatialLayerType) DashboardGeospatialLayerType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardGeospatialLayerType
+		return ret
+	}).(DashboardGeospatialLayerTypeOutput)
+}
+
+func (o DashboardGeospatialLayerTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialLayerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardGeospatialLayerType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardGeospatialLayerTypeInput is an input type that accepts values of the DashboardGeospatialLayerType enum
+// A concrete instance of `DashboardGeospatialLayerTypeInput` can be one of the following:
+//
+//	DashboardGeospatialLayerTypePoint
+//	DashboardGeospatialLayerTypeLine
+//	DashboardGeospatialLayerTypePolygon
+type DashboardGeospatialLayerTypeInput interface {
+	pulumi.Input
+
+	ToDashboardGeospatialLayerTypeOutput() DashboardGeospatialLayerTypeOutput
+	ToDashboardGeospatialLayerTypeOutputWithContext(context.Context) DashboardGeospatialLayerTypeOutput
+}
+
+var dashboardGeospatialLayerTypePtrType = reflect.TypeOf((**DashboardGeospatialLayerType)(nil)).Elem()
+
+type DashboardGeospatialLayerTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardGeospatialLayerTypePtrOutput() DashboardGeospatialLayerTypePtrOutput
+	ToDashboardGeospatialLayerTypePtrOutputWithContext(context.Context) DashboardGeospatialLayerTypePtrOutput
+}
+
+type dashboardGeospatialLayerTypePtr string
+
+func DashboardGeospatialLayerTypePtr(v string) DashboardGeospatialLayerTypePtrInput {
+	return (*dashboardGeospatialLayerTypePtr)(&v)
+}
+
+func (*dashboardGeospatialLayerTypePtr) ElementType() reflect.Type {
+	return dashboardGeospatialLayerTypePtrType
+}
+
+func (in *dashboardGeospatialLayerTypePtr) ToDashboardGeospatialLayerTypePtrOutput() DashboardGeospatialLayerTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardGeospatialLayerTypePtrOutput)
+}
+
+func (in *dashboardGeospatialLayerTypePtr) ToDashboardGeospatialLayerTypePtrOutputWithContext(ctx context.Context) DashboardGeospatialLayerTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardGeospatialLayerTypePtrOutput)
+}
+
+type DashboardGeospatialMapNavigation string
+
+const (
+	DashboardGeospatialMapNavigationEnabled  = DashboardGeospatialMapNavigation("ENABLED")
+	DashboardGeospatialMapNavigationDisabled = DashboardGeospatialMapNavigation("DISABLED")
+)
+
+func (DashboardGeospatialMapNavigation) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (e DashboardGeospatialMapNavigation) ToDashboardGeospatialMapNavigationOutput() DashboardGeospatialMapNavigationOutput {
+	return pulumi.ToOutput(e).(DashboardGeospatialMapNavigationOutput)
+}
+
+func (e DashboardGeospatialMapNavigation) ToDashboardGeospatialMapNavigationOutputWithContext(ctx context.Context) DashboardGeospatialMapNavigationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardGeospatialMapNavigationOutput)
+}
+
+func (e DashboardGeospatialMapNavigation) ToDashboardGeospatialMapNavigationPtrOutput() DashboardGeospatialMapNavigationPtrOutput {
+	return e.ToDashboardGeospatialMapNavigationPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardGeospatialMapNavigation) ToDashboardGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) DashboardGeospatialMapNavigationPtrOutput {
+	return DashboardGeospatialMapNavigation(e).ToDashboardGeospatialMapNavigationOutputWithContext(ctx).ToDashboardGeospatialMapNavigationPtrOutputWithContext(ctx)
+}
+
+func (e DashboardGeospatialMapNavigation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardGeospatialMapNavigation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardGeospatialMapNavigation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardGeospatialMapNavigation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardGeospatialMapNavigationOutput struct{ *pulumi.OutputState }
+
+func (DashboardGeospatialMapNavigationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (o DashboardGeospatialMapNavigationOutput) ToDashboardGeospatialMapNavigationOutput() DashboardGeospatialMapNavigationOutput {
+	return o
+}
+
+func (o DashboardGeospatialMapNavigationOutput) ToDashboardGeospatialMapNavigationOutputWithContext(ctx context.Context) DashboardGeospatialMapNavigationOutput {
+	return o
+}
+
+func (o DashboardGeospatialMapNavigationOutput) ToDashboardGeospatialMapNavigationPtrOutput() DashboardGeospatialMapNavigationPtrOutput {
+	return o.ToDashboardGeospatialMapNavigationPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialMapNavigationOutput) ToDashboardGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) DashboardGeospatialMapNavigationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardGeospatialMapNavigation) *DashboardGeospatialMapNavigation {
+		return &v
+	}).(DashboardGeospatialMapNavigationPtrOutput)
+}
+
+func (o DashboardGeospatialMapNavigationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialMapNavigationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardGeospatialMapNavigation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardGeospatialMapNavigationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialMapNavigationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardGeospatialMapNavigation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardGeospatialMapNavigationPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardGeospatialMapNavigationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardGeospatialMapNavigation)(nil)).Elem()
+}
+
+func (o DashboardGeospatialMapNavigationPtrOutput) ToDashboardGeospatialMapNavigationPtrOutput() DashboardGeospatialMapNavigationPtrOutput {
+	return o
+}
+
+func (o DashboardGeospatialMapNavigationPtrOutput) ToDashboardGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) DashboardGeospatialMapNavigationPtrOutput {
+	return o
+}
+
+func (o DashboardGeospatialMapNavigationPtrOutput) Elem() DashboardGeospatialMapNavigationOutput {
+	return o.ApplyT(func(v *DashboardGeospatialMapNavigation) DashboardGeospatialMapNavigation {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardGeospatialMapNavigation
+		return ret
+	}).(DashboardGeospatialMapNavigationOutput)
+}
+
+func (o DashboardGeospatialMapNavigationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardGeospatialMapNavigationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardGeospatialMapNavigation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardGeospatialMapNavigationInput is an input type that accepts values of the DashboardGeospatialMapNavigation enum
+// A concrete instance of `DashboardGeospatialMapNavigationInput` can be one of the following:
+//
+//	DashboardGeospatialMapNavigationEnabled
+//	DashboardGeospatialMapNavigationDisabled
+type DashboardGeospatialMapNavigationInput interface {
+	pulumi.Input
+
+	ToDashboardGeospatialMapNavigationOutput() DashboardGeospatialMapNavigationOutput
+	ToDashboardGeospatialMapNavigationOutputWithContext(context.Context) DashboardGeospatialMapNavigationOutput
+}
+
+var dashboardGeospatialMapNavigationPtrType = reflect.TypeOf((**DashboardGeospatialMapNavigation)(nil)).Elem()
+
+type DashboardGeospatialMapNavigationPtrInput interface {
+	pulumi.Input
+
+	ToDashboardGeospatialMapNavigationPtrOutput() DashboardGeospatialMapNavigationPtrOutput
+	ToDashboardGeospatialMapNavigationPtrOutputWithContext(context.Context) DashboardGeospatialMapNavigationPtrOutput
+}
+
+type dashboardGeospatialMapNavigationPtr string
+
+func DashboardGeospatialMapNavigationPtr(v string) DashboardGeospatialMapNavigationPtrInput {
+	return (*dashboardGeospatialMapNavigationPtr)(&v)
+}
+
+func (*dashboardGeospatialMapNavigationPtr) ElementType() reflect.Type {
+	return dashboardGeospatialMapNavigationPtrType
+}
+
+func (in *dashboardGeospatialMapNavigationPtr) ToDashboardGeospatialMapNavigationPtrOutput() DashboardGeospatialMapNavigationPtrOutput {
+	return pulumi.ToOutput(in).(DashboardGeospatialMapNavigationPtrOutput)
+}
+
+func (in *dashboardGeospatialMapNavigationPtr) ToDashboardGeospatialMapNavigationPtrOutputWithContext(ctx context.Context) DashboardGeospatialMapNavigationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardGeospatialMapNavigationPtrOutput)
+}
+
 type DashboardGeospatialSelectedPointStyle string
 
 const (
@@ -26250,6 +27910,171 @@ func (in *dashboardIconPtr) ToDashboardIconPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardIconPtrOutput)
 }
 
+type DashboardImageCustomActionTrigger string
+
+const (
+	DashboardImageCustomActionTriggerClick = DashboardImageCustomActionTrigger("CLICK")
+	DashboardImageCustomActionTriggerMenu  = DashboardImageCustomActionTrigger("MENU")
+)
+
+func (DashboardImageCustomActionTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (e DashboardImageCustomActionTrigger) ToDashboardImageCustomActionTriggerOutput() DashboardImageCustomActionTriggerOutput {
+	return pulumi.ToOutput(e).(DashboardImageCustomActionTriggerOutput)
+}
+
+func (e DashboardImageCustomActionTrigger) ToDashboardImageCustomActionTriggerOutputWithContext(ctx context.Context) DashboardImageCustomActionTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardImageCustomActionTriggerOutput)
+}
+
+func (e DashboardImageCustomActionTrigger) ToDashboardImageCustomActionTriggerPtrOutput() DashboardImageCustomActionTriggerPtrOutput {
+	return e.ToDashboardImageCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardImageCustomActionTrigger) ToDashboardImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardImageCustomActionTriggerPtrOutput {
+	return DashboardImageCustomActionTrigger(e).ToDashboardImageCustomActionTriggerOutputWithContext(ctx).ToDashboardImageCustomActionTriggerPtrOutputWithContext(ctx)
+}
+
+func (e DashboardImageCustomActionTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardImageCustomActionTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardImageCustomActionTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardImageCustomActionTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardImageCustomActionTriggerOutput struct{ *pulumi.OutputState }
+
+func (DashboardImageCustomActionTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (o DashboardImageCustomActionTriggerOutput) ToDashboardImageCustomActionTriggerOutput() DashboardImageCustomActionTriggerOutput {
+	return o
+}
+
+func (o DashboardImageCustomActionTriggerOutput) ToDashboardImageCustomActionTriggerOutputWithContext(ctx context.Context) DashboardImageCustomActionTriggerOutput {
+	return o
+}
+
+func (o DashboardImageCustomActionTriggerOutput) ToDashboardImageCustomActionTriggerPtrOutput() DashboardImageCustomActionTriggerPtrOutput {
+	return o.ToDashboardImageCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardImageCustomActionTriggerOutput) ToDashboardImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardImageCustomActionTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardImageCustomActionTrigger) *DashboardImageCustomActionTrigger {
+		return &v
+	}).(DashboardImageCustomActionTriggerPtrOutput)
+}
+
+func (o DashboardImageCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardImageCustomActionTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardImageCustomActionTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardImageCustomActionTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardImageCustomActionTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardImageCustomActionTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardImageCustomActionTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardImageCustomActionTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (o DashboardImageCustomActionTriggerPtrOutput) ToDashboardImageCustomActionTriggerPtrOutput() DashboardImageCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o DashboardImageCustomActionTriggerPtrOutput) ToDashboardImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardImageCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o DashboardImageCustomActionTriggerPtrOutput) Elem() DashboardImageCustomActionTriggerOutput {
+	return o.ApplyT(func(v *DashboardImageCustomActionTrigger) DashboardImageCustomActionTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardImageCustomActionTrigger
+		return ret
+	}).(DashboardImageCustomActionTriggerOutput)
+}
+
+func (o DashboardImageCustomActionTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardImageCustomActionTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardImageCustomActionTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardImageCustomActionTriggerInput is an input type that accepts values of the DashboardImageCustomActionTrigger enum
+// A concrete instance of `DashboardImageCustomActionTriggerInput` can be one of the following:
+//
+//	DashboardImageCustomActionTriggerClick
+//	DashboardImageCustomActionTriggerMenu
+type DashboardImageCustomActionTriggerInput interface {
+	pulumi.Input
+
+	ToDashboardImageCustomActionTriggerOutput() DashboardImageCustomActionTriggerOutput
+	ToDashboardImageCustomActionTriggerOutputWithContext(context.Context) DashboardImageCustomActionTriggerOutput
+}
+
+var dashboardImageCustomActionTriggerPtrType = reflect.TypeOf((**DashboardImageCustomActionTrigger)(nil)).Elem()
+
+type DashboardImageCustomActionTriggerPtrInput interface {
+	pulumi.Input
+
+	ToDashboardImageCustomActionTriggerPtrOutput() DashboardImageCustomActionTriggerPtrOutput
+	ToDashboardImageCustomActionTriggerPtrOutputWithContext(context.Context) DashboardImageCustomActionTriggerPtrOutput
+}
+
+type dashboardImageCustomActionTriggerPtr string
+
+func DashboardImageCustomActionTriggerPtr(v string) DashboardImageCustomActionTriggerPtrInput {
+	return (*dashboardImageCustomActionTriggerPtr)(&v)
+}
+
+func (*dashboardImageCustomActionTriggerPtr) ElementType() reflect.Type {
+	return dashboardImageCustomActionTriggerPtrType
+}
+
+func (in *dashboardImageCustomActionTriggerPtr) ToDashboardImageCustomActionTriggerPtrOutput() DashboardImageCustomActionTriggerPtrOutput {
+	return pulumi.ToOutput(in).(DashboardImageCustomActionTriggerPtrOutput)
+}
+
+func (in *dashboardImageCustomActionTriggerPtr) ToDashboardImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardImageCustomActionTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardImageCustomActionTriggerPtrOutput)
+}
+
 type DashboardKpiSparklineType string
 
 const (
@@ -26578,6 +28403,171 @@ func (in *dashboardKpiVisualStandardLayoutTypePtr) ToDashboardKpiVisualStandardL
 
 func (in *dashboardKpiVisualStandardLayoutTypePtr) ToDashboardKpiVisualStandardLayoutTypePtrOutputWithContext(ctx context.Context) DashboardKpiVisualStandardLayoutTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardKpiVisualStandardLayoutTypePtrOutput)
+}
+
+type DashboardLayerCustomActionTrigger string
+
+const (
+	DashboardLayerCustomActionTriggerDataPointClick = DashboardLayerCustomActionTrigger("DATA_POINT_CLICK")
+	DashboardLayerCustomActionTriggerDataPointMenu  = DashboardLayerCustomActionTrigger("DATA_POINT_MENU")
+)
+
+func (DashboardLayerCustomActionTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (e DashboardLayerCustomActionTrigger) ToDashboardLayerCustomActionTriggerOutput() DashboardLayerCustomActionTriggerOutput {
+	return pulumi.ToOutput(e).(DashboardLayerCustomActionTriggerOutput)
+}
+
+func (e DashboardLayerCustomActionTrigger) ToDashboardLayerCustomActionTriggerOutputWithContext(ctx context.Context) DashboardLayerCustomActionTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardLayerCustomActionTriggerOutput)
+}
+
+func (e DashboardLayerCustomActionTrigger) ToDashboardLayerCustomActionTriggerPtrOutput() DashboardLayerCustomActionTriggerPtrOutput {
+	return e.ToDashboardLayerCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardLayerCustomActionTrigger) ToDashboardLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardLayerCustomActionTriggerPtrOutput {
+	return DashboardLayerCustomActionTrigger(e).ToDashboardLayerCustomActionTriggerOutputWithContext(ctx).ToDashboardLayerCustomActionTriggerPtrOutputWithContext(ctx)
+}
+
+func (e DashboardLayerCustomActionTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardLayerCustomActionTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardLayerCustomActionTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardLayerCustomActionTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardLayerCustomActionTriggerOutput struct{ *pulumi.OutputState }
+
+func (DashboardLayerCustomActionTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (o DashboardLayerCustomActionTriggerOutput) ToDashboardLayerCustomActionTriggerOutput() DashboardLayerCustomActionTriggerOutput {
+	return o
+}
+
+func (o DashboardLayerCustomActionTriggerOutput) ToDashboardLayerCustomActionTriggerOutputWithContext(ctx context.Context) DashboardLayerCustomActionTriggerOutput {
+	return o
+}
+
+func (o DashboardLayerCustomActionTriggerOutput) ToDashboardLayerCustomActionTriggerPtrOutput() DashboardLayerCustomActionTriggerPtrOutput {
+	return o.ToDashboardLayerCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardLayerCustomActionTriggerOutput) ToDashboardLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardLayerCustomActionTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardLayerCustomActionTrigger) *DashboardLayerCustomActionTrigger {
+		return &v
+	}).(DashboardLayerCustomActionTriggerPtrOutput)
+}
+
+func (o DashboardLayerCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardLayerCustomActionTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardLayerCustomActionTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardLayerCustomActionTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardLayerCustomActionTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardLayerCustomActionTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardLayerCustomActionTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardLayerCustomActionTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardLayerCustomActionTrigger)(nil)).Elem()
+}
+
+func (o DashboardLayerCustomActionTriggerPtrOutput) ToDashboardLayerCustomActionTriggerPtrOutput() DashboardLayerCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o DashboardLayerCustomActionTriggerPtrOutput) ToDashboardLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardLayerCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o DashboardLayerCustomActionTriggerPtrOutput) Elem() DashboardLayerCustomActionTriggerOutput {
+	return o.ApplyT(func(v *DashboardLayerCustomActionTrigger) DashboardLayerCustomActionTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardLayerCustomActionTrigger
+		return ret
+	}).(DashboardLayerCustomActionTriggerOutput)
+}
+
+func (o DashboardLayerCustomActionTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardLayerCustomActionTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardLayerCustomActionTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardLayerCustomActionTriggerInput is an input type that accepts values of the DashboardLayerCustomActionTrigger enum
+// A concrete instance of `DashboardLayerCustomActionTriggerInput` can be one of the following:
+//
+//	DashboardLayerCustomActionTriggerDataPointClick
+//	DashboardLayerCustomActionTriggerDataPointMenu
+type DashboardLayerCustomActionTriggerInput interface {
+	pulumi.Input
+
+	ToDashboardLayerCustomActionTriggerOutput() DashboardLayerCustomActionTriggerOutput
+	ToDashboardLayerCustomActionTriggerOutputWithContext(context.Context) DashboardLayerCustomActionTriggerOutput
+}
+
+var dashboardLayerCustomActionTriggerPtrType = reflect.TypeOf((**DashboardLayerCustomActionTrigger)(nil)).Elem()
+
+type DashboardLayerCustomActionTriggerPtrInput interface {
+	pulumi.Input
+
+	ToDashboardLayerCustomActionTriggerPtrOutput() DashboardLayerCustomActionTriggerPtrOutput
+	ToDashboardLayerCustomActionTriggerPtrOutputWithContext(context.Context) DashboardLayerCustomActionTriggerPtrOutput
+}
+
+type dashboardLayerCustomActionTriggerPtr string
+
+func DashboardLayerCustomActionTriggerPtr(v string) DashboardLayerCustomActionTriggerPtrInput {
+	return (*dashboardLayerCustomActionTriggerPtr)(&v)
+}
+
+func (*dashboardLayerCustomActionTriggerPtr) ElementType() reflect.Type {
+	return dashboardLayerCustomActionTriggerPtrType
+}
+
+func (in *dashboardLayerCustomActionTriggerPtr) ToDashboardLayerCustomActionTriggerPtrOutput() DashboardLayerCustomActionTriggerPtrOutput {
+	return pulumi.ToOutput(in).(DashboardLayerCustomActionTriggerPtrOutput)
+}
+
+func (in *dashboardLayerCustomActionTriggerPtr) ToDashboardLayerCustomActionTriggerPtrOutputWithContext(ctx context.Context) DashboardLayerCustomActionTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardLayerCustomActionTriggerPtrOutput)
 }
 
 type DashboardLayoutElementType string
@@ -30765,6 +32755,171 @@ func (in *dashboardPivotTableSubtotalLevelPtr) ToDashboardPivotTableSubtotalLeve
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardPivotTableSubtotalLevelPtrOutput)
 }
 
+type DashboardPluginVisualAxisName string
+
+const (
+	DashboardPluginVisualAxisNameGroupBy = DashboardPluginVisualAxisName("GROUP_BY")
+	DashboardPluginVisualAxisNameValue   = DashboardPluginVisualAxisName("VALUE")
+)
+
+func (DashboardPluginVisualAxisName) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPluginVisualAxisName)(nil)).Elem()
+}
+
+func (e DashboardPluginVisualAxisName) ToDashboardPluginVisualAxisNameOutput() DashboardPluginVisualAxisNameOutput {
+	return pulumi.ToOutput(e).(DashboardPluginVisualAxisNameOutput)
+}
+
+func (e DashboardPluginVisualAxisName) ToDashboardPluginVisualAxisNameOutputWithContext(ctx context.Context) DashboardPluginVisualAxisNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardPluginVisualAxisNameOutput)
+}
+
+func (e DashboardPluginVisualAxisName) ToDashboardPluginVisualAxisNamePtrOutput() DashboardPluginVisualAxisNamePtrOutput {
+	return e.ToDashboardPluginVisualAxisNamePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardPluginVisualAxisName) ToDashboardPluginVisualAxisNamePtrOutputWithContext(ctx context.Context) DashboardPluginVisualAxisNamePtrOutput {
+	return DashboardPluginVisualAxisName(e).ToDashboardPluginVisualAxisNameOutputWithContext(ctx).ToDashboardPluginVisualAxisNamePtrOutputWithContext(ctx)
+}
+
+func (e DashboardPluginVisualAxisName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardPluginVisualAxisName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardPluginVisualAxisName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardPluginVisualAxisName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardPluginVisualAxisNameOutput struct{ *pulumi.OutputState }
+
+func (DashboardPluginVisualAxisNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardPluginVisualAxisName)(nil)).Elem()
+}
+
+func (o DashboardPluginVisualAxisNameOutput) ToDashboardPluginVisualAxisNameOutput() DashboardPluginVisualAxisNameOutput {
+	return o
+}
+
+func (o DashboardPluginVisualAxisNameOutput) ToDashboardPluginVisualAxisNameOutputWithContext(ctx context.Context) DashboardPluginVisualAxisNameOutput {
+	return o
+}
+
+func (o DashboardPluginVisualAxisNameOutput) ToDashboardPluginVisualAxisNamePtrOutput() DashboardPluginVisualAxisNamePtrOutput {
+	return o.ToDashboardPluginVisualAxisNamePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardPluginVisualAxisNameOutput) ToDashboardPluginVisualAxisNamePtrOutputWithContext(ctx context.Context) DashboardPluginVisualAxisNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardPluginVisualAxisName) *DashboardPluginVisualAxisName {
+		return &v
+	}).(DashboardPluginVisualAxisNamePtrOutput)
+}
+
+func (o DashboardPluginVisualAxisNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardPluginVisualAxisNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardPluginVisualAxisName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardPluginVisualAxisNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardPluginVisualAxisNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardPluginVisualAxisName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardPluginVisualAxisNamePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardPluginVisualAxisNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardPluginVisualAxisName)(nil)).Elem()
+}
+
+func (o DashboardPluginVisualAxisNamePtrOutput) ToDashboardPluginVisualAxisNamePtrOutput() DashboardPluginVisualAxisNamePtrOutput {
+	return o
+}
+
+func (o DashboardPluginVisualAxisNamePtrOutput) ToDashboardPluginVisualAxisNamePtrOutputWithContext(ctx context.Context) DashboardPluginVisualAxisNamePtrOutput {
+	return o
+}
+
+func (o DashboardPluginVisualAxisNamePtrOutput) Elem() DashboardPluginVisualAxisNameOutput {
+	return o.ApplyT(func(v *DashboardPluginVisualAxisName) DashboardPluginVisualAxisName {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardPluginVisualAxisName
+		return ret
+	}).(DashboardPluginVisualAxisNameOutput)
+}
+
+func (o DashboardPluginVisualAxisNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardPluginVisualAxisNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardPluginVisualAxisName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardPluginVisualAxisNameInput is an input type that accepts values of the DashboardPluginVisualAxisName enum
+// A concrete instance of `DashboardPluginVisualAxisNameInput` can be one of the following:
+//
+//	DashboardPluginVisualAxisNameGroupBy
+//	DashboardPluginVisualAxisNameValue
+type DashboardPluginVisualAxisNameInput interface {
+	pulumi.Input
+
+	ToDashboardPluginVisualAxisNameOutput() DashboardPluginVisualAxisNameOutput
+	ToDashboardPluginVisualAxisNameOutputWithContext(context.Context) DashboardPluginVisualAxisNameOutput
+}
+
+var dashboardPluginVisualAxisNamePtrType = reflect.TypeOf((**DashboardPluginVisualAxisName)(nil)).Elem()
+
+type DashboardPluginVisualAxisNamePtrInput interface {
+	pulumi.Input
+
+	ToDashboardPluginVisualAxisNamePtrOutput() DashboardPluginVisualAxisNamePtrOutput
+	ToDashboardPluginVisualAxisNamePtrOutputWithContext(context.Context) DashboardPluginVisualAxisNamePtrOutput
+}
+
+type dashboardPluginVisualAxisNamePtr string
+
+func DashboardPluginVisualAxisNamePtr(v string) DashboardPluginVisualAxisNamePtrInput {
+	return (*dashboardPluginVisualAxisNamePtr)(&v)
+}
+
+func (*dashboardPluginVisualAxisNamePtr) ElementType() reflect.Type {
+	return dashboardPluginVisualAxisNamePtrType
+}
+
+func (in *dashboardPluginVisualAxisNamePtr) ToDashboardPluginVisualAxisNamePtrOutput() DashboardPluginVisualAxisNamePtrOutput {
+	return pulumi.ToOutput(in).(DashboardPluginVisualAxisNamePtrOutput)
+}
+
+func (in *dashboardPluginVisualAxisNamePtr) ToDashboardPluginVisualAxisNamePtrOutputWithContext(ctx context.Context) DashboardPluginVisualAxisNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardPluginVisualAxisNamePtrOutput)
+}
+
 type DashboardPrimaryValueDisplayType string
 
 const (
@@ -34009,6 +36164,175 @@ func (in *dashboardSheetControlSliderTypePtr) ToDashboardSheetControlSliderTypeP
 
 func (in *dashboardSheetControlSliderTypePtr) ToDashboardSheetControlSliderTypePtrOutputWithContext(ctx context.Context) DashboardSheetControlSliderTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashboardSheetControlSliderTypePtrOutput)
+}
+
+type DashboardSheetImageScalingType string
+
+const (
+	DashboardSheetImageScalingTypeScaleToWidth     = DashboardSheetImageScalingType("SCALE_TO_WIDTH")
+	DashboardSheetImageScalingTypeScaleToHeight    = DashboardSheetImageScalingType("SCALE_TO_HEIGHT")
+	DashboardSheetImageScalingTypeScaleToContainer = DashboardSheetImageScalingType("SCALE_TO_CONTAINER")
+	DashboardSheetImageScalingTypeScaleNone        = DashboardSheetImageScalingType("SCALE_NONE")
+)
+
+func (DashboardSheetImageScalingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheetImageScalingType)(nil)).Elem()
+}
+
+func (e DashboardSheetImageScalingType) ToDashboardSheetImageScalingTypeOutput() DashboardSheetImageScalingTypeOutput {
+	return pulumi.ToOutput(e).(DashboardSheetImageScalingTypeOutput)
+}
+
+func (e DashboardSheetImageScalingType) ToDashboardSheetImageScalingTypeOutputWithContext(ctx context.Context) DashboardSheetImageScalingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DashboardSheetImageScalingTypeOutput)
+}
+
+func (e DashboardSheetImageScalingType) ToDashboardSheetImageScalingTypePtrOutput() DashboardSheetImageScalingTypePtrOutput {
+	return e.ToDashboardSheetImageScalingTypePtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSheetImageScalingType) ToDashboardSheetImageScalingTypePtrOutputWithContext(ctx context.Context) DashboardSheetImageScalingTypePtrOutput {
+	return DashboardSheetImageScalingType(e).ToDashboardSheetImageScalingTypeOutputWithContext(ctx).ToDashboardSheetImageScalingTypePtrOutputWithContext(ctx)
+}
+
+func (e DashboardSheetImageScalingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSheetImageScalingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DashboardSheetImageScalingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DashboardSheetImageScalingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DashboardSheetImageScalingTypeOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetImageScalingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheetImageScalingType)(nil)).Elem()
+}
+
+func (o DashboardSheetImageScalingTypeOutput) ToDashboardSheetImageScalingTypeOutput() DashboardSheetImageScalingTypeOutput {
+	return o
+}
+
+func (o DashboardSheetImageScalingTypeOutput) ToDashboardSheetImageScalingTypeOutputWithContext(ctx context.Context) DashboardSheetImageScalingTypeOutput {
+	return o
+}
+
+func (o DashboardSheetImageScalingTypeOutput) ToDashboardSheetImageScalingTypePtrOutput() DashboardSheetImageScalingTypePtrOutput {
+	return o.ToDashboardSheetImageScalingTypePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetImageScalingTypeOutput) ToDashboardSheetImageScalingTypePtrOutputWithContext(ctx context.Context) DashboardSheetImageScalingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSheetImageScalingType) *DashboardSheetImageScalingType {
+		return &v
+	}).(DashboardSheetImageScalingTypePtrOutput)
+}
+
+func (o DashboardSheetImageScalingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetImageScalingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSheetImageScalingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DashboardSheetImageScalingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetImageScalingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DashboardSheetImageScalingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardSheetImageScalingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetImageScalingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSheetImageScalingType)(nil)).Elem()
+}
+
+func (o DashboardSheetImageScalingTypePtrOutput) ToDashboardSheetImageScalingTypePtrOutput() DashboardSheetImageScalingTypePtrOutput {
+	return o
+}
+
+func (o DashboardSheetImageScalingTypePtrOutput) ToDashboardSheetImageScalingTypePtrOutputWithContext(ctx context.Context) DashboardSheetImageScalingTypePtrOutput {
+	return o
+}
+
+func (o DashboardSheetImageScalingTypePtrOutput) Elem() DashboardSheetImageScalingTypeOutput {
+	return o.ApplyT(func(v *DashboardSheetImageScalingType) DashboardSheetImageScalingType {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSheetImageScalingType
+		return ret
+	}).(DashboardSheetImageScalingTypeOutput)
+}
+
+func (o DashboardSheetImageScalingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetImageScalingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DashboardSheetImageScalingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DashboardSheetImageScalingTypeInput is an input type that accepts values of the DashboardSheetImageScalingType enum
+// A concrete instance of `DashboardSheetImageScalingTypeInput` can be one of the following:
+//
+//	DashboardSheetImageScalingTypeScaleToWidth
+//	DashboardSheetImageScalingTypeScaleToHeight
+//	DashboardSheetImageScalingTypeScaleToContainer
+//	DashboardSheetImageScalingTypeScaleNone
+type DashboardSheetImageScalingTypeInput interface {
+	pulumi.Input
+
+	ToDashboardSheetImageScalingTypeOutput() DashboardSheetImageScalingTypeOutput
+	ToDashboardSheetImageScalingTypeOutputWithContext(context.Context) DashboardSheetImageScalingTypeOutput
+}
+
+var dashboardSheetImageScalingTypePtrType = reflect.TypeOf((**DashboardSheetImageScalingType)(nil)).Elem()
+
+type DashboardSheetImageScalingTypePtrInput interface {
+	pulumi.Input
+
+	ToDashboardSheetImageScalingTypePtrOutput() DashboardSheetImageScalingTypePtrOutput
+	ToDashboardSheetImageScalingTypePtrOutputWithContext(context.Context) DashboardSheetImageScalingTypePtrOutput
+}
+
+type dashboardSheetImageScalingTypePtr string
+
+func DashboardSheetImageScalingTypePtr(v string) DashboardSheetImageScalingTypePtrInput {
+	return (*dashboardSheetImageScalingTypePtr)(&v)
+}
+
+func (*dashboardSheetImageScalingTypePtr) ElementType() reflect.Type {
+	return dashboardSheetImageScalingTypePtrType
+}
+
+func (in *dashboardSheetImageScalingTypePtr) ToDashboardSheetImageScalingTypePtrOutput() DashboardSheetImageScalingTypePtrOutput {
+	return pulumi.ToOutput(in).(DashboardSheetImageScalingTypePtrOutput)
+}
+
+func (in *dashboardSheetImageScalingTypePtr) ToDashboardSheetImageScalingTypePtrOutputWithContext(ctx context.Context) DashboardSheetImageScalingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DashboardSheetImageScalingTypePtrOutput)
 }
 
 type DashboardSimpleAttributeAggregationFunction string
@@ -50437,6 +52761,171 @@ func (in *templateIconPtr) ToTemplateIconPtrOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateIconPtrOutput)
 }
 
+type TemplateImageCustomActionTrigger string
+
+const (
+	TemplateImageCustomActionTriggerClick = TemplateImageCustomActionTrigger("CLICK")
+	TemplateImageCustomActionTriggerMenu  = TemplateImageCustomActionTrigger("MENU")
+)
+
+func (TemplateImageCustomActionTrigger) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (e TemplateImageCustomActionTrigger) ToTemplateImageCustomActionTriggerOutput() TemplateImageCustomActionTriggerOutput {
+	return pulumi.ToOutput(e).(TemplateImageCustomActionTriggerOutput)
+}
+
+func (e TemplateImageCustomActionTrigger) ToTemplateImageCustomActionTriggerOutputWithContext(ctx context.Context) TemplateImageCustomActionTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateImageCustomActionTriggerOutput)
+}
+
+func (e TemplateImageCustomActionTrigger) ToTemplateImageCustomActionTriggerPtrOutput() TemplateImageCustomActionTriggerPtrOutput {
+	return e.ToTemplateImageCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateImageCustomActionTrigger) ToTemplateImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateImageCustomActionTriggerPtrOutput {
+	return TemplateImageCustomActionTrigger(e).ToTemplateImageCustomActionTriggerOutputWithContext(ctx).ToTemplateImageCustomActionTriggerPtrOutputWithContext(ctx)
+}
+
+func (e TemplateImageCustomActionTrigger) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateImageCustomActionTrigger) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateImageCustomActionTrigger) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateImageCustomActionTrigger) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateImageCustomActionTriggerOutput struct{ *pulumi.OutputState }
+
+func (TemplateImageCustomActionTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (o TemplateImageCustomActionTriggerOutput) ToTemplateImageCustomActionTriggerOutput() TemplateImageCustomActionTriggerOutput {
+	return o
+}
+
+func (o TemplateImageCustomActionTriggerOutput) ToTemplateImageCustomActionTriggerOutputWithContext(ctx context.Context) TemplateImageCustomActionTriggerOutput {
+	return o
+}
+
+func (o TemplateImageCustomActionTriggerOutput) ToTemplateImageCustomActionTriggerPtrOutput() TemplateImageCustomActionTriggerPtrOutput {
+	return o.ToTemplateImageCustomActionTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateImageCustomActionTriggerOutput) ToTemplateImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateImageCustomActionTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateImageCustomActionTrigger) *TemplateImageCustomActionTrigger {
+		return &v
+	}).(TemplateImageCustomActionTriggerPtrOutput)
+}
+
+func (o TemplateImageCustomActionTriggerOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateImageCustomActionTriggerOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateImageCustomActionTrigger) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateImageCustomActionTriggerOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateImageCustomActionTriggerOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateImageCustomActionTrigger) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateImageCustomActionTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateImageCustomActionTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateImageCustomActionTrigger)(nil)).Elem()
+}
+
+func (o TemplateImageCustomActionTriggerPtrOutput) ToTemplateImageCustomActionTriggerPtrOutput() TemplateImageCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o TemplateImageCustomActionTriggerPtrOutput) ToTemplateImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateImageCustomActionTriggerPtrOutput {
+	return o
+}
+
+func (o TemplateImageCustomActionTriggerPtrOutput) Elem() TemplateImageCustomActionTriggerOutput {
+	return o.ApplyT(func(v *TemplateImageCustomActionTrigger) TemplateImageCustomActionTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateImageCustomActionTrigger
+		return ret
+	}).(TemplateImageCustomActionTriggerOutput)
+}
+
+func (o TemplateImageCustomActionTriggerPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateImageCustomActionTriggerPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateImageCustomActionTrigger) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateImageCustomActionTriggerInput is an input type that accepts values of the TemplateImageCustomActionTrigger enum
+// A concrete instance of `TemplateImageCustomActionTriggerInput` can be one of the following:
+//
+//	TemplateImageCustomActionTriggerClick
+//	TemplateImageCustomActionTriggerMenu
+type TemplateImageCustomActionTriggerInput interface {
+	pulumi.Input
+
+	ToTemplateImageCustomActionTriggerOutput() TemplateImageCustomActionTriggerOutput
+	ToTemplateImageCustomActionTriggerOutputWithContext(context.Context) TemplateImageCustomActionTriggerOutput
+}
+
+var templateImageCustomActionTriggerPtrType = reflect.TypeOf((**TemplateImageCustomActionTrigger)(nil)).Elem()
+
+type TemplateImageCustomActionTriggerPtrInput interface {
+	pulumi.Input
+
+	ToTemplateImageCustomActionTriggerPtrOutput() TemplateImageCustomActionTriggerPtrOutput
+	ToTemplateImageCustomActionTriggerPtrOutputWithContext(context.Context) TemplateImageCustomActionTriggerPtrOutput
+}
+
+type templateImageCustomActionTriggerPtr string
+
+func TemplateImageCustomActionTriggerPtr(v string) TemplateImageCustomActionTriggerPtrInput {
+	return (*templateImageCustomActionTriggerPtr)(&v)
+}
+
+func (*templateImageCustomActionTriggerPtr) ElementType() reflect.Type {
+	return templateImageCustomActionTriggerPtrType
+}
+
+func (in *templateImageCustomActionTriggerPtr) ToTemplateImageCustomActionTriggerPtrOutput() TemplateImageCustomActionTriggerPtrOutput {
+	return pulumi.ToOutput(in).(TemplateImageCustomActionTriggerPtrOutput)
+}
+
+func (in *templateImageCustomActionTriggerPtr) ToTemplateImageCustomActionTriggerPtrOutputWithContext(ctx context.Context) TemplateImageCustomActionTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateImageCustomActionTriggerPtrOutput)
+}
+
 type TemplateKpiSparklineType string
 
 const (
@@ -54952,6 +57441,171 @@ func (in *templatePivotTableSubtotalLevelPtr) ToTemplatePivotTableSubtotalLevelP
 	return pulumi.ToOutputWithContext(ctx, in).(TemplatePivotTableSubtotalLevelPtrOutput)
 }
 
+type TemplatePluginVisualAxisName string
+
+const (
+	TemplatePluginVisualAxisNameGroupBy = TemplatePluginVisualAxisName("GROUP_BY")
+	TemplatePluginVisualAxisNameValue   = TemplatePluginVisualAxisName("VALUE")
+)
+
+func (TemplatePluginVisualAxisName) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePluginVisualAxisName)(nil)).Elem()
+}
+
+func (e TemplatePluginVisualAxisName) ToTemplatePluginVisualAxisNameOutput() TemplatePluginVisualAxisNameOutput {
+	return pulumi.ToOutput(e).(TemplatePluginVisualAxisNameOutput)
+}
+
+func (e TemplatePluginVisualAxisName) ToTemplatePluginVisualAxisNameOutputWithContext(ctx context.Context) TemplatePluginVisualAxisNameOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplatePluginVisualAxisNameOutput)
+}
+
+func (e TemplatePluginVisualAxisName) ToTemplatePluginVisualAxisNamePtrOutput() TemplatePluginVisualAxisNamePtrOutput {
+	return e.ToTemplatePluginVisualAxisNamePtrOutputWithContext(context.Background())
+}
+
+func (e TemplatePluginVisualAxisName) ToTemplatePluginVisualAxisNamePtrOutputWithContext(ctx context.Context) TemplatePluginVisualAxisNamePtrOutput {
+	return TemplatePluginVisualAxisName(e).ToTemplatePluginVisualAxisNameOutputWithContext(ctx).ToTemplatePluginVisualAxisNamePtrOutputWithContext(ctx)
+}
+
+func (e TemplatePluginVisualAxisName) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplatePluginVisualAxisName) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplatePluginVisualAxisName) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplatePluginVisualAxisName) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplatePluginVisualAxisNameOutput struct{ *pulumi.OutputState }
+
+func (TemplatePluginVisualAxisNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplatePluginVisualAxisName)(nil)).Elem()
+}
+
+func (o TemplatePluginVisualAxisNameOutput) ToTemplatePluginVisualAxisNameOutput() TemplatePluginVisualAxisNameOutput {
+	return o
+}
+
+func (o TemplatePluginVisualAxisNameOutput) ToTemplatePluginVisualAxisNameOutputWithContext(ctx context.Context) TemplatePluginVisualAxisNameOutput {
+	return o
+}
+
+func (o TemplatePluginVisualAxisNameOutput) ToTemplatePluginVisualAxisNamePtrOutput() TemplatePluginVisualAxisNamePtrOutput {
+	return o.ToTemplatePluginVisualAxisNamePtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePluginVisualAxisNameOutput) ToTemplatePluginVisualAxisNamePtrOutputWithContext(ctx context.Context) TemplatePluginVisualAxisNamePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplatePluginVisualAxisName) *TemplatePluginVisualAxisName {
+		return &v
+	}).(TemplatePluginVisualAxisNamePtrOutput)
+}
+
+func (o TemplatePluginVisualAxisNameOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplatePluginVisualAxisNameOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplatePluginVisualAxisName) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplatePluginVisualAxisNameOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePluginVisualAxisNameOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplatePluginVisualAxisName) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplatePluginVisualAxisNamePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplatePluginVisualAxisNamePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplatePluginVisualAxisName)(nil)).Elem()
+}
+
+func (o TemplatePluginVisualAxisNamePtrOutput) ToTemplatePluginVisualAxisNamePtrOutput() TemplatePluginVisualAxisNamePtrOutput {
+	return o
+}
+
+func (o TemplatePluginVisualAxisNamePtrOutput) ToTemplatePluginVisualAxisNamePtrOutputWithContext(ctx context.Context) TemplatePluginVisualAxisNamePtrOutput {
+	return o
+}
+
+func (o TemplatePluginVisualAxisNamePtrOutput) Elem() TemplatePluginVisualAxisNameOutput {
+	return o.ApplyT(func(v *TemplatePluginVisualAxisName) TemplatePluginVisualAxisName {
+		if v != nil {
+			return *v
+		}
+		var ret TemplatePluginVisualAxisName
+		return ret
+	}).(TemplatePluginVisualAxisNameOutput)
+}
+
+func (o TemplatePluginVisualAxisNamePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplatePluginVisualAxisNamePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplatePluginVisualAxisName) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplatePluginVisualAxisNameInput is an input type that accepts values of the TemplatePluginVisualAxisName enum
+// A concrete instance of `TemplatePluginVisualAxisNameInput` can be one of the following:
+//
+//	TemplatePluginVisualAxisNameGroupBy
+//	TemplatePluginVisualAxisNameValue
+type TemplatePluginVisualAxisNameInput interface {
+	pulumi.Input
+
+	ToTemplatePluginVisualAxisNameOutput() TemplatePluginVisualAxisNameOutput
+	ToTemplatePluginVisualAxisNameOutputWithContext(context.Context) TemplatePluginVisualAxisNameOutput
+}
+
+var templatePluginVisualAxisNamePtrType = reflect.TypeOf((**TemplatePluginVisualAxisName)(nil)).Elem()
+
+type TemplatePluginVisualAxisNamePtrInput interface {
+	pulumi.Input
+
+	ToTemplatePluginVisualAxisNamePtrOutput() TemplatePluginVisualAxisNamePtrOutput
+	ToTemplatePluginVisualAxisNamePtrOutputWithContext(context.Context) TemplatePluginVisualAxisNamePtrOutput
+}
+
+type templatePluginVisualAxisNamePtr string
+
+func TemplatePluginVisualAxisNamePtr(v string) TemplatePluginVisualAxisNamePtrInput {
+	return (*templatePluginVisualAxisNamePtr)(&v)
+}
+
+func (*templatePluginVisualAxisNamePtr) ElementType() reflect.Type {
+	return templatePluginVisualAxisNamePtrType
+}
+
+func (in *templatePluginVisualAxisNamePtr) ToTemplatePluginVisualAxisNamePtrOutput() TemplatePluginVisualAxisNamePtrOutput {
+	return pulumi.ToOutput(in).(TemplatePluginVisualAxisNamePtrOutput)
+}
+
+func (in *templatePluginVisualAxisNamePtr) ToTemplatePluginVisualAxisNamePtrOutputWithContext(ctx context.Context) TemplatePluginVisualAxisNamePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplatePluginVisualAxisNamePtrOutput)
+}
+
 type TemplatePrimaryValueDisplayType string
 
 const (
@@ -58361,6 +61015,175 @@ func (in *templateSheetControlSliderTypePtr) ToTemplateSheetControlSliderTypePtr
 
 func (in *templateSheetControlSliderTypePtr) ToTemplateSheetControlSliderTypePtrOutputWithContext(ctx context.Context) TemplateSheetControlSliderTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateSheetControlSliderTypePtrOutput)
+}
+
+type TemplateSheetImageScalingType string
+
+const (
+	TemplateSheetImageScalingTypeScaleToWidth     = TemplateSheetImageScalingType("SCALE_TO_WIDTH")
+	TemplateSheetImageScalingTypeScaleToHeight    = TemplateSheetImageScalingType("SCALE_TO_HEIGHT")
+	TemplateSheetImageScalingTypeScaleToContainer = TemplateSheetImageScalingType("SCALE_TO_CONTAINER")
+	TemplateSheetImageScalingTypeScaleNone        = TemplateSheetImageScalingType("SCALE_NONE")
+)
+
+func (TemplateSheetImageScalingType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSheetImageScalingType)(nil)).Elem()
+}
+
+func (e TemplateSheetImageScalingType) ToTemplateSheetImageScalingTypeOutput() TemplateSheetImageScalingTypeOutput {
+	return pulumi.ToOutput(e).(TemplateSheetImageScalingTypeOutput)
+}
+
+func (e TemplateSheetImageScalingType) ToTemplateSheetImageScalingTypeOutputWithContext(ctx context.Context) TemplateSheetImageScalingTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TemplateSheetImageScalingTypeOutput)
+}
+
+func (e TemplateSheetImageScalingType) ToTemplateSheetImageScalingTypePtrOutput() TemplateSheetImageScalingTypePtrOutput {
+	return e.ToTemplateSheetImageScalingTypePtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSheetImageScalingType) ToTemplateSheetImageScalingTypePtrOutputWithContext(ctx context.Context) TemplateSheetImageScalingTypePtrOutput {
+	return TemplateSheetImageScalingType(e).ToTemplateSheetImageScalingTypeOutputWithContext(ctx).ToTemplateSheetImageScalingTypePtrOutputWithContext(ctx)
+}
+
+func (e TemplateSheetImageScalingType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSheetImageScalingType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TemplateSheetImageScalingType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TemplateSheetImageScalingType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TemplateSheetImageScalingTypeOutput struct{ *pulumi.OutputState }
+
+func (TemplateSheetImageScalingTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateSheetImageScalingType)(nil)).Elem()
+}
+
+func (o TemplateSheetImageScalingTypeOutput) ToTemplateSheetImageScalingTypeOutput() TemplateSheetImageScalingTypeOutput {
+	return o
+}
+
+func (o TemplateSheetImageScalingTypeOutput) ToTemplateSheetImageScalingTypeOutputWithContext(ctx context.Context) TemplateSheetImageScalingTypeOutput {
+	return o
+}
+
+func (o TemplateSheetImageScalingTypeOutput) ToTemplateSheetImageScalingTypePtrOutput() TemplateSheetImageScalingTypePtrOutput {
+	return o.ToTemplateSheetImageScalingTypePtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSheetImageScalingTypeOutput) ToTemplateSheetImageScalingTypePtrOutputWithContext(ctx context.Context) TemplateSheetImageScalingTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateSheetImageScalingType) *TemplateSheetImageScalingType {
+		return &v
+	}).(TemplateSheetImageScalingTypePtrOutput)
+}
+
+func (o TemplateSheetImageScalingTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TemplateSheetImageScalingTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSheetImageScalingType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TemplateSheetImageScalingTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSheetImageScalingTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateSheetImageScalingType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateSheetImageScalingTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateSheetImageScalingTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateSheetImageScalingType)(nil)).Elem()
+}
+
+func (o TemplateSheetImageScalingTypePtrOutput) ToTemplateSheetImageScalingTypePtrOutput() TemplateSheetImageScalingTypePtrOutput {
+	return o
+}
+
+func (o TemplateSheetImageScalingTypePtrOutput) ToTemplateSheetImageScalingTypePtrOutputWithContext(ctx context.Context) TemplateSheetImageScalingTypePtrOutput {
+	return o
+}
+
+func (o TemplateSheetImageScalingTypePtrOutput) Elem() TemplateSheetImageScalingTypeOutput {
+	return o.ApplyT(func(v *TemplateSheetImageScalingType) TemplateSheetImageScalingType {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateSheetImageScalingType
+		return ret
+	}).(TemplateSheetImageScalingTypeOutput)
+}
+
+func (o TemplateSheetImageScalingTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateSheetImageScalingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateSheetImageScalingType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TemplateSheetImageScalingTypeInput is an input type that accepts values of the TemplateSheetImageScalingType enum
+// A concrete instance of `TemplateSheetImageScalingTypeInput` can be one of the following:
+//
+//	TemplateSheetImageScalingTypeScaleToWidth
+//	TemplateSheetImageScalingTypeScaleToHeight
+//	TemplateSheetImageScalingTypeScaleToContainer
+//	TemplateSheetImageScalingTypeScaleNone
+type TemplateSheetImageScalingTypeInput interface {
+	pulumi.Input
+
+	ToTemplateSheetImageScalingTypeOutput() TemplateSheetImageScalingTypeOutput
+	ToTemplateSheetImageScalingTypeOutputWithContext(context.Context) TemplateSheetImageScalingTypeOutput
+}
+
+var templateSheetImageScalingTypePtrType = reflect.TypeOf((**TemplateSheetImageScalingType)(nil)).Elem()
+
+type TemplateSheetImageScalingTypePtrInput interface {
+	pulumi.Input
+
+	ToTemplateSheetImageScalingTypePtrOutput() TemplateSheetImageScalingTypePtrOutput
+	ToTemplateSheetImageScalingTypePtrOutputWithContext(context.Context) TemplateSheetImageScalingTypePtrOutput
+}
+
+type templateSheetImageScalingTypePtr string
+
+func TemplateSheetImageScalingTypePtr(v string) TemplateSheetImageScalingTypePtrInput {
+	return (*templateSheetImageScalingTypePtr)(&v)
+}
+
+func (*templateSheetImageScalingTypePtr) ElementType() reflect.Type {
+	return templateSheetImageScalingTypePtrType
+}
+
+func (in *templateSheetImageScalingTypePtr) ToTemplateSheetImageScalingTypePtrOutput() TemplateSheetImageScalingTypePtrOutput {
+	return pulumi.ToOutput(in).(TemplateSheetImageScalingTypePtrOutput)
+}
+
+func (in *templateSheetImageScalingTypePtr) ToTemplateSheetImageScalingTypePtrOutputWithContext(ctx context.Context) TemplateSheetImageScalingTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TemplateSheetImageScalingTypePtrOutput)
 }
 
 type TemplateSimpleAttributeAggregationFunction string
@@ -68204,6 +71027,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisForecastComputationSeasonalityPtrInput)(nil)).Elem(), AnalysisForecastComputationSeasonality("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFunnelChartMeasureDataLabelStyleInput)(nil)).Elem(), AnalysisFunnelChartMeasureDataLabelStyle("VALUE_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisFunnelChartMeasureDataLabelStylePtrInput)(nil)).Elem(), AnalysisFunnelChartMeasureDataLabelStyle("VALUE_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialColorStateInput)(nil)).Elem(), AnalysisGeospatialColorState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialColorStatePtrInput)(nil)).Elem(), AnalysisGeospatialColorState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialLayerTypeInput)(nil)).Elem(), AnalysisGeospatialLayerType("POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialLayerTypePtrInput)(nil)).Elem(), AnalysisGeospatialLayerType("POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialMapNavigationInput)(nil)).Elem(), AnalysisGeospatialMapNavigation("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialMapNavigationPtrInput)(nil)).Elem(), AnalysisGeospatialMapNavigation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialSelectedPointStyleInput)(nil)).Elem(), AnalysisGeospatialSelectedPointStyle("POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisGeospatialSelectedPointStylePtrInput)(nil)).Elem(), AnalysisGeospatialSelectedPointStyle("POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisHistogramBinTypeInput)(nil)).Elem(), AnalysisHistogramBinType("BIN_COUNT"))
@@ -68212,10 +71041,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisHorizontalTextAlignmentPtrInput)(nil)).Elem(), AnalysisHorizontalTextAlignment("LEFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisIconInput)(nil)).Elem(), AnalysisIcon("CARET_UP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisIconPtrInput)(nil)).Elem(), AnalysisIcon("CARET_UP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisImageCustomActionTriggerInput)(nil)).Elem(), AnalysisImageCustomActionTrigger("CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisImageCustomActionTriggerPtrInput)(nil)).Elem(), AnalysisImageCustomActionTrigger("CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiSparklineTypeInput)(nil)).Elem(), AnalysisKpiSparklineType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiSparklineTypePtrInput)(nil)).Elem(), AnalysisKpiSparklineType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiVisualStandardLayoutTypeInput)(nil)).Elem(), AnalysisKpiVisualStandardLayoutType("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisKpiVisualStandardLayoutTypePtrInput)(nil)).Elem(), AnalysisKpiVisualStandardLayoutType("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLayerCustomActionTriggerInput)(nil)).Elem(), AnalysisLayerCustomActionTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLayerCustomActionTriggerPtrInput)(nil)).Elem(), AnalysisLayerCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLayoutElementTypeInput)(nil)).Elem(), AnalysisLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLayoutElementTypePtrInput)(nil)).Elem(), AnalysisLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisLegendPositionInput)(nil)).Elem(), AnalysisLegendPosition("AUTO"))
@@ -68266,6 +71099,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableRowsLayoutPtrInput)(nil)).Elem(), AnalysisPivotTableRowsLayout("TABULAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableSubtotalLevelInput)(nil)).Elem(), AnalysisPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPivotTableSubtotalLevelPtrInput)(nil)).Elem(), AnalysisPivotTableSubtotalLevel("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPluginVisualAxisNameInput)(nil)).Elem(), AnalysisPluginVisualAxisName("GROUP_BY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPluginVisualAxisNamePtrInput)(nil)).Elem(), AnalysisPluginVisualAxisName("GROUP_BY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPrimaryValueDisplayTypeInput)(nil)).Elem(), AnalysisPrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisPrimaryValueDisplayTypePtrInput)(nil)).Elem(), AnalysisPrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisQueryExecutionModeInput)(nil)).Elem(), AnalysisQueryExecutionMode("AUTO"))
@@ -68308,6 +71143,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetControlListTypePtrInput)(nil)).Elem(), AnalysisSheetControlListType("MULTI_SELECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetControlSliderTypeInput)(nil)).Elem(), AnalysisSheetControlSliderType("SINGLE_POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetControlSliderTypePtrInput)(nil)).Elem(), AnalysisSheetControlSliderType("SINGLE_POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetImageScalingTypeInput)(nil)).Elem(), AnalysisSheetImageScalingType("SCALE_TO_WIDTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSheetImageScalingTypePtrInput)(nil)).Elem(), AnalysisSheetImageScalingType("SCALE_TO_WIDTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleAttributeAggregationFunctionInput)(nil)).Elem(), AnalysisSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleAttributeAggregationFunctionPtrInput)(nil)).Elem(), AnalysisSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisSimpleNumericalAggregationFunctionInput)(nil)).Elem(), AnalysisSimpleNumericalAggregationFunction("SUM"))
@@ -68442,6 +71279,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardForecastComputationSeasonalityPtrInput)(nil)).Elem(), DashboardForecastComputationSeasonality("AUTOMATIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFunnelChartMeasureDataLabelStyleInput)(nil)).Elem(), DashboardFunnelChartMeasureDataLabelStyle("VALUE_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardFunnelChartMeasureDataLabelStylePtrInput)(nil)).Elem(), DashboardFunnelChartMeasureDataLabelStyle("VALUE_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardGeospatialColorStateInput)(nil)).Elem(), DashboardGeospatialColorState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardGeospatialColorStatePtrInput)(nil)).Elem(), DashboardGeospatialColorState("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardGeospatialLayerTypeInput)(nil)).Elem(), DashboardGeospatialLayerType("POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardGeospatialLayerTypePtrInput)(nil)).Elem(), DashboardGeospatialLayerType("POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardGeospatialMapNavigationInput)(nil)).Elem(), DashboardGeospatialMapNavigation("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardGeospatialMapNavigationPtrInput)(nil)).Elem(), DashboardGeospatialMapNavigation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardGeospatialSelectedPointStyleInput)(nil)).Elem(), DashboardGeospatialSelectedPointStyle("POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardGeospatialSelectedPointStylePtrInput)(nil)).Elem(), DashboardGeospatialSelectedPointStyle("POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardHistogramBinTypeInput)(nil)).Elem(), DashboardHistogramBinType("BIN_COUNT"))
@@ -68450,10 +71293,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardHorizontalTextAlignmentPtrInput)(nil)).Elem(), DashboardHorizontalTextAlignment("LEFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardIconInput)(nil)).Elem(), DashboardIcon("CARET_UP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardIconPtrInput)(nil)).Elem(), DashboardIcon("CARET_UP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardImageCustomActionTriggerInput)(nil)).Elem(), DashboardImageCustomActionTrigger("CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardImageCustomActionTriggerPtrInput)(nil)).Elem(), DashboardImageCustomActionTrigger("CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiSparklineTypeInput)(nil)).Elem(), DashboardKpiSparklineType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiSparklineTypePtrInput)(nil)).Elem(), DashboardKpiSparklineType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiVisualStandardLayoutTypeInput)(nil)).Elem(), DashboardKpiVisualStandardLayoutType("CLASSIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardKpiVisualStandardLayoutTypePtrInput)(nil)).Elem(), DashboardKpiVisualStandardLayoutType("CLASSIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLayerCustomActionTriggerInput)(nil)).Elem(), DashboardLayerCustomActionTrigger("DATA_POINT_CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLayerCustomActionTriggerPtrInput)(nil)).Elem(), DashboardLayerCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLayoutElementTypeInput)(nil)).Elem(), DashboardLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLayoutElementTypePtrInput)(nil)).Elem(), DashboardLayoutElementType("VISUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardLegendPositionInput)(nil)).Elem(), DashboardLegendPosition("AUTO"))
@@ -68504,6 +71351,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableRowsLayoutPtrInput)(nil)).Elem(), DashboardPivotTableRowsLayout("TABULAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSubtotalLevelInput)(nil)).Elem(), DashboardPivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPivotTableSubtotalLevelPtrInput)(nil)).Elem(), DashboardPivotTableSubtotalLevel("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualAxisNameInput)(nil)).Elem(), DashboardPluginVisualAxisName("GROUP_BY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPluginVisualAxisNamePtrInput)(nil)).Elem(), DashboardPluginVisualAxisName("GROUP_BY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPrimaryValueDisplayTypeInput)(nil)).Elem(), DashboardPrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPrimaryValueDisplayTypePtrInput)(nil)).Elem(), DashboardPrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartAxesRangeScaleInput)(nil)).Elem(), DashboardRadarChartAxesRangeScale("AUTO"))
@@ -68542,6 +71391,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetControlListTypePtrInput)(nil)).Elem(), DashboardSheetControlListType("MULTI_SELECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetControlSliderTypeInput)(nil)).Elem(), DashboardSheetControlSliderType("SINGLE_POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetControlSliderTypePtrInput)(nil)).Elem(), DashboardSheetControlSliderType("SINGLE_POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetImageScalingTypeInput)(nil)).Elem(), DashboardSheetImageScalingType("SCALE_TO_WIDTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetImageScalingTypePtrInput)(nil)).Elem(), DashboardSheetImageScalingType("SCALE_TO_WIDTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleAttributeAggregationFunctionInput)(nil)).Elem(), DashboardSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleAttributeAggregationFunctionPtrInput)(nil)).Elem(), DashboardSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSimpleNumericalAggregationFunctionInput)(nil)).Elem(), DashboardSimpleNumericalAggregationFunction("SUM"))
@@ -68735,6 +71586,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateHorizontalTextAlignmentPtrInput)(nil)).Elem(), TemplateHorizontalTextAlignment("LEFT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateIconInput)(nil)).Elem(), TemplateIcon("CARET_UP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateIconPtrInput)(nil)).Elem(), TemplateIcon("CARET_UP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateImageCustomActionTriggerInput)(nil)).Elem(), TemplateImageCustomActionTrigger("CLICK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateImageCustomActionTriggerPtrInput)(nil)).Elem(), TemplateImageCustomActionTrigger("CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiSparklineTypeInput)(nil)).Elem(), TemplateKpiSparklineType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiSparklineTypePtrInput)(nil)).Elem(), TemplateKpiSparklineType("LINE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateKpiVisualStandardLayoutTypeInput)(nil)).Elem(), TemplateKpiVisualStandardLayoutType("CLASSIC"))
@@ -68789,6 +71642,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableRowsLayoutPtrInput)(nil)).Elem(), TemplatePivotTableRowsLayout("TABULAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableSubtotalLevelInput)(nil)).Elem(), TemplatePivotTableSubtotalLevel("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePivotTableSubtotalLevelPtrInput)(nil)).Elem(), TemplatePivotTableSubtotalLevel("ALL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePluginVisualAxisNameInput)(nil)).Elem(), TemplatePluginVisualAxisName("GROUP_BY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePluginVisualAxisNamePtrInput)(nil)).Elem(), TemplatePluginVisualAxisName("GROUP_BY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePrimaryValueDisplayTypeInput)(nil)).Elem(), TemplatePrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePrimaryValueDisplayTypePtrInput)(nil)).Elem(), TemplatePrimaryValueDisplayType("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateQueryExecutionModeInput)(nil)).Elem(), TemplateQueryExecutionMode("AUTO"))
@@ -68829,6 +71684,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetControlListTypePtrInput)(nil)).Elem(), TemplateSheetControlListType("MULTI_SELECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetControlSliderTypeInput)(nil)).Elem(), TemplateSheetControlSliderType("SINGLE_POINT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetControlSliderTypePtrInput)(nil)).Elem(), TemplateSheetControlSliderType("SINGLE_POINT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetImageScalingTypeInput)(nil)).Elem(), TemplateSheetImageScalingType("SCALE_TO_WIDTH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSheetImageScalingTypePtrInput)(nil)).Elem(), TemplateSheetImageScalingType("SCALE_TO_WIDTH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleAttributeAggregationFunctionInput)(nil)).Elem(), TemplateSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleAttributeAggregationFunctionPtrInput)(nil)).Elem(), TemplateSimpleAttributeAggregationFunction("UNIQUE_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateSimpleNumericalAggregationFunctionInput)(nil)).Elem(), TemplateSimpleNumericalAggregationFunction("SUM"))
@@ -69006,6 +71863,12 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisForecastComputationSeasonalityPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisFunnelChartMeasureDataLabelStyleOutput{})
 	pulumi.RegisterOutputType(AnalysisFunnelChartMeasureDataLabelStylePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialColorStateOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialColorStatePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialLayerTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialLayerTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialMapNavigationOutput{})
+	pulumi.RegisterOutputType(AnalysisGeospatialMapNavigationPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisGeospatialSelectedPointStyleOutput{})
 	pulumi.RegisterOutputType(AnalysisGeospatialSelectedPointStylePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisHistogramBinTypeOutput{})
@@ -69014,10 +71877,14 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisHorizontalTextAlignmentPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisIconOutput{})
 	pulumi.RegisterOutputType(AnalysisIconPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisImageCustomActionTriggerOutput{})
+	pulumi.RegisterOutputType(AnalysisImageCustomActionTriggerPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisKpiSparklineTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisKpiSparklineTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisKpiVisualStandardLayoutTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisKpiVisualStandardLayoutTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisLayerCustomActionTriggerOutput{})
+	pulumi.RegisterOutputType(AnalysisLayerCustomActionTriggerPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisLayoutElementTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisLayoutElementTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisLegendPositionOutput{})
@@ -69068,6 +71935,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisPivotTableRowsLayoutPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableSubtotalLevelOutput{})
 	pulumi.RegisterOutputType(AnalysisPivotTableSubtotalLevelPtrOutput{})
+	pulumi.RegisterOutputType(AnalysisPluginVisualAxisNameOutput{})
+	pulumi.RegisterOutputType(AnalysisPluginVisualAxisNamePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisPrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisPrimaryValueDisplayTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisQueryExecutionModeOutput{})
@@ -69110,6 +71979,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisSheetControlListTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetControlSliderTypeOutput{})
 	pulumi.RegisterOutputType(AnalysisSheetControlSliderTypePtrOutput{})
+	pulumi.RegisterOutputType(AnalysisSheetImageScalingTypeOutput{})
+	pulumi.RegisterOutputType(AnalysisSheetImageScalingTypePtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleAttributeAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleAttributeAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisSimpleNumericalAggregationFunctionOutput{})
@@ -69246,6 +72117,12 @@ func init() {
 	pulumi.RegisterOutputType(DashboardForecastComputationSeasonalityPtrOutput{})
 	pulumi.RegisterOutputType(DashboardFunnelChartMeasureDataLabelStyleOutput{})
 	pulumi.RegisterOutputType(DashboardFunnelChartMeasureDataLabelStylePtrOutput{})
+	pulumi.RegisterOutputType(DashboardGeospatialColorStateOutput{})
+	pulumi.RegisterOutputType(DashboardGeospatialColorStatePtrOutput{})
+	pulumi.RegisterOutputType(DashboardGeospatialLayerTypeOutput{})
+	pulumi.RegisterOutputType(DashboardGeospatialLayerTypePtrOutput{})
+	pulumi.RegisterOutputType(DashboardGeospatialMapNavigationOutput{})
+	pulumi.RegisterOutputType(DashboardGeospatialMapNavigationPtrOutput{})
 	pulumi.RegisterOutputType(DashboardGeospatialSelectedPointStyleOutput{})
 	pulumi.RegisterOutputType(DashboardGeospatialSelectedPointStylePtrOutput{})
 	pulumi.RegisterOutputType(DashboardHistogramBinTypeOutput{})
@@ -69254,10 +72131,14 @@ func init() {
 	pulumi.RegisterOutputType(DashboardHorizontalTextAlignmentPtrOutput{})
 	pulumi.RegisterOutputType(DashboardIconOutput{})
 	pulumi.RegisterOutputType(DashboardIconPtrOutput{})
+	pulumi.RegisterOutputType(DashboardImageCustomActionTriggerOutput{})
+	pulumi.RegisterOutputType(DashboardImageCustomActionTriggerPtrOutput{})
 	pulumi.RegisterOutputType(DashboardKpiSparklineTypeOutput{})
 	pulumi.RegisterOutputType(DashboardKpiSparklineTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardKpiVisualStandardLayoutTypeOutput{})
 	pulumi.RegisterOutputType(DashboardKpiVisualStandardLayoutTypePtrOutput{})
+	pulumi.RegisterOutputType(DashboardLayerCustomActionTriggerOutput{})
+	pulumi.RegisterOutputType(DashboardLayerCustomActionTriggerPtrOutput{})
 	pulumi.RegisterOutputType(DashboardLayoutElementTypeOutput{})
 	pulumi.RegisterOutputType(DashboardLayoutElementTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardLegendPositionOutput{})
@@ -69308,6 +72189,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardPivotTableRowsLayoutPtrOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableSubtotalLevelOutput{})
 	pulumi.RegisterOutputType(DashboardPivotTableSubtotalLevelPtrOutput{})
+	pulumi.RegisterOutputType(DashboardPluginVisualAxisNameOutput{})
+	pulumi.RegisterOutputType(DashboardPluginVisualAxisNamePtrOutput{})
 	pulumi.RegisterOutputType(DashboardPrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(DashboardPrimaryValueDisplayTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartAxesRangeScaleOutput{})
@@ -69348,6 +72231,8 @@ func init() {
 	pulumi.RegisterOutputType(DashboardSheetControlListTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardSheetControlSliderTypeOutput{})
 	pulumi.RegisterOutputType(DashboardSheetControlSliderTypePtrOutput{})
+	pulumi.RegisterOutputType(DashboardSheetImageScalingTypeOutput{})
+	pulumi.RegisterOutputType(DashboardSheetImageScalingTypePtrOutput{})
 	pulumi.RegisterOutputType(DashboardSimpleAttributeAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(DashboardSimpleAttributeAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSimpleNumericalAggregationFunctionOutput{})
@@ -69545,6 +72430,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateHorizontalTextAlignmentPtrOutput{})
 	pulumi.RegisterOutputType(TemplateIconOutput{})
 	pulumi.RegisterOutputType(TemplateIconPtrOutput{})
+	pulumi.RegisterOutputType(TemplateImageCustomActionTriggerOutput{})
+	pulumi.RegisterOutputType(TemplateImageCustomActionTriggerPtrOutput{})
 	pulumi.RegisterOutputType(TemplateKpiSparklineTypeOutput{})
 	pulumi.RegisterOutputType(TemplateKpiSparklineTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateKpiVisualStandardLayoutTypeOutput{})
@@ -69599,6 +72486,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplatePivotTableRowsLayoutPtrOutput{})
 	pulumi.RegisterOutputType(TemplatePivotTableSubtotalLevelOutput{})
 	pulumi.RegisterOutputType(TemplatePivotTableSubtotalLevelPtrOutput{})
+	pulumi.RegisterOutputType(TemplatePluginVisualAxisNameOutput{})
+	pulumi.RegisterOutputType(TemplatePluginVisualAxisNamePtrOutput{})
 	pulumi.RegisterOutputType(TemplatePrimaryValueDisplayTypeOutput{})
 	pulumi.RegisterOutputType(TemplatePrimaryValueDisplayTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateQueryExecutionModeOutput{})
@@ -69641,6 +72530,8 @@ func init() {
 	pulumi.RegisterOutputType(TemplateSheetControlListTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateSheetControlSliderTypeOutput{})
 	pulumi.RegisterOutputType(TemplateSheetControlSliderTypePtrOutput{})
+	pulumi.RegisterOutputType(TemplateSheetImageScalingTypeOutput{})
+	pulumi.RegisterOutputType(TemplateSheetImageScalingTypePtrOutput{})
 	pulumi.RegisterOutputType(TemplateSimpleAttributeAggregationFunctionOutput{})
 	pulumi.RegisterOutputType(TemplateSimpleAttributeAggregationFunctionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateSimpleNumericalAggregationFunctionOutput{})

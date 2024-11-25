@@ -30,6 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFilterControl> FilterControls;
+        public readonly ImmutableArray<Outputs.DashboardSheetImage> Images;
         /// <summary>
         /// Layouts define how the components of a sheet are arranged.
         /// 
@@ -75,6 +76,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.DashboardFilterControl> filterControls,
 
+            ImmutableArray<Outputs.DashboardSheetImage> images,
+
             ImmutableArray<Outputs.DashboardLayout> layouts,
 
             string? name,
@@ -94,6 +97,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ContentType = contentType;
             Description = description;
             FilterControls = filterControls;
+            Images = images;
             Layouts = layouts;
             Name = name;
             ParameterControls = parameterControls;

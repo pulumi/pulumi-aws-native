@@ -1216,6 +1216,7 @@ _utilities.register(
    "aws-native:cognito:IdentityPoolPrincipalTag": "IdentityPoolPrincipalTag",
    "aws-native:cognito:IdentityPoolRoleAttachment": "IdentityPoolRoleAttachment",
    "aws-native:cognito:LogDeliveryConfiguration": "LogDeliveryConfiguration",
+   "aws-native:cognito:ManagedLoginBranding": "ManagedLoginBranding",
    "aws-native:cognito:UserPool": "UserPool",
    "aws-native:cognito:UserPoolClient": "UserPoolClient",
    "aws-native:cognito:UserPoolDomain": "UserPoolDomain",

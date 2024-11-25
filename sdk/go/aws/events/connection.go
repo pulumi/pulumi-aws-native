@@ -71,6 +71,8 @@ type Connection struct {
 	AuthorizationType ConnectionAuthorizationTypePtrOutput `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The private resource the HTTP request will be sent to.
+	InvocationConnectivityParameters InvocationConnectivityParametersPropertiesPtrOutput `pulumi:"invocationConnectivityParameters"`
 	// Name of the connection.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The arn of the secrets manager secret created in the customer account.
@@ -129,6 +131,8 @@ type connectionArgs struct {
 	AuthorizationType *ConnectionAuthorizationType `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
+	// The private resource the HTTP request will be sent to.
+	InvocationConnectivityParameters *InvocationConnectivityParametersProperties `pulumi:"invocationConnectivityParameters"`
 	// Name of the connection.
 	Name *string `pulumi:"name"`
 }
@@ -143,6 +147,8 @@ type ConnectionArgs struct {
 	AuthorizationType ConnectionAuthorizationTypePtrInput
 	// Description of the connection.
 	Description pulumi.StringPtrInput
+	// The private resource the HTTP request will be sent to.
+	InvocationConnectivityParameters InvocationConnectivityParametersPropertiesPtrInput
 	// Name of the connection.
 	Name pulumi.StringPtrInput
 }
@@ -204,6 +210,13 @@ func (o ConnectionOutput) AuthorizationType() ConnectionAuthorizationTypePtrOutp
 // Description of the connection.
 func (o ConnectionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The private resource the HTTP request will be sent to.
+func (o ConnectionOutput) InvocationConnectivityParameters() InvocationConnectivityParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v *Connection) InvocationConnectivityParametersPropertiesPtrOutput {
+		return v.InvocationConnectivityParameters
+	}).(InvocationConnectivityParametersPropertiesPtrOutput)
 }
 
 // Name of the connection.

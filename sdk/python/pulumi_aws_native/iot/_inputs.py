@@ -901,18 +901,26 @@ if not MYPY:
         """
         A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
         """
+        ocsp_authorized_responder_arn: NotRequired[pulumi.Input[str]]
+        ocsp_lambda_arn: NotRequired[pulumi.Input[str]]
 elif False:
     DomainConfigurationServerCertificateConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainConfigurationServerCertificateConfigArgs:
     def __init__(__self__, *,
-                 enable_ocsp_check: Optional[pulumi.Input[bool]] = None):
+                 enable_ocsp_check: Optional[pulumi.Input[bool]] = None,
+                 ocsp_authorized_responder_arn: Optional[pulumi.Input[str]] = None,
+                 ocsp_lambda_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enable_ocsp_check: A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
         """
         if enable_ocsp_check is not None:
             pulumi.set(__self__, "enable_ocsp_check", enable_ocsp_check)
+        if ocsp_authorized_responder_arn is not None:
+            pulumi.set(__self__, "ocsp_authorized_responder_arn", ocsp_authorized_responder_arn)
+        if ocsp_lambda_arn is not None:
+            pulumi.set(__self__, "ocsp_lambda_arn", ocsp_lambda_arn)
 
     @property
     @pulumi.getter(name="enableOcspCheck")
@@ -925,6 +933,24 @@ class DomainConfigurationServerCertificateConfigArgs:
     @enable_ocsp_check.setter
     def enable_ocsp_check(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_ocsp_check", value)
+
+    @property
+    @pulumi.getter(name="ocspAuthorizedResponderArn")
+    def ocsp_authorized_responder_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ocsp_authorized_responder_arn")
+
+    @ocsp_authorized_responder_arn.setter
+    def ocsp_authorized_responder_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocsp_authorized_responder_arn", value)
+
+    @property
+    @pulumi.getter(name="ocspLambdaArn")
+    def ocsp_lambda_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ocsp_lambda_arn")
+
+    @ocsp_lambda_arn.setter
+    def ocsp_lambda_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocsp_lambda_arn", value)
 
 
 if not MYPY:

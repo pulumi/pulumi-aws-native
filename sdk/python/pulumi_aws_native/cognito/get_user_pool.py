@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetUserPoolResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolResult:
-    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_authentication_message=None, email_authentication_subject=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_id=None, user_pool_name=None, user_pool_tags=None, username_attributes=None, username_configuration=None, verification_message_template=None):
+    def __init__(__self__, account_recovery_setting=None, admin_create_user_config=None, alias_attributes=None, arn=None, auto_verified_attributes=None, deletion_protection=None, device_configuration=None, email_authentication_message=None, email_authentication_subject=None, email_configuration=None, email_verification_message=None, email_verification_subject=None, lambda_config=None, mfa_configuration=None, policies=None, provider_name=None, provider_url=None, schema=None, sms_authentication_message=None, sms_configuration=None, sms_verification_message=None, user_attribute_update_settings=None, user_pool_add_ons=None, user_pool_id=None, user_pool_name=None, user_pool_tags=None, user_pool_tier=None, username_attributes=None, username_configuration=None, verification_message_template=None, web_authn_relying_party_id=None, web_authn_user_verification=None):
         if account_recovery_setting and not isinstance(account_recovery_setting, dict):
             raise TypeError("Expected argument 'account_recovery_setting' to be a dict")
         pulumi.set(__self__, "account_recovery_setting", account_recovery_setting)
@@ -103,6 +104,9 @@ class GetUserPoolResult:
         if user_pool_tags and not isinstance(user_pool_tags, dict):
             raise TypeError("Expected argument 'user_pool_tags' to be a dict")
         pulumi.set(__self__, "user_pool_tags", user_pool_tags)
+        if user_pool_tier and not isinstance(user_pool_tier, str):
+            raise TypeError("Expected argument 'user_pool_tier' to be a str")
+        pulumi.set(__self__, "user_pool_tier", user_pool_tier)
         if username_attributes and not isinstance(username_attributes, list):
             raise TypeError("Expected argument 'username_attributes' to be a list")
         pulumi.set(__self__, "username_attributes", username_attributes)
@@ -112,6 +116,12 @@ class GetUserPoolResult:
         if verification_message_template and not isinstance(verification_message_template, dict):
             raise TypeError("Expected argument 'verification_message_template' to be a dict")
         pulumi.set(__self__, "verification_message_template", verification_message_template)
+        if web_authn_relying_party_id and not isinstance(web_authn_relying_party_id, str):
+            raise TypeError("Expected argument 'web_authn_relying_party_id' to be a str")
+        pulumi.set(__self__, "web_authn_relying_party_id", web_authn_relying_party_id)
+        if web_authn_user_verification and not isinstance(web_authn_user_verification, str):
+            raise TypeError("Expected argument 'web_authn_user_verification' to be a str")
+        pulumi.set(__self__, "web_authn_user_verification", web_authn_user_verification)
 
     @property
     @pulumi.getter(name="accountRecoverySetting")
@@ -334,6 +344,11 @@ class GetUserPoolResult:
         return pulumi.get(self, "user_pool_tags")
 
     @property
+    @pulumi.getter(name="userPoolTier")
+    def user_pool_tier(self) -> Optional['UserPoolTier']:
+        return pulumi.get(self, "user_pool_tier")
+
+    @property
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> Optional[Sequence[str]]:
         """
@@ -360,6 +375,16 @@ class GetUserPoolResult:
         Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         """
         return pulumi.get(self, "verification_message_template")
+
+    @property
+    @pulumi.getter(name="webAuthnRelyingPartyId")
+    def web_authn_relying_party_id(self) -> Optional[str]:
+        return pulumi.get(self, "web_authn_relying_party_id")
+
+    @property
+    @pulumi.getter(name="webAuthnUserVerification")
+    def web_authn_user_verification(self) -> Optional[str]:
+        return pulumi.get(self, "web_authn_user_verification")
 
 
 class AwaitableGetUserPoolResult(GetUserPoolResult):
@@ -394,9 +419,12 @@ class AwaitableGetUserPoolResult(GetUserPoolResult):
             user_pool_id=self.user_pool_id,
             user_pool_name=self.user_pool_name,
             user_pool_tags=self.user_pool_tags,
+            user_pool_tier=self.user_pool_tier,
             username_attributes=self.username_attributes,
             username_configuration=self.username_configuration,
-            verification_message_template=self.verification_message_template)
+            verification_message_template=self.verification_message_template,
+            web_authn_relying_party_id=self.web_authn_relying_party_id,
+            web_authn_user_verification=self.web_authn_user_verification)
 
 
 def get_user_pool(user_pool_id: Optional[str] = None,
@@ -439,9 +467,12 @@ def get_user_pool(user_pool_id: Optional[str] = None,
         user_pool_id=pulumi.get(__ret__, 'user_pool_id'),
         user_pool_name=pulumi.get(__ret__, 'user_pool_name'),
         user_pool_tags=pulumi.get(__ret__, 'user_pool_tags'),
+        user_pool_tier=pulumi.get(__ret__, 'user_pool_tier'),
         username_attributes=pulumi.get(__ret__, 'username_attributes'),
         username_configuration=pulumi.get(__ret__, 'username_configuration'),
-        verification_message_template=pulumi.get(__ret__, 'verification_message_template'))
+        verification_message_template=pulumi.get(__ret__, 'verification_message_template'),
+        web_authn_relying_party_id=pulumi.get(__ret__, 'web_authn_relying_party_id'),
+        web_authn_user_verification=pulumi.get(__ret__, 'web_authn_user_verification'))
 def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResult]:
     """
@@ -481,6 +512,9 @@ def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
         user_pool_id=pulumi.get(__response__, 'user_pool_id'),
         user_pool_name=pulumi.get(__response__, 'user_pool_name'),
         user_pool_tags=pulumi.get(__response__, 'user_pool_tags'),
+        user_pool_tier=pulumi.get(__response__, 'user_pool_tier'),
         username_attributes=pulumi.get(__response__, 'username_attributes'),
         username_configuration=pulumi.get(__response__, 'username_configuration'),
-        verification_message_template=pulumi.get(__response__, 'verification_message_template')))
+        verification_message_template=pulumi.get(__response__, 'verification_message_template'),
+        web_authn_relying_party_id=pulumi.get(__response__, 'web_authn_relying_party_id'),
+        web_authn_user_verification=pulumi.get(__response__, 'web_authn_user_verification')))

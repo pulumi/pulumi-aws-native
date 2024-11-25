@@ -35,6 +35,7 @@ import * as codegurureviewer from "./codegurureviewer";
 import * as codepipeline from "./codepipeline";
 import * as codestarconnections from "./codestarconnections";
 import * as codestarnotifications from "./codestarnotifications";
+import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
 import * as connect from "./connect";
 import * as connectcampaignsv2 from "./connectcampaignsv2";
@@ -207,6 +208,7 @@ export {
     codepipeline,
     codestarconnections,
     codestarnotifications,
+    cognito,
     comprehend,
     connect,
     connectcampaignsv2,

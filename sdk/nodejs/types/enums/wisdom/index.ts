@@ -59,9 +59,32 @@ export const KnowledgeBaseType = {
     External: "EXTERNAL",
     Custom: "CUSTOM",
     MessageTemplates: "MESSAGE_TEMPLATES",
+    Managed: "MANAGED",
 } as const;
 
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
+
+export const KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy = {
+    FixedSize: "FIXED_SIZE",
+    None: "NONE",
+    Hierarchical: "HIERARCHICAL",
+    Semantic: "SEMANTIC",
+} as const;
+
+export type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy = (typeof KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy)[keyof typeof KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy];
+
+export const KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy = {
+    BedrockFoundationModel: "BEDROCK_FOUNDATION_MODEL",
+} as const;
+
+export type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy = (typeof KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy)[keyof typeof KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy];
+
+export const KnowledgeBaseWebCrawlerConfigurationScope = {
+    HostOnly: "HOST_ONLY",
+    Subdomains: "SUBDOMAINS",
+} as const;
+
+export type KnowledgeBaseWebCrawlerConfigurationScope = (typeof KnowledgeBaseWebCrawlerConfigurationScope)[keyof typeof KnowledgeBaseWebCrawlerConfigurationScope];
 
 export const MessageTemplateChannelSubtype = {
     Email: "EMAIL",

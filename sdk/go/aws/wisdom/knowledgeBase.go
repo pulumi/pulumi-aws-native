@@ -32,9 +32,10 @@ type KnowledgeBase struct {
 	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
-	SourceConfiguration KnowledgeBaseSourceConfigurationPtrOutput `pulumi:"sourceConfiguration"`
+	SourceConfiguration pulumi.AnyOutput `pulumi:"sourceConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	Tags                         aws.CreateOnlyTagArrayOutput                       `pulumi:"tags"`
+	VectorIngestionConfiguration KnowledgeBaseVectorIngestionConfigurationPtrOutput `pulumi:"vectorIngestionConfiguration"`
 }
 
 // NewKnowledgeBase registers a new resource with the given unique name, arguments, and options.
@@ -100,9 +101,10 @@ type knowledgeBaseArgs struct {
 	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration *KnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
-	SourceConfiguration *KnowledgeBaseSourceConfiguration `pulumi:"sourceConfiguration"`
+	SourceConfiguration interface{} `pulumi:"sourceConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	Tags                         []aws.CreateOnlyTag                        `pulumi:"tags"`
+	VectorIngestionConfiguration *KnowledgeBaseVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
 }
 
 // The set of arguments for constructing a KnowledgeBase resource.
@@ -118,9 +120,10 @@ type KnowledgeBaseArgs struct {
 	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrInput
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
-	SourceConfiguration KnowledgeBaseSourceConfigurationPtrInput
+	SourceConfiguration pulumi.Input
 	// The tags used to organize, track, or control access for this resource.
-	Tags aws.CreateOnlyTagArrayInput
+	Tags                         aws.CreateOnlyTagArrayInput
+	VectorIngestionConfiguration KnowledgeBaseVectorIngestionConfigurationPtrInput
 }
 
 func (KnowledgeBaseArgs) ElementType() reflect.Type {
@@ -198,13 +201,19 @@ func (o KnowledgeBaseOutput) ServerSideEncryptionConfiguration() KnowledgeBaseSe
 }
 
 // The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
-func (o KnowledgeBaseOutput) SourceConfiguration() KnowledgeBaseSourceConfigurationPtrOutput {
-	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseSourceConfigurationPtrOutput { return v.SourceConfiguration }).(KnowledgeBaseSourceConfigurationPtrOutput)
+func (o KnowledgeBaseOutput) SourceConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *KnowledgeBase) pulumi.AnyOutput { return v.SourceConfiguration }).(pulumi.AnyOutput)
 }
 
 // The tags used to organize, track, or control access for this resource.
 func (o KnowledgeBaseOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBase) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
+}
+
+func (o KnowledgeBaseOutput) VectorIngestionConfiguration() KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+		return v.VectorIngestionConfiguration
+	}).(KnowledgeBaseVectorIngestionConfigurationPtrOutput)
 }
 
 func init() {

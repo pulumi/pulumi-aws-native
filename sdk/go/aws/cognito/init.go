@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityPoolRoleAttachment{}
 	case "aws-native:cognito:LogDeliveryConfiguration":
 		r = &LogDeliveryConfiguration{}
+	case "aws-native:cognito:ManagedLoginBranding":
+		r = &ManagedLoginBranding{}
 	case "aws-native:cognito:UserPool":
 		r = &UserPool{}
 	case "aws-native:cognito:UserPoolClient":

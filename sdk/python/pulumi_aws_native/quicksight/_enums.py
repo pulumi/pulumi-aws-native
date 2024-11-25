@@ -38,12 +38,17 @@ __all__ = [
     'AnalysisFontWeightName',
     'AnalysisForecastComputationSeasonality',
     'AnalysisFunnelChartMeasureDataLabelStyle',
+    'AnalysisGeospatialColorState',
+    'AnalysisGeospatialLayerType',
+    'AnalysisGeospatialMapNavigation',
     'AnalysisGeospatialSelectedPointStyle',
     'AnalysisHistogramBinType',
     'AnalysisHorizontalTextAlignment',
     'AnalysisIcon',
+    'AnalysisImageCustomActionTrigger',
     'AnalysisKpiSparklineType',
     'AnalysisKpiVisualStandardLayoutType',
+    'AnalysisLayerCustomActionTrigger',
     'AnalysisLayoutElementType',
     'AnalysisLegendPosition',
     'AnalysisLineChartLineStyle',
@@ -69,6 +74,7 @@ __all__ = [
     'AnalysisPivotTableMetricPlacement',
     'AnalysisPivotTableRowsLayout',
     'AnalysisPivotTableSubtotalLevel',
+    'AnalysisPluginVisualAxisName',
     'AnalysisPrimaryValueDisplayType',
     'AnalysisQueryExecutionMode',
     'AnalysisRadarChartAxesRangeScale',
@@ -90,6 +96,7 @@ __all__ = [
     'AnalysisSheetControlDateTimePickerType',
     'AnalysisSheetControlListType',
     'AnalysisSheetControlSliderType',
+    'AnalysisSheetImageScalingType',
     'AnalysisSimpleAttributeAggregationFunction',
     'AnalysisSimpleNumericalAggregationFunction',
     'AnalysisSimpleTotalAggregationFunction',
@@ -158,12 +165,17 @@ __all__ = [
     'DashboardFontWeightName',
     'DashboardForecastComputationSeasonality',
     'DashboardFunnelChartMeasureDataLabelStyle',
+    'DashboardGeospatialColorState',
+    'DashboardGeospatialLayerType',
+    'DashboardGeospatialMapNavigation',
     'DashboardGeospatialSelectedPointStyle',
     'DashboardHistogramBinType',
     'DashboardHorizontalTextAlignment',
     'DashboardIcon',
+    'DashboardImageCustomActionTrigger',
     'DashboardKpiSparklineType',
     'DashboardKpiVisualStandardLayoutType',
+    'DashboardLayerCustomActionTrigger',
     'DashboardLayoutElementType',
     'DashboardLegendPosition',
     'DashboardLineChartLineStyle',
@@ -189,6 +201,7 @@ __all__ = [
     'DashboardPivotTableMetricPlacement',
     'DashboardPivotTableRowsLayout',
     'DashboardPivotTableSubtotalLevel',
+    'DashboardPluginVisualAxisName',
     'DashboardPrimaryValueDisplayType',
     'DashboardRadarChartAxesRangeScale',
     'DashboardRadarChartShape',
@@ -209,6 +222,7 @@ __all__ = [
     'DashboardSheetControlDateTimePickerType',
     'DashboardSheetControlListType',
     'DashboardSheetControlSliderType',
+    'DashboardSheetImageScalingType',
     'DashboardSimpleAttributeAggregationFunction',
     'DashboardSimpleNumericalAggregationFunction',
     'DashboardSimpleTotalAggregationFunction',
@@ -307,6 +321,7 @@ __all__ = [
     'TemplateHistogramBinType',
     'TemplateHorizontalTextAlignment',
     'TemplateIcon',
+    'TemplateImageCustomActionTrigger',
     'TemplateKpiSparklineType',
     'TemplateKpiVisualStandardLayoutType',
     'TemplateLayoutElementType',
@@ -334,6 +349,7 @@ __all__ = [
     'TemplatePivotTableMetricPlacement',
     'TemplatePivotTableRowsLayout',
     'TemplatePivotTableSubtotalLevel',
+    'TemplatePluginVisualAxisName',
     'TemplatePrimaryValueDisplayType',
     'TemplateQueryExecutionMode',
     'TemplateRadarChartAxesRangeScale',
@@ -355,6 +371,7 @@ __all__ = [
     'TemplateSheetControlDateTimePickerType',
     'TemplateSheetControlListType',
     'TemplateSheetControlSliderType',
+    'TemplateSheetImageScalingType',
     'TemplateSimpleAttributeAggregationFunction',
     'TemplateSimpleNumericalAggregationFunction',
     'TemplateSimpleTotalAggregationFunction',
@@ -626,6 +643,25 @@ class AnalysisFunnelChartMeasureDataLabelStyle(str, Enum):
     VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE"
 
 
+class AnalysisGeospatialColorState(str, Enum):
+    """
+    Defines view state of the color
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class AnalysisGeospatialLayerType(str, Enum):
+    POINT = "POINT"
+    LINE = "LINE"
+    POLYGON = "POLYGON"
+
+
+class AnalysisGeospatialMapNavigation(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class AnalysisGeospatialSelectedPointStyle(str, Enum):
     POINT = "POINT"
     CLUSTER = "CLUSTER"
@@ -673,6 +709,11 @@ class AnalysisIcon(str, Enum):
     X = "X"
 
 
+class AnalysisImageCustomActionTrigger(str, Enum):
+    CLICK = "CLICK"
+    MENU = "MENU"
+
+
 class AnalysisKpiSparklineType(str, Enum):
     LINE = "LINE"
     AREA = "AREA"
@@ -681,6 +722,11 @@ class AnalysisKpiSparklineType(str, Enum):
 class AnalysisKpiVisualStandardLayoutType(str, Enum):
     CLASSIC = "CLASSIC"
     VERTICAL = "VERTICAL"
+
+
+class AnalysisLayerCustomActionTrigger(str, Enum):
+    DATA_POINT_CLICK = "DATA_POINT_CLICK"
+    DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
 class AnalysisLayoutElementType(str, Enum):
@@ -838,6 +884,11 @@ class AnalysisPivotTableSubtotalLevel(str, Enum):
     LAST = "LAST"
 
 
+class AnalysisPluginVisualAxisName(str, Enum):
+    GROUP_BY = "GROUP_BY"
+    VALUE = "VALUE"
+
+
 class AnalysisPrimaryValueDisplayType(str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
@@ -954,6 +1005,13 @@ class AnalysisSheetControlListType(str, Enum):
 class AnalysisSheetControlSliderType(str, Enum):
     SINGLE_POINT = "SINGLE_POINT"
     RANGE = "RANGE"
+
+
+class AnalysisSheetImageScalingType(str, Enum):
+    SCALE_TO_WIDTH = "SCALE_TO_WIDTH"
+    SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
+    SCALE_TO_CONTAINER = "SCALE_TO_CONTAINER"
+    SCALE_NONE = "SCALE_NONE"
 
 
 class AnalysisSimpleAttributeAggregationFunction(str, Enum):
@@ -1365,6 +1423,25 @@ class DashboardFunnelChartMeasureDataLabelStyle(str, Enum):
     VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE = "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE"
 
 
+class DashboardGeospatialColorState(str, Enum):
+    """
+    Defines view state of the color
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
+class DashboardGeospatialLayerType(str, Enum):
+    POINT = "POINT"
+    LINE = "LINE"
+    POLYGON = "POLYGON"
+
+
+class DashboardGeospatialMapNavigation(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+
+
 class DashboardGeospatialSelectedPointStyle(str, Enum):
     POINT = "POINT"
     CLUSTER = "CLUSTER"
@@ -1412,6 +1489,11 @@ class DashboardIcon(str, Enum):
     X = "X"
 
 
+class DashboardImageCustomActionTrigger(str, Enum):
+    CLICK = "CLICK"
+    MENU = "MENU"
+
+
 class DashboardKpiSparklineType(str, Enum):
     LINE = "LINE"
     AREA = "AREA"
@@ -1420,6 +1502,11 @@ class DashboardKpiSparklineType(str, Enum):
 class DashboardKpiVisualStandardLayoutType(str, Enum):
     CLASSIC = "CLASSIC"
     VERTICAL = "VERTICAL"
+
+
+class DashboardLayerCustomActionTrigger(str, Enum):
+    DATA_POINT_CLICK = "DATA_POINT_CLICK"
+    DATA_POINT_MENU = "DATA_POINT_MENU"
 
 
 class DashboardLayoutElementType(str, Enum):
@@ -1577,6 +1664,11 @@ class DashboardPivotTableSubtotalLevel(str, Enum):
     LAST = "LAST"
 
 
+class DashboardPluginVisualAxisName(str, Enum):
+    GROUP_BY = "GROUP_BY"
+    VALUE = "VALUE"
+
+
 class DashboardPrimaryValueDisplayType(str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
@@ -1688,6 +1780,13 @@ class DashboardSheetControlListType(str, Enum):
 class DashboardSheetControlSliderType(str, Enum):
     SINGLE_POINT = "SINGLE_POINT"
     RANGE = "RANGE"
+
+
+class DashboardSheetImageScalingType(str, Enum):
+    SCALE_TO_WIDTH = "SCALE_TO_WIDTH"
+    SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
+    SCALE_TO_CONTAINER = "SCALE_TO_CONTAINER"
+    SCALE_NONE = "SCALE_NONE"
 
 
 class DashboardSimpleAttributeAggregationFunction(str, Enum):
@@ -2369,6 +2468,11 @@ class TemplateIcon(str, Enum):
     X = "X"
 
 
+class TemplateImageCustomActionTrigger(str, Enum):
+    CLICK = "CLICK"
+    MENU = "MENU"
+
+
 class TemplateKpiSparklineType(str, Enum):
     LINE = "LINE"
     AREA = "AREA"
@@ -2534,6 +2638,11 @@ class TemplatePivotTableSubtotalLevel(str, Enum):
     LAST = "LAST"
 
 
+class TemplatePluginVisualAxisName(str, Enum):
+    GROUP_BY = "GROUP_BY"
+    VALUE = "VALUE"
+
+
 class TemplatePrimaryValueDisplayType(str, Enum):
     HIDDEN = "HIDDEN"
     COMPARISON = "COMPARISON"
@@ -2650,6 +2759,13 @@ class TemplateSheetControlListType(str, Enum):
 class TemplateSheetControlSliderType(str, Enum):
     SINGLE_POINT = "SINGLE_POINT"
     RANGE = "RANGE"
+
+
+class TemplateSheetImageScalingType(str, Enum):
+    SCALE_TO_WIDTH = "SCALE_TO_WIDTH"
+    SCALE_TO_HEIGHT = "SCALE_TO_HEIGHT"
+    SCALE_TO_CONTAINER = "SCALE_TO_CONTAINER"
+    SCALE_NONE = "SCALE_NONE"
 
 
 class TemplateSimpleAttributeAggregationFunction(str, Enum):

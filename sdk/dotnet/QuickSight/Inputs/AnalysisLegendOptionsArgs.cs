@@ -35,6 +35,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("title")]
         public Input<Inputs.AnalysisLabelOptionsArgs>? Title { get; set; }
 
+        [Input("valueFontConfiguration")]
+        public Input<Inputs.AnalysisFontConfigurationArgs>? ValueFontConfiguration { get; set; }
+
         /// <summary>
         /// Determines whether or not the legend is visible.
         /// </summary>

@@ -69,6 +69,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// Information about how to render the content.
         /// </summary>
         public readonly Outputs.KnowledgeBaseRenderingConfiguration? RenderingConfiguration;
+        public readonly Outputs.KnowledgeBaseVectorIngestionConfiguration? VectorIngestionConfiguration;
 
         [OutputConstructor]
         private GetKnowledgeBaseResult(
@@ -76,11 +77,14 @@ namespace Pulumi.AwsNative.Wisdom
 
             string? knowledgeBaseId,
 
-            Outputs.KnowledgeBaseRenderingConfiguration? renderingConfiguration)
+            Outputs.KnowledgeBaseRenderingConfiguration? renderingConfiguration,
+
+            Outputs.KnowledgeBaseVectorIngestionConfiguration? vectorIngestionConfiguration)
         {
             KnowledgeBaseArn = knowledgeBaseArn;
             KnowledgeBaseId = knowledgeBaseId;
             RenderingConfiguration = renderingConfiguration;
+            VectorIngestionConfiguration = vectorIngestionConfiguration;
         }
     }
 }

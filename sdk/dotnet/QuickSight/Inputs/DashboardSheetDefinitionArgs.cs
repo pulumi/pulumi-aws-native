@@ -41,6 +41,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _filterControls = value;
         }
 
+        [Input("images")]
+        private InputList<Inputs.DashboardSheetImageArgs>? _images;
+        public InputList<Inputs.DashboardSheetImageArgs> Images
+        {
+            get => _images ?? (_images = new InputList<Inputs.DashboardSheetImageArgs>());
+            set => _images = value;
+        }
+
         [Input("layouts")]
         private InputList<Inputs.DashboardLayoutArgs>? _layouts;
 

@@ -173,6 +173,7 @@ namespace Pulumi.AwsNative.Cognito
         /// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? UserPoolTags;
+        public readonly Pulumi.AwsNative.Cognito.UserPoolTier? UserPoolTier;
         /// <summary>
         /// Specifies whether a user can use an email address or phone number as a username when they sign up.
         /// </summary>
@@ -189,6 +190,8 @@ namespace Pulumi.AwsNative.Cognito
         /// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         /// </summary>
         public readonly Outputs.UserPoolVerificationMessageTemplate? VerificationMessageTemplate;
+        public readonly string? WebAuthnRelyingPartyId;
+        public readonly string? WebAuthnUserVerification;
 
         [OutputConstructor]
         private GetUserPoolResult(
@@ -244,11 +247,17 @@ namespace Pulumi.AwsNative.Cognito
 
             ImmutableDictionary<string, string>? userPoolTags,
 
+            Pulumi.AwsNative.Cognito.UserPoolTier? userPoolTier,
+
             ImmutableArray<string> usernameAttributes,
 
             Outputs.UserPoolUsernameConfiguration? usernameConfiguration,
 
-            Outputs.UserPoolVerificationMessageTemplate? verificationMessageTemplate)
+            Outputs.UserPoolVerificationMessageTemplate? verificationMessageTemplate,
+
+            string? webAuthnRelyingPartyId,
+
+            string? webAuthnUserVerification)
         {
             AccountRecoverySetting = accountRecoverySetting;
             AdminCreateUserConfig = adminCreateUserConfig;
@@ -276,9 +285,12 @@ namespace Pulumi.AwsNative.Cognito
             UserPoolId = userPoolId;
             UserPoolName = userPoolName;
             UserPoolTags = userPoolTags;
+            UserPoolTier = userPoolTier;
             UsernameAttributes = usernameAttributes;
             UsernameConfiguration = usernameConfiguration;
             VerificationMessageTemplate = verificationMessageTemplate;
+            WebAuthnRelyingPartyId = webAuthnRelyingPartyId;
+            WebAuthnUserVerification = webAuthnUserVerification;
         }
     }
 }

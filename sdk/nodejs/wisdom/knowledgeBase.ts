@@ -68,11 +68,12 @@ export class KnowledgeBase extends pulumi.CustomResource {
     /**
      * The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
      */
-    public readonly sourceConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseSourceConfiguration | undefined>;
+    public readonly sourceConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseSourceConfiguration0Properties | outputs.wisdom.KnowledgeBaseSourceConfiguration1Properties | undefined>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    public readonly vectorIngestionConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseVectorIngestionConfiguration | undefined>;
 
     /**
      * Create a KnowledgeBase resource with the given unique name, arguments, and options.
@@ -95,6 +96,7 @@ export class KnowledgeBase extends pulumi.CustomResource {
             resourceInputs["serverSideEncryptionConfiguration"] = args ? args.serverSideEncryptionConfiguration : undefined;
             resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vectorIngestionConfiguration"] = args ? args.vectorIngestionConfiguration : undefined;
             resourceInputs["knowledgeBaseArn"] = undefined /*out*/;
             resourceInputs["knowledgeBaseId"] = undefined /*out*/;
         } else {
@@ -107,6 +109,7 @@ export class KnowledgeBase extends pulumi.CustomResource {
             resourceInputs["serverSideEncryptionConfiguration"] = undefined /*out*/;
             resourceInputs["sourceConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["vectorIngestionConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["description", "knowledgeBaseType", "name", "serverSideEncryptionConfiguration", "sourceConfiguration", "tags[*]"] };
@@ -142,9 +145,10 @@ export interface KnowledgeBaseArgs {
     /**
      * The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
      */
-    sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfigurationArgs>;
+    sourceConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseSourceConfiguration0PropertiesArgs | inputs.wisdom.KnowledgeBaseSourceConfiguration1PropertiesArgs>;
     /**
      * The tags used to organize, track, or control access for this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    vectorIngestionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseVectorIngestionConfigurationArgs>;
 }

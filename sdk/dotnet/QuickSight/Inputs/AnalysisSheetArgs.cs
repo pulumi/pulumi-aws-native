@@ -19,6 +19,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class AnalysisSheetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("images")]
+        private InputList<Inputs.AnalysisSheetImageArgs>? _images;
+        public InputList<Inputs.AnalysisSheetImageArgs> Images
+        {
+            get => _images ?? (_images = new InputList<Inputs.AnalysisSheetImageArgs>());
+            set => _images = value;
+        }
+
         /// <summary>
         /// &lt;p&gt;The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
         ///             console.&lt;/p&gt;

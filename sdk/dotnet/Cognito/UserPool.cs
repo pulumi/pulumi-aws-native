@@ -195,6 +195,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("userPoolTags")]
         public Output<ImmutableDictionary<string, string>?> UserPoolTags { get; private set; } = null!;
 
+        [Output("userPoolTier")]
+        public Output<Pulumi.AwsNative.Cognito.UserPoolTier?> UserPoolTier { get; private set; } = null!;
+
         /// <summary>
         /// Specifies whether a user can use an email address or phone number as a username when they sign up.
         /// </summary>
@@ -216,6 +219,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         [Output("verificationMessageTemplate")]
         public Output<Outputs.UserPoolVerificationMessageTemplate?> VerificationMessageTemplate { get; private set; } = null!;
+
+        [Output("webAuthnRelyingPartyId")]
+        public Output<string?> WebAuthnRelyingPartyId { get; private set; } = null!;
+
+        [Output("webAuthnUserVerification")]
+        public Output<string?> WebAuthnUserVerification { get; private set; } = null!;
 
 
         /// <summary>
@@ -448,6 +457,9 @@ namespace Pulumi.AwsNative.Cognito
             set => _userPoolTags = value;
         }
 
+        [Input("userPoolTier")]
+        public Input<Pulumi.AwsNative.Cognito.UserPoolTier>? UserPoolTier { get; set; }
+
         [Input("usernameAttributes")]
         private InputList<string>? _usernameAttributes;
 
@@ -475,6 +487,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         [Input("verificationMessageTemplate")]
         public Input<Inputs.UserPoolVerificationMessageTemplateArgs>? VerificationMessageTemplate { get; set; }
+
+        [Input("webAuthnRelyingPartyId")]
+        public Input<string>? WebAuthnRelyingPartyId { get; set; }
+
+        [Input("webAuthnUserVerification")]
+        public Input<string>? WebAuthnUserVerification { get; set; }
 
         public UserPoolArgs()
         {

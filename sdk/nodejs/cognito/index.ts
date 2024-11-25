@@ -25,6 +25,11 @@ export const getLogDeliveryConfiguration: typeof import("./getLogDeliveryConfigu
 export const getLogDeliveryConfigurationOutput: typeof import("./getLogDeliveryConfiguration").getLogDeliveryConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getLogDeliveryConfiguration","getLogDeliveryConfigurationOutput"], () => require("./getLogDeliveryConfiguration"));
 
+export { GetManagedLoginBrandingArgs, GetManagedLoginBrandingResult, GetManagedLoginBrandingOutputArgs } from "./getManagedLoginBranding";
+export const getManagedLoginBranding: typeof import("./getManagedLoginBranding").getManagedLoginBranding = null as any;
+export const getManagedLoginBrandingOutput: typeof import("./getManagedLoginBranding").getManagedLoginBrandingOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedLoginBranding","getManagedLoginBrandingOutput"], () => require("./getManagedLoginBranding"));
+
 export { GetUserPoolArgs, GetUserPoolResult, GetUserPoolOutputArgs } from "./getUserPool";
 export const getUserPool: typeof import("./getUserPool").getUserPool = null as any;
 export const getUserPoolOutput: typeof import("./getUserPool").getUserPoolOutput = null as any;
@@ -85,6 +90,11 @@ export type LogDeliveryConfiguration = import("./logDeliveryConfiguration").LogD
 export const LogDeliveryConfiguration: typeof import("./logDeliveryConfiguration").LogDeliveryConfiguration = null as any;
 utilities.lazyLoad(exports, ["LogDeliveryConfiguration"], () => require("./logDeliveryConfiguration"));
 
+export { ManagedLoginBrandingArgs } from "./managedLoginBranding";
+export type ManagedLoginBranding = import("./managedLoginBranding").ManagedLoginBranding;
+export const ManagedLoginBranding: typeof import("./managedLoginBranding").ManagedLoginBranding = null as any;
+utilities.lazyLoad(exports, ["ManagedLoginBranding"], () => require("./managedLoginBranding"));
+
 export { UserPoolArgs } from "./userPool";
 export type UserPool = import("./userPool").UserPool;
 export const UserPool: typeof import("./userPool").UserPool = null as any;
@@ -136,6 +146,9 @@ export const UserPoolUserToGroupAttachment: typeof import("./userPoolUserToGroup
 utilities.lazyLoad(exports, ["UserPoolUserToGroupAttachment"], () => require("./userPoolUserToGroupAttachment"));
 
 
+// Export enums:
+export * from "../types/enums/cognito";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -148,6 +161,8 @@ const _module = {
                 return new IdentityPoolRoleAttachment(name, <any>undefined, { urn })
             case "aws-native:cognito:LogDeliveryConfiguration":
                 return new LogDeliveryConfiguration(name, <any>undefined, { urn })
+            case "aws-native:cognito:ManagedLoginBranding":
+                return new ManagedLoginBranding(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPool":
                 return new UserPool(name, <any>undefined, { urn })
             case "aws-native:cognito:UserPoolClient":

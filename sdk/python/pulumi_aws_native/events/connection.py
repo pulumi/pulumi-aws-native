@@ -25,6 +25,7 @@ class ConnectionArgs:
                  auth_parameters: Optional[pulumi.Input['ConnectionAuthParametersArgs']] = None,
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 invocation_connectivity_parameters: Optional[pulumi.Input['InvocationConnectivityParametersPropertiesArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connection resource.
@@ -33,6 +34,7 @@ class ConnectionArgs:
                
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
         :param pulumi.Input[str] description: Description of the connection.
+        :param pulumi.Input['InvocationConnectivityParametersPropertiesArgs'] invocation_connectivity_parameters: The private resource the HTTP request will be sent to.
         :param pulumi.Input[str] name: Name of the connection.
         """
         if auth_parameters is not None:
@@ -41,6 +43,8 @@ class ConnectionArgs:
             pulumi.set(__self__, "authorization_type", authorization_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if invocation_connectivity_parameters is not None:
+            pulumi.set(__self__, "invocation_connectivity_parameters", invocation_connectivity_parameters)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -83,6 +87,18 @@ class ConnectionArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="invocationConnectivityParameters")
+    def invocation_connectivity_parameters(self) -> Optional[pulumi.Input['InvocationConnectivityParametersPropertiesArgs']]:
+        """
+        The private resource the HTTP request will be sent to.
+        """
+        return pulumi.get(self, "invocation_connectivity_parameters")
+
+    @invocation_connectivity_parameters.setter
+    def invocation_connectivity_parameters(self, value: Optional[pulumi.Input['InvocationConnectivityParametersPropertiesArgs']]):
+        pulumi.set(self, "invocation_connectivity_parameters", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -103,6 +119,7 @@ class Connection(pulumi.CustomResource):
                  auth_parameters: Optional[pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 invocation_connectivity_parameters: Optional[pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -141,6 +158,7 @@ class Connection(pulumi.CustomResource):
                
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
         :param pulumi.Input[str] description: Description of the connection.
+        :param pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']] invocation_connectivity_parameters: The private resource the HTTP request will be sent to.
         :param pulumi.Input[str] name: Name of the connection.
         """
         ...
@@ -196,6 +214,7 @@ class Connection(pulumi.CustomResource):
                  auth_parameters: Optional[pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']]] = None,
                  authorization_type: Optional[pulumi.Input['ConnectionAuthorizationType']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 invocation_connectivity_parameters: Optional[pulumi.Input[Union['InvocationConnectivityParametersPropertiesArgs', 'InvocationConnectivityParametersPropertiesArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -209,6 +228,7 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["auth_parameters"] = auth_parameters
             __props__.__dict__["authorization_type"] = authorization_type
             __props__.__dict__["description"] = description
+            __props__.__dict__["invocation_connectivity_parameters"] = invocation_connectivity_parameters
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
             __props__.__dict__["secret_arn"] = None
@@ -240,6 +260,7 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["auth_parameters"] = None
         __props__.__dict__["authorization_type"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["invocation_connectivity_parameters"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["secret_arn"] = None
         return Connection(resource_name, opts=opts, __props__=__props__)
@@ -277,6 +298,14 @@ class Connection(pulumi.CustomResource):
         Description of the connection.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="invocationConnectivityParameters")
+    def invocation_connectivity_parameters(self) -> pulumi.Output[Optional['outputs.InvocationConnectivityParametersProperties']]:
+        """
+        The private resource the HTTP request will be sent to.
+        """
+        return pulumi.get(self, "invocation_connectivity_parameters")
 
     @property
     @pulumi.getter

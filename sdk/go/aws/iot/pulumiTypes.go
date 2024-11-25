@@ -1673,7 +1673,9 @@ func (o DomainConfigurationClientCertificateConfigPtrOutput) ClientCertificateCa
 
 type DomainConfigurationServerCertificateConfig struct {
 	// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
-	EnableOcspCheck *bool `pulumi:"enableOcspCheck"`
+	EnableOcspCheck            *bool   `pulumi:"enableOcspCheck"`
+	OcspAuthorizedResponderArn *string `pulumi:"ocspAuthorizedResponderArn"`
+	OcspLambdaArn              *string `pulumi:"ocspLambdaArn"`
 }
 
 // DomainConfigurationServerCertificateConfigInput is an input type that accepts DomainConfigurationServerCertificateConfigArgs and DomainConfigurationServerCertificateConfigOutput values.
@@ -1689,7 +1691,9 @@ type DomainConfigurationServerCertificateConfigInput interface {
 
 type DomainConfigurationServerCertificateConfigArgs struct {
 	// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
-	EnableOcspCheck pulumi.BoolPtrInput `pulumi:"enableOcspCheck"`
+	EnableOcspCheck            pulumi.BoolPtrInput   `pulumi:"enableOcspCheck"`
+	OcspAuthorizedResponderArn pulumi.StringPtrInput `pulumi:"ocspAuthorizedResponderArn"`
+	OcspLambdaArn              pulumi.StringPtrInput `pulumi:"ocspLambdaArn"`
 }
 
 func (DomainConfigurationServerCertificateConfigArgs) ElementType() reflect.Type {
@@ -1774,6 +1778,14 @@ func (o DomainConfigurationServerCertificateConfigOutput) EnableOcspCheck() pulu
 	return o.ApplyT(func(v DomainConfigurationServerCertificateConfig) *bool { return v.EnableOcspCheck }).(pulumi.BoolPtrOutput)
 }
 
+func (o DomainConfigurationServerCertificateConfigOutput) OcspAuthorizedResponderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainConfigurationServerCertificateConfig) *string { return v.OcspAuthorizedResponderArn }).(pulumi.StringPtrOutput)
+}
+
+func (o DomainConfigurationServerCertificateConfigOutput) OcspLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainConfigurationServerCertificateConfig) *string { return v.OcspLambdaArn }).(pulumi.StringPtrOutput)
+}
+
 type DomainConfigurationServerCertificateConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainConfigurationServerCertificateConfigPtrOutput) ElementType() reflect.Type {
@@ -1806,6 +1818,24 @@ func (o DomainConfigurationServerCertificateConfigPtrOutput) EnableOcspCheck() p
 		}
 		return v.EnableOcspCheck
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainConfigurationServerCertificateConfigPtrOutput) OcspAuthorizedResponderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfigurationServerCertificateConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OcspAuthorizedResponderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainConfigurationServerCertificateConfigPtrOutput) OcspLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainConfigurationServerCertificateConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OcspLambdaArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainConfigurationServerCertificateSummary struct {

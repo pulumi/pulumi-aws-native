@@ -96,6 +96,7 @@ type LookupUserPoolResult struct {
 	UserPoolName *string `pulumi:"userPoolName"`
 	// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 	UserPoolTags map[string]string `pulumi:"userPoolTags"`
+	UserPoolTier *UserPoolTier     `pulumi:"userPoolTier"`
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
 	// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
@@ -106,6 +107,8 @@ type LookupUserPoolResult struct {
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
+	WebAuthnRelyingPartyId      *string                              `pulumi:"webAuthnRelyingPartyId"`
+	WebAuthnUserVerification    *string                              `pulumi:"webAuthnUserVerification"`
 }
 
 func LookupUserPoolOutput(ctx *pulumi.Context, args LookupUserPoolOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolResultOutput {
@@ -298,6 +301,10 @@ func (o LookupUserPoolResultOutput) UserPoolTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) map[string]string { return v.UserPoolTags }).(pulumi.StringMapOutput)
 }
 
+func (o LookupUserPoolResultOutput) UserPoolTier() UserPoolTierPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolTier { return v.UserPoolTier }).(UserPoolTierPtrOutput)
+}
+
 // Specifies whether a user can use an email address or phone number as a username when they sign up.
 func (o LookupUserPoolResultOutput) UsernameAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) []string { return v.UsernameAttributes }).(pulumi.StringArrayOutput)
@@ -317,6 +324,14 @@ func (o LookupUserPoolResultOutput) VerificationMessageTemplate() UserPoolVerifi
 	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolVerificationMessageTemplate {
 		return v.VerificationMessageTemplate
 	}).(UserPoolVerificationMessageTemplatePtrOutput)
+}
+
+func (o LookupUserPoolResultOutput) WebAuthnRelyingPartyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.WebAuthnRelyingPartyId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupUserPoolResultOutput) WebAuthnUserVerification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolResult) *string { return v.WebAuthnUserVerification }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -11,15 +11,12 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
 {
 
     [OutputType]
-    public sealed class KnowledgeBaseSourceConfiguration
+    public sealed class KnowledgeBaseSourceConfiguration0Properties
     {
-        /// <summary>
-        /// Configuration information for Amazon AppIntegrations to automatically ingest content.
-        /// </summary>
-        public readonly Outputs.KnowledgeBaseAppIntegrationsConfiguration? AppIntegrations;
+        public readonly Outputs.KnowledgeBaseAppIntegrationsConfiguration AppIntegrations;
 
         [OutputConstructor]
-        private KnowledgeBaseSourceConfiguration(Outputs.KnowledgeBaseAppIntegrationsConfiguration? appIntegrations)
+        private KnowledgeBaseSourceConfiguration0Properties(Outputs.KnowledgeBaseAppIntegrationsConfiguration appIntegrations)
         {
             AppIntegrations = appIntegrations;
         }

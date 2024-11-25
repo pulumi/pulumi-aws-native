@@ -44,6 +44,10 @@ export interface GetConnectionResult {
      */
     readonly description?: string;
     /**
+     * The private resource the HTTP request will be sent to.
+     */
+    readonly invocationConnectivityParameters?: outputs.events.InvocationConnectivityParametersProperties;
+    /**
      * The arn of the secrets manager secret created in the customer account.
      */
     readonly secretArn?: string;

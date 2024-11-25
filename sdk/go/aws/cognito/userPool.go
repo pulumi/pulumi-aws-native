@@ -91,6 +91,7 @@ type UserPool struct {
 	UserPoolName pulumi.StringPtrOutput `pulumi:"userPoolName"`
 	// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 	UserPoolTags pulumi.StringMapOutput `pulumi:"userPoolTags"`
+	UserPoolTier UserPoolTierPtrOutput  `pulumi:"userPoolTier"`
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes pulumi.StringArrayOutput `pulumi:"usernameAttributes"`
 	// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
@@ -101,6 +102,8 @@ type UserPool struct {
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrOutput `pulumi:"verificationMessageTemplate"`
+	WebAuthnRelyingPartyId      pulumi.StringPtrOutput                       `pulumi:"webAuthnRelyingPartyId"`
+	WebAuthnUserVerification    pulumi.StringPtrOutput                       `pulumi:"webAuthnUserVerification"`
 }
 
 // NewUserPool registers a new resource with the given unique name, arguments, and options.
@@ -211,6 +214,7 @@ type userPoolArgs struct {
 	UserPoolName *string `pulumi:"userPoolName"`
 	// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 	UserPoolTags map[string]string `pulumi:"userPoolTags"`
+	UserPoolTier *UserPoolTier     `pulumi:"userPoolTier"`
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
 	// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
@@ -221,6 +225,8 @@ type userPoolArgs struct {
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
+	WebAuthnRelyingPartyId      *string                              `pulumi:"webAuthnRelyingPartyId"`
+	WebAuthnUserVerification    *string                              `pulumi:"webAuthnUserVerification"`
 }
 
 // The set of arguments for constructing a UserPool resource.
@@ -293,6 +299,7 @@ type UserPoolArgs struct {
 	UserPoolName pulumi.StringPtrInput
 	// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 	UserPoolTags pulumi.StringMapInput
+	UserPoolTier UserPoolTierPtrInput
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes pulumi.StringArrayInput
 	// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
@@ -303,6 +310,8 @@ type UserPoolArgs struct {
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
+	WebAuthnRelyingPartyId      pulumi.StringPtrInput
+	WebAuthnUserVerification    pulumi.StringPtrInput
 }
 
 func (UserPoolArgs) ElementType() reflect.Type {
@@ -499,6 +508,10 @@ func (o UserPoolOutput) UserPoolTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringMapOutput { return v.UserPoolTags }).(pulumi.StringMapOutput)
 }
 
+func (o UserPoolOutput) UserPoolTier() UserPoolTierPtrOutput {
+	return o.ApplyT(func(v *UserPool) UserPoolTierPtrOutput { return v.UserPoolTier }).(UserPoolTierPtrOutput)
+}
+
 // Specifies whether a user can use an email address or phone number as a username when they sign up.
 func (o UserPoolOutput) UsernameAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.UsernameAttributes }).(pulumi.StringArrayOutput)
@@ -516,6 +529,14 @@ func (o UserPoolOutput) UsernameConfiguration() UserPoolUsernameConfigurationPtr
 // Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 func (o UserPoolOutput) VerificationMessageTemplate() UserPoolVerificationMessageTemplatePtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolVerificationMessageTemplatePtrOutput { return v.VerificationMessageTemplate }).(UserPoolVerificationMessageTemplatePtrOutput)
+}
+
+func (o UserPoolOutput) WebAuthnRelyingPartyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.WebAuthnRelyingPartyId }).(pulumi.StringPtrOutput)
+}
+
+func (o UserPoolOutput) WebAuthnUserVerification() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.WebAuthnUserVerification }).(pulumi.StringPtrOutput)
 }
 
 func init() {

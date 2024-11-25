@@ -33,7 +33,8 @@ type LookupKnowledgeBaseResult struct {
 	// The ID of the knowledge base.
 	KnowledgeBaseId *string `pulumi:"knowledgeBaseId"`
 	// Information about how to render the content.
-	RenderingConfiguration *KnowledgeBaseRenderingConfiguration `pulumi:"renderingConfiguration"`
+	RenderingConfiguration       *KnowledgeBaseRenderingConfiguration       `pulumi:"renderingConfiguration"`
+	VectorIngestionConfiguration *KnowledgeBaseVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
 }
 
 func LookupKnowledgeBaseOutput(ctx *pulumi.Context, args LookupKnowledgeBaseOutputArgs, opts ...pulumi.InvokeOption) LookupKnowledgeBaseResultOutput {
@@ -93,6 +94,12 @@ func (o LookupKnowledgeBaseResultOutput) RenderingConfiguration() KnowledgeBaseR
 	return o.ApplyT(func(v LookupKnowledgeBaseResult) *KnowledgeBaseRenderingConfiguration {
 		return v.RenderingConfiguration
 	}).(KnowledgeBaseRenderingConfigurationPtrOutput)
+}
+
+func (o LookupKnowledgeBaseResultOutput) VectorIngestionConfiguration() KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupKnowledgeBaseResult) *KnowledgeBaseVectorIngestionConfiguration {
+		return v.VectorIngestionConfiguration
+	}).(KnowledgeBaseVectorIngestionConfigurationPtrOutput)
 }
 
 func init() {

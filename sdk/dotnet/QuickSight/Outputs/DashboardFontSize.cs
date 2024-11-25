@@ -14,13 +14,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardFontSize
     {
         /// <summary>
+        /// String based length that is composed of value and unit in px
+        /// </summary>
+        public readonly string? Absolute;
+        /// <summary>
         /// The lexical name for the text size, proportional to its surrounding context.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardRelativeFontSize? Relative;
 
         [OutputConstructor]
-        private DashboardFontSize(Pulumi.AwsNative.QuickSight.DashboardRelativeFontSize? relative)
+        private DashboardFontSize(
+            string? absolute,
+
+            Pulumi.AwsNative.QuickSight.DashboardRelativeFontSize? relative)
         {
+            Absolute = absolute;
             Relative = relative;
         }
     }

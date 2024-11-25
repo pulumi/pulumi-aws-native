@@ -61,13 +61,16 @@ namespace Pulumi.AwsNative.Wisdom
         /// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         /// </summary>
         [Output("sourceConfiguration")]
-        public Output<Outputs.KnowledgeBaseSourceConfiguration?> SourceConfiguration { get; private set; } = null!;
+        public Output<Union<Outputs.KnowledgeBaseSourceConfiguration0Properties, Outputs.KnowledgeBaseSourceConfiguration1Properties>?> SourceConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+
+        [Output("vectorIngestionConfiguration")]
+        public Output<Outputs.KnowledgeBaseVectorIngestionConfiguration?> VectorIngestionConfiguration { get; private set; } = null!;
 
 
         /// <summary>
@@ -157,7 +160,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         /// </summary>
         [Input("sourceConfiguration")]
-        public Input<Inputs.KnowledgeBaseSourceConfigurationArgs>? SourceConfiguration { get; set; }
+        public InputUnion<Inputs.KnowledgeBaseSourceConfiguration0PropertiesArgs, Inputs.KnowledgeBaseSourceConfiguration1PropertiesArgs>? SourceConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
@@ -170,6 +173,9 @@ namespace Pulumi.AwsNative.Wisdom
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
             set => _tags = value;
         }
+
+        [Input("vectorIngestionConfiguration")]
+        public Input<Inputs.KnowledgeBaseVectorIngestionConfigurationArgs>? VectorIngestionConfiguration { get; set; }
 
         public KnowledgeBaseArgs()
         {

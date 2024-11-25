@@ -141,6 +141,7 @@ export interface GetUserPoolResult {
      * The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
      */
     readonly userPoolTags?: {[key: string]: string};
+    readonly userPoolTier?: enums.cognito.UserPoolTier;
     /**
      * Specifies whether a user can use an email address or phone number as a username when they sign up.
      */
@@ -157,6 +158,8 @@ export interface GetUserPoolResult {
      * Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
      */
     readonly verificationMessageTemplate?: outputs.cognito.UserPoolVerificationMessageTemplate;
+    readonly webAuthnRelyingPartyId?: string;
+    readonly webAuthnUserVerification?: string;
 }
 /**
  * Definition of AWS::Cognito::UserPool Resource Type

@@ -974,6 +974,94 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Defines view state of the color
+    /// </summary>
+    [EnumType]
+    public readonly struct AnalysisGeospatialColorState : IEquatable<AnalysisGeospatialColorState>
+    {
+        private readonly string _value;
+
+        private AnalysisGeospatialColorState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisGeospatialColorState Enabled { get; } = new AnalysisGeospatialColorState("ENABLED");
+        public static AnalysisGeospatialColorState Disabled { get; } = new AnalysisGeospatialColorState("DISABLED");
+
+        public static bool operator ==(AnalysisGeospatialColorState left, AnalysisGeospatialColorState right) => left.Equals(right);
+        public static bool operator !=(AnalysisGeospatialColorState left, AnalysisGeospatialColorState right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisGeospatialColorState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisGeospatialColorState other && Equals(other);
+        public bool Equals(AnalysisGeospatialColorState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisGeospatialLayerType : IEquatable<AnalysisGeospatialLayerType>
+    {
+        private readonly string _value;
+
+        private AnalysisGeospatialLayerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisGeospatialLayerType Point { get; } = new AnalysisGeospatialLayerType("POINT");
+        public static AnalysisGeospatialLayerType Line { get; } = new AnalysisGeospatialLayerType("LINE");
+        public static AnalysisGeospatialLayerType Polygon { get; } = new AnalysisGeospatialLayerType("POLYGON");
+
+        public static bool operator ==(AnalysisGeospatialLayerType left, AnalysisGeospatialLayerType right) => left.Equals(right);
+        public static bool operator !=(AnalysisGeospatialLayerType left, AnalysisGeospatialLayerType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisGeospatialLayerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisGeospatialLayerType other && Equals(other);
+        public bool Equals(AnalysisGeospatialLayerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisGeospatialMapNavigation : IEquatable<AnalysisGeospatialMapNavigation>
+    {
+        private readonly string _value;
+
+        private AnalysisGeospatialMapNavigation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisGeospatialMapNavigation Enabled { get; } = new AnalysisGeospatialMapNavigation("ENABLED");
+        public static AnalysisGeospatialMapNavigation Disabled { get; } = new AnalysisGeospatialMapNavigation("DISABLED");
+
+        public static bool operator ==(AnalysisGeospatialMapNavigation left, AnalysisGeospatialMapNavigation right) => left.Equals(right);
+        public static bool operator !=(AnalysisGeospatialMapNavigation left, AnalysisGeospatialMapNavigation right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisGeospatialMapNavigation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisGeospatialMapNavigation other && Equals(other);
+        public bool Equals(AnalysisGeospatialMapNavigation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct AnalysisGeospatialSelectedPointStyle : IEquatable<AnalysisGeospatialSelectedPointStyle>
     {
@@ -1114,6 +1202,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisImageCustomActionTrigger : IEquatable<AnalysisImageCustomActionTrigger>
+    {
+        private readonly string _value;
+
+        private AnalysisImageCustomActionTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisImageCustomActionTrigger Click { get; } = new AnalysisImageCustomActionTrigger("CLICK");
+        public static AnalysisImageCustomActionTrigger Menu { get; } = new AnalysisImageCustomActionTrigger("MENU");
+
+        public static bool operator ==(AnalysisImageCustomActionTrigger left, AnalysisImageCustomActionTrigger right) => left.Equals(right);
+        public static bool operator !=(AnalysisImageCustomActionTrigger left, AnalysisImageCustomActionTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisImageCustomActionTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisImageCustomActionTrigger other && Equals(other);
+        public bool Equals(AnalysisImageCustomActionTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisKpiSparklineType : IEquatable<AnalysisKpiSparklineType>
     {
         private readonly string _value;
@@ -1162,6 +1278,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisKpiVisualStandardLayoutType other && Equals(other);
         public bool Equals(AnalysisKpiVisualStandardLayoutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisLayerCustomActionTrigger : IEquatable<AnalysisLayerCustomActionTrigger>
+    {
+        private readonly string _value;
+
+        private AnalysisLayerCustomActionTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisLayerCustomActionTrigger DataPointClick { get; } = new AnalysisLayerCustomActionTrigger("DATA_POINT_CLICK");
+        public static AnalysisLayerCustomActionTrigger DataPointMenu { get; } = new AnalysisLayerCustomActionTrigger("DATA_POINT_MENU");
+
+        public static bool operator ==(AnalysisLayerCustomActionTrigger left, AnalysisLayerCustomActionTrigger right) => left.Equals(right);
+        public static bool operator !=(AnalysisLayerCustomActionTrigger left, AnalysisLayerCustomActionTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisLayerCustomActionTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisLayerCustomActionTrigger other && Equals(other);
+        public bool Equals(AnalysisLayerCustomActionTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1900,6 +2044,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct AnalysisPluginVisualAxisName : IEquatable<AnalysisPluginVisualAxisName>
+    {
+        private readonly string _value;
+
+        private AnalysisPluginVisualAxisName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisPluginVisualAxisName GroupBy { get; } = new AnalysisPluginVisualAxisName("GROUP_BY");
+        public static AnalysisPluginVisualAxisName Value { get; } = new AnalysisPluginVisualAxisName("VALUE");
+
+        public static bool operator ==(AnalysisPluginVisualAxisName left, AnalysisPluginVisualAxisName right) => left.Equals(right);
+        public static bool operator !=(AnalysisPluginVisualAxisName left, AnalysisPluginVisualAxisName right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisPluginVisualAxisName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisPluginVisualAxisName other && Equals(other);
+        public bool Equals(AnalysisPluginVisualAxisName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct AnalysisPrimaryValueDisplayType : IEquatable<AnalysisPrimaryValueDisplayType>
     {
         private readonly string _value;
@@ -2493,6 +2665,36 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AnalysisSheetControlSliderType other && Equals(other);
         public bool Equals(AnalysisSheetControlSliderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AnalysisSheetImageScalingType : IEquatable<AnalysisSheetImageScalingType>
+    {
+        private readonly string _value;
+
+        private AnalysisSheetImageScalingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AnalysisSheetImageScalingType ScaleToWidth { get; } = new AnalysisSheetImageScalingType("SCALE_TO_WIDTH");
+        public static AnalysisSheetImageScalingType ScaleToHeight { get; } = new AnalysisSheetImageScalingType("SCALE_TO_HEIGHT");
+        public static AnalysisSheetImageScalingType ScaleToContainer { get; } = new AnalysisSheetImageScalingType("SCALE_TO_CONTAINER");
+        public static AnalysisSheetImageScalingType ScaleNone { get; } = new AnalysisSheetImageScalingType("SCALE_NONE");
+
+        public static bool operator ==(AnalysisSheetImageScalingType left, AnalysisSheetImageScalingType right) => left.Equals(right);
+        public static bool operator !=(AnalysisSheetImageScalingType left, AnalysisSheetImageScalingType right) => !left.Equals(right);
+
+        public static explicit operator string(AnalysisSheetImageScalingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AnalysisSheetImageScalingType other && Equals(other);
+        public bool Equals(AnalysisSheetImageScalingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -4473,6 +4675,94 @@ namespace Pulumi.AwsNative.QuickSight
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Defines view state of the color
+    /// </summary>
+    [EnumType]
+    public readonly struct DashboardGeospatialColorState : IEquatable<DashboardGeospatialColorState>
+    {
+        private readonly string _value;
+
+        private DashboardGeospatialColorState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardGeospatialColorState Enabled { get; } = new DashboardGeospatialColorState("ENABLED");
+        public static DashboardGeospatialColorState Disabled { get; } = new DashboardGeospatialColorState("DISABLED");
+
+        public static bool operator ==(DashboardGeospatialColorState left, DashboardGeospatialColorState right) => left.Equals(right);
+        public static bool operator !=(DashboardGeospatialColorState left, DashboardGeospatialColorState right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardGeospatialColorState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardGeospatialColorState other && Equals(other);
+        public bool Equals(DashboardGeospatialColorState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardGeospatialLayerType : IEquatable<DashboardGeospatialLayerType>
+    {
+        private readonly string _value;
+
+        private DashboardGeospatialLayerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardGeospatialLayerType Point { get; } = new DashboardGeospatialLayerType("POINT");
+        public static DashboardGeospatialLayerType Line { get; } = new DashboardGeospatialLayerType("LINE");
+        public static DashboardGeospatialLayerType Polygon { get; } = new DashboardGeospatialLayerType("POLYGON");
+
+        public static bool operator ==(DashboardGeospatialLayerType left, DashboardGeospatialLayerType right) => left.Equals(right);
+        public static bool operator !=(DashboardGeospatialLayerType left, DashboardGeospatialLayerType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardGeospatialLayerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardGeospatialLayerType other && Equals(other);
+        public bool Equals(DashboardGeospatialLayerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardGeospatialMapNavigation : IEquatable<DashboardGeospatialMapNavigation>
+    {
+        private readonly string _value;
+
+        private DashboardGeospatialMapNavigation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardGeospatialMapNavigation Enabled { get; } = new DashboardGeospatialMapNavigation("ENABLED");
+        public static DashboardGeospatialMapNavigation Disabled { get; } = new DashboardGeospatialMapNavigation("DISABLED");
+
+        public static bool operator ==(DashboardGeospatialMapNavigation left, DashboardGeospatialMapNavigation right) => left.Equals(right);
+        public static bool operator !=(DashboardGeospatialMapNavigation left, DashboardGeospatialMapNavigation right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardGeospatialMapNavigation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardGeospatialMapNavigation other && Equals(other);
+        public bool Equals(DashboardGeospatialMapNavigation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DashboardGeospatialSelectedPointStyle : IEquatable<DashboardGeospatialSelectedPointStyle>
     {
@@ -4613,6 +4903,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardImageCustomActionTrigger : IEquatable<DashboardImageCustomActionTrigger>
+    {
+        private readonly string _value;
+
+        private DashboardImageCustomActionTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardImageCustomActionTrigger Click { get; } = new DashboardImageCustomActionTrigger("CLICK");
+        public static DashboardImageCustomActionTrigger Menu { get; } = new DashboardImageCustomActionTrigger("MENU");
+
+        public static bool operator ==(DashboardImageCustomActionTrigger left, DashboardImageCustomActionTrigger right) => left.Equals(right);
+        public static bool operator !=(DashboardImageCustomActionTrigger left, DashboardImageCustomActionTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardImageCustomActionTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardImageCustomActionTrigger other && Equals(other);
+        public bool Equals(DashboardImageCustomActionTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardKpiSparklineType : IEquatable<DashboardKpiSparklineType>
     {
         private readonly string _value;
@@ -4661,6 +4979,34 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardKpiVisualStandardLayoutType other && Equals(other);
         public bool Equals(DashboardKpiVisualStandardLayoutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardLayerCustomActionTrigger : IEquatable<DashboardLayerCustomActionTrigger>
+    {
+        private readonly string _value;
+
+        private DashboardLayerCustomActionTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardLayerCustomActionTrigger DataPointClick { get; } = new DashboardLayerCustomActionTrigger("DATA_POINT_CLICK");
+        public static DashboardLayerCustomActionTrigger DataPointMenu { get; } = new DashboardLayerCustomActionTrigger("DATA_POINT_MENU");
+
+        public static bool operator ==(DashboardLayerCustomActionTrigger left, DashboardLayerCustomActionTrigger right) => left.Equals(right);
+        public static bool operator !=(DashboardLayerCustomActionTrigger left, DashboardLayerCustomActionTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardLayerCustomActionTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardLayerCustomActionTrigger other && Equals(other);
+        public bool Equals(DashboardLayerCustomActionTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -5399,6 +5745,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct DashboardPluginVisualAxisName : IEquatable<DashboardPluginVisualAxisName>
+    {
+        private readonly string _value;
+
+        private DashboardPluginVisualAxisName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardPluginVisualAxisName GroupBy { get; } = new DashboardPluginVisualAxisName("GROUP_BY");
+        public static DashboardPluginVisualAxisName Value { get; } = new DashboardPluginVisualAxisName("VALUE");
+
+        public static bool operator ==(DashboardPluginVisualAxisName left, DashboardPluginVisualAxisName right) => left.Equals(right);
+        public static bool operator !=(DashboardPluginVisualAxisName left, DashboardPluginVisualAxisName right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardPluginVisualAxisName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardPluginVisualAxisName other && Equals(other);
+        public bool Equals(DashboardPluginVisualAxisName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardPrimaryValueDisplayType : IEquatable<DashboardPrimaryValueDisplayType>
     {
         private readonly string _value;
@@ -5964,6 +6338,36 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DashboardSheetControlSliderType other && Equals(other);
         public bool Equals(DashboardSheetControlSliderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DashboardSheetImageScalingType : IEquatable<DashboardSheetImageScalingType>
+    {
+        private readonly string _value;
+
+        private DashboardSheetImageScalingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DashboardSheetImageScalingType ScaleToWidth { get; } = new DashboardSheetImageScalingType("SCALE_TO_WIDTH");
+        public static DashboardSheetImageScalingType ScaleToHeight { get; } = new DashboardSheetImageScalingType("SCALE_TO_HEIGHT");
+        public static DashboardSheetImageScalingType ScaleToContainer { get; } = new DashboardSheetImageScalingType("SCALE_TO_CONTAINER");
+        public static DashboardSheetImageScalingType ScaleNone { get; } = new DashboardSheetImageScalingType("SCALE_NONE");
+
+        public static bool operator ==(DashboardSheetImageScalingType left, DashboardSheetImageScalingType right) => left.Equals(right);
+        public static bool operator !=(DashboardSheetImageScalingType left, DashboardSheetImageScalingType right) => !left.Equals(right);
+
+        public static explicit operator string(DashboardSheetImageScalingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DashboardSheetImageScalingType other && Equals(other);
+        public bool Equals(DashboardSheetImageScalingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -8905,6 +9309,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplateImageCustomActionTrigger : IEquatable<TemplateImageCustomActionTrigger>
+    {
+        private readonly string _value;
+
+        private TemplateImageCustomActionTrigger(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateImageCustomActionTrigger Click { get; } = new TemplateImageCustomActionTrigger("CLICK");
+        public static TemplateImageCustomActionTrigger Menu { get; } = new TemplateImageCustomActionTrigger("MENU");
+
+        public static bool operator ==(TemplateImageCustomActionTrigger left, TemplateImageCustomActionTrigger right) => left.Equals(right);
+        public static bool operator !=(TemplateImageCustomActionTrigger left, TemplateImageCustomActionTrigger right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateImageCustomActionTrigger value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateImageCustomActionTrigger other && Equals(other);
+        public bool Equals(TemplateImageCustomActionTrigger other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplateKpiSparklineType : IEquatable<TemplateKpiSparklineType>
     {
         private readonly string _value;
@@ -9691,6 +10123,34 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct TemplatePluginVisualAxisName : IEquatable<TemplatePluginVisualAxisName>
+    {
+        private readonly string _value;
+
+        private TemplatePluginVisualAxisName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplatePluginVisualAxisName GroupBy { get; } = new TemplatePluginVisualAxisName("GROUP_BY");
+        public static TemplatePluginVisualAxisName Value { get; } = new TemplatePluginVisualAxisName("VALUE");
+
+        public static bool operator ==(TemplatePluginVisualAxisName left, TemplatePluginVisualAxisName right) => left.Equals(right);
+        public static bool operator !=(TemplatePluginVisualAxisName left, TemplatePluginVisualAxisName right) => !left.Equals(right);
+
+        public static explicit operator string(TemplatePluginVisualAxisName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplatePluginVisualAxisName other && Equals(other);
+        public bool Equals(TemplatePluginVisualAxisName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct TemplatePrimaryValueDisplayType : IEquatable<TemplatePrimaryValueDisplayType>
     {
         private readonly string _value;
@@ -10284,6 +10744,36 @@ namespace Pulumi.AwsNative.QuickSight
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TemplateSheetControlSliderType other && Equals(other);
         public bool Equals(TemplateSheetControlSliderType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TemplateSheetImageScalingType : IEquatable<TemplateSheetImageScalingType>
+    {
+        private readonly string _value;
+
+        private TemplateSheetImageScalingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TemplateSheetImageScalingType ScaleToWidth { get; } = new TemplateSheetImageScalingType("SCALE_TO_WIDTH");
+        public static TemplateSheetImageScalingType ScaleToHeight { get; } = new TemplateSheetImageScalingType("SCALE_TO_HEIGHT");
+        public static TemplateSheetImageScalingType ScaleToContainer { get; } = new TemplateSheetImageScalingType("SCALE_TO_CONTAINER");
+        public static TemplateSheetImageScalingType ScaleNone { get; } = new TemplateSheetImageScalingType("SCALE_NONE");
+
+        public static bool operator ==(TemplateSheetImageScalingType left, TemplateSheetImageScalingType right) => left.Equals(right);
+        public static bool operator !=(TemplateSheetImageScalingType left, TemplateSheetImageScalingType right) => !left.Equals(right);
+
+        public static explicit operator string(TemplateSheetImageScalingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TemplateSheetImageScalingType other && Equals(other);
+        public bool Equals(TemplateSheetImageScalingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

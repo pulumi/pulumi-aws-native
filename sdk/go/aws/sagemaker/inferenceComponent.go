@@ -31,12 +31,12 @@ type InferenceComponent struct {
 	// The status of the inference component.
 	InferenceComponentStatus InferenceComponentStatusOutput `pulumi:"inferenceComponentStatus"`
 	// The time when the inference component was last updated.
-	LastModifiedTime pulumi.StringOutput                   `pulumi:"lastModifiedTime"`
-	RuntimeConfig    InferenceComponentRuntimeConfigOutput `pulumi:"runtimeConfig"`
-	Specification    InferenceComponentSpecificationOutput `pulumi:"specification"`
-	Tags             aws.TagArrayOutput                    `pulumi:"tags"`
+	LastModifiedTime pulumi.StringOutput                      `pulumi:"lastModifiedTime"`
+	RuntimeConfig    InferenceComponentRuntimeConfigPtrOutput `pulumi:"runtimeConfig"`
+	Specification    InferenceComponentSpecificationOutput    `pulumi:"specification"`
+	Tags             aws.TagArrayOutput                       `pulumi:"tags"`
 	// The name of the production variant that hosts the inference component.
-	VariantName pulumi.StringOutput `pulumi:"variantName"`
+	VariantName pulumi.StringPtrOutput `pulumi:"variantName"`
 }
 
 // NewInferenceComponent registers a new resource with the given unique name, arguments, and options.
@@ -49,14 +49,8 @@ func NewInferenceComponent(ctx *pulumi.Context,
 	if args.EndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointName'")
 	}
-	if args.RuntimeConfig == nil {
-		return nil, errors.New("invalid value for required argument 'RuntimeConfig'")
-	}
 	if args.Specification == nil {
 		return nil, errors.New("invalid value for required argument 'Specification'")
-	}
-	if args.VariantName == nil {
-		return nil, errors.New("invalid value for required argument 'VariantName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InferenceComponent
@@ -96,12 +90,12 @@ type inferenceComponentArgs struct {
 	// The name of the endpoint that hosts the inference component.
 	EndpointName string `pulumi:"endpointName"`
 	// The name of the inference component.
-	InferenceComponentName *string                         `pulumi:"inferenceComponentName"`
-	RuntimeConfig          InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
-	Specification          InferenceComponentSpecification `pulumi:"specification"`
-	Tags                   []aws.Tag                       `pulumi:"tags"`
+	InferenceComponentName *string                          `pulumi:"inferenceComponentName"`
+	RuntimeConfig          *InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
+	Specification          InferenceComponentSpecification  `pulumi:"specification"`
+	Tags                   []aws.Tag                        `pulumi:"tags"`
 	// The name of the production variant that hosts the inference component.
-	VariantName string `pulumi:"variantName"`
+	VariantName *string `pulumi:"variantName"`
 }
 
 // The set of arguments for constructing a InferenceComponent resource.
@@ -112,11 +106,11 @@ type InferenceComponentArgs struct {
 	EndpointName pulumi.StringInput
 	// The name of the inference component.
 	InferenceComponentName pulumi.StringPtrInput
-	RuntimeConfig          InferenceComponentRuntimeConfigInput
+	RuntimeConfig          InferenceComponentRuntimeConfigPtrInput
 	Specification          InferenceComponentSpecificationInput
 	Tags                   aws.TagArrayInput
 	// The name of the production variant that hosts the inference component.
-	VariantName pulumi.StringInput
+	VariantName pulumi.StringPtrInput
 }
 
 func (InferenceComponentArgs) ElementType() reflect.Type {
@@ -195,8 +189,8 @@ func (o InferenceComponentOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-func (o InferenceComponentOutput) RuntimeConfig() InferenceComponentRuntimeConfigOutput {
-	return o.ApplyT(func(v *InferenceComponent) InferenceComponentRuntimeConfigOutput { return v.RuntimeConfig }).(InferenceComponentRuntimeConfigOutput)
+func (o InferenceComponentOutput) RuntimeConfig() InferenceComponentRuntimeConfigPtrOutput {
+	return o.ApplyT(func(v *InferenceComponent) InferenceComponentRuntimeConfigPtrOutput { return v.RuntimeConfig }).(InferenceComponentRuntimeConfigPtrOutput)
 }
 
 func (o InferenceComponentOutput) Specification() InferenceComponentSpecificationOutput {
@@ -208,8 +202,8 @@ func (o InferenceComponentOutput) Tags() aws.TagArrayOutput {
 }
 
 // The name of the production variant that hosts the inference component.
-func (o InferenceComponentOutput) VariantName() pulumi.StringOutput {
-	return o.ApplyT(func(v *InferenceComponent) pulumi.StringOutput { return v.VariantName }).(pulumi.StringOutput)
+func (o InferenceComponentOutput) VariantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InferenceComponent) pulumi.StringPtrOutput { return v.VariantName }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -89,6 +89,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.DashboardKpiVisual? KpiVisual;
+        public readonly Outputs.DashboardLayerMapVisual? LayerMapVisual;
         /// <summary>
         /// A line chart.
         /// 
@@ -107,6 +108,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.DashboardPivotTableVisual? PivotTableVisual;
+        public readonly Outputs.DashboardPluginVisual? PluginVisual;
         /// <summary>
         /// A radar chart visual.
         /// 
@@ -178,11 +180,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardKpiVisual? kpiVisual,
 
+            Outputs.DashboardLayerMapVisual? layerMapVisual,
+
             Outputs.DashboardLineChartVisual? lineChartVisual,
 
             Outputs.DashboardPieChartVisual? pieChartVisual,
 
             Outputs.DashboardPivotTableVisual? pivotTableVisual,
+
+            Outputs.DashboardPluginVisual? pluginVisual,
 
             Outputs.DashboardRadarChartVisual? radarChartVisual,
 
@@ -211,9 +217,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             HistogramVisual = histogramVisual;
             InsightVisual = insightVisual;
             KpiVisual = kpiVisual;
+            LayerMapVisual = layerMapVisual;
             LineChartVisual = lineChartVisual;
             PieChartVisual = pieChartVisual;
             PivotTableVisual = pivotTableVisual;
+            PluginVisual = pluginVisual;
             RadarChartVisual = radarChartVisual;
             SankeyDiagramVisual = sankeyDiagramVisual;
             ScatterPlotVisual = scatterPlotVisual;

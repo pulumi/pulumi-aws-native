@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("fieldWells")]
         public Input<Inputs.DashboardGeospatialMapFieldWellsArgs>? FieldWells { get; set; }
 
+        [Input("interactions")]
+        public Input<object>? Interactions { get; set; }
+
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>

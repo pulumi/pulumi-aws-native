@@ -46,6 +46,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// An array of sheet definitions for a dashboard.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSheetDefinition> Sheets;
+        public readonly ImmutableArray<Outputs.DashboardStaticFile> StaticFiles;
 
         [OutputConstructor]
         private DashboardVersionDefinition(
@@ -63,7 +64,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             ImmutableArray<Outputs.DashboardParameterDeclaration> parameterDeclarations,
 
-            ImmutableArray<Outputs.DashboardSheetDefinition> sheets)
+            ImmutableArray<Outputs.DashboardSheetDefinition> sheets,
+
+            ImmutableArray<Outputs.DashboardStaticFile> staticFiles)
         {
             AnalysisDefaults = analysisDefaults;
             CalculatedFields = calculatedFields;
@@ -73,6 +76,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Options = options;
             ParameterDeclarations = parameterDeclarations;
             Sheets = sheets;
+            StaticFiles = staticFiles;
         }
     }
 }

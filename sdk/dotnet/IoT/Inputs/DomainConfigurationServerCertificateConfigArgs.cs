@@ -18,6 +18,12 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("enableOcspCheck")]
         public Input<bool>? EnableOcspCheck { get; set; }
 
+        [Input("ocspAuthorizedResponderArn")]
+        public Input<string>? OcspAuthorizedResponderArn { get; set; }
+
+        [Input("ocspLambdaArn")]
+        public Input<string>? OcspLambdaArn { get; set; }
+
         public DomainConfigurationServerCertificateConfigArgs()
         {
         }

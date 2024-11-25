@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['UserPoolArgs', 'UserPool']
@@ -44,9 +45,12 @@ class UserPoolArgs:
                  user_pool_add_ons: Optional[pulumi.Input['UserPoolAddOnsArgs']] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_pool_tier: Optional[pulumi.Input['UserPoolTier']] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username_configuration: Optional[pulumi.Input['UserPoolUsernameConfigurationArgs']] = None,
-                 verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None):
+                 verification_message_template: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']] = None,
+                 web_authn_relying_party_id: Optional[pulumi.Input[str]] = None,
+                 web_authn_user_verification: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPool resource.
         :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
@@ -148,12 +152,18 @@ class UserPoolArgs:
             pulumi.set(__self__, "user_pool_name", user_pool_name)
         if user_pool_tags is not None:
             pulumi.set(__self__, "user_pool_tags", user_pool_tags)
+        if user_pool_tier is not None:
+            pulumi.set(__self__, "user_pool_tier", user_pool_tier)
         if username_attributes is not None:
             pulumi.set(__self__, "username_attributes", username_attributes)
         if username_configuration is not None:
             pulumi.set(__self__, "username_configuration", username_configuration)
         if verification_message_template is not None:
             pulumi.set(__self__, "verification_message_template", verification_message_template)
+        if web_authn_relying_party_id is not None:
+            pulumi.set(__self__, "web_authn_relying_party_id", web_authn_relying_party_id)
+        if web_authn_user_verification is not None:
+            pulumi.set(__self__, "web_authn_user_verification", web_authn_user_verification)
 
     @property
     @pulumi.getter(name="accountRecoverySetting")
@@ -450,6 +460,15 @@ class UserPoolArgs:
         pulumi.set(self, "user_pool_tags", value)
 
     @property
+    @pulumi.getter(name="userPoolTier")
+    def user_pool_tier(self) -> Optional[pulumi.Input['UserPoolTier']]:
+        return pulumi.get(self, "user_pool_tier")
+
+    @user_pool_tier.setter
+    def user_pool_tier(self, value: Optional[pulumi.Input['UserPoolTier']]):
+        pulumi.set(self, "user_pool_tier", value)
+
+    @property
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -489,6 +508,24 @@ class UserPoolArgs:
     def verification_message_template(self, value: Optional[pulumi.Input['UserPoolVerificationMessageTemplateArgs']]):
         pulumi.set(self, "verification_message_template", value)
 
+    @property
+    @pulumi.getter(name="webAuthnRelyingPartyId")
+    def web_authn_relying_party_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "web_authn_relying_party_id")
+
+    @web_authn_relying_party_id.setter
+    def web_authn_relying_party_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_authn_relying_party_id", value)
+
+    @property
+    @pulumi.getter(name="webAuthnUserVerification")
+    def web_authn_user_verification(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "web_authn_user_verification")
+
+    @web_authn_user_verification.setter
+    def web_authn_user_verification(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_authn_user_verification", value)
+
 
 class UserPool(pulumi.CustomResource):
     @overload
@@ -518,9 +555,12 @@ class UserPool(pulumi.CustomResource):
                  user_pool_add_ons: Optional[pulumi.Input[Union['UserPoolAddOnsArgs', 'UserPoolAddOnsArgsDict']]] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_pool_tier: Optional[pulumi.Input['UserPoolTier']] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username_configuration: Optional[pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']]] = None,
                  verification_message_template: Optional[pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
+                 web_authn_relying_party_id: Optional[pulumi.Input[str]] = None,
+                 web_authn_user_verification: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Definition of AWS::Cognito::UserPool Resource Type
@@ -627,9 +667,12 @@ class UserPool(pulumi.CustomResource):
                  user_pool_add_ons: Optional[pulumi.Input[Union['UserPoolAddOnsArgs', 'UserPoolAddOnsArgsDict']]] = None,
                  user_pool_name: Optional[pulumi.Input[str]] = None,
                  user_pool_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 user_pool_tier: Optional[pulumi.Input['UserPoolTier']] = None,
                  username_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  username_configuration: Optional[pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']]] = None,
                  verification_message_template: Optional[pulumi.Input[Union['UserPoolVerificationMessageTemplateArgs', 'UserPoolVerificationMessageTemplateArgsDict']]] = None,
+                 web_authn_relying_party_id: Optional[pulumi.Input[str]] = None,
+                 web_authn_user_verification: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -662,9 +705,12 @@ class UserPool(pulumi.CustomResource):
             __props__.__dict__["user_pool_add_ons"] = user_pool_add_ons
             __props__.__dict__["user_pool_name"] = user_pool_name
             __props__.__dict__["user_pool_tags"] = user_pool_tags
+            __props__.__dict__["user_pool_tier"] = user_pool_tier
             __props__.__dict__["username_attributes"] = username_attributes
             __props__.__dict__["username_configuration"] = username_configuration
             __props__.__dict__["verification_message_template"] = verification_message_template
+            __props__.__dict__["web_authn_relying_party_id"] = web_authn_relying_party_id
+            __props__.__dict__["web_authn_user_verification"] = web_authn_user_verification
             __props__.__dict__["arn"] = None
             __props__.__dict__["provider_name"] = None
             __props__.__dict__["provider_url"] = None
@@ -718,9 +764,12 @@ class UserPool(pulumi.CustomResource):
         __props__.__dict__["user_pool_id"] = None
         __props__.__dict__["user_pool_name"] = None
         __props__.__dict__["user_pool_tags"] = None
+        __props__.__dict__["user_pool_tier"] = None
         __props__.__dict__["username_attributes"] = None
         __props__.__dict__["username_configuration"] = None
         __props__.__dict__["verification_message_template"] = None
+        __props__.__dict__["web_authn_relying_party_id"] = None
+        __props__.__dict__["web_authn_user_verification"] = None
         return UserPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -958,6 +1007,11 @@ class UserPool(pulumi.CustomResource):
         return pulumi.get(self, "user_pool_tags")
 
     @property
+    @pulumi.getter(name="userPoolTier")
+    def user_pool_tier(self) -> pulumi.Output[Optional['UserPoolTier']]:
+        return pulumi.get(self, "user_pool_tier")
+
+    @property
     @pulumi.getter(name="usernameAttributes")
     def username_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -984,4 +1038,14 @@ class UserPool(pulumi.CustomResource):
         Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
         """
         return pulumi.get(self, "verification_message_template")
+
+    @property
+    @pulumi.getter(name="webAuthnRelyingPartyId")
+    def web_authn_relying_party_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "web_authn_relying_party_id")
+
+    @property
+    @pulumi.getter(name="webAuthnUserVerification")
+    def web_authn_user_verification(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "web_authn_user_verification")
 

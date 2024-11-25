@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.AnalysisGeospatialMapFieldWells? FieldWells;
+        public readonly object? Interactions;
         /// <summary>
         /// The legend display setup of the visual.
         /// </summary>
@@ -43,6 +44,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         private AnalysisGeospatialMapConfiguration(
             Outputs.AnalysisGeospatialMapFieldWells? fieldWells,
 
+            object? interactions,
+
             Outputs.AnalysisLegendOptions? legend,
 
             Outputs.AnalysisGeospatialMapStyleOptions? mapStyleOptions,
@@ -56,6 +59,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             Outputs.AnalysisGeospatialWindowOptions? windowOptions)
         {
             FieldWells = fieldWells;
+            Interactions = interactions;
             Legend = legend;
             MapStyleOptions = mapStyleOptions;
             PointStyleOptions = pointStyleOptions;

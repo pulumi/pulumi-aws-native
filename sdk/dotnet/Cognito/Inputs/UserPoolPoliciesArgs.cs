@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyArgs>? PasswordPolicy { get; set; }
 
+        [Input("signInPolicy")]
+        public Input<Inputs.UserPoolSignInPolicyArgs>? SignInPolicy { get; set; }
+
         public UserPoolPoliciesArgs()
         {
         }

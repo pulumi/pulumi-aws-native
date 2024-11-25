@@ -37,6 +37,7 @@ export interface GetKnowledgeBaseResult {
      * Information about how to render the content.
      */
     readonly renderingConfiguration?: outputs.wisdom.KnowledgeBaseRenderingConfiguration;
+    readonly vectorIngestionConfiguration?: outputs.wisdom.KnowledgeBaseVectorIngestionConfiguration;
 }
 /**
  * Definition of AWS::Wisdom::KnowledgeBase Resource Type

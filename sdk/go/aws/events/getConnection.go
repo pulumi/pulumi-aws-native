@@ -38,6 +38,8 @@ type LookupConnectionResult struct {
 	AuthorizationType *ConnectionAuthorizationType `pulumi:"authorizationType"`
 	// Description of the connection.
 	Description *string `pulumi:"description"`
+	// The private resource the HTTP request will be sent to.
+	InvocationConnectivityParameters *InvocationConnectivityParametersProperties `pulumi:"invocationConnectivityParameters"`
 	// The arn of the secrets manager secret created in the customer account.
 	SecretArn *string `pulumi:"secretArn"`
 }
@@ -104,6 +106,13 @@ func (o LookupConnectionResultOutput) AuthorizationType() ConnectionAuthorizatio
 // Description of the connection.
 func (o LookupConnectionResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The private resource the HTTP request will be sent to.
+func (o LookupConnectionResultOutput) InvocationConnectivityParameters() InvocationConnectivityParametersPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupConnectionResult) *InvocationConnectivityParametersProperties {
+		return v.InvocationConnectivityParameters
+	}).(InvocationConnectivityParametersPropertiesPtrOutput)
 }
 
 // The arn of the secrets manager secret created in the customer account.

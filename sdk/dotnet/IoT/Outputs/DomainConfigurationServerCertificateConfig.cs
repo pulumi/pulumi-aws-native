@@ -17,11 +17,20 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
         /// </summary>
         public readonly bool? EnableOcspCheck;
+        public readonly string? OcspAuthorizedResponderArn;
+        public readonly string? OcspLambdaArn;
 
         [OutputConstructor]
-        private DomainConfigurationServerCertificateConfig(bool? enableOcspCheck)
+        private DomainConfigurationServerCertificateConfig(
+            bool? enableOcspCheck,
+
+            string? ocspAuthorizedResponderArn,
+
+            string? ocspLambdaArn)
         {
             EnableOcspCheck = enableOcspCheck;
+            OcspAuthorizedResponderArn = ocspAuthorizedResponderArn;
+            OcspLambdaArn = ocspLambdaArn;
         }
     }
 }

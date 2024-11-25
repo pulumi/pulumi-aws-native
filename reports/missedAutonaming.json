@@ -2178,6 +2178,33 @@
       }
     }
   },
+  "aws-native:cognito:ManagedLoginBranding": {
+    "cfTypeName": "AWS::Cognito::ManagedLoginBranding",
+    "properties": {
+      "assets": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:cognito:ManagedLoginBrandingAssetType"
+        }
+      },
+      "clientId": {
+        "type": "string"
+      },
+      "returnMergedResources": {
+        "type": "boolean"
+      },
+      "settings": {
+        "$ref": "pulumi.json#/Any",
+        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property."
+      },
+      "useCognitoProvidedValues": {
+        "type": "boolean"
+      },
+      "userPoolId": {
+        "type": "string"
+      }
+    }
+  },
   "aws-native:cognito:UserPoolDomain": {
     "cfTypeName": "AWS::Cognito::UserPoolDomain",
     "properties": {

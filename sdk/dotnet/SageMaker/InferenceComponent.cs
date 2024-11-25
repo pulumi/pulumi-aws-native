@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         [Output("runtimeConfig")]
-        public Output<Outputs.InferenceComponentRuntimeConfig> RuntimeConfig { get; private set; } = null!;
+        public Output<Outputs.InferenceComponentRuntimeConfig?> RuntimeConfig { get; private set; } = null!;
 
         [Output("specification")]
         public Output<Outputs.InferenceComponentSpecification> Specification { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The name of the production variant that hosts the inference component.
         /// </summary>
         [Output("variantName")]
-        public Output<string> VariantName { get; private set; } = null!;
+        public Output<string?> VariantName { get; private set; } = null!;
 
 
         /// <summary>
@@ -138,8 +138,8 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("inferenceComponentName")]
         public Input<string>? InferenceComponentName { get; set; }
 
-        [Input("runtimeConfig", required: true)]
-        public Input<Inputs.InferenceComponentRuntimeConfigArgs> RuntimeConfig { get; set; } = null!;
+        [Input("runtimeConfig")]
+        public Input<Inputs.InferenceComponentRuntimeConfigArgs>? RuntimeConfig { get; set; }
 
         [Input("specification", required: true)]
         public Input<Inputs.InferenceComponentSpecificationArgs> Specification { get; set; } = null!;
@@ -155,8 +155,8 @@ namespace Pulumi.AwsNative.SageMaker
         /// <summary>
         /// The name of the production variant that hosts the inference component.
         /// </summary>
-        [Input("variantName", required: true)]
-        public Input<string> VariantName { get; set; } = null!;
+        [Input("variantName")]
+        public Input<string>? VariantName { get; set; }
 
         public InferenceComponentArgs()
         {

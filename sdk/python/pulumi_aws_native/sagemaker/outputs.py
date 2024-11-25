@@ -4824,7 +4824,9 @@ class InferenceComponentSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeResourceRequirements":
+        if key == "baseInferenceComponentName":
+            suggest = "base_inference_component_name"
+        elif key == "computeResourceRequirements":
             suggest = "compute_resource_requirements"
         elif key == "modelName":
             suggest = "model_name"
@@ -4843,7 +4845,8 @@ class InferenceComponentSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 compute_resource_requirements: 'outputs.InferenceComponentComputeResourceRequirements',
+                 base_inference_component_name: Optional[str] = None,
+                 compute_resource_requirements: Optional['outputs.InferenceComponentComputeResourceRequirements'] = None,
                  container: Optional['outputs.InferenceComponentContainerSpecification'] = None,
                  model_name: Optional[str] = None,
                  startup_parameters: Optional['outputs.InferenceComponentStartupParameters'] = None):
@@ -4854,7 +4857,10 @@ class InferenceComponentSpecification(dict):
         :param str model_name: The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
         :param 'InferenceComponentStartupParameters' startup_parameters: Settings that take effect while the model container starts up.
         """
-        pulumi.set(__self__, "compute_resource_requirements", compute_resource_requirements)
+        if base_inference_component_name is not None:
+            pulumi.set(__self__, "base_inference_component_name", base_inference_component_name)
+        if compute_resource_requirements is not None:
+            pulumi.set(__self__, "compute_resource_requirements", compute_resource_requirements)
         if container is not None:
             pulumi.set(__self__, "container", container)
         if model_name is not None:
@@ -4863,8 +4869,13 @@ class InferenceComponentSpecification(dict):
             pulumi.set(__self__, "startup_parameters", startup_parameters)
 
     @property
+    @pulumi.getter(name="baseInferenceComponentName")
+    def base_inference_component_name(self) -> Optional[str]:
+        return pulumi.get(self, "base_inference_component_name")
+
+    @property
     @pulumi.getter(name="computeResourceRequirements")
-    def compute_resource_requirements(self) -> 'outputs.InferenceComponentComputeResourceRequirements':
+    def compute_resource_requirements(self) -> Optional['outputs.InferenceComponentComputeResourceRequirements']:
         """
         The compute resources allocated to run the model assigned to the inference component.
         """

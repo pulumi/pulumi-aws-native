@@ -84,6 +84,10 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The private resource the HTTP request will be sent to.
+     */
+    public readonly invocationConnectivityParameters!: pulumi.Output<outputs.events.InvocationConnectivityParametersProperties | undefined>;
+    /**
      * Name of the connection.
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -106,6 +110,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["authParameters"] = args ? args.authParameters : undefined;
             resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["invocationConnectivityParameters"] = args ? args.invocationConnectivityParameters : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;
@@ -114,6 +119,7 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["authParameters"] = undefined /*out*/;
             resourceInputs["authorizationType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["invocationConnectivityParameters"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["secretArn"] = undefined /*out*/;
         }
@@ -142,6 +148,10 @@ export interface ConnectionArgs {
      * Description of the connection.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The private resource the HTTP request will be sent to.
+     */
+    invocationConnectivityParameters?: pulumi.Input<inputs.events.InvocationConnectivityParametersPropertiesArgs>;
     /**
      * Name of the connection.
      */

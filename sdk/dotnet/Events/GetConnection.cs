@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// The private resource the HTTP request will be sent to.
+        /// </summary>
+        public readonly Outputs.InvocationConnectivityParametersProperties? InvocationConnectivityParameters;
+        /// <summary>
         /// The arn of the secrets manager secret created in the customer account.
         /// </summary>
         public readonly string? SecretArn;
@@ -90,12 +94,15 @@ namespace Pulumi.AwsNative.Events
 
             string? description,
 
+            Outputs.InvocationConnectivityParametersProperties? invocationConnectivityParameters,
+
             string? secretArn)
         {
             Arn = arn;
             AuthParameters = authParameters;
             AuthorizationType = authorizationType;
             Description = description;
+            InvocationConnectivityParameters = invocationConnectivityParameters;
             SecretArn = secretArn;
         }
     }

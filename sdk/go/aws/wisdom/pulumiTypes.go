@@ -1786,24 +1786,8 @@ type AssistantTag struct {
 }
 
 type KnowledgeBaseAppIntegrationsConfiguration struct {
-	// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
-	//
-	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
-	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
-	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
-	// - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
-	// - For [Amazon S3](https://docs.aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
-	//
-	// > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
-	AppIntegrationArn string `pulumi:"appIntegrationArn"`
-	// The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
-	//
-	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
-	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
-	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
-	//
-	// Make sure to include additional fields. These fields are indexed and used to source recommendations.
-	ObjectFields []string `pulumi:"objectFields"`
+	AppIntegrationArn string   `pulumi:"appIntegrationArn"`
+	ObjectFields      []string `pulumi:"objectFields"`
 }
 
 // KnowledgeBaseAppIntegrationsConfigurationInput is an input type that accepts KnowledgeBaseAppIntegrationsConfigurationArgs and KnowledgeBaseAppIntegrationsConfigurationOutput values.
@@ -1818,24 +1802,8 @@ type KnowledgeBaseAppIntegrationsConfigurationInput interface {
 }
 
 type KnowledgeBaseAppIntegrationsConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
-	//
-	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
-	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
-	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
-	// - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
-	// - For [Amazon S3](https://docs.aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
-	//
-	// > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
-	AppIntegrationArn pulumi.StringInput `pulumi:"appIntegrationArn"`
-	// The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
-	//
-	// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
-	// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
-	// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
-	//
-	// Make sure to include additional fields. These fields are indexed and used to source recommendations.
-	ObjectFields pulumi.StringArrayInput `pulumi:"objectFields"`
+	AppIntegrationArn pulumi.StringInput      `pulumi:"appIntegrationArn"`
+	ObjectFields      pulumi.StringArrayInput `pulumi:"objectFields"`
 }
 
 func (KnowledgeBaseAppIntegrationsConfigurationArgs) ElementType() reflect.Type {
@@ -1915,26 +1883,10 @@ func (o KnowledgeBaseAppIntegrationsConfigurationOutput) ToKnowledgeBaseAppInteg
 	}).(KnowledgeBaseAppIntegrationsConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
-//
-// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
-// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
-// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
-// - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
-// - For [Amazon S3](https://docs.aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
-//
-// > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
 func (o KnowledgeBaseAppIntegrationsConfigurationOutput) AppIntegrationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseAppIntegrationsConfiguration) string { return v.AppIntegrationArn }).(pulumi.StringOutput)
 }
 
-// The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
-//
-// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
-// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
-// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
-//
-// Make sure to include additional fields. These fields are indexed and used to source recommendations.
 func (o KnowledgeBaseAppIntegrationsConfigurationOutput) ObjectFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseAppIntegrationsConfiguration) []string { return v.ObjectFields }).(pulumi.StringArrayOutput)
 }
@@ -1963,15 +1915,6 @@ func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) Elem() KnowledgeBase
 	}).(KnowledgeBaseAppIntegrationsConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AppIntegrations DataIntegration to use for ingesting content.
-//
-// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` as source fields.
-// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , your AppIntegrations DataIntegration must have an ObjectConfiguration if objectFields is not provided, including at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` as source fields.
-// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , your AppIntegrations DataIntegration must have an ObjectConfiguration if `objectFields` is not provided, including at least `id` , `title` , `updated_at` , and `draft` as source fields.
-// - For [SharePoint](https://docs.aws.amazon.com/https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins/sharepoint-net-server-csom-jsom-and-rest-api-index) , your AppIntegrations DataIntegration must have a FileConfiguration, including only file extensions that are among `docx` , `pdf` , `html` , `htm` , and `txt` .
-// - For [Amazon S3](https://docs.aws.amazon.com/s3/) , the ObjectConfiguration and FileConfiguration of your AppIntegrations DataIntegration must be null. The `SourceURI` of your DataIntegration must use the following format: `s3://your_s3_bucket_name` .
-//
-// > The bucket policy of the corresponding S3 bucket must allow the AWS principal `app-integrations.amazonaws.com` to perform `s3:ListBucket` , `s3:GetObject` , and `s3:GetBucketLocation` against the bucket.
 func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) AppIntegrationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseAppIntegrationsConfiguration) *string {
 		if v == nil {
@@ -1981,13 +1924,6 @@ func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) AppIntegrationArn() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The fields from the source that are made available to your agents in Amazon Q in Connect. Optional if ObjectConfiguration is included in the provided DataIntegration.
-//
-// - For [Salesforce](https://docs.aws.amazon.com/https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm) , you must include at least `Id` , `ArticleNumber` , `VersionNumber` , `Title` , `PublishStatus` , and `IsDeleted` .
-// - For [ServiceNow](https://docs.aws.amazon.com/https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api) , you must include at least `number` , `short_description` , `sys_mod_count` , `workflow_state` , and `active` .
-// - For [Zendesk](https://docs.aws.amazon.com/https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/) , you must include at least `id` , `title` , `updated_at` , and `draft` .
-//
-// Make sure to include additional fields. These fields are indexed and used to source recommendations.
 func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) ObjectFields() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBaseAppIntegrationsConfiguration) []string {
 		if v == nil {
@@ -1995,6 +1931,822 @@ func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) ObjectFields() pulum
 		}
 		return v.ObjectFields
 	}).(pulumi.StringArrayOutput)
+}
+
+type KnowledgeBaseBedrockFoundationModelConfiguration struct {
+	ModelArn      string                                                                   `pulumi:"modelArn"`
+	ParsingPrompt *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties `pulumi:"parsingPrompt"`
+}
+
+// KnowledgeBaseBedrockFoundationModelConfigurationInput is an input type that accepts KnowledgeBaseBedrockFoundationModelConfigurationArgs and KnowledgeBaseBedrockFoundationModelConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseBedrockFoundationModelConfigurationInput` via:
+//
+//	KnowledgeBaseBedrockFoundationModelConfigurationArgs{...}
+type KnowledgeBaseBedrockFoundationModelConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseBedrockFoundationModelConfigurationOutput() KnowledgeBaseBedrockFoundationModelConfigurationOutput
+	ToKnowledgeBaseBedrockFoundationModelConfigurationOutputWithContext(context.Context) KnowledgeBaseBedrockFoundationModelConfigurationOutput
+}
+
+type KnowledgeBaseBedrockFoundationModelConfigurationArgs struct {
+	ModelArn      pulumi.StringInput                                                              `pulumi:"modelArn"`
+	ParsingPrompt KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrInput `pulumi:"parsingPrompt"`
+}
+
+func (KnowledgeBaseBedrockFoundationModelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseBedrockFoundationModelConfigurationArgs) ToKnowledgeBaseBedrockFoundationModelConfigurationOutput() KnowledgeBaseBedrockFoundationModelConfigurationOutput {
+	return i.ToKnowledgeBaseBedrockFoundationModelConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseBedrockFoundationModelConfigurationArgs) ToKnowledgeBaseBedrockFoundationModelConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockFoundationModelConfigurationOutput)
+}
+
+func (i KnowledgeBaseBedrockFoundationModelConfigurationArgs) ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return i.ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseBedrockFoundationModelConfigurationArgs) ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockFoundationModelConfigurationOutput).ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseBedrockFoundationModelConfigurationPtrInput is an input type that accepts KnowledgeBaseBedrockFoundationModelConfigurationArgs, KnowledgeBaseBedrockFoundationModelConfigurationPtr and KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseBedrockFoundationModelConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseBedrockFoundationModelConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseBedrockFoundationModelConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput
+	ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput
+}
+
+type knowledgeBaseBedrockFoundationModelConfigurationPtrType KnowledgeBaseBedrockFoundationModelConfigurationArgs
+
+func KnowledgeBaseBedrockFoundationModelConfigurationPtr(v *KnowledgeBaseBedrockFoundationModelConfigurationArgs) KnowledgeBaseBedrockFoundationModelConfigurationPtrInput {
+	return (*knowledgeBaseBedrockFoundationModelConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseBedrockFoundationModelConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseBedrockFoundationModelConfigurationPtrType) ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return i.ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseBedrockFoundationModelConfigurationPtrType) ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput)
+}
+
+type KnowledgeBaseBedrockFoundationModelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseBedrockFoundationModelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationOutput() KnowledgeBaseBedrockFoundationModelConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return o.ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseBedrockFoundationModelConfiguration) *KnowledgeBaseBedrockFoundationModelConfiguration {
+		return &v
+	}).(KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseBedrockFoundationModelConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ParsingPrompt() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseBedrockFoundationModelConfiguration) *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties {
+		return v.ParsingPrompt
+	}).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput)
+}
+
+type KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseBedrockFoundationModelConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) Elem() KnowledgeBaseBedrockFoundationModelConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockFoundationModelConfiguration) KnowledgeBaseBedrockFoundationModelConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseBedrockFoundationModelConfiguration
+		return ret
+	}).(KnowledgeBaseBedrockFoundationModelConfigurationOutput)
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockFoundationModelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ParsingPrompt() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockFoundationModelConfiguration) *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingPrompt
+	}).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput)
+}
+
+type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties struct {
+	ParsingPromptText string `pulumi:"parsingPromptText"`
+}
+
+// KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesInput is an input type that accepts KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs and KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput values.
+// You can construct a concrete instance of `KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesInput` via:
+//
+//	KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs{...}
+type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput
+	ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutputWithContext(context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput
+}
+
+type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs struct {
+	ParsingPromptText pulumi.StringInput `pulumi:"parsingPromptText"`
+}
+
+func (KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties)(nil)).Elem()
+}
+
+func (i KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput {
+	return i.ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput)
+}
+
+func (i KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return i.ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput).ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrInput is an input type that accepts KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs, KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtr and KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrInput` via:
+//
+//	        KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput
+	ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput
+}
+
+type knowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrType KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs
+
+func KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtr(v *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrInput {
+	return (*knowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrType)(v)
+}
+
+func (*knowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties)(nil)).Elem()
+}
+
+func (i *knowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrType) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return i.ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrType) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput)
+}
+
+type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return o.ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties) *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties {
+		return &v
+	}).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput) ParsingPromptText() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties) string {
+		return v.ParsingPromptText
+	}).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput) ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput) Elem() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties
+		return ret
+	}).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput)
+}
+
+func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput) ParsingPromptText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParsingPromptText
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseFixedSizeChunkingConfiguration struct {
+	MaxTokens         float64 `pulumi:"maxTokens"`
+	OverlapPercentage float64 `pulumi:"overlapPercentage"`
+}
+
+// KnowledgeBaseFixedSizeChunkingConfigurationInput is an input type that accepts KnowledgeBaseFixedSizeChunkingConfigurationArgs and KnowledgeBaseFixedSizeChunkingConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseFixedSizeChunkingConfigurationInput` via:
+//
+//	KnowledgeBaseFixedSizeChunkingConfigurationArgs{...}
+type KnowledgeBaseFixedSizeChunkingConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseFixedSizeChunkingConfigurationOutput() KnowledgeBaseFixedSizeChunkingConfigurationOutput
+	ToKnowledgeBaseFixedSizeChunkingConfigurationOutputWithContext(context.Context) KnowledgeBaseFixedSizeChunkingConfigurationOutput
+}
+
+type KnowledgeBaseFixedSizeChunkingConfigurationArgs struct {
+	MaxTokens         pulumi.Float64Input `pulumi:"maxTokens"`
+	OverlapPercentage pulumi.Float64Input `pulumi:"overlapPercentage"`
+}
+
+func (KnowledgeBaseFixedSizeChunkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseFixedSizeChunkingConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseFixedSizeChunkingConfigurationArgs) ToKnowledgeBaseFixedSizeChunkingConfigurationOutput() KnowledgeBaseFixedSizeChunkingConfigurationOutput {
+	return i.ToKnowledgeBaseFixedSizeChunkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseFixedSizeChunkingConfigurationArgs) ToKnowledgeBaseFixedSizeChunkingConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseFixedSizeChunkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseFixedSizeChunkingConfigurationOutput)
+}
+
+func (i KnowledgeBaseFixedSizeChunkingConfigurationArgs) ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutput() KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return i.ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseFixedSizeChunkingConfigurationArgs) ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseFixedSizeChunkingConfigurationOutput).ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseFixedSizeChunkingConfigurationPtrInput is an input type that accepts KnowledgeBaseFixedSizeChunkingConfigurationArgs, KnowledgeBaseFixedSizeChunkingConfigurationPtr and KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseFixedSizeChunkingConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseFixedSizeChunkingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseFixedSizeChunkingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutput() KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput
+	ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput
+}
+
+type knowledgeBaseFixedSizeChunkingConfigurationPtrType KnowledgeBaseFixedSizeChunkingConfigurationArgs
+
+func KnowledgeBaseFixedSizeChunkingConfigurationPtr(v *KnowledgeBaseFixedSizeChunkingConfigurationArgs) KnowledgeBaseFixedSizeChunkingConfigurationPtrInput {
+	return (*knowledgeBaseFixedSizeChunkingConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseFixedSizeChunkingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseFixedSizeChunkingConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseFixedSizeChunkingConfigurationPtrType) ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutput() KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return i.ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseFixedSizeChunkingConfigurationPtrType) ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput)
+}
+
+type KnowledgeBaseFixedSizeChunkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseFixedSizeChunkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseFixedSizeChunkingConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) ToKnowledgeBaseFixedSizeChunkingConfigurationOutput() KnowledgeBaseFixedSizeChunkingConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) ToKnowledgeBaseFixedSizeChunkingConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseFixedSizeChunkingConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutput() KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return o.ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseFixedSizeChunkingConfiguration) *KnowledgeBaseFixedSizeChunkingConfiguration {
+		return &v
+	}).(KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) MaxTokens() pulumi.Float64Output {
+	return o.ApplyT(func(v KnowledgeBaseFixedSizeChunkingConfiguration) float64 { return v.MaxTokens }).(pulumi.Float64Output)
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) OverlapPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v KnowledgeBaseFixedSizeChunkingConfiguration) float64 { return v.OverlapPercentage }).(pulumi.Float64Output)
+}
+
+type KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseFixedSizeChunkingConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutput() KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) ToKnowledgeBaseFixedSizeChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) Elem() KnowledgeBaseFixedSizeChunkingConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseFixedSizeChunkingConfiguration) KnowledgeBaseFixedSizeChunkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseFixedSizeChunkingConfiguration
+		return ret
+	}).(KnowledgeBaseFixedSizeChunkingConfigurationOutput)
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) MaxTokens() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseFixedSizeChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxTokens
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) OverlapPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseFixedSizeChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.OverlapPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+type KnowledgeBaseHierarchicalChunkingConfiguration struct {
+	LevelConfigurations []KnowledgeBaseHierarchicalChunkingLevelConfiguration `pulumi:"levelConfigurations"`
+	OverlapTokens       float64                                               `pulumi:"overlapTokens"`
+}
+
+// KnowledgeBaseHierarchicalChunkingConfigurationInput is an input type that accepts KnowledgeBaseHierarchicalChunkingConfigurationArgs and KnowledgeBaseHierarchicalChunkingConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseHierarchicalChunkingConfigurationInput` via:
+//
+//	KnowledgeBaseHierarchicalChunkingConfigurationArgs{...}
+type KnowledgeBaseHierarchicalChunkingConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseHierarchicalChunkingConfigurationOutput() KnowledgeBaseHierarchicalChunkingConfigurationOutput
+	ToKnowledgeBaseHierarchicalChunkingConfigurationOutputWithContext(context.Context) KnowledgeBaseHierarchicalChunkingConfigurationOutput
+}
+
+type KnowledgeBaseHierarchicalChunkingConfigurationArgs struct {
+	LevelConfigurations KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayInput `pulumi:"levelConfigurations"`
+	OverlapTokens       pulumi.Float64Input                                           `pulumi:"overlapTokens"`
+}
+
+func (KnowledgeBaseHierarchicalChunkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseHierarchicalChunkingConfigurationArgs) ToKnowledgeBaseHierarchicalChunkingConfigurationOutput() KnowledgeBaseHierarchicalChunkingConfigurationOutput {
+	return i.ToKnowledgeBaseHierarchicalChunkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseHierarchicalChunkingConfigurationArgs) ToKnowledgeBaseHierarchicalChunkingConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseHierarchicalChunkingConfigurationOutput)
+}
+
+func (i KnowledgeBaseHierarchicalChunkingConfigurationArgs) ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutput() KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return i.ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseHierarchicalChunkingConfigurationArgs) ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseHierarchicalChunkingConfigurationOutput).ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseHierarchicalChunkingConfigurationPtrInput is an input type that accepts KnowledgeBaseHierarchicalChunkingConfigurationArgs, KnowledgeBaseHierarchicalChunkingConfigurationPtr and KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseHierarchicalChunkingConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseHierarchicalChunkingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseHierarchicalChunkingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutput() KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput
+	ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput
+}
+
+type knowledgeBaseHierarchicalChunkingConfigurationPtrType KnowledgeBaseHierarchicalChunkingConfigurationArgs
+
+func KnowledgeBaseHierarchicalChunkingConfigurationPtr(v *KnowledgeBaseHierarchicalChunkingConfigurationArgs) KnowledgeBaseHierarchicalChunkingConfigurationPtrInput {
+	return (*knowledgeBaseHierarchicalChunkingConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseHierarchicalChunkingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseHierarchicalChunkingConfigurationPtrType) ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutput() KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return i.ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseHierarchicalChunkingConfigurationPtrType) ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput)
+}
+
+type KnowledgeBaseHierarchicalChunkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseHierarchicalChunkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) ToKnowledgeBaseHierarchicalChunkingConfigurationOutput() KnowledgeBaseHierarchicalChunkingConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) ToKnowledgeBaseHierarchicalChunkingConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutput() KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return o.ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseHierarchicalChunkingConfiguration) *KnowledgeBaseHierarchicalChunkingConfiguration {
+		return &v
+	}).(KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) LevelConfigurations() KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput {
+	return o.ApplyT(func(v KnowledgeBaseHierarchicalChunkingConfiguration) []KnowledgeBaseHierarchicalChunkingLevelConfiguration {
+		return v.LevelConfigurations
+	}).(KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput)
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) OverlapTokens() pulumi.Float64Output {
+	return o.ApplyT(func(v KnowledgeBaseHierarchicalChunkingConfiguration) float64 { return v.OverlapTokens }).(pulumi.Float64Output)
+}
+
+type KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseHierarchicalChunkingConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutput() KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) ToKnowledgeBaseHierarchicalChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) Elem() KnowledgeBaseHierarchicalChunkingConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseHierarchicalChunkingConfiguration) KnowledgeBaseHierarchicalChunkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseHierarchicalChunkingConfiguration
+		return ret
+	}).(KnowledgeBaseHierarchicalChunkingConfigurationOutput)
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) LevelConfigurations() KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBaseHierarchicalChunkingConfiguration) []KnowledgeBaseHierarchicalChunkingLevelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LevelConfigurations
+	}).(KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput)
+}
+
+func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) OverlapTokens() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseHierarchicalChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.OverlapTokens
+	}).(pulumi.Float64PtrOutput)
+}
+
+type KnowledgeBaseHierarchicalChunkingLevelConfiguration struct {
+	MaxTokens float64 `pulumi:"maxTokens"`
+}
+
+// KnowledgeBaseHierarchicalChunkingLevelConfigurationInput is an input type that accepts KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs and KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseHierarchicalChunkingLevelConfigurationInput` via:
+//
+//	KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs{...}
+type KnowledgeBaseHierarchicalChunkingLevelConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseHierarchicalChunkingLevelConfigurationOutput() KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput
+	ToKnowledgeBaseHierarchicalChunkingLevelConfigurationOutputWithContext(context.Context) KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput
+}
+
+type KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs struct {
+	MaxTokens pulumi.Float64Input `pulumi:"maxTokens"`
+}
+
+func (KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseHierarchicalChunkingLevelConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs) ToKnowledgeBaseHierarchicalChunkingLevelConfigurationOutput() KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput {
+	return i.ToKnowledgeBaseHierarchicalChunkingLevelConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs) ToKnowledgeBaseHierarchicalChunkingLevelConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput)
+}
+
+// KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayInput is an input type that accepts KnowledgeBaseHierarchicalChunkingLevelConfigurationArray and KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput values.
+// You can construct a concrete instance of `KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayInput` via:
+//
+//	KnowledgeBaseHierarchicalChunkingLevelConfigurationArray{ KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs{...} }
+type KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput() KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput
+	ToKnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutputWithContext(context.Context) KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput
+}
+
+type KnowledgeBaseHierarchicalChunkingLevelConfigurationArray []KnowledgeBaseHierarchicalChunkingLevelConfigurationInput
+
+func (KnowledgeBaseHierarchicalChunkingLevelConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseHierarchicalChunkingLevelConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseHierarchicalChunkingLevelConfigurationArray) ToKnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput() KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput {
+	return i.ToKnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseHierarchicalChunkingLevelConfigurationArray) ToKnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput)
+}
+
+type KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseHierarchicalChunkingLevelConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput) ToKnowledgeBaseHierarchicalChunkingLevelConfigurationOutput() KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput) ToKnowledgeBaseHierarchicalChunkingLevelConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput) MaxTokens() pulumi.Float64Output {
+	return o.ApplyT(func(v KnowledgeBaseHierarchicalChunkingLevelConfiguration) float64 { return v.MaxTokens }).(pulumi.Float64Output)
+}
+
+type KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseHierarchicalChunkingLevelConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput) ToKnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput() KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput) ToKnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutputWithContext(ctx context.Context) KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KnowledgeBaseHierarchicalChunkingLevelConfiguration {
+		return vs[0].([]KnowledgeBaseHierarchicalChunkingLevelConfiguration)[vs[1].(int)]
+	}).(KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput)
+}
+
+type KnowledgeBaseManagedSourceConfiguration0Properties struct {
+	WebCrawlerConfiguration KnowledgeBaseWebCrawlerConfiguration `pulumi:"webCrawlerConfiguration"`
+}
+
+type KnowledgeBaseManagedSourceConfigurationProperties struct {
+	WebCrawlerConfiguration KnowledgeBaseWebCrawlerConfiguration `pulumi:"webCrawlerConfiguration"`
+}
+
+// KnowledgeBaseManagedSourceConfigurationPropertiesInput is an input type that accepts KnowledgeBaseManagedSourceConfigurationPropertiesArgs and KnowledgeBaseManagedSourceConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `KnowledgeBaseManagedSourceConfigurationPropertiesInput` via:
+//
+//	KnowledgeBaseManagedSourceConfigurationPropertiesArgs{...}
+type KnowledgeBaseManagedSourceConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseManagedSourceConfigurationPropertiesOutput() KnowledgeBaseManagedSourceConfigurationPropertiesOutput
+	ToKnowledgeBaseManagedSourceConfigurationPropertiesOutputWithContext(context.Context) KnowledgeBaseManagedSourceConfigurationPropertiesOutput
+}
+
+type KnowledgeBaseManagedSourceConfigurationPropertiesArgs struct {
+	WebCrawlerConfiguration KnowledgeBaseWebCrawlerConfigurationInput `pulumi:"webCrawlerConfiguration"`
+}
+
+func (KnowledgeBaseManagedSourceConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseManagedSourceConfigurationProperties)(nil)).Elem()
+}
+
+func (i KnowledgeBaseManagedSourceConfigurationPropertiesArgs) ToKnowledgeBaseManagedSourceConfigurationPropertiesOutput() KnowledgeBaseManagedSourceConfigurationPropertiesOutput {
+	return i.ToKnowledgeBaseManagedSourceConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseManagedSourceConfigurationPropertiesArgs) ToKnowledgeBaseManagedSourceConfigurationPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseManagedSourceConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedSourceConfigurationPropertiesOutput)
+}
+
+func (i KnowledgeBaseManagedSourceConfigurationPropertiesArgs) ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput() KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return i.ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseManagedSourceConfigurationPropertiesArgs) ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedSourceConfigurationPropertiesOutput).ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseManagedSourceConfigurationPropertiesPtrInput is an input type that accepts KnowledgeBaseManagedSourceConfigurationPropertiesArgs, KnowledgeBaseManagedSourceConfigurationPropertiesPtr and KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseManagedSourceConfigurationPropertiesPtrInput` via:
+//
+//	        KnowledgeBaseManagedSourceConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseManagedSourceConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput() KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput
+	ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(context.Context) KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput
+}
+
+type knowledgeBaseManagedSourceConfigurationPropertiesPtrType KnowledgeBaseManagedSourceConfigurationPropertiesArgs
+
+func KnowledgeBaseManagedSourceConfigurationPropertiesPtr(v *KnowledgeBaseManagedSourceConfigurationPropertiesArgs) KnowledgeBaseManagedSourceConfigurationPropertiesPtrInput {
+	return (*knowledgeBaseManagedSourceConfigurationPropertiesPtrType)(v)
+}
+
+func (*knowledgeBaseManagedSourceConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseManagedSourceConfigurationProperties)(nil)).Elem()
+}
+
+func (i *knowledgeBaseManagedSourceConfigurationPropertiesPtrType) ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput() KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return i.ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseManagedSourceConfigurationPropertiesPtrType) ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput)
+}
+
+type KnowledgeBaseManagedSourceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseManagedSourceConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseManagedSourceConfigurationProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesOutput) ToKnowledgeBaseManagedSourceConfigurationPropertiesOutput() KnowledgeBaseManagedSourceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesOutput) ToKnowledgeBaseManagedSourceConfigurationPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseManagedSourceConfigurationPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesOutput) ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput() KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return o.ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesOutput) ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseManagedSourceConfigurationProperties) *KnowledgeBaseManagedSourceConfigurationProperties {
+		return &v
+	}).(KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesOutput) WebCrawlerConfiguration() KnowledgeBaseWebCrawlerConfigurationOutput {
+	return o.ApplyT(func(v KnowledgeBaseManagedSourceConfigurationProperties) KnowledgeBaseWebCrawlerConfiguration {
+		return v.WebCrawlerConfiguration
+	}).(KnowledgeBaseWebCrawlerConfigurationOutput)
+}
+
+type KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseManagedSourceConfigurationProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput) ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput() KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput) ToKnowledgeBaseManagedSourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput) Elem() KnowledgeBaseManagedSourceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedSourceConfigurationProperties) KnowledgeBaseManagedSourceConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseManagedSourceConfigurationProperties
+		return ret
+	}).(KnowledgeBaseManagedSourceConfigurationPropertiesOutput)
+}
+
+func (o KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput) WebCrawlerConfiguration() KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedSourceConfigurationProperties) *KnowledgeBaseWebCrawlerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.WebCrawlerConfiguration
+	}).(KnowledgeBaseWebCrawlerConfigurationPtrOutput)
 }
 
 type KnowledgeBaseRenderingConfiguration struct {
@@ -2158,6 +2910,263 @@ func (o KnowledgeBaseRenderingConfigurationPtrOutput) TemplateUri() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+type KnowledgeBaseSeedUrl struct {
+	Url *string `pulumi:"url"`
+}
+
+// KnowledgeBaseSeedUrlInput is an input type that accepts KnowledgeBaseSeedUrlArgs and KnowledgeBaseSeedUrlOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSeedUrlInput` via:
+//
+//	KnowledgeBaseSeedUrlArgs{...}
+type KnowledgeBaseSeedUrlInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSeedUrlOutput() KnowledgeBaseSeedUrlOutput
+	ToKnowledgeBaseSeedUrlOutputWithContext(context.Context) KnowledgeBaseSeedUrlOutput
+}
+
+type KnowledgeBaseSeedUrlArgs struct {
+	Url pulumi.StringPtrInput `pulumi:"url"`
+}
+
+func (KnowledgeBaseSeedUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSeedUrl)(nil)).Elem()
+}
+
+func (i KnowledgeBaseSeedUrlArgs) ToKnowledgeBaseSeedUrlOutput() KnowledgeBaseSeedUrlOutput {
+	return i.ToKnowledgeBaseSeedUrlOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSeedUrlArgs) ToKnowledgeBaseSeedUrlOutputWithContext(ctx context.Context) KnowledgeBaseSeedUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSeedUrlOutput)
+}
+
+// KnowledgeBaseSeedUrlArrayInput is an input type that accepts KnowledgeBaseSeedUrlArray and KnowledgeBaseSeedUrlArrayOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSeedUrlArrayInput` via:
+//
+//	KnowledgeBaseSeedUrlArray{ KnowledgeBaseSeedUrlArgs{...} }
+type KnowledgeBaseSeedUrlArrayInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSeedUrlArrayOutput() KnowledgeBaseSeedUrlArrayOutput
+	ToKnowledgeBaseSeedUrlArrayOutputWithContext(context.Context) KnowledgeBaseSeedUrlArrayOutput
+}
+
+type KnowledgeBaseSeedUrlArray []KnowledgeBaseSeedUrlInput
+
+func (KnowledgeBaseSeedUrlArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseSeedUrl)(nil)).Elem()
+}
+
+func (i KnowledgeBaseSeedUrlArray) ToKnowledgeBaseSeedUrlArrayOutput() KnowledgeBaseSeedUrlArrayOutput {
+	return i.ToKnowledgeBaseSeedUrlArrayOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSeedUrlArray) ToKnowledgeBaseSeedUrlArrayOutputWithContext(ctx context.Context) KnowledgeBaseSeedUrlArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSeedUrlArrayOutput)
+}
+
+type KnowledgeBaseSeedUrlOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSeedUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSeedUrl)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSeedUrlOutput) ToKnowledgeBaseSeedUrlOutput() KnowledgeBaseSeedUrlOutput {
+	return o
+}
+
+func (o KnowledgeBaseSeedUrlOutput) ToKnowledgeBaseSeedUrlOutputWithContext(ctx context.Context) KnowledgeBaseSeedUrlOutput {
+	return o
+}
+
+func (o KnowledgeBaseSeedUrlOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseSeedUrl) *string { return v.Url }).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseSeedUrlArrayOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSeedUrlArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseSeedUrl)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSeedUrlArrayOutput) ToKnowledgeBaseSeedUrlArrayOutput() KnowledgeBaseSeedUrlArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseSeedUrlArrayOutput) ToKnowledgeBaseSeedUrlArrayOutputWithContext(ctx context.Context) KnowledgeBaseSeedUrlArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseSeedUrlArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseSeedUrlOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KnowledgeBaseSeedUrl {
+		return vs[0].([]KnowledgeBaseSeedUrl)[vs[1].(int)]
+	}).(KnowledgeBaseSeedUrlOutput)
+}
+
+type KnowledgeBaseSemanticChunkingConfiguration struct {
+	BreakpointPercentileThreshold float64 `pulumi:"breakpointPercentileThreshold"`
+	BufferSize                    float64 `pulumi:"bufferSize"`
+	MaxTokens                     float64 `pulumi:"maxTokens"`
+}
+
+// KnowledgeBaseSemanticChunkingConfigurationInput is an input type that accepts KnowledgeBaseSemanticChunkingConfigurationArgs and KnowledgeBaseSemanticChunkingConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSemanticChunkingConfigurationInput` via:
+//
+//	KnowledgeBaseSemanticChunkingConfigurationArgs{...}
+type KnowledgeBaseSemanticChunkingConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSemanticChunkingConfigurationOutput() KnowledgeBaseSemanticChunkingConfigurationOutput
+	ToKnowledgeBaseSemanticChunkingConfigurationOutputWithContext(context.Context) KnowledgeBaseSemanticChunkingConfigurationOutput
+}
+
+type KnowledgeBaseSemanticChunkingConfigurationArgs struct {
+	BreakpointPercentileThreshold pulumi.Float64Input `pulumi:"breakpointPercentileThreshold"`
+	BufferSize                    pulumi.Float64Input `pulumi:"bufferSize"`
+	MaxTokens                     pulumi.Float64Input `pulumi:"maxTokens"`
+}
+
+func (KnowledgeBaseSemanticChunkingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseSemanticChunkingConfigurationArgs) ToKnowledgeBaseSemanticChunkingConfigurationOutput() KnowledgeBaseSemanticChunkingConfigurationOutput {
+	return i.ToKnowledgeBaseSemanticChunkingConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSemanticChunkingConfigurationArgs) ToKnowledgeBaseSemanticChunkingConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseSemanticChunkingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSemanticChunkingConfigurationOutput)
+}
+
+func (i KnowledgeBaseSemanticChunkingConfigurationArgs) ToKnowledgeBaseSemanticChunkingConfigurationPtrOutput() KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return i.ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSemanticChunkingConfigurationArgs) ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSemanticChunkingConfigurationOutput).ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseSemanticChunkingConfigurationPtrInput is an input type that accepts KnowledgeBaseSemanticChunkingConfigurationArgs, KnowledgeBaseSemanticChunkingConfigurationPtr and KnowledgeBaseSemanticChunkingConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSemanticChunkingConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseSemanticChunkingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseSemanticChunkingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSemanticChunkingConfigurationPtrOutput() KnowledgeBaseSemanticChunkingConfigurationPtrOutput
+	ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseSemanticChunkingConfigurationPtrOutput
+}
+
+type knowledgeBaseSemanticChunkingConfigurationPtrType KnowledgeBaseSemanticChunkingConfigurationArgs
+
+func KnowledgeBaseSemanticChunkingConfigurationPtr(v *KnowledgeBaseSemanticChunkingConfigurationArgs) KnowledgeBaseSemanticChunkingConfigurationPtrInput {
+	return (*knowledgeBaseSemanticChunkingConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseSemanticChunkingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseSemanticChunkingConfigurationPtrType) ToKnowledgeBaseSemanticChunkingConfigurationPtrOutput() KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return i.ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseSemanticChunkingConfigurationPtrType) ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSemanticChunkingConfigurationPtrOutput)
+}
+
+type KnowledgeBaseSemanticChunkingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSemanticChunkingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationOutput) ToKnowledgeBaseSemanticChunkingConfigurationOutput() KnowledgeBaseSemanticChunkingConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationOutput) ToKnowledgeBaseSemanticChunkingConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseSemanticChunkingConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationOutput) ToKnowledgeBaseSemanticChunkingConfigurationPtrOutput() KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return o.ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationOutput) ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseSemanticChunkingConfiguration) *KnowledgeBaseSemanticChunkingConfiguration {
+		return &v
+	}).(KnowledgeBaseSemanticChunkingConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationOutput) BreakpointPercentileThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v KnowledgeBaseSemanticChunkingConfiguration) float64 { return v.BreakpointPercentileThreshold }).(pulumi.Float64Output)
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationOutput) BufferSize() pulumi.Float64Output {
+	return o.ApplyT(func(v KnowledgeBaseSemanticChunkingConfiguration) float64 { return v.BufferSize }).(pulumi.Float64Output)
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationOutput) MaxTokens() pulumi.Float64Output {
+	return o.ApplyT(func(v KnowledgeBaseSemanticChunkingConfiguration) float64 { return v.MaxTokens }).(pulumi.Float64Output)
+}
+
+type KnowledgeBaseSemanticChunkingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSemanticChunkingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSemanticChunkingConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) ToKnowledgeBaseSemanticChunkingConfigurationPtrOutput() KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) ToKnowledgeBaseSemanticChunkingConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) Elem() KnowledgeBaseSemanticChunkingConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSemanticChunkingConfiguration) KnowledgeBaseSemanticChunkingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseSemanticChunkingConfiguration
+		return ret
+	}).(KnowledgeBaseSemanticChunkingConfigurationOutput)
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) BreakpointPercentileThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSemanticChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.BreakpointPercentileThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) BufferSize() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSemanticChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.BufferSize
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) MaxTokens() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSemanticChunkingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxTokens
+	}).(pulumi.Float64PtrOutput)
+}
+
 type KnowledgeBaseServerSideEncryptionConfiguration struct {
 	// The customer managed key used for encryption.
 	//
@@ -2311,143 +3320,274 @@ func (o KnowledgeBaseServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-type KnowledgeBaseSourceConfiguration struct {
-	// Configuration information for Amazon AppIntegrations to automatically ingest content.
-	AppIntegrations *KnowledgeBaseAppIntegrationsConfiguration `pulumi:"appIntegrations"`
+type KnowledgeBaseSourceConfiguration0Properties struct {
+	AppIntegrations KnowledgeBaseAppIntegrationsConfiguration `pulumi:"appIntegrations"`
 }
 
-// KnowledgeBaseSourceConfigurationInput is an input type that accepts KnowledgeBaseSourceConfigurationArgs and KnowledgeBaseSourceConfigurationOutput values.
-// You can construct a concrete instance of `KnowledgeBaseSourceConfigurationInput` via:
+// KnowledgeBaseSourceConfiguration0PropertiesInput is an input type that accepts KnowledgeBaseSourceConfiguration0PropertiesArgs and KnowledgeBaseSourceConfiguration0PropertiesOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSourceConfiguration0PropertiesInput` via:
 //
-//	KnowledgeBaseSourceConfigurationArgs{...}
-type KnowledgeBaseSourceConfigurationInput interface {
+//	KnowledgeBaseSourceConfiguration0PropertiesArgs{...}
+type KnowledgeBaseSourceConfiguration0PropertiesInput interface {
 	pulumi.Input
 
-	ToKnowledgeBaseSourceConfigurationOutput() KnowledgeBaseSourceConfigurationOutput
-	ToKnowledgeBaseSourceConfigurationOutputWithContext(context.Context) KnowledgeBaseSourceConfigurationOutput
+	ToKnowledgeBaseSourceConfiguration0PropertiesOutput() KnowledgeBaseSourceConfiguration0PropertiesOutput
+	ToKnowledgeBaseSourceConfiguration0PropertiesOutputWithContext(context.Context) KnowledgeBaseSourceConfiguration0PropertiesOutput
 }
 
-type KnowledgeBaseSourceConfigurationArgs struct {
-	// Configuration information for Amazon AppIntegrations to automatically ingest content.
-	AppIntegrations KnowledgeBaseAppIntegrationsConfigurationPtrInput `pulumi:"appIntegrations"`
+type KnowledgeBaseSourceConfiguration0PropertiesArgs struct {
+	AppIntegrations KnowledgeBaseAppIntegrationsConfigurationInput `pulumi:"appIntegrations"`
 }
 
-func (KnowledgeBaseSourceConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KnowledgeBaseSourceConfiguration)(nil)).Elem()
+func (KnowledgeBaseSourceConfiguration0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSourceConfiguration0Properties)(nil)).Elem()
 }
 
-func (i KnowledgeBaseSourceConfigurationArgs) ToKnowledgeBaseSourceConfigurationOutput() KnowledgeBaseSourceConfigurationOutput {
-	return i.ToKnowledgeBaseSourceConfigurationOutputWithContext(context.Background())
+func (i KnowledgeBaseSourceConfiguration0PropertiesArgs) ToKnowledgeBaseSourceConfiguration0PropertiesOutput() KnowledgeBaseSourceConfiguration0PropertiesOutput {
+	return i.ToKnowledgeBaseSourceConfiguration0PropertiesOutputWithContext(context.Background())
 }
 
-func (i KnowledgeBaseSourceConfigurationArgs) ToKnowledgeBaseSourceConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfigurationOutput)
+func (i KnowledgeBaseSourceConfiguration0PropertiesArgs) ToKnowledgeBaseSourceConfiguration0PropertiesOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfiguration0PropertiesOutput)
 }
 
-func (i KnowledgeBaseSourceConfigurationArgs) ToKnowledgeBaseSourceConfigurationPtrOutput() KnowledgeBaseSourceConfigurationPtrOutput {
-	return i.ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(context.Background())
+func (i KnowledgeBaseSourceConfiguration0PropertiesArgs) ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutput() KnowledgeBaseSourceConfiguration0PropertiesPtrOutput {
+	return i.ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i KnowledgeBaseSourceConfigurationArgs) ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfigurationOutput).ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(ctx)
+func (i KnowledgeBaseSourceConfiguration0PropertiesArgs) ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfiguration0PropertiesOutput).ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(ctx)
 }
 
-// KnowledgeBaseSourceConfigurationPtrInput is an input type that accepts KnowledgeBaseSourceConfigurationArgs, KnowledgeBaseSourceConfigurationPtr and KnowledgeBaseSourceConfigurationPtrOutput values.
-// You can construct a concrete instance of `KnowledgeBaseSourceConfigurationPtrInput` via:
+// KnowledgeBaseSourceConfiguration0PropertiesPtrInput is an input type that accepts KnowledgeBaseSourceConfiguration0PropertiesArgs, KnowledgeBaseSourceConfiguration0PropertiesPtr and KnowledgeBaseSourceConfiguration0PropertiesPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSourceConfiguration0PropertiesPtrInput` via:
 //
-//	        KnowledgeBaseSourceConfigurationArgs{...}
+//	        KnowledgeBaseSourceConfiguration0PropertiesArgs{...}
 //
 //	or:
 //
 //	        nil
-type KnowledgeBaseSourceConfigurationPtrInput interface {
+type KnowledgeBaseSourceConfiguration0PropertiesPtrInput interface {
 	pulumi.Input
 
-	ToKnowledgeBaseSourceConfigurationPtrOutput() KnowledgeBaseSourceConfigurationPtrOutput
-	ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseSourceConfigurationPtrOutput
+	ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutput() KnowledgeBaseSourceConfiguration0PropertiesPtrOutput
+	ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(context.Context) KnowledgeBaseSourceConfiguration0PropertiesPtrOutput
 }
 
-type knowledgeBaseSourceConfigurationPtrType KnowledgeBaseSourceConfigurationArgs
+type knowledgeBaseSourceConfiguration0PropertiesPtrType KnowledgeBaseSourceConfiguration0PropertiesArgs
 
-func KnowledgeBaseSourceConfigurationPtr(v *KnowledgeBaseSourceConfigurationArgs) KnowledgeBaseSourceConfigurationPtrInput {
-	return (*knowledgeBaseSourceConfigurationPtrType)(v)
+func KnowledgeBaseSourceConfiguration0PropertiesPtr(v *KnowledgeBaseSourceConfiguration0PropertiesArgs) KnowledgeBaseSourceConfiguration0PropertiesPtrInput {
+	return (*knowledgeBaseSourceConfiguration0PropertiesPtrType)(v)
 }
 
-func (*knowledgeBaseSourceConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KnowledgeBaseSourceConfiguration)(nil)).Elem()
+func (*knowledgeBaseSourceConfiguration0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSourceConfiguration0Properties)(nil)).Elem()
 }
 
-func (i *knowledgeBaseSourceConfigurationPtrType) ToKnowledgeBaseSourceConfigurationPtrOutput() KnowledgeBaseSourceConfigurationPtrOutput {
-	return i.ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(context.Background())
+func (i *knowledgeBaseSourceConfiguration0PropertiesPtrType) ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutput() KnowledgeBaseSourceConfiguration0PropertiesPtrOutput {
+	return i.ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(context.Background())
 }
 
-func (i *knowledgeBaseSourceConfigurationPtrType) ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfigurationPtrOutput)
+func (i *knowledgeBaseSourceConfiguration0PropertiesPtrType) ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfiguration0PropertiesPtrOutput)
 }
 
-type KnowledgeBaseSourceConfigurationOutput struct{ *pulumi.OutputState }
+type KnowledgeBaseSourceConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (KnowledgeBaseSourceConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KnowledgeBaseSourceConfiguration)(nil)).Elem()
+func (KnowledgeBaseSourceConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSourceConfiguration0Properties)(nil)).Elem()
 }
 
-func (o KnowledgeBaseSourceConfigurationOutput) ToKnowledgeBaseSourceConfigurationOutput() KnowledgeBaseSourceConfigurationOutput {
+func (o KnowledgeBaseSourceConfiguration0PropertiesOutput) ToKnowledgeBaseSourceConfiguration0PropertiesOutput() KnowledgeBaseSourceConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o KnowledgeBaseSourceConfigurationOutput) ToKnowledgeBaseSourceConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfigurationOutput {
+func (o KnowledgeBaseSourceConfiguration0PropertiesOutput) ToKnowledgeBaseSourceConfiguration0PropertiesOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o KnowledgeBaseSourceConfigurationOutput) ToKnowledgeBaseSourceConfigurationPtrOutput() KnowledgeBaseSourceConfigurationPtrOutput {
-	return o.ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(context.Background())
+func (o KnowledgeBaseSourceConfiguration0PropertiesOutput) ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutput() KnowledgeBaseSourceConfiguration0PropertiesPtrOutput {
+	return o.ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(context.Background())
 }
 
-func (o KnowledgeBaseSourceConfigurationOutput) ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseSourceConfiguration) *KnowledgeBaseSourceConfiguration {
+func (o KnowledgeBaseSourceConfiguration0PropertiesOutput) ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseSourceConfiguration0Properties) *KnowledgeBaseSourceConfiguration0Properties {
 		return &v
-	}).(KnowledgeBaseSourceConfigurationPtrOutput)
+	}).(KnowledgeBaseSourceConfiguration0PropertiesPtrOutput)
 }
 
-// Configuration information for Amazon AppIntegrations to automatically ingest content.
-func (o KnowledgeBaseSourceConfigurationOutput) AppIntegrations() KnowledgeBaseAppIntegrationsConfigurationPtrOutput {
-	return o.ApplyT(func(v KnowledgeBaseSourceConfiguration) *KnowledgeBaseAppIntegrationsConfiguration {
+func (o KnowledgeBaseSourceConfiguration0PropertiesOutput) AppIntegrations() KnowledgeBaseAppIntegrationsConfigurationOutput {
+	return o.ApplyT(func(v KnowledgeBaseSourceConfiguration0Properties) KnowledgeBaseAppIntegrationsConfiguration {
 		return v.AppIntegrations
-	}).(KnowledgeBaseAppIntegrationsConfigurationPtrOutput)
+	}).(KnowledgeBaseAppIntegrationsConfigurationOutput)
 }
 
-type KnowledgeBaseSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+type KnowledgeBaseSourceConfiguration0PropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (KnowledgeBaseSourceConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KnowledgeBaseSourceConfiguration)(nil)).Elem()
+func (KnowledgeBaseSourceConfiguration0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSourceConfiguration0Properties)(nil)).Elem()
 }
 
-func (o KnowledgeBaseSourceConfigurationPtrOutput) ToKnowledgeBaseSourceConfigurationPtrOutput() KnowledgeBaseSourceConfigurationPtrOutput {
+func (o KnowledgeBaseSourceConfiguration0PropertiesPtrOutput) ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutput() KnowledgeBaseSourceConfiguration0PropertiesPtrOutput {
 	return o
 }
 
-func (o KnowledgeBaseSourceConfigurationPtrOutput) ToKnowledgeBaseSourceConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfigurationPtrOutput {
+func (o KnowledgeBaseSourceConfiguration0PropertiesPtrOutput) ToKnowledgeBaseSourceConfiguration0PropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration0PropertiesPtrOutput {
 	return o
 }
 
-func (o KnowledgeBaseSourceConfigurationPtrOutput) Elem() KnowledgeBaseSourceConfigurationOutput {
-	return o.ApplyT(func(v *KnowledgeBaseSourceConfiguration) KnowledgeBaseSourceConfiguration {
+func (o KnowledgeBaseSourceConfiguration0PropertiesPtrOutput) Elem() KnowledgeBaseSourceConfiguration0PropertiesOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSourceConfiguration0Properties) KnowledgeBaseSourceConfiguration0Properties {
 		if v != nil {
 			return *v
 		}
-		var ret KnowledgeBaseSourceConfiguration
+		var ret KnowledgeBaseSourceConfiguration0Properties
 		return ret
-	}).(KnowledgeBaseSourceConfigurationOutput)
+	}).(KnowledgeBaseSourceConfiguration0PropertiesOutput)
 }
 
-// Configuration information for Amazon AppIntegrations to automatically ingest content.
-func (o KnowledgeBaseSourceConfigurationPtrOutput) AppIntegrations() KnowledgeBaseAppIntegrationsConfigurationPtrOutput {
-	return o.ApplyT(func(v *KnowledgeBaseSourceConfiguration) *KnowledgeBaseAppIntegrationsConfiguration {
+func (o KnowledgeBaseSourceConfiguration0PropertiesPtrOutput) AppIntegrations() KnowledgeBaseAppIntegrationsConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSourceConfiguration0Properties) *KnowledgeBaseAppIntegrationsConfiguration {
 		if v == nil {
 			return nil
 		}
-		return v.AppIntegrations
+		return &v.AppIntegrations
 	}).(KnowledgeBaseAppIntegrationsConfigurationPtrOutput)
+}
+
+type KnowledgeBaseSourceConfiguration1Properties struct {
+	ManagedSourceConfiguration KnowledgeBaseManagedSourceConfigurationProperties `pulumi:"managedSourceConfiguration"`
+}
+
+// KnowledgeBaseSourceConfiguration1PropertiesInput is an input type that accepts KnowledgeBaseSourceConfiguration1PropertiesArgs and KnowledgeBaseSourceConfiguration1PropertiesOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSourceConfiguration1PropertiesInput` via:
+//
+//	KnowledgeBaseSourceConfiguration1PropertiesArgs{...}
+type KnowledgeBaseSourceConfiguration1PropertiesInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSourceConfiguration1PropertiesOutput() KnowledgeBaseSourceConfiguration1PropertiesOutput
+	ToKnowledgeBaseSourceConfiguration1PropertiesOutputWithContext(context.Context) KnowledgeBaseSourceConfiguration1PropertiesOutput
+}
+
+type KnowledgeBaseSourceConfiguration1PropertiesArgs struct {
+	ManagedSourceConfiguration KnowledgeBaseManagedSourceConfigurationPropertiesInput `pulumi:"managedSourceConfiguration"`
+}
+
+func (KnowledgeBaseSourceConfiguration1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSourceConfiguration1Properties)(nil)).Elem()
+}
+
+func (i KnowledgeBaseSourceConfiguration1PropertiesArgs) ToKnowledgeBaseSourceConfiguration1PropertiesOutput() KnowledgeBaseSourceConfiguration1PropertiesOutput {
+	return i.ToKnowledgeBaseSourceConfiguration1PropertiesOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSourceConfiguration1PropertiesArgs) ToKnowledgeBaseSourceConfiguration1PropertiesOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfiguration1PropertiesOutput)
+}
+
+func (i KnowledgeBaseSourceConfiguration1PropertiesArgs) ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutput() KnowledgeBaseSourceConfiguration1PropertiesPtrOutput {
+	return i.ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSourceConfiguration1PropertiesArgs) ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfiguration1PropertiesOutput).ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseSourceConfiguration1PropertiesPtrInput is an input type that accepts KnowledgeBaseSourceConfiguration1PropertiesArgs, KnowledgeBaseSourceConfiguration1PropertiesPtr and KnowledgeBaseSourceConfiguration1PropertiesPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSourceConfiguration1PropertiesPtrInput` via:
+//
+//	        KnowledgeBaseSourceConfiguration1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseSourceConfiguration1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutput() KnowledgeBaseSourceConfiguration1PropertiesPtrOutput
+	ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(context.Context) KnowledgeBaseSourceConfiguration1PropertiesPtrOutput
+}
+
+type knowledgeBaseSourceConfiguration1PropertiesPtrType KnowledgeBaseSourceConfiguration1PropertiesArgs
+
+func KnowledgeBaseSourceConfiguration1PropertiesPtr(v *KnowledgeBaseSourceConfiguration1PropertiesArgs) KnowledgeBaseSourceConfiguration1PropertiesPtrInput {
+	return (*knowledgeBaseSourceConfiguration1PropertiesPtrType)(v)
+}
+
+func (*knowledgeBaseSourceConfiguration1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSourceConfiguration1Properties)(nil)).Elem()
+}
+
+func (i *knowledgeBaseSourceConfiguration1PropertiesPtrType) ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutput() KnowledgeBaseSourceConfiguration1PropertiesPtrOutput {
+	return i.ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseSourceConfiguration1PropertiesPtrType) ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSourceConfiguration1PropertiesPtrOutput)
+}
+
+type KnowledgeBaseSourceConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSourceConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSourceConfiguration1Properties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesOutput) ToKnowledgeBaseSourceConfiguration1PropertiesOutput() KnowledgeBaseSourceConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesOutput) ToKnowledgeBaseSourceConfiguration1PropertiesOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesOutput) ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutput() KnowledgeBaseSourceConfiguration1PropertiesPtrOutput {
+	return o.ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesOutput) ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseSourceConfiguration1Properties) *KnowledgeBaseSourceConfiguration1Properties {
+		return &v
+	}).(KnowledgeBaseSourceConfiguration1PropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesOutput) ManagedSourceConfiguration() KnowledgeBaseManagedSourceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v KnowledgeBaseSourceConfiguration1Properties) KnowledgeBaseManagedSourceConfigurationProperties {
+		return v.ManagedSourceConfiguration
+	}).(KnowledgeBaseManagedSourceConfigurationPropertiesOutput)
+}
+
+type KnowledgeBaseSourceConfiguration1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSourceConfiguration1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSourceConfiguration1Properties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesPtrOutput) ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutput() KnowledgeBaseSourceConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesPtrOutput) ToKnowledgeBaseSourceConfiguration1PropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseSourceConfiguration1PropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesPtrOutput) Elem() KnowledgeBaseSourceConfiguration1PropertiesOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSourceConfiguration1Properties) KnowledgeBaseSourceConfiguration1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseSourceConfiguration1Properties
+		return ret
+	}).(KnowledgeBaseSourceConfiguration1PropertiesOutput)
+}
+
+func (o KnowledgeBaseSourceConfiguration1PropertiesPtrOutput) ManagedSourceConfiguration() KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSourceConfiguration1Properties) *KnowledgeBaseManagedSourceConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagedSourceConfiguration
+	}).(KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput)
 }
 
 type KnowledgeBaseTag struct {
@@ -2455,6 +3595,963 @@ type KnowledgeBaseTag struct {
 	Key string `pulumi:"key"`
 	// The tag value can be up to 256 characters.
 	Value string `pulumi:"value"`
+}
+
+type KnowledgeBaseVectorIngestionConfiguration struct {
+	ChunkingConfiguration *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties `pulumi:"chunkingConfiguration"`
+	ParsingConfiguration  *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties  `pulumi:"parsingConfiguration"`
+}
+
+// KnowledgeBaseVectorIngestionConfigurationInput is an input type that accepts KnowledgeBaseVectorIngestionConfigurationArgs and KnowledgeBaseVectorIngestionConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVectorIngestionConfigurationInput` via:
+//
+//	KnowledgeBaseVectorIngestionConfigurationArgs{...}
+type KnowledgeBaseVectorIngestionConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVectorIngestionConfigurationOutput() KnowledgeBaseVectorIngestionConfigurationOutput
+	ToKnowledgeBaseVectorIngestionConfigurationOutputWithContext(context.Context) KnowledgeBaseVectorIngestionConfigurationOutput
+}
+
+type KnowledgeBaseVectorIngestionConfigurationArgs struct {
+	ChunkingConfiguration KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrInput `pulumi:"chunkingConfiguration"`
+	ParsingConfiguration  KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrInput  `pulumi:"parsingConfiguration"`
+}
+
+func (KnowledgeBaseVectorIngestionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVectorIngestionConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationArgs) ToKnowledgeBaseVectorIngestionConfigurationOutput() KnowledgeBaseVectorIngestionConfigurationOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationArgs) ToKnowledgeBaseVectorIngestionConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationOutput)
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationArgs) ToKnowledgeBaseVectorIngestionConfigurationPtrOutput() KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationArgs) ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationOutput).ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseVectorIngestionConfigurationPtrInput is an input type that accepts KnowledgeBaseVectorIngestionConfigurationArgs, KnowledgeBaseVectorIngestionConfigurationPtr and KnowledgeBaseVectorIngestionConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVectorIngestionConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseVectorIngestionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseVectorIngestionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVectorIngestionConfigurationPtrOutput() KnowledgeBaseVectorIngestionConfigurationPtrOutput
+	ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseVectorIngestionConfigurationPtrOutput
+}
+
+type knowledgeBaseVectorIngestionConfigurationPtrType KnowledgeBaseVectorIngestionConfigurationArgs
+
+func KnowledgeBaseVectorIngestionConfigurationPtr(v *KnowledgeBaseVectorIngestionConfigurationArgs) KnowledgeBaseVectorIngestionConfigurationPtrInput {
+	return (*knowledgeBaseVectorIngestionConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseVectorIngestionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVectorIngestionConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseVectorIngestionConfigurationPtrType) ToKnowledgeBaseVectorIngestionConfigurationPtrOutput() KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseVectorIngestionConfigurationPtrType) ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationPtrOutput)
+}
+
+type KnowledgeBaseVectorIngestionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVectorIngestionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVectorIngestionConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationOutput) ToKnowledgeBaseVectorIngestionConfigurationOutput() KnowledgeBaseVectorIngestionConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationOutput) ToKnowledgeBaseVectorIngestionConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationOutput) ToKnowledgeBaseVectorIngestionConfigurationPtrOutput() KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return o.ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationOutput) ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfiguration {
+		return &v
+	}).(KnowledgeBaseVectorIngestionConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationOutput) ChunkingConfiguration() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties {
+		return v.ChunkingConfiguration
+	}).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationOutput) ParsingConfiguration() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties {
+		return v.ParsingConfiguration
+	}).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput)
+}
+
+type KnowledgeBaseVectorIngestionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVectorIngestionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVectorIngestionConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) ToKnowledgeBaseVectorIngestionConfigurationPtrOutput() KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) ToKnowledgeBaseVectorIngestionConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) Elem() KnowledgeBaseVectorIngestionConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfiguration) KnowledgeBaseVectorIngestionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseVectorIngestionConfiguration
+		return ret
+	}).(KnowledgeBaseVectorIngestionConfigurationOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) ChunkingConfiguration() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ChunkingConfiguration
+	}).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) ParsingConfiguration() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingConfiguration
+	}).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput)
+}
+
+type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties struct {
+	ChunkingStrategy                  KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy `pulumi:"chunkingStrategy"`
+	FixedSizeChunkingConfiguration    *KnowledgeBaseFixedSizeChunkingConfiguration                                             `pulumi:"fixedSizeChunkingConfiguration"`
+	HierarchicalChunkingConfiguration *KnowledgeBaseHierarchicalChunkingConfiguration                                          `pulumi:"hierarchicalChunkingConfiguration"`
+	SemanticChunkingConfiguration     *KnowledgeBaseSemanticChunkingConfiguration                                              `pulumi:"semanticChunkingConfiguration"`
+}
+
+// KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesInput is an input type that accepts KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs and KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesInput` via:
+//
+//	KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs{...}
+type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput
+	ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutputWithContext(context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput
+}
+
+type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs struct {
+	ChunkingStrategy                  KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategyInput `pulumi:"chunkingStrategy"`
+	FixedSizeChunkingConfiguration    KnowledgeBaseFixedSizeChunkingConfigurationPtrInput                                           `pulumi:"fixedSizeChunkingConfiguration"`
+	HierarchicalChunkingConfiguration KnowledgeBaseHierarchicalChunkingConfigurationPtrInput                                        `pulumi:"hierarchicalChunkingConfiguration"`
+	SemanticChunkingConfiguration     KnowledgeBaseSemanticChunkingConfigurationPtrInput                                            `pulumi:"semanticChunkingConfiguration"`
+}
+
+func (KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties)(nil)).Elem()
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput)
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput).ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrInput is an input type that accepts KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs, KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtr and KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrInput` via:
+//
+//	        KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput
+	ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput
+}
+
+type knowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrType KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs
+
+func KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtr(v *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrInput {
+	return (*knowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrType)(v)
+}
+
+func (*knowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties)(nil)).Elem()
+}
+
+func (i *knowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrType) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrType) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput)
+}
+
+type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return o.ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties {
+		return &v
+	}).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) ChunkingStrategy() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategyOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy {
+		return v.ChunkingStrategy
+	}).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategyOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) FixedSizeChunkingConfiguration() KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) *KnowledgeBaseFixedSizeChunkingConfiguration {
+		return v.FixedSizeChunkingConfiguration
+	}).(KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) HierarchicalChunkingConfiguration() KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) *KnowledgeBaseHierarchicalChunkingConfiguration {
+		return v.HierarchicalChunkingConfiguration
+	}).(KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) SemanticChunkingConfiguration() KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) *KnowledgeBaseSemanticChunkingConfiguration {
+		return v.SemanticChunkingConfiguration
+	}).(KnowledgeBaseSemanticChunkingConfigurationPtrOutput)
+}
+
+type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput) ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput) Elem() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties
+		return ret
+	}).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput) ChunkingStrategy() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategyPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.ChunkingStrategy
+	}).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategyPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput) FixedSizeChunkingConfiguration() KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) *KnowledgeBaseFixedSizeChunkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.FixedSizeChunkingConfiguration
+	}).(KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput) HierarchicalChunkingConfiguration() KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) *KnowledgeBaseHierarchicalChunkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.HierarchicalChunkingConfiguration
+	}).(KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput) SemanticChunkingConfiguration() KnowledgeBaseSemanticChunkingConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties) *KnowledgeBaseSemanticChunkingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SemanticChunkingConfiguration
+	}).(KnowledgeBaseSemanticChunkingConfigurationPtrOutput)
+}
+
+type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties struct {
+	BedrockFoundationModelConfiguration *KnowledgeBaseBedrockFoundationModelConfiguration                                      `pulumi:"bedrockFoundationModelConfiguration"`
+	ParsingStrategy                     KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy `pulumi:"parsingStrategy"`
+}
+
+// KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesInput is an input type that accepts KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs and KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesInput` via:
+//
+//	KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs{...}
+type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput
+	ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutputWithContext(context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput
+}
+
+type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs struct {
+	BedrockFoundationModelConfiguration KnowledgeBaseBedrockFoundationModelConfigurationPtrInput                                    `pulumi:"bedrockFoundationModelConfiguration"`
+	ParsingStrategy                     KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategyInput `pulumi:"parsingStrategy"`
+}
+
+func (KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties)(nil)).Elem()
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput)
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput).ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrInput is an input type that accepts KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs, KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtr and KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrInput` via:
+//
+//	        KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput
+	ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput
+}
+
+type knowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrType KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs
+
+func KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtr(v *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrInput {
+	return (*knowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrType)(v)
+}
+
+func (*knowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties)(nil)).Elem()
+}
+
+func (i *knowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrType) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return i.ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrType) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput)
+}
+
+type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return o.ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties) *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties {
+		return &v
+	}).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput) BedrockFoundationModelConfiguration() KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties) *KnowledgeBaseBedrockFoundationModelConfiguration {
+		return v.BedrockFoundationModelConfiguration
+	}).(KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput) ParsingStrategy() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategyOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy {
+		return v.ParsingStrategy
+	}).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategyOutput)
+}
+
+type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput) ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput) Elem() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties
+		return ret
+	}).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput) BedrockFoundationModelConfiguration() KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties) *KnowledgeBaseBedrockFoundationModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockFoundationModelConfiguration
+	}).(KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput) ParsingStrategy() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategyPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties) *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy {
+		if v == nil {
+			return nil
+		}
+		return &v.ParsingStrategy
+	}).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategyPtrOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfiguration struct {
+	CrawlerLimits    *KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties   `pulumi:"crawlerLimits"`
+	ExclusionFilters []string                                                       `pulumi:"exclusionFilters"`
+	InclusionFilters []string                                                       `pulumi:"inclusionFilters"`
+	Scope            *KnowledgeBaseWebCrawlerConfigurationScope                     `pulumi:"scope"`
+	UrlConfiguration KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties `pulumi:"urlConfiguration"`
+}
+
+// KnowledgeBaseWebCrawlerConfigurationInput is an input type that accepts KnowledgeBaseWebCrawlerConfigurationArgs and KnowledgeBaseWebCrawlerConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseWebCrawlerConfigurationInput` via:
+//
+//	KnowledgeBaseWebCrawlerConfigurationArgs{...}
+type KnowledgeBaseWebCrawlerConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseWebCrawlerConfigurationOutput() KnowledgeBaseWebCrawlerConfigurationOutput
+	ToKnowledgeBaseWebCrawlerConfigurationOutputWithContext(context.Context) KnowledgeBaseWebCrawlerConfigurationOutput
+}
+
+type KnowledgeBaseWebCrawlerConfigurationArgs struct {
+	CrawlerLimits    KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrInput `pulumi:"crawlerLimits"`
+	ExclusionFilters pulumi.StringArrayInput                                             `pulumi:"exclusionFilters"`
+	InclusionFilters pulumi.StringArrayInput                                             `pulumi:"inclusionFilters"`
+	Scope            KnowledgeBaseWebCrawlerConfigurationScopePtrInput                   `pulumi:"scope"`
+	UrlConfiguration KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesInput `pulumi:"urlConfiguration"`
+}
+
+func (KnowledgeBaseWebCrawlerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationArgs) ToKnowledgeBaseWebCrawlerConfigurationOutput() KnowledgeBaseWebCrawlerConfigurationOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationArgs) ToKnowledgeBaseWebCrawlerConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationOutput)
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationArgs) ToKnowledgeBaseWebCrawlerConfigurationPtrOutput() KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationArgs) ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationOutput).ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseWebCrawlerConfigurationPtrInput is an input type that accepts KnowledgeBaseWebCrawlerConfigurationArgs, KnowledgeBaseWebCrawlerConfigurationPtr and KnowledgeBaseWebCrawlerConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseWebCrawlerConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseWebCrawlerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseWebCrawlerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseWebCrawlerConfigurationPtrOutput() KnowledgeBaseWebCrawlerConfigurationPtrOutput
+	ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseWebCrawlerConfigurationPtrOutput
+}
+
+type knowledgeBaseWebCrawlerConfigurationPtrType KnowledgeBaseWebCrawlerConfigurationArgs
+
+func KnowledgeBaseWebCrawlerConfigurationPtr(v *KnowledgeBaseWebCrawlerConfigurationArgs) KnowledgeBaseWebCrawlerConfigurationPtrInput {
+	return (*knowledgeBaseWebCrawlerConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseWebCrawlerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseWebCrawlerConfigurationPtrType) ToKnowledgeBaseWebCrawlerConfigurationPtrOutput() KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseWebCrawlerConfigurationPtrType) ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationPtrOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseWebCrawlerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) ToKnowledgeBaseWebCrawlerConfigurationOutput() KnowledgeBaseWebCrawlerConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) ToKnowledgeBaseWebCrawlerConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) ToKnowledgeBaseWebCrawlerConfigurationPtrOutput() KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return o.ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseWebCrawlerConfiguration) *KnowledgeBaseWebCrawlerConfiguration {
+		return &v
+	}).(KnowledgeBaseWebCrawlerConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) CrawlerLimits() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseWebCrawlerConfiguration) *KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties {
+		return v.CrawlerLimits
+	}).(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KnowledgeBaseWebCrawlerConfiguration) []string { return v.ExclusionFilters }).(pulumi.StringArrayOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KnowledgeBaseWebCrawlerConfiguration) []string { return v.InclusionFilters }).(pulumi.StringArrayOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) Scope() KnowledgeBaseWebCrawlerConfigurationScopePtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseWebCrawlerConfiguration) *KnowledgeBaseWebCrawlerConfigurationScope {
+		return v.Scope
+	}).(KnowledgeBaseWebCrawlerConfigurationScopePtrOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationOutput) UrlConfiguration() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput {
+	return o.ApplyT(func(v KnowledgeBaseWebCrawlerConfiguration) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties {
+		return v.UrlConfiguration
+	}).(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseWebCrawlerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseWebCrawlerConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationPtrOutput) ToKnowledgeBaseWebCrawlerConfigurationPtrOutput() KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationPtrOutput) ToKnowledgeBaseWebCrawlerConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationPtrOutput) Elem() KnowledgeBaseWebCrawlerConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfiguration) KnowledgeBaseWebCrawlerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseWebCrawlerConfiguration
+		return ret
+	}).(KnowledgeBaseWebCrawlerConfigurationOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationPtrOutput) CrawlerLimits() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfiguration) *KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.CrawlerLimits
+	}).(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationPtrOutput) ExclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationPtrOutput) InclusionFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InclusionFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationPtrOutput) Scope() KnowledgeBaseWebCrawlerConfigurationScopePtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfiguration) *KnowledgeBaseWebCrawlerConfigurationScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(KnowledgeBaseWebCrawlerConfigurationScopePtrOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationPtrOutput) UrlConfiguration() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfiguration) *KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties {
+		if v == nil {
+			return nil
+		}
+		return &v.UrlConfiguration
+	}).(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties struct {
+	RateLimit *float64 `pulumi:"rateLimit"`
+}
+
+// KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesInput is an input type that accepts KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs and KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput values.
+// You can construct a concrete instance of `KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesInput` via:
+//
+//	KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs{...}
+type KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput
+	ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutputWithContext(context.Context) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput
+}
+
+type KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs struct {
+	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
+}
+
+func (KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties)(nil)).Elem()
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput)
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput).ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrInput is an input type that accepts KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs, KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtr and KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrInput` via:
+//
+//	        KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput
+	ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(context.Context) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput
+}
+
+type knowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrType KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs
+
+func KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtr(v *KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrInput {
+	return (*knowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrType)(v)
+}
+
+func (*knowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties)(nil)).Elem()
+}
+
+func (i *knowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrType) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrType) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return o.ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties) *KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties {
+		return &v
+	}).(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput) ToKnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput) Elem() KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties) KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties
+		return ret
+	}).(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsProperties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.RateLimit
+	}).(pulumi.Float64PtrOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties struct {
+	SeedUrls []KnowledgeBaseSeedUrl `pulumi:"seedUrls"`
+}
+
+// KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesInput is an input type that accepts KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs and KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesInput` via:
+//
+//	KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs{...}
+type KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput
+	ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutputWithContext(context.Context) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput
+}
+
+type KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs struct {
+	SeedUrls KnowledgeBaseSeedUrlArrayInput `pulumi:"seedUrls"`
+}
+
+func (KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties)(nil)).Elem()
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput)
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput).ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrInput is an input type that accepts KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs, KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtr and KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrInput` via:
+//
+//	        KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput
+	ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(context.Context) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput
+}
+
+type knowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrType KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs
+
+func KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtr(v *KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrInput {
+	return (*knowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrType)(v)
+}
+
+func (*knowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties)(nil)).Elem()
+}
+
+func (i *knowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrType) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return i.ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrType) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return o.ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties) *KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties {
+		return &v
+	}).(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput) SeedUrls() KnowledgeBaseSeedUrlArrayOutput {
+	return o.ApplyT(func(v KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties) []KnowledgeBaseSeedUrl {
+		return v.SeedUrls
+	}).(KnowledgeBaseSeedUrlArrayOutput)
+}
+
+type KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties)(nil)).Elem()
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput) ToKnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutputWithContext(ctx context.Context) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput) Elem() KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties) KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties
+		return ret
+	}).(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput)
+}
+
+func (o KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput) SeedUrls() KnowledgeBaseSeedUrlArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBaseWebCrawlerConfigurationUrlConfigurationProperties) []KnowledgeBaseSeedUrl {
+		if v == nil {
+			return nil
+		}
+		return v.SeedUrls
+	}).(KnowledgeBaseSeedUrlArrayOutput)
 }
 
 // The agent attributes that are used with the message template.
@@ -5501,12 +7598,42 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAppIntegrationsConfigurationInput)(nil)).Elem(), KnowledgeBaseAppIntegrationsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseAppIntegrationsConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseAppIntegrationsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfigurationInput)(nil)).Elem(), KnowledgeBaseBedrockFoundationModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseBedrockFoundationModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesInput)(nil)).Elem(), KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrInput)(nil)).Elem(), KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseFixedSizeChunkingConfigurationInput)(nil)).Elem(), KnowledgeBaseFixedSizeChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseFixedSizeChunkingConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseFixedSizeChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseHierarchicalChunkingConfigurationInput)(nil)).Elem(), KnowledgeBaseHierarchicalChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseHierarchicalChunkingConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseHierarchicalChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseHierarchicalChunkingLevelConfigurationInput)(nil)).Elem(), KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayInput)(nil)).Elem(), KnowledgeBaseHierarchicalChunkingLevelConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseManagedSourceConfigurationPropertiesInput)(nil)).Elem(), KnowledgeBaseManagedSourceConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseManagedSourceConfigurationPropertiesPtrInput)(nil)).Elem(), KnowledgeBaseManagedSourceConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRenderingConfigurationInput)(nil)).Elem(), KnowledgeBaseRenderingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRenderingConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseRenderingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSeedUrlInput)(nil)).Elem(), KnowledgeBaseSeedUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSeedUrlArrayInput)(nil)).Elem(), KnowledgeBaseSeedUrlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSemanticChunkingConfigurationInput)(nil)).Elem(), KnowledgeBaseSemanticChunkingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSemanticChunkingConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseSemanticChunkingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseServerSideEncryptionConfigurationInput)(nil)).Elem(), KnowledgeBaseServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseServerSideEncryptionConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseServerSideEncryptionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfigurationInput)(nil)).Elem(), KnowledgeBaseSourceConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfiguration0PropertiesInput)(nil)).Elem(), KnowledgeBaseSourceConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfiguration0PropertiesPtrInput)(nil)).Elem(), KnowledgeBaseSourceConfiguration0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfiguration1PropertiesInput)(nil)).Elem(), KnowledgeBaseSourceConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSourceConfiguration1PropertiesPtrInput)(nil)).Elem(), KnowledgeBaseSourceConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationInput)(nil)).Elem(), KnowledgeBaseVectorIngestionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseVectorIngestionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesInput)(nil)).Elem(), KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrInput)(nil)).Elem(), KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesInput)(nil)).Elem(), KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrInput)(nil)).Elem(), KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationInput)(nil)).Elem(), KnowledgeBaseWebCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseWebCrawlerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesInput)(nil)).Elem(), KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrInput)(nil)).Elem(), KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesInput)(nil)).Elem(), KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrInput)(nil)).Elem(), KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAgentAttributesInput)(nil)).Elem(), MessageTemplateAgentAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAgentAttributesPtrInput)(nil)).Elem(), MessageTemplateAgentAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MessageTemplateAttributesInput)(nil)).Elem(), MessageTemplateAttributesArgs{})
@@ -5564,12 +7691,42 @@ func init() {
 	pulumi.RegisterOutputType(AssistantServerSideEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseAppIntegrationsConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseAppIntegrationsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseBedrockFoundationModelConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseFixedSizeChunkingConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseHierarchicalChunkingConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseManagedSourceConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseManagedSourceConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseRenderingConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseRenderingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSeedUrlOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSeedUrlArrayOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSemanticChunkingConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSemanticChunkingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseServerSideEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(KnowledgeBaseSourceConfigurationOutput{})
-	pulumi.RegisterOutputType(KnowledgeBaseSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSourceConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSourceConfiguration0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSourceConfiguration1PropertiesOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSourceConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVectorIngestionConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVectorIngestionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseWebCrawlerConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseWebCrawlerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseWebCrawlerConfigurationCrawlerLimitsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseWebCrawlerConfigurationUrlConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(MessageTemplateAgentAttributesOutput{})
 	pulumi.RegisterOutputType(MessageTemplateAgentAttributesPtrOutput{})
 	pulumi.RegisterOutputType(MessageTemplateAttributesOutput{})

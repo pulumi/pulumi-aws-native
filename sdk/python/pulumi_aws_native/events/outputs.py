@@ -21,9 +21,11 @@ __all__ = [
     'ConnectionAuthParameters',
     'ConnectionBasicAuthParameters',
     'ConnectionClientParameters',
+    'ConnectionConnectivityParameters',
     'ConnectionHttpParameters',
     'ConnectionOAuthParameters',
     'ConnectionParameter',
+    'ConnectionResourceParameters',
     'DeadLetterConfigProperties',
     'EndpointEventBus',
     'EndpointFailoverConfig',
@@ -31,6 +33,7 @@ __all__ = [
     'EndpointReplicationConfig',
     'EndpointRoutingConfig',
     'EndpointSecondary',
+    'InvocationConnectivityParametersProperties',
     'RuleAppSyncParameters',
     'RuleAwsVpcConfiguration',
     'RuleBatchArrayProperties',
@@ -113,6 +116,8 @@ class ConnectionAuthParameters(dict):
             suggest = "api_key_auth_parameters"
         elif key == "basicAuthParameters":
             suggest = "basic_auth_parameters"
+        elif key == "connectivityParameters":
+            suggest = "connectivity_parameters"
         elif key == "invocationHttpParameters":
             suggest = "invocation_http_parameters"
         elif key == "oAuthParameters":
@@ -132,6 +137,7 @@ class ConnectionAuthParameters(dict):
     def __init__(__self__, *,
                  api_key_auth_parameters: Optional['outputs.ConnectionApiKeyAuthParameters'] = None,
                  basic_auth_parameters: Optional['outputs.ConnectionBasicAuthParameters'] = None,
+                 connectivity_parameters: Optional['outputs.ConnectionConnectivityParameters'] = None,
                  invocation_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None,
                  o_auth_parameters: Optional['outputs.ConnectionOAuthParameters'] = None):
         """
@@ -144,6 +150,8 @@ class ConnectionAuthParameters(dict):
             pulumi.set(__self__, "api_key_auth_parameters", api_key_auth_parameters)
         if basic_auth_parameters is not None:
             pulumi.set(__self__, "basic_auth_parameters", basic_auth_parameters)
+        if connectivity_parameters is not None:
+            pulumi.set(__self__, "connectivity_parameters", connectivity_parameters)
         if invocation_http_parameters is not None:
             pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
         if o_auth_parameters is not None:
@@ -164,6 +172,11 @@ class ConnectionAuthParameters(dict):
         The authorization parameters for Basic authorization.
         """
         return pulumi.get(self, "basic_auth_parameters")
+
+    @property
+    @pulumi.getter(name="connectivityParameters")
+    def connectivity_parameters(self) -> Optional['outputs.ConnectionConnectivityParameters']:
+        return pulumi.get(self, "connectivity_parameters")
 
     @property
     @pulumi.getter(name="invocationHttpParameters")
@@ -257,6 +270,35 @@ class ConnectionClientParameters(dict):
         The client secret assciated with the client ID to use for OAuth authorization.
         """
         return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class ConnectionConnectivityParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceParameters":
+            suggest = "resource_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionConnectivityParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionConnectivityParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionConnectivityParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_parameters: 'outputs.ConnectionResourceParameters'):
+        pulumi.set(__self__, "resource_parameters", resource_parameters)
+
+    @property
+    @pulumi.getter(name="resourceParameters")
+    def resource_parameters(self) -> 'outputs.ConnectionResourceParameters':
+        return pulumi.get(self, "resource_parameters")
 
 
 @pulumi.output_type
@@ -457,6 +499,45 @@ class ConnectionParameter(dict):
 
 
 @pulumi.output_type
+class ConnectionResourceParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationArn":
+            suggest = "resource_configuration_arn"
+        elif key == "resourceAssociationArn":
+            suggest = "resource_association_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionResourceParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionResourceParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionResourceParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_arn: str,
+                 resource_association_arn: Optional[str] = None):
+        pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
+        if resource_association_arn is not None:
+            pulumi.set(__self__, "resource_association_arn", resource_association_arn)
+
+    @property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> str:
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @property
+    @pulumi.getter(name="resourceAssociationArn")
+    def resource_association_arn(self) -> Optional[str]:
+        return pulumi.get(self, "resource_association_arn")
+
+
+@pulumi.output_type
 class DeadLetterConfigProperties(dict):
     """
     Dead Letter Queue for the event bus.
@@ -641,6 +722,41 @@ class EndpointSecondary(dict):
         Defines the secondary Region.
         """
         return pulumi.get(self, "route")
+
+
+@pulumi.output_type
+class InvocationConnectivityParametersProperties(dict):
+    """
+    The private resource the HTTP request will be sent to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceParameters":
+            suggest = "resource_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InvocationConnectivityParametersProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InvocationConnectivityParametersProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InvocationConnectivityParametersProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_parameters: 'outputs.ConnectionResourceParameters'):
+        """
+        The private resource the HTTP request will be sent to.
+        """
+        pulumi.set(__self__, "resource_parameters", resource_parameters)
+
+    @property
+    @pulumi.getter(name="resourceParameters")
+    def resource_parameters(self) -> 'outputs.ConnectionResourceParameters':
+        return pulumi.get(self, "resource_parameters")
 
 
 @pulumi.output_type

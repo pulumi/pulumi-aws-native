@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         /// The authorization parameters for Basic authorization.
         /// </summary>
         public readonly Outputs.ConnectionBasicAuthParameters? BasicAuthParameters;
+        public readonly Outputs.ConnectionConnectivityParameters? ConnectivityParameters;
         /// <summary>
         /// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
         /// </summary>
@@ -36,12 +37,15 @@ namespace Pulumi.AwsNative.Events.Outputs
 
             Outputs.ConnectionBasicAuthParameters? basicAuthParameters,
 
+            Outputs.ConnectionConnectivityParameters? connectivityParameters,
+
             Outputs.ConnectionHttpParameters? invocationHttpParameters,
 
             Outputs.ConnectionOAuthParameters? oAuthParameters)
         {
             ApiKeyAuthParameters = apiKeyAuthParameters;
             BasicAuthParameters = basicAuthParameters;
+            ConnectivityParameters = connectivityParameters;
             InvocationHttpParameters = invocationHttpParameters;
             OAuthParameters = oAuthParameters;
         }

@@ -14,6 +14,9 @@ __all__ = [
     'AssistantAssociationAssociationType',
     'AssistantType',
     'KnowledgeBaseType',
+    'KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy',
+    'KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy',
+    'KnowledgeBaseWebCrawlerConfigurationScope',
     'MessageTemplateChannelSubtype',
 ]
 
@@ -59,6 +62,23 @@ class KnowledgeBaseType(str, Enum):
     EXTERNAL = "EXTERNAL"
     CUSTOM = "CUSTOM"
     MESSAGE_TEMPLATES = "MESSAGE_TEMPLATES"
+    MANAGED = "MANAGED"
+
+
+class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy(str, Enum):
+    FIXED_SIZE = "FIXED_SIZE"
+    NONE = "NONE"
+    HIERARCHICAL = "HIERARCHICAL"
+    SEMANTIC = "SEMANTIC"
+
+
+class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy(str, Enum):
+    BEDROCK_FOUNDATION_MODEL = "BEDROCK_FOUNDATION_MODEL"
+
+
+class KnowledgeBaseWebCrawlerConfigurationScope(str, Enum):
+    HOST_ONLY = "HOST_ONLY"
+    SUBDOMAINS = "SUBDOMAINS"
 
 
 class MessageTemplateChannelSubtype(str, Enum):

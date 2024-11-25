@@ -1363,6 +1363,124 @@ func (o LogDeliveryConfigurationS3ConfigurationPtrOutput) BucketArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type ManagedLoginBrandingAssetType struct {
+	Bytes      *string                           `pulumi:"bytes"`
+	Category   ManagedLoginBrandingCategoryType  `pulumi:"category"`
+	ColorMode  ManagedLoginBrandingColorModeType `pulumi:"colorMode"`
+	Extension  ManagedLoginBrandingExtensionType `pulumi:"extension"`
+	ResourceId *string                           `pulumi:"resourceId"`
+}
+
+// ManagedLoginBrandingAssetTypeInput is an input type that accepts ManagedLoginBrandingAssetTypeArgs and ManagedLoginBrandingAssetTypeOutput values.
+// You can construct a concrete instance of `ManagedLoginBrandingAssetTypeInput` via:
+//
+//	ManagedLoginBrandingAssetTypeArgs{...}
+type ManagedLoginBrandingAssetTypeInput interface {
+	pulumi.Input
+
+	ToManagedLoginBrandingAssetTypeOutput() ManagedLoginBrandingAssetTypeOutput
+	ToManagedLoginBrandingAssetTypeOutputWithContext(context.Context) ManagedLoginBrandingAssetTypeOutput
+}
+
+type ManagedLoginBrandingAssetTypeArgs struct {
+	Bytes      pulumi.StringPtrInput                  `pulumi:"bytes"`
+	Category   ManagedLoginBrandingCategoryTypeInput  `pulumi:"category"`
+	ColorMode  ManagedLoginBrandingColorModeTypeInput `pulumi:"colorMode"`
+	Extension  ManagedLoginBrandingExtensionTypeInput `pulumi:"extension"`
+	ResourceId pulumi.StringPtrInput                  `pulumi:"resourceId"`
+}
+
+func (ManagedLoginBrandingAssetTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedLoginBrandingAssetType)(nil)).Elem()
+}
+
+func (i ManagedLoginBrandingAssetTypeArgs) ToManagedLoginBrandingAssetTypeOutput() ManagedLoginBrandingAssetTypeOutput {
+	return i.ToManagedLoginBrandingAssetTypeOutputWithContext(context.Background())
+}
+
+func (i ManagedLoginBrandingAssetTypeArgs) ToManagedLoginBrandingAssetTypeOutputWithContext(ctx context.Context) ManagedLoginBrandingAssetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedLoginBrandingAssetTypeOutput)
+}
+
+// ManagedLoginBrandingAssetTypeArrayInput is an input type that accepts ManagedLoginBrandingAssetTypeArray and ManagedLoginBrandingAssetTypeArrayOutput values.
+// You can construct a concrete instance of `ManagedLoginBrandingAssetTypeArrayInput` via:
+//
+//	ManagedLoginBrandingAssetTypeArray{ ManagedLoginBrandingAssetTypeArgs{...} }
+type ManagedLoginBrandingAssetTypeArrayInput interface {
+	pulumi.Input
+
+	ToManagedLoginBrandingAssetTypeArrayOutput() ManagedLoginBrandingAssetTypeArrayOutput
+	ToManagedLoginBrandingAssetTypeArrayOutputWithContext(context.Context) ManagedLoginBrandingAssetTypeArrayOutput
+}
+
+type ManagedLoginBrandingAssetTypeArray []ManagedLoginBrandingAssetTypeInput
+
+func (ManagedLoginBrandingAssetTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedLoginBrandingAssetType)(nil)).Elem()
+}
+
+func (i ManagedLoginBrandingAssetTypeArray) ToManagedLoginBrandingAssetTypeArrayOutput() ManagedLoginBrandingAssetTypeArrayOutput {
+	return i.ToManagedLoginBrandingAssetTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ManagedLoginBrandingAssetTypeArray) ToManagedLoginBrandingAssetTypeArrayOutputWithContext(ctx context.Context) ManagedLoginBrandingAssetTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedLoginBrandingAssetTypeArrayOutput)
+}
+
+type ManagedLoginBrandingAssetTypeOutput struct{ *pulumi.OutputState }
+
+func (ManagedLoginBrandingAssetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedLoginBrandingAssetType)(nil)).Elem()
+}
+
+func (o ManagedLoginBrandingAssetTypeOutput) ToManagedLoginBrandingAssetTypeOutput() ManagedLoginBrandingAssetTypeOutput {
+	return o
+}
+
+func (o ManagedLoginBrandingAssetTypeOutput) ToManagedLoginBrandingAssetTypeOutputWithContext(ctx context.Context) ManagedLoginBrandingAssetTypeOutput {
+	return o
+}
+
+func (o ManagedLoginBrandingAssetTypeOutput) Bytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAssetType) *string { return v.Bytes }).(pulumi.StringPtrOutput)
+}
+
+func (o ManagedLoginBrandingAssetTypeOutput) Category() ManagedLoginBrandingCategoryTypeOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAssetType) ManagedLoginBrandingCategoryType { return v.Category }).(ManagedLoginBrandingCategoryTypeOutput)
+}
+
+func (o ManagedLoginBrandingAssetTypeOutput) ColorMode() ManagedLoginBrandingColorModeTypeOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAssetType) ManagedLoginBrandingColorModeType { return v.ColorMode }).(ManagedLoginBrandingColorModeTypeOutput)
+}
+
+func (o ManagedLoginBrandingAssetTypeOutput) Extension() ManagedLoginBrandingExtensionTypeOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAssetType) ManagedLoginBrandingExtensionType { return v.Extension }).(ManagedLoginBrandingExtensionTypeOutput)
+}
+
+func (o ManagedLoginBrandingAssetTypeOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ManagedLoginBrandingAssetType) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
+}
+
+type ManagedLoginBrandingAssetTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ManagedLoginBrandingAssetTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ManagedLoginBrandingAssetType)(nil)).Elem()
+}
+
+func (o ManagedLoginBrandingAssetTypeArrayOutput) ToManagedLoginBrandingAssetTypeArrayOutput() ManagedLoginBrandingAssetTypeArrayOutput {
+	return o
+}
+
+func (o ManagedLoginBrandingAssetTypeArrayOutput) ToManagedLoginBrandingAssetTypeArrayOutputWithContext(ctx context.Context) ManagedLoginBrandingAssetTypeArrayOutput {
+	return o
+}
+
+func (o ManagedLoginBrandingAssetTypeArrayOutput) Index(i pulumi.IntInput) ManagedLoginBrandingAssetTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ManagedLoginBrandingAssetType {
+		return vs[0].([]ManagedLoginBrandingAssetType)[vs[1].(int)]
+	}).(ManagedLoginBrandingAssetTypeOutput)
+}
+
 type UserPoolAccountRecoverySetting struct {
 	// The list of options and priorities for user message delivery in forgot-password operations. Sets or displays user pool preferences for email or SMS message priority, whether users should fall back to a second delivery method, and whether passwords should only be reset by administrators.
 	RecoveryMechanisms []UserPoolRecoveryOption `pulumi:"recoveryMechanisms"`
@@ -4293,6 +4411,7 @@ func (o UserPoolPasswordPolicyPtrOutput) TemporaryPasswordValidityDays() pulumi.
 type UserPoolPolicies struct {
 	// The password policy settings for a user pool, including complexity, history, and length requirements.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
+	SignInPolicy   *UserPoolSignInPolicy   `pulumi:"signInPolicy"`
 }
 
 // UserPoolPoliciesInput is an input type that accepts UserPoolPoliciesArgs and UserPoolPoliciesOutput values.
@@ -4309,6 +4428,7 @@ type UserPoolPoliciesInput interface {
 type UserPoolPoliciesArgs struct {
 	// The password policy settings for a user pool, including complexity, history, and length requirements.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput `pulumi:"passwordPolicy"`
+	SignInPolicy   UserPoolSignInPolicyPtrInput   `pulumi:"signInPolicy"`
 }
 
 func (UserPoolPoliciesArgs) ElementType() reflect.Type {
@@ -4393,6 +4513,10 @@ func (o UserPoolPoliciesOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput
 	return o.ApplyT(func(v UserPoolPolicies) *UserPoolPasswordPolicy { return v.PasswordPolicy }).(UserPoolPasswordPolicyPtrOutput)
 }
 
+func (o UserPoolPoliciesOutput) SignInPolicy() UserPoolSignInPolicyPtrOutput {
+	return o.ApplyT(func(v UserPoolPolicies) *UserPoolSignInPolicy { return v.SignInPolicy }).(UserPoolSignInPolicyPtrOutput)
+}
+
 type UserPoolPoliciesPtrOutput struct{ *pulumi.OutputState }
 
 func (UserPoolPoliciesPtrOutput) ElementType() reflect.Type {
@@ -4425,6 +4549,15 @@ func (o UserPoolPoliciesPtrOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOut
 		}
 		return v.PasswordPolicy
 	}).(UserPoolPasswordPolicyPtrOutput)
+}
+
+func (o UserPoolPoliciesPtrOutput) SignInPolicy() UserPoolSignInPolicyPtrOutput {
+	return o.ApplyT(func(v *UserPoolPolicies) *UserPoolSignInPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.SignInPolicy
+	}).(UserPoolSignInPolicyPtrOutput)
 }
 
 type UserPoolPreTokenGenerationConfig struct {
@@ -6359,6 +6492,139 @@ func (o UserPoolSchemaAttributeArrayOutput) Index(i pulumi.IntInput) UserPoolSch
 	}).(UserPoolSchemaAttributeOutput)
 }
 
+type UserPoolSignInPolicy struct {
+	AllowedFirstAuthFactors []string `pulumi:"allowedFirstAuthFactors"`
+}
+
+// UserPoolSignInPolicyInput is an input type that accepts UserPoolSignInPolicyArgs and UserPoolSignInPolicyOutput values.
+// You can construct a concrete instance of `UserPoolSignInPolicyInput` via:
+//
+//	UserPoolSignInPolicyArgs{...}
+type UserPoolSignInPolicyInput interface {
+	pulumi.Input
+
+	ToUserPoolSignInPolicyOutput() UserPoolSignInPolicyOutput
+	ToUserPoolSignInPolicyOutputWithContext(context.Context) UserPoolSignInPolicyOutput
+}
+
+type UserPoolSignInPolicyArgs struct {
+	AllowedFirstAuthFactors pulumi.StringArrayInput `pulumi:"allowedFirstAuthFactors"`
+}
+
+func (UserPoolSignInPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSignInPolicy)(nil)).Elem()
+}
+
+func (i UserPoolSignInPolicyArgs) ToUserPoolSignInPolicyOutput() UserPoolSignInPolicyOutput {
+	return i.ToUserPoolSignInPolicyOutputWithContext(context.Background())
+}
+
+func (i UserPoolSignInPolicyArgs) ToUserPoolSignInPolicyOutputWithContext(ctx context.Context) UserPoolSignInPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSignInPolicyOutput)
+}
+
+func (i UserPoolSignInPolicyArgs) ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput {
+	return i.ToUserPoolSignInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolSignInPolicyArgs) ToUserPoolSignInPolicyPtrOutputWithContext(ctx context.Context) UserPoolSignInPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSignInPolicyOutput).ToUserPoolSignInPolicyPtrOutputWithContext(ctx)
+}
+
+// UserPoolSignInPolicyPtrInput is an input type that accepts UserPoolSignInPolicyArgs, UserPoolSignInPolicyPtr and UserPoolSignInPolicyPtrOutput values.
+// You can construct a concrete instance of `UserPoolSignInPolicyPtrInput` via:
+//
+//	        UserPoolSignInPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolSignInPolicyPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput
+	ToUserPoolSignInPolicyPtrOutputWithContext(context.Context) UserPoolSignInPolicyPtrOutput
+}
+
+type userPoolSignInPolicyPtrType UserPoolSignInPolicyArgs
+
+func UserPoolSignInPolicyPtr(v *UserPoolSignInPolicyArgs) UserPoolSignInPolicyPtrInput {
+	return (*userPoolSignInPolicyPtrType)(v)
+}
+
+func (*userPoolSignInPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolSignInPolicy)(nil)).Elem()
+}
+
+func (i *userPoolSignInPolicyPtrType) ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput {
+	return i.ToUserPoolSignInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolSignInPolicyPtrType) ToUserPoolSignInPolicyPtrOutputWithContext(ctx context.Context) UserPoolSignInPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolSignInPolicyPtrOutput)
+}
+
+type UserPoolSignInPolicyOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSignInPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolSignInPolicy)(nil)).Elem()
+}
+
+func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyOutput() UserPoolSignInPolicyOutput {
+	return o
+}
+
+func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyOutputWithContext(ctx context.Context) UserPoolSignInPolicyOutput {
+	return o
+}
+
+func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput {
+	return o.ToUserPoolSignInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyPtrOutputWithContext(ctx context.Context) UserPoolSignInPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolSignInPolicy) *UserPoolSignInPolicy {
+		return &v
+	}).(UserPoolSignInPolicyPtrOutput)
+}
+
+func (o UserPoolSignInPolicyOutput) AllowedFirstAuthFactors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UserPoolSignInPolicy) []string { return v.AllowedFirstAuthFactors }).(pulumi.StringArrayOutput)
+}
+
+type UserPoolSignInPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolSignInPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolSignInPolicy)(nil)).Elem()
+}
+
+func (o UserPoolSignInPolicyPtrOutput) ToUserPoolSignInPolicyPtrOutput() UserPoolSignInPolicyPtrOutput {
+	return o
+}
+
+func (o UserPoolSignInPolicyPtrOutput) ToUserPoolSignInPolicyPtrOutputWithContext(ctx context.Context) UserPoolSignInPolicyPtrOutput {
+	return o
+}
+
+func (o UserPoolSignInPolicyPtrOutput) Elem() UserPoolSignInPolicyOutput {
+	return o.ApplyT(func(v *UserPoolSignInPolicy) UserPoolSignInPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolSignInPolicy
+		return ret
+	}).(UserPoolSignInPolicyOutput)
+}
+
+func (o UserPoolSignInPolicyPtrOutput) AllowedFirstAuthFactors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *UserPoolSignInPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedFirstAuthFactors
+	}).(pulumi.StringArrayOutput)
+}
+
 type UserPoolSmsConfiguration struct {
 	// The external ID provides additional security for your IAM role. You can use an `ExternalId` with the IAM role that you use with Amazon SNS to send SMS messages for your user pool. If you provide an `ExternalId` , your Amazon Cognito user pool includes it in the request to assume your IAM role. You can configure the role trust policy to require that Amazon Cognito, and any principal, provide the `ExternalID` . If you use the Amazon Cognito Management Console to create a role for SMS multi-factor authentication (MFA), Amazon Cognito creates a role with the required permissions and a trust policy that demonstrates use of the `ExternalId` .
 	//
@@ -7385,6 +7651,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationLogConfigurationArrayInput)(nil)).Elem(), LogDeliveryConfigurationLogConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationS3ConfigurationInput)(nil)).Elem(), LogDeliveryConfigurationS3ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryConfigurationS3ConfigurationPtrInput)(nil)).Elem(), LogDeliveryConfigurationS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingAssetTypeInput)(nil)).Elem(), ManagedLoginBrandingAssetTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedLoginBrandingAssetTypeArrayInput)(nil)).Elem(), ManagedLoginBrandingAssetTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingInput)(nil)).Elem(), UserPoolAccountRecoverySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingPtrInput)(nil)).Elem(), UserPoolAccountRecoverySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAddOnsInput)(nil)).Elem(), UserPoolAddOnsArgs{})
@@ -7441,6 +7709,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrInput)(nil)).Elem(), UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSchemaAttributeInput)(nil)).Elem(), UserPoolSchemaAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSchemaAttributeArrayInput)(nil)).Elem(), UserPoolSchemaAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSignInPolicyInput)(nil)).Elem(), UserPoolSignInPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSignInPolicyPtrInput)(nil)).Elem(), UserPoolSignInPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSmsConfigurationInput)(nil)).Elem(), UserPoolSmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSmsConfigurationPtrInput)(nil)).Elem(), UserPoolSmsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolStringAttributeConstraintsInput)(nil)).Elem(), UserPoolStringAttributeConstraintsArgs{})
@@ -7473,6 +7743,8 @@ func init() {
 	pulumi.RegisterOutputType(LogDeliveryConfigurationLogConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationS3ConfigurationOutput{})
 	pulumi.RegisterOutputType(LogDeliveryConfigurationS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ManagedLoginBrandingAssetTypeOutput{})
+	pulumi.RegisterOutputType(ManagedLoginBrandingAssetTypeArrayOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAddOnsOutput{})
@@ -7529,6 +7801,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSchemaAttributeOutput{})
 	pulumi.RegisterOutputType(UserPoolSchemaAttributeArrayOutput{})
+	pulumi.RegisterOutputType(UserPoolSignInPolicyOutput{})
+	pulumi.RegisterOutputType(UserPoolSignInPolicyPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSmsConfigurationOutput{})
 	pulumi.RegisterOutputType(UserPoolSmsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolStringAttributeConstraintsOutput{})

@@ -24,6 +24,9 @@ namespace Pulumi.AwsNative.Events.Inputs
         [Input("basicAuthParameters")]
         public Input<Inputs.ConnectionBasicAuthParametersArgs>? BasicAuthParameters { get; set; }
 
+        [Input("connectivityParameters")]
+        public Input<Inputs.ConnectionConnectivityParametersArgs>? ConnectivityParameters { get; set; }
+
         /// <summary>
         /// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
         /// </summary>

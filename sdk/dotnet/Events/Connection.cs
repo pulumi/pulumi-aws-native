@@ -81,6 +81,12 @@ namespace Pulumi.AwsNative.Events
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The private resource the HTTP request will be sent to.
+        /// </summary>
+        [Output("invocationConnectivityParameters")]
+        public Output<Outputs.InvocationConnectivityParametersProperties?> InvocationConnectivityParameters { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the connection.
         /// </summary>
         [Output("name")]
@@ -160,6 +166,12 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The private resource the HTTP request will be sent to.
+        /// </summary>
+        [Input("invocationConnectivityParameters")]
+        public Input<Inputs.InvocationConnectivityParametersPropertiesArgs>? InvocationConnectivityParameters { get; set; }
 
         /// <summary>
         /// Name of the connection.

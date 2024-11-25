@@ -114,6 +114,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("kpiVisual")]
         public Input<Inputs.DashboardKpiVisualArgs>? KpiVisual { get; set; }
 
+        [Input("layerMapVisual")]
+        public Input<Inputs.DashboardLayerMapVisualArgs>? LayerMapVisual { get; set; }
+
         /// <summary>
         /// A line chart.
         /// 
@@ -137,6 +140,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// </summary>
         [Input("pivotTableVisual")]
         public Input<Inputs.DashboardPivotTableVisualArgs>? PivotTableVisual { get; set; }
+
+        [Input("pluginVisual")]
+        public Input<Inputs.DashboardPluginVisualArgs>? PluginVisual { get; set; }
 
         /// <summary>
         /// A radar chart visual.

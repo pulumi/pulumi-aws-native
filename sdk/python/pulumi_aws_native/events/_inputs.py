@@ -24,12 +24,16 @@ __all__ = [
     'ConnectionBasicAuthParametersArgsDict',
     'ConnectionClientParametersArgs',
     'ConnectionClientParametersArgsDict',
+    'ConnectionConnectivityParametersArgs',
+    'ConnectionConnectivityParametersArgsDict',
     'ConnectionHttpParametersArgs',
     'ConnectionHttpParametersArgsDict',
     'ConnectionOAuthParametersArgs',
     'ConnectionOAuthParametersArgsDict',
     'ConnectionParameterArgs',
     'ConnectionParameterArgsDict',
+    'ConnectionResourceParametersArgs',
+    'ConnectionResourceParametersArgsDict',
     'DeadLetterConfigPropertiesArgs',
     'DeadLetterConfigPropertiesArgsDict',
     'EndpointEventBusArgs',
@@ -44,6 +48,8 @@ __all__ = [
     'EndpointRoutingConfigArgsDict',
     'EndpointSecondaryArgs',
     'EndpointSecondaryArgsDict',
+    'InvocationConnectivityParametersPropertiesArgs',
+    'InvocationConnectivityParametersPropertiesArgsDict',
     'RuleAppSyncParametersArgs',
     'RuleAppSyncParametersArgsDict',
     'RuleAwsVpcConfigurationArgs',
@@ -154,6 +160,7 @@ if not MYPY:
         """
         The authorization parameters for Basic authorization.
         """
+        connectivity_parameters: NotRequired[pulumi.Input['ConnectionConnectivityParametersArgsDict']]
         invocation_http_parameters: NotRequired[pulumi.Input['ConnectionHttpParametersArgsDict']]
         """
         Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
@@ -170,6 +177,7 @@ class ConnectionAuthParametersArgs:
     def __init__(__self__, *,
                  api_key_auth_parameters: Optional[pulumi.Input['ConnectionApiKeyAuthParametersArgs']] = None,
                  basic_auth_parameters: Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']] = None,
+                 connectivity_parameters: Optional[pulumi.Input['ConnectionConnectivityParametersArgs']] = None,
                  invocation_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None,
                  o_auth_parameters: Optional[pulumi.Input['ConnectionOAuthParametersArgs']] = None):
         """
@@ -182,6 +190,8 @@ class ConnectionAuthParametersArgs:
             pulumi.set(__self__, "api_key_auth_parameters", api_key_auth_parameters)
         if basic_auth_parameters is not None:
             pulumi.set(__self__, "basic_auth_parameters", basic_auth_parameters)
+        if connectivity_parameters is not None:
+            pulumi.set(__self__, "connectivity_parameters", connectivity_parameters)
         if invocation_http_parameters is not None:
             pulumi.set(__self__, "invocation_http_parameters", invocation_http_parameters)
         if o_auth_parameters is not None:
@@ -210,6 +220,15 @@ class ConnectionAuthParametersArgs:
     @basic_auth_parameters.setter
     def basic_auth_parameters(self, value: Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']]):
         pulumi.set(self, "basic_auth_parameters", value)
+
+    @property
+    @pulumi.getter(name="connectivityParameters")
+    def connectivity_parameters(self) -> Optional[pulumi.Input['ConnectionConnectivityParametersArgs']]:
+        return pulumi.get(self, "connectivity_parameters")
+
+    @connectivity_parameters.setter
+    def connectivity_parameters(self, value: Optional[pulumi.Input['ConnectionConnectivityParametersArgs']]):
+        pulumi.set(self, "connectivity_parameters", value)
 
     @property
     @pulumi.getter(name="invocationHttpParameters")
@@ -334,6 +353,28 @@ class ConnectionClientParametersArgs:
     @client_secret.setter
     def client_secret(self, value: pulumi.Input[str]):
         pulumi.set(self, "client_secret", value)
+
+
+if not MYPY:
+    class ConnectionConnectivityParametersArgsDict(TypedDict):
+        resource_parameters: pulumi.Input['ConnectionResourceParametersArgsDict']
+elif False:
+    ConnectionConnectivityParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionConnectivityParametersArgs:
+    def __init__(__self__, *,
+                 resource_parameters: pulumi.Input['ConnectionResourceParametersArgs']):
+        pulumi.set(__self__, "resource_parameters", resource_parameters)
+
+    @property
+    @pulumi.getter(name="resourceParameters")
+    def resource_parameters(self) -> pulumi.Input['ConnectionResourceParametersArgs']:
+        return pulumi.get(self, "resource_parameters")
+
+    @resource_parameters.setter
+    def resource_parameters(self, value: pulumi.Input['ConnectionResourceParametersArgs']):
+        pulumi.set(self, "resource_parameters", value)
 
 
 if not MYPY:
@@ -568,6 +609,41 @@ class ConnectionParameterArgs:
 
 
 if not MYPY:
+    class ConnectionResourceParametersArgsDict(TypedDict):
+        resource_configuration_arn: pulumi.Input[str]
+        resource_association_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    ConnectionResourceParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConnectionResourceParametersArgs:
+    def __init__(__self__, *,
+                 resource_configuration_arn: pulumi.Input[str],
+                 resource_association_arn: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
+        if resource_association_arn is not None:
+            pulumi.set(__self__, "resource_association_arn", resource_association_arn)
+
+    @property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @resource_configuration_arn.setter
+    def resource_configuration_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="resourceAssociationArn")
+    def resource_association_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_association_arn")
+
+    @resource_association_arn.setter
+    def resource_association_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_association_arn", value)
+
+
+if not MYPY:
     class DeadLetterConfigPropertiesArgsDict(TypedDict):
         """
         Dead Letter Queue for the event bus.
@@ -797,6 +873,34 @@ class EndpointSecondaryArgs:
     @route.setter
     def route(self, value: pulumi.Input[str]):
         pulumi.set(self, "route", value)
+
+
+if not MYPY:
+    class InvocationConnectivityParametersPropertiesArgsDict(TypedDict):
+        """
+        The private resource the HTTP request will be sent to.
+        """
+        resource_parameters: pulumi.Input['ConnectionResourceParametersArgsDict']
+elif False:
+    InvocationConnectivityParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InvocationConnectivityParametersPropertiesArgs:
+    def __init__(__self__, *,
+                 resource_parameters: pulumi.Input['ConnectionResourceParametersArgs']):
+        """
+        The private resource the HTTP request will be sent to.
+        """
+        pulumi.set(__self__, "resource_parameters", resource_parameters)
+
+    @property
+    @pulumi.getter(name="resourceParameters")
+    def resource_parameters(self) -> pulumi.Input['ConnectionResourceParametersArgs']:
+        return pulumi.get(self, "resource_parameters")
+
+    @resource_parameters.setter
+    def resource_parameters(self, value: pulumi.Input['ConnectionResourceParametersArgs']):
+        pulumi.set(self, "resource_parameters", value)
 
 
 if not MYPY:

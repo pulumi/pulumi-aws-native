@@ -173,7 +173,8 @@ type ConnectionAuthParameters struct {
 	// The API Key parameters to use for authorization.
 	ApiKeyAuthParameters *ConnectionApiKeyAuthParameters `pulumi:"apiKeyAuthParameters"`
 	// The authorization parameters for Basic authorization.
-	BasicAuthParameters *ConnectionBasicAuthParameters `pulumi:"basicAuthParameters"`
+	BasicAuthParameters    *ConnectionBasicAuthParameters    `pulumi:"basicAuthParameters"`
+	ConnectivityParameters *ConnectionConnectivityParameters `pulumi:"connectivityParameters"`
 	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 	InvocationHttpParameters *ConnectionHttpParameters `pulumi:"invocationHttpParameters"`
 	// The OAuth parameters to use for authorization.
@@ -195,7 +196,8 @@ type ConnectionAuthParametersArgs struct {
 	// The API Key parameters to use for authorization.
 	ApiKeyAuthParameters ConnectionApiKeyAuthParametersPtrInput `pulumi:"apiKeyAuthParameters"`
 	// The authorization parameters for Basic authorization.
-	BasicAuthParameters ConnectionBasicAuthParametersPtrInput `pulumi:"basicAuthParameters"`
+	BasicAuthParameters    ConnectionBasicAuthParametersPtrInput    `pulumi:"basicAuthParameters"`
+	ConnectivityParameters ConnectionConnectivityParametersPtrInput `pulumi:"connectivityParameters"`
 	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 	InvocationHttpParameters ConnectionHttpParametersPtrInput `pulumi:"invocationHttpParameters"`
 	// The OAuth parameters to use for authorization.
@@ -289,6 +291,10 @@ func (o ConnectionAuthParametersOutput) BasicAuthParameters() ConnectionBasicAut
 	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionBasicAuthParameters { return v.BasicAuthParameters }).(ConnectionBasicAuthParametersPtrOutput)
 }
 
+func (o ConnectionAuthParametersOutput) ConnectivityParameters() ConnectionConnectivityParametersPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionConnectivityParameters { return v.ConnectivityParameters }).(ConnectionConnectivityParametersPtrOutput)
+}
+
 // Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 func (o ConnectionAuthParametersOutput) InvocationHttpParameters() ConnectionHttpParametersPtrOutput {
 	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionHttpParameters { return v.InvocationHttpParameters }).(ConnectionHttpParametersPtrOutput)
@@ -341,6 +347,15 @@ func (o ConnectionAuthParametersPtrOutput) BasicAuthParameters() ConnectionBasic
 		}
 		return v.BasicAuthParameters
 	}).(ConnectionBasicAuthParametersPtrOutput)
+}
+
+func (o ConnectionAuthParametersPtrOutput) ConnectivityParameters() ConnectionConnectivityParametersPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthParameters) *ConnectionConnectivityParameters {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectivityParameters
+	}).(ConnectionConnectivityParametersPtrOutput)
 }
 
 // Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
@@ -673,6 +688,139 @@ func (o ConnectionClientParametersPtrOutput) ClientSecret() pulumi.StringPtrOutp
 		}
 		return &v.ClientSecret
 	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionConnectivityParameters struct {
+	ResourceParameters ConnectionResourceParameters `pulumi:"resourceParameters"`
+}
+
+// ConnectionConnectivityParametersInput is an input type that accepts ConnectionConnectivityParametersArgs and ConnectionConnectivityParametersOutput values.
+// You can construct a concrete instance of `ConnectionConnectivityParametersInput` via:
+//
+//	ConnectionConnectivityParametersArgs{...}
+type ConnectionConnectivityParametersInput interface {
+	pulumi.Input
+
+	ToConnectionConnectivityParametersOutput() ConnectionConnectivityParametersOutput
+	ToConnectionConnectivityParametersOutputWithContext(context.Context) ConnectionConnectivityParametersOutput
+}
+
+type ConnectionConnectivityParametersArgs struct {
+	ResourceParameters ConnectionResourceParametersInput `pulumi:"resourceParameters"`
+}
+
+func (ConnectionConnectivityParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionConnectivityParameters)(nil)).Elem()
+}
+
+func (i ConnectionConnectivityParametersArgs) ToConnectionConnectivityParametersOutput() ConnectionConnectivityParametersOutput {
+	return i.ToConnectionConnectivityParametersOutputWithContext(context.Background())
+}
+
+func (i ConnectionConnectivityParametersArgs) ToConnectionConnectivityParametersOutputWithContext(ctx context.Context) ConnectionConnectivityParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectivityParametersOutput)
+}
+
+func (i ConnectionConnectivityParametersArgs) ToConnectionConnectivityParametersPtrOutput() ConnectionConnectivityParametersPtrOutput {
+	return i.ToConnectionConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionConnectivityParametersArgs) ToConnectionConnectivityParametersPtrOutputWithContext(ctx context.Context) ConnectionConnectivityParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectivityParametersOutput).ToConnectionConnectivityParametersPtrOutputWithContext(ctx)
+}
+
+// ConnectionConnectivityParametersPtrInput is an input type that accepts ConnectionConnectivityParametersArgs, ConnectionConnectivityParametersPtr and ConnectionConnectivityParametersPtrOutput values.
+// You can construct a concrete instance of `ConnectionConnectivityParametersPtrInput` via:
+//
+//	        ConnectionConnectivityParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionConnectivityParametersPtrInput interface {
+	pulumi.Input
+
+	ToConnectionConnectivityParametersPtrOutput() ConnectionConnectivityParametersPtrOutput
+	ToConnectionConnectivityParametersPtrOutputWithContext(context.Context) ConnectionConnectivityParametersPtrOutput
+}
+
+type connectionConnectivityParametersPtrType ConnectionConnectivityParametersArgs
+
+func ConnectionConnectivityParametersPtr(v *ConnectionConnectivityParametersArgs) ConnectionConnectivityParametersPtrInput {
+	return (*connectionConnectivityParametersPtrType)(v)
+}
+
+func (*connectionConnectivityParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionConnectivityParameters)(nil)).Elem()
+}
+
+func (i *connectionConnectivityParametersPtrType) ToConnectionConnectivityParametersPtrOutput() ConnectionConnectivityParametersPtrOutput {
+	return i.ToConnectionConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionConnectivityParametersPtrType) ToConnectionConnectivityParametersPtrOutputWithContext(ctx context.Context) ConnectionConnectivityParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionConnectivityParametersPtrOutput)
+}
+
+type ConnectionConnectivityParametersOutput struct{ *pulumi.OutputState }
+
+func (ConnectionConnectivityParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionConnectivityParameters)(nil)).Elem()
+}
+
+func (o ConnectionConnectivityParametersOutput) ToConnectionConnectivityParametersOutput() ConnectionConnectivityParametersOutput {
+	return o
+}
+
+func (o ConnectionConnectivityParametersOutput) ToConnectionConnectivityParametersOutputWithContext(ctx context.Context) ConnectionConnectivityParametersOutput {
+	return o
+}
+
+func (o ConnectionConnectivityParametersOutput) ToConnectionConnectivityParametersPtrOutput() ConnectionConnectivityParametersPtrOutput {
+	return o.ToConnectionConnectivityParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionConnectivityParametersOutput) ToConnectionConnectivityParametersPtrOutputWithContext(ctx context.Context) ConnectionConnectivityParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionConnectivityParameters) *ConnectionConnectivityParameters {
+		return &v
+	}).(ConnectionConnectivityParametersPtrOutput)
+}
+
+func (o ConnectionConnectivityParametersOutput) ResourceParameters() ConnectionResourceParametersOutput {
+	return o.ApplyT(func(v ConnectionConnectivityParameters) ConnectionResourceParameters { return v.ResourceParameters }).(ConnectionResourceParametersOutput)
+}
+
+type ConnectionConnectivityParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionConnectivityParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionConnectivityParameters)(nil)).Elem()
+}
+
+func (o ConnectionConnectivityParametersPtrOutput) ToConnectionConnectivityParametersPtrOutput() ConnectionConnectivityParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionConnectivityParametersPtrOutput) ToConnectionConnectivityParametersPtrOutputWithContext(ctx context.Context) ConnectionConnectivityParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionConnectivityParametersPtrOutput) Elem() ConnectionConnectivityParametersOutput {
+	return o.ApplyT(func(v *ConnectionConnectivityParameters) ConnectionConnectivityParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionConnectivityParameters
+		return ret
+	}).(ConnectionConnectivityParametersOutput)
+}
+
+func (o ConnectionConnectivityParametersPtrOutput) ResourceParameters() ConnectionResourceParametersPtrOutput {
+	return o.ApplyT(func(v *ConnectionConnectivityParameters) *ConnectionResourceParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceParameters
+	}).(ConnectionResourceParametersPtrOutput)
 }
 
 type ConnectionHttpParameters struct {
@@ -1157,6 +1305,154 @@ func (o ConnectionParameterArrayOutput) Index(i pulumi.IntInput) ConnectionParam
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionParameter {
 		return vs[0].([]ConnectionParameter)[vs[1].(int)]
 	}).(ConnectionParameterOutput)
+}
+
+type ConnectionResourceParameters struct {
+	ResourceAssociationArn   *string `pulumi:"resourceAssociationArn"`
+	ResourceConfigurationArn string  `pulumi:"resourceConfigurationArn"`
+}
+
+// ConnectionResourceParametersInput is an input type that accepts ConnectionResourceParametersArgs and ConnectionResourceParametersOutput values.
+// You can construct a concrete instance of `ConnectionResourceParametersInput` via:
+//
+//	ConnectionResourceParametersArgs{...}
+type ConnectionResourceParametersInput interface {
+	pulumi.Input
+
+	ToConnectionResourceParametersOutput() ConnectionResourceParametersOutput
+	ToConnectionResourceParametersOutputWithContext(context.Context) ConnectionResourceParametersOutput
+}
+
+type ConnectionResourceParametersArgs struct {
+	ResourceAssociationArn   pulumi.StringPtrInput `pulumi:"resourceAssociationArn"`
+	ResourceConfigurationArn pulumi.StringInput    `pulumi:"resourceConfigurationArn"`
+}
+
+func (ConnectionResourceParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionResourceParameters)(nil)).Elem()
+}
+
+func (i ConnectionResourceParametersArgs) ToConnectionResourceParametersOutput() ConnectionResourceParametersOutput {
+	return i.ToConnectionResourceParametersOutputWithContext(context.Background())
+}
+
+func (i ConnectionResourceParametersArgs) ToConnectionResourceParametersOutputWithContext(ctx context.Context) ConnectionResourceParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionResourceParametersOutput)
+}
+
+func (i ConnectionResourceParametersArgs) ToConnectionResourceParametersPtrOutput() ConnectionResourceParametersPtrOutput {
+	return i.ToConnectionResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionResourceParametersArgs) ToConnectionResourceParametersPtrOutputWithContext(ctx context.Context) ConnectionResourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionResourceParametersOutput).ToConnectionResourceParametersPtrOutputWithContext(ctx)
+}
+
+// ConnectionResourceParametersPtrInput is an input type that accepts ConnectionResourceParametersArgs, ConnectionResourceParametersPtr and ConnectionResourceParametersPtrOutput values.
+// You can construct a concrete instance of `ConnectionResourceParametersPtrInput` via:
+//
+//	        ConnectionResourceParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionResourceParametersPtrInput interface {
+	pulumi.Input
+
+	ToConnectionResourceParametersPtrOutput() ConnectionResourceParametersPtrOutput
+	ToConnectionResourceParametersPtrOutputWithContext(context.Context) ConnectionResourceParametersPtrOutput
+}
+
+type connectionResourceParametersPtrType ConnectionResourceParametersArgs
+
+func ConnectionResourceParametersPtr(v *ConnectionResourceParametersArgs) ConnectionResourceParametersPtrInput {
+	return (*connectionResourceParametersPtrType)(v)
+}
+
+func (*connectionResourceParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionResourceParameters)(nil)).Elem()
+}
+
+func (i *connectionResourceParametersPtrType) ToConnectionResourceParametersPtrOutput() ConnectionResourceParametersPtrOutput {
+	return i.ToConnectionResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionResourceParametersPtrType) ToConnectionResourceParametersPtrOutputWithContext(ctx context.Context) ConnectionResourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionResourceParametersPtrOutput)
+}
+
+type ConnectionResourceParametersOutput struct{ *pulumi.OutputState }
+
+func (ConnectionResourceParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionResourceParameters)(nil)).Elem()
+}
+
+func (o ConnectionResourceParametersOutput) ToConnectionResourceParametersOutput() ConnectionResourceParametersOutput {
+	return o
+}
+
+func (o ConnectionResourceParametersOutput) ToConnectionResourceParametersOutputWithContext(ctx context.Context) ConnectionResourceParametersOutput {
+	return o
+}
+
+func (o ConnectionResourceParametersOutput) ToConnectionResourceParametersPtrOutput() ConnectionResourceParametersPtrOutput {
+	return o.ToConnectionResourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionResourceParametersOutput) ToConnectionResourceParametersPtrOutputWithContext(ctx context.Context) ConnectionResourceParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionResourceParameters) *ConnectionResourceParameters {
+		return &v
+	}).(ConnectionResourceParametersPtrOutput)
+}
+
+func (o ConnectionResourceParametersOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionResourceParameters) *string { return v.ResourceAssociationArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionResourceParametersOutput) ResourceConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionResourceParameters) string { return v.ResourceConfigurationArn }).(pulumi.StringOutput)
+}
+
+type ConnectionResourceParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionResourceParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionResourceParameters)(nil)).Elem()
+}
+
+func (o ConnectionResourceParametersPtrOutput) ToConnectionResourceParametersPtrOutput() ConnectionResourceParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionResourceParametersPtrOutput) ToConnectionResourceParametersPtrOutputWithContext(ctx context.Context) ConnectionResourceParametersPtrOutput {
+	return o
+}
+
+func (o ConnectionResourceParametersPtrOutput) Elem() ConnectionResourceParametersOutput {
+	return o.ApplyT(func(v *ConnectionResourceParameters) ConnectionResourceParameters {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionResourceParameters
+		return ret
+	}).(ConnectionResourceParametersOutput)
+}
+
+func (o ConnectionResourceParametersPtrOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionResourceParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceAssociationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ConnectionResourceParametersPtrOutput) ResourceConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionResourceParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceConfigurationArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Dead Letter Queue for the event bus.
@@ -1898,6 +2194,144 @@ type EventBusTag struct {
 	Key string `pulumi:"key"`
 	// The value for the specified tag key.
 	Value string `pulumi:"value"`
+}
+
+// The private resource the HTTP request will be sent to.
+type InvocationConnectivityParametersProperties struct {
+	ResourceParameters ConnectionResourceParameters `pulumi:"resourceParameters"`
+}
+
+// InvocationConnectivityParametersPropertiesInput is an input type that accepts InvocationConnectivityParametersPropertiesArgs and InvocationConnectivityParametersPropertiesOutput values.
+// You can construct a concrete instance of `InvocationConnectivityParametersPropertiesInput` via:
+//
+//	InvocationConnectivityParametersPropertiesArgs{...}
+type InvocationConnectivityParametersPropertiesInput interface {
+	pulumi.Input
+
+	ToInvocationConnectivityParametersPropertiesOutput() InvocationConnectivityParametersPropertiesOutput
+	ToInvocationConnectivityParametersPropertiesOutputWithContext(context.Context) InvocationConnectivityParametersPropertiesOutput
+}
+
+// The private resource the HTTP request will be sent to.
+type InvocationConnectivityParametersPropertiesArgs struct {
+	ResourceParameters ConnectionResourceParametersInput `pulumi:"resourceParameters"`
+}
+
+func (InvocationConnectivityParametersPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationConnectivityParametersProperties)(nil)).Elem()
+}
+
+func (i InvocationConnectivityParametersPropertiesArgs) ToInvocationConnectivityParametersPropertiesOutput() InvocationConnectivityParametersPropertiesOutput {
+	return i.ToInvocationConnectivityParametersPropertiesOutputWithContext(context.Background())
+}
+
+func (i InvocationConnectivityParametersPropertiesArgs) ToInvocationConnectivityParametersPropertiesOutputWithContext(ctx context.Context) InvocationConnectivityParametersPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationConnectivityParametersPropertiesOutput)
+}
+
+func (i InvocationConnectivityParametersPropertiesArgs) ToInvocationConnectivityParametersPropertiesPtrOutput() InvocationConnectivityParametersPropertiesPtrOutput {
+	return i.ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i InvocationConnectivityParametersPropertiesArgs) ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(ctx context.Context) InvocationConnectivityParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationConnectivityParametersPropertiesOutput).ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(ctx)
+}
+
+// InvocationConnectivityParametersPropertiesPtrInput is an input type that accepts InvocationConnectivityParametersPropertiesArgs, InvocationConnectivityParametersPropertiesPtr and InvocationConnectivityParametersPropertiesPtrOutput values.
+// You can construct a concrete instance of `InvocationConnectivityParametersPropertiesPtrInput` via:
+//
+//	        InvocationConnectivityParametersPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type InvocationConnectivityParametersPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToInvocationConnectivityParametersPropertiesPtrOutput() InvocationConnectivityParametersPropertiesPtrOutput
+	ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(context.Context) InvocationConnectivityParametersPropertiesPtrOutput
+}
+
+type invocationConnectivityParametersPropertiesPtrType InvocationConnectivityParametersPropertiesArgs
+
+func InvocationConnectivityParametersPropertiesPtr(v *InvocationConnectivityParametersPropertiesArgs) InvocationConnectivityParametersPropertiesPtrInput {
+	return (*invocationConnectivityParametersPropertiesPtrType)(v)
+}
+
+func (*invocationConnectivityParametersPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationConnectivityParametersProperties)(nil)).Elem()
+}
+
+func (i *invocationConnectivityParametersPropertiesPtrType) ToInvocationConnectivityParametersPropertiesPtrOutput() InvocationConnectivityParametersPropertiesPtrOutput {
+	return i.ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *invocationConnectivityParametersPropertiesPtrType) ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(ctx context.Context) InvocationConnectivityParametersPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationConnectivityParametersPropertiesPtrOutput)
+}
+
+// The private resource the HTTP request will be sent to.
+type InvocationConnectivityParametersPropertiesOutput struct{ *pulumi.OutputState }
+
+func (InvocationConnectivityParametersPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationConnectivityParametersProperties)(nil)).Elem()
+}
+
+func (o InvocationConnectivityParametersPropertiesOutput) ToInvocationConnectivityParametersPropertiesOutput() InvocationConnectivityParametersPropertiesOutput {
+	return o
+}
+
+func (o InvocationConnectivityParametersPropertiesOutput) ToInvocationConnectivityParametersPropertiesOutputWithContext(ctx context.Context) InvocationConnectivityParametersPropertiesOutput {
+	return o
+}
+
+func (o InvocationConnectivityParametersPropertiesOutput) ToInvocationConnectivityParametersPropertiesPtrOutput() InvocationConnectivityParametersPropertiesPtrOutput {
+	return o.ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o InvocationConnectivityParametersPropertiesOutput) ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(ctx context.Context) InvocationConnectivityParametersPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InvocationConnectivityParametersProperties) *InvocationConnectivityParametersProperties {
+		return &v
+	}).(InvocationConnectivityParametersPropertiesPtrOutput)
+}
+
+func (o InvocationConnectivityParametersPropertiesOutput) ResourceParameters() ConnectionResourceParametersOutput {
+	return o.ApplyT(func(v InvocationConnectivityParametersProperties) ConnectionResourceParameters {
+		return v.ResourceParameters
+	}).(ConnectionResourceParametersOutput)
+}
+
+type InvocationConnectivityParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (InvocationConnectivityParametersPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationConnectivityParametersProperties)(nil)).Elem()
+}
+
+func (o InvocationConnectivityParametersPropertiesPtrOutput) ToInvocationConnectivityParametersPropertiesPtrOutput() InvocationConnectivityParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o InvocationConnectivityParametersPropertiesPtrOutput) ToInvocationConnectivityParametersPropertiesPtrOutputWithContext(ctx context.Context) InvocationConnectivityParametersPropertiesPtrOutput {
+	return o
+}
+
+func (o InvocationConnectivityParametersPropertiesPtrOutput) Elem() InvocationConnectivityParametersPropertiesOutput {
+	return o.ApplyT(func(v *InvocationConnectivityParametersProperties) InvocationConnectivityParametersProperties {
+		if v != nil {
+			return *v
+		}
+		var ret InvocationConnectivityParametersProperties
+		return ret
+	}).(InvocationConnectivityParametersPropertiesOutput)
+}
+
+func (o InvocationConnectivityParametersPropertiesPtrOutput) ResourceParameters() ConnectionResourceParametersPtrOutput {
+	return o.ApplyT(func(v *InvocationConnectivityParametersProperties) *ConnectionResourceParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceParameters
+	}).(ConnectionResourceParametersPtrOutput)
 }
 
 type RuleAppSyncParameters struct {
@@ -5753,12 +6187,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionBasicAuthParametersPtrInput)(nil)).Elem(), ConnectionBasicAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionClientParametersInput)(nil)).Elem(), ConnectionClientParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionClientParametersPtrInput)(nil)).Elem(), ConnectionClientParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConnectivityParametersInput)(nil)).Elem(), ConnectionConnectivityParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConnectivityParametersPtrInput)(nil)).Elem(), ConnectionConnectivityParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionHttpParametersInput)(nil)).Elem(), ConnectionHttpParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionHttpParametersPtrInput)(nil)).Elem(), ConnectionHttpParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersInput)(nil)).Elem(), ConnectionOAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuthParametersPtrInput)(nil)).Elem(), ConnectionOAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterInput)(nil)).Elem(), ConnectionParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionParameterArrayInput)(nil)).Elem(), ConnectionParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionResourceParametersInput)(nil)).Elem(), ConnectionResourceParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionResourceParametersPtrInput)(nil)).Elem(), ConnectionResourceParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterConfigPropertiesInput)(nil)).Elem(), DeadLetterConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeadLetterConfigPropertiesPtrInput)(nil)).Elem(), DeadLetterConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointEventBusInput)(nil)).Elem(), EndpointEventBusArgs{})
@@ -5769,6 +6207,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointReplicationConfigPtrInput)(nil)).Elem(), EndpointReplicationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRoutingConfigInput)(nil)).Elem(), EndpointRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointSecondaryInput)(nil)).Elem(), EndpointSecondaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationConnectivityParametersPropertiesInput)(nil)).Elem(), InvocationConnectivityParametersPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationConnectivityParametersPropertiesPtrInput)(nil)).Elem(), InvocationConnectivityParametersPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAppSyncParametersInput)(nil)).Elem(), RuleAppSyncParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAppSyncParametersPtrInput)(nil)).Elem(), RuleAppSyncParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleAwsVpcConfigurationInput)(nil)).Elem(), RuleAwsVpcConfigurationArgs{})
@@ -5823,12 +6263,16 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionBasicAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionClientParametersOutput{})
 	pulumi.RegisterOutputType(ConnectionClientParametersPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionConnectivityParametersOutput{})
+	pulumi.RegisterOutputType(ConnectionConnectivityParametersPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionHttpParametersOutput{})
 	pulumi.RegisterOutputType(ConnectionHttpParametersPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuthParametersOutput{})
 	pulumi.RegisterOutputType(ConnectionOAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionParameterOutput{})
 	pulumi.RegisterOutputType(ConnectionParameterArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionResourceParametersOutput{})
+	pulumi.RegisterOutputType(ConnectionResourceParametersPtrOutput{})
 	pulumi.RegisterOutputType(DeadLetterConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(DeadLetterConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EndpointEventBusOutput{})
@@ -5843,6 +6287,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointSecondaryOutput{})
 	pulumi.RegisterOutputType(EndpointSecondaryPtrOutput{})
+	pulumi.RegisterOutputType(InvocationConnectivityParametersPropertiesOutput{})
+	pulumi.RegisterOutputType(InvocationConnectivityParametersPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RuleAppSyncParametersOutput{})
 	pulumi.RegisterOutputType(RuleAppSyncParametersPtrOutput{})
 	pulumi.RegisterOutputType(RuleAwsVpcConfigurationOutput{})

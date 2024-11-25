@@ -107,6 +107,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.TemplatePivotTableVisual? PivotTableVisual;
+        public readonly Outputs.TemplatePluginVisual? PluginVisual;
         /// <summary>
         /// A radar chart visual.
         /// 
@@ -184,6 +185,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplatePivotTableVisual? pivotTableVisual,
 
+            Outputs.TemplatePluginVisual? pluginVisual,
+
             Outputs.TemplateRadarChartVisual? radarChartVisual,
 
             Outputs.TemplateSankeyDiagramVisual? sankeyDiagramVisual,
@@ -214,6 +217,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             LineChartVisual = lineChartVisual;
             PieChartVisual = pieChartVisual;
             PivotTableVisual = pivotTableVisual;
+            PluginVisual = pluginVisual;
             RadarChartVisual = radarChartVisual;
             SankeyDiagramVisual = sankeyDiagramVisual;
             ScatterPlotVisual = scatterPlotVisual;

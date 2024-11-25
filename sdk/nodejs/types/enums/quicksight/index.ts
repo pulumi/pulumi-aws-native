@@ -276,6 +276,31 @@ export const AnalysisFunnelChartMeasureDataLabelStyle = {
 
 export type AnalysisFunnelChartMeasureDataLabelStyle = (typeof AnalysisFunnelChartMeasureDataLabelStyle)[keyof typeof AnalysisFunnelChartMeasureDataLabelStyle];
 
+export const AnalysisGeospatialColorState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Defines view state of the color
+ */
+export type AnalysisGeospatialColorState = (typeof AnalysisGeospatialColorState)[keyof typeof AnalysisGeospatialColorState];
+
+export const AnalysisGeospatialLayerType = {
+    Point: "POINT",
+    Line: "LINE",
+    Polygon: "POLYGON",
+} as const;
+
+export type AnalysisGeospatialLayerType = (typeof AnalysisGeospatialLayerType)[keyof typeof AnalysisGeospatialLayerType];
+
+export const AnalysisGeospatialMapNavigation = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type AnalysisGeospatialMapNavigation = (typeof AnalysisGeospatialMapNavigation)[keyof typeof AnalysisGeospatialMapNavigation];
+
 export const AnalysisGeospatialSelectedPointStyle = {
     Point: "POINT",
     Cluster: "CLUSTER",
@@ -331,6 +356,13 @@ export const AnalysisIcon = {
 
 export type AnalysisIcon = (typeof AnalysisIcon)[keyof typeof AnalysisIcon];
 
+export const AnalysisImageCustomActionTrigger = {
+    Click: "CLICK",
+    Menu: "MENU",
+} as const;
+
+export type AnalysisImageCustomActionTrigger = (typeof AnalysisImageCustomActionTrigger)[keyof typeof AnalysisImageCustomActionTrigger];
+
 export const AnalysisKpiSparklineType = {
     Line: "LINE",
     Area: "AREA",
@@ -344,6 +376,13 @@ export const AnalysisKpiVisualStandardLayoutType = {
 } as const;
 
 export type AnalysisKpiVisualStandardLayoutType = (typeof AnalysisKpiVisualStandardLayoutType)[keyof typeof AnalysisKpiVisualStandardLayoutType];
+
+export const AnalysisLayerCustomActionTrigger = {
+    DataPointClick: "DATA_POINT_CLICK",
+    DataPointMenu: "DATA_POINT_MENU",
+} as const;
+
+export type AnalysisLayerCustomActionTrigger = (typeof AnalysisLayerCustomActionTrigger)[keyof typeof AnalysisLayerCustomActionTrigger];
 
 export const AnalysisLayoutElementType = {
     Visual: "VISUAL",
@@ -550,6 +589,13 @@ export const AnalysisPivotTableSubtotalLevel = {
 
 export type AnalysisPivotTableSubtotalLevel = (typeof AnalysisPivotTableSubtotalLevel)[keyof typeof AnalysisPivotTableSubtotalLevel];
 
+export const AnalysisPluginVisualAxisName = {
+    GroupBy: "GROUP_BY",
+    Value: "VALUE",
+} as const;
+
+export type AnalysisPluginVisualAxisName = (typeof AnalysisPluginVisualAxisName)[keyof typeof AnalysisPluginVisualAxisName];
+
 export const AnalysisPrimaryValueDisplayType = {
     Hidden: "HIDDEN",
     Comparison: "COMPARISON",
@@ -709,6 +755,15 @@ export const AnalysisSheetControlSliderType = {
 } as const;
 
 export type AnalysisSheetControlSliderType = (typeof AnalysisSheetControlSliderType)[keyof typeof AnalysisSheetControlSliderType];
+
+export const AnalysisSheetImageScalingType = {
+    ScaleToWidth: "SCALE_TO_WIDTH",
+    ScaleToHeight: "SCALE_TO_HEIGHT",
+    ScaleToContainer: "SCALE_TO_CONTAINER",
+    ScaleNone: "SCALE_NONE",
+} as const;
+
+export type AnalysisSheetImageScalingType = (typeof AnalysisSheetImageScalingType)[keyof typeof AnalysisSheetImageScalingType];
 
 export const AnalysisSimpleAttributeAggregationFunction = {
     UniqueValue: "UNIQUE_VALUE",
@@ -1255,6 +1310,31 @@ export const DashboardFunnelChartMeasureDataLabelStyle = {
 
 export type DashboardFunnelChartMeasureDataLabelStyle = (typeof DashboardFunnelChartMeasureDataLabelStyle)[keyof typeof DashboardFunnelChartMeasureDataLabelStyle];
 
+export const DashboardGeospatialColorState = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Defines view state of the color
+ */
+export type DashboardGeospatialColorState = (typeof DashboardGeospatialColorState)[keyof typeof DashboardGeospatialColorState];
+
+export const DashboardGeospatialLayerType = {
+    Point: "POINT",
+    Line: "LINE",
+    Polygon: "POLYGON",
+} as const;
+
+export type DashboardGeospatialLayerType = (typeof DashboardGeospatialLayerType)[keyof typeof DashboardGeospatialLayerType];
+
+export const DashboardGeospatialMapNavigation = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DashboardGeospatialMapNavigation = (typeof DashboardGeospatialMapNavigation)[keyof typeof DashboardGeospatialMapNavigation];
+
 export const DashboardGeospatialSelectedPointStyle = {
     Point: "POINT",
     Cluster: "CLUSTER",
@@ -1310,6 +1390,13 @@ export const DashboardIcon = {
 
 export type DashboardIcon = (typeof DashboardIcon)[keyof typeof DashboardIcon];
 
+export const DashboardImageCustomActionTrigger = {
+    Click: "CLICK",
+    Menu: "MENU",
+} as const;
+
+export type DashboardImageCustomActionTrigger = (typeof DashboardImageCustomActionTrigger)[keyof typeof DashboardImageCustomActionTrigger];
+
 export const DashboardKpiSparklineType = {
     Line: "LINE",
     Area: "AREA",
@@ -1323,6 +1410,13 @@ export const DashboardKpiVisualStandardLayoutType = {
 } as const;
 
 export type DashboardKpiVisualStandardLayoutType = (typeof DashboardKpiVisualStandardLayoutType)[keyof typeof DashboardKpiVisualStandardLayoutType];
+
+export const DashboardLayerCustomActionTrigger = {
+    DataPointClick: "DATA_POINT_CLICK",
+    DataPointMenu: "DATA_POINT_MENU",
+} as const;
+
+export type DashboardLayerCustomActionTrigger = (typeof DashboardLayerCustomActionTrigger)[keyof typeof DashboardLayerCustomActionTrigger];
 
 export const DashboardLayoutElementType = {
     Visual: "VISUAL",
@@ -1529,6 +1623,13 @@ export const DashboardPivotTableSubtotalLevel = {
 
 export type DashboardPivotTableSubtotalLevel = (typeof DashboardPivotTableSubtotalLevel)[keyof typeof DashboardPivotTableSubtotalLevel];
 
+export const DashboardPluginVisualAxisName = {
+    GroupBy: "GROUP_BY",
+    Value: "VALUE",
+} as const;
+
+export type DashboardPluginVisualAxisName = (typeof DashboardPluginVisualAxisName)[keyof typeof DashboardPluginVisualAxisName];
+
 export const DashboardPrimaryValueDisplayType = {
     Hidden: "HIDDEN",
     Comparison: "COMPARISON",
@@ -1681,6 +1782,15 @@ export const DashboardSheetControlSliderType = {
 } as const;
 
 export type DashboardSheetControlSliderType = (typeof DashboardSheetControlSliderType)[keyof typeof DashboardSheetControlSliderType];
+
+export const DashboardSheetImageScalingType = {
+    ScaleToWidth: "SCALE_TO_WIDTH",
+    ScaleToHeight: "SCALE_TO_HEIGHT",
+    ScaleToContainer: "SCALE_TO_CONTAINER",
+    ScaleNone: "SCALE_NONE",
+} as const;
+
+export type DashboardSheetImageScalingType = (typeof DashboardSheetImageScalingType)[keyof typeof DashboardSheetImageScalingType];
 
 export const DashboardSimpleAttributeAggregationFunction = {
     UniqueValue: "UNIQUE_VALUE",
@@ -2557,6 +2667,13 @@ export const TemplateIcon = {
 
 export type TemplateIcon = (typeof TemplateIcon)[keyof typeof TemplateIcon];
 
+export const TemplateImageCustomActionTrigger = {
+    Click: "CLICK",
+    Menu: "MENU",
+} as const;
+
+export type TemplateImageCustomActionTrigger = (typeof TemplateImageCustomActionTrigger)[keyof typeof TemplateImageCustomActionTrigger];
+
 export const TemplateKpiSparklineType = {
     Line: "LINE",
     Area: "AREA",
@@ -2776,6 +2893,13 @@ export const TemplatePivotTableSubtotalLevel = {
 
 export type TemplatePivotTableSubtotalLevel = (typeof TemplatePivotTableSubtotalLevel)[keyof typeof TemplatePivotTableSubtotalLevel];
 
+export const TemplatePluginVisualAxisName = {
+    GroupBy: "GROUP_BY",
+    Value: "VALUE",
+} as const;
+
+export type TemplatePluginVisualAxisName = (typeof TemplatePluginVisualAxisName)[keyof typeof TemplatePluginVisualAxisName];
+
 export const TemplatePrimaryValueDisplayType = {
     Hidden: "HIDDEN",
     Comparison: "COMPARISON",
@@ -2935,6 +3059,15 @@ export const TemplateSheetControlSliderType = {
 } as const;
 
 export type TemplateSheetControlSliderType = (typeof TemplateSheetControlSliderType)[keyof typeof TemplateSheetControlSliderType];
+
+export const TemplateSheetImageScalingType = {
+    ScaleToWidth: "SCALE_TO_WIDTH",
+    ScaleToHeight: "SCALE_TO_HEIGHT",
+    ScaleToContainer: "SCALE_TO_CONTAINER",
+    ScaleNone: "SCALE_NONE",
+} as const;
+
+export type TemplateSheetImageScalingType = (typeof TemplateSheetImageScalingType)[keyof typeof TemplateSheetImageScalingType];
 
 export const TemplateSimpleAttributeAggregationFunction = {
     UniqueValue: "UNIQUE_VALUE",

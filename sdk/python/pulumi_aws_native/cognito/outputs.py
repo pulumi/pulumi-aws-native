@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
     'IdentityPoolCognitoIdentityProvider',
@@ -26,6 +27,7 @@ __all__ = [
     'LogDeliveryConfigurationFirehoseConfiguration',
     'LogDeliveryConfigurationLogConfiguration',
     'LogDeliveryConfigurationS3Configuration',
+    'ManagedLoginBrandingAssetType',
     'UserPoolAccountRecoverySetting',
     'UserPoolAddOns',
     'UserPoolAdminCreateUserConfig',
@@ -54,6 +56,7 @@ __all__ = [
     'UserPoolRiskConfigurationAttachmentNotifyEmailType',
     'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType',
     'UserPoolSchemaAttribute',
+    'UserPoolSignInPolicy',
     'UserPoolSmsConfiguration',
     'UserPoolStringAttributeConstraints',
     'UserPoolUserAttributeType',
@@ -525,6 +528,67 @@ class LogDeliveryConfigurationS3Configuration(dict):
     @pulumi.getter(name="bucketArn")
     def bucket_arn(self) -> Optional[str]:
         return pulumi.get(self, "bucket_arn")
+
+
+@pulumi.output_type
+class ManagedLoginBrandingAssetType(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "colorMode":
+            suggest = "color_mode"
+        elif key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedLoginBrandingAssetType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedLoginBrandingAssetType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedLoginBrandingAssetType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: 'ManagedLoginBrandingCategoryType',
+                 color_mode: 'ManagedLoginBrandingColorModeType',
+                 extension: 'ManagedLoginBrandingExtensionType',
+                 bytes: Optional[str] = None,
+                 resource_id: Optional[str] = None):
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "color_mode", color_mode)
+        pulumi.set(__self__, "extension", extension)
+        if bytes is not None:
+            pulumi.set(__self__, "bytes", bytes)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def category(self) -> 'ManagedLoginBrandingCategoryType':
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="colorMode")
+    def color_mode(self) -> 'ManagedLoginBrandingColorModeType':
+        return pulumi.get(self, "color_mode")
+
+    @property
+    @pulumi.getter
+    def extension(self) -> 'ManagedLoginBrandingExtensionType':
+        return pulumi.get(self, "extension")
+
+    @property
+    @pulumi.getter
+    def bytes(self) -> Optional[str]:
+        return pulumi.get(self, "bytes")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -1674,6 +1738,8 @@ class UserPoolPolicies(dict):
         suggest = None
         if key == "passwordPolicy":
             suggest = "password_policy"
+        elif key == "signInPolicy":
+            suggest = "sign_in_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in UserPoolPolicies. Access the value via the '{suggest}' property getter instead.")
@@ -1687,12 +1753,15 @@ class UserPoolPolicies(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password_policy: Optional['outputs.UserPoolPasswordPolicy'] = None):
+                 password_policy: Optional['outputs.UserPoolPasswordPolicy'] = None,
+                 sign_in_policy: Optional['outputs.UserPoolSignInPolicy'] = None):
         """
         :param 'UserPoolPasswordPolicy' password_policy: The password policy settings for a user pool, including complexity, history, and length requirements.
         """
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
+        if sign_in_policy is not None:
+            pulumi.set(__self__, "sign_in_policy", sign_in_policy)
 
     @property
     @pulumi.getter(name="passwordPolicy")
@@ -1701,6 +1770,11 @@ class UserPoolPolicies(dict):
         The password policy settings for a user pool, including complexity, history, and length requirements.
         """
         return pulumi.get(self, "password_policy")
+
+    @property
+    @pulumi.getter(name="signInPolicy")
+    def sign_in_policy(self) -> Optional['outputs.UserPoolSignInPolicy']:
+        return pulumi.get(self, "sign_in_policy")
 
 
 @pulumi.output_type
@@ -2421,6 +2495,36 @@ class UserPoolSchemaAttribute(dict):
         Specifies the constraints for an attribute of the string type.
         """
         return pulumi.get(self, "string_attribute_constraints")
+
+
+@pulumi.output_type
+class UserPoolSignInPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedFirstAuthFactors":
+            suggest = "allowed_first_auth_factors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserPoolSignInPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserPoolSignInPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserPoolSignInPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_first_auth_factors: Optional[Sequence[str]] = None):
+        if allowed_first_auth_factors is not None:
+            pulumi.set(__self__, "allowed_first_auth_factors", allowed_first_auth_factors)
+
+    @property
+    @pulumi.getter(name="allowedFirstAuthFactors")
+    def allowed_first_auth_factors(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "allowed_first_auth_factors")
 
 
 @pulumi.output_type

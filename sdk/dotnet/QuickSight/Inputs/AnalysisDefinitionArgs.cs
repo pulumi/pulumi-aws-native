@@ -102,6 +102,14 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
             set => _sheets = value;
         }
 
+        [Input("staticFiles")]
+        private InputList<Inputs.AnalysisStaticFileArgs>? _staticFiles;
+        public InputList<Inputs.AnalysisStaticFileArgs> StaticFiles
+        {
+            get => _staticFiles ?? (_staticFiles = new InputList<Inputs.AnalysisStaticFileArgs>());
+            set => _staticFiles = value;
+        }
+
         public AnalysisDefinitionArgs()
         {
         }

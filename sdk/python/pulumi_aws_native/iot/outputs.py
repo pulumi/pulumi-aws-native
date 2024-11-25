@@ -698,6 +698,10 @@ class DomainConfigurationServerCertificateConfig(dict):
         suggest = None
         if key == "enableOcspCheck":
             suggest = "enable_ocsp_check"
+        elif key == "ocspAuthorizedResponderArn":
+            suggest = "ocsp_authorized_responder_arn"
+        elif key == "ocspLambdaArn":
+            suggest = "ocsp_lambda_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainConfigurationServerCertificateConfig. Access the value via the '{suggest}' property getter instead.")
@@ -711,12 +715,18 @@ class DomainConfigurationServerCertificateConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 enable_ocsp_check: Optional[bool] = None):
+                 enable_ocsp_check: Optional[bool] = None,
+                 ocsp_authorized_responder_arn: Optional[str] = None,
+                 ocsp_lambda_arn: Optional[str] = None):
         """
         :param bool enable_ocsp_check: A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
         """
         if enable_ocsp_check is not None:
             pulumi.set(__self__, "enable_ocsp_check", enable_ocsp_check)
+        if ocsp_authorized_responder_arn is not None:
+            pulumi.set(__self__, "ocsp_authorized_responder_arn", ocsp_authorized_responder_arn)
+        if ocsp_lambda_arn is not None:
+            pulumi.set(__self__, "ocsp_lambda_arn", ocsp_lambda_arn)
 
     @property
     @pulumi.getter(name="enableOcspCheck")
@@ -725,6 +735,16 @@ class DomainConfigurationServerCertificateConfig(dict):
         A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
         """
         return pulumi.get(self, "enable_ocsp_check")
+
+    @property
+    @pulumi.getter(name="ocspAuthorizedResponderArn")
+    def ocsp_authorized_responder_arn(self) -> Optional[str]:
+        return pulumi.get(self, "ocsp_authorized_responder_arn")
+
+    @property
+    @pulumi.getter(name="ocspLambdaArn")
+    def ocsp_lambda_arn(self) -> Optional[str]:
+        return pulumi.get(self, "ocsp_lambda_arn")
 
 
 @pulumi.output_type

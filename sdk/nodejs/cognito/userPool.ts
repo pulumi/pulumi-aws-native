@@ -163,6 +163,7 @@ export class UserPool extends pulumi.CustomResource {
      * The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
      */
     public readonly userPoolTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly userPoolTier!: pulumi.Output<enums.cognito.UserPoolTier | undefined>;
     /**
      * Specifies whether a user can use an email address or phone number as a username when they sign up.
      */
@@ -179,6 +180,8 @@ export class UserPool extends pulumi.CustomResource {
      * Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
      */
     public readonly verificationMessageTemplate!: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate | undefined>;
+    public readonly webAuthnRelyingPartyId!: pulumi.Output<string | undefined>;
+    public readonly webAuthnUserVerification!: pulumi.Output<string | undefined>;
 
     /**
      * Create a UserPool resource with the given unique name, arguments, and options.
@@ -214,9 +217,12 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["userPoolAddOns"] = args ? args.userPoolAddOns : undefined;
             resourceInputs["userPoolName"] = args ? args.userPoolName : undefined;
             resourceInputs["userPoolTags"] = args ? args.userPoolTags : undefined;
+            resourceInputs["userPoolTier"] = args ? args.userPoolTier : undefined;
             resourceInputs["usernameAttributes"] = args ? args.usernameAttributes : undefined;
             resourceInputs["usernameConfiguration"] = args ? args.usernameConfiguration : undefined;
             resourceInputs["verificationMessageTemplate"] = args ? args.verificationMessageTemplate : undefined;
+            resourceInputs["webAuthnRelyingPartyId"] = args ? args.webAuthnRelyingPartyId : undefined;
+            resourceInputs["webAuthnUserVerification"] = args ? args.webAuthnUserVerification : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["providerName"] = undefined /*out*/;
             resourceInputs["providerUrl"] = undefined /*out*/;
@@ -249,9 +255,12 @@ export class UserPool extends pulumi.CustomResource {
             resourceInputs["userPoolId"] = undefined /*out*/;
             resourceInputs["userPoolName"] = undefined /*out*/;
             resourceInputs["userPoolTags"] = undefined /*out*/;
+            resourceInputs["userPoolTier"] = undefined /*out*/;
             resourceInputs["usernameAttributes"] = undefined /*out*/;
             resourceInputs["usernameConfiguration"] = undefined /*out*/;
             resourceInputs["verificationMessageTemplate"] = undefined /*out*/;
+            resourceInputs["webAuthnRelyingPartyId"] = undefined /*out*/;
+            resourceInputs["webAuthnUserVerification"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(UserPool.__pulumiType, name, resourceInputs, opts);
@@ -372,6 +381,7 @@ export interface UserPoolArgs {
      * The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
      */
     userPoolTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    userPoolTier?: pulumi.Input<enums.cognito.UserPoolTier>;
     /**
      * Specifies whether a user can use an email address or phone number as a username when they sign up.
      */
@@ -388,4 +398,6 @@ export interface UserPoolArgs {
      * Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
      */
     verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplateArgs>;
+    webAuthnRelyingPartyId?: pulumi.Input<string>;
+    webAuthnUserVerification?: pulumi.Input<string>;
 }

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'IdentityPoolCognitoIdentityProviderArgs',
@@ -35,6 +36,8 @@ __all__ = [
     'LogDeliveryConfigurationLogConfigurationArgsDict',
     'LogDeliveryConfigurationS3ConfigurationArgs',
     'LogDeliveryConfigurationS3ConfigurationArgsDict',
+    'ManagedLoginBrandingAssetTypeArgs',
+    'ManagedLoginBrandingAssetTypeArgsDict',
     'UserPoolAccountRecoverySettingArgs',
     'UserPoolAccountRecoverySettingArgsDict',
     'UserPoolAddOnsArgs',
@@ -91,6 +94,8 @@ __all__ = [
     'UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgsDict',
     'UserPoolSchemaAttributeArgs',
     'UserPoolSchemaAttributeArgsDict',
+    'UserPoolSignInPolicyArgs',
+    'UserPoolSignInPolicyArgsDict',
     'UserPoolSmsConfigurationArgs',
     'UserPoolSmsConfigurationArgsDict',
     'UserPoolStringAttributeConstraintsArgs',
@@ -596,6 +601,78 @@ class LogDeliveryConfigurationS3ConfigurationArgs:
     @bucket_arn.setter
     def bucket_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket_arn", value)
+
+
+if not MYPY:
+    class ManagedLoginBrandingAssetTypeArgsDict(TypedDict):
+        category: pulumi.Input['ManagedLoginBrandingCategoryType']
+        color_mode: pulumi.Input['ManagedLoginBrandingColorModeType']
+        extension: pulumi.Input['ManagedLoginBrandingExtensionType']
+        bytes: NotRequired[pulumi.Input[str]]
+        resource_id: NotRequired[pulumi.Input[str]]
+elif False:
+    ManagedLoginBrandingAssetTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedLoginBrandingAssetTypeArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input['ManagedLoginBrandingCategoryType'],
+                 color_mode: pulumi.Input['ManagedLoginBrandingColorModeType'],
+                 extension: pulumi.Input['ManagedLoginBrandingExtensionType'],
+                 bytes: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "color_mode", color_mode)
+        pulumi.set(__self__, "extension", extension)
+        if bytes is not None:
+            pulumi.set(__self__, "bytes", bytes)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter
+    def category(self) -> pulumi.Input['ManagedLoginBrandingCategoryType']:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input['ManagedLoginBrandingCategoryType']):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter(name="colorMode")
+    def color_mode(self) -> pulumi.Input['ManagedLoginBrandingColorModeType']:
+        return pulumi.get(self, "color_mode")
+
+    @color_mode.setter
+    def color_mode(self, value: pulumi.Input['ManagedLoginBrandingColorModeType']):
+        pulumi.set(self, "color_mode", value)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> pulumi.Input['ManagedLoginBrandingExtensionType']:
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: pulumi.Input['ManagedLoginBrandingExtensionType']):
+        pulumi.set(self, "extension", value)
+
+    @property
+    @pulumi.getter
+    def bytes(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bytes")
+
+    @bytes.setter
+    def bytes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bytes", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
 
 
 if not MYPY:
@@ -1945,18 +2022,22 @@ if not MYPY:
         """
         The password policy settings for a user pool, including complexity, history, and length requirements.
         """
+        sign_in_policy: NotRequired[pulumi.Input['UserPoolSignInPolicyArgsDict']]
 elif False:
     UserPoolPoliciesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserPoolPoliciesArgs:
     def __init__(__self__, *,
-                 password_policy: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']] = None):
+                 password_policy: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']] = None,
+                 sign_in_policy: Optional[pulumi.Input['UserPoolSignInPolicyArgs']] = None):
         """
         :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: The password policy settings for a user pool, including complexity, history, and length requirements.
         """
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
+        if sign_in_policy is not None:
+            pulumi.set(__self__, "sign_in_policy", sign_in_policy)
 
     @property
     @pulumi.getter(name="passwordPolicy")
@@ -1969,6 +2050,15 @@ class UserPoolPoliciesArgs:
     @password_policy.setter
     def password_policy(self, value: Optional[pulumi.Input['UserPoolPasswordPolicyArgs']]):
         pulumi.set(self, "password_policy", value)
+
+    @property
+    @pulumi.getter(name="signInPolicy")
+    def sign_in_policy(self) -> Optional[pulumi.Input['UserPoolSignInPolicyArgs']]:
+        return pulumi.get(self, "sign_in_policy")
+
+    @sign_in_policy.setter
+    def sign_in_policy(self, value: Optional[pulumi.Input['UserPoolSignInPolicyArgs']]):
+        pulumi.set(self, "sign_in_policy", value)
 
 
 if not MYPY:
@@ -2817,6 +2907,29 @@ class UserPoolSchemaAttributeArgs:
     @string_attribute_constraints.setter
     def string_attribute_constraints(self, value: Optional[pulumi.Input['UserPoolStringAttributeConstraintsArgs']]):
         pulumi.set(self, "string_attribute_constraints", value)
+
+
+if not MYPY:
+    class UserPoolSignInPolicyArgsDict(TypedDict):
+        allowed_first_auth_factors: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+elif False:
+    UserPoolSignInPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserPoolSignInPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_first_auth_factors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if allowed_first_auth_factors is not None:
+            pulumi.set(__self__, "allowed_first_auth_factors", allowed_first_auth_factors)
+
+    @property
+    @pulumi.getter(name="allowedFirstAuthFactors")
+    def allowed_first_auth_factors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_first_auth_factors")
+
+    @allowed_first_auth_factors.setter
+    def allowed_first_auth_factors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_first_auth_factors", value)
 
 
 if not MYPY:

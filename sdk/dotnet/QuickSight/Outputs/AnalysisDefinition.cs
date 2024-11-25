@@ -49,6 +49,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// An array of sheet definitions for an analysis. Each `SheetDefinition` provides detailed information about a sheet within this analysis.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheetDefinition> Sheets;
+        public readonly ImmutableArray<Outputs.AnalysisStaticFile> StaticFiles;
 
         [OutputConstructor]
         private AnalysisDefinition(
@@ -68,7 +69,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.AnalysisQueryExecutionOptions? queryExecutionOptions,
 
-            ImmutableArray<Outputs.AnalysisSheetDefinition> sheets)
+            ImmutableArray<Outputs.AnalysisSheetDefinition> sheets,
+
+            ImmutableArray<Outputs.AnalysisStaticFile> staticFiles)
         {
             AnalysisDefaults = analysisDefaults;
             CalculatedFields = calculatedFields;
@@ -79,6 +82,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
             ParameterDeclarations = parameterDeclarations;
             QueryExecutionOptions = queryExecutionOptions;
             Sheets = sheets;
+            StaticFiles = staticFiles;
         }
     }
 }
