@@ -3,16 +3,19 @@
 package naming
 
 import (
+	"errors"
 	"fmt"
 	"reflect"
 	"slices"
 	"strings"
 
+	"github.com/golang/glog"
 	"github.com/mattbaird/jsonpatch"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // SdkToCfn converts Pulumi-SDK-shaped state to CloudFormation-shaped payload. In particular, SDK properties
@@ -94,14 +97,56 @@ func (c *sdkToCfnConverter) sdkTypedValueToCfn(spec *pschema.TypeSpec, v interfa
 	}
 
 	if spec.OneOf != nil {
+		contract.Assertf(len(spec.OneOf) >= 1, "at least one union case is required")
+
+		results := []any{}
+		errs := []error{}
+
 		for _, item := range spec.OneOf {
 			converted, err := c.sdkTypedValueToCfn(&item, v)
-			// return the first successful conversion
-			if err == nil {
-				return converted, nil
+			if err != nil {
+				errs = append(errs, err)
+			} else {
+				results = append(results, converted)
 			}
 		}
-		return nil, &ConversionError{fmt.Sprintf("%v", *spec), v}
+
+		switch {
+		case len(results) == 0:
+			glog.V(9).Infof("conversion error: all union variants failed: %v", errors.Join(errs...))
+			return nil, &ConversionError{fmt.Sprintf("%v", *spec), v}
+		case len(results) == 1:
+			return results[0], nil
+		default:
+			// Properties such as aws-native:datazone:DataSource configuration do not specify a
+			// discriminator yet. Without a discriminator in case of multiple successful results we could
+			// instead pick the largest by length.
+
+			sizeOf := func(x any) int {
+				switch x := x.(type) {
+				case map[string]any:
+					return len(x)
+				case []any:
+					return len(x)
+				case nil:
+					return 0
+				default:
+					return 1
+				}
+			}
+
+			var bestResult any
+			bestResultSize := -1
+			for _, r := range results {
+				s := sizeOf(r)
+				if s > bestResultSize {
+					bestResult = r
+					bestResultSize = s
+				}
+			}
+			return bestResult, nil
+		}
+
 	}
 
 	switch spec.Type {

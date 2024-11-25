@@ -12,6 +12,7 @@ import (
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestCfnToSdk(t *testing.T) {
@@ -81,6 +82,66 @@ func TestSdkToCfnOneOf(t *testing.T) {
 	actual, err := SdkToCfn(&res, sampleSchema.Types, state)
 	assert.NoError(t, err)
 	assert.Equal(t, expected, actual)
+}
+
+// Check that ambiguous OneOf without a discriminator will pick the largest match.
+func TestSdkToCfnOneOfAmbiguous(t *testing.T) {
+	res := metadata.CloudAPIResource{
+		Inputs: map[string]pschema.PropertySpec{
+			"configuration": {TypeSpec: pschema.TypeSpec{
+				OneOf: []pschema.TypeSpec{
+					{Ref: "#/types/aws-native:datazone:DataSourceConfigurationInput0Properties"},
+					{Ref: "#/types/aws-native:datazone:DataSourceConfigurationInput1Properties"},
+				},
+			}},
+		},
+	}
+	types := map[string]metadata.CloudAPIType{
+		"aws-native:datazone:DataSourceConfigurationInput0Properties": metadata.CloudAPIType{
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{
+				"glueRunConfiguration": pschema.PropertySpec{
+					TypeSpec: pschema.TypeSpec{
+						Ref: "#/types/aws-native:datazone:DataSourceGlueRunConfigurationInput",
+					},
+				},
+			},
+		},
+		"aws-native:datazone:DataSourceGlueRunConfigurationInput": metadata.CloudAPIType{
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{
+				"dataAccessRole": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{Type: "string"}},
+			},
+		},
+		"aws-native:datazone:DataSourceConfigurationInput1Properties": metadata.CloudAPIType{
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{"redshiftRunConfiguration": pschema.PropertySpec{
+				TypeSpec: pschema.TypeSpec{
+					Ref: "#/types/aws-native:datazone:DataSourceRedshiftRunConfigurationInput",
+				},
+			}},
+		},
+		"aws-native:datazone:DataSourceRedshiftRunConfigurationInput": metadata.CloudAPIType{
+			Type: "object",
+			Properties: map[string]pschema.PropertySpec{
+				"dataAccessRole": pschema.PropertySpec{TypeSpec: pschema.TypeSpec{Type: "string"}},
+			},
+		},
+	}
+
+	result, err := SdkToCfn(&res, types, map[string]any{
+		"configuration": map[string]any{
+			"redshiftRunConfiguration": map[string]any{
+				"dataAccessRole": "myrole",
+			},
+		},
+	})
+	require.NoError(t, err)
+
+	actualConfig := result["Configuration"].(map[string]any)
+	actualRedshiftConfig := actualConfig["RedshiftRunConfiguration"].(map[string]any)
+	actualDataAccessRole := actualRedshiftConfig["DataAccessRole"].(string)
+	require.Equal(t, "myrole", actualDataAccessRole)
 }
 
 func TestDiffToPatch(t *testing.T) {
