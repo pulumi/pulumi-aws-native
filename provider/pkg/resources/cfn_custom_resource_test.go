@@ -89,12 +89,12 @@ func TestCfnCustomResource_Check(t *testing.T) {
 		{
 			name: "Unknown inputs",
 			inputs: resource.PropertyMap{
-				"serviceToken":             resource.MakeComputed(resource.NewStringProperty("")),
-				"stackId":                  resource.MakeComputed(resource.NewStringProperty("")),
+				"serviceToken": resource.MakeComputed(resource.NewStringProperty("")),
+				"stackId":      resource.MakeComputed(resource.NewStringProperty("")),
 			},
 			expectedInputs: resource.PropertyMap{
-				"serviceToken":             resource.MakeComputed(resource.NewStringProperty("")),
-				"stackId":                  resource.MakeComputed(resource.NewStringProperty("")),
+				"serviceToken": resource.MakeComputed(resource.NewStringProperty("")),
+				"stackId":      resource.MakeComputed(resource.NewStringProperty("")),
 			},
 		},
 		{
@@ -233,7 +233,7 @@ func TestCfnCustomResource_Create(t *testing.T) {
 			},
 		},
 		{
-			name: "CustomResource without response data",
+			name:               "CustomResource without response data",
 			customResourceData: nil,
 			customResourceInputs: map[string]interface{}{
 				"key1": "value1",
@@ -624,7 +624,7 @@ func TestCfnCustomResource_Update(t *testing.T) {
 			newCustomResourceData: map[string]interface{}{"new": "value"},
 		},
 		{
-			name: "CustomResource without response data",
+			name:                  "CustomResource without response data",
 			newCustomResourceData: nil,
 		},
 	}

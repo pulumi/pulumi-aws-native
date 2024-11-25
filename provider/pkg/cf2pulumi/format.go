@@ -42,12 +42,11 @@ func (f *formatter) indented(fn func()) {
 // - An object with no elements is formatted as `{}`
 // - An object with elements is formatted as
 //
-//       {
-//           key0 = value0,
-//           ...
-//           keyN = valueN
-//       }
-//
+//	{
+//	    key0 = value0,
+//	    ...
+//	    keyN = valueN
+//	}
 func (f *formatter) formatObjectCons(x *model.ObjectConsExpression) {
 	x.Tokens = syntax.NewObjectConsTokens(len(x.Items))
 
@@ -80,12 +79,11 @@ func (f *formatter) formatObjectCons(x *model.ObjectConsExpression) {
 // - A tuple with one element is formatted as `[value]`
 // - A tuple with more than one element is formatted as
 //
-//       [
-//           value0,
-//           ...
-//           valueN
-//       ]
-//
+//	[
+//	    value0,
+//	    ...
+//	    valueN
+//	]
 func (f *formatter) formatTupleCons(x *model.TupleConsExpression) {
 	x.Tokens = syntax.NewTupleConsTokens(len(x.Expressions))
 
@@ -207,11 +205,11 @@ func (f *formatter) formatExpression(x model.Expression) model.Expression {
 
 // formatBlock formats a PCL block as
 //
-//     type labels... {
-//         item0
-//         ...
-//         itemN
-//     }
+//	type labels... {
+//	    item0
+//	    ...
+//	    itemN
+//	}
 //
 // Unless the block is the first in its containing body, a newline is inserted before the block.
 func (f *formatter) formatBlock(block *model.Block, first bool) {
@@ -233,7 +231,7 @@ func (f *formatter) formatBlock(block *model.Block, first bool) {
 
 // formatAttribute formats a PCL attribute as
 //
-//     name = value
+//	name = value
 //
 // If the attribute follows a block, a newline is inserted before the attribute.
 func (f *formatter) formatAttribute(attr *model.Attribute, afterBlock bool) {
