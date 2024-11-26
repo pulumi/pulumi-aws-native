@@ -11,7 +11,7 @@
     "FieldType" : {
       "description" : "The type of the task template's field",
       "type" : "string",
-      "enum" : [ "NAME", "DESCRIPTION", "SCHEDULED_TIME", "QUICK_CONNECT", "URL", "NUMBER", "TEXT", "TEXT_AREA", "DATE_TIME", "BOOLEAN", "SINGLE_SELECT", "EMAIL" ]
+      "enum" : [ "NAME", "DESCRIPTION", "SCHEDULED_TIME", "QUICK_CONNECT", "URL", "NUMBER", "TEXT", "TEXT_AREA", "DATE_TIME", "BOOLEAN", "SINGLE_SELECT", "EMAIL", "EXPIRY_DURATION", "SELF_ASSIGN" ]
     },
     "FieldIdentifier" : {
       "description" : "the identifier (name) for the task template field",
