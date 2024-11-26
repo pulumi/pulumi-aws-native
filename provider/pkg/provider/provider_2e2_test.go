@@ -8,7 +8,6 @@ import (
 	"testing"
 
 	"github.com/pulumi/providertest"
-	"github.com/pulumi/providertest/providers"
 	"github.com/pulumi/providertest/pulumitest"
 	"github.com/pulumi/providertest/pulumitest/assertpreview"
 	"github.com/pulumi/providertest/pulumitest/opttest"
@@ -20,32 +19,33 @@ func TestE2eSnapshots(t *testing.T) {
 	t.Run("logGroup-0.94.0", func(t *testing.T) {
 		t.Parallel()
 		test := newAwsTest(t, filepath.Join("testdata", "logGroup"))
-		testUpgradeFrom(t, test, "0.94.0")
+		testUpgradeFrom(test, "0.94.0")
 	})
 
 	t.Run("webAcl-0.94.0", func(t *testing.T) {
 		t.Parallel()
 		test := newAwsTest(t, filepath.Join("testdata", "webAcl"))
-		testUpgradeFrom(t, test, "0.94.0")
+		testUpgradeFrom(test, "0.94.0")
 	})
 }
 
-func testUpgradeFrom(t *testing.T, test *pulumitest.PulumiTest, version string) {
-	result := providertest.PreviewProviderUpgrade(t, test, "aws-native", version)
-	assertpreview.HasNoChanges(t, result)
+func testUpgradeFrom(test *pulumitest.PulumiTest, version string) {
+	test.T().Helper()
+	result := providertest.PreviewProviderUpgrade(test, "aws-native", version)
+	assertpreview.HasNoChanges(test.T(), result)
 }
 
 func newAwsTest(t *testing.T, source string, opts ...opttest.Option) *pulumitest.PulumiTest {
 	t.Helper()
 	opts = append(opts, attachProvider())
 	test := pulumitest.NewPulumiTest(t, source, opts...)
-	test.SetConfig(t, "aws-native:region", "us-west-2")
-	test.SetConfig(t, "aws:region", "us-west-2")
+	test.SetConfig("aws-native:region", "us-west-2")
+	test.SetConfig("aws:region", "us-west-2")
 	return test
 }
 
 func attachProvider() opttest.Option {
-	return opttest.AttachProviderServer("aws-native", func(pt providers.PulumiTest) (pulumirpc.ResourceProviderServer, error) {
+	return opttest.AttachProviderServer("aws-native", func() (pulumirpc.ResourceProviderServer, error) {
 		return testProviderServer()
 	})
 }
