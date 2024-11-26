@@ -4949,18 +4949,20 @@ func (in *ruleTriggerEventSourceEventSourceNamePtr) ToRuleTriggerEventSourceEven
 type TaskTemplateFieldType string
 
 const (
-	TaskTemplateFieldTypeName          = TaskTemplateFieldType("NAME")
-	TaskTemplateFieldTypeDescription   = TaskTemplateFieldType("DESCRIPTION")
-	TaskTemplateFieldTypeScheduledTime = TaskTemplateFieldType("SCHEDULED_TIME")
-	TaskTemplateFieldTypeQuickConnect  = TaskTemplateFieldType("QUICK_CONNECT")
-	TaskTemplateFieldTypeUrl           = TaskTemplateFieldType("URL")
-	TaskTemplateFieldTypeNumber        = TaskTemplateFieldType("NUMBER")
-	TaskTemplateFieldTypeText          = TaskTemplateFieldType("TEXT")
-	TaskTemplateFieldTypeTextArea      = TaskTemplateFieldType("TEXT_AREA")
-	TaskTemplateFieldTypeDateTime      = TaskTemplateFieldType("DATE_TIME")
-	TaskTemplateFieldTypeBoolean       = TaskTemplateFieldType("BOOLEAN")
-	TaskTemplateFieldTypeSingleSelect  = TaskTemplateFieldType("SINGLE_SELECT")
-	TaskTemplateFieldTypeEmail         = TaskTemplateFieldType("EMAIL")
+	TaskTemplateFieldTypeName           = TaskTemplateFieldType("NAME")
+	TaskTemplateFieldTypeDescription    = TaskTemplateFieldType("DESCRIPTION")
+	TaskTemplateFieldTypeScheduledTime  = TaskTemplateFieldType("SCHEDULED_TIME")
+	TaskTemplateFieldTypeQuickConnect   = TaskTemplateFieldType("QUICK_CONNECT")
+	TaskTemplateFieldTypeUrl            = TaskTemplateFieldType("URL")
+	TaskTemplateFieldTypeNumber         = TaskTemplateFieldType("NUMBER")
+	TaskTemplateFieldTypeText           = TaskTemplateFieldType("TEXT")
+	TaskTemplateFieldTypeTextArea       = TaskTemplateFieldType("TEXT_AREA")
+	TaskTemplateFieldTypeDateTime       = TaskTemplateFieldType("DATE_TIME")
+	TaskTemplateFieldTypeBoolean        = TaskTemplateFieldType("BOOLEAN")
+	TaskTemplateFieldTypeSingleSelect   = TaskTemplateFieldType("SINGLE_SELECT")
+	TaskTemplateFieldTypeEmail          = TaskTemplateFieldType("EMAIL")
+	TaskTemplateFieldTypeExpiryDuration = TaskTemplateFieldType("EXPIRY_DURATION")
+	TaskTemplateFieldTypeSelfAssign     = TaskTemplateFieldType("SELF_ASSIGN")
 )
 
 func (TaskTemplateFieldType) ElementType() reflect.Type {
@@ -5097,6 +5099,8 @@ func (o TaskTemplateFieldTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 //	TaskTemplateFieldTypeBoolean
 //	TaskTemplateFieldTypeSingleSelect
 //	TaskTemplateFieldTypeEmail
+//	TaskTemplateFieldTypeExpiryDuration
+//	TaskTemplateFieldTypeSelfAssign
 type TaskTemplateFieldTypeInput interface {
 	pulumi.Input
 

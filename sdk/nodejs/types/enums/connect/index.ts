@@ -366,6 +366,8 @@ export const TaskTemplateFieldType = {
     Boolean: "BOOLEAN",
     SingleSelect: "SINGLE_SELECT",
     Email: "EMAIL",
+    ExpiryDuration: "EXPIRY_DURATION",
+    SelfAssign: "SELF_ASSIGN",
 } as const;
 
 /**

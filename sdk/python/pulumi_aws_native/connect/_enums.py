@@ -349,6 +349,8 @@ class TaskTemplateFieldType(str, Enum):
     BOOLEAN = "BOOLEAN"
     SINGLE_SELECT = "SINGLE_SELECT"
     EMAIL = "EMAIL"
+    EXPIRY_DURATION = "EXPIRY_DURATION"
+    SELF_ASSIGN = "SELF_ASSIGN"
 
 
 class TaskTemplateStatus(str, Enum):

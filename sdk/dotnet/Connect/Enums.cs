@@ -1013,6 +1013,8 @@ namespace Pulumi.AwsNative.Connect
         public static TaskTemplateFieldType Boolean { get; } = new TaskTemplateFieldType("BOOLEAN");
         public static TaskTemplateFieldType SingleSelect { get; } = new TaskTemplateFieldType("SINGLE_SELECT");
         public static TaskTemplateFieldType Email { get; } = new TaskTemplateFieldType("EMAIL");
+        public static TaskTemplateFieldType ExpiryDuration { get; } = new TaskTemplateFieldType("EXPIRY_DURATION");
+        public static TaskTemplateFieldType SelfAssign { get; } = new TaskTemplateFieldType("SELF_ASSIGN");
 
         public static bool operator ==(TaskTemplateFieldType left, TaskTemplateFieldType right) => left.Equals(right);
         public static bool operator !=(TaskTemplateFieldType left, TaskTemplateFieldType right) => !left.Equals(right);
