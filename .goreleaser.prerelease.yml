@@ -20,6 +20,8 @@ builds:
   ignore: []
   main: ./cmd/pulumi-resource-aws-native/
   ldflags:
+  - -s
+  - -w
   - -X github.com/pulumi/pulumi-aws-native/provider/pkg/version.Version={{.Tag}}
   binary: pulumi-resource-aws-native
 archives:
