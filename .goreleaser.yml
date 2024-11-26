@@ -21,6 +21,8 @@ builds:
   main: ./cmd/pulumi-resource-aws-native/
   ldflags:
   - -X github.com/pulumi/pulumi-aws-native/provider/pkg/version.Version={{.Tag}}
+  - -s
+  - -w
   binary: pulumi-resource-aws-native
 archives:
 - name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
