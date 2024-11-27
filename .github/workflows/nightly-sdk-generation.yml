@@ -38,24 +38,24 @@ jobs:
     name: generate-sdk
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         lfs: true
     - name: Install Go
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@41dfa10bad2bb2ae585af6ee5bb4d7d973ad74ed # v5.1.0
       with:
         go-version: 1.21.x
         cache-dependency-path: "**/*.sum"
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
+      uses: jaxxstorm/action-install-gh-release@71d17cb091aa850acb2a1a4cf87258d183eb941b # v1.11.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
-      uses: pulumi/actions@c7fad9e2f0b79653172b36538b8b34b3c0291952 # v6
+      uses: pulumi/actions@c7fad9e2f0b79653172b36538b8b34b3c0291952 # v6.0.0
       with:
         pulumi-version-file: .pulumi.version
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@e3dd6a429d7300a6a4c196c26e071d42e0343502 # v4.0.2
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: ${{ env.AWS_REGION }}
@@ -99,7 +99,7 @@ jobs:
         git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
     - name: Create PR
       id: create-pr
-      uses: repo-sync/pull-request@v2.6.2
+      uses: repo-sync/pull-request@65785d95a5a466e46a9d0708933a3bd51bbf9dde # v2.6.2
       with:
         destination_branch: master
         github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -110,7 +110,7 @@ jobs:
         source_branch: generate-sdk/${{ github.run_id }}-${{ github.run_number }}
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
-      uses: 8398a7/action-slack@v3
+      uses: 8398a7/action-slack@28ba43ae48961b90635b50953d216767a6bea486 # v3.16.2
       with:
         author_name: Failure during automated SDK generation
         fields: repo,commit,author,action
