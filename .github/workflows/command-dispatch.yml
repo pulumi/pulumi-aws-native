@@ -39,10 +39,10 @@ jobs:
     name: command-dispatch-for-testing
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       with:
         lfs: true
-    - uses: peter-evans/slash-command-dispatch@v2
+    - uses: peter-evans/slash-command-dispatch@40877f718dce0101edfc7aea2b3800cc192f9ed5 # v2.3.0
       with:
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
         reaction-token: ${{ secrets.GITHUB_TOKEN }}
