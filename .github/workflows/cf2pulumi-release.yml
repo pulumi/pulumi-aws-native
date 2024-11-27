@@ -38,12 +38,12 @@ jobs:
     runs-on: macos-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@v4
+      uses: actions/checkout@v4.2.2
       with:
         lfs: true
     - id: version
       name: Set Provider Version
-      uses: pulumi/provider-version-action@7c54f136703646f7d6eaa3d3b3c877e5a805d6ab # v1
+      uses: pulumi/provider-version-action@v1.5.3
       with:
         set-env: PROVIDER_VERSION
     - name: Install pulumictl
@@ -51,12 +51,12 @@ jobs:
       with:
         repo: pulumi/pulumictl
     - name: Install Go
-      uses: actions/setup-go@v5
+      uses: actions/setup-go@v5.1.0
       with:
         go-version: 1.21.x
         cache-dependency-path: "**/*.sum"
     - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v5
+      uses: goreleaser/goreleaser-action@v5.1.0
       env:
         GORELEASER_CURRENT_TAG: v${{ steps.version.outputs.version }}
       with:
