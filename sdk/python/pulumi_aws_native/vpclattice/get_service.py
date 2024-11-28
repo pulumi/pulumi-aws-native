@@ -172,7 +172,7 @@ def get_service(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_service_output(arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
 
@@ -181,7 +181,7 @@ def get_service_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         arn=pulumi.get(__response__, 'arn'),

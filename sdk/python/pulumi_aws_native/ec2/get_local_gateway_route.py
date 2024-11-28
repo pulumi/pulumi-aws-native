@@ -105,7 +105,7 @@ def get_local_gateway_route(destination_cidr_block: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_local_gateway_route_output(destination_cidr_block: Optional[pulumi.Input[str]] = None,
                                    local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteResult]:
     """
     Describes a route for a local gateway route table.
 
@@ -116,7 +116,7 @@ def get_local_gateway_route_output(destination_cidr_block: Optional[pulumi.Input
     __args__ = dict()
     __args__['destinationCidrBlock'] = destination_cidr_block
     __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getLocalGatewayRoute', __args__, opts=opts, typ=GetLocalGatewayRouteResult)
     return __ret__.apply(lambda __response__: GetLocalGatewayRouteResult(
         local_gateway_virtual_interface_group_id=pulumi.get(__response__, 'local_gateway_virtual_interface_group_id'),

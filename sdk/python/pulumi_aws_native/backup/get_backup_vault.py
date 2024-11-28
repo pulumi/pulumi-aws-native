@@ -117,7 +117,7 @@ def get_backup_vault(backup_vault_name: Optional[str] = None,
         lock_configuration=pulumi.get(__ret__, 'lock_configuration'),
         notifications=pulumi.get(__ret__, 'notifications'))
 def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupVaultResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupVaultResult]:
     """
     Resource Type definition for AWS::Backup::BackupVault
 
@@ -126,7 +126,7 @@ def get_backup_vault_output(backup_vault_name: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['backupVaultName'] = backup_vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getBackupVault', __args__, opts=opts, typ=GetBackupVaultResult)
     return __ret__.apply(lambda __response__: GetBackupVaultResult(
         access_policy=pulumi.get(__response__, 'access_policy'),

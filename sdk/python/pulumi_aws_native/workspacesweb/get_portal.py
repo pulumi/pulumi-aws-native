@@ -320,7 +320,7 @@ def get_portal(portal_arn: Optional[str] = None,
         user_access_logging_settings_arn=pulumi.get(__ret__, 'user_access_logging_settings_arn'),
         user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'))
 def get_portal_output(portal_arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortalResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortalResult]:
     """
     Definition of AWS::WorkSpacesWeb::Portal Resource Type
 
@@ -329,7 +329,7 @@ def get_portal_output(portal_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['portalArn'] = portal_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getPortal', __args__, opts=opts, typ=GetPortalResult)
     return __ret__.apply(lambda __response__: GetPortalResult(
         authentication_type=pulumi.get(__response__, 'authentication_type'),

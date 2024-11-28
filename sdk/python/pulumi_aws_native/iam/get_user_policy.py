@@ -77,7 +77,7 @@ def get_user_policy(policy_name: Optional[str] = None,
         policy_document=pulumi.get(__ret__, 'policy_document'))
 def get_user_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                            user_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPolicyResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPolicyResult]:
     """
     Adds or updates an inline policy document that is embedded in the specified IAM user.
      An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use [AWS::IAM::User](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html). To create a new managed policy, use [AWS::IAM::ManagedPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html). For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
@@ -92,7 +92,7 @@ def get_user_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getUserPolicy', __args__, opts=opts, typ=GetUserPolicyResult)
     return __ret__.apply(lambda __response__: GetUserPolicyResult(
         policy_document=pulumi.get(__response__, 'policy_document')))

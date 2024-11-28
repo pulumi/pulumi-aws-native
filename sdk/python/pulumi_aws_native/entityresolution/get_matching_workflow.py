@@ -173,7 +173,7 @@ def get_matching_workflow(workflow_name: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'),
         workflow_arn=pulumi.get(__ret__, 'workflow_arn'))
 def get_matching_workflow_output(workflow_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMatchingWorkflowResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMatchingWorkflowResult]:
     """
     MatchingWorkflow defined in AWS Entity Resolution service
 
@@ -182,7 +182,7 @@ def get_matching_workflow_output(workflow_name: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['workflowName'] = workflow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:entityresolution:getMatchingWorkflow', __args__, opts=opts, typ=GetMatchingWorkflowResult)
     return __ret__.apply(lambda __response__: GetMatchingWorkflowResult(
         created_at=pulumi.get(__response__, 'created_at'),

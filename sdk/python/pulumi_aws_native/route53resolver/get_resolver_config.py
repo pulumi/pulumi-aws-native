@@ -89,7 +89,7 @@ def get_resolver_config(resource_id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         owner_id=pulumi.get(__ret__, 'owner_id'))
 def get_resolver_config_output(resource_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverConfigResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverConfig.
 
@@ -98,7 +98,7 @@ def get_resolver_config_output(resource_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['resourceId'] = resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverConfig', __args__, opts=opts, typ=GetResolverConfigResult)
     return __ret__.apply(lambda __response__: GetResolverConfigResult(
         autodefined_reverse=pulumi.get(__response__, 'autodefined_reverse'),

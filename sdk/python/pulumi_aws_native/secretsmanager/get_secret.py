@@ -136,7 +136,7 @@ def get_secret(id: Optional[str] = None,
         replica_regions=pulumi.get(__ret__, 'replica_regions'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_secret_output(id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretResult]:
     """
     Creates a new secret. A *secret* can be a password, a set of credentials such as a user name and password, an OAuth token, or other secret information that you store in an encrypted form in Secrets Manager.
      For RDS master user credentials, see [AWS::RDS::DBCluster MasterUserSecret](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-masterusersecret.html).
@@ -150,7 +150,7 @@ def get_secret_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:secretsmanager:getSecret', __args__, opts=opts, typ=GetSecretResult)
     return __ret__.apply(lambda __response__: GetSecretResult(
         description=pulumi.get(__response__, 'description'),

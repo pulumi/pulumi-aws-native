@@ -195,7 +195,7 @@ def get_pipeline(pipeline_arn: Optional[str] = None,
         vpc_endpoint_service=pulumi.get(__ret__, 'vpc_endpoint_service'),
         vpc_endpoints=pulumi.get(__ret__, 'vpc_endpoints'))
 def get_pipeline_output(pipeline_arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
 
@@ -204,7 +204,7 @@ def get_pipeline_output(pipeline_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['pipelineArn'] = pipeline_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:osis:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
     return __ret__.apply(lambda __response__: GetPipelineResult(
         buffer_options=pulumi.get(__response__, 'buffer_options'),

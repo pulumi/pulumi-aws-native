@@ -130,7 +130,7 @@ def get_network_analyzer_configuration(name: Optional[str] = None,
         wireless_devices=pulumi.get(__ret__, 'wireless_devices'),
         wireless_gateways=pulumi.get(__ret__, 'wireless_gateways'))
 def get_network_analyzer_configuration_output(name: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAnalyzerConfigurationResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkAnalyzerConfigurationResult]:
     """
     Create and manage NetworkAnalyzerConfiguration resource.
 
@@ -139,7 +139,7 @@ def get_network_analyzer_configuration_output(name: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getNetworkAnalyzerConfiguration', __args__, opts=opts, typ=GetNetworkAnalyzerConfigurationResult)
     return __ret__.apply(lambda __response__: GetNetworkAnalyzerConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

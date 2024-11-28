@@ -78,7 +78,7 @@ def get_role_policy(policy_name: Optional[str] = None,
         policy_document=pulumi.get(__ret__, 'policy_document'))
 def get_role_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                            role_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRolePolicyResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRolePolicyResult]:
     """
     Adds or updates an inline policy document that is embedded in the specified IAM role.
      When you embed an inline policy in a role, the inline policy is used as part of the role's access (permissions) policy. The role's trust policy is created at the same time as the role, using [CreateRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html). You can update a role's trust policy using [UpdateAssumeRolePolicy](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAssumeRolePolicy.html). For information about roles, see [roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html) in the *IAM User Guide*.
@@ -94,7 +94,7 @@ def get_role_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['roleName'] = role_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getRolePolicy', __args__, opts=opts, typ=GetRolePolicyResult)
     return __ret__.apply(lambda __response__: GetRolePolicyResult(
         policy_document=pulumi.get(__response__, 'policy_document')))

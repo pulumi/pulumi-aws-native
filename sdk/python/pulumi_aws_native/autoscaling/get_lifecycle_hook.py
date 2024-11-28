@@ -131,7 +131,7 @@ def get_lifecycle_hook(auto_scaling_group_name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_lifecycle_hook_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                               lifecycle_hook_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLifecycleHookResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLifecycleHookResult]:
     """
     Resource Type definition for AWS::AutoScaling::LifecycleHook
 
@@ -142,7 +142,7 @@ def get_lifecycle_hook_output(auto_scaling_group_name: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['autoScalingGroupName'] = auto_scaling_group_name
     __args__['lifecycleHookName'] = lifecycle_hook_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getLifecycleHook', __args__, opts=opts, typ=GetLifecycleHookResult)
     return __ret__.apply(lambda __response__: GetLifecycleHookResult(
         default_result=pulumi.get(__response__, 'default_result'),

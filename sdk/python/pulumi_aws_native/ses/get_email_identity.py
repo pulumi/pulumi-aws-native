@@ -195,7 +195,7 @@ def get_email_identity(email_identity: Optional[str] = None,
         feedback_attributes=pulumi.get(__ret__, 'feedback_attributes'),
         mail_from_attributes=pulumi.get(__ret__, 'mail_from_attributes'))
 def get_email_identity_output(email_identity: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailIdentityResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailIdentityResult]:
     """
     Resource Type definition for AWS::SES::EmailIdentity
 
@@ -204,7 +204,7 @@ def get_email_identity_output(email_identity: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['emailIdentity'] = email_identity
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getEmailIdentity', __args__, opts=opts, typ=GetEmailIdentityResult)
     return __ret__.apply(lambda __response__: GetEmailIdentityResult(
         configuration_set_attributes=pulumi.get(__response__, 'configuration_set_attributes'),

@@ -62,7 +62,7 @@ def get_resolver_rule_association(resolver_rule_association_id: Optional[str] = 
     return AwaitableGetResolverRuleAssociationResult(
         resolver_rule_association_id=pulumi.get(__ret__, 'resolver_rule_association_id'))
 def get_resolver_rule_association_output(resolver_rule_association_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRuleAssociationResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverRuleAssociationResult]:
     """
     In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
 
@@ -71,7 +71,7 @@ def get_resolver_rule_association_output(resolver_rule_association_id: Optional[
     """
     __args__ = dict()
     __args__['resolverRuleAssociationId'] = resolver_rule_association_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverRuleAssociation', __args__, opts=opts, typ=GetResolverRuleAssociationResult)
     return __ret__.apply(lambda __response__: GetResolverRuleAssociationResult(
         resolver_rule_association_id=pulumi.get(__response__, 'resolver_rule_association_id')))

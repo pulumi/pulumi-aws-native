@@ -180,7 +180,7 @@ def get_transit_gateway_peering(peering_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_peering_attachment_id=pulumi.get(__ret__, 'transit_gateway_peering_attachment_id'))
 def get_transit_gateway_peering_output(peering_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayPeeringResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayPeeringResult]:
     """
     AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
 
@@ -189,7 +189,7 @@ def get_transit_gateway_peering_output(peering_id: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['peeringId'] = peering_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getTransitGatewayPeering', __args__, opts=opts, typ=GetTransitGatewayPeeringResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayPeeringResult(
         core_network_arn=pulumi.get(__response__, 'core_network_arn'),

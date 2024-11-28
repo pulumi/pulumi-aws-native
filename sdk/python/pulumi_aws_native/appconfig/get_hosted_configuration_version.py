@@ -70,7 +70,7 @@ def get_hosted_configuration_version(application_id: Optional[str] = None,
 def get_hosted_configuration_version_output(application_id: Optional[pulumi.Input[str]] = None,
                                             configuration_profile_id: Optional[pulumi.Input[str]] = None,
                                             version_number: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedConfigurationVersionResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedConfigurationVersionResult]:
     """
     Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
 
@@ -83,7 +83,7 @@ def get_hosted_configuration_version_output(application_id: Optional[pulumi.Inpu
     __args__['applicationId'] = application_id
     __args__['configurationProfileId'] = configuration_profile_id
     __args__['versionNumber'] = version_number
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getHostedConfigurationVersion', __args__, opts=opts, typ=GetHostedConfigurationVersionResult)
     return __ret__.apply(lambda __response__: GetHostedConfigurationVersionResult(
         version_number=pulumi.get(__response__, 'version_number')))

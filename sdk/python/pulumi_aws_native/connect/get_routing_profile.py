@@ -169,7 +169,7 @@ def get_routing_profile(routing_profile_arn: Optional[str] = None,
         routing_profile_arn=pulumi.get(__ret__, 'routing_profile_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_routing_profile_output(routing_profile_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingProfileResult]:
     """
     Resource Type definition for AWS::Connect::RoutingProfile
 
@@ -178,7 +178,7 @@ def get_routing_profile_output(routing_profile_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['routingProfileArn'] = routing_profile_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getRoutingProfile', __args__, opts=opts, typ=GetRoutingProfileResult)
     return __ret__.apply(lambda __response__: GetRoutingProfileResult(
         agent_availability_timer=pulumi.get(__response__, 'agent_availability_timer'),

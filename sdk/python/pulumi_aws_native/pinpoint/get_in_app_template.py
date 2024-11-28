@@ -142,7 +142,7 @@ def get_in_app_template(template_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_description=pulumi.get(__ret__, 'template_description'))
 def get_in_app_template_output(template_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInAppTemplateResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInAppTemplateResult]:
     """
     Resource Type definition for AWS::Pinpoint::InAppTemplate
 
@@ -151,7 +151,7 @@ def get_in_app_template_output(template_name: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['templateName'] = template_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:pinpoint:getInAppTemplate', __args__, opts=opts, typ=GetInAppTemplateResult)
     return __ret__.apply(lambda __response__: GetInAppTemplateResult(
         arn=pulumi.get(__response__, 'arn'),

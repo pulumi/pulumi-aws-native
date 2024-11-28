@@ -141,7 +141,7 @@ def get_ip_set(id: Optional[str] = None,
 def get_ip_set_output(id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
                       scope: Optional[pulumi.Input['IpSetScope']] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpSetResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpSetResult]:
     """
     Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
 
@@ -156,7 +156,7 @@ def get_ip_set_output(id: Optional[pulumi.Input[str]] = None,
     __args__['id'] = id
     __args__['name'] = name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wafv2:getIpSet', __args__, opts=opts, typ=GetIpSetResult)
     return __ret__.apply(lambda __response__: GetIpSetResult(
         addresses=pulumi.get(__response__, 'addresses'),

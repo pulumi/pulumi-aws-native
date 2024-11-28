@@ -125,7 +125,7 @@ def get_route_response(api_id: Optional[str] = None,
 def get_route_response_output(api_id: Optional[pulumi.Input[str]] = None,
                               route_id: Optional[pulumi.Input[str]] = None,
                               route_response_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResponseResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResponseResult]:
     """
     The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
 
@@ -138,7 +138,7 @@ def get_route_response_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['apiId'] = api_id
     __args__['routeId'] = route_id
     __args__['routeResponseId'] = route_response_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getRouteResponse', __args__, opts=opts, typ=GetRouteResponseResult)
     return __ret__.apply(lambda __response__: GetRouteResponseResult(
         model_selection_expression=pulumi.get(__response__, 'model_selection_expression'),

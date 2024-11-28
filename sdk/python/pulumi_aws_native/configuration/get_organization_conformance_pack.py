@@ -102,7 +102,7 @@ def get_organization_conformance_pack(organization_conformance_pack_name: Option
         delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'),
         excluded_accounts=pulumi.get(__ret__, 'excluded_accounts'))
 def get_organization_conformance_pack_output(organization_conformance_pack_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationConformancePackResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationConformancePackResult]:
     """
     Resource schema for AWS::Config::OrganizationConformancePack.
 
@@ -111,7 +111,7 @@ def get_organization_conformance_pack_output(organization_conformance_pack_name:
     """
     __args__ = dict()
     __args__['organizationConformancePackName'] = organization_conformance_pack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getOrganizationConformancePack', __args__, opts=opts, typ=GetOrganizationConformancePackResult)
     return __ret__.apply(lambda __response__: GetOrganizationConformancePackResult(
         conformance_pack_input_parameters=pulumi.get(__response__, 'conformance_pack_input_parameters'),

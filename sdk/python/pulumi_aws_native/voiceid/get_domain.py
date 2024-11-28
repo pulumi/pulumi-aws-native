@@ -76,7 +76,7 @@ def get_domain(domain_id: Optional[str] = None,
         domain_id=pulumi.get(__ret__, 'domain_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
 
@@ -85,7 +85,7 @@ def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domainId'] = domain_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:voiceid:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
         domain_id=pulumi.get(__response__, 'domain_id'),

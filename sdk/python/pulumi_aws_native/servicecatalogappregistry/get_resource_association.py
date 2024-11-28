@@ -84,7 +84,7 @@ def get_resource_association(application_arn: Optional[str] = None,
 def get_resource_association_output(application_arn: Optional[pulumi.Input[str]] = None,
                                     resource_arn: Optional[pulumi.Input[str]] = None,
                                     resource_type: Optional[pulumi.Input['ResourceAssociationResourceType']] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceAssociationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceAssociationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
 
@@ -97,7 +97,7 @@ def get_resource_association_output(application_arn: Optional[pulumi.Input[str]]
     __args__['applicationArn'] = application_arn
     __args__['resourceArn'] = resource_arn
     __args__['resourceType'] = resource_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalogappregistry:getResourceAssociation', __args__, opts=opts, typ=GetResourceAssociationResult)
     return __ret__.apply(lambda __response__: GetResourceAssociationResult(
         application_arn=pulumi.get(__response__, 'application_arn'),

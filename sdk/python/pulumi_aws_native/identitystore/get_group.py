@@ -92,7 +92,7 @@ def get_group(group_id: Optional[str] = None,
         group_id=pulumi.get(__ret__, 'group_id'))
 def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
                      identity_store_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Resource Type definition for AWS::IdentityStore::Group
 
@@ -103,7 +103,7 @@ def get_group_output(group_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['groupId'] = group_id
     __args__['identityStoreId'] = identity_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:identitystore:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         description=pulumi.get(__response__, 'description'),

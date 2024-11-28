@@ -99,7 +99,7 @@ def get_topic_rule(rule_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topic_rule_payload=pulumi.get(__ret__, 'topic_rule_payload'))
 def get_topic_rule_output(rule_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicRuleResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicRuleResult]:
     """
     Resource Type definition for AWS::IoT::TopicRule
 
@@ -110,7 +110,7 @@ def get_topic_rule_output(rule_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['ruleName'] = rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getTopicRule', __args__, opts=opts, typ=GetTopicRuleResult)
     return __ret__.apply(lambda __response__: GetTopicRuleResult(
         arn=pulumi.get(__response__, 'arn'),

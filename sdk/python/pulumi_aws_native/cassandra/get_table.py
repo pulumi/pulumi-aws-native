@@ -146,7 +146,7 @@ def get_table(keyspace_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_table_output(keyspace_name: Optional[pulumi.Input[str]] = None,
                      table_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Resource schema for AWS::Cassandra::Table
 
@@ -157,7 +157,7 @@ def get_table_output(keyspace_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['keyspaceName'] = keyspace_name
     __args__['tableName'] = table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cassandra:getTable', __args__, opts=opts, typ=GetTableResult)
     return __ret__.apply(lambda __response__: GetTableResult(
         billing_mode=pulumi.get(__response__, 'billing_mode'),

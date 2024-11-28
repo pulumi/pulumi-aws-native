@@ -173,7 +173,7 @@ def get_assessment(assessment_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_assessment_output(assessment_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssessmentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     An entity that defines the scope of audit evidence collected by AWS Audit Manager.
 
@@ -182,7 +182,7 @@ def get_assessment_output(assessment_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['assessmentId'] = assessment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:auditmanager:getAssessment', __args__, opts=opts, typ=GetAssessmentResult)
     return __ret__.apply(lambda __response__: GetAssessmentResult(
         arn=pulumi.get(__response__, 'arn'),

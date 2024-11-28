@@ -155,7 +155,7 @@ def get_mlflow_tracking_server(tracking_server_name: Optional[str] = None,
         tracking_server_size=pulumi.get(__ret__, 'tracking_server_size'),
         weekly_maintenance_window_start=pulumi.get(__ret__, 'weekly_maintenance_window_start'))
 def get_mlflow_tracking_server_output(tracking_server_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMlflowTrackingServerResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMlflowTrackingServerResult]:
     """
     Resource Type definition for AWS::SageMaker::MlflowTrackingServer
 
@@ -164,7 +164,7 @@ def get_mlflow_tracking_server_output(tracking_server_name: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['trackingServerName'] = tracking_server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getMlflowTrackingServer', __args__, opts=opts, typ=GetMlflowTrackingServerResult)
     return __ret__.apply(lambda __response__: GetMlflowTrackingServerResult(
         artifact_store_uri=pulumi.get(__response__, 'artifact_store_uri'),

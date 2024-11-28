@@ -128,7 +128,7 @@ def get_collection(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         standby_replicas=pulumi.get(__ret__, 'standby_replicas'))
 def get_collection_output(id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollectionResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollectionResult]:
     """
     Amazon OpenSearchServerless collection resource
 
@@ -137,7 +137,7 @@ def get_collection_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getCollection', __args__, opts=opts, typ=GetCollectionResult)
     return __ret__.apply(lambda __response__: GetCollectionResult(
         arn=pulumi.get(__response__, 'arn'),

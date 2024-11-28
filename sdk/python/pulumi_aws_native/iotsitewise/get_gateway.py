@@ -103,7 +103,7 @@ def get_gateway(gateway_id: Optional[str] = None,
         gateway_name=pulumi.get(__ret__, 'gateway_name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_gateway_output(gateway_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Resource schema for AWS::IoTSiteWise::Gateway
 
@@ -112,7 +112,7 @@ def get_gateway_output(gateway_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['gatewayId'] = gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
         gateway_capability_summaries=pulumi.get(__response__, 'gateway_capability_summaries'),

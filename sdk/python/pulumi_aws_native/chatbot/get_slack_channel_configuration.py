@@ -167,7 +167,7 @@ def get_slack_channel_configuration(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_role_required=pulumi.get(__ret__, 'user_role_required'))
 def get_slack_channel_configuration_output(arn: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlackChannelConfigurationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlackChannelConfigurationResult]:
     """
     Resource schema for AWS::Chatbot::SlackChannelConfiguration.
 
@@ -176,7 +176,7 @@ def get_slack_channel_configuration_output(arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:chatbot:getSlackChannelConfiguration', __args__, opts=opts, typ=GetSlackChannelConfigurationResult)
     return __ret__.apply(lambda __response__: GetSlackChannelConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

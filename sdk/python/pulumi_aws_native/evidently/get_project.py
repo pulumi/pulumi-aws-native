@@ -122,7 +122,7 @@ def get_project(arn: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_project_output(arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource Type definition for AWS::Evidently::Project
 
@@ -131,7 +131,7 @@ def get_project_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:evidently:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
         app_config_resource=pulumi.get(__response__, 'app_config_resource'),

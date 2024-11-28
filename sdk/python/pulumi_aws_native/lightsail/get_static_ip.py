@@ -101,7 +101,7 @@ def get_static_ip(static_ip_name: Optional[str] = None,
         is_attached=pulumi.get(__ret__, 'is_attached'),
         static_ip_arn=pulumi.get(__ret__, 'static_ip_arn'))
 def get_static_ip_output(static_ip_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticIpResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticIpResult]:
     """
     Resource Type definition for AWS::Lightsail::StaticIp
 
@@ -110,7 +110,7 @@ def get_static_ip_output(static_ip_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['staticIpName'] = static_ip_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getStaticIp', __args__, opts=opts, typ=GetStaticIpResult)
     return __ret__.apply(lambda __response__: GetStaticIpResult(
         attached_to=pulumi.get(__response__, 'attached_to'),

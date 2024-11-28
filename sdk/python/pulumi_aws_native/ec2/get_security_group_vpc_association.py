@@ -93,7 +93,7 @@ def get_security_group_vpc_association(group_id: Optional[str] = None,
         vpc_owner_id=pulumi.get(__ret__, 'vpc_owner_id'))
 def get_security_group_vpc_association_output(group_id: Optional[pulumi.Input[str]] = None,
                                               vpc_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupVpcAssociationResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupVpcAssociationResult]:
     """
     Resource type definition for the AWS::EC2::SecurityGroupVpcAssociation resource
 
@@ -104,7 +104,7 @@ def get_security_group_vpc_association_output(group_id: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['groupId'] = group_id
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSecurityGroupVpcAssociation', __args__, opts=opts, typ=GetSecurityGroupVpcAssociationResult)
     return __ret__.apply(lambda __response__: GetSecurityGroupVpcAssociationResult(
         state=pulumi.get(__response__, 'state'),

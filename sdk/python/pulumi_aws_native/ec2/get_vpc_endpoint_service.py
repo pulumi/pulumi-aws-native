@@ -114,7 +114,7 @@ def get_vpc_endpoint_service(service_id: Optional[str] = None,
         payer_responsibility=pulumi.get(__ret__, 'payer_responsibility'),
         service_id=pulumi.get(__ret__, 'service_id'))
 def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointService
 
@@ -123,7 +123,7 @@ def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['serviceId'] = service_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcEndpointService', __args__, opts=opts, typ=GetVpcEndpointServiceResult)
     return __ret__.apply(lambda __response__: GetVpcEndpointServiceResult(
         acceptance_required=pulumi.get(__response__, 'acceptance_required'),

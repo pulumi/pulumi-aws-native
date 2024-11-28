@@ -102,7 +102,7 @@ def get_carrier_gateway(carrier_gateway_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_carrier_gateway_output(carrier_gateway_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCarrierGatewayResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCarrierGatewayResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -111,7 +111,7 @@ def get_carrier_gateway_output(carrier_gateway_id: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['carrierGatewayId'] = carrier_gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getCarrierGateway', __args__, opts=opts, typ=GetCarrierGatewayResult)
     return __ret__.apply(lambda __response__: GetCarrierGatewayResult(
         carrier_gateway_id=pulumi.get(__response__, 'carrier_gateway_id'),

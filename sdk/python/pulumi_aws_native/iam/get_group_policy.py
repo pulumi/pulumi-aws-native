@@ -77,7 +77,7 @@ def get_group_policy(group_name: Optional[str] = None,
         policy_document=pulumi.get(__ret__, 'policy_document'))
 def get_group_policy_output(group_name: Optional[pulumi.Input[str]] = None,
                             policy_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupPolicyResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupPolicyResult]:
     """
     Adds or updates an inline policy document that is embedded in the specified IAM group.
      A group can also have managed policies attached to it. To attach a managed policy to a group, use [AWS::IAM::Group](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html). To create a new managed policy, use [AWS::IAM::ManagedPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html). For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
@@ -92,7 +92,7 @@ def get_group_policy_output(group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['policyName'] = policy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getGroupPolicy', __args__, opts=opts, typ=GetGroupPolicyResult)
     return __ret__.apply(lambda __response__: GetGroupPolicyResult(
         policy_document=pulumi.get(__response__, 'policy_document')))

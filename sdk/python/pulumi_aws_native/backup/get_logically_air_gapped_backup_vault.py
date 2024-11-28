@@ -137,7 +137,7 @@ def get_logically_air_gapped_backup_vault(backup_vault_name: Optional[str] = Non
         vault_state=pulumi.get(__ret__, 'vault_state'),
         vault_type=pulumi.get(__ret__, 'vault_type'))
 def get_logically_air_gapped_backup_vault_output(backup_vault_name: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogicallyAirGappedBackupVaultResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogicallyAirGappedBackupVaultResult]:
     """
     Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
 
@@ -146,7 +146,7 @@ def get_logically_air_gapped_backup_vault_output(backup_vault_name: Optional[pul
     """
     __args__ = dict()
     __args__['backupVaultName'] = backup_vault_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getLogicallyAirGappedBackupVault', __args__, opts=opts, typ=GetLogicallyAirGappedBackupVaultResult)
     return __ret__.apply(lambda __response__: GetLogicallyAirGappedBackupVaultResult(
         access_policy=pulumi.get(__response__, 'access_policy'),

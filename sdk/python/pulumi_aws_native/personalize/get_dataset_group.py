@@ -62,7 +62,7 @@ def get_dataset_group(dataset_group_arn: Optional[str] = None,
     return AwaitableGetDatasetGroupResult(
         dataset_group_arn=pulumi.get(__ret__, 'dataset_group_arn'))
 def get_dataset_group_output(dataset_group_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetGroupResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetGroupResult]:
     """
     Resource Schema for AWS::Personalize::DatasetGroup.
 
@@ -71,7 +71,7 @@ def get_dataset_group_output(dataset_group_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['datasetGroupArn'] = dataset_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:personalize:getDatasetGroup', __args__, opts=opts, typ=GetDatasetGroupResult)
     return __ret__.apply(lambda __response__: GetDatasetGroupResult(
         dataset_group_arn=pulumi.get(__response__, 'dataset_group_arn')))

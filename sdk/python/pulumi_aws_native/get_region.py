@@ -53,12 +53,12 @@ def get_region(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegio
 
     return AwaitableGetRegionResult(
         region=pulumi.get(__ret__, 'region'))
-def get_region_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegionResult]:
+def get_region_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegionResult]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:index:getRegion', __args__, opts=opts, typ=GetRegionResult)
     return __ret__.apply(lambda __response__: GetRegionResult(
         region=pulumi.get(__response__, 'region')))

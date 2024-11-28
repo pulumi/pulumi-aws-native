@@ -62,7 +62,7 @@ def get_job_template(job_template_id: Optional[str] = None,
     return AwaitableGetJobTemplateResult(
         arn=pulumi.get(__ret__, 'arn'))
 def get_job_template_output(job_template_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobTemplateResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobTemplateResult]:
     """
     Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
 
@@ -71,7 +71,7 @@ def get_job_template_output(job_template_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['jobTemplateId'] = job_template_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getJobTemplate', __args__, opts=opts, typ=GetJobTemplateResult)
     return __ret__.apply(lambda __response__: GetJobTemplateResult(
         arn=pulumi.get(__response__, 'arn')))

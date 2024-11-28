@@ -132,7 +132,7 @@ def get_slack_channel_configuration(channel_id: Optional[str] = None,
         notify_on_resolve_case=pulumi.get(__ret__, 'notify_on_resolve_case'))
 def get_slack_channel_configuration_output(channel_id: Optional[pulumi.Input[str]] = None,
                                            team_id: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSlackChannelConfigurationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSlackChannelConfigurationResult]:
     """
     An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
 
@@ -143,7 +143,7 @@ def get_slack_channel_configuration_output(channel_id: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['channelId'] = channel_id
     __args__['teamId'] = team_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:supportapp:getSlackChannelConfiguration', __args__, opts=opts, typ=GetSlackChannelConfigurationResult)
     return __ret__.apply(lambda __response__: GetSlackChannelConfigurationResult(
         channel_name=pulumi.get(__response__, 'channel_name'),

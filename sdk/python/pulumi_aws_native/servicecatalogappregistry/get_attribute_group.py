@@ -129,7 +129,7 @@ def get_attribute_group(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_attribute_group_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttributeGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttributeGroupResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroup.
 
@@ -138,7 +138,7 @@ def get_attribute_group_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalogappregistry:getAttributeGroup', __args__, opts=opts, typ=GetAttributeGroupResult)
     return __ret__.apply(lambda __response__: GetAttributeGroupResult(
         arn=pulumi.get(__response__, 'arn'),

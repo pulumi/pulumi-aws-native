@@ -198,7 +198,7 @@ def get_entity(entity_id: Optional[str] = None,
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
 def get_entity_output(entity_id: Optional[pulumi.Input[str]] = None,
                       workspace_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityResult]:
     """
     Resource schema for AWS::IoTTwinMaker::Entity
 
@@ -209,7 +209,7 @@ def get_entity_output(entity_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['entityId'] = entity_id
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iottwinmaker:getEntity', __args__, opts=opts, typ=GetEntityResult)
     return __ret__.apply(lambda __response__: GetEntityResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -296,7 +296,7 @@ def get_guardrail(guardrail_arn: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'),
         word_policy_config=pulumi.get(__ret__, 'word_policy_config'))
 def get_guardrail_output(guardrail_arn: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuardrailResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuardrailResult]:
     """
     Definition of AWS::Bedrock::Guardrail Resource Type
 
@@ -305,7 +305,7 @@ def get_guardrail_output(guardrail_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['guardrailArn'] = guardrail_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getGuardrail', __args__, opts=opts, typ=GetGuardrailResult)
     return __ret__.apply(lambda __response__: GetGuardrailResult(
         blocked_input_messaging=pulumi.get(__response__, 'blocked_input_messaging'),

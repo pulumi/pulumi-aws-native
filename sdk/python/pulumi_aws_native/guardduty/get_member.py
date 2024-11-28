@@ -79,7 +79,7 @@ def get_member(detector_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_member_output(detector_id: Optional[pulumi.Input[str]] = None,
                       member_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMemberResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMemberResult]:
     """
     Resource Type definition for AWS::GuardDuty::Member
 
@@ -90,7 +90,7 @@ def get_member_output(detector_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['detectorId'] = detector_id
     __args__['memberId'] = member_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:guardduty:getMember', __args__, opts=opts, typ=GetMemberResult)
     return __ret__.apply(lambda __response__: GetMemberResult(
         email=pulumi.get(__response__, 'email'),

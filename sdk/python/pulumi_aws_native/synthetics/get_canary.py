@@ -234,7 +234,7 @@ def get_canary(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
 def get_canary_output(name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCanaryResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCanaryResult]:
     """
     Resource Type definition for AWS::Synthetics::Canary
 
@@ -243,7 +243,7 @@ def get_canary_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:synthetics:getCanary', __args__, opts=opts, typ=GetCanaryResult)
     return __ret__.apply(lambda __response__: GetCanaryResult(
         artifact_config=pulumi.get(__response__, 'artifact_config'),

@@ -130,7 +130,7 @@ def get_package_group(arn: Optional[str] = None,
         origin_configuration=pulumi.get(__ret__, 'origin_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_package_group_output(arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageGroupResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageGroupResult]:
     """
     The resource schema to create a CodeArtifact package group.
 
@@ -139,7 +139,7 @@ def get_package_group_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codeartifact:getPackageGroup', __args__, opts=opts, typ=GetPackageGroupResult)
     return __ret__.apply(lambda __response__: GetPackageGroupResult(
         arn=pulumi.get(__response__, 'arn'),

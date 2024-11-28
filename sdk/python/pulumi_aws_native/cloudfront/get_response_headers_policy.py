@@ -92,7 +92,7 @@ def get_response_headers_policy(id: Optional[str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         response_headers_policy_config=pulumi.get(__ret__, 'response_headers_policy_config'))
 def get_response_headers_policy_output(id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResponseHeadersPolicyResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResponseHeadersPolicyResult]:
     """
     A response headers policy.
      A response headers policy contains information about a set of HTTP response headers.
@@ -104,7 +104,7 @@ def get_response_headers_policy_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getResponseHeadersPolicy', __args__, opts=opts, typ=GetResponseHeadersPolicyResult)
     return __ret__.apply(lambda __response__: GetResponseHeadersPolicyResult(
         id=pulumi.get(__response__, 'id'),

@@ -193,7 +193,7 @@ def get_composite_alarm(alarm_name: Optional[str] = None,
         ok_actions=pulumi.get(__ret__, 'ok_actions'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_composite_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCompositeAlarmResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCompositeAlarmResult]:
     """
     The AWS::CloudWatch::CompositeAlarm type specifies an alarm which aggregates the states of other Alarms (Metric or Composite Alarms) as defined by the AlarmRule expression
 
@@ -202,7 +202,7 @@ def get_composite_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['alarmName'] = alarm_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getCompositeAlarm', __args__, opts=opts, typ=GetCompositeAlarmResult)
     return __ret__.apply(lambda __response__: GetCompositeAlarmResult(
         actions_enabled=pulumi.get(__response__, 'actions_enabled'),

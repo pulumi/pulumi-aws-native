@@ -169,7 +169,7 @@ def get_data_migration(data_migration_arn: Optional[str] = None,
         source_data_settings=pulumi.get(__ret__, 'source_data_settings'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_migration_output(data_migration_arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataMigrationResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataMigrationResult]:
     """
     Resource schema for AWS::DMS::DataMigration.
 
@@ -178,7 +178,7 @@ def get_data_migration_output(data_migration_arn: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['dataMigrationArn'] = data_migration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:dms:getDataMigration', __args__, opts=opts, typ=GetDataMigrationResult)
     return __ret__.apply(lambda __response__: GetDataMigrationResult(
         data_migration_arn=pulumi.get(__response__, 'data_migration_arn'),

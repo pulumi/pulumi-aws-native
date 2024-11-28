@@ -79,7 +79,7 @@ def get_private_graph_endpoint(private_graph_endpoint_identifier: Optional[str] 
         private_graph_endpoint_identifier=pulumi.get(__ret__, 'private_graph_endpoint_identifier'),
         vpc_endpoint_id=pulumi.get(__ret__, 'vpc_endpoint_id'))
 def get_private_graph_endpoint_output(private_graph_endpoint_identifier: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateGraphEndpointResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateGraphEndpointResult]:
     """
     The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.
 
@@ -90,7 +90,7 @@ def get_private_graph_endpoint_output(private_graph_endpoint_identifier: Optiona
     """
     __args__ = dict()
     __args__['privateGraphEndpointIdentifier'] = private_graph_endpoint_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:neptunegraph:getPrivateGraphEndpoint', __args__, opts=opts, typ=GetPrivateGraphEndpointResult)
     return __ret__.apply(lambda __response__: GetPrivateGraphEndpointResult(
         private_graph_endpoint_identifier=pulumi.get(__response__, 'private_graph_endpoint_identifier'),

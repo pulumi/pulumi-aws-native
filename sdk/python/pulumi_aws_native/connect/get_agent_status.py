@@ -194,7 +194,7 @@ def get_agent_status(agent_status_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_agent_status_output(agent_status_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentStatusResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentStatusResult]:
     """
     Resource Type definition for AWS::Connect::AgentStatus
 
@@ -203,7 +203,7 @@ def get_agent_status_output(agent_status_arn: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['agentStatusArn'] = agent_status_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getAgentStatus', __args__, opts=opts, typ=GetAgentStatusResult)
     return __ret__.apply(lambda __response__: GetAgentStatusResult(
         agent_status_arn=pulumi.get(__response__, 'agent_status_arn'),

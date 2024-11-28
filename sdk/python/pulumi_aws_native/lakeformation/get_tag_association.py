@@ -79,7 +79,7 @@ def get_tag_association(resource_identifier: Optional[str] = None,
         tags_identifier=pulumi.get(__ret__, 'tags_identifier'))
 def get_tag_association_output(resource_identifier: Optional[pulumi.Input[str]] = None,
                                tags_identifier: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagAssociationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagAssociationResult]:
     """
     A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
 
@@ -90,7 +90,7 @@ def get_tag_association_output(resource_identifier: Optional[pulumi.Input[str]] 
     __args__ = dict()
     __args__['resourceIdentifier'] = resource_identifier
     __args__['tagsIdentifier'] = tags_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lakeformation:getTagAssociation', __args__, opts=opts, typ=GetTagAssociationResult)
     return __ret__.apply(lambda __response__: GetTagAssociationResult(
         resource_identifier=pulumi.get(__response__, 'resource_identifier'),

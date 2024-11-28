@@ -64,7 +64,7 @@ def get_queue_inline_policy(queue: Optional[str] = None,
     return AwaitableGetQueueInlinePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
 def get_queue_inline_policy_output(queue: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueInlinePolicyResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueInlinePolicyResult]:
     """
     Schema for SQS QueueInlinePolicy
 
@@ -73,7 +73,7 @@ def get_queue_inline_policy_output(queue: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['queue'] = queue
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sqs:getQueueInlinePolicy', __args__, opts=opts, typ=GetQueueInlinePolicyResult)
     return __ret__.apply(lambda __response__: GetQueueInlinePolicyResult(
         policy_document=pulumi.get(__response__, 'policy_document')))

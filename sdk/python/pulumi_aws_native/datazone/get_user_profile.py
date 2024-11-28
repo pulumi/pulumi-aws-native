@@ -117,7 +117,7 @@ def get_user_profile(domain_id: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_user_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
                             id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserProfileResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserProfileResult]:
     """
     A user profile represents Amazon DataZone users. Amazon DataZone supports both IAM roles and SSO identities to interact with the Amazon DataZone Management Console and the data portal for different purposes. Domain administrators use IAM roles to perform the initial administrative domain-related work in the Amazon DataZone Management Console, including creating new Amazon DataZone domains, configuring metadata form types, and implementing policies. Data workers use their SSO corporate identities via Identity Center to log into the Amazon DataZone Data Portal and access projects where they have memberships.
 
@@ -128,7 +128,7 @@ def get_user_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getUserProfile', __args__, opts=opts, typ=GetUserProfileResult)
     return __ret__.apply(lambda __response__: GetUserProfileResult(
         details=pulumi.get(__response__, 'details'),

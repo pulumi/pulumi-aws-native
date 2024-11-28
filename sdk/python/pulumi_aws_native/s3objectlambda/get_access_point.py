@@ -122,7 +122,7 @@ def get_access_point(name: Optional[str] = None,
         policy_status=pulumi.get(__ret__, 'policy_status'),
         public_access_block_configuration=pulumi.get(__ret__, 'public_access_block_configuration'))
 def get_access_point_output(name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
 
@@ -131,7 +131,7 @@ def get_access_point_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3objectlambda:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
     return __ret__.apply(lambda __response__: GetAccessPointResult(
         alias=pulumi.get(__response__, 'alias'),

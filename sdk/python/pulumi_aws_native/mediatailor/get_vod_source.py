@@ -95,7 +95,7 @@ def get_vod_source(source_location_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_vod_source_output(source_location_name: Optional[pulumi.Input[str]] = None,
                           vod_source_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVodSourceResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVodSourceResult]:
     """
     Definition of AWS::MediaTailor::VodSource Resource Type
 
@@ -106,7 +106,7 @@ def get_vod_source_output(source_location_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['sourceLocationName'] = source_location_name
     __args__['vodSourceName'] = vod_source_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getVodSource', __args__, opts=opts, typ=GetVodSourceResult)
     return __ret__.apply(lambda __response__: GetVodSourceResult(
         arn=pulumi.get(__response__, 'arn'),

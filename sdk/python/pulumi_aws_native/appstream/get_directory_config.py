@@ -89,7 +89,7 @@ def get_directory_config(directory_name: Optional[str] = None,
         organizational_unit_distinguished_names=pulumi.get(__ret__, 'organizational_unit_distinguished_names'),
         service_account_credentials=pulumi.get(__ret__, 'service_account_credentials'))
 def get_directory_config_output(directory_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryConfigResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryConfigResult]:
     """
     Resource Type definition for AWS::AppStream::DirectoryConfig
 
@@ -98,7 +98,7 @@ def get_directory_config_output(directory_name: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['directoryName'] = directory_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appstream:getDirectoryConfig', __args__, opts=opts, typ=GetDirectoryConfigResult)
     return __ret__.apply(lambda __response__: GetDirectoryConfigResult(
         certificate_based_auth_properties=pulumi.get(__response__, 'certificate_based_auth_properties'),

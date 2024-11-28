@@ -135,7 +135,7 @@ def get_software_package_version(package_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_software_package_version_output(package_name: Optional[pulumi.Input[str]] = None,
                                         version_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoftwarePackageVersionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwarePackageVersionResult]:
     """
     resource definition
 
@@ -146,7 +146,7 @@ def get_software_package_version_output(package_name: Optional[pulumi.Input[str]
     __args__ = dict()
     __args__['packageName'] = package_name
     __args__['versionName'] = version_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getSoftwarePackageVersion', __args__, opts=opts, typ=GetSoftwarePackageVersionResult)
     return __ret__.apply(lambda __response__: GetSoftwarePackageVersionResult(
         attributes=pulumi.get(__response__, 'attributes'),

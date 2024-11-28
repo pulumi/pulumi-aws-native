@@ -169,7 +169,7 @@ def get_prefix_list(prefix_list_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_prefix_list_output(prefix_list_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixListResult]:
     """
     Resource schema of AWS::EC2::PrefixList Type
 
@@ -178,7 +178,7 @@ def get_prefix_list_output(prefix_list_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['prefixListId'] = prefix_list_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getPrefixList', __args__, opts=opts, typ=GetPrefixListResult)
     return __ret__.apply(lambda __response__: GetPrefixListResult(
         address_family=pulumi.get(__response__, 'address_family'),

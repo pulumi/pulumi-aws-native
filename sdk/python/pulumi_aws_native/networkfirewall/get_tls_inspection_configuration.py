@@ -117,7 +117,7 @@ def get_tls_inspection_configuration(tls_inspection_configuration_arn: Optional[
         tls_inspection_configuration_arn=pulumi.get(__ret__, 'tls_inspection_configuration_arn'),
         tls_inspection_configuration_id=pulumi.get(__ret__, 'tls_inspection_configuration_id'))
 def get_tls_inspection_configuration_output(tls_inspection_configuration_arn: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTlsInspectionConfigurationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTlsInspectionConfigurationResult]:
     """
     Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
 
@@ -126,7 +126,7 @@ def get_tls_inspection_configuration_output(tls_inspection_configuration_arn: Op
     """
     __args__ = dict()
     __args__['tlsInspectionConfigurationArn'] = tls_inspection_configuration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getTlsInspectionConfiguration', __args__, opts=opts, typ=GetTlsInspectionConfigurationResult)
     return __ret__.apply(lambda __response__: GetTlsInspectionConfigurationResult(
         description=pulumi.get(__response__, 'description'),

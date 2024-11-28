@@ -140,7 +140,7 @@ def get_app_monitor(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_app_monitor_output(name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppMonitorResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppMonitorResult]:
     """
     Resource Type definition for AWS::RUM::AppMonitor
 
@@ -149,7 +149,7 @@ def get_app_monitor_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rum:getAppMonitor', __args__, opts=opts, typ=GetAppMonitorResult)
     return __ret__.apply(lambda __response__: GetAppMonitorResult(
         app_monitor_configuration=pulumi.get(__response__, 'app_monitor_configuration'),

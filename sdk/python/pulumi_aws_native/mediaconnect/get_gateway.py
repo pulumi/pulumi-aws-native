@@ -76,7 +76,7 @@ def get_gateway(gateway_arn: Optional[str] = None,
         gateway_arn=pulumi.get(__ret__, 'gateway_arn'),
         gateway_state=pulumi.get(__ret__, 'gateway_state'))
 def get_gateway_output(gateway_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Resource schema for AWS::MediaConnect::Gateway
 
@@ -85,7 +85,7 @@ def get_gateway_output(gateway_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['gatewayArn'] = gateway_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getGateway', __args__, opts=opts, typ=GetGatewayResult)
     return __ret__.apply(lambda __response__: GetGatewayResult(
         gateway_arn=pulumi.get(__response__, 'gateway_arn'),

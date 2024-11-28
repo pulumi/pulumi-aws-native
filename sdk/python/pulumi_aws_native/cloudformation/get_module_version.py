@@ -158,7 +158,7 @@ def get_module_version(arn: Optional[str] = None,
         version_id=pulumi.get(__ret__, 'version_id'),
         visibility=pulumi.get(__ret__, 'visibility'))
 def get_module_version_output(arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModuleVersionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModuleVersionResult]:
     """
     A module that has been registered in the CloudFormation registry.
 
@@ -167,7 +167,7 @@ def get_module_version_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getModuleVersion', __args__, opts=opts, typ=GetModuleVersionResult)
     return __ret__.apply(lambda __response__: GetModuleVersionResult(
         arn=pulumi.get(__response__, 'arn'),

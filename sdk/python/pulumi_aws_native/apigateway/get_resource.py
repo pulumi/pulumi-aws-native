@@ -66,7 +66,7 @@ def get_resource(resource_id: Optional[str] = None,
         resource_id=pulumi.get(__ret__, 'resource_id'))
 def get_resource_output(resource_id: Optional[pulumi.Input[str]] = None,
                         rest_api_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceResult]:
     """
     The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
 
@@ -77,7 +77,7 @@ def get_resource_output(resource_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['resourceId'] = resource_id
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getResource', __args__, opts=opts, typ=GetResourceResult)
     return __ret__.apply(lambda __response__: GetResourceResult(
         resource_id=pulumi.get(__response__, 'resource_id')))

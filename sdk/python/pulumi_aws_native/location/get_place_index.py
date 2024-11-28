@@ -168,7 +168,7 @@ def get_place_index(index_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaceIndexResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaceIndexResult]:
     """
     Definition of AWS::Location::PlaceIndex Resource Type
 
@@ -183,7 +183,7 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['indexName'] = index_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:location:getPlaceIndex', __args__, opts=opts, typ=GetPlaceIndexResult)
     return __ret__.apply(lambda __response__: GetPlaceIndexResult(
         arn=pulumi.get(__response__, 'arn'),

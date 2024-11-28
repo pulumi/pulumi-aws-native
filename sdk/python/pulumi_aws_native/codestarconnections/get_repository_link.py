@@ -129,7 +129,7 @@ def get_repository_link(repository_link_arn: Optional[str] = None,
         repository_link_id=pulumi.get(__ret__, 'repository_link_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_repository_link_output(repository_link_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryLinkResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryLinkResult]:
     """
     Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
 
@@ -138,7 +138,7 @@ def get_repository_link_output(repository_link_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['repositoryLinkArn'] = repository_link_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codestarconnections:getRepositoryLink', __args__, opts=opts, typ=GetRepositoryLinkResult)
     return __ret__.apply(lambda __response__: GetRepositoryLinkResult(
         connection_arn=pulumi.get(__response__, 'connection_arn'),

@@ -138,7 +138,7 @@ def get_server(server_name: Optional[str] = None,
         preferred_backup_window=pulumi.get(__ret__, 'preferred_backup_window'),
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'))
 def get_server_output(server_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Resource Type definition for AWS::OpsWorksCM::Server
 
@@ -147,7 +147,7 @@ def get_server_output(server_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['serverName'] = server_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:opsworkscm:getServer', __args__, opts=opts, typ=GetServerResult)
     return __ret__.apply(lambda __response__: GetServerResult(
         arn=pulumi.get(__response__, 'arn'),

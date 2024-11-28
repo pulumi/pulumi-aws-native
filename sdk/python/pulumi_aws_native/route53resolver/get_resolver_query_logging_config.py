@@ -154,7 +154,7 @@ def get_resolver_query_logging_config(id: Optional[str] = None,
         share_status=pulumi.get(__ret__, 'share_status'),
         status=pulumi.get(__ret__, 'status'))
 def get_resolver_query_logging_config_output(id: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverQueryLoggingConfigResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverQueryLoggingConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfig.
 
@@ -163,7 +163,7 @@ def get_resolver_query_logging_config_output(id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverQueryLoggingConfig', __args__, opts=opts, typ=GetResolverQueryLoggingConfigResult)
     return __ret__.apply(lambda __response__: GetResolverQueryLoggingConfigResult(
         arn=pulumi.get(__response__, 'arn'),

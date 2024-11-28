@@ -169,7 +169,7 @@ def get_view(view_arn: Optional[str] = None,
         view_content_sha256=pulumi.get(__ret__, 'view_content_sha256'),
         view_id=pulumi.get(__ret__, 'view_id'))
 def get_view_output(view_arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Resource Type definition for AWS::Connect::View
 
@@ -178,7 +178,7 @@ def get_view_output(view_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['viewArn'] = view_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getView', __args__, opts=opts, typ=GetViewResult)
     return __ret__.apply(lambda __response__: GetViewResult(
         actions=pulumi.get(__response__, 'actions'),

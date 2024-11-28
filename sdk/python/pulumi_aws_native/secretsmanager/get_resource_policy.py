@@ -77,7 +77,7 @@ def get_resource_policy(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         resource_policy=pulumi.get(__ret__, 'resource_policy'))
 def get_resource_policy_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Resource Type definition for AWS::SecretsManager::ResourcePolicy
 
@@ -86,7 +86,7 @@ def get_resource_policy_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:secretsmanager:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult)
     return __ret__.apply(lambda __response__: GetResourcePolicyResult(
         id=pulumi.get(__response__, 'id'),

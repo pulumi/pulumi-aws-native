@@ -119,7 +119,7 @@ def get_ai_prompt(ai_prompt_id: Optional[str] = None,
         template_configuration=pulumi.get(__ret__, 'template_configuration'))
 def get_ai_prompt_output(ai_prompt_id: Optional[pulumi.Input[str]] = None,
                          assistant_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAiPromptResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiPromptResult]:
     """
     Definition of AWS::Wisdom::AIPrompt Resource Type
 
@@ -130,7 +130,7 @@ def get_ai_prompt_output(ai_prompt_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['aiPromptId'] = ai_prompt_id
     __args__['assistantId'] = assistant_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getAiPrompt', __args__, opts=opts, typ=GetAiPromptResult)
     return __ret__.apply(lambda __response__: GetAiPromptResult(
         ai_prompt_arn=pulumi.get(__response__, 'ai_prompt_arn'),

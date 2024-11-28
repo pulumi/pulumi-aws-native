@@ -103,7 +103,7 @@ def get_dataset(name: Optional[str] = None,
         input=pulumi.get(__ret__, 'input'),
         path_options=pulumi.get(__ret__, 'path_options'))
 def get_dataset_output(name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource schema for AWS::DataBrew::Dataset.
 
@@ -112,7 +112,7 @@ def get_dataset_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getDataset', __args__, opts=opts, typ=GetDatasetResult)
     return __ret__.apply(lambda __response__: GetDatasetResult(
         format=pulumi.get(__response__, 'format'),

@@ -102,7 +102,7 @@ def get_connector(connector_label: Optional[str] = None,
         connector_provisioning_type=pulumi.get(__ret__, 'connector_provisioning_type'),
         description=pulumi.get(__ret__, 'description'))
 def get_connector_output(connector_label: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Resource schema for AWS::AppFlow::Connector
 
@@ -111,7 +111,7 @@ def get_connector_output(connector_label: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['connectorLabel'] = connector_label
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appflow:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
         connector_arn=pulumi.get(__response__, 'connector_arn'),

@@ -103,7 +103,7 @@ def get_resource_default_version(arn: Optional[str] = None,
         type_version_arn=pulumi.get(__ret__, 'type_version_arn'),
         version_id=pulumi.get(__ret__, 'version_id'))
 def get_resource_default_version_output(arn: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceDefaultVersionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceDefaultVersionResult]:
     """
     The default version of a resource that has been registered in the CloudFormation Registry.
 
@@ -112,7 +112,7 @@ def get_resource_default_version_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getResourceDefaultVersion', __args__, opts=opts, typ=GetResourceDefaultVersionResult)
     return __ret__.apply(lambda __response__: GetResourceDefaultVersionResult(
         arn=pulumi.get(__response__, 'arn'),

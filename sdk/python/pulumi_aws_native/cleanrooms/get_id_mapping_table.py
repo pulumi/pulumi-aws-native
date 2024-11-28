@@ -163,7 +163,7 @@ def get_id_mapping_table(id_mapping_table_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_id_mapping_table_output(id_mapping_table_identifier: Optional[pulumi.Input[str]] = None,
                                 membership_identifier: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdMappingTableResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdMappingTableResult]:
     """
     Represents an association between an ID mapping workflow and a collaboration
 
@@ -173,7 +173,7 @@ def get_id_mapping_table_output(id_mapping_table_identifier: Optional[pulumi.Inp
     __args__ = dict()
     __args__['idMappingTableIdentifier'] = id_mapping_table_identifier
     __args__['membershipIdentifier'] = membership_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getIdMappingTable', __args__, opts=opts, typ=GetIdMappingTableResult)
     return __ret__.apply(lambda __response__: GetIdMappingTableResult(
         arn=pulumi.get(__response__, 'arn'),

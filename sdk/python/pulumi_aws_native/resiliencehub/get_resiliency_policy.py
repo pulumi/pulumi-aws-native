@@ -142,7 +142,7 @@ def get_resiliency_policy(policy_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'))
 def get_resiliency_policy_output(policy_arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResiliencyPolicyResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResiliencyPolicyResult]:
     """
     Resource Type Definition for Resiliency Policy.
 
@@ -151,7 +151,7 @@ def get_resiliency_policy_output(policy_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['policyArn'] = policy_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:resiliencehub:getResiliencyPolicy', __args__, opts=opts, typ=GetResiliencyPolicyResult)
     return __ret__.apply(lambda __response__: GetResiliencyPolicyResult(
         data_location_constraint=pulumi.get(__response__, 'data_location_constraint'),

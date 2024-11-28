@@ -62,7 +62,7 @@ def get_tag(tag_key: Optional[str] = None,
     return AwaitableGetTagResult(
         tag_values=pulumi.get(__ret__, 'tag_values'))
 def get_tag_output(tag_key: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagResult]:
     """
     A resource schema representing a Lake Formation Tag.
 
@@ -71,7 +71,7 @@ def get_tag_output(tag_key: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['tagKey'] = tag_key
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lakeformation:getTag', __args__, opts=opts, typ=GetTagResult)
     return __ret__.apply(lambda __response__: GetTagResult(
         tag_values=pulumi.get(__response__, 'tag_values')))

@@ -115,7 +115,7 @@ def get_datastore(datastore_id: Optional[str] = None,
         datastore_status=pulumi.get(__ret__, 'datastore_status'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Definition of AWS::HealthImaging::Datastore Resource Type
 
@@ -124,7 +124,7 @@ def get_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['datastoreId'] = datastore_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:healthimaging:getDatastore', __args__, opts=opts, typ=GetDatastoreResult)
     return __ret__.apply(lambda __response__: GetDatastoreResult(
         created_at=pulumi.get(__response__, 'created_at'),

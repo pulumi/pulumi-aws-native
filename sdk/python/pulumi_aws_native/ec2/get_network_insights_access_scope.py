@@ -115,7 +115,7 @@ def get_network_insights_access_scope(network_insights_access_scope_id: Optional
         tags=pulumi.get(__ret__, 'tags'),
         updated_date=pulumi.get(__ret__, 'updated_date'))
 def get_network_insights_access_scope_output(network_insights_access_scope_id: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScope
 
@@ -124,7 +124,7 @@ def get_network_insights_access_scope_output(network_insights_access_scope_id: O
     """
     __args__ = dict()
     __args__['networkInsightsAccessScopeId'] = network_insights_access_scope_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInsightsAccessScope', __args__, opts=opts, typ=GetNetworkInsightsAccessScopeResult)
     return __ret__.apply(lambda __response__: GetNetworkInsightsAccessScopeResult(
         created_date=pulumi.get(__response__, 'created_date'),

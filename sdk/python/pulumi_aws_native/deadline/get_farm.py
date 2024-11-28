@@ -117,7 +117,7 @@ def get_farm(arn: Optional[str] = None,
         farm_id=pulumi.get(__ret__, 'farm_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_farm_output(arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFarmResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFarmResult]:
     """
     Definition of AWS::Deadline::Farm Resource Type
 
@@ -126,7 +126,7 @@ def get_farm_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getFarm', __args__, opts=opts, typ=GetFarmResult)
     return __ret__.apply(lambda __response__: GetFarmResult(
         arn=pulumi.get(__response__, 'arn'),

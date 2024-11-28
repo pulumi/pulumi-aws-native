@@ -116,7 +116,7 @@ def get_transit_gateway_peering_attachment(transit_gateway_attachment_id: Option
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'))
 def get_transit_gateway_peering_attachment_output(transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayPeeringAttachmentResult]:
+                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayPeeringAttachmentResult]:
     """
     The AWS::EC2::TransitGatewayPeeringAttachment type
 
@@ -125,7 +125,7 @@ def get_transit_gateway_peering_attachment_output(transit_gateway_attachment_id:
     """
     __args__ = dict()
     __args__['transitGatewayAttachmentId'] = transit_gateway_attachment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayPeeringAttachment', __args__, opts=opts, typ=GetTransitGatewayPeeringAttachmentResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayPeeringAttachmentResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

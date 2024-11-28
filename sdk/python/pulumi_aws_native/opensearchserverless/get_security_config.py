@@ -99,7 +99,7 @@ def get_security_config(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         saml_options=pulumi.get(__ret__, 'saml_options'))
 def get_security_config_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityConfigResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityConfigResult]:
     """
     Amazon OpenSearchServerless security config resource
 
@@ -108,7 +108,7 @@ def get_security_config_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getSecurityConfig', __args__, opts=opts, typ=GetSecurityConfigResult)
     return __ret__.apply(lambda __response__: GetSecurityConfigResult(
         description=pulumi.get(__response__, 'description'),

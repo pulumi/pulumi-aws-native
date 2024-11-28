@@ -155,7 +155,7 @@ def get_notification_rule(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_notification_rule_output(arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationRuleResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationRuleResult]:
     """
     Resource Type definition for AWS::CodeStarNotifications::NotificationRule
 
@@ -164,7 +164,7 @@ def get_notification_rule_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codestarnotifications:getNotificationRule', __args__, opts=opts, typ=GetNotificationRuleResult)
     return __ret__.apply(lambda __response__: GetNotificationRuleResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -403,7 +403,7 @@ def get_instance(instance_id: Optional[str] = None,
         volumes=pulumi.get(__ret__, 'volumes'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_instance_output(instance_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Resource Type definition for AWS::EC2::Instance
 
@@ -412,7 +412,7 @@ def get_instance_output(instance_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['instanceId'] = instance_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getInstance', __args__, opts=opts, typ=GetInstanceResult)
     return __ret__.apply(lambda __response__: GetInstanceResult(
         affinity=pulumi.get(__response__, 'affinity'),

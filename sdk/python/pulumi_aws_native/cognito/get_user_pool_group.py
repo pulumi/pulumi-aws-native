@@ -96,7 +96,7 @@ def get_user_pool_group(group_name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_user_pool_group_output(group_name: Optional[pulumi.Input[str]] = None,
                                user_pool_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolGroupResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolGroup
 
@@ -107,7 +107,7 @@ def get_user_pool_group_output(group_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolGroup', __args__, opts=opts, typ=GetUserPoolGroupResult)
     return __ret__.apply(lambda __response__: GetUserPoolGroupResult(
         description=pulumi.get(__response__, 'description'),

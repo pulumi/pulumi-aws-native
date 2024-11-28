@@ -76,7 +76,7 @@ def get_image_recipe(arn: Optional[str] = None,
         additional_instance_configuration=pulumi.get(__ret__, 'additional_instance_configuration'),
         arn=pulumi.get(__ret__, 'arn'))
 def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageRecipeResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRecipeResult]:
     """
     Resource schema for AWS::ImageBuilder::ImageRecipe
 
@@ -85,7 +85,7 @@ def get_image_recipe_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getImageRecipe', __args__, opts=opts, typ=GetImageRecipeResult)
     return __ret__.apply(lambda __response__: GetImageRecipeResult(
         additional_instance_configuration=pulumi.get(__response__, 'additional_instance_configuration'),

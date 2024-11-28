@@ -89,7 +89,7 @@ def get_client_certificate(client_certificate_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_client_certificate_output(client_certificate_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientCertificateResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClientCertificateResult]:
     """
     The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
 
@@ -98,7 +98,7 @@ def get_client_certificate_output(client_certificate_id: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['clientCertificateId'] = client_certificate_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getClientCertificate', __args__, opts=opts, typ=GetClientCertificateResult)
     return __ret__.apply(lambda __response__: GetClientCertificateResult(
         client_certificate_id=pulumi.get(__response__, 'client_certificate_id'),

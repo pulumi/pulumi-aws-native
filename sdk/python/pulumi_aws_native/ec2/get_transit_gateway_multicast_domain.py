@@ -129,7 +129,7 @@ def get_transit_gateway_multicast_domain(transit_gateway_multicast_domain_id: Op
         transit_gateway_multicast_domain_arn=pulumi.get(__ret__, 'transit_gateway_multicast_domain_arn'),
         transit_gateway_multicast_domain_id=pulumi.get(__ret__, 'transit_gateway_multicast_domain_id'))
 def get_transit_gateway_multicast_domain_output(transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayMulticastDomainResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayMulticastDomainResult]:
     """
     The AWS::EC2::TransitGatewayMulticastDomain type
 
@@ -138,7 +138,7 @@ def get_transit_gateway_multicast_domain_output(transit_gateway_multicast_domain
     """
     __args__ = dict()
     __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayMulticastDomain', __args__, opts=opts, typ=GetTransitGatewayMulticastDomainResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayMulticastDomainResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

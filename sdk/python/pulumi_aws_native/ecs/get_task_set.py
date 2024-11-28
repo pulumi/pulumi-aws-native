@@ -109,7 +109,7 @@ def get_task_set(cluster: Optional[str] = None,
 def get_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
                         id: Optional[pulumi.Input[str]] = None,
                         service: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskSetResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskSetResult]:
     """
     Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
 
@@ -122,7 +122,7 @@ def get_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
     __args__['cluster'] = cluster
     __args__['id'] = id
     __args__['service'] = service
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getTaskSet', __args__, opts=opts, typ=GetTaskSetResult)
     return __ret__.apply(lambda __response__: GetTaskSetResult(
         id=pulumi.get(__response__, 'id'),

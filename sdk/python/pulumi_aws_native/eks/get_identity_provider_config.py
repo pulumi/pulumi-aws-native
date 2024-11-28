@@ -85,7 +85,7 @@ def get_identity_provider_config(cluster_name: Optional[str] = None,
 def get_identity_provider_config_output(cluster_name: Optional[pulumi.Input[str]] = None,
                                         identity_provider_config_name: Optional[pulumi.Input[str]] = None,
                                         type: Optional[pulumi.Input['IdentityProviderConfigType']] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderConfigResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityProviderConfigResult]:
     """
     An object representing an Amazon EKS IdentityProviderConfig.
 
@@ -98,7 +98,7 @@ def get_identity_provider_config_output(cluster_name: Optional[pulumi.Input[str]
     __args__['clusterName'] = cluster_name
     __args__['identityProviderConfigName'] = identity_provider_config_name
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getIdentityProviderConfig', __args__, opts=opts, typ=GetIdentityProviderConfigResult)
     return __ret__.apply(lambda __response__: GetIdentityProviderConfigResult(
         identity_provider_config_arn=pulumi.get(__response__, 'identity_provider_config_arn'),

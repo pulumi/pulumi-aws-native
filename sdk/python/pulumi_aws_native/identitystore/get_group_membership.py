@@ -66,7 +66,7 @@ def get_group_membership(identity_store_id: Optional[str] = None,
         membership_id=pulumi.get(__ret__, 'membership_id'))
 def get_group_membership_output(identity_store_id: Optional[pulumi.Input[str]] = None,
                                 membership_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupMembershipResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupMembershipResult]:
     """
     Resource Type Definition for AWS:IdentityStore::GroupMembership
 
@@ -77,7 +77,7 @@ def get_group_membership_output(identity_store_id: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['identityStoreId'] = identity_store_id
     __args__['membershipId'] = membership_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:identitystore:getGroupMembership', __args__, opts=opts, typ=GetGroupMembershipResult)
     return __ret__.apply(lambda __response__: GetGroupMembershipResult(
         membership_id=pulumi.get(__response__, 'membership_id')))

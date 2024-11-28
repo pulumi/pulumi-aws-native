@@ -89,7 +89,7 @@ def get_dimension(name: Optional[str] = None,
         string_values=pulumi.get(__ret__, 'string_values'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_dimension_output(name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDimensionResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDimensionResult]:
     """
     A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
 
@@ -98,7 +98,7 @@ def get_dimension_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getDimension', __args__, opts=opts, typ=GetDimensionResult)
     return __ret__.apply(lambda __response__: GetDimensionResult(
         arn=pulumi.get(__response__, 'arn'),

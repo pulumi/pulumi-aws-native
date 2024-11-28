@@ -158,7 +158,7 @@ def get_safety_rule(safety_rule_arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_safety_rule_output(safety_rule_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSafetyRuleResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSafetyRuleResult]:
     """
     Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
 
@@ -167,7 +167,7 @@ def get_safety_rule_output(safety_rule_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['safetyRuleArn'] = safety_rule_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoverycontrol:getSafetyRule', __args__, opts=opts, typ=GetSafetyRuleResult)
     return __ret__.apply(lambda __response__: GetSafetyRuleResult(
         assertion_rule=pulumi.get(__response__, 'assertion_rule'),

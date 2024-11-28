@@ -94,14 +94,14 @@ def get_managed_login_branding(managed_login_branding_id: Optional[str] = None,
         use_cognito_provided_values=pulumi.get(__ret__, 'use_cognito_provided_values'))
 def get_managed_login_branding_output(managed_login_branding_id: Optional[pulumi.Input[str]] = None,
                                       user_pool_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedLoginBrandingResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedLoginBrandingResult]:
     """
     Resource Type definition for AWS::Cognito::ManagedLoginBranding
     """
     __args__ = dict()
     __args__['managedLoginBrandingId'] = managed_login_branding_id
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getManagedLoginBranding', __args__, opts=opts, typ=GetManagedLoginBrandingResult)
     return __ret__.apply(lambda __response__: GetManagedLoginBrandingResult(
         assets=pulumi.get(__response__, 'assets'),

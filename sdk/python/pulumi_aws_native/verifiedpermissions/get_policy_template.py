@@ -92,7 +92,7 @@ def get_policy_template(policy_store_id: Optional[str] = None,
         statement=pulumi.get(__ret__, 'statement'))
 def get_policy_template_output(policy_store_id: Optional[pulumi.Input[str]] = None,
                                policy_template_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyTemplateResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyTemplateResult]:
     """
     Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
 
@@ -103,7 +103,7 @@ def get_policy_template_output(policy_store_id: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['policyStoreId'] = policy_store_id
     __args__['policyTemplateId'] = policy_template_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getPolicyTemplate', __args__, opts=opts, typ=GetPolicyTemplateResult)
     return __ret__.apply(lambda __response__: GetPolicyTemplateResult(
         description=pulumi.get(__response__, 'description'),

@@ -75,7 +75,7 @@ def get_version(function_arn: Optional[str] = None,
         function_arn=pulumi.get(__ret__, 'function_arn'),
         version=pulumi.get(__ret__, 'version'))
 def get_version_output(function_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVersionResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVersionResult]:
     """
     Resource Type definition for AWS::Lambda::Version
 
@@ -84,7 +84,7 @@ def get_version_output(function_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getVersion', __args__, opts=opts, typ=GetVersionResult)
     return __ret__.apply(lambda __response__: GetVersionResult(
         function_arn=pulumi.get(__response__, 'function_arn'),

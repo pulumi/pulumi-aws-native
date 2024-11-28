@@ -115,7 +115,7 @@ def get_resolver_query_logging_config_association(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         status=pulumi.get(__ret__, 'status'))
 def get_resolver_query_logging_config_association_output(id: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverQueryLoggingConfigAssociationResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverQueryLoggingConfigAssociationResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
 
@@ -124,7 +124,7 @@ def get_resolver_query_logging_config_association_output(id: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverQueryLoggingConfigAssociation', __args__, opts=opts, typ=GetResolverQueryLoggingConfigAssociationResult)
     return __ret__.apply(lambda __response__: GetResolverQueryLoggingConfigAssociationResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

@@ -288,7 +288,7 @@ def get_integration(api_id: Optional[str] = None,
         tls_config=pulumi.get(__ret__, 'tls_config'))
 def get_integration_output(api_id: Optional[pulumi.Input[str]] = None,
                            integration_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -299,7 +299,7 @@ def get_integration_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['integrationId'] = integration_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getIntegration', __args__, opts=opts, typ=GetIntegrationResult)
     return __ret__.apply(lambda __response__: GetIntegrationResult(
         connection_id=pulumi.get(__response__, 'connection_id'),

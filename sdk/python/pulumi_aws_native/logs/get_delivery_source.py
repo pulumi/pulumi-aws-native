@@ -117,7 +117,7 @@ def get_delivery_source(name: Optional[str] = None,
         service=pulumi.get(__ret__, 'service'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_delivery_source_output(name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliverySourceResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliverySourceResult]:
     """
      A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
 
@@ -128,7 +128,7 @@ def get_delivery_source_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getDeliverySource', __args__, opts=opts, typ=GetDeliverySourceResult)
     return __ret__.apply(lambda __response__: GetDeliverySourceResult(
         arn=pulumi.get(__response__, 'arn'),

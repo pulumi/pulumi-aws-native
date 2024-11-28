@@ -119,7 +119,7 @@ def get_firewall_policy(firewall_policy_arn: Optional[str] = None,
         firewall_policy_id=pulumi.get(__ret__, 'firewall_policy_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_firewall_policy_output(firewall_policy_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallPolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyResult]:
     """
     Resource type definition for AWS::NetworkFirewall::FirewallPolicy
 
@@ -128,7 +128,7 @@ def get_firewall_policy_output(firewall_policy_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['firewallPolicyArn'] = firewall_policy_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult)
     return __ret__.apply(lambda __response__: GetFirewallPolicyResult(
         description=pulumi.get(__response__, 'description'),

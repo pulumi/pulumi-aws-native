@@ -435,7 +435,7 @@ def get_environment(name: Optional[str] = None,
         webserver_vpc_endpoint_service=pulumi.get(__ret__, 'webserver_vpc_endpoint_service'),
         weekly_maintenance_window_start=pulumi.get(__ret__, 'weekly_maintenance_window_start'))
 def get_environment_output(name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource schema for AWS::MWAA::Environment
 
@@ -444,7 +444,7 @@ def get_environment_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mwaa:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         airflow_configuration_options=pulumi.get(__response__, 'airflow_configuration_options'),

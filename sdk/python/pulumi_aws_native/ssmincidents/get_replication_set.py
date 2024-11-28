@@ -103,7 +103,7 @@ def get_replication_set(arn: Optional[str] = None,
         regions=pulumi.get(__ret__, 'regions'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_replication_set_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationSetResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationSetResult]:
     """
     Resource type definition for AWS::SSMIncidents::ReplicationSet
 
@@ -112,7 +112,7 @@ def get_replication_set_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssmincidents:getReplicationSet', __args__, opts=opts, typ=GetReplicationSetResult)
     return __ret__.apply(lambda __response__: GetReplicationSetResult(
         arn=pulumi.get(__response__, 'arn'),

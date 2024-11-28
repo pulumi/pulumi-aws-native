@@ -128,7 +128,7 @@ def get_discoverer(discoverer_arn: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_discoverer_output(discoverer_arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiscovererResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscovererResult]:
     """
     Resource Type definition for AWS::EventSchemas::Discoverer
 
@@ -137,7 +137,7 @@ def get_discoverer_output(discoverer_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['discovererArn'] = discoverer_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eventschemas:getDiscoverer', __args__, opts=opts, typ=GetDiscovererResult)
     return __ret__.apply(lambda __response__: GetDiscovererResult(
         cross_account=pulumi.get(__response__, 'cross_account'),

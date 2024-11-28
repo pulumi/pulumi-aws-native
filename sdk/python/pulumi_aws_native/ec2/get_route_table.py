@@ -77,7 +77,7 @@ def get_route_table(route_table_id: Optional[str] = None,
         route_table_id=pulumi.get(__ret__, 'route_table_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_route_table_output(route_table_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
      For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
@@ -87,7 +87,7 @@ def get_route_table_output(route_table_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['routeTableId'] = route_table_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getRouteTable', __args__, opts=opts, typ=GetRouteTableResult)
     return __ret__.apply(lambda __response__: GetRouteTableResult(
         route_table_id=pulumi.get(__response__, 'route_table_id'),

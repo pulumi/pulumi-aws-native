@@ -166,7 +166,7 @@ def get_domain(domain_name: Optional[str] = None,
         stats=pulumi.get(__ret__, 'stats'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     A domain defined for 3rd party data source in Profile Service
 
@@ -175,7 +175,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
         created_at=pulumi.get(__response__, 'created_at'),

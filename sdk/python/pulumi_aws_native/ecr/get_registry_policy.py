@@ -78,7 +78,7 @@ def get_registry_policy(registry_id: Optional[str] = None,
         policy_text=pulumi.get(__ret__, 'policy_text'),
         registry_id=pulumi.get(__ret__, 'registry_id'))
 def get_registry_policy_output(registry_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryPolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryPolicyResult]:
     """
     The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.
      A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
@@ -88,7 +88,7 @@ def get_registry_policy_output(registry_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['registryId'] = registry_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecr:getRegistryPolicy', __args__, opts=opts, typ=GetRegistryPolicyResult)
     return __ret__.apply(lambda __response__: GetRegistryPolicyResult(
         policy_text=pulumi.get(__response__, 'policy_text'),

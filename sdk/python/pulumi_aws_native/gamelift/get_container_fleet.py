@@ -274,7 +274,7 @@ def get_container_fleet(fleet_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_container_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerFleetResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerFleetResult]:
     """
     The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
 
@@ -283,7 +283,7 @@ def get_container_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['fleetId'] = fleet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getContainerFleet', __args__, opts=opts, typ=GetContainerFleetResult)
     return __ret__.apply(lambda __response__: GetContainerFleetResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

@@ -199,7 +199,7 @@ def get_authorizer(api_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_authorizer_output(api_id: Optional[pulumi.Input[str]] = None,
                           authorizer_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     The ``AWS::ApiGatewayV2::Authorizer`` resource creates an authorizer for a WebSocket API or an HTTP API. To learn more, see [Controlling and managing access to a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-control-access.html) and [Controlling and managing access to an HTTP API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-access-control.html) in the *API Gateway Developer Guide*.
 
@@ -210,7 +210,7 @@ def get_authorizer_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['authorizerId'] = authorizer_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult)
     return __ret__.apply(lambda __response__: GetAuthorizerResult(
         authorizer_credentials_arn=pulumi.get(__response__, 'authorizer_credentials_arn'),

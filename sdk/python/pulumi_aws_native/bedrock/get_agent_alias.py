@@ -194,7 +194,7 @@ def get_agent_alias(agent_alias_id: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_agent_alias_output(agent_alias_id: Optional[pulumi.Input[str]] = None,
                            agent_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentAliasResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentAliasResult]:
     """
     Definition of AWS::Bedrock::AgentAlias Resource Type
 
@@ -205,7 +205,7 @@ def get_agent_alias_output(agent_alias_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['agentAliasId'] = agent_alias_id
     __args__['agentId'] = agent_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getAgentAlias', __args__, opts=opts, typ=GetAgentAliasResult)
     return __ret__.apply(lambda __response__: GetAgentAliasResult(
         agent_alias_arn=pulumi.get(__response__, 'agent_alias_arn'),

@@ -142,7 +142,7 @@ def get_connect_peer(connect_peer_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_connect_peer_output(connect_peer_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectPeerResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectPeerResult]:
     """
     AWS::NetworkManager::ConnectPeer Resource Type Definition.
 
@@ -151,7 +151,7 @@ def get_connect_peer_output(connect_peer_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['connectPeerId'] = connect_peer_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getConnectPeer', __args__, opts=opts, typ=GetConnectPeerResult)
     return __ret__.apply(lambda __response__: GetConnectPeerResult(
         configuration=pulumi.get(__response__, 'configuration'),

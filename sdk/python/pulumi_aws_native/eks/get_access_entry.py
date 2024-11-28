@@ -121,7 +121,7 @@ def get_access_entry(cluster_name: Optional[str] = None,
         username=pulumi.get(__ret__, 'username'))
 def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
                             principal_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessEntryResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessEntryResult]:
     """
     An object representing an Amazon EKS AccessEntry.
 
@@ -132,7 +132,7 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['principalArn'] = principal_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getAccessEntry', __args__, opts=opts, typ=GetAccessEntryResult)
     return __ret__.apply(lambda __response__: GetAccessEntryResult(
         access_entry_arn=pulumi.get(__response__, 'access_entry_arn'),

@@ -90,7 +90,7 @@ def get_cluster(cluster_arn: Optional[str] = None,
         cluster_endpoints=pulumi.get(__ret__, 'cluster_endpoints'),
         status=pulumi.get(__ret__, 'status'))
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     AWS Route53 Recovery Control Cluster resource schema
 
@@ -99,7 +99,7 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoverycontrol:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),

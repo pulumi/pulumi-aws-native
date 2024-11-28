@@ -116,7 +116,7 @@ def get_project(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
 def get_project_output(arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     AWS::DeviceFarm::Project creates a new Device Farm Project
 
@@ -125,7 +125,7 @@ def get_project_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devicefarm:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
         arn=pulumi.get(__response__, 'arn'),

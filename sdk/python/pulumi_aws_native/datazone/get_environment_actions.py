@@ -136,7 +136,7 @@ def get_environment_actions(domain_id: Optional[str] = None,
 def get_environment_actions_output(domain_id: Optional[pulumi.Input[str]] = None,
                                    environment_id: Optional[pulumi.Input[str]] = None,
                                    id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentActionsResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentActionsResult]:
     """
     Definition of AWS::DataZone::EnvironmentActions Resource Type
 
@@ -149,7 +149,7 @@ def get_environment_actions_output(domain_id: Optional[pulumi.Input[str]] = None
     __args__['domainId'] = domain_id
     __args__['environmentId'] = environment_id
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getEnvironmentActions', __args__, opts=opts, typ=GetEnvironmentActionsResult)
     return __ret__.apply(lambda __response__: GetEnvironmentActionsResult(
         description=pulumi.get(__response__, 'description'),

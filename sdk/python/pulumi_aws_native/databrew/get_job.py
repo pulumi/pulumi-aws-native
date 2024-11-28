@@ -272,7 +272,7 @@ def get_job(name: Optional[str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         validation_configurations=pulumi.get(__ret__, 'validation_configurations'))
 def get_job_output(name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Resource schema for AWS::DataBrew::Job.
 
@@ -281,7 +281,7 @@ def get_job_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getJob', __args__, opts=opts, typ=GetJobResult)
     return __ret__.apply(lambda __response__: GetJobResult(
         data_catalog_outputs=pulumi.get(__response__, 'data_catalog_outputs'),

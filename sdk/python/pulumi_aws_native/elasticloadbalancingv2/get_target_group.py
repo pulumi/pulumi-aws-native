@@ -259,7 +259,7 @@ def get_target_group(target_group_arn: Optional[str] = None,
         targets=pulumi.get(__ret__, 'targets'),
         unhealthy_threshold_count=pulumi.get(__ret__, 'unhealthy_threshold_count'))
 def get_target_group_output(target_group_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
     Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
 
@@ -268,7 +268,7 @@ def get_target_group_output(target_group_arn: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['targetGroupArn'] = target_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancingv2:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult)
     return __ret__.apply(lambda __response__: GetTargetGroupResult(
         health_check_enabled=pulumi.get(__response__, 'health_check_enabled'),

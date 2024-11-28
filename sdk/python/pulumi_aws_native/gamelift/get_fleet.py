@@ -235,7 +235,7 @@ def get_fleet(fleet_id: Optional[str] = None,
         runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'),
         scaling_policies=pulumi.get(__ret__, 'scaling_policies'))
 def get_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     The AWS::GameLift::Fleet resource creates an Amazon GameLift (GameLift) fleet to host game servers. A fleet is a set of EC2 or Anywhere instances, each of which can host multiple game sessions.
 
@@ -244,7 +244,7 @@ def get_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['fleetId'] = fleet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getFleet', __args__, opts=opts, typ=GetFleetResult)
     return __ret__.apply(lambda __response__: GetFleetResult(
         anywhere_configuration=pulumi.get(__response__, 'anywhere_configuration'),

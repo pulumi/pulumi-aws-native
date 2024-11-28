@@ -88,7 +88,7 @@ def get_vpc_link(vpc_link_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
 def get_vpc_link_output(vpc_link_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcLinkResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
     The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
 
@@ -97,7 +97,7 @@ def get_vpc_link_output(vpc_link_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['vpcLinkId'] = vpc_link_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult)
     return __ret__.apply(lambda __response__: GetVpcLinkResult(
         name=pulumi.get(__response__, 'name'),

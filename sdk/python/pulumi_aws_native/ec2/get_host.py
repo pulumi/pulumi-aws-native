@@ -101,7 +101,7 @@ def get_host(host_id: Optional[str] = None,
         host_maintenance=pulumi.get(__ret__, 'host_maintenance'),
         host_recovery=pulumi.get(__ret__, 'host_recovery'))
 def get_host_output(host_id: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostResult]:
     """
     Resource Type definition for AWS::EC2::Host
 
@@ -110,7 +110,7 @@ def get_host_output(host_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['hostId'] = host_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getHost', __args__, opts=opts, typ=GetHostResult)
     return __ret__.apply(lambda __response__: GetHostResult(
         auto_placement=pulumi.get(__response__, 'auto_placement'),

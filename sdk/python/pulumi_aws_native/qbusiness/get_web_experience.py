@@ -242,7 +242,7 @@ def get_web_experience(application_id: Optional[str] = None,
         welcome_message=pulumi.get(__ret__, 'welcome_message'))
 def get_web_experience_output(application_id: Optional[pulumi.Input[str]] = None,
                               web_experience_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebExperienceResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebExperienceResult]:
     """
     Definition of AWS::QBusiness::WebExperience Resource Type
 
@@ -253,7 +253,7 @@ def get_web_experience_output(application_id: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['webExperienceId'] = web_experience_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getWebExperience', __args__, opts=opts, typ=GetWebExperienceResult)
     return __ret__.apply(lambda __response__: GetWebExperienceResult(
         created_at=pulumi.get(__response__, 'created_at'),

@@ -327,7 +327,7 @@ def get_service(cluster: Optional[str] = None,
         vpc_lattice_configurations=pulumi.get(__ret__, 'vpc_lattice_configurations'))
 def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
                        service_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The ``AWS::ECS::Service`` resource creates an Amazon Elastic Container Service (Amazon ECS) service that runs and maintains the requested number of tasks and associated load balancers.
       The stack update fails if you change any properties that require replacement and at least one ECS Service Connect ``ServiceConnectConfiguration`` property the is configured. This is because AWS CloudFormation creates the replacement service first, but each ``ServiceConnectService`` must have a name that is unique in the namespace.
@@ -340,7 +340,7 @@ def get_service_output(cluster: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['cluster'] = cluster
     __args__['serviceArn'] = service_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         availability_zone_rebalancing=pulumi.get(__response__, 'availability_zone_rebalancing'),

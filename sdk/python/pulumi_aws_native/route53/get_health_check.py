@@ -90,7 +90,7 @@ def get_health_check(health_check_id: Optional[str] = None,
         health_check_id=pulumi.get(__ret__, 'health_check_id'),
         health_check_tags=pulumi.get(__ret__, 'health_check_tags'))
 def get_health_check_output(health_check_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHealthCheckResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHealthCheckResult]:
     """
     Resource schema for AWS::Route53::HealthCheck.
 
@@ -99,7 +99,7 @@ def get_health_check_output(health_check_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['healthCheckId'] = health_check_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53:getHealthCheck', __args__, opts=opts, typ=GetHealthCheckResult)
     return __ret__.apply(lambda __response__: GetHealthCheckResult(
         health_check_config=pulumi.get(__response__, 'health_check_config'),

@@ -168,7 +168,7 @@ def get_variable(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         variable_type=pulumi.get(__ret__, 'variable_type'))
 def get_variable_output(arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableResult]:
     """
     A resource schema for a Variable in Amazon Fraud Detector.
 
@@ -177,7 +177,7 @@ def get_variable_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getVariable', __args__, opts=opts, typ=GetVariableResult)
     return __ret__.apply(lambda __response__: GetVariableResult(
         arn=pulumi.get(__response__, 'arn'),

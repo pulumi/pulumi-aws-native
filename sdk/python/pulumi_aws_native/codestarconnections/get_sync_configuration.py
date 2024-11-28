@@ -171,7 +171,7 @@ def get_sync_configuration(resource_name: Optional[str] = None,
         trigger_resource_update_on=pulumi.get(__ret__, 'trigger_resource_update_on'))
 def get_sync_configuration_output(resource_name: Optional[pulumi.Input[str]] = None,
                                   sync_type: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSyncConfigurationResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncConfigurationResult]:
     """
     Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
 
@@ -182,7 +182,7 @@ def get_sync_configuration_output(resource_name: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['resourceName'] = resource_name
     __args__['syncType'] = sync_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codestarconnections:getSyncConfiguration', __args__, opts=opts, typ=GetSyncConfigurationResult)
     return __ret__.apply(lambda __response__: GetSyncConfigurationResult(
         branch=pulumi.get(__response__, 'branch'),

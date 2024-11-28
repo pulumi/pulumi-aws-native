@@ -128,7 +128,7 @@ def get_channel_group(arn: Optional[str] = None,
         modified_at=pulumi.get(__ret__, 'modified_at'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_channel_group_output(arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelGroupResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelGroupResult]:
     """
     <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
 
@@ -137,7 +137,7 @@ def get_channel_group_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackagev2:getChannelGroup', __args__, opts=opts, typ=GetChannelGroupResult)
     return __ret__.apply(lambda __response__: GetChannelGroupResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -156,7 +156,7 @@ def get_hosted_zone(id: Optional[str] = None,
         query_logging_config=pulumi.get(__ret__, 'query_logging_config'),
         vpcs=pulumi.get(__ret__, 'vpcs'))
 def get_hosted_zone_output(id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostedZoneResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostedZoneResult]:
     """
     Creates a new public or private hosted zone. You create records in a public hosted zone to define how you want to route traffic on the internet for a domain, such as example.com, and its subdomains (apex.example.com, acme.example.com). You create records in a private hosted zone to define how you want to route traffic for a domain and its subdomains within one or more Amazon Virtual Private Clouds (Amazon VPCs).
       You can't convert a public hosted zone to a private hosted zone or vice versa. Instead, you must create a new hosted zone with the same name and create new resource record sets.
@@ -180,7 +180,7 @@ def get_hosted_zone_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53:getHostedZone', __args__, opts=opts, typ=GetHostedZoneResult)
     return __ret__.apply(lambda __response__: GetHostedZoneResult(
         hosted_zone_config=pulumi.get(__response__, 'hosted_zone_config'),

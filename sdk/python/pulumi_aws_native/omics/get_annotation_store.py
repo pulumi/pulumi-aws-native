@@ -154,7 +154,7 @@ def get_annotation_store(name: Optional[str] = None,
         store_size_bytes=pulumi.get(__ret__, 'store_size_bytes'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_annotation_store_output(name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnnotationStoreResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnnotationStoreResult]:
     """
     Definition of AWS::Omics::AnnotationStore Resource Type
 
@@ -163,7 +163,7 @@ def get_annotation_store_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:omics:getAnnotationStore', __args__, opts=opts, typ=GetAnnotationStoreResult)
     return __ret__.apply(lambda __response__: GetAnnotationStoreResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

@@ -265,13 +265,13 @@ def get_cloud_watch_alarm_template(identifier: Optional[str] = None,
         threshold=pulumi.get(__ret__, 'threshold'),
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'))
 def get_cloud_watch_alarm_template_output(identifier: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudWatchAlarmTemplateResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudWatchAlarmTemplateResult]:
     """
     Definition of AWS::MediaLive::CloudWatchAlarmTemplate Resource Type
     """
     __args__ = dict()
     __args__['identifier'] = identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getCloudWatchAlarmTemplate', __args__, opts=opts, typ=GetCloudWatchAlarmTemplateResult)
     return __ret__.apply(lambda __response__: GetCloudWatchAlarmTemplateResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -115,7 +115,7 @@ def get_phone_number(phone_number_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_arn=pulumi.get(__ret__, 'target_arn'))
 def get_phone_number_output(phone_number_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPhoneNumberResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPhoneNumberResult]:
     """
     Resource Type definition for AWS::Connect::PhoneNumber
 
@@ -124,7 +124,7 @@ def get_phone_number_output(phone_number_arn: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['phoneNumberArn'] = phone_number_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getPhoneNumber', __args__, opts=opts, typ=GetPhoneNumberResult)
     return __ret__.apply(lambda __response__: GetPhoneNumberResult(
         address=pulumi.get(__response__, 'address'),

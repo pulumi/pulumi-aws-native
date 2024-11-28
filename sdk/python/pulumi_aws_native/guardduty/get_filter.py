@@ -127,7 +127,7 @@ def get_filter(detector_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_filter_output(detector_id: Optional[pulumi.Input[str]] = None,
                       name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFilterResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFilterResult]:
     """
     Resource Type definition for AWS::GuardDuty::Filter
 
@@ -141,7 +141,7 @@ def get_filter_output(detector_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['detectorId'] = detector_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:guardduty:getFilter', __args__, opts=opts, typ=GetFilterResult)
     return __ret__.apply(lambda __response__: GetFilterResult(
         action=pulumi.get(__response__, 'action'),

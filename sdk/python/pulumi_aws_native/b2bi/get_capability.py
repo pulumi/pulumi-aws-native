@@ -156,7 +156,7 @@ def get_capability(capability_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_capability_output(capability_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapabilityResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapabilityResult]:
     """
     Definition of AWS::B2BI::Capability Resource Type
 
@@ -165,7 +165,7 @@ def get_capability_output(capability_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['capabilityId'] = capability_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:b2bi:getCapability', __args__, opts=opts, typ=GetCapabilityResult)
     return __ret__.apply(lambda __response__: GetCapabilityResult(
         capability_arn=pulumi.get(__response__, 'capability_arn'),

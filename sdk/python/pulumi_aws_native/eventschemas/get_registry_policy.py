@@ -103,7 +103,7 @@ def get_registry_policy(id: Optional[str] = None,
         registry_name=pulumi.get(__ret__, 'registry_name'),
         revision_id=pulumi.get(__ret__, 'revision_id'))
 def get_registry_policy_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryPolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryPolicyResult]:
     """
     Resource Type definition for AWS::EventSchemas::RegistryPolicy
 
@@ -112,7 +112,7 @@ def get_registry_policy_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eventschemas:getRegistryPolicy', __args__, opts=opts, typ=GetRegistryPolicyResult)
     return __ret__.apply(lambda __response__: GetRegistryPolicyResult(
         id=pulumi.get(__response__, 'id'),

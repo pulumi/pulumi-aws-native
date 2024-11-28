@@ -100,7 +100,7 @@ def get_custom_plugin(custom_plugin_arn: Optional[str] = None,
         revision=pulumi.get(__ret__, 'revision'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_custom_plugin_output(custom_plugin_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomPluginResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomPluginResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -109,7 +109,7 @@ def get_custom_plugin_output(custom_plugin_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['customPluginArn'] = custom_plugin_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kafkaconnect:getCustomPlugin', __args__, opts=opts, typ=GetCustomPluginResult)
     return __ret__.apply(lambda __response__: GetCustomPluginResult(
         custom_plugin_arn=pulumi.get(__response__, 'custom_plugin_arn'),

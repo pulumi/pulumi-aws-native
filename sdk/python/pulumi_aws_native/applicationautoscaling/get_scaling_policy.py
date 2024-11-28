@@ -143,7 +143,7 @@ def get_scaling_policy(arn: Optional[str] = None,
         target_tracking_scaling_policy_configuration=pulumi.get(__ret__, 'target_tracking_scaling_policy_configuration'))
 def get_scaling_policy_output(arn: Optional[pulumi.Input[str]] = None,
                               scalable_dimension: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalingPolicyResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPolicyResult]:
     """
     The ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource defines a scaling policy that Application Auto Scaling uses to adjust the capacity of a scalable target.
      For more information, see [Target tracking scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step scaling policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) in the *Application Auto Scaling User Guide*.
@@ -178,7 +178,7 @@ def get_scaling_policy_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['scalableDimension'] = scalable_dimension
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:applicationautoscaling:getScalingPolicy', __args__, opts=opts, typ=GetScalingPolicyResult)
     return __ret__.apply(lambda __response__: GetScalingPolicyResult(
         arn=pulumi.get(__response__, 'arn'),

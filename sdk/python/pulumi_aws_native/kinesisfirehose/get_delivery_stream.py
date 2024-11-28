@@ -234,7 +234,7 @@ def get_delivery_stream(delivery_stream_name: Optional[str] = None,
         splunk_destination_configuration=pulumi.get(__ret__, 'splunk_destination_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryStreamResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryStreamResult]:
     """
     Resource Type definition for AWS::KinesisFirehose::DeliveryStream
 
@@ -243,7 +243,7 @@ def get_delivery_stream_output(delivery_stream_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['deliveryStreamName'] = delivery_stream_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kinesisfirehose:getDeliveryStream', __args__, opts=opts, typ=GetDeliveryStreamResult)
     return __ret__.apply(lambda __response__: GetDeliveryStreamResult(
         amazon_open_search_serverless_destination_configuration=pulumi.get(__response__, 'amazon_open_search_serverless_destination_configuration'),

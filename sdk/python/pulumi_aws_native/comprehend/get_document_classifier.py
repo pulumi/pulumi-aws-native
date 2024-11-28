@@ -97,7 +97,7 @@ def get_document_classifier(arn: Optional[str] = None,
         model_policy=pulumi.get(__ret__, 'model_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_document_classifier_output(arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentClassifierResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentClassifierResult]:
     """
     Document Classifier enables training document classifier models.
 
@@ -106,7 +106,7 @@ def get_document_classifier_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:comprehend:getDocumentClassifier', __args__, opts=opts, typ=GetDocumentClassifierResult)
     return __ret__.apply(lambda __response__: GetDocumentClassifierResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -155,7 +155,7 @@ def get_configuration_manager(manager_arn: Optional[str] = None,
         status_summaries=pulumi.get(__ret__, 'status_summaries'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_configuration_manager_output(manager_arn: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationManagerResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationManagerResult]:
     """
     Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
 
@@ -164,7 +164,7 @@ def get_configuration_manager_output(manager_arn: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['managerArn'] = manager_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssmquicksetup:getConfigurationManager', __args__, opts=opts, typ=GetConfigurationManagerResult)
     return __ret__.apply(lambda __response__: GetConfigurationManagerResult(
         configuration_definitions=pulumi.get(__response__, 'configuration_definitions'),

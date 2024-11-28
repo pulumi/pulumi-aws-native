@@ -102,7 +102,7 @@ def get_browser_settings(browser_settings_arn: Optional[str] = None,
         browser_settings_arn=pulumi.get(__ret__, 'browser_settings_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_browser_settings_output(browser_settings_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBrowserSettingsResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrowserSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
 
@@ -111,7 +111,7 @@ def get_browser_settings_output(browser_settings_arn: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['browserSettingsArn'] = browser_settings_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getBrowserSettings', __args__, opts=opts, typ=GetBrowserSettingsResult)
     return __ret__.apply(lambda __response__: GetBrowserSettingsResult(
         associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),

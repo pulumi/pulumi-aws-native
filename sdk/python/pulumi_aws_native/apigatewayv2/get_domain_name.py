@@ -116,7 +116,7 @@ def get_domain_name(domain_name: Optional[str] = None,
         regional_hosted_zone_id=pulumi.get(__ret__, 'regional_hosted_zone_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameResult]:
     """
     The ``AWS::ApiGatewayV2::DomainName`` resource specifies a custom domain name for your API in Amazon API Gateway (API Gateway).
      You can use a custom domain name to provide a URL that's more intuitive and easier to recall. For more information about using custom domain names, see [Set up Custom Domain Name for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html) in the *API Gateway Developer Guide*.
@@ -126,7 +126,7 @@ def get_domain_name_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getDomainName', __args__, opts=opts, typ=GetDomainNameResult)
     return __ret__.apply(lambda __response__: GetDomainNameResult(
         domain_name_configurations=pulumi.get(__response__, 'domain_name_configurations'),

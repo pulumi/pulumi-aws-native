@@ -157,7 +157,7 @@ def get_landing_zone(landing_zone_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         version=pulumi.get(__ret__, 'version'))
 def get_landing_zone_output(landing_zone_identifier: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLandingZoneResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLandingZoneResult]:
     """
     Definition of AWS::ControlTower::LandingZone Resource Type
 
@@ -166,7 +166,7 @@ def get_landing_zone_output(landing_zone_identifier: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['landingZoneIdentifier'] = landing_zone_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:controltower:getLandingZone', __args__, opts=opts, typ=GetLandingZoneResult)
     return __ret__.apply(lambda __response__: GetLandingZoneResult(
         arn=pulumi.get(__response__, 'arn'),

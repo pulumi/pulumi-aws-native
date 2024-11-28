@@ -182,7 +182,7 @@ def get_influx_db_instance(id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_influx_db_instance_output(id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfluxDbInstanceResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfluxDbInstanceResult]:
     """
     The AWS::Timestream::InfluxDBInstance resource creates an InfluxDB instance.
 
@@ -191,7 +191,7 @@ def get_influx_db_instance_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:timestream:getInfluxDbInstance', __args__, opts=opts, typ=GetInfluxDbInstanceResult)
     return __ret__.apply(lambda __response__: GetInfluxDbInstanceResult(
         arn=pulumi.get(__response__, 'arn'),

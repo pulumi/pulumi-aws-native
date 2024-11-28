@@ -89,7 +89,7 @@ def get_routing_control(routing_control_arn: Optional[str] = None,
         routing_control_arn=pulumi.get(__ret__, 'routing_control_arn'),
         status=pulumi.get(__ret__, 'status'))
 def get_routing_control_output(routing_control_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingControlResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingControlResult]:
     """
     AWS Route53 Recovery Control Routing Control resource schema .
 
@@ -98,7 +98,7 @@ def get_routing_control_output(routing_control_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['routingControlArn'] = routing_control_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoverycontrol:getRoutingControl', __args__, opts=opts, typ=GetRoutingControlResult)
     return __ret__.apply(lambda __response__: GetRoutingControlResult(
         name=pulumi.get(__response__, 'name'),

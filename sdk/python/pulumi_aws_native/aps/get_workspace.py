@@ -142,7 +142,7 @@ def get_workspace(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_workspace_output(arn: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Resource Type definition for AWS::APS::Workspace
 
@@ -151,7 +151,7 @@ def get_workspace_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:aps:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         alert_manager_definition=pulumi.get(__response__, 'alert_manager_definition'),

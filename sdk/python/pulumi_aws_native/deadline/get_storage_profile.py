@@ -109,7 +109,7 @@ def get_storage_profile(farm_id: Optional[str] = None,
         storage_profile_id=pulumi.get(__ret__, 'storage_profile_id'))
 def get_storage_profile_output(farm_id: Optional[pulumi.Input[str]] = None,
                                storage_profile_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageProfileResult]:
     """
     Definition of AWS::Deadline::StorageProfile Resource Type
 
@@ -120,7 +120,7 @@ def get_storage_profile_output(farm_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['farmId'] = farm_id
     __args__['storageProfileId'] = storage_profile_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getStorageProfile', __args__, opts=opts, typ=GetStorageProfileResult)
     return __ret__.apply(lambda __response__: GetStorageProfileResult(
         display_name=pulumi.get(__response__, 'display_name'),

@@ -194,7 +194,7 @@ def get_migration_project(migration_project_arn: Optional[str] = None,
         target_data_provider_descriptors=pulumi.get(__ret__, 'target_data_provider_descriptors'),
         transformation_rules=pulumi.get(__ret__, 'transformation_rules'))
 def get_migration_project_output(migration_project_arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMigrationProjectResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationProjectResult]:
     """
     Resource schema for AWS::DMS::MigrationProject
 
@@ -203,7 +203,7 @@ def get_migration_project_output(migration_project_arn: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['migrationProjectArn'] = migration_project_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:dms:getMigrationProject', __args__, opts=opts, typ=GetMigrationProjectResult)
     return __ret__.apply(lambda __response__: GetMigrationProjectResult(
         description=pulumi.get(__response__, 'description'),

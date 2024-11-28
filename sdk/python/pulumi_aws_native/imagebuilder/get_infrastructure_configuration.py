@@ -233,7 +233,7 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         terminate_instance_on_failure=pulumi.get(__ret__, 'terminate_instance_on_failure'))
 def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInfrastructureConfigurationResult]:
     """
     Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
 
@@ -242,7 +242,7 @@ def get_infrastructure_configuration_output(arn: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getInfrastructureConfiguration', __args__, opts=opts, typ=GetInfrastructureConfigurationResult)
     return __ret__.apply(lambda __response__: GetInfrastructureConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

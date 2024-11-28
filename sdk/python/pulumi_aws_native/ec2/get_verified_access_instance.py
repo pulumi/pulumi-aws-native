@@ -168,7 +168,7 @@ def get_verified_access_instance(verified_access_instance_id: Optional[str] = No
         verified_access_trust_provider_ids=pulumi.get(__ret__, 'verified_access_trust_provider_ids'),
         verified_access_trust_providers=pulumi.get(__ret__, 'verified_access_trust_providers'))
 def get_verified_access_instance_output(verified_access_instance_id: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVerifiedAccessInstanceResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVerifiedAccessInstanceResult]:
     """
     The AWS::EC2::VerifiedAccessInstance resource creates an AWS EC2 Verified Access Instance.
 
@@ -177,7 +177,7 @@ def get_verified_access_instance_output(verified_access_instance_id: Optional[pu
     """
     __args__ = dict()
     __args__['verifiedAccessInstanceId'] = verified_access_instance_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVerifiedAccessInstance', __args__, opts=opts, typ=GetVerifiedAccessInstanceResult)
     return __ret__.apply(lambda __response__: GetVerifiedAccessInstanceResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

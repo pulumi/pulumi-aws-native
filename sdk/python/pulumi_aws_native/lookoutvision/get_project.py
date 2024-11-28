@@ -62,7 +62,7 @@ def get_project(project_name: Optional[str] = None,
     return AwaitableGetProjectResult(
         arn=pulumi.get(__ret__, 'arn'))
 def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
 
@@ -71,7 +71,7 @@ def get_project_output(project_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['projectName'] = project_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lookoutvision:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
         arn=pulumi.get(__response__, 'arn')))

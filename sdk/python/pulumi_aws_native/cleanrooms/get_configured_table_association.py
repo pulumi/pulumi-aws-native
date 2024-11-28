@@ -140,7 +140,7 @@ def get_configured_table_association(configured_table_association_identifier: Op
         tags=pulumi.get(__ret__, 'tags'))
 def get_configured_table_association_output(configured_table_association_identifier: Optional[pulumi.Input[str]] = None,
                                             membership_identifier: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfiguredTableAssociationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfiguredTableAssociationResult]:
     """
     Represents a table that can be queried within a collaboration
 
@@ -153,7 +153,7 @@ def get_configured_table_association_output(configured_table_association_identif
     __args__ = dict()
     __args__['configuredTableAssociationIdentifier'] = configured_table_association_identifier
     __args__['membershipIdentifier'] = membership_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getConfiguredTableAssociation', __args__, opts=opts, typ=GetConfiguredTableAssociationResult)
     return __ret__.apply(lambda __response__: GetConfiguredTableAssociationResult(
         arn=pulumi.get(__response__, 'arn'),

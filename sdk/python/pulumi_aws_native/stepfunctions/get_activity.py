@@ -78,7 +78,7 @@ def get_activity(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_activity_output(arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActivityResult]:
     """
     Resource schema for Activity
 
@@ -87,7 +87,7 @@ def get_activity_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:stepfunctions:getActivity', __args__, opts=opts, typ=GetActivityResult)
     return __ret__.apply(lambda __response__: GetActivityResult(
         arn=pulumi.get(__response__, 'arn'),

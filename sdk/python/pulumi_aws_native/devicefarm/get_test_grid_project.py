@@ -104,7 +104,7 @@ def get_test_grid_project(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_test_grid_project_output(arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestGridProjectResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestGridProjectResult]:
     """
     AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
 
@@ -113,7 +113,7 @@ def get_test_grid_project_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devicefarm:getTestGridProject', __args__, opts=opts, typ=GetTestGridProjectResult)
     return __ret__.apply(lambda __response__: GetTestGridProjectResult(
         arn=pulumi.get(__response__, 'arn'),

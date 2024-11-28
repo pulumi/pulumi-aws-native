@@ -79,7 +79,7 @@ def get_attribute_group_association(application_arn: Optional[str] = None,
         attribute_group_arn=pulumi.get(__ret__, 'attribute_group_arn'))
 def get_attribute_group_association_output(application_arn: Optional[pulumi.Input[str]] = None,
                                            attribute_group_arn: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttributeGroupAssociationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttributeGroupAssociationResult]:
     """
     Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
 
@@ -90,7 +90,7 @@ def get_attribute_group_association_output(application_arn: Optional[pulumi.Inpu
     __args__ = dict()
     __args__['applicationArn'] = application_arn
     __args__['attributeGroupArn'] = attribute_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalogappregistry:getAttributeGroupAssociation', __args__, opts=opts, typ=GetAttributeGroupAssociationResult)
     return __ret__.apply(lambda __response__: GetAttributeGroupAssociationResult(
         application_arn=pulumi.get(__response__, 'application_arn'),

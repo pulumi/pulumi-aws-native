@@ -76,7 +76,7 @@ def get_application(application_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         resource_lifecycle_config=pulumi.get(__ret__, 'resource_lifecycle_config'))
 def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
 
@@ -85,7 +85,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['applicationName'] = application_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticbeanstalk:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         description=pulumi.get(__response__, 'description'),

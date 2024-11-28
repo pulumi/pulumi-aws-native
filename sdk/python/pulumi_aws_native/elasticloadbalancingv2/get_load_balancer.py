@@ -242,7 +242,7 @@ def get_load_balancer(load_balancer_arn: Optional[str] = None,
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
 
@@ -251,7 +251,7 @@ def get_load_balancer_output(load_balancer_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['loadBalancerArn'] = load_balancer_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancingv2:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         canonical_hosted_zone_id=pulumi.get(__response__, 'canonical_hosted_zone_id'),

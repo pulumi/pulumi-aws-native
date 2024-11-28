@@ -183,7 +183,7 @@ def get_environment_account_connection(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_environment_account_connection_output(arn: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentAccountConnectionResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentAccountConnectionResult]:
     """
     Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
 
@@ -192,7 +192,7 @@ def get_environment_account_connection_output(arn: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:proton:getEnvironmentAccountConnection', __args__, opts=opts, typ=GetEnvironmentAccountConnectionResult)
     return __ret__.apply(lambda __response__: GetEnvironmentAccountConnectionResult(
         arn=pulumi.get(__response__, 'arn'),

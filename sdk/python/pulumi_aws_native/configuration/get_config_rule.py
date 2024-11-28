@@ -182,7 +182,7 @@ def get_config_rule(config_rule_name: Optional[str] = None,
         scope=pulumi.get(__ret__, 'scope'),
         source=pulumi.get(__ret__, 'source'))
 def get_config_rule_output(config_rule_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigRuleResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigRuleResult]:
     """
     You must first create and start the CC configuration recorder in order to create CC managed rules with CFNlong. For more information, see [Managing the Configuration Recorder](https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html).
      Adds or updates an CC rule to evaluate if your AWS resources comply with your desired configurations. For information on how many CC rules you can have per account, see [Service Limits](https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html) in the *Developer Guide*.
@@ -199,7 +199,7 @@ def get_config_rule_output(config_rule_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['configRuleName'] = config_rule_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getConfigRule', __args__, opts=opts, typ=GetConfigRuleResult)
     return __ret__.apply(lambda __response__: GetConfigRuleResult(
         arn=pulumi.get(__response__, 'arn'),

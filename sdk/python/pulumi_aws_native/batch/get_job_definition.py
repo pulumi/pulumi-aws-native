@@ -209,13 +209,13 @@ def get_job_definition(id: Optional[str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'))
 def get_job_definition_output(id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobDefinitionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Resource Type definition for AWS::Batch::JobDefinition
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetJobDefinitionResult(
         container_properties=pulumi.get(__response__, 'container_properties'),

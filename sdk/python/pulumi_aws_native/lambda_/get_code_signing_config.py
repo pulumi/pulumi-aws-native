@@ -130,7 +130,7 @@ def get_code_signing_config(code_signing_config_arn: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_code_signing_config_output(code_signing_config_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCodeSigningConfigResult]:
     """
     Resource Type definition for AWS::Lambda::CodeSigningConfig.
 
@@ -139,7 +139,7 @@ def get_code_signing_config_output(code_signing_config_arn: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['codeSigningConfigArn'] = code_signing_config_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getCodeSigningConfig', __args__, opts=opts, typ=GetCodeSigningConfigResult)
     return __ret__.apply(lambda __response__: GetCodeSigningConfigResult(
         allowed_publishers=pulumi.get(__response__, 'allowed_publishers'),

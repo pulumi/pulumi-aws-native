@@ -75,7 +75,7 @@ def get_service_linked_role(role_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         role_name=pulumi.get(__ret__, 'role_name'))
 def get_service_linked_role_output(role_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceLinkedRoleResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceLinkedRoleResult]:
     """
     Resource Type definition for AWS::IAM::ServiceLinkedRole
 
@@ -84,7 +84,7 @@ def get_service_linked_role_output(role_name: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['roleName'] = role_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getServiceLinkedRole', __args__, opts=opts, typ=GetServiceLinkedRoleResult)
     return __ret__.apply(lambda __response__: GetServiceLinkedRoleResult(
         description=pulumi.get(__response__, 'description'),

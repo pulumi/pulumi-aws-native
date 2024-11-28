@@ -89,7 +89,7 @@ def get_recovery_group(recovery_group_name: Optional[str] = None,
         recovery_group_arn=pulumi.get(__ret__, 'recovery_group_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_recovery_group_output(recovery_group_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecoveryGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecoveryGroupResult]:
     """
     AWS Route53 Recovery Readiness Recovery Group Schema and API specifications.
 
@@ -98,7 +98,7 @@ def get_recovery_group_output(recovery_group_name: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['recoveryGroupName'] = recovery_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoveryreadiness:getRecoveryGroup', __args__, opts=opts, typ=GetRecoveryGroupResult)
     return __ret__.apply(lambda __response__: GetRecoveryGroupResult(
         cells=pulumi.get(__response__, 'cells'),

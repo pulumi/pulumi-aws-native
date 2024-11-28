@@ -141,7 +141,7 @@ def get_endpoint_access(endpoint_name: Optional[str] = None,
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 def get_endpoint_access_output(endpoint_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointAccessResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointAccessResult]:
     """
     Resource schema for a Redshift-managed VPC endpoint.
 
@@ -150,7 +150,7 @@ def get_endpoint_access_output(endpoint_name: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getEndpointAccess', __args__, opts=opts, typ=GetEndpointAccessResult)
     return __ret__.apply(lambda __response__: GetEndpointAccessResult(
         address=pulumi.get(__response__, 'address'),

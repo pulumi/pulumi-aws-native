@@ -90,13 +90,13 @@ def get_secret_target_attachment(id: Optional[str] = None,
         target_id=pulumi.get(__ret__, 'target_id'),
         target_type=pulumi.get(__ret__, 'target_type'))
 def get_secret_target_attachment_output(id: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretTargetAttachmentResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretTargetAttachmentResult]:
     """
     Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:secretsmanager:getSecretTargetAttachment', __args__, opts=opts, typ=GetSecretTargetAttachmentResult)
     return __ret__.apply(lambda __response__: GetSecretTargetAttachmentResult(
         id=pulumi.get(__response__, 'id'),

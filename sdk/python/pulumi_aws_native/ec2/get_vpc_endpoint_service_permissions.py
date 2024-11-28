@@ -62,7 +62,7 @@ def get_vpc_endpoint_service_permissions(service_id: Optional[str] = None,
     return AwaitableGetVpcEndpointServicePermissionsResult(
         allowed_principals=pulumi.get(__ret__, 'allowed_principals'))
 def get_vpc_endpoint_service_permissions_output(service_id: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointServicePermissionsResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServicePermissionsResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
 
@@ -71,7 +71,7 @@ def get_vpc_endpoint_service_permissions_output(service_id: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['serviceId'] = service_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcEndpointServicePermissions', __args__, opts=opts, typ=GetVpcEndpointServicePermissionsResult)
     return __ret__.apply(lambda __response__: GetVpcEndpointServicePermissionsResult(
         allowed_principals=pulumi.get(__response__, 'allowed_principals')))

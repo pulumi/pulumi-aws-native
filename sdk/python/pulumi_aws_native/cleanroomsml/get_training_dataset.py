@@ -90,7 +90,7 @@ def get_training_dataset(training_dataset_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         training_dataset_arn=pulumi.get(__ret__, 'training_dataset_arn'))
 def get_training_dataset_output(training_dataset_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrainingDatasetResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrainingDatasetResult]:
     """
     Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
 
@@ -99,7 +99,7 @@ def get_training_dataset_output(training_dataset_arn: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['trainingDatasetArn'] = training_dataset_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanroomsml:getTrainingDataset', __args__, opts=opts, typ=GetTrainingDatasetResult)
     return __ret__.apply(lambda __response__: GetTrainingDatasetResult(
         status=pulumi.get(__response__, 'status'),

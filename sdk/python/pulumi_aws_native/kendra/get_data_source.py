@@ -213,7 +213,7 @@ def get_data_source(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_source_output(id: Optional[pulumi.Input[str]] = None,
                            index_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Kendra DataSource
 
@@ -226,7 +226,7 @@ def get_data_source_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['indexId'] = index_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kendra:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
     return __ret__.apply(lambda __response__: GetDataSourceResult(
         arn=pulumi.get(__response__, 'arn'),

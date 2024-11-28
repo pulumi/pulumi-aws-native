@@ -286,7 +286,7 @@ def get_environment(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_environment_output(id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource type definition for AWS::WorkSpacesThinClient::Environment.
 
@@ -295,7 +295,7 @@ def get_environment_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesthinclient:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         activation_code=pulumi.get(__response__, 'activation_code'),

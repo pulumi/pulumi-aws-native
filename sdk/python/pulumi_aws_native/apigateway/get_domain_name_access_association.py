@@ -62,7 +62,7 @@ def get_domain_name_access_association(domain_name_access_association_arn: Optio
     return AwaitableGetDomainNameAccessAssociationResult(
         domain_name_access_association_arn=pulumi.get(__ret__, 'domain_name_access_association_arn'))
 def get_domain_name_access_association_output(domain_name_access_association_arn: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameAccessAssociationResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameAccessAssociationResult]:
     """
     Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
 
@@ -71,7 +71,7 @@ def get_domain_name_access_association_output(domain_name_access_association_arn
     """
     __args__ = dict()
     __args__['domainNameAccessAssociationArn'] = domain_name_access_association_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getDomainNameAccessAssociation', __args__, opts=opts, typ=GetDomainNameAccessAssociationResult)
     return __ret__.apply(lambda __response__: GetDomainNameAccessAssociationResult(
         domain_name_access_association_arn=pulumi.get(__response__, 'domain_name_access_association_arn')))

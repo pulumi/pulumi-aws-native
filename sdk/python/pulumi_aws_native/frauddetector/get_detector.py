@@ -203,7 +203,7 @@ def get_detector(arn: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_detector_output(arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDetectorResult]:
     """
     A resource schema for a Detector in Amazon Fraud Detector.
 
@@ -212,7 +212,7 @@ def get_detector_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getDetector', __args__, opts=opts, typ=GetDetectorResult)
     return __ret__.apply(lambda __response__: GetDetectorResult(
         arn=pulumi.get(__response__, 'arn'),

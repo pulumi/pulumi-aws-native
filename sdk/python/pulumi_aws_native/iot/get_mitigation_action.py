@@ -117,7 +117,7 @@ def get_mitigation_action(action_name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_mitigation_action_output(action_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMitigationActionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMitigationActionResult]:
     """
     Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
 
@@ -126,7 +126,7 @@ def get_mitigation_action_output(action_name: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['actionName'] = action_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getMitigationAction', __args__, opts=opts, typ=GetMitigationActionResult)
     return __ret__.apply(lambda __response__: GetMitigationActionResult(
         action_params=pulumi.get(__response__, 'action_params'),

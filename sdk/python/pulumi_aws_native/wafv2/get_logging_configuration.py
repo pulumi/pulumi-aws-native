@@ -103,7 +103,7 @@ def get_logging_configuration(resource_arn: Optional[str] = None,
         managed_by_firewall_manager=pulumi.get(__ret__, 'managed_by_firewall_manager'),
         redacted_fields=pulumi.get(__ret__, 'redacted_fields'))
 def get_logging_configuration_output(resource_arn: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
     A WAFv2 Logging Configuration Resource Provider
 
@@ -112,7 +112,7 @@ def get_logging_configuration_output(resource_arn: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wafv2:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult)
     return __ret__.apply(lambda __response__: GetLoggingConfigurationResult(
         log_destination_configs=pulumi.get(__response__, 'log_destination_configs'),

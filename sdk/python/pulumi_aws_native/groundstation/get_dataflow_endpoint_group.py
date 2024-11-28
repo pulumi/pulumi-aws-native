@@ -130,7 +130,7 @@ def get_dataflow_endpoint_group(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataflowEndpointGroupResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataflowEndpointGroupResult]:
     """
     AWS Ground Station DataflowEndpointGroup schema for CloudFormation
 
@@ -139,7 +139,7 @@ def get_dataflow_endpoint_group_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:groundstation:getDataflowEndpointGroup', __args__, opts=opts, typ=GetDataflowEndpointGroupResult)
     return __ret__.apply(lambda __response__: GetDataflowEndpointGroupResult(
         arn=pulumi.get(__response__, 'arn'),

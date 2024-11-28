@@ -273,7 +273,7 @@ def get_playback_configuration(name: Optional[str] = None,
         transcode_profile_name=pulumi.get(__ret__, 'transcode_profile_name'),
         video_content_source_url=pulumi.get(__ret__, 'video_content_source_url'))
 def get_playback_configuration_output(name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaybackConfigurationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaybackConfigurationResult]:
     """
     Resource schema for AWS::MediaTailor::PlaybackConfiguration
 
@@ -282,7 +282,7 @@ def get_playback_configuration_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getPlaybackConfiguration', __args__, opts=opts, typ=GetPlaybackConfigurationResult)
     return __ret__.apply(lambda __response__: GetPlaybackConfigurationResult(
         ad_decision_server_url=pulumi.get(__response__, 'ad_decision_server_url'),

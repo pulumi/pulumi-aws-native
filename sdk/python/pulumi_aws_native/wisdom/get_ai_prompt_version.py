@@ -100,7 +100,7 @@ def get_ai_prompt_version(ai_prompt_id: Optional[str] = None,
 def get_ai_prompt_version_output(ai_prompt_id: Optional[pulumi.Input[str]] = None,
                                  assistant_id: Optional[pulumi.Input[str]] = None,
                                  version_number: Optional[pulumi.Input[float]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAiPromptVersionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiPromptVersionResult]:
     """
     Definition of AWS::Wisdom::AIPromptVersion Resource Type
 
@@ -113,7 +113,7 @@ def get_ai_prompt_version_output(ai_prompt_id: Optional[pulumi.Input[str]] = Non
     __args__['aiPromptId'] = ai_prompt_id
     __args__['assistantId'] = assistant_id
     __args__['versionNumber'] = version_number
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getAiPromptVersion', __args__, opts=opts, typ=GetAiPromptVersionResult)
     return __ret__.apply(lambda __response__: GetAiPromptVersionResult(
         ai_prompt_arn=pulumi.get(__response__, 'ai_prompt_arn'),

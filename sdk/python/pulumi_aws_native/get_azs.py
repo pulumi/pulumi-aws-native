@@ -56,13 +56,13 @@ def get_azs(region: Optional[str] = None,
     return AwaitableGetAzsResult(
         azs=pulumi.get(__ret__, 'azs'))
 def get_azs_output(region: Optional[pulumi.Input[Optional[str]]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzsResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzsResult]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['region'] = region
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:index:getAzs', __args__, opts=opts, typ=GetAzsResult)
     return __ret__.apply(lambda __response__: GetAzsResult(
         azs=pulumi.get(__response__, 'azs')))

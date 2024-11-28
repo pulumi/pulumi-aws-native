@@ -144,7 +144,7 @@ def get_alarm_model(alarm_model_name: Optional[str] = None,
         severity=pulumi.get(__ret__, 'severity'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_alarm_model_output(alarm_model_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlarmModelResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmModelResult]:
     """
     Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
 
@@ -153,7 +153,7 @@ def get_alarm_model_output(alarm_model_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['alarmModelName'] = alarm_model_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotevents:getAlarmModel', __args__, opts=opts, typ=GetAlarmModelResult)
     return __ret__.apply(lambda __response__: GetAlarmModelResult(
         alarm_capabilities=pulumi.get(__response__, 'alarm_capabilities'),

@@ -211,7 +211,7 @@ def get_mission_profile(arn: Optional[str] = None,
         tracking_config_arn=pulumi.get(__ret__, 'tracking_config_arn'))
 def get_mission_profile_output(arn: Optional[pulumi.Input[str]] = None,
                                id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMissionProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMissionProfileResult]:
     """
     AWS Ground Station Mission Profile resource type for CloudFormation.
 
@@ -222,7 +222,7 @@ def get_mission_profile_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:groundstation:getMissionProfile', __args__, opts=opts, typ=GetMissionProfileResult)
     return __ret__.apply(lambda __response__: GetMissionProfileResult(
         arn=pulumi.get(__response__, 'arn'),

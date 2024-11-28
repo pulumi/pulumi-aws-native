@@ -171,7 +171,7 @@ def get_asset(asset_id: Optional[str] = None,
         asset_properties=pulumi.get(__ret__, 'asset_properties'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_asset_output(asset_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetResult]:
     """
     Resource schema for AWS::IoTSiteWise::Asset
 
@@ -180,7 +180,7 @@ def get_asset_output(asset_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['assetId'] = asset_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getAsset', __args__, opts=opts, typ=GetAssetResult)
     return __ret__.apply(lambda __response__: GetAssetResult(
         asset_arn=pulumi.get(__response__, 'asset_arn'),

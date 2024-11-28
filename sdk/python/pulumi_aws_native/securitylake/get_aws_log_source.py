@@ -66,7 +66,7 @@ def get_aws_log_source(source_name: Optional[str] = None,
         accounts=pulumi.get(__ret__, 'accounts'))
 def get_aws_log_source_output(source_name: Optional[pulumi.Input[str]] = None,
                               source_version: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAwsLogSourceResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAwsLogSourceResult]:
     """
     Resource Type definition for AWS::SecurityLake::AwsLogSource
 
@@ -77,7 +77,7 @@ def get_aws_log_source_output(source_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['sourceName'] = source_name
     __args__['sourceVersion'] = source_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securitylake:getAwsLogSource', __args__, opts=opts, typ=GetAwsLogSourceResult)
     return __ret__.apply(lambda __response__: GetAwsLogSourceResult(
         accounts=pulumi.get(__response__, 'accounts')))

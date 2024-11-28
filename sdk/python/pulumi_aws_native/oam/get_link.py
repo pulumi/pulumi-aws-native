@@ -116,7 +116,7 @@ def get_link(arn: Optional[str] = None,
         resource_types=pulumi.get(__ret__, 'resource_types'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_link_output(arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLinkResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkResult]:
     """
     Definition of AWS::Oam::Link Resource Type
 
@@ -125,7 +125,7 @@ def get_link_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:oam:getLink', __args__, opts=opts, typ=GetLinkResult)
     return __ret__.apply(lambda __response__: GetLinkResult(
         arn=pulumi.get(__response__, 'arn'),

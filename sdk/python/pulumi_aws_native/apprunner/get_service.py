@@ -168,7 +168,7 @@ def get_service(service_arn: Optional[str] = None,
         source_configuration=pulumi.get(__ret__, 'source_configuration'),
         status=pulumi.get(__ret__, 'status'))
 def get_service_output(service_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The AWS::AppRunner::Service resource specifies an AppRunner Service.
 
@@ -177,7 +177,7 @@ def get_service_output(service_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['serviceArn'] = service_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apprunner:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         health_check_configuration=pulumi.get(__response__, 'health_check_configuration'),

@@ -62,7 +62,7 @@ def cidr(cidr_bits: Optional[int] = None,
 def cidr_output(cidr_bits: Optional[pulumi.Input[int]] = None,
                 count: Optional[pulumi.Input[int]] = None,
                 ip_block: Optional[pulumi.Input[str]] = None,
-                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[CidrResult]:
+                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[CidrResult]:
     """
     Use this data source to access information about an existing resource.
     """
@@ -70,7 +70,7 @@ def cidr_output(cidr_bits: Optional[pulumi.Input[int]] = None,
     __args__['cidrBits'] = cidr_bits
     __args__['count'] = count
     __args__['ipBlock'] = ip_block
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:index:cidr', __args__, opts=opts, typ=CidrResult)
     return __ret__.apply(lambda __response__: CidrResult(
         subnets=pulumi.get(__response__, 'subnets')))

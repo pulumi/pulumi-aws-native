@@ -80,7 +80,7 @@ def get_access_policy(name: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'))
 def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
                              type: Optional[pulumi.Input['AccessPolicyType']] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Amazon OpenSearchServerless access policy resource
 
@@ -91,7 +91,7 @@ def get_access_policy_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult)
     return __ret__.apply(lambda __response__: GetAccessPolicyResult(
         description=pulumi.get(__response__, 'description'),

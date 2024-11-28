@@ -89,7 +89,7 @@ def get_rotation_schedule(id: Optional[str] = None,
         rotation_lambda_arn=pulumi.get(__ret__, 'rotation_lambda_arn'),
         rotation_rules=pulumi.get(__ret__, 'rotation_rules'))
 def get_rotation_schedule_output(id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRotationScheduleResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRotationScheduleResult]:
     """
     Resource Type definition for AWS::SecretsManager::RotationSchedule
 
@@ -98,7 +98,7 @@ def get_rotation_schedule_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:secretsmanager:getRotationSchedule', __args__, opts=opts, typ=GetRotationScheduleResult)
     return __ret__.apply(lambda __response__: GetRotationScheduleResult(
         id=pulumi.get(__response__, 'id'),

@@ -158,7 +158,7 @@ def get_environment_blueprint_configuration(domain_id: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_environment_blueprint_configuration_output(domain_id: Optional[pulumi.Input[str]] = None,
                                                    environment_blueprint_id: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentBlueprintConfigurationResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentBlueprintConfigurationResult]:
     """
     Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
 
@@ -169,7 +169,7 @@ def get_environment_blueprint_configuration_output(domain_id: Optional[pulumi.In
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['environmentBlueprintId'] = environment_blueprint_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getEnvironmentBlueprintConfiguration', __args__, opts=opts, typ=GetEnvironmentBlueprintConfigurationResult)
     return __ret__.apply(lambda __response__: GetEnvironmentBlueprintConfigurationResult(
         created_at=pulumi.get(__response__, 'created_at'),

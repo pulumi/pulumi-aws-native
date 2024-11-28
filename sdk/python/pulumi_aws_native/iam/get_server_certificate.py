@@ -95,7 +95,7 @@ def get_server_certificate(server_certificate_name: Optional[str] = None,
         path=pulumi.get(__ret__, 'path'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_server_certificate_output(server_certificate_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerCertificateResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCertificateResult]:
     """
     Resource Type definition for AWS::IAM::ServerCertificate
 
@@ -106,7 +106,7 @@ def get_server_certificate_output(server_certificate_name: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['serverCertificateName'] = server_certificate_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getServerCertificate', __args__, opts=opts, typ=GetServerCertificateResult)
     return __ret__.apply(lambda __response__: GetServerCertificateResult(
         arn=pulumi.get(__response__, 'arn'),

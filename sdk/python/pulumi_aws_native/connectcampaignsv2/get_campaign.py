@@ -148,7 +148,7 @@ def get_campaign(arn: Optional[str] = None,
         source=pulumi.get(__ret__, 'source'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_campaign_output(arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCampaignResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCampaignResult]:
     """
     Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
 
@@ -157,7 +157,7 @@ def get_campaign_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connectcampaignsv2:getCampaign', __args__, opts=opts, typ=GetCampaignResult)
     return __ret__.apply(lambda __response__: GetCampaignResult(
         arn=pulumi.get(__response__, 'arn'),

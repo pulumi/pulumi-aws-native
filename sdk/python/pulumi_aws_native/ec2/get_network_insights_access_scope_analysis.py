@@ -168,7 +168,7 @@ def get_network_insights_access_scope_analysis(network_insights_access_scope_ana
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_insights_access_scope_analysis_output(network_insights_access_scope_analysis_id: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeAnalysisResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAccessScopeAnalysisResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
 
@@ -177,7 +177,7 @@ def get_network_insights_access_scope_analysis_output(network_insights_access_sc
     """
     __args__ = dict()
     __args__['networkInsightsAccessScopeAnalysisId'] = network_insights_access_scope_analysis_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInsightsAccessScopeAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAccessScopeAnalysisResult)
     return __ret__.apply(lambda __response__: GetNetworkInsightsAccessScopeAnalysisResult(
         analyzed_eni_count=pulumi.get(__response__, 'analyzed_eni_count'),

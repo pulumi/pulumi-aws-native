@@ -81,7 +81,7 @@ def get_instance_profile(instance_profile_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         roles=pulumi.get(__ret__, 'roles'))
 def get_instance_profile_output(instance_profile_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
       For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
@@ -92,7 +92,7 @@ def get_instance_profile_output(instance_profile_name: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['instanceProfileName'] = instance_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getInstanceProfile', __args__, opts=opts, typ=GetInstanceProfileResult)
     return __ret__.apply(lambda __response__: GetInstanceProfileResult(
         arn=pulumi.get(__response__, 'arn'),

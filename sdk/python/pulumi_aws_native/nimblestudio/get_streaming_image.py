@@ -158,7 +158,7 @@ def get_streaming_image(streaming_image_id: Optional[str] = None,
         platform=pulumi.get(__ret__, 'platform'),
         streaming_image_id=pulumi.get(__ret__, 'streaming_image_id'))
 def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingImageResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingImageResult]:
     """
     Resource Type definition for AWS::NimbleStudio::StreamingImage
 
@@ -167,7 +167,7 @@ def get_streaming_image_output(streaming_image_id: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['streamingImageId'] = streaming_image_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getStreamingImage', __args__, opts=opts, typ=GetStreamingImageResult)
     return __ret__.apply(lambda __response__: GetStreamingImageResult(
         description=pulumi.get(__response__, 'description'),

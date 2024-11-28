@@ -210,7 +210,7 @@ def get_environment_profile(domain_id: Optional[str] = None,
         user_parameters=pulumi.get(__ret__, 'user_parameters'))
 def get_environment_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
                                    id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentProfileResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentProfileResult]:
     """
     AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
 
@@ -221,7 +221,7 @@ def get_environment_profile_output(domain_id: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getEnvironmentProfile', __args__, opts=opts, typ=GetEnvironmentProfileResult)
     return __ret__.apply(lambda __response__: GetEnvironmentProfileResult(
         aws_account_id=pulumi.get(__response__, 'aws_account_id'),

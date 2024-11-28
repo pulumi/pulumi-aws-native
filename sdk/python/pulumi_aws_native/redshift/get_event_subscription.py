@@ -206,7 +206,7 @@ def get_event_subscription(subscription_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         subscription_creation_time=pulumi.get(__ret__, 'subscription_creation_time'))
 def get_event_subscription_output(subscription_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
     The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
 
@@ -215,7 +215,7 @@ def get_event_subscription_output(subscription_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['subscriptionName'] = subscription_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getEventSubscription', __args__, opts=opts, typ=GetEventSubscriptionResult)
     return __ret__.apply(lambda __response__: GetEventSubscriptionResult(
         cust_subscription_id=pulumi.get(__response__, 'cust_subscription_id'),

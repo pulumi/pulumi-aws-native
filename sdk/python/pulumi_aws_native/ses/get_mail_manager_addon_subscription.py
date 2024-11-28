@@ -89,7 +89,7 @@ def get_mail_manager_addon_subscription(addon_subscription_id: Optional[str] = N
         addon_subscription_id=pulumi.get(__ret__, 'addon_subscription_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_mail_manager_addon_subscription_output(addon_subscription_id: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerAddonSubscriptionResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerAddonSubscriptionResult]:
     """
     Definition of AWS::SES::MailManagerAddonSubscription Resource Type
 
@@ -98,7 +98,7 @@ def get_mail_manager_addon_subscription_output(addon_subscription_id: Optional[p
     """
     __args__ = dict()
     __args__['addonSubscriptionId'] = addon_subscription_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerAddonSubscription', __args__, opts=opts, typ=GetMailManagerAddonSubscriptionResult)
     return __ret__.apply(lambda __response__: GetMailManagerAddonSubscriptionResult(
         addon_subscription_arn=pulumi.get(__response__, 'addon_subscription_arn'),

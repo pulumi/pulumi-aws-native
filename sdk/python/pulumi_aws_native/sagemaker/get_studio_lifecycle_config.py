@@ -62,7 +62,7 @@ def get_studio_lifecycle_config(studio_lifecycle_config_name: Optional[str] = No
     return AwaitableGetStudioLifecycleConfigResult(
         studio_lifecycle_config_arn=pulumi.get(__ret__, 'studio_lifecycle_config_arn'))
 def get_studio_lifecycle_config_output(studio_lifecycle_config_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioLifecycleConfigResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioLifecycleConfigResult]:
     """
     Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
 
@@ -71,7 +71,7 @@ def get_studio_lifecycle_config_output(studio_lifecycle_config_name: Optional[pu
     """
     __args__ = dict()
     __args__['studioLifecycleConfigName'] = studio_lifecycle_config_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getStudioLifecycleConfig', __args__, opts=opts, typ=GetStudioLifecycleConfigResult)
     return __ret__.apply(lambda __response__: GetStudioLifecycleConfigResult(
         studio_lifecycle_config_arn=pulumi.get(__response__, 'studio_lifecycle_config_arn')))

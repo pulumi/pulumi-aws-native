@@ -103,7 +103,7 @@ def get_enabled_baseline(enabled_baseline_identifier: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_enabled_baseline_output(enabled_baseline_identifier: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnabledBaselineResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnabledBaselineResult]:
     """
     Definition of AWS::ControlTower::EnabledBaseline Resource Type
 
@@ -112,7 +112,7 @@ def get_enabled_baseline_output(enabled_baseline_identifier: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['enabledBaselineIdentifier'] = enabled_baseline_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:controltower:getEnabledBaseline', __args__, opts=opts, typ=GetEnabledBaselineResult)
     return __ret__.apply(lambda __response__: GetEnabledBaselineResult(
         baseline_version=pulumi.get(__response__, 'baseline_version'),

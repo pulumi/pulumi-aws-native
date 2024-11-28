@@ -128,7 +128,7 @@ def get_network_insights_path(network_insights_path_id: Optional[str] = None,
         source_arn=pulumi.get(__ret__, 'source_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_insights_path_output(network_insights_path_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsPathResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsPath
 
@@ -137,7 +137,7 @@ def get_network_insights_path_output(network_insights_path_id: Optional[pulumi.I
     """
     __args__ = dict()
     __args__['networkInsightsPathId'] = network_insights_path_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInsightsPath', __args__, opts=opts, typ=GetNetworkInsightsPathResult)
     return __ret__.apply(lambda __response__: GetNetworkInsightsPathResult(
         created_date=pulumi.get(__response__, 'created_date'),

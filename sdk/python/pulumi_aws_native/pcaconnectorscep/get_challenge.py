@@ -72,7 +72,7 @@ def get_challenge(challenge_arn: Optional[str] = None,
         challenge_arn=pulumi.get(__ret__, 'challenge_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_challenge_output(challenge_arn: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChallengeResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChallengeResult]:
     """
     Represents a SCEP Challenge that is used for certificate enrollment
 
@@ -81,7 +81,7 @@ def get_challenge_output(challenge_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['challengeArn'] = challenge_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:pcaconnectorscep:getChallenge', __args__, opts=opts, typ=GetChallengeResult)
     return __ret__.apply(lambda __response__: GetChallengeResult(
         challenge_arn=pulumi.get(__response__, 'challenge_arn'),

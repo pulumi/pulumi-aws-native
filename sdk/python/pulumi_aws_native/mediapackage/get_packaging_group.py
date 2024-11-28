@@ -102,7 +102,7 @@ def get_packaging_group(id: Optional[str] = None,
         domain_name=pulumi.get(__ret__, 'domain_name'),
         egress_access_logs=pulumi.get(__ret__, 'egress_access_logs'))
 def get_packaging_group_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackagingGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackagingGroupResult]:
     """
     Resource schema for AWS::MediaPackage::PackagingGroup
 
@@ -111,7 +111,7 @@ def get_packaging_group_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackage:getPackagingGroup', __args__, opts=opts, typ=GetPackagingGroupResult)
     return __ret__.apply(lambda __response__: GetPackagingGroupResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -89,7 +89,7 @@ def get_network_interface_attachment(attachment_id: Optional[str] = None,
         delete_on_termination=pulumi.get(__ret__, 'delete_on_termination'),
         ena_srd_specification=pulumi.get(__ret__, 'ena_srd_specification'))
 def get_network_interface_attachment_output(attachment_id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInterfaceAttachmentResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceAttachmentResult]:
     """
     Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
 
@@ -98,7 +98,7 @@ def get_network_interface_attachment_output(attachment_id: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['attachmentId'] = attachment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInterfaceAttachment', __args__, opts=opts, typ=GetNetworkInterfaceAttachmentResult)
     return __ret__.apply(lambda __response__: GetNetworkInterfaceAttachmentResult(
         attachment_id=pulumi.get(__response__, 'attachment_id'),

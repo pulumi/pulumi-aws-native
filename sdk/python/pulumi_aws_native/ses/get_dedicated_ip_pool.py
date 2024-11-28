@@ -62,7 +62,7 @@ def get_dedicated_ip_pool(pool_name: Optional[str] = None,
     return AwaitableGetDedicatedIpPoolResult(
         scaling_mode=pulumi.get(__ret__, 'scaling_mode'))
 def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedIpPoolResult]:
     """
     Resource Type definition for AWS::SES::DedicatedIpPool
 
@@ -71,7 +71,7 @@ def get_dedicated_ip_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['poolName'] = pool_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getDedicatedIpPool', __args__, opts=opts, typ=GetDedicatedIpPoolResult)
     return __ret__.apply(lambda __response__: GetDedicatedIpPoolResult(
         scaling_mode=pulumi.get(__response__, 'scaling_mode')))

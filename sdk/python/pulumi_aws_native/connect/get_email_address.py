@@ -115,7 +115,7 @@ def get_email_address(email_address_arn: Optional[str] = None,
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_email_address_output(email_address_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailAddressResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEmailAddressResult]:
     """
     Resource Type definition for AWS::Connect::EmailAddress
 
@@ -124,7 +124,7 @@ def get_email_address_output(email_address_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['emailAddressArn'] = email_address_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getEmailAddress', __args__, opts=opts, typ=GetEmailAddressResult)
     return __ret__.apply(lambda __response__: GetEmailAddressResult(
         description=pulumi.get(__response__, 'description'),

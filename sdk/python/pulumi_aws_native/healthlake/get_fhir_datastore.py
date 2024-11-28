@@ -129,7 +129,7 @@ def get_fhir_datastore(datastore_id: Optional[str] = None,
         datastore_status=pulumi.get(__ret__, 'datastore_status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_fhir_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirDatastoreResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFhirDatastoreResult]:
     """
     HealthLake FHIR Datastore
 
@@ -138,7 +138,7 @@ def get_fhir_datastore_output(datastore_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['datastoreId'] = datastore_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:healthlake:getFhirDatastore', __args__, opts=opts, typ=GetFhirDatastoreResult)
     return __ret__.apply(lambda __response__: GetFhirDatastoreResult(
         created_at=pulumi.get(__response__, 'created_at'),

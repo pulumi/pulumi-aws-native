@@ -116,7 +116,7 @@ def get_traffic_distribution_group(traffic_distribution_group_arn: Optional[str]
         tags=pulumi.get(__ret__, 'tags'),
         traffic_distribution_group_arn=pulumi.get(__ret__, 'traffic_distribution_group_arn'))
 def get_traffic_distribution_group_output(traffic_distribution_group_arn: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrafficDistributionGroupResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrafficDistributionGroupResult]:
     """
     Resource Type definition for AWS::Connect::TrafficDistributionGroup
 
@@ -125,7 +125,7 @@ def get_traffic_distribution_group_output(traffic_distribution_group_arn: Option
     """
     __args__ = dict()
     __args__['trafficDistributionGroupArn'] = traffic_distribution_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getTrafficDistributionGroup', __args__, opts=opts, typ=GetTrafficDistributionGroupResult)
     return __ret__.apply(lambda __response__: GetTrafficDistributionGroupResult(
         instance_arn=pulumi.get(__response__, 'instance_arn'),

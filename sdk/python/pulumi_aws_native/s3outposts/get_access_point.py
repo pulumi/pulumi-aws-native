@@ -77,7 +77,7 @@ def get_access_point(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         policy=pulumi.get(__ret__, 'policy'))
 def get_access_point_output(arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPointResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPointResult]:
     """
     Resource Type Definition for AWS::S3Outposts::AccessPoint
 
@@ -86,7 +86,7 @@ def get_access_point_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3outposts:getAccessPoint', __args__, opts=opts, typ=GetAccessPointResult)
     return __ret__.apply(lambda __response__: GetAccessPointResult(
         arn=pulumi.get(__response__, 'arn'),

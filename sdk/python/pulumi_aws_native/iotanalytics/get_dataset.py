@@ -155,7 +155,7 @@ def get_dataset(dataset_name: Optional[str] = None,
         triggers=pulumi.get(__ret__, 'triggers'),
         versioning_configuration=pulumi.get(__ret__, 'versioning_configuration'))
 def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Dataset
 
@@ -164,7 +164,7 @@ def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['datasetName'] = dataset_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotanalytics:getDataset', __args__, opts=opts, typ=GetDatasetResult)
     return __ret__.apply(lambda __response__: GetDatasetResult(
         actions=pulumi.get(__response__, 'actions'),

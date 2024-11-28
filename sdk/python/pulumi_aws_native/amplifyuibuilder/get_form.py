@@ -202,7 +202,7 @@ def get_form(app_id: Optional[str] = None,
 def get_form_output(app_id: Optional[pulumi.Input[str]] = None,
                     environment_name: Optional[pulumi.Input[str]] = None,
                     id: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFormResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFormResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Form Resource Type
 
@@ -215,7 +215,7 @@ def get_form_output(app_id: Optional[pulumi.Input[str]] = None,
     __args__['appId'] = app_id
     __args__['environmentName'] = environment_name
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:amplifyuibuilder:getForm', __args__, opts=opts, typ=GetFormResult)
     return __ret__.apply(lambda __response__: GetFormResult(
         cta=pulumi.get(__response__, 'cta'),

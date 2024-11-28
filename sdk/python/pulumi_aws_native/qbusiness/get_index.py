@@ -198,7 +198,7 @@ def get_index(application_id: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_index_output(application_id: Optional[pulumi.Input[str]] = None,
                      index_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     Definition of AWS::QBusiness::Index Resource Type
 
@@ -209,7 +209,7 @@ def get_index_output(application_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['indexId'] = index_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getIndex', __args__, opts=opts, typ=GetIndexResult)
     return __ret__.apply(lambda __response__: GetIndexResult(
         capacity_configuration=pulumi.get(__response__, 'capacity_configuration'),

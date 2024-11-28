@@ -110,7 +110,7 @@ def get_view(view_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         view_arn=pulumi.get(__ret__, 'view_arn'))
 def get_view_output(view_arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Definition of AWS::ResourceExplorer2::View Resource Type
 
@@ -121,7 +121,7 @@ def get_view_output(view_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['viewArn'] = view_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:resourceexplorer2:getView', __args__, opts=opts, typ=GetViewResult)
     return __ret__.apply(lambda __response__: GetViewResult(
         filters=pulumi.get(__response__, 'filters'),

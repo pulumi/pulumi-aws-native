@@ -62,7 +62,7 @@ def get_resource_policy(policy_name: Optional[str] = None,
     return AwaitableGetResourcePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
 def get_resource_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     This schema provides construct and validation rules for AWS-XRay Resource Policy resource parameters.
 
@@ -71,7 +71,7 @@ def get_resource_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['policyName'] = policy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:xray:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult)
     return __ret__.apply(lambda __response__: GetResourcePolicyResult(
         policy_document=pulumi.get(__response__, 'policy_document')))

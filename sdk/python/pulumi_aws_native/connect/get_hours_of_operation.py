@@ -156,7 +156,7 @@ def get_hours_of_operation(hours_of_operation_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_zone=pulumi.get(__ret__, 'time_zone'))
 def get_hours_of_operation_output(hours_of_operation_arn: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHoursOfOperationResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHoursOfOperationResult]:
     """
     Resource Type definition for AWS::Connect::HoursOfOperation
 
@@ -165,7 +165,7 @@ def get_hours_of_operation_output(hours_of_operation_arn: Optional[pulumi.Input[
     """
     __args__ = dict()
     __args__['hoursOfOperationArn'] = hours_of_operation_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getHoursOfOperation', __args__, opts=opts, typ=GetHoursOfOperationResult)
     return __ret__.apply(lambda __response__: GetHoursOfOperationResult(
         config=pulumi.get(__response__, 'config'),

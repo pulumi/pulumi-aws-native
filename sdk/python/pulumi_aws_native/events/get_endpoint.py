@@ -183,7 +183,7 @@ def get_endpoint(name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         state_reason=pulumi.get(__ret__, 'state_reason'))
 def get_endpoint_output(name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Resource Type definition for AWS::Events::Endpoint.
 
@@ -192,7 +192,7 @@ def get_endpoint_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:events:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
     return __ret__.apply(lambda __response__: GetEndpointResult(
         arn=pulumi.get(__response__, 'arn'),

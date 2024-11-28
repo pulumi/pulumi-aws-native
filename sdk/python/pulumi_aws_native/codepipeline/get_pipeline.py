@@ -195,7 +195,7 @@ def get_pipeline(name: Optional[str] = None,
         variables=pulumi.get(__ret__, 'variables'),
         version=pulumi.get(__ret__, 'version'))
 def get_pipeline_output(name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
 
@@ -204,7 +204,7 @@ def get_pipeline_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codepipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
     return __ret__.apply(lambda __response__: GetPipelineResult(
         artifact_store=pulumi.get(__response__, 'artifact_store'),

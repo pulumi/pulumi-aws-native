@@ -102,7 +102,7 @@ def get_subnet_group(subnet_group_name: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_subnet_group_output(subnet_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
     The AWS::MemoryDB::SubnetGroup resource creates an Amazon MemoryDB Subnet Group.
 
@@ -111,7 +111,7 @@ def get_subnet_group_output(subnet_group_name: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['subnetGroupName'] = subnet_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:memorydb:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetSubnetGroupResult(
         arn=pulumi.get(__response__, 'arn'),

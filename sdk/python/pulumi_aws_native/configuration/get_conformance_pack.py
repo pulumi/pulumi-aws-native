@@ -89,7 +89,7 @@ def get_conformance_pack(conformance_pack_name: Optional[str] = None,
         delivery_s3_bucket=pulumi.get(__ret__, 'delivery_s3_bucket'),
         delivery_s3_key_prefix=pulumi.get(__ret__, 'delivery_s3_key_prefix'))
 def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConformancePackResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConformancePackResult]:
     """
     A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
 
@@ -98,7 +98,7 @@ def get_conformance_pack_output(conformance_pack_name: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['conformancePackName'] = conformance_pack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getConformancePack', __args__, opts=opts, typ=GetConformancePackResult)
     return __ret__.apply(lambda __response__: GetConformancePackResult(
         conformance_pack_input_parameters=pulumi.get(__response__, 'conformance_pack_input_parameters'),

@@ -115,7 +115,7 @@ def get_configuration(id: Optional[str] = None,
         revision=pulumi.get(__ret__, 'revision'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_configuration_output(id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationResult]:
     """
     Resource Type definition for AWS::AmazonMQ::Configuration
 
@@ -124,7 +124,7 @@ def get_configuration_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:amazonmq:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult)
     return __ret__.apply(lambda __response__: GetConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

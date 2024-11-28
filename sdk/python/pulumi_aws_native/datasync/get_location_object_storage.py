@@ -155,7 +155,7 @@ def get_location_object_storage(location_arn: Optional[str] = None,
         server_protocol=pulumi.get(__ret__, 'server_protocol'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_object_storage_output(location_arn: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationObjectStorageResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationObjectStorageResult]:
     """
     Resource schema for AWS::DataSync::LocationObjectStorage.
 
@@ -164,7 +164,7 @@ def get_location_object_storage_output(location_arn: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['locationArn'] = location_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationObjectStorage', __args__, opts=opts, typ=GetLocationObjectStorageResult)
     return __ret__.apply(lambda __response__: GetLocationObjectStorageResult(
         access_key=pulumi.get(__response__, 'access_key'),

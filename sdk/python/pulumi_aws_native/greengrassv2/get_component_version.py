@@ -108,7 +108,7 @@ def get_component_version(arn: Optional[str] = None,
         component_version=pulumi.get(__ret__, 'component_version'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_component_version_output(arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentVersionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentVersionResult]:
     """
     Resource for Greengrass component version.
 
@@ -117,7 +117,7 @@ def get_component_version_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:greengrassv2:getComponentVersion', __args__, opts=opts, typ=GetComponentVersionResult)
     return __ret__.apply(lambda __response__: GetComponentVersionResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -56,13 +56,13 @@ def get_ssm_parameter_list(name: Optional[str] = None,
     return AwaitableGetSsmParameterListResult(
         value=pulumi.get(__ret__, 'value'))
 def get_ssm_parameter_list_output(name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSsmParameterListResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSsmParameterListResult]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:index:getSsmParameterList', __args__, opts=opts, typ=GetSsmParameterListResult)
     return __ret__.apply(lambda __response__: GetSsmParameterListResult(
         value=pulumi.get(__response__, 'value')))

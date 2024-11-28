@@ -160,7 +160,7 @@ def get_evaluation_form(evaluation_form_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         title=pulumi.get(__ret__, 'title'))
 def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEvaluationFormResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEvaluationFormResult]:
     """
     Creates an evaluation form for the specified CON instance.
 
@@ -169,7 +169,7 @@ def get_evaluation_form_output(evaluation_form_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['evaluationFormArn'] = evaluation_form_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getEvaluationForm', __args__, opts=opts, typ=GetEvaluationFormResult)
     return __ret__.apply(lambda __response__: GetEvaluationFormResult(
         description=pulumi.get(__response__, 'description'),

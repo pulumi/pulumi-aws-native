@@ -223,7 +223,7 @@ def get_task(task_arn: Optional[str] = None,
         task_arn=pulumi.get(__ret__, 'task_arn'),
         task_report_config=pulumi.get(__ret__, 'task_report_config'))
 def get_task_output(task_arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskResult]:
     """
     Resource schema for AWS::DataSync::Task.
 
@@ -232,7 +232,7 @@ def get_task_output(task_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['taskArn'] = task_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getTask', __args__, opts=opts, typ=GetTaskResult)
     return __ret__.apply(lambda __response__: GetTaskResult(
         cloud_watch_log_group_arn=pulumi.get(__response__, 'cloud_watch_log_group_arn'),

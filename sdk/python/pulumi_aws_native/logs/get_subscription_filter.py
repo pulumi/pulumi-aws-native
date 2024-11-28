@@ -112,7 +112,7 @@ def get_subscription_filter(filter_name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_subscription_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
                                    log_group_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionFilterResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionFilterResult]:
     """
     The ``AWS::Logs::SubscriptionFilter`` resource specifies a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events and have them delivered to a specific destination. Currently, the supported destinations are:
       +  An Amazon Kinesis data stream belonging to the same account as the subscription filter, for same-account delivery.
@@ -129,7 +129,7 @@ def get_subscription_filter_output(filter_name: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['filterName'] = filter_name
     __args__['logGroupName'] = log_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getSubscriptionFilter', __args__, opts=opts, typ=GetSubscriptionFilterResult)
     return __ret__.apply(lambda __response__: GetSubscriptionFilterResult(
         destination_arn=pulumi.get(__response__, 'destination_arn'),

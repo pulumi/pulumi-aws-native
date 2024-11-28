@@ -220,7 +220,7 @@ def get_inference_experiment(name: Optional[str] = None,
         status_reason=pulumi.get(__ret__, 'status_reason'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_inference_experiment_output(name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceExperimentResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceExperimentResult]:
     """
     Resource Type definition for AWS::SageMaker::InferenceExperiment
 
@@ -229,7 +229,7 @@ def get_inference_experiment_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getInferenceExperiment', __args__, opts=opts, typ=GetInferenceExperimentResult)
     return __ret__.apply(lambda __response__: GetInferenceExperimentResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -85,7 +85,7 @@ def get_db_cluster_parameter_group(db_cluster_parameter_group_name: Optional[str
         parameters=pulumi.get(__ret__, 'parameters'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterParameterGroupResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterParameterGroupResult]:
     """
     The ``AWS::RDS::DBClusterParameterGroup`` resource creates a new Amazon RDS DB cluster parameter group.
      For information about configuring parameters for Amazon Aurora DB clusters, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
@@ -101,7 +101,7 @@ def get_db_cluster_parameter_group_output(db_cluster_parameter_group_name: Optio
     """
     __args__ = dict()
     __args__['dbClusterParameterGroupName'] = db_cluster_parameter_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbClusterParameterGroup', __args__, opts=opts, typ=GetDbClusterParameterGroupResult)
     return __ret__.apply(lambda __response__: GetDbClusterParameterGroupResult(
         parameters=pulumi.get(__response__, 'parameters'),

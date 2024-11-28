@@ -254,7 +254,7 @@ def get_component(app_id: Optional[str] = None,
 def get_component_output(app_id: Optional[pulumi.Input[str]] = None,
                          environment_name: Optional[pulumi.Input[str]] = None,
                          id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
     Definition of AWS::AmplifyUIBuilder::Component Resource Type
 
@@ -267,7 +267,7 @@ def get_component_output(app_id: Optional[pulumi.Input[str]] = None,
     __args__['appId'] = app_id
     __args__['environmentName'] = environment_name
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:amplifyuibuilder:getComponent', __args__, opts=opts, typ=GetComponentResult)
     return __ret__.apply(lambda __response__: GetComponentResult(
         binding_properties=pulumi.get(__response__, 'binding_properties'),

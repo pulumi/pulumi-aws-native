@@ -76,7 +76,7 @@ def get_dhcp_options(dhcp_options_id: Optional[str] = None,
         dhcp_options_id=pulumi.get(__ret__, 'dhcp_options_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDhcpOptionsResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDhcpOptionsResult]:
     """
     Resource Type definition for AWS::EC2::DHCPOptions
 
@@ -85,7 +85,7 @@ def get_dhcp_options_output(dhcp_options_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['dhcpOptionsId'] = dhcp_options_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getDhcpOptions', __args__, opts=opts, typ=GetDhcpOptionsResult)
     return __ret__.apply(lambda __response__: GetDhcpOptionsResult(
         dhcp_options_id=pulumi.get(__response__, 'dhcp_options_id'),

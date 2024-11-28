@@ -88,7 +88,7 @@ def get_public_type_version(public_type_arn: Optional[str] = None,
         publisher_id=pulumi.get(__ret__, 'publisher_id'),
         type_version_arn=pulumi.get(__ret__, 'type_version_arn'))
 def get_public_type_version_output(public_type_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicTypeVersionResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicTypeVersionResult]:
     """
     Test and Publish a resource that has been registered in the CloudFormation Registry.
 
@@ -97,7 +97,7 @@ def get_public_type_version_output(public_type_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['publicTypeArn'] = public_type_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getPublicTypeVersion', __args__, opts=opts, typ=GetPublicTypeVersionResult)
     return __ret__.apply(lambda __response__: GetPublicTypeVersionResult(
         public_type_arn=pulumi.get(__response__, 'public_type_arn'),

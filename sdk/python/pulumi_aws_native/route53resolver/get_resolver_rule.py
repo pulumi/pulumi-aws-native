@@ -143,7 +143,7 @@ def get_resolver_rule(resolver_rule_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_ips=pulumi.get(__ret__, 'target_ips'))
 def get_resolver_rule_output(resolver_rule_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverRuleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverRuleResult]:
     """
     Resource Type definition for AWS::Route53Resolver::ResolverRule
 
@@ -152,7 +152,7 @@ def get_resolver_rule_output(resolver_rule_id: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['resolverRuleId'] = resolver_rule_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverRule', __args__, opts=opts, typ=GetResolverRuleResult)
     return __ret__.apply(lambda __response__: GetResolverRuleResult(
         arn=pulumi.get(__response__, 'arn'),

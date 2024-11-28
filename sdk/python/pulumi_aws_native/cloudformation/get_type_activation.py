@@ -102,7 +102,7 @@ def get_type_activation(arn: Optional[str] = None,
         major_version=pulumi.get(__ret__, 'major_version'),
         version_bump=pulumi.get(__ret__, 'version_bump'))
 def get_type_activation_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTypeActivationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTypeActivationResult]:
     """
     Enable a resource that has been published in the CloudFormation Registry.
 
@@ -111,7 +111,7 @@ def get_type_activation_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getTypeActivation', __args__, opts=opts, typ=GetTypeActivationResult)
     return __ret__.apply(lambda __response__: GetTypeActivationResult(
         arn=pulumi.get(__response__, 'arn'),

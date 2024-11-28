@@ -67,7 +67,7 @@ def get_key_signing_key(hosted_zone_id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_key_signing_key_output(hosted_zone_id: Optional[pulumi.Input[str]] = None,
                                name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeySigningKeyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeySigningKeyResult]:
     """
     Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
 
@@ -78,7 +78,7 @@ def get_key_signing_key_output(hosted_zone_id: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['hostedZoneId'] = hosted_zone_id
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53:getKeySigningKey', __args__, opts=opts, typ=GetKeySigningKeyResult)
     return __ret__.apply(lambda __response__: GetKeySigningKeyResult(
         status=pulumi.get(__response__, 'status')))

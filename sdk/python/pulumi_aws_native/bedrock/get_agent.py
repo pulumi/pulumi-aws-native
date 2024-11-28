@@ -351,7 +351,7 @@ def get_agent(agent_id: Optional[str] = None,
         test_alias_tags=pulumi.get(__ret__, 'test_alias_tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_agent_output(agent_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentResult]:
     """
     Definition of AWS::Bedrock::Agent Resource Type
 
@@ -360,7 +360,7 @@ def get_agent_output(agent_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['agentId'] = agent_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getAgent', __args__, opts=opts, typ=GetAgentResult)
     return __ret__.apply(lambda __response__: GetAgentResult(
         action_groups=pulumi.get(__response__, 'action_groups'),

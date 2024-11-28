@@ -374,7 +374,7 @@ def get_event_source_mapping(id: Optional[str] = None,
         topics=pulumi.get(__ret__, 'topics'),
         tumbling_window_in_seconds=pulumi.get(__ret__, 'tumbling_window_in_seconds'))
 def get_event_source_mapping_output(id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSourceMappingResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSourceMappingResult]:
     """
     The ``AWS::Lambda::EventSourceMapping`` resource creates a mapping between an event source and an LAMlong function. LAM reads items from the event source and triggers the function.
      For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source.
@@ -391,7 +391,7 @@ def get_event_source_mapping_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getEventSourceMapping', __args__, opts=opts, typ=GetEventSourceMappingResult)
     return __ret__.apply(lambda __response__: GetEventSourceMappingResult(
         batch_size=pulumi.get(__response__, 'batch_size'),

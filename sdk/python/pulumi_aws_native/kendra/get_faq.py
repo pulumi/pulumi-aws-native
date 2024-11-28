@@ -110,7 +110,7 @@ def get_faq(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_faq_output(id: Optional[pulumi.Input[str]] = None,
                    index_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFaqResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFaqResult]:
     """
     A Kendra FAQ resource
 
@@ -123,7 +123,7 @@ def get_faq_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['indexId'] = index_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kendra:getFaq', __args__, opts=opts, typ=GetFaqResult)
     return __ret__.apply(lambda __response__: GetFaqResult(
         arn=pulumi.get(__response__, 'arn'),

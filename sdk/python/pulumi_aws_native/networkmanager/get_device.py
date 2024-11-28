@@ -224,7 +224,7 @@ def get_device(device_id: Optional[str] = None,
         vendor=pulumi.get(__ret__, 'vendor'))
 def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
                       global_network_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceResult]:
     """
     The AWS::NetworkManager::Device type describes a device.
 
@@ -235,7 +235,7 @@ def get_device_output(device_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['deviceId'] = device_id
     __args__['globalNetworkId'] = global_network_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getDevice', __args__, opts=opts, typ=GetDeviceResult)
     return __ret__.apply(lambda __response__: GetDeviceResult(
         aws_location=pulumi.get(__response__, 'aws_location'),

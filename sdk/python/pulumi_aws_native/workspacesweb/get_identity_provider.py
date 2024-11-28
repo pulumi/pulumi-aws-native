@@ -150,7 +150,7 @@ def get_identity_provider(identity_provider_arn: Optional[str] = None,
         identity_provider_type=pulumi.get(__ret__, 'identity_provider_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_identity_provider_output(identity_provider_arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityProviderResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityProviderResult]:
     """
     Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
 
@@ -159,7 +159,7 @@ def get_identity_provider_output(identity_provider_arn: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['identityProviderArn'] = identity_provider_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getIdentityProvider', __args__, opts=opts, typ=GetIdentityProviderResult)
     return __ret__.apply(lambda __response__: GetIdentityProviderResult(
         identity_provider_arn=pulumi.get(__response__, 'identity_provider_arn'),

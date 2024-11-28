@@ -126,7 +126,7 @@ def get_event_subscription(subscription_name: Optional[str] = None,
         source_type=pulumi.get(__ret__, 'source_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_event_subscription_output(subscription_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventSubscriptionResult]:
     """
     The ``AWS::RDS::EventSubscription`` resource allows you to receive notifications for Amazon Relational Database Service events through the Amazon Simple Notification Service (Amazon SNS). For more information, see [Using Amazon RDS Event Notification](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html) in the *Amazon RDS User Guide*.
 
@@ -136,7 +136,7 @@ def get_event_subscription_output(subscription_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['subscriptionName'] = subscription_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getEventSubscription', __args__, opts=opts, typ=GetEventSubscriptionResult)
     return __ret__.apply(lambda __response__: GetEventSubscriptionResult(
         enabled=pulumi.get(__response__, 'enabled'),

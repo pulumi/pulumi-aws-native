@@ -103,7 +103,7 @@ def get_profiling_group(profiling_group_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_profiling_group_output(profiling_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfilingGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfilingGroupResult]:
     """
     This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
 
@@ -112,7 +112,7 @@ def get_profiling_group_output(profiling_group_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['profilingGroupName'] = profiling_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codeguruprofiler:getProfilingGroup', __args__, opts=opts, typ=GetProfilingGroupResult)
     return __ret__.apply(lambda __response__: GetProfilingGroupResult(
         agent_permissions=pulumi.get(__response__, 'agent_permissions'),

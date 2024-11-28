@@ -247,7 +247,7 @@ def get_serverless_cache(serverless_cache_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_group_id=pulumi.get(__ret__, 'user_group_id'))
 def get_serverless_cache_output(serverless_cache_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerlessCacheResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessCacheResult]:
     """
     The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
 
@@ -256,7 +256,7 @@ def get_serverless_cache_output(serverless_cache_name: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['serverlessCacheName'] = serverless_cache_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getServerlessCache', __args__, opts=opts, typ=GetServerlessCacheResult)
     return __ret__.apply(lambda __response__: GetServerlessCacheResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -117,7 +117,7 @@ def get_domain(arn: Optional[str] = None,
         permissions_policy_document=pulumi.get(__ret__, 'permissions_policy_document'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_output(arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     The resource schema to create a CodeArtifact domain.
 
@@ -126,7 +126,7 @@ def get_domain_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codeartifact:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
         arn=pulumi.get(__response__, 'arn'),

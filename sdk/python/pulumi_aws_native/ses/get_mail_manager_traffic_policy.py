@@ -145,7 +145,7 @@ def get_mail_manager_traffic_policy(traffic_policy_id: Optional[str] = None,
         traffic_policy_id=pulumi.get(__ret__, 'traffic_policy_id'),
         traffic_policy_name=pulumi.get(__ret__, 'traffic_policy_name'))
 def get_mail_manager_traffic_policy_output(traffic_policy_id: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerTrafficPolicyResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerTrafficPolicyResult]:
     """
     Definition of AWS::SES::MailManagerTrafficPolicy Resource Type
 
@@ -154,7 +154,7 @@ def get_mail_manager_traffic_policy_output(traffic_policy_id: Optional[pulumi.In
     """
     __args__ = dict()
     __args__['trafficPolicyId'] = traffic_policy_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerTrafficPolicy', __args__, opts=opts, typ=GetMailManagerTrafficPolicyResult)
     return __ret__.apply(lambda __response__: GetMailManagerTrafficPolicyResult(
         default_action=pulumi.get(__response__, 'default_action'),

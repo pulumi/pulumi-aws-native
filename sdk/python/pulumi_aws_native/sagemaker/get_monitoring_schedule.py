@@ -169,7 +169,7 @@ def get_monitoring_schedule(monitoring_schedule_arn: Optional[str] = None,
         monitoring_schedule_status=pulumi.get(__ret__, 'monitoring_schedule_status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_monitoring_schedule_output(monitoring_schedule_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitoringScheduleResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitoringScheduleResult]:
     """
     Resource Type definition for AWS::SageMaker::MonitoringSchedule
 
@@ -178,7 +178,7 @@ def get_monitoring_schedule_output(monitoring_schedule_arn: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['monitoringScheduleArn'] = monitoring_schedule_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getMonitoringSchedule', __args__, opts=opts, typ=GetMonitoringScheduleResult)
     return __ret__.apply(lambda __response__: GetMonitoringScheduleResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

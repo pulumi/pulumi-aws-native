@@ -123,7 +123,7 @@ def get_restore_testing_selection(restore_testing_plan_name: Optional[str] = Non
         validation_window_hours=pulumi.get(__ret__, 'validation_window_hours'))
 def get_restore_testing_selection_output(restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
                                          restore_testing_selection_name: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestoreTestingSelectionResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestoreTestingSelectionResult]:
     """
     Resource Type definition for AWS::Backup::RestoreTestingSelection
 
@@ -136,7 +136,7 @@ def get_restore_testing_selection_output(restore_testing_plan_name: Optional[pul
     __args__ = dict()
     __args__['restoreTestingPlanName'] = restore_testing_plan_name
     __args__['restoreTestingSelectionName'] = restore_testing_selection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getRestoreTestingSelection', __args__, opts=opts, typ=GetRestoreTestingSelectionResult)
     return __ret__.apply(lambda __response__: GetRestoreTestingSelectionResult(
         iam_role_arn=pulumi.get(__response__, 'iam_role_arn'),

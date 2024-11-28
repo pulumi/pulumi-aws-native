@@ -75,7 +75,7 @@ def get_certificate_authority(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         certificate_signing_request=pulumi.get(__ret__, 'certificate_signing_request'))
 def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateAuthorityResult]:
     """
     Private certificate authority.
 
@@ -84,7 +84,7 @@ def get_certificate_authority_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:acmpca:getCertificateAuthority', __args__, opts=opts, typ=GetCertificateAuthorityResult)
     return __ret__.apply(lambda __response__: GetCertificateAuthorityResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -156,7 +156,7 @@ def get_event_type(arn: Optional[str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_event_type_output(arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventTypeResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventTypeResult]:
     """
     A resource schema for an EventType in Amazon Fraud Detector.
 
@@ -165,7 +165,7 @@ def get_event_type_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getEventType', __args__, opts=opts, typ=GetEventTypeResult)
     return __ret__.apply(lambda __response__: GetEventTypeResult(
         arn=pulumi.get(__response__, 'arn'),

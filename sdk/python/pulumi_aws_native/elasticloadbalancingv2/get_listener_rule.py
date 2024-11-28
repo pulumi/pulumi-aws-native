@@ -119,7 +119,7 @@ def get_listener_rule(rule_arn: Optional[str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         rule_arn=pulumi.get(__ret__, 'rule_arn'))
 def get_listener_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerRuleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerRuleResult]:
     """
     Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
      For more information, see [Quotas for your Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html) in the *User Guide for Application Load Balancers*.
@@ -129,7 +129,7 @@ def get_listener_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancingv2:getListenerRule', __args__, opts=opts, typ=GetListenerRuleResult)
     return __ret__.apply(lambda __response__: GetListenerRuleResult(
         actions=pulumi.get(__response__, 'actions'),

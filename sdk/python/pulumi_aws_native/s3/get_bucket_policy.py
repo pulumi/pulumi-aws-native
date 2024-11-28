@@ -70,7 +70,7 @@ def get_bucket_policy(bucket: Optional[str] = None,
     return AwaitableGetBucketPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
 def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketPolicyResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
     Applies an Amazon S3 bucket policy to an Amazon S3 bucket. If you are using an identity other than the root user of the AWS-account that owns the bucket, the calling identity must have the ``PutBucketPolicy`` permissions on the specified bucket and belong to the bucket owner's account in order to use this operation.
      If you don't have ``PutBucketPolicy`` permissions, Amazon S3 returns a ``403 Access Denied`` error. If you have the correct permissions, but you're not using an identity that belongs to the bucket owner's account, Amazon S3 returns a ``405 Method Not Allowed`` error.
@@ -85,7 +85,7 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['bucket'] = bucket
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getBucketPolicy', __args__, opts=opts, typ=GetBucketPolicyResult)
     return __ret__.apply(lambda __response__: GetBucketPolicyResult(
         policy_document=pulumi.get(__response__, 'policy_document')))

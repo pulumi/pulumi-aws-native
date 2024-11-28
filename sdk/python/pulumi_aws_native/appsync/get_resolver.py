@@ -212,7 +212,7 @@ def get_resolver(resolver_arn: Optional[str] = None,
         runtime=pulumi.get(__ret__, 'runtime'),
         sync_config=pulumi.get(__ret__, 'sync_config'))
 def get_resolver_output(resolver_arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverResult]:
     """
     The ``AWS::AppSync::Resolver`` resource defines the logical GraphQL resolver that you attach to fields in a schema. Request and response templates for resolvers are written in Apache Velocity Template Language (VTL) format. For more information about resolvers, see [Resolver Mapping Template Reference](https://docs.aws.amazon.com/appsync/latest/devguide/resolver-mapping-template-reference.html).
       When you submit an update, CFNLong updates resources based on differences between what you submit and the stack's current template. To cause this resource to be updated you must change a property value for this resource in the CFNshort template. Changing the S3 file content without changing a property value will not result in an update operation.
@@ -223,7 +223,7 @@ def get_resolver_output(resolver_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['resolverArn'] = resolver_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getResolver', __args__, opts=opts, typ=GetResolverResult)
     return __ret__.apply(lambda __response__: GetResolverResult(
         caching_config=pulumi.get(__response__, 'caching_config'),

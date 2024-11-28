@@ -168,7 +168,7 @@ def get_workspaces_pool(pool_id: Optional[str] = None,
         pool_id=pulumi.get(__ret__, 'pool_id'),
         timeout_settings=pulumi.get(__ret__, 'timeout_settings'))
 def get_workspaces_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspacesPoolResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspacesPoolResult]:
     """
     Resource Type definition for AWS::WorkSpaces::WorkspacesPool
 
@@ -177,7 +177,7 @@ def get_workspaces_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['poolId'] = pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspaces:getWorkspacesPool', __args__, opts=opts, typ=GetWorkspacesPoolResult)
     return __ret__.apply(lambda __response__: GetWorkspacesPoolResult(
         application_settings=pulumi.get(__response__, 'application_settings'),

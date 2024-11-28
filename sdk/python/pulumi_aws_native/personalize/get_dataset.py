@@ -76,7 +76,7 @@ def get_dataset(dataset_arn: Optional[str] = None,
         dataset_arn=pulumi.get(__ret__, 'dataset_arn'),
         dataset_import_job=pulumi.get(__ret__, 'dataset_import_job'))
 def get_dataset_output(dataset_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource schema for AWS::Personalize::Dataset.
 
@@ -85,7 +85,7 @@ def get_dataset_output(dataset_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['datasetArn'] = dataset_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:personalize:getDataset', __args__, opts=opts, typ=GetDatasetResult)
     return __ret__.apply(lambda __response__: GetDatasetResult(
         dataset_arn=pulumi.get(__response__, 'dataset_arn'),

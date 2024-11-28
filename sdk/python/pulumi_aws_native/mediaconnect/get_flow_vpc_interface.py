@@ -105,7 +105,7 @@ def get_flow_vpc_interface(flow_arn: Optional[str] = None,
         subnet_id=pulumi.get(__ret__, 'subnet_id'))
 def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[str]] = None,
                                   name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowVpcInterfaceResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowVpcInterfaceResult]:
     """
     Resource schema for AWS::MediaConnect::FlowVpcInterface
 
@@ -116,7 +116,7 @@ def get_flow_vpc_interface_output(flow_arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['flowArn'] = flow_arn
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlowVpcInterface', __args__, opts=opts, typ=GetFlowVpcInterfaceResult)
     return __ret__.apply(lambda __response__: GetFlowVpcInterfaceResult(
         network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),

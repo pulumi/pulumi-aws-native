@@ -172,7 +172,7 @@ def get_agreement(agreement_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_agreement_output(agreement_id: Optional[pulumi.Input[str]] = None,
                          server_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgreementResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgreementResult]:
     """
     Resource Type definition for AWS::Transfer::Agreement
 
@@ -183,7 +183,7 @@ def get_agreement_output(agreement_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['agreementId'] = agreement_id
     __args__['serverId'] = server_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:transfer:getAgreement', __args__, opts=opts, typ=GetAgreementResult)
     return __ret__.apply(lambda __response__: GetAgreementResult(
         access_role=pulumi.get(__response__, 'access_role'),

@@ -128,7 +128,7 @@ def get_dashboard(dashboard_id: Optional[str] = None,
         dashboard_name=pulumi.get(__ret__, 'dashboard_name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_dashboard_output(dashboard_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Resource schema for AWS::IoTSiteWise::Dashboard
 
@@ -137,7 +137,7 @@ def get_dashboard_output(dashboard_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['dashboardId'] = dashboard_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getDashboard', __args__, opts=opts, typ=GetDashboardResult)
     return __ret__.apply(lambda __response__: GetDashboardResult(
         dashboard_arn=pulumi.get(__response__, 'dashboard_arn'),

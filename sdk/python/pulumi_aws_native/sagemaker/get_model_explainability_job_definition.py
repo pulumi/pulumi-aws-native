@@ -75,7 +75,7 @@ def get_model_explainability_job_definition(job_definition_arn: Optional[str] = 
         creation_time=pulumi.get(__ret__, 'creation_time'),
         job_definition_arn=pulumi.get(__ret__, 'job_definition_arn'))
 def get_model_explainability_job_definition_output(job_definition_arn: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelExplainabilityJobDefinitionResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelExplainabilityJobDefinitionResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
 
@@ -84,7 +84,7 @@ def get_model_explainability_job_definition_output(job_definition_arn: Optional[
     """
     __args__ = dict()
     __args__['jobDefinitionArn'] = job_definition_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getModelExplainabilityJobDefinition', __args__, opts=opts, typ=GetModelExplainabilityJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetModelExplainabilityJobDefinitionResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

@@ -116,7 +116,7 @@ def get_package(package_id: Optional[str] = None,
         storage_location=pulumi.get(__ret__, 'storage_location'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_package_output(package_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageResult]:
     """
     Creates a package and storage location in an Amazon S3 access point.
 
@@ -125,7 +125,7 @@ def get_package_output(package_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['packageId'] = package_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:panorama:getPackage', __args__, opts=opts, typ=GetPackageResult)
     return __ret__.apply(lambda __response__: GetPackageResult(
         arn=pulumi.get(__response__, 'arn'),

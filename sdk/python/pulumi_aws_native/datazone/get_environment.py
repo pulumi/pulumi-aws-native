@@ -249,7 +249,7 @@ def get_environment(domain_id: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_environment_output(domain_id: Optional[pulumi.Input[str]] = None,
                            id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Definition of AWS::DataZone::Environment Resource Type
 
@@ -260,7 +260,7 @@ def get_environment_output(domain_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         aws_account_id=pulumi.get(__response__, 'aws_account_id'),

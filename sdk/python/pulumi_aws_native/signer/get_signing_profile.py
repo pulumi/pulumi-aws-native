@@ -102,7 +102,7 @@ def get_signing_profile(arn: Optional[str] = None,
         profile_version_arn=pulumi.get(__ret__, 'profile_version_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_signing_profile_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSigningProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSigningProfileResult]:
     """
     A signing profile is a signing template that can be used to carry out a pre-defined signing job.
 
@@ -111,7 +111,7 @@ def get_signing_profile_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:signer:getSigningProfile', __args__, opts=opts, typ=GetSigningProfileResult)
     return __ret__.apply(lambda __response__: GetSigningProfileResult(
         arn=pulumi.get(__response__, 'arn'),

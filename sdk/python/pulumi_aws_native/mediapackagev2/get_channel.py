@@ -139,7 +139,7 @@ def get_channel(arn: Optional[str] = None,
         modified_at=pulumi.get(__ret__, 'modified_at'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
 
@@ -148,7 +148,7 @@ def get_channel_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackagev2:getChannel', __args__, opts=opts, typ=GetChannelResult)
     return __ret__.apply(lambda __response__: GetChannelResult(
         arn=pulumi.get(__response__, 'arn'),

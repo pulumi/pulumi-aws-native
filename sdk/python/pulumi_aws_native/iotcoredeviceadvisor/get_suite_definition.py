@@ -142,7 +142,7 @@ def get_suite_definition(suite_definition_id: Optional[str] = None,
         suite_definition_version=pulumi.get(__ret__, 'suite_definition_version'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_suite_definition_output(suite_definition_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSuiteDefinitionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuiteDefinitionResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -151,7 +151,7 @@ def get_suite_definition_output(suite_definition_id: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['suiteDefinitionId'] = suite_definition_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotcoredeviceadvisor:getSuiteDefinition', __args__, opts=opts, typ=GetSuiteDefinitionResult)
     return __ret__.apply(lambda __response__: GetSuiteDefinitionResult(
         suite_definition_arn=pulumi.get(__response__, 'suite_definition_arn'),

@@ -223,7 +223,7 @@ def get_crawler(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_crawler_output(name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrawlerResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCrawlerResult]:
     """
     Resource Type definition for AWS::Glue::Crawler
 
@@ -232,7 +232,7 @@ def get_crawler_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getCrawler', __args__, opts=opts, typ=GetCrawlerResult)
     return __ret__.apply(lambda __response__: GetCrawlerResult(
         classifiers=pulumi.get(__response__, 'classifiers'),

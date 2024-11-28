@@ -115,7 +115,7 @@ def get_outcome(arn: Optional[str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_outcome_output(arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutcomeResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutcomeResult]:
     """
     An outcome for rule evaluation.
 
@@ -124,7 +124,7 @@ def get_outcome_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getOutcome', __args__, opts=opts, typ=GetOutcomeResult)
     return __ret__.apply(lambda __response__: GetOutcomeResult(
         arn=pulumi.get(__response__, 'arn'),

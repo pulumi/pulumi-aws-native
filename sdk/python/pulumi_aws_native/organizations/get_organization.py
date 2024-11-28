@@ -141,7 +141,7 @@ def get_organization(id: Optional[str] = None,
         management_account_id=pulumi.get(__ret__, 'management_account_id'),
         root_id=pulumi.get(__ret__, 'root_id'))
 def get_organization_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Resource schema for AWS::Organizations::Organization
 
@@ -150,7 +150,7 @@ def get_organization_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:organizations:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
     return __ret__.apply(lambda __response__: GetOrganizationResult(
         arn=pulumi.get(__response__, 'arn'),

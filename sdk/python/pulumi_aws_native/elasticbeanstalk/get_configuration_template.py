@@ -93,7 +93,7 @@ def get_configuration_template(application_name: Optional[str] = None,
         template_name=pulumi.get(__ret__, 'template_name'))
 def get_configuration_template_output(application_name: Optional[pulumi.Input[str]] = None,
                                       template_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationTemplateResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationTemplateResult]:
     """
     Resource Type definition for AWS::ElasticBeanstalk::ConfigurationTemplate
 
@@ -104,7 +104,7 @@ def get_configuration_template_output(application_name: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['templateName'] = template_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticbeanstalk:getConfigurationTemplate', __args__, opts=opts, typ=GetConfigurationTemplateResult)
     return __ret__.apply(lambda __response__: GetConfigurationTemplateResult(
         description=pulumi.get(__response__, 'description'),

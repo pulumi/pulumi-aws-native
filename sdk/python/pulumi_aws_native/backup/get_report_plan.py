@@ -116,7 +116,7 @@ def get_report_plan(report_plan_arn: Optional[str] = None,
         report_plan_tags=pulumi.get(__ret__, 'report_plan_tags'),
         report_setting=pulumi.get(__ret__, 'report_setting'))
 def get_report_plan_output(report_plan_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportPlanResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportPlanResult]:
     """
     Contains detailed information about a report plan in AWS Backup Audit Manager.
 
@@ -125,7 +125,7 @@ def get_report_plan_output(report_plan_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['reportPlanArn'] = report_plan_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getReportPlan', __args__, opts=opts, typ=GetReportPlanResult)
     return __ret__.apply(lambda __response__: GetReportPlanResult(
         report_delivery_channel=pulumi.get(__response__, 'report_delivery_channel'),

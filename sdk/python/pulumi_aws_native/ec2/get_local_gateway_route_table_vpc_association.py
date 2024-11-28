@@ -102,7 +102,7 @@ def get_local_gateway_route_table_vpc_association(local_gateway_route_table_vpc_
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_local_gateway_route_table_vpc_association_output(local_gateway_route_table_vpc_association_id: Optional[pulumi.Input[str]] = None,
-                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTableVpcAssociationResult]:
+                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableVpcAssociationResult]:
     """
     Describes an association between a local gateway route table and a VPC.
 
@@ -111,7 +111,7 @@ def get_local_gateway_route_table_vpc_association_output(local_gateway_route_tab
     """
     __args__ = dict()
     __args__['localGatewayRouteTableVpcAssociationId'] = local_gateway_route_table_vpc_association_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getLocalGatewayRouteTableVpcAssociation', __args__, opts=opts, typ=GetLocalGatewayRouteTableVpcAssociationResult)
     return __ret__.apply(lambda __response__: GetLocalGatewayRouteTableVpcAssociationResult(
         local_gateway_id=pulumi.get(__response__, 'local_gateway_id'),

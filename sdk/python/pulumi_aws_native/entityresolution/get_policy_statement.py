@@ -110,7 +110,7 @@ def get_policy_statement(arn: Optional[str] = None,
         principal=pulumi.get(__ret__, 'principal'))
 def get_policy_statement_output(arn: Optional[pulumi.Input[str]] = None,
                                 statement_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStatementResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStatementResult]:
     """
     Policy Statement defined in AWS Entity Resolution Service
 
@@ -121,7 +121,7 @@ def get_policy_statement_output(arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['arn'] = arn
     __args__['statementId'] = statement_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:entityresolution:getPolicyStatement', __args__, opts=opts, typ=GetPolicyStatementResult)
     return __ret__.apply(lambda __response__: GetPolicyStatementResult(
         action=pulumi.get(__response__, 'action'),

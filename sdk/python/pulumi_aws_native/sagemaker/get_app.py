@@ -75,7 +75,7 @@ def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
                    app_type: Optional[pulumi.Input['AppType']] = None,
                    domain_id: Optional[pulumi.Input[str]] = None,
                    user_profile_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResult]:
     """
     Resource Type definition for AWS::SageMaker::App
 
@@ -90,7 +90,7 @@ def get_app_output(app_name: Optional[pulumi.Input[str]] = None,
     __args__['appType'] = app_type
     __args__['domainId'] = domain_id
     __args__['userProfileName'] = user_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getApp', __args__, opts=opts, typ=GetAppResult)
     return __ret__.apply(lambda __response__: GetAppResult(
         app_arn=pulumi.get(__response__, 'app_arn')))

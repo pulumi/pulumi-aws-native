@@ -313,7 +313,7 @@ def get_cluster(cluster_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
 
@@ -322,7 +322,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['clusterName'] = cluster_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:memorydb:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         acl_name=pulumi.get(__response__, 'acl_name'),

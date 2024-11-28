@@ -79,7 +79,7 @@ def get_bot_version(bot_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'))
 def get_bot_version_output(bot_id: Optional[pulumi.Input[str]] = None,
                            bot_version: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotVersionResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotVersionResult]:
     """
     A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
 
@@ -90,7 +90,7 @@ def get_bot_version_output(bot_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['botId'] = bot_id
     __args__['botVersion'] = bot_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lex:getBotVersion', __args__, opts=opts, typ=GetBotVersionResult)
     return __ret__.apply(lambda __response__: GetBotVersionResult(
         bot_version=pulumi.get(__response__, 'bot_version'),

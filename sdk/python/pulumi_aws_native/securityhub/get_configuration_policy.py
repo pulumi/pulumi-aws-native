@@ -168,7 +168,7 @@ def get_configuration_policy(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_configuration_policy_output(arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationPolicyResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationPolicyResult]:
     """
     The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
 
@@ -177,7 +177,7 @@ def get_configuration_policy_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getConfigurationPolicy', __args__, opts=opts, typ=GetConfigurationPolicyResult)
     return __ret__.apply(lambda __response__: GetConfigurationPolicyResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -210,7 +210,7 @@ def get_data_source(data_source_arn: Optional[str] = None,
         service_role_arn=pulumi.get(__ret__, 'service_role_arn'),
         type=pulumi.get(__ret__, 'type'))
 def get_data_source_output(data_source_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Resource Type definition for AWS::AppSync::DataSource
 
@@ -219,7 +219,7 @@ def get_data_source_output(data_source_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['dataSourceArn'] = data_source_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
     return __ret__.apply(lambda __response__: GetDataSourceResult(
         data_source_arn=pulumi.get(__response__, 'data_source_arn'),

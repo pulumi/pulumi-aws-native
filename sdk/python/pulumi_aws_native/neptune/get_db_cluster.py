@@ -289,7 +289,7 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbClusterResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbClusterResult]:
     """
     The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
 
@@ -298,7 +298,7 @@ def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['dbClusterIdentifier'] = db_cluster_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:neptune:getDbCluster', __args__, opts=opts, typ=GetDbClusterResult)
     return __ret__.apply(lambda __response__: GetDbClusterResult(
         associated_roles=pulumi.get(__response__, 'associated_roles'),

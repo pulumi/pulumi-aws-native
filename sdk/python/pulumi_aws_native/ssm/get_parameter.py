@@ -94,7 +94,7 @@ def get_parameter(name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
 def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterResult]:
     """
     The ``AWS::SSM::Parameter`` resource creates an SSM parameter in SYSlong Parameter Store.
       To create an SSM parameter, you must have the IAMlong (IAM) permissions ``ssm:PutParameter`` and ``ssm:AddTagsToResource``. On stack creation, CFNlong adds the following three tags to the parameter: ``aws:cloudformation:stack-name``, ``aws:cloudformation:logical-id``, and ``aws:cloudformation:stack-id``, in addition to any custom tags you specify.
@@ -107,7 +107,7 @@ def get_parameter_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getParameter', __args__, opts=opts, typ=GetParameterResult)
     return __ret__.apply(lambda __response__: GetParameterResult(
         data_type=pulumi.get(__response__, 'data_type'),

@@ -76,7 +76,7 @@ def get_user_hierarchy_structure(user_hierarchy_structure_arn: Optional[str] = N
         user_hierarchy_structure=pulumi.get(__ret__, 'user_hierarchy_structure'),
         user_hierarchy_structure_arn=pulumi.get(__ret__, 'user_hierarchy_structure_arn'))
 def get_user_hierarchy_structure_output(user_hierarchy_structure_arn: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyStructureResult]:
     """
     Resource Type definition for AWS::Connect::UserHierarchyStructure
 
@@ -85,7 +85,7 @@ def get_user_hierarchy_structure_output(user_hierarchy_structure_arn: Optional[p
     """
     __args__ = dict()
     __args__['userHierarchyStructureArn'] = user_hierarchy_structure_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getUserHierarchyStructure', __args__, opts=opts, typ=GetUserHierarchyStructureResult)
     return __ret__.apply(lambda __response__: GetUserHierarchyStructureResult(
         user_hierarchy_structure=pulumi.get(__response__, 'user_hierarchy_structure'),

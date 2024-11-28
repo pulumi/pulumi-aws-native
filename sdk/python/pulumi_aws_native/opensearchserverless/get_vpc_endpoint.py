@@ -88,7 +88,7 @@ def get_vpc_endpoint(id: Optional[str] = None,
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
 def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
     Amazon OpenSearchServerless vpc endpoint resource
 
@@ -97,7 +97,7 @@ def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult)
     return __ret__.apply(lambda __response__: GetVpcEndpointResult(
         id=pulumi.get(__response__, 'id'),

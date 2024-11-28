@@ -121,7 +121,7 @@ def get_hook_version(arn: Optional[str] = None,
         version_id=pulumi.get(__ret__, 'version_id'),
         visibility=pulumi.get(__ret__, 'visibility'))
 def get_hook_version_output(arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHookVersionResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHookVersionResult]:
     """
     Publishes new or first hook version to AWS CloudFormation Registry.
 
@@ -130,7 +130,7 @@ def get_hook_version_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getHookVersion', __args__, opts=opts, typ=GetHookVersionResult)
     return __ret__.apply(lambda __response__: GetHookVersionResult(
         arn=pulumi.get(__response__, 'arn'),

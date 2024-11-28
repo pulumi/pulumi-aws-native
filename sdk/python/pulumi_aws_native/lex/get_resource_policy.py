@@ -102,7 +102,7 @@ def get_resource_policy(id: Optional[str] = None,
         resource_arn=pulumi.get(__ret__, 'resource_arn'),
         revision_id=pulumi.get(__ret__, 'revision_id'))
 def get_resource_policy_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
 
@@ -111,7 +111,7 @@ def get_resource_policy_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lex:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult)
     return __ret__.apply(lambda __response__: GetResourcePolicyResult(
         id=pulumi.get(__response__, 'id'),

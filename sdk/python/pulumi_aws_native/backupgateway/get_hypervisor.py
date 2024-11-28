@@ -75,7 +75,7 @@ def get_hypervisor(hypervisor_arn: Optional[str] = None,
         host=pulumi.get(__ret__, 'host'),
         hypervisor_arn=pulumi.get(__ret__, 'hypervisor_arn'))
 def get_hypervisor_output(hypervisor_arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHypervisorResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervisorResult]:
     """
     Definition of AWS::BackupGateway::Hypervisor Resource Type
 
@@ -84,7 +84,7 @@ def get_hypervisor_output(hypervisor_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['hypervisorArn'] = hypervisor_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:backupgateway:getHypervisor', __args__, opts=opts, typ=GetHypervisorResult)
     return __ret__.apply(lambda __response__: GetHypervisorResult(
         host=pulumi.get(__response__, 'host'),

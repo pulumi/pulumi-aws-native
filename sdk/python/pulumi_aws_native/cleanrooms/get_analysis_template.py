@@ -168,7 +168,7 @@ def get_analysis_template(analysis_template_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_analysis_template_output(analysis_template_identifier: Optional[pulumi.Input[str]] = None,
                                  membership_identifier: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalysisTemplateResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalysisTemplateResult]:
     """
     Represents a stored analysis within a collaboration
 
@@ -181,7 +181,7 @@ def get_analysis_template_output(analysis_template_identifier: Optional[pulumi.I
     __args__ = dict()
     __args__['analysisTemplateIdentifier'] = analysis_template_identifier
     __args__['membershipIdentifier'] = membership_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getAnalysisTemplate', __args__, opts=opts, typ=GetAnalysisTemplateResult)
     return __ret__.apply(lambda __response__: GetAnalysisTemplateResult(
         analysis_template_identifier=pulumi.get(__response__, 'analysis_template_identifier'),

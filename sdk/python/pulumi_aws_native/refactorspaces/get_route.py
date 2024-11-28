@@ -110,7 +110,7 @@ def get_route(application_identifier: Optional[str] = None,
 def get_route_output(application_identifier: Optional[pulumi.Input[str]] = None,
                      environment_identifier: Optional[pulumi.Input[str]] = None,
                      route_identifier: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     Definition of AWS::RefactorSpaces::Route Resource Type
 
@@ -123,7 +123,7 @@ def get_route_output(application_identifier: Optional[pulumi.Input[str]] = None,
     __args__['applicationIdentifier'] = application_identifier
     __args__['environmentIdentifier'] = environment_identifier
     __args__['routeIdentifier'] = route_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:refactorspaces:getRoute', __args__, opts=opts, typ=GetRouteResult)
     return __ret__.apply(lambda __response__: GetRouteResult(
         arn=pulumi.get(__response__, 'arn'),

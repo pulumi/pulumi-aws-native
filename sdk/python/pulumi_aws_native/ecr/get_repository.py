@@ -147,7 +147,7 @@ def get_repository(repository_name: Optional[str] = None,
         repository_uri=pulumi.get(__ret__, 'repository_uri'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryResult]:
     """
     The ``AWS::ECR::Repository`` resource specifies an Amazon Elastic Container Registry (Amazon ECR) repository, where users can push and pull Docker images, Open Container Initiative (OCI) images, and OCI compatible artifacts. For more information, see [Amazon ECR private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) in the *Amazon ECR User Guide*.
 
@@ -158,7 +158,7 @@ def get_repository_output(repository_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['repositoryName'] = repository_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecr:getRepository', __args__, opts=opts, typ=GetRepositoryResult)
     return __ret__.apply(lambda __response__: GetRepositoryResult(
         arn=pulumi.get(__response__, 'arn'),

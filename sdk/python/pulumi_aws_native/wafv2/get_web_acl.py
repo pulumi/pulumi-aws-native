@@ -264,7 +264,7 @@ def get_web_acl(id: Optional[str] = None,
 def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
                        name: Optional[pulumi.Input[str]] = None,
                        scope: Optional[pulumi.Input['WebAclScope']] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAclResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAclResult]:
     """
     Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 
@@ -281,7 +281,7 @@ def get_web_acl_output(id: Optional[pulumi.Input[str]] = None,
     __args__['id'] = id
     __args__['name'] = name
     __args__['scope'] = scope
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wafv2:getWebAcl', __args__, opts=opts, typ=GetWebAclResult)
     return __ret__.apply(lambda __response__: GetWebAclResult(
         arn=pulumi.get(__response__, 'arn'),

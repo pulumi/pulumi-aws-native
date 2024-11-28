@@ -103,7 +103,7 @@ def get_hook_type_config(configuration_arn: Optional[str] = None,
         type_arn=pulumi.get(__ret__, 'type_arn'),
         type_name=pulumi.get(__ret__, 'type_name'))
 def get_hook_type_config_output(configuration_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHookTypeConfigResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHookTypeConfigResult]:
     """
     Specifies the configuration data for a registered hook in CloudFormation Registry.
 
@@ -112,7 +112,7 @@ def get_hook_type_config_output(configuration_arn: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['configurationArn'] = configuration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getHookTypeConfig', __args__, opts=opts, typ=GetHookTypeConfigResult)
     return __ret__.apply(lambda __response__: GetHookTypeConfigResult(
         configuration=pulumi.get(__response__, 'configuration'),

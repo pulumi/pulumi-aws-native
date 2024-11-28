@@ -155,7 +155,7 @@ def get_lifecycle_policy(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_lifecycle_policy_output(arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLifecyclePolicyResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLifecyclePolicyResult]:
     """
     Resource schema for AWS::ImageBuilder::LifecyclePolicy
 
@@ -164,7 +164,7 @@ def get_lifecycle_policy_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getLifecyclePolicy', __args__, opts=opts, typ=GetLifecyclePolicyResult)
     return __ret__.apply(lambda __response__: GetLifecyclePolicyResult(
         arn=pulumi.get(__response__, 'arn'),

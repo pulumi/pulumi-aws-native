@@ -149,13 +149,13 @@ def get_key(key_identifier: Optional[str] = None,
         key_state=pulumi.get(__ret__, 'key_state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_key_output(key_identifier: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Definition of AWS::PaymentCryptography::Key Resource Type
     """
     __args__ = dict()
     __args__['keyIdentifier'] = key_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:paymentcryptography:getKey', __args__, opts=opts, typ=GetKeyResult)
     return __ret__.apply(lambda __response__: GetKeyResult(
         enabled=pulumi.get(__response__, 'enabled'),

@@ -168,7 +168,7 @@ def get_endpoint_group(endpoint_group_arn: Optional[str] = None,
         threshold_count=pulumi.get(__ret__, 'threshold_count'),
         traffic_dial_percentage=pulumi.get(__ret__, 'traffic_dial_percentage'))
 def get_endpoint_group_output(endpoint_group_arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointGroupResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
 
@@ -177,7 +177,7 @@ def get_endpoint_group_output(endpoint_group_arn: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['endpointGroupArn'] = endpoint_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:globalaccelerator:getEndpointGroup', __args__, opts=opts, typ=GetEndpointGroupResult)
     return __ret__.apply(lambda __response__: GetEndpointGroupResult(
         endpoint_configurations=pulumi.get(__response__, 'endpoint_configurations'),

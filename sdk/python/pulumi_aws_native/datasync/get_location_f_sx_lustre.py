@@ -89,7 +89,7 @@ def get_location_f_sx_lustre(location_arn: Optional[str] = None,
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_f_sx_lustre_output(location_arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationFSxLustreResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxLustreResult]:
     """
     Resource schema for AWS::DataSync::LocationFSxLustre.
 
@@ -98,7 +98,7 @@ def get_location_f_sx_lustre_output(location_arn: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['locationArn'] = location_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationFSxLustre', __args__, opts=opts, typ=GetLocationFSxLustreResult)
     return __ret__.apply(lambda __response__: GetLocationFSxLustreResult(
         location_arn=pulumi.get(__response__, 'location_arn'),

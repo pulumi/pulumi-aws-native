@@ -75,7 +75,7 @@ def get_backup_selection(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         selection_id=pulumi.get(__ret__, 'selection_id'))
 def get_backup_selection_output(id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupSelectionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupSelectionResult]:
     """
     Resource Type definition for AWS::Backup::BackupSelection
 
@@ -84,7 +84,7 @@ def get_backup_selection_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getBackupSelection', __args__, opts=opts, typ=GetBackupSelectionResult)
     return __ret__.apply(lambda __response__: GetBackupSelectionResult(
         id=pulumi.get(__response__, 'id'),

@@ -115,7 +115,7 @@ def get_transit_gateway_connect(transit_gateway_attachment_id: Optional[str] = N
         transit_gateway_attachment_id=pulumi.get(__ret__, 'transit_gateway_attachment_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 def get_transit_gateway_connect_output(transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayConnectResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayConnectResult]:
     """
     The AWS::EC2::TransitGatewayConnect type
 
@@ -124,7 +124,7 @@ def get_transit_gateway_connect_output(transit_gateway_attachment_id: Optional[p
     """
     __args__ = dict()
     __args__['transitGatewayAttachmentId'] = transit_gateway_attachment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayConnect', __args__, opts=opts, typ=GetTransitGatewayConnectResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayConnectResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

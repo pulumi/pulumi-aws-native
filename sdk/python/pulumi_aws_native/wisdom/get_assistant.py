@@ -75,7 +75,7 @@ def get_assistant(assistant_id: Optional[str] = None,
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         assistant_id=pulumi.get(__ret__, 'assistant_id'))
 def get_assistant_output(assistant_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssistantResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssistantResult]:
     """
     Definition of AWS::Wisdom::Assistant Resource Type
 
@@ -84,7 +84,7 @@ def get_assistant_output(assistant_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['assistantId'] = assistant_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getAssistant', __args__, opts=opts, typ=GetAssistantResult)
     return __ret__.apply(lambda __response__: GetAssistantResult(
         assistant_arn=pulumi.get(__response__, 'assistant_arn'),

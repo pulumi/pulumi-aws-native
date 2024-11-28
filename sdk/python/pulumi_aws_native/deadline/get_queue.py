@@ -197,7 +197,7 @@ def get_queue(arn: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_queue_output(arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueueResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Definition of AWS::Deadline::Queue Resource Type
 
@@ -206,7 +206,7 @@ def get_queue_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getQueue', __args__, opts=opts, typ=GetQueueResult)
     return __ret__.apply(lambda __response__: GetQueueResult(
         allowed_storage_profile_ids=pulumi.get(__response__, 'allowed_storage_profile_ids'),

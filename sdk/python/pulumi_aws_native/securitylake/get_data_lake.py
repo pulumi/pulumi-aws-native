@@ -129,7 +129,7 @@ def get_data_lake(arn: Optional[str] = None,
         s3_bucket_arn=pulumi.get(__ret__, 's3_bucket_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_lake_output(arn: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataLakeResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataLakeResult]:
     """
     Resource Type definition for AWS::SecurityLake::DataLake
 
@@ -138,7 +138,7 @@ def get_data_lake_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securitylake:getDataLake', __args__, opts=opts, typ=GetDataLakeResult)
     return __ret__.apply(lambda __response__: GetDataLakeResult(
         arn=pulumi.get(__response__, 'arn'),

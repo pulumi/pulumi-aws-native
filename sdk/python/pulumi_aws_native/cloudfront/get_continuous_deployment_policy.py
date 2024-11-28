@@ -92,7 +92,7 @@ def get_continuous_deployment_policy(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
 def get_continuous_deployment_policy_output(id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContinuousDeploymentPolicyResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContinuousDeploymentPolicyResult]:
     """
     Creates a continuous deployment policy that routes a subset of production traffic from a primary distribution to a staging distribution.
      After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This enables you to test changes to a distribution's configuration before moving all of your production traffic to the new configuration.
@@ -103,7 +103,7 @@ def get_continuous_deployment_policy_output(id: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getContinuousDeploymentPolicy', __args__, opts=opts, typ=GetContinuousDeploymentPolicyResult)
     return __ret__.apply(lambda __response__: GetContinuousDeploymentPolicyResult(
         continuous_deployment_policy_config=pulumi.get(__response__, 'continuous_deployment_policy_config'),

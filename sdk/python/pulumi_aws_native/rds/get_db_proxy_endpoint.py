@@ -142,7 +142,7 @@ def get_db_proxy_endpoint(db_proxy_endpoint_name: Optional[str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_db_proxy_endpoint_output(db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbProxyEndpointResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbProxyEndpointResult]:
     """
     Resource schema for AWS::RDS::DBProxyEndpoint.
 
@@ -151,7 +151,7 @@ def get_db_proxy_endpoint_output(db_proxy_endpoint_name: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['dbProxyEndpointName'] = db_proxy_endpoint_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbProxyEndpoint', __args__, opts=opts, typ=GetDbProxyEndpointResult)
     return __ret__.apply(lambda __response__: GetDbProxyEndpointResult(
         db_proxy_endpoint_arn=pulumi.get(__response__, 'db_proxy_endpoint_arn'),

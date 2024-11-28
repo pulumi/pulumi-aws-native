@@ -88,7 +88,7 @@ def get_cluster_subnet_group(cluster_subnet_group_name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
 def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterSubnetGroupResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterSubnetGroupResult]:
     """
     Specifies an Amazon Redshift subnet group.
 
@@ -97,7 +97,7 @@ def get_cluster_subnet_group_output(cluster_subnet_group_name: Optional[pulumi.I
     """
     __args__ = dict()
     __args__['clusterSubnetGroupName'] = cluster_subnet_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getClusterSubnetGroup', __args__, opts=opts, typ=GetClusterSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetClusterSubnetGroupResult(
         cluster_subnet_group_name=pulumi.get(__response__, 'cluster_subnet_group_name'),

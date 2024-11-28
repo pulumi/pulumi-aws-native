@@ -62,7 +62,7 @@ def get_layer_version(layer_version_arn: Optional[str] = None,
     return AwaitableGetLayerVersionResult(
         layer_version_arn=pulumi.get(__ret__, 'layer_version_arn'))
 def get_layer_version_output(layer_version_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLayerVersionResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLayerVersionResult]:
     """
     Resource Type definition for AWS::Lambda::LayerVersion
 
@@ -71,7 +71,7 @@ def get_layer_version_output(layer_version_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['layerVersionArn'] = layer_version_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getLayerVersion', __args__, opts=opts, typ=GetLayerVersionResult)
     return __ret__.apply(lambda __response__: GetLayerVersionResult(
         layer_version_arn=pulumi.get(__response__, 'layer_version_arn')))

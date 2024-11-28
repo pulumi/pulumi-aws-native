@@ -89,7 +89,7 @@ def get_service_profile(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_service_profile_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceProfileResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -98,7 +98,7 @@ def get_service_profile_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getServiceProfile', __args__, opts=opts, typ=GetServiceProfileResult)
     return __ret__.apply(lambda __response__: GetServiceProfileResult(
         arn=pulumi.get(__response__, 'arn'),

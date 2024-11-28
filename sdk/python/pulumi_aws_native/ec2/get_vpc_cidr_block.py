@@ -92,7 +92,7 @@ def get_vpc_cidr_block(id: Optional[str] = None,
         ipv6_address_attribute=pulumi.get(__ret__, 'ipv6_address_attribute'))
 def get_vpc_cidr_block_output(id: Optional[pulumi.Input[str]] = None,
                               vpc_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcCidrBlockResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcCidrBlockResult]:
     """
     Resource Type definition for AWS::EC2::VPCCidrBlock
 
@@ -103,7 +103,7 @@ def get_vpc_cidr_block_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcCidrBlock', __args__, opts=opts, typ=GetVpcCidrBlockResult)
     return __ret__.apply(lambda __response__: GetVpcCidrBlockResult(
         id=pulumi.get(__response__, 'id'),

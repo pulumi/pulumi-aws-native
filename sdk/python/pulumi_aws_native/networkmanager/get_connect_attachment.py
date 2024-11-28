@@ -233,7 +233,7 @@ def get_connect_attachment(attachment_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_connect_attachment_output(attachment_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectAttachmentResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectAttachmentResult]:
     """
     AWS::NetworkManager::ConnectAttachment Resource Type Definition
 
@@ -242,7 +242,7 @@ def get_connect_attachment_output(attachment_id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['attachmentId'] = attachment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getConnectAttachment', __args__, opts=opts, typ=GetConnectAttachmentResult)
     return __ret__.apply(lambda __response__: GetConnectAttachmentResult(
         attachment_id=pulumi.get(__response__, 'attachment_id'),

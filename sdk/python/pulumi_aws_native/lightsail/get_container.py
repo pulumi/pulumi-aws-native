@@ -181,7 +181,7 @@ def get_container(service_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 def get_container_output(service_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerResult]:
     """
     Resource Type definition for AWS::Lightsail::Container
 
@@ -190,7 +190,7 @@ def get_container_output(service_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['serviceName'] = service_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getContainer', __args__, opts=opts, typ=GetContainerResult)
     return __ret__.apply(lambda __response__: GetContainerResult(
         container_arn=pulumi.get(__response__, 'container_arn'),

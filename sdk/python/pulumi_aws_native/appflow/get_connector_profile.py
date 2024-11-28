@@ -89,7 +89,7 @@ def get_connector_profile(connector_profile_name: Optional[str] = None,
         connector_profile_arn=pulumi.get(__ret__, 'connector_profile_arn'),
         credentials_arn=pulumi.get(__ret__, 'credentials_arn'))
 def get_connector_profile_output(connector_profile_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorProfileResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorProfileResult]:
     """
     Resource Type definition for AWS::AppFlow::ConnectorProfile
 
@@ -98,7 +98,7 @@ def get_connector_profile_output(connector_profile_name: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['connectorProfileName'] = connector_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appflow:getConnectorProfile', __args__, opts=opts, typ=GetConnectorProfileResult)
     return __ret__.apply(lambda __response__: GetConnectorProfileResult(
         connection_mode=pulumi.get(__response__, 'connection_mode'),

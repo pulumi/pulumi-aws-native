@@ -160,7 +160,7 @@ def get_calculated_attribute_definition(calculated_attribute_name: Optional[str]
         tags=pulumi.get(__ret__, 'tags'))
 def get_calculated_attribute_definition_output(calculated_attribute_name: Optional[pulumi.Input[str]] = None,
                                                domain_name: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCalculatedAttributeDefinitionResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCalculatedAttributeDefinitionResult]:
     """
     A calculated attribute definition for Customer Profiles
 
@@ -171,7 +171,7 @@ def get_calculated_attribute_definition_output(calculated_attribute_name: Option
     __args__ = dict()
     __args__['calculatedAttributeName'] = calculated_attribute_name
     __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getCalculatedAttributeDefinition', __args__, opts=opts, typ=GetCalculatedAttributeDefinitionResult)
     return __ret__.apply(lambda __response__: GetCalculatedAttributeDefinitionResult(
         attribute_details=pulumi.get(__response__, 'attribute_details'),

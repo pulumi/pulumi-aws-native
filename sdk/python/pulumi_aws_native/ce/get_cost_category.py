@@ -128,7 +128,7 @@ def get_cost_category(arn: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         split_charge_rules=pulumi.get(__ret__, 'split_charge_rules'))
 def get_cost_category_output(arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCostCategoryResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCostCategoryResult]:
     """
     Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
 
@@ -137,7 +137,7 @@ def get_cost_category_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ce:getCostCategory', __args__, opts=opts, typ=GetCostCategoryResult)
     return __ret__.apply(lambda __response__: GetCostCategoryResult(
         arn=pulumi.get(__response__, 'arn'),

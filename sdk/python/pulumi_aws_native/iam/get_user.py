@@ -170,7 +170,7 @@ def get_user(user_name: Optional[str] = None,
         policies=pulumi.get(__ret__, 'policies'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_user_output(user_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Creates a new IAM user for your AWS-account.
       For information about quotas for the number of IAM users you can create, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
@@ -184,7 +184,7 @@ def get_user_output(user_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['userName'] = user_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         arn=pulumi.get(__response__, 'arn'),

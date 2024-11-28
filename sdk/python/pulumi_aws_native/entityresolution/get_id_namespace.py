@@ -173,7 +173,7 @@ def get_id_namespace(id_namespace_name: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_id_namespace_output(id_namespace_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdNamespaceResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdNamespaceResult]:
     """
     IdNamespace defined in AWS Entity Resolution service
 
@@ -182,7 +182,7 @@ def get_id_namespace_output(id_namespace_name: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['idNamespaceName'] = id_namespace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:entityresolution:getIdNamespace', __args__, opts=opts, typ=GetIdNamespaceResult)
     return __ret__.apply(lambda __response__: GetIdNamespaceResult(
         created_at=pulumi.get(__response__, 'created_at'),

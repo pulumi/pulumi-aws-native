@@ -75,7 +75,7 @@ def get_model_quality_job_definition(job_definition_arn: Optional[str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         job_definition_arn=pulumi.get(__ret__, 'job_definition_arn'))
 def get_model_quality_job_definition_output(job_definition_arn: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelQualityJobDefinitionResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelQualityJobDefinitionResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
 
@@ -84,7 +84,7 @@ def get_model_quality_job_definition_output(job_definition_arn: Optional[pulumi.
     """
     __args__ = dict()
     __args__['jobDefinitionArn'] = job_definition_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getModelQualityJobDefinition', __args__, opts=opts, typ=GetModelQualityJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetModelQualityJobDefinitionResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

@@ -129,7 +129,7 @@ def get_cis_scan_configuration(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_cis_scan_configuration_output(arn: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCisScanConfigurationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCisScanConfigurationResult]:
     """
     CIS Scan Configuration resource schema
 
@@ -138,7 +138,7 @@ def get_cis_scan_configuration_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:inspectorv2:getCisScanConfiguration', __args__, opts=opts, typ=GetCisScanConfigurationResult)
     return __ret__.apply(lambda __response__: GetCisScanConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

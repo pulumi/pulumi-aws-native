@@ -92,7 +92,7 @@ def get_request_validator(request_validator_id: Optional[str] = None,
         validate_request_parameters=pulumi.get(__ret__, 'validate_request_parameters'))
 def get_request_validator_output(request_validator_id: Optional[pulumi.Input[str]] = None,
                                  rest_api_id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRequestValidatorResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRequestValidatorResult]:
     """
     The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
 
@@ -103,7 +103,7 @@ def get_request_validator_output(request_validator_id: Optional[pulumi.Input[str
     __args__ = dict()
     __args__['requestValidatorId'] = request_validator_id
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getRequestValidator', __args__, opts=opts, typ=GetRequestValidatorResult)
     return __ret__.apply(lambda __response__: GetRequestValidatorResult(
         request_validator_id=pulumi.get(__response__, 'request_validator_id'),

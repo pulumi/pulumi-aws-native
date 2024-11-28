@@ -109,7 +109,7 @@ def get_delivery_destination(name: Optional[str] = None,
         delivery_destination_type=pulumi.get(__ret__, 'delivery_destination_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_delivery_destination_output(name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryDestinationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryDestinationResult]:
     """
     This structure contains information about one delivery destination in your account.
 
@@ -120,7 +120,7 @@ def get_delivery_destination_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getDeliveryDestination', __args__, opts=opts, typ=GetDeliveryDestinationResult)
     return __ret__.apply(lambda __response__: GetDeliveryDestinationResult(
         arn=pulumi.get(__response__, 'arn'),

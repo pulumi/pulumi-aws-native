@@ -88,7 +88,7 @@ def get_contact_channel(arn: Optional[str] = None,
         channel_address=pulumi.get(__ret__, 'channel_address'),
         channel_name=pulumi.get(__ret__, 'channel_name'))
 def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactChannelResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactChannelResult]:
     """
     Resource Type definition for AWS::SSMContacts::ContactChannel
 
@@ -97,7 +97,7 @@ def get_contact_channel_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssmcontacts:getContactChannel', __args__, opts=opts, typ=GetContactChannelResult)
     return __ret__.apply(lambda __response__: GetContactChannelResult(
         arn=pulumi.get(__response__, 'arn'),

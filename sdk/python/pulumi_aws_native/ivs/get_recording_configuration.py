@@ -90,7 +90,7 @@ def get_recording_configuration(arn: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_recording_configuration_output(arn: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordingConfigurationResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecordingConfigurationResult]:
     """
     Resource Type definition for AWS::IVS::RecordingConfiguration
 
@@ -99,7 +99,7 @@ def get_recording_configuration_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getRecordingConfiguration', __args__, opts=opts, typ=GetRecordingConfigurationResult)
     return __ret__.apply(lambda __response__: GetRecordingConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

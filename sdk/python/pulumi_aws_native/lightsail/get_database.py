@@ -141,7 +141,7 @@ def get_database(relational_database_name: Optional[str] = None,
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_database_output(relational_database_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Resource Type definition for AWS::Lightsail::Database
 
@@ -150,7 +150,7 @@ def get_database_output(relational_database_name: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['relationalDatabaseName'] = relational_database_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
     return __ret__.apply(lambda __response__: GetDatabaseResult(
         backup_retention=pulumi.get(__response__, 'backup_retention'),

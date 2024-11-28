@@ -117,7 +117,7 @@ def get_work_group(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         work_group_configuration=pulumi.get(__ret__, 'work_group_configuration'))
 def get_work_group_output(name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkGroupResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkGroupResult]:
     """
     Resource schema for AWS::Athena::WorkGroup
 
@@ -126,7 +126,7 @@ def get_work_group_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getWorkGroup', __args__, opts=opts, typ=GetWorkGroupResult)
     return __ret__.apply(lambda __response__: GetWorkGroupResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

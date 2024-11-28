@@ -491,7 +491,7 @@ def get_auto_scaling_group(auto_scaling_group_name: Optional[str] = None,
         traffic_sources=pulumi.get(__ret__, 'traffic_sources'),
         vpc_zone_identifier=pulumi.get(__ret__, 'vpc_zone_identifier'))
 def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScalingGroupResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoScalingGroupResult]:
     """
     The ``AWS::AutoScaling::AutoScalingGroup`` resource defines an Amazon EC2 Auto Scaling group, which is a collection of Amazon EC2 instances that are treated as a logical grouping for the purposes of automatic scaling and management.
      For more information about Amazon EC2 Auto Scaling, see the [Amazon EC2 Auto Scaling User Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html).
@@ -505,7 +505,7 @@ def get_auto_scaling_group_output(auto_scaling_group_name: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['autoScalingGroupName'] = auto_scaling_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getAutoScalingGroup', __args__, opts=opts, typ=GetAutoScalingGroupResult)
     return __ret__.apply(lambda __response__: GetAutoScalingGroupResult(
         availability_zone_distribution=pulumi.get(__response__, 'availability_zone_distribution'),

@@ -142,7 +142,7 @@ def get_integration_response(api_id: Optional[str] = None,
 def get_integration_response_output(api_id: Optional[pulumi.Input[str]] = None,
                                     integration_id: Optional[pulumi.Input[str]] = None,
                                     integration_response_id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResponseResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResponseResult]:
     """
     The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
 
@@ -155,7 +155,7 @@ def get_integration_response_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__['apiId'] = api_id
     __args__['integrationId'] = integration_id
     __args__['integrationResponseId'] = integration_response_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getIntegrationResponse', __args__, opts=opts, typ=GetIntegrationResponseResult)
     return __ret__.apply(lambda __response__: GetIntegrationResponseResult(
         content_handling_strategy=pulumi.get(__response__, 'content_handling_strategy'),

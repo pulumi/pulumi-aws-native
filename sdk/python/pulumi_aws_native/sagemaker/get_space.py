@@ -112,7 +112,7 @@ def get_space(domain_id: Optional[str] = None,
         url=pulumi.get(__ret__, 'url'))
 def get_space_output(domain_id: Optional[pulumi.Input[str]] = None,
                      space_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpaceResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpaceResult]:
     """
     Resource Type definition for AWS::SageMaker::Space
 
@@ -123,7 +123,7 @@ def get_space_output(domain_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['spaceName'] = space_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getSpace', __args__, opts=opts, typ=GetSpaceResult)
     return __ret__.apply(lambda __response__: GetSpaceResult(
         space_arn=pulumi.get(__response__, 'space_arn'),

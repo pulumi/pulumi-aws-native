@@ -250,7 +250,7 @@ def get_cloud_formation_provisioned_product(provisioned_product_id: Optional[str
         record_id=pulumi.get(__ret__, 'record_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cloud_formation_provisioned_product_output(provisioned_product_id: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudFormationProvisionedProductResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudFormationProvisionedProductResult]:
     """
     Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
 
@@ -259,7 +259,7 @@ def get_cloud_formation_provisioned_product_output(provisioned_product_id: Optio
     """
     __args__ = dict()
     __args__['provisionedProductId'] = provisioned_product_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:servicecatalog:getCloudFormationProvisionedProduct', __args__, opts=opts, typ=GetCloudFormationProvisionedProductResult)
     return __ret__.apply(lambda __response__: GetCloudFormationProvisionedProductResult(
         accept_language=pulumi.get(__response__, 'accept_language'),

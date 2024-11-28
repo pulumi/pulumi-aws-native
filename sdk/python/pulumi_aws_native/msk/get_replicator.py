@@ -104,7 +104,7 @@ def get_replicator(replicator_arn: Optional[str] = None,
         replicator_arn=pulumi.get(__ret__, 'replicator_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_replicator_output(replicator_arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicatorResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicatorResult]:
     """
     Resource Type definition for AWS::MSK::Replicator
 
@@ -113,7 +113,7 @@ def get_replicator_output(replicator_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['replicatorArn'] = replicator_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:msk:getReplicator', __args__, opts=opts, typ=GetReplicatorResult)
     return __ret__.apply(lambda __response__: GetReplicatorResult(
         current_version=pulumi.get(__response__, 'current_version'),

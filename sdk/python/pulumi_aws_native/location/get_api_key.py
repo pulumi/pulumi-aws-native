@@ -161,7 +161,7 @@ def get_api_key(key_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_api_key_output(key_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiKeyResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiKeyResult]:
     """
     Definition of AWS::Location::APIKey Resource Type
 
@@ -176,7 +176,7 @@ def get_api_key_output(key_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['keyName'] = key_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:location:getApiKey', __args__, opts=opts, typ=GetApiKeyResult)
     return __ret__.apply(lambda __response__: GetApiKeyResult(
         arn=pulumi.get(__response__, 'arn'),

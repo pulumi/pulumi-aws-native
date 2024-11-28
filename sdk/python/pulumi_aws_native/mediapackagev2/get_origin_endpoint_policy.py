@@ -72,7 +72,7 @@ def get_origin_endpoint_policy(channel_group_name: Optional[str] = None,
 def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[str]] = None,
                                       channel_name: Optional[pulumi.Input[str]] = None,
                                       origin_endpoint_name: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginEndpointPolicyResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginEndpointPolicyResult]:
     """
     <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
 
@@ -85,7 +85,7 @@ def get_origin_endpoint_policy_output(channel_group_name: Optional[pulumi.Input[
     __args__['channelGroupName'] = channel_group_name
     __args__['channelName'] = channel_name
     __args__['originEndpointName'] = origin_endpoint_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackagev2:getOriginEndpointPolicy', __args__, opts=opts, typ=GetOriginEndpointPolicyResult)
     return __ret__.apply(lambda __response__: GetOriginEndpointPolicyResult(
         policy=pulumi.get(__response__, 'policy')))

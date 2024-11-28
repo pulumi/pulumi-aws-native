@@ -128,7 +128,7 @@ def get_playback_restriction_policy(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_playback_restriction_policy_output(arn: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlaybackRestrictionPolicyResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlaybackRestrictionPolicyResult]:
     """
     Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.
 
@@ -137,7 +137,7 @@ def get_playback_restriction_policy_output(arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getPlaybackRestrictionPolicy', __args__, opts=opts, typ=GetPlaybackRestrictionPolicyResult)
     return __ret__.apply(lambda __response__: GetPlaybackRestrictionPolicyResult(
         allowed_countries=pulumi.get(__response__, 'allowed_countries'),

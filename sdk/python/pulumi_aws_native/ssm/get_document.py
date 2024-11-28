@@ -132,7 +132,7 @@ def get_document(name: Optional[str] = None,
         target_type=pulumi.get(__ret__, 'target_type'),
         version_name=pulumi.get(__ret__, 'version_name'))
 def get_document_output(name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentResult]:
     """
     The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
 
@@ -141,7 +141,7 @@ def get_document_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getDocument', __args__, opts=opts, typ=GetDocumentResult)
     return __ret__.apply(lambda __response__: GetDocumentResult(
         content=pulumi.get(__response__, 'content'),

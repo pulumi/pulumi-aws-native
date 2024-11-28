@@ -120,7 +120,7 @@ def get_nat_gateway(nat_gateway_id: Optional[str] = None,
         secondary_private_ip_addresses=pulumi.get(__ret__, 'secondary_private_ip_addresses'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_nat_gateway_output(nat_gateway_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewayResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatGatewayResult]:
     """
     Specifies a network address translation (NAT) gateway in the specified subnet. You can create either a public NAT gateway or a private NAT gateway. The default is a public NAT gateway. If you create a public NAT gateway, you must specify an elastic IP address.
      With a NAT gateway, instances in a private subnet can connect to the internet, other AWS services, or an on-premises network using the IP address of the NAT gateway. For more information, see [NAT gateways](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html) in the *Amazon VPC User Guide*.
@@ -132,7 +132,7 @@ def get_nat_gateway_output(nat_gateway_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['natGatewayId'] = nat_gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult)
     return __ret__.apply(lambda __response__: GetNatGatewayResult(
         nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),

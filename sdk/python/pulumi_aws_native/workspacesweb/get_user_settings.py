@@ -234,7 +234,7 @@ def get_user_settings(user_settings_arn: Optional[str] = None,
         upload_allowed=pulumi.get(__ret__, 'upload_allowed'),
         user_settings_arn=pulumi.get(__ret__, 'user_settings_arn'))
 def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
 
@@ -243,7 +243,7 @@ def get_user_settings_output(user_settings_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['userSettingsArn'] = user_settings_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getUserSettings', __args__, opts=opts, typ=GetUserSettingsResult)
     return __ret__.apply(lambda __response__: GetUserSettingsResult(
         additional_encryption_context=pulumi.get(__response__, 'additional_encryption_context'),

@@ -156,7 +156,7 @@ def get_security_profile(security_profile_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_arns=pulumi.get(__ret__, 'target_arns'))
 def get_security_profile_output(security_profile_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityProfileResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
     A security profile defines a set of expected behaviors for devices in your account.
 
@@ -165,7 +165,7 @@ def get_security_profile_output(security_profile_name: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['securityProfileName'] = security_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getSecurityProfile', __args__, opts=opts, typ=GetSecurityProfileResult)
     return __ret__.apply(lambda __response__: GetSecurityProfileResult(
         additional_metrics_to_retain_v2=pulumi.get(__response__, 'additional_metrics_to_retain_v2'),

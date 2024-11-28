@@ -129,7 +129,7 @@ def get_pipeline(pipeline_id: Optional[str] = None,
         pipeline_objects=pulumi.get(__ret__, 'pipeline_objects'),
         pipeline_tags=pulumi.get(__ret__, 'pipeline_tags'))
 def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -138,7 +138,7 @@ def get_pipeline_output(pipeline_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['pipelineId'] = pipeline_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datapipeline:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
     return __ret__.apply(lambda __response__: GetPipelineResult(
         activate=pulumi.get(__response__, 'activate'),

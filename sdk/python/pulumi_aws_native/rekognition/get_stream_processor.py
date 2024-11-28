@@ -102,7 +102,7 @@ def get_stream_processor(name: Optional[str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_stream_processor_output(name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamProcessorResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamProcessorResult]:
     """
     The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
 
@@ -111,7 +111,7 @@ def get_stream_processor_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rekognition:getStreamProcessor', __args__, opts=opts, typ=GetStreamProcessorResult)
     return __ret__.apply(lambda __response__: GetStreamProcessorResult(
         arn=pulumi.get(__response__, 'arn'),

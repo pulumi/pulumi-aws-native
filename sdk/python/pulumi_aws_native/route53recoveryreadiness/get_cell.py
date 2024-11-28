@@ -102,7 +102,7 @@ def get_cell(cell_name: Optional[str] = None,
         parent_readiness_scopes=pulumi.get(__ret__, 'parent_readiness_scopes'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cell_output(cell_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCellResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCellResult]:
     """
     The API Schema for AWS Route53 Recovery Readiness Cells.
 
@@ -111,7 +111,7 @@ def get_cell_output(cell_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['cellName'] = cell_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoveryreadiness:getCell', __args__, opts=opts, typ=GetCellResult)
     return __ret__.apply(lambda __response__: GetCellResult(
         cell_arn=pulumi.get(__response__, 'cell_arn'),

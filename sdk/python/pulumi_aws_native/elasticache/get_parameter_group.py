@@ -102,7 +102,7 @@ def get_parameter_group(cache_parameter_group_name: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_parameter_group_output(cache_parameter_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::ParameterGroup
 
@@ -111,7 +111,7 @@ def get_parameter_group_output(cache_parameter_group_name: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['cacheParameterGroupName'] = cache_parameter_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult)
     return __ret__.apply(lambda __response__: GetParameterGroupResult(
         cache_parameter_group_name=pulumi.get(__response__, 'cache_parameter_group_name'),

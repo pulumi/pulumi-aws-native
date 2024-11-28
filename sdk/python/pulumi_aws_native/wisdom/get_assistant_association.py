@@ -92,7 +92,7 @@ def get_assistant_association(assistant_association_id: Optional[str] = None,
         assistant_association_id=pulumi.get(__ret__, 'assistant_association_id'))
 def get_assistant_association_output(assistant_association_id: Optional[pulumi.Input[str]] = None,
                                      assistant_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssistantAssociationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssistantAssociationResult]:
     """
     Definition of AWS::Wisdom::AssistantAssociation Resource Type
 
@@ -103,7 +103,7 @@ def get_assistant_association_output(assistant_association_id: Optional[pulumi.I
     __args__ = dict()
     __args__['assistantAssociationId'] = assistant_association_id
     __args__['assistantId'] = assistant_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getAssistantAssociation', __args__, opts=opts, typ=GetAssistantAssociationResult)
     return __ret__.apply(lambda __response__: GetAssistantAssociationResult(
         assistant_arn=pulumi.get(__response__, 'assistant_arn'),

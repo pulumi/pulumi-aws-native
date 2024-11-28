@@ -79,7 +79,7 @@ def get_standard(standards_subscription_arn: Optional[str] = None,
         disabled_standards_controls=pulumi.get(__ret__, 'disabled_standards_controls'),
         standards_subscription_arn=pulumi.get(__ret__, 'standards_subscription_arn'))
 def get_standard_output(standards_subscription_arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStandardResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardResult]:
     """
     The ``AWS::SecurityHub::Standard`` resource specifies the enablement of a security standard. The standard is identified by the ``StandardsArn`` property. To view a list of ASH standards and their Amazon Resource Names (ARNs), use the [DescribeStandards](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html) API operation.
      You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
@@ -90,7 +90,7 @@ def get_standard_output(standards_subscription_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['standardsSubscriptionArn'] = standards_subscription_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getStandard', __args__, opts=opts, typ=GetStandardResult)
     return __ret__.apply(lambda __response__: GetStandardResult(
         disabled_standards_controls=pulumi.get(__response__, 'disabled_standards_controls'),

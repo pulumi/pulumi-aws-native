@@ -143,7 +143,7 @@ def get_data_provider(data_provider_arn: Optional[str] = None,
         settings=pulumi.get(__ret__, 'settings'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_provider_output(data_provider_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataProviderResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataProviderResult]:
     """
     Resource schema for AWS::DMS::DataProvider
 
@@ -152,7 +152,7 @@ def get_data_provider_output(data_provider_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['dataProviderArn'] = data_provider_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:dms:getDataProvider', __args__, opts=opts, typ=GetDataProviderResult)
     return __ret__.apply(lambda __response__: GetDataProviderResult(
         data_provider_arn=pulumi.get(__response__, 'data_provider_arn'),

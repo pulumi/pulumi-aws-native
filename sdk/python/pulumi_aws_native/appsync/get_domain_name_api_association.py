@@ -69,13 +69,13 @@ def get_domain_name_api_association(api_association_identifier: Optional[str] = 
         api_association_identifier=pulumi.get(__ret__, 'api_association_identifier'),
         api_id=pulumi.get(__ret__, 'api_id'))
 def get_domain_name_api_association_output(api_association_identifier: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameApiAssociationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameApiAssociationResult]:
     """
     Resource Type definition for AWS::AppSync::DomainNameApiAssociation
     """
     __args__ = dict()
     __args__['apiAssociationIdentifier'] = api_association_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getDomainNameApiAssociation', __args__, opts=opts, typ=GetDomainNameApiAssociationResult)
     return __ret__.apply(lambda __response__: GetDomainNameApiAssociationResult(
         api_association_identifier=pulumi.get(__response__, 'api_association_identifier'),

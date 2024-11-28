@@ -206,7 +206,7 @@ def get_function_configuration(function_arn: Optional[str] = None,
         runtime=pulumi.get(__ret__, 'runtime'),
         sync_config=pulumi.get(__ret__, 'sync_config'))
 def get_function_configuration_output(function_arn: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionConfigurationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionConfigurationResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -215,7 +215,7 @@ def get_function_configuration_output(function_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getFunctionConfiguration', __args__, opts=opts, typ=GetFunctionConfigurationResult)
     return __ret__.apply(lambda __response__: GetFunctionConfigurationResult(
         code=pulumi.get(__response__, 'code'),

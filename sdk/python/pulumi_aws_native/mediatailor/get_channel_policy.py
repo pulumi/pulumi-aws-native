@@ -64,7 +64,7 @@ def get_channel_policy(channel_name: Optional[str] = None,
     return AwaitableGetChannelPolicyResult(
         policy=pulumi.get(__ret__, 'policy'))
 def get_channel_policy_output(channel_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelPolicyResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelPolicyResult]:
     """
     Definition of AWS::MediaTailor::ChannelPolicy Resource Type
 
@@ -73,7 +73,7 @@ def get_channel_policy_output(channel_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['channelName'] = channel_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getChannelPolicy', __args__, opts=opts, typ=GetChannelPolicyResult)
     return __ret__.apply(lambda __response__: GetChannelPolicyResult(
         policy=pulumi.get(__response__, 'policy')))

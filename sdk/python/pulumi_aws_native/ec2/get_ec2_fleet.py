@@ -105,7 +105,7 @@ def get_ec2_fleet(fleet_id: Optional[str] = None,
         fleet_id=pulumi.get(__ret__, 'fleet_id'),
         target_capacity_specification=pulumi.get(__ret__, 'target_capacity_specification'))
 def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEc2FleetResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2FleetResult]:
     """
     Resource Type definition for AWS::EC2::EC2Fleet
 
@@ -114,7 +114,7 @@ def get_ec2_fleet_output(fleet_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['fleetId'] = fleet_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEc2Fleet', __args__, opts=opts, typ=GetEc2FleetResult)
     return __ret__.apply(lambda __response__: GetEc2FleetResult(
         context=pulumi.get(__response__, 'context'),

@@ -185,7 +185,7 @@ def get_firewall(firewall_arn: Optional[str] = None,
         subnet_mappings=pulumi.get(__ret__, 'subnet_mappings'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_firewall_output(firewall_arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallResult]:
     """
     Resource type definition for AWS::NetworkFirewall::Firewall
 
@@ -194,7 +194,7 @@ def get_firewall_output(firewall_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['firewallArn'] = firewall_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getFirewall', __args__, opts=opts, typ=GetFirewallResult)
     return __ret__.apply(lambda __response__: GetFirewallResult(
         delete_protection=pulumi.get(__response__, 'delete_protection'),

@@ -127,7 +127,7 @@ def get_anomaly_monitor(monitor_arn: Optional[str] = None,
         monitor_arn=pulumi.get(__ret__, 'monitor_arn'),
         monitor_name=pulumi.get(__ret__, 'monitor_name'))
 def get_anomaly_monitor_output(monitor_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalyMonitorResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomalyMonitorResult]:
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
 
@@ -136,7 +136,7 @@ def get_anomaly_monitor_output(monitor_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['monitorArn'] = monitor_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ce:getAnomalyMonitor', __args__, opts=opts, typ=GetAnomalyMonitorResult)
     return __ret__.apply(lambda __response__: GetAnomalyMonitorResult(
         creation_date=pulumi.get(__response__, 'creation_date'),

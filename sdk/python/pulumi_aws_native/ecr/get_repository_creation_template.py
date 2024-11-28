@@ -181,7 +181,7 @@ def get_repository_creation_template(prefix: Optional[str] = None,
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryCreationTemplateResult]:
     """
     AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
 
@@ -190,7 +190,7 @@ def get_repository_creation_template_output(prefix: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['prefix'] = prefix
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecr:getRepositoryCreationTemplate', __args__, opts=opts, typ=GetRepositoryCreationTemplateResult)
     return __ret__.apply(lambda __response__: GetRepositoryCreationTemplateResult(
         applied_for=pulumi.get(__response__, 'applied_for'),

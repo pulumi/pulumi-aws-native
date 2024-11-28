@@ -64,7 +64,7 @@ def get_logging_configuration(firewall_arn: Optional[str] = None,
     return AwaitableGetLoggingConfigurationResult(
         logging_configuration=pulumi.get(__ret__, 'logging_configuration'))
 def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggingConfigurationResult]:
     """
     Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
 
@@ -73,7 +73,7 @@ def get_logging_configuration_output(firewall_arn: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['firewallArn'] = firewall_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkfirewall:getLoggingConfiguration', __args__, opts=opts, typ=GetLoggingConfigurationResult)
     return __ret__.apply(lambda __response__: GetLoggingConfigurationResult(
         logging_configuration=pulumi.get(__response__, 'logging_configuration')))

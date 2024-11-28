@@ -194,7 +194,7 @@ def get_outpost_resolver(id: Optional[str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_outpost_resolver_output(id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOutpostResolverResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutpostResolverResult]:
     """
     Resource schema for AWS::Route53Resolver::OutpostResolver.
 
@@ -203,7 +203,7 @@ def get_outpost_resolver_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getOutpostResolver', __args__, opts=opts, typ=GetOutpostResolverResult)
     return __ret__.apply(lambda __response__: GetOutpostResolverResult(
         arn=pulumi.get(__response__, 'arn'),

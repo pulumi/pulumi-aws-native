@@ -343,7 +343,7 @@ def get_job(name: Optional[str] = None,
         timeout=pulumi.get(__ret__, 'timeout'),
         worker_type=pulumi.get(__ret__, 'worker_type'))
 def get_job_output(name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobResult]:
     """
     Resource Type definition for AWS::Glue::Job
 
@@ -352,7 +352,7 @@ def get_job_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getJob', __args__, opts=opts, typ=GetJobResult)
     return __ret__.apply(lambda __response__: GetJobResult(
         allocated_capacity=pulumi.get(__response__, 'allocated_capacity'),

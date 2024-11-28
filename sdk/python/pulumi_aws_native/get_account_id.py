@@ -53,12 +53,12 @@ def get_account_id(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetA
 
     return AwaitableGetAccountIdResult(
         account_id=pulumi.get(__ret__, 'account_id'))
-def get_account_id_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountIdResult]:
+def get_account_id_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountIdResult]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:index:getAccountId', __args__, opts=opts, typ=GetAccountIdResult)
     return __ret__.apply(lambda __response__: GetAccountIdResult(
         account_id=pulumi.get(__response__, 'account_id')))

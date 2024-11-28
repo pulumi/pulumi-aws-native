@@ -132,7 +132,7 @@ def get_protection_group(protection_group_arn: Optional[str] = None,
         resource_type=pulumi.get(__ret__, 'resource_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_protection_group_output(protection_group_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProtectionGroupResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionGroupResult]:
     """
     A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
 
@@ -141,7 +141,7 @@ def get_protection_group_output(protection_group_arn: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['protectionGroupArn'] = protection_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:shield:getProtectionGroup', __args__, opts=opts, typ=GetProtectionGroupResult)
     return __ret__.apply(lambda __response__: GetProtectionGroupResult(
         aggregation=pulumi.get(__response__, 'aggregation'),

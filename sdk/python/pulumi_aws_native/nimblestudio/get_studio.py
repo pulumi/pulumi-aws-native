@@ -154,7 +154,7 @@ def get_studio(studio_id: Optional[str] = None,
         studio_url=pulumi.get(__ret__, 'studio_url'),
         user_role_arn=pulumi.get(__ret__, 'user_role_arn'))
 def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioResult]:
     """
     Resource Type definition for AWS::NimbleStudio::Studio
 
@@ -163,7 +163,7 @@ def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['studioId'] = studio_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getStudio', __args__, opts=opts, typ=GetStudioResult)
     return __ret__.apply(lambda __response__: GetStudioResult(
         admin_role_arn=pulumi.get(__response__, 'admin_role_arn'),

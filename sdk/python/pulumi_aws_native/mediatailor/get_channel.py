@@ -147,7 +147,7 @@ def get_channel(channel_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         time_shift_configuration=pulumi.get(__ret__, 'time_shift_configuration'))
 def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     Definition of AWS::MediaTailor::Channel Resource Type
 
@@ -156,7 +156,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['channelName'] = channel_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getChannel', __args__, opts=opts, typ=GetChannelResult)
     return __ret__.apply(lambda __response__: GetChannelResult(
         arn=pulumi.get(__response__, 'arn'),

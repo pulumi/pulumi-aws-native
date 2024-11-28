@@ -185,7 +185,7 @@ def get_vpc_endpoint(id: Optional[str] = None,
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
 def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
     Specifies a VPC endpoint. A VPC endpoint provides a private connection between your VPC and an endpoint service. You can use an endpoint service provided by AWS , an AWS Marketplace Partner, or another AWS accounts in your organization. For more information, see the [AWS PrivateLink User Guide](https://docs.aws.amazon.com/vpc/latest/privatelink/) .
 
@@ -200,7 +200,7 @@ def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcEndpoint', __args__, opts=opts, typ=GetVpcEndpointResult)
     return __ret__.apply(lambda __response__: GetVpcEndpointResult(
         creation_timestamp=pulumi.get(__response__, 'creation_timestamp'),

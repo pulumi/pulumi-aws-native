@@ -104,7 +104,7 @@ def get_identity_source(identity_source_id: Optional[str] = None,
         principal_entity_type=pulumi.get(__ret__, 'principal_entity_type'))
 def get_identity_source_output(identity_source_id: Optional[pulumi.Input[str]] = None,
                                policy_store_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentitySourceResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentitySourceResult]:
     """
     Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
 
@@ -115,7 +115,7 @@ def get_identity_source_output(identity_source_id: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['identitySourceId'] = identity_source_id
     __args__['policyStoreId'] = policy_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getIdentitySource', __args__, opts=opts, typ=GetIdentitySourceResult)
     return __ret__.apply(lambda __response__: GetIdentitySourceResult(
         configuration=pulumi.get(__response__, 'configuration'),

@@ -103,7 +103,7 @@ def get_realtime_log_config(arn: Optional[str] = None,
         fields=pulumi.get(__ret__, 'fields'),
         sampling_rate=pulumi.get(__ret__, 'sampling_rate'))
 def get_realtime_log_config_output(arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRealtimeLogConfigResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRealtimeLogConfigResult]:
     """
     A real-time log configuration.
 
@@ -112,7 +112,7 @@ def get_realtime_log_config_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getRealtimeLogConfig', __args__, opts=opts, typ=GetRealtimeLogConfigResult)
     return __ret__.apply(lambda __response__: GetRealtimeLogConfigResult(
         arn=pulumi.get(__response__, 'arn'),

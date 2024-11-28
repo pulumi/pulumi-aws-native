@@ -233,7 +233,7 @@ def get_domain(domain_id: Optional[str] = None,
         tag_propagation=pulumi.get(__ret__, 'tag_propagation'),
         url=pulumi.get(__ret__, 'url'))
 def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     Resource Type definition for AWS::SageMaker::Domain
 
@@ -242,7 +242,7 @@ def get_domain_output(domain_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domainId'] = domain_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
         app_network_access_type=pulumi.get(__response__, 'app_network_access_type'),

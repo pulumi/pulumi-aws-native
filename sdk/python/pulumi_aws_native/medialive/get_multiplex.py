@@ -169,7 +169,7 @@ def get_multiplex(id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_multiplex_output(id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiplexResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiplexResult]:
     """
     Resource schema for AWS::MediaLive::Multiplex
 
@@ -178,7 +178,7 @@ def get_multiplex_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getMultiplex', __args__, opts=opts, typ=GetMultiplexResult)
     return __ret__.apply(lambda __response__: GetMultiplexResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -105,7 +105,7 @@ def get_api_mapping(api_mapping_id: Optional[str] = None,
         stage=pulumi.get(__ret__, 'stage'))
 def get_api_mapping_output(api_mapping_id: Optional[pulumi.Input[str]] = None,
                            domain_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiMappingResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiMappingResult]:
     """
     The ``AWS::ApiGatewayV2::ApiMapping`` resource contains an API mapping. An API mapping relates a path of your custom domain name to a stage of your API. A custom domain name can have multiple API mappings, but the paths can't overlap. A custom domain can map only to APIs of the same protocol type. For more information, see [CreateApiMapping](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames-domainname-apimappings.html#CreateApiMapping) in the *Amazon API Gateway V2 API Reference*.
 
@@ -116,7 +116,7 @@ def get_api_mapping_output(api_mapping_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['apiMappingId'] = api_mapping_id
     __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getApiMapping', __args__, opts=opts, typ=GetApiMappingResult)
     return __ret__.apply(lambda __response__: GetApiMappingResult(
         api_id=pulumi.get(__response__, 'api_id'),

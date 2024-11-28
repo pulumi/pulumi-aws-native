@@ -89,7 +89,7 @@ def get_component(arn: Optional[str] = None,
         encrypted=pulumi.get(__ret__, 'encrypted'),
         type=pulumi.get(__ret__, 'type'))
 def get_component_output(arn: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
     Resource schema for AWS::ImageBuilder::Component
 
@@ -98,7 +98,7 @@ def get_component_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getComponent', __args__, opts=opts, typ=GetComponentResult)
     return __ret__.apply(lambda __response__: GetComponentResult(
         arn=pulumi.get(__response__, 'arn'),

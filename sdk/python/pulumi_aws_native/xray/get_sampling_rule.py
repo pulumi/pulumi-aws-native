@@ -120,7 +120,7 @@ def get_sampling_rule(rule_arn: Optional[str] = None,
         sampling_rule_update=pulumi.get(__ret__, 'sampling_rule_update'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_sampling_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSamplingRuleResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSamplingRuleResult]:
     """
     This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
 
@@ -129,7 +129,7 @@ def get_sampling_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:xray:getSamplingRule', __args__, opts=opts, typ=GetSamplingRuleResult)
     return __ret__.apply(lambda __response__: GetSamplingRuleResult(
         rule_arn=pulumi.get(__response__, 'rule_arn'),

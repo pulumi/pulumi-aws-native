@@ -89,7 +89,7 @@ def get_readiness_check(readiness_check_name: Optional[str] = None,
         resource_set_name=pulumi.get(__ret__, 'resource_set_name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_readiness_check_output(readiness_check_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReadinessCheckResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReadinessCheckResult]:
     """
     Aws Route53 Recovery Readiness Check Schema and API specification.
 
@@ -98,7 +98,7 @@ def get_readiness_check_output(readiness_check_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['readinessCheckName'] = readiness_check_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoveryreadiness:getReadinessCheck', __args__, opts=opts, typ=GetReadinessCheckResult)
     return __ret__.apply(lambda __response__: GetReadinessCheckResult(
         readiness_check_arn=pulumi.get(__response__, 'readiness_check_arn'),

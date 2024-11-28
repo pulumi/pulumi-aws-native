@@ -103,7 +103,7 @@ def get_distribution(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributionResult]:
     """
     A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
 
@@ -112,7 +112,7 @@ def get_distribution_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getDistribution', __args__, opts=opts, typ=GetDistributionResult)
     return __ret__.apply(lambda __response__: GetDistributionResult(
         distribution_config=pulumi.get(__response__, 'distribution_config'),

@@ -128,7 +128,7 @@ def get_stream(name: Optional[str] = None,
         media_type=pulumi.get(__ret__, 'media_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_stream_output(name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
     Resource Type Definition for AWS::KinesisVideo::Stream
 
@@ -137,7 +137,7 @@ def get_stream_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kinesisvideo:getStream', __args__, opts=opts, typ=GetStreamResult)
     return __ret__.apply(lambda __response__: GetStreamResult(
         arn=pulumi.get(__response__, 'arn'),

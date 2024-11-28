@@ -88,7 +88,7 @@ def get_access_grants_instance(access_grants_instance_arn: Optional[str] = None,
         access_grants_instance_id=pulumi.get(__ret__, 'access_grants_instance_id'),
         identity_center_arn=pulumi.get(__ret__, 'identity_center_arn'))
 def get_access_grants_instance_output(access_grants_instance_arn: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessGrantsInstanceResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessGrantsInstanceResult]:
     """
     The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
 
@@ -97,7 +97,7 @@ def get_access_grants_instance_output(access_grants_instance_arn: Optional[pulum
     """
     __args__ = dict()
     __args__['accessGrantsInstanceArn'] = access_grants_instance_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getAccessGrantsInstance', __args__, opts=opts, typ=GetAccessGrantsInstanceResult)
     return __ret__.apply(lambda __response__: GetAccessGrantsInstanceResult(
         access_grants_instance_arn=pulumi.get(__response__, 'access_grants_instance_arn'),

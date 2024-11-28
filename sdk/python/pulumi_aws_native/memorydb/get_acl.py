@@ -102,7 +102,7 @@ def get_acl(acl_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_names=pulumi.get(__ret__, 'user_names'))
 def get_acl_output(acl_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAclResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAclResult]:
     """
     Resource Type definition for AWS::MemoryDB::ACL
 
@@ -111,7 +111,7 @@ def get_acl_output(acl_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['aclName'] = acl_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:memorydb:getAcl', __args__, opts=opts, typ=GetAclResult)
     return __ret__.apply(lambda __response__: GetAclResult(
         arn=pulumi.get(__response__, 'arn'),

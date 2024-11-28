@@ -89,7 +89,7 @@ def get_matchmaking_rule_set(name: Optional[str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_matchmaking_rule_set_output(name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMatchmakingRuleSetResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMatchmakingRuleSetResult]:
     """
     The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
 
@@ -98,7 +98,7 @@ def get_matchmaking_rule_set_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getMatchmakingRuleSet', __args__, opts=opts, typ=GetMatchmakingRuleSetResult)
     return __ret__.apply(lambda __response__: GetMatchmakingRuleSetResult(
         arn=pulumi.get(__response__, 'arn'),

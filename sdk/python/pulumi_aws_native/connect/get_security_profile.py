@@ -194,7 +194,7 @@ def get_security_profile(security_profile_arn: Optional[str] = None,
         tag_restricted_resources=pulumi.get(__ret__, 'tag_restricted_resources'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_security_profile_output(security_profile_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityProfileResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityProfileResult]:
     """
     Resource Type definition for AWS::Connect::SecurityProfile
 
@@ -203,7 +203,7 @@ def get_security_profile_output(security_profile_arn: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['securityProfileArn'] = security_profile_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getSecurityProfile', __args__, opts=opts, typ=GetSecurityProfileResult)
     return __ret__.apply(lambda __response__: GetSecurityProfileResult(
         allowed_access_control_hierarchy_group_id=pulumi.get(__response__, 'allowed_access_control_hierarchy_group_id'),

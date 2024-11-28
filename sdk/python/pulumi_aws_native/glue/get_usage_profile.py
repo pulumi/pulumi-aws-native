@@ -103,7 +103,7 @@ def get_usage_profile(name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_usage_profile_output(name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsageProfileResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUsageProfileResult]:
     """
     This creates a Resource of UsageProfile type.
 
@@ -112,7 +112,7 @@ def get_usage_profile_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getUsageProfile', __args__, opts=opts, typ=GetUsageProfileResult)
     return __ret__.apply(lambda __response__: GetUsageProfileResult(
         configuration=pulumi.get(__response__, 'configuration'),

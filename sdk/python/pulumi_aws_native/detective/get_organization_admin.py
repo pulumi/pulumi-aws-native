@@ -62,7 +62,7 @@ def get_organization_admin(account_id: Optional[str] = None,
     return AwaitableGetOrganizationAdminResult(
         graph_arn=pulumi.get(__ret__, 'graph_arn'))
 def get_organization_admin_output(account_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationAdminResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationAdminResult]:
     """
     Resource schema for AWS::Detective::OrganizationAdmin
 
@@ -71,7 +71,7 @@ def get_organization_admin_output(account_id: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:detective:getOrganizationAdmin', __args__, opts=opts, typ=GetOrganizationAdminResult)
     return __ret__.apply(lambda __response__: GetOrganizationAdminResult(
         graph_arn=pulumi.get(__response__, 'graph_arn')))

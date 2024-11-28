@@ -62,7 +62,7 @@ def get_schema(schema_arn: Optional[str] = None,
     return AwaitableGetSchemaResult(
         schema_arn=pulumi.get(__ret__, 'schema_arn'))
 def get_schema_output(schema_arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     Resource schema for AWS::Personalize::Schema.
 
@@ -71,7 +71,7 @@ def get_schema_output(schema_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['schemaArn'] = schema_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:personalize:getSchema', __args__, opts=opts, typ=GetSchemaResult)
     return __ret__.apply(lambda __response__: GetSchemaResult(
         schema_arn=pulumi.get(__response__, 'schema_arn')))

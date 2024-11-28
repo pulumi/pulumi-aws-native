@@ -239,7 +239,7 @@ def get_pipe(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target=pulumi.get(__ret__, 'target'))
 def get_pipe_output(name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipeResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipeResult]:
     """
     Definition of AWS::Pipes::Pipe Resource Type
 
@@ -248,7 +248,7 @@ def get_pipe_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:pipes:getPipe', __args__, opts=opts, typ=GetPipeResult)
     return __ret__.apply(lambda __response__: GetPipeResult(
         arn=pulumi.get(__response__, 'arn'),

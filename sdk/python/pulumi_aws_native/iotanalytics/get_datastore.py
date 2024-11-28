@@ -132,7 +132,7 @@ def get_datastore(datastore_name: Optional[str] = None,
         retention_period=pulumi.get(__ret__, 'retention_period'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Resource Type definition for AWS::IoTAnalytics::Datastore
 
@@ -141,7 +141,7 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['datastoreName'] = datastore_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotanalytics:getDatastore', __args__, opts=opts, typ=GetDatastoreResult)
     return __ret__.apply(lambda __response__: GetDatastoreResult(
         datastore_partitions=pulumi.get(__response__, 'datastore_partitions'),

@@ -237,7 +237,7 @@ def get_global_table(table_name: Optional[str] = None,
         write_on_demand_throughput_settings=pulumi.get(__ret__, 'write_on_demand_throughput_settings'),
         write_provisioned_throughput_settings=pulumi.get(__ret__, 'write_provisioned_throughput_settings'))
 def get_global_table_output(table_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalTableResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalTableResult]:
     """
     Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
 
@@ -248,7 +248,7 @@ def get_global_table_output(table_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['tableName'] = table_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:dynamodb:getGlobalTable', __args__, opts=opts, typ=GetGlobalTableResult)
     return __ret__.apply(lambda __response__: GetGlobalTableResult(
         arn=pulumi.get(__response__, 'arn'),

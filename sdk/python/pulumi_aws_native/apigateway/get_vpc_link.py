@@ -102,7 +102,7 @@ def get_vpc_link(vpc_link_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
 def get_vpc_link_output(vpc_link_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcLinkResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcLinkResult]:
     """
     The ``AWS::ApiGateway::VpcLink`` resource creates an API Gateway VPC link for a REST API to access resources in an Amazon Virtual Private Cloud (VPC). For more information, see [vpclink:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateVpcLink.html) in the ``Amazon API Gateway REST API Reference``.
 
@@ -111,7 +111,7 @@ def get_vpc_link_output(vpc_link_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['vpcLinkId'] = vpc_link_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getVpcLink', __args__, opts=opts, typ=GetVpcLinkResult)
     return __ret__.apply(lambda __response__: GetVpcLinkResult(
         description=pulumi.get(__response__, 'description'),

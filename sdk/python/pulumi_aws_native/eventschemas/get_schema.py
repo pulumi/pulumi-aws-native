@@ -154,7 +154,7 @@ def get_schema(schema_arn: Optional[str] = None,
         type=pulumi.get(__ret__, 'type'),
         version_created_date=pulumi.get(__ret__, 'version_created_date'))
 def get_schema_output(schema_arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """
     Resource Type definition for AWS::EventSchemas::Schema
 
@@ -163,7 +163,7 @@ def get_schema_output(schema_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['schemaArn'] = schema_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eventschemas:getSchema', __args__, opts=opts, typ=GetSchemaResult)
     return __ret__.apply(lambda __response__: GetSchemaResult(
         content=pulumi.get(__response__, 'content'),

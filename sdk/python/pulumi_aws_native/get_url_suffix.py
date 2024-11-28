@@ -53,12 +53,12 @@ def get_url_suffix(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetU
 
     return AwaitableGetUrlSuffixResult(
         url_suffix=pulumi.get(__ret__, 'url_suffix'))
-def get_url_suffix_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUrlSuffixResult]:
+def get_url_suffix_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUrlSuffixResult]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:index:getUrlSuffix', __args__, opts=opts, typ=GetUrlSuffixResult)
     return __ret__.apply(lambda __response__: GetUrlSuffixResult(
         url_suffix=pulumi.get(__response__, 'url_suffix')))

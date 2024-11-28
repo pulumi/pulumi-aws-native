@@ -155,7 +155,7 @@ def get_access_grant(access_grant_id: Optional[str] = None,
         grantee=pulumi.get(__ret__, 'grantee'),
         permission=pulumi.get(__ret__, 'permission'))
 def get_access_grant_output(access_grant_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessGrantResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessGrantResult]:
     """
     The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
 
@@ -164,7 +164,7 @@ def get_access_grant_output(access_grant_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['accessGrantId'] = access_grant_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getAccessGrant', __args__, opts=opts, typ=GetAccessGrantResult)
     return __ret__.apply(lambda __response__: GetAccessGrantResult(
         access_grant_arn=pulumi.get(__response__, 'access_grant_arn'),

@@ -93,7 +93,7 @@ def get_user_pool_risk_configuration_attachment(client_id: Optional[str] = None,
         risk_exception_configuration=pulumi.get(__ret__, 'risk_exception_configuration'))
 def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulumi.Input[str]] = None,
                                                        user_pool_id: Optional[pulumi.Input[str]] = None,
-                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolRiskConfigurationAttachmentResult]:
+                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolRiskConfigurationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
 
@@ -104,7 +104,7 @@ def get_user_pool_risk_configuration_attachment_output(client_id: Optional[pulum
     __args__ = dict()
     __args__['clientId'] = client_id
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolRiskConfigurationAttachment', __args__, opts=opts, typ=GetUserPoolRiskConfigurationAttachmentResult)
     return __ret__.apply(lambda __response__: GetUserPoolRiskConfigurationAttachmentResult(
         account_takeover_risk_configuration=pulumi.get(__response__, 'account_takeover_risk_configuration'),

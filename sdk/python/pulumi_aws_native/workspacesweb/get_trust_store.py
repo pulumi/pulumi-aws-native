@@ -102,7 +102,7 @@ def get_trust_store(trust_store_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         trust_store_arn=pulumi.get(__ret__, 'trust_store_arn'))
 def get_trust_store_output(trust_store_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustStoreResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustStoreResult]:
     """
     Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
 
@@ -111,7 +111,7 @@ def get_trust_store_output(trust_store_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['trustStoreArn'] = trust_store_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getTrustStore', __args__, opts=opts, typ=GetTrustStoreResult)
     return __ret__.apply(lambda __response__: GetTrustStoreResult(
         associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),

@@ -96,7 +96,7 @@ def get_db_subnet_group(db_subnet_group_name: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_db_subnet_group_output(db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbSubnetGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbSubnetGroupResult]:
     """
     The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
      For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
@@ -112,7 +112,7 @@ def get_db_subnet_group_output(db_subnet_group_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['dbSubnetGroupName'] = db_subnet_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbSubnetGroup', __args__, opts=opts, typ=GetDbSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetDbSubnetGroupResult(
         db_subnet_group_description=pulumi.get(__response__, 'db_subnet_group_description'),

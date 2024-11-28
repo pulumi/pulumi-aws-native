@@ -103,7 +103,7 @@ def get_configuration_aggregator(configuration_aggregator_name: Optional[str] = 
         organization_aggregation_source=pulumi.get(__ret__, 'organization_aggregation_source'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_configuration_aggregator_output(configuration_aggregator_name: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationAggregatorResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationAggregatorResult]:
     """
     Resource Type definition for AWS::Config::ConfigurationAggregator
 
@@ -112,7 +112,7 @@ def get_configuration_aggregator_output(configuration_aggregator_name: Optional[
     """
     __args__ = dict()
     __args__['configurationAggregatorName'] = configuration_aggregator_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getConfigurationAggregator', __args__, opts=opts, typ=GetConfigurationAggregatorResult)
     return __ret__.apply(lambda __response__: GetConfigurationAggregatorResult(
         account_aggregation_sources=pulumi.get(__response__, 'account_aggregation_sources'),

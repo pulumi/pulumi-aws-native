@@ -63,7 +63,7 @@ def get_wal_workspace(wal_workspace_name: Optional[str] = None,
     return AwaitableGetWalWorkspaceResult(
         tags=pulumi.get(__ret__, 'tags'))
 def get_wal_workspace_output(wal_workspace_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWalWorkspaceResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWalWorkspaceResult]:
     """
     Resource schema for AWS::EMR::WALWorkspace Type
 
@@ -72,7 +72,7 @@ def get_wal_workspace_output(wal_workspace_name: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['walWorkspaceName'] = wal_workspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:emr:getWalWorkspace', __args__, opts=opts, typ=GetWalWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWalWorkspaceResult(
         tags=pulumi.get(__response__, 'tags')))

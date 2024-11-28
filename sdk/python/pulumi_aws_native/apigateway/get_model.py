@@ -82,7 +82,7 @@ def get_model(name: Optional[str] = None,
         schema=pulumi.get(__ret__, 'schema'))
 def get_model_output(name: Optional[pulumi.Input[str]] = None,
                      rest_api_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
 
@@ -94,7 +94,7 @@ def get_model_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getModel', __args__, opts=opts, typ=GetModelResult)
     return __ret__.apply(lambda __response__: GetModelResult(
         description=pulumi.get(__response__, 'description'),

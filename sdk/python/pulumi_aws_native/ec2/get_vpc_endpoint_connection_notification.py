@@ -88,7 +88,7 @@ def get_vpc_endpoint_connection_notification(vpc_endpoint_connection_notificatio
         connection_notification_arn=pulumi.get(__ret__, 'connection_notification_arn'),
         vpc_endpoint_connection_notification_id=pulumi.get(__ret__, 'vpc_endpoint_connection_notification_id'))
 def get_vpc_endpoint_connection_notification_output(vpc_endpoint_connection_notification_id: Optional[pulumi.Input[str]] = None,
-                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcEndpointConnectionNotificationResult]:
+                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointConnectionNotificationResult]:
     """
     Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
 
@@ -97,7 +97,7 @@ def get_vpc_endpoint_connection_notification_output(vpc_endpoint_connection_noti
     """
     __args__ = dict()
     __args__['vpcEndpointConnectionNotificationId'] = vpc_endpoint_connection_notification_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcEndpointConnectionNotification', __args__, opts=opts, typ=GetVpcEndpointConnectionNotificationResult)
     return __ret__.apply(lambda __response__: GetVpcEndpointConnectionNotificationResult(
         connection_events=pulumi.get(__response__, 'connection_events'),

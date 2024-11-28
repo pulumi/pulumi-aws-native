@@ -111,7 +111,7 @@ def get_threat_intel_set(detector_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_threat_intel_set_output(detector_id: Optional[pulumi.Input[str]] = None,
                                 id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThreatIntelSetResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThreatIntelSetResult]:
     """
     Resource Type definition for AWS::GuardDuty::ThreatIntelSet
 
@@ -125,7 +125,7 @@ def get_threat_intel_set_output(detector_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['detectorId'] = detector_id
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:guardduty:getThreatIntelSet', __args__, opts=opts, typ=GetThreatIntelSetResult)
     return __ret__.apply(lambda __response__: GetThreatIntelSetResult(
         id=pulumi.get(__response__, 'id'),

@@ -105,7 +105,7 @@ def get_load_balancer_tls_certificate(certificate_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'))
 def get_load_balancer_tls_certificate_output(certificate_name: Optional[pulumi.Input[str]] = None,
                                              load_balancer_name: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerTlsCertificateResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerTlsCertificateResult]:
     """
     Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
 
@@ -116,7 +116,7 @@ def get_load_balancer_tls_certificate_output(certificate_name: Optional[pulumi.I
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['loadBalancerName'] = load_balancer_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getLoadBalancerTlsCertificate', __args__, opts=opts, typ=GetLoadBalancerTlsCertificateResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerTlsCertificateResult(
         https_redirection_enabled=pulumi.get(__response__, 'https_redirection_enabled'),

@@ -180,7 +180,7 @@ def get_log_anomaly_detector(anomaly_detector_arn: Optional[str] = None,
         last_modified_time_stamp=pulumi.get(__ret__, 'last_modified_time_stamp'),
         log_group_arn_list=pulumi.get(__ret__, 'log_group_arn_list'))
 def get_log_anomaly_detector_output(anomaly_detector_arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnomalyDetectorResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnomalyDetectorResult]:
     """
     The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
 
@@ -189,7 +189,7 @@ def get_log_anomaly_detector_output(anomaly_detector_arn: Optional[pulumi.Input[
     """
     __args__ = dict()
     __args__['anomalyDetectorArn'] = anomaly_detector_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getLogAnomalyDetector', __args__, opts=opts, typ=GetLogAnomalyDetectorResult)
     return __ret__.apply(lambda __response__: GetLogAnomalyDetectorResult(
         anomaly_detector_arn=pulumi.get(__response__, 'anomaly_detector_arn'),

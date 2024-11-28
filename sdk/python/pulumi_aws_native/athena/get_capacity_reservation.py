@@ -156,7 +156,7 @@ def get_capacity_reservation(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_dpus=pulumi.get(__ret__, 'target_dpus'))
 def get_capacity_reservation_output(arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     Resource schema for AWS::Athena::CapacityReservation
 
@@ -165,7 +165,7 @@ def get_capacity_reservation_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult)
     return __ret__.apply(lambda __response__: GetCapacityReservationResult(
         allocated_dpus=pulumi.get(__response__, 'allocated_dpus'),

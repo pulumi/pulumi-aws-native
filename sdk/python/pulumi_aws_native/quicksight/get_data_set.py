@@ -294,7 +294,7 @@ def get_data_set(aws_account_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                         data_set_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSetResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSetResult]:
     """
     Definition of the AWS::QuickSight::DataSet Resource Type.
 
@@ -305,7 +305,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['dataSetId'] = data_set_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getDataSet', __args__, opts=opts, typ=GetDataSetResult)
     return __ret__.apply(lambda __response__: GetDataSetResult(
         arn=pulumi.get(__response__, 'arn'),

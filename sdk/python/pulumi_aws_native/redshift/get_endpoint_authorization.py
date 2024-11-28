@@ -170,7 +170,7 @@ def get_endpoint_authorization(account: Optional[str] = None,
         vpc_ids=pulumi.get(__ret__, 'vpc_ids'))
 def get_endpoint_authorization_output(account: Optional[pulumi.Input[str]] = None,
                                       cluster_identifier: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointAuthorizationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointAuthorizationResult]:
     """
     Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
 
@@ -181,7 +181,7 @@ def get_endpoint_authorization_output(account: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['account'] = account
     __args__['clusterIdentifier'] = cluster_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getEndpointAuthorization', __args__, opts=opts, typ=GetEndpointAuthorizationResult)
     return __ret__.apply(lambda __response__: GetEndpointAuthorizationResult(
         allowed_all_vpcs=pulumi.get(__response__, 'allowed_all_vpcs'),

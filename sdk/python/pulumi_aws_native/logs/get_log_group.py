@@ -145,7 +145,7 @@ def get_log_group(log_group_name: Optional[str] = None,
         retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_log_group_output(log_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogGroupResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogGroupResult]:
     """
     The ``AWS::Logs::LogGroup`` resource specifies a log group. A log group defines common properties for log streams, such as their retention and access control rules. Each log stream must belong to one log group.
      You can create up to 1,000,000 log groups per Region per account. You must use the following guidelines when naming a log group:
@@ -158,7 +158,7 @@ def get_log_group_output(log_group_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['logGroupName'] = log_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getLogGroup', __args__, opts=opts, typ=GetLogGroupResult)
     return __ret__.apply(lambda __response__: GetLogGroupResult(
         arn=pulumi.get(__response__, 'arn'),

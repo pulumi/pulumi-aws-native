@@ -156,7 +156,7 @@ def get_response_plan(arn: Optional[str] = None,
         integrations=pulumi.get(__ret__, 'integrations'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_response_plan_output(arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResponsePlanResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResponsePlanResult]:
     """
     Resource type definition for AWS::SSMIncidents::ResponsePlan
 
@@ -165,7 +165,7 @@ def get_response_plan_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssmincidents:getResponsePlan', __args__, opts=opts, typ=GetResponsePlanResult)
     return __ret__.apply(lambda __response__: GetResponsePlanResult(
         actions=pulumi.get(__response__, 'actions'),

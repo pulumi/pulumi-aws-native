@@ -65,7 +65,7 @@ def get_keyspace(keyspace_name: Optional[str] = None,
     return AwaitableGetKeyspaceResult(
         tags=pulumi.get(__ret__, 'tags'))
 def get_keyspace_output(keyspace_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyspaceResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyspaceResult]:
     """
     Resource schema for AWS::Cassandra::Keyspace
 
@@ -74,7 +74,7 @@ def get_keyspace_output(keyspace_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['keyspaceName'] = keyspace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cassandra:getKeyspace', __args__, opts=opts, typ=GetKeyspaceResult)
     return __ret__.apply(lambda __response__: GetKeyspaceResult(
         tags=pulumi.get(__response__, 'tags')))
