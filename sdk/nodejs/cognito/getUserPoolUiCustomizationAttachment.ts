@@ -35,7 +35,7 @@ export interface GetUserPoolUiCustomizationAttachmentResult {
 /**
  * Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
  */
-export function getUserPoolUiCustomizationAttachmentOutput(args: GetUserPoolUiCustomizationAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolUiCustomizationAttachmentResult> {
+export function getUserPoolUiCustomizationAttachmentOutput(args: GetUserPoolUiCustomizationAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolUiCustomizationAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolUiCustomizationAttachment", {
         "clientId": args.clientId,

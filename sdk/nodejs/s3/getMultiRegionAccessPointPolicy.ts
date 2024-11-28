@@ -39,7 +39,7 @@ export interface GetMultiRegionAccessPointPolicyResult {
 /**
  * The policy to be attached to a Multi Region Access Point
  */
-export function getMultiRegionAccessPointPolicyOutput(args: GetMultiRegionAccessPointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointPolicyResult> {
+export function getMultiRegionAccessPointPolicyOutput(args: GetMultiRegionAccessPointPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMultiRegionAccessPointPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3:getMultiRegionAccessPointPolicy", {
         "mrapName": args.mrapName,

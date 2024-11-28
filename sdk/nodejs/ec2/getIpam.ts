@@ -81,7 +81,7 @@ export interface GetIpamResult {
 /**
  * Resource Schema of AWS::EC2::IPAM Type
  */
-export function getIpamOutput(args: GetIpamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamResult> {
+export function getIpamOutput(args: GetIpamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getIpam", {
         "ipamId": args.ipamId,

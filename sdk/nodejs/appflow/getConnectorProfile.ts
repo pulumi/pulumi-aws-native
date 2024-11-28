@@ -41,7 +41,7 @@ export interface GetConnectorProfileResult {
 /**
  * Resource Type definition for AWS::AppFlow::ConnectorProfile
  */
-export function getConnectorProfileOutput(args: GetConnectorProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorProfileResult> {
+export function getConnectorProfileOutput(args: GetConnectorProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appflow:getConnectorProfile", {
         "connectorProfileName": args.connectorProfileName,

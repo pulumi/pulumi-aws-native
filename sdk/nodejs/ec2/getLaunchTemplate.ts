@@ -52,7 +52,7 @@ export interface GetLaunchTemplateResult {
  *  A launch template can contain some or all of the configuration information to launch an instance. When you launch an instance using a launch template, instance properties that are not specified in the launch template use default values, except the ``ImageId`` property, which has no default value. If you do not specify an AMI ID for the launch template ``ImageId`` property, you must specify an AMI ID for the instance ``ImageId`` property.
  *  For more information, see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html) in the *Amazon EC2 User Guide*.
  */
-export function getLaunchTemplateOutput(args: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
+export function getLaunchTemplateOutput(args: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLaunchTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getLaunchTemplate", {
         "launchTemplateId": args.launchTemplateId,

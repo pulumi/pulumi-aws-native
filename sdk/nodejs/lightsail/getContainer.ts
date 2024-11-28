@@ -69,7 +69,7 @@ export interface GetContainerResult {
 /**
  * Resource Type definition for AWS::Lightsail::Container
  */
-export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerResult> {
+export function getContainerOutput(args: GetContainerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lightsail:getContainer", {
         "serviceName": args.serviceName,

@@ -56,7 +56,7 @@ export interface GetDbParameterGroupResult {
  *  For information about configuring parameters for Amazon Aurora DB instances, see [Working with parameter groups](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_WorkingWithParamGroups.html) in the *Amazon Aurora User Guide*.
  *   Applying a parameter group to a DB instance may require the DB instance to reboot, resulting in a database outage for the duration of the reboot.
  */
-export function getDbParameterGroupOutput(args: GetDbParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbParameterGroupResult> {
+export function getDbParameterGroupOutput(args: GetDbParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getDbParameterGroup", {
         "dbParameterGroupName": args.dbParameterGroupName,

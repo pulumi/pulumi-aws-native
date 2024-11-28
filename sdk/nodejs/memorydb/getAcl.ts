@@ -45,7 +45,7 @@ export interface GetAclResult {
 /**
  * Resource Type definition for AWS::MemoryDB::ACL
  */
-export function getAclOutput(args: GetAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAclResult> {
+export function getAclOutput(args: GetAclOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:memorydb:getAcl", {
         "aclName": args.aclName,

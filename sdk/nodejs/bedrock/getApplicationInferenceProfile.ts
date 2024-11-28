@@ -68,7 +68,7 @@ export interface GetApplicationInferenceProfileResult {
 /**
  * Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type
  */
-export function getApplicationInferenceProfileOutput(args: GetApplicationInferenceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationInferenceProfileResult> {
+export function getApplicationInferenceProfileOutput(args: GetApplicationInferenceProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationInferenceProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:bedrock:getApplicationInferenceProfile", {
         "inferenceProfileIdentifier": args.inferenceProfileIdentifier,

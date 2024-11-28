@@ -81,7 +81,7 @@ export interface GetStateMachineResult {
 /**
  * Resource schema for StateMachine
  */
-export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
+export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStateMachineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:stepfunctions:getStateMachine", {
         "arn": args.arn,

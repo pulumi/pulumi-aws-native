@@ -38,7 +38,7 @@ export interface GetViewVersionResult {
 /**
  * Resource Type definition for AWS::Connect::ViewVersion
  */
-export function getViewVersionOutput(args: GetViewVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewVersionResult> {
+export function getViewVersionOutput(args: GetViewVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetViewVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getViewVersion", {
         "viewVersionArn": args.viewVersionArn,

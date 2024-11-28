@@ -30,7 +30,7 @@ export interface GetPlacementGroupResult {
 /**
  * Resource Type definition for AWS::EC2::PlacementGroup
  */
-export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlacementGroupResult> {
+export function getPlacementGroupOutput(args: GetPlacementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlacementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getPlacementGroup", {
         "groupName": args.groupName,

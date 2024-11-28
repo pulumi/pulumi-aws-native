@@ -65,7 +65,7 @@ export interface GetPromptVersionResult {
 /**
  * Definition of AWS::Bedrock::PromptVersion Resource Type
  */
-export function getPromptVersionOutput(args: GetPromptVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptVersionResult> {
+export function getPromptVersionOutput(args: GetPromptVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPromptVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:bedrock:getPromptVersion", {
         "arn": args.arn,

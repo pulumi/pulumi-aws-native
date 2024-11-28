@@ -65,7 +65,7 @@ export interface GetDataMigrationResult {
 /**
  * Resource schema for AWS::DMS::DataMigration.
  */
-export function getDataMigrationOutput(args: GetDataMigrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataMigrationResult> {
+export function getDataMigrationOutput(args: GetDataMigrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataMigrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:dms:getDataMigration", {
         "dataMigrationArn": args.dataMigrationArn,

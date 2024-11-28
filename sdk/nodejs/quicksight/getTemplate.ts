@@ -59,7 +59,7 @@ export interface GetTemplateResult {
 /**
  * Definition of the AWS::QuickSight::Template Resource Type.
  */
-export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTemplateResult> {
+export function getTemplateOutput(args: GetTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:quicksight:getTemplate", {
         "awsAccountId": args.awsAccountId,

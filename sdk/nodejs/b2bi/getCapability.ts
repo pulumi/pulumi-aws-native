@@ -61,7 +61,7 @@ export interface GetCapabilityResult {
 /**
  * Definition of AWS::B2BI::Capability Resource Type
  */
-export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapabilityResult> {
+export function getCapabilityOutput(args: GetCapabilityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapabilityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:b2bi:getCapability", {
         "capabilityId": args.capabilityId,

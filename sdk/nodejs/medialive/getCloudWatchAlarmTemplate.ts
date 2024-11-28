@@ -91,7 +91,7 @@ export interface GetCloudWatchAlarmTemplateResult {
 /**
  * Definition of AWS::MediaLive::CloudWatchAlarmTemplate Resource Type
  */
-export function getCloudWatchAlarmTemplateOutput(args: GetCloudWatchAlarmTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudWatchAlarmTemplateResult> {
+export function getCloudWatchAlarmTemplateOutput(args: GetCloudWatchAlarmTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCloudWatchAlarmTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:medialive:getCloudWatchAlarmTemplate", {
         "identifier": args.identifier,

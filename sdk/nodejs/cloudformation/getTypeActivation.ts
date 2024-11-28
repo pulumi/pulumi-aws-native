@@ -45,7 +45,7 @@ export interface GetTypeActivationResult {
 /**
  * Enable a resource that has been published in the CloudFormation Registry.
  */
-export function getTypeActivationOutput(args: GetTypeActivationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTypeActivationResult> {
+export function getTypeActivationOutput(args: GetTypeActivationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTypeActivationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getTypeActivation", {
         "arn": args.arn,

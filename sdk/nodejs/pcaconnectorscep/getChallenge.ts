@@ -31,7 +31,7 @@ export interface GetChallengeResult {
 /**
  * Represents a SCEP Challenge that is used for certificate enrollment
  */
-export function getChallengeOutput(args: GetChallengeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChallengeResult> {
+export function getChallengeOutput(args: GetChallengeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChallengeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:pcaconnectorscep:getChallenge", {
         "challengeArn": args.challengeArn,

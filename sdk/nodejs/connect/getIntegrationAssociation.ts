@@ -53,7 +53,7 @@ export interface GetIntegrationAssociationResult {
 /**
  * Resource Type definition for AWS::Connect::IntegrationAssociation
  */
-export function getIntegrationAssociationOutput(args: GetIntegrationAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAssociationResult> {
+export function getIntegrationAssociationOutput(args: GetIntegrationAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getIntegrationAssociation", {
         "instanceId": args.instanceId,

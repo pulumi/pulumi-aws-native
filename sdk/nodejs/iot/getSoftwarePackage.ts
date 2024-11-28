@@ -35,7 +35,7 @@ export interface GetSoftwarePackageResult {
 /**
  * resource definition
  */
-export function getSoftwarePackageOutput(args: GetSoftwarePackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwarePackageResult> {
+export function getSoftwarePackageOutput(args: GetSoftwarePackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSoftwarePackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getSoftwarePackage", {
         "packageName": args.packageName,

@@ -30,7 +30,7 @@ export interface GetDatasetGroupResult {
 /**
  * Resource Schema for AWS::Personalize::DatasetGroup.
  */
-export function getDatasetGroupOutput(args: GetDatasetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetGroupResult> {
+export function getDatasetGroupOutput(args: GetDatasetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:personalize:getDatasetGroup", {
         "datasetGroupArn": args.datasetGroupArn,

@@ -46,7 +46,7 @@ export interface GetRealtimeLogConfigResult {
 /**
  * A real-time log configuration.
  */
-export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRealtimeLogConfigResult> {
+export function getRealtimeLogConfigOutput(args: GetRealtimeLogConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRealtimeLogConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getRealtimeLogConfig", {
         "arn": args.arn,

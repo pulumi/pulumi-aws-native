@@ -43,7 +43,7 @@ export interface GetConnectorResult {
 /**
  * Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
  */
-export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectorResult> {
+export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:pcaconnectorscep:getConnector", {
         "connectorArn": args.connectorArn,

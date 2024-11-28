@@ -69,7 +69,7 @@ export interface GetInfluxDbInstanceResult {
 /**
  * The AWS::Timestream::InfluxDBInstance resource creates an InfluxDB instance.
  */
-export function getInfluxDbInstanceOutput(args: GetInfluxDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfluxDbInstanceResult> {
+export function getInfluxDbInstanceOutput(args: GetInfluxDbInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInfluxDbInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:timestream:getInfluxDbInstance", {
         "id": args.id,

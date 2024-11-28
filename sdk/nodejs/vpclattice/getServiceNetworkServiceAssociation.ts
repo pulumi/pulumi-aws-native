@@ -77,7 +77,7 @@ export interface GetServiceNetworkServiceAssociationResult {
 /**
  * Associates a service with a service network.
  */
-export function getServiceNetworkServiceAssociationOutput(args: GetServiceNetworkServiceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkServiceAssociationResult> {
+export function getServiceNetworkServiceAssociationOutput(args: GetServiceNetworkServiceAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceNetworkServiceAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:vpclattice:getServiceNetworkServiceAssociation", {
         "arn": args.arn,

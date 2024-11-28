@@ -34,7 +34,7 @@ export interface GetDirectoryRegistrationResult {
 /**
  * Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
  */
-export function getDirectoryRegistrationOutput(args: GetDirectoryRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryRegistrationResult> {
+export function getDirectoryRegistrationOutput(args: GetDirectoryRegistrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectoryRegistrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:pcaconnectorad:getDirectoryRegistration", {
         "directoryRegistrationArn": args.directoryRegistrationArn,

@@ -34,7 +34,7 @@ export interface GetContactResult {
 /**
  * Resource Type definition for AWS::SSMContacts::Contact
  */
-export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
+export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ssmcontacts:getContact", {
         "arn": args.arn,

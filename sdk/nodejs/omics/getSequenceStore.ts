@@ -38,7 +38,7 @@ export interface GetSequenceStoreResult {
 /**
  * Definition of AWS::Omics::SequenceStore Resource Type
  */
-export function getSequenceStoreOutput(args: GetSequenceStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSequenceStoreResult> {
+export function getSequenceStoreOutput(args: GetSequenceStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSequenceStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:omics:getSequenceStore", {
         "sequenceStoreId": args.sequenceStoreId,

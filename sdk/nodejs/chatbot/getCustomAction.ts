@@ -31,7 +31,7 @@ export interface GetCustomActionResult {
 /**
  * Definition of AWS::Chatbot::CustomAction Resource Type
  */
-export function getCustomActionOutput(args: GetCustomActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomActionResult> {
+export function getCustomActionOutput(args: GetCustomActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:chatbot:getCustomAction", {
         "customActionArn": args.customActionArn,

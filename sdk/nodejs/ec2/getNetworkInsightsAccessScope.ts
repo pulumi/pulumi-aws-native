@@ -49,7 +49,7 @@ export interface GetNetworkInsightsAccessScopeResult {
 /**
  * Resource schema for AWS::EC2::NetworkInsightsAccessScope
  */
-export function getNetworkInsightsAccessScopeOutput(args: GetNetworkInsightsAccessScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsAccessScopeResult> {
+export function getNetworkInsightsAccessScopeOutput(args: GetNetworkInsightsAccessScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInsightsAccessScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getNetworkInsightsAccessScope", {
         "networkInsightsAccessScopeId": args.networkInsightsAccessScopeId,

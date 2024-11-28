@@ -55,7 +55,7 @@ export interface GetKeyPairResult {
  *  When you create a new key pair, the private key is saved to SYSlong Parameter Store, using a parameter with the following name: ``/ec2/keypair/{key_pair_id}``. For more information about retrieving private key, and the required permissions, see [Create a key pair using](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#create-key-pair-cloudformation) in the *User Guide*.
  *  When CFN deletes a key pair that was created or imported by a stack, it also deletes the parameter that was used to store the private key material in Parameter Store.
  */
-export function getKeyPairOutput(args: GetKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyPairResult> {
+export function getKeyPairOutput(args: GetKeyPairOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyPairResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getKeyPair", {
         "keyName": args.keyName,

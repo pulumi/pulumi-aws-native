@@ -83,7 +83,7 @@ export interface GetAgentAliasResult {
 /**
  * Definition of AWS::Bedrock::AgentAlias Resource Type
  */
-export function getAgentAliasOutput(args: GetAgentAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentAliasResult> {
+export function getAgentAliasOutput(args: GetAgentAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgentAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:bedrock:getAgentAlias", {
         "agentAliasId": args.agentAliasId,

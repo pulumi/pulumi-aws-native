@@ -45,7 +45,7 @@ export interface GetSchemaMappingResult {
 /**
  * SchemaMapping defined in AWS Entity Resolution service
  */
-export function getSchemaMappingOutput(args: GetSchemaMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaMappingResult> {
+export function getSchemaMappingOutput(args: GetSchemaMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:entityresolution:getSchemaMapping", {
         "schemaName": args.schemaName,

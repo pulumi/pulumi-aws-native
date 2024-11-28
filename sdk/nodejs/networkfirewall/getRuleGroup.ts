@@ -51,7 +51,7 @@ export interface GetRuleGroupResult {
 /**
  * Resource type definition for AWS::NetworkFirewall::RuleGroup
  */
-export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupResult> {
+export function getRuleGroupOutput(args: GetRuleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:networkfirewall:getRuleGroup", {
         "ruleGroupArn": args.ruleGroupArn,

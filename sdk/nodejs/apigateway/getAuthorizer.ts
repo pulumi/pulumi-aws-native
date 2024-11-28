@@ -71,7 +71,7 @@ export interface GetAuthorizerResult {
 /**
  * The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
  */
-export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
+export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getAuthorizer", {
         "authorizerId": args.authorizerId,

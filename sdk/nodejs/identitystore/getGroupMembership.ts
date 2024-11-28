@@ -35,7 +35,7 @@ export interface GetGroupMembershipResult {
 /**
  * Resource Type Definition for AWS:IdentityStore::GroupMembership
  */
-export function getGroupMembershipOutput(args: GetGroupMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupMembershipResult> {
+export function getGroupMembershipOutput(args: GetGroupMembershipOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupMembershipResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:identitystore:getGroupMembership", {
         "identityStoreId": args.identityStoreId,

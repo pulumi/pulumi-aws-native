@@ -43,7 +43,7 @@ export interface GetGuardrailVersionResult {
 /**
  * Definition of AWS::Bedrock::GuardrailVersion Resource Type
  */
-export function getGuardrailVersionOutput(args: GetGuardrailVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuardrailVersionResult> {
+export function getGuardrailVersionOutput(args: GetGuardrailVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuardrailVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:bedrock:getGuardrailVersion", {
         "guardrailId": args.guardrailId,

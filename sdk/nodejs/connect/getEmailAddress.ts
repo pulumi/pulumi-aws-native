@@ -49,7 +49,7 @@ export interface GetEmailAddressResult {
 /**
  * Resource Type definition for AWS::Connect::EmailAddress
  */
-export function getEmailAddressOutput(args: GetEmailAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailAddressResult> {
+export function getEmailAddressOutput(args: GetEmailAddressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEmailAddressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getEmailAddress", {
         "emailAddressArn": args.emailAddressArn,

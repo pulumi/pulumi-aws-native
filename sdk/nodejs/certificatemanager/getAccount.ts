@@ -37,7 +37,7 @@ export interface GetAccountResult {
 /**
  * Resource schema for AWS::CertificateManager::Account.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:certificatemanager:getAccount", {
         "accountId": args.accountId,

@@ -57,7 +57,7 @@ export interface GetServiceNetworkResult {
 /**
  * A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
  */
-export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkResult> {
+export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceNetworkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:vpclattice:getServiceNetwork", {
         "arn": args.arn,

@@ -65,7 +65,7 @@ export interface GetEvaluationFormResult {
 /**
  * Creates an evaluation form for the specified CON instance.
  */
-export function getEvaluationFormOutput(args: GetEvaluationFormOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEvaluationFormResult> {
+export function getEvaluationFormOutput(args: GetEvaluationFormOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEvaluationFormResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getEvaluationForm", {
         "evaluationFormArn": args.evaluationFormArn,

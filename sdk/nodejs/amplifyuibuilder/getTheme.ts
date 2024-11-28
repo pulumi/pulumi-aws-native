@@ -67,7 +67,7 @@ export interface GetThemeResult {
 /**
  * Definition of AWS::AmplifyUIBuilder::Theme Resource Type
  */
-export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
+export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThemeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:amplifyuibuilder:getTheme", {
         "appId": args.appId,

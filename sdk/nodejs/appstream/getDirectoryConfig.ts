@@ -41,7 +41,7 @@ export interface GetDirectoryConfigResult {
 /**
  * Resource Type definition for AWS::AppStream::DirectoryConfig
  */
-export function getDirectoryConfigOutput(args: GetDirectoryConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryConfigResult> {
+export function getDirectoryConfigOutput(args: GetDirectoryConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectoryConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appstream:getDirectoryConfig", {
         "directoryName": args.directoryName,

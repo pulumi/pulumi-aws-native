@@ -45,7 +45,7 @@ export interface GetIntegrationResult {
 /**
  * Integration from a source AWS service to a Redshift cluster
  */
-export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
+export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:redshift:getIntegration", {
         "integrationArn": args.integrationArn,

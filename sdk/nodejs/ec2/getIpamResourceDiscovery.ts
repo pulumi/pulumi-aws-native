@@ -65,7 +65,7 @@ export interface GetIpamResourceDiscoveryResult {
 /**
  * Resource Schema of AWS::EC2::IPAMResourceDiscovery Type
  */
-export function getIpamResourceDiscoveryOutput(args: GetIpamResourceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamResourceDiscoveryResult> {
+export function getIpamResourceDiscoveryOutput(args: GetIpamResourceDiscoveryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamResourceDiscoveryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getIpamResourceDiscovery", {
         "ipamResourceDiscoveryId": args.ipamResourceDiscoveryId,

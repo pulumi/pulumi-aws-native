@@ -34,7 +34,7 @@ export interface GetMultiRegionAccessPointResult {
 /**
  * AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
  */
-export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointResult> {
+export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMultiRegionAccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3:getMultiRegionAccessPoint", {
         "name": args.name,

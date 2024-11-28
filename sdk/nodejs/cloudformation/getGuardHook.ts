@@ -65,7 +65,7 @@ export interface GetGuardHookResult {
 /**
  * This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
  */
-export function getGuardHookOutput(args: GetGuardHookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuardHookResult> {
+export function getGuardHookOutput(args: GetGuardHookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGuardHookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getGuardHook", {
         "hookArn": args.hookArn,

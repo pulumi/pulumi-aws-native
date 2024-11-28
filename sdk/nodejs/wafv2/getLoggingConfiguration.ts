@@ -45,7 +45,7 @@ export interface GetLoggingConfigurationResult {
 /**
  * A WAFv2 Logging Configuration Resource Provider
  */
-export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingConfigurationResult> {
+export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoggingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wafv2:getLoggingConfiguration", {
         "resourceArn": args.resourceArn,

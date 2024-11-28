@@ -62,7 +62,7 @@ export interface GetRunGroupResult {
 /**
  * Definition of AWS::Omics::RunGroup Resource Type
  */
-export function getRunGroupOutput(args: GetRunGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRunGroupResult> {
+export function getRunGroupOutput(args: GetRunGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRunGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:omics:getRunGroup", {
         "id": args.id,

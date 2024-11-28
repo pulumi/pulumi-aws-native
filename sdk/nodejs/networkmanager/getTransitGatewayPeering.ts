@@ -69,7 +69,7 @@ export interface GetTransitGatewayPeeringResult {
 /**
  * AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
  */
-export function getTransitGatewayPeeringOutput(args: GetTransitGatewayPeeringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayPeeringResult> {
+export function getTransitGatewayPeeringOutput(args: GetTransitGatewayPeeringOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayPeeringResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:networkmanager:getTransitGatewayPeering", {
         "peeringId": args.peeringId,

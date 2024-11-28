@@ -42,7 +42,7 @@ export interface GetStandardResult {
  *  You must create a separate ``AWS::SecurityHub::Standard`` resource for each standard that you want to enable.
  *  For more information about ASH standards, see [standards reference](https://docs.aws.amazon.com/securityhub/latest/userguide/standards-reference.html) in the *User Guide*.
  */
-export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
+export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStandardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securityhub:getStandard", {
         "standardsSubscriptionArn": args.standardsSubscriptionArn,

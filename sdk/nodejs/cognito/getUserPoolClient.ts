@@ -210,7 +210,7 @@ export interface GetUserPoolClientResult {
 /**
  * Resource Type definition for AWS::Cognito::UserPoolClient
  */
-export function getUserPoolClientOutput(args: GetUserPoolClientOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolClientResult> {
+export function getUserPoolClientOutput(args: GetUserPoolClientOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolClientResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolClient", {
         "clientId": args.clientId,

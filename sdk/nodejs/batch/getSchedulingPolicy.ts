@@ -37,7 +37,7 @@ export interface GetSchedulingPolicyResult {
 /**
  * Resource Type schema for AWS::Batch::SchedulingPolicy
  */
-export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulingPolicyResult> {
+export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchedulingPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:batch:getSchedulingPolicy", {
         "arn": args.arn,

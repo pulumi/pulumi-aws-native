@@ -54,7 +54,7 @@ export interface GetFaqResult {
 /**
  * A Kendra FAQ resource
  */
-export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFaqResult> {
+export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFaqResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:kendra:getFaq", {
         "id": args.id,

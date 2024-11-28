@@ -42,7 +42,7 @@ export interface GetLifecyclePolicyResult {
 /**
  * Amazon OpenSearchServerless lifecycle policy resource
  */
-export function getLifecyclePolicyOutput(args: GetLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecyclePolicyResult> {
+export function getLifecyclePolicyOutput(args: GetLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLifecyclePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getLifecyclePolicy", {
         "name": args.name,

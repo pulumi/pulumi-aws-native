@@ -65,7 +65,7 @@ export interface GetStorageSystemResult {
 /**
  * Resource schema for AWS::DataSync::StorageSystem.
  */
-export function getStorageSystemOutput(args: GetStorageSystemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageSystemResult> {
+export function getStorageSystemOutput(args: GetStorageSystemOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageSystemResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getStorageSystem", {
         "storageSystemArn": args.storageSystemArn,

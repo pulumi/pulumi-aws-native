@@ -49,7 +49,7 @@ export interface GetLabelResult {
 /**
  * An label for fraud detector.
  */
-export function getLabelOutput(args: GetLabelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabelResult> {
+export function getLabelOutput(args: GetLabelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLabelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:frauddetector:getLabel", {
         "arn": args.arn,

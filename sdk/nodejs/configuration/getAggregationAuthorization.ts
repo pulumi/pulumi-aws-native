@@ -42,7 +42,7 @@ export interface GetAggregationAuthorizationResult {
 /**
  * Resource Type definition for AWS::Config::AggregationAuthorization
  */
-export function getAggregationAuthorizationOutput(args: GetAggregationAuthorizationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAggregationAuthorizationResult> {
+export function getAggregationAuthorizationOutput(args: GetAggregationAuthorizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAggregationAuthorizationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:configuration:getAggregationAuthorization", {
         "authorizedAccountId": args.authorizedAccountId,

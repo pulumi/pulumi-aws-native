@@ -35,7 +35,7 @@ export interface GetKeyspaceResult {
 /**
  * Resource schema for AWS::Cassandra::Keyspace
  */
-export function getKeyspaceOutput(args: GetKeyspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyspaceResult> {
+export function getKeyspaceOutput(args: GetKeyspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cassandra:getKeyspace", {
         "keyspaceName": args.keyspaceName,

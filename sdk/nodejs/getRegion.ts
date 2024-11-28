@@ -13,7 +13,7 @@ export function getRegion(opts?: pulumi.InvokeOptions): Promise<GetRegionResult>
 export interface GetRegionResult {
     readonly region: string;
 }
-export function getRegionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionResult> {
+export function getRegionOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:index:getRegion", {
     }, opts);

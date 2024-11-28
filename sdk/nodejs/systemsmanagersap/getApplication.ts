@@ -45,7 +45,7 @@ export interface GetApplicationResult {
 /**
  * Resource schema for AWS::SystemsManagerSAP::Application
  */
-export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:systemsmanagersap:getApplication", {
         "arn": args.arn,

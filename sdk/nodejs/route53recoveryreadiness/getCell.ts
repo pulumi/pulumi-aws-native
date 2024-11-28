@@ -45,7 +45,7 @@ export interface GetCellResult {
 /**
  * The API Schema for AWS Route53 Recovery Readiness Cells.
  */
-export function getCellOutput(args: GetCellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCellResult> {
+export function getCellOutput(args: GetCellOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCellResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53recoveryreadiness:getCell", {
         "cellName": args.cellName,

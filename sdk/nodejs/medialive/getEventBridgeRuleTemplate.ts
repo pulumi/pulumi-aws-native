@@ -69,7 +69,7 @@ export interface GetEventBridgeRuleTemplateResult {
 /**
  * Definition of AWS::MediaLive::EventBridgeRuleTemplate Resource Type
  */
-export function getEventBridgeRuleTemplateOutput(args: GetEventBridgeRuleTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBridgeRuleTemplateResult> {
+export function getEventBridgeRuleTemplateOutput(args: GetEventBridgeRuleTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventBridgeRuleTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:medialive:getEventBridgeRuleTemplate", {
         "identifier": args.identifier,

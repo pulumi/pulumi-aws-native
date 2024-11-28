@@ -51,7 +51,7 @@ export interface GetModelPackageGroupResult {
 /**
  * Resource Type definition for AWS::SageMaker::ModelPackageGroup
  */
-export function getModelPackageGroupOutput(args: GetModelPackageGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelPackageGroupResult> {
+export function getModelPackageGroupOutput(args: GetModelPackageGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModelPackageGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getModelPackageGroup", {
         "modelPackageGroupArn": args.modelPackageGroupArn,

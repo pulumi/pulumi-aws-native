@@ -45,7 +45,7 @@ export interface GetAliasResult {
 /**
  * The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
  */
-export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:gamelift:getAlias", {
         "aliasId": args.aliasId,

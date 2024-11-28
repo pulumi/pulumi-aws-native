@@ -32,7 +32,7 @@ export interface GetAccessPointPolicyResult {
 /**
  * AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
  */
-export function getAccessPointPolicyOutput(args: GetAccessPointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointPolicyResult> {
+export function getAccessPointPolicyOutput(args: GetAccessPointPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPointPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3objectlambda:getAccessPointPolicy", {
         "objectLambdaAccessPoint": args.objectLambdaAccessPoint,

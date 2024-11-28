@@ -65,7 +65,7 @@ export interface GetInferenceComponentResult {
 /**
  * Resource Type definition for AWS::SageMaker::InferenceComponent
  */
-export function getInferenceComponentOutput(args: GetInferenceComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceComponentResult> {
+export function getInferenceComponentOutput(args: GetInferenceComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getInferenceComponent", {
         "inferenceComponentArn": args.inferenceComponentArn,

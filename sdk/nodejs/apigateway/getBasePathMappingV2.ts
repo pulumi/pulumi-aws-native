@@ -38,7 +38,7 @@ export interface GetBasePathMappingV2Result {
 /**
  * Resource Type definition for AWS::ApiGateway::BasePathMappingV2
  */
-export function getBasePathMappingV2Output(args: GetBasePathMappingV2OutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBasePathMappingV2Result> {
+export function getBasePathMappingV2Output(args: GetBasePathMappingV2OutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBasePathMappingV2Result> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getBasePathMappingV2", {
         "basePathMappingArn": args.basePathMappingArn,

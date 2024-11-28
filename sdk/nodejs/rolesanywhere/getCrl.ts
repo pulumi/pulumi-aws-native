@@ -53,7 +53,7 @@ export interface GetCrlResult {
 /**
  * Definition of AWS::RolesAnywhere::CRL Resource Type
  */
-export function getCrlOutput(args: GetCrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCrlResult> {
+export function getCrlOutput(args: GetCrlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCrlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rolesanywhere:getCrl", {
         "crlId": args.crlId,

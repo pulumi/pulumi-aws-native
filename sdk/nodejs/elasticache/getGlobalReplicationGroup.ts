@@ -53,7 +53,7 @@ export interface GetGlobalReplicationGroupResult {
 /**
  * The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
  */
-export function getGlobalReplicationGroupOutput(args: GetGlobalReplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalReplicationGroupResult> {
+export function getGlobalReplicationGroupOutput(args: GetGlobalReplicationGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalReplicationGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:elasticache:getGlobalReplicationGroup", {
         "globalReplicationGroupId": args.globalReplicationGroupId,

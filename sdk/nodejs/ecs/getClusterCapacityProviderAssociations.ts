@@ -37,7 +37,7 @@ export interface GetClusterCapacityProviderAssociationsResult {
 /**
  * Associate a set of ECS Capacity Providers with a specified ECS Cluster
  */
-export function getClusterCapacityProviderAssociationsOutput(args: GetClusterCapacityProviderAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterCapacityProviderAssociationsResult> {
+export function getClusterCapacityProviderAssociationsOutput(args: GetClusterCapacityProviderAssociationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterCapacityProviderAssociationsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ecs:getClusterCapacityProviderAssociations", {
         "cluster": args.cluster,

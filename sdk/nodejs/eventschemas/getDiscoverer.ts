@@ -53,7 +53,7 @@ export interface GetDiscovererResult {
 /**
  * Resource Type definition for AWS::EventSchemas::Discoverer
  */
-export function getDiscovererOutput(args: GetDiscovererOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiscovererResult> {
+export function getDiscovererOutput(args: GetDiscovererOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDiscovererResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:eventschemas:getDiscoverer", {
         "discovererArn": args.discovererArn,

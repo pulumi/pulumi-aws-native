@@ -57,7 +57,7 @@ export interface GetMailManagerRelayResult {
 /**
  * Definition of AWS::SES::MailManagerRelay Resource Type
  */
-export function getMailManagerRelayOutput(args: GetMailManagerRelayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerRelayResult> {
+export function getMailManagerRelayOutput(args: GetMailManagerRelayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMailManagerRelayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerRelay", {
         "relayId": args.relayId,

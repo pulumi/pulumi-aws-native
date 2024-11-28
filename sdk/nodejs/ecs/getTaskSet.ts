@@ -61,7 +61,7 @@ export interface GetTaskSetResult {
 /**
  * Create a task set in the specified cluster and service. This is used when a service uses the EXTERNAL deployment controller type. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.htmlin the Amazon Elastic Container Service Developer Guide.
  */
-export function getTaskSetOutput(args: GetTaskSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskSetResult> {
+export function getTaskSetOutput(args: GetTaskSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ecs:getTaskSet", {
         "cluster": args.cluster,

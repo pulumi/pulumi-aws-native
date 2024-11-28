@@ -77,7 +77,7 @@ export interface GetIndexResult {
 /**
  * A Kendra index
  */
-export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIndexResult> {
+export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIndexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:kendra:getIndex", {
         "id": args.id,

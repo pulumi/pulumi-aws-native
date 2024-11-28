@@ -71,7 +71,7 @@ export interface GetAppBlockBuilderResult {
 /**
  * Resource Type definition for AWS::AppStream::AppBlockBuilder.
  */
-export function getAppBlockBuilderOutput(args: GetAppBlockBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppBlockBuilderResult> {
+export function getAppBlockBuilderOutput(args: GetAppBlockBuilderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppBlockBuilderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appstream:getAppBlockBuilder", {
         "name": args.name,

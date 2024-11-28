@@ -41,7 +41,7 @@ export interface GetOriginAccessControlResult {
  *  This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
  *  For more information about using a CloudFront origin access control, see [Restricting access to an origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide*.
  */
-export function getOriginAccessControlOutput(args: GetOriginAccessControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessControlResult> {
+export function getOriginAccessControlOutput(args: GetOriginAccessControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginAccessControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getOriginAccessControl", {
         "id": args.id,

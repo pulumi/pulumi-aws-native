@@ -51,7 +51,7 @@ export interface GetCachePolicyResult {
  *
  *  The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use ``OriginRequestPolicy``.
  */
-export function getCachePolicyOutput(args: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCachePolicyResult> {
+export function getCachePolicyOutput(args: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCachePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getCachePolicy", {
         "id": args.id,

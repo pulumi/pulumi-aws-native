@@ -65,7 +65,7 @@ export interface GetVariableResult {
 /**
  * A resource schema for a Variable in Amazon Fraud Detector.
  */
-export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableResult> {
+export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:frauddetector:getVariable", {
         "arn": args.arn,

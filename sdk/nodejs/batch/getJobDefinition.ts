@@ -80,7 +80,7 @@ export interface GetJobDefinitionResult {
 /**
  * Resource Type definition for AWS::Batch::JobDefinition
  */
-export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
+export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:batch:getJobDefinition", {
         "id": args.id,

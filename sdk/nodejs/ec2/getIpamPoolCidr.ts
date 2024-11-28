@@ -39,7 +39,7 @@ export interface GetIpamPoolCidrResult {
 /**
  * Resource Schema of AWS::EC2::IPAMPoolCidr Type
  */
-export function getIpamPoolCidrOutput(args: GetIpamPoolCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPoolCidrResult> {
+export function getIpamPoolCidrOutput(args: GetIpamPoolCidrOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamPoolCidrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getIpamPoolCidr", {
         "ipamPoolCidrId": args.ipamPoolCidrId,

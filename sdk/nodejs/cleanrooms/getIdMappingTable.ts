@@ -58,7 +58,7 @@ export interface GetIdMappingTableResult {
 /**
  * Represents an association between an ID mapping workflow and a collaboration
  */
-export function getIdMappingTableOutput(args: GetIdMappingTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdMappingTableResult> {
+export function getIdMappingTableOutput(args: GetIdMappingTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdMappingTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getIdMappingTable", {
         "idMappingTableIdentifier": args.idMappingTableIdentifier,

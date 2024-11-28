@@ -33,7 +33,7 @@ export interface GetClusterParameterGroupResult {
 /**
  * Resource Type definition for AWS::Redshift::ClusterParameterGroup
  */
-export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterParameterGroupResult> {
+export function getClusterParameterGroupOutput(args: GetClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:redshift:getClusterParameterGroup", {
         "parameterGroupName": args.parameterGroupName,

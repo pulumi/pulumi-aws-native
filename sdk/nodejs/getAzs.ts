@@ -19,7 +19,7 @@ export interface GetAzsArgs {
 export interface GetAzsResult {
     readonly azs: string[];
 }
-export function getAzsOutput(args?: GetAzsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzsResult> {
+export function getAzsOutput(args?: GetAzsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAzsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:index:getAzs", {

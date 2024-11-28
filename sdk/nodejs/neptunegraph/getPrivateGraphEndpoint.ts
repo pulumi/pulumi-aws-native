@@ -38,7 +38,7 @@ export interface GetPrivateGraphEndpointResult {
 /**
  * The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.
  */
-export function getPrivateGraphEndpointOutput(args: GetPrivateGraphEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateGraphEndpointResult> {
+export function getPrivateGraphEndpointOutput(args: GetPrivateGraphEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivateGraphEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:neptunegraph:getPrivateGraphEndpoint", {
         "privateGraphEndpointIdentifier": args.privateGraphEndpointIdentifier,

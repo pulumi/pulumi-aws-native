@@ -69,7 +69,7 @@ export interface GetRepositoryCreationTemplateResult {
 /**
  * AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
  */
-export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryCreationTemplateResult> {
+export function getRepositoryCreationTemplateOutput(args: GetRepositoryCreationTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryCreationTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ecr:getRepositoryCreationTemplate", {
         "prefix": args.prefix,

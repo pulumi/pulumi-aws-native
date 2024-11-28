@@ -49,7 +49,7 @@ export interface GetMitigationActionResult {
 /**
  * Mitigation actions can be used to take actions to mitigate issues that were found in an Audit finding or Detect violation.
  */
-export function getMitigationActionOutput(args: GetMitigationActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMitigationActionResult> {
+export function getMitigationActionOutput(args: GetMitigationActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMitigationActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getMitigationAction", {
         "actionName": args.actionName,

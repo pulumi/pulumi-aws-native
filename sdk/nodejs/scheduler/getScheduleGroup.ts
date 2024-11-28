@@ -51,7 +51,7 @@ export interface GetScheduleGroupResult {
 /**
  * Definition of AWS::Scheduler::ScheduleGroup Resource Type
  */
-export function getScheduleGroupOutput(args: GetScheduleGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleGroupResult> {
+export function getScheduleGroupOutput(args: GetScheduleGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduleGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:scheduler:getScheduleGroup", {
         "name": args.name,

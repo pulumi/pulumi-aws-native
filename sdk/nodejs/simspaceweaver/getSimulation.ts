@@ -30,7 +30,7 @@ export interface GetSimulationResult {
 /**
  * AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
  */
-export function getSimulationOutput(args: GetSimulationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationResult> {
+export function getSimulationOutput(args: GetSimulationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSimulationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:simspaceweaver:getSimulation", {
         "name": args.name,

@@ -49,7 +49,7 @@ export interface GetTransitGatewayConnectResult {
 /**
  * The AWS::EC2::TransitGatewayConnect type
  */
-export function getTransitGatewayConnectOutput(args: GetTransitGatewayConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayConnectResult> {
+export function getTransitGatewayConnectOutput(args: GetTransitGatewayConnectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayConnectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayConnect", {
         "transitGatewayAttachmentId": args.transitGatewayAttachmentId,

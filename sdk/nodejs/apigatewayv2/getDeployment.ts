@@ -39,7 +39,7 @@ export interface GetDeploymentResult {
 /**
  * The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
  */
-export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigatewayv2:getDeployment", {
         "apiId": args.apiId,

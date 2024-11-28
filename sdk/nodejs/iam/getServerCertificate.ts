@@ -47,7 +47,7 @@ export interface GetServerCertificateResult {
 /**
  * Resource Type definition for AWS::IAM::ServerCertificate
  */
-export function getServerCertificateOutput(args: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {
+export function getServerCertificateOutput(args: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iam:getServerCertificate", {
         "serverCertificateName": args.serverCertificateName,

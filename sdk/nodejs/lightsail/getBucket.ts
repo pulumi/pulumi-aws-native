@@ -65,7 +65,7 @@ export interface GetBucketResult {
 /**
  * Resource Type definition for AWS::Lightsail::Bucket
  */
-export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
+export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBucketResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lightsail:getBucket", {
         "bucketName": args.bucketName,

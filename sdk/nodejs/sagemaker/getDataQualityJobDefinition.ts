@@ -34,7 +34,7 @@ export interface GetDataQualityJobDefinitionResult {
 /**
  * Resource Type definition for AWS::SageMaker::DataQualityJobDefinition
  */
-export function getDataQualityJobDefinitionOutput(args: GetDataQualityJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataQualityJobDefinitionResult> {
+export function getDataQualityJobDefinitionOutput(args: GetDataQualityJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataQualityJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getDataQualityJobDefinition", {
         "jobDefinitionArn": args.jobDefinitionArn,

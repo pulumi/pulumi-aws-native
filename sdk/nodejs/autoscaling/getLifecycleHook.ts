@@ -55,7 +55,7 @@ export interface GetLifecycleHookResult {
 /**
  * Resource Type definition for AWS::AutoScaling::LifecycleHook
  */
-export function getLifecycleHookOutput(args: GetLifecycleHookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecycleHookResult> {
+export function getLifecycleHookOutput(args: GetLifecycleHookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLifecycleHookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:autoscaling:getLifecycleHook", {
         "autoScalingGroupName": args.autoScalingGroupName,

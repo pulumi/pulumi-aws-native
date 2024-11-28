@@ -49,7 +49,7 @@ export interface GetWorkgroupResult {
 /**
  * Definition of AWS::RedshiftServerless::Workgroup Resource Type
  */
-export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkgroupResult> {
+export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkgroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:redshiftserverless:getWorkgroup", {
         "workgroupName": args.workgroupName,

@@ -40,7 +40,7 @@ export interface GetSecretTargetAttachmentResult {
 /**
  * Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
  */
-export function getSecretTargetAttachmentOutput(args: GetSecretTargetAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretTargetAttachmentResult> {
+export function getSecretTargetAttachmentOutput(args: GetSecretTargetAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretTargetAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:secretsmanager:getSecretTargetAttachment", {
         "id": args.id,

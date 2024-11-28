@@ -47,7 +47,7 @@ export interface GetRoleAliasResult {
 /**
  * Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
  */
-export function getRoleAliasOutput(args: GetRoleAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAliasResult> {
+export function getRoleAliasOutput(args: GetRoleAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoleAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getRoleAlias", {
         "roleAlias": args.roleAlias,

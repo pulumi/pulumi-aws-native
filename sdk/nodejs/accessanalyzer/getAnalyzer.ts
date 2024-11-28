@@ -45,7 +45,7 @@ export interface GetAnalyzerResult {
 /**
  * The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
  */
-export function getAnalyzerOutput(args: GetAnalyzerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalyzerResult> {
+export function getAnalyzerOutput(args: GetAnalyzerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalyzerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:accessanalyzer:getAnalyzer", {
         "arn": args.arn,

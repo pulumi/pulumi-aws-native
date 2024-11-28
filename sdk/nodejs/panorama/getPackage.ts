@@ -49,7 +49,7 @@ export interface GetPackageResult {
 /**
  * Creates a package and storage location in an Amazon S3 access point.
  */
-export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
+export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPackageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:panorama:getPackage", {
         "packageId": args.packageId,

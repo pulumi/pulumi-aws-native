@@ -47,7 +47,7 @@ export interface GetResourceSetResult {
 /**
  * Creates an AWS Firewall Manager resource set.
  */
-export function getResourceSetOutput(args: GetResourceSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSetResult> {
+export function getResourceSetOutput(args: GetResourceSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:fms:getResourceSet", {
         "id": args.id,

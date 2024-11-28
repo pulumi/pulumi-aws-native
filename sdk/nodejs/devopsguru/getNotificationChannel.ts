@@ -30,7 +30,7 @@ export interface GetNotificationChannelResult {
 /**
  * This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
  */
-export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationChannelResult> {
+export function getNotificationChannelOutput(args: GetNotificationChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNotificationChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:devopsguru:getNotificationChannel", {
         "id": args.id,

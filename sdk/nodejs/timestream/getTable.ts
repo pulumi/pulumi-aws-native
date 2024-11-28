@@ -58,7 +58,7 @@ export interface GetTableResult {
 /**
  * The AWS::Timestream::Table resource creates a Timestream Table.
  */
-export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
+export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:timestream:getTable", {
         "databaseName": args.databaseName,

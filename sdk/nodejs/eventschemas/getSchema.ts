@@ -61,7 +61,7 @@ export interface GetSchemaResult {
 /**
  * Resource Type definition for AWS::EventSchemas::Schema
  */
-export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
+export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:eventschemas:getSchema", {
         "schemaArn": args.schemaArn,

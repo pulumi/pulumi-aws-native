@@ -60,7 +60,7 @@ export interface GetDatasetResult {
 /**
  * Resource Type definition for AWS::IoTAnalytics::Dataset
  */
-export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
+export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotanalytics:getDataset", {
         "datasetName": args.datasetName,

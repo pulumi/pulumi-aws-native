@@ -30,7 +30,7 @@ export interface GetDedicatedIpPoolResult {
 /**
  * Resource Type definition for AWS::SES::DedicatedIpPool
  */
-export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedIpPoolResult> {
+export function getDedicatedIpPoolOutput(args: GetDedicatedIpPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDedicatedIpPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getDedicatedIpPool", {
         "poolName": args.poolName,

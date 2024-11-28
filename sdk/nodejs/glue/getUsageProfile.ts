@@ -45,7 +45,7 @@ export interface GetUsageProfileResult {
 /**
  * This creates a Resource of UsageProfile type.
  */
-export function getUsageProfileOutput(args: GetUsageProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsageProfileResult> {
+export function getUsageProfileOutput(args: GetUsageProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsageProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:glue:getUsageProfile", {
         "name": args.name,

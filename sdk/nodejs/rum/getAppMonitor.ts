@@ -63,7 +63,7 @@ export interface GetAppMonitorResult {
 /**
  * Resource Type definition for AWS::RUM::AppMonitor
  */
-export function getAppMonitorOutput(args: GetAppMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppMonitorResult> {
+export function getAppMonitorOutput(args: GetAppMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rum:getAppMonitor", {
         "name": args.name,

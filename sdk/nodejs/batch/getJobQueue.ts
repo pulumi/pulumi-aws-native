@@ -55,7 +55,7 @@ export interface GetJobQueueResult {
 /**
  * Resource Type definition for AWS::Batch::JobQueue
  */
-export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobQueueResult> {
+export function getJobQueueOutput(args: GetJobQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:batch:getJobQueue", {
         "jobQueueArn": args.jobQueueArn,

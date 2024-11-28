@@ -83,7 +83,7 @@ export interface GetSignalMapResult {
 /**
  * Definition of AWS::MediaLive::SignalMap Resource Type
  */
-export function getSignalMapOutput(args: GetSignalMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalMapResult> {
+export function getSignalMapOutput(args: GetSignalMapOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSignalMapResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:medialive:getSignalMap", {
         "identifier": args.identifier,

@@ -68,7 +68,7 @@ export interface GetServiceResult {
 /**
  * A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
  */
-export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:vpclattice:getService", {
         "arn": args.arn,

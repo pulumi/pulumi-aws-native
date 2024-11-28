@@ -62,7 +62,7 @@ export interface GetPrivacyBudgetTemplateResult {
 /**
  * Represents a privacy budget within a collaboration
  */
-export function getPrivacyBudgetTemplateOutput(args: GetPrivacyBudgetTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivacyBudgetTemplateResult> {
+export function getPrivacyBudgetTemplateOutput(args: GetPrivacyBudgetTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrivacyBudgetTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getPrivacyBudgetTemplate", {
         "membershipIdentifier": args.membershipIdentifier,

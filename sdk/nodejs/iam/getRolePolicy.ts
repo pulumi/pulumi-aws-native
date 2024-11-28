@@ -50,7 +50,7 @@ export interface GetRolePolicyResult {
  *  A role can also have a managed policy attached to it. To attach a managed policy to a role, use [AWS::IAM::Role](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html). To create a new managed policy, use [AWS::IAM::ManagedPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html). For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
  *  For information about the maximum number of inline policies that you can embed with a role, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
  */
-export function getRolePolicyOutput(args: GetRolePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolePolicyResult> {
+export function getRolePolicyOutput(args: GetRolePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRolePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iam:getRolePolicy", {
         "policyName": args.policyName,

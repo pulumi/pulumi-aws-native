@@ -30,7 +30,7 @@ export interface GetDomainNameAccessAssociationResult {
 /**
  * Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
  */
-export function getDomainNameAccessAssociationOutput(args: GetDomainNameAccessAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameAccessAssociationResult> {
+export function getDomainNameAccessAssociationOutput(args: GetDomainNameAccessAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainNameAccessAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getDomainNameAccessAssociation", {
         "domainNameAccessAssociationArn": args.domainNameAccessAssociationArn,

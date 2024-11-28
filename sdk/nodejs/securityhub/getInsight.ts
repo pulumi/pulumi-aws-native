@@ -45,7 +45,7 @@ export interface GetInsightResult {
 /**
  * The AWS::SecurityHub::Insight resource represents the AWS Security Hub Insight in your account. An AWS Security Hub insight is a collection of related findings.
  */
-export function getInsightOutput(args: GetInsightOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInsightResult> {
+export function getInsightOutput(args: GetInsightOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInsightResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securityhub:getInsight", {
         "insightArn": args.insightArn,

@@ -49,7 +49,7 @@ export interface GetDatastoreResult {
 /**
  * Definition of AWS::HealthImaging::Datastore Resource Type
  */
-export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
+export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:healthimaging:getDatastore", {
         "datastoreId": args.datastoreId,

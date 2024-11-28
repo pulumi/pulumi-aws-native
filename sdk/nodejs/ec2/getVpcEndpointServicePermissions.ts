@@ -30,7 +30,7 @@ export interface GetVpcEndpointServicePermissionsResult {
 /**
  * Resource Type definition for AWS::EC2::VPCEndpointServicePermissions
  */
-export function getVpcEndpointServicePermissionsOutput(args: GetVpcEndpointServicePermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointServicePermissionsResult> {
+export function getVpcEndpointServicePermissionsOutput(args: GetVpcEndpointServicePermissionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcEndpointServicePermissionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcEndpointServicePermissions", {
         "serviceId": args.serviceId,

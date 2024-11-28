@@ -36,7 +36,7 @@ export interface GetClusterPolicyResult {
 /**
  * Resource Type definition for AWS::MSK::ClusterPolicy
  */
-export function getClusterPolicyOutput(args: GetClusterPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterPolicyResult> {
+export function getClusterPolicyOutput(args: GetClusterPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:msk:getClusterPolicy", {
         "clusterArn": args.clusterArn,

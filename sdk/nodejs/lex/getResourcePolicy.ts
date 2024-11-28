@@ -45,7 +45,7 @@ export interface GetResourcePolicyResult {
 /**
  * A resource policy with specified policy statements that attaches to a Lex bot or bot alias.
  */
-export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcePolicyResult> {
+export function getResourcePolicyOutput(args: GetResourcePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourcePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lex:getResourcePolicy", {
         "id": args.id,

@@ -61,7 +61,7 @@ export interface GetHoursOfOperationResult {
 /**
  * Resource Type definition for AWS::Connect::HoursOfOperation
  */
-export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHoursOfOperationResult> {
+export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHoursOfOperationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getHoursOfOperation", {
         "hoursOfOperationArn": args.hoursOfOperationArn,

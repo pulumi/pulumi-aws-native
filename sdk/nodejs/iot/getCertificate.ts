@@ -51,7 +51,7 @@ export interface GetCertificateResult {
 /**
  * Use the AWS::IoT::Certificate resource to declare an AWS IoT X.509 certificate.
  */
-export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getCertificate", {
         "id": args.id,

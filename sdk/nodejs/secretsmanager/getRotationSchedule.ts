@@ -41,7 +41,7 @@ export interface GetRotationScheduleResult {
 /**
  * Resource Type definition for AWS::SecretsManager::RotationSchedule
  */
-export function getRotationScheduleOutput(args: GetRotationScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRotationScheduleResult> {
+export function getRotationScheduleOutput(args: GetRotationScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRotationScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:secretsmanager:getRotationSchedule", {
         "id": args.id,

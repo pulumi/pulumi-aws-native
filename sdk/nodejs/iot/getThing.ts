@@ -43,7 +43,7 @@ export interface GetThingResult {
 /**
  * Resource Type definition for AWS::IoT::Thing
  */
-export function getThingOutput(args: GetThingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThingResult> {
+export function getThingOutput(args: GetThingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getThing", {
         "thingName": args.thingName,

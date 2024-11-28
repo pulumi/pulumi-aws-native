@@ -42,7 +42,7 @@ export interface GetQueryDefinitionResult {
 /**
  * The resource schema for AWSLogs QueryDefinition
  */
-export function getQueryDefinitionOutput(args: GetQueryDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryDefinitionResult> {
+export function getQueryDefinitionOutput(args: GetQueryDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueryDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getQueryDefinition", {
         "queryDefinitionId": args.queryDefinitionId,

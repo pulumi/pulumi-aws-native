@@ -49,7 +49,7 @@ export interface GetSegmentResult {
 /**
  * Resource Type definition for AWS::Evidently::Segment
  */
-export function getSegmentOutput(args: GetSegmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSegmentResult> {
+export function getSegmentOutput(args: GetSegmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSegmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:evidently:getSegment", {
         "arn": args.arn,

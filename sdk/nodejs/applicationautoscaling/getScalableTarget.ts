@@ -104,7 +104,7 @@ export interface GetScalableTargetResult {
  *  For more information, see [Getting started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*.
  *   If the resource that you want Application Auto Scaling to scale is not yet created in your account, add a dependency on the resource when registering it as a scalable target using the [DependsOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html) attribute.
  */
-export function getScalableTargetOutput(args: GetScalableTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalableTargetResult> {
+export function getScalableTargetOutput(args: GetScalableTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScalableTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:applicationautoscaling:getScalableTarget", {
         "resourceId": args.resourceId,

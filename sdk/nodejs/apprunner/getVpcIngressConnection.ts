@@ -45,7 +45,7 @@ export interface GetVpcIngressConnectionResult {
 /**
  * The AWS::AppRunner::VpcIngressConnection resource is an App Runner resource that specifies an App Runner VpcIngressConnection.
  */
-export function getVpcIngressConnectionOutput(args: GetVpcIngressConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIngressConnectionResult> {
+export function getVpcIngressConnectionOutput(args: GetVpcIngressConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcIngressConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apprunner:getVpcIngressConnection", {
         "vpcIngressConnectionArn": args.vpcIngressConnectionArn,

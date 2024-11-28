@@ -35,7 +35,7 @@ export interface GetAwsLogSourceResult {
 /**
  * Resource Type definition for AWS::SecurityLake::AwsLogSource
  */
-export function getAwsLogSourceOutput(args: GetAwsLogSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsLogSourceResult> {
+export function getAwsLogSourceOutput(args: GetAwsLogSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAwsLogSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securitylake:getAwsLogSource", {
         "sourceName": args.sourceName,

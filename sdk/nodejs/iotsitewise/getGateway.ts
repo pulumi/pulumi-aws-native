@@ -45,7 +45,7 @@ export interface GetGatewayResult {
 /**
  * Resource schema for AWS::IoTSiteWise::Gateway
  */
-export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayResult> {
+export function getGatewayOutput(args: GetGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotsitewise:getGateway", {
         "gatewayId": args.gatewayId,

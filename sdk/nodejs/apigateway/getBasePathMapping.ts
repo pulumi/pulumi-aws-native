@@ -39,7 +39,7 @@ export interface GetBasePathMappingResult {
 /**
  * The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
  */
-export function getBasePathMappingOutput(args: GetBasePathMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBasePathMappingResult> {
+export function getBasePathMappingOutput(args: GetBasePathMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBasePathMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getBasePathMapping", {
         "basePath": args.basePath,

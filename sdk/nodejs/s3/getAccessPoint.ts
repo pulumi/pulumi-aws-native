@@ -51,7 +51,7 @@ export interface GetAccessPointResult {
 /**
  * The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
  */
-export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
+export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3:getAccessPoint", {
         "name": args.name,

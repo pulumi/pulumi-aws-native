@@ -52,7 +52,7 @@ export interface GetStorageProfileResult {
 /**
  * Definition of AWS::Deadline::StorageProfile Resource Type
  */
-export function getStorageProfileOutput(args: GetStorageProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageProfileResult> {
+export function getStorageProfileOutput(args: GetStorageProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:deadline:getStorageProfile", {
         "farmId": args.farmId,

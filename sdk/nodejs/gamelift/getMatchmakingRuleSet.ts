@@ -41,7 +41,7 @@ export interface GetMatchmakingRuleSetResult {
 /**
  * The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
  */
-export function getMatchmakingRuleSetOutput(args: GetMatchmakingRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchmakingRuleSetResult> {
+export function getMatchmakingRuleSetOutput(args: GetMatchmakingRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMatchmakingRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:gamelift:getMatchmakingRuleSet", {
         "name": args.name,

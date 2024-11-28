@@ -83,7 +83,7 @@ export interface GetIdentityProviderResult {
 /**
  * Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
  */
-export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderResult> {
+export function getIdentityProviderOutput(args: GetIdentityProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getIdentityProvider", {
         "identityProviderArn": args.identityProviderArn,

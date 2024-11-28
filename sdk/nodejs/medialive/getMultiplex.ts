@@ -65,7 +65,7 @@ export interface GetMultiplexResult {
 /**
  * Resource schema for AWS::MediaLive::Multiplex
  */
-export function getMultiplexOutput(args: GetMultiplexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiplexResult> {
+export function getMultiplexOutput(args: GetMultiplexOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMultiplexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:medialive:getMultiplex", {
         "id": args.id,

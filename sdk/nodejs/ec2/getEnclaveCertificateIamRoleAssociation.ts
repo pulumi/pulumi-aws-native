@@ -43,7 +43,7 @@ export interface GetEnclaveCertificateIamRoleAssociationResult {
 /**
  * Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
  */
-export function getEnclaveCertificateIamRoleAssociationOutput(args: GetEnclaveCertificateIamRoleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnclaveCertificateIamRoleAssociationResult> {
+export function getEnclaveCertificateIamRoleAssociationOutput(args: GetEnclaveCertificateIamRoleAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnclaveCertificateIamRoleAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getEnclaveCertificateIamRoleAssociation", {
         "certificateArn": args.certificateArn,

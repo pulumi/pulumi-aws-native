@@ -98,7 +98,7 @@ export interface GetContainerFleetResult {
 /**
  * The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
  */
-export function getContainerFleetOutput(args: GetContainerFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerFleetResult> {
+export function getContainerFleetOutput(args: GetContainerFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:gamelift:getContainerFleet", {
         "fleetId": args.fleetId,

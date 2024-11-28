@@ -61,7 +61,7 @@ export interface GetCapacityReservationResult {
 /**
  * Resource schema for AWS::Athena::CapacityReservation
  */
-export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
+export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityReservationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:athena:getCapacityReservation", {
         "arn": args.arn,

@@ -53,7 +53,7 @@ export interface GetCisScanConfigurationResult {
 /**
  * CIS Scan Configuration resource schema
  */
-export function getCisScanConfigurationOutput(args: GetCisScanConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCisScanConfigurationResult> {
+export function getCisScanConfigurationOutput(args: GetCisScanConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCisScanConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:inspectorv2:getCisScanConfiguration", {
         "arn": args.arn,

@@ -51,7 +51,7 @@ export interface GetLocationNfsResult {
 /**
  * Resource schema for AWS::DataSync::LocationNFS
  */
-export function getLocationNfsOutput(args: GetLocationNfsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationNfsResult> {
+export function getLocationNfsOutput(args: GetLocationNfsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationNfsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationNfs", {
         "locationArn": args.locationArn,

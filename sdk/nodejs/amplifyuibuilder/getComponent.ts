@@ -99,7 +99,7 @@ export interface GetComponentResult {
 /**
  * Definition of AWS::AmplifyUIBuilder::Component Resource Type
  */
-export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentResult> {
+export function getComponentOutput(args: GetComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:amplifyuibuilder:getComponent", {
         "appId": args.appId,

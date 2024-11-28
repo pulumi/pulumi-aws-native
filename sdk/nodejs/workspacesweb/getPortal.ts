@@ -118,7 +118,7 @@ export interface GetPortalResult {
 /**
  * Definition of AWS::WorkSpacesWeb::Portal Resource Type
  */
-export function getPortalOutput(args: GetPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortalResult> {
+export function getPortalOutput(args: GetPortalOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPortalResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getPortal", {
         "portalArn": args.portalArn,

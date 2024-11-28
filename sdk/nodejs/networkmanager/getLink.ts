@@ -70,7 +70,7 @@ export interface GetLinkResult {
 /**
  * The AWS::NetworkManager::Link type describes a link.
  */
-export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
+export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:networkmanager:getLink", {
         "globalNetworkId": args.globalNetworkId,

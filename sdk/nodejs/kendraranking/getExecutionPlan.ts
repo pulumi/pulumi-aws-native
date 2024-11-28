@@ -53,7 +53,7 @@ export interface GetExecutionPlanResult {
 /**
  * A KendraRanking Rescore execution plan
  */
-export function getExecutionPlanOutput(args: GetExecutionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExecutionPlanResult> {
+export function getExecutionPlanOutput(args: GetExecutionPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExecutionPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:kendraranking:getExecutionPlan", {
         "id": args.id,

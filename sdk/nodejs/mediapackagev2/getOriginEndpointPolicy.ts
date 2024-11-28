@@ -42,7 +42,7 @@ export interface GetOriginEndpointPolicyResult {
 /**
  * <p>Represents a resource policy that allows or denies access to an origin endpoint.</p>
  */
-export function getOriginEndpointPolicyOutput(args: GetOriginEndpointPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointPolicyResult> {
+export function getOriginEndpointPolicyOutput(args: GetOriginEndpointPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginEndpointPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediapackagev2:getOriginEndpointPolicy", {
         "channelGroupName": args.channelGroupName,

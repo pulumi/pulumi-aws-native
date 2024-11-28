@@ -65,7 +65,7 @@ export interface GetWirelessGatewayResult {
 /**
  * Create and manage wireless gateways, including LoRa gateways.
  */
-export function getWirelessGatewayOutput(args: GetWirelessGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWirelessGatewayResult> {
+export function getWirelessGatewayOutput(args: GetWirelessGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWirelessGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotwireless:getWirelessGateway", {
         "id": args.id,

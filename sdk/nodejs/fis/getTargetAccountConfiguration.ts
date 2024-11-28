@@ -39,7 +39,7 @@ export interface GetTargetAccountConfigurationResult {
 /**
  * Resource schema for AWS::FIS::TargetAccountConfiguration
  */
-export function getTargetAccountConfigurationOutput(args: GetTargetAccountConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetAccountConfigurationResult> {
+export function getTargetAccountConfigurationOutput(args: GetTargetAccountConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTargetAccountConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:fis:getTargetAccountConfiguration", {
         "accountId": args.accountId,

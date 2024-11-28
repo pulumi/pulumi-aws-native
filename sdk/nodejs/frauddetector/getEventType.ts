@@ -61,7 +61,7 @@ export interface GetEventTypeResult {
 /**
  * A resource schema for an EventType in Amazon Fraud Detector.
  */
-export function getEventTypeOutput(args: GetEventTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventTypeResult> {
+export function getEventTypeOutput(args: GetEventTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:frauddetector:getEventType", {
         "arn": args.arn,

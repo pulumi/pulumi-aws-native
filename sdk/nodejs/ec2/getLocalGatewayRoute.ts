@@ -47,7 +47,7 @@ export interface GetLocalGatewayRouteResult {
 /**
  * Describes a route for a local gateway route table.
  */
-export function getLocalGatewayRouteOutput(args: GetLocalGatewayRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteResult> {
+export function getLocalGatewayRouteOutput(args: GetLocalGatewayRouteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalGatewayRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getLocalGatewayRoute", {
         "destinationCidrBlock": args.destinationCidrBlock,

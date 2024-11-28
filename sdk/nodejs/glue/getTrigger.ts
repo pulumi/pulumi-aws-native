@@ -55,7 +55,7 @@ export interface GetTriggerResult {
 /**
  * Resource Type definition for AWS::Glue::Trigger
  */
-export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
+export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTriggerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:glue:getTrigger", {
         "name": args.name,

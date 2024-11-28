@@ -57,7 +57,7 @@ export interface GetLocationAzureBlobResult {
 /**
  * Resource schema for AWS::DataSync::LocationAzureBlob.
  */
-export function getLocationAzureBlobOutput(args: GetLocationAzureBlobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationAzureBlobResult> {
+export function getLocationAzureBlobOutput(args: GetLocationAzureBlobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationAzureBlobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationAzureBlob", {
         "locationArn": args.locationArn,

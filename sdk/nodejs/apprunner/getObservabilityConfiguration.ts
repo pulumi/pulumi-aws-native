@@ -38,7 +38,7 @@ export interface GetObservabilityConfigurationResult {
 /**
  * The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
  */
-export function getObservabilityConfigurationOutput(args: GetObservabilityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObservabilityConfigurationResult> {
+export function getObservabilityConfigurationOutput(args: GetObservabilityConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObservabilityConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apprunner:getObservabilityConfiguration", {
         "observabilityConfigurationArn": args.observabilityConfigurationArn,

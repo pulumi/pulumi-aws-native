@@ -47,7 +47,7 @@ export interface GetUserPoolGroupResult {
 /**
  * Resource Type definition for AWS::Cognito::UserPoolGroup
  */
-export function getUserPoolGroupOutput(args: GetUserPoolGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolGroupResult> {
+export function getUserPoolGroupOutput(args: GetUserPoolGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolGroup", {
         "groupName": args.groupName,

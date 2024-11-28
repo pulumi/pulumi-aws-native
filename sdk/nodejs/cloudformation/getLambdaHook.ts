@@ -61,7 +61,7 @@ export interface GetLambdaHookResult {
 /**
  * This is a CloudFormation resource for the first-party AWS::Hooks::LambdaHook.
  */
-export function getLambdaHookOutput(args: GetLambdaHookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLambdaHookResult> {
+export function getLambdaHookOutput(args: GetLambdaHookOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLambdaHookResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getLambdaHook", {
         "hookArn": args.hookArn,

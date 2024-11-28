@@ -57,7 +57,7 @@ export interface GetAllowListResult {
 /**
  * Macie AllowList resource schema
  */
-export function getAllowListOutput(args: GetAllowListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAllowListResult> {
+export function getAllowListOutput(args: GetAllowListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAllowListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:macie:getAllowList", {
         "id": args.id,

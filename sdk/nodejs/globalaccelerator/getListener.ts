@@ -45,7 +45,7 @@ export interface GetListenerResult {
 /**
  * Resource Type definition for AWS::GlobalAccelerator::Listener
  */
-export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
+export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetListenerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:globalaccelerator:getListener", {
         "listenerArn": args.listenerArn,

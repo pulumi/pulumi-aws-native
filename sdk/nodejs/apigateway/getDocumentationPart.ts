@@ -39,7 +39,7 @@ export interface GetDocumentationPartResult {
 /**
  * The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  */
-export function getDocumentationPartOutput(args: GetDocumentationPartOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationPartResult> {
+export function getDocumentationPartOutput(args: GetDocumentationPartOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentationPartResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getDocumentationPart", {
         "documentationPartId": args.documentationPartId,

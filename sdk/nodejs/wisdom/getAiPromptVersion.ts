@@ -43,7 +43,7 @@ export interface GetAiPromptVersionResult {
 /**
  * Definition of AWS::Wisdom::AIPromptVersion Resource Type
  */
-export function getAiPromptVersionOutput(args: GetAiPromptVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAiPromptVersionResult> {
+export function getAiPromptVersionOutput(args: GetAiPromptVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAiPromptVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getAiPromptVersion", {
         "aiPromptId": args.aiPromptId,

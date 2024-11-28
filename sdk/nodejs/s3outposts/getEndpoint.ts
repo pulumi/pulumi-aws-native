@@ -57,7 +57,7 @@ export interface GetEndpointResult {
 /**
  * Resource Type Definition for AWS::S3Outposts::Endpoint
  */
-export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3outposts:getEndpoint", {
         "arn": args.arn,

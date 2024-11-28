@@ -57,7 +57,7 @@ export interface GetVerifiedAccessTrustProviderResult {
 /**
  * The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
  */
-export function getVerifiedAccessTrustProviderOutput(args: GetVerifiedAccessTrustProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifiedAccessTrustProviderResult> {
+export function getVerifiedAccessTrustProviderOutput(args: GetVerifiedAccessTrustProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVerifiedAccessTrustProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVerifiedAccessTrustProvider", {
         "verifiedAccessTrustProviderId": args.verifiedAccessTrustProviderId,

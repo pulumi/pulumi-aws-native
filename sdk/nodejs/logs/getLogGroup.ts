@@ -73,7 +73,7 @@ export interface GetLogGroupResult {
  *   +  Log group names can be between 1 and 512 characters long.
  *   +  Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).
  */
-export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupResult> {
+export function getLogGroupOutput(args: GetLogGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getLogGroup", {
         "logGroupName": args.logGroupName,

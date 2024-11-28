@@ -32,7 +32,7 @@ export interface GetEipAssociationResult {
  * Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
  *  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
  */
-export function getEipAssociationOutput(args: GetEipAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipAssociationResult> {
+export function getEipAssociationOutput(args: GetEipAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEipAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getEipAssociation", {
         "id": args.id,

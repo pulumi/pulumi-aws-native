@@ -30,7 +30,7 @@ export interface GetResolverRuleAssociationResult {
 /**
  * In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
  */
-export function getResolverRuleAssociationOutput(args: GetResolverRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleAssociationResult> {
+export function getResolverRuleAssociationOutput(args: GetResolverRuleAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverRuleAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53resolver:getResolverRuleAssociation", {
         "resolverRuleAssociationId": args.resolverRuleAssociationId,

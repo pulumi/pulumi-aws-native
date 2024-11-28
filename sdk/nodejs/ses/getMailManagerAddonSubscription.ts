@@ -41,7 +41,7 @@ export interface GetMailManagerAddonSubscriptionResult {
 /**
  * Definition of AWS::SES::MailManagerAddonSubscription Resource Type
  */
-export function getMailManagerAddonSubscriptionOutput(args: GetMailManagerAddonSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerAddonSubscriptionResult> {
+export function getMailManagerAddonSubscriptionOutput(args: GetMailManagerAddonSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMailManagerAddonSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerAddonSubscription", {
         "addonSubscriptionId": args.addonSubscriptionId,

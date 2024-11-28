@@ -49,7 +49,7 @@ export interface GetAnomalyDetectorResult {
 /**
  * An Amazon Lookout for Metrics Detector
  */
-export function getAnomalyDetectorOutput(args: GetAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyDetectorResult> {
+export function getAnomalyDetectorOutput(args: GetAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnomalyDetectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lookoutmetrics:getAnomalyDetector", {
         "arn": args.arn,

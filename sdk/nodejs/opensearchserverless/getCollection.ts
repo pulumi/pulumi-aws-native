@@ -53,7 +53,7 @@ export interface GetCollectionResult {
 /**
  * Amazon OpenSearchServerless collection resource
  */
-export function getCollectionOutput(args: GetCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollectionResult> {
+export function getCollectionOutput(args: GetCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getCollection", {
         "id": args.id,

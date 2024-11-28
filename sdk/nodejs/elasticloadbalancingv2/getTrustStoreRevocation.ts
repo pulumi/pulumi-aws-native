@@ -42,7 +42,7 @@ export interface GetTrustStoreRevocationResult {
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStoreRevocation
  */
-export function getTrustStoreRevocationOutput(args: GetTrustStoreRevocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustStoreRevocationResult> {
+export function getTrustStoreRevocationOutput(args: GetTrustStoreRevocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrustStoreRevocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:elasticloadbalancingv2:getTrustStoreRevocation", {
         "revocationId": args.revocationId,

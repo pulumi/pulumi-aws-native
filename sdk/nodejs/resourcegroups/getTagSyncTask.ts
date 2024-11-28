@@ -45,7 +45,7 @@ export interface GetTagSyncTaskResult {
 /**
  * Schema for ResourceGroups::TagSyncTask
  */
-export function getTagSyncTaskOutput(args: GetTagSyncTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagSyncTaskResult> {
+export function getTagSyncTaskOutput(args: GetTagSyncTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagSyncTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:resourcegroups:getTagSyncTask", {
         "taskArn": args.taskArn,

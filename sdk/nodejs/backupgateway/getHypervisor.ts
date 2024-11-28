@@ -34,7 +34,7 @@ export interface GetHypervisorResult {
 /**
  * Definition of AWS::BackupGateway::Hypervisor Resource Type
  */
-export function getHypervisorOutput(args: GetHypervisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHypervisorResult> {
+export function getHypervisorOutput(args: GetHypervisorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHypervisorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:backupgateway:getHypervisor", {
         "hypervisorArn": args.hypervisorArn,

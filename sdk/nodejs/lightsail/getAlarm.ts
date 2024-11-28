@@ -66,7 +66,7 @@ export interface GetAlarmResult {
 /**
  * Resource Type definition for AWS::Lightsail::Alarm
  */
-export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
+export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lightsail:getAlarm", {
         "alarmName": args.alarmName,

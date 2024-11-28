@@ -42,7 +42,7 @@ export interface GetMeteredProductResult {
 /**
  * Definition of AWS::Deadline::MeteredProduct Resource Type
  */
-export function getMeteredProductOutput(args: GetMeteredProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeteredProductResult> {
+export function getMeteredProductOutput(args: GetMeteredProductOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMeteredProductResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:deadline:getMeteredProduct", {
         "arn": args.arn,

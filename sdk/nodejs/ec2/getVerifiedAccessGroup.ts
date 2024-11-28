@@ -73,7 +73,7 @@ export interface GetVerifiedAccessGroupResult {
 /**
  * The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
  */
-export function getVerifiedAccessGroupOutput(args: GetVerifiedAccessGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifiedAccessGroupResult> {
+export function getVerifiedAccessGroupOutput(args: GetVerifiedAccessGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVerifiedAccessGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVerifiedAccessGroup", {
         "verifiedAccessGroupId": args.verifiedAccessGroupId,

@@ -77,7 +77,7 @@ export interface GetLocationHdfsResult {
 /**
  * Resource schema for AWS::DataSync::LocationHDFS.
  */
-export function getLocationHdfsOutput(args: GetLocationHdfsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationHdfsResult> {
+export function getLocationHdfsOutput(args: GetLocationHdfsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationHdfsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationHdfs", {
         "locationArn": args.locationArn,

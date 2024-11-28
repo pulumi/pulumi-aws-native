@@ -98,7 +98,7 @@ export interface GetGlobalTableResult {
 /**
  * Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
  */
-export function getGlobalTableOutput(args: GetGlobalTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalTableResult> {
+export function getGlobalTableOutput(args: GetGlobalTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:dynamodb:getGlobalTable", {
         "tableName": args.tableName,

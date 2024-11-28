@@ -63,7 +63,7 @@ export interface GetThemeResult {
 /**
  * Definition of the AWS::QuickSight::Theme Resource Type.
  */
-export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
+export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThemeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:quicksight:getTheme", {
         "awsAccountId": args.awsAccountId,

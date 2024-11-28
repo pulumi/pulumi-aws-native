@@ -49,7 +49,7 @@ export interface GetBackupPlanResult {
 /**
  * Resource Type definition for AWS::Backup::BackupPlan
  */
-export function getBackupPlanOutput(args: GetBackupPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPlanResult> {
+export function getBackupPlanOutput(args: GetBackupPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:backup:getBackupPlan", {
         "backupPlanId": args.backupPlanId,

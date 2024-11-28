@@ -47,7 +47,7 @@ export interface GetTestGridProjectResult {
 /**
  * AWS::DeviceFarm::TestGridProject creates a new TestGrid Project
  */
-export function getTestGridProjectOutput(args: GetTestGridProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTestGridProjectResult> {
+export function getTestGridProjectOutput(args: GetTestGridProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTestGridProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:devicefarm:getTestGridProject", {
         "arn": args.arn,

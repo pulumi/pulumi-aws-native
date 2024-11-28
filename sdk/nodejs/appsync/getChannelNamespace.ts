@@ -49,7 +49,7 @@ export interface GetChannelNamespaceResult {
 /**
  * Resource schema for AppSync ChannelNamespace
  */
-export function getChannelNamespaceOutput(args: GetChannelNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelNamespaceResult> {
+export function getChannelNamespaceOutput(args: GetChannelNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appsync:getChannelNamespace", {
         "channelNamespaceArn": args.channelNamespaceArn,

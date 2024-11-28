@@ -77,7 +77,7 @@ export interface GetExperimentResult {
 /**
  * Resource Type definition for AWS::Evidently::Experiment.
  */
-export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentResult> {
+export function getExperimentOutput(args: GetExperimentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExperimentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:evidently:getExperiment", {
         "arn": args.arn,

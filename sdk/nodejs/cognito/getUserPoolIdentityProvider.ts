@@ -71,7 +71,7 @@ export interface GetUserPoolIdentityProviderResult {
 /**
  * Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
  */
-export function getUserPoolIdentityProviderOutput(args: GetUserPoolIdentityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolIdentityProviderResult> {
+export function getUserPoolIdentityProviderOutput(args: GetUserPoolIdentityProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolIdentityProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolIdentityProvider", {
         "providerName": args.providerName,

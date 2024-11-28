@@ -41,7 +41,7 @@ export interface GetIdentityPoolPrincipalTagResult {
 /**
  * Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
  */
-export function getIdentityPoolPrincipalTagOutput(args: GetIdentityPoolPrincipalTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolPrincipalTagResult> {
+export function getIdentityPoolPrincipalTagOutput(args: GetIdentityPoolPrincipalTagOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityPoolPrincipalTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getIdentityPoolPrincipalTag", {
         "identityPoolId": args.identityPoolId,

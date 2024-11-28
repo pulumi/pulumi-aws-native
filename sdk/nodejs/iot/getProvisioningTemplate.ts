@@ -57,7 +57,7 @@ export interface GetProvisioningTemplateResult {
 /**
  * Creates a fleet provisioning template.
  */
-export function getProvisioningTemplateOutput(args: GetProvisioningTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProvisioningTemplateResult> {
+export function getProvisioningTemplateOutput(args: GetProvisioningTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProvisioningTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getProvisioningTemplate", {
         "templateName": args.templateName,

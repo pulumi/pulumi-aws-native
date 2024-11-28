@@ -64,7 +64,7 @@ export interface GetTransitGatewayMulticastGroupMemberResult {
 /**
  * The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
  */
-export function getTransitGatewayMulticastGroupMemberOutput(args: GetTransitGatewayMulticastGroupMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastGroupMemberResult> {
+export function getTransitGatewayMulticastGroupMemberOutput(args: GetTransitGatewayMulticastGroupMemberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayMulticastGroupMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayMulticastGroupMember", {
         "groupIpAddress": args.groupIpAddress,

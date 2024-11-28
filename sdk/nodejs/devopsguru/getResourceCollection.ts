@@ -37,7 +37,7 @@ export interface GetResourceCollectionResult {
 /**
  * This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
  */
-export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceCollectionResult> {
+export function getResourceCollectionOutput(args: GetResourceCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:devopsguru:getResourceCollection", {
         "resourceCollectionType": args.resourceCollectionType,

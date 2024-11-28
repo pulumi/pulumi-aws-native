@@ -52,7 +52,7 @@ export interface GetFhirDatastoreResult {
 /**
  * HealthLake FHIR Datastore
  */
-export function getFhirDatastoreOutput(args: GetFhirDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFhirDatastoreResult> {
+export function getFhirDatastoreOutput(args: GetFhirDatastoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFhirDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:healthlake:getFhirDatastore", {
         "datastoreId": args.datastoreId,

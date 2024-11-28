@@ -65,7 +65,7 @@ export interface GetEndpointGroupResult {
 /**
  * Resource Type definition for AWS::GlobalAccelerator::EndpointGroup
  */
-export function getEndpointGroupOutput(args: GetEndpointGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointGroupResult> {
+export function getEndpointGroupOutput(args: GetEndpointGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:globalaccelerator:getEndpointGroup", {
         "endpointGroupArn": args.endpointGroupArn,

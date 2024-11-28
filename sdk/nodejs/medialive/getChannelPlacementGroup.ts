@@ -59,7 +59,7 @@ export interface GetChannelPlacementGroupResult {
 /**
  * Definition of AWS::MediaLive::ChannelPlacementGroup Resource Type
  */
-export function getChannelPlacementGroupOutput(args: GetChannelPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelPlacementGroupResult> {
+export function getChannelPlacementGroupOutput(args: GetChannelPlacementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelPlacementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:medialive:getChannelPlacementGroup", {
         "clusterId": args.clusterId,

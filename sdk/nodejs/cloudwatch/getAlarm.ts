@@ -135,7 +135,7 @@ export interface GetAlarmResult {
  *  When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
  *  When you update an existing alarm, its state is left unchanged, but the update completely overwrites the previous configuration of the alarm.
  */
-export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlarmResult> {
+export function getAlarmOutput(args: GetAlarmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudwatch:getAlarm", {
         "alarmName": args.alarmName,

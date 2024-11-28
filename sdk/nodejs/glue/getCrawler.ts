@@ -85,7 +85,7 @@ export interface GetCrawlerResult {
 /**
  * Resource Type definition for AWS::Glue::Crawler
  */
-export function getCrawlerOutput(args: GetCrawlerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCrawlerResult> {
+export function getCrawlerOutput(args: GetCrawlerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCrawlerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:glue:getCrawler", {
         "name": args.name,

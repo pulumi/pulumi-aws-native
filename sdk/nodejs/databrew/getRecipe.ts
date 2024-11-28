@@ -37,7 +37,7 @@ export interface GetRecipeResult {
 /**
  * Resource schema for AWS::DataBrew::Recipe.
  */
-export function getRecipeOutput(args: GetRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecipeResult> {
+export function getRecipeOutput(args: GetRecipeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRecipeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:databrew:getRecipe", {
         "name": args.name,

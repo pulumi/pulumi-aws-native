@@ -39,7 +39,7 @@ export interface GetAuthPolicyResult {
 /**
  * Creates or updates the auth policy.
  */
-export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthPolicyResult> {
+export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:vpclattice:getAuthPolicy", {
         "resourceIdentifier": args.resourceIdentifier,

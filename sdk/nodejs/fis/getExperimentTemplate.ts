@@ -65,7 +65,7 @@ export interface GetExperimentTemplateResult {
 /**
  * Resource schema for AWS::FIS::ExperimentTemplate
  */
-export function getExperimentTemplateOutput(args: GetExperimentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExperimentTemplateResult> {
+export function getExperimentTemplateOutput(args: GetExperimentTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExperimentTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:fis:getExperimentTemplate", {
         "id": args.id,

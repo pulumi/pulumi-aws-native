@@ -37,7 +37,7 @@ export interface GetChannelPolicyResult {
 /**
  * <p>Represents a resource-based policy that allows or denies access to a channel.</p>
  */
-export function getChannelPolicyOutput(args: GetChannelPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelPolicyResult> {
+export function getChannelPolicyOutput(args: GetChannelPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediapackagev2:getChannelPolicy", {
         "channelGroupName": args.channelGroupName,

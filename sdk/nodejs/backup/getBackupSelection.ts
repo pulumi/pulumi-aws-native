@@ -34,7 +34,7 @@ export interface GetBackupSelectionResult {
 /**
  * Resource Type definition for AWS::Backup::BackupSelection
  */
-export function getBackupSelectionOutput(args: GetBackupSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupSelectionResult> {
+export function getBackupSelectionOutput(args: GetBackupSelectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBackupSelectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:backup:getBackupSelection", {
         "id": args.id,

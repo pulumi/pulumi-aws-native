@@ -68,7 +68,7 @@ export interface GetGeofenceCollectionResult {
 /**
  * Definition of AWS::Location::GeofenceCollection Resource Type
  */
-export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGeofenceCollectionResult> {
+export function getGeofenceCollectionOutput(args: GetGeofenceCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGeofenceCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:location:getGeofenceCollection", {
         "collectionName": args.collectionName,

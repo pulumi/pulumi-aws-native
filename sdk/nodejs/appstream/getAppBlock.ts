@@ -34,7 +34,7 @@ export interface GetAppBlockResult {
 /**
  * Resource Type definition for AWS::AppStream::AppBlock
  */
-export function getAppBlockOutput(args: GetAppBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppBlockResult> {
+export function getAppBlockOutput(args: GetAppBlockOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppBlockResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appstream:getAppBlock", {
         "arn": args.arn,

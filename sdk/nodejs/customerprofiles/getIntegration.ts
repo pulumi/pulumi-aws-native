@@ -58,7 +58,7 @@ export interface GetIntegrationResult {
 /**
  * The resource schema for creating an Amazon Connect Customer Profiles Integration.
  */
-export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
+export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:customerprofiles:getIntegration", {
         "domainName": args.domainName,

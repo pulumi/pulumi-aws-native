@@ -45,7 +45,7 @@ export interface GetOrganizationConformancePackResult {
 /**
  * Resource schema for AWS::Config::OrganizationConformancePack.
  */
-export function getOrganizationConformancePackOutput(args: GetOrganizationConformancePackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationConformancePackResult> {
+export function getOrganizationConformancePackOutput(args: GetOrganizationConformancePackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationConformancePackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:configuration:getOrganizationConformancePack", {
         "organizationConformancePackName": args.organizationConformancePackName,

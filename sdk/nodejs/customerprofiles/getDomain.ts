@@ -62,7 +62,7 @@ export interface GetDomainResult {
 /**
  * A domain defined for 3rd party data source in Profile Service
  */
-export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:customerprofiles:getDomain", {
         "domainName": args.domainName,

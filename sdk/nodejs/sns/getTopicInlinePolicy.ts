@@ -32,7 +32,7 @@ export interface GetTopicInlinePolicyResult {
 /**
  * Schema for AWS::SNS::TopicInlinePolicy
  */
-export function getTopicInlinePolicyOutput(args: GetTopicInlinePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicInlinePolicyResult> {
+export function getTopicInlinePolicyOutput(args: GetTopicInlinePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicInlinePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sns:getTopicInlinePolicy", {
         "topicArn": args.topicArn,

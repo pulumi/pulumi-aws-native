@@ -24,7 +24,7 @@ export interface GetServerlessClusterResult {
 /**
  * Resource Type definition for AWS::MSK::ServerlessCluster
  */
-export function getServerlessClusterOutput(args: GetServerlessClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessClusterResult> {
+export function getServerlessClusterOutput(args: GetServerlessClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:msk:getServerlessCluster", {
         "arn": args.arn,

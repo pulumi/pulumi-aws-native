@@ -49,7 +49,7 @@ export interface GetTransitGatewayPeeringAttachmentResult {
 /**
  * The AWS::EC2::TransitGatewayPeeringAttachment type
  */
-export function getTransitGatewayPeeringAttachmentOutput(args: GetTransitGatewayPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayPeeringAttachmentResult> {
+export function getTransitGatewayPeeringAttachmentOutput(args: GetTransitGatewayPeeringAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayPeeringAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayPeeringAttachment", {
         "transitGatewayAttachmentId": args.transitGatewayAttachmentId,

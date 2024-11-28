@@ -49,7 +49,7 @@ export interface GetServiceActionResult {
 /**
  * Resource Schema for AWS::ServiceCatalog::ServiceAction
  */
-export function getServiceActionOutput(args: GetServiceActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceActionResult> {
+export function getServiceActionOutput(args: GetServiceActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:servicecatalog:getServiceAction", {
         "id": args.id,

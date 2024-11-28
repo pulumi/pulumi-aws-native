@@ -71,7 +71,7 @@ export interface GetAcceleratorResult {
 /**
  * Resource Type definition for AWS::GlobalAccelerator::Accelerator
  */
-export function getAcceleratorOutput(args: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
+export function getAcceleratorOutput(args: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAcceleratorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:globalaccelerator:getAccelerator", {
         "acceleratorArn": args.acceleratorArn,

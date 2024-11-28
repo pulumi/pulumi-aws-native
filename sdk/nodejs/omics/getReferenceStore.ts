@@ -38,7 +38,7 @@ export interface GetReferenceStoreResult {
 /**
  * Definition of AWS::Omics::ReferenceStore Resource Type
  */
-export function getReferenceStoreOutput(args: GetReferenceStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReferenceStoreResult> {
+export function getReferenceStoreOutput(args: GetReferenceStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReferenceStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:omics:getReferenceStore", {
         "referenceStoreId": args.referenceStoreId,

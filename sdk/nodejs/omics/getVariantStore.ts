@@ -61,7 +61,7 @@ export interface GetVariantStoreResult {
 /**
  * Definition of AWS::Omics::VariantStore Resource Type
  */
-export function getVariantStoreOutput(args: GetVariantStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariantStoreResult> {
+export function getVariantStoreOutput(args: GetVariantStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariantStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:omics:getVariantStore", {
         "name": args.name,

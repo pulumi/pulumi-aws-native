@@ -39,7 +39,7 @@ export interface GetBotVersionResult {
 /**
  * A version is a numbered snapshot of your work that you can publish for use in different parts of your workflow, such as development, beta deployment, and production.
  */
-export function getBotVersionOutput(args: GetBotVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotVersionResult> {
+export function getBotVersionOutput(args: GetBotVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lex:getBotVersion", {
         "botId": args.botId,

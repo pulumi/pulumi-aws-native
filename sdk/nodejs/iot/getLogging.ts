@@ -37,7 +37,7 @@ export interface GetLoggingResult {
 /**
  * Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
  */
-export function getLoggingOutput(args: GetLoggingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingResult> {
+export function getLoggingOutput(args: GetLoggingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoggingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getLogging", {
         "accountId": args.accountId,

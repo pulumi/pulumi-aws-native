@@ -37,7 +37,7 @@ export interface GetSpotFleetResult {
 /**
  * Resource Type definition for AWS::EC2::SpotFleet
  */
-export function getSpotFleetOutput(args: GetSpotFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpotFleetResult> {
+export function getSpotFleetOutput(args: GetSpotFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSpotFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getSpotFleet", {
         "id": args.id,

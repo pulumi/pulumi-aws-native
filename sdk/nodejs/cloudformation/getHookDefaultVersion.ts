@@ -44,7 +44,7 @@ export interface GetHookDefaultVersionResult {
 /**
  * Set a version as default version for a hook in CloudFormation Registry.
  */
-export function getHookDefaultVersionOutput(args: GetHookDefaultVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHookDefaultVersionResult> {
+export function getHookDefaultVersionOutput(args: GetHookDefaultVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHookDefaultVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getHookDefaultVersion", {
         "arn": args.arn,

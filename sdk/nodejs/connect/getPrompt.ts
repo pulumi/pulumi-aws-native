@@ -49,7 +49,7 @@ export interface GetPromptResult {
 /**
  * Resource Type definition for AWS::Connect::Prompt
  */
-export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPromptResult> {
+export function getPromptOutput(args: GetPromptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPromptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getPrompt", {
         "promptArn": args.promptArn,

@@ -42,7 +42,7 @@ export interface GetModelResult {
 /**
  * The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
  */
-export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelResult> {
+export function getModelOutput(args: GetModelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getModel", {
         "name": args.name,

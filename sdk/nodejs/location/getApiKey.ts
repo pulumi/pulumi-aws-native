@@ -67,7 +67,7 @@ export interface GetApiKeyResult {
 /**
  * Definition of AWS::Location::APIKey Resource Type
  */
-export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
+export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:location:getApiKey", {
         "keyName": args.keyName,

@@ -61,7 +61,7 @@ export interface GetAnomalySubscriptionResult {
 /**
  * AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
  */
-export function getAnomalySubscriptionOutput(args: GetAnomalySubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalySubscriptionResult> {
+export function getAnomalySubscriptionOutput(args: GetAnomalySubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnomalySubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ce:getAnomalySubscription", {
         "subscriptionArn": args.subscriptionArn,

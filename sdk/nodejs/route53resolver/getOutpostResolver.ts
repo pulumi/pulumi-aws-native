@@ -73,7 +73,7 @@ export interface GetOutpostResolverResult {
 /**
  * Resource schema for AWS::Route53Resolver::OutpostResolver.
  */
-export function getOutpostResolverOutput(args: GetOutpostResolverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostResolverResult> {
+export function getOutpostResolverOutput(args: GetOutpostResolverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOutpostResolverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53resolver:getOutpostResolver", {
         "id": args.id,

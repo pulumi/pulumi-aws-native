@@ -38,7 +38,7 @@ export interface GetVpcEndpointResult {
 /**
  * Amazon OpenSearchServerless vpc endpoint resource
  */
-export function getVpcEndpointOutput(args: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointResult> {
+export function getVpcEndpointOutput(args: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getVpcEndpoint", {
         "id": args.id,

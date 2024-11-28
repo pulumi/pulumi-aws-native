@@ -85,7 +85,7 @@ export interface GetInfrastructureConfigurationResult {
 /**
  * Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
  */
-export function getInfrastructureConfigurationOutput(args: GetInfrastructureConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInfrastructureConfigurationResult> {
+export function getInfrastructureConfigurationOutput(args: GetInfrastructureConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInfrastructureConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getInfrastructureConfiguration", {
         "arn": args.arn,

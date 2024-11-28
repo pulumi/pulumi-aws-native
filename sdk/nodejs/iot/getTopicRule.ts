@@ -49,7 +49,7 @@ export interface GetTopicRuleResult {
 /**
  * Resource Type definition for AWS::IoT::TopicRule
  */
-export function getTopicRuleOutput(args: GetTopicRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicRuleResult> {
+export function getTopicRuleOutput(args: GetTopicRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTopicRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getTopicRule", {
         "ruleName": args.ruleName,

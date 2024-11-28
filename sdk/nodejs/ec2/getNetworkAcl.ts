@@ -37,7 +37,7 @@ export interface GetNetworkAclResult {
 /**
  * Specifies a network ACL for your VPC.
  */
-export function getNetworkAclOutput(args: GetNetworkAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAclResult> {
+export function getNetworkAclOutput(args: GetNetworkAclOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getNetworkAcl", {
         "id": args.id,

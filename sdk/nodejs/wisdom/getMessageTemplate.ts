@@ -60,7 +60,7 @@ export interface GetMessageTemplateResult {
 /**
  * Definition of AWS::Wisdom::MessageTemplate Resource Type
  */
-export function getMessageTemplateOutput(args: GetMessageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMessageTemplateResult> {
+export function getMessageTemplateOutput(args: GetMessageTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMessageTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getMessageTemplate", {
         "messageTemplateArn": args.messageTemplateArn,

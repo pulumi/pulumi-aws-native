@@ -87,7 +87,7 @@ export interface GetFlowResult {
 /**
  * Definition of AWS::Bedrock::Flow Resource Type
  */
-export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowResult> {
+export function getFlowOutput(args: GetFlowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:bedrock:getFlow", {
         "arn": args.arn,

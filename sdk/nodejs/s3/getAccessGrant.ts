@@ -61,7 +61,7 @@ export interface GetAccessGrantResult {
 /**
  * The AWS::S3::AccessGrant resource is an Amazon S3 resource type representing permissions to a specific S3 bucket or prefix hosted in an S3 Access Grants instance.
  */
-export function getAccessGrantOutput(args: GetAccessGrantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessGrantResult> {
+export function getAccessGrantOutput(args: GetAccessGrantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessGrantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3:getAccessGrant", {
         "accessGrantId": args.accessGrantId,

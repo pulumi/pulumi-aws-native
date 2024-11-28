@@ -53,7 +53,7 @@ export interface GetPlaybackRestrictionPolicyResult {
 /**
  * Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.
  */
-export function getPlaybackRestrictionPolicyOutput(args: GetPlaybackRestrictionPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaybackRestrictionPolicyResult> {
+export function getPlaybackRestrictionPolicyOutput(args: GetPlaybackRestrictionPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlaybackRestrictionPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivs:getPlaybackRestrictionPolicy", {
         "arn": args.arn,

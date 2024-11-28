@@ -30,7 +30,7 @@ export interface GetDashboardResult {
 /**
  * Resource Type definition for AWS::CloudWatch::Dashboard
  */
-export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDashboardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudwatch:getDashboard", {
         "dashboardName": args.dashboardName,

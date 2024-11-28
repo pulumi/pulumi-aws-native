@@ -65,7 +65,7 @@ export interface GetGraphResult {
 /**
  * The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
  */
-export function getGraphOutput(args: GetGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResult> {
+export function getGraphOutput(args: GetGraphOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:neptunegraph:getGraph", {
         "graphId": args.graphId,

@@ -73,7 +73,7 @@ export interface GetFlowAliasResult {
 /**
  * Definition of AWS::Bedrock::FlowAlias Resource Type
  */
-export function getFlowAliasOutput(args: GetFlowAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowAliasResult> {
+export function getFlowAliasOutput(args: GetFlowAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:bedrock:getFlowAlias", {
         "arn": args.arn,

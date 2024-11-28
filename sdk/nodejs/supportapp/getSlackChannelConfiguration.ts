@@ -58,7 +58,7 @@ export interface GetSlackChannelConfigurationResult {
 /**
  * An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
  */
-export function getSlackChannelConfigurationOutput(args: GetSlackChannelConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlackChannelConfigurationResult> {
+export function getSlackChannelConfigurationOutput(args: GetSlackChannelConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSlackChannelConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:supportapp:getSlackChannelConfiguration", {
         "channelId": args.channelId,

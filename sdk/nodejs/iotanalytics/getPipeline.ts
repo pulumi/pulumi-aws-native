@@ -44,7 +44,7 @@ export interface GetPipelineResult {
 /**
  * Resource Type definition for AWS::IoTAnalytics::Pipeline
  */
-export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
+export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipelineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotanalytics:getPipeline", {
         "pipelineName": args.pipelineName,

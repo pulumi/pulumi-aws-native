@@ -69,7 +69,7 @@ export interface GetDashboardResult {
 /**
  * Definition of the AWS::QuickSight::Dashboard Resource Type.
  */
-export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {
+export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDashboardResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:quicksight:getDashboard", {
         "awsAccountId": args.awsAccountId,

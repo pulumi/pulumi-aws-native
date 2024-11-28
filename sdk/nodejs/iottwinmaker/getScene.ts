@@ -67,7 +67,7 @@ export interface GetSceneResult {
 /**
  * Resource schema for AWS::IoTTwinMaker::Scene
  */
-export function getSceneOutput(args: GetSceneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSceneResult> {
+export function getSceneOutput(args: GetSceneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSceneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iottwinmaker:getScene", {
         "sceneId": args.sceneId,

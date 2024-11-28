@@ -30,7 +30,7 @@ export interface GetSubnetNetworkAclAssociationResult {
 /**
  * Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
  */
-export function getSubnetNetworkAclAssociationOutput(args: GetSubnetNetworkAclAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetNetworkAclAssociationResult> {
+export function getSubnetNetworkAclAssociationOutput(args: GetSubnetNetworkAclAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubnetNetworkAclAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getSubnetNetworkAclAssociation", {
         "associationId": args.associationId,

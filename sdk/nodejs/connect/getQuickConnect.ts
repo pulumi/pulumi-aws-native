@@ -57,7 +57,7 @@ export interface GetQuickConnectResult {
 /**
  * Resource Type definition for AWS::Connect::QuickConnect
  */
-export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
+export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQuickConnectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getQuickConnect", {
         "quickConnectArn": args.quickConnectArn,

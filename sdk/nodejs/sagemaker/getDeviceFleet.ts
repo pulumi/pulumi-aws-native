@@ -45,7 +45,7 @@ export interface GetDeviceFleetResult {
 /**
  * Resource schema for AWS::SageMaker::DeviceFleet
  */
-export function getDeviceFleetOutput(args: GetDeviceFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceFleetResult> {
+export function getDeviceFleetOutput(args: GetDeviceFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getDeviceFleet", {
         "deviceFleetName": args.deviceFleetName,

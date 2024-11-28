@@ -37,7 +37,7 @@ export interface GetInstanceConnectEndpointResult {
 /**
  * Resource Type definition for AWS::EC2::InstanceConnectEndpoint
  */
-export function getInstanceConnectEndpointOutput(args: GetInstanceConnectEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceConnectEndpointResult> {
+export function getInstanceConnectEndpointOutput(args: GetInstanceConnectEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInstanceConnectEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getInstanceConnectEndpoint", {
         "id": args.id,

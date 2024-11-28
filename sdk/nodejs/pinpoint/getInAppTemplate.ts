@@ -66,7 +66,7 @@ export interface GetInAppTemplateResult {
 /**
  * Resource Type definition for AWS::Pinpoint::InAppTemplate
  */
-export function getInAppTemplateOutput(args: GetInAppTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInAppTemplateResult> {
+export function getInAppTemplateOutput(args: GetInAppTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInAppTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:pinpoint:getInAppTemplate", {
         "templateName": args.templateName,

@@ -35,7 +35,7 @@ export interface GetDocumentationVersionResult {
 /**
  * The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
  */
-export function getDocumentationVersionOutput(args: GetDocumentationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentationVersionResult> {
+export function getDocumentationVersionOutput(args: GetDocumentationVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentationVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getDocumentationVersion", {
         "documentationVersion": args.documentationVersion,

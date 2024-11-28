@@ -45,7 +45,7 @@ export interface GetStateMachineAliasResult {
 /**
  * Resource schema for StateMachineAlias
  */
-export function getStateMachineAliasOutput(args: GetStateMachineAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineAliasResult> {
+export function getStateMachineAliasOutput(args: GetStateMachineAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStateMachineAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:stepfunctions:getStateMachineAlias", {
         "arn": args.arn,

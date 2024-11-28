@@ -34,7 +34,7 @@ export interface GetGatewayRouteTableAssociationResult {
 /**
  * Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
  */
-export function getGatewayRouteTableAssociationOutput(args: GetGatewayRouteTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayRouteTableAssociationResult> {
+export function getGatewayRouteTableAssociationOutput(args: GetGatewayRouteTableAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGatewayRouteTableAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getGatewayRouteTableAssociation", {
         "gatewayId": args.gatewayId,

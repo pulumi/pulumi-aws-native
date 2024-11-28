@@ -59,7 +59,7 @@ export interface GetDataRepositoryAssociationResult {
  * Creates an Amazon FSx for Lustre data repository association (DRA). A data repository association is a link between a directory on the file system and an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository associations on a file system. Data repository associations are supported on all FSx for Lustre 2.12 and newer file systems, excluding ``scratch_1`` deployment type.
  *  Each data repository association must have a unique Amazon FSx file system directory and a unique S3 bucket or prefix associated with it. You can configure a data repository association for automatic import only, for automatic export only, or for both. To learn more about linking a data repository to your file system, see [Linking your file system to an S3 bucket](https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html).
  */
-export function getDataRepositoryAssociationOutput(args: GetDataRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataRepositoryAssociationResult> {
+export function getDataRepositoryAssociationOutput(args: GetDataRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataRepositoryAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:fsx:getDataRepositoryAssociation", {
         "associationId": args.associationId,

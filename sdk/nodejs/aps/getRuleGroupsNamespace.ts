@@ -41,7 +41,7 @@ export interface GetRuleGroupsNamespaceResult {
 /**
  * RuleGroupsNamespace schema for cloudformation.
  */
-export function getRuleGroupsNamespaceOutput(args: GetRuleGroupsNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleGroupsNamespaceResult> {
+export function getRuleGroupsNamespaceOutput(args: GetRuleGroupsNamespaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleGroupsNamespaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:aps:getRuleGroupsNamespace", {
         "arn": args.arn,

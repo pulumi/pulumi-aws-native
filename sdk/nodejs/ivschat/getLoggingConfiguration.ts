@@ -53,7 +53,7 @@ export interface GetLoggingConfigurationResult {
 /**
  * Resource type definition for AWS::IVSChat::LoggingConfiguration.
  */
-export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggingConfigurationResult> {
+export function getLoggingConfigurationOutput(args: GetLoggingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoggingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivschat:getLoggingConfiguration", {
         "arn": args.arn,

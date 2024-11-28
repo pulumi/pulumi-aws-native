@@ -37,7 +37,7 @@ export interface GetVpcBlockPublicAccessOptionsResult {
 /**
  * Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions
  */
-export function getVpcBlockPublicAccessOptionsOutput(args: GetVpcBlockPublicAccessOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcBlockPublicAccessOptionsResult> {
+export function getVpcBlockPublicAccessOptionsOutput(args: GetVpcBlockPublicAccessOptionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcBlockPublicAccessOptionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcBlockPublicAccessOptions", {
         "accountId": args.accountId,

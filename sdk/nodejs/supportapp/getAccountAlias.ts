@@ -34,7 +34,7 @@ export interface GetAccountAliasResult {
 /**
  * An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
  */
-export function getAccountAliasOutput(args: GetAccountAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountAliasResult> {
+export function getAccountAliasOutput(args: GetAccountAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:supportapp:getAccountAlias", {
         "accountAliasResourceId": args.accountAliasResourceId,

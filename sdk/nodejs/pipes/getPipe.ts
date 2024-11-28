@@ -91,7 +91,7 @@ export interface GetPipeResult {
 /**
  * Definition of AWS::Pipes::Pipe Resource Type
  */
-export function getPipeOutput(args: GetPipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipeResult> {
+export function getPipeOutput(args: GetPipeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPipeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:pipes:getPipe", {
         "name": args.name,

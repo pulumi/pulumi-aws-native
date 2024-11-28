@@ -59,7 +59,7 @@ export interface GetRestoreTestingPlanResult {
 /**
  * Definition of AWS::Backup::RestoreTestingPlan Resource Type
  */
-export function getRestoreTestingPlanOutput(args: GetRestoreTestingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestoreTestingPlanResult> {
+export function getRestoreTestingPlanOutput(args: GetRestoreTestingPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRestoreTestingPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:backup:getRestoreTestingPlan", {
         "restoreTestingPlanName": args.restoreTestingPlanName,

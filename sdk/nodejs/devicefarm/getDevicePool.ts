@@ -57,7 +57,7 @@ export interface GetDevicePoolResult {
 /**
  * AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
  */
-export function getDevicePoolOutput(args: GetDevicePoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevicePoolResult> {
+export function getDevicePoolOutput(args: GetDevicePoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDevicePoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:devicefarm:getDevicePool", {
         "arn": args.arn,

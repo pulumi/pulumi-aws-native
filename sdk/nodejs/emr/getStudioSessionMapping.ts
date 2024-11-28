@@ -43,7 +43,7 @@ export interface GetStudioSessionMappingResult {
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getStudioSessionMappingOutput(args: GetStudioSessionMappingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioSessionMappingResult> {
+export function getStudioSessionMappingOutput(args: GetStudioSessionMappingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStudioSessionMappingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:emr:getStudioSessionMapping", {
         "identityName": args.identityName,

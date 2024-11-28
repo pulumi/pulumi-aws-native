@@ -66,7 +66,7 @@ export interface GetEnvironmentBlueprintConfigurationResult {
 /**
  * Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
  */
-export function getEnvironmentBlueprintConfigurationOutput(args: GetEnvironmentBlueprintConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentBlueprintConfigurationResult> {
+export function getEnvironmentBlueprintConfigurationOutput(args: GetEnvironmentBlueprintConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentBlueprintConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datazone:getEnvironmentBlueprintConfiguration", {
         "domainId": args.domainId,

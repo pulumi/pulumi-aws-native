@@ -49,7 +49,7 @@ export interface GetReportPlanResult {
 /**
  * Contains detailed information about a report plan in AWS Backup Audit Manager.
  */
-export function getReportPlanOutput(args: GetReportPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportPlanResult> {
+export function getReportPlanOutput(args: GetReportPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:backup:getReportPlan", {
         "reportPlanArn": args.reportPlanArn,

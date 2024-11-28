@@ -32,7 +32,7 @@ export interface GetBucketPolicyResult {
 /**
  * Resource Type Definition for AWS::S3Outposts::BucketPolicy
  */
-export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketPolicyResult> {
+export function getBucketPolicyOutput(args: GetBucketPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBucketPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3outposts:getBucketPolicy", {
         "bucket": args.bucket,

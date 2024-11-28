@@ -37,7 +37,7 @@ export interface GetPlanResult {
 /**
  * Engagement Plan for a SSM Incident Manager Contact.
  */
-export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
+export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ssmcontacts:getPlan", {
         "arn": args.arn,

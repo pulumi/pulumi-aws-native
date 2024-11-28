@@ -53,7 +53,7 @@ export interface GetTransitGatewayMulticastDomainResult {
 /**
  * The AWS::EC2::TransitGatewayMulticastDomain type
  */
-export function getTransitGatewayMulticastDomainOutput(args: GetTransitGatewayMulticastDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayMulticastDomainResult> {
+export function getTransitGatewayMulticastDomainOutput(args: GetTransitGatewayMulticastDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayMulticastDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayMulticastDomain", {
         "transitGatewayMulticastDomainId": args.transitGatewayMulticastDomainId,

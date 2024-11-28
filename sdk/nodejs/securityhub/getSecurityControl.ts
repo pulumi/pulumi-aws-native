@@ -41,7 +41,7 @@ export interface GetSecurityControlResult {
 /**
  * A security control in Security Hub describes a security best practice related to a specific resource.
  */
-export function getSecurityControlOutput(args: GetSecurityControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityControlResult> {
+export function getSecurityControlOutput(args: GetSecurityControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securityhub:getSecurityControl", {
         "securityControlId": args.securityControlId,

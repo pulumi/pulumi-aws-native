@@ -42,7 +42,7 @@ export interface GetSimpleAdResult {
 /**
  * Resource Type definition for AWS::DirectoryService::SimpleAD
  */
-export function getSimpleAdOutput(args: GetSimpleAdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimpleAdResult> {
+export function getSimpleAdOutput(args: GetSimpleAdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSimpleAdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:directoryservice:getSimpleAd", {
         "directoryId": args.directoryId,

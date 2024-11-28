@@ -57,7 +57,7 @@ export interface GetConnectPeerResult {
 /**
  * AWS::NetworkManager::ConnectPeer Resource Type Definition.
  */
-export function getConnectPeerOutput(args: GetConnectPeerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectPeerResult> {
+export function getConnectPeerOutput(args: GetConnectPeerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectPeerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:networkmanager:getConnectPeer", {
         "connectPeerId": args.connectPeerId,

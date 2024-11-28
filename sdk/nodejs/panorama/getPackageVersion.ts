@@ -67,7 +67,7 @@ export interface GetPackageVersionResult {
 /**
  * Registers a package version.
  */
-export function getPackageVersionOutput(args: GetPackageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageVersionResult> {
+export function getPackageVersionOutput(args: GetPackageVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPackageVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:panorama:getPackageVersion", {
         "packageId": args.packageId,

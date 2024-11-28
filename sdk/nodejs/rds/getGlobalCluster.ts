@@ -49,7 +49,7 @@ export interface GetGlobalClusterResult {
 /**
  * Resource Type definition for AWS::RDS::GlobalCluster
  */
-export function getGlobalClusterOutput(args: GetGlobalClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalClusterResult> {
+export function getGlobalClusterOutput(args: GetGlobalClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGlobalClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getGlobalCluster", {
         "globalClusterIdentifier": args.globalClusterIdentifier,

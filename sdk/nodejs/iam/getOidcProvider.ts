@@ -47,7 +47,7 @@ export interface GetOidcProviderResult {
 /**
  * Resource Type definition for AWS::IAM::OIDCProvider
  */
-export function getOidcProviderOutput(args: GetOidcProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOidcProviderResult> {
+export function getOidcProviderOutput(args: GetOidcProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOidcProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iam:getOidcProvider", {
         "arn": args.arn,

@@ -43,7 +43,7 @@ export interface GetAssistantAssociationResult {
 /**
  * Definition of AWS::Wisdom::AssistantAssociation Resource Type
  */
-export function getAssistantAssociationOutput(args: GetAssistantAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssistantAssociationResult> {
+export function getAssistantAssociationOutput(args: GetAssistantAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssistantAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getAssistantAssociation", {
         "assistantAssociationId": args.assistantAssociationId,

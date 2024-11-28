@@ -91,7 +91,7 @@ export interface GetBranchResult {
 /**
  * The AWS::Amplify::Branch resource creates a new branch within an app.
  */
-export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBranchResult> {
+export function getBranchOutput(args: GetBranchOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBranchResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:amplify:getBranch", {
         "arn": args.arn,

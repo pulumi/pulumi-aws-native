@@ -37,7 +37,7 @@ export interface GetSecurityGroupEgressResult {
  *  You must specify a protocol for each rule (for example, TCP). If the protocol is TCP or UDP, you must also specify a port or port range. If the protocol is ICMP or ICMPv6, you must also specify the ICMP/ICMPv6 type and code. To specify all types or all codes, use -1.
  *  Rule changes are propagated to instances associated with the security group as quickly as possible. However, a small delay might occur.
  */
-export function getSecurityGroupEgressOutput(args: GetSecurityGroupEgressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupEgressResult> {
+export function getSecurityGroupEgressOutput(args: GetSecurityGroupEgressOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityGroupEgressResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getSecurityGroupEgress", {
         "id": args.id,

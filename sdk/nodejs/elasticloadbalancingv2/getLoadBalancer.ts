@@ -94,7 +94,7 @@ export interface GetLoadBalancerResult {
 /**
  * Specifies an Application Load Balancer, a Network Load Balancer, or a Gateway Load Balancer.
  */
-export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
+export function getLoadBalancerOutput(args: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadBalancerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:elasticloadbalancingv2:getLoadBalancer", {
         "loadBalancerArn": args.loadBalancerArn,

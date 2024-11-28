@@ -47,7 +47,7 @@ export interface GetFlowVpcInterfaceResult {
 /**
  * Resource schema for AWS::MediaConnect::FlowVpcInterface
  */
-export function getFlowVpcInterfaceOutput(args: GetFlowVpcInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowVpcInterfaceResult> {
+export function getFlowVpcInterfaceOutput(args: GetFlowVpcInterfaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowVpcInterfaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediaconnect:getFlowVpcInterface", {
         "flowArn": args.flowArn,

@@ -38,7 +38,7 @@ export interface GetProfileResourceAssociationResult {
 /**
  * Resource Type definition for AWS::Route53Profiles::ProfileResourceAssociation
  */
-export function getProfileResourceAssociationOutput(args: GetProfileResourceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfileResourceAssociationResult> {
+export function getProfileResourceAssociationOutput(args: GetProfileResourceAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfileResourceAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53profiles:getProfileResourceAssociation", {
         "id": args.id,

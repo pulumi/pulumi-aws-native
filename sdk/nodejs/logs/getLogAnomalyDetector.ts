@@ -69,7 +69,7 @@ export interface GetLogAnomalyDetectorResult {
 /**
  * The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
  */
-export function getLogAnomalyDetectorOutput(args: GetLogAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnomalyDetectorResult> {
+export function getLogAnomalyDetectorOutput(args: GetLogAnomalyDetectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogAnomalyDetectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getLogAnomalyDetector", {
         "anomalyDetectorArn": args.anomalyDetectorArn,

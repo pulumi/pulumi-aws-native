@@ -66,7 +66,7 @@ export interface GetCalculatedAttributeDefinitionResult {
 /**
  * A calculated attribute definition for Customer Profiles
  */
-export function getCalculatedAttributeDefinitionOutput(args: GetCalculatedAttributeDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCalculatedAttributeDefinitionResult> {
+export function getCalculatedAttributeDefinitionOutput(args: GetCalculatedAttributeDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCalculatedAttributeDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:customerprofiles:getCalculatedAttributeDefinition", {
         "calculatedAttributeName": args.calculatedAttributeName,

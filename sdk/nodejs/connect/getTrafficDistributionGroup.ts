@@ -49,7 +49,7 @@ export interface GetTrafficDistributionGroupResult {
 /**
  * Resource Type definition for AWS::Connect::TrafficDistributionGroup
  */
-export function getTrafficDistributionGroupOutput(args: GetTrafficDistributionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficDistributionGroupResult> {
+export function getTrafficDistributionGroupOutput(args: GetTrafficDistributionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrafficDistributionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getTrafficDistributionGroup", {
         "trafficDistributionGroupArn": args.trafficDistributionGroupArn,

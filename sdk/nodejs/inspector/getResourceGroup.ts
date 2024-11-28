@@ -30,7 +30,7 @@ export interface GetResourceGroupResult {
 /**
  * Resource Type definition for AWS::Inspector::ResourceGroup
  */
-export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGroupResult> {
+export function getResourceGroupOutput(args: GetResourceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:inspector:getResourceGroup", {
         "arn": args.arn,

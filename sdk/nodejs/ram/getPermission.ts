@@ -52,7 +52,7 @@ export interface GetPermissionResult {
 /**
  * Resource type definition for AWS::RAM::Permission
  */
-export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
+export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ram:getPermission", {
         "arn": args.arn,

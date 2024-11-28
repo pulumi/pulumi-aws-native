@@ -61,7 +61,7 @@ export interface GetResponsePlanResult {
 /**
  * Resource type definition for AWS::SSMIncidents::ResponsePlan
  */
-export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponsePlanResult> {
+export function getResponsePlanOutput(args: GetResponsePlanOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResponsePlanResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ssmincidents:getResponsePlan", {
         "arn": args.arn,

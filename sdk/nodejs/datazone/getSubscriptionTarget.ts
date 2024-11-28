@@ -95,7 +95,7 @@ export interface GetSubscriptionTargetResult {
 /**
  * Subscription targets enables one to access the data to which you have subscribed in your projects.
  */
-export function getSubscriptionTargetOutput(args: GetSubscriptionTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionTargetResult> {
+export function getSubscriptionTargetOutput(args: GetSubscriptionTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datazone:getSubscriptionTarget", {
         "domainId": args.domainId,

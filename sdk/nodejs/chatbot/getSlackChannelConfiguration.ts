@@ -65,7 +65,7 @@ export interface GetSlackChannelConfigurationResult {
 /**
  * Resource schema for AWS::Chatbot::SlackChannelConfiguration.
  */
-export function getSlackChannelConfigurationOutput(args: GetSlackChannelConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlackChannelConfigurationResult> {
+export function getSlackChannelConfigurationOutput(args: GetSlackChannelConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSlackChannelConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:chatbot:getSlackChannelConfiguration", {
         "arn": args.arn,

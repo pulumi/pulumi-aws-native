@@ -36,7 +36,7 @@ export interface GetAccessPointResult {
 /**
  * Resource Type Definition for AWS::S3Outposts::AccessPoint
  */
-export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
+export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3outposts:getAccessPoint", {
         "arn": args.arn,

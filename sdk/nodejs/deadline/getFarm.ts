@@ -51,7 +51,7 @@ export interface GetFarmResult {
 /**
  * Definition of AWS::Deadline::Farm Resource Type
  */
-export function getFarmOutput(args: GetFarmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFarmResult> {
+export function getFarmOutput(args: GetFarmOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFarmResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:deadline:getFarm", {
         "arn": args.arn,

@@ -65,7 +65,7 @@ export interface GetWorkspacesPoolResult {
 /**
  * Resource Type definition for AWS::WorkSpaces::WorkspacesPool
  */
-export function getWorkspacesPoolOutput(args: GetWorkspacesPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspacesPoolResult> {
+export function getWorkspacesPoolOutput(args: GetWorkspacesPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspacesPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:workspaces:getWorkspacesPool", {
         "poolId": args.poolId,

@@ -77,7 +77,7 @@ export interface GetEventSubscriptionResult {
 /**
  * The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
  */
-export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventSubscriptionResult> {
+export function getEventSubscriptionOutput(args: GetEventSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:redshift:getEventSubscription", {
         "subscriptionName": args.subscriptionName,

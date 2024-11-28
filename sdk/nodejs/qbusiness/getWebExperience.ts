@@ -94,7 +94,7 @@ export interface GetWebExperienceResult {
 /**
  * Definition of AWS::QBusiness::WebExperience Resource Type
  */
-export function getWebExperienceOutput(args: GetWebExperienceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebExperienceResult> {
+export function getWebExperienceOutput(args: GetWebExperienceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWebExperienceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:qbusiness:getWebExperience", {
         "applicationId": args.applicationId,

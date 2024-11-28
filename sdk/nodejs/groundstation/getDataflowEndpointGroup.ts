@@ -53,7 +53,7 @@ export interface GetDataflowEndpointGroupResult {
 /**
  * AWS Ground Station DataflowEndpointGroup schema for CloudFormation
  */
-export function getDataflowEndpointGroupOutput(args: GetDataflowEndpointGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataflowEndpointGroupResult> {
+export function getDataflowEndpointGroupOutput(args: GetDataflowEndpointGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataflowEndpointGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:groundstation:getDataflowEndpointGroup", {
         "id": args.id,

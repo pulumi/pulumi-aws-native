@@ -75,7 +75,7 @@ export interface GetSuiteDefinitionResult {
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getSuiteDefinitionOutput(args: GetSuiteDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSuiteDefinitionResult> {
+export function getSuiteDefinitionOutput(args: GetSuiteDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSuiteDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotcoredeviceadvisor:getSuiteDefinition", {
         "suiteDefinitionId": args.suiteDefinitionId,

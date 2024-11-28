@@ -63,7 +63,7 @@ export interface GetFlowVersionResult {
 /**
  * Definition of AWS::Bedrock::FlowVersion Resource Type
  */
-export function getFlowVersionOutput(args: GetFlowVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowVersionResult> {
+export function getFlowVersionOutput(args: GetFlowVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:bedrock:getFlowVersion", {
         "flowArn": args.flowArn,

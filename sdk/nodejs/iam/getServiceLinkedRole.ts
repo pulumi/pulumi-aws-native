@@ -34,7 +34,7 @@ export interface GetServiceLinkedRoleResult {
 /**
  * Resource Type definition for AWS::IAM::ServiceLinkedRole
  */
-export function getServiceLinkedRoleOutput(args: GetServiceLinkedRoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceLinkedRoleResult> {
+export function getServiceLinkedRoleOutput(args: GetServiceLinkedRoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceLinkedRoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iam:getServiceLinkedRole", {
         "roleName": args.roleName,

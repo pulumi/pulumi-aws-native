@@ -41,7 +41,7 @@ export interface GetResolverConfigResult {
 /**
  * Resource schema for AWS::Route53Resolver::ResolverConfig.
  */
-export function getResolverConfigOutput(args: GetResolverConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverConfigResult> {
+export function getResolverConfigOutput(args: GetResolverConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53resolver:getResolverConfig", {
         "resourceId": args.resourceId,
